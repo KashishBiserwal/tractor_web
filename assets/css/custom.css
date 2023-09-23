@@ -1,0 +1,32 @@
+.swiper-slides-visible .swiper-slide {
+    opacity: 0;
+    transition: opacity 300ms ease-in-out;
+}
+
+.slide-is-visible {
+    opacity: 1 !important;
+    transition: opacity 300ms ease-in-out;
+}
+
+.bg-overlay {
+    position: relative;
+}
+
+.bg-overlay:before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: black;
+    opacity: 0.4;
+}
+.mw-profile{
+    max-width: 250px;
+}
+@media screen and (max-width:768px) {
+    .realworld__items .ratio{
+    }    
+}

@@ -1,0 +1,94 @@
+@font-face {
+  font-family: Graphik;
+  src: url("../font/GraphikRegular.otf");
+}
+label.error {
+  color: red;
+  font-weight: bold;
+}
+
+body {
+  align-items: center;
+  background: #efefef;
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  font-family: Graphik;
+}
+
+.contact-wrapper {
+  background: #fff;
+  padding: 1em 1em 0 1em;
+  border: 2px solid #d4d2d2;
+  box-shadow: 3px 4px 10px 3px #e1dfdf;
+}
+
+.login-cta  h4 {
+  color: #0c517a;
+  text-align: center;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 40%;
+  }
+
+ 
+  .form-outline{
+    position: relative;
+  }
+.form-outline .form-control{
+  height: 45px;
+  border: 1px solid #bababb;
+}
+.header_logo {
+  margin: 0 auto;
+  text-align: center;
+}
+.btn-signin{
+  background-color: #f26522;
+  color: #ffffff;
+  width: 100%;
+  border: 0;
+  height: 40px;
+  text-transform: uppercase;
+}
+.btn-signin:hover, .btn-signin:focus{
+  background-color: #f26522;
+  box-shadow:none !important;
+}
+.signup_content{
+  border-top: 1px solid #dcdcdc;
+  text-align: center;
+}
+.login_content h1{
+  color: #EE575B;
+}
+.login_content h5{
+  line-height: 28px;
+  margin-top: 20px 0;
+}
+.services_content span{
+  width: 25px;
+  height: 25px;
+  background-color: #d03b3f;
+  color: #fff;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+.services_content span i{
+  padding: 6px 6px;
+    font-size: 14px;
+}
+.btn-orange{
+  background-color: rgba(254, 170, 14, 0.734);
+}
+@media (max-width: 768px) {
+  
+  body {
+      height: 100%;
+  }
+}

@@ -1,0 +1,174 @@
+<footer class="footer">
+  	 <div class="container">
+  	 	<div class="row">
+  	 		<div class="footer-col">
+                
+  	 			<!-- <h4>Bhartiya Janta Party</h4> -->
+                <h4 class="text-white mt-1 ">DOWNLOAD TRACTOR-JUNCTION APP</h4>
+                <!-- <img src="assets/images/BJP-logo.png" alt="" class="fotterimg mt-3"> -->
+                <picture class="">
+                    <source type="image/avif" srcset="assets/images/google-play-icon.avif" data-srcset="https://assets.tractorjunction.com/tractor-junction/assets/images/static/google-play-icon.avif">
+                    <img width="105" height="32" class="gplay-icon" src="assets/images/google-play-icon.avif" data-src="https://assets.tractorjunction.com/tractor-junction/assets/images/static/google-play-icon.png" alt="TractorJunction | Mobile App">
+                </picture>
+                <h5 class="py-2 mt-1 text-white">follow us</h5>
+  	 			<div class="social-links">
+  	 				<a href="#"><i class="fab fa-facebook-f"></i></a>
+  	 				<a href="#"><i class="fab fa-twitter"></i></a>
+  	 				<a href="#"><i class="fab fa-instagram"></i></a>
+  	 				<a href="#"><i class="fab fa-linkedin-in"></i></a>
+  	 			</div>
+                <h6 class="py-1 mt-1 text-white">CONTENT PROTECTED BY</h6>
+                <a href="//www.dmca.com/Protection/Status.aspx?ID=3b8f9b9c-4306-46b9-8dc6-ad7250b29155" title="DMCA.com Protection Status" target="_blank">
+                    <img width="105" height="22" class="gplay-icon" src="assets/images/_dmca_premi_badge_5.png"  alt="DMCA.com Protection Status">
+                </a>
+  	 			
+  	 		</div>
+  	 		<div class="footer-col">
+  	 			<h4>IMPORTANT LINKS</h4>
+  	 			<ul>
+  	 				<li>
+                        <a href="#" class="">
+                        Shop
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="">
+                        About Us
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="">
+                        Contact / Mail Us
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="">
+                        Careers
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="">
+                        Customer Care
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="">
+                        Service Centers
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="">
+                        Loan
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="">
+                        Guest Post
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="">
+                        Our Showrooms
+                        </a>
+                    </li>
+  	 			</ul>
+  	 		</div>
+               <div class="footer-col">
+  	 			<h4>EXPLORE NEWS</h4>
+  	 			<ul>
+  	 				<li>
+                        <a href="#" class="">
+                        Tractor News
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="">
+                        Agriculture News
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="">
+                        Weather News
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="">
+                        Agri Business News
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="">
+                        Sarkari Yojana News
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="">
+                        Agriculture Machinery News
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="">
+                        Social News
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="">
+                        Animal Husbandry News
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="">
+                        Tractor Subsidy
+                        </a>
+                    </li>
+  	 			</ul>
+  	 		</div>
+
+  	 		<div class="footer-col">
+  	 			<h4> BUY OLD PRODUCTS</h4>
+  	 			<ul>
+  	 				<li>
+                        <a href="#">
+                        Buy Used Tractor
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                        Buy Used Farm Implements
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                        Buy Used Harvester
+                        </a>
+                    </li>
+                </ul>
+            </div>
+  	 		<div class="footer-col">
+  	 			<h4>SELL OLD PRODUCTS</h4>
+                   <ul>
+  	 				<li>
+                        <a href="#">
+                        Sell Used Tractor
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                        Sell Used Farm Implements
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                        Sell Used Harveste
+                        </a>
+                    </li>
+                </ul>
+  	 		</div>
+               
+
+
+
+
+  	 	</div>
+  	 </div>
+  </footer>
