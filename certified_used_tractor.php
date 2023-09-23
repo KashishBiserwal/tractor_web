@@ -28,36 +28,35 @@
         <div class="row">
             <div class="col-12 col-sm-9 col-lg-9 col-md-9">
                 <h3 class="">SEARCH USED TRACTORS IN INDIA</h3>
-
                 <div class="row my-5">
-                    <div class="col-12 col-lg-4 col-md-4 col-sm-4">
+                    <div class="col-12 col-lg-4 col-md-4 col-sm-4 ">
                         <div class="h-auto success__stry__item d-flex flex-column shadow ">
-                                <div class="thumb">
-                                    <a href="#">
-                                        <div class="ratio ratio-16x9">
-                                            <img src="assets/images/yuvo-tech-plus-275-di-136613-1689220449-0.webp" class="object-fit-cover " alt="img">
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="content d-flex flex-column flex-grow-1 ">
-                                    <div class="caption text-center">
-                                        <a href="#" class="text-decoration-none text-dark">
-                                            <p class="pt-3"><strong class="series_tractor_strong text-center h4 fw-bold ">YUVO TECH Plus 275 DI</strong></p>
-                                        </a>      
+                            <div class="thumb">
+                                <a href="#">
+                                    <div class="ratio ratio-16x9">
+                                        <img src="assets/images/yuvo-tech-plus-275-di-136613-1689220449-0.webp" class="object-fit-cover " alt="img">
                                     </div>
-                                    <div class="power text-center mt-1">Price: ₹ 4,50,000</div>
-                                    <div class="row text-center">
-                                        <div class="col-6">
-                                            <p class="fw-bold ps-2">By Mahindra </p>
-                                        </div>
-                                        <div class="col-6">
-                                            <p class="fw-bold pe-2">Great Deal</p>
-                                        </div>
+                                </a>
+                            </div>
+                            <div class="content d-flex flex-column flex-grow-1 ">
+                                <div class="caption text-center">
+                                    <a href="#" class="text-decoration-none text-dark">
+                                        <p class="pt-3"><strong class="series_tractor_strong text-center h4 fw-bold ">YUVO TECH Plus 275 DI</strong></p>
+                                    </a>      
+                                </div>
+                                <div class="power text-center mt-1">Price: ₹ 4,50,000</div>
+                                <div class="row text-center">
+                                    <div class="col-6">
+                                        <p class="fw-bold ps-2">By Mahindra </p>
+                                    </div>
+                                    <div class="col-6">
+                                        <p class="fw-bold pe-2">Great Deal</p>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    <div class="col-12 col-lg-4 col-md-4 col-sm-4">
+                    </div>
+                    <div class="col-12 col-lg-4 col-md-4 col-sm-4 ">
                         <div class="h-auto success__stry__item d-flex flex-column shadow ">
                             <div class="thumb">
                                 <a href="#">
@@ -109,11 +108,175 @@
                                         </div>
                                     </div>
                                 </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-4 col-md-4 col-sm-4 mt-4">
+                        <div class="h-auto success__stry__item d-flex flex-column shadow ">
+                            <div class="thumb">
+                                <a href="#">
+                                    <div class="ratio ratio-16x9">
+                                        <img src="assets/images/yuvo-tech-plus-275-di-136613-1689220449-0.webp" class="object-fit-cover " alt="img">
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="content d-flex flex-column flex-grow-1 ">
+                                <div class="caption text-center">
+                                    <a href="#" class="text-decoration-none text-dark">
+                                        <p class="pt-3"><strong class="series_tractor_strong text-center h4 fw-bold ">YUVO TECH Plus 275 DI</strong></p>
+                                    </a>      
+                                </div>
+                                <div class="power text-center mt-1">Price: ₹ 4,50,000</div>
+                                <div class="row text-center">
+                                    <div class="col-6">
+                                        <p class="fw-bold ps-2">By Mahindra </p>
+                                    </div>
+                                    <div class="col-6">
+                                        <p class="fw-bold pe-2">Great Deal</p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    
+                    <div class="col-12 col-lg-4 col-md-4 col-sm-4 mt-4">
+                        <div class="h-auto success__stry__item d-flex flex-column shadow ">
+                            <div class="thumb">
+                                <a href="#">
+                                    <div class="ratio ratio-16x9">
+                                        <img src="assets/images/c00402a3-be3d-45a9-9889-d4ad474ca490.webp" class="object-fit-cover " alt="img">
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="content d-flex flex-column flex-grow-1 ">
+                                <div class="caption text-center">
+                                    <a href="#" class="text-decoration-none text-dark">
+                                        <p class="pt-3"><strong class="series_tractor_strong text-center h4 fw-bold ">Farmtrac Atom 26 </strong></p>
+                                    </a>      
+                                </div>
+                                <div class="power text-center">Price: ₹ 3,70,000</div>
+                                <div class="row text-center">
+                                    <div class="col-3">
+                                        <p class="fw-bold ps-2">30HP</p>
+                                    </div>
+                                    <div class="col-4">
+                                        <p class="fw-bold pe-2">certified</p>
+                                    </div>
+                                    <div class="col-5">
+                                        <p class="fw-bold pe-2">Great Deal</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-4 col-md-4 col-sm-4 mt-4">
+                        <div class="h-auto success__stry__item d-flex flex-column shadow ">
+                            <div class="thumb">
+                                <a href="#">
+                                    <div class="ratio ratio-16x9">
+                                        <img src="assets/images/yuvo-tech-plus-275-di-136613-1689220449-0.webp" class="object-fit-cover " alt="img">
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="content d-flex flex-column flex-grow-1 ">
+                                <div class="caption text-center">
+                                    <a href="#" class="text-decoration-none text-dark">
+                                        <p class="pt-3"><strong class="series_tractor_strong text-center h4 fw-bold ">YUVO TECH Plus 275 DI</strong></p>
+                                    </a>      
+                                </div>
+                                <div class="power text-center mt-1">Price: ₹ 4,50,000</div>
+                                <div class="row text-center">
+                                    <div class="col-6">
+                                        <p class="fw-bold ps-2">By Mahindra </p>
+                                    </div>
+                                    <div class="col-6">
+                                        <p class="fw-bold pe-2">Great Deal</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-4 col-md-4 col-sm-4 mt-4">
+                        <div class="h-auto success__stry__item d-flex flex-column shadow ">
+                            <div class="thumb">
+                                <a href="#">
+                                    <div class="ratio ratio-16x9">
+                                        <img src="assets/images/yuvo-tech-plus-275-di-136613-1689220449-0.webp" class="object-fit-cover " alt="img">
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="content d-flex flex-column flex-grow-1 ">
+                                <div class="caption text-center">
+                                    <a href="#" class="text-decoration-none text-dark">
+                                        <p class="pt-3"><strong class="series_tractor_strong text-center h4 fw-bold ">YUVO TECH Plus 275 DI</strong></p>
+                                    </a>      
+                                </div>
+                                <div class="power text-center mt-1">Price: ₹ 4,50,000</div>
+                                <div class="row text-center">
+                                    <div class="col-6">
+                                        <p class="fw-bold ps-2">By Mahindra </p>
+                                    </div>
+                                    <div class="col-6">
+                                        <p class="fw-bold pe-2">Great Deal</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-4 col-md-4 col-sm-4 mt-4">
+                        <div class="h-auto success__stry__item d-flex flex-column shadow ">
+                            <div class="thumb">
+                                <a href="#">
+                                    <div class="ratio ratio-16x9">
+                                        <img src="assets/images/yuvo-tech-plus-275-di-136613-1689220449-0.webp" class="object-fit-cover " alt="img">
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="content d-flex flex-column flex-grow-1 ">
+                                <div class="caption text-center">
+                                    <a href="#" class="text-decoration-none text-dark">
+                                        <p class="pt-3"><strong class="series_tractor_strong text-center h4 fw-bold ">YUVO TECH Plus 275 DI</strong></p>
+                                    </a>      
+                                </div>
+                                <div class="power text-center mt-1">Price: ₹ 4,50,000</div>
+                                <div class="row text-center">
+                                    <div class="col-6">
+                                        <p class="fw-bold ps-2">By Mahindra </p>
+                                    </div>
+                                    <div class="col-6">
+                                        <p class="fw-bold pe-2">Great Deal</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-4 col-md-4 col-sm-4 mt-4">
+                        <div class="h-auto success__stry__item d-flex flex-column shadow ">
+                            <div class="thumb">
+                                <a href="#">
+                                    <div class="ratio ratio-16x9">
+                                        <img src="assets/images/yuvo-tech-plus-275-di-136613-1689220449-0.webp" class="object-fit-cover " alt="img">
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="content d-flex flex-column flex-grow-1 ">
+                                <div class="caption text-center">
+                                    <a href="#" class="text-decoration-none text-dark">
+                                        <p class="pt-3"><strong class="series_tractor_strong text-center h4 fw-bold ">YUVO TECH Plus 275 DI</strong></p>
+                                    </a>      
+                                </div>
+                                <div class="power text-center mt-1">Price: ₹ 4,50,000</div>
+                                <div class="row text-center">
+                                    <div class="col-6">
+                                        <p class="fw-bold ps-2">By Mahindra </p>
+                                    </div>
+                                    <div class="col-6">
+                                        <p class="fw-bold pe-2">Great Deal</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+            </div>
             
             <div class="col-12 col-sm-3 col-lg-3 col-md-3">
                 <div class=" row mb-3" id="">
