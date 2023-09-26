@@ -22,8 +22,57 @@
               </li>
             </ol>
           </nav>
-          <button id="adduser" type="button" class=" add_btn btn-success float-right">
-            <i class="fa fa-plus" aria-hidden="true"></i>Add New </button>
+            <button type="button" id="adduser" class=" add_btn btn-success float-right" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa fa-plus" aria-hidden="true"></i>Add New</button>
+
+            <!-- Modal --> 
+            <div class="modal fade bg-light" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg modal-dialog-centered">
+                    <div class="modal-content modal_box">
+                    <div class="modal-header">
+                        <h1 class="modal-title text-dark fs-5 fw-bold" id="exampleModalLabel">Add New Tyres</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-10">
+                            <!-- <h3 class="mb-3">Fill The Form</h3> -->
+                            <form>
+                                <div class="row justify-content-center ">
+                                  <div class="col-12 col-lg-6 col-sm-5 col-md-6 my-1">
+                                        <label for="img" class=" text-dark float-start fw-bold">Upload Image </label>
+                                        <input type="file" id="myFile" class="form-control" name="filename" id="img" name="img" required>
+                                    </div>
+                                    <div class="col-12 col-lg-6 col-sm-5 col-md-6 my-1">
+                                        <label for="brand" class=" text-dark float-start fw-bold">Brand</label>
+                                        <input type="text" class="form-control text-dark" placeholder="" id="brand" name="brand" required>
+                                    </div>
+                                    <div class="col-12 col-lg-6 col-sm-5 col-md-6 my-1">
+                                        <label for="name" class=" text-dark float-start fw-bold">Tyre Name</label>
+                                        <input type="text" class="form-control text-dark" placeholder="" id="name" name="name" required>
+                                    </div>
+                                    <div class="col-12 col-lg-6 col-sm-5 col-md-6 my-1">
+                                        <label for="position" class=" text-dark float-start fw-bold">Tyre Position</label>
+                                        <input type="text" class="form-control text-dark" placeholder="" id="position" name="position" required>
+                                    </div>
+                                    <div class="col-12 col-lg-6 col-sm-5 col-md-6 my-1">
+                                        <label for="size" class=" text-dark float-start fw-bold">Size of the tyre</label>
+                                        <input type="text" class="form-control text-dark" placeholder="" id="size" name="size" required>
+                                    </div>
+                                    <div class="col-12 col-lg-6 col-md-6 col-sm-6 mt-4 pt-1">
+                                        <button data-res="<?php echo $sum; ?>" type="submit" class="btn-success w-100 fw-bold" > Sumbit</button>
+                                    </div>
+                                </div>
+                            </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class=" btn-success">Save changes</button>
+                    </div>
+                  </div>
+                </div>
+            </div>
         </div>
       </div>
     </div>

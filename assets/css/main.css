@@ -82,7 +82,11 @@ body{
     top:0;
 }
 .accordian_nav{
-    background: #0c517a; 
+    /* background: #0c517a;  */
+    background: #2f3e46;
+}
+.accor_item{
+    /* background:#2f3e46; */
 }
 .menu-list{
     list-style: none;
@@ -250,3 +254,4 @@ body{
     color: #fff;
     background-color:#12314d;
 }
+

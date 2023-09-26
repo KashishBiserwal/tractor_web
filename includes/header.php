@@ -138,15 +138,15 @@
               <hr class="dropdown-divider ps-2">
             </li>
             <hr class="dropdown-divider">
-            <li><a href="#" class="dropdown-item fw-bold" >Find New Tractors</a></li>
+            <li><a href="find_new_tractors.php" class="dropdown-item fw-bold" >Find New Tractors</a></li>
             <hr class="dropdown-divider">
-            <li><a href="#" class="dropdown-item  fw-bold" >Popular Tractors</a></li>
+            <li><a href="popular_tractors.php" class="dropdown-item  fw-bold" >Popular Tractors</a></li>
             <hr class="dropdown-divider">
-            <li><a href="#" class="dropdown-item fw-bold" >Upcoming Tractor</a></li>
+            <li><a href="upcoming_tractors.php" class="dropdown-item fw-bold" >Upcoming Tractor</a></li>
             <hr class="dropdown-divider">
-            <li><a href="#" class="dropdown-item fw-bold">Latest Tractor</a></li>
+            <li><a href="latest_tractor.php" class="dropdown-item fw-bold">Latest Tractor</a></li>
             <hr class="dropdown-divider">
-            <li><a href="#" class="dropdown-item fw-bold">Mini Tractor</a></li>
+            <li><a href="mini_tractor.php" class="dropdown-item fw-bold">Mini Tractor</a></li>
             <hr class="dropdown-divider">
             <li><a href="#" class="dropdown-item fw-bold">4WD Tractor</a></li>
           </ul>

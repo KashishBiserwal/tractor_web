@@ -23,7 +23,7 @@
             </ol>
           </nav>
           <button id="adduser" type="button" class=" add_btn btn-success float-right">
-            <i class="fa fa-plus" aria-hidden="true"></i>Add New User </button>
+            <i class="fa fa-plus" aria-hidden="true"></i>Add New </button>
         </div>
       </div>
     </div>

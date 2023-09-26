@@ -18,18 +18,18 @@
             <ol class="breadcrumb my-0 ms-2">
               
               <li class="breadcrumb-item">
-                <span>User Overview</span>
+                <span> Nursery Item Listings</span>
               </li>
             </ol>
           </nav>
-          <button type="button" id="adduser" class=" add_btn btn-success float-right" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa fa-plus" aria-hidden="true"></i>Add User</button>
+          <button type="button" id="adduser" class=" add_btn btn-success float-right btn" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa fa-plus" aria-hidden="true"></i>Add New Items</button>
 
           <!-- Modal --> 
           <div class="modal fade bg-light" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
               <div class="modal-dialog modal-lg modal-dialog-centered">
                   <div class="modal-content modal_box">
                     <div class="modal-header">
-                        <h1 class="modal-title text-dark fs-5 fw-bold" id="exampleModalLabel">Add New Tyres</h1>
+                        <h1 class="modal-title text-dark fs-5 fw-bold" id="exampleModalLabel">Add New Dealers</h1>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
@@ -43,8 +43,8 @@
                                         <input type="text" class="form-control text-dark" placeholder="" id="name" name="name" required>
                                     </div>
                                     <div class="col-12 col-lg-6 col-sm-5 col-md-6 my-1">
-                                        <label for="mobile" class=" text-dark float-start fw-bold">Mobile Number</label>
-                                        <input type="text" class="form-control text-dark" placeholder="" id="mobile" name="mobile" required>
+                                        <label for="contact" class=" text-dark float-start fw-bold">Contact Number</label>
+                                        <input type="text" class="form-control text-dark" placeholder="" id="contact" name="contact" required>
                                     </div>
                                     <div class="col-12 col-lg-6 col-sm-5 col-md-6 my-1">
                                         <label for="state" class=" text-dark float-start fw-bold">State</label>
@@ -55,20 +55,19 @@
                                         <input type="text" class="form-control text-dark" placeholder="" id="dist" name="dist" required>
                                     </div>
                                     <div class="col-12 col-lg-6 col-sm-5 col-md-6 my-1">
-                                        <label for="address" class=" text-dark float-start fw-bold">Address</label>
-                                        <input type="text" class="form-control text-dark" placeholder="" id="address" name="address" required>
-                                    </div>
-                                    
-                                    <div class="col-12 col-lg-6 col-sm-5 col-md-6 my-1">
                                         <label for="tehsil" class=" text-dark float-start fw-bold">Tehsil</label>
-                                        <input type="text" class="form-control text-dark" placeholder="" id="tehsil" name="tehsil" required>
+                                        <input type="tehsil" class="form-control text-dark" placeholder="" id="tehsil" name="tehsil" required>
                                     </div>
                                     <div class="col-12 col-lg-6 col-sm-5 col-md-6 my-1">
-                                        <label for="pincode" class=" text-dark float-start fw-bold">PinCode</label>
-                                        <input type="text" class="form-control text-dark" placeholder="" id="pincode" name="pincode" required>
+                                        <label for="category" class=" text-dark float-start fw-bold">Category</label>
+                                        <input type="tehsil" class="form-control text-dark" placeholder="" id="category" name="category" required>
                                     </div>
-                                    <div class="col-12 col-lg-6 col-sm-5 col-md-6 mt-4 pt-1">
-                                        <button data-res="<?php echo $sum; ?>" type="submit" class="btn-success w-100 fw-bold" > Sumbit</button>
+                                    <div class="col-12 col-lg-6 col-sm-5 col-md-6 my-1">
+                                        <label for="sub_category" class=" text-dark float-start fw-bold">Sub-Category</label>
+                                        <input type="tehsil" class="form-control text-dark" placeholder="" id="sub_category" name="sub_category" required>
+                                    </div>
+                                    <div class="col-12 col-lg-6 col-md-6 col-sm-6 mt-4 pt-1">
+                                        <button data-res="<?php echo $sum; ?>" type="submit" class="btn btn-success w-100 fw-bold" > Sumbit</button>
                                     </div>
                                 </div>
                             </form>
@@ -76,8 +75,8 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="button" class=" btn-success">Save changes</button>
+                        <button type="button" class=" btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-success">Save changes</button>
                     </div>
                   </div>
               </div>
@@ -92,34 +91,32 @@
           <div class="row">
             <div class="col-12 col-sm-12 col-md-4 col-lg-4">
               <div class="form-outline mb-3">
-                <label class="form-label">UserName</label>
-                <input type="email" id="search_name" name="search_name" class="form-control" />
+                <label class="form-label">Name</label>
+                <input type="text" id="search_email" name="search_email" class="form-control" />
               </div>
             </div>
             <div class="col-12 col-sm-12 col-md-4 col-lg-4">
               <div class="form-outline mb-3">
                 <label class="form-label">State</label>
-                <input type="text" id="u_state" name="u_state" class="form-control" />
+                <input type="text" id="search_email" name="search_email" class="form-control" />
               </div>
             </div>
             <div class="col-12 col-sm-12 col-md-4 col-lg-4">
               <div class="form-outline mb-3">
                 <label class="form-label">District</label>
-                <input type="text" id="u_dist" name="u_dist" class="form-control" />
+                <input type="text" id="search_email" name="search_email" class="form-control" />
               </div>
             </div>
             <div class="col-12 col-sm-12 col-md-4 col-lg-4">
               <div class="form-outline mb-3">
-                <label class="form-label">Pincode</label>
-                <input type="text" id="pincode" name="pincode" class="form-control" />
+                <label class="form-label">Category</label>
+                <input type="text" id="category" name="category" class="form-control" />
               </div>
             </div>
-           
-            
             <div class="col-12 col-sm-12 col-md-8 col-lg-8">
-              <div class="float-end text-center">
-                <button type="button" class="btn-success btn_search" id="Search">Search</button>
-                <button type="button" class="btn-success  mx-2 btn_search" id="Reset">Reset</button>
+              <div class="float-end">
+                <button type="button" class="btn-success btn btn_search" id="Search">Search</button>
+                <button type="button" class="btn-success btn  mx-2 btn_search" id="Reset">Reset</button>
               </div>
             </div>
           </div>
@@ -127,25 +124,25 @@
       </div>
       <!-- Table Card -->
       <div class=" mb-5">
-            <div class="table-responsive">
-              <table id="example" class="table  table_useroverview dataTable no-footer py-1" width="100%">
-                <thead>
-                  <tr>
-                    <th class="d-none d-md-table-cell text-dark">S.No.</th>
-                    <th class="d-none d-md-table-cell text-dark">Date</th>
-                    <th class="d-none d-md-table-cell text-dark">Name</th>
-                    <th class="d-none d-md-table-cell text-dark">Mobile Number</th>
-                    <th class="d-none d-md-table-cell text-dark">state </th>
-                    <th class="d-none d-md-table-cell text-dark">District</th>
-                    <th class="d-none d-md-table-cell text-dark">Tehsil</th>
-                    <th class="d-none d-md-table-cell text-dark">Pincode</th>
-                  </tr>
-                </thead>
-              <tbody>
-              </tbody>
-            </table>
-          </div>
-        </div>
+                            <div class="table-responsive">
+                                <table id="example" class="table  table_useroverview dataTable no-footer py-1" width="100%">
+                                    <thead>
+                                        <tr>
+                                            <th class="d-none d-md-table-cell text-dark">S.No.</th>
+                                            <th class="d-none d-md-table-cell text-dark">Name</th>
+                                            <th class="d-none d-md-table-cell text-dark">Phone Number </th>
+                                            <th class="d-none d-md-table-cell text-dark">State </th>
+                                            <th class="d-none d-md-table-cell text-dark">District</th>
+                                            <th class="d-none d-md-table-cell text-dark">tehsil</th>
+                                            <th class="d-none d-md-table-cell text-dark">Category</th>
+                                            <th class="d-none d-md-table-cell text-dark">Sub-category</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                    </tbody>
+                                </table>
+                            </div>
+      </div>
     </div>
    </section>
       
@@ -153,31 +150,6 @@
 </div>
 </div>
 </body>
-<script>
-  var url = edfaults.camsAPIBaseURL + "CAMS/SearchLocationFaults";
-  $.ajax({
-    'url': url,
-    'method': "POST",
-    'contentType': 'application/json'
-}).done( function(data) {
-    $('#usertable').dataTable( {
-        "aaData": data,
-        "columns": [
-            { "data": "username" },
-            { "data": "email" },
-            { "data": "designation" },
-            { "data": "mobile" },
-            { "data": "state" },
-            { "data": "<button class='btn'></button>" }
-        ]
-    })
-})
- </script> 
-
-
-
-  
-  
 
 <?php
    include 'includes/footertag.php';

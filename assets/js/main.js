@@ -136,6 +136,7 @@ $(document).ready(function () {
 });
 
 // navbar
+
 // Other important pens.
 
 let dropdowns = document.querySelectorAll('.navbar .dropdown-toggler')
