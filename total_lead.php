@@ -27,7 +27,7 @@
         </div>
       </div>
     </div>
-    <div class="container mt-3">
+    <div class="container">
       <!-- Filter Card -->
       <div class="filter-card mb-4">
         <div class="card-body">
@@ -58,29 +58,26 @@
       </div>
       <!-- Table Card -->
       <div class=" mb-5">
-       
-                        <div class="card-body">
-                            <div class="table-responsive">
-                                <table id="example" class="table  table_useroverview dataTable no-footer py-1" width="100%">
-                                    <thead>
-                                        <tr>
-                                            <th class="d-none d-md-table-cell text-dark">S.No.</th>
-                                            <th class="d-none d-md-table-cell text-dark">Date</th>
-                                            <th class="d-none d-md-table-cell text-dark">Brand</th>
-                                            <th class="d-none d-md-table-cell text-dark">Model Number</th>
-                                            <th class="d-none d-md-table-cell text-dark"> Request Type </th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-    </div>
+        <div class="table-responsive">
+          <table id="example" class="table  table_useroverview dataTable no-footer py-1" width="100%">
+            <thead>
+              <tr>
+                <th class="d-none d-md-table-cell text-dark">S.No.</th>
+                <th class="d-none d-md-table-cell text-dark">Date</th>
+                <th class="d-none d-md-table-cell text-dark">Brand</th>
+                <th class="d-none d-md-table-cell text-dark">Model Number</th>
+                <th class="d-none d-md-table-cell text-dark"> Request Type </th>
+              </tr>
+              </thead>
+              <tbody>
+            </tbody>
+          </table>
+        </div>
+      </div>
    </section>
       
     
-</div>
+  </div>
 </div>
 </body>
 <!-- <script>

@@ -63,9 +63,9 @@ body{
     width: 100%;
 }
 .aside{
-    /* background: #0c517a; */
-    background: #0b7431;
-    width: 240px;
+    background: #2f3e46;
+    /* background: #0b7431; 090909c2*/
+    width: 260px;
     padding-bottom: 60px;
     position: absolute;
     top: 0;
@@ -74,6 +74,15 @@ body{
     -webkit-transition: left 0.3s ease;
     transition: left 0.3s ease;
     z-index: 20;
+}
+.aside::after{
+    content: "";
+    background-image: url("../images/bg-tractor.jpg");
+    position: absolute;
+    top:0;
+}
+.accordian_nav{
+    background: #0c517a; 
 }
 .menu-list{
     list-style: none;

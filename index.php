@@ -2524,38 +2524,10 @@
             <div class="lecture_heading text-center">
                 <h3 class="fw-bold mt-4 pt-4">About Tractor Junction</h3>
             </div>
-            <!-- <div class="col-12 mt-4 pb-5">
-                <div class="accordion" id="accordion-box">
-                    <div class="accordion-item p-2">
-                        <h2 class="accordion-header" id="lecture">
-                            <button class="accordion-button collapsed fw-bold h4" type="" data-bs-toggle="collapse" data-bs-target="#item" aria-expanded="false" aria-controls="item">Tractor Junction For Your All Agriculture Needs</button>
-                        </h2>
-                        <div id="item" class="accordion-collapse collapse" data-bs-parent="#accordion">
-                            <div class="accordion-body">
-                                <p>Tractor Junction is an online digital platform to buy, sell, finance, insurance, service, new/used tractor and farm implements. Here you can find all popular brands like Mahindra, Swaraj, Eicher, Sonalika, New Holland, Massey Ferguson, John Deere, Powertrac, Farmtrac, Kubota and many more on a single platform. We care about your needs. So here at one platform, we have the entire farm-related products in one place for your comfort. Along with this, get each agricultural product at a fair price.</p>
-                                <p>We have connected with well established <strong>25+ brands</strong>. Each tractor, according to your priority, is provided in the market. The brands won farmers' hearts by providing quality products at economical prices. All we separated according to categories at Tractor Junction for your convenience. Want to know more? Following, we are showing in detail.</p>  
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="accordion" id="accordion">
-                    <div class="accordion-item p-2">
-                        <h2 class="accordion-header" id="lecture">
-                            <button class="accordion-button collapsed fw-bold h4" type="" data-bs-toggle="collapse" data-bs-target="#item2" aria-expanded="false" aria-controls="item">Tractor Junction For Your All Agriculture Needs</button>
-                        </h2>
-                        <div id="item2" class="accordion-collapse collapse" data-bs-parent="#accordion">
-                            <div class="accordion-body">
-                                <p>Tractor Junction is an online digital platform to buy, sell, finance, insurance, service, new/used tractor and farm implements. Here you can find all popular brands like Mahindra, Swaraj, Eicher, Sonalika, New Holland, Massey Ferguson, John Deere, Powertrac, Farmtrac, Kubota and many more on a single platform. We care about your needs. So here at one platform, we have the entire farm-related products in one place for your comfort. Along with this, get each agricultural product at a fair price.</p>
-                                <p>We have connected with well established <strong>25+ brands</strong>. Each tractor, according to your priority, is provided in the market. The brands won farmers' hearts by providing quality products at economical prices. All we separated according to categories at Tractor Junction for your convenience. Want to know more? Following, we are showing in detail.</p>  
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div> -->
             <div class="mt-4 pb-5">
                 <div class="accordion " id="accordionFlushExample">
                     <div class="accordion-item  rounded-3">
-                        <h2 class="accordion-header p-2" id="flush-headingOne" >
+                        <h2 class="accordion-header" id="flush-headingOne" >
                         <button class="accordion-button collapsed fw-bold h4" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
                             Tractor Junction For Your All Agriculture Needs
                         </button>

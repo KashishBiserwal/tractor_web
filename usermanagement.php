@@ -27,7 +27,7 @@
         </div>
       </div>
     </div>
-    <div class="container mt-3">
+    <div class="container">
       <!-- Filter Card -->
       <div class="filter-card mb-4">
         <div class="card-body">
@@ -69,46 +69,25 @@
       </div>
       <!-- Table Card -->
       <div class=" mb-5">
-        <!-- <div class="card-body">
-          <div class="table-responsive" style="overflow: hidden;">
-            <table id="usertable" class="table table-striped table-bordered dataTable no-footer" width="100%;    margin-bottom: 15px;">
-              <thead>
-                <tr style="border: 0;">
-                  <th class="d-none d-md-table-cell">Name</th>
-                  <th class="d-none d-md-table-cell">Email</th>
-                  <th class="d-none d-md-table-cell">Designation</th>
-                  <th class="d-none d-md-table-cell">Mobile no.</th>
-                  <th class="d-none d-md-table-cell">State</th>
-                  <th class="d-none d-md-table-cell">Action</th>
-                </tr>
-              </thead>
+            <div class="table-responsive">
+              <table id="example" class="table  table_useroverview dataTable no-footer py-1" width="100%">
+                <thead>
+                  <tr>
+                    <th class="d-none d-md-table-cell text-dark">S.No.</th>
+                    <th class="d-none d-md-table-cell text-dark">Date</th>
+                    <th class="d-none d-md-table-cell text-dark">Name</th>
+                    <th class="d-none d-md-table-cell text-dark">Mobile Number</th>
+                    <th class="d-none d-md-table-cell text-dark">state </th>
+                    <th class="d-none d-md-table-cell text-dark">District</th>
+                    <th class="d-none d-md-table-cell text-dark">Tehsil</th>
+                    <th class="d-none d-md-table-cell text-dark">Pincode</th>
+                  </tr>
+                </thead>
               <tbody>
-             
               </tbody>
             </table>
           </div>
-        </div> -->
-        <div class="card-body">
-                            <div class="table-responsive">
-                                <table id="example" class="table  table_useroverview dataTable no-footer py-1" width="100%">
-                                    <thead>
-                                        <tr>
-                                            <th class="d-none d-md-table-cell text-dark">S.No.</th>
-                                            <th class="d-none d-md-table-cell text-dark">Date</th>
-                                            <th class="d-none d-md-table-cell text-dark">Name</th>
-                                            <th class="d-none d-md-table-cell text-dark">Mobile Number</th>
-                                            <th class="d-none d-md-table-cell text-dark">state </th>
-                                            <th class="d-none d-md-table-cell text-dark">District</th>
-                                            <th class="d-none d-md-table-cell text-dark">Tehsil</th>
-                                            <th class="d-none d-md-table-cell text-dark">Pincode</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-      </div>
+        </div>
     </div>
    </section>
       

@@ -138,17 +138,17 @@
               <hr class="dropdown-divider ps-2">
             </li>
             <hr class="dropdown-divider">
-            <li><a href="#" class="dropdown-item fw-bold" href="#">Find New Tractors</a></li>
+            <li><a href="#" class="dropdown-item fw-bold" >Find New Tractors</a></li>
             <hr class="dropdown-divider">
-            <li><a href="#" class="dropdown-item  fw-bold" href="#">Popular Tractors</a></li>
+            <li><a href="#" class="dropdown-item  fw-bold" >Popular Tractors</a></li>
             <hr class="dropdown-divider">
-            <li><a href="#" class="dropdown-item fw-bold" href="#">Upcoming Tractor</a></li>
+            <li><a href="#" class="dropdown-item fw-bold" >Upcoming Tractor</a></li>
             <hr class="dropdown-divider">
-            <li><a href="#" class="dropdown-item fw-bold" href="#">Latest Tractor</a></li>
+            <li><a href="#" class="dropdown-item fw-bold">Latest Tractor</a></li>
             <hr class="dropdown-divider">
-            <li><a href="#" class="dropdown-item fw-bold" href="#">Mini Tractor</a></li>
+            <li><a href="#" class="dropdown-item fw-bold">Mini Tractor</a></li>
             <hr class="dropdown-divider">
-            <li><a href="#" class="dropdown-item fw-bold" href="#">4WD Tractor</a></li>
+            <li><a href="#" class="dropdown-item fw-bold">4WD Tractor</a></li>
           </ul>
         </li>
         <li class="nav-item dropdown  ps-2">
@@ -158,15 +158,15 @@
           <ul class="dropdown-menu">
             <li><a href="certified_used_tractor.php" class="dropdown-item fw-bold">Certified Used Tractors</a></li>
             <hr class="dropdown-divider">
-            <li><a href="#" class="dropdown-item  fw-bold" href="#">Used Tractors</a></li>
+            <li><a href="used_tractor.php" class="dropdown-item  fw-bold">Used Tractors</a></li>
             <hr class="dropdown-divider">
-            <li><a href="#" class="dropdown-item fw-bold" href="#">Used Farm Implements</a></li>
+            <li><a href="used_farm_imple.php" class="dropdown-item fw-bold">Used Farm Implements</a></li>
             <hr class="dropdown-divider">
-            <li><a href="#" class="dropdown-item fw-bold" href="#">Used Harvester</a></li>
+            <li><a href="used_harvester.php" class="dropdown-item fw-bold">Used Harvester</a></li>
             <hr class="dropdown-divider">
-            <li><a href="#" class="dropdown-item fw-bold" href="#">Tractor valuation</a></li>
+            <li><a href="tractor_valuation.php" class="dropdown-item fw-bold">Tractor valuation</a></li>
             <hr class="dropdown-divider">
-            <li><a href="#" class="dropdown-item fw-bold" href="#">Find Used Tractor</a></li>
+            <li><a href="find_used_tracters.php" class="dropdown-item fw-bold">Find Used Tractor</a></li>
             
           </ul>
         </li>

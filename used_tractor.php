@@ -28,38 +28,65 @@
         <div class="row">
             <div class="col-12 col-sm-9 col-lg-9 col-md-9">
                 <h3 class="">SEARCH USED  <span class="text-success fw-bold">TRACTORS IN INDIA</span> </h3>
-                <div class="row my-5">
+                <div class=" row mb-3" id="">
+                    <div class="col-12 col-sm-12 col-md-12 col-lg-12 mt-5">
+                        <!-- <div class=" col-12 mt-3"> -->
+                             <button id="adduser" type="button" class="add_btn btn-success px-3">
+                             <i class="fa-solid fa-cart-shopping"></i> Buy tractor </button>  &nbsp;
+                                <button id="adduser" type="button" class="add_btn btn-success">
+                                <i class="fa-sharp fa-solid fa-handshake"></i> Sell tractor </button>
+                            <!-- <div class="col-12 col-sm-6 col-lg-6 col-md-6">
+                                <button id="adduser" type="button" class="add_btn btn-success px-3">
+                                <i class="fas fa-undo"></i>  Reset </button>
+                            </div>
+                           <div class="col-12 col-sm-6 col-lg-6 col-md-6 pe-2">
+                                <button id="adduser" type="button" class="add_btn btn-success">
+                                <i class="fas fa-filter"></i>  Apply Filter </button>
+                           </div> -->
+                            
+                        <!-- </div> -->
+                    </div>
+                </div>
+                <div class="row my-3">
                     <div class="col-12 col-lg-4 col-md-4 col-sm-4 ">
                         <div class="h-auto success__stry__item d-flex flex-column shadow ">
                             <div class="thumb">
                                 <a href="#">
                                     <div class="ratio ratio-16x9">
-                                        <img src="assets/images/yuvo-tech-plus-275-di-136613-1689220449-0.webp" class="object-fit-cover " alt="img">
+                                        <img src="assets/images/60-140739-1692601922-0.webp" class="object-fit-cover " alt="img">
                                     </div>
                                 </a>
                             </div>
                             <div class="content d-flex flex-column flex-grow-1 ">
                                 <div class="caption text-center">
                                     <a href="#" class="text-decoration-none text-dark">
-                                        <p class="pt-3"><strong class="series_tractor_strong text-center h4 fw-bold ">YUVO TECH Plus 275 DI</strong></p>
+                                        <p class="pt-3"><strong class="series_tractor_strong text-center h4 fw-bold ">Farmtrac 60 </strong></p>
                                     </a>      
                                 </div>
                                 <div class="power text-center mt-2">
                                     <div class="row ">
                                         <div class="col-12 col-lg-6 col-md-6 col-sm-6"><p class="text-success ps-2">Price: ₹ 4,50,000</p></div>
                                         <div class="col-12 col-lg-6 col-md-6 col-sm-6" style="padding-right: 32px;">
-                                             <p id="adduser" type="" class="btn-danger">
+                                             <p id="adduser" type="" class="btn-success">
                                                 <i class="fa-solid fa-award"></i>  Certified </p>
                                         </div>
                                     </div>    
                                 </div>
                                 <div class="row text-center">
                                     <div class="col-6">
-                                        <p class="fw-bold ps-2">By Mahindra </p>
+                                        <p class="fw-bold ps-2">50 HP
                                     </div>
                                     <div class="col-6">
                                         <p class="fw-bold pe-2">Great Deal  <i class="fa-regular fa-thumbs-up"></i></p>
                                     </div>
+                                </div>
+                            </div>
+                            <div class=" row state_btn">
+                                <div class="col-12 col-lg-9 col-md-9 col-sm-9 " style="padding-right: 0px;">
+                                    <button type="button" id="adduser"class="btn-state text-decoration-none px-2 w-100">Raipur, Chhattisgarh</a>
+                                </div>
+                                <div class="col-12 col-lg-3 col-md-3 col-sm-3 ps-0">
+                                    <button  id="adduser" type ="button"class="btn-success px-3 w-100 text-center"><i class="fa-solid fa-phone"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -69,386 +96,346 @@
                             <div class="thumb">
                                 <a href="#">
                                     <div class="ratio ratio-16x9">
-                                        <img src="assets/images/yuvo-275-di-140841-1692685905-0.webp" class="object-fit-cover " alt="img">
+                                        <img src="assets/images/475-di-140989-1692774638-0.webp" class="object-fit-cover " alt="img">
                                     </div>
                                 </a>
                             </div>
                             <div class="content d-flex flex-column flex-grow-1 ">
                                 <div class="caption text-center">
                                     <a href="#" class="text-decoration-none text-dark">
-                                        <p class="pt-3"><strong class="series_tractor_strong text-center h4 fw-bold ">Mahindra YUVO 275 DI</strong></p>
-                                    </a>      
-                                </div>
-                                <div class="power text-center mt-2">
-                                    <div class="row ">
-                                        <div class="col-12 col-lg-6 col-md-6 col-sm-6"><p class="text-success ps-2">Price: ₹ 5,00,000 </p></div>
-                                        <div class="col-12 col-lg-6 col-md-6 col-sm-6" style="padding-right: 32px;">
-                                             <p id="adduser" type="" class="btn-danger">
-                                                <i class="fa-solid fa-award"></i>  Certified </p>
-                                        </div>
-                                    </div>    
-                                </div>
-                                <div class="row text-center">
-                                    <div class="col-6">
-                                        <p class="fw-bold ps-2">By Mahindra </p>
-                                    </div>
-                                    <div class="col-6">
-                                        <p class="fw-bold pe-2">Great Deal  <i class="fa-regular fa-thumbs-up"></i></p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-lg-4 col-md-4 col-sm-4">
-                        <div class="h-auto success__stry__item d-flex flex-column shadow ">
-                                <div class="thumb">
-                                    <a href="#">
-                                        <div class="ratio ratio-16x9">
-                                            <img src="assets/images/yuvo-275-di-136612-1689220277-0.webp" class="object-fit-cover " alt="img">
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="content d-flex flex-column flex-grow-1 ">
-                                    <div class="caption text-center">
-                                        <a href="#" class="text-decoration-none text-dark">
-                                            <p class="pt-3"><strong class="series_tractor_strong text-center h4 fw-bold ">Mahindra YUVO 275 DI</strong></p>
-                                        </a>      
-                                    </div>
-                                    <div class="power text-center mt-2">
-                                        <div class="row ">
-                                            <div class="col-12 col-lg-6 col-md-6 col-sm-6"><p class="text-success ps-2">Price: ₹ 4,50,000  </p></div>
-                                            <div class="col-12 col-lg-6 col-md-6 col-sm-6" style="padding-right: 32px;">
-                                                <p id="adduser" type="" class="btn-danger">
-                                                    <i class="fa-solid fa-award"></i>  Certified </p>
-                                            </div>
-                                        </div>    
-                                    </div>
-                                    <div class="row text-center">
-                                        <div class="col-6">
-                                            <p class="fw-bold ps-2">By Mahindra </p>
-                                        </div>
-                                        <div class="col-6">
-                                            <p class="fw-bold pe-2">Great Deal <i class="fa-regular fa-thumbs-up"></i></p>
-                                        </div>
-                                    </div>
-                                </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-lg-4 col-md-4 col-sm-4 mt-4">
-                        <div class="h-auto success__stry__item d-flex flex-column shadow ">
-                            <div class="thumb">
-                                <a href="#">
-                                    <div class="ratio ratio-16x9">
-                                        <img src="assets/images/yuvo-tech-plus-275-di-136613-1689220449-0.webp" class="object-fit-cover " alt="img">
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="content d-flex flex-column flex-grow-1 ">
-                                <div class="caption text-center">
-                                    <a href="#" class="text-decoration-none text-dark">
-                                        <p class="pt-3"><strong class="series_tractor_strong text-center h4 fw-bold ">YUVO TECH Plus 275 DI</strong></p>
-                                    </a>      
-                                </div>
-                                <div class="power text-center mt-2">
-                                        <div class="row ">
-                                            <div class="col-12 col-lg-6 col-md-6 col-sm-6"><p class="text-success ps-2">Price: ₹ 4,50,000 </p></div>
-                                            <div class="col-12 col-lg-6 col-md-6 col-sm-6" style="padding-right: 32px;">
-                                                <p id="adduser" type="" class="btn-danger">
-                                                    <i class="fa-solid fa-award"></i>  Certified </p>
-                                            </div>
-                                        </div>    
-                                </div>
-                                <div class="row text-center">
-                                    <div class="col-6">
-                                        <p class="fw-bold ps-2">By Mahindra </p>
-                                    </div>
-                                    <div class="col-6">
-                                        <p class="fw-bold pe-2">Great Deal <i class="fa-regular fa-thumbs-up"></i></p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-lg-4 col-md-4 col-sm-4 mt-4">
-                        <div class="h-auto success__stry__item d-flex flex-column shadow ">
-                            <div class="thumb">
-                                <a href="#">
-                                    <div class="ratio ratio-16x9">
-                                        <img src="assets/images/c00402a3-be3d-45a9-9889-d4ad474ca490.webp" class="object-fit-cover " alt="img">
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="content d-flex flex-column flex-grow-1 ">
-                                <div class="caption text-center">
-                                    <a href="#" class="text-decoration-none text-dark">
-                                        <p class="pt-3"><strong class="series_tractor_strong text-center h4 fw-bold ">Farmtrac Atom 26 </strong></p>
-                                    </a>      
-                                </div>
-                                <div class="power text-center mt-2">
-                                    <div class="row ">
-                                        <div class="col-12 col-lg-6 col-md-6 col-sm-6"><p class="text-success ps-2">Price: ₹ 3,70,000</p></div>
-                                        <div class="col-12 col-lg-6 col-md-6 col-sm-6" style="padding-right: 32px;">
-                                             <p id="adduser" type="" class="btn-danger">
-                                                <i class="fa-solid fa-award"></i>  Certified </p>
-                                        </div>
-                                    </div>    
-                                </div>
-                                <div class="row text-center">
-                                    <div class="col-6">
-                                        <p class="fw-bold ps-4">30HP</p>
-                                    </div>
-                                    <div class="col-6">
-                                        <p class="fw-bold pe-2">Great Deal  <i class="fa-regular fa-thumbs-up"></i></p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-lg-4 col-md-4 col-sm-4 mt-4">
-                        <div class="h-auto success__stry__item d-flex flex-column shadow ">
-                            <div class="thumb">
-                                <a href="#">
-                                    <div class="ratio ratio-16x9">
-                                        <img src="assets/images/742-xt-140984-1692773874-0.webp" class="object-fit-cover " alt="img">
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="content d-flex flex-column flex-grow-1 ">
-                                <div class="caption text-center">
-                                    <a href="#" class="text-decoration-none text-dark">
-                                        <p class="pt-3"><strong class="series_tractor_strong text-center h4 fw-bold ">Swaraj 742 XT</strong></p>
+                                        <p class="pt-3"><strong class="series_tractor_strong text-center h4 fw-bold ">Mahindra 475 DI </strong></p>
                                     </a>      
                                 </div>
                                 <div class="power text-center mt-2">
                                     <div class="row ">
                                         <div class="col-12 col-lg-6 col-md-6 col-sm-6"><p class="text-success ps-2">Price: ₹ 4,50,000</p></div>
                                         <div class="col-12 col-lg-6 col-md-6 col-sm-6" style="padding-right: 32px;">
-                                             <p id="adduser" type="" class="btn-danger">
+                                             <p id="adduser" type="" class="btn-success">
                                                 <i class="fa-solid fa-award"></i>  Certified </p>
                                         </div>
                                     </div>    
                                 </div>
                                 <div class="row text-center">
                                     <div class="col-6">
-                                        <p class="fw-bold ps-2">By Swaraj</p>
+                                        <p class="fw-bold ps-2">42 HP
                                     </div>
                                     <div class="col-6">
                                         <p class="fw-bold pe-2">Great Deal  <i class="fa-regular fa-thumbs-up"></i></p>
                                     </div>
                                 </div>
                             </div>
+                            <div class=" row state_btn">
+                                <div class="col-12 col-lg-9 col-md-9 col-sm-9 " style="padding-right: 0px;">
+                                    <button type="button" id="adduser"class="btn-state text-decoration-none px-2 w-100">Ambikapur, Chhattisgarh</a>
+                                </div>
+                                <div class="col-12 col-lg-3 col-md-3 col-sm-3 ps-0">
+                                    <button  id="adduser" type ="button"class="btn-success px-3 w-100 text-center"><i class="fa-solid fa-phone"></i></a>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="col-12 col-lg-4 col-md-4 col-sm-4 mt-4">
+                    <div class="col-12 col-lg-4 col-md-4 col-sm-4 ">
                         <div class="h-auto success__stry__item d-flex flex-column shadow ">
                             <div class="thumb">
                                 <a href="#">
                                     <div class="ratio ratio-16x9">
-                                        <img src="assets/images/yuvo-tech-plus-275-di-136613-1689220449-0.webp" class="object-fit-cover " alt="img">
+                                        <img src="assets/images/1035-di-126328-1682667046-0.webp" class="object-fit-cover " alt="img">
                                     </div>
                                 </a>
                             </div>
                             <div class="content d-flex flex-column flex-grow-1 ">
                                 <div class="caption text-center">
                                     <a href="#" class="text-decoration-none text-dark">
-                                        <p class="pt-3"><strong class="series_tractor_strong text-center h4 fw-bold ">YUVO TECH Plus 275 DI</strong></p>
+                                        <p class="pt-3"><strong class="series_tractor_strong text-center h4 fw-bold ">Massey Ferguson 1035 DI</strong></p>
                                     </a>      
                                 </div>
                                 <div class="power text-center mt-2">
                                     <div class="row ">
                                         <div class="col-12 col-lg-6 col-md-6 col-sm-6"><p class="text-success ps-2">Price: ₹ 4,50,000</p></div>
                                         <div class="col-12 col-lg-6 col-md-6 col-sm-6" style="padding-right: 32px;">
-                                             <p id="adduser" type="" class="btn-danger">
+                                             <p id="adduser" type="" class="btn-success">
                                                 <i class="fa-solid fa-award"></i>  Certified </p>
                                         </div>
                                     </div>    
                                 </div>
                                 <div class="row text-center">
                                     <div class="col-6">
-                                        <p class="fw-bold ps-2">By Mahindra </p>
-                                    </div>
-                                    <div class="col-6">
-                                        <p class="fw-bold pe-2">Great Deal <i class="fa-regular fa-thumbs-up"></i></p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-lg-4 col-md-4 col-sm-4 mt-4">
-                        <div class="h-auto success__stry__item d-flex flex-column shadow ">
-                            <div class="thumb">
-                                <a href="#">
-                                    <div class="ratio ratio-16x9">
-                                        <img src="assets/images/rx-55-dlx-136690-1689248341-0.webp" class="object-fit-cover " alt="img">
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="content d-flex flex-column flex-grow-1 ">
-                                <div class="caption text-center">
-                                    <a href="#" class="text-decoration-none text-dark">
-                                        <p class="pt-3"><strong class="series_tractor_strong text-center h4 fw-bold ">Sonalika RX 55 DLX</strong></p>
-                                    </a>      
-                                </div>
-                                <div class="power text-center mt-2">
-                                    <div class="row ">
-                                        <div class="col-12 col-lg-6 col-md-6 col-sm-6"><p class="text-success ps-2">Price: ₹ 4,50,000</p></div>
-                                        <div class="col-12 col-lg-6 col-md-6 col-sm-6" style="padding-right: 32px;">
-                                             <p id="adduser" type="" class="btn-danger">
-                                                <i class="fa-solid fa-award"></i>  Certified </p>
-                                        </div>
-                                    </div>    
-                                </div>
-                                <div class="row text-center">
-                                    <div class="col-6">
-                                        <p class="fw-bold ps-2">55HP</p>
-                                    </div>
-                                    <div class="col-6">
-                                        <p class="fw-bold pe-2">Great Deal <i class="fa-regular fa-thumbs-up"></i></p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-lg-4 col-md-4 col-sm-4 mt-4">
-                        <div class="h-auto success__stry__item d-flex flex-column shadow ">
-                            <div class="thumb">
-                                <a href="#">
-                                    <div class="ratio ratio-16x9">
-                                        <img src="assets/images/241-di-maha-shakti-142026-1693993484-0.webp" class="object-fit-cover " alt="img">
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="content d-flex flex-column flex-grow-1 ">
-                                <div class="caption text-center">
-                                    <a href="#" class="text-decoration-none text-dark">
-                                        <p class="pt-3"><strong class="series_tractor_strong text-center h4 fw-bold ">Massey Ferguson 241 DI</strong></p>
-                                    </a>      
-                                </div>
-                                <div class="power text-center mt-2">
-                                    <div class="row ">
-                                        <div class="col-12 col-lg-6 col-md-6 col-sm-6"><p class="text-success ps-2">Price: ₹ 4,50,000</p></div>
-                                        <div class="col-12 col-lg-6 col-md-6 col-sm-6" style="padding-right: 32px;">
-                                             <p id="adduser" type="" class="btn-danger">
-                                                <i class="fa-solid fa-award"></i>  Certified </p>
-                                        </div>
-                                    </div>    
-                                </div>
-                                <div class="row text-center">
-                                    <div class="col-6">
-                                        <p class="fw-bold ps-2">By Mahindra </p>
-                                    </div>
-                                    <div class="col-6">
-                                        <p class="fw-bold pe-2">Great Deal <i class="fa-regular fa-thumbs-up"></i></p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-lg-4 col-md-4 col-sm-4 mt-4">
-                        <div class="h-auto success__stry__item d-flex flex-column shadow ">
-                            <div class="thumb">
-                                <a href="#">
-                                    <div class="ratio ratio-16x9">
-                                        <img src="assets/images/yuvo-tech-plus-275-di-136613-1689220449-0.webp" class="object-fit-cover " alt="img">
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="content d-flex flex-column flex-grow-1 ">
-                                <div class="caption text-center">
-                                    <a href="#" class="text-decoration-none text-dark">
-                                        <p class="pt-3"><strong class="series_tractor_strong text-center h4 fw-bold ">YUVO TECH Plus 275 DI</strong></p>
-                                    </a>      
-                                </div>
-                                <div class="power text-center mt-2">
-                                        <div class="row ">
-                                            <div class="col-12 col-lg-6 col-md-6 col-sm-6"><p class="text-success ps-2">Price: ₹ 4,50,000 </p></div>
-                                            <div class="col-12 col-lg-6 col-md-6 col-sm-6" style="padding-right: 32px;">
-                                                <p id="adduser" type="" class="btn-danger">
-                                                    <i class="fa-solid fa-award"></i>  Certified </p>
-                                            </div>
-                                        </div>    
-                                </div>
-                                <div class="row text-center">
-                                    <div class="col-6">
-                                        <p class="fw-bold ps-2">By Mahindra </p>
-                                    </div>
-                                    <div class="col-6">
-                                        <p class="fw-bold pe-2">Great Deal <i class="fa-regular fa-thumbs-up"></i></p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-lg-4 col-md-4 col-sm-4 mt-4">
-                        <div class="h-auto success__stry__item d-flex flex-column shadow ">
-                            <div class="thumb">
-                                <a href="#">
-                                    <div class="ratio ratio-16x9">
-                                        <img src="assets/images/c00402a3-be3d-45a9-9889-d4ad474ca490.webp" class="object-fit-cover " alt="img">
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="content d-flex flex-column flex-grow-1 ">
-                                <div class="caption text-center">
-                                    <a href="#" class="text-decoration-none text-dark">
-                                        <p class="pt-3"><strong class="series_tractor_strong text-center h4 fw-bold ">Farmtrac Atom 26 </strong></p>
-                                    </a>      
-                                </div>
-                                <div class="power text-center mt-2">
-                                    <div class="row ">
-                                        <div class="col-12 col-lg-6 col-md-6 col-sm-6"><p class="text-success ps-2">Price: ₹ 3,70,000</p></div>
-                                        <div class="col-12 col-lg-6 col-md-6 col-sm-6" style="padding-right: 32px;">
-                                             <p id="adduser" type="" class="btn-danger">
-                                                <i class="fa-solid fa-award"></i>  Certified </p>
-                                        </div>
-                                    </div>    
-                                </div>
-                                <div class="row text-center">
-                                    <div class="col-6">
-                                        <p class="fw-bold ps-4">30HP</p>
+                                        <p class="fw-bold ps-2">36 HP
                                     </div>
                                     <div class="col-6">
                                         <p class="fw-bold pe-2">Great Deal  <i class="fa-regular fa-thumbs-up"></i></p>
                                     </div>
                                 </div>
                             </div>
+                            <div class=" row state_btn">
+                                <div class="col-12 col-lg-9 col-md-9 col-sm-9 " style="padding-right: 0px;">
+                                    <button type="button" id="adduser"class="btn-state text-decoration-none px-2 w-100">Ambikapur, Chhattisgarh</a>
+                                </div>
+                                <div class="col-12 col-lg-3 col-md-3 col-sm-3 ps-0">
+                                    <button  id="adduser" type ="button"class="btn-success px-3 w-100 text-center"><i class="fa-solid fa-phone"></i></a>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="col-12 col-lg-4 col-md-4 col-sm-4 mt-4">
+                    <div class="col-12 col-lg-4 col-md-4 col-sm-4 my-3 ">
                         <div class="h-auto success__stry__item d-flex flex-column shadow ">
                             <div class="thumb">
                                 <a href="#">
                                     <div class="ratio ratio-16x9">
-                                        <img src="assets/images/742-xt-140984-1692773874-0.webp" class="object-fit-cover " alt="img">
+                                        <img src="assets/images/380-139151-1694943532-0.webp" class="object-fit-cover " alt="img">
                                     </div>
                                 </a>
                             </div>
                             <div class="content d-flex flex-column flex-grow-1 ">
                                 <div class="caption text-center">
                                     <a href="#" class="text-decoration-none text-dark">
-                                        <p class="pt-3"><strong class="series_tractor_strong text-center h4 fw-bold ">Swaraj 742 XT</strong></p>
+                                        <p class="pt-3"><strong class="series_tractor_strong text-center h4 fw-bold ">Eicher 380 </strong></p>
                                     </a>      
                                 </div>
                                 <div class="power text-center mt-2">
                                     <div class="row ">
                                         <div class="col-12 col-lg-6 col-md-6 col-sm-6"><p class="text-success ps-2">Price: ₹ 4,50,000</p></div>
                                         <div class="col-12 col-lg-6 col-md-6 col-sm-6" style="padding-right: 32px;">
-                                             <p id="adduser" type="" class="btn-danger">
+                                             <p id="adduser" type="" class="btn-success">
                                                 <i class="fa-solid fa-award"></i>  Certified </p>
                                         </div>
                                     </div>    
                                 </div>
                                 <div class="row text-center">
                                     <div class="col-6">
-                                        <p class="fw-bold ps-2">By Swaraj</p>
+                                        <p class="fw-bold ps-2">40 HP
                                     </div>
                                     <div class="col-6">
                                         <p class="fw-bold pe-2">Great Deal  <i class="fa-regular fa-thumbs-up"></i></p>
                                     </div>
                                 </div>
                             </div>
+                            <div class=" row state_btn">
+                                <div class="col-12 col-lg-9 col-md-9 col-sm-9 " style="padding-right: 0px;">
+                                    <button type="button" id="adduser"class="btn-state text-decoration-none px-2 w-100">Baloda Bajar, Chhattisgarh</a>
+                                </div>
+                                <div class="col-12 col-lg-3 col-md-3 col-sm-3 ps-0">
+                                    <button  id="adduser" type ="button"class="btn-success px-3 w-100 text-center"><i class="fa-solid fa-phone"></i></a>
+                                </div>
+                            </div>
                         </div>
                     </div>
+                    <div class="col-12 col-lg-4 col-md-4 col-sm-4 my-3">
+                        <div class="h-auto success__stry__item d-flex flex-column shadow ">
+                            <div class="thumb">
+                                <a href="#">
+                                    <div class="ratio ratio-16x9">
+                                        <img src="assets/images/oldtractor-1689247467-0.webp" class="object-fit-cover " alt="img">
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="content d-flex flex-column flex-grow-1 ">
+                                <div class="caption text-center">
+                                    <a href="#" class="text-decoration-none text-dark">
+                                        <p class="pt-3"><strong class="series_tractor_strong text-center h4 fw-bold ">Eicher 380 </strong></p>
+                                    </a>      
+                                </div>
+                                <div class="power text-center mt-2">
+                                    <div class="row ">
+                                        <div class="col-12 col-lg-6 col-md-6 col-sm-6"><p class="text-success ps-2">Price: ₹ 4,50,000</p></div>
+                                        <div class="col-12 col-lg-6 col-md-6 col-sm-6" style="padding-right: 32px;">
+                                             <p id="adduser" type="" class="btn-success">
+                                                <i class="fa-solid fa-award"></i>  Certified </p>
+                                        </div>
+                                    </div>    
+                                </div>
+                                <div class="row text-center">
+                                    <div class="col-6">
+                                        <p class="fw-bold ps-2">40 HP
+                                    </div>
+                                    <div class="col-6">
+                                        <p class="fw-bold pe-2">Great Deal  <i class="fa-regular fa-thumbs-up"></i></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class=" row state_btn">
+                                <div class="col-12 col-lg-9 col-md-9 col-sm-9 " style="padding-right: 0px;">
+                                    <button type="button" id="adduser"class="btn-state text-decoration-none px-2 w-100">Bilaspur, Chhattisgarh</a>
+                                </div>
+                                <div class="col-12 col-lg-3 col-md-3 col-sm-3 ps-0">
+                                    <button  id="adduser" type ="button"class="btn-success px-3 w-100 text-center"><i class="fa-solid fa-phone"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-4 col-md-4 col-sm-4 my-3">
+                        <div class="h-auto success__stry__item d-flex flex-column shadow ">
+                            <div class="thumb">
+                                <a href="#">
+                                    <div class="ratio ratio-16x9">
+                                        <img src="assets/images/60-140739-1692601922-0.webp" class="object-fit-cover " alt="img">
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="content d-flex flex-column flex-grow-1 ">
+                                <div class="caption text-center">
+                                    <a href="#" class="text-decoration-none text-dark">
+                                        <p class="pt-3"><strong class="series_tractor_strong text-center h4 fw-bold ">Farmtrac 60 </strong></p>
+                                    </a>      
+                                </div>
+                                <div class="power text-center mt-2">
+                                    <div class="row ">
+                                        <div class="col-12 col-lg-6 col-md-6 col-sm-6"><p class="text-success ps-2">Price: ₹ 4,50,000</p></div>
+                                        <div class="col-12 col-lg-6 col-md-6 col-sm-6" style="padding-right: 32px;">
+                                             <p id="adduser" type="" class="btn-success">
+                                                <i class="fa-solid fa-award"></i>  Certified </p>
+                                        </div>
+                                    </div>    
+                                </div>
+                                <div class="row text-center">
+                                    <div class="col-6">
+                                        <p class="fw-bold ps-2">50 HP
+                                    </div>
+                                    <div class="col-6">
+                                        <p class="fw-bold pe-2">Great Deal  <i class="fa-regular fa-thumbs-up"></i></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class=" row state_btn">
+                                <div class="col-12 col-lg-9 col-md-9 col-sm-9 " style="padding-right: 0px;">
+                                    <button type="button" id="adduser"class="btn-state text-decoration-none px-2 w-100">Raipur, Chhattisgarh</a>
+                                </div>
+                                <div class="col-12 col-lg-3 col-md-3 col-sm-3 ps-0">
+                                    <button  id="adduser" type ="button"class="btn-success px-3 w-100 text-center"><i class="fa-solid fa-phone"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-4 col-md-4 col-sm-4 my-3 ">
+                        <div class="h-auto success__stry__item d-flex flex-column shadow ">
+                            <div class="thumb">
+                                <a href="#">
+                                    <div class="ratio ratio-16x9">
+                                        <img src="assets/images/475-di-140989-1692774638-0.webp" class="object-fit-cover " alt="img">
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="content d-flex flex-column flex-grow-1 ">
+                                <div class="caption text-center">
+                                    <a href="#" class="text-decoration-none text-dark">
+                                        <p class="pt-3"><strong class="series_tractor_strong text-center h4 fw-bold ">Mahindra 475 DI </strong></p>
+                                    </a>      
+                                </div>
+                                <div class="power text-center mt-2">
+                                    <div class="row ">
+                                        <div class="col-12 col-lg-6 col-md-6 col-sm-6"><p class="text-success ps-2">Price: ₹ 4,50,000</p></div>
+                                        <div class="col-12 col-lg-6 col-md-6 col-sm-6" style="padding-right: 32px;">
+                                             <p id="adduser" type="" class="btn-success">
+                                                <i class="fa-solid fa-award"></i>  Certified </p>
+                                        </div>
+                                    </div>    
+                                </div>
+                                <div class="row text-center">
+                                    <div class="col-6">
+                                        <p class="fw-bold ps-2">42 HP
+                                    </div>
+                                    <div class="col-6">
+                                        <p class="fw-bold pe-2">Great Deal  <i class="fa-regular fa-thumbs-up"></i></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class=" row state_btn">
+                                <div class="col-12 col-lg-9 col-md-9 col-sm-9 " style="padding-right: 0px;">
+                                    <button type="button" id="adduser"class="btn-state text-decoration-none px-2 w-100">Ambikapur, Chhattisgarh</a>
+                                </div>
+                                <div class="col-12 col-lg-3 col-md-3 col-sm-3 ps-0">
+                                    <button  id="adduser" type ="button"class="btn-success px-3 w-100 text-center"><i class="fa-solid fa-phone"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-4 col-md-4 col-sm-4 my-3 ">
+                        <div class="h-auto success__stry__item d-flex flex-column shadow ">
+                            <div class="thumb">
+                                <a href="#">
+                                    <div class="ratio ratio-16x9">
+                                        <img src="assets/images/380-139151-1694943532-0.webp" class="object-fit-cover " alt="img">
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="content d-flex flex-column flex-grow-1 ">
+                                <div class="caption text-center">
+                                    <a href="#" class="text-decoration-none text-dark">
+                                        <p class="pt-3"><strong class="series_tractor_strong text-center h4 fw-bold ">Eicher 380 </strong></p>
+                                    </a>      
+                                </div>
+                                <div class="power text-center mt-2">
+                                    <div class="row ">
+                                        <div class="col-12 col-lg-6 col-md-6 col-sm-6"><p class="text-success ps-2">Price: ₹ 4,50,000</p></div>
+                                        <div class="col-12 col-lg-6 col-md-6 col-sm-6" style="padding-right: 32px;">
+                                             <p id="adduser" type="" class="btn-success">
+                                                <i class="fa-solid fa-award"></i>  Certified </p>
+                                        </div>
+                                    </div>    
+                                </div>
+                                <div class="row text-center">
+                                    <div class="col-6">
+                                        <p class="fw-bold ps-2">40 HP
+                                    </div>
+                                    <div class="col-6">
+                                        <p class="fw-bold pe-2">Great Deal  <i class="fa-regular fa-thumbs-up"></i></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class=" row state_btn">
+                                <div class="col-12 col-lg-9 col-md-9 col-sm-9 " style="padding-right: 0px;">
+                                    <button type="button" id="adduser"class="btn-state text-decoration-none px-2 w-100">Baloda Bajar, Chhattisgarh</a>
+                                </div>
+                                <div class="col-12 col-lg-3 col-md-3 col-sm-3 ps-0">
+                                    <button  id="adduser" type ="button"class="btn-success px-3 w-100 text-center"><i class="fa-solid fa-phone"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-4 col-md-4 col-sm-4 my-3">
+                        <div class="h-auto success__stry__item d-flex flex-column shadow ">
+                            <div class="thumb">
+                                <a href="#">
+                                    <div class="ratio ratio-16x9">
+                                        <img src="assets/images/oldtractor-1689247467-0.webp" class="object-fit-cover " alt="img">
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="content d-flex flex-column flex-grow-1 ">
+                                <div class="caption text-center">
+                                    <a href="#" class="text-decoration-none text-dark">
+                                        <p class="pt-3"><strong class="series_tractor_strong text-center h4 fw-bold ">Eicher 380 </strong></p>
+                                    </a>      
+                                </div>
+                                <div class="power text-center mt-2">
+                                    <div class="row ">
+                                        <div class="col-12 col-lg-6 col-md-6 col-sm-6"><p class="text-success ps-2">Price: ₹ 4,50,000</p></div>
+                                        <div class="col-12 col-lg-6 col-md-6 col-sm-6" style="padding-right: 32px;">
+                                             <p id="adduser" type="" class="btn-success">
+                                                <i class="fa-solid fa-award"></i>  Certified </p>
+                                        </div>
+                                    </div>    
+                                </div>
+                                <div class="row text-center">
+                                    <div class="col-6">
+                                        <p class="fw-bold ps-2">40 HP
+                                    </div>
+                                    <div class="col-6">
+                                        <p class="fw-bold pe-2">Great Deal  <i class="fa-regular fa-thumbs-up"></i></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class=" row state_btn">
+                                <div class="col-12 col-lg-9 col-md-9 col-sm-9 " style="padding-right: 0px;">
+                                    <button type="button" id="adduser"class="btn-state text-decoration-none px-2 w-100">Bilaspur, Chhattisgarh</a>
+                                </div>
+                                <div class="col-12 col-lg-3 col-md-3 col-sm-3 ps-0">
+                                    <button  id="adduser" type ="button"class="btn-success px-3 w-100 text-center"><i class="fa-solid fa-phone"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
                 </div>
                 <div class="col-12 text-center ">
                     <button id="adduser" type="button" class="add_btn btn-success">
@@ -586,18 +573,6 @@
                         </div>
                     </div>
                 </div>
-                <div class=" mb-3" id="">
-                    <div class="force-overflow">
-                        <h5 class=" ps-3 text-dark fw-bold mb-3">Last Added:</h5>
-                        <div class="price py-2 ">
-                            <input type="checkbox" class="checkbox-round ms-3" value="less_30day"/><span class="ps-2 fs-6">Less than 30 days</span><br />
-                            <input type="checkbox" class="checkbox-round ms-3" value="less_30mnth"/><span class="ps-2 fs-6">Less than 3 months</span><br />
-                            <input type="checkbox" class="checkbox-round ms-3" value="less_60_mnth"/><span class="ps-2 fs-6"> Less than 6 months</span><br />
-                            <input type="checkbox" class="checkbox-round ms-3" value="more_60_mnth"/><span class="ps-2 fs-6"> More than 6 months</span><br />
-                            <input type="checkbox" class="checkbox-round ms-3" value="none_abo"/><span class="ps-2 fs-6"> None of the above</span><br />
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </div>
@@ -606,7 +581,7 @@
 <section class="bg-light">
     <div class="container mt-4 ">
         <div class="col-12 assured mt-3">
-            <h4 class="fw-bold p-2">Assured Used Tractor</h4>
+            <h4 class="fw-bold p-2">Used Tractor by Location</h4>
         </div>
         <div class="row mt-4">
             <div class="col-12 col-sm-4 col-lg-4 col-md-4 my-2">
@@ -628,6 +603,36 @@
                     <li class=""> <a href="#" class="text-dark text-decoration-none"><p>  <i class="fa-solid fa-angles-right"></i> &nbsp; Assured Used Tractor In korba </p></a></li>
                     <li class=""> <a href="#" class="text-dark text-decoration-none"><p>  <i class="fa-solid fa-angles-right"></i> &nbsp; Assured Used Tractor In Ambikapur </p></a></li>
                     <li class=""> <a href="#" class="text-dark text-decoration-none"><p> <i class="fa-solid fa-angles-right"></i> &nbsp; Assured Used Tractor In Manendragarh </p></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="bg-light">
+    <div class="container mt-4 ">
+        <div class="col-12 assured mt-3">
+            <h4 class="fw-bold p-2">Second Hand Tractors By Brand</h4>
+        </div>
+        <div class="row mt-4">
+            <div class="col-12 col-sm-4 col-lg-4 col-md-4 my-2">
+                <ul class="justify-content-center ul-box  ">
+                    <li class=""> <a href="#" class="text-dark text-decoration-none"><p>  <i class="fa-solid fa-angles-right"></i> &nbsp;  Second hand Mahindra tractors for sale</p></a></li>
+                    <li class=""> <a href="#" class="text-dark text-decoration-none"><p>  <i class="fa-solid fa-angles-right"></i> &nbsp; Second hand Swaraj tractors for sale </p></a></li>
+                    <li class=""> <a href="#" class="text-dark text-decoration-none"><p> <i class="fa-solid fa-angles-right"></i> &nbsp; Second hand Mahindra tractors for sale</p></a></li>
+                </ul>
+            </div>
+            <div class="col-12 col-sm-4 col-lg-4 col-md-4 my-2">
+                <ul class="justify-content-center ul-box  ">
+                    <li class=""> <a href="#" class="text-dark text-decoration-none"><p>  <i class="fa-solid fa-angles-right"></i> &nbsp; Second hand Farmtrac tractors for sale </p></a></li>
+                    <li class=""> <a href="#" class="text-dark text-decoration-none"><p>  <i class="fa-solid fa-angles-right"></i> &nbsp; Second hand Mahindra tractors for sale</p></a></li>
+                    <li class=""> <a href="#" class="text-dark text-decoration-none"><p> <i class="fa-solid fa-angles-right"></i> &nbsp;  Second hand Swaraj tractors for sale </p></a></li>
+                </ul>
+            </div>
+            <div class="col-12 col-sm-4 col-lg-4 col-md-4 my-2">
+                <ul class="justify-content-center ul-box  ">
+                    <li class=""> <a href="#" class="text-dark text-decoration-none"><p>  <i class="fa-solid fa-angles-right"></i> &nbsp;  Second hand Mahindra tractors for sale</p></a></li>
+                    <li class=""> <a href="#" class="text-dark text-decoration-none"><p>  <i class="fa-solid fa-angles-right"></i> &nbsp; Second hand Swaraj tractors for sale </p></a></li>
+                    <li class=""> <a href="#" class="text-dark text-decoration-none"><p> <i class="fa-solid fa-angles-right"></i> &nbsp; Second hand Mahindra tractors for sale</p></a></li>
                 </ul>
             </div>
         </div>

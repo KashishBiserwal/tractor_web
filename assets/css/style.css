@@ -540,7 +540,7 @@ button {
   background-color: #ffffff;
   border-bottom: 1px solid #dcdcdc;
 }
-.accordion-button:hover {
+.accordion-item :hover {
   background-color: #a2ffa5;
 }
 
@@ -731,7 +731,7 @@ border-radius: 50%;
 .price { 
   border:2px solid #ccf1df;
    width:300px;
-    height: 150px; 
+    /* height: 150px;  */
     /* overflow-y: scroll; */
 }
 
@@ -763,7 +763,7 @@ border-radius: 50%;
   /* background-color: #0c517a; */
   color: #fff;
   height: 45px;
-  width: 140px;
+  /* width: 140px; */
 }
 .add_btn i{
   background: #34d74f;
@@ -773,4 +773,35 @@ border-radius: 50%;
   padding: 5px;
   font-size: 12px;
   /* margin-right: 8px; */
+}
+.assured{
+  border-left: 4px solid green;
+}
+.btn-state{
+  background: #34d74f;
+}
+
+/* tractor valuation */
+.headline {
+  left: 130px;
+} 
+.clipped {
+  clip-path: polygon(50% 0, 100% 0, 100% 100%, 0% 100%);
+}
+@media screen and (max-width: 650px){
+  .headline {
+    left: 20px;
+  } 
+  .clipped {
+    clip-path: none;
+    max-height: 300px !important;
+  }
+}
+/* old tracter */
+
+.brand-main {
+  background-color: #fff;
+  /* padding: 15px 15px 8px; */
+  margin-bottom: 8px;
+  width: 206px;
 }

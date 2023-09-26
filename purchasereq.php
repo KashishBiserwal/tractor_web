@@ -27,7 +27,7 @@
         </div>
       </div>
     </div>
-    <div class="container mt-3">
+    <div class="container">
       <!-- Filter Card -->
       <div class="filter-card mb-4">
         <div class="card-body">
@@ -70,8 +70,6 @@
       </div>
       <!-- Table Card -->
       <div class=" mb-5">
-       
-                        <div class="card-body">
                             <div class="table-responsive">
                                 <table id="example" class="table  table_useroverview dataTable no-footer py-1" width="100%">
                                     <thead>
@@ -88,7 +86,6 @@
                                     </tbody>
                                 </table>
                             </div>
-                        </div>
     </div>
    </section>
       
