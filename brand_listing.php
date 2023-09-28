@@ -18,12 +18,14 @@
             <ol class="breadcrumb my-0 ms-2">
               
               <li class="breadcrumb-item">
-                <span> Engine Oil Listings</span>
+                <span>Brand Listing</span>
               </li>
             </ol>
           </nav>
+          
+
           <button type="button" id="add_trac" class="btn add_btn btn-success float-right" data-bs-toggle="modal"  data-bs-target="#staticBackdrop">
-              <i class="fa fa-plus" aria-hidden="true"></i> Add Engine Oil
+            <i class="fa fa-plus" aria-hidden="true"></i>Add New Brand
           </button>
 
           <!-- Modal -->
@@ -31,47 +33,29 @@
             <div class="modal-dialog modal-lg modal-dialog-centered">
               <div class="modal-content modal_box">
                 <div class="modal-header modal_head">
-                  <h5 class="modal-title text-white fw-bold" id="staticBackdropLabel"> Add Engine Oil </h5>
+                  <h5 class="modal-title text-white fw-bold" id="staticBackdropLabel">Add New Brand</h5>
                   <button type="button" class="btn-close btn-success" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body bg-light">
                         <div class="row justify-content-center">
                             <div class="col-lg-10">
-                              <h4 class="text-center">Fill your Details</h4>
+                              <h4 class="text-center">Fill your Brand Details</h4>
                             <form>
                                 <div class="row justify-content-center pt-4">
                                    
-                                    <div class="col-12 col-lg-6 col-md-6 col-sm-6  my-2">
+                                    <div class="col-12 col-lg-6 col-sm-5 col-md-6 my-2">
                                       <div class="form-group">
                                         <input type="text" class="py-3" placeholder=" " id="brand">
-                                        <label for="name" class="text-dark fw-bold"> Brand</label>
+                                        <label for="name" class="text-dark fw-bold"> Brand Name</label>
                                       </div>
                                     </div>
-                                    <div class="col-12 col-lg-6 col-md-6 col-sm-6  my-2">
+                                    <div class="col-12 col-lg-6 col-sm-5 col-md-6 my-2">
                                       <div class="form-group">
-                                        <input type="text" class="py-3" placeholder=" " id="model">
-                                        <label for="name" class="text-dark fw-bold">Model</label>
+                                        <input type="text" class="py-3" placeholder=" " id="name">
+                                        <label for="name" class="text-dark fw-bold">About</label>
                                       </div>
                                     </div>
-                                    <div class="col-12  my-1">
-                                      <div class="form-group">
-                                        <input type="text" class="py-4" placeholder=" " id="model_name">
-                                        <label for="name" class="text-dark fw-bold">Specification</label>
-                                      </div>
-                                    </div>
-                                    <div class="col-12 col-lg-6 col-md-6 col-sm-6  my-1">
-                                      <div class="form-group">
-                                        <input type="text" class="py-3" placeholder=" " id="model_name">
-                                        <label for="name" class="text-dark fw-bold">Grade</label>
-                                      </div>
-                                    </div>
-                                    
-                                    <div class="col-12 col-lg-6 col-md-6 col-sm-6  my-1">
-                                      <div class="form-group">
-                                        <input type="file" class="py-3" placeholder=" " id="model_name">
-                                        <label for="name" class="text-dark fw-bold">Upload Image</label>
-                                      </div>
-                                    </div>
+                                   
                                 </div>
                             </form>
                             </div>
@@ -98,17 +82,9 @@
                 <input type="email" id="search_name" name="search_name" class="form-control" />
               </div>
             </div>
-            <div class="col-12 col-sm-12 col-md-6 col-lg-6">
-              <div class="form-outline mb-3">
-                <label class="form-label">Model Name</label>
-                <input type="text" id="search_email" name="search_email" class="form-control" />
-              </div>
-            </div>
-            <div class="col-12 col-sm-12 ">
-              <div class="float-end">
+            <div class="col-12 col-sm-12 col-md-6 col-lg-6 float-end text-center">
                 <button type="button" class="btn-success btn_search" id="Search">Search</button>
                 <button type="button" class="btn-success  mx-2 btn_search" id="Reset">Reset</button>
-              </div>
             </div>
           </div>
         </div>
@@ -120,11 +96,15 @@
                                     <thead>
                                         <tr>
                                             <th class="d-none d-md-table-cell text-dark">S.No.</th>
-                                            <!-- <th class="d-none d-md-table-cell text-dark">Category</th> -->
-                                            <th class="d-none d-md-table-cell text-dark">Brand</th>
-                                            <th class="d-none d-md-table-cell text-dark">Model </th>
-                                            <th class="d-none d-md-table-cell text-dark">Action</th>
-                                           
+                                            <th class="d-none d-md-table-cell text-dark"> Tractor Brands</th>
+                                            <!-- <th class="d-none d-md-table-cell text-dark">Model</th>
+                                            <th class="d-none d-md-table-cell text-dark"> No. of Cylinder</th>
+                                            <th class="d-none d-md-table-cell text-dark">  PTO HP</th>
+                                            <th class="d-none d-md-table-cell text-dark"> HP Category</th>
+                                            <th class="d-none d-md-table-cell text-dark"> Gear Box</th>
+                                            <th class="d-none d-md-table-cell text-dark"> Brakes</th>
+                                            <th class="d-none d-md-table-cell text-dark">Steering</th>
+                                            <th class="d-none d-md-table-cell text-dark">Tyres</th> -->
                                         </tr>
                                     </thead>
                                     <tbody>

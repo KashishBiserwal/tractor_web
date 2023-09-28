@@ -291,6 +291,139 @@
     </div>
 </section>
 
+<section class="my-4">
+    <div class="container my-5">
+        <h3 class="fw-bold assured px-3 py-2">Tractor Price List 2023</h3>
+        <div class="" role="alert">
+            <p class="text-dark py-3">New Tractor prices in India vary from Rs. 2.45 lakh to Rs. 33.90 lakh. For a budget-friendly option, consider the Swaraj Code tractor, priced between Rs. 2.45 lakh and Rs. 2.50 lakh.</p>
+        </div>
+        <table class="table table-striped my-3">
+            <thead class="">
+                <tr class="py-3">
+                <th scope="col">New Tractors</th>
+                <th scope="col"> Tractors HP</th>
+                <th scope="col">New Tractors Price in India</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="">
+                    <td class="py-3">Swaraj 855 FE</td>
+                    <td class="py-3">55  HP</td>
+                    <td class="py-3">Rs. 7.90-8.40 lac*</td>
+                </tr>
+                <tr  class="py-3">
+                    <td class="py-3">Mahindra 575 DI XP Plus</td>
+                    <td class="py-3">47  HP</td>
+                    <td class="py-3">Rs. 6.90-7.27 lac*</td>
+                </tr>
+                <tr class="py-3">
+                    <td class="py-3">Massey Ferguson 241 DI MAHA SHAKTI</td>
+                    <td class="py-3">42  HP</td>
+                    <td class="py-3">Rs. 6.47-6.99 lac*</td>
+                </tr>
+                <tr class="py-3">
+                    <td class="py-3">Swaraj 744 XT</td>
+                    <td class="py-3">50 HP</td>
+                    <td class="py-3">Rs. 6.98-7.50 lac*</td>
+                </tr>
+                <tr>
+                    <td class="py-3">Mahindra OJA 2121 4WD</td>
+                    <td class="py-3">21 HP</td>
+                    <td class="py-3">Rs. 4.78 lac*</td>
+                </tr>
+                <tr>
+                    <td  class="py-3">Mahindra 275 DI XP Plus</td>
+                    <td class="py-3">37 HP</td>
+                    <td class="py-3">	Rs. 5.65-5.90 lac*</td>
+                </tr>
+                <tr>
+                    <td  class="py-3">Mahindra Yuvo 575 DI 4WD</td>
+                    <td class="py-3">52 HP</td>
+                    <td class="py-3">Rs. 7.59-7.90 lac*</td>
+                </tr>
+                <tr>
+                    <td class="py-3" >Mahindra Arjun Novo 605 Di-i 2WD</td>
+                    <td class="py-3">57 HP</td>
+                    <td class="py-3">Rs. 8.75-8.95 lac*</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</section>
+
+<section class="my-3">
+    <div class="container my-5">
+        <h3 class="fw-bold assured px-3 py-2">Best 35 HP Tractor in India</h3>
+        <div class="" role="alert">
+            <p class="text-dark py-3">A 35 HP tractor, considered semi-medium, is great for orchards, small-scale farming, or tasks that require moving stationary objects. Many small-scale Indian farmers choose cost-effective 35 HP tractors such as Mahindra Yuvo 275 DI, Swaraj 834 XM, New Holland 3032 Nx, etc. Check out the price list for these 35 HP new tractors in India below.</p>
+        </div>
+        <table class="table table-striped my-3">
+            <thead class="">
+                <tr class="py-3">
+                <th scope="col">Tractor Model</th>
+                <th scope="col">Price Range (Rs. Lac)*</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="">
+                    <td class="py-3">Sonalika MM 35 DI</td>
+                    <td class="py-3">Rs. 4.96-5.22 Lakh*</td>
+                </tr>
+                <tr  class="py-3">
+                    <td class="py-3">Farmtrac CHAMPION 35</td>
+                    <td class="py-3">Rs. 5.67-5.99 Lakh*</td>
+                </tr>
+                <tr class="py-3">
+                    <td class="py-3">Standard DI 335</td>
+                    <td class="py-3">Rs. 4.90-5.10 Lakh</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</section>
+
+<section class="my-3">
+    <div class="container my-5">
+        <h3 class="fw-bold assured px-3 py-2">Best 45-55 HP Tractor In India</h3>
+        <div class="" role="alert">
+            <p class="text-dark py-3">Many Indian farmers use a 45-55 hp tractor for their everyday farming needs, including tasks like mowing, landscaping, and more. This range is suitable for Indian farming and comes with advanced technology at an affordable price in India. Some powerful 45 hp tractors are the Mahindra 575 DI, Kubota MU4501 2WD, John Deere 5045 D and many more. Following, we are showing the most popular 45-55 hp tractor price list in India -</p>
+        </div>
+        <table class="table table-striped my-3">
+            <thead class="">
+                <tr class="py-3">
+                <th scope="col">Tractor Model</th>
+                <th scope="col">Price Range (Rs. Lac)*</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="">
+                    <td class="py-3">Force SANMAN 5000</td>
+                    <td class="py-3">Rs. 7.16-7.43 Lakh*</td>
+                </tr>
+                <tr  class="py-3">
+                    <td class="py-3">Eicher 485</td>
+                    <td class="py-3">Rs. 6.50-6.70 Lakh*</td>
+                </tr>
+                <tr class="py-3">
+                    <td class="py-3">Farmtrac 45</td>
+                    <td class="py-3">Rs. 6.90-7.17 Lakh*</td>
+                </tr>
+                <tr class="">
+                    <td class="py-3">Sonalika DI 750III</td>
+                    <td class="py-3">Rs. 7.32-7.80 Lakh*</td>
+                </tr>
+                <tr  class="py-3">
+                    <td class="py-3">Powertrac EURO 55</td>
+                    <td class="py-3">Rs. 8.30-8.60 Lakh*</td>
+                </tr>
+                <tr class="py-3">
+                    <td class="py-3">Swaraj 960 FE</td>
+                    <td class="py-3">Rs. 8.20-8.50 Lakh*</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</section>
 
 
 <section class="about bg-light">
@@ -404,9 +537,10 @@
         </div>
 </section>
 
+
 <section>
     <div class="container"> 
-        <h3 class="fw-bold ">Tractors By HP</h3>
+        <h3 class="fw-bold assured px-3 ">Tractors By HP</h3>
             <div class="row my-4">
                 <div class="col-12 col-lg-3 col-md-4 col-sm-3 py-2">
                     <a href="#" id="adduser" class="btn add_btn text-decoration-none btn-danger border-2 p-2 w-100">
@@ -443,7 +577,7 @@
             </div>
     </div>
     <div class="container"> 
-        <h3 class="fw-bold">Tractors By Price</h3>
+        <h3 class="fw-bold assured px-3">Tractors By Price</h3>
             <div class="row my-4">
                 <div class="col-12 col-lg-3 col-md-4 col-sm-3 py-2">
                     <a href="#" id="adduser" class="btn add_btn text-decoration-none btn-danger border-2 p-2 w-100">

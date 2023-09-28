@@ -73,6 +73,11 @@
                                     Tractor Listings
                             </a>
                         </li>
+                        <li class="sidebar-item pt-1 text-white">
+                            <a class="sidebar-link text-decoration-none text-white" href="brand_listing.php">
+                                    Tractor Brand Listings
+                            </a>
+                        </li>
 
                         <li class="sidebar-item pt-1 text-white">
                             <a class="sidebar-link text-decoration-none text-white" href="farm_equip.php">
@@ -138,7 +143,7 @@
                         </li>
                         <li class="sidebar-item pt-1 text-white ">
                             <a class="sidebar-link text-decoration-none text-white" href="sell_useddadmin.php">
-                            <i class="align-middle" data-feather="map"></i>  <span class="align-middle ">Sell Used</span>
+                            <i class="align-middle" data-feather="map"></i>  <span class="align-middle ">Sell Used tractor Enquiries</span>
                             </a>
                         </li>
                     </div>

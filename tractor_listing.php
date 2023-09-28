@@ -22,92 +22,166 @@
               </li>
             </ol>
           </nav>
-          <!-- <button id="adduser" type="button" class=" add_btn btn-success float-right">
-            <i class="fa fa-plus" aria-hidden="true"></i>Add New tractor </button> -->
+          
 
-            <button type="button" id="adduser"  class=" add_btn btn-success float-right" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa fa-plus" aria-hidden="true"></i>  Add New  </button>
+          <button type="button" id="add_trac" class="btn add_btn btn-success float-right" data-bs-toggle="modal"  data-bs-target="#staticBackdrop">
+            <i class="fa fa-plus" aria-hidden="true"></i>Add New tractor
+          </button>
 
-            <!-- Modal --> 
-            <div class="modal fade bg-light" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-lg modal-dialog-centered">
-                    <div class="modal-content modal_box">
-                    <div class="modal-header">
-                        <h1 class="modal-title text-dark fs-5" id="exampleModalLabel">Add Your New Tractor</h1>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
+          <!-- Modal -->
+          <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog modal-xl modal-dialog-centered">
+              <div class="modal-content modal_box">
+                <div class="modal-header modal_head">
+                  <h5 class="modal-title text-white fw-bold" id="staticBackdropLabel">Add New tractor</h5>
+                  <button type="button" class="btn-close btn-success" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body bg-light">
                         <div class="row justify-content-center">
                             <div class="col-lg-10">
-                            <!-- <h3 class="mb-3">Fill The Form</h3> -->
+                              <h4 class="text-center">Fill your Tractor Details</h4>
                             <form>
-                                <div class="row justify-content-center ">
-                                  <div class="col-12 col-lg-6 col-sm-5 col-md-6 my-1">
-                                        <label for="brand" class=" text-dark float-start fw-bold">Upload Image </label>
-                                        <input type="file" id="myFile" class="form-control" name="filename" id="img" name="img" required>
+                                <div class="row justify-content-center py-4">
+                                    <!-- <div class="col-12 col-lg-6 col-sm-5 col-md-6 my-2">
+                                      <div class="form-group">
+                                        <label for="name" class="text-dark fw-bold">Tractor Category</label>
+                                        <div class="boxes">
+                                            <input type="checkbox" id="box-1">
+                                            <label for="box-1"class="text-dark">New tractor</label>
+
+                                            <input type="checkbox" id="box-2" checked>
+                                            <label for="box-2" class="text-dark">Mini Tractor </label>
+
+                                            <input type="checkbox" id="box-3">
+                                            <label for="box-3" class="text-dark">4WD</label>
+                                        </div>
+                                      </div>
+                                    </div> -->
+                                   
+                                    <div class="col-12 col-lg-6 col-sm-5 col-md-6 my-2">
+                                      <div class="form-group">
+                                        <input type="text" class="py-3" placeholder=" " id="brand">
+                                        <label for="name" class="text-dark fw-bold"> Brand</label>
+                                      </div>
+                                    </div>
+                                    <div class="col-12 col-lg-6 col-sm-5 col-md-6 my-2">
+                                      <div class="form-group">
+                                        <input type="text" class="py-3" placeholder=" " id="model">
+                                        <label for="name" class="text-dark fw-bold">Model</label>
+                                      </div>
+                                    </div>
+                                    <div class="col-12 col-lg-6 col-sm-5 col-md-6 my-2">
+                                      <div class="form-group">
+                                        <input type="text" class="py-5" placeholder=" " id="model_name">
+                                        <label for="name" class="text-dark fw-bold">Model Name</label>
+                                      </div>
+                                    </div>
+                                    <div class="col-12 col-sm-4 col-md-6 col-lg-6 my-2 ps-4">
+                                        <p class="text-dark fw-bold ">Select type of Tractor</p>
+                                        <div class="form-check my-3 ps-5">
+                                            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+                                            <label class="form-check-label text-dark ps-2" for="exampleRadios1">
+                                            Mini Tractor
+                                            </label>
+                                        </div>
+                                        <div class="form-check  ps-5">
+                                            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+                                            <label class="form-check-label  text-dark ps-2" for="exampleRadios2">
+                                                4WD
+                                            </label>
+                                        </div>
                                     </div>
                                     <div class="col-12 col-lg-6 col-sm-5 col-md-6 my-1">
-                                        <label for="brand" class=" text-dark float-start fw-bold">Brand</label>
-                                        <input type="text" class="form-control text-dark" placeholder="" id="brand" name="brand" required>
+                                      <div class="form-group">
+                                        <input type="text" class="py-3" placeholder=" " id="name">
+                                        <label for="name" class="text-dark fw-bold">No. of Cylinder</label>
+                                      </div>
                                     </div>
                                     <div class="col-12 col-lg-6 col-sm-5 col-md-6 my-1">
-                                        <label for="cylinder" class=" text-dark float-start fw-bold">No. Of Cylinder</label>
-                                        <input type="text" class="form-control text-dark" placeholder=" " id="cylinder" name="cylinder" required>
+                                      <div class="form-group">
+                                        <input type="text" class="py-3" placeholder=" " id="name">
+                                        <label for="name" class="text-dark fw-bold">HP Category</label>
+                                      </div>
                                     </div>
                                     <div class="col-12 col-lg-6 col-sm-5 col-md-6 my-1">
-                                        <label for="hp" class=" text-dark float-start fw-bold">HP Category</label>
-                                        <input type="text" class="form-control text-dark" placeholder="" id="hp" name="hp" required>
+                                      <div class="form-group">
+                                        <input type="text" class="py-3" placeholder=" " id="name">
+                                        <label for="name" class="text-dark fw-bold"> PTO HP</label>
+                                      </div>
                                     </div>
                                     <div class="col-12 col-lg-6 col-sm-5 col-md-6 my-1">
-                                        <label for="pto" class=" text-dark float-start fw-bold">PTO HP</label>
-                                        <input type="text" class="form-control text-dark" placeholder="" id="pto" name="pto" required>
+                                      <div class="form-group">
+                                        <input type="text"class="py-3" placeholder=" " id="name">
+                                        <label for="name" class="text-dark fw-bold"> Gear Box</label>
+                                      </div>
+                                    </div>
+                                    <div class="col-12 col-lg-4 col-sm-5 col-md-4 my-1">
+                                      <div class="form-group">
+                                        <input type="text" class="py-3" placeholder=" " id="name">
+                                        <label for="name" class="text-dark fw-bold">Brakes</label>
+                                      </div>
+                                    </div>
+                                    <div class="col-12 col-lg-4 col-sm-5 col-md-4 my-1">
+                                      <div class="form-group">
+                                        <input type="text" class="py-3" placeholder=" " id="name">
+                                        <label for="name" class="text-dark fw-bold">Tyres</label>
+                                      </div>
+                                    </div>
+                                    <div class="col-12 col-lg-4 col-sm-5 col-md-4 my-1">
+                                      <div class="form-group">
+                                        <input type="text"class="py-3" placeholder=" " id="name">
+                                        <label for="name" class="text-dark fw-bold">Steering</label>
+                                      </div>
+                                    </div>
+                                    <div class="col-12  my-1">
+                                      <div class="form-group">
+                                        <input type="text" class="py-5" placeholder=" " id="name">
+                                        <label for="name" class="text-dark fw-bold">Engine Description</label>
+                                      </div>
                                     </div>
                                     <div class="col-12 col-lg-6 col-sm-5 col-md-6 my-1">
-                                        <label for="gear" class=" text-dark float-start fw-bold">Gear Box</label>
-                                        <input type="text" class="form-control text-dark" placeholder="" id="gear" name="gear" required>
+                                      <div class="form-group">
+                                        <input type="text"class="py-3" placeholder=" " id="name">
+                                        <label for="name" class="text-dark fw-bold">Quality Features</label>
+                                      </div>
                                     </div>
                                     <div class="col-12 col-lg-6 col-sm-5 col-md-6 my-1">
-                                        <label for="brakes" class=" text-dark float-start fw-bold">Brakes</label>
-                                        <input type="text" class="form-control text-dark" placeholder=" " id="brakes" name="brakes" required>
+                                      <div class="form-group">
+                                        <input type="file" class="py-3" placeholder=" " id="name">
+                                        <label for="file" class="text-dark fw-bold"></label>
+                                      </div>
                                     </div>
                                     <div class="col-12 col-lg-6 col-sm-5 col-md-6 my-1">
-                                        <label for="cluch" class=" text-dark float-start fw-bold">Cluch</label>
-                                        <input type="text" class="form-control text-dark" placeholder=" " id="cluch" name="cluch" required>
+                                      <div class="form-group">
+                                        <input type="text"class="py-3" placeholder=" " id="name">
+                                        <label for="name" class="text-dark fw-bold">Price</label>
+                                      </div>
                                     </div>
                                     <div class="col-12 col-lg-6 col-sm-5 col-md-6 my-1">
-                                        <label for="steering" class=" text-dark float-start fw-bold">Steering</label>
-                                        <input type="text" class="form-control text-dark" placeholder="" id="steering" name="steering" required>
+                                      <div class="form-group">
+                                        <input type="text" class="py-3" placeholder=" " id="name">
+                                        <label for="name" class="text-dark fw-bold">Warranty</label>
+                                      </div>
                                     </div>
-                                    <div class="col-12 col-lg-6 col-sm-5 col-md-6 my-1">
-                                        <label for="lifting" class=" text-dark float-start fw-bold">Lifting Capacity</label>
-                                        <input type="text" class="form-control text-dark" placeholder="" id="lifting" name="lifting" required>
+                                    <div class="col-12  my-1">
+                                      <div class="form-group">
+                                        <input type="text" class="py-5" placeholder=" " id="name">
+                                        <label for="name" class="text-dark fw-bold">About</label>
+                                      </div>
                                     </div>
-                                    <div class="col-12 col-lg-6 col-sm-5 col-md-6 my-1">
-                                        <label for="wheel" class=" text-dark float-start fw-bold">Wheel Drive</label>
-                                        <input type="text" class="form-control text-dark" placeholder="" id="wheel" name="wheel" required>
-                                    </div>
-                                    <div class="col-12 col-lg-6 col-sm-5 col-md-6 my-1">
-                                        <label for="wheel" class=" text-dark float-start fw-bold">Engine Rated RPM</label>
-                                        <input type="text" class="form-control text-dark" placeholder="" id="wheel" name="wheel" required>
-                                    </div>
-                                    <div class="col-12 col-lg-6 col-sm-5 col-md-6 my-1">
-                                        <label for="price" class=" text-dark float-start fw-bold">Price</label>
-                                        <input type="text" class="form-control text-dark" placeholder="" id="price" name="price" required>
-                                    </div>
-                                    <div class="col-12 col-lg-6 col-md-6 col-sm-6 mt-4 pt-1">
-                                        <button data-res="<?php echo $sum; ?>" type="submit" class="btn-success w-100 fw-bold" > Sumbit</button>
-                                    </div>
+                                   
                                 </div>
                             </form>
                             </div>
                         </div>
                     </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="button" class=" btn-success">Save changes</button>
-                    </div>
-                    </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary px-3" data-bs-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-success fw-bold px-3">Submit</button>
                 </div>
+              </div>
             </div>
+          </div>
         </div>
       </div>
     </div>

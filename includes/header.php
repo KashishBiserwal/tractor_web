@@ -175,7 +175,7 @@
             Sell Used
           </a>
           <ul class="dropdown-menu">
-            <li><a href="#" class="dropdown-item  fw-bold" href="#">Used Tractor</a></li>
+            <li><a href="sell_used_trac.php" class="dropdown-item  fw-bold" href="#"> Sell Used Tractor</a></li>
                 <hr class="dropdown-divider">
               <li><a href="#" class="dropdown-item  fw-bold" href="#">Used Farm Implements</a></li>
                 <hr class="dropdown-divider">

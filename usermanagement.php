@@ -22,65 +22,73 @@
               </li>
             </ol>
           </nav>
-          <button type="button" id="adduser" class=" add_btn btn-success float-right" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa fa-plus" aria-hidden="true"></i>Add User</button>
+          <!-- Button trigger modal -->
+          <button type="button" id="add_trac" class="btn add_btn btn-success float-right" data-bs-toggle="modal"  data-bs-target="#staticBackdrop">
+              <i class="fa fa-plus" aria-hidden="true"></i> Add New User
+          </button>
 
-          <!-- Modal --> 
-          <div class="modal fade bg-light" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-              <div class="modal-dialog modal-lg modal-dialog-centered">
-                  <div class="modal-content modal_box">
-                    <div class="modal-header">
-                        <h1 class="modal-title text-dark fs-5 fw-bold" id="exampleModalLabel">Add New Tyres</h1>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
+          <!-- Modal -->
+          <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg modal-dialog-centered">
+              <div class="modal-content modal_box">
+                <div class="modal-header modal_head">
+                  <h5 class="modal-title text-white fw-bold" id="staticBackdropLabel"> Add New User</h5>
+                  <button type="button" class="btn-close btn-success" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body bg-light">
                         <div class="row justify-content-center">
                             <div class="col-lg-10">
-                            <!-- <h3 class="mb-3">Fill The Form</h3> -->
+                              <h4 class="text-center">Fill your Details</h4>
                             <form>
-                                <div class="row justify-content-center ">
-                                    <div class="col-12 col-lg-6 col-sm-5 col-md-6 my-1">
-                                        <label for="name" class=" text-dark float-start fw-bold">Name</label>
-                                        <input type="text" class="form-control text-dark" placeholder="" id="name" name="name" required>
+                                <div class="row justify-content-center pt-4">
+                                   
+                                    <div class="col-12 col-lg-6 col-md-6 col-sm-6  my-2">
+                                      <div class="form-group">
+                                        <input type="text" class="py-3" placeholder=" " id="brand">
+                                        <label for="name" class="text-dark fw-bold"> Name</label>
+                                      </div>
                                     </div>
-                                    <div class="col-12 col-lg-6 col-sm-5 col-md-6 my-1">
-                                        <label for="mobile" class=" text-dark float-start fw-bold">Mobile Number</label>
-                                        <input type="text" class="form-control text-dark" placeholder="" id="mobile" name="mobile" required>
+                                    <div class="col-12 col-lg-6 col-md-6 col-sm-6  my-1">
+                                      <div class="form-group">
+                                        <input type="text" class="py-3" placeholder=" " id="model_name">
+                                        <label for="name" class="text-dark fw-bold">Contact Number</label>
+                                      </div>
                                     </div>
-                                    <div class="col-12 col-lg-6 col-sm-5 col-md-6 my-1">
-                                        <label for="state" class=" text-dark float-start fw-bold">State</label>
-                                        <input type="text" class="form-control text-dark" placeholder="" id="state" name="state" required>
+                                    <div class="col-12 col-lg-6 col-md-6 col-sm-6  my-1">
+                                      <div class="form-group">
+                                        <input type="text" class="py-3" placeholder=" " id="model_name">
+                                        <label for="name" class="text-dark fw-bold">State</label>
+                                      </div>
                                     </div>
-                                    <div class="col-12 col-lg-6 col-sm-5 col-md-6 my-1">
-                                        <label for="dist" class=" text-dark float-start fw-bold">District</label>
-                                        <input type="text" class="form-control text-dark" placeholder="" id="dist" name="dist" required>
+                                    <div class="col-12 col-lg-6 col-md-6 col-sm-6  my-1">
+                                      <div class="form-group">
+                                        <input type="text" class="py-3" placeholder=" " id="model_name">
+                                        <label for="name" class="text-dark fw-bold">District</label>
+                                      </div>
                                     </div>
-                                    <div class="col-12 col-lg-6 col-sm-5 col-md-6 my-1">
-                                        <label for="address" class=" text-dark float-start fw-bold">Address</label>
-                                        <input type="text" class="form-control text-dark" placeholder="" id="address" name="address" required>
+                                    <div class="col-12 col-lg-6 col-md-6 col-sm-6 my-1">
+                                      <div class="form-group">
+                                        <input type="text" class="py-3" placeholder=" " id="model_name">
+                                        <label for="name" class="text-dark fw-bold">Tehsil</label>
+                                      </div>
                                     </div>
-                                    
-                                    <div class="col-12 col-lg-6 col-sm-5 col-md-6 my-1">
-                                        <label for="tehsil" class=" text-dark float-start fw-bold">Tehsil</label>
-                                        <input type="text" class="form-control text-dark" placeholder="" id="tehsil" name="tehsil" required>
-                                    </div>
-                                    <div class="col-12 col-lg-6 col-sm-5 col-md-6 my-1">
-                                        <label for="pincode" class=" text-dark float-start fw-bold">PinCode</label>
-                                        <input type="text" class="form-control text-dark" placeholder="" id="pincode" name="pincode" required>
-                                    </div>
-                                    <div class="col-12 col-lg-6 col-sm-5 col-md-6 mt-4 pt-1">
-                                        <button data-res="<?php echo $sum; ?>" type="submit" class="btn-success w-100 fw-bold" > Sumbit</button>
+                                    <div class="col-12 col-lg-6 col-md-6 col-sm-6  my-1">
+                                      <div class="form-group">
+                                        <input type="text" class="py-3" placeholder=" " id="model_name">
+                                        <label for="name" class="text-dark fw-bold">Pincode</label>
+                                      </div>
                                     </div>
                                 </div>
                             </form>
                             </div>
                         </div>
                     </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="button" class=" btn-success">Save changes</button>
-                    </div>
-                  </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary px-3" data-bs-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-success fw-bold px-3">Submit</button>
+                </div>
               </div>
+            </div>
           </div>
         </div>
       </div>
@@ -153,7 +161,7 @@
 </div>
 </div>
 </body>
-<script>
+<!-- <script>
   var url = edfaults.camsAPIBaseURL + "CAMS/SearchLocationFaults";
   $.ajax({
     'url': url,
@@ -172,7 +180,7 @@
         ]
     })
 })
- </script> 
+ </script>  -->
 
 
 
