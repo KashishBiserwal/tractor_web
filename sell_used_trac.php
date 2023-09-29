@@ -16,7 +16,7 @@
     <div class="container">
         <div class="py-2">
             <span class="my-4 text-white pt-4 ">
-                <a href="#" class="text-decoration-none header-link px-1">Home <i class="fa-solid fa-chevron-right px-1"></i></a>
+                <a href="index.php" class="text-decoration-none header-link px-1">Home <i class="fa-solid fa-chevron-right px-1"></i></a>
                     <span class=""><a href="#" class="text-decoration-none header-link  px-1">Buy Used <i class="fa-solid fa-chevron-right px-1"></i> </a></span>
                     <span class="text-dark">Sell Old Tractor</span>
             </span> 
@@ -89,16 +89,6 @@
     </div>
 </section>
 
-<section class="">
-    <div class="container">
-       <div class="col-12 text-center my-5 ">
-        <div class="col-12"></div>
-       
-        <h3 class="my-4">Bharat tractor is best place to sell your tractor</h3>
-        <p class="text-dark py-2">As famous agriculture researchers quote, Tractors do not come with glamorous features like any other automobile but for sure go out with a glamorous price. In simple words, a tractor that comes with a high resale value is more dependable than the ones which do not offer a good resale price. Tractor Junction works to make this price even better for you. If you want to sell your old tractor at the best price and ease then we have got you a simplified process that comforts you and does not hamper you in your daily lives. Register with us, submit your inquiry, post the update about your tractor and you are done, our highly trained tractor specialists quote the best price for your tractor and work to get hassle free buyers on-board. Selling an old tractor had never been this easy, with Tractor Junction your tractor loves you back the way you do.</p>
-       </div>
-    </div>
-</section>
 
 <section class="about bg-light">
         <div class="container">
@@ -210,6 +200,51 @@
            
         </div>
 </section>
+
+<section class="bestplace">
+    <div class="container py-4 mb-1">
+       <div class="col-12 text-center py-4 my-1">
+        <div class="col-12"></div>
+       
+        <h2 class="my-4 text-white">Bharat tractor is Best Place to <span class=" fw-bold text-warning"> sell your Tractor</span></h3>
+        <div class="text-center">
+            <span><i class="fa-solid fa-star text-warning"></i> <i class="fa-solid fa-star text-warning"></i> <i class="fa-solid fa-star text-warning"></i> <i class="fa-solid fa-star-half text-warning"></i></span>
+        </div>
+        <p class="text-white py-2 mt-3">As famous agriculture researchers quote, Tractors do not come with glamorous features like any other automobile but for sure go out with a glamorous price. In simple words, a tractor that comes with a high resale value is more dependable than the ones which do not offer a good resale price. Tractor Junction works to make this price even better for you. If you want to sell your old tractor at the best price and ease then we have got you a simplified process that comforts you and does not hamper you in your daily lives. Register with us, submit your inquiry, post the update about your tractor and you are done, our highly trained tractor specialists quote the best price for your tractor and work to get hassle free buyers on-board. Selling an old tractor had never been this easy, with Tractor Junction your tractor loves you back the way you do.</p>
+       </div>
+    </div>
+</section>
+<!-- <section class="bg-light">
+    <div class="container mt-4 ">
+        <div class="col-12 assured mt-3">
+            <h4 class="fw-bold p-2">Quick Links</h4>
+        </div>
+        <div class="row mt-4">
+            <div class="col-12 col-sm-4 col-lg-4 col-md-4 my-2">
+                <ul class="justify-content-center ul-box  ">
+                    <li class=""> <a href="#" class="text-dark text-decoration-none"><p>  <i class="fa-solid fa-angles-right"></i> &nbsp; New Tractors</p></a></li>
+                    <li class=""> <a href="#" class="text-dark text-decoration-none"><p>  <i class="fa-solid fa-angles-right"></i> &nbsp; Finance </p></a></li>
+                    <li class=""> <a href="#" class="text-dark text-decoration-none"><p> <i class="fa-solid fa-angles-right"></i> &nbsp; Popular Tractors</p></a></li>
+                </ul>
+            </div>
+            <div class="col-12 col-sm-4 col-lg-4 col-md-4 my-2">
+                <ul class="justify-content-center ul-box  ">
+                    <li class=""> <a href="#" class="text-dark text-decoration-none"><p>  <i class="fa-solid fa-angles-right"></i> &nbsp; Latest Tractors</p></a></li>
+                    <li class=""> <a href="#" class="text-dark text-decoration-none"><p>  <i class="fa-solid fa-angles-right"></i> &nbsp; Upcoming Tractors</p></a></li>
+                    <li class=""> <a href="#" class="text-dark text-decoration-none"><p> <i class="fa-solid fa-angles-right"></i> &nbsp; Tractor News </p></a></li>
+                </ul>
+            </div>
+            <div class="col-12 col-sm-4 col-lg-4 col-md-4 my-2">
+                <ul class="justify-content-center ul-box  ">
+                    <li class=""> <a href="#" class="text-dark text-decoration-none"><p>  <i class="fa-solid fa-angles-right"></i> &nbsp; Used Tractors</p></a></li>
+                    <li class=""> <a href="#" class="text-dark text-decoration-none"><p>  <i class="fa-solid fa-angles-right"></i> &nbsp; Dealership Enquiry</p></a></li>
+                    <li class=""> <a href="#" class="text-dark text-decoration-none"><p> <i class="fa-solid fa-angles-right"></i> &nbsp; Contact / Mail Us</p></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section> -->
+
 
 
 

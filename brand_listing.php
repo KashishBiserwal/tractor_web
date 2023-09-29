@@ -1,7 +1,7 @@
 <?php
    include 'includes/headertagadmin.php';
   
-   
+   include 'includes/headertag.php';
    ?> 
 <body class="loaded"> 
 <div class="main-wrapper">
@@ -92,11 +92,11 @@
       <!-- Table Card -->
       <div class=" mb-5">
                             <div class="table-responsive">
-                                <table id="example" class="table  table_useroverview dataTable no-footer py-1" width="100%">
+                                <table id="example_brand" class="table  table_useroverview dataTable no-footer py-1" width="100%">
                                     <thead>
                                         <tr>
                                             <th class="d-none d-md-table-cell text-dark">S.No.</th>
-                                            <th class="d-none d-md-table-cell text-dark"> Tractor Brands</th>
+                                            <th class="d-none d-md-table-cell text-dark">  Brand Name</th>
                                             <!-- <th class="d-none d-md-table-cell text-dark">Model</th>
                                             <th class="d-none d-md-table-cell text-dark"> No. of Cylinder</th>
                                             <th class="d-none d-md-table-cell text-dark">  PTO HP</th>

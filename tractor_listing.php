@@ -42,21 +42,6 @@
                               <h4 class="text-center">Fill your Tractor Details</h4>
                             <form>
                                 <div class="row justify-content-center py-4">
-                                    <!-- <div class="col-12 col-lg-6 col-sm-5 col-md-6 my-2">
-                                      <div class="form-group">
-                                        <label for="name" class="text-dark fw-bold">Tractor Category</label>
-                                        <div class="boxes">
-                                            <input type="checkbox" id="box-1">
-                                            <label for="box-1"class="text-dark">New tractor</label>
-
-                                            <input type="checkbox" id="box-2" checked>
-                                            <label for="box-2" class="text-dark">Mini Tractor </label>
-
-                                            <input type="checkbox" id="box-3">
-                                            <label for="box-3" class="text-dark">4WD</label>
-                                        </div>
-                                      </div>
-                                    </div> -->
                                    
                                     <div class="col-12 col-lg-6 col-sm-5 col-md-6 my-2">
                                       <div class="form-group">

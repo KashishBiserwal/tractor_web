@@ -14,105 +14,118 @@
    <!-- Banner Here -->
    <section id="home-banner" class="banner__section overflow-hidden">
 
-        <!-- <img src="assets/images/Tractor-Range-1920x600-px.webp" alt="reload" class="bannerimg"> -->
+        <img src="assets/images/tractor_index.gif" alt="reload" class="bannerimg w-100">
+       <!-- <video class="video-parallax video-fluid bannerimg w-100 " autoplay loop muted>
+            <source src="assets/images/index_video.mp4" type="video/mp4">
+            <source src="movie.ogg" type="video/ogg"> 
+             Your browser does not support the video tag.
+        </video>-->
     
-        <div class="swiper-5 swiper-container ">
-        <div class="swiper-wrapper">
-        <div class="swiper-slide">
-            <img src="assets/images/Tractor-Range-1920x600-px.webp" alt="reload" class="bannerimg">
-        </div>
-        <div class="swiper-slide">
-            <img src="assets/images/mahindra-oja-tractors-homepage-desktop-1920x600.webp" alt="reload" class="bannerimg">
-        </div>
-        <div class="swiper-slide">
-            <img src="assets/images/Tractor-Range-1920x600-px.webp" alt="reload" class="bannerimg">
-        </div>
-        <div class="swiper-slide">
-            <img src="assets/images/mahindra-oja-tractors-homepage-desktop-1920x600.webp" alt="reload" class="bannerimg">
-        </div>
+        <!-- <div class="swiper-5 swiper-container ">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <img src="assets/images/Tractor-Range-1920x600-px.webp" alt="reload" class="bannerimg">
+                </div>
+                <div class="swiper-slide">
+                    <img src="assets/images/mahindra-oja-tractors-homepage-desktop-1920x600.webp" alt="reload" class="bannerimg">
+                </div>
+                <div class="swiper-slide">
+                    <img src="assets/images/Tractor-Range-1920x600-px.webp" alt="reload" class="bannerimg">
+                </div>
+                <div class="swiper-slide">
+                    <img src="assets/images/mahindra-oja-tractors-homepage-desktop-1920x600.webp" alt="reload" class="bannerimg">
+                </div>
         
-        </div>
-        <div class="swiper-button-prev fs-6"></div>
-        <div class="swiper-button-next  fs-6 "></div>
-        </div>
+            </div>
+            <div class="swiper-button-prev fs-6"></div>
+            <div class="swiper-button-next  fs-6 "></div>
+        </div> -->
 
      <!-- Slider main container -->
-
+    <!-- form -->
       <div class="container bannerbg00">
          <div class="banner__wrapper">
-            <div class="row g-4  justify-content-between">
-               <div class="col-12 col-sm-12 col-xxl-6 col-xl-6 col-lg-6">
-                  <div class="banner__content ">
-                        <div class="card ">
-                            <h2 class="text-dark cursor-pointer">Find Your Own Tractor</h2>
+            <div class="row g-4 justify-content-center">
+                            <div class="col-lg-10">
+                              <h4 class="text-center pt-2">Find Your Own Tractor</h4>
                             <form>
-                            <label for="username" class="text-dark">Select </label> 
-                            <input type="text"  id="username" placeholder="Select HP"class="text-dark bg-light">
-                            <label for="password" class="text-dark">Select Brand</label>
-                            <input type="password" id="password" class="text-dark bg-light" placeholder="Select Brand">
-                            <label for="password" class="text-dark">Select Price</label>
-                            <input type="password" id="password" class="text-dark bg-light" placeholder="Select Price">
-                            <button type="submit" class="pt-3 mt-1 w-50 btn-success  fw-bold ">Search</button>
+                                <div class="row justify-content-center pt-4">
+                                   
+                                    <div class="col-12 col-lg-4 col-sm-4 col-md-4 mt-2">
+                                      <div class="form-group">
+                                        <input type="text" class="py-3" placeholder=" " id="brand">
+                                        <label for="name" class="text-dark fw-bold"> Select HP</label>
+                                      </div>
+                                    </div>
+                                    <div class="col-12 col-lg-4 col-sm-4 col-md-4 mt-2">
+                                      <div class="form-group">
+                                        <input type="text" class="py-3" placeholder=" " id="name">
+                                        <label for="name" class="text-dark fw-bold">Select Brand</label>
+                                      </div>
+                                    </div>
+                                    <div class="col-12 col-lg-4 col-sm-4 col-md-4 mt-2">
+                                      <div class="form-group">
+                                        <input type="text" class="py-3" placeholder=" " id="name">
+                                        <label for="name" class="text-dark fw-bold">Select Price</label>
+                                      </div>
+                                    </div>
+                                    <div class="col-12  text-center">
+                                        <button type="button" class=" btn btn-success btn_search px-5 py-2" id="Search">Search</button>
+                                    </div>
+                                   
+                                </div>
                             </form>
+                            </div>
                         </div>
-                  </div>
-               </div>
-            </div>
      </div>
          <!-- container end -->
    </section>
    <!-- banner end here -->
-   <section>
-        <div class=" container my-2 py-2">
-            <h1 class="text-dark mt-4 py-2 display-6 fw-bold">Why Tractor Junction ?</h2>
-            <div class="row my-3">
-                <div class="col-12 col-md-3 col-lg-3 col-sm-3 px-2 ">
-                    <img src="assets/images/why.jpg" alt="alt" class="mt-4 why  pe-1">
-                    <!-- <img src="assets/images/woman.png" alt=""> -->
-                </div>
-                <div class="col-12 col-md-9 col-lg-9  col-sm-9 my-4">
-                    <div class="row ps-5">
-                        <div class="col-12 col-lg-4 col-md-4 col-sm-4 shadow px-3 py-3 my-2  img-div ">
-                            <div class="content-grids grey-bg mt-3 px-3 py-3 text-center">
-                                <img src="assets/images/priority.png" class="w-25 h-auto mb-3 " alt="Market">
-                                <h5>Priority to Customers</h5>
-                                <p class="mb-0 oneline">10 Lakh+ Monthly Users.</p>
-                            </div>
+   <section class="why_head">
+        <div class=" container mt-1 ">
+            <h2 class="text-dark  display-6 pt-5 fw-bold text-center">Why <span class="text-success">Tractor Junction ?</span></h2>
+            <div class="container">
+                <div class="row my-4 pt-5">
+                    <div class="col-12 col-sm-4 col-lg-4 col-md-4">
+                        <div class="why_con text-center">
+                            <img src="assets/images/priority.png" class="w-25 h-auto mb-3 " alt="Market">
+                            <h5 class="text-dark">Priority to Customers</h5>
+                            <p class="mb-0 oneline text-dark">10 Lakh+ Monthly Users.</p>
                         </div>
-                        <div class="col-12 col-lg-4 col-md-4 col-sm-4 shadow px-5 py-3 my-2 img-div">
-                            <div class="content-grids grey-bg mt-3 px-3 py-3 text-center">
-                                <img src="assets/images/price.png" class="w-25 h-auto mb-3 img-fluid" alt="Market">
-                                <h5>Fair Market Price</h5>
-                                <p class="mb-0 oneline">Get a fair price for all the farm machines.</p>
-                            </div>
+                    </div>
+                    <div class="col-12 col-sm-4 col-lg-4 col-md-4">
+                        <div class="why_con text-center">
+                            <img src="assets/images/price.png" class="w-25 h-auto mb-3 img-fluid" alt="Market">
+                            <h5 class="text-dark">Fair Market Price</h5>
+                            <p class="mb-0 oneline text-dark">Get a fair price for all the farm machines.</p>
                         </div>
-                        <div class="col-12 col-lg-4 col-md-4 col-sm-4 shadow px-3 py-3 my-2 img-div">
-                            <div class="content-grids grey-bg mt-3 px-3 py-3 text-center">
-                                <img src="assets/images/free.png" class="w-25 h-auto mb-3 img-fluid" alt="Market">
-                                <h5>Free of Cost</h5>
-                                <p class="mb-0 oneline">All services provided free of cost.</p>
-                            </div>
+                    </div>
+                    <div class="col-12 col-sm-4 col-lg-4 col-md-4">
+                        <div class="content-grids grey-bg mt-3 px-3 py-3 text-center">
+                            <img src="assets/images/free.png" class="w-25 h-auto mb-3 text-white  img-fluid" alt="Market">
+                            <h5 class="text-dark">Free of Cost</h5>
+                            <p class="mb-0 oneline text-dark">All services provided free of cost.</p>
                         </div>
-                        <div class="col-12 col-lg-4 col-md-4 col-sm-4 shadow px-3 py-3 my-2 img-div" >
-                            <div class="content-grids grey-bg mt-3 px-3 py-3 text-center">
-                                <img src="assets/images/certified.png" class="w-25 h-auto mb-3 img-fluid" alt="Market">
-                                <h5>All services provided free of cost.</h5>
-                                <p class="mb-0 oneline">Here we provide genuine buyers.</p>
-                            </div>
+                    </div>
+                    <div class="col-12 col-sm-4 col-lg-4 col-md-4">
+                        <div class="content-grids grey-bg mt-3 px-3 py-3 text-center">
+                            <img src="assets/images/certified.png" class="w-25 h-auto mb-3 img-fluid" alt="Market">
+                            <h5 class="text-dark">All services provided free of cost.</h5>
+                            <p class="mb-0 oneline text-dark">Here we provide genuine buyers.</p>
                         </div>
-                        <div class="col-12 col-lg-4 col-md-4 col-sm-4 shadow px-3 py-3 my-2 img-div">
-                            <div class="content-grids grey-bg mt-3 px-3 py-3 text-center">
-                                <img src="assets/images/msg-noti.png" class="w-25 h-auto mb-3 img-fluid" alt="Market">
-                                <h5>Instant Notification</h5>
-                                <p class="mb-0 oneline">Get immediate SMS notification on your mobile.</p>
-                            </div>
+                    </div>
+                    <div class="col-12 col-sm-4 col-lg-4 col-md-4">
+                        <div class="content-grids grey-bg mt-3 px-3 py-3 text-center">
+                            <img src="assets/images/msg-noti.png" class="w-25 h-auto mb-3 img-fluid" alt="Market">
+                            <h5 class="text-dark">Instant Notification</h5>
+                            <p class="mb-0 oneline text-dark">Get immediate SMS notification on your mobile.</p>
                         </div>
-                        <div class="col-12 col-lg-4 col-md-4 col-sm-4 shadow px-3 py-3 my-2 img-div">
-                            <div class="content-grids grey-bg mt-3 px-3 py-3 text-center">
-                                <img src="assets/images/settingcus.png" class="w-25 mb-3 h-auto  img-fluid bg-white" alt="Market">
-                                <h5>Customer Support</h5>
-                                <p class="mb-0 oneline">Call us at +91-97709-74974.</p>
-                            </div>
+                    </div>
+                    <div class="col-12 col-sm-4 col-lg-4 col-md-4">
+                        <div class="content-grids grey-bg mt-3 px-3 py-3 text-center">
+                            <img src="assets/images/settingcus.png" class="w-25 mb-3 h-auto  img-fluid bg-white" alt="Market">
+                            <h5 class="text-dark">Customer Support</h5>
+                            <p class="mb-0 oneline text-dark">Call us at +91-97709-74974.</p>
                         </div>
                     </div>
                 </div>
@@ -1718,7 +1731,7 @@
    <section>
     <div class="container my-5 py-2">
         <h3 class="text-dark display-6 fw-bold my-2 pb-2">Tractors By HP</h3>
-        <div class="row ">
+        <!-- <div class="row ">
            
             <div class="col-12 col-md-3 col-sm-3 col-lg-3 shadow w-25 h-25 py-3 px-3 mt-2 px-4">
                 <a href="#" class="text-decoration-none text-dark">
@@ -1764,7 +1777,67 @@
                 <h5 class="text-center"><i class="fas fa-bolt"></i> Above 75 HP</h5>
             </div>
 
-        </div>
+        </div> -->
+        <div class="container">
+                <div class="row my-4 pt-5">
+                    <div class="col-12 col-sm-4 col-lg-4 col-md-4">
+                        <a href="#" class="text-decoration-none text-dark">
+                            <div class="text-center mt-2"><i class="fas fa-tractor fs-2 "></i></div>
+                            <p class="text-center fw-bold mt-3">Tractors</p>
+                            <h5 class="text-center">Under 20 HP</h5>
+                        </a>
+                    </div>
+                    <div class="col-12 col-sm-4 col-lg-4 col-md-4">
+                        <a href="#" class="text-decoration-none text-dark">
+                            <div class="text-center mt-2"><i class="fas fa-tractor fs-2 "></i></div>
+                            <p class="text-center fw-bold mt-3">Tractors</p>
+                            <h5 class="text-center">Under 21-30 HP</h5>
+                        </a>
+                    </div>
+                    <div class="col-12 col-sm-4 col-lg-4 col-md-4">
+                        <a href="#" class="text-decoration-none text-dark">
+                            <div class="text-center mt-2"><i class="fas fa-tractor fs-2 "></i></div>
+                            <p class="text-center fw-bold mt-3">Tractors</p>
+                            <h5 class="text-center">Under 31-40 HP</h5>
+                        </a>
+                    </div>
+                    <div class="col-12 col-sm-4 col-lg-4 col-md-4">
+                        <a href="#" class="text-decoration-none text-dark">
+                            <div class="text-center mt-2"><i class="fas fa-tractor fs-2 "></i></div>
+                            <p class="text-center fw-bold mt-3">Tractors</p>
+                            <h5 class="text-center">Under 41-45 HP</h5>
+                        </a>
+                    </div>
+                    <div class="col-12 col-sm-4 col-lg-4 col-md-4">
+                        <a href="#" class="text-decoration-none text-dark">
+                            <div class="text-center mt-2"><i class="fas fa-tractor fs-2 "></i></div>
+                            <p class="text-center fw-bold mt-3">Tractors</p>
+                            <h5 class="text-center"> Under 46-50 HP</h5>
+                        </a>
+                    </div>
+                    <div class="col-12 col-sm-4 col-lg-4 col-md-4">
+                        <a href="#" class="text-decoration-none text-dark">
+                            <div class="text-center mt-2"><i class="fas fa-tractor fs-2 "></i></div>
+                            <p class="text-center fw-bold mt-3">Tractors</p>
+                            <h5 class="text-center">Under 51-60 HP</h5>
+                        </a>
+                    </div>
+                    <div class="col-12 col-sm-4 col-lg-4 col-md-4">
+                        <a href="#" class="text-decoration-none text-dark">
+                            <div class="text-center mt-2"><i class="fas fa-tractor fs-2 "></i></div>
+                            <p class="text-center fw-bold mt-3">Tractors</p>
+                            <h5 class="text-center">Under 61-75 HP</h5>
+                        </a>
+                    </div>
+                    <div class="col-12 col-sm-4 col-lg-4 col-md-4">
+                        <a href="#" class="text-decoration-none text-dark">
+                            <div class="text-center mt-2"><i class="fas fa-tractor fs-2 "></i></div>
+                            <p class="text-center fw-bold mt-3">Tractors</p>
+                            <h5 class="text-center">above 75 HP</h5>
+                        </a>
+                    </div>
+                </div>
+            </div>
     </div>
    </section>
 

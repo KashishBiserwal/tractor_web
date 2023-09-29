@@ -63,7 +63,9 @@ body{
     width: 100%;
 }
 .aside{
-    background: #2f3e46;
+    /* background: #2f3e46; */
+    background: linear-gradient(to left, #333, #333 50%, #eee 75%, #333 75%);
+    /* background-image: linear-gradient(red, yellow); */
     /* background: #0b7431; 090909c2*/
     width: 260px;
     padding-bottom: 60px;

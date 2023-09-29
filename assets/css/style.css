@@ -13,7 +13,7 @@
     color: #fff;
   }
   .nav-item{
-    --b: 0.1em;   /* the thickness of the line */
+    --b: 0.1em;   /*the thickness of the line*/
   --c: #07791a; /* the color */
   
   color: #0000;
@@ -26,9 +26,10 @@
   transition: .3s var(--_s,0s) linear,background-size .3s calc(.3s - var(--_s,0s));
   }
   .nav-item:hover{
-    --_p: 100%;
-    --_s: .3s;
+    /* --_p: 100%;
+    --_s: .3s; */
   }
+
   .dropend .dropdown-toggle {
     /* color: salmon; */
     margin-left: 1em;
@@ -99,7 +100,7 @@
   /* color: #000; */
 } 
 .bannerimg{
-  width: 100%;
+  /* width: 100%; */
   height: 530px;
 }
 .banner__content {
@@ -110,12 +111,17 @@
 .bannerbg00 {
   position: absolute;
   top: 50%;
-  transform: translateY(-50%);
+  transform: translateY(27%);
+  height: 222px;
   left: 0px; 
   float: right;
  right: 0;
   bottom: 0;
   z-index:4;
+  background: #f8f9fa7d;
+}
+.why_head{
+  /* background: #24273e; */
 }
 
 .h2form {
@@ -356,7 +362,7 @@ button:hover {
 @media (max-width: 480px) {
   .bannerimg {
     width: 100%;
-    max-width: 350px;
+    /* max-width: 350px; */
   }
 }
 
@@ -544,7 +550,7 @@ button {
   background-color: #a2ffa5;
 }
 
-.ul-box li a,p:hover{
+.ul-box li a:hover{
   color: rgb(3, 199, 3);
 }
 
@@ -564,6 +570,9 @@ button {
 /* header dropdown*/
 .dropdown-menu li {
   position: relative;
+  }
+  .dropdown-menu {
+    width: 222px;
   }
   .dropdown-menu .dropdown-submenu {
   display: none;
@@ -728,6 +737,15 @@ border-radius: 50%;
 } 
 
 /* sell used */
+
+.bestplace{
+  /* background: rgb(62 6 3 / 65%); */
+  background: #0d3b66;
+}
+/* .success__stry__item {
+  height: 338px;
+} */
+
 .price { 
   border:2px solid #ccf1df;
    width:300px;
@@ -780,7 +798,16 @@ border-radius: 50%;
 .btn-state{
   background: #34d74f;
 }
-
+/* farm all implement */
+.card-1 h3{
+  color: green;
+}
+.card-1:hover {
+  box-shadow: 0 4px 8px rgba(0,0,0,0.25);
+  /* color: #fff; */
+  /* background: #155796; */
+  transition: 0.3 all;
+}
 /* tractor valuation */
 .headline {
   left: 130px;

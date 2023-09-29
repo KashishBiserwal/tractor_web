@@ -108,34 +108,33 @@
     </button>
     <div class="collapse navbar-collapse container" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item dropdown ps-2">
-          <a class="nav-link dropdown-toggle text-dark fw-bold" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        <li class="nav-item dropdown dropdown-toggle ps-2 mt-3">
+          <a class="nav-link dropdown-toggle text-dark fw-bold " href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             New Tractor
           </a>
-          <ul class="dropdown-menu">
+          <ul class="dropdown-menu mt-2">
             <!-- <li><a href="#" class="dropdown-item fw-bold" href="#">Brands</a></li> -->
-            <li class="nav-item dropend">
-              <a class="nav-link dropdown-toggle fw-bold" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <li class="nav-item dropend ">
+              <a class=" nav-link nav-link_brand dropdown-toggle fw-bold text-dark py-2" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 Brands
               </a>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item fw-bold" href="mahindra.php">Mahindra</a></li>
+              <ul class="dropdown-menu mt-2  pt-1">
+                <li><a class="dropdown-item fw-bold  py-2" href="mahindra.php">Mahindra</a></li>
                 <hr class="dropdown-divider">
-                <li><a class="dropdown-item fw-bold" href="#">Swaraj</a></li>
+                <li><a class="dropdown-item fw-bold  py-2" href="#">Swaraj</a></li>
                 <hr class="dropdown-divider">
-                <li><a class="dropdown-item fw-bold" href="#">Farmtrac</a></li>
+                <li><a class="dropdown-item fw-bold  py-2" href="#">Farmtrac</a></li>
                 <hr class="dropdown-divider">
-                <li><a class="dropdown-item fw-bold" href="#">Massey Ferguson</a></li>
+                <li><a class="dropdown-item fw-bold py-2" href="#">Massey Ferguson</a></li>
                 <hr class="dropdown-divider">
-                <li><a class="dropdown-item  fw-bold" href="#">John Deere</a></li>
+                <li><a class="dropdown-item  fw-bold py-2" href="#">John Deere</a></li>
                 <hr class="dropdown-divider">
-                <li><a class="dropdown-item  fw-bold" href="#">Sonalika</a></li>
+                <li><a class="dropdown-item  fw-bold py-2" href="#">Sonalika</a></li>
                 <hr class="dropdown-divider">
-                <li><a class="dropdown-item  fw-bold" href="#">ALL BRANDS</a></li>
+                <li><a class="dropdown-item  fw-bold py-2" href="#">ALL BRANDS</a></li>
               </ul>
             </li>
             <li>
-              <hr class="dropdown-divider ps-2">
             </li>
             <hr class="dropdown-divider">
             <li><a href="find_new_tractors.php" class="dropdown-item fw-bold" >Find New Tractors</a></li>
@@ -151,11 +150,11 @@
             <li><a href="#" class="dropdown-item fw-bold">4WD Tractor</a></li>
           </ul>
         </li>
-        <li class="nav-item dropdown  ps-2">
+        <li class="nav-item  dropdown-toggle dropdown  ps-2  mt-3">
           <a class="nav-link dropdown-toggle text-dark fw-bold" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Buy Used 
           </a>
-          <ul class="dropdown-menu">
+          <ul class="dropdown-menu pt-3 mt-2">
             <li><a href="certified_used_tractor.php" class="dropdown-item fw-bold">Certified Used Tractors</a></li>
             <hr class="dropdown-divider">
             <li><a href="used_tractor.php" class="dropdown-item  fw-bold">Used Tractors</a></li>
@@ -170,11 +169,11 @@
             
           </ul>
         </li>
-        <li class="nav-item dropdown  ps-2">
+        <li class="nav-item dropdown  dropdown-toggle  ps-2 mt-3">
           <a class="nav-link dropdown-toggle text-dark fw-bold" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Sell Used
           </a>
-          <ul class="dropdown-menu">
+          <ul class="dropdown-menu mt-2">
             <li><a href="sell_used_trac.php" class="dropdown-item  fw-bold" href="#"> Sell Used Tractor</a></li>
                 <hr class="dropdown-divider">
               <li><a href="#" class="dropdown-item  fw-bold" href="#">Used Farm Implements</a></li>
@@ -183,55 +182,56 @@
           </ul>
         </li>
         
-        <li class="nav-item dropdown ps-2">
+        <li class="nav-item dropdown dropdown-toggle ps-2 mt-3">
           <a class="nav-link dropdown-toggle text-dark fw-bold" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
            Farm Equipment's
           </a>
-          <ul class="dropdown-menu">
+          <ul class="dropdown-menu mt-2">
             <li class="nav-item dropend">
-              <a class="nav-link dropdown-toggle fw-bold" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <a class="nav-link dropdown-toggle text-dark fw-bold" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 Implements
               </a>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item fw-bold" href="#">All Implements</a></li>
+              <ul class="dropdown-menu pt-1 mt-2">
+                <li><a class="dropdown-item fw-bold py-1 mt-2" href="all_farm_imple.php">All Implements</a></li>
                 <hr class="dropdown-divider">
-                <li><a class="dropdown-item fw-bold" href="#">Rotary Tiller</a></li>
+                <li><a class="dropdown-item fw-bold py-1" href="#">Rotary Tiller</a></li>
                 <hr class="dropdown-divider">
-                <li><a class="dropdown-item fw-bold" href="#">Cultivator</a></li>
+                <li><a class="dropdown-item fw-bold py-1" href="#">Cultivator</a></li>
                 <hr class="dropdown-divider">
-                <li><a class="dropdown-item fw-bold" href="#">Plough</a></li>
+                <li><a class="dropdown-item fw-bold py-1" href="#">Plough</a></li>
                 <hr class="dropdown-divider">
-                <li><a class="dropdown-item  fw-bold" href="#">Harrow</a></li>
+                <li><a class="dropdown-item  fw-bold py-1" href="#">Harrow</a></li>
                 <hr class="dropdown-divider">
-                <li><a class="dropdown-item  fw-bold" href="#">Trailor</a></li>
+                <li><a class="dropdown-item  fw-bold py-1" href="#">Trailor</a></li>
                 <hr class="dropdown-divider">
-                <li><a class="dropdown-item  fw-bold" href="#">Tractor Mounted Sprayers</a></li>
+                <li><a class="dropdown-item  fw-bold py-1 mb-1" href="#">Tractor Mounted Sprayers</a></li>
               </ul>
             </li>
             <li>
               <hr class="dropdown-divider ps-2">
             </li>
-            <li><a class="dropdown-item  fw-bold" href="#">Harvester</a></li>
+            <li class="mt-4" ><a class="dropdown-item  fw-bold" href="#">Harvester</a></li>
            
            
           </ul>
         </li>
-        <li class="nav-item  ps-4">
-          <a class="nav-link text-dark fw-bold">Compare</a>
+        <li class="nav-item mt-3  ps-4">
+          <a class="nav-link text-dark fw-bold" href="#">Compare</a>
         </li>
-        <div class="col-2 ">
-        <li class="nav-item text-center">
-         <a class="nav-link text-dark fw-bold">On-Road Price</a>
-          
-        </li></div>
-        <li class="nav-item ">
-          <a class="nav-link text-dark fw-bold ps-0">Shop</a>
+        <div class="col-2 mt-3">
+          <li class="nav-item text-center">
+          <a class="nav-link text-dark fw-bold"href="#">On-Road Price</a>
+            
+          </li>
+        </div>
+        <li class="nav-item mt-3">
+          <a class="nav-link text-dark fw-bold ps-0" href="#">Shop</a>
         </li>
-        <li class="nav-item dropdown ps-2">
+        <li class="nav-item dropdown dropdown-toggle mt-3 ps-2">
           <a class="nav-link dropdown-toggle text-dark fw-bold" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Loan
           </a>
-          <ul class="dropdown-menu">
+          <ul class="dropdown-menu pt-3 mt-2">
             <li><a class="dropdown-item fw-bold" href="#">New Tractor Loan</a></li>
             <hr class="dropdown-divider">
             <li><a class="dropdown-item fw-bold" href="#">Used Tractor Loan</a></li>
@@ -242,11 +242,11 @@
           </ul>
         </li>
         <div class="col-2 text-center">
-          <li class="nav-item dropdown">
+          <li class="nav-item dropdown dropdown-toggle mt-3">
             <a class="nav-link dropdown-toggle text-dark fw-bold" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               News & Update
             </a>
-            <ul class="dropdown-menu">
+            <ul class="dropdown-menu pt-3 mt-2">
                 <li><a class="dropdown-item fw-bold" href="#">All News</a></li>
                 <hr class="dropdown-divider">
                 <li><a class="dropdown-item fw-bold" href="#">Tractor News</a></li>
@@ -264,11 +264,11 @@
 
           </li>
         </div>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle text-dark fw-bold" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        <li class="nav-item dropdown dropdown-toggle">
+          <a class="nav-link dropdown-toggle text-dark fw-bold mt-3" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             More
           </a>
-          <ul class="dropdown-menu">
+          <ul class="dropdown-menu  pt-3 mt-2">
                 <li><a class="dropdown-item fw-bold" href="#">EMI Calculator</a></li>
                 <hr class="dropdown-divider">
                 <li><a class="dropdown-item fw-bold" href="#">Finance</a></li>
