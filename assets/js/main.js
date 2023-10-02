@@ -195,74 +195,82 @@ var swiper = new Swiper('.swiper-5', {
 },
 });
 
-// let dropdowdns = document.querySelectorAll('.dropdown-toggle')
-// dropdowns.forEach((dd)=>{
-//     dd.addEventListener('click', function (e) {
-//         var el = this.nextElementSibling
-//         el.style.display = el.style.display==='block'?'none':'block'
-//     })
-// })
 
-
-// var mySwiper = new Swiper ('.swiper-5', {
-//   // Optional parameters
-//   pagination: '.swiper-pagination',
-//   paginationClickable: true,
-//   nextButton: '.swiper-button-next',
-//   prevButton: '.swiper-button-prev',
-//   spaceBetween: 0,
-//   parallax: true,
-//   autoplay: 3000,
-//   speed: 400,
-//   autoplayDisableOnInteraction: false
-// })
-
-
-// brand swip
-// var mySwiper3 = new Swiper('.swiper-container',{
-//   pagination: '.pagination',
-//   loop:true,
-//   autoplay: 1000,
-//   paginationClickable: true
-// })
-// $('.swiper-container').on('mouseenter', function(e){
-//   console.log('stop autoplay');
-//   mySwiper3.stopAutoplay();
-// })
-// $('.swiper-container').on('mouseleave', function(e){
-//   console.log('start autoplay');
-//   mySwiper3.startAutoplay();
-// })
-
-var mySwiper = new Swiper(".swiper-container1", {
-  // If swiper loop is true set photoswipe counterEl: false (line 175 her)
-  loop: true,
-  /* slidesPerView || auto - if you want to set width by css like flickity.js layout - in this case width:80% by CSS */
-  slidesPerView: "auto",
-  // autoplay: true,
-  autoplay: 1000,
-  spaceBetween: 7,
-  slidesPerView: 4,
-  loop: true,
+// state 
+const swiper_state = new Swiper(".slider-section-state", {
+  // Optional parameters
   centeredSlides: true,
+  slidesPerView: 1,
+  grabCursor: true,
+  freeMode: false,
+  loop: true,
+  mousewheel: false,
+  keyboard: {
+    enabled: true
+  },
+
+  // Enabled autoplay mode
+  autoplay: {
+    delay: 3000,
+    disableOnInteraction: false
+  },
+
   // If we need pagination
   pagination: {
-    el: ".swiper-pagination",
-    clickable: true,
-    renderBullet: function(index, className) {
-      return '<span class="' + className + '">' + (index + 1) + "</span>";
-    },
-    navigation: {
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev',
-    }
+    el: ".swiper-pagination-state",
+    dynamicBullets: false,
+    clickable: true
   },
-   // Navigation arrows
-    navigation: {
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev',
+
+  // If we need navigation
+  navigation: {
+    nextEl: ".swiper-button-next-state",
+    prevEl: ".swiper-button-prev-state"
+  },
+
+  // Responsive breakpoints
+  breakpoints: {
+    640: {
+      slidesPerView: 1.25,
+      spaceBetween: 20
+    },
+    1024: {
+      slidesPerView: 2,
+      spaceBetween: 20
     }
+  }
 });
+
+
+
+
+
+
+// var mySwiper = new Swiper(".swiper-container1", {
+//   loop: true,
+//   slidesPerView: "auto",
+//   autoplay: 1000,
+//   spaceBetween: 7,
+//   slidesPerView: 4,
+//   loop: true,
+//   centeredSlides: true,
+//   pagination: {
+//     el: ".swiper-pagination",
+//     clickable: true,
+//     renderBullet: function(index, className) {
+//       return '<span class="' + className + '">' + (index + 1) + "</span>";
+//     },
+//     navigation: {
+//       nextEl: '.swiper-button-next',
+//       prevEl: '.swiper-button-prev',
+//     }
+//   },
+//    // Navigation arrows
+//     navigation: {
+//       nextEl: '.swiper-button-next',
+//       prevEl: '.swiper-button-prev',
+//     }
+// });
 
 // implements
 // const swiper5 = new Swiper(".swiper-5", {

@@ -2,7 +2,7 @@
    include 'headertag.php';
    ?> 
    <header>
-    <nav class="admin-header navbar navbar-expand-sm py-3">
+    <nav class="admin-header navbar navbar-expand-sm py-1">
             <div class="container">
                 <div class="row w-100">
                 <div class="col-12 col-sm-9 col-md-9 col-lg-9"></div>

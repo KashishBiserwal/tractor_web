@@ -465,55 +465,55 @@
         </div>
         <div class="row">
             <a href="#" class="col-12 col-lg-4 col-md-4 col-sm-4 my-2 text-decoration-none text-dark text-center ">
-                <div class="card-1 py-3 mt-2 px-2 bg-light">
+                <div class="card-1 py-3 mt-2 px-2 bg-light rounded-4">
                     <h3 class="text-center fw-bold"> Rotavator </h3>
                     <p class=" py-2"> <strong class="text-success">Rotavator </strong>is a secondary tilling equipment that churns the soil to organise the fine seedbed for seeding and planting. It has a sequence of rotating knives to break and turn the ground.</p>
                 </div>
             </a>
             <a href="#" class="col-12 col-lg-4 col-md-4 col-sm-4 my-2 text-decoration-none text-dark text-center ">
-                <div class="card-1 py-3 mt-2 px-2 bg-light">
+                <div class="card-1 py-3 mt-2 px-2 bg-light rounded-4">
                     <h3 class="text-center fw-bold">  Seed Drills</h3>
                     <p class=" py-2"> <strong class="text-success">seed drill </strong> is a farming machine that helps to sow seeds at a specific depth and distance inside the soil. Also, it spreads seeds evenly by growing them at a proper seeding rate and depth.</p>
                 </div>
             </a>
             <a href="#" class="col-12 col-lg-4 col-md-4 col-sm-4 my-2 text-decoration-none text-dark text-center ">
-                <div class="card-1 py-3 mt-2 px-2 bg-light">
+                <div class="card-1 py-3 mt-2 px-2 bg-light rounded-4">
                     <h3 class="text-center fw-bold"> Baler  </h3>
                     <p class=" py-2"> <strong class="text-success">Baler </strong> is a necessary farm implement, used to make bales of grass from the field. This machine collects grass, straws and other materials and processes them to make neat bales.</p>
                 </div>
             </a>
             <a href="#" class="col-12 col-lg-4 col-md-4 col-sm-4 my-2 text-decoration-none text-dark text-center ">
-                <div class="card-1 py-3 mt-2 px-2 bg-light">
+                <div class="card-1 py-3 mt-2 px-2 bg-light rounded-4">
                     <h3 class="text-center fw-bold">  Sprayer </h3>
                     <p class=" py-2"> <strong class="text-success">Sprayer </strong>is a farming tool that helps in the distribution of chemicals such as pesticides, herbicides or weedicides. Moreover, farmers use this implement to do efficient spraying tasks.</p>
                 </div>
             </a>
             <a href="#" class="col-12 col-lg-4 col-md-4 col-sm-4 my-2 text-decoration-none text-dark text-center ">
-                <div class="card-1 py-3 mt-2 px-2 bg-light">
+                <div class="card-1 py-3 mt-2 px-2 bg-light rounded-4">
                     <h3 class="text-center fw-bold"> Cultivator </h3>
                     <p class=" py-2"> <strong class="text-success">cultivator </strong>cultivator has many applications. It works in secondary tillage and improves soil fertility by breaking soil clods and burying previously grown crops.</p>
                 </div>
             </a>
             <a href="#" class="col-12 col-lg-4 col-md-4 col-sm-4 my-2 text-decoration-none text-dark text-center ">
-                <div class="card-1 py-3 mt-2 px-2 bg-light">
+                <div class="card-1 py-3 mt-2 px-2 bg-light rounded-4">
                     <h3 class="text-center fw-bold"> Planter</h3>
                     <p class=" py-2"> <strong class="text-success">Planters  </strong>make planting tasks easier as they help grow seedlings and large-sized seeds. This machine is recommended for its accuracy in producing at a specific depth.</p>
                 </div>
             </a>
             <a href="#" class="col-12 col-lg-4 col-md-4 col-sm-4 my-2 text-decoration-none text-dark text-center">
-                <div class="card-1 py-3 mt-2 px-2 bg-light">
+                <div class="card-1 py-3 mt-2 px-2 bg-light rounded-4">
                     <h3 class="text-center fw-bold text-success"> Mulcher </h3>
                     <p class=" py-2"> <strong class="text-success">Mulcher </strong> is a tractor-drawn farming equipment utilised in cutting the unnecessary tiny plants, bushes and trees which are present at the base of the crops.</p>
                 </div>
             </a>
             <a href="#" class="col-12 col-lg-4 col-md-4 col-sm-4 my-2 text-decoration-none text-dark text-center">
-                <div class="card-1 py-3 mt-2 px-2  bg-light">
+                <div class="card-1 py-3 mt-2 px-2  bg-light rounded-4">
                     <h3 class="text-center fw-bold text-success">Combine harvester </h3>
                     <p class=" py-2"> <strong class="text-success">combine harvester </strong> can either be self-propelled or tractor mounted, and it is used to obtain grains from the crops by moving in the whole field.</p>
                 </div>
             </a>
             <a href="#" class="col-12 col-lg-4 col-md-4 col-sm-4 my-2 text-decoration-none text-dark text-center">
-                <div class="card-1 py-3 mt-2 px-2  bg-light">
+                <div class="card-1 py-3 mt-2 px-2  bg-light rounded-4">
                     <h3 class="text-center fw-bold text-success">Power tiller</h3>
                     <p class=" py-2"> <strong class="text-success"> power tiller </strong>is a type of farming equipment that is used to prepare the soil, sowing, and plant seeds & spraying fertilizers.</p>
                 </div>

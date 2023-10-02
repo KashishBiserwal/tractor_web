@@ -15,7 +15,7 @@
       <div class="container">
         <div class="card-body d-flex align-items-center justify-content-between page_title">
           <nav aria-label="breadcrumb">
-            <ol class="breadcrumb my-0 ms-2">
+            <ol class="breadcrumb ms-2">
               
               <li class="breadcrumb-item">
                 <span>User Overview</span>
@@ -40,41 +40,41 @@
                             <div class="col-lg-10">
                               <h4 class="text-center">Fill your Details</h4>
                             <form>
-                                <div class="row justify-content-center pt-4">
+                                <div class="row justify-content-center">
                                    
-                                    <div class="col-12 col-lg-6 col-md-6 col-sm-6  my-2">
+                                    <div class="col-12 col-lg-6 col-md-6 col-sm-6  ">
                                       <div class="form-group">
-                                        <input type="text" class="py-3" placeholder=" " id="brand">
+                                        <input type="text" class="" placeholder=" " id="brand">
                                         <label for="name" class="text-dark fw-bold"> Name</label>
                                       </div>
                                     </div>
-                                    <div class="col-12 col-lg-6 col-md-6 col-sm-6  my-1">
+                                    <div class="col-12 col-lg-6 col-md-6 col-sm-6">
                                       <div class="form-group">
-                                        <input type="text" class="py-3" placeholder=" " id="model_name">
+                                        <input type="text" class="" placeholder=" " id="model_name">
                                         <label for="name" class="text-dark fw-bold">Contact Number</label>
                                       </div>
                                     </div>
-                                    <div class="col-12 col-lg-6 col-md-6 col-sm-6  my-1">
+                                    <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
                                       <div class="form-group">
-                                        <input type="text" class="py-3" placeholder=" " id="model_name">
+                                        <input type="text" class="" placeholder=" " id="model_name">
                                         <label for="name" class="text-dark fw-bold">State</label>
                                       </div>
                                     </div>
-                                    <div class="col-12 col-lg-6 col-md-6 col-sm-6  my-1">
+                                    <div class="col-12 col-lg-6 col-md-6 col-sm-6">
                                       <div class="form-group">
-                                        <input type="text" class="py-3" placeholder=" " id="model_name">
+                                        <input type="text" class="" placeholder=" " id="model_name">
                                         <label for="name" class="text-dark fw-bold">District</label>
                                       </div>
                                     </div>
-                                    <div class="col-12 col-lg-6 col-md-6 col-sm-6 my-1">
+                                    <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
                                       <div class="form-group">
-                                        <input type="text" class="py-3" placeholder=" " id="model_name">
+                                        <input type="text" class="" placeholder=" " id="model_name">
                                         <label for="name" class="text-dark fw-bold">Tehsil</label>
                                       </div>
                                     </div>
-                                    <div class="col-12 col-lg-6 col-md-6 col-sm-6  my-1">
+                                    <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
                                       <div class="form-group">
-                                        <input type="text" class="py-3" placeholder=" " id="model_name">
+                                        <input type="text" class="" placeholder=" " id="model_name">
                                         <label for="name" class="text-dark fw-bold">Pincode</label>
                                       </div>
                                     </div>
@@ -95,29 +95,29 @@
     </div>
     <div class="container">
       <!-- Filter Card -->
-      <div class="filter-card mb-4">
+      <div class="filter-card ">
         <div class="card-body">
           <div class="row">
             <div class="col-12 col-sm-12 col-md-4 col-lg-4">
-              <div class="form-outline mb-3">
+              <div class="form-outline">
                 <label class="form-label">UserName</label>
                 <input type="email" id="search_name" name="search_name" class="form-control" />
               </div>
             </div>
             <div class="col-12 col-sm-12 col-md-4 col-lg-4">
-              <div class="form-outline mb-3">
+              <div class="form-outline">
                 <label class="form-label">State</label>
                 <input type="text" id="u_state" name="u_state" class="form-control" />
               </div>
             </div>
             <div class="col-12 col-sm-12 col-md-4 col-lg-4">
-              <div class="form-outline mb-3">
+              <div class="form-outline">
                 <label class="form-label">District</label>
                 <input type="text" id="u_dist" name="u_dist" class="form-control" />
               </div>
             </div>
             <div class="col-12 col-sm-12 col-md-4 col-lg-4">
-              <div class="form-outline mb-3">
+              <div class="form-outline ">
                 <label class="form-label">Pincode</label>
                 <input type="text" id="pincode" name="pincode" class="form-control" />
               </div>
@@ -126,8 +126,8 @@
             
             <div class="col-12 col-sm-12 col-md-8 col-lg-8">
               <div class="float-end text-center">
-                <button type="button" class="btn-success btn_search" id="Search">Search</button>
-                <button type="button" class="btn-success  mx-2 btn_search" id="Reset">Reset</button>
+                <button type="button" class="btn-success btn_search btn " id="Search">Search</button>
+                <button type="button" class="btn-success  mx-2 btn_search btn" id="Reset">Reset</button>
               </div>
             </div>
           </div>
@@ -136,17 +136,17 @@
       <!-- Table Card -->
       <div class=" mb-5">
             <div class="table-responsive">
-              <table id="example" class="table  table_useroverview dataTable no-footer py-1" width="100%">
-                <thead>
+              <table id="example" class="table dataTable no-footer py-1" width="100%">
+                <thead class="">
                   <tr>
-                    <th class="d-none d-md-table-cell text-dark">S.No.</th>
-                    <th class="d-none d-md-table-cell text-dark">Date</th>
-                    <th class="d-none d-md-table-cell text-dark">Name</th>
-                    <th class="d-none d-md-table-cell text-dark">Mobile Number</th>
-                    <th class="d-none d-md-table-cell text-dark">state </th>
-                    <th class="d-none d-md-table-cell text-dark">District</th>
-                    <th class="d-none d-md-table-cell text-dark">Tehsil</th>
-                    <th class="d-none d-md-table-cell text-dark">Pincode</th>
+                    <th class="d-none d-md-table-cell text-white py-2">S.No.</th>
+                    <th class="d-none d-md-table-cell text-white py-2">Date</th>
+                    <th class="d-none d-md-table-cell text-white py-2">Name</th>
+                    <th class="d-none d-md-table-cell text-white py-2">Mobile Number</th>
+                    <th class="d-none d-md-table-cell text-white py-2">state </th>
+                    <th class="d-none d-md-table-cell text-white py-2">District</th>
+                    <th class="d-none d-md-table-cell text-white py-2">Tehsil</th>
+                    <th class="d-none d-md-table-cell text-white py-2">Pincode</th>
                   </tr>
                 </thead>
               <tbody>

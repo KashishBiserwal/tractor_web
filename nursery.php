@@ -100,29 +100,29 @@
     </div>
     <div class="container">
       <!-- Filter Card -->
-      <div class="filter-card mb-4">
+      <div class="filter-card mb-2">
         <div class="card-body">
           <div class="row">
             <div class="col-12 col-sm-12 col-md-4 col-lg-4">
-              <div class="form-outline mb-3">
+              <div class="form-outline">
                 <label class="form-label">Name</label>
                 <input type="text" id="search_email" name="search_email" class="form-control" />
               </div>
             </div>
             <div class="col-12 col-sm-12 col-md-4 col-lg-4">
-              <div class="form-outline mb-3">
+              <div class="form-outline ">
                 <label class="form-label">State</label>
                 <input type="text" id="search_email" name="search_email" class="form-control" />
               </div>
             </div>
             <div class="col-12 col-sm-12 col-md-4 col-lg-4">
-              <div class="form-outline mb-3">
+              <div class="form-outline">
                 <label class="form-label">District</label>
                 <input type="text" id="search_email" name="search_email" class="form-control" />
               </div>
             </div>
             <div class="col-12 col-sm-12 col-md-4 col-lg-4">
-              <div class="form-outline mb-3">
+              <div class="form-outline">
                 <label class="form-label">Category</label>
                 <input type="text" id="category" name="category" class="form-control" />
               </div>
@@ -139,17 +139,17 @@
       <!-- Table Card -->
       <div class=" mb-5">
                             <div class="table-responsive">
-                                <table id="example" class="table  table_useroverview dataTable no-footer py-1" width="100%">
+                                <table id="example" class="table dataTable no-footer py-1" width="100%">
                                     <thead>
                                         <tr>
-                                            <th class="d-none d-md-table-cell text-dark">S.No.</th>
-                                            <th class="d-none d-md-table-cell text-dark">Name</th>
-                                            <th class="d-none d-md-table-cell text-dark">Phone Number </th>
-                                            <th class="d-none d-md-table-cell text-dark">State </th>
-                                            <th class="d-none d-md-table-cell text-dark">District</th>
-                                            <th class="d-none d-md-table-cell text-dark">tehsil</th>
-                                            <th class="d-none d-md-table-cell text-dark">Category</th>
-                                            <th class="d-none d-md-table-cell text-dark">Sub-category</th>
+                                            <th class="d-none d-md-table-cell text-white">S.No.</th>
+                                            <th class="d-none d-md-table-cell text-white">Name</th>
+                                            <th class="d-none d-md-table-cell text-white">Phone Number </th>
+                                            <th class="d-none d-md-table-cell text-white">State </th>
+                                            <th class="d-none d-md-table-cell text-white">District</th>
+                                            <th class="d-none d-md-table-cell text-white">tehsil</th>
+                                            <th class="d-none d-md-table-cell text-white">Category</th>
+                                            <th class="d-none d-md-table-cell text-white">Sub-category</th>
                                         </tr>
                                     </thead>
                                     <tbody>

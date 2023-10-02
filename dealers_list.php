@@ -95,29 +95,29 @@
     </div>
     <div class="container">
       <!-- Filter Card -->
-      <div class="filter-card mb-4">
+      <div class="filter-card mb-2">
         <div class="card-body">
           <div class="row">
             <div class="col-12 col-sm-12 col-md-4 col-lg-4">
-              <div class="form-outline mb-3">
+              <div class="form-outline">
                 <label class="form-label">Brand</label>
                 <input type="email" id="search_name" name="search_name" class="form-control" />
               </div>
             </div>
             <div class="col-12 col-sm-12 col-md-4 col-lg-4">
-              <div class="form-outline mb-3">
+              <div class="form-outline">
                 <label class="form-label">Name</label>
                 <input type="text" id="search_email" name="search_email" class="form-control" />
               </div>
             </div>
             <div class="col-12 col-sm-12 col-md-4 col-lg-4">
-              <div class="form-outline mb-3">
+              <div class="form-outline">
                 <label class="form-label">State</label>
                 <input type="text" id="search_email" name="search_email" class="form-control" />
               </div>
             </div>
             <div class="col-12 col-sm-12 col-md-4 col-lg-4">
-              <div class="form-outline mb-3">
+              <div class="form-outline">
                 <label class="form-label">District</label>
                 <input type="text" id="search_email" name="search_email" class="form-control" />
               </div>
@@ -134,17 +134,17 @@
       <!-- Table Card -->
       <div class=" mb-5">
                             <div class="table-responsive">
-                                <table id="example" class="table  table_useroverview dataTable no-footer py-1" width="100%">
+                                <table id="example" class="table dataTable no-footer py-1" width="100%">
                                     <thead>
                                         <tr>
                                             <th class="d-none d-md-table-cell text-dark">S.No.</th>
                                             <!-- <th class="d-none d-md-table-cell text-dark">Category</th> -->
-                                            <th class="d-none d-md-table-cell text-dark">Brand</th>
-                                            <th class="d-none d-md-table-cell text-dark">Address </th>
-                                            <th class="d-none d-md-table-cell text-dark">Email </th>
-                                            <th class="d-none d-md-table-cell text-dark">Contact number</th>
-                                            <th class="d-none d-md-table-cell text-dark">State</th>
-                                            <th class="d-none d-md-table-cell text-dark">District</th>
+                                            <th class="d-none d-md-table-cell text-white">Brand</th>
+                                            <th class="d-none d-md-table-cell text-white">Address </th>
+                                            <th class="d-none d-md-table-cell text-white">Email </th>
+                                            <th class="d-none d-md-table-cell text-white">Contact number</th>
+                                            <th class="d-none d-md-table-cell text-white">State</th>
+                                            <th class="d-none d-md-table-cell text-white">District</th>
                                         </tr>
                                     </thead>
                                     <tbody>

@@ -89,25 +89,25 @@
     </div>
     <div class="container">
       <!-- Filter Card -->
-      <div class="filter-card mb-4">
+      <div class="filter-card mb-2">
         <div class="card-body">
           <div class="row">
-            <div class="col-12 col-sm-12 col-md-6 col-lg-6">
-              <div class="form-outline mb-3">
+            <div class="col-12 col-sm-12 col-md-4 col-lg-4">
+              <div class="form-outline">
                 <label class="form-label">Brand</label>
                 <input type="email" id="search_name" name="search_name" class="form-control" />
               </div>
             </div>
-            <div class="col-12 col-sm-12 col-md-6 col-lg-6">
-              <div class="form-outline mb-3">
+            <div class="col-12 col-sm-12 col-md-4 col-lg-4">
+              <div class="form-outline">
                 <label class="form-label">Model Name</label>
                 <input type="text" id="search_email" name="search_email" class="form-control" />
               </div>
             </div>
-            <div class="col-12 col-sm-12 ">
-              <div class="float-end">
-                <button type="button" class="btn-success btn_search" id="Search">Search</button>
-                <button type="button" class="btn-success  mx-2 btn_search" id="Reset">Reset</button>
+            <div class="col-12 col-sm-12 col-md-4 col-lg-4">
+              <div class="text-center">
+                <button type="button" class="btn-success btn btn_search" id="Search">Search</button>
+                <button type="button" class="btn-success btn  mx-2 btn_search" id="Reset">Reset</button>
               </div>
             </div>
           </div>
@@ -116,14 +116,14 @@
       <!-- Table Card -->
       <div class=" mb-5">
                             <div class="table-responsive">
-                                <table id="example" class="table  table_useroverview dataTable no-footer py-1" width="100%">
+                                <table id="example" class="table dataTable no-footer py-1" width="100%">
                                     <thead>
                                         <tr>
-                                            <th class="d-none d-md-table-cell text-dark">S.No.</th>
+                                            <th class="d-none d-md-table-cell text-white">S.No.</th>
                                             <!-- <th class="d-none d-md-table-cell text-dark">Category</th> -->
-                                            <th class="d-none d-md-table-cell text-dark">Brand</th>
-                                            <th class="d-none d-md-table-cell text-dark">Model </th>
-                                            <th class="d-none d-md-table-cell text-dark">Action</th>
+                                            <th class="d-none d-md-table-cell text-white">Brand</th>
+                                            <th class="d-none d-md-table-cell text-white">Model </th>
+                                            <th class="d-none d-md-table-cell text-white">Action</th>
                                            
                                         </tr>
                                     </thead>

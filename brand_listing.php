@@ -73,11 +73,11 @@
     </div>
     <div class="container">
       <!-- Filter Card -->
-      <div class="filter-card mb-4">
+      <div class="filter-card mb-2">
         <div class="card-body">
           <div class="row">
             <div class="col-12 col-sm-12 col-md-6 col-lg-6">
-              <div class="form-outline mb-3">
+              <div class="form-outline">
                 <label class="form-label">Brand</label>
                 <input type="email" id="search_name" name="search_name" class="form-control" />
               </div>
@@ -92,11 +92,11 @@
       <!-- Table Card -->
       <div class=" mb-5">
                             <div class="table-responsive">
-                                <table id="example_brand" class="table  table_useroverview dataTable no-footer py-1" width="100%">
+                                <table id="example_brand" class="table dataTable no-footer py-1" width="100%">
                                     <thead>
                                         <tr>
-                                            <th class="d-none d-md-table-cell text-dark">S.No.</th>
-                                            <th class="d-none d-md-table-cell text-dark">  Brand Name</th>
+                                            <th class="d-none d-md-table-cell text-white">S.No.</th>
+                                            <th class="d-none d-md-table-cell text-white">  Brand Name</th>
                                             <!-- <th class="d-none d-md-table-cell text-dark">Model</th>
                                             <th class="d-none d-md-table-cell text-dark"> No. of Cylinder</th>
                                             <th class="d-none d-md-table-cell text-dark">  PTO HP</th>

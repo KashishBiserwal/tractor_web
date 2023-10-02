@@ -47,7 +47,7 @@
          <div class="banner__wrapper">
             <div class="row g-4 justify-content-center">
                             <div class="col-lg-10">
-                              <h4 class="text-center pt-2">Find Your Own Tractor</h4>
+                              <h3 class="text-center fw-bold pt-2">Find Your Own Tractor</h3>
                             <form>
                                 <div class="row justify-content-center pt-4">
                                    
@@ -203,7 +203,7 @@
    </section> -->
    <section class="bg-light">
     <div class="container ">
-        <h3 class="my-5 pt-4 display-6 fw-bold">Tractors in 2023</h2>
+        <h3 class="my-5 pt-4 display-6 fw-bold">Tractors in <span class="text-success">2023</span> </h2>
         <nav class="">
           <div class="nav nav-tabs w-50" id="nav-tab" role="tablist">
             <a class="nav-link active px-5 py-3 h5 fw-bold text-dark py-2"  type="button" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home"  role="tab" aria-controls="nav-home" aria-selected="true">Polpular</a>
@@ -213,7 +213,7 @@
             <a class="nav-link px-5 py-3 h5 fw-bold text-dark" id="nav-Personal-tab"  type="button" data-bs-toggle="tab" data-bs-target="#nav-Personal"  role="tab" aria-controls="nav-Personal" aria-selected="false">Upcoming</a>
           </div>
         </nav>
-        <div class="tab-content p-3 my-4 border  bg-light" id="nav-tabContent">
+        <div class="tab-content p-3 my-4" id="nav-tabContent">
           <div class="tab-pane fade active show justify-content-center" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
             <div class="row  justify-content-between">
                 <div class="col-12 ">
@@ -225,8 +225,8 @@
 
                                     <div class="thumb">
                                         <a href="#">
-                                            <div class="ratio ratio-16x9">
-                                                <img src="assets/images/575-di-xp-plus-1632207330.webp" class="object-fit-cover py-2" alt="img">
+                                            <div class="">
+                                                <img src="assets/images/575-di-xp-plus-1632207330.png" class="object-fit-cover py-3" alt="img">
                                             </div>
                                         </a>
                                     </div>
@@ -236,7 +236,7 @@
                                             <h4 class="fw-bold mt-3">Mahindra 575 DI XP Plus</h3>
                                         </a>
 
-                                        <a href="# " class="text-dark flex-grow-1 text-decoration-none ">
+                                        <a href="# " class="text-dark text-decoration-none ">
                                             <p>From: ₹6.90-7.27 lac*</p>
                                         </a>
                                         <a href="#" class="text-decoration-none text-dark mb-4">
@@ -249,22 +249,22 @@
                                         </a>
                                     </div>
                                 </div>
-                                <div class="swiper-slide h-auto success__stry__item d-flex flex-column shadow">
+                                <div class="swiper-slide success__stry__item d-flex flex-column shadow">
 
                                     <div class="thumb">
                                         <a href="#">
-                                            <div class="ratio ratio-16x9">
-                                                <img src="assets/images/60-epi-t20-1632217131.webp" class="object-fit-cover" alt="img">
+                                            <div class="">
+                                                <img src="assets/images/60-epi-t20-1632217131.png" class="object-fit-cover py-3" alt="img">
                                             </div>
                                         </a>
                                     </div>
                                     <div class="content d-flex flex-column flex-grow-1 ms-3">
                                      
                                         <a href="#" class="text-decoration-none text-dark ">
-                                            <h4 class="fw-bold mt-3">Farmtrac 50 Smart</h3>
+                                            <h4 class="fw-bold ">Farmtrac 50 Smart</h3>
                                         </a>
 
-                                        <a href="# " class="text-dark flex-grow-1 text-decoration-none ">
+                                        <a href="# " class="text-dark text-decoration-none ">
                                             <p>From: ₹7.33-7.60 lac*</p>
                                         </a>
                                         <a href="#" class="text-decoration-none text-dark mb-4">
@@ -281,18 +281,18 @@
 
                                     <div class="thumb">
                                         <a href="#">
-                                            <div class="ratio ratio-16x9">
-                                                <img src="assets/images/575-di-xp-plus-1632207330.webp" class="object-fit-cover" alt="img">
+                                            <div class="">
+                                                <img src="assets/images/575-di-xp-plus-1632207330.webp" class="object-fit-cover py-3" alt="img">
                                             </div>
                                         </a>
                                     </div>
-                                    <div class="content d-flex flex-column flex-grow-1 ms-3">
+                                    <div class="content flex-column ms-3">
                                      
                                         <a href="#" class="text-decoration-none text-dark">
                                             <h4 class="fw-bold mt-3">Mahindra 275 DI XP Plus</h3>
                                         </a>
 
-                                        <a href="# " class="text-dark flex-grow-1 text-decoration-none ">
+                                        <a href="# " class="text-dark text-decoration-none ">
                                             <p>From: ₹5.65-5.90 lac*</p>
                                         </a>
                                         <a href="#" class="text-decoration-none text-dark mb-4">
@@ -308,8 +308,8 @@
                                 <div class="swiper-slide h-auto success__stry__item d-flex flex-column shadow ">
                                     <div class="thumb">
                                         <a href="#">
-                                            <div class="ratio ratio-16x9">
-                                                <img src="assets/images/60-epi-t20-1632217131.webp" class="object-fit-cover" alt="img">
+                                            <div class="">
+                                                <img src="assets/images/60-epi-t20-1632217131.webp" class="object-fit-cover py-3" alt="img">
                                             </div>
                                         </a>
                                     </div>
@@ -335,12 +335,12 @@
                                 <div class="swiper-slide h-auto success__stry__item d-flex flex-column shadow">
                                     <div class="thumb">
                                         <a href="#">
-                                            <div class="ratio ratio-16x9">
-                                                <img src="assets/images/john-deere.jpg" class="object-fit-cover" alt="img">
+                                            <div class="">
+                                                <img src="assets/images/john-deere.jpg" class="object-fit-cover py-3" alt="img">
                                             </div>
                                         </a>
                                     </div>
-                                    <div class="content d-flex flex-column flex-grow-1 ms-3">
+                                    <div class="content d-flex flex-column flex-grow-1">
                                      
                                         <a href="#" class="text-decoration-none text-dark">
                                             <h4 class="fw-bold mt-3">John Deere Tractors</h3>
@@ -379,7 +379,7 @@
 
                 <div class="py-3"></div>
 
-                <div class="col text-center ">
+                <div class="col text-center pb-4">
                     <a href="#" class="btn btn-success btn-lg">View all Popular Tractors</a>
                 </div>
 
@@ -398,8 +398,8 @@
 
                                         <div class="thumb">
                                             <a href="#">
-                                                <div class="ratio ratio-16x9">
-                                                    <img src="assets/images/575-di-xp-plus-1632207330.webp" class="object-fit-cover py-2" alt="img">
+                                                <div class="">
+                                                    <img src="assets/images/575-di-xp-plus-1632207330.webp" class="object-fit-cover py-3" alt="img">
                                                 </div>
                                             </a>
                                         </div>
@@ -431,8 +431,8 @@
 
                                         <div class="thumb">
                                             <a href="#">
-                                                <div class="ratio ratio-16x9">
-                                                    <img src="assets/images/agromaxx-4050-e-1632288159.webp" class="object-fit-cover" alt="img">
+                                                <div class="">
+                                                    <img src="assets/images/agromaxx-4050-e-1632288159.webp" class="object-fit-cover py-3" alt="img">
                                                 </div>
                                             </a>
                                         </div>
@@ -464,8 +464,8 @@
 
                                         <div class="thumb">
                                             <a href="#">
-                                                <div class="ratio ratio-16x9">
-                                                    <img src="assets/images/mahindra-585-di-xp-plus.webp" class="object-fit-cover" alt="img">
+                                                <div class="">
+                                                    <img src="assets/images/mahindra-585-di-xp-plus.webp" class="object-fit-cover py-3" alt="img">
                                                 </div>
                                             </a>
                                         </div>
@@ -496,8 +496,8 @@
                                     <div class="swiper-slide h-auto success__stry__item d-flex flex-column shadow ">
                                         <div class="thumb">
                                             <a href="#">
-                                                <div class="ratio ratio-16x9">
-                                                    <img src="assets/images/agromaxx-4055-e-1632289120.webp" class="object-fit-cover" alt="img">
+                                                <div class="">
+                                                    <img src="assets/images/agromaxx-4055-e-1632289120.webp" class="object-fit-cover py-3" alt="img">
                                                 </div>
                                             </a>
                                         </div>
@@ -521,8 +521,8 @@
                                     <div class="swiper-slide h-auto success__stry__item d-flex flex-column shadow ">
                                         <div class="thumb">
                                             <a href="#">
-                                                <div class="ratio ratio-16x9">
-                                                    <img src="assets/images/275-di-tu-xp-plus-1632304804.webp" class="object-fit-cover" alt="img">
+                                                <div class="">
+                                                    <img src="assets/images/275-di-tu-xp-plus-1632304804.webp" class="object-fit-cover py-3" alt="img">
                                                 </div>
                                             </a>
                                         </div>
@@ -568,7 +568,7 @@
 
                     <div class="py-3"></div>
 
-                    <div class="col text-center ">
+                    <div class="col text-center pb-4">
                         <a href="#" class="btn btn-success btn-lg">View all Latest Tractors</a>
                     </div>
 
@@ -588,8 +588,8 @@
 
                                         <div class="thumb">
                                             <a href="#">
-                                                <div class="ratio ratio-16x9">
-                                                    <img src="assets/images/eicher-551-2wd-prima-g3.webp" class="object-fit-cover py-2" alt="img">
+                                                <div class="">
+                                                    <img src="assets/images/eicher-551-2wd-prima-g3.webp" class="object-fit-cover p-3 w-100" alt="img">
                                                 </div>
                                             </a>
                                         </div>
@@ -621,8 +621,8 @@
 
                                         <div class="thumb">
                                             <a href="#">
-                                                <div class="ratio ratio-16x9">
-                                                    <img src="assets/images/3600-1632736952.webp" class="object-fit-cover" alt="img">
+                                                <div class="">
+                                                    <img src="assets/images/3600-1632736952.webp" class="object-fit-cover p-3 w-100" alt="img">
                                                 </div>
                                             </a>
                                         </div>
@@ -654,8 +654,8 @@
 
                                         <div class="thumb">
                                             <a href="#">
-                                                <div class="ratio ratio-16x9">
-                                                    <img src="assets/images/swaraj-target-625-1685950052.webp" class="object-fit-cover" alt="img">
+                                                <div class="">
+                                                    <img src="assets/images/swaraj-target-625-1685950052.webp" class="object-fit-cover p-3 w-100" alt="img">
                                                 </div>
                                             </a>
                                         </div>
@@ -686,8 +686,8 @@
                                     <div class="swiper-slide h-auto success__stry__item d-flex flex-column shadow ">
                                         <div class="thumb">
                                             <a href="#">
-                                                <div class="ratio ratio-16x9">
-                                                    <img src="assets/images/alt-3000-1632718601.webp" class="object-fit-cover" alt="img">
+                                                <div class="">
+                                                    <img src="assets/images/alt-3000-1632718601.webp" class="object-fit-cover p-3 w-100" alt="img">
                                                 </div>
                                             </a>
                                         </div>
@@ -718,8 +718,8 @@
                                     <div class="swiper-slide h-auto success__stry__item d-flex flex-column shadow ">
                                         <div class="thumb">
                                             <a href="#">
-                                                <div class="ratio ratio-16x9">
-                                                    <img src="assets/images/solis-6524-s.webp" class="object-fit-cover" alt="img">
+                                                <div class="">
+                                                    <img src="assets/images/solis-6524-s.webp" class="object-fit-cover p-3 w-100" alt="img">
                                                 </div>
                                             </a>
                                         </div>
@@ -765,7 +765,7 @@
 
                     <div class="py-3"></div>
 
-                    <div class="col text-center ">
+                    <div class="col text-center pb-4">
                         <a href="#" class="btn btn-success btn-lg">View all Upcoming Tractors</a>
                     </div>
 
@@ -855,9 +855,9 @@
 
   <!-- for sell -->
   
-    <section class="bg-light">
+    <section class="">
         <div class="container ">
-            <h3 class="mt-5 pt-4  display-6 fw-bold">Used Tractors for Sell</h3>
+            <h3 class="mt-5 pt-4  display-6 fw-bold"><span class="text-success">Used Tractors </span> for Sell</h3>
             <nav class=" mt-2">
             <div class="nav nav-tabs   w-50"  id="nav-tab" role="tablist">
                 <a class="nav-link active px-5 py-3 mx-2 h5 fw-bold text-dark py-2" type="button" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-premium"  role="tab" aria-controls="nav-home" aria-selected="true">Premium</a>
@@ -867,7 +867,7 @@
                 <a class="nav-link px-5 py-3 h5  mx-2 fw-bold text-dark" type="button" id="nav-popular-tab" data-bs-toggle="tab" data-bs-target="#nav-popular"  role="tab" aria-controls="nav-popular" aria-selected="false">Popular</a>
             </div>
             </nav>
-            <div class="tab-content p-3 my-4 border  bg-light" id="nav-tabContent">
+            <div class="tab-content pt-3 px-3 my-4 " id="nav-tabContent">
             <div class="tab-pane fade active show justify-content-center" id="nav-primium" role="tabpanel" aria-labelledby="nav-home-tab">
                 <div class="row  justify-content-between">
                     <div class="col-12 ">
@@ -879,8 +879,8 @@
 
                                         <div class="thumb">
                                             <a href="#">
-                                                <div class="ratio ratio-16x9">
-                                                    <img src="assets/images/8bc99d61-143b-4daa-9783-e28164e21724.webp" class="object-fit-cover py-2" alt="img">
+                                                <div class="">
+                                                    <img src="assets/images/8bc99d61-143b-4daa-9783-e28164e21724.webp" class="object-fit-cover py-3 w-100" alt="img">
                                                 </div>
                                             </a>
                                         </div>
@@ -919,8 +919,8 @@
 
                                         <div class="thumb">
                                             <a href="#">
-                                                <div class="ratio ratio-16x9">
-                                                    <img src="assets/images/fe258976-d917-4c2d-8e8c-600b90a98572.webp" class="object-fit-cover py-2" alt="img">
+                                                <div class="">
+                                                    <img src="assets/images/fe258976-d917-4c2d-8e8c-600b90a98572.webp" class="object-fit-cover py-3" alt="img">
                                                 </div>
                                             </a>
                                         </div>
@@ -959,8 +959,8 @@
 
                                         <div class="thumb">
                                             <a href="#">
-                                                <div class="ratio ratio-16x9">
-                                                    <img src="assets/images/18edb636-6918-4d01-878d-c02c75e4ad72.webp" class="object-fit-cover py-2" alt="img">
+                                                <div class="">
+                                                    <img src="assets/images/18edb636-6918-4d01-878d-c02c75e4ad72.webp" class="object-fit-cover py-3" alt="img">
                                                 </div>
                                             </a>
                                         </div>
@@ -999,8 +999,8 @@
 
                                         <div class="thumb">
                                             <a href="#">
-                                                <div class="ratio ratio-16x9">
-                                                    <img src="assets/images/259604d3-c9ee-466c-b9a4-0c5ecf45ab56.webp" class="object-fit-cover py-2" alt="img">
+                                                <div class="">
+                                                    <img src="assets/images/259604d3-c9ee-466c-b9a4-0c5ecf45ab56.webp" class="object-fit-cover py-3" alt="img">
                                                 </div>
                                             </a>
                                         </div>
@@ -1039,8 +1039,8 @@
 
                                         <div class="thumb">
                                             <a href="#">
-                                                <div class="ratio ratio-16x9">
-                                                    <img src="assets/images/238d69b1-1680-4a1b-8c8e-271cca37bd70.webp" class="object-fit-cover py-2" alt="img">
+                                                <div class="">
+                                                    <img src="assets/images/238d69b1-1680-4a1b-8c8e-271cca37bd70.webp" class="object-fit-cover py-3" alt="img">
                                                 </div>
                                             </a>
                                         </div>
@@ -1094,8 +1094,8 @@
 
                     <div class="py-3"></div>
 
-                    <div class="col text-center ">
-                        <a href="#" class="btn btn-success btn-lg">View all Used Tractors</a>
+                    <div class="col text-center pb-4">
+                        <a href="#" class="btn btn-success btn-lg ">View all Used Tractors</a>
                     </div>
 
                 </div>
@@ -1113,8 +1113,8 @@
 
                                             <div class="thumb">
                                                 <a href="#">
-                                                    <div class="ratio ratio-16x9">
-                                                        <img src="assets/images/275-di-xp-plus-141706-1693638432-0.webp" class="object-fit-cover py-2" alt="img">
+                                                    <div class="">
+                                                        <img src="assets/images/275-di-xp-plus-141706-1693638432-0.webp" class="object-fit-cover py-3" alt="img">
                                                     </div>
                                                 </a>
                                             </div>
@@ -1153,8 +1153,8 @@
 
                                             <div class="thumb">
                                                 <a href="#">
-                                                    <div class="ratio ratio-16x9">
-                                                        <img src="assets/images/275-di-xp-plus-141705-1693637816-0.webp" class="object-fit-cover py-2" alt="img">
+                                                    <div class="">
+                                                        <img src="assets/images/275-di-xp-plus-141705-1693637816-0.webp" class="object-fit-cover py-3" alt="img">
                                                     </div>
                                                 </a>
                                             </div>
@@ -1193,8 +1193,8 @@
 
                                             <div class="thumb">
                                                 <a href="#">
-                                                    <div class="ratio ratio-16x9">
-                                                        <img src="assets/images/475-di-141453-1693299479-0.webp" class="object-fit-cover py-2" alt="img">
+                                                    <div class="">
+                                                        <img src="assets/images/475-di-141453-1693299479-0.webp" class="object-fit-cover py-3" alt="img">
                                                     </div>
                                                 </a>
                                             </div>
@@ -1233,8 +1233,8 @@
 
                                             <div class="thumb">
                                                 <a href="#">
-                                                    <div class="ratio ratio-16x9">
-                                                        <img src="assets/images/475-di-141452-1693299248-0.webp" class="object-fit-cover py-2" alt="img">
+                                                    <div class="">
+                                                        <img src="assets/images/475-di-141452-1693299248-0.webp" class="object-fit-cover py-3" alt="img">
                                                     </div>
                                                 </a>
                                             </div>
@@ -1273,8 +1273,8 @@
 
                                             <div class="thumb">
                                                 <a href="#">
-                                                    <div class="ratio ratio-16x9">
-                                                        <img src="assets/images/475-di-141451-1693299092-0.webp" class="object-fit-cover py-2" alt="img">
+                                                    <div class="">
+                                                        <img src="assets/images/475-di-141451-1693299092-0.webp" class="object-fit-cover py-3" alt="img">
                                                     </div>
                                                 </a>
                                             </div>
@@ -1328,7 +1328,7 @@
 
                         <div class="py-3"></div>
 
-                        <div class="col text-center ">
+                        <div class="col text-center pb-4 ">
                             <a href="#" class="btn btn-success btn-lg">View all Used Tractors</a>
                         </div>
 
@@ -1348,8 +1348,8 @@
 
                                             <div class="thumb">
                                                 <a href="#">
-                                                    <div class="ratio ratio-16x9">
-                                                        <img src="assets/images/fe258976-d917-4c2d-8e8c-600b90a98572.webp" class="object-fit-cover py-2" alt="img">
+                                                    <div class="">
+                                                        <img src="assets/images/fe258976-d917-4c2d-8e8c-600b90a98572.webp" class="object-fit-cover py-3" alt="img">
                                                     </div>
                                                 </a>
                                             </div>
@@ -1388,8 +1388,8 @@
 
                                             <div class="thumb">
                                                 <a href="#">
-                                                    <div class="ratio ratio-16x9">
-                                                        <img src="assets/images/8bc99d61-143b-4daa-9783-e28164e21724.webp" class="object-fit-cover py-2" alt="img">
+                                                    <div class="">
+                                                        <img src="assets/images/8bc99d61-143b-4daa-9783-e28164e21724.webp" class="object-fit-cover py-3" alt="img">
                                                     </div>
                                                 </a>
                                             </div>
@@ -1428,8 +1428,8 @@
 
                                             <div class="thumb">
                                                 <a href="#">
-                                                    <div class="ratio ratio-16x9">
-                                                        <img src="assets/images/18edb636-6918-4d01-878d-c02c75e4ad72.webp" class="object-fit-cover py-2" alt="img">
+                                                    <div class="">
+                                                        <img src="assets/images/18edb636-6918-4d01-878d-c02c75e4ad72.webp" class="object-fit-cover py-3" alt="img">
                                                     </div>
                                                 </a>
                                             </div>
@@ -1468,8 +1468,8 @@
 
                                             <div class="thumb">
                                                 <a href="#">
-                                                    <div class="ratio ratio-16x9">
-                                                        <img src="assets/images/yuvo-275-di-140841-1692685905-0.webp" class="object-fit-cover py-2" alt="img">
+                                                    <div class="">
+                                                        <img src="assets/images/yuvo-275-di-140841-1692685905-0.webp" class="object-fit-cover py-3" alt="img">
                                                     </div>
                                                 </a>
                                             </div>
@@ -1508,8 +1508,8 @@
 
                                             <div class="thumb">
                                                 <a href="#">
-                                                    <div class="ratio ratio-16x9">
-                                                        <img src="assets/images/855-fe-140732-1692600141-0.webp" class="object-fit-cover py-2" alt="img">
+                                                    <div class="">
+                                                        <img src="assets/images/855-fe-140732-1692600141-0.webp" class="object-fit-cover py-3" alt="img">
                                                     </div>
                                                 </a>
                                             </div>
@@ -1563,7 +1563,7 @@
 
                         <div class="py-3"></div>
 
-                        <div class="col text-center ">
+                        <div class="col text-center pb-4 ">
                             <a href="#" class="btn btn-success btn-lg">View all Used Tractors</a>
                         </div>
 
@@ -1659,26 +1659,41 @@
                 </ul>
 
                 <div class="swiper-pagination1"></div>
-                <div title="Prev" class="swiper-button-prev"></div>
-                <div title="Next" class="swiper-button-next"></div>
                 <div class="col text-center ">
                     <a href="#" class="btn btn-success btn-lg">See Old Tractors</a>
                 </div>
             </div>
         </div>
    </section> -->
+    <!-- <section class="section slider-section-state">
+        <div class="container container-state slider-column">
+            <div class="swiper swiper-slider">
+                <div class="swiper-wrapper">
+                    <img class="swiper-slide img-state " src="https://source.unsplash.com/1920x1280/?animal" alt="Swiper">
+                    <img class="swiper-slide img-state" src="https://source.unsplash.com/1920x1280/?nature" alt="Swiper">
+                    <img class="swiper-slide img-state" src="https://source.unsplash.com/1920x1280/?people" alt="Swiper">
+                    <img class="swiper-slide img-state" src="https://source.unsplash.com/1920x1280/?flower" alt="Swiper">
+                    <img class="swiper-slide img-state" src="https://source.unsplash.com/1920x1280/?travel" alt="Swiper">
+                    <img class="swiper-slide img-state" src="https://source.unsplash.com/1920x1280/?fruits" alt="Swiper">
+                </div>
+                <span class="swiper-pagination swiper-pagination-state"></span>
+                <span class="swiper-button-prev swiper-button-prev-state"></span>
+                <span class="swiper-button-next swiper-button-next-state"></span>
+            </div>
+        </div>
+    </section> -->
 
    <!-- Tractors by Budget -->
-   <section class="">
-     <div class="container ">
+   <section class="bybudget position-relative">
+     <div class="container  ">
         <div class="row text-align-center justify-content-between">
             <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                <h3 class="text-dark display-6 fw-bold">Tractors by Budget</h3>
+                <h3 class="text-dark display-6 fw-bold">Tractors by <span class="text-success">Budget</span> </h3>
                 <div class="pricerate container py-3 my-2 ps-5">
                     <div class="yr-con my-3 py-2" >
                         <div class="ps-3">
                         <a href="#" class="text-decoration-none text-dark ">
-                        <h5 class="fw-bold "><i class="fas fa-tractor p-2 bg-success rounded-3 opacity-25"></i> &nbsp;&nbsp; Below 3 Lakh</h5>
+                        <h5 class="fw-bold "><i class="fas fa-tractor p-2 bg-success text-white  rounded-3 opacity-25"></i> &nbsp;&nbsp; Below 3 Lakh</h5>
                         </a>
                         </div>
                         
@@ -1686,7 +1701,7 @@
                     <div class="yr-con my-3 py-2" >
                         <div class="ps-3">
                             <a href="#" class="text-decoration-none text-dark ">
-                            <h5 class="fw-bold "><i class="fas fa-tractor p-2 bg-success rounded-3 opacity-25"></i>&nbsp;&nbsp;  3 lakh - 5 lakh</h5>
+                            <h5 class="fw-bold "><i class="fas fa-tractor p-2 bg-success  text-white rounded-3 opacity-25"></i>&nbsp;&nbsp;  3 lakh - 5 lakh</h5>
                             </a>
                         </div>
                        
@@ -1694,7 +1709,7 @@
                     <div class="yr-con my-3 py-2" >
                         <div class="ps-3">
                             <a href="#" class="text-decoration-none text-dark ">
-                            <h5 class="fw-bold "><i class="fas fa-tractor p-2 bg-success rounded-3 opacity-25"></i> &nbsp;&nbsp;  5 lakh - 7 lakh</h5>
+                            <h5 class="fw-bold "><i class="fas fa-tractor p-2 bg-success text-white  rounded-3 opacity-25"></i> &nbsp;&nbsp;  5 lakh - 7 lakh</h5>
                             </a>
                         </div>
                        
@@ -1702,24 +1717,22 @@
                     <div class="yr-con my-3 py-2" >
                         <div class="ps-3">
                             <a href="#" class="text-decoration-none text-dark ">
-                            <h5 class="fw-bold "><i class="fas fa-tractor p-2 bg-success rounded-3 opacity-25"></i> &nbsp;&nbsp; 7 lakh - 10 lakh</h5>
+                            <h5 class="fw-bold "><i class="fas fa-tractor p-2 bg-success text-white  rounded-3 opacity-25"></i> &nbsp;&nbsp; 7 lakh - 10 lakh</h5>
                             </a>
                         </div>
-                        
-                    
                     </div>
                     <div class="yr-con my-3 py-2" >
                         <div class="ps-3">
                             <a href="#" class="text-decoration-none text-dark">
-                            <h5 class="fw-bold "><i class="fas fa-tractor p-2 bg-success rounded-3 opacity-25"></i> &nbsp;&nbsp; Above 10 lakh</h5>
+                            <h5 class="fw-bold "><i class="fas fa-tractor p-2 bg-success text-white  rounded-3 opacity-25"></i> &nbsp;&nbsp; Above 10 lakh</h5>
                             </a>
                         </div>
                     </div>
                     
                 </div>
             </div>
-            <div class="col-12 col-lg-6 col-md-6 col-sm-6 m-auto align-center">
-                <img src="assets/images/439-RDX-RHS.avif"class="w-100 h-100 pe-5 tractor" alt="">
+            <div class="col-12 col-lg-6 col-md-6 col-sm-6 align-center">
+                <img src="assets/images/439-RDX-RHS.avif"class="w-100 h-100 tractor" alt="">
             </div>
         </div>
      </div>
@@ -1728,113 +1741,82 @@
         </div>
    </section>
 
-   <section>
-    <div class="container my-5 py-2">
-        <h3 class="text-dark display-6 fw-bold my-2 pb-2">Tractors By HP</h3>
-        <!-- <div class="row ">
-           
-            <div class="col-12 col-md-3 col-sm-3 col-lg-3 shadow w-25 h-25 py-3 px-3 mt-2 px-4">
-                <a href="#" class="text-decoration-none text-dark">
-                    <div class="text-center mt-2"><i class="fas fa-tractor "></i></div>
-                    <p class="text-center fw-bold">Tractors</p>
-                    <h5 class="text-center"><i class="fas fa-bolt"></i>Under 20 HP</h5>
-                </a>
-                
-            </div>
-            <div class="col-12 col-md-3 col-sm-3 col-lg-3 shadow w-25 h-25 py-3 mt-2 px-4 ">
-                <div class="text-center mt-2"><i class="fas fa-tractor "></i></div>
-                <p class="text-center fw-bold">Tractors</p>
-                <h5 class="text-center"> <i class="fas fa-bolt"></i> Under 21-30 HP</h5>
-            </div>
-            <div class="col-12 col-md-3 col-sm-3 col-lg-3 shadow py-3 mt-2 px-4">
-                <div class="text-center mt-2"><i class="fas fa-tractor "></i></div>
-                <p class="text-center fw-bold">Tractors</p>
-                <h5 class="text-center"><i class="fas fa-bolt"></i> Under 31-40 HP</h5>
-            </div>
-            <div class="col-12 col-md-3 col-sm-3 col-lg-3 shadow py-3 mt-2 px-4">
-                <div class="text-center mt-2"><i class="fas fa-tractor "></i></div>
-                <p class="text-center fw-bold">Tractors</p>
-                <h5 class="text-center"><i class="fas fa-bolt"></i> Under 41-45 HP</h5>
-            </div>
-            <div class="col-12 col-md-3 col-sm-3 col-lg-3 shadow py-3 mt-2 px-4">
-                <div class="text-center mt-2"><i class="fas fa-tractor "></i></div>
-                <p class="text-center fw-bold">Tractors</p>
-                <h5 class="text-center"><i class="fas fa-bolt"></i> Under 46-50 HP</h5>
-            </div>
-            <div class="col-12 col-md-3 col-sm-3 col-lg-3 shadow py-3 mt-2 px-4">
-                <div class="text-center mt-2"><i class="fas fa-tractor "></i></div>
-                <p class="text-center fw-bold">Tractors</p>
-                <h5 class="text-center"><i class="fas fa-bolt"></i> Under 51-60 HP</h5>
-            </div>
-            <div class="col-12 col-md-3 col-sm-3 col-lg-3 shadow py-3 mt-2 px-4">
-                <div class="text-center mt-2"><i class="fas fa-tractor "></i></div>
-                <p class="text-center fw-bold">Tractors</p>
-                <h5 class="text-center"><i class="fas fa-bolt"></i>Under 61-75 HP</h5>
-            </div>
-            <div class="col-12 col-md-3 col-sm-3 col-lg-3 shadow py-3 mt-2 px-4">
-                <div class="text-center mt-2"><i class="fas fa-tractor "></i></div>
-                <p class="text-center fw-bold">Tractors</p>
-                <h5 class="text-center"><i class="fas fa-bolt"></i> Above 75 HP</h5>
-            </div>
-
-        </div> -->
+   <section class="backhp">
+    <div class="container my-5 py-2 ">
+        <h3 class="text-dark display-6 fw-bold my-3 pb-2">Tractors By HP</h3>
         <div class="container">
-                <div class="row my-4 pt-5">
-                    <div class="col-12 col-sm-4 col-lg-4 col-md-4">
-                        <a href="#" class="text-decoration-none text-dark">
-                            <div class="text-center mt-2"><i class="fas fa-tractor fs-2 "></i></div>
-                            <p class="text-center fw-bold mt-3">Tractors</p>
-                            <h5 class="text-center">Under 20 HP</h5>
-                        </a>
+                <div class="row my-4 pt-2">
+                    <div class="col-12 col-sm-3 col-lg-3 col-md-3 my-2">
+                        <div class="hpbg">
+                            <a href="#" class="text-decoration-none text-dark my-3">
+                                <div class="text-center mt-2"><i class="fas fa-tractor trac_icon fs-2 mt-3"></i></div>
+                                <p class="text-center fw-bold mt-3">Tractors</p>
+                                <h5 class="text-center pb-3">Under 20 HP</h5>
+                            </a>
+                        </div>
                     </div>
-                    <div class="col-12 col-sm-4 col-lg-4 col-md-4">
-                        <a href="#" class="text-decoration-none text-dark">
-                            <div class="text-center mt-2"><i class="fas fa-tractor fs-2 "></i></div>
-                            <p class="text-center fw-bold mt-3">Tractors</p>
-                            <h5 class="text-center">Under 21-30 HP</h5>
-                        </a>
+                    <div class="col-12 col-sm-3 col-lg-3 col-md-3 my-2">
+                        <div class="hpbg">
+                            <a href="#" class="text-decoration-none text-dark py-2">
+                                <div class="text-center mt-2"><i class="fas fa-tractor trac_icon fs-2  mt-3"></i></div>
+                                <p class="text-center fw-bold mt-3">Tractors</p>
+                                <h5 class="text-center pb-3">Under 21-30 HP</h5>
+                            </a>
+                        </div>
                     </div>
-                    <div class="col-12 col-sm-4 col-lg-4 col-md-4">
-                        <a href="#" class="text-decoration-none text-dark">
-                            <div class="text-center mt-2"><i class="fas fa-tractor fs-2 "></i></div>
-                            <p class="text-center fw-bold mt-3">Tractors</p>
-                            <h5 class="text-center">Under 31-40 HP</h5>
-                        </a>
+                    <div class="col-12 col-sm-3 col-lg-3 col-md-3 my-2">
+                        <div class="hpbg">
+                            <a href="#" class="text-decoration-none text-dark">
+                                <div class="text-center mt-2"><i class="fas fa-tractor trac_icon fs-2  mt-3"></i></div>
+                                <p class="text-center fw-bold mt-3">Tractors</p>
+                                <h5 class="text-center pb-3">Under 31-40 HP</h5>
+                            </a>
+                        </div>
                     </div>
-                    <div class="col-12 col-sm-4 col-lg-4 col-md-4">
-                        <a href="#" class="text-decoration-none text-dark">
-                            <div class="text-center mt-2"><i class="fas fa-tractor fs-2 "></i></div>
-                            <p class="text-center fw-bold mt-3">Tractors</p>
-                            <h5 class="text-center">Under 41-45 HP</h5>
-                        </a>
+                    <div class="col-12 col-sm-3 col-lg-3 col-md-3  my-2">
+                        <div class="hpbg">
+                            <a href="#" class="text-decoration-none text-dark">
+                                <div class="text-center mt-2"><i class="fas fa-tractor trac_icon fs-2  mt-3"></i></div>
+                                <p class="text-center fw-bold mt-3">Tractors</p>
+                                <h5 class="text-center pb-3">Under 41-45 HP</h5>
+                            </a>
+                        </div>
                     </div>
-                    <div class="col-12 col-sm-4 col-lg-4 col-md-4">
-                        <a href="#" class="text-decoration-none text-dark">
-                            <div class="text-center mt-2"><i class="fas fa-tractor fs-2 "></i></div>
-                            <p class="text-center fw-bold mt-3">Tractors</p>
-                            <h5 class="text-center"> Under 46-50 HP</h5>
-                        </a>
+                    <div class="col-12 col-sm-3 col-lg-3 col-md-3 py-2 my-2">
+                        <div class="hpbg">
+                            <a href="#" class="text-decoration-none text-dark">
+                                <div class="text-center mt-2"><i class="fas fa-tractor trac_icon fs-2  mt-3"></i></div>
+                                <p class="text-center fw-bold mt-3">Tractors</p>
+                                <h5 class="text-center pb-3"> Under 46-50 HP</h5>
+                            </a>
+                        </div>
                     </div>
-                    <div class="col-12 col-sm-4 col-lg-4 col-md-4">
-                        <a href="#" class="text-decoration-none text-dark">
-                            <div class="text-center mt-2"><i class="fas fa-tractor fs-2 "></i></div>
-                            <p class="text-center fw-bold mt-3">Tractors</p>
-                            <h5 class="text-center">Under 51-60 HP</h5>
-                        </a>
+                    <div class="col-12 col-sm-3 col-lg-3 col-md-3 py-2 my-2">
+                        <div class="hpbg">
+                            <a href="#" class="text-decoration-none text-dark">
+                                <div class="text-center mt-2"><i class="fas fa-tractor trac_icon fs-2  mt-3"></i></div>
+                                <p class="text-center fw-bold mt-3">Tractors</p>
+                                <h5 class="text-center pb-3">Under 51-60 HP</h5>
+                            </a>
+                        </div>
                     </div>
-                    <div class="col-12 col-sm-4 col-lg-4 col-md-4">
-                        <a href="#" class="text-decoration-none text-dark">
-                            <div class="text-center mt-2"><i class="fas fa-tractor fs-2 "></i></div>
-                            <p class="text-center fw-bold mt-3">Tractors</p>
-                            <h5 class="text-center">Under 61-75 HP</h5>
-                        </a>
+                    <div class="col-12 col-sm-3 col-lg-3 col-md-3 py-2 my-2">
+                        <div class="hpbg">
+                            <a href="#" class="text-decoration-none text-dark">
+                                <div class="text-center mt-2"><i class="fas fa-tractor trac_icon fs-2  mt-3"></i></div>
+                                <p class="text-center fw-bold mt-3">Tractors</p>
+                                <h5 class="text-center pb-3">under 61-70 </h5>
+                            </a>
+                        </div>
                     </div>
-                    <div class="col-12 col-sm-4 col-lg-4 col-md-4">
-                        <a href="#" class="text-decoration-none text-dark">
-                            <div class="text-center mt-2"><i class="fas fa-tractor fs-2 "></i></div>
-                            <p class="text-center fw-bold mt-3">Tractors</p>
-                            <h5 class="text-center">above 75 HP</h5>
-                        </a>
+                    <div class="col-12 col-sm-3 col-lg-3 col-md-3 py-2 my-2">
+                        <div class="hpbg">
+                            <a href="#" class="text-decoration-none text-dark">
+                                <div class="text-center mt-2"><i class="fas fa-tractor trac_icon fs-2  mt-3"></i></div>
+                                <p class="text-center fw-bold mt-3">Tractors</p>
+                                <h5 class="text-center pb-3">Above 75</h5>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1844,7 +1826,7 @@
 
    <section class="">
             <div class="container">
-                <h3 class="mt-5 pt-4 display-6 fw-bold">Mini Tractors</h3>
+                <h3 class="mt-5 pt-4 display-6 fw-bold"><spna class="text-success">Mini </spna> Tractors</h3>
                 <p>Mini tractor price range starts from <strong> Rs. 2.45 Lakh to Rs. 9.21 Lakh*</strong>.</p>
                 <div class="row  justify-content-between">
                     <div class="col-12 ">
@@ -1856,8 +1838,8 @@
 
                                         <div class="thumb">
                                             <a href="#">
-                                                <div class="ratio ratio-16x9">
-                                                    <img src="assets/images/jivo-305-di-1632305248.webp" class="object-fit-cover py-2" alt="img">
+                                                <div class="">
+                                                    <img src="assets/images/jivo-305-di-1632305248.webp" class="object-fit-cover p-3 w-100" alt="img">
                                                 </div>
                                             </a>
                                         </div>
@@ -1888,8 +1870,8 @@
 
                                         <div class="thumb">
                                             <a href="#">
-                                                <div class="ratio ratio-16x9">
-                                                    <img src="assets/images/250-di-1630740119.webp" class="object-fit-cover" alt="img">
+                                                <div class="">
+                                                    <img src="assets/images/250-di-1630740119.webp" class="object-fit-cover p-3 w-100" alt="img">
                                                 </div>
                                             </a>
                                         </div>
@@ -1921,8 +1903,8 @@
 
                                         <div class="thumb">
                                             <a href="#">
-                                                <div class="ratio ratio-16x9">
-                                                    <img src="assets/images/jivo-245-vineyard-1632305209.webp" class="object-fit-cover" alt="img">
+                                                <div class="">
+                                                    <img src="assets/images/jivo-245-vineyard-1632305209.webp" class="object-fit-cover p-3 w-100" alt="img">
                                                 </div>
                                             </a>
                                         </div>
@@ -1953,8 +1935,8 @@
                                     <div class="swiper-slide h-auto success__stry__item d-flex flex-column shadow ">
                                         <div class="thumb">
                                             <a href="#">
-                                                <div class="ratio ratio-16x9">
-                                                    <img src="assets/images/agromaxx-4055-e-1632289120.webp" class="object-fit-cover" alt="img">
+                                                <div class="">
+                                                    <img src="assets/images/agromaxx-4055-e-1632289120.webp" class="object-fit-cover p-3 w-100" alt="img">
                                                 </div>
                                             </a>
                                         </div>
@@ -1985,8 +1967,8 @@
                                     <div class="swiper-slide h-auto success__stry__item d-flex flex-column shadow ">
                                         <div class="thumb">
                                             <a href="#">
-                                                <div class="ratio ratio-16x9">
-                                                    <img src="assets/images/jivo-225-di-4wd-1632304571.webp" class="object-fit-cover" alt="img">
+                                                <div class="">
+                                                    <img src="assets/images/jivo-225-di-4wd-1632304571.webp" class="object-fit-cover p-3 w-100" alt="img">
                                                 </div>
                                             </a>
                                         </div>
@@ -2163,98 +2145,109 @@
     <section>
         <div class="container">
             <div class=" my-3 py-3">
-                <h3 class="display-6 fw-bold  my-3 ">Tools and Services</h3>
+                <h3 class="display-6 fw-bold  my-3 "> <span class="text-success">Tools</span> and <span class="text-success">Services</span></h3>
                 
                     <div class="row">
-                        <div class="col-12 col-md-4 col-lg-4 col-sm-4 p-4  my-3 rounded-3 w-25 shadow">
-                            <div class="row p-3">
+                        <div class="col-12 col-md-3 col-lg-3 col-sm-3 p-4  my-1 ">
+                            <div class="row p-3 toolsservice rounded-3 shadow">
                                 <div class="col-12 col-md-5 col-lg-5 col-sm-5">
                                     <img src="assets/images/service.png" class="w-100 img-tools p-4 h-100" alt="">
                                 </div>
                                 <div class="col-12 col-md-7 col-lg-7 col-sm-7">
-                                    <h6 class="service-box fw-bold fs-5 mt-2">Service Center</h6>
+                                    <h6 class="service-box fw-bold fs-5 mt-2 text-white">Service Center</h6>
                                 </div>
                                 
                             </div>
                         </div>
                         <!-- <div class="col-12 col-lg-2 col-md-2 col-sm-2"></div> -->
-                        <div class="col-12 col-md-4 col-lg-4 col-sm-4 p-4  my-3 rounded-3 w-25 shadow">
-                            <div class="row p-3">
+                        <div class="col-12 col-md-3 col-lg-3 col-sm-3 p-4  my-1">
+                            <div class="row p-3 toolsservice rounded-3 shadow">
                                 <div class="col-12 col-md-5 col-lg-5 col-sm-5">
                                     <img src="assets/images/call-service.png" class="w-100 img-tools p-4 h-100" alt="">
                                 </div>
                                 <div class="col-12 col-md-7 col-lg-7 col-sm-7">
-                                    <h6 class="service-box fw-bold fs-5 mt-2">Contact Us</h6>
+                                    <h6 class="service-box fw-bold fs-5 mt-3 text-white">Contact Us</h6>
                                 </div>
                                 
                             </div>
                         </div>
-                        <div class="col-12 col-md-4 col-lg-4 col-sm-4 p-4  my-3 rounded-3 w-25 shadow">
-                            <div class="row p-3">
+                        <div class="col-12 col-md-3 col-lg-3 col-sm-3 p-4  my-1">
+                            <div class="row p-3 toolsservice rounded-3 shadow">
                                 <div class="col-12 col-md-5 col-lg-5 col-sm-5">
                                     <img src="assets/images/dealer.png" class="w-100 img-tools p-4 h-100" alt="">
                                 </div>
                                 <div class="col-12 col-md-7 col-lg-7 col-sm-7">
-                                    <h6 class="service-box fw-bold fs-5 mt-2">Dealer Locator</h6>
+                                    <h6 class="service-box fw-bold fs-5 mt-2 text-white">Dealer Locator</h6>
                                 </div>
                                 
                             </div>
                         </div>
-                        <div class="col-12 col-md-4 col-lg-4 col-sm-4 p-4  my-3 rounded-3 w-25 shadow">
-                            <div class="row p-3">
+                        <div class="col-12 col-md-3 col-lg-3 col-sm-3 p-4  my-1 ">
+                            <div class="row p-3 toolsservice rounded-3 shadow">
                                 <div class="col-12 col-md-5 col-lg-5 col-sm-5">
                                     <img src="assets/images/offers-1.png"class="w-100 img-tools p-4 h-100" alt="">
                                 </div>
                                 <div class="col-12 col-md-7 col-lg-7 col-sm-7">
-                                    <h6 class="service-box fw-bold fs-5 mt-4  ">Offers</h6>
+                                    <h6 class="service-box fw-bold fs-5 mt-4 text-white ">Offers</h6>
                                 </div>
                                 
                             </div>
                         </div>
-                        <div class="col-12 col-md-4 col-lg-4 col-sm-4 p-4  my-4 rounded-3 w-25 shadow">
-                            <div class="row p-3">
+                        <div class="col-12 col-md-3 col-lg-3 col-sm-3 p-4">
+                            <div class="row p-3 toolsservice  rounded-3 shadow">
                                 <div class="col-12 col-md-5 col-lg-5 col-sm-5">
                                     <img src="assets/images/offers-1.png" class="w-100 img-tools p-4 h-100" alt="">
                                 </div>
                                 <div class="col-12 col-md-7 col-lg-7 col-sm-7">
-                                    <h6 class="service-box fw-bold fs-5 mt-3  ">Compare</h6>
+                                    <h6 class="service-box fw-bold fs-5 mt-3 text-white ">Compare</h6>
                                 </div>
                                 
                             </div>
                         </div>
-                        <div class="col-12 col-md-4 col-lg-4 col-sm-4 p-4  my-4 rounded-3 w-25 shadow">
-                            <div class="row p-3">
+                        <div class="col-12 col-md-3 col-lg-3 col-sm-3 p-4 ">
+                            <div class="row p-3 toolsservice rounded-3 shadow">
                                 <div class="col-12 col-md-5 col-lg-5 col-sm-5">
                                     <img src="assets/images/dealer.png"class="w-100 img-tools p-4 h-100" alt="">
                                 </div>
                                 <div class="col-12 col-md-7 col-lg-7 col-sm-7">
-                                    <h6 class="service-box fw-bold fs-5 mt-2  ">Customer Care</h6>
+                                    <h6 class="service-box fw-bold fs-5 mt-2 text-white ">Customer Care</h6>
                                 </div>
                                 
                             </div>
                         </div>
-                        <div class="col-12 col-md-4 col-lg-4 col-sm-4 p-4 my-4 rounded-3 w-25 shadow">
-                            <div class="row p-3">
+                        <div class="col-12 col-md-3 col-lg-3 col-sm-3 p-4">
+                            <div class="row p-3 toolsservice rounded-3 shadow">
                                 <div class="col-12 col-md-5 col-lg-5 col-sm-5">
                                     <img src="assets/images/loan.png" class="w-100 img-tools p-4 h-100"alt="">
                                 </div>
                                 <div class="col-12 col-md-7 col-lg-7 col-sm-7">
-                                    <h6 class="service-box fw-bold fs-5 mt-4  ">Loan</h6>
+                                    <h6 class="service-box fw-bold fs-5 mt-4 text-white">Loan</h6>
                                 </div>
                                 
                             </div>
                         </div>
-                        <div class="col-12 col-md-4 col-lg-4 col-sm-4 p-4  my-4 rounded-3 w-25 shadow">
-                            <div class="row p-3">
+                        <div class="col-12 col-md-3 col-lg-3 col-sm-3 p-4 ">
+                            <div class="row p-3 toolsservice rounded-3 shadow">
+                                <div class="col-12 col-md-5 col-lg-5 col-sm-5">
+                                    <img src="assets/images/about-us.png" class="w-100 img-tools p-4 mb-2 h-100"alt="">
+                                </div>
+                                <div class="col-12 col-md-7 col-lg-7 col-sm-7">
+                                    <h6 class="service-box fw-bold fs-5 mt-3 text-white">About Us</h6>
+                                </div>
+                                
+                            </div>
+                        </div>
+                        <!-- <div class="col-12 col-md-3 col-lg-3 col-sm-3 p-4  my-4 ">
+                            <div class="row p-3 toolsservice  rounded-3 shadow">
                                 <div class="col-12 col-md-5 col-lg-5 col-sm-5">
                                     <img src="assets/images/about-us.png" class="w-100 img-tools p-4 h-100"alt="">
                                 </div>
                                 <div class="col-12 col-md-7 col-lg-7 col-sm-7">
-                                    <h6 class="service-box fw-bold fs-5 mt-3  ">About Us</h6>
+                                    <h6 class="service-box fw-bold fs-5 mt-3 text-white ">About Us</h6>
                                 </div>
                                 
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                 
             </div>
@@ -2264,7 +2257,7 @@
     <!-- nwes -->
     <section>
         <div class="container mt-4 pt-3 ">
-            <h3 class="display-6 fw-bold  my-3 ">Our Latest News & Update</h3>
+            <h3 class="display-6 fw-bold  my-3 ">Our Latest <span class="text-success">News & Update</span></h3>
             <nav class="my-4 pt-3">
                 <div class="nav nav-tabs mb-3 " id="nav-tab" role="tablist">
                     <button class="nav-link active px-5 py-3 h5  mx-2 fw-bold text-dark" id="nav-all-tab" data-bs-toggle="tab" data-bs-target="#nav-all" type="button" role="tab" aria-controls="nav-all" aria-selected="true">All News</button>
@@ -2273,7 +2266,7 @@
                     <button class="nav-link px-5 py-3 h5 mx-2 fw-bold text-dark" id="nav-sarkari-tab" data-bs-toggle="tab" data-bs-target="#nav-sarkari" type="button" role="tab" aria-controls="nav-sarkari" aria-selected="false">Sarkari Yojna News</button>
                 </div>
 		    </nav>
-            <div class="tab-content p-3 border bg-light" id="nav-tabContent">
+            <div class="tab-content p-3 " id="nav-tabContent">
                 <div class="tab-pane fade active show" id="nav-all" role="tabpanel" aria-labelledby="nav-all-tab">
                    <div class="row">
                     <div class="col-lg-6 px-5 my-3">
@@ -2595,13 +2588,13 @@
     <section class="about bg-light">
         <div class="container">
             <div class="lecture_heading text-center">
-                <h3 class="fw-bold mt-4 pt-4">About Tractor Junction</h3>
+                <h3 class="fw-bold mt-4 pt-4">About <span class="text-success">Bharat Tractor</span></h3>
             </div>
             <div class="mt-4 pb-5">
-                <div class="accordion " id="accordionFlushExample">
+                <div class="accordion" id="accordionFlushExample">
                     <div class="accordion-item  rounded-3">
                         <h2 class="accordion-header" id="flush-headingOne" >
-                        <button class="accordion-button collapsed fw-bold h4" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                        <button class="accordion-button collapsed fw-bold h4" type="" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
                             Tractor Junction For Your All Agriculture Needs
                         </button>
                         </h2>
@@ -2613,8 +2606,8 @@
                         </div>
                     </div>
                     <div class="accordion-item rounded-3 my-3">
-                        <h2 class="accordion-header p-2" id="flush-headingTwo">
-                        <button class="accordion-button collapsed  fw-bold h4" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+                        <h2 class="accordion-header" id="flush-headingTwo">
+                        <button class="accordion-button collapsed  fw-bold h4" type="" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
                             Tractor Categories
                         </button>
                         </h2>
@@ -2625,8 +2618,8 @@
                         </div>
                     </div>
                     <div class="accordion-item  rounded-3 my-3">
-                        <h2 class="accordion-header p-2" id="flush-headingThree">
-                        <button class="accordion-button collapsed  fw-bold h4" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+                        <h2 class="accordion-header" id="flush-headingThree">
+                        <button class="accordion-button collapsed  fw-bold h4" type="" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
                         Sell Used Tractors
                         </button>
                         </h2>
@@ -2637,8 +2630,8 @@
                         </div>
                     </div>
                     <div class="accordion-item  rounded-3 my-3">
-                        <h2 class="accordion-header p-2" id="flush-heading4">
-                        <button class="accordion-button collapsed  fw-bold h4" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse4" aria-expanded="false" aria-controls="flush-collapse4">
+                        <h2 class="accordion-header" id="flush-heading4">
+                        <button class="accordion-button collapsed  fw-bold h4" type="" data-bs-toggle="collapse" data-bs-target="#flush-collapse4" aria-expanded="false" aria-controls="flush-collapse4">
                         Compare Tractors
                         </button>
                         </h2>
@@ -2649,8 +2642,8 @@
                         </div>
                     </div>
                     <div class="accordion-item  rounded-3 my-3">
-                        <h2 class="accordion-header p-2" id="flush-heading5">
-                        <button class="accordion-button collapsed  fw-bold h4" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse5" aria-expanded="false" aria-controls="flush-collapse5">
+                        <h2 class="accordion-header" id="flush-heading5">
+                        <button class="accordion-button collapsed  fw-bold h4" type="" data-bs-toggle="collapse" data-bs-target="#flush-collapse5" aria-expanded="false" aria-controls="flush-collapse5">
                         Harvesters and Implements
                         </button>
                         </h2>
@@ -2661,8 +2654,8 @@
                         </div>
                     </div>
                     <div class="accordion-item  rounded-3 my-3">
-                        <h2 class="accordion-header p-2" id="flush-heading6">
-                        <button class="accordion-button collapsed  fw-bold h4" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse6" aria-expanded="false" aria-controls="flush-collapse6">
+                        <h2 class="accordion-header" id="flush-heading6">
+                        <button class="accordion-button collapsed  fw-bold h4" type="" data-bs-toggle="collapse" data-bs-target="#flush-collapse6" aria-expanded="false" aria-controls="flush-collapse6">
                         Tyres Available
                         </button>
                         </h2>
@@ -2673,8 +2666,8 @@
                         </div>
                     </div>
                     <div class="accordion-item  rounded-3 my-3">
-                        <h2 class="accordion-header p-2" id="flush-headingoil">
-                        <button class="accordion-button collapsed  fw-bold h4" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseoil" aria-expanded="false" aria-controls="flush-collapseoil">
+                        <h2 class="accordion-header" id="flush-headingoil">
+                        <button class="accordion-button collapsed  fw-bold h4" type="" data-bs-toggle="collapse" data-bs-target="#flush-collapseoil" aria-expanded="false" aria-controls="flush-collapseoil">
                         Engine Oil
                         </button>
                         </h2>
@@ -2685,8 +2678,8 @@
                         </div>
                     </div>
                     <div class="accordion-item  rounded-3 my-3">
-                        <h2 class="accordion-header p-2" id="flush-heading7">
-                        <button class="accordion-button collapsed  fw-bold h4" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse7" aria-expanded="false" aria-controls="flush-collapse7">
+                        <h2 class="accordion-header" id="flush-heading7">
+                        <button class="accordion-button collapsed  fw-bold h4" type="" data-bs-toggle="collapse" data-bs-target="#flush-collapse7" aria-expanded="false" aria-controls="flush-collapse7">
                         Other Information Segments
                         </button>
                         </h2>
@@ -2709,17 +2702,17 @@
 
                 <div class="mt-4 pb-5">
                     <div class="accordion accordion-col" id="accordionFlushExample">
-                        <div class="accordion-item p-2 rounded-3">
+                        <div class="accordion-item rounded-3">
                             <h2 class="accordion-header" id="flush-headingbox2" >
-                            <button  class="accordion-button collapsed  fw-bold h4" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapsebox2" aria-expanded="false" aria-controls="flush-collapsebox2">
+                            <button  class="accordion-button collapsed  fw-bold h4" type="" data-bs-toggle="collapse" data-bs-target="#flush-collapsebox2" aria-expanded="false" aria-controls="flush-collapsebox2">
                                 Top New Tractors
                             </button>
                             </h2>
                             <div id="flush-collapsebox2" class="accordion-collapse collapse" aria-labelledby="flush-headingbox2" data-bs-parent="#accordionFlushExample">
                                 <div class="container">
                                     <div class="row my-2 py-2">
-                                        <div class="col-12 col-md-4 col-lg-4 col-sm-4 shadow">
-                                            <ul class="justify-content-center ul-box  ">
+                                        <div class="col-12 col-md-4 col-lg-4 col-sm-4">
+                                            <ul class="justify-content-center ul-box   shadow p-2">
                                                 <li class=""> <a href="#" class="text-dark text-decoration-none"><p>  <i class="fa-solid fa-angles-right"></i> &nbsp;Mahindra ARJUN NOVO 605 DI-i-4WD</p></a></li>
                                                 <li class=""> <a href="#" class="text-dark text-decoration-none"><p>  <i class="fa-solid fa-angles-right"></i> &nbsp;Sonalika WT 60</p></a></li>
                                                 <li class=""> <a href="#" class="text-dark text-decoration-none"><p> <i class="fa-solid fa-angles-right"></i> &nbsp;John Deere 3028 EN</p></a></li>
@@ -2727,11 +2720,11 @@
                                                 <li class=""> <a href="#" class="text-dark text-decoration-none"><p> <i class="fa-solid fa-angles-right"></i> &nbsp;Farmtrac 60</p></a></li>
                                                 <li class=""> <a href="#" class="text-dark text-decoration-none"><p> <i class="fa-solid fa-angles-right"></i> &nbsp;VST 927 4WD</p></a></li>
                                                 <li class=""> <a href="#" class="text-dark text-decoration-none"><p> <i class="fa-solid fa-angles-right"></i> &nbsp;VST 918 4WD 60</p></a></li>
-                                                <li class=""> <a href="#" class="text-dark text-decoration-none"><p> <i class="fa-solid fa-angles-right"></i> &nbsp;Farmtrac 50 EPI Classic Pro</p></a></li>
+                                                
                                             </ul>
                                         </div>
-                                        <div class="col-12 col-md-4 col-lg-4 col-sm-4 shadow">
-                                            <ul class="justify-content-center ul-box ">
+                                        <div class="col-12 col-md-4 col-lg-4 col-sm-4 ">
+                                            <ul class="justify-content-center ul-box shadow p-2">
                                                 <li class=""><a href="#" class="text-dark text-decoration-none"><p>  <i class="fa-solid fa-angles-right"></i> &nbsp;Mahindra 475 DI</p></a></li>
                                                 <li class=""><a href="#" class="text-dark text-decoration-none"><p>  <i class="fa-solid fa-angles-right"></i> &nbsp;Eicher 380 2WD Prima G3</p></a></li>
                                                 <li class=""><a href="#" class="text-dark text-decoration-none"><p> <i class="fa-solid fa-angles-right"></i> &nbsp;Eicher 548</p></a></li>
@@ -2741,8 +2734,8 @@
                                                 <li class=""> <a href="#" class="text-dark text-decoration-none"><p> <i class="fa-solid fa-angles-right"></i> &nbsp;Powertrac Euro 60</p></a></li>
                                             </ul>
                                         </div>
-                                        <div class="col-12 col-md-4 col-lg-4 col-sm-4 shadow">
-                                            <ul class="justify-content-center ul-box">
+                                        <div class="col-12 col-md-4 col-lg-4 col-sm-4 ">
+                                            <ul class="justify-content-center ul-box shadow p-2">
                                                 <li class=""><a href="#" class="text-dark text-decoration-none"><p>  <i class="fa-solid fa-angles-right"></i> &nbsp;Swaraj 969 FE</p></a></li>
                                                 <li class=""><a href="#" class="text-dark text-decoration-none"><p>  <i class="fa-solid fa-angles-right"></i> &nbsp;John Deere 3028 EN</p></a></li>
                                                 <li class=""><a href="#" class="text-dark text-decoration-none"><p> <i class="fa-solid fa-angles-right"></i> &nbsp;John Deere 3028 EN</p></a></li>
@@ -2750,7 +2743,7 @@
                                                 <li class=""><a href="#" class="text-dark text-decoration-none"><p> <i class="fa-solid fa-angles-right"></i> &nbsp;New Holland Excel 4710 Red</p></a></li>
                                                 <li class=""> <a href="#" class="text-dark text-decoration-none"><p> <i class="fa-solid fa-angles-right"></i> &nbsp;Massey Ferguson 9500 Smart</p></a></li>
                                                 <li class=""> <a href="#" class="text-dark text-decoration-none"><p> <i class="fa-solid fa-angles-right"></i> &nbsp;Farmtrac 60</p></a></li>
-                                                <li class=""> <a href="#" class="text-dark text-decoration-none"><p> <i class="fa-solid fa-angles-right"></i> &nbsp;Powertrac Euro 47 PowerHouse</p></a></li>
+                                               
                                             </ul>
                                         </div> 
                                     </div>
@@ -2759,8 +2752,8 @@
                             </div>
                         </div>
                         <div class="accordion-item  rounded-3 my-3">
-                                    <h2 class="accordion-header p-2" id="flush-headingbox">
-                                        <button class="accordion-button collapsed  fw-bold h4" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapsebox" aria-expanded="false" aria-controls="flush-collapsebox">
+                                    <h2 class="accordion-header" id="flush-headingbox">
+                                        <button class="accordion-button collapsed  fw-bold h4" type="" data-bs-toggle="collapse" data-bs-target="#flush-collapsebox" aria-expanded="false" aria-controls="flush-collapsebox">
                                         Other Information Segments
                                         </button>
                                         </h2>
@@ -2769,8 +2762,8 @@
                                             <div class="accordion-body">
                                                     
                                                     <div class="row my-2 py-2">
-                                                    <div class="col-12 col-md-4 col-lg-4 col-sm-4 shadow">
-                                                        <ul class="justify-content-center ul-box">
+                                                    <div class="col-12 col-md-4 col-lg-4 col-sm-4 ">
+                                                        <ul class="justify-content-center ul-box shadow p-2">
                                                             <li class=""> <a href="#" class="text-dark text-decoration-none"><p> <i class="fa-solid fa-angles-right"></i> &nbsp;New Tractors</p></a></li>
                                                             <li class=""> <a href="#" class="text-dark text-decoration-none"><p>  <i class="fa-solid fa-angles-right"></i> &nbsp;Offers</p></a></li>
                                                             <li class=""> <a href="#" class="text-dark text-decoration-none"><p> <i class="fa-solid fa-angles-right"></i> &nbsp;Popular Tractors</p></a></li>
@@ -2778,8 +2771,8 @@
                                                         
                                                         </ul>
                                                     </div>
-                                                    <div class="col-12 col-md-4 col-lg-4 col-sm-4 shadow">
-                                                        <ul class="justify-content-center ul-box ">
+                                                    <div class="col-12 col-md-4 col-lg-4 col-sm-4">
+                                                        <ul class="justify-content-center ul-box shadow p-2">
                                                             <li class=""><a href="#" class="text-dark text-decoration-none"><p>  <i class="fa-solid fa-angles-right"></i> &nbsp;Latest Tractors</p></a></li>
                                                             <li class=""><a href="#" class="text-dark text-decoration-none"><p>  <i class="fa-solid fa-angles-right"></i> &nbsp;Tractor News</p></a></li>
                                                             <li class=""><a href="#" class="text-dark text-decoration-none"><p> <i class="fa-solid fa-angles-right"></i> &nbsp;Upcoming Tractors</p></a></li>
@@ -2787,8 +2780,8 @@
                                                         
                                                         </ul>
                                                     </div>
-                                                    <div class="col-12 col-md-4 col-lg-4 col-sm-4 shadow">
-                                                        <ul class="justify-content-center ul-box">
+                                                    <div class="col-12 col-md-4 col-lg-4 col-sm-4 ">
+                                                        <ul class="justify-content-center ul-box shadow p-2">
                                                             <li class=""><a href="#" class="text-dark text-decoration-none"><p>  <i class="fa-solid fa-angles-right"></i> &nbsp;Finance</a></li>
                                                             <li class=""><a href="#" class="text-dark text-decoration-none"><p>  <i class="fa-solid fa-angles-right"></i> &nbsp;Contact / Mail Us</p></a></li>
                                                             <li class=""><a href="#" class="text-dark text-decoration-none"><p> <i class="fa-solid fa-angles-right"></i> &nbsp;Insurance</p></a></li>

@@ -96,7 +96,7 @@
     <label for="menu-btn" class="btn menu-btn"><i class="fas fa-bars"></i></label>
   </div>
 </nav> -->
-<nav class="navbar navbar-expand-lg navbar-dark" style="background: #b5d5b4">
+<nav class="navbar navbar-index navbar-expand-lg navbar-dark fixed-top" >
   <div class="container ">
     <div class="logo">
       <a href="#" class="text-decoration-none">
@@ -109,13 +109,13 @@
     <div class="collapse navbar-collapse container" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item dropdown dropdown-toggle ps-2 mt-3">
-          <a class="nav-link dropdown-toggle text-dark fw-bold " href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <a class="nav-link dropdown-toggle text-white fw-bold " href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             New Tractor
           </a>
           <ul class="dropdown-menu mt-2">
             <!-- <li><a href="#" class="dropdown-item fw-bold" href="#">Brands</a></li> -->
             <li class="nav-item dropend ">
-              <a class=" nav-link nav-link_brand dropdown-toggle fw-bold text-dark py-2" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <a class=" nav-link nav-link_brand dropdown-toggle fw-bold text-dark " href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 Brands
               </a>
               <ul class="dropdown-menu mt-2  pt-1">
@@ -151,7 +151,7 @@
           </ul>
         </li>
         <li class="nav-item  dropdown-toggle dropdown  ps-2  mt-3">
-          <a class="nav-link dropdown-toggle text-dark fw-bold" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <a class="nav-link dropdown-toggle text-white fw-bold" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Buy Used 
           </a>
           <ul class="dropdown-menu pt-3 mt-2">
@@ -170,7 +170,7 @@
           </ul>
         </li>
         <li class="nav-item dropdown  dropdown-toggle  ps-2 mt-3">
-          <a class="nav-link dropdown-toggle text-dark fw-bold" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <a class="nav-link dropdown-toggle text-white fw-bold" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Sell Used
           </a>
           <ul class="dropdown-menu mt-2">
@@ -183,7 +183,7 @@
         </li>
         
         <li class="nav-item dropdown dropdown-toggle ps-2 mt-3">
-          <a class="nav-link dropdown-toggle text-dark fw-bold" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <a class="nav-link dropdown-toggle text-white fw-bold" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
            Farm Equipment's
           </a>
           <ul class="dropdown-menu mt-2">
@@ -210,25 +210,25 @@
             <li>
               <hr class="dropdown-divider ps-2">
             </li>
-            <li class="mt-4" ><a class="dropdown-item  fw-bold" href="#">Harvester</a></li>
+            <li class="" ><a class="dropdown-item text-dark fw-bold" href="harvester.php">Harvester</a></li>
            
            
           </ul>
         </li>
         <li class="nav-item mt-3  ps-4">
-          <a class="nav-link text-dark fw-bold" href="#">Compare</a>
+          <a class="nav-link text-white fw-bold" href="#">Compare</a>
         </li>
         <div class="col-2 mt-3">
           <li class="nav-item text-center">
-          <a class="nav-link text-dark fw-bold"href="#">On-Road Price</a>
+          <a class="nav-link text-white fw-bold"href="#">On-Road Price</a>
             
           </li>
         </div>
         <li class="nav-item mt-3">
-          <a class="nav-link text-dark fw-bold ps-0" href="#">Shop</a>
+          <a class="nav-link text-white fw-bold ps-0" href="#">Shop</a>
         </li>
         <li class="nav-item dropdown dropdown-toggle mt-3 ps-2">
-          <a class="nav-link dropdown-toggle text-dark fw-bold" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <a class="nav-link dropdown-toggle text-white fw-bold" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Loan
           </a>
           <ul class="dropdown-menu pt-3 mt-2">
@@ -243,7 +243,7 @@
         </li>
         <div class="col-2 text-center">
           <li class="nav-item dropdown dropdown-toggle mt-3">
-            <a class="nav-link dropdown-toggle text-dark fw-bold" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <a class="nav-link dropdown-toggle text-white fw-bold" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               News & Update
             </a>
             <ul class="dropdown-menu pt-3 mt-2">
@@ -265,7 +265,7 @@
           </li>
         </div>
         <li class="nav-item dropdown dropdown-toggle">
-          <a class="nav-link dropdown-toggle text-dark fw-bold mt-3" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <a class="nav-link dropdown-toggle text-white fw-bold mt-3" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             More
           </a>
           <ul class="dropdown-menu  pt-3 mt-2">

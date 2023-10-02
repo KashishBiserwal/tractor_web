@@ -172,39 +172,31 @@
     </div>
     <div class="container">
       <!-- Filter Card -->
-      <div class="filter-card mb-4">
+      <div class="filter-card mb-2">
         <div class="card-body">
           <div class="row">
-            <div class="col-12 col-sm-12 col-md-4 col-lg-4">
-              <div class="form-outline mb-3">
+            <div class="col-12 col-sm-12 col-md-3 col-lg-3">
+              <div class="form-outline">
                 <label class="form-label">Brand</label>
                 <input type="email" id="search_name" name="search_name" class="form-control" />
               </div>
             </div>
-            <div class="col-12 col-sm-12 col-md-4 col-lg-4">
-              <div class="form-outline mb-3">
+            <div class="col-12 col-sm-12 col-md-3 col-lg-3">
+              <div class="form-outline">
                 <label class="form-label">Model</label>
                 <input type="text" id="search_email" name="search_email" class="form-control" />
               </div>
             </div>
-            <!-- <div class="col-12 col-sm-12 col-md-4 col-lg-4">
-              <div class="form-outline mb-3">
-                <label class="form-label">Name</label>
-                <input type="text" id="designation" name="designation" class="form-control" />
-              </div>
-            </div> -->
-            <div class="col-12 col-sm-12 col-md-4 col-lg-4">
-              <div class="form-outline mb-3">
+            <div class="col-12 col-sm-12 col-md-3 col-lg-3">
+              <div class="form-outline">
                 <label class="form-label">HP Category</label>
                 <input type="text" id="phone" name="phone" class="form-control" />
               </div>
             </div>
-           
-            
-            <div class="col-12 col-sm-12 col-md-12 col-lg-12 text-center">
-              <div class="">
-                <button type="button" class="btn-success btn_search" id="Search">Search</button>
-                <button type="button" class="btn-success  mx-2 btn_search" id="Reset">Reset</button>
+            <div class="col-12 col-sm-12 col-md-3 col-lg-3 text-center">
+              <div class=" pt-4 mt-1">
+                <button type="button" class="btn-success btn px-4 py-2" id="Search">Search</button>
+                <button type="button" class="btn-success btn px-4 py-2" id="Reset">Reset</button>
               </div>
             </div>
           </div>
@@ -213,20 +205,20 @@
       <!-- Table Card -->
       <div class=" mb-5">
                             <div class="table-responsive">
-                                <table id="example" class="table  table_useroverview dataTable no-footer py-1" width="100%">
+                                <table  id="example" class="table dataTable no-footer py-1" width="100%">
                                     <thead>
                                         <tr>
                                             <th class="d-none d-md-table-cell text-dark">S.No.</th>
                                             <!-- <th class="d-none d-md-table-cell text-dark">Category</th> -->
-                                            <th class="d-none d-md-table-cell text-dark">Brand</th>
-                                            <th class="d-none d-md-table-cell text-dark">Model</th>
-                                            <th class="d-none d-md-table-cell text-dark"> No. of Cylinder</th>
-                                            <th class="d-none d-md-table-cell text-dark">  PTO HP</th>
-                                            <th class="d-none d-md-table-cell text-dark"> HP Category</th>
-                                            <th class="d-none d-md-table-cell text-dark"> Gear Box</th>
-                                            <th class="d-none d-md-table-cell text-dark"> Brakes</th>
-                                            <th class="d-none d-md-table-cell text-dark">Steering</th>
-                                            <th class="d-none d-md-table-cell text-dark">Tyres</th>
+                                            <th class="d-none d-md-table-cell text-white">Brand</th>
+                                            <th class="d-none d-md-table-cell text-white">Model</th>
+                                            <th class="d-none d-md-table-cell text-white"> No. of Cylinder</th>
+                                            <th class="d-none d-md-table-cell text-white">  PTO HP</th>
+                                            <th class="d-none d-md-table-cell text-white"> HP Category</th>
+                                            <th class="d-none d-md-table-cell text-white"> Gear Box</th>
+                                            <th class="d-none d-md-table-cell text-white"> Brakes</th>
+                                            <th class="d-none d-md-table-cell text-white">Steering</th>
+                                            <th class="d-none d-md-table-cell text-white">Tyres</th>
                                         </tr>
                                     </thead>
                                     <tbody>
