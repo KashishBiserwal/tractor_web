@@ -80,8 +80,8 @@
                   <h1 class="mt-0">
                      About Mahindra Tractor
                   </h1>
-                  <p class="intro_P  text-dark justify-content-center"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt voluptates cupiditate maiores aliquam aspernatur. Inventore, dicta corporis dolorem dolores modi magnam iste?Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur, at expedita eveniet reprehenderit praesentium optio, nostrum soluta eaque non deserunt enim ipsam alias eligendi iusto beatae quae eius omnis dolores nam! Quos dolores voluptatibus laudantium doloribus eos libero mollitia debitis! Aliquam qui aperiam dolorum? </p>
-                  <p class="intro_P text-dark">Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse quia soluta consectetur ut, tenetur molestias consequatur nobis. Quod sapiente aliquid facilis doloribus quisquam magni odio distinctio ut laboriosam labore? Molestiae, neque corrupti? Corporis ex suscipit doloribus itaque at! Aut incidunt et iusto reprehenderit animi!</p>
+                  <p class="intro_P  text-dark justify-content-center"> As India's leading tractor manufacturer, Mahindra has truly made a name for itself in its home country. But not only that, theyve also become extremely successful around the globe. With a long-storied history of manufacturing durable and versatile farm equipment for over 75 years, yearly revenues over $15 billion and 40,000 employees, Mahindra is a force to be reckoned with. Read on to learn more about the history of this Mumbai-based company.</p>
+                  <p class="intro_P text-dark">As India’s leading tractor manufacturer, Mahindra has truly made a name for itself in its home country. But not only that, they’ve also become extremely successful around the globe. With a long-storied history of manufacturing durable and versatile farm equipment for over 75 years, yearly revenues over $15 billion and 40,000 employees, Mahindra is a force to be reckoned with. Read on to learn more about the history of this Mumbai-based company.</p>
 
                </div>
 
