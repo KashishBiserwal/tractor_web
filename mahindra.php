@@ -14,8 +14,8 @@
    <!-- Banner Here -->
    
    <section class="bg-cover bg-overlay" style="background-image: url('assets/images/mahindra-oja-tractors-homepage-desktop-1920x600.webp')">
-        <div class="container position-relative mt-5 pt-4">
-            <div class="py-3"></div>
+        <div class="container position-relative mt-5 pt-5">
+            <div class="py-4"></div>
             <div class="py-5"></div>
             <div class="row justify-content-center">
                 <div class="col-12  text-center">
@@ -48,13 +48,7 @@
                                     </a><span data-bs-toggle="modal" class="fw-dark text-white pe-auto watch me-2" data-bs-target="#exampleModal"> Watch Intro Video</span>
                                 </span> -->
                                 <div>
-                                    <div class="mt-3">
-                                        <span class="my-4 text-white pt-4 ">
-                                            <a href="#" class="text-decoration-none header-link text-white px-1">Home <i class="fa-solid fa-chevron-right px-1"></i></a>
-                                            <span class=""><a href="#" class="text-decoration-none header-link  px-1 text-white">Brand <i class="fa-solid fa-chevron-right px-1"></i> </a></span>
-                                             <!-- <span class="text-white"> Mahindra</span> -->
-                                        </span> 
-                                    </div>
+                                 
                                 
                                 </div>
                             </div>
@@ -67,18 +61,26 @@
             <div class="py-3"></div>
         </div>
    </section>
-
+    <!-- <section>
+        <div class="mt-3 container">
+            <span class="mt-4 ">
+                <a href="index.php" class="text-decoration-none header-link px-1">Home <i class="fa-solid fa-chevron-right px-1"></i></a>
+                <span class=""><span class=" header-link  px-1 text-text">Brand <i class="fa-solid fa-chevron-right px-1"></i> </span><span class=" header-link  px-1 text-text">Mahindra </span></span>
+            </span> 
+        </div>
+    </section> -->
    <!-- about mahindra -->
    <section class="about__section__five bg-white">
+       
       <!--Container-->
-      <div class="container">
+      <div class="container mt-0">
          <div class="row align-items-center justify-content-center">
             <div class="col-12 col-sm-12 col-xxl-6 col-xl-6 col-lg-6">
                <div class="section__header px-0 px-md-3">
-                  <h1 class="">
+                  <h1 class="mt-0">
                      About Mahindra Tractor
                   </h1>
-                  <p class="intro_P mt-3 text-dark justify-content-center"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt voluptates cupiditate maiores aliquam aspernatur. Inventore, dicta corporis dolorem dolores modi magnam iste?Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur, at expedita eveniet reprehenderit praesentium optio, nostrum soluta eaque non deserunt enim ipsam alias eligendi iusto beatae quae eius omnis dolores nam! Quos dolores voluptatibus laudantium doloribus eos libero mollitia debitis! Aliquam qui aperiam dolorum? </p>
+                  <p class="intro_P  text-dark justify-content-center"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt voluptates cupiditate maiores aliquam aspernatur. Inventore, dicta corporis dolorem dolores modi magnam iste?Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur, at expedita eveniet reprehenderit praesentium optio, nostrum soluta eaque non deserunt enim ipsam alias eligendi iusto beatae quae eius omnis dolores nam! Quos dolores voluptatibus laudantium doloribus eos libero mollitia debitis! Aliquam qui aperiam dolorum? </p>
                   <p class="intro_P text-dark">Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse quia soluta consectetur ut, tenetur molestias consequatur nobis. Quod sapiente aliquid facilis doloribus quisquam magni odio distinctio ut laboriosam labore? Molestiae, neque corrupti? Corporis ex suscipit doloribus itaque at! Aut incidunt et iusto reprehenderit animi!</p>
 
                </div>
@@ -340,7 +342,7 @@
   <!-- series -->
   <section class="bg-light">
     <div class="container ">
-        <h3 class="my-4 pt-2 fw-bold">Mahindra Tractor Series</h3>
+        <h3 class="py-4 fw-bold">Mahindra Tractor Series</h3>
         <div class="row">
             <div class="col-12 col-sm-6 col-md-4 col-lg-3 px-2 py-3 series_tractor ">
                 <div class="thumbnail thumb_tractors rounded-circle" >
@@ -559,7 +561,7 @@
                 </div>
             </div>
         </div>
-        <div class="col text-center my-3">
+        <div class="col text-center my-3  py-3">
             <a href="#" class="btn btn-success btn-lg">View All Used Mahindra Tractors</a>
         </div>
     </section>
@@ -678,8 +680,8 @@
                     </div>
                 </div>
             </div>
-            <div class="col text-center my-3">
-                <a href="#" class="btn btn-success btn-lg">View All Tractor Implements</a>
+            <div class="col text-center my-3 pb-5">
+                <a href="#" class="btn btn-success btn-lg ">View All Tractor Implements</a>
             </div>
         </div>
     </section>

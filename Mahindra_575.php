@@ -14,10 +14,10 @@
 
 <section>
     <div class="container mt-5 pt-4">
-        <div class="mt-3">
-            <span class="my-4 text-white pt-4 ">
-                <a href="#" class="text-decoration-none header-link px-1">Home <i class="fa-solid fa-chevron-right px-1"></i></a>
-                    <span class=""><a href="#" class="text-decoration-none header-link  px-1">Brand <i class="fa-solid fa-chevron-right px-1"></i> </a></span>
+        <div class="pt-5">
+            <span class="mt-4 pt-4 ">
+                <a href="index.php" class="text-decoration-none header-link px-1">Home <i class="fa-solid fa-chevron-right px-1"></i></a>
+                    <span class=""><span class=" header-link  px-1">Brand <i class="fa-solid fa-chevron-right px-1"></i> </span></span>
                     <span class="text-dark"> Mahindra</span>
             </span> 
         </div>
@@ -27,7 +27,7 @@
 <!-- Mahindra 575 DI XP Plus -->
 <section>
     <div class="container">
-        <h1 class="mt-5">Mahindra 575 DI XP Plus</h1>
+        <h1 class="mt-4">Mahindra 575 DI XP Plus</h1>
         <div class="row">
             <div class="col-12 col-lg-6 col-md-6 col-sm-6 mt-5 pt-3">
                 <img src="assets/images/mahindra-575-di-sp-plus-836976961.avif" alt="mahindra-575-DI-XP-Plus">
@@ -153,68 +153,78 @@
 
 
 <section class="bg-light">
-    <div class="container mt-5 py-3">
-        <div class="row">
-
-        <div class="col-12 col-lg-6 col-sm-6 col-md-6  rounded-3">
-                <div class="row rounded-3 bg-white my-3">
-                    <div class="col-12 col-lg-4 col-sm-4 col-md-4">
-                        <img src="assets/images/clutch.png" class="w-50 rounded-circle" alt="">
-                    </div>
-                    <div class="col-12 col-lg-8 col-sm-8 col-md-8">
-                        <h5 class="fw-bold">CLUTCH</h5>
-                        <p>Single / Dual clutch</p>
-                    </div>
-                </div>
-                <div class="row mt-2 pt-3 rounded-3 bg-white">
-                    <div class="col-12 col-lg-4 col-sm-4 col-md-4">
-                        <img src="assets/images/steering.png" class="w-50 rounded-circle" alt="">
-                    </div>
-                    <div class="col-12 col-lg-8 col-sm-8 col-md-8">
-                        <h5 class="fw-bold">STEERING</h5>
-                        <p>Dual Acting Power steering / M</p>
-                    </div>
-                </div>
-                <div class="row mt-2 pt-3  rounded-3 bg-white">
-                    <div class="col-12 col-lg-4 col-sm-4 col-md-4">
-                        <img src="assets/images/lifting.webp" class="w-50 rounded-circle" alt="">
-                    </div>
-                    <div class="col-12 col-lg-8 col-sm-8 col-md-8">
-                        <h5 class="fw-bold">LIFTING CAPACITY</h5>
-                        <p>1500 Kg</p>
-                    </div>
-                </div>
-                <div class="row mt-2 pt-3  rounded-3 bg-white">
-                    <div class="col-12 col-lg-4 col-sm-4 col-md-4">
-                        <img src="assets/images/wheelgare.png" class="w-50 rounded-circle" alt="">
-                    </div>
-                    <div class="col-12 col-lg-8 col-sm-8 col-md-8">
-                        <h5 class="fw-bold">WHEEL DRIVE</h5>
-                        <p>2 WD</p>
-                    </div>
-                </div>
-                <div class="row mt-2 pt-3  rounded-3 bg-white">
-                    <div class="col-12 col-lg-4 col-sm-4 col-md-4">
-                        <img src="assets/images/rpmrated.jpg" class="w-50 rounded-circle" alt="">
-                    </div>
-                    <div class="col-12 col-lg-8 col-sm-8 col-md-8">
-                        <h5 class="fw-bold">ENGINE RATED RPM</h5>
-                        <p>2000</p>
+    <div class="container my-4">
+        <h3 class="text-dark fw-bold assured  ps-3"><span class="text-success">Mahindra 575 DI XP Plus</span> Other Features</h3>
+        <div class="row mt-3 pt-4">
+            <div class="col-12 col-lg-6 col-md-6 col-sm-6">
+                <div class="featureservice rounded-3">
+                    <div class="row p-3 ">
+                        <div class="col-12 col-lg-5 col-md-5 col-sm-5">
+                            <img src="assets/images/clutch.png" class="w-50 rounded-circle" alt=""> 
+                        </div>
+                        <div class="col-12 col-lg-7 col-md-7 col-sm-7">
+                            <h6 class="service-box fw-bold fs-5 mt-3 text-white">CLUTCH </h6>
+                            <p class="text-white">Single / Dual clutch</p>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="col-12 col-lg-6 col-sm-6 col-md-6 features-mahindra ">
-                <h2 class="fw-bold text-dark pe-5">Mahindra 575 DI XP Plus Other Features</h2>
-                <div>
-            <h6 class="mt-4 justify-content-center ps-5">
-                Do you know? Mahindra 575 DI XP PLUS is widely popular in 2022 for its functionality and features and will remain in demand in the coming 2023.
-                Mahindra is popularly known for its best-in-class tractors and engines in the tractor and commercial vehicle segment in India. This success has been due to the result of manufacturing tractors for many decades in India.
-                </h6>
+            <div class="col-12 col-lg-6 col-md-6 col-sm-6">
+                <div class="featureservice rounded-3">
+                    <div class="row p-3 ">
+                        <div class="col-12 col-lg-5 col-md-5 col-sm-5">
+                            <img src="assets/images/61pVwAXBzSL.jpg" class="w-50 rounded-circle" alt=""> 
+                        </div>
+                        <div class="col-12 col-lg-7 col-md-7 col-sm-7">
+                            <h6 class="service-box fw-bold fs-5 mt-3 text-white">STEERING </h6>
+                            <p class="text-white">Dual Acting Power steering</p>
+                        </div>
+                    </div>
+                   
+                </div>
             </div>
+            <!-- <div class="col-12 col-lg-6 col-md-6 col-sm-6">
+                <div class="featureservice rounded-3">
+                    <div class="row p-3 ">
+                        <div class="col-12 col-lg-5 col-md-5 col-sm-5">
+                            <img src="assets/images/lifting.webp" class="w-50 rounded-circle" alt="">
+                        </div>
+                        <div class="col-12 col-lg-7 col-md-7 col-sm-7">
+                            <h6 class="service-box fw-bold fs-5 mt-3 text-white">LIFTING CAPACITY </h6>
+                            <p class="text-white">1500 Kg</p>
+                        </div>
+                    </div>
+                   
+                </div>
             </div>
-           
-           
-           
+            <div class="col-12 col-lg-6 col-md-6 col-sm-6">
+                <div class="featureservice rounded-3">
+                    <div class="row p-3 ">
+                        <div class="col-12 col-lg-5 col-md-5 col-sm-5">
+                            <img src="assets/images/1892668-200wheel.png" class="w-50 rounded-circle bg-white" alt="">
+                        </div>
+                        <div class="col-12 col-lg-7 col-md-7 col-sm-7">
+                            <h6 class="service-box fw-bold fs-5 mt-3 text-white">WHEEL DRIVE </h6>
+                            <p class="text-white">2 WD</p>
+                        </div>
+                    </div>
+                   
+                </div>
+            </div>
+            <div class="col-12 col-lg-6 col-md-6 col-sm-6">
+                <div class="featureservice rounded-3">
+                    <div class="row p-3 ">
+                        <div class="col-12 col-lg-5 col-md-5 col-sm-5">
+                            <img src="assets/images/rpmrated.jpg" class="w-50 rounded-circle" alt="">
+                        </div>
+                        <div class="col-12 col-lg-7 col-md-7 col-sm-7">
+                            <h6 class="service-box fw-bold fs-5 mt-3 text-white">ENGINE RATED RPM</h6>
+                            <p class="text-white">2000</p>
+                        </div>
+                    </div>
+                   
+                </div>
+            </div> -->
         </div>
     </div>
 </section>
