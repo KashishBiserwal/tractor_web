@@ -16,8 +16,8 @@
     <div class="container pt-3">
         <div class="mt-3">
             <span class="mt-4 text-white ">
-                <a href="#" class="text-decoration-none header-link px-1">Home <i class="fa-solid fa-chevron-right px-1"></i></a>
-                    <span class=""><a href="#" class="text-decoration-none header-link  px-1">Buy Used <i class="fa-solid fa-chevron-right px-1"></i> </a></span>
+                <a href="index.php" class="text-decoration-none header-link px-1">Home <i class="fa-solid fa-chevron-right px-1"></i></a>
+                    <span class=""><span class=" header-link  px-1">Buy Used <i class="fa-solid fa-chevron-right px-1"></i> </span></span>
                     <span class="text-dark"> Certified Used Tractor</span>
             </span> 
         </div>

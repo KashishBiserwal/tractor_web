@@ -551,6 +551,13 @@ div.swiper-5 {
 .featureservice{
   background: #ca2e2e;
 }
+/* .success__stry__item{
+  height: 400px;
+} */
+.success__stry__item .thumb img{
+  /* height: 235px; */
+}
+
 /* tractor implement */
 
 .img-imple {

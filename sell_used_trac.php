@@ -51,11 +51,11 @@
                             <form>
                                 <div class="row ">
                                     <div class="col-12 col-lg-6 col-sm-5 col-md-6 my-2">
-                                        <label for="location" class=" text-dark float-start fw-bold"><i class="fa fa-map-marker" aria-hidden="true"></i> Location</label>
+                                        <label for="location" class=" text-dark float-start fw-bold">Location</label>
                                          <input type="text" class="form-control" id="location" placeholder="" name="location" required>
                                     </div>
                                     <div class="col-12 col-lg-6 col-sm-5 col-md-6 my-2">
-                                        <label for="your_name" class=" text-dark float-start fw-bold"><i class="fa-solid fa-user"></i> Name</label>
+                                        <label for="your_name" class=" text-dark float-start fw-bold"> Name</label>
                                         <input type="text" class="form-control" id="your_name" placeholder="" name="your_name" required>
                                     </div>
                                     <div class="col-12 col-lg-6 col-sm-5 col-md-6 my-2">

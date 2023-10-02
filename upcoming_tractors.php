@@ -12,8 +12,8 @@
    include 'includes/header.php';
    ?>4
 
-<section class="mt-5 pt-5">
-    <div class="container pt-">
+<section class="mt-5 pt-3">
+    <div class="container">
         <div class="mt-5">
             <span class="mt-5 text-white pt-5 ">
                 <a href="index.php" class="text-decoration-none header-link px-1">Home <i class="fa-solid fa-chevron-right px-1"></i></a>

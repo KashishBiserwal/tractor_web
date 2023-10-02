@@ -16,8 +16,8 @@
     <div class="container py-2">
         <div class="py-2">
             <span class="my-4 text-white">
-                <a href="#" class="text-decoration-none header-link px-1">Home <i class="fa-solid fa-chevron-right px-1"></i></a>
-                    <span class=""><a href="#" class="text-decoration-none header-link  px-1">Buy Used <i class="fa-solid fa-chevron-right px-1"></i> </a></span>
+                <a href="index.php" class="text-decoration-none header-link px-1">Home <i class="fa-solid fa-chevron-right px-1"></i></a>
+                    <span class=""><span class=" text-dark text-decoration-none header-link  px-1">Buy Used <i class="fa-solid fa-chevron-right px-1"></i> </span></span>
                     <span class="text-dark"> Buy Old Tractor</span>
             </span> 
         </div>

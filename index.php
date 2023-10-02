@@ -221,16 +221,16 @@
                         <div class="swiper swiper-slides-visible p-5 m-n5 testimonial__wrap">
                        
                             <div class="swiper-wrapper ">
-                                <div class="swiper-slide h-auto success__stry__item d-flex flex-column shadow ">
+                                <div class="swiper-slide success__stry__item shadow h-25">
 
                                     <div class="thumb">
                                         <a href="#">
                                             <div class="">
-                                                <img src="assets/images/575-di-xp-plus-1632207330.png" class="object-fit-cover py-3" alt="img">
+                                                <img src="assets/images/575-di-xp-plus-1632207330.png" class="object-fit-cover p-3 w-100" alt="img">
                                             </div>
                                         </a>
                                     </div>
-                                    <div class="content d-flex flex-column flex-grow-1 ms-3">
+                                    <div class="content ms-3">
                                      
                                         <a href="#" class="text-decoration-none text-dark">
                                             <h4 class="fw-bold mt-3">Mahindra 575 DI XP Plus</h3>
@@ -249,16 +249,16 @@
                                         </a>
                                     </div>
                                 </div>
-                                <div class="swiper-slide success__stry__item d-flex flex-column shadow">
+                                <div class="swiper-slide success__stry__item shadow">
 
                                     <div class="thumb">
                                         <a href="#">
                                             <div class="">
-                                                <img src="assets/images/60-epi-t20-1632217131.png" class="object-fit-cover py-3" alt="img">
+                                                <img src="assets/images/60-epi-t20-1632217131.png" class="object-fit-cover p-3 w-100" alt="img">
                                             </div>
                                         </a>
                                     </div>
-                                    <div class="content d-flex flex-column flex-grow-1 ms-3">
+                                    <div class="content ms-3">
                                      
                                         <a href="#" class="text-decoration-none text-dark ">
                                             <h4 class="fw-bold ">Farmtrac 50 Smart</h3>
@@ -277,12 +277,12 @@
                                         </a>
                                     </div>
                                 </div>
-                                <div class="swiper-slide h-auto success__stry__item d-flex flex-column shadow ">
+                                <div class="swiper-slide success__stry__item shadow ">
 
                                     <div class="thumb">
                                         <a href="#">
                                             <div class="">
-                                                <img src="assets/images/575-di-xp-plus-1632207330.webp" class="object-fit-cover py-3" alt="img">
+                                                <img src="assets/images/575-di-xp-plus-1632207330.webp" class="object-fit-cover p-3 w-100" alt="img">
                                             </div>
                                         </a>
                                     </div>
@@ -305,21 +305,21 @@
                                         </a>
                                     </div>
                                 </div>
-                                <div class="swiper-slide h-auto success__stry__item d-flex flex-column shadow ">
+                                <div class="swiper-slide success__stry__item shadow ">
                                     <div class="thumb">
                                         <a href="#">
                                             <div class="">
-                                                <img src="assets/images/60-epi-t20-1632217131.webp" class="object-fit-cover py-3" alt="img">
+                                                <img src="assets/images/60-epi-t20-1632217131.webp" class="object-fit-cover p-3 w-100" alt="img">
                                             </div>
                                         </a>
                                     </div>
-                                    <div class="content d-flex flex-column flex-grow-1 ms-3">
+                                    <div class="content ms-3">
                                     
                                         <a href="#" class="text-decoration-none text-dark">
                                             <h4 class="fw-bold mt-3">Farmtrac Atom 26</h3>
                                         </a>
 
-                                        <a href="# " class="text-dark flex-grow-1 text-decoration-none ">
+                                        <a href="# " class="text-dark text-decoration-none ">
                                             <p>From: ₹5.65-5.85 lac*</p>
                                         </a>
                                         <a href="#" class="text-decoration-none text-dark mb-4">
@@ -332,21 +332,21 @@
                                         </a>
                                     </div>
                                 </div>
-                                <div class="swiper-slide h-auto success__stry__item d-flex flex-column shadow">
+                                <div class="swiper-slide success__stry__item shadow">
                                     <div class="thumb">
                                         <a href="#">
                                             <div class="">
-                                                <img src="assets/images/john-deere.jpg" class="object-fit-cover py-3" alt="img">
+                                                <img src="assets/images/john-deere.jpg" class="object-fit-cover p-3 w-100" alt="img">
                                             </div>
                                         </a>
                                     </div>
-                                    <div class="content d-flex flex-column flex-grow-1">
+                                    <div class="content">
                                      
                                         <a href="#" class="text-decoration-none text-dark">
                                             <h4 class="fw-bold mt-3">John Deere Tractors</h3>
                                         </a>
 
-                                        <a href="# " class="text-dark flex-grow-1 text-decoration-none ">
+                                        <a href="# " class="text-dark text-decoration-none ">
                                             <p>From: 5.40 Lakh*</p>
                                         </a>
                                         <a href="#" class="text-decoration-none text-dark mb-4">
@@ -394,16 +394,16 @@
                             <div class="swiper swiper-slides-visible p-5 m-n5 testimonial__wrap">
                         
                                 <div class="swiper-wrapper ">
-                                    <div class="swiper-slide h-auto success__stry__item d-flex flex-column shadow ">
+                                    <div class="swiper-slide success__stry__item shadow ">
 
                                         <div class="thumb">
                                             <a href="#">
                                                 <div class="">
-                                                    <img src="assets/images/575-di-xp-plus-1632207330.webp" class="object-fit-cover py-3" alt="img">
+                                                    <img src="assets/images/575-di-xp-plus-1632207330.webp" class="object-fit-cover p-3 w-100" alt="img">
                                                 </div>
                                             </a>
                                         </div>
-                                        <div class="content d-flex flex-column flex-grow-1 ">
+                                        <div class="content">
                                         
                                             <a href="#" class="text-decoration-none text-dark">
                                                 <h4 class="fw-bold mt-3 mx-3">Mahindra 475 DI XP Plus</h3>
@@ -414,7 +414,7 @@
                                                     <p class=""> <i class="fas fa-bolt"></i>  44HP</p>
                                                 </div>
                                                 <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                                                    <p class="pe-5 me-3"> <i class="fa fa-cog" aria-hidden="true"></i>  2979 CC</p>
+                                                    <p class=""> <i class="fa fa-cog" aria-hidden="true"></i>  2979 CC</p>
                                                 </div>
                                             </div>
                                             <a href="#" class="text-decoration-none text-dark mb-4 ms-3">
@@ -427,16 +427,16 @@
                                             </a>
                                         </div>
                                     </div>
-                                    <div class="swiper-slide h-auto success__stry__item d-flex flex-column shadow">
+                                    <div class="swiper-slide success__stry__item  shadow">
 
                                         <div class="thumb">
                                             <a href="#">
                                                 <div class="">
-                                                    <img src="assets/images/agromaxx-4050-e-1632288159.webp" class="object-fit-cover py-3" alt="img">
+                                                    <img src="assets/images/agromaxx-4050-e-1632288159.webp" class="object-fit-cover p-3 w-100" alt="img">
                                                 </div>
                                             </a>
                                         </div>
-                                        <div class="content d-flex flex-column flex-grow-1 ms-3">
+                                        <div class="content ms-3">
                                         
                                             <a href="#" class="text-decoration-none text-dark ">
                                                 <h4 class="fw-bold mt-3">Same Deutz Fahr Agromaxx 40</h3>
@@ -447,7 +447,7 @@
                                                     <p class=""> <i class="fas fa-bolt"></i>  50HP</p>
                                                 </div>
                                                 <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                                                    <p class="pe-5 me-3"> <i class="fa fa-cog" aria-hidden="true"></i>  3000 CC</p>
+                                                    <p class=""> <i class="fa fa-cog" aria-hidden="true"></i>  3000 CC</p>
                                                 </div>
                                             </div>
                                             <a href="#" class="text-decoration-none text-dark mb-4">
@@ -460,16 +460,16 @@
                                             </a>
                                         </div>
                                     </div>
-                                    <div class="swiper-slide h-auto success__stry__item d-flex flex-column shadow ">
+                                    <div class="swiper-slide success__stry__item  shadow ">
 
                                         <div class="thumb">
                                             <a href="#">
                                                 <div class="">
-                                                    <img src="assets/images/mahindra-585-di-xp-plus.webp" class="object-fit-cover py-3" alt="img">
+                                                    <img src="assets/images/mahindra-585-di-xp-plus.webp" class="object-fit-cover p-3 w-100" alt="img">
                                                 </div>
                                             </a>
                                         </div>
-                                        <div class="content d-flex flex-column flex-grow-1 ms-3">
+                                        <div class="content ms-3">
                                         
                                             <a href="#" class="text-decoration-none text-dark">
                                                 <h4 class="fw-bold mt-3">Mahindra 585 DI XP Plus</h3>
@@ -480,7 +480,7 @@
                                                     <p class=""> <i class="fas fa-bolt"></i>  49HP</p>
                                                 </div>
                                                 <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                                                    <p class="pe-5 me-3"> <i class="fa fa-cog" aria-hidden="true"></i>  3054 CC</p>
+                                                    <p class=""> <i class="fa fa-cog" aria-hidden="true"></i>  3054 CC</p>
                                                 </div>
                                             </div>
                                             <a href="#" class="text-decoration-none text-dark mb-4">
@@ -493,15 +493,15 @@
                                             </a>
                                         </div>
                                     </div>
-                                    <div class="swiper-slide h-auto success__stry__item d-flex flex-column shadow ">
+                                    <div class="swiper-slide success__stry__item shadow ">
                                         <div class="thumb">
                                             <a href="#">
                                                 <div class="">
-                                                    <img src="assets/images/agromaxx-4055-e-1632289120.webp" class="object-fit-cover py-3" alt="img">
+                                                    <img src="assets/images/agromaxx-4055-e-1632289120.webp" class="object-fit-cover p-3 w-100" alt="img">
                                                 </div>
                                             </a>
                                         </div>
-                                        <div class="content d-flex flex-column flex-grow-1 ms-3">
+                                        <div class="content ms-3">
                                         
                                             <a href="#" class="text-decoration-none text-dark">
                                                 <h4 class="fw-bold mt-3">Same Deutz Fahr Agromaxx 4055 E</h3> 
@@ -518,15 +518,15 @@
                                             </a>
                                         </div>
                                     </div>
-                                    <div class="swiper-slide h-auto success__stry__item d-flex flex-column shadow ">
+                                    <div class="swiper-slide success__stry__item  shadow ">
                                         <div class="thumb">
                                             <a href="#">
                                                 <div class="">
-                                                    <img src="assets/images/275-di-tu-xp-plus-1632304804.webp" class="object-fit-cover py-3" alt="img">
+                                                    <img src="assets/images/275-di-tu-xp-plus-1632304804.webp" class="object-fit-cover p-3 w-100" alt="img">
                                                 </div>
                                             </a>
                                         </div>
-                                        <div class="content d-flex flex-column flex-grow-1 ms-3">
+                                        <div class="content ms-3">
                                         
                                             <a href="#" class="text-decoration-none text-dark">
                                                 <h4 class="fw-bold mt-3">Mahindra 275 DI TU XP Plus</h3>
@@ -537,7 +537,7 @@
                                                     <p class=""> <i class="fas fa-bolt"></i>  39HP</p>
                                                 </div>
                                                 <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                                                    <p class="pe-5 me-3"> <i class="fa fa-cog" aria-hidden="true"></i>  2048 CC</p>
+                                                    <p class=""> <i class="fa fa-cog" aria-hidden="true"></i>  2048 CC</p>
                                                 </div>
                                             </div>
                                             <a href="#" class="text-decoration-none text-dark mb-4">
@@ -584,7 +584,7 @@
                             <div class="swiper swiper-slides-visible p-5 m-n5 testimonial__wrap">
                         
                                 <div class="swiper-wrapper ">
-                                    <div class="swiper-slide h-auto success__stry__item d-flex flex-column shadow ">
+                                    <div class="swiper-slide success__stry__item shadow ">
 
                                         <div class="thumb">
                                             <a href="#">
@@ -593,7 +593,7 @@
                                                 </div>
                                             </a>
                                         </div>
-                                        <div class="content d-flex flex-column flex-grow-1 ">
+                                        <div class="content">
                                         
                                             <a href="#" class="text-decoration-none text-dark">
                                                 <h4 class="fw-bold mt-3 mx-3">Eicher 551 Prima G3</h3>
@@ -604,7 +604,7 @@
                                                     <p class=""> <i class="fas fa-bolt"></i>  49HP</p>
                                                 </div>
                                                 <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                                                    <p class="pe-5 me-3"> <i class="fa fa-cog" aria-hidden="true"></i>  3300 CC</p>
+                                                    <p class=""> <i class="fa fa-cog" aria-hidden="true"></i>  3300 CC</p>
                                                 </div>
                                             </div>
                                             <a href="#" class="text-decoration-none text-dark mb-4 ms-3">
@@ -617,7 +617,7 @@
                                             </a>
                                         </div>
                                     </div>
-                                    <div class="swiper-slide h-auto success__stry__item d-flex flex-column shadow">
+                                    <div class="swiper-slide success__stry__item shadow">
 
                                         <div class="thumb">
                                             <a href="#">
@@ -626,7 +626,7 @@
                                                 </div>
                                             </a>
                                         </div>
-                                        <div class="content d-flex flex-column flex-grow-1 ms-3">
+                                        <div class="content ms-3">
                                         
                                             <a href="#" class="text-decoration-none text-dark ">
                                                 <h4 class="fw-bold mt-3">Farmtrac 3600</h3>
@@ -637,7 +637,7 @@
                                                     <p class=""> <i class="fas fa-bolt"></i>  37HP</p>
                                                 </div>
                                                 <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                                                    <p class="pe-5 me-3"> <i class="fa fa-cog" aria-hidden="true"></i>  3140 CC</p>
+                                                    <p class=""> <i class="fa fa-cog" aria-hidden="true"></i>  3140 CC</p>
                                                 </div>
                                             </div>
                                             <a href="#" class="text-decoration-none text-dark mb-4">
@@ -650,7 +650,7 @@
                                             </a>
                                         </div>
                                     </div>
-                                    <div class="swiper-slide h-auto success__stry__item d-flex flex-column shadow ">
+                                    <div class="swiper-slide success__stry__item  shadow ">
 
                                         <div class="thumb">
                                             <a href="#">
@@ -659,7 +659,7 @@
                                                 </div>
                                             </a>
                                         </div>
-                                        <div class="content d-flex flex-column flex-grow-1 ms-3">
+                                        <div class="content ms-3">
                                         
                                             <a href="#" class="text-decoration-none text-dark">
                                                 <h4 class="fw-bold mt-3">Swaraj Target 625</h3>
@@ -683,7 +683,7 @@
                                             </a>
                                         </div>
                                     </div>
-                                    <div class="swiper-slide h-auto success__stry__item d-flex flex-column shadow ">
+                                    <div class="swiper-slide  success__stry__item  shadow ">
                                         <div class="thumb">
                                             <a href="#">
                                                 <div class="">
@@ -691,7 +691,7 @@
                                                 </div>
                                             </a>
                                         </div>
-                                        <div class="content d-flex flex-column flex-grow-1 ms-3">
+                                        <div class="content ms-3">
                                         
                                             <a href="#" class="text-decoration-none text-dark">
                                                 <h4 class="fw-bold mt-3">Powertrac ALT 3000</h3> 
@@ -715,7 +715,7 @@
                                             </a>
                                         </div>
                                     </div>
-                                    <div class="swiper-slide h-auto success__stry__item d-flex flex-column shadow ">
+                                    <div class="swiper-slide success__stry__item  shadow ">
                                         <div class="thumb">
                                             <a href="#">
                                                 <div class="">
@@ -723,7 +723,7 @@
                                                 </div>
                                             </a>
                                         </div>
-                                        <div class="content d-flex flex-column flex-grow-1 ms-3">
+                                        <div class="content ms-3">
                                         
                                             <a href="#" class="text-decoration-none text-dark">
                                                 <h4 class="fw-bold mt-3">Solis 6524 S</h3>
@@ -734,7 +734,7 @@
                                                     <p class=""> <i class="fas fa-bolt"></i>  65HP</p>
                                                 </div>
                                                 <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                                                    <p class="pe-5 me-3"> <i class="fa fa-cog" aria-hidden="true"></i>  4710 CC</p>
+                                                    <p class=""> <i class="fa fa-cog" aria-hidden="true"></i>  4710 CC</p>
                                                 </div>
                                             </div>
                                             <a href="#" class="text-decoration-none text-dark mb-4">
@@ -884,13 +884,13 @@
                                                 </div>
                                             </a>
                                         </div>
-                                        <div class="content d-flex flex-column flex-grow-1 ms-3">
+                                        <div class="content ms-3">
                                         
                                             <a href="#" class="text-decoration-none text-dark ps-3">
                                                 <h4 class="fw-bold mt-3">Powertrac 439 RDX </h3>
                                             </a>
 
-                                            <a href="# " class="text-dark flex-grow-1 text-decoration-none ps-3">
+                                            <a href="# " class="text-dark  text-decoration-none ps-3">
                                                 <p>Price: ₹ 4,85,000*</p>
                                             </a>
                                             
@@ -924,13 +924,13 @@
                                                 </div>
                                             </a>
                                         </div>
-                                        <div class="content d-flex flex-column flex-grow-1 ms-3">
+                                        <div class="content ms-3">
                                         
                                             <a href="#" class="text-decoration-none text-dark ps-3">
                                                 <h4 class="fw-bold mt-3">Swaraj 735 FE</h3>
                                             </a>
 
-                                            <a href="# " class="text-dark flex-grow-1 text-decoration-none ps-3">
+                                            <a href="# " class="text-dark text-decoration-none ps-3">
                                                 <p>Price: ₹ 4,70,000*</p>
                                             </a>
                                             
@@ -964,13 +964,13 @@
                                                 </div>
                                             </a>
                                         </div>
-                                        <div class="content d-flex flex-column flex-grow-1 ms-3">
+                                        <div class="content ms-3">
                                         
                                             <a href="#" class="text-decoration-none text-dark ps-3">
                                                 <h4 class="fw-bold mt-3">Mahindra Arjun 555 DI </h3>
                                             </a>
 
-                                            <a href="# " class="text-dark flex-grow-1 text-decoration-none ps-3">
+                                            <a href="# " class="text-dark text-decoration-none ps-3">
                                                 <p>Price: ₹ 7,20,000*</p>
                                             </a>
                                             
@@ -1004,13 +1004,13 @@
                                                 </div>
                                             </a>
                                         </div>
-                                        <div class="content d-flex flex-column flex-grow-1 ms-3">
+                                        <div class="content ms-3">
                                         
                                             <a href="#" class="text-decoration-none text-dark ps-3">
                                                 <h4 class="fw-bold mt-3">Sonalika DI 745 DLX </h3>
                                             </a>
 
-                                            <a href="# " class="text-dark flex-grow-1 text-decoration-none ps-3">
+                                            <a href="# " class="text-dark text-decoration-none ps-3">
                                                 <p>Price: ₹ 6,70,000*</p>
                                             </a>
                                             
@@ -1044,13 +1044,13 @@
                                                 </div>
                                             </a>
                                         </div>
-                                        <div class="content d-flex flex-column flex-grow-1 ms-3">
+                                        <div class="content ms-3">
                                         
                                             <a href="#" class="text-decoration-none text-dark ps-3">
                                                 <h4 class="fw-bold mt-3">Mahindra 475 DI XP Plus </h3>
                                             </a>
 
-                                            <a href="# " class="text-dark flex-grow-1 text-decoration-none ps-3">
+                                            <a href="# " class="text-dark text-decoration-none ps-3">
                                                 <p>Price: ₹ 5,50,000*</p>
                                             </a>
                                             
@@ -1118,13 +1118,13 @@
                                                     </div>
                                                 </a>
                                             </div>
-                                            <div class="content d-flex flex-column flex-grow-1 ms-3">
+                                            <div class="content ms-3">
                                             
                                                 <a href="#" class="text-decoration-none text-dark ps-3">
                                                     <h4 class="fw-bold mt-3">Mahindra 275 DI XP Plus </h3>
                                                 </a>
 
-                                                <a href="# " class="text-dark flex-grow-1 text-decoration-none ps-3">
+                                                <a href="# " class="text-dark text-decoration-none ps-3">
                                                     <p>Price: ₹ 5,00,000*</p>
                                                 </a>
                                                 
@@ -1158,13 +1158,13 @@
                                                     </div>
                                                 </a>
                                             </div>
-                                            <div class="content d-flex flex-column flex-grow-1 ms-3">
+                                            <div class="content ms-3">
                                             
                                                 <a href="#" class="text-decoration-none text-dark ps-3">
                                                     <h4 class="fw-bold mt-3">Mahindra 275 DI XP Plus </h3>
                                                 </a>
 
-                                                <a href="# " class="text-dark flex-grow-1 text-decoration-none ps-3">
+                                                <a href="# " class="text-dark text-decoration-none ps-3">
                                                     <p>Price: ₹ 5,00,000*</p>
                                                 </a>
                                                 
@@ -1198,13 +1198,13 @@
                                                     </div>
                                                 </a>
                                             </div>
-                                            <div class="content d-flex flex-column flex-grow-1 ms-3">
+                                            <div class="content ms-3">
                                             
                                                 <a href="#" class="text-decoration-none text-dark ps-3">
                                                     <h4 class="fw-bold mt-3">Mahindra 475 DI  </h3>
                                                 </a>
 
-                                                <a href="# " class="text-dark flex-grow-1 text-decoration-none ps-3">
+                                                <a href="# " class="text-dark text-decoration-none ps-3">
                                                     <p>Price: ₹ 4,06,801*</p>
                                                 </a>
                                                 
@@ -1238,13 +1238,13 @@
                                                     </div>
                                                 </a>
                                             </div>
-                                            <div class="content d-flex flex-column flex-grow-1 ms-3">
+                                            <div class="content ms-3">
                                             
                                                 <a href="#" class="text-decoration-none text-dark ps-3">
                                                     <h4 class="fw-bold mt-3">Mahindra 475 DI </h3>
                                                 </a>
 
-                                                <a href="# " class="text-dark flex-grow-1 text-decoration-none ps-3">
+                                                <a href="# " class="text-dark  text-decoration-none ps-3">
                                                     <p>Price: ₹ 5,73,601*</p>
                                                 </a>
                                                 
@@ -1278,13 +1278,13 @@
                                                     </div>
                                                 </a>
                                             </div>
-                                            <div class="content d-flex flex-column flex-grow-1 ms-3">
+                                            <div class="content ms-3">
                                             
                                                 <a href="#" class="text-decoration-none text-dark ps-3">
                                                     <h4 class="fw-bold mt-3">MMahindra 475 DI </h3>
                                                 </a>
 
-                                                <a href="# " class="text-dark flex-grow-1 text-decoration-none ps-3">
+                                                <a href="# " class="text-dark text-decoration-none ps-3">
                                                     <p>Price: ₹ 3,58,801*</p>
                                                 </a>
                                                 
@@ -1353,13 +1353,13 @@
                                                     </div>
                                                 </a>
                                             </div>
-                                            <div class="content d-flex flex-column flex-grow-1 ms-3">
+                                            <div class="content  ms-3">
                                             
                                                 <a href="#" class="text-decoration-none text-dark ps-3">
                                                     <h4 class="fw-bold mt-3">Swaraj 735 FE  </h3>
                                                 </a>
 
-                                                <a href="# " class="text-dark flex-grow-1 text-decoration-none ps-3">
+                                                <a href="# " class="text-dark text-decoration-none ps-3">
                                                     <p>Price: ₹ 4,70,000*</p>
                                                 </a>
                                                 
@@ -1393,13 +1393,13 @@
                                                     </div>
                                                 </a>
                                             </div>
-                                            <div class="content d-flex flex-column flex-grow-1 ms-3">
+                                            <div class="content ms-3">
                                             
                                                 <a href="#" class="text-decoration-none text-dark ps-3">
                                                     <h4 class="fw-bold mt-3">Powertrac 439 RDX </h3>
                                                 </a>
 
-                                                <a href="# " class="text-dark flex-grow-1 text-decoration-none ps-3">
+                                                <a href="# " class="text-dark text-decoration-none ps-3">
                                                     <p>Price: ₹ 4,85,000*</p>
                                                 </a>
                                                 
@@ -1433,13 +1433,13 @@
                                                     </div>
                                                 </a>
                                             </div>
-                                            <div class="content d-flex flex-column flex-grow-1 ms-3">
+                                            <div class="content ms-3">
                                             
                                                 <a href="#" class="text-decoration-none text-dark ps-3">
                                                     <h4 class="fw-bold mt-3">Mahindra Arjun 555 DI  </h3>
                                                 </a>
 
-                                                <a href="# " class="text-dark flex-grow-1 text-decoration-none ps-3">
+                                                <a href="# " class="text-dark text-decoration-none ps-3">
                                                     <p>Price: ₹ 7,20,000*</p>
                                                 </a>
                                                 
@@ -1473,13 +1473,13 @@
                                                     </div>
                                                 </a>
                                             </div>
-                                            <div class="content d-flex flex-column flex-grow-1 ms-3">
+                                            <div class="content ms-3">
                                             
                                                 <a href="#" class="text-decoration-none text-dark ps-3">
                                                     <h4 class="fw-bold mt-3">Mahindra YUVO 275 DI  </h3>
                                                 </a>
 
-                                                <a href="# " class="text-dark flex-grow-1 text-decoration-none ps-3">
+                                                <a href="# " class="text-dark text-decoration-none ps-3">
                                                     <p>Price: ₹ 5,00,000*</p>
                                                 </a>
                                                 
@@ -1513,13 +1513,13 @@
                                                     </div>
                                                 </a>
                                             </div>
-                                            <div class="content d-flex flex-column flex-grow-1 ms-3">
+                                            <div class="content ms-3">
                                             
                                                 <a href="#" class="text-decoration-none text-dark ps-3">
                                                     <h4 class="fw-bold mt-3">Swaraj 855 FE </h3>
                                                 </a>
 
-                                                <a href="# " class="text-dark flex-grow-1 text-decoration-none ps-3">
+                                                <a href="# " class="text-dark text-decoration-none ps-3">
                                                     <p>Price: ₹ 3,70,000*</p>
                                                 </a>
                                                 
@@ -1843,7 +1843,7 @@
                                                 </div>
                                             </a>
                                         </div>
-                                        <div class="content d-flex flex-column flex-grow-1 ">
+                                        <div class="content ">
                                         
                                             <a href="#" class="text-decoration-none text-dark">
                                                 <h4 class="fw-bold mt-3 mx-3">Mahindra JIVO 305 DI</h3>
@@ -1853,7 +1853,7 @@
                                                     <p class=""> <i class="fas fa-bolt"></i> 30 HP</p>
                                                 </div>
                                                 <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                                                    <p class="pe-5 me-3"> <i class="fa fa-cog" aria-hidden="true"></i>  1290 CC </p>
+                                                    <p class=""> <i class="fa fa-cog" aria-hidden="true"></i>1290CC </p>
                                                 </div>
                                             </div>
                                             <a href="#" class="text-decoration-none text-dark mb-4 ms-3">
@@ -1875,7 +1875,7 @@
                                                 </div>
                                             </a>
                                         </div>
-                                        <div class="content d-flex flex-column flex-grow-1 ms-3">
+                                        <div class="content ms-3">
                                         
                                             <a href="#" class="text-decoration-none text-dark ">
                                                 <h4 class="fw-bold mt-3">Captain 250 DI</h3>
@@ -1885,7 +1885,7 @@
                                                     <p class=""> <i class="fas fa-bolt"></i>  25 HP </p>
                                                 </div>
                                                 <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                                                    <p class="pe-5 me-3"> <i class="fa fa-cog" aria-hidden="true"></i>  1290 CC </p>
+                                                    <p class=""><i class="fa fa-cog" aria-hidden="true"></i> <span>1200cc</span></p>
                                                 </div>
                                             </div>
                                         
@@ -1908,7 +1908,7 @@
                                                 </div>
                                             </a>
                                         </div>
-                                        <div class="content d-flex flex-column flex-grow-1 ms-3">
+                                        <div class="content ms-3">
                                         
                                             <a href="#" class="text-decoration-none text-dark">
                                                 <h4 class="fw-bold mt-3">Mahindra JIVO 245 VINEYARD</h3>
@@ -1919,7 +1919,7 @@
                                                     <p class=""> <i class="fas fa-bolt"></i>  24 HP</p>
                                                 </div>
                                                 <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                                                    <p class="pe-5 me-3"> <i class="fa fa-cog" aria-hidden="true"></i>  1366 CC</p>
+                                                    <p class=""> <i class="fa fa-cog" aria-hidden="true"></i>  1366 CC</p>
                                                 </div>
                                             </div>
                                             <a href="#" class="text-decoration-none text-dark mb-4">
@@ -1940,7 +1940,7 @@
                                                 </div>
                                             </a>
                                         </div>
-                                        <div class="content d-flex flex-column flex-grow-1 ms-3">
+                                        <div class="content ms-3">
                                         
                                             <a href="#" class="text-decoration-none text-dark">
                                                 <h4 class="fw-bold mt-3">vst-mt-270-viraat-2w-agrimaster</h3> 
@@ -1951,7 +1951,7 @@
                                                     <p class=""> <i class="fas fa-bolt"></i>  47 HP</p>
                                                 </div>
                                                 <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                                                    <p class="pe-5 me-3"> <i class="fa fa-cog" aria-hidden="true"></i>  1306 CC</p>
+                                                    <p class=""> <i class="fa fa-cog" aria-hidden="true"></i>  1306 CC</p>
                                                 </div>
                                             </div>
                                             <a href="#" class="text-decoration-none text-dark mb-4">
@@ -1972,7 +1972,7 @@
                                                 </div>
                                             </a>
                                         </div>
-                                        <div class="content d-flex flex-column flex-grow-1 ms-3">
+                                        <div class="content ms-3">
                                         
                                             <a href="#" class="text-decoration-none text-dark">
                                                 <h4 class="fw-bold mt-3">Mahindra JIVO 225 DI 4WD</h3>
@@ -1983,7 +1983,7 @@
                                                     <p class=""> <i class="fas fa-bolt"></i>  20 HP</p>
                                                 </div>
                                                 <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                                                    <p class="pe-5 me-3"> <i class="fa fa-cog" aria-hidden="true"></i>  1366 CC</p>
+                                                    <p class=""> <i class="fa fa-cog" aria-hidden="true"></i>  1366 CC</p>
                                                 </div>
                                             </div>
                                             <a href="#" class="text-decoration-none text-dark mb-4">
@@ -2449,7 +2449,7 @@
                                 </div>
                                 <div class="col-lg-8 py-4">
                                     <a href="#" class="text-decoration-none text-dark">
-                                        <h5 class="news-head">गन्ने के लाल सड़न रोग पर नियंत्रण के उपाय के नियंत्रण ..</h5>
+                                        <h5 class="news-head">गन्ने के लाल सड़न रोग पर नियंत्रण के उपाय के नियंत्रण..</h5>
                                     </a>
                                     <p> <i class="fa fa-calendar" aria-hidden="true"></i> 02 Sep 2023</p>
                                     <button class=" btn btn-success px-2">read more</button>
