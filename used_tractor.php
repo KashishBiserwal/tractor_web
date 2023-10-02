@@ -12,10 +12,10 @@
    include 'includes/header.php';
    ?>
 
-<section class="">
-    <div class="container">
+<section class="mt-5 pt-5">
+    <div class="container pt-3">
         <div class="mt-3">
-            <span class="my-4 text-white pt-4 ">
+            <span class="mt-4 text-white ">
                 <a href="#" class="text-decoration-none header-link px-1">Home <i class="fa-solid fa-chevron-right px-1"></i></a>
                     <span class=""><a href="#" class="text-decoration-none header-link  px-1">Buy Used <i class="fa-solid fa-chevron-right px-1"></i> </a></span>
                     <span class="text-dark"> Certified Used Tractor</span>
@@ -24,12 +24,12 @@
     </div>
 </section>
 <section >
-    <div class="container my-5">
+    <div class="container my-3">
         <div class="row">
             <div class="col-12 col-sm-9 col-lg-9 col-md-9">
                 <h3 class="">SEARCH USED  <span class="text-success fw-bold">TRACTORS IN INDIA</span> </h3>
                 <div class=" row mb-3" id="">
-                    <div class="col-12 col-sm-12 col-md-12 col-lg-12 mt-5">
+                    <div class="col-12 col-sm-12 col-md-12 col-lg-12 my-3">
                         <!-- <div class=" col-12 mt-3"> -->
                              <button id="adduser" type="button" class="add_btn btn-success px-3">
                              <i class="fa-solid fa-cart-shopping"></i> Buy tractor </button>  &nbsp;

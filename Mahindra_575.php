@@ -13,7 +13,7 @@
    ?>
 
 <section>
-    <div class="container">
+    <div class="container mt-5 pt-4">
         <div class="mt-3">
             <span class="my-4 text-white pt-4 ">
                 <a href="#" class="text-decoration-none header-link px-1">Home <i class="fa-solid fa-chevron-right px-1"></i></a>

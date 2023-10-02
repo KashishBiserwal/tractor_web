@@ -13,23 +13,23 @@
    ?>
 
 <section class="">
-    <div class="container">
-        <div class="mt-3">
-            <span class="my-4 text-white pt-4 ">
-                <a href="#" class="text-decoration-none header-link px-1">Home <i class="fa-solid fa-chevron-right px-1"></i></a>
-                    <span class=""><a href="#" class="text-decoration-none header-link  px-1">Buy Used <i class="fa-solid fa-chevron-right px-1"></i> </a></span>
+    <div class="container mt-5 pt-5">
+        <div class="pt-5">
+            <span class="mt-5 text-white pt-4 ">
+                <a href="index.php" class="text-decoration-none header-link px-1">Home <i class="fa-solid fa-chevron-right px-1"></i></a>
+                    <span class=""><a href="" class="text-decoration-none header-link  px-1">Buy Used <i class="fa-solid fa-chevron-right px-1"></i> </a></span>
                     <span class="text-dark"> Used Farm Implements</span>
             </span> 
         </div>
     </div>
 </section>
 <section >
-    <div class="container my-5">
+    <div class="container my-3">
         <div class="row">
             <div class="col-12 col-sm-9 col-lg-9 col-md-9">
-                <h3 class="">Used <span class="text-success fw-bold">Farm Implements</span> </h3>
+                <h3 class="fw-bold">Used <span class="text-success fw-bold">Farm Implements</span> </h3>
                 <div class=" row mb-3" id="">
-                    <div class="col-12 col-sm-12 col-md-12 col-lg-12 mt-5">
+                    <div class="col-12 col-sm-12 col-md-12 col-lg-12 mt-4">
                         <!-- <div class=" col-12 mt-3"> -->
                              <button id="adduser" type="button" class="add_btn btn-success px-3">
                              <i class="fa-solid fa-cart-shopping"></i> Sell Harvester</button>  &nbsp;

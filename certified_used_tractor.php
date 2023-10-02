@@ -12,23 +12,23 @@
    include 'includes/header.php';
    ?>
 
-<section class="">
-    <div class="container">
-        <div class="mt-3">
-            <span class="my-4 text-white pt-4 ">
-                <a href="#" class="text-decoration-none header-link px-1">Home <i class="fa-solid fa-chevron-right px-1"></i></a>
-                    <span class=""><a href="#" class="text-decoration-none header-link  px-1">Buy Used <i class="fa-solid fa-chevron-right px-1"></i> </a></span>
+<section class="mt-5 pt-5">
+    <div class="container pt-4">
+        <div class="">
+            <span class="mt-5 text-white pt-5 ">
+                <a href="index.php" class="text-decoration-none header-link px-1">Home <i class="fa-solid fa-chevron-right px-1"></i></a>
+                    <span class=""><span class="text-dark px-1">Buy Used <i class="fa-solid fa-chevron-right px-1"></i> </span></span>
                     <span class="text-dark"> Certified Used Tractor</span>
             </span> 
         </div>
     </div>
 </section>
 <section >
-    <div class="container my-5">
+    <div class="container mt-4">
         <div class="row">
             <div class="col-12 col-sm-9 col-lg-9 col-md-9">
-                <h3 class="">SEARCH USED  <span class="text-success fw-bold">TRACTORS IN INDIA</span> </h3>
-                <div class="row my-5">
+                <h3 class="py-2">SEARCH USED  <span class="text-success fw-bold">TRACTORS IN INDIA</span> </h3>
+                <div class="row my-4">
                     <div class="col-12 col-lg-4 col-md-4 col-sm-4 ">
                         <div class="h-auto success__stry__item d-flex flex-column shadow ">
                             <div class="thumb">

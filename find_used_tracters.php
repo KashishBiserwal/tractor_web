@@ -12,10 +12,10 @@
    include 'includes/header.php';
    ?>
 
-<section class=" bg-light mt-0">
-    <div class="container">
+<section class=" bg-light mt-5 pt-5">
+    <div class="container py-2">
         <div class="py-2">
-            <span class="my-4 text-white pt-4 ">
+            <span class="my-4 text-white">
                 <a href="#" class="text-decoration-none header-link px-1">Home <i class="fa-solid fa-chevron-right px-1"></i></a>
                     <span class=""><a href="#" class="text-decoration-none header-link  px-1">Buy Used <i class="fa-solid fa-chevron-right px-1"></i> </a></span>
                     <span class="text-dark"> Buy Old Tractor</span>

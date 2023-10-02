@@ -14,7 +14,7 @@
    <!-- Banner Here -->
    
    <section class="bg-cover bg-overlay" style="background-image: url('assets/images/mahindra-oja-tractors-homepage-desktop-1920x600.webp')">
-        <div class="container position-relative">
+        <div class="container position-relative mt-5 pt-4">
             <div class="py-3"></div>
             <div class="py-5"></div>
             <div class="row justify-content-center">

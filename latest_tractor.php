@@ -12,10 +12,10 @@
    include 'includes/header.php';
    ?>
 
-<section class="">
+<section class="mt-5 pt-5">
     <div class="container">
-        <div class="mt-3">
-            <span class="my-4 text-white pt-4 ">
+        <div class="mt-5">
+            <span class="mt-4 text-white pt-4 ">
                 <a href="#" class="text-decoration-none header-link px-1">Home <i class="fa-solid fa-chevron-right px-1"></i></a>
                    
                     <span class="text-dark"> Latest Tractor</span>
@@ -24,7 +24,7 @@
     </div>
 </section>
 <section>
-    <div class="container my-5">
+    <div class="container my-4">
         <div class="row">
             <div class="col-12 col-sm-9 col-lg-9 col-md-9">
                 <h3 class="pb-3">Latest  <span class="text-success fw-bold"> Tractors in India</span> </h3>
