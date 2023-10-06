@@ -33,25 +33,45 @@
             <div class="col-12 col-sm-12 col-md-4 col-lg-4">
               <div class="form-outline">
                 <label class="form-label">Model Name </label>
-                <input type="text" id="model" name="model" class="form-control" />
+                <select class="form-select py-2" aria-label="Default select example">
+                    <option selected>Select Model</option>
+                    <option value="1">Mahindra</option>
+                    <option value="2">Swaraj</option>
+                    <option value="3">John Deere</option>
+                </select>
               </div>
             </div>
             <div class="col-12 col-sm-12 col-md-4 col-lg-4">
               <div class="form-outline">
                 <label class="form-label">Implement Type</label>
-                <input type="text" id="imple" name="imple" class="form-control" />
+                <select class="form-select py-2" aria-label="Default select example">
+                    <option selected>Implement Type</option>
+                    <option value="1">Implement1</option>
+                    <option value="2">Implement2</option>
+                    <option value="3">Implement3</option>
+                </select>
               </div>
             </div>
             <div class="col-12 col-sm-12 col-md-4 col-lg-4">
               <div class="form-outline">
                 <label class="form-label">Category</label>
-                <input type="text" id="category" name="category" class="form-control" />
+                <select class="form-select py-2" aria-label="Default select example">
+                    <option selected>Select Category</option>
+                    <option value="1">Category-1</option>
+                    <option value="2">Category-2</option>
+                    <option value="3">Category-3</option>
+                </select>
               </div>
             </div>
             <div class="col-12 col-sm-12 col-md-4 col-lg-4">
               <div class="form-outline">
                 <label class="form-label">Implement Power</label>
-                <input type="text" id="power" name="power" class="form-control" />
+                <select class="form-select py-2" aria-label="Default select example">
+                    <option selected> Select Implement Category</option>
+                    <option value="1">Implement-1</option>
+                    <option value="2">Implement-2</option>
+                    <option value="3">Implement-3</option>
+                </select>
               </div>
             </div>
            

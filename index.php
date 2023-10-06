@@ -54,19 +54,19 @@
                                     <div class="col-12 col-lg-4 col-sm-4 col-md-4 mt-2">
                                       <div class="form-group">
                                         <input type="text" class="py-3" placeholder=" " id="brand">
-                                        <label for="name" class="text-dark fw-bold"> Select HP</label>
+                                        <label for="name" class="text-dark "> Select HP  <i class="fa-solid fa-caret-down"></i></label>
                                       </div>
                                     </div>
                                     <div class="col-12 col-lg-4 col-sm-4 col-md-4 mt-2">
                                       <div class="form-group">
                                         <input type="text" class="py-3" placeholder=" " id="name">
-                                        <label for="name" class="text-dark fw-bold">Select Brand</label>
+                                        <label for="name" class="text-dark ">Select Brand  <i class="fa-solid fa-caret-down"></i></label>
                                       </div>
                                     </div>
                                     <div class="col-12 col-lg-4 col-sm-4 col-md-4 mt-2">
                                       <div class="form-group">
                                         <input type="text" class="py-3" placeholder=" " id="name">
-                                        <label for="name" class="text-dark fw-bold">Select Price</label>
+                                        <label for="name" class="text-dark ">Select Price   <i class="fa-solid fa-caret-down"></i></label>
                                       </div>
                                     </div>
                                     <div class="col-12  text-center">

@@ -63,7 +63,7 @@
                                     </div>
                                     <div class="col-12 col-sm-4 col-md-6 col-lg-6 my-2 ps-4">
                                         <p class="text-dark fw-bold ">Select type of Tractor</p>
-                                        <div class="form-check my-3 ps-5">
+                                        <div class="form-check ps-5">
                                             <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
                                             <label class="form-check-label text-dark ps-2" for="exampleRadios1">
                                             Mini Tractor
@@ -75,83 +75,101 @@
                                                 4WD
                                             </label>
                                         </div>
+                                        <div class="form-check  ps-5">
+                                            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option3">
+                                            <label class="form-check-label  text-dark ps-2" for="exampleRadios2">
+                                                Popular Tractor
+                                            </label>
+                                        </div>
+                                        <div class="form-check  ps-5">
+                                            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option4">
+                                            <label class="form-check-label text-dark ps-2" for="exampleRadios2">
+                                                Latest Tractor
+                                            </label>
+                                        </div>
+                                        <div class="form-check  ps-5">
+                                            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option5">
+                                            <label class="form-check-label  text-dark ps-2" for="exampleRadios2">
+                                               Upcoming Tractor
+                                            </label>
+                                        </div>
                                     </div>
                                     <div class="col-12 col-lg-6 col-sm-5 col-md-6 my-1">
                                       <div class="form-group">
                                         <input type="text" class="py-3" placeholder=" " id="name">
-                                        <label for="name" class="text-dark fw-bold">No. of Cylinder</label>
+                                        <label for="name" class="text-dark ">No. of Cylinder</label>
                                       </div>
                                     </div>
                                     <div class="col-12 col-lg-6 col-sm-5 col-md-6 my-1">
                                       <div class="form-group">
                                         <input type="text" class="py-3" placeholder=" " id="name">
-                                        <label for="name" class="text-dark fw-bold">HP Category</label>
+                                        <label for="name" class="text-dark ">HP Category</label>
                                       </div>
                                     </div>
                                     <div class="col-12 col-lg-6 col-sm-5 col-md-6 my-1">
                                       <div class="form-group">
                                         <input type="text" class="py-3" placeholder=" " id="name">
-                                        <label for="name" class="text-dark fw-bold"> PTO HP</label>
+                                        <label for="name" class="text-dark "> PTO HP</label>
                                       </div>
                                     </div>
                                     <div class="col-12 col-lg-6 col-sm-5 col-md-6 my-1">
                                       <div class="form-group">
                                         <input type="text"class="py-3" placeholder=" " id="name">
-                                        <label for="name" class="text-dark fw-bold"> Gear Box</label>
+                                        <label for="name" class="text-dark "> Gear Box</label>
                                       </div>
                                     </div>
                                     <div class="col-12 col-lg-4 col-sm-5 col-md-4 my-1">
                                       <div class="form-group">
                                         <input type="text" class="py-3" placeholder=" " id="name">
-                                        <label for="name" class="text-dark fw-bold">Brakes</label>
+                                        <label for="name" class="text-dark ">Brakes</label>
                                       </div>
                                     </div>
                                     <div class="col-12 col-lg-4 col-sm-5 col-md-4 my-1">
                                       <div class="form-group">
                                         <input type="text" class="py-3" placeholder=" " id="name">
-                                        <label for="name" class="text-dark fw-bold">Tyres</label>
+                                        <label for="name" class="text-dark ">Tyres</label>
                                       </div>
                                     </div>
                                     <div class="col-12 col-lg-4 col-sm-5 col-md-4 my-1">
                                       <div class="form-group">
                                         <input type="text"class="py-3" placeholder=" " id="name">
-                                        <label for="name" class="text-dark fw-bold">Steering</label>
+                                        <label for="name" class="text-dark ">Steering</label>
                                       </div>
                                     </div>
                                     <div class="col-12  my-1">
                                       <div class="form-group">
                                         <input type="text" class="py-5" placeholder=" " id="name">
-                                        <label for="name" class="text-dark fw-bold">Engine Description</label>
+                                        <label for="name" class="text-dark ">Engine Description</label>
                                       </div>
                                     </div>
                                     <div class="col-12 col-lg-6 col-sm-5 col-md-6 my-1">
                                       <div class="form-group">
                                         <input type="text"class="py-3" placeholder=" " id="name">
-                                        <label for="name" class="text-dark fw-bold">Quality Features</label>
+                                        <label for="name" class="text-dark">Quality Features</label>
                                       </div>
                                     </div>
                                     <div class="col-12 col-lg-6 col-sm-5 col-md-6 my-1">
                                       <div class="form-group">
-                                        <input type="file" class="py-3" placeholder=" " id="name">
-                                        <label for="file" class="text-dark fw-bold"></label>
+                                      <input type="file" name="files[]" class="py-3" multiple >
+                                        <label for="file" class="text-dark " ></label>
                                       </div>
                                     </div>
                                     <div class="col-12 col-lg-6 col-sm-5 col-md-6 my-1">
                                       <div class="form-group">
                                         <input type="text"class="py-3" placeholder=" " id="name">
-                                        <label for="name" class="text-dark fw-bold">Price</label>
+                                        <label for="name" class="text-dark ">Price</label>
                                       </div>
                                     </div>
                                     <div class="col-12 col-lg-6 col-sm-5 col-md-6 my-1">
                                       <div class="form-group">
                                         <input type="text" class="py-3" placeholder=" " id="name">
-                                        <label for="name" class="text-dark fw-bold">Warranty</label>
+                                        <label for="name" class="text-dark">Warranty</label>
                                       </div>
                                     </div>
                                     <div class="col-12  my-1">
                                       <div class="form-group">
                                         <input type="text" class="py-5" placeholder=" " id="name">
-                                        <label for="name" class="text-dark fw-bold">About</label>
+                                        <label for="name" class="text-dark ">About</label>
                                       </div>
                                     </div>
                                    
@@ -178,19 +196,36 @@
             <div class="col-12 col-sm-12 col-md-3 col-lg-3">
               <div class="form-outline">
                 <label class="form-label">Brand</label>
-                <input type="email" id="search_name" name="search_name" class="form-control" />
+                <!-- <input type="text" id="search_email" name="search_email" class="form-control" /> -->
+                <select class="form-select py-2" aria-label="Default select example">
+                    <option selected>Select Brand</option>
+                    <option value="1">Mahindra</option>
+                    <option value="2">Swaraj</option>
+                    <option value="3">John Deere</option>
+                </select>
               </div>
             </div>
             <div class="col-12 col-sm-12 col-md-3 col-lg-3">
               <div class="form-outline">
                 <label class="form-label">Model</label>
-                <input type="text" id="search_email" name="search_email" class="form-control" />
+                <!-- <input type="text" id="search_email" name="search_email" class="form-control" /> -->
+                <select class="form-select py-2" aria-label="Default select example">
+                    <option selected>Select Model</option>
+                      <option value="1">3032 NX</option>
+                      <option value="2">3030 NX</option>
+                      <option value="3">3230 NX</option>
+                </select>
               </div>
             </div>
             <div class="col-12 col-sm-12 col-md-3 col-lg-3">
               <div class="form-outline">
                 <label class="form-label">HP Category</label>
-                <input type="text" id="phone" name="phone" class="form-control" />
+                <select class="form-select py-2" aria-label="Default select example">
+                    <option selected>Select HP</option>
+                      <option value="1">32 HP</option>
+                      <option value="2">40 HP</option>
+                      <option value="3">37 HP</option>
+                </select>
               </div>
             </div>
             <div class="col-12 col-sm-12 col-md-3 col-lg-3 text-center">
@@ -208,12 +243,12 @@
                                 <table  id="example" class="table dataTable no-footer py-1" width="100%">
                                     <thead>
                                         <tr>
-                                            <th class="d-none d-md-table-cell text-dark">S.No.</th>
+                                            <th class="d-none d-md-table-cell text-white">S.No.</th>
                                             <!-- <th class="d-none d-md-table-cell text-dark">Category</th> -->
                                             <th class="d-none d-md-table-cell text-white">Brand</th>
                                             <th class="d-none d-md-table-cell text-white">Model</th>
-                                            <th class="d-none d-md-table-cell text-white"> No. of Cylinder</th>
-                                            <th class="d-none d-md-table-cell text-white">  PTO HP</th>
+                                            <th class="d-none d-md-table-cell text-white">No. of Cylinder</th>
+                                            <th class="d-none d-md-table-cell text-white">PTO HP</th>
                                             <th class="d-none d-md-table-cell text-white"> HP Category</th>
                                             <th class="d-none d-md-table-cell text-white"> Gear Box</th>
                                             <th class="d-none d-md-table-cell text-white"> Brakes</th>

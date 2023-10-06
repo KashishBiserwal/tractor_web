@@ -26,11 +26,6 @@
   	 		<div class="footer-col">
   	 			<h4>IMPORTANT LINKS</h4>
   	 			<ul>
-  	 				<li>
-                        <a href="#" class="">
-                        Shop
-                        </a>
-                    </li>
                     <li>
                         <a href="#" class="">
                         About Us
@@ -39,11 +34,6 @@
                     <li>
                         <a href="#" class="">
                         Contact / Mail Us
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" class="">
-                        Careers
                         </a>
                     </li>
                     <li>
@@ -63,11 +53,6 @@
                     </li>
                     <li>
                         <a href="#" class="">
-                        Guest Post
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" class="">
                         Our Showrooms
                         </a>
                     </li>
@@ -77,6 +62,11 @@
   	 			<h4>EXPLORE NEWS</h4>
   	 			<ul>
   	 				<li>
+                        <a href="#" class="">
+                         All  News
+                        </a>
+                    </li>
+                    <li>
                         <a href="#" class="">
                         Tractor News
                         </a>
@@ -88,37 +78,7 @@
                     </li>
                     <li>
                         <a href="#" class="">
-                        Weather News
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" class="">
-                        Agri Business News
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" class="">
                         Sarkari Yojana News
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" class="">
-                        Agriculture Machinery News
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" class="">
-                        Social News
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" class="">
-                        Animal Husbandry News
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" class="">
-                        Tractor Subsidy
                         </a>
                     </li>
   	 			</ul>

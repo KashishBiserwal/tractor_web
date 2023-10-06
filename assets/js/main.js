@@ -398,6 +398,111 @@ $('#example_brand').DataTable({
 });
 
 
+// haatbazar sell form
+
+var current_fs, next_fs, previous_fs;
+
+// No BACK button on first screen
+if($(".show").hasClass("first-screen")) {
+$(".prev").css({ 'display' : 'none' });
+}
+
+// Next button
+$(".next-button").click(function(){
+
+current_fs = $(this).parent().parent();
+next_fs = $(this).parent().parent().next();
+
+$(".prev").css({ 'display' : 'block' });
+
+$(current_fs).removeClass("show");
+$(next_fs).addClass("show");
+
+$("#progressbar li").eq($(".card2").index(next_fs)).addClass("active");
+
+current_fs.animate({}, {
+step: function() {
+
+current_fs.css({
+'display': 'none',
+'position': 'relative'
+});
+
+next_fs.css({
+'display': 'block'
+});
+}
+});
+});
+
+// Previous button
+$(".prev").click(function(){
+
+current_fs = $(".show");
+previous_fs = $(".show").prev();
+
+$(current_fs).removeClass("show");
+$(previous_fs).addClass("show");
+
+$(".prev").css({ 'display' : 'block' });
+
+if($(".show").hasClass("first-screen")) {
+$(".prev").css({ 'display' : 'none' });
+}
+
+$("#progressbar li").eq($(".card2").index(current_fs)).removeClass("active");
+
+current_fs.animate({}, {
+step: function() {
+
+current_fs.css({
+'display': 'none',
+'position': 'relative'
+});
+
+previous_fs.css({
+'display': 'block'
+});
+}
+});
+});
+
+// swiper hatbazar buy inner
+document.addEventListener("DOMContentLoaded", function () {
+  const mySwiper2_wrapper = document.querySelector(".mySwiper2_buy .swiper-wrapper_buy"),
+  mySwiper_container = document.querySelector(".mySwiper_buy"),
+        clone = mySwiper2_wrapper.cloneNode(true);
+  mySwiper_container.appendChild(clone);
+
+  const swiper_buy = new Swiper(".mySwiper_buy", {
+  loop: true,
+  spaceBetween: 10,
+  slidesPerView: mySwiper2_wrapper.childNodes.length,
+  freeMode: true,
+  watchSlidesProgress: true
+  });
+
+  const swiper2_buy = new Swiper(".mySwiper2_buy", {
+  autoplay: {
+      delay: 5000,
+      disableOnInteraction: false
+  },
+  slidesPerView: "auto",
+  centeredSlides: true,
+  loop: true,
+  loopedSlides: mySwiper2_wrapper.childNodes.length,
+  spaceBetween: 10,
+  speed: 800,
+  navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev"
+  },
+  thumbs: {
+      swiper: swiper
+  }
+  });
+},false);
+
 // Open links in mobiles
 // function handleSmallScreens() {
 //   document.querySelector('.navbar-toggler')

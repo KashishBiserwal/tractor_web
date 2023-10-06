@@ -67,7 +67,7 @@
                                     </div>
                                     <div class="col-12 col-lg-6 col-md-6 col-sm-6  my-1">
                                       <div class="form-group">
-                                        <input type="file" class="py-3" placeholder=" " id="model_name">
+                                        <input type="file" name="files[]" class="py-3" multiple >
                                         <label for="name" class="text-dark fw-bold"></label>
                                       </div>
                                     </div>
@@ -96,13 +96,24 @@
             <div class="col-12 col-sm-12 col-md-4 col-lg-4">
               <div class="form-outline">
                 <label class="form-label">Brand</label>
-                <input type="email" id="search_name" name="search_name" class="form-control" />
+                <select class="form-select" aria-label="Default select example">
+                  <option selected>Select Brand</option>
+                  <option value="1">Mahindra</option>
+                  <option value="2">Swaraj</option>
+                  <option value="3">John deere</option>
+                </select>
               </div>
             </div>
             <div class="col-12 col-sm-12 col-md-4 col-lg-4">
               <div class="form-outline">
                 <label class="form-label">Tyre Position</label>
-                <input type="text" id="search_email" name="search_email" class="form-control" />
+                <select class="form-select" aria-label="Default select example">
+                  <option selected>Select Position</option>
+                  <option value="1">Front-Left</option>
+                  <option value="2">Front-right</option>
+                  <option value="2">Back-Left</option>
+                  <option value="2">Back-right</option>
+                </select>
               </div>
             </div>
             <div class="col-12 col-sm-12 col-md-4 col-lg-4">

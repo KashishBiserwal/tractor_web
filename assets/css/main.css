@@ -74,6 +74,7 @@ body{
     -webkit-transition: left 0.3s ease;
     transition: left 0.3s ease;
     z-index: 20;
+    overflow-y: scroll;
 }
 .aside::after{
     content: "";
@@ -195,6 +196,11 @@ body{
 /* .user-avatar img{
     width: 40px;
 } */
+
+.admin-collapse{
+    border: none;
+}
+
 .table_edit_btn{
     background: #673ab7;
     border: 0;

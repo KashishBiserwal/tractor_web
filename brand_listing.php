@@ -46,13 +46,19 @@
                                     <div class="col-12 col-lg-6 col-sm-5 col-md-6 my-2">
                                       <div class="form-group">
                                         <input type="text" class="py-3" placeholder=" " id="brand">
-                                        <label for="name" class="text-dark fw-bold"> Brand Name</label>
+                                        <label for="name" class="text-dark"> Brand Name</label>
                                       </div>
                                     </div>
                                     <div class="col-12 col-lg-6 col-sm-5 col-md-6 my-2">
                                       <div class="form-group">
                                         <input type="text" class="py-3" placeholder=" " id="name">
-                                        <label for="name" class="text-dark fw-bold">About</label>
+                                        <label for="name" class="text-dark ">Model</label>
+                                      </div>
+                                    </div>
+                                    <div class="col-12  my-2">
+                                      <div class="form-group">
+                                        <input type="text" class="py-3" placeholder=" " id="name">
+                                        <label for="name" class="text-dark">Category</label>
                                       </div>
                                     </div>
                                    
@@ -76,13 +82,29 @@
       <div class="filter-card mb-2">
         <div class="card-body">
           <div class="row">
-            <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+            <div class="col-12 col-sm-12 col-md-4 col-lg-4">
               <div class="form-outline">
-                <label class="form-label">Brand</label>
-                <input type="email" id="search_name" name="search_name" class="form-control" />
+                <label class="form-label"> Brand Name</label>
+                <select class="form-select" aria-label="Default select example">
+                  <option selected>Select Brand Name</option>
+                  <option value="1">Mahindra</option>
+                  <option value="2">Swaraj</option>
+                  <option value="3">John Deere</option>
+                </select>
               </div>
             </div>
-            <div class="col-12 col-sm-12 col-md-6 col-lg-6 float-end text-center">
+            <div class="col-12 col-sm-12 col-md-4 col-lg-4">
+              <div class="form-outline">
+                <label class="form-label">Model</label>
+                <select class="form-select" aria-label="Default select example">
+                  <option selected>Select Model Name</option>
+                  <option value="1">Model1</option>
+                  <option value="2">Model2</option>
+                  <option value="3">Model3</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-12 col-sm-12 col-md-4 col-lg-4 text-center">
                 <button type="button" class="btn-success btn_search" id="Search">Search</button>
                 <button type="button" class="btn-success  mx-2 btn_search" id="Reset">Reset</button>
             </div>
@@ -97,14 +119,9 @@
                                         <tr>
                                             <th class="d-none d-md-table-cell text-white">S.No.</th>
                                             <th class="d-none d-md-table-cell text-white">  Brand Name</th>
-                                            <!-- <th class="d-none d-md-table-cell text-dark">Model</th>
-                                            <th class="d-none d-md-table-cell text-dark"> No. of Cylinder</th>
-                                            <th class="d-none d-md-table-cell text-dark">  PTO HP</th>
-                                            <th class="d-none d-md-table-cell text-dark"> HP Category</th>
-                                            <th class="d-none d-md-table-cell text-dark"> Gear Box</th>
-                                            <th class="d-none d-md-table-cell text-dark"> Brakes</th>
-                                            <th class="d-none d-md-table-cell text-dark">Steering</th>
-                                            <th class="d-none d-md-table-cell text-dark">Tyres</th> -->
+                                           <th class="d-none d-md-table-cell text-white">Model</th>
+                                           <th class="d-none d-md-table-cell text-white">Category</th>
+                                           <th class="d-none d-md-table-cell text-white">Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
