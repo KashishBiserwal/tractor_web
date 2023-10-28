@@ -116,7 +116,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-12 col-lg-4 col-md-4 col-sm-4 my-3">
+                    <!-- <div class="col-12 col-lg-4 col-md-4 col-sm-4 my-3">
                         <div class="success__stry__item d-flex flex-column shadow ">
                             <div class="thumb">
                                 <a href="#">
@@ -144,8 +144,8 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-12 col-lg-4 col-md-4 col-sm-4 my-3">
+                    </div> -->
+                    <!-- <div class="col-12 col-lg-4 col-md-4 col-sm-4 my-3">
                         <div class="success__stry__item d-flex flex-column shadow ">
                             <div class="thumb">
                                 <a href="#">
@@ -173,8 +173,8 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-12 col-lg-4 col-md-4 col-sm-4  my-3">
+                    </div> -->
+                    <!-- <div class="col-12 col-lg-4 col-md-4 col-sm-4  my-3">
                         <div class="success__stry__item d-flex flex-column shadow ">
                             <div class="thumb">
                                 <a href="#">
@@ -202,7 +202,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
                 <div class="col-12 text-center ">
                     <button id="adduser" type="button" class="add_btn btn-success">

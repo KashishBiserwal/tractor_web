@@ -61,8 +61,8 @@
                                     <li class="step0"></li>
                                     <li class="step0"></li>
                                  </ul>
-                                 <h5 class="mb-5 fw-bold">Harvest Category</h5>
-                                 <h5 class="mb-5 fw-bold">Quantity</h5>
+                                 <h5 class="mb-5 fw-bold">Harvest Information</h5>
+                                 <h5 class="mb-5 fw-bold">Upload Image</h5>
                                  <h5 class="mb-5 fw-bold">Personal Information</h5>
                                  <h5 class="mt-3 pt-5 fw-bold">Success</h5>
                                  </div>
@@ -72,7 +72,7 @@
                                   <p>Fill Your Harvest Details Below:</p>
                                  <div class="row px-3 mt-4">
                                     <div class="col-12 ">
-                                      <div class="form-group">
+                                      <div class="form-group w-100">
                                           <select class="form-select py-2 mb-3" aria-label=".form-select-lg example">
                                              <option selected>Select Category</option>
                                              <option value="1">Vegetable</option>
@@ -83,7 +83,7 @@
                                       </div>
                                     </div>
                                     <div class="col-12 ">
-                                      <div class="form-group">
+                                      <div class="form-group w-100">
                                           <select class="form-select py-2 " aria-label=".form-select-lg example">
                                              <option selected>Select Sub-Category</option>
                                              <option value="1">Potato</option>
@@ -93,41 +93,36 @@
                                           </select>
                                       </div>
                                     </div>
+                                    <div class="col-12 col-sm-12 col-md-6 col-lg-6 ">
+                                       <div class="input-group mb-3 w-100">
+                                          <input type="text" class="form-control mt-2 text-black" placeholder="Quantity" aria-label="Text input with dropdown button">
+                                          <button class="btn btn-outline-secondary dropdown-toggle" type="" data-bs-toggle="dropdown" aria-expanded="false">as Per</button>
+                                          <ul class="dropdown-menu dropdown-menu-end">
+                                             <li><a class="dropdown-item" href="#">Kg</a></li>
+                                             <li><a class="dropdown-item" href="#">Quintal</a></li>
+                                             <li><a class="dropdown-item" href="#">Ton</a></li>
+                                          </ul>
+                                       </div>
+                                    </div>
+                                    <div class="col-12 col-sm-6 col-md-6 col-lg-6 ">
+                                       <div class="form-group w-100">
+                                          <input type="text" class="py-2" placeholder=" " id="quantity">
+                                          <label for="quantity" class="text-dark"> <i class="fa fa-inr" aria-hidden="true"></i> Price as per Quantity</label>
+                                       </div>
+                                    </div>
+                                    <div class="col-12 ">
+                                       <div class="form-group w-100">
+                                          <input type="text" class="py-4" placeholder=" " id="quantity">
+                                          <label for="quantity" class="text-dark">About Your  Harvest</label>
+                                       </div>
+                                    </div>
                                     <div class="next-button text-center ms-3"> <span class="fa fa-arrow-right "></span> </div>
                                  </div>
                                  
                                  </div>
                                  <div class="card2 ml-2">
                                     <div class="row pe-3">
-                                    <p class="pb-2 w-100">Fill You Quantity Detail</p>
-                                       <div class="col-12 col-sm-6 col-md-6 col-lg-6">
-                                          <div class="form-group w-100">
-                                             <input type="text" class="py-2" placeholder=" " id="quantity">
-                                             <label for="quantity" class="text-dark">Quantity</label>
-                                          </div>
-                                       </div>
-                                       <div class="col-12 col-sm-6 col-md-6 col-lg-6 ">
-                                          <div class="form-group w-100">
-                                                <select class="form-select py-2 " aria-label=".form-select-lg example">
-                                                   <option selected class="fs-6">Quantity as Per</option>
-                                                   <option value="kg">Kg</option>
-                                                   <option value="quintal">Quintal</option>
-                                                   <option value="ton">Ton</option>
-                                                </select>
-                                          </div>
-                                       </div>
-                                       <div class="col-12 ">
-                                          <div class="form-group w-100">
-                                             <input type="text" class="py-2" placeholder=" " id="quantity">
-                                             <label for="quantity" class="text-dark"> <i class="fa fa-inr" aria-hidden="true"></i> Price as per Quantity</label>
-                                          </div>
-                                       </div>
-                                       <div class="col-12 ">
-                                          <div class="form-group w-100">
-                                             <input type="text" class="py-4" placeholder=" " id="quantity">
-                                             <label for="quantity" class="text-dark">About Your  Harvest</label>
-                                          </div>
-                                       </div>
+                                    <p class="pb-2 w-100">Upload File</p>
                                        <div class="col-12 ">
                                           <div class="form-group w-100">
                                              <input type="file" class="py-3" placeholder=" " name="file[]" id="quantity" multiple>
@@ -139,55 +134,55 @@
                                    
                                  </div>
                                  <div class="card2 ml-2">
-                                 <div class="row px-3">
-                                    <p class="pb-2 w-100">Fill Your correct info</p>
-                                    <div class="col-12 ">
-                                       <div class="form-group w-100">
-                                          <input type="Text" class="py-2" placeholder=" " name="name" id="name" >
-                                          <label for="name" class="text-dark">Name</label>
+                                    <div class="row px-3">
+                                       <p class="pb-2 w-100">Fill Your correct info</p>
+                                       <div class="col-12">
+                                          <div class="form-group w-100">
+                                             <input type="Text" class="py-2" placeholder=" " name="name" id="name" >
+                                             <label for="name" class="text-dark">Name</label>
+                                          </div>
+                                       </div>
+                                       <div class="col-12">
+                                          <div class="form-group w-100">
+                                             <input type="Text" class="py-2" placeholder=" " name="name" id="name" >
+                                             <label for="name" class="text-dark">Phone Number</label>
+                                          </div>
+                                       </div>
+                                       <div class="col-12 col-sm-6 col-md-6 col-lg-6 ">
+                                          <div class="form-group w-100">
+                                             <select class="form-select py-2 " aria-label=".form-select-lg example">
+                                                <option selected class="fs-6">Select State</option>
+                                                <option value="kg">Chattisgarh</option>
+                                                <option value="quintal">Other</option>
+                                             </select>
+                                          </div>
+                                       </div>
+                                       <div class="col-12 col-sm-6 col-md-6 col-lg-6 ">
+                                          <div class="form-group w-100">
+                                             <select class="form-select py-2 " aria-label=".form-select-lg example">
+                                                <option selected class="fs-6">Select District</option>
+                                                <option value="kg">Raigarh</option>
+                                                <option value="quintal">Bilaspur</option>
+                                                <option value="quintal">Ambikapur</option>
+                                             </select>
+                                          </div>
+                                       </div>
+                                       <div class="col-12  col-sm-6 col-md-6 col-lg-6 ">
+                                          <div class="form-group w-100">
+                                             <input type="Text" class="py-2" placeholder=" " name="tehsil" id="tehsil" >
+                                             <label for="tehsil" class="text-dark">Tehsil</label>
+                                          </div>
+                                       </div>
+                                       <div class="col-12 col-sm-6 col-md-6 col-lg-6 ">
+                                          <div class="form-group w-100">
+                                             <input type="Text" class="py-2" placeholder=" " name="pincode" id="pincode" >
+                                             <label for="pincode" class="text-dark">Pincode</label>
+                                          </div>
+                                       </div>
+                                       <div class="next-button text-center text-success ms-5 px-3 w-75">
+                                          <a href="#" class="text-decoration-none text-white"> Submit</a>
                                        </div>
                                     </div>
-                                    <div class="col-12 ">
-                                       <div class="form-group w-100">
-                                          <input type="Text" class="py-2" placeholder=" " name="name" id="name" >
-                                          <label for="name" class="text-dark">Phone Number</label>
-                                       </div>
-                                    </div>
-                                    <div class="col-12  col-sm-6 col-md-6 col-lg-6 ">
-                                       <div class="form-group w-100">
-                                          <select class="form-select py-2 " aria-label=".form-select-lg example">
-                                             <option selected class="fs-6">Select State</option>
-                                             <option value="kg">Chattisgarh</option>
-                                             <option value="quintal">Other</option>
-                                          </select>
-                                       </div>
-                                    </div>
-                                    <div class="col-12  col-sm-6 col-md-6 col-lg-6 ">
-                                       <div class="form-group w-100">
-                                          <select class="form-select py-2 " aria-label=".form-select-lg example">
-                                             <option selected class="fs-6">Select District</option>
-                                             <option value="kg">Raigarh</option>
-                                             <option value="quintal">Bilaspur</option>
-                                             <option value="quintal">Ambikapur</option>
-                                          </select>
-                                       </div>
-                                    </div>
-                                    <div class="col-12  col-sm-6 col-md-6 col-lg-6 ">
-                                       <div class="form-group w-100">
-                                          <input type="Text" class="py-2" placeholder=" " name="tehsil" id="tehsil" >
-                                          <label for="tehsil" class="text-dark">Tehsil</label>
-                                       </div>
-                                    </div>
-                                    <div class="col-12  col-sm-6 col-md-6 col-lg-6 ">
-                                       <div class="form-group w-100">
-                                          <input type="Text" class="py-2" placeholder=" " name="pincode" id="pincode" >
-                                          <label for="pincode" class="text-dark">Pincode</label>
-                                       </div>
-                                    </div>
-                                       <div class="next-button text-center text-success ms-5 px-3 w-75"> <a href="#" class="text-decoration-none text-white"> Submit</a></div>
-                                    
-                                   
-                                 </div>
                                  </div>
                                  <div class="card2 ml-2">
                                     <div class="row px-3 mt-2 mb-4 text-center">

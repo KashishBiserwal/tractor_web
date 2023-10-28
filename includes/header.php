@@ -2,7 +2,7 @@
 <nav class="navbar navbar-index navbar-expand-lg navbar-dark fixed-top" >
   <div class="container">
     <div class="logo pe-5">
-      <a href="#" class="text-decoration-none">
+      <a href="index.php" class="text-decoration-none">
         <img src="assets/images/logotrac.jpg"alt="reload img" class="logo rounded-circle">
       </a>
     </div>

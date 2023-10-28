@@ -503,6 +503,19 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 },false);
 
+// carousal
+$("#news-slider").owlCarousel({
+  items : 3,
+  itemsDesktop:[1199,3],
+  itemsDesktopSmall:[980,2],
+  itemsMobile : [600,1],
+  navigation:true,
+  navigationText:["",""],
+  pagination:true,
+  autoPlay:true
+});
+
+
 // Open links in mobiles
 // function handleSmallScreens() {
 //   document.querySelector('.navbar-toggler')

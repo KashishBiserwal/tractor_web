@@ -151,6 +151,47 @@
         </div>
       </div>
     </section>
+    <section>
+      <div class="container">
+        <div class="specification_head">
+            <h3 class="text-danger">About Item</h3>
+        </div>
+        <div class="about_cont my-3 pt-3">
+          <div class="row">
+            <div class="col-12 col-lg-3 col-md-3 col-sm-3">
+              <h5>Vegetable:</h5>
+            </div>
+            <div class="col-12 col-lg-9 col-md-9 col-sm-9">
+              <p>Potato</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12 col-lg-3 col-md-3 col-sm-3">
+              <h5>Vegetable Type:</h5>
+            </div>
+            <div class="col-12 col-lg-9 col-md-9 col-sm-9">
+              <p>Type</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12 col-lg-3 col-md-3 col-sm-3">
+              <h5>Quantity:</h5>
+            </div>
+            <div class="col-12 col-lg-9 col-md-9 col-sm-9">
+              <p>1</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12 col-lg-3 col-md-3 col-sm-3">
+              <h5>Price (as per kg):</h5>
+            </div>
+            <div class="col-12 col-lg-9 col-md-9 col-sm-9">
+              <p>222</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
    
     <?php
     include 'includes/footer.php';
