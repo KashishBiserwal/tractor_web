@@ -10,7 +10,7 @@
    ?>
     <!-- Banner Here -->
     <section id="home-banner" class="banner__section overflow-hidden">
-      <img src="assets/images/tractor_index.gif" alt="reload" class="bannerimg w-100">
+      <img src="assets/images/tractorzip.gif" alt="reload" class="bannerimg w-100">
       <!-- <video class="video-parallax video-fluid bannerimg w-100 " autoplay loop muted><source src="assets/images/index_video.mp4" type="video/mp4"><source src="movie.ogg" type="video/ogg"> 
              Your browser does not support the video tag.
         </video>-->
@@ -149,7 +149,7 @@
                             </a>
                         </div>
                     </div>
-                    <div class="swiper-slide success__stry__item shadow">
+                    <div class="swiper-slide success__stry__item shadow h-25">
                         <div class="thumb">
                         <a href="#">
                             <div class="">
@@ -172,7 +172,7 @@
                         </a>
                         </div>
                     </div>
-                    <div class="swiper-slide success__stry__item shadow ">
+                    <div class="swiper-slide success__stry__item shadow h-25">
                         <div class="thumb">
                         <a href="#">
                             <div class="">
@@ -195,7 +195,7 @@
                         </a>
                         </div>
                     </div>
-                    <div class="swiper-slide success__stry__item shadow ">
+                    <div class="swiper-slide success__stry__item shadow h-25">
                         <div class="thumb">
                         <a href="#">
                             <div class="">
@@ -218,7 +218,7 @@
                         </a>
                         </div>
                     </div>
-                    <div class="swiper-slide success__stry__item shadow">
+                    <!-- <div class="swiper-slide success__stry__item shadow h-25">
                         <div class="thumb">
                         <a href="#">
                             <div class="">
@@ -240,7 +240,7 @@
                             </span>
                         </a>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
                 
                 <div class="swiper-pagination"></div>
@@ -250,8 +250,8 @@
             </div>
         </div>
     </div>
-      <div class="py-3"></div>
-      <div class="col text-center pb-4">
+      <div class=""></div>
+      <div class="col text-center py-4">
         <a href="#" class="btn btn-success btn-lg">View all Popular Tractors</a>
       </div>
       </div>
@@ -263,7 +263,7 @@
               <div class="position-relative justify-content-center" id="proj_swip">
                 <div class="swiper swiper-slides-visible p-5 m-n5 testimonial__wrap">
                   <div class="swiper-wrapper ">
-                    <div class="swiper-slide success__stry__item shadow ">
+                    <div class="swiper-slide success__stry__item shadow h-25">
                       <div class="thumb">
                         <a href="#">
                           <div class="">
@@ -295,7 +295,7 @@
                         </a>
                       </div>
                     </div>
-                    <div class="swiper-slide success__stry__item  shadow">
+                    <div class="swiper-slide success__stry__item shadow h-25">
                       <div class="thumb">
                         <a href="#">
                           <div class="">
@@ -327,7 +327,7 @@
                         </a>
                       </div>
                     </div>
-                    <div class="swiper-slide success__stry__item  shadow ">
+                    <div class="swiper-slide success__stry__item shadow h-25">
                       <div class="thumb">
                         <a href="#">
                           <div class="">
@@ -359,7 +359,7 @@
                         </a>
                       </div>
                     </div>
-                    <div class="swiper-slide success__stry__item shadow ">
+                    <div class="swiper-slide success__stry__item shadow h-25">
                       <div class="thumb">
                         <a href="#">
                           <div class="">
@@ -380,7 +380,7 @@
                         </a>
                       </div>
                     </div>
-                    <div class="swiper-slide success__stry__item  shadow ">
+                    <div class="swiper-slide success__stry__item shadow h-25">
                       <div class="thumb">
                         <a href="#">
                           <div class="">
@@ -438,7 +438,7 @@
               <div class="position-relative justify-content-center" id="proj_swip">
                 <div class="swiper swiper-slides-visible p-5 m-n5 testimonial__wrap">
                   <div class="swiper-wrapper ">
-                    <div class="swiper-slide success__stry__item shadow ">
+                    <div class="swiper-slide success__stry__item shadow h-25">
                       <div class="thumb">
                         <a href="#">
                           <div class="">
@@ -470,7 +470,7 @@
                         </a>
                       </div>
                     </div>
-                    <div class="swiper-slide success__stry__item shadow">
+                    <div class="swiper-slide success__stry__item shadow h-25">
                       <div class="thumb">
                         <a href="#">
                           <div class="">
@@ -502,7 +502,7 @@
                         </a>
                       </div>
                     </div>
-                    <div class="swiper-slide success__stry__item  shadow ">
+                    <div class="swiper-slide success__stry__item shadow h-25">
                       <div class="thumb">
                         <a href="#">
                           <div class="">
@@ -530,7 +530,7 @@
                         </a>
                       </div>
                     </div>
-                    <div class="swiper-slide  success__stry__item  shadow ">
+                    <div class="swiper-slide success__stry__item shadow h-25">
                       <div class="thumb">
                         <a href="#">
                           <div class="">
@@ -562,7 +562,7 @@
                         </a>
                       </div>
                     </div>
-                    <div class="swiper-slide success__stry__item  shadow ">
+                    <div class="swiper-slide success__stry__item shadow h-25">
                       <div class="thumb">
                         <a href="#">
                           <div class="">
@@ -615,649 +615,745 @@
       </div>
       </div>
     </section>
-    <!-- <section class=""><div class="container"><h3 class="my-3 pt-4 display-6 fw-bold display-6 fw-bold">Tractors by Brands</h2><div class="container bg-light"></div><div class="swiper swiper-container1 my-2 py-3 row"><ul class="swiper-wrapper my-gallery py-4" itemscope itemtype=""><li class="swiper-slide slide1 shadow bg-white text-center text-align-center" itemprop="associatedMedia" itemscope itemtype=""><a title="click to zoom-in" href="#" itemprop="contentUrl"><img src="assets/images/mahindra-1673872647.webp" itemprop="thumbnail" class=" w-50 text-center text-align-center" alt="Image description" /></a></li><li class="swiper-slide slide1 shadow bg-white text-center text-align-center" itemprop="associatedMedia" itemscope itemtype=""><a title="click to zoom-in" href="#" itemprop="contentUrl "><img src="assets/images/massey-ferguson-1579512590.webp" class="w-50 text-center text-align-center" itemprop="thumbnail" alt="Image description" /></a></li><li class="swiper-slide slide1 shadow bg-white text-center text-align-center" itemprop="associatedMedia" itemscope itemtype=""><a title="click to zoom-in" href="#" itemprop="contentUrl"><img src="assets/images/swaraj-1608095532.webp" class="w-50 text-center text-align-center" itemprop="thumbnail" alt="Image description" /></a></li><li class="swiper-slide slide1 shadow bg-white text-center text-align-center" itemprop="associatedMedia" itemscope itemtype=""><a title="click to zoom-in" href="#" itemprop="contentUrl "><img src="assets/images/farmtrac-1579511831.webp" class="w-50 text-center text-align-center" itemprop="thumbnail" alt="Image description" /></a></li><li class="swiper-slide slide1 shadow bg-white text-center text-align-center" itemprop="associatedMedia" itemscope itemtype=""><a title="click to zoom-in" href="#" itemprop="contentUrl"><img src="assets/images/new-holland-1579511945.webp" class="w-50 text-center text-align-center" itemprop="thumbnail" alt="Image description" /></a></li><li class="swiper-slide slide1 shadow bg-white text-center text-align-center" itemprop="associatedMedia" itemscope itemtype=""><a title="click to zoom-in" href="#" itemprop="contentUrl"><img src="assets/images/john-deere-1579511882.webp" class="w-50 text-center text-align-center" itemprop="thumbnail" alt="Image description" /></a></li><li class="swiper-slide slide1 shadow bg-white text-center text-align-center" itemprop="associatedMedia" itemscope itemtype=""><a title="click to zoom-in" href="#" itemprop="contentUrl"><img src="assets/images/powertrac-1579511958-2.webp" class="w-50 text-center text-align-center" itemprop="thumbnail" alt="Image description" /></a></li><li class="swiper-slide slide1 shadow bg-white text-center text-align-center" itemprop="associatedMedia" itemscope itemtype=""><a title="click to zoom-in" href="#" itemprop="contentUrl"><img src="assets/images/eicher-1608095225.webp" class="w-50 text-center text-align-center" itemprop="thumbnail" alt="Image description" /></a></li><li class="swiper-slide slide1 shadow bg-white text-center text-align-center" itemprop="associatedMedia" itemscope itemtype=""><a title="click to zoom-in" href="#" itemprop="contentUrl"><img src="assets/images/kubota-1579512571.webp" class="w-50 text-center text-align-center" itemprop="thumbnail" alt="Image description" /></a></li><li class="swiper-slide slide1 shadow bg-white text-center text-align-center" itemprop="associatedMedia" itemscope itemtype=""><a title="click to zoom-in" href="#" itemprop="contentUrl"><img src="assets/images/vst-shakti-1623048840.webp" class="w-50 text-center text-align-center" itemprop="thumbnail" alt="Image description" /></a></li><li class="swiper-slide slide1 shadow bg-white text-center text-align-center"  itemprop="associatedMedia" itemscope itemtype=""><a title="click to zoom-in" href="#" itemprop="contentUrl"><img src="assets/images/indo-farm-1608095474.webp" class="w-50 text-center text-align-center" itemprop="thumbnail" alt="Image description" /></a></li></ul><div class="swiper-pagination1"></div><div title="Prev" class="swiper-button-prev"></div><div title="Next" class="swiper-button-next"></div><div class="col text-center "><a href="#" class="btn btn-success btn-lg">View all Tractor Brands</a></div></div></div></section> -->
-    <!-- for sell -->
-    <section class="bg-white">
-      <div class="container ">
-        <h3 class="mt-5 pt-4  display-6 fw-bold">
-          <span class="text-success">Used Tractors </span> for Sell
-        </h3>
-        <nav class=" mt-2">
-          <div class="nav nav-tabs   w-50" id="nav-tab" role="tablist">
-            <a class="nav-link active px-5 py-3 mx-2 h5 fw-bold text-dark py-2" type="button" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-premium" role="tab" aria-controls="nav-home" aria-selected="true">Premium</a>
-            <a class="nav-link px-5 py-3 h5  mx-2 fw-bold text-dark" id="nav-latest-tab" type="button" data-bs-toggle="tab" data-bs-target="#nav-latest" role="tab" aria-controls="nav-latest" aria-selected="false">Latest</a>
-            <a class="nav-link px-5 py-3 h5  mx-2 fw-bold text-dark" type="button" id="nav-popular-tab" data-bs-toggle="tab" data-bs-target="#nav-popular" role="tab" aria-controls="nav-popular" aria-selected="false">Popular</a>
-          </div>
-        </nav>
-        <div class="tab-content pt-3 px-3 mt-4 " id="nav-tabContent">
-          <div class="tab-pane fade active show justify-content-center" id="nav-primium" role="tabpanel" aria-labelledby="nav-home-tab">
-            <div class="row  justify-content-between">
-              <div class="col-12 ">
-                <div class=" justify-content-center" id="proj_swip">
-                    <div class="container-fluid">
-                        <div class="row">
-                            <div class="col-md-12">
-                            <div id="news-slider" class="owl-carousel">
-                                <div class="post-slide">
-                                  <div class="post-img">
-                                      <img src="assets/images/45-classic-146132-1696568052-0.webp" alt="">
-                                      <a href="#" class="over-layer"><i class="fa fa-link"></i></a>
-                                  </div>
-                                  <div class="post-content">
-                                    <h3 class="post-title">
-                                      <a href="#" class="text-decoration-none fw-bold">Farmtrac 45 Classic</a>
-                                    </h3>
-                                    <p class="post-description">Price: ₹ 6,50,000</p>
-                                    <div class="row">
-                                      <div class="col-12 col-lg-3 col-md-3 col-sm-3">
-                                          <p>45 Hp</p>
-                                      </div>
-                                      <div class="col-12 col-lg-4 col-md-4 col-sm-4"><p>2022 Model</p></div>
-                                      <div class="col-12 col-lg-5 col-md-5 col-sm-5"><p class="btn btn-success ">Great Deal <i class="fa fa-thumbs-up" aria-hidden="true"></i></p></div>
-                                    </div>
-                                      
-                                      <!-- <span class="post-date"><i class="fa fa-clock-o"></i>Out 27, 2019</span>
-                                      <a href="#" class="read-more">read more</a> -->
-                                  </div>
-                                </div>
-                                <div class="post-slide">
-                                  <div class="post-img">
-                                      <img src="assets/images/45-classic-146132-1696568052-0.webp" alt="">
-                                      <a href="#" class="over-layer"><i class="fa fa-link"></i></a>
-                                  </div>
-                                  <div class="post-content">
-                                    <h3 class="post-title">
-                                      <a href="#" class="text-decoration-none fw-bold">Farmtrac 45 Classic</a>
-                                    </h3>
-                                    <p class="post-description">Price: ₹ 6,50,000</p>
-                                    <div class="row">
-                                      <div class="col-12 col-lg-3 col-md-3 col-sm-3">
-                                          <p>45 Hp</p>
-                                      </div>
-                                      <div class="col-12 col-lg-4 col-md-4 col-sm-4"><p>2022 Model</p></div>
-                                      <div class="col-12 col-lg-5 col-md-5 col-sm-5"><p class="btn btn-success ">Great Deal <i class="fa fa-thumbs-up" aria-hidden="true"></i></p></div>
-                                    </div>
-                                      
-                                      <!-- <span class="post-date"><i class="fa fa-clock-o"></i>Out 27, 2019</span>
-                                      <a href="#" class="read-more">read more</a> -->
-                                  </div>
-                                </div>
-                                <div class="post-slide">
-                                  <div class="post-img">
-                                      <img src="assets/images/45-classic-146132-1696568052-0.webp" alt="">
-                                      <a href="#" class="over-layer"><i class="fa fa-link"></i></a>
-                                  </div>
-                                  <div class="post-content">
-                                    <h3 class="post-title">
-                                      <a href="#" class="text-decoration-none fw-bold">Farmtrac 45 Classic</a>
-                                    </h3>
-                                    <p class="post-description">Price: ₹ 6,50,000</p>
-                                    <div class="row">
-                                      <div class="col-12 col-lg-3 col-md-3 col-sm-3">
-                                          <p>45 Hp</p>
-                                      </div>
-                                      <div class="col-12 col-lg-4 col-md-4 col-sm-4"><p>2022 Model</p></div>
-                                      <div class="col-12 col-lg-5 col-md-5 col-sm-5"><p class="btn btn-success ">Great Deal <i class="fa fa-thumbs-up" aria-hidden="true"></i></p></div>
-                                    </div>
-                                      
-                                      <!-- <span class="post-date"><i class="fa fa-clock-o"></i>Out 27, 2019</span>
-                                      <a href="#" class="read-more">read more</a> -->
-                                  </div>
-                                </div>
-                                <div class="post-slide">
-                                  <div class="post-img">
-                                      <img src="assets/images/45-classic-146132-1696568052-0.webp" alt="">
-                                      <a href="#" class="over-layer"><i class="fa fa-link"></i></a>
-                                  </div>
-                                  <div class="post-content">
-                                    <h3 class="post-title">
-                                      <a href="#" class="text-decoration-none fw-bold">Farmtrac 45 Classic</a>
-                                    </h3>
-                                    <p class="post-description">Price: ₹ 6,50,000</p>
-                                    <div class="row">
-                                      <div class="col-12 col-lg-3 col-md-3 col-sm-3">
-                                          <p>45 Hp</p>
-                                      </div>
-                                      <div class="col-12 col-lg-4 col-md-4 col-sm-4"><p>2022 Model</p></div>
-                                      <div class="col-12 col-lg-5 col-md-5 col-sm-5"><p class="btn btn-success ">Great Deal <i class="fa fa-thumbs-up" aria-hidden="true"></i></p></div>
-                                    </div>
-                                      
-                                      <!-- <span class="post-date"><i class="fa fa-clock-o"></i>Out 27, 2019</span>
-                                      <a href="#" class="read-more">read more</a> -->
-                                  </div>
-                                </div>
-                                <div class="post-slide">
-                                  <div class="post-img">
-                                      <img src="assets/images/45-classic-146132-1696568052-0.webp" alt="">
-                                      <a href="#" class="over-layer"><i class="fa fa-link"></i></a>
-                                  </div>
-                                  <div class="post-content">
-                                    <h3 class="post-title">
-                                      <a href="#" class="text-decoration-none fw-bold">Farmtrac 45 Classic</a>
-                                    </h3>
-                                    <p class="post-description">Price: ₹ 6,50,000</p>
-                                    <div class="row">
-                                      <div class="col-12 col-lg-3 col-md-3 col-sm-3">
-                                          <p>45 Hp</p>
-                                      </div>
-                                      <div class="col-12 col-lg-4 col-md-4 col-sm-4"><p>2022 Model</p></div>
-                                      <div class="col-12 col-lg-5 col-md-5 col-sm-5"><p class="btn btn-success ">Great Deal <i class="fa fa-thumbs-up" aria-hidden="true"></i></p></div>
-                                    </div>
-                                      
-                                      <!-- <span class="post-date"><i class="fa fa-clock-o"></i>Out 27, 2019</span>
-                                      <a href="#" class="read-more">read more</a> -->
-                                  </div>
-                                </div>
-                                
-                                <div class="post-slide">
-                                <div class="post-img">
-                                    <img src="https://images.unsplash.com/photo-1533227268428-f9ed0900fb3b?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=303&ixid=eyJhcHBfaWQiOjF9&ixlib=rb-1.2.1&q=80&w=503" alt="">
-                                    <a href="#" class="over-layer"><i class="fa fa-link"></i></a>
-                                </div>
-                                <div class="post-content">
-                                    <h3 class="post-title">
-                                    <a href="#">Lorem ipsum dolor sit amet.</a>
-                                    </h3>
-                                    <p class="post-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam consectetur cumque dolorum, ex incidunt ipsa laudantium necessitatibus neque quae tempora......</p>
-                                    <span class="post-date"><i class="fa fa-clock-o"></i>Out 27, 2019</span>
-                                    <a href="#" class="read-more">read more</a>
-                                </div>
-                                </div>
-                                
-                                <div class="post-slide">
-                                <div class="post-img">
-                                    <img src="https://images.unsplash.com/photo-1564979268369-42032c5ca998?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=300&ixid=eyJhcHBfaWQiOjF9&ixlib=rb-1.2.1&q=80&w=500" alt="">
-                                    <a href="#" class="over-layer"><i class="fa fa-link"></i></a>
-                                </div>
-                                <div class="post-content">
-                                    <h3 class="post-title">
-                                    <a href="#">Lorem ipsum dolor sit amet.</a>
-                                    </h3>
-                                    <p class="post-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam consectetur cumque dolorum, ex incidunt ipsa laudantium necessitatibus neque quae tempora......</p>
-                                    <span class="post-date"><i class="fa fa-clock-o"></i>Out 27, 2019</span>
-                                    <a href="#" class="read-more">read more</a>
-                                </div>
-                                </div>
-                                
-                                <div class="post-slide">
-                                <div class="post-img">
-                                    <img src="https://images.unsplash.com/photo-1576659531892-0f4991fca82b?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=301&ixid=eyJhcHBfaWQiOjF9&ixlib=rb-1.2.1&q=80&w=501" alt="">
-                                    <a href="#" class="over-layer"><i class="fa fa-link"></i></a>
-                                </div>
-                                <div class="post-content">
-                                    <h3 class="post-title">
-                                    <a href="#">Lorem ipsum dolor sit amet.</a>
-                                    </h3>
-                                    <p class="post-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam consectetur cumque dolorum, ex incidunt ipsa laudantium necessitatibus neque quae tempora......</p>
-                                    <span class="post-date"><i class="fa fa-clock-o"></i>Out 27, 2019</span>
-                                    <a href="#" class="read-more">read more</a>
-                                </div>
-                                </div>
-                                
-                                <div class="post-slide">
-                                <div class="post-img">
-                                    <img src="https://images.unsplash.com/photo-1586083702768-190ae093d34d?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=305&ixid=eyJhcHBfaWQiOjF9&ixlib=rb-1.2.1&q=80&w=505" alt="">
-                                    <a href="#" class="over-layer"><i class="fa fa-link"></i></a>
-                                </div>
-                                <div class="post-content">
-                                    <h3 class="post-title">
-                                    <a href="#">Lorem ipsum dolor sit amet.</a>
-                                    </h3>
-                                    <p class="post-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam consectetur cumque dolorum, ex incidunt ipsa laudantium necessitatibus neque quae tempora......</p>
-                                    <span class="post-date"><i class="fa fa-clock-o"></i>Out 27, 2019</span>
-                                    <a href="#" class="read-more">read more</a>
-                                </div>
-                                </div>
+    
 
-                                <div class="post-slide">
-                                <div class="post-img">
-                                    <img src="https://images.unsplash.com/photo-1484656551321-a1161420a2a0?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=306&ixid=eyJhcHBfaWQiOjF9&ixlib=rb-1.2.1&q=80&w=506" alt="">
-                                    <a href="#" class="over-layer"><i class="fa fa-link"></i></a>
-                                </div>
-                                <div class="post-content">
-                                    <h3 class="post-title">
-                                    <a href="#">Lorem ipsum dolor sit amet.</a>
-                                    </h3>
-                                    <p class="post-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam consectetur cumque dolorum, ex incidunt ipsa laudantium necessitatibus neque quae tempora......</p>
-                                    <span class="post-date"><i class="fa fa-clock-o"></i>Out 27, 2019</span>
-                                    <a href="#" class="read-more">read more</a>
-                                </div>
-                                </div>
-                            </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-              </div>
-              <div class="pb-3"></div>
-              <div class="col text-center pb-4">
-                <a href="#" class="btn btn-success btn-lg ">View all Used Tractors</a>
-              </div>
-            </div>
-          </div>
-          <div class="tab-pane fade justify-content-center" id="nav-latest" role="tabpanel" aria-labelledby="nav-latest-tab">
-            <div class="tab-pane fade active show justify-content-center" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
-              <div class="row  justify-content-between">
-                <div class="col-12 ">
-                  <div class="position-relative justify-content-center" id="proj_swip">
-                    <div class="swiper swiper-slides-visible p-5 m-n5 testimonial__wrap">
-                      <div class="swiper-wrapper ">
-                        <div class="swiper-slide h-auto success__stry__item d-flex flex-column shadow ">
-                          <div class="thumb">
-                            <a href="#">
-                              <div class="">
-                                <img src="assets/images/275-di-xp-plus-141706-1693638432-0.webp" class="object-fit-cover py-3" alt="img">
-                              </div>
-                            </a>
-                          </div>
-                          <div class="content ms-3">
-                            <a href="#" class="text-decoration-none text-dark ps-3">
-                              <h4 class="fw-bold mt-3">Mahindra 275 DI XP Plus </h3>
-                            </a>
-                            <a href="# " class="text-dark text-decoration-none ps-3">
-                              <p>Price: ₹ 5,00,000*</p>
-                            </a>
-                            <div class="row mt-1 ps-3">
-                              <div class="col-12 col-lg-3 col-md-3 col-sm-3">
-                                <p class="">
-                                  <i class="fas fa-bolt"></i> 37 HP
-                                </p>
-                              </div>
-                              <div class="col-12 col-lg-4 col-md-4 col-sm-4">
-                                <p class="ps-1">2021 Model</p>
-                              </div>
-                              <div class="col-12 col-lg-5 col-md-5 col-sm-5 pe-1">
-                                <button class="btn btn-success p-1">Great Deal <i class="fa fa-thumbs-up" aria-hidden="true"></i>
-                                </button>
-                              </div>
-                            </div>
-                            <a href="#" class="text-decoration-none text-dark mb-4 ps-3">
-                              <span> Sikar, Rajasthan </span>
-                              <span class="icon">
-                                <i class="fa-solid fa-chevron-right"></i>
-                              </span>
-                            </a>
-                          </div>
-                        </div>
-                        <div class="swiper-slide h-auto success__stry__item d-flex flex-column shadow ">
-                          <div class="thumb">
-                            <a href="#">
-                              <div class="">
-                                <img src="assets/images/275-di-xp-plus-141705-1693637816-0.webp" class="object-fit-cover py-3" alt="img">
-                              </div>
-                            </a>
-                          </div>
-                          <div class="content ms-3">
-                            <a href="#" class="text-decoration-none text-dark ps-3">
-                              <h4 class="fw-bold mt-3">Mahindra 275 DI XP Plus </h3>
-                            </a>
-                            <a href="# " class="text-dark text-decoration-none ps-3">
-                              <p>Price: ₹ 5,00,000*</p>
-                            </a>
-                            <div class="row mt-1 ps-3">
-                              <div class="col-12 col-lg-3 col-md-3 col-sm-3">
-                                <p class="">
-                                  <i class="fas fa-bolt"></i> 37 HP
-                                </p>
-                              </div>
-                              <div class="col-12 col-lg-4 col-md-4 col-sm-4">
-                                <p class="ps-1">2020 Model</p>
-                              </div>
-                              <div class="col-12 col-lg-5 col-md-5 col-sm-5 pe-1">
-                                <button class="btn btn-success p-1">Great Deal <i class="fa fa-thumbs-up" aria-hidden="true"></i>
-                                </button>
-                              </div>
-                            </div>
-                            <a href="#" class="text-decoration-none text-dark mb-4 ps-3">
-                              <span> Sikar, Rajasthan </span>
-                              <span class="icon">
-                                <i class="fa-solid fa-chevron-right"></i>
-                              </span>
-                            </a>
-                          </div>
-                        </div>
-                        <div class="swiper-slide h-auto success__stry__item d-flex flex-column shadow ">
-                          <div class="thumb">
-                            <a href="#">
-                              <div class="">
-                                <img src="assets/images/475-di-141453-1693299479-0.webp" class="object-fit-cover py-3" alt="img">
-                              </div>
-                            </a>
-                          </div>
-                          <div class="content ms-3">
-                            <a href="#" class="text-decoration-none text-dark ps-3">
-                              <h4 class="fw-bold mt-3">Mahindra 475 DI </h3>
-                            </a>
-                            <a href="# " class="text-dark text-decoration-none ps-3">
-                              <p>Price: ₹ 4,06,801*</p>
-                            </a>
-                            <div class="row mt-1 ps-3">
-                              <div class="col-12 col-lg-3 col-md-3 col-sm-3">
-                                <p class="">
-                                  <i class="fas fa-bolt"></i>42 HP
-                                </p>
-                              </div>
-                              <div class="col-12 col-lg-4 col-md-4 col-sm-4">
-                                <p class="ps-1">2019 Model</p>
-                              </div>
-                              <div class="col-12 col-lg-5 col-md-5 col-sm-5 pe-1">
-                                <button class="btn btn-success p-1">Great Deal <i class="fa fa-thumbs-up" aria-hidden="true"></i>
-                                </button>
-                              </div>
-                            </div>
-                            <a href="#" class="text-decoration-none text-dark mb-4 ps-3">
-                              <span> Tonk, Rajasthan </span>
-                              <span class="icon">
-                                <i class="fa-solid fa-chevron-right"></i>
-                              </span>
-                            </a>
-                          </div>
-                        </div>
-                        <div class="swiper-slide h-auto success__stry__item d-flex flex-column shadow ">
-                          <div class="thumb">
-                            <a href="#">
-                              <div class="">
-                                <img src="assets/images/475-di-141452-1693299248-0.webp" class="object-fit-cover py-3" alt="img">
-                              </div>
-                            </a>
-                          </div>
-                          <div class="content ms-3">
-                            <a href="#" class="text-decoration-none text-dark ps-3">
-                              <h4 class="fw-bold mt-3">Mahindra 475 DI </h3>
-                            </a>
-                            <a href="# " class="text-dark  text-decoration-none ps-3">
-                              <p>Price: ₹ 5,73,601*</p>
-                            </a>
-                            <div class="row mt-1 ps-3">
-                              <div class="col-12 col-lg-3 col-md-3 col-sm-3">
-                                <p class="">
-                                  <i class="fas fa-bolt"></i> 42 HP
-                                </p>
-                              </div>
-                              <div class="col-12 col-lg-4 col-md-4 col-sm-4">
-                                <p class="ps-1">2022 Model</p>
-                              </div>
-                              <div class="col-12 col-lg-5 col-md-5 col-sm-5 pe-1">
-                                <button class="btn btn-success p-1">Great Deal <i class="fa fa-thumbs-up" aria-hidden="true"></i>
-                                </button>
-                              </div>
-                            </div>
-                            <a href="#" class="text-decoration-none text-dark mb-4 ps-3">
-                              <span> Tonk, Rajasthan </span>
-                              <span class="icon">
-                                <i class="fa-solid fa-chevron-right"></i>
-                              </span>
-                            </a>
-                          </div>
-                        </div>
-                        <div class="swiper-slide h-auto success__stry__item d-flex flex-column shadow ">
-                          <div class="thumb">
-                            <a href="#">
-                              <div class="">
-                                <img src="assets/images/475-di-141451-1693299092-0.webp" class="object-fit-cover py-3" alt="img">
-                              </div>
-                            </a>
-                          </div>
-                          <div class="content ms-3">
-                            <a href="#" class="text-decoration-none text-dark ps-3">
-                              <h4 class="fw-bold mt-3">MMahindra 475 DI </h3>
-                            </a>
-                            <a href="# " class="text-dark text-decoration-none ps-3">
-                              <p>Price: ₹ 3,58,801*</p>
-                            </a>
-                            <div class="row mt-1 ps-3">
-                              <div class="col-12 col-lg-3 col-md-3 col-sm-3">
-                                <p class="">
-                                  <i class="fas fa-bolt"></i> 42 HP
-                                </p>
-                              </div>
-                              <div class="col-12 col-lg-4 col-md-4 col-sm-4">
-                                <p class="ps-1">2017 Model</p>
-                              </div>
-                              <div class="col-12 col-lg-5 col-md-5 col-sm-5 pe-1">
-                                <button class="btn btn-success p-1">Great Deal <i class="fa fa-thumbs-up" aria-hidden="true"></i>
-                                </button>
-                              </div>
-                            </div>
-                            <a href="#" class="text-decoration-none text-dark mb-4 ps-3">
-                              <span> Tonk, Rajasthan </span>
-                              <span class="icon">
-                                <i class="fa-solid fa-chevron-right"></i>
-                              </span>
-                            </a>
-                          </div>
-                        </div>
-                      </div>
-                      <!-- </div> -->
-                      <div class="swiper-pagination"></div>
-                      <div class="swiper_nav">
-                        <!-- <div class="swiper-button-prev"></div><div class="swiper-button-next "></div> -->
-                      </div>
-                      <!-- If we need scrollbar -->
-                      <!-- <div class="swiper-scrollbar"></div> -->
-                    </div>
-                  </div>
-                </div>
-                <div class="py-3"></div>
-                <div class="col text-center pb-4 ">
-                  <a href="#" class="btn btn-success btn-lg">View all Used Tractors</a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="tab-pane fade justify-content-center" id="nav-popular" role="tabpanel" aria-labelledby="nav-popular-tab">
-            <div class="tab-pane fade active show justify-content-center" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
-              <div class="row  justify-content-between">
-                <div class="col-12 ">
-                  <div class="position-relative justify-content-center" id="proj_swip">
-                    <div class="swiper swiper-slides-visible p-5 m-n5 testimonial__wrap">
-                      <div class="swiper-wrapper ">
-                        <div class="swiper-slide h-auto success__stry__item d-flex flex-column shadow ">
-                          <div class="thumb">
-                            <a href="#">
-                              <div class="">
-                                <img src="assets/images/fe258976-d917-4c2d-8e8c-600b90a98572.webp" class="object-fit-cover py-3" alt="img">
-                              </div>
-                            </a>
-                          </div>
-                          <div class="content  ms-3">
-                            <a href="#" class="text-decoration-none text-dark ps-3">
-                              <h4 class="fw-bold mt-3">Swaraj 735 FE </h3>
-                            </a>
-                            <a href="# " class="text-dark text-decoration-none ps-3">
-                              <p>Price: ₹ 4,70,000*</p>
-                            </a>
-                            <div class="row mt-1 ps-3">
-                              <div class="col-12 col-lg-3 col-md-3 col-sm-3">
-                                <p class="">
-                                  <i class="fas fa-bolt"></i>40 HP
-                                </p>
-                              </div>
-                              <div class="col-12 col-lg-4 col-md-4 col-sm-4">
-                                <p class="ps-1">2021 Model</p>
-                              </div>
-                              <div class="col-12 col-lg-5 col-md-5 col-sm-5 pe-1">
-                                <button class="btn btn-success p-1">Great Deal <i class="fa fa-thumbs-up" aria-hidden="true"></i>
-                                </button>
-                              </div>
-                            </div>
-                            <a href="#" class="text-decoration-none text-dark mb-4 ps-3">
-                              <span> Rajgarh, Madhya Pradesh </span>
-                              <span class="icon">
-                                <i class="fa-solid fa-chevron-right"></i>
-                              </span>
-                            </a>
-                          </div>
-                        </div>
-                        <div class="swiper-slide h-auto success__stry__item d-flex flex-column shadow ">
-                          <div class="thumb">
-                            <a href="#">
-                              <div class="">
-                                <img src="assets/images/8bc99d61-143b-4daa-9783-e28164e21724.webp" class="object-fit-cover py-3" alt="img">
-                              </div>
-                            </a>
-                          </div>
-                          <div class="content ms-3">
-                            <a href="#" class="text-decoration-none text-dark ps-3">
-                              <h4 class="fw-bold mt-3">Powertrac 439 RDX </h3>
-                            </a>
-                            <a href="# " class="text-dark text-decoration-none ps-3">
-                              <p>Price: ₹ 4,85,000*</p>
-                            </a>
-                            <div class="row mt-1 ps-3">
-                              <div class="col-12 col-lg-3 col-md-3 col-sm-3">
-                                <p class="">
-                                  <i class="fas fa-bolt"></i>39 HP
-                                </p>
-                              </div>
-                              <div class="col-12 col-lg-4 col-md-4 col-sm-4">
-                                <p class="ps-1">2022 Model</p>
-                              </div>
-                              <div class="col-12 col-lg-5 col-md-5 col-sm-5 pe-1">
-                                <button class="btn btn-success p-1">Great Deal <i class="fa fa-thumbs-up" aria-hidden="true"></i>
-                                </button>
-                              </div>
-                            </div>
-                            <a href="#" class="text-decoration-none text-dark mb-4 ps-3">
-                              <span> Rajgarh, Madhya Pradesh </span>
-                              <span class="icon">
-                                <i class="fa-solid fa-chevron-right"></i>
-                              </span>
-                            </a>
-                          </div>
-                        </div>
-                        <div class="swiper-slide h-auto success__stry__item d-flex flex-column shadow ">
-                          <div class="thumb">
-                            <a href="#">
-                              <div class="">
-                                <img src="assets/images/18edb636-6918-4d01-878d-c02c75e4ad72.webp" class="object-fit-cover py-3" alt="img">
-                              </div>
-                            </a>
-                          </div>
-                          <div class="content ms-3">
-                            <a href="#" class="text-decoration-none text-dark ps-3">
-                              <h4 class="fw-bold mt-3">Mahindra Arjun 555 DI </h3>
-                            </a>
-                            <a href="# " class="text-dark text-decoration-none ps-3">
-                              <p>Price: ₹ 7,20,000*</p>
-                            </a>
-                            <div class="row mt-1 ps-3">
-                              <div class="col-12 col-lg-3 col-md-3 col-sm-3">
-                                <p class="">
-                                  <i class="fas fa-bolt"></i>50 HP
-                                </p>
-                              </div>
-                              <div class="col-12 col-lg-4 col-md-4 col-sm-4">
-                                <p class="ps-1">2022 Model</p>
-                              </div>
-                              <div class="col-12 col-lg-5 col-md-5 col-sm-5 pe-1">
-                                <button class="btn btn-success p-1">Great Deal <i class="fa fa-thumbs-up" aria-hidden="true"></i>
-                                </button>
-                              </div>
-                            </div>
-                            <a href="#" class="text-decoration-none text-dark mb-4 ps-3">
-                              <span> Ahmednagar, Maharashtra </span>
-                              <span class="icon">
-                                <i class="fa-solid fa-chevron-right"></i>
-                              </span>
-                            </a>
-                          </div>
-                        </div>
-                        <div class="swiper-slide h-auto success__stry__item d-flex flex-column shadow ">
-                          <div class="thumb">
-                            <a href="#">
-                              <div class="">
-                                <img src="assets/images/yuvo-275-di-140841-1692685905-0.webp" class="object-fit-cover py-3" alt="img">
-                              </div>
-                            </a>
-                          </div>
-                          <div class="content ms-3">
-                            <a href="#" class="text-decoration-none text-dark ps-3">
-                              <h4 class="fw-bold mt-3">Mahindra YUVO 275 DI </h3>
-                            </a>
-                            <a href="# " class="text-dark text-decoration-none ps-3">
-                              <p>Price: ₹ 5,00,000*</p>
-                            </a>
-                            <div class="row mt-1 ps-3">
-                              <div class="col-12 col-lg-3 col-md-3 col-sm-3">
-                                <p class="">
-                                  <i class="fas fa-bolt"></i>35 HP
-                                </p>
-                              </div>
-                              <div class="col-12 col-lg-4 col-md-4 col-sm-4">
-                                <p class="ps-1">2022 Model</p>
-                              </div>
-                              <div class="col-12 col-lg-5 col-md-5 col-sm-5 pe-1">
-                                <button class="btn btn-success p-1">Great Deal <i class="fa fa-thumbs-up" aria-hidden="true"></i>
-                                </button>
-                              </div>
-                            </div>
-                            <a href="#" class="text-decoration-none text-dark mb-4 ps-3">
-                              <span> Ujjain, Madhya Pradesh </span>
-                              <span class="icon">
-                                <i class="fa-solid fa-chevron-right"></i>
-                              </span>
-                            </a>
-                          </div>
-                        </div>
-                        <div class="swiper-slide h-auto success__stry__item d-flex flex-column shadow ">
-                          <div class="thumb">
-                            <a href="#">
-                              <div class="">
-                                <img src="assets/images/855-fe-140732-1692600141-0.webp" class="object-fit-cover py-3" alt="img">
-                              </div>
-                            </a>
-                          </div>
-                          <div class="content ms-3">
-                            <a href="#" class="text-decoration-none text-dark ps-3">
-                              <h4 class="fw-bold mt-3">Swaraj 855 FE </h3>
-                            </a>
-                            <a href="# " class="text-dark text-decoration-none ps-3">
-                              <p>Price: ₹ 3,70,000*</p>
-                            </a>
-                            <div class="row mt-1 ps-3">
-                              <div class="col-12 col-lg-3 col-md-3 col-sm-3">
-                                <p class="">
-                                  <i class="fas fa-bolt"></i>52 HP
-                                </p>
-                              </div>
-                              <div class="col-12 col-lg-4 col-md-4 col-sm-4">
-                                <p class="ps-1">2019 Model</p>
-                              </div>
-                              <div class="col-12 col-lg-5 col-md-5 col-sm-5 pe-1">
-                                <button class="btn btn-success p-1">Great Deal <i class="fa fa-thumbs-up" aria-hidden="true"></i>
-                                </button>
-                              </div>
-                            </div>
-                            <a href="#" class="text-decoration-none text-dark mb-4 ps-3">
-                              <span> Kota, Rajasthan </span>
-                              <span class="icon">
-                                <i class="fa-solid fa-chevron-right"></i>
-                              </span>
-                            </a>
-                          </div>
-                        </div>
-                      </div>
-                      <!-- </div> -->
-                      <div class="swiper-pagination"></div>
-                      <div class="swiper_nav">
-                        <!-- <div class="swiper-button-prev"></div><div class="swiper-button-next "></div> -->
-                      </div>
-                      <!-- If we need scrollbar -->
-                      <!-- <div class="swiper-scrollbar"></div> -->
-                    </div>
-                  </div>
-                </div>
-                <div class="py-3"></div>
-                <div class="col text-center pb-4 ">
-                  <a href="#" class="btn btn-success btn-lg">View all Used Tractors</a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+    <!-- for sell -->
+    <section>
+  <div class="container my-3">
+    <h3 class="my-5 pt-4 display-6 fw-bold">Used Tractor <span class="text-success">For Sell</span>
+    </h3>
+    <nav class="mb-3">
+      <div class="nav nav-tabs w-50" id="nav-tab" role="tablist">
+        <a class="nav-link active px-5 py-3 h5 fw-bold text-dark py-2" type="button" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#premium" role="tab" aria-controls="premium" aria-selected="true">Premium</a>
+        <a class="nav-link px-5 py-3 h5 fw-bold text-dark" id="latest-tab" type="button" data-bs-toggle="tab" data-bs-target="#latest" role="tab" aria-controls="latest" aria-selected="false">Latest</a>
+        <a class="nav-link px-5 py-3 h5 fw-bold text-dark" id="nav-Personal-tab" type="button" data-bs-toggle="tab" data-bs-target="#popular" role="tab" aria-controls="popular" aria-selected="false">Popular</a>
       </div>
-    </section>
+    </nav>
+    <div class="tab-content  justify-content-center" id="proj_swip">
+    <div role="tabpanel" class="tab-pane" id="premium">
+        <section class="section slider-section">
+          <div class="container slider-column">
+            <div class="swiper swiper-slider slider">
+              <div class="swiper-wrapper wrapper">
+                <div class="swiper-slide">
+                  <div class="post-slide">
+                    <div class="post-img">
+                      <img src="assets/images/45-classic-146132-1696568052-0.webp" alt="">
+                      <a href="#" class="over-layer">
+                        <i class="fa fa-link"></i>
+                      </a>
+                    </div>
+                    <div class="post-content">
+                      <h3 class="post-title">
+                        <a href="#" class="text-decoration-none fw-bold">Farmtrac 45 Classic</a>
+                      </h3>
+                      <p class="post-description">Price: ₹ 6,50,000</p>
+                      <div class="row">
+                        <div class="col-12 col-lg-3 col-md-3 col-sm-3">
+                          <p>45 Hp</p>
+                        </div>
+                        <div class="col-12 col-lg-4 col-md-4 col-sm-4">
+                          <p>2022 Model</p>
+                        </div>
+                        <div class="col-12 col-lg-5 col-md-5 col-sm-5">
+                          <p class="btn btn-success ">Great Deal <i class="fa fa-thumbs-up" aria-hidden="true"></i>
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="post-slide">
+                    <div class="post-img">
+                      <img src="assets/images/45-classic-146132-1696568052-0.webp" alt="">
+                      <a href="#" class="over-layer">
+                        <i class="fa fa-link"></i>
+                      </a>
+                    </div>
+                    <div class="post-content">
+                      <h3 class="post-title">
+                        <a href="#" class="text-decoration-none fw-bold">Farmtrac 45 Classic</a>
+                      </h3>
+                      <p class="post-description">Price: ₹ 6,50,000</p>
+                      <div class="row">
+                        <div class="col-12 col-lg-3 col-md-3 col-sm-3">
+                          <p>45 Hp</p>
+                        </div>
+                        <div class="col-12 col-lg-4 col-md-4 col-sm-4">
+                          <p>2022 Model</p>
+                        </div>
+                        <div class="col-12 col-lg-5 col-md-5 col-sm-5">
+                          <p class="btn btn-success ">Great Deal <i class="fa fa-thumbs-up" aria-hidden="true"></i>
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="post-slide">
+                    <div class="post-img">
+                      <img src="assets/images/45-classic-146132-1696568052-0.webp" alt="">
+                      <a href="#" class="over-layer">
+                        <i class="fa fa-link"></i>
+                      </a>
+                    </div>
+                    <div class="post-content">
+                      <h3 class="post-title">
+                        <a href="#" class="text-decoration-none fw-bold">Farmtrac 45 Classic</a>
+                      </h3>
+                      <p class="post-description">Price: ₹ 6,50,000</p>
+                      <div class="row">
+                        <div class="col-12 col-lg-3 col-md-3 col-sm-3">
+                          <p>45 Hp</p>
+                        </div>
+                        <div class="col-12 col-lg-4 col-md-4 col-sm-4">
+                          <p>2022 Model</p>
+                        </div>
+                        <div class="col-12 col-lg-5 col-md-5 col-sm-5">
+                          <p class="btn btn-success ">Great Deal <i class="fa fa-thumbs-up" aria-hidden="true"></i>
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="post-slide">
+                    <div class="post-img">
+                      <img src="assets/images/45-classic-146132-1696568052-0.webp" alt="">
+                      <a href="#" class="over-layer">
+                        <i class="fa fa-link"></i>
+                      </a>
+                    </div>
+                    <div class="post-content">
+                      <h3 class="post-title">
+                        <a href="#" class="text-decoration-none fw-bold">Farmtrac 45 Classic</a>
+                      </h3>
+                      <p class="post-description">Price: ₹ 6,50,000</p>
+                      <div class="row">
+                        <div class="col-12 col-lg-3 col-md-3 col-sm-3">
+                          <p>45 Hp</p>
+                        </div>
+                        <div class="col-12 col-lg-4 col-md-4 col-sm-4">
+                          <p>2022 Model</p>
+                        </div>
+                        <div class="col-12 col-lg-5 col-md-5 col-sm-5">
+                          <p class="btn btn-success ">Great Deal <i class="fa fa-thumbs-up" aria-hidden="true"></i>
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="post-slide">
+                    <div class="post-img">
+                      <img src="assets/images/45-classic-146132-1696568052-0.webp" alt="">
+                      <a href="#" class="over-layer">
+                        <i class="fa fa-link"></i>
+                      </a>
+                    </div>
+                    <div class="post-content">
+                      <h3 class="post-title">
+                        <a href="#" class="text-decoration-none fw-bold">Farmtrac 45 Classic</a>
+                      </h3>
+                      <p class="post-description">Price: ₹ 6,50,000</p>
+                      <div class="row">
+                        <div class="col-12 col-lg-3 col-md-3 col-sm-3">
+                          <p>45 Hp</p>
+                        </div>
+                        <div class="col-12 col-lg-4 col-md-4 col-sm-4">
+                          <p>2022 Model</p>
+                        </div>
+                        <div class="col-12 col-lg-5 col-md-5 col-sm-5">
+                          <p class="btn btn-success ">Great Deal <i class="fa fa-thumbs-up" aria-hidden="true"></i>
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="post-slide">
+                    <div class="post-img">
+                      <img src="assets/images/45-classic-146132-1696568052-0.webp" alt="">
+                      <a href="#" class="over-layer">
+                        <i class="fa fa-link"></i>
+                      </a>
+                    </div>
+                    <div class="post-content">
+                      <h3 class="post-title">
+                        <a href="#" class="text-decoration-none fw-bold">Farmtrac 45 Classic</a>
+                      </h3>
+                      <p class="post-description">Price: ₹ 6,50,000</p>
+                      <div class="row">
+                        <div class="col-12 col-lg-3 col-md-3 col-sm-3">
+                          <p>45 Hp</p>
+                        </div>
+                        <div class="col-12 col-lg-4 col-md-4 col-sm-4">
+                          <p>2022 Model</p>
+                        </div>
+                        <div class="col-12 col-lg-5 col-md-5 col-sm-5">
+                          <p class="btn btn-success ">Great Deal <i class="fa fa-thumbs-up" aria-hidden="true"></i>
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="post-slide">
+                    <div class="post-img">
+                      <img src="assets/images/45-classic-146132-1696568052-0.webp" alt="">
+                      <a href="#" class="over-layer">
+                        <i class="fa fa-link"></i>
+                      </a>
+                    </div>
+                    <div class="post-content">
+                      <h3 class="post-title">
+                        <a href="#" class="text-decoration-none fw-bold">Farmtrac 45 Classic</a>
+                      </h3>
+                      <p class="post-description">Price: ₹ 6,50,000</p>
+                      <div class="row">
+                        <div class="col-12 col-lg-3 col-md-3 col-sm-3">
+                          <p>45 Hp</p>
+                        </div>
+                        <div class="col-12 col-lg-4 col-md-4 col-sm-4">
+                          <p>2022 Model</p>
+                        </div>
+                        <div class="col-12 col-lg-5 col-md-5 col-sm-5">
+                          <p class="btn btn-success ">Great Deal <i class="fa fa-thumbs-up" aria-hidden="true"></i>
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="post-slide">
+                    <div class="post-img">
+                      <img src="assets/images/45-classic-146132-1696568052-0.webp" alt="">
+                      <a href="#" class="over-layer">
+                        <i class="fa fa-link"></i>
+                      </a>
+                    </div>
+                    <div class="post-content">
+                      <h3 class="post-title">
+                        <a href="#" class="text-decoration-none fw-bold">Farmtrac 45 Classic</a>
+                      </h3>
+                      <p class="post-description">Price: ₹ 6,50,000</p>
+                      <div class="row">
+                        <div class="col-12 col-lg-3 col-md-3 col-sm-3">
+                          <p>45 Hp</p>
+                        </div>
+                        <div class="col-12 col-lg-4 col-md-4 col-sm-4">
+                          <p>2022 Model</p>
+                        </div>
+                        <div class="col-12 col-lg-5 col-md-5 col-sm-5">
+                          <p class="btn btn-success ">Great Deal <i class="fa fa-thumbs-up" aria-hidden="true"></i>
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col text-center pb-4">
+                  <a href="#" class="btn btn-success btn-lg">View all  Tractors</a>
+                </div>
+              </div>
+              <span class="swiper-pagination"></span>
+              <span class="swiper-button-prev"></span>
+              <span class="swiper-button-next"></span>
+            </div>
+          </div>
+        </section>
+      </div>
+      <div role="tabpanel" class="tab-pane" id="latest">
+        <section class="section slider-section">
+          <div class="container slider-column">
+            <div class="swiper swiper-slider slider">
+              <div class="swiper-wrapper wrapper">
+                <div class="swiper-slide">
+                  <div class="post-slide">
+                    <div class="post-img">
+                      <img src="assets/images/45-classic-146132-1696568052-0.webp" alt="">
+                      <a href="#" class="over-layer">
+                        <i class="fa fa-link"></i>
+                      </a>
+                    </div>
+                    <div class="post-content">
+                      <h3 class="post-title">
+                        <a href="#" class="text-decoration-none fw-bold">Farmtrac 45 Classic</a>
+                      </h3>
+                      <p class="post-description">Price: ₹ 6,50,000</p>
+                      <div class="row">
+                        <div class="col-12 col-lg-3 col-md-3 col-sm-3">
+                          <p>45 Hp</p>
+                        </div>
+                        <div class="col-12 col-lg-4 col-md-4 col-sm-4">
+                          <p>2022 Model</p>
+                        </div>
+                        <div class="col-12 col-lg-5 col-md-5 col-sm-5">
+                          <p class="btn btn-success ">Great Deal <i class="fa fa-thumbs-up" aria-hidden="true"></i>
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="post-slide">
+                    <div class="post-img">
+                      <img src="assets/images/45-classic-146132-1696568052-0.webp" alt="">
+                      <a href="#" class="over-layer">
+                        <i class="fa fa-link"></i>
+                      </a>
+                    </div>
+                    <div class="post-content">
+                      <h3 class="post-title">
+                        <a href="#" class="text-decoration-none fw-bold">Farmtrac 45 Classic</a>
+                      </h3>
+                      <p class="post-description">Price: ₹ 6,50,000</p>
+                      <div class="row">
+                        <div class="col-12 col-lg-3 col-md-3 col-sm-3">
+                          <p>45 Hp</p>
+                        </div>
+                        <div class="col-12 col-lg-4 col-md-4 col-sm-4">
+                          <p>2022 Model</p>
+                        </div>
+                        <div class="col-12 col-lg-5 col-md-5 col-sm-5">
+                          <p class="btn btn-success ">Great Deal <i class="fa fa-thumbs-up" aria-hidden="true"></i>
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="post-slide">
+                    <div class="post-img">
+                      <img src="assets/images/45-classic-146132-1696568052-0.webp" alt="">
+                      <a href="#" class="over-layer">
+                        <i class="fa fa-link"></i>
+                      </a>
+                    </div>
+                    <div class="post-content">
+                      <h3 class="post-title">
+                        <a href="#" class="text-decoration-none fw-bold">Farmtrac 45 Classic</a>
+                      </h3>
+                      <p class="post-description">Price: ₹ 6,50,000</p>
+                      <div class="row">
+                        <div class="col-12 col-lg-3 col-md-3 col-sm-3">
+                          <p>45 Hp</p>
+                        </div>
+                        <div class="col-12 col-lg-4 col-md-4 col-sm-4">
+                          <p>2022 Model</p>
+                        </div>
+                        <div class="col-12 col-lg-5 col-md-5 col-sm-5">
+                          <p class="btn btn-success ">Great Deal <i class="fa fa-thumbs-up" aria-hidden="true"></i>
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="post-slide">
+                    <div class="post-img">
+                      <img src="assets/images/45-classic-146132-1696568052-0.webp" alt="">
+                      <a href="#" class="over-layer">
+                        <i class="fa fa-link"></i>
+                      </a>
+                    </div>
+                    <div class="post-content">
+                      <h3 class="post-title">
+                        <a href="#" class="text-decoration-none fw-bold">Farmtrac 45 Classic</a>
+                      </h3>
+                      <p class="post-description">Price: ₹ 6,50,000</p>
+                      <div class="row">
+                        <div class="col-12 col-lg-3 col-md-3 col-sm-3">
+                          <p>45 Hp</p>
+                        </div>
+                        <div class="col-12 col-lg-4 col-md-4 col-sm-4">
+                          <p>2022 Model</p>
+                        </div>
+                        <div class="col-12 col-lg-5 col-md-5 col-sm-5">
+                          <p class="btn btn-success ">Great Deal <i class="fa fa-thumbs-up" aria-hidden="true"></i>
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="post-slide">
+                    <div class="post-img">
+                      <img src="assets/images/45-classic-146132-1696568052-0.webp" alt="">
+                      <a href="#" class="over-layer">
+                        <i class="fa fa-link"></i>
+                      </a>
+                    </div>
+                    <div class="post-content">
+                      <h3 class="post-title">
+                        <a href="#" class="text-decoration-none fw-bold">Farmtrac 45 Classic</a>
+                      </h3>
+                      <p class="post-description">Price: ₹ 6,50,000</p>
+                      <div class="row">
+                        <div class="col-12 col-lg-3 col-md-3 col-sm-3">
+                          <p>45 Hp</p>
+                        </div>
+                        <div class="col-12 col-lg-4 col-md-4 col-sm-4">
+                          <p>2022 Model</p>
+                        </div>
+                        <div class="col-12 col-lg-5 col-md-5 col-sm-5">
+                          <p class="btn btn-success ">Great Deal <i class="fa fa-thumbs-up" aria-hidden="true"></i>
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="post-slide">
+                    <div class="post-img">
+                      <img src="assets/images/45-classic-146132-1696568052-0.webp" alt="">
+                      <a href="#" class="over-layer">
+                        <i class="fa fa-link"></i>
+                      </a>
+                    </div>
+                    <div class="post-content">
+                      <h3 class="post-title">
+                        <a href="#" class="text-decoration-none fw-bold">Farmtrac 45 Classic</a>
+                      </h3>
+                      <p class="post-description">Price: ₹ 6,50,000</p>
+                      <div class="row">
+                        <div class="col-12 col-lg-3 col-md-3 col-sm-3">
+                          <p>45 Hp</p>
+                        </div>
+                        <div class="col-12 col-lg-4 col-md-4 col-sm-4">
+                          <p>2022 Model</p>
+                        </div>
+                        <div class="col-12 col-lg-5 col-md-5 col-sm-5">
+                          <p class="btn btn-success ">Great Deal <i class="fa fa-thumbs-up" aria-hidden="true"></i>
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="post-slide">
+                    <div class="post-img">
+                      <img src="assets/images/45-classic-146132-1696568052-0.webp" alt="">
+                      <a href="#" class="over-layer">
+                        <i class="fa fa-link"></i>
+                      </a>
+                    </div>
+                    <div class="post-content">
+                      <h3 class="post-title">
+                        <a href="#" class="text-decoration-none fw-bold">Farmtrac 45 Classic</a>
+                      </h3>
+                      <p class="post-description">Price: ₹ 6,50,000</p>
+                      <div class="row">
+                        <div class="col-12 col-lg-3 col-md-3 col-sm-3">
+                          <p>45 Hp</p>
+                        </div>
+                        <div class="col-12 col-lg-4 col-md-4 col-sm-4">
+                          <p>2022 Model</p>
+                        </div>
+                        <div class="col-12 col-lg-5 col-md-5 col-sm-5">
+                          <p class="btn btn-success ">Great Deal <i class="fa fa-thumbs-up" aria-hidden="true"></i>
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="post-slide">
+                    <div class="post-img">
+                      <img src="assets/images/45-classic-146132-1696568052-0.webp" alt="">
+                      <a href="#" class="over-layer">
+                        <i class="fa fa-link"></i>
+                      </a>
+                    </div>
+                    <div class="post-content">
+                      <h3 class="post-title">
+                        <a href="#" class="text-decoration-none fw-bold">Farmtrac 45 Classic</a>
+                      </h3>
+                      <p class="post-description">Price: ₹ 6,50,000</p>
+                      <div class="row">
+                        <div class="col-12 col-lg-3 col-md-3 col-sm-3">
+                          <p>45 Hp</p>
+                        </div>
+                        <div class="col-12 col-lg-4 col-md-4 col-sm-4">
+                          <p>2022 Model</p>
+                        </div>
+                        <div class="col-12 col-lg-5 col-md-5 col-sm-5">
+                          <p class="btn btn-success ">Great Deal <i class="fa fa-thumbs-up" aria-hidden="true"></i>
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              
+              </div>
+              <!-- <span class="swiper-pagination"></span> -->
+              <span class="swiper-button-prev"></span>
+              <span class="swiper-button-next"></span>
+            </div>
+            <div class="col text-center pb-4">
+              <a href="#" class="btn btn-success btn-lg">View all Used Tractors</a>
+            </div>
+          </div>
+        </section>
+      </div>
+      <div role="tabpanel" class="tab-pane" id="popular">
+      <section class="section slider-section">
+          <div class="container slider-column">
+            <div class="swiper swiper-slider slider">
+              <div class="swiper-wrapper wrapper">
+                <div class="swiper-slide">
+                  <div class="post-slide">
+                    <div class="post-img">
+                      <img src="assets/images/45-classic-146132-1696568052-0.webp" alt="">
+                      <a href="#" class="over-layer">
+                        <i class="fa fa-link"></i>
+                      </a>
+                    </div>
+                    <div class="post-content">
+                      <h3 class="post-title">
+                        <a href="#" class="text-decoration-none fw-bold">Farmtrac 45 Classic</a>
+                      </h3>
+                      <p class="post-description">Price: ₹ 6,50,000</p>
+                      <div class="row">
+                        <div class="col-12 col-lg-3 col-md-3 col-sm-3">
+                          <p>45 Hp</p>
+                        </div>
+                        <div class="col-12 col-lg-4 col-md-4 col-sm-4">
+                          <p>2022 Model</p>
+                        </div>
+                        <div class="col-12 col-lg-5 col-md-5 col-sm-5">
+                          <p class="btn btn-success ">Great Deal <i class="fa fa-thumbs-up" aria-hidden="true"></i>
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="post-slide">
+                    <div class="post-img">
+                      <img src="assets/images/45-classic-146132-1696568052-0.webp" alt="">
+                      <a href="#" class="over-layer">
+                        <i class="fa fa-link"></i>
+                      </a>
+                    </div>
+                    <div class="post-content">
+                      <h3 class="post-title">
+                        <a href="#" class="text-decoration-none fw-bold">Farmtrac 45 Classic</a>
+                      </h3>
+                      <p class="post-description">Price: ₹ 6,50,000</p>
+                      <div class="row">
+                        <div class="col-12 col-lg-3 col-md-3 col-sm-3">
+                          <p>45 Hp</p>
+                        </div>
+                        <div class="col-12 col-lg-4 col-md-4 col-sm-4">
+                          <p>2022 Model</p>
+                        </div>
+                        <div class="col-12 col-lg-5 col-md-5 col-sm-5">
+                          <p class="btn btn-success ">Great Deal <i class="fa fa-thumbs-up" aria-hidden="true"></i>
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="post-slide">
+                    <div class="post-img">
+                      <img src="assets/images/45-classic-146132-1696568052-0.webp" alt="">
+                      <a href="#" class="over-layer">
+                        <i class="fa fa-link"></i>
+                      </a>
+                    </div>
+                    <div class="post-content">
+                      <h3 class="post-title">
+                        <a href="#" class="text-decoration-none fw-bold">Farmtrac 45 Classic</a>
+                      </h3>
+                      <p class="post-description">Price: ₹ 6,50,000</p>
+                      <div class="row">
+                        <div class="col-12 col-lg-3 col-md-3 col-sm-3">
+                          <p>45 Hp</p>
+                        </div>
+                        <div class="col-12 col-lg-4 col-md-4 col-sm-4">
+                          <p>2022 Model</p>
+                        </div>
+                        <div class="col-12 col-lg-5 col-md-5 col-sm-5">
+                          <p class="btn btn-success ">Great Deal <i class="fa fa-thumbs-up" aria-hidden="true"></i>
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="post-slide">
+                    <div class="post-img">
+                      <img src="assets/images/45-classic-146132-1696568052-0.webp" alt="">
+                      <a href="#" class="over-layer">
+                        <i class="fa fa-link"></i>
+                      </a>
+                    </div>
+                    <div class="post-content">
+                      <h3 class="post-title">
+                        <a href="#" class="text-decoration-none fw-bold">Farmtrac 45 Classic</a>
+                      </h3>
+                      <p class="post-description">Price: ₹ 6,50,000</p>
+                      <div class="row">
+                        <div class="col-12 col-lg-3 col-md-3 col-sm-3">
+                          <p>45 Hp</p>
+                        </div>
+                        <div class="col-12 col-lg-4 col-md-4 col-sm-4">
+                          <p>2022 Model</p>
+                        </div>
+                        <div class="col-12 col-lg-5 col-md-5 col-sm-5">
+                          <p class="btn btn-success ">Great Deal <i class="fa fa-thumbs-up" aria-hidden="true"></i>
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="post-slide">
+                    <div class="post-img">
+                      <img src="assets/images/45-classic-146132-1696568052-0.webp" alt="">
+                      <a href="#" class="over-layer">
+                        <i class="fa fa-link"></i>
+                      </a>
+                    </div>
+                    <div class="post-content">
+                      <h3 class="post-title">
+                        <a href="#" class="text-decoration-none fw-bold">Farmtrac 45 Classic</a>
+                      </h3>
+                      <p class="post-description">Price: ₹ 6,50,000</p>
+                      <div class="row">
+                        <div class="col-12 col-lg-3 col-md-3 col-sm-3">
+                          <p>45 Hp</p>
+                        </div>
+                        <div class="col-12 col-lg-4 col-md-4 col-sm-4">
+                          <p>2022 Model</p>
+                        </div>
+                        <div class="col-12 col-lg-5 col-md-5 col-sm-5">
+                          <p class="btn btn-success ">Great Deal <i class="fa fa-thumbs-up" aria-hidden="true"></i>
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="post-slide">
+                    <div class="post-img">
+                      <img src="assets/images/45-classic-146132-1696568052-0.webp" alt="">
+                      <a href="#" class="over-layer">
+                        <i class="fa fa-link"></i>
+                      </a>
+                    </div>
+                    <div class="post-content">
+                      <h3 class="post-title">
+                        <a href="#" class="text-decoration-none fw-bold">Farmtrac 45 Classic</a>
+                      </h3>
+                      <p class="post-description">Price: ₹ 6,50,000</p>
+                      <div class="row">
+                        <div class="col-12 col-lg-3 col-md-3 col-sm-3">
+                          <p>45 Hp</p>
+                        </div>
+                        <div class="col-12 col-lg-4 col-md-4 col-sm-4">
+                          <p>2022 Model</p>
+                        </div>
+                        <div class="col-12 col-lg-5 col-md-5 col-sm-5">
+                          <p class="btn btn-success ">Great Deal <i class="fa fa-thumbs-up" aria-hidden="true"></i>
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="post-slide">
+                    <div class="post-img">
+                      <img src="assets/images/45-classic-146132-1696568052-0.webp" alt="">
+                      <a href="#" class="over-layer">
+                        <i class="fa fa-link"></i>
+                      </a>
+                    </div>
+                    <div class="post-content">
+                      <h3 class="post-title">
+                        <a href="#" class="text-decoration-none fw-bold">Farmtrac 45 Classic</a>
+                      </h3>
+                      <p class="post-description">Price: ₹ 6,50,000</p>
+                      <div class="row">
+                        <div class="col-12 col-lg-3 col-md-3 col-sm-3">
+                          <p>45 Hp</p>
+                        </div>
+                        <div class="col-12 col-lg-4 col-md-4 col-sm-4">
+                          <p>2022 Model</p>
+                        </div>
+                        <div class="col-12 col-lg-5 col-md-5 col-sm-5">
+                          <p class="btn btn-success ">Great Deal <i class="fa fa-thumbs-up" aria-hidden="true"></i>
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="post-slide">
+                    <div class="post-img">
+                      <img src="assets/images/45-classic-146132-1696568052-0.webp" alt="">
+                      <a href="#" class="over-layer">
+                        <i class="fa fa-link"></i>
+                      </a>
+                    </div>
+                    <div class="post-content">
+                      <h3 class="post-title">
+                        <a href="#" class="text-decoration-none fw-bold">Farmtrac 45 Classic</a>
+                      </h3>
+                      <p class="post-description">Price: ₹ 6,50,000</p>
+                      <div class="row">
+                        <div class="col-12 col-lg-3 col-md-3 col-sm-3">
+                          <p>45 Hp</p>
+                        </div>
+                        <div class="col-12 col-lg-4 col-md-4 col-sm-4">
+                          <p>2022 Model</p>
+                        </div>
+                        <div class="col-12 col-lg-5 col-md-5 col-sm-5">
+                          <p class="btn btn-success ">Great Deal <i class="fa fa-thumbs-up" aria-hidden="true"></i>
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <span class="swiper-pagination"></span>
+              <span class="swiper-button-prev"></span>
+              <span class="swiper-button-next"></span>
+            </div>
+            
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+</section>
+    
+    
     <!-- Tractors by Budget -->
     <section class="bybudget position-relative">
       <div class="container  ">
@@ -1268,45 +1364,45 @@
             <div class="pricerate container py-3 my-2 ps-5">
               <div class="yr-con my-3 py-2">
                 <div class="ps-3">
-                  <a href="#" class="text-decoration-none text-dark ">
-                    <h5 class="fw-bold ">
-                      <i class="fas fa-tractor p-2 bg-success text-white  rounded-3 opacity-25"></i> &nbsp;&nbsp; Below 3 Lakh
+                  <a href="#" class="text-decoration-none ">
+                    <h5 class="fw-bold bgd_list">
+                      <i class="fas fa-tractor p-2 bg-success bgd_list_i opacity-25"></i> &nbsp;&nbsp; Below 3 Lakh
                     </h5>
                   </a>
                 </div>
               </div>
               <div class="yr-con my-3 py-2">
                 <div class="ps-3">
-                  <a href="#" class="text-decoration-none text-dark ">
-                    <h5 class="fw-bold ">
-                      <i class="fas fa-tractor p-2 bg-success  text-white rounded-3 opacity-25"></i>&nbsp;&nbsp; 3 lakh - 5 lakh
+                  <a href="#" class="text-decoration-none">
+                    <h5 class="fw-bold bgd_list">
+                      <i class="fas fa-tractor p-2 bg-success bgd_list_i  opacity-25" ></i>&nbsp;&nbsp; 3 lakh - 5 lakh
                     </h5>
                   </a>
                 </div>
               </div>
               <div class="yr-con my-3 py-2">
                 <div class="ps-3">
-                  <a href="#" class="text-decoration-none text-dark ">
-                    <h5 class="fw-bold ">
-                      <i class="fas fa-tractor p-2 bg-success text-white  rounded-3 opacity-25"></i> &nbsp;&nbsp; 5 lakh - 7 lakh
+                  <a href="#" class="text-decoration-none">
+                    <h5 class="fw-bold bgd_list">
+                      <i class="fas fa-tractor p-2 bg-success bgd_list_i  opacity-25"></i> &nbsp;&nbsp; 5 lakh - 7 lakh
                     </h5>
                   </a>
                 </div>
               </div>
               <div class="yr-con my-3 py-2">
                 <div class="ps-3">
-                  <a href="#" class="text-decoration-none text-dark ">
-                    <h5 class="fw-bold ">
-                      <i class="fas fa-tractor p-2 bg-success text-white  rounded-3 opacity-25"></i> &nbsp;&nbsp; 7 lakh - 10 lakh
+                  <a href="#" class="text-decoration-none">
+                    <h5 class="fw-bold bgd_list">
+                      <i class="fas fa-tractor p-2 bg-success bgd_list_i  opacity-25"></i> &nbsp;&nbsp; 7 lakh - 10 lakh
                     </h5>
                   </a>
                 </div>
               </div>
               <div class="yr-con my-3 py-2">
                 <div class="ps-3">
-                  <a href="#" class="text-decoration-none text-dark">
-                    <h5 class="fw-bold ">
-                      <i class="fas fa-tractor p-2 bg-success text-white  rounded-3 opacity-25"></i> &nbsp;&nbsp; Above 10 lakh
+                  <a href="#" class="text-decoration-none">
+                    <h5 class="fw-bold  bgd_list">
+                      <i class="fas fa-tractor p-2 bg-success  bgd_list_i  opacity-25"></i> &nbsp;&nbsp; Above 10 lakh
                     </h5>
                   </a>
                 </div>
@@ -1314,7 +1410,7 @@
             </div>
           </div>
           <div class="col-12 col-lg-6 col-md-6 col-sm-6 align-center">
-            <img src="assets/images/439-RDX-RHS.avif" class="w-100 h-100 tractor" alt="">
+            <img src="assets/images/new-tractors.jpg" class="w-100 h-75 text-align-center mt-5 pt-5 tractor" alt="">
           </div>
         </div>
       </div>

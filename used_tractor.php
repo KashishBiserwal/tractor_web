@@ -17,8 +17,8 @@
         <div class="mt-3">
             <span class="mt-4 text-white ">
                 <a href="index.php" class="text-decoration-none header-link px-1">Home <i class="fa-solid fa-chevron-right px-1"></i></a>
-                    <span class=""><span class=" header-link  px-1">Buy Used <i class="fa-solid fa-chevron-right px-1"></i> </span></span>
-                    <span class="text-dark"> Certified Used Tractor</span>
+                    <span class=""><span class=" text-decoration-none text-dark px-1">Buy Used <i class="fa-solid fa-chevron-right px-1"></i> </span></span>
+                    <span class="text-dark">  Used Tractor</span>
             </span> 
         </div>
     </div>
@@ -85,8 +85,8 @@
                                 <div class="col-12 col-lg-9 col-md-9 col-sm-9 " style="padding-right: 0px;">
                                     <button type="button" id="adduser"class="btn-state text-decoration-none px-2 w-100">Raipur, Chhattisgarh</a>
                                 </div>
-                                <div class="col-12 col-lg-3 col-md-3 col-sm-3 ps-0">
-                                    <button  id="adduser" type ="button"class="btn-success px-3 w-100 text-center"><i class="fa-solid fa-phone"></i></a>
+                                <div class="col-12 col-lg-3 col-md-3 col-sm-3 ps-0 mb-1">
+                                    <button  id="adduser" type ="button"class="btn-success px-2 w-75 rounded-3 text-center"><i class="fa-solid fa-phone"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -128,8 +128,8 @@
                                 <div class="col-12 col-lg-9 col-md-9 col-sm-9 " style="padding-right: 0px;">
                                     <button type="button" id="adduser"class="btn-state text-decoration-none px-2 w-100">Ambikapur, Chhattisgarh</a>
                                 </div>
-                                <div class="col-12 col-lg-3 col-md-3 col-sm-3 ps-0">
-                                    <button  id="adduser" type ="button"class="btn-success px-3 w-100 text-center"><i class="fa-solid fa-phone"></i></a>
+                                <div class="col-12 col-lg-3 col-md-3 col-sm-3 ps-0 mb-1">
+                                    <button  id="adduser" type ="button"class="btn-success px-2 w-75 rounded-3 text-center"><i class="fa-solid fa-phone"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -171,8 +171,8 @@
                                 <div class="col-12 col-lg-9 col-md-9 col-sm-9 " style="padding-right: 0px;">
                                     <button type="button" id="adduser"class="btn-state text-decoration-none px-2 w-100">Ambikapur, Chhattisgarh</a>
                                 </div>
-                                <div class="col-12 col-lg-3 col-md-3 col-sm-3 ps-0">
-                                    <button  id="adduser" type ="button"class="btn-success px-3 w-100 text-center"><i class="fa-solid fa-phone"></i></a>
+                                <div class="col-12 col-lg-3 col-md-3 col-sm-3 ps-0 mb-1">
+                                    <button  id="adduser" type ="button"class="btn-success rounded-3 px-2 w-75 text-center"><i class="fa-solid fa-phone"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -214,8 +214,8 @@
                                 <div class="col-12 col-lg-9 col-md-9 col-sm-9 " style="padding-right: 0px;">
                                     <button type="button" id="adduser"class="btn-state text-decoration-none px-2 w-100">Baloda Bajar, Chhattisgarh</a>
                                 </div>
-                                <div class="col-12 col-lg-3 col-md-3 col-sm-3 ps-0">
-                                    <button  id="adduser" type ="button"class="btn-success px-3 w-100 text-center"><i class="fa-solid fa-phone"></i></a>
+                                <div class="col-12 col-lg-3 col-md-3 col-sm-3 ps-0 mb-1">
+                                    <button  id="adduser" type ="button"class="btn-success rounded-3 px-2 w-75 text-center"><i class="fa-solid fa-phone"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -257,8 +257,8 @@
                                 <div class="col-12 col-lg-9 col-md-9 col-sm-9 " style="padding-right: 0px;">
                                     <button type="button" id="adduser"class="btn-state text-decoration-none px-2 w-100">Bilaspur, Chhattisgarh</a>
                                 </div>
-                                <div class="col-12 col-lg-3 col-md-3 col-sm-3 ps-0">
-                                    <button  id="adduser" type ="button"class="btn-success px-3 w-100 text-center"><i class="fa-solid fa-phone"></i></a>
+                                <div class="col-12 col-lg-3 col-md-3 col-sm-3 ps-0 mb-1">
+                                    <button  id="adduser" type ="button"class="btn-success rounded-3 px-2 w-75 text-center"><i class="fa-solid fa-phone"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -300,8 +300,8 @@
                                 <div class="col-12 col-lg-9 col-md-9 col-sm-9 " style="padding-right: 0px;">
                                     <button type="button" id="adduser"class="btn-state text-decoration-none px-2 w-100">Raipur, Chhattisgarh</a>
                                 </div>
-                                <div class="col-12 col-lg-3 col-md-3 col-sm-3 ps-0">
-                                    <button  id="adduser" type ="button"class="btn-success px-3 w-100 text-center"><i class="fa-solid fa-phone"></i></a>
+                                <div class="col-12 col-lg-3 col-md-3 col-sm-3 ps-0 mb-1">
+                                    <button  id="adduser" type ="button"class="btn-success rounded-3 px-2 w-75 text-center"><i class="fa-solid fa-phone"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -343,8 +343,8 @@
                                 <div class="col-12 col-lg-9 col-md-9 col-sm-9 " style="padding-right: 0px;">
                                     <button type="button" id="adduser"class="btn-state text-decoration-none px-2 w-100">Ambikapur, Chhattisgarh</a>
                                 </div>
-                                <div class="col-12 col-lg-3 col-md-3 col-sm-3 ps-0">
-                                    <button  id="adduser" type ="button"class="btn-success px-3 w-100 text-center"><i class="fa-solid fa-phone"></i></a>
+                                <div class="col-12 col-lg-3 col-md-3 col-sm-3 ps-0 mb-1">
+                                    <button  id="adduser" type ="button"class="btn-success px-2 w-75 rounded-3 text-center"><i class="fa-solid fa-phone"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -386,8 +386,8 @@
                                 <div class="col-12 col-lg-9 col-md-9 col-sm-9 " style="padding-right: 0px;">
                                     <button type="button" id="adduser"class="btn-state text-decoration-none px-2 w-100">Baloda Bajar, Chhattisgarh</a>
                                 </div>
-                                <div class="col-12 col-lg-3 col-md-3 col-sm-3 ps-0">
-                                    <button  id="adduser" type ="button"class="btn-success px-3 w-100 text-center"><i class="fa-solid fa-phone"></i></a>
+                                <div class="col-12 col-lg-3 col-md-3 col-sm-3 ps-0 mb-1">
+                                    <button  id="adduser" type ="button"class="btn-success rounded-3 px-2 w-75 text-center"><i class="fa-solid fa-phone"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -429,8 +429,8 @@
                                 <div class="col-12 col-lg-9 col-md-9 col-sm-9 " style="padding-right: 0px;">
                                     <button type="button" id="adduser"class="btn-state text-decoration-none px-2 w-100">Bilaspur, Chhattisgarh</a>
                                 </div>
-                                <div class="col-12 col-lg-3 col-md-3 col-sm-3 ps-0">
-                                    <button  id="adduser" type ="button"class="btn-success px-3 w-100 text-center"><i class="fa-solid fa-phone"></i></a>
+                                <div class="col-12 col-lg-3 col-md-3 col-sm-3 ps-0 mb-1">
+                                    <button  id="adduser" type ="button"class="btn-success rounded-3 px-2 w-75 text-center"><i class="fa-solid fa-phone"></i></a>
                                 </div>
                             </div>
                         </div>
