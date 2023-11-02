@@ -10,40 +10,40 @@
     </div>
    
     <div class="menu is-menu-main py-4">
-        <button class="d-inline-flex fw-bold text-white admin-collapse w-100 mt-1 align-items-center rounded" data-bs-toggle="collapse" data-bs-target="#about-collapse" aria-expanded="true">
+        <button class="d-inline-flex fw-bold text-white admin-collapse w-100  align-items-center rounded" data-bs-toggle="collapse" data-bs-target="#about-collapse" aria-expanded="true">
             <i class="fa-solid fa-user pe-3"></i> User Management  <span class="ps-2"> <i class="fa-solid fa-caret-down"></i></span>
         </button>
-        <div class="collapse show px-2" id="about-collapse">
-          <ul class="list-unstyled fw-normal small">
-              <li class="py-1 ps-3"><a href="usermanagement.php" class="d-inline-flex align-items-center text-white   text-decoration-none rounded">User Overview</a></li>
+        <div class="collapse px-2" id="about-collapse">
+          <ul class="list-unstyled fw-normal small show">
+              <li class="ps-3"><a href="usermanagement.php" class="d-inline-flex align-items-center text-white   text-decoration-none rounded">User Listing</a></li>
               <!-- <li class="py-1 ps-3"><a href="total_lead.php" class="d-inline-flex align-items-center text-white text-decoration-none rounded">Total Leads</a></li> -->
               <!-- <li class="py-1 ps-3"><a href="recentactivity.php" class="d-inline-flex align-items-center text-white text-decoration-none rounded">Recent Activity</a></li> -->
               <!-- <li class="py-1 ps-3"><a href="purchasereq.php" class="d-inline-flex align-items-center text-white  text-decoration-none rounded">Purchase Request</a></li> -->
-              <li class="py-1 ps-3"><a href="old_tractor_list.php" class="d-inline-flex align-items-center text-white text-decoration-none rounded">Old Tractor List</a></li>
-              <li class="py-1 ps-3"><a href="old_farm_equilist.php" class="d-inline-flex align-items-center text-white text-decoration-none rounded">Old Farm Equipment  List</a></li>
-              <li class="py-1 ps-3"><a href="old_farm_equilist.php" class="d-inline-flex align-items-center text-white text-decoration-none rounded">Old Harvester List</a></li>
-              <li class="py-1 ps-3"><a href="haatbzr_list.php" class="d-inline-flex align-items-center text-white  text-decoration-none rounded">HaatBazar List Items</a></li>
           </ul>
         </div>
 
         <button class=" d-inline-flex fw-bold text-white w-100 my-1 admin-collapse align-items-center rounded" data-bs-toggle="collapse" data-bs-target="#about-collapselist" aria-expanded="true">
         <i class="fa-solid fa-list pe-3"></i>  Product Listings <span class="ps-2"> <i class="fa-solid fa-caret-down"></i></span>
         </button>
-        <div class="collapse px-2 show " id="about-collapselist" >
+        <div class="collapse px-2  " id="about-collapselist" >
           <ul class="list-unstyled fw-normal small">
-              <li class="py-1 ps-3"><a href="tractor_listing.php" class="d-inline-flex align-items-center text-white   text-decoration-none rounded">Tractor Listings</a></li>
-              <li class="py-1 ps-3"><a href="brand_listing.php" class="d-inline-flex align-items-center text-white text-decoration-none rounded">Tractor Brand Listings</a></li>
-              <li class="py-1 ps-3"><a href="farm_equip.php" class="d-inline-flex align-items-center text-white text-decoration-none rounded">Farm Equipment Listings</a></li>
-              <li class="py-1 ps-3"><a href="harvester_list.php" class="d-inline-flex align-items-center text-white text-decoration-none rounded">Harvester Listing</a></li>
+              <li class="py-1 ps-3"><a href="tractor_listing.php" class="d-inline-flex align-items-center text-white   text-decoration-none rounded"> New Tractor Listings</a></li>
+              <li class="py-1 ps-3"><a href="old_tractor_list.php" class="d-inline-flex align-items-center text-white text-decoration-none rounded">Old Tractor List</a></li>
+              <li class="py-1 ps-3"><a href="brand_listing.php" class="d-inline-flex align-items-center text-white text-decoration-none rounded"> Brand Listings</a></li>
+              <li class="py-1 ps-3"><a href="farm_equip.php" class="d-inline-flex align-items-center text-white text-decoration-none rounded"> New Farm Equipment Listings</a></li>
+              <li class="py-1 ps-3"><a href="old_farm_equilist.php" class="d-inline-flex align-items-center text-white text-decoration-none rounded">Old Farm Equipment  List</a></li>
+              <li class="py-1 ps-3"><a href="harvester_list.php" class="d-inline-flex align-items-center text-white text-decoration-none rounded">New Harvester Listing</a></li>
+              <li class="py-1 ps-3"><a href="old_farm_equilist.php" class="d-inline-flex align-items-center text-white text-decoration-none rounded">Old Harvester List</a></li>
               <li class="py-1 ps-3"><a href="news_updates.php" class="d-inline-flex align-items-center text-white  text-decoration-none rounded">News and Updates</a></li>
-              <li class="py-1 ps-3"><a href="tyers_list.php" class="d-inline-flex align-items-center text-white text-decoration-none rounded">Tyres Listing</a></li>
+              <li class="py-1 ps-3"><a href="tyers_list.php" class="d-inline-flex align-items-center text-white text-decoration-none rounded">New Tyres Listing</a></li>
               <li class="py-1 ps-3"><a href="engine_oil_list.php" class="d-inline-flex align-items-center text-white  text-decoration-none rounded">Engine Oil Listing</a></li>
+              <li class="py-1 ps-3"><a href="haatbzr_list.php" class="d-inline-flex align-items-center text-white  text-decoration-none rounded">HaatBazaar List Items</a></li>
           </ul>
         </div>
         <button class="d-inline-flex fw-bold text-white admin-collapse w-100 my-1 align-items-center rounded" data-bs-toggle="collapse" data-bs-target="#about-collapseenq" aria-expanded="true">
         <i class="fa fa-file pe-3 " aria-hidden="true"></i> Enquiries Report <span class="ps-2"> <i class="fa-solid fa-caret-down"></i></span>
         </button>
-        <div class="collapse px-2 show" id="about-collapseenq">
+        <div class="collapse px-2 " id="about-collapseenq">
           <ul class="list-unstyled fw-normal small">
               <li class="py-1 ps-3"><a href="tractor_enq.php" class="d-inline-flex align-items-center text-white   text-decoration-none rounded"> New Tractor Enquiries</a></li>
               <li class="py-1 ps-3"><a href="used_trac_enqui.php" class="d-inline-flex align-items-center text-white text-decoration-none rounded">Used Tractor Enquiries</a></li>
@@ -62,7 +62,7 @@
         </div>
 
         <button class="d-inline-flex fw-bold text-white w-100 my-1 admin-collapse align-items-center rounded" data-bs-toggle="collapse" data-bs-target="#about-collapserent" aria-expanded="true">
-        <i class="fa-solid fa-bars pe-3"></i>  Rent & Hire List <span class="ps-2"> <i class="fa-solid fa-caret-down"></i></span>
+        <i class="fa-solid fa-list-check pe-3"></i>  Rent & Hire List <span class="ps-2"> <i class="fa-solid fa-caret-down"></i></span>
         </button>
         <div class="collapse px-2" id="about-collapserent">
           <ul class="list-unstyled fw-normal small">
@@ -72,7 +72,7 @@
         </div>
 
         <button class="d-inline-flex fw-bold text-white w-100 my-1 admin-collapse align-items-center rounded" data-bs-toggle="collapse" data-bs-target="#about-collapsenur" aria-expanded="true">
-        <i class="fa-solid fa-bars pe-3"></i>   Others <span class="ps-2"> <i class="fa-solid fa-caret-down"></i></span>
+        <i class="fas fa-list-alt pe-3"></i>Others <span class="ps-2"> <i class="fa-solid fa-caret-down"></i></span>
         </button>
         <div class="collapse px-2" id="about-collapsenur">
           <ul class="list-unstyled fw-normal small">

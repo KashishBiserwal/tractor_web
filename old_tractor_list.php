@@ -34,19 +34,19 @@
           <div class="row">
           <div class="col-12 col-sm-12 col-md-3 col-lg-3">
               <div class="form-outline">
-                <label class="form-label">UID </label>
+                <label class="form-label"> Search by UID </label>
                 <input type="text" id="uid" name="search_email" class="form-control" />
               </div>
             </div>
             <div class="col-12 col-sm-12 col-md-3 col-lg-3">
               <div class="form-outline">
-                <label class="form-label">Brand</label>
+                <label class="form-label">Search by Brand</label>
                 <input type="email" id="brand" name="search_name" class="form-control" />
               </div>
             </div>
             <div class="col-12 col-sm-12 col-md-3 col-lg-3">
               <div class="form-outline">
-                <label class="form-label">Model Number</label>
+                <label class="form-label">Search by Model Number</label>
                 <input type="text" id="modal_no" name="search_email" class="form-control" />
               </div>
             </div>
@@ -54,10 +54,9 @@
           
            
             
-            <div class="col-12 col-sm-12 col-md-3 col-lg-3 pt-4">
-              <div class="text-center ">
-                <button type="button" class="btn-success px-3 py-2 btn" id="Search">Search</button>
-                <button type="button" class="btn-success px-3 py-2 btn" id="Reset">Reset</button>
+            <div class="col-12 col-sm-12 col-md-3 col-lg-3">
+              <div class="">
+                <button type="button" class="btn-success px-4 py-2 btn" id="Reset">Reset</button>
               </div>
             </div>
           </div>

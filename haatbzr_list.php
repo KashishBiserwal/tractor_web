@@ -18,12 +18,12 @@
             <ol class="breadcrumb my-0 ms-2">
               
               <li class="breadcrumb-item">
-                <span>HaatBazar Item List</span>
+                <span>HaatBazaar Item List</span>
               </li>
             </ol>
           </nav>
           <button type="button" id="add_trac" class="btn add_btn btn-success float-right" data-bs-toggle="modal"  data-bs-target="#staticBackdrop">
-            <i class="fa fa-plus" aria-hidden="true"></i>Add Haatbazar Items
+            <i class="fa fa-plus" aria-hidden="true"></i>Add Haatbazaar Items
           </button>
 
           <!-- Modal -->
@@ -31,7 +31,7 @@
             <div class="modal-dialog modal-lg modal-dialog-centered">
               <div class="modal-content modal_box">
                 <div class="modal-header modal_head">
-                  <h5 class="modal-title text-white fw-bold" id="staticBackdropLabel">Add Farm Equipments</h5>
+                  <h5 class="modal-title text-white fw-bold" id="staticBackdropLabel">Add HaatBazaar Items</h5>
                   <button type="button" class="btn-close btn-success" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body bg-light">

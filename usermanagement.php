@@ -35,47 +35,47 @@
                   <h5 class="modal-title text-white fw-bold" id="staticBackdropLabel"> Add New User</h5>
                   <button type="button" class="btn-close btn-success" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="modal-body bg-light">
+                <div class="modal-body">
                         <div class="row justify-content-center">
                             <div class="col-lg-10">
-                              <h4 class="text-center">Fill your Details</h4>
+                              <h5 class="mb-4 fw-bold text-center">Fill your Details</h5>
                             <form>
                                 <div class="row justify-content-center">
                                    
                                     <div class="col-12 col-lg-6 col-md-6 col-sm-6  ">
-                                      <div class="form-group">
-                                        <input type="text" class="" placeholder=" " id="brand">
-                                        <label for="name" class="text-dark fw-bold"> Name</label>
+                                      <div class="form-outline mt-2">
+                                        <label class="form-label">User Name</label>
+                                        <input type="text" id="search_name"  name="search_name" class=" search form-control input-group-sm" />
                                       </div>
                                     </div>
                                     <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                                      <div class="form-group">
-                                        <input type="text" class="" placeholder=" " id="model_name">
-                                        <label for="name" class="text-dark fw-bold">Contact Number</label>
+                                      <div class="form-outline mt-2">
+                                        <label class="form-label">Contact Number</label>
+                                        <input type="text" id="search_name"  name="search_name" class=" search form-control input-group-sm" />
                                       </div>
                                     </div>
                                     <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
-                                      <div class="form-group">
-                                        <input type="text" class="" placeholder=" " id="model_name">
-                                        <label for="name" class="text-dark fw-bold">State</label>
+                                      <div class="form-outline mt-2">
+                                        <label class="form-label">State</label>
+                                        <input type="text" id="search_name"  name="search_name" class=" search form-control input-group-sm" />
                                       </div>
                                     </div>
                                     <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                                      <div class="form-group">
-                                        <input type="text" class="" placeholder=" " id="model_name">
-                                        <label for="name" class="text-dark fw-bold">District</label>
+                                      <div class="form-outline mt-2">
+                                        <label class="form-label">District</label>
+                                        <input type="text" id="search_name"  name="search_name" class=" search form-control input-group-sm" />
                                       </div>
                                     </div>
                                     <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
-                                      <div class="form-group">
-                                        <input type="text" class="" placeholder=" " id="model_name">
-                                        <label for="name" class="text-dark fw-bold">Tehsil</label>
+                                      <div class="form-outline mt-2">
+                                        <label class="form-label">Tehsil</label>
+                                        <input type="text" id="search_name"  name="search_name" class=" search form-control input-group-sm" />
                                       </div>
                                     </div>
                                     <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
-                                      <div class="form-group">
-                                        <input type="text" class="" placeholder=" " id="model_name">
-                                        <label for="name" class="text-dark fw-bold">Pincode</label>
+                                      <div class="form-outline mt-2">
+                                        <label class="form-label">Pincode</label>
+                                        <input type="text" id="search_name"  name="search_name" class=" search form-control input-group-sm" />
                                       </div>
                                     </div>
                                 </div>
@@ -99,36 +99,33 @@
         <div class="card-body">
           <div class="row">
             <div class="col-12 col-sm-12 col-md-4 col-lg-4">
-              <div class="form-outline">
-                <label class="form-label">UserName</label>
-                <input type="email" id="search_name" name="search_name" class="form-control" />
-              </div>
+                <div class="form-outline">
+                  <label class="form-label">Search by UserName</label>
+                  <input type="text" id="search_name"  name="search_name" class=" search form-control input-group-sm" />
+                </div>
             </div>
             <div class="col-12 col-sm-12 col-md-4 col-lg-4">
               <div class="form-outline">
-                <label class="form-label">State</label>
-                <input type="text" id="u_state" name="u_state" class="form-control" />
-              </div>
+                  <label class="form-label">Search by State</label>
+                  <input type="text" id="search_name"  name="search_name" class=" search form-control input-group-sm" />
+                </div>
             </div>
             <div class="col-12 col-sm-12 col-md-4 col-lg-4">
               <div class="form-outline">
-                <label class="form-label">District</label>
-                <input type="text" id="u_dist" name="u_dist" class="form-control" />
-              </div>
+                  <label class="form-label">Search by District</label>
+                  <input type="text" id="search_name"  name="search_name" class=" search form-control input-group-sm" />
+                </div>
             </div>
             <div class="col-12 col-sm-12 col-md-4 col-lg-4">
-              <div class="form-outline ">
-                <label class="form-label">Pincode</label>
-                <input type="text" id="pincode" name="pincode" class="form-control" />
-              </div>
+              <div class="form-outline mt-3">
+                  <label class="form-label">Search by Pincode</label>
+                  <input type="text" id="search_name"  name="search_name" class=" search form-control input-group-sm" />
+                </div>
             </div>
            
             
-            <div class="col-12 col-sm-12 col-md-8 col-lg-8">
-              <div class="float-end text-center">
-                <button type="button" class="btn-success btn_search btn " id="Search">Search</button>
-                <button type="button" class="btn-success  mx-2 btn_search btn" id="Reset">Reset</button>
-              </div>
+            <div class="col-12 col-sm-12 col-md-8 col-lg-8 mt-3">
+              <button type="button" class="btn-success  mx-2 px-4 py-2 btn" id="Reset">Reset</button>
             </div>
           </div>
         </div>

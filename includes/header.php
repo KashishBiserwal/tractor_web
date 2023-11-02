@@ -142,7 +142,7 @@
           <ul class="dropdown-menu mt-2">
             <li class="nav-item dropend">
               <a class="nav-link dropdown-toggle text-dark fw-bold" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              HaatBazar
+              HaatBazaar
               </a>
               <ul class="dropdown-menu pt-1 mt-2">
                 <li><a class="dropdown-item fw-bold py-1 mt-2" href="hatbazr_sell.php">Sell Product</a></li>
@@ -161,7 +161,7 @@
            Enquiries
           </a>
           <ul class="dropdown-menu pt-3 mt-2">
-            <li><a class="dropdown-item fw-bold" href="#"> On-Load Price</a></li>
+            <li><a class="dropdown-item fw-bold" href="onload.php"> On-Road Price</a></li>
             <hr class="dropdown-divider">
             <li><a class="dropdown-item fw-bold" href="#">Loan</a></li>
           </ul>
@@ -172,7 +172,7 @@
             Loan
           </a>
           <ul class="dropdown-menu pt-3 mt-2">
-            <li><a class="dropdown-item fw-bold" href="#">New Tractor Loan</a></li>
+            <li><a class="dropdown-item fw-bold" href="new_tractor_loan.php">New Tractor Loan</a></li>
             <hr class="dropdown-divider">
             <li><a class="dropdown-item fw-bold" href="#">Used Tractor Loan</a></li>
             <hr class="dropdown-divider">

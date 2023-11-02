@@ -83,8 +83,8 @@
 .swiper-slide {
   background-size: cover;
   background-position: 100%;
-  min-height: 60vh;
-  position: absolute;
+  min-height: 53vh;
+  /* position: absolute; */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -125,7 +125,7 @@
   background-attachment: fixed;
 }
 .trac_icon:hover{
-  color: rgb(202, 6, 6);
+  color:rgb(0, 153, 0);
 }
 .backhp{
   background-image: url("../images/grass-cattle.avif");
@@ -144,7 +144,8 @@
   border-radius: 7px;
 }
 .toolsservice{
-  background:#03699AFF;
+  /* background:#03699AFF; */
+
 }
 .bybudget::after{
   content: "";
@@ -538,17 +539,18 @@ div.swiper-5 {
 /* color: red; */
 }
 .bgd_list:hover{
-  color: red;
+  color: rgb(3, 142, 3);
 }
 .bgd_list_i{
   color: white;
   border-radius: 50%;
 }
 .bgd_list_i:hover{
-  color: red;
+  box-shadow:0 4px 8px rgba(141, 246, 76, 0.25); 
 }
 .tractor{
   position:relative;
+  width: 110%;
 }
 .tractor::after{
   content:url("assets/images/grass.jpg");
@@ -627,7 +629,7 @@ button {
 }
 .img-tools{
   border-radius: 50%;
-  background-color:#cee6ff ;
+  background-color:#4baa5563;
   
 }
 /* .accordion-button:not(.collapsed) {
@@ -921,7 +923,8 @@ border-radius: 50%;
   background-color: #fff;
   /* padding: 15px 15px 8px; */
   margin-bottom: 8px;
-  width: 206px;
+  width: 188px;
+  border-radius: 17px;
 }
 
 
@@ -933,6 +936,16 @@ border-radius: 50%;
 }
 
 /* form admin */
+.form-outline .form-label {
+  color: #454444;
+  font-weight: 500;
+  margin-bottom: 5px;
+  position: absolute;
+  /* padding: 0px 10px; */
+  margin-top: -11px;
+  background: #fff;
+  margin-left: 20px;
+}
 .admin_btn{
   box-shadow: none;
   background: transparent;
@@ -1437,6 +1450,30 @@ input[type="checkbox"]:checked + label:before {
   color: var(--white-100);
   background: var(--black-300);
 } */
+
+/* on road price */
+.page-banner-content {
+  position: absolute;
+  content: "";
+  left: 0;
+  top: 36%;
+  transform: translateY(-30%);
+  width: 100%;
+}
+.form-view-overlay {
+  margin-top: -126px;
+}
+/* @media (min-width: 1500px)
+.container-mid {
+    max-width: 1450px;
+} */
+.container-mid {
+  /* max-width: 1280px; */
+  margin: 0 auto;
+  width: 98%;
+  padding-left: 8px;
+  padding-right: 8px;
+}
 /* carousal */
 #news-slider{
   /* margin-top: 80px; */
