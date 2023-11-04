@@ -27,7 +27,7 @@
     <div class="d-sm-flex align-items-center justify-content-between w-100">
 
         <!-- in mobile remove the clippath -->
-        <div class="col-12 h-100 " style="min-height: 360px; background-image: url(assets/images/on-road-price.jpg); background-position: center; background-size: cover;">
+        <div class="col-12 h-100" style="min-height: 400px; background-image: url(assets/images/Blog-2.jpg); background-position: center; background-size: cover;">
         </div>
     </div>
     <div class="page-banner-content text-center position-absolute px-2">
@@ -76,11 +76,12 @@
 <section>
     <div class="container my-5">
         <div class="col-12 assured mt-3">
-            <h4 class="fw-bold p-2">More About Tractor Price</h4>
+            <h4 class="fw-bold p-2">Tractor Loan Translates to a New Way Of Farming!</h4>
         </div>
 
         <div>
-            <p class="mt-3">Bharat Tractor  presents to you the ease of buying a tractor and the other required implements with clicks of fingers. Best in Class tractors now do not need deep and engrossed research, the revolution of the tractor industry has come. On Road Price section brings to you the details about the pricing and the related queries at your ease, all you need to do is fill up the enquiry, submitting the enquiry will lead you to procuring the privilege of being personally handled and served by our friendly and knowledgeable customer care executives. </p>
+            <p class="mt-3">We understand the importance of buying a trustworthy tractor to boost the productivity of agriculture. That's why Tractor Junction provides tailor-made loan solutions catering to your requirements and financial capacity. Now, you can drive towards success with the power of modern farming equipment. Don't let financial constraints hold you back from owning a tractor. </p>
+            <p class="mt-3">Before buying a tractor for your farm, knowing the interest rates on tractor loans from various banks is vital. This helps you make an informed decision and find the best financing option for your agricultural investment. Compare rates to find the most suitable choice, Also Tractor Loan EMI Calculator tool is a perfect way to calculate your tractor EMI.</p>
         </div>
         <div class="col-12 assured mt-3">
             <h4 class="fw-bold p-2">Get New Tractor On Road Price</h4>

@@ -218,11 +218,13 @@
                 <li><a class="dropdown-item fw-bold" href="#">Compare</a></li>
           </ul>
         </li>
-       
+        <li class="nav-item px-2">
+        <a href="login.php" class="btn btn-st4 text-decoration-none text-white fw-bold pt-3 mt-2"> Login</a>
+        </li>
       </ul>
-      <div class="ps-4">
-      <a href="usermanagement.php" class="btn btn-st4 text-decoration-none text-white fw-bold"> Login</a>
-      </div>
+      <!-- <div class="ps-4">
+      <a href="" class="btn btn-st4 text-decoration-none text-white fw-bold" > Login</button>
+      </div> -->
      
       <!-- <form class="d-flex" role="search">
         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">

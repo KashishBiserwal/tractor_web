@@ -1,4 +1,9 @@
+<?php
+//  $baseUrl = 'http://127.0.0.1:8000/api/admin/';
+$baseUrl = '/tracter_api/';
+  $APIBaseURL = "http://127.0.0.1:8000/api/admin/";
 
+?>
 <meta charset="UTF-8">
 	<title>Tractor Junction</title>
 	<link rel="icon" type="image/x-icon" href="favicon.ico">

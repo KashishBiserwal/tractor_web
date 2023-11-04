@@ -41,140 +41,241 @@
                             <div class="col-lg-10">
                               <h4 class="text-center">Fill your Tractor Details</h4>
                             <form>
-                                <div class="row justify-content-center py-4">
-                                   
-                                    <div class="col-12 col-lg-6 col-sm-5 col-md-6 my-2">
-                                      <div class="form-group">
-                                        <input type="text" class="py-3" placeholder=" " id="brand">
-                                        <label for="name" class="text-dark fw-bold"> Brand</label>
+                                <div class="row justify-content-center pt-4">
+                                  <h5 class="fw-bold">Listing</h5>
+                                    <div class="col-12 col-sm-6 col-lg-6 col-md-6">
+                                      <div class="form-group col-12">
+                                        <input type="text" class="" placeholder=" " id="brand">
+                                        <label for="name" class="text-dark">Brand</label>
                                       </div>
                                     </div>
-                                    <div class="col-12 col-lg-6 col-sm-5 col-md-6 my-2">
-                                      <div class="form-group">
-                                        <input type="text" class="py-3" placeholder=" " id="model">
-                                        <label for="name" class="text-dark fw-bold">Model</label>
+                                    <div class="col-12 col-sm-6 col-lg-6 col-md-6">
+                                      <div class="form-group col-12">
+                                        <input type="text" class="" placeholder=" " id="brand">
+                                        <label for="name" class="text-dark">Brand Name</label>
                                       </div>
                                     </div>
-                                    <div class="col-12 col-lg-6 col-sm-5 col-md-6 my-2">
+                                    <div class="col-12 col-sm-4 col-lg-4 col-md-4">
                                       <div class="form-group">
-                                        <input type="text" class="py-5" placeholder=" " id="model_name">
-                                        <label for="name" class="text-dark fw-bold">Model Name</label>
+                                        <input type="text" class="" placeholder=" " id="brand">
+                                        <label for="name" class="text-dark ">No. Of Cylinder</label>
                                       </div>
                                     </div>
-                                    <div class="col-12 col-sm-4 col-md-6 col-lg-6 my-2 ps-4">
-                                        <p class="text-dark fw-bold ">Select type of Tractor</p>
-                                        <div class="form-check ps-5">
-                                            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
-                                            <label class="form-check-label text-dark ps-2" for="exampleRadios1">
-                                            Mini Tractor
-                                            </label>
-                                        </div>
-                                        <div class="form-check  ps-5">
-                                            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
-                                            <label class="form-check-label  text-dark ps-2" for="exampleRadios2">
-                                                4WD
-                                            </label>
-                                        </div>
-                                        <div class="form-check  ps-5">
-                                            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option3">
-                                            <label class="form-check-label  text-dark ps-2" for="exampleRadios2">
-                                                Popular Tractor
-                                            </label>
-                                        </div>
-                                        <div class="form-check  ps-5">
-                                            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option4">
-                                            <label class="form-check-label text-dark ps-2" for="exampleRadios2">
-                                                Latest Tractor
-                                            </label>
-                                        </div>
-                                        <div class="form-check  ps-5">
-                                            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option5">
-                                            <label class="form-check-label  text-dark ps-2" for="exampleRadios2">
-                                               Upcoming Tractor
-                                            </label>
-                                        </div>
-                                    </div>
-                                    <div class="col-12 col-lg-6 col-sm-5 col-md-6 my-1">
+                                    <div class="col-12 col-sm-4 col-lg-4 col-md-4">
                                       <div class="form-group">
-                                        <input type="text" class="py-3" placeholder=" " id="name">
-                                        <label for="name" class="text-dark ">No. of Cylinder</label>
+                                        <input type="text" class="" placeholder=" " id="brand">
+                                        <label for="name" class="text-dark "> HP Category</label>
                                       </div>
                                     </div>
-                                    <div class="col-12 col-lg-6 col-sm-5 col-md-6 my-1">
+                                    <div class="col-12 col-sm-4 col-lg-4 col-md-4">
                                       <div class="form-group">
-                                        <input type="text" class="py-3" placeholder=" " id="name">
-                                        <label for="name" class="text-dark ">HP Category</label>
+                                        <input type="text" class="" placeholder=" " id="brand">
+                                        <label for="name" class="text-dark ">PTO HP</label>
                                       </div>
                                     </div>
-                                    <div class="col-12 col-lg-6 col-sm-5 col-md-6 my-1">
+                                    <div class="col-12 col-sm-4 col-lg-4 col-md-4">
                                       <div class="form-group">
-                                        <input type="text" class="py-3" placeholder=" " id="name">
-                                        <label for="name" class="text-dark "> PTO HP</label>
+                                        <input type="text" class="" placeholder=" " id="brand">
+                                        <label for="name" class="text-dark ">Gear Box</label>
                                       </div>
                                     </div>
-                                    <div class="col-12 col-lg-6 col-sm-5 col-md-6 my-1">
+                                    <div class="col-12 col-sm-4 col-lg-4 col-md-4">
                                       <div class="form-group">
-                                        <input type="text"class="py-3" placeholder=" " id="name">
-                                        <label for="name" class="text-dark "> Gear Box</label>
-                                      </div>
-                                    </div>
-                                    <div class="col-12 col-lg-4 col-sm-5 col-md-4 my-1">
-                                      <div class="form-group">
-                                        <input type="text" class="py-3" placeholder=" " id="name">
+                                        <input type="text" class="" placeholder=" " id="brand">
                                         <label for="name" class="text-dark ">Brakes</label>
                                       </div>
                                     </div>
-                                    <div class="col-12 col-lg-4 col-sm-5 col-md-4 my-1">
+                                    <div class="col-12 col-sm-4 col-lg-4 col-md-4">
                                       <div class="form-group">
-                                        <input type="text" class="py-3" placeholder=" " id="name">
-                                        <label for="name" class="text-dark ">Tyres</label>
-                                      </div>
-                                    </div>
-                                    <div class="col-12 col-lg-4 col-sm-5 col-md-4 my-1">
-                                      <div class="form-group">
-                                        <input type="text"class="py-3" placeholder=" " id="name">
-                                        <label for="name" class="text-dark ">Steering</label>
-                                      </div>
-                                    </div>
-                                    <div class="col-12  my-1">
-                                      <div class="form-group">
-                                        <input type="text" class="py-5" placeholder=" " id="name">
-                                        <label for="name" class="text-dark ">Engine Description</label>
-                                      </div>
-                                    </div>
-                                    <div class="col-12 col-lg-6 col-sm-5 col-md-6 my-1">
-                                      <div class="form-group">
-                                        <input type="text"class="py-3" placeholder=" " id="name">
-                                        <label for="name" class="text-dark">Quality Features</label>
-                                      </div>
-                                    </div>
-                                    <div class="col-12 col-lg-6 col-sm-5 col-md-6 my-1">
-                                      <div class="form-group">
-                                      <input type="file" name="files[]" class="py-3" multiple >
-                                        <label for="file" class="text-dark " ></label>
-                                      </div>
-                                    </div>
-                                    <div class="col-12 col-lg-6 col-sm-5 col-md-6 my-1">
-                                      <div class="form-group">
-                                        <input type="text"class="py-3" placeholder=" " id="name">
+                                        <input type="text" class="" placeholder=" " id="brand">
                                         <label for="name" class="text-dark ">Price</label>
                                       </div>
                                     </div>
-                                    <div class="col-12 col-lg-6 col-sm-5 col-md-6 my-1">
+                                    <div class="col-12 col-sm-7 col-lg-7 col-md-7">
                                       <div class="form-group">
-                                        <input type="text" class="py-3" placeholder=" " id="name">
-                                        <label for="name" class="text-dark">Warranty</label>
+                                        <input type="text" class="" placeholder=" " id="brand">
+                                        <label for="name" class="text-dark ">Warranty</label>
                                       </div>
                                     </div>
-                                    <div class="col-12  my-1">
+                                    <div class="col-12 col-lg-3 col-sm-3 col-md-3">
+                                      <h6>Select Tractor</h6>
+                                      <input type="checkbox" class="checkbox-round ms-3" value="0-3"/><span class="ps-2 fs-6"> Mini Tractor</span><br />
+                                      <input type="checkbox" class="checkbox-round ms-3" value="3-6"/><span class="ps-2 fs-6">4WD</span><br />
+                                      <input type="checkbox" class="checkbox-round ms-3" value="6-9"/><span class="ps-2 fs-6">Upcoming</span><br />
+                                      <input type="checkbox" class="checkbox-round ms-3" value="6-9"/><span class="ps-2 fs-6">  Popular</span><br />
+                                      <input type="checkbox" class="checkbox-round ms-3" value="6-9"/><span class="ps-2 fs-6">Latest</span><br />
+                                    </div>
+                                    <div class="col-12 col-sm-2 col-lg-2 col-md-2 ps-3">
+                                      <div class="background__box">
+                                            <div class="background__btn-box ">
+                                                <label class="background__btn">
+                                                <p class="text-white bg-success p-2 rounded">Upload images</p>
+                                                    <input type="file" data-max_length="20"name="imgfile"  ref="fileInput"
+                                                    style="display: none"
+                                                    @change="handleFileInput"
+                                                    accept="image/png, image/jpg, image/jpeg" class="background__inputfile" id="banner_image">
+                                                    <small></small>
+                                                </label>
+                                            </div>
+                                            <div class="">
+                                                <div class="background__img-wrap"></div>
+                                            </div>
+                                      </div>
+                                    </div>
+                                    <h5 class="fw-bold"> Brand Details</h5>
+                                    <div class="col-12 col-sm-4 col-lg-4 col-md-4">
                                       <div class="form-group">
-                                        <input type="text" class="py-5" placeholder=" " id="name">
+                                        <input type="text" class="" placeholder=" " id="brand">
+                                        <label for="name" class="text-dark ">Capacity CC</label>
+                                      </div>
+                                    </div>
+                                    <div class="col-12 col-sm-4 col-lg-4 col-md-4">
+                                      <div class="form-group">
+                                        <input type="text" class="" placeholder=" " id="brand">
+                                        <label for="name" class="text-dark ">Engine Rated RPM</label>
+                                      </div>
+                                    </div>
+                                    <div class="col-12 col-sm-4 col-lg-4 col-md-4">
+                                      <div class="form-group">
+                                        <input type="text" class="" placeholder=" " id="brand">
+                                        <label for="name" class="text-dark ">Cooling</label>
+                                      </div>
+                                    </div>
+                                    <div class="col-12 col-sm-4 col-lg-4 col-md-4">
+                                      <div class="form-group">
+                                        <input type="text" class="" placeholder=" " id="brand">
+                                        <label for="name" class="text-dark ">Air Filter</label>
+                                      </div>
+                                    </div>
+                                    <div class="col-12 col-sm-4 col-lg-4 col-md-4">
+                                      <div class="form-group">
+                                        <input type="text" class="" placeholder=" " id="brand">
+                                        <label for="name" class="text-dark ">Fuel Pump</label>
+                                      </div>
+                                    </div>
+                                    <div class="col-12 col-sm-4 col-lg-4 col-md-4">
+                                      <div class="form-group">
+                                        <input type="text" class="" placeholder=" " id="brand">
+                                        <label for="name" class="text-dark ">Torque</label>
+                                      </div>
+                                    </div>
+                                    <h5 class="fw-bold">Transmission Details</h5>
+                                    <div class="col-12 col-sm-6 col-lg-6 col-md-6">
+                                      <div class="form-group">
+                                        <input type="text" class="" placeholder=" " id="brand">
+                                        <label for="name" class="text-dark ">Type</label>
+                                      </div>
+                                    </div>
+                                    <div class="col-12 col-sm-6 col-lg-6 col-md-6">
+                                      <div class="form-group">
+                                        <input type="text" class="" placeholder=" " id="brand">
+                                        <label for="name" class="text-dark ">Clutch</label>
+                                      </div>
+                                    </div>
+                                    <div class="col-12 col-sm-6 col-lg-6 col-md-6">
+                                      <div class="form-group">
+                                        <input type="text" class="" placeholder=" " id="brand">
+                                        <label for="name" class="text-dark ">Forward Speed</label>
+                                      </div>
+                                    </div>
+                                    <div class="col-12 col-sm-6 col-lg-6 col-md-6">
+                                      <div class="form-group">
+                                        <input type="text" class="" placeholder=" " id="brand">
+                                        <label for="name" class="text-dark ">Reverse Speed</label>
+                                      </div>
+                                    </div>
+                                    <h5 class="fw-bold"> Steering Details</h5>
+                                    <div class="col-12 col-sm-6 col-lg-6 col-md-6">
+                                      <div class="form-group">
+                                        <input type="text" class="" placeholder=" " id="brand">
+                                        <label for="name" class="text-dark ">Type</label>
+                                      </div>
+                                    </div>
+                                    <div class="col-12 col-sm-6 col-lg-6 col-md-6">
+                                      <div class="form-group">
+                                        <input type="text" class="" placeholder=" " id="brand">
+                                        <label for="name" class="text-dark ">Steering Column</label>
+                                      </div>
+                                    </div>
+                                    <h5 class="fw-bold">Power Take Off Details</h5>
+                                    <div class="col-12 col-sm-6 col-lg-6 col-md-6">
+                                      <div class="form-group">
+                                        <input type="text" class="" placeholder=" " id="brand">
+                                        <label for="name" class="text-dark ">Type</label>
+                                      </div>
+                                    </div>
+                                    <div class="col-12 col-sm-6 col-lg-6 col-md-6">
+                                      <div class="form-group">
+                                        <input type="text" class="" placeholder=" " id="brand">
+                                        <label for="name" class="text-dark ">RPM</label>
+                                      </div>
+                                    </div>
+                                    <h5 class="fw-bold">Dimensions And Weight Details</h5>
+                                    <div class="col-12 col-sm-6 col-lg-6 col-md-6">
+                                      <div class="form-group">
+                                        <input type="text" class="" placeholder=" " id="brand">
+                                        <label for="name" class="text-dark ">Total Weight</label>
+                                      </div>
+                                    </div>
+                                    <div class="col-12 col-sm-6 col-lg-6 col-md-6">
+                                      <div class="form-group">
+                                        <input type="text" class="" placeholder=" " id="brand">
+                                        <label for="name" class="text-dark ">Wheel Base</label>
+                                      </div>
+                                    </div>
+                                    <h5 class="fw-bold">Hydraulics Details</h5>
+                                    <div class="col-12 col-sm-6 col-lg-6 col-md-6">
+                                      <div class="form-group">
+                                        <input type="text" class="" placeholder=" " id="brand">
+                                        <label for="name" class="text-dark ">Lifting Capacity</label>
+                                      </div>
+                                    </div>
+                                    <div class="col-12 col-sm-6 col-lg-6 col-md-6">
+                                      <div class="form-group">
+                                        <input type="text" class="" placeholder=" " id="brand">
+                                        <label for="name" class="text-dark ">3 point Linkage</label>
+                                      </div>
+                                    </div>
+                                    <h5 class="fw-bold"> Wheels And Tyres Details</h5>
+                                    <div class="col-12 col-sm-4 col-lg-4 col-md-4">
+                                      <div class="form-group">
+                                        <input type="text" class="" placeholder=" " id="brand">
+                                        <label for="name" class="text-dark ">Wheel drive</label>
+                                      </div>
+                                    </div>
+                                    <div class="col-12 col-sm-4 col-lg-4 col-md-4">
+                                      <div class="form-group">
+                                        <input type="text" class="" placeholder=" " id="brand">
+                                        <label for="name" class="text-dark ">Front</label>
+                                      </div>
+                                    </div>
+                                    <div class="col-12 col-sm-4 col-lg-4 col-md-4">
+                                      <div class="form-group">
+                                        <input type="text" class="" placeholder=" " id="brand">
+                                        <label for="name" class="text-dark ">Rear</label>
+                                      </div>
+                                    </div>
+                                    <h5 class="fw-bold">Other Information Details</h5>
+                                    <div class="col-12 col-sm-6 col-lg-6 col-md-6">
+                                      <div class="form-group">
+                                        <input type="text" class="" placeholder=" " id="brand">
+                                        <label for="name" class="text-dark ">Accessories</label>
+                                      </div>
+                                    </div>
+                                    <div class="col-12 col-sm-6 col-lg-6 col-md-6">
+                                      <div class="form-group">
+                                        <input type="text" class="" placeholder=" " id="brand">
+                                        <label for="name" class="text-dark ">Status</label>
+                                      </div>
+                                    </div>
+                                    <div class="col-12 ">
+                                      <div class="form-group">
+                                        <input type="text" class="py-5" placeholder=" " id="brand">
                                         <label for="name" class="text-dark ">About</label>
                                       </div>
                                     </div>
-                                   
                                 </div>
-                            </form>
+                              </form>
                             </div>
                         </div>
                     </div>
@@ -195,7 +296,6 @@
           <div class="row">
             <div class="col-12 col-sm-12 col-md-3 col-lg-3">
               <div class="form-outline">
-                <label class="form-label">Brand</label>
                 <!-- <input type="text" id="search_email" name="search_email" class="form-control" /> -->
                 <select class="form-select py-2" aria-label="Default select example">
                     <option selected>Select Brand</option>
@@ -207,7 +307,6 @@
             </div>
             <div class="col-12 col-sm-12 col-md-3 col-lg-3">
               <div class="form-outline">
-                <label class="form-label">Model</label>
                 <!-- <input type="text" id="search_email" name="search_email" class="form-control" /> -->
                 <select class="form-select py-2" aria-label="Default select example">
                     <option selected>Select Model</option>
@@ -219,7 +318,6 @@
             </div>
             <div class="col-12 col-sm-12 col-md-3 col-lg-3">
               <div class="form-outline">
-                <label class="form-label">HP Category</label>
                 <select class="form-select py-2" aria-label="Default select example">
                     <option selected>Select HP</option>
                       <option value="1">32 HP</option>
@@ -229,7 +327,7 @@
               </div>
             </div>
             <div class="col-12 col-sm-12 col-md-3 col-lg-3 text-center">
-              <div class=" pt-4 mt-1">
+              <div class="">
                 <button type="button" class="btn-success btn px-4 py-2" id="Search">Search</button>
                 <button type="button" class="btn-success btn px-4 py-2" id="Reset">Reset</button>
               </div>
@@ -272,3 +370,71 @@
 <?php
    include 'includes/footertag.php';
    ?> 
+   <script>
+     jQuery(document).ready(function () {
+    
+    BackgroundUpload();
+  });
+
+function BackgroundUpload() {
+    var imgWrap = "";
+    var imgArray = [];
+
+    function generateUniqueClassName(index) {
+      return "background-image-" + index;
+    }
+
+    $('.background__inputfile').each(function () {
+      $(this).on('change', function (e) {
+        imgWrap = $(this).closest('.background__box').find('.background__img-wrap');
+        var maxLength = $(this).attr('data-max_length');
+
+        var files = e.target.files;
+        var filesArr = Array.prototype.slice.call(files);
+        var iterator = 0;
+        filesArr.forEach(function (f, index) {
+
+          if (!f.type.match('image.*')) {
+            return;
+          }
+
+          if (imgArray.length > maxLength) {
+            return false;
+          } else {
+            var len = 0;
+            for (var i = 0; i < imgArray.length; i++) {
+              if (imgArray[i] !== undefined) {
+                len++;
+              }
+            }
+            if (len > maxLength) {
+              return false;
+            } else {
+              imgArray.push(f);
+
+              var reader = new FileReader();
+              reader.onload = function (e) {
+                var className = generateUniqueClassName(iterator);
+                var html = "<div class='background__img-box'><div onclick='BackgroundImage(\"" + className + "\")' style='background-image: url(" + e.target.result + ")' data-number='" + $(".background__img-close").length + "' data-file='" + f.name + "' class='img-bg " + className + "'><div class='background__img-close'></div></div></div>";
+                imgWrap.append(html);
+                iterator++;
+              }
+              reader.readAsDataURL(f);
+            }
+          }
+        });
+      });
+    });
+
+    $('body').on('click', ".background__img-close", function (e) {
+      var file = $(this).parent().data("file");
+      for (var i = 0; i < imgArray.length; i++) {
+        if (imgArray[i].name === file) {
+          imgArray.splice(i, 1);
+          break;
+        }
+      }
+      $(this).parent().parent().remove();
+    });
+}
+   </script>

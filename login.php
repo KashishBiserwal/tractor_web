@@ -6,65 +6,38 @@
    include 'includes/headertag.php';
    ?>
 </head>
-<!-- <div class="container my-5 py-5">
-  <div class="row">
-    <div class="col-2"></div>
-    <div class="col-8">
-    <div class="row">
-    <div class="col-12 col-lg-4 col-md-4 col-sm-4">
-      <img src="assets/images/why.jpg" class="w-100 h-100" alt="">
-    </div>
-    <div class="col-12 col-lg-6 col-md-6 col-sm-6 py-4">
+<style>
+    .error-message {
+    color: red;
    
-                            <h2 class="text-dark cursor-pointer">Login Your Account</h2>
-                            <form>
-                            <label for="password" class="text-dark">UserName</label>
-                            <input type="password" id="password" placeholder="Enter Name/ Email ID">
-                            <label for="password" class="text-dark">Password</label>
-                            <input type="password" id="password" placeholder="Enter Password">
-                           
-
-                            <button type="submit" class="pt-3 mt-1 w-50  fw-bold ">Search</button>
-                            
-                            </form>
-                        </div>
-    
-  </div> 
-    </div>
-    <div class="col-2"></div>
-  </div>
-  
-</div> -->
-  <div class="login-page">
-          <div class="container form-container">
+}
+</style>
+<section class="bg-light">
+  <div class="login-page ">
+          <div class="container form-container bg-light">
                       <div class="bg-white shadow rounded">
                               <div class=" pe-0">
                                   <div class="form-center h-100 py-5 px-5">
-                                      <form action="" class="row g-4">
+                                      <form action="" id="form" class="row g-2">
                                         <img src="assets/images/user.webp" class="rounded-circle text-center user-login" alt="">
+                                        <h5 class="text-center">Admin Login </h5>
                                               <div class="col-12">
-                                                  <label class="text-dark fw-bold"><i class="fa-solid fa-user"></i> Phone No.<span class="text-danger">*</span></label>
+                                                  <label class="text-dark fw-bold"><i class="fa-solid fa-user"></i> Email ID<span class="text-danger">*</span></label>
                                                       
-                                                      <input type="text" class="form-control py-2" placeholder="Enter phone number">
-                                                  
+                                                      <input type="text" class="form-control py-2" id="email" placeholder="Enter Email Id">
+                                                      <small></small>
                                               </div>
-
                                               <div class="col-12">
-                                                  <label class="text-dark fw-bold"><i class="fa-solid fa-lock"></i> OTP<span class="text-danger">*</span></label>
+                                                  <label class="text-dark fw-bold"><i class="fa-solid fa-lock"></i> Password<span class="text-danger">*</span></label>
                                                   
-                                                      <input type="text" class="form-control" placeholder="Enter OTP">
-                                                
+                                                      <input type="text" class="form-control" id="password" placeholder="Enter Password">
+                                                      <small></small>
                                               </div>
-                                    
-
-                                              
-
                                               <div class="col-12 text-center">
-                                                  <button type="submit" class="btn btn-success px-4 ">login</button>
+                                                <button class="btn px-4 bg-success " id="save">Login</button>
                                               </div>
-
                                               <div class="col-12 text-center">
-                                                  <p class="text-dark">Don't Have an Account ? <a href="#" class="text-success text-center text-decoration-none"><strong>Sign-Up</strong></a> </p>
+                                                  <!-- <p class="text-dark">Don't Have an Account ? <a href="#" class="text-success text-center text-decoration-none"><strong>Sign-Up</strong></a> </p> -->
                                                   <a href="#" class=" text-success text-decoration-none">Forgot Password?</a>
                                               </div>
                                               
@@ -74,19 +47,111 @@
                       </div>
           </div>
   </div>
-  <!-- <body class="login-body">
-    <div class="loginBox">
-      <img src="assets/images/user.webp" class="rounded-circle text-center  user" alt="">
-      <h2 class="h2login">Log In Here</h2>
-      <form>
-        <p>Email</p>
-        <input type="email" name="email" placeholder="Enter Email" required>
-        <p>Password</p>
-        <input type="password" name="password" placeholder="Enter Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
-        <input type="submit" name="sign-in" value="Sign In">
-        <a href="#">Forget Password</a>
-      </form>
-    </div>
+</section>
+  
+<!-- <script>
+  if(document.getElementById('login')){
+    document.getElementById('login').addEventListener('click', login);
+}
+    function login(){       
+        var email = document.getElementById('email').value;
+        var password = document.getElementById('password').value;
+        var paraArr = {};
+        paraArr['email']   = email;
+        paraArr['password']   = password;
+        var url =  "<?php echo $APIBaseURL; ?>login";
+        $.ajax({
+            url: url,
+            type:"POST",
+            data: paraArr,
+            success: function(result){ 
+            },
+            complete:function(data){  
+              console.log(data,"data login")  
+              var res = data.responseJSON;  
+              console.log(res.message,"responseText")
+              if(data.status == 200){
+                window.location.href = "usermanagement.php";
+              }
+              if(res.message == "Login credentials are invalid."){
+                alert("Login credentials are invalid Please Enter valid credentials")
+              }
+              localStorage.setItem("token",res.token);
+              localStorage.setItem("expireIn",res.expires_in);
+               console.log("login successfully");
 
-  </body> -->
+            }
+        });
+        
+    }
+</script> -->
+<script>
+ const form = document.getElementById('form');
+const email = document.getElementById('email');
+const password = document.getElementById('password');
+
+// Show input error messages
+function showError(input, message) {
+    const formControl = input.parentElement;
+    const small = formControl.querySelector('small');
+    formControl.className = 'form-outline mb-3 error';
+    small.innerText = message;
+    small.classList.add('error-message');
+}
+
+// Show success color
+function showSuccess(input) {
+    const formControl = input.parentElement;
+    formControl.className = 'form-outline mb-3 success';
+}
+
+// Check required fields
+function checkRequired(inputArr) {
+    inputArr.forEach(function (input) {
+        if (input.value.trim() === '') {
+            showError(input, `${getFieldName(input)} is required`);
+           
+        } else {
+            showSuccess(input);
+        }
+    });
+}
+
+// Check input length
+function checkLength(input, min, max) {
+    if (input.value.length < min) {
+        showError(input, `${getFieldName(input)} must be at least ${min} characters`);
+    } else if (input.value.length > max) {
+        showError(input, `${getFieldName(input)} must be less than ${max} characters`);
+    } else {
+        showSuccess(input);
+    }
+}
+
+// Get Field Name
+function getFieldName(input) {
+    return input.id.charAt(0).toUpperCase() + input.id.slice(1);
+}
+
+// Check email format
+function checkEmail(input) {
+    const emailValue = input.value.trim();
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailPattern.test(emailValue)) {
+        showError(input, 'Invalid email format');
+    } else {
+        showSuccess(input);
+    }
+}
+
+// Event Listeners
+form.addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    checkRequired([email, password]);
+    checkEmail(email); // If you want to check email format
+});
+
+
+</script>
  

@@ -3,6 +3,12 @@
   
    include 'includes/headertag.php';
    ?> 
+    <style>
+    .error-message {
+    color: red;
+   
+}
+</style>
 <body class="loaded"> 
 <div class="main-wrapper">
     <div class="app" id="app">
@@ -40,36 +46,88 @@
                         <div class="row justify-content-center">
                             <div class="col-lg-10">
                               <h4 class="text-center">Fill your Brand Details</h4>
-                            <form>
+                            <!-- <form>
                                 <div class="row justify-content-center pt-4">
                                    
-                                    <div class="col-12 col-lg-6 col-sm-5 col-md-6 my-2">
+                                    <div class="col-12 col-lg-6 col-sm-5 col-md-6 ">
                                       <div class="form-group">
                                         <input type="text" class="py-3" placeholder=" " id="brand">
                                         <label for="name" class="text-dark"> Brand Name</label>
                                       </div>
                                     </div>
-                                    <div class="col-12 col-lg-6 col-sm-5 col-md-6 my-2">
+                                    <div class="col-12 col-lg-6 col-sm-5 col-md-6">
                                       <div class="form-group">
-                                        <input type="text" class="py-3" placeholder=" " id="name">
+                                        <input type="text" class="py-3" placeholder=" " id="model">
                                         <label for="name" class="text-dark ">Model</label>
                                       </div>
                                     </div>
-                                    <div class="col-12  my-2">
+                                    <div class="col-12 col-lg-6 col-sm-5 col-md-6  ">
                                       <div class="form-group">
-                                        <input type="text" class="py-3" placeholder=" " id="name">
+                                        <input type="text" class="py-3" placeholder=" " id="category">
                                         <label for="name" class="text-dark">Category</label>
+                                      </div>
+                                    </div>
+                                    <div class="col-12 col-lg-6 col-sm-5 col-md-6  ">
+                                      <div class="form-group">
+                                        <select class="form-select py-3" aria-label="Default select example">
+                                          <option selected>Select Type</option>
+                                          <option value="1">Tractor</option>
+                                          <option value="2">Farm Implementation</option>
+                                          <option value="3">Harvester</option>
+                                        </select>
                                       </div>
                                     </div>
                                    
                                 </div>
-                            </form>
+                                <button type="button" class="btn btn-success fw-bold px-3">Submit</button>
+                            </form> -->
+                            <form action="" method="POST"  class="" id="form">
+                                  <div class="filter-card ">
+                                    <div class="card-body">
+                                      <div class="row">
+                                        
+                                        <div class="col- col-sm-6 col-lg-6 col-md-6">
+                                          <label class="text-dark"> Brand Name<span class="text-danger">*</span></label>
+                                          <input type="text" class="form-control py-2" id="brand" placeholder="Enter brand">
+                                          <small></small>
+                                        </div>
+                                        <div class="col- col-sm-6 col-lg-6 col-md-6">
+                                          <label class="text-dark">Model<span class="text-danger">*</span></label>
+                                          <input type="text" class="form-control py-2" id="model" placeholder="Enter Model">
+                                          <small></small>
+                                        </div>
+                                        <div class="col- col-sm-6 col-lg-6 col-md-6">
+                                          <label class="text-dark">Category<span class="text-danger">*</span></label>
+                                          <input type="text" class="form-control py-2" id="category" placeholder="Enter Category">
+                                          <small></small>
+                                        </div>
+                                        
+                                        
+                                        <div class="col-12 col-lg-6 col-sm-5 col-md-6  ">
+                                          <div class="form-group mt-4 pt-1">
+                                            <select class="form-select" aria-label="Default select example">
+                                              <option selected>Select Type</option>
+                                              <option value="1">Tractor</option>
+                                              <option value="2">Farm Implementation</option>
+                                              <option value="3">Harvester</option>
+                                            </select>
+                                          </div>
+                                        </div>
+                        
+                                        <div class="col-12 ">
+                                            <div class="text-center ">
+                                                <button class="btn px-4 bg-success " id="save">Submit</button>
+                                            </div>
+                                        </div>
+                                      </div>
+                                  </div>
+                              </form>
                             </div>
                         </div>
                     </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-secondary px-3" data-bs-dismiss="modal">Close</button>
-                  <button type="button" class="btn btn-success fw-bold px-3">Submit</button>
+                 
                 </div>
               </div>
             </div>
@@ -84,7 +142,6 @@
           <div class="row">
             <div class="col-12 col-sm-12 col-md-4 col-lg-4">
               <div class="form-outline">
-                <label class="form-label"> Brand Name</label>
                 <select class="form-select" aria-label="Default select example">
                   <option selected>Select Brand Name</option>
                   <option value="1">Mahindra</option>
@@ -95,7 +152,6 @@
             </div>
             <div class="col-12 col-sm-12 col-md-4 col-lg-4">
               <div class="form-outline">
-                <label class="form-label">Model</label>
                 <select class="form-select" aria-label="Default select example">
                   <option selected>Select Model Name</option>
                   <option value="1">Model1</option>
@@ -105,8 +161,8 @@
               </div>
             </div>
             <div class="col-12 col-sm-12 col-md-4 col-lg-4 text-center">
-                <button type="button" class="btn-success btn_search" id="Search">Search</button>
-                <button type="button" class="btn-success  mx-2 btn_search" id="Reset">Reset</button>
+                <button type="button" class="btn-success px-3" id="Search">Search</button>
+                <button type="button" class="btn-success px-3  mx-2 " id="Reset">Reset</button>
             </div>
           </div>
         </div>
@@ -140,3 +196,73 @@
 <?php
    include 'includes/footertag.php';
    ?> 
+   <script>
+ const form = document.getElementById('form');
+const brand = document.getElementById('brand');
+const model = document.getElementById('model');
+const category = document.getElementById('category');
+
+// Show input error messages
+function showError(input, message) {
+    const formControl = input.parentElement;
+    const small = formControl.querySelector('small');
+    formControl.className = 'form-outline mb-4 error';
+    small.innerText = message;
+    small.classList.add('error-message');
+}
+
+// Show success color
+function showSuccess(input) {
+    const formControl = input.parentElement;
+    formControl.className = 'form-outline mb-4 success';
+}
+
+// Check required fields
+function checkRequired(inputArr) {
+    inputArr.forEach(function (input) {
+        if (input.value.trim() === '') {
+            showError(input, `${getFieldName(input)} is required`);
+           
+        } else {
+            showSuccess(input);
+        }
+    });
+}
+
+// Check input length
+function checkLength(input, min, max) {
+    if (input.value.length < min) {
+        showError(input, `${getFieldName(input)} must be at least ${min} characters`);
+    } else if (input.value.length > max) {
+        showError(input, `${getFieldName(input)} must be less than ${max} characters`);
+    } else {
+        showSuccess(input);
+    }
+}
+
+// Get Field Name
+function getFieldName(input) {
+    return input.id.charAt(0).toUpperCase() + input.id.slice(1);
+}
+
+// Check email format
+function checkEmail(input) {
+    const emailValue = input.value.trim();
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailPattern.test(emailValue)) {
+        showError(input, 'Invalid email format');
+    } else {
+        showSuccess(input);
+    }
+}
+
+// Event Listeners
+form.addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    checkRequired([brand, model, category]);
+    // checkEmail(email); // If you want to check email format
+});
+
+
+</script>

@@ -25,7 +25,7 @@
         <button class=" d-inline-flex fw-bold text-white w-100 my-1 admin-collapse align-items-center rounded" data-bs-toggle="collapse" data-bs-target="#about-collapselist" aria-expanded="true">
         <i class="fa-solid fa-list pe-3"></i>  Product Listings <span class="ps-2"> <i class="fa-solid fa-caret-down"></i></span>
         </button>
-        <div class="collapse px-2  " id="about-collapselist" >
+        <div class="collapse px-2  " id="about-collapselist">
           <ul class="list-unstyled fw-normal small">
               <li class="py-1 ps-3"><a href="tractor_listing.php" class="d-inline-flex align-items-center text-white   text-decoration-none rounded"> New Tractor Listings</a></li>
               <li class="py-1 ps-3"><a href="old_tractor_list.php" class="d-inline-flex align-items-center text-white text-decoration-none rounded">Old Tractor List</a></li>

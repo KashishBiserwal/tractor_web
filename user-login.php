@@ -54,7 +54,7 @@
             </div>
             <!-- <input type=" Get OTP" class="btn btn-default btn-lg btn-block request-otp" id='request-otp'>Get OTP</input> -->
         </div>
-    <div id='verify-otp' class="login-setup-section">
+        <div id='verify-otp' class="login-setup-section">
         <i class="fa fa-chevron-left" aria-hidden="true" class="float-start"></i>
         <h3 class="request-otp-header text-success text-center">Enter OTP</h3>
         <div class="form-group login-label">
