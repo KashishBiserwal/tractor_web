@@ -79,7 +79,7 @@
                                     </div>
                                    
                                 </div>
-                                <button type="button" class="btn btn-success fw-bold px-3">Submit</button>
+                                
                             </form> -->
                             <form action="" method="POST"  class="" id="form">
                                   <div class="filter-card ">
