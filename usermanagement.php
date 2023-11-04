@@ -270,6 +270,7 @@
 
     // Define the URL where you want to send the data
     var url = "<?php echo $APIBaseURL; ?>user_registration";
+    console.log(url);
 
     // You may need to include headers, but you should ensure they are properly configured
     var token = localStorage.getItem('token');
