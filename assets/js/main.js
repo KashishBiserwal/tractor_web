@@ -76,7 +76,41 @@ $(document).ready(function () {
             prevEl: '#proj_swip-prev',
         },
     });
-
+    const swiper_premium = new Swiper('#premium .swiper', {
+      direction: 'horizontal',
+      loop: true,
+      mousewheel: false,
+      slidesPerView: 3,
+      spaceBetween: 10,
+      watchSlidesProgress: true,
+      slideVisibleClass: 'slide-is-visible',
+      // Responsive breakpoints
+      breakpoints: {
+          // when window width is >= 320px
+          320: {
+              slidesPerView: 1,
+              spaceBetween: 20
+          },
+          // when window width is >= 480px
+          480: {
+              slidesPerView: 1,
+              spaceBetween: 30
+          },
+          // when window width is >= 640px
+          768: {
+              slidesPerView: 2,
+              spaceBetween: 40
+          },
+          992: {
+              slidesPerView: 3,
+              spaceBetween: 40
+          }
+      },
+      navigation: {
+          nextEl: '#proj_swip-next',
+          prevEl: '#proj_swip-prev',
+      },
+  });
    
 
     $(".nav-item").click(function () {

@@ -644,15 +644,15 @@
     </h3>
     <nav class="mb-3">
       <div class="nav nav-tabs w-50" id="nav-tab" role="tablist">
-        <a class="nav-link active px-5 py-3 h5 fw-bold text-dark py-2" type="button" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#premium" role="tab" aria-controls="premium" aria-selected="true">Premium</a>
+        <a class="nav-link active px-5 py-3 h5 fw-bold text-dark py-2" type="button" id="premium-tab" data-bs-toggle="tab" data-bs-target="#premium" role="tab" aria-controls="premium" aria-selected="true">Premium</a>
         <a class="nav-link px-5 py-3 h5 fw-bold text-dark" id="latest-tab" type="button" data-bs-toggle="tab" data-bs-target="#latest" role="tab" aria-controls="latest" aria-selected="false">Latest</a>
-        <a class="nav-link px-5 py-3 h5 fw-bold text-dark" id="nav-Personal-tab" type="button" data-bs-toggle="tab" data-bs-target="#popular" role="tab" aria-controls="popular" aria-selected="false">Popular</a>
+        <a class="nav-link px-5 py-3 h5 fw-bold text-dark" id="popularl-tab" type="button" data-bs-toggle="tab" data-bs-target="#popular" role="tab" aria-controls="popular" aria-selected="false">Popular</a>
       </div>
     </nav>
-    <div class="tab-content  justify-content-center" id="proj_swip">
-    <div role="tabpanel" class="tab-pane" id="premium">
+    <div class="tab-content  justify-content-center" >
+      <div role="tabpanel" class="tab-pane fade show active" id="premium" aria-labelledby="premium-tab">
         <section class="section slider-section">
-          <div class="container slider-column">
+          <div class="container slider-column" style=" height: 540px;">
             <div class="swiper swiper-slider slider">
               <div class="swiper-wrapper wrapper">
                 <div class="swiper-slide">
@@ -683,7 +683,7 @@
                     </div>
                   </div>
                 </div>
-                <div class="swiper-slide">
+            <div class="swiper-slide">
                   <div class="post-slide">
                     <div class="post-img">
                       <img src="assets/images/45-classic-146132-1696568052-0.webp" alt="">
@@ -879,20 +879,21 @@
                     </div>
                   </div>
                 </div>
-                <div class="col text-center pb-4">
-                  <a href="#" class="btn btn-success btn-lg">View all  Tractors</a>
-                </div>
+                
               </div>
-              <span class="swiper-pagination"></span>
+             <span class="swiper-pagination"></span>
               <span class="swiper-button-prev"></span>
-              <span class="swiper-button-next"></span>
+              <span class="swiper-button-next"></span> 
+            </div>
+            <div class="col text-center pb-4">
+              <a href="#" class="btn btn-success btn-lg">View all  Tractors</a>
             </div>
           </div>
         </section>
       </div>
-      <div role="tabpanel" class="tab-pane" id="latest">
+      <div role="tabpanel" class="tab-pane fade" id="latest" aria-labelledby="latest-tab">
         <section class="section slider-section">
-          <div class="container slider-column">
+          <div class="container slider-column" style=" height: 540px;">
             <div class="swiper swiper-slider slider">
               <div class="swiper-wrapper wrapper">
                 <div class="swiper-slide">
@@ -1131,9 +1132,9 @@
           </div>
         </section>
       </div>
-      <div role="tabpanel" class="tab-pane" id="popular">
-      <section class="section slider-section">
-          <div class="container slider-column">
+      <div role="tabpanel" class="tab-pane fade" id="popular" aria-labelledby="popularl-tab">
+        <section class="section slider-section">
+          <div class="container slider-column" style=" height: 540px;">
             <div class="swiper swiper-slider slider">
               <div class="swiper-wrapper wrapper">
                 <div class="swiper-slide">
