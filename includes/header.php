@@ -187,13 +187,13 @@
               News & Update
             </a>
             <ul class="dropdown-menu pt-3 mt-2">
-                <li><a class="dropdown-item fw-bold" href="#">All News</a></li>
+                <li id="allNews"><a class="dropdown-item fw-bold" href="all_news.php">All News</a></li>
                 <hr class="dropdown-divider">
-                <li><a class="dropdown-item fw-bold" href="#">Tractor News</a></li>
+                <li id="tractorNews"><a class="dropdown-item fw-bold" href="#" >Tractor News</a></li>
                 <hr class="dropdown-divider">
-                <li><a class="dropdown-item  fw-bold" href="#">Agriculture News</a></li>
+                <li id="agricultureNews"><a class="dropdown-item fw-bold" href="#">Agriculture News</a></li>
                 <hr class="dropdown-divider">
-                <li><a class="dropdown-item fw-bold" href="#">Sarkari Yojana news</a></li>
+                <li id="sarkariNews"><a class="dropdown-item fw-bold" href="#">Sarkari Yojana news</a></li>
             </ul>
 
           </li>

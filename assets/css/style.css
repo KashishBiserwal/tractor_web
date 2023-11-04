@@ -1570,3 +1570,6 @@ input[type="checkbox"]:checked + label:before {
       padding: 0px 15px 25px 15px;
   }
 }
+.marquee_tag{
+ background: rgb(241, 239, 239);
+}
