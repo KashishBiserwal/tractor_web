@@ -1576,6 +1576,4 @@ input[type="checkbox"]:checked + label:before {
 /* .quick-links{
   margin-left: 28px;
 } */
-.quick-links-heading {
-  background-color: rgb(245, 239, 239);
-}
+

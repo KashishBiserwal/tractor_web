@@ -215,7 +215,7 @@
                 <hr class="dropdown-divider">
                 <li><a class="dropdown-item fw-bold" href="#">Certified Dealers</a></li>
                 <hr class="dropdown-divider">
-                <li><a class="dropdown-item fw-bold" href="#">Compare</a></li>
+                <li><a class="dropdown-item fw-bold" href="compare_trac.php">Compare</a></li>
           </ul>
         </li>
        
