@@ -54,31 +54,33 @@
 <script>
  $(document).ready(function() {
 
-    // $("#form").validate({
-    //   rules:{
-    //     email:{
-    //   required:true,
-    //   email:true
-    //  },
-    //  password:{
-    //   required:true,
-    //   minlenght:5
-    //  }
+    $("#form").validate({
+      rules:{
+        email:{
+      required:true,
+      email:true
+     },
+     password:{
+      required:true,
+      minlenght:5
+     }
 
-    // },
-    // messages:{
-    //     email:"Please Enter Your Email id",
-    //     password:{
-    //     required:"Please provide a valid password",
-    //   }
-    // }
+    },
+    messages:{
+        email:"Please Enter Your Email id",
+        password:{
+        required:"Please provide a valid password",
+      }
+    }
 
-    // });
+    });
 
 if(document.getElementById('login')){
     document.getElementById('login').addEventListener('click', login);
 }
-    function login(){       
+    function login(){  
+      event.preventDefault();
+      console.log('prevent default');     
         var email = document.getElementById('email').value;
         var password = document.getElementById('password').value;
         var paraArr = {};

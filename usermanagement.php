@@ -291,8 +291,10 @@
   $('#save').click(user_registration);
   });
 
-  function user_registration() {
+  function user_registration(event) {
     // Get values from form fields
+    event.preventDefault();
+    console.log('jfhfhw');
     var first_name = $('#first_name').val();
     var last_name = $('#last_name').val();
     var email = $('#email').val();
@@ -340,84 +342,48 @@
       }
     });
   }
-//  const form = document.getElementById('form');
-// const first_name = document.getElementById('first_name');
-// const last_name = document.getElementById('last_name');
-// const mobile = document.getElementById('mobile');
-// const email = document.getElementById('email');
-// const password = document.getElementById('password');
-// const password2 = document.getElementById('password2');
-// const state = document.getElementById('state');
-// const district = document.getElementById('district');
-// const tehsil = document.getElementById('tehsil');
-// const pincode = document.getElementById('pincode');
 
-// // Show input error messages
-// function showError(input, message) {
-//     const formControl = input.parentElement;
-//     const small = formControl.querySelector('small');
-//     formControl.className = 'form-outline mb-4 error';
-//     small.innerText = message;
-//     small.classList.add('error-message');
-// }
+  // fetch data
+  function memberlist() {
+    var url = "<?php echo $APIBaseURL; ?>MemberList";
+    $.ajax({
+        url: url,
+        type: "POST",
+        headers: {
+            'Authorization': 'Bearer ' + localStorage.getItem('token')
+        },
+        success: function (data) {
+            const tableBody = document.getElementById('data-table');
+            tableBody.innerHTML = ''; // Clear previous data
 
-// // Show success color
-// function showSuccess(input) {
-//     const formControl = input.parentElement;
-//     formControl.className = 'form-outline mb-4 success';
-// }
-
-// // Check required fields
-// function checkRequired(inputArr) {
-//     inputArr.forEach(function (input) {
-//         if (input.value.trim() === '') {
-//             showError(input, `${getFieldName(input)} is required`);
-           
-//         } else {
-//             showSuccess(input);
-//         }
-//     });
-// }
-
-// // Check input length
-// function checkLength(input, min, max) {
-//     if (input.value.length < min) {
-//         showError(input, `${getFieldName(input)} must be at least ${min} characters`);
-//     } else if (input.value.length > max) {
-//         showError(input, `${getFieldName(input)} must be less than ${max} characters`);
-//     } else {
-//         showSuccess(input);
-//     }
-// }
-
-// // Get Field Name
-// function getFieldName(input) {
-//     return input.id.charAt(0).toUpperCase() + input.id.slice(1);
-// }
-
-// // Check email format
-// function checkEmail(input) {
-//     const emailValue = input.value.trim();
-//     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-//     if (!emailPattern.test(emailValue)) {
-//         showError(input, 'Invalid email format');
-//     } else {
-//         showSuccess(input);
-//     }
-// }
-// // check passwords match
-// function checkPasswordMatch(input1, input2) {
-//     if(input1.value !== input2.value) {
-//         showError(input2, 'Passwords do not match');
-//     }
-// }
-// // Event Listeners
-// form.addEventListener('submit', function (e) {
-//     e.preventDefault();
-
-//     checkRequired([first_name,last_name, mobile, email, state, district,tehsil,pincode]);
-//     checkEmail(email); // If you want to check email format
-// });
+            if (Array.isArray(data) && data.length > 0) {
+                // Loop through the data and create table rows
+                data.forEach(row => {
+                    const tableRow = document.createElement('tr');
+                    tableRow.innerHTML = `
+                       <td>${row.id}</td>
+                        <td>${row.username}</td>
+                        <td>${row.email}</td>
+                        <td>${row.designation}</td>
+                        <td>${row.mobile}</td>
+                        <td>${row.state}</td>
+                        <td><div class="d-flex"><button class="btn btn-danger btn-sm mx-1" id="delete_user" onclick=deletemember(${row.id});><i class="fa fa-trash-can"style="font-size:11px;"></i></button></div></td>
+                    `;
+                    tableBody.appendChild(tableRow);
+                });
+            } else {
+                // Display a message if there's no valid data
+                tableBody.innerHTML = '<tr><td colspan="3">No valid data available</td></tr>';
+            }
+        },
+        error: function (error) {
+            console.error('Error fetching data:', error);
+            // Display an error message or handle the error as needed
+        }
+    });
+}
+        // Call the fetchData function to initiate the API request
+        memberlist();
 
 
 </script>
