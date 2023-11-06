@@ -35,7 +35,7 @@
 								<a class="dropdown-item" href="admin_profile.php"><i class="align-middle me-1" data-feather="user"></i> Profile</a>
 								
 								<div class="dropdown-divider"></div>
-								<a class="dropdown-item" href="#">Log out</a>
+								<a class="dropdown-item" id="logoutBtnClick" href="#" onclick="user_logout();">Log out</a>
 							</div>
 						</li>
                 </ul>
@@ -46,5 +46,54 @@
             </div>
         </nav>
    </header>
+   <script>
+    function user_logout() {
+    var url = "<?php echo $APIBaseURL; ?>user_logout";
+    var token = localStorage.getItem('token');
+    
+    if (!token) {
+        console.error('Token not found. Cannot log out.');
+        return;
+    }
+
+    $.ajax({
+        url: url,
+        type: "POST",
+        headers: {
+            'Authorization': 'Bearer ' + token
+        },
+        success: function (result) {
+            console.log("Logout admin");
+            // alert("Logged out successfully");
+            // Redirect to the login page
+            localStorage.removeItem("token");
+            localStorage.removeItem("expireIn");
+            window.location.href = "login.php";
+        },
+        error: function (error) {
+            console.error('Error logging out:', error);
+        }
+    });
+}
+// window.setInterval(() => {
+//     console.log(localStorage.getItem('expireIn') === null,"isLogin")
+//         if (localStorage.getItem('expireIn') === null) {
+//            localStorage.removeItem("token");
+//            window.location.href = "login.php";
+//         } 
+    
+//         }
+//         ,1000);
+
+window.onload = function() {
+  if (localStorage.getItem('expireIn') === null) {
+           localStorage.removeItem("token");
+           window.location.href = "login.php";
+        } 
+            // alert('Page loaded!');
+        };
+
+
+</script>
 
    

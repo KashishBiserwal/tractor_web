@@ -6,7 +6,8 @@
 <script src="assets/js/datatables.min.js"></script>
 <script src="assets/js/owl.carousel.js"></script>
 <script src="assets/js/owl.carousel.min.js"></script>
-
+<script src="js/jquery.validate.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.20.0/jquery.validate.min.js"></script>
 <!--main Js-->
 <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
 <script src="assets/js/main.js"></script>

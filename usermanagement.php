@@ -111,39 +111,39 @@
                                         </div> -->
                                         <div class="col- col-sm-6 col-lg-6 col-md-6">
                                           <label class="text-dark"> First Name<span class="text-danger">*</span></label>
-                                          <input type="text" class="form-control py-2" id="first_name" placeholder="Enter First Name">
+                                          <input type="text" class="form-control py-2" name="first_name" for="first_name"  id="first_name" placeholder="Enter First Name">
                                           <small></small>
                                         </div>
                                        
                                         <div class="col- col-sm-6 col-lg-6 col-md-6">
                                           <label class="text-dark"> Last Name<span class="text-danger">*</span></label>
-                                          <input type="text" class="form-control py-2" id="last_name" placeholder="Enter Last Name">
+                                          <input type="text" class="form-control py-2"  name="last_name" for="last_name"  id="last_name" placeholder="Enter Last Name">
                                           <small></small>
                                         </div>
                                         <div class="col- col-sm-6 col-lg-6 col-md-6">
                                           <label class="text-dark">Contact Number<span class="text-danger">*</span></label>
-                                          <input type="text" class="form-control py-2" id="mobile" placeholder="Enter contact number">
+                                          <input type="text" class="form-control py-2"  name="mobile" for="mobile" id="mobile" placeholder="Enter contact number">
                                           <small></small>
                                         </div>
                                         <div class="col- col-sm-6 col-lg-6 col-md-6">
                                           <label class="text-dark">Email ID<span class="text-danger">*</span></label>
-                                          <input type="text" class="form-control py-2" id="email" placeholder="Enter email id">
+                                          <input type="text" class="form-control py-2" id="email" name="email" for="email"  placeholder="Enter email id">
                                           <small></small>
                                         </div>
                                         
                                         <div class="col- col-sm-6 col-lg-6 col-md-6">
                                           <label class="text-dark">Password<span class="text-danger">*</span></label>
-                                          <input type="text" class="form-control py-2" id="password" placeholder="Enter Password">
+                                          <input type="text" class="form-control py-2" id="password"name="password" for="password"   placeholder="Enter Password">
                                           <small></small>
                                         </div>
                                         <div class="col- col-sm-6 col-lg-6 col-md-6">
                                           <label class="text-dark">Confirm Password<span class="text-danger">*</span></label>
-                                          <input type="text" class="form-control py-2" id="password2" placeholder="Enter Password">
+                                          <input type="text" class="form-control py-2" id="password2" name="password2" for="password2" placeholder="Enter Password">
                                           <small></small>
                                         </div>
                                         <div class="col- col-sm-6 col-lg-6 col-md-6">
                                           <label class="text-dark">User Type<span class="text-danger">*</span></label>
-                                          <input type="text" class="form-control py-2" id="user_type" placeholder="Eg- Admin or User">
+                                          <input type="text" class="form-control py-2" id="user_type" name="user_type" for="user_type" placeholder="Eg- Admin or User">
                                           <small></small>
                                         </div>
                                         <div class="col-12 col-sm-6 col-md-6 col-lg-6">
@@ -246,6 +246,46 @@
    ?> 
 <script>
    $(document).ready(function() {
+
+    $("#form").validate({
+      rules:{
+        first_name:"required",
+        last_name:"required",
+     password:{
+      required:true,
+      minlenght:5
+     },
+     password2:{
+      required:true,
+      minlenght:5,
+      equalTo:"password"
+     },
+     email:{
+      required:true,
+      email:true
+     },
+     user_type:"required"
+    },
+    messages:{
+      first_name:"Please Enter Your First Name",
+      last_name:"Please Enter Your Last Name",
+      password:{
+        required:"Please provide a valid password",
+        minlenght:"Your password must be atleast 5 character long"
+      },
+      password2:{
+        required:"Please provide a valid password",
+        minlenght:"Your password must be atleast 5 character long",
+        equalTo:"Please enter  as same password above"
+
+      },
+      user_type:"Enter a user type"
+    }
+
+    });
+
+
+
   $('#save').click(user_registration);
   });
 
@@ -289,90 +329,91 @@
         // Redirect to a success page or perform other actions
         window.location.href = "<?php echo $baseUrl; ?>usermanagement.php"; 
         console.log("Add successfully");
+        alert('successfully inserted..!')
       },
       error: function (error) {
         console.error('Error fetching data:', error);
       }
     });
   }
- const form = document.getElementById('form');
-const first_name = document.getElementById('first_name');
-const last_name = document.getElementById('last_name');
-const mobile = document.getElementById('mobile');
-const email = document.getElementById('email');
-const password = document.getElementById('password');
-const password2 = document.getElementById('password2');
-const state = document.getElementById('state');
-const district = document.getElementById('district');
-const tehsil = document.getElementById('tehsil');
-const pincode = document.getElementById('pincode');
+//  const form = document.getElementById('form');
+// const first_name = document.getElementById('first_name');
+// const last_name = document.getElementById('last_name');
+// const mobile = document.getElementById('mobile');
+// const email = document.getElementById('email');
+// const password = document.getElementById('password');
+// const password2 = document.getElementById('password2');
+// const state = document.getElementById('state');
+// const district = document.getElementById('district');
+// const tehsil = document.getElementById('tehsil');
+// const pincode = document.getElementById('pincode');
 
-// Show input error messages
-function showError(input, message) {
-    const formControl = input.parentElement;
-    const small = formControl.querySelector('small');
-    formControl.className = 'form-outline mb-4 error';
-    small.innerText = message;
-    small.classList.add('error-message');
-}
+// // Show input error messages
+// function showError(input, message) {
+//     const formControl = input.parentElement;
+//     const small = formControl.querySelector('small');
+//     formControl.className = 'form-outline mb-4 error';
+//     small.innerText = message;
+//     small.classList.add('error-message');
+// }
 
-// Show success color
-function showSuccess(input) {
-    const formControl = input.parentElement;
-    formControl.className = 'form-outline mb-4 success';
-}
+// // Show success color
+// function showSuccess(input) {
+//     const formControl = input.parentElement;
+//     formControl.className = 'form-outline mb-4 success';
+// }
 
-// Check required fields
-function checkRequired(inputArr) {
-    inputArr.forEach(function (input) {
-        if (input.value.trim() === '') {
-            showError(input, `${getFieldName(input)} is required`);
+// // Check required fields
+// function checkRequired(inputArr) {
+//     inputArr.forEach(function (input) {
+//         if (input.value.trim() === '') {
+//             showError(input, `${getFieldName(input)} is required`);
            
-        } else {
-            showSuccess(input);
-        }
-    });
-}
+//         } else {
+//             showSuccess(input);
+//         }
+//     });
+// }
 
-// Check input length
-function checkLength(input, min, max) {
-    if (input.value.length < min) {
-        showError(input, `${getFieldName(input)} must be at least ${min} characters`);
-    } else if (input.value.length > max) {
-        showError(input, `${getFieldName(input)} must be less than ${max} characters`);
-    } else {
-        showSuccess(input);
-    }
-}
+// // Check input length
+// function checkLength(input, min, max) {
+//     if (input.value.length < min) {
+//         showError(input, `${getFieldName(input)} must be at least ${min} characters`);
+//     } else if (input.value.length > max) {
+//         showError(input, `${getFieldName(input)} must be less than ${max} characters`);
+//     } else {
+//         showSuccess(input);
+//     }
+// }
 
-// Get Field Name
-function getFieldName(input) {
-    return input.id.charAt(0).toUpperCase() + input.id.slice(1);
-}
+// // Get Field Name
+// function getFieldName(input) {
+//     return input.id.charAt(0).toUpperCase() + input.id.slice(1);
+// }
 
-// Check email format
-function checkEmail(input) {
-    const emailValue = input.value.trim();
-    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailPattern.test(emailValue)) {
-        showError(input, 'Invalid email format');
-    } else {
-        showSuccess(input);
-    }
-}
-// check passwords match
-function checkPasswordMatch(input1, input2) {
-    if(input1.value !== input2.value) {
-        showError(input2, 'Passwords do not match');
-    }
-}
-// Event Listeners
-form.addEventListener('submit', function (e) {
-    e.preventDefault();
+// // Check email format
+// function checkEmail(input) {
+//     const emailValue = input.value.trim();
+//     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+//     if (!emailPattern.test(emailValue)) {
+//         showError(input, 'Invalid email format');
+//     } else {
+//         showSuccess(input);
+//     }
+// }
+// // check passwords match
+// function checkPasswordMatch(input1, input2) {
+//     if(input1.value !== input2.value) {
+//         showError(input2, 'Passwords do not match');
+//     }
+// }
+// // Event Listeners
+// form.addEventListener('submit', function (e) {
+//     e.preventDefault();
 
-    checkRequired([first_name,last_name, mobile, email, state, district,tehsil,pincode]);
-    checkEmail(email); // If you want to check email format
-});
+//     checkRequired([first_name,last_name, mobile, email, state, district,tehsil,pincode]);
+//     checkEmail(email); // If you want to check email format
+// });
 
 
 </script>

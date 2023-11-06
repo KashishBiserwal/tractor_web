@@ -1,6 +1,6 @@
 <?php
 //  $baseUrl = 'http://127.0.0.1:8000/api/admin/';
-$baseUrl = '/tracter_api/';
+$baseUrl = '/tractor-project/tractor_project/';
   $APIBaseURL = "http://127.0.0.1:8000/api/admin/";
 
 ?>
@@ -25,5 +25,5 @@ $baseUrl = '/tracter_api/';
 	<link rel="stylesheet" type="text/css" href="assets/fontawesome/css/all.min.css" />
 	<link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
 	<!-- <link rel="stylesheet"href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css" /> -->
-	<link rel="stylesheet" type="text/css" href="assets/css/datatables.min.css" />
-	<link rel="stylesheet" type="text/css" href="assets/css/datatables.css" />
+	<link rel="stylesheet" type="text/css" href="assets/css/datatables.min.css"/>
+	<link rel="stylesheet" type="text/css" href="assets/css/datatables.css"/>
