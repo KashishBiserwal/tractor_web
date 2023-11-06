@@ -37,7 +37,17 @@
               <li class="py-1 ps-3"><a href="news_updates.php" class="d-inline-flex align-items-center text-white  text-decoration-none rounded">News and Updates</a></li>
               <li class="py-1 ps-3"><a href="tyers_list.php" class="d-inline-flex align-items-center text-white text-decoration-none rounded">New Tyres Listing</a></li>
               <li class="py-1 ps-3"><a href="engine_oil_list.php" class="d-inline-flex align-items-center text-white  text-decoration-none rounded">Engine Oil Listing</a></li>
-              <li class="py-1 ps-3"><a href="haatbzr_list.php" class="d-inline-flex align-items-center text-white  text-decoration-none rounded">HaatBazaar List Items</a></li>
+             
+          </ul>
+        </div>
+        <button class="d-inline-flex fw-bold text-white my-1 admin-collapse w-100 align-items-center rounded" data-bs-toggle="collapse" data-bs-target="#about-collapsebazar" aria-expanded="true">
+        <i class="fa-solid fa-cart-shopping pe-3"></i> HaatBazaar <span class="ps-2"> <i class="fa-solid fa-caret-down"></i></span>
+        </button>
+        <div class="collapse px-2 " id="about-collapsebazar">
+          <ul class="list-unstyled fw-normal small">
+          <li class="py-1 ps-3"><a href="haatbzr_list.php" class="d-inline-flex align-items-center text-white  text-decoration-none rounded">HaatBazaar List Items</a></li>
+          <li class="py-1 ps-3"><a href="haatbzr_item_enq.php" class="d-inline-flex align-items-center text-white text-decoration-none rounded">HaatBazar item Enquiry</a></li>
+              <li class="py-1 ps-3"><a href="haatbzr_byr_enq.php" class="d-inline-flex align-items-center text-white text-decoration-none rounded">HaatBazar Buyer Enquiry List</a></li>
           </ul>
         </div>
         <button class="d-inline-flex fw-bold text-white admin-collapse w-100 my-1 align-items-center rounded" data-bs-toggle="collapse" data-bs-target="#about-collapseenq" aria-expanded="true">
@@ -54,12 +64,12 @@
               <li class="py-1 ps-3"><a href="old_harvester_enqu.php" class="d-inline-flex align-items-center text-white text-decoration-none rounded"> Old Harvester Enquiries</a></li>
               <li class="py-1 ps-3"><a href="tyers_list.php" class="d-inline-flex align-items-center text-white text-decoration-none rounded">Tyres Enquiry</a></li>
               <li class="py-1 ps-3"><a href="nursery_enquiry.php" class="d-inline-flex align-items-center text-white text-decoration-none rounded">Nursery Enquiry</a></li>
-              <li class="py-1 ps-3"><a href="haatbzr_item_enq.php" class="d-inline-flex align-items-center text-white text-decoration-none rounded">HaatBazar item Enquiry</a></li>
-              <li class="py-1 ps-3"><a href="haatbzr_byr_enq.php" class="d-inline-flex align-items-center text-white text-decoration-none rounded">HaatBazar Buyer Enquiry List</a></li>
+              
               <li class="py-1 ps-3"><a href="rent_trsc_enq.php" class="d-inline-flex align-items-center text-white text-decoration-none rounded">Rent Tractor enquiry</a></li>
               <li class="py-1 ps-3"><a href="hire_trac_enq.php" class="d-inline-flex align-items-center text-white text-decoration-none rounded">Hire Tractor Enquiry</a></li>
           </ul>
         </div>
+       
 
         <button class="d-inline-flex fw-bold text-white w-100 my-1 admin-collapse align-items-center rounded" data-bs-toggle="collapse" data-bs-target="#about-collapserent" aria-expanded="true">
         <i class="fa-solid fa-list-check pe-3"></i>  Rent & Hire List <span class="ps-2"> <i class="fa-solid fa-caret-down"></i></span>

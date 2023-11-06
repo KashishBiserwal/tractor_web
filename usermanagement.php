@@ -207,6 +207,8 @@
                     <th class="d-none d-md-table-cell text-white py-2">Date</th>
                     <th class="d-none d-md-table-cell text-white py-2">Name</th>
                     <th class="d-none d-md-table-cell text-white py-2">Mobile Number</th>
+                    <th class="d-none d-md-table-cell text-white py-2">User Type</th>
+                    <th class="d-none d-md-table-cell text-white py-2">Status</th>
                     <th class="d-none d-md-table-cell text-white py-2">Action</th>
                   </tr>
                 </thead>
@@ -344,8 +346,8 @@
   }
 
   // fetch data
-  function memberlist() {
-    var url = "<?php echo $APIBaseURL; ?>MemberList";
+  function get() {
+    var url = "<?php echo $APIBaseURL; ?>getUsers";
     $.ajax({
         url: url,
         type: "POST",
@@ -362,11 +364,11 @@
                     const tableRow = document.createElement('tr');
                     tableRow.innerHTML = `
                        <td>${row.id}</td>
-                        <td>${row.username}</td>
+                        <td>${row.first_name}</td>
                         <td>${row.email}</td>
-                        <td>${row.designation}</td>
                         <td>${row.mobile}</td>
-                        <td>${row.state}</td>
+                        <td>${row.user_type}</td>
+                        <td>${row.status}</td>
                         <td><div class="d-flex"><button class="btn btn-danger btn-sm mx-1" id="delete_user" onclick=deletemember(${row.id});><i class="fa fa-trash-can"style="font-size:11px;"></i></button></div></td>
                     `;
                     tableBody.appendChild(tableRow);
@@ -383,7 +385,7 @@
     });
 }
         // Call the fetchData function to initiate the API request
-        memberlist();
+        get();
 
 
 </script>
