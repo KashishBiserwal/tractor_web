@@ -24,7 +24,7 @@
     </div>
 </section>
 <section>
-  <div class="marquee_tag">
+  <div class="marquee_tag my-1">
   <marquee behavior=" scroll" class="py-2"direction="" scrollamount="10"><b> 90% छूट पर ले जाएं कॉम्पैक्ट सोलर पंप, ऐसे करें आवेदन | 3 से 10 एचपी के सोलर पंप पर मिल रही है बंपर सब्सिडी, यहां करें आवेदन | Domestic Tractor Sales Report October 2023 - Sales Dropped by 3.93%, 118232 Units Sold | स्क्वायर बेलर मशीन पर मिल रही है 6,25,000 रुपए की सब्सिडी, यहां करें आवेदन | लाड़ली बहना योजना : धनतेरस पर महिलाओं को मिलेगा दिवाली का गिफ्ट, खाते में आएंगे पैसे</b></marquee>
   </div>
     <!-- All News Section -->
@@ -928,6 +928,50 @@
         console.log("Sarkari Yojana news called")
       });
     </script>
+
+  <section>
+    <div class="container">
+      <h class="news assured">News</h5>
+    </div>
+  </section>
+
+
+  <section>
+    <div class="container py-3">
+        <h5 class="quick-links-heading assured">Quick links</h5>
+        <div class="row">
+            <div class="col-12 col-md-6 col-lg-3 py-1">
+              <ul>
+                <li><i class="fa-solid fa-angles-right pe-1"></i>New Tractor</li>                    
+                <li><i class="fa-solid fa-angles-right pe-1"></i>Compare</li>
+                <li><i class="fa-solid fa-angles-right pe-1"></i>Dealership Enquiry</li>
+              </ul>
+            </div>
+            <div class="col-12 col-md-6 col-lg-3 py-1">
+              <ul>
+                <li><i class="fa-solid fa-angles-right pe-1"></i>Finance</li>                    
+                <li><i class="fa-solid fa-angles-right pe-1"></i>Upcoming Tractors</li>
+                <li><i class="fa-solid fa-angles-right pe-1"></i>Contact/Mail Us</li>
+            </ul>
+            </div>
+            <div class="col-12 col-md-6 col-lg-3 py-1">
+              <ul>
+                <li><i class="fa-solid fa-angles-right pe-1"></i>Popular Tractors</li>                    
+                <li><i class="fa-solid fa-angles-right pe-1"></i>Tractor News</li>
+                <li><i class="fa-solid fa-angles-right pe-1"></i>Insurance</li>
+              </ul>
+            </div>
+            <div class="col-12 col-md-6 col-lg-3 py-1">
+              <ul>
+                <li><i class="fa-solid fa-angles-right pe-1"></i>Used Tractors</li>                    
+                <li><i class="fa-solid fa-angles-right pe-1"></i>Latest Tractors</li>
+                <li><i class="fa-solid fa-angles-right pe-1"></i>Offers</li>
+              </ul>
+            </div>
+        </div>
+    </div>
+  </section>
+
  <?php
     include 'includes/footer.php';
     include 'includes/footertag.php';
