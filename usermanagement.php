@@ -1,5 +1,6 @@
 <?php
    include 'includes/headertagadmin.php';
+   
   
    
    ?> 
@@ -138,7 +139,7 @@
                                         </div>
                                         <div class="col- col-sm-6 col-lg-6 col-md-6">
                                           <label class="text-dark">Confirm Password<span class="text-danger">*</span></label>
-                                          <input type="text" class="form-control py-2" id="password2" name="password2" for="password2" placeholder="Enter Password">
+                                          <input type="text" class="form-control py-2" id="password_confirmation" name="password_confirmation" for="password_confirmation" placeholder="Enter Password">
                                           <small></small>
                                         </div>
                                         <div class="col- col-sm-6 col-lg-6 col-md-6">
@@ -220,6 +221,7 @@
     
 </div>
 </div>
+
 </body>
 <!-- <script>
   var url = edfaults.camsAPIBaseURL + "CAMS/SearchLocationFaults";
@@ -255,7 +257,7 @@
       required:true,
       minlenght:5
      },
-     password2:{
+     password_confirmation:{
       required:true,
       minlenght:5,
       equalTo:"password"
@@ -273,7 +275,7 @@
         required:"Please provide a valid password",
         minlenght:"Your password must be atleast 5 character long"
       },
-      password2:{
+      password_confirmation:{
         required:"Please provide a valid password",
         minlenght:"Your password must be atleast 5 character long",
         equalTo:"Please enter  as same password above"
@@ -296,6 +298,7 @@
     var email = $('#email').val();
     var mobile = $('#mobile').val();
     var password = $('#password').val();
+    var password_confirmation = $('#password_confirmation').val();
     var user_type = $('#user_type').val();
 
     // Prepare data to send to the server
@@ -305,6 +308,7 @@
       'email': email,
       'mobile': mobile,
       'password': password,
+      'password_confirmation': password_confirmation,
       'user_type': user_type
     };
 

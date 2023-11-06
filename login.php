@@ -54,26 +54,26 @@
 <script>
  $(document).ready(function() {
 
-    $("#form").validate({
-      rules:{
-        email:{
-      required:true,
-      email:true
-     },
-     password:{
-      required:true,
-      minlenght:5
-     }
+    // $("#form").validate({
+    //   rules:{
+    //     email:{
+    //   required:true,
+    //   email:true
+    //  },
+    //  password:{
+    //   required:true,
+    //   minlenght:5
+    //  }
 
-    },
-    messages:{
-        email:"Please Enter Your Email id",
-        password:{
-        required:"Please provide a valid password",
-      }
-    }
+    // },
+    // messages:{
+    //     email:"Please Enter Your Email id",
+    //     password:{
+    //     required:"Please provide a valid password",
+    //   }
+    // }
 
-    });
+    // });
 
 if(document.getElementById('login')){
     document.getElementById('login').addEventListener('click', login);
