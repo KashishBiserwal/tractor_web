@@ -172,7 +172,7 @@
             Loan
           </a>
           <ul class="dropdown-menu pt-3 mt-2">
-            <li><a class="dropdown-item fw-bold" href="#">New Tractor Loan</a></li>
+            <li><a class="dropdown-item fw-bold" href="new_tractor_loan.php">New Tractor Loan</a></li>
             <hr class="dropdown-divider">
             <li><a class="dropdown-item fw-bold" href="#">Used Tractor Loan</a></li>
             <hr class="dropdown-divider">
