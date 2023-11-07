@@ -182,19 +182,20 @@
       <!-- Filter Card -->
       <div class="filter-card ">
         <div class="card-body" >
+          <form action="">
           <div class="row">
             <div class="col-12 col-sm-12 col-md-4 col-lg-4">
                 <div class="form-outline">
                   <label class="form-label">Search by Any Field</label>
-                  <input type="text" id="name"  name="search_name" class=" search form-control input-group-sm" />
+                  <input type="text" id="name"  name="search_name" class=" data_search form-control input-group-sm" />
                 </div>
             </div>
-           
-            
-            <div class="col-12 col-sm-12 col-md-8 col-lg-8 mt-3">
-              <button type="button" class="btn-success  mx-2 px-4 py-2 btn" id="Reset">Reset</button>
+            <div class="col-12 col-sm-12 col-md-8 col-lg-8">
+              <input type="reset" class="bg-success text-white btn px-4 py-2" value="Reset">
             </div>
           </div>
+          </form>
+          
         </div>
       </div>
       <!-- Table Card -->
@@ -204,15 +205,16 @@
                 <thead class="">
                   <tr>
                     <th class="d-none d-md-table-cell text-white py-2">S.No.</th>
-                    <th class="d-none d-md-table-cell text-white py-2">Date</th>
+                   
                     <th class="d-none d-md-table-cell text-white py-2">Name</th>
                     <th class="d-none d-md-table-cell text-white py-2">Mobile Number</th>
                     <th class="d-none d-md-table-cell text-white py-2">User Type</th>
                     <th class="d-none d-md-table-cell text-white py-2">Status</th>
+                    <th class="d-none d-md-table-cell text-white py-2">Date</th>
                     <th class="d-none d-md-table-cell text-white py-2">Action</th>
                   </tr>
                 </thead>
-              <tbody>
+              <tbody id="data-table">
               </tbody>
             </table>
           </div>
@@ -350,32 +352,45 @@
     var url = "<?php echo $APIBaseURL; ?>getUsers";
     $.ajax({
         url: url,
-        type: "POST",
+        type: "GET",
         headers: {
             'Authorization': 'Bearer ' + localStorage.getItem('token')
         },
         success: function (data) {
+          console.log(data);
             const tableBody = document.getElementById('data-table');
             tableBody.innerHTML = ''; // Clear previous data
 
-            if (Array.isArray(data) && data.length > 0) {
+            let users=data.user;
+
+            if (users.length > 0) {
+          console.log(typeof users);
+
                 // Loop through the data and create table rows
-                data.forEach(row => {
+                users.map(row => {
+                  console.log(row);
                     const tableRow = document.createElement('tr');
+                    let originalDate= new Date(row.created_at);
+
+                    let day=originalDate.getDate();
+                    let month=originalDate.getMonth()+1;
+                    let year=originalDate.getFullYear();
+
+                    let formatDate=`${day}-${month}-${year}`;
                     tableRow.innerHTML = `
-                       <td>${row.id}</td>
+                        <td>${row.id}</td>
                         <td>${row.first_name}</td>
-                        <td>${row.email}</td>
                         <td>${row.mobile}</td>
                         <td>${row.user_type}</td>
                         <td>${row.status}</td>
-                        <td><div class="d-flex"><button class="btn btn-danger btn-sm mx-1" id="delete_user" onclick=deletemember(${row.id});><i class="fa fa-trash-can"style="font-size:11px;"></i></button></div></td>
+                        <td>${formatDate}</td>
+                        <td><div class="d-flex"><button class="btn btn-danger btn-sm mx-1" id="delete_user" onclick="destroy(${row.id});"><i class="fa fa-trash" style="font-size: 11px;"></i></button></div></td>
                     `;
                     tableBody.appendChild(tableRow);
                 });
             } else {
                 // Display a message if there's no valid data
-                tableBody.innerHTML = '<tr><td colspan="3">No valid data available</td></tr>';
+                tableBody.innerHTML = '<tr><td colspan="7">No valid data available</td></tr>';
             }
         },
         error: function (error) {
@@ -384,8 +399,44 @@
         }
     });
 }
-        // Call the fetchData function to initiate the API request
-        get();
+
+// Call the fetchData function to initiate the API request
+get();
+
+function destroy(id) {
+  var url = "<?php echo $APIBaseURL; ?>deleteUser/" + id;
+  var token = localStorage.getItem('token');
+  
+  if (!token) {
+    console.error("Token is missing");
+    return;
+  }
+
+  $.ajax({
+    url: url,
+    type: "DELETE",
+    headers: {
+      'Authorization': 'Bearer ' + token
+    },
+    success: function(result) {
+      // window.location.reload();
+      get();
+      console.log("Delete request successful");
+      alert("Delete operation successful");
+    },
+    error: function(error) {
+      console.error('Error fetching data:', error);
+      alert("Error during delete operation");
+    }
+  });
+}
+
+$(".data_search").on("keyup", function() {
+  var value = $(this).val().toLowerCase();
+  $("#data-table tr").filter(function() {
+    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+  });
+});
 
 
 </script>

@@ -28,10 +28,19 @@
                                                       <small></small>
                                               </div>
                                               <div class="col-12">
-                                                  <label class="text-dark fw-bold"><i class="fa-solid fa-lock"></i> Password<span class="text-danger">*</span></label>
-                                                  
+                                                  <!-- <label class="text-dark fw-bold"><i class="fa-solid fa-lock"></i> Password<span class="text-danger">*</span></label>
+                                                    <div class="input-group-prepend">
+                                                      <div class="input-group-text py-3"><i class="fas fa-eye-slash" id="eyeeye"></i></div>
+                                                    </div>
                                                       <input type="password" class="form-control" for="password" name="password" id="password" placeholder="Enter Password">
-                                                      <small></small>
+                                                      <small></small> -->
+                                                     <label class="text-dark fw-bold"><i class="fa-solid fa-lock"></i> Password<span class="text-danger">*</span></label>
+                                                        <div class="input-group  mr-sm-2">
+                                                          <div class="input-group-prepend">
+                                                            <div class="input-group-text py-3"><i class="fas fa-eye-slash" id="eyeeye"></i></div>
+                                                          </div>
+                                                          <input type="password" class="form-control py-2" for="password" id="password" placeholder="Enter Password">
+                                                        </div>
                                               </div>
                                               <div class="col-12 text-center">
                                                 <button type="submit" class="btn px-4 bg-success" id="login">Login</button>
@@ -81,6 +90,28 @@ $(document).ready(function() {
     }
 });
 
+$(function(){
+  
+  $('#eyeeye').click(function(){
+       
+        if($(this).hasClass('fa-eye-slash')){
+           
+          $(this).removeClass('fa-eye-slash');
+          
+          $(this).addClass('fa-eye');
+          
+          $('#password').attr('type','text');
+            
+        }else{
+         
+          $(this).removeClass('fa-eye');
+          
+          $(this).addClass('fa-eye-slash');  
+          
+          $('#password').attr('type','password');
+        }
+    });
+});
 function login() {
     var email = document.getElementById('email').value;
     var password = document.getElementById('password').value;
@@ -96,6 +127,7 @@ function login() {
           window.location.href = "<?php echo $baseUrl; ?>usermanagement.php"; 
         },
         complete: function(data) {
+          console.log(data);
             var res = data.responseJSON;
             if (data.status == 200) {
                 console.log("login success");
@@ -103,13 +135,17 @@ function login() {
             if (res.message == "Login credentials are invalid.") {
                 alert("Login credentials are invalid. Please enter valid credentials");
             }
-            localStorage.setItem("token", res.token);
-            localStorage.setItem("expireIn", res.expires_in);
+            localStorage.setItem("token", res.access_token);
+            // localStorage.setItem("expireIn", res.expires_in);
             console.log("login successfully");
         },
         error: function(data) {
             console.log(data, "data");
-
+            var res = data.responseJSON;
+            if (data.status == 401) {
+                console.log("invalid credentials");
+                alert(" Please enter valid credentials..!");
+            }
         }
     });
 }

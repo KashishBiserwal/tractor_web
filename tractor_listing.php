@@ -52,7 +52,7 @@
                                     <div class="col-12 col-sm-6 col-lg-6 col-md-6">
                                       <div class="form-group col-12">
                                         <input type="text" class="" placeholder=" " id="brand">
-                                        <label for="name" class="text-dark">Brand Name</label>
+                                        <label for="name" class="text-dark">Model Name</label>
                                       </div>
                                     </div>
                                     <div class="col-12 col-sm-4 col-lg-4 col-md-4">
