@@ -36,7 +36,7 @@
                   <div class="modal-dialog  modal-dialog-centered">
                     <div class="modal-content modal_box">
                       <div class="modal-header modal_head">
-                        <h5 class="modal-title text-white fw-bold" id="staticBackdropLabel">Add HaatBazaar Items</h5>
+                        <h5 class="modal-title text-white fw-bold" id="staticBackdropLabel">Add HaatBazaar Category</h5>
                         <button type="button" class="btn-close btn-success" data-bs-dismiss="modal" aria-label="Close"></button>
                       </div>
                       <div class="modal-body bg-light">
@@ -67,9 +67,54 @@
                     </div>
                   </div>
                 </div>
-                <button type="button" id="add_trac" class="btn add_btn bg-success" data-bs-toggle="modal"  data-bs-target="#staticBackdrop">
+                <!-- subcategory -->
+                <button type="button" id="add_trac" class="btn add_btn bg-success" data-bs-toggle="modal"  data-bs-target="#staticBackdrop2">
                   <i class="fa fa-plus" aria-hidden="true"></i>Sub-Category
                 </button>
+                <div class="modal fade" id="staticBackdrop2" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                  <div class="modal-dialog  modal-dialog-centered">
+                    <div class="modal-content modal_box">
+                      <div class="modal-header modal_head">
+                        <h5 class="modal-title text-white fw-bold" id="staticBackdropLabel">Add HaatBazaar Sub-Category</h5>
+                        <button type="button" class="btn-close btn-success" data-bs-dismiss="modal" aria-label="Close"></button>
+                      </div>
+                      <div class="modal-body bg-light">
+                              <div class="row justify-content-center">
+                                  <div class="col-12">
+                                    <h5 class="text-center">Fill Sub-Category Details</h5>
+                                  <form>
+                                      <div class="row justify-content-center">
+                                          <div class="col-12 mt-3">
+                                            <label class="text-dark">Select Category</label>
+                                            <select class="form-select py-2" aria-label="Default select example">
+                                              <option selected>Select Category</option>
+                                              <option value="1">Vegitable</option>
+                                              <option value="2">Fruits</option>
+                                              <option value="2">Grains</option>
+                                              <option value="2">Pulses</option>
+                                            </select>
+                                          </div>
+                                          <div class="col-12 mt-3">
+                                            <div class="form-group">
+                                              <input type="text" class="py-2" placeholder=" " id="model">
+                                              <label for="name" class="text-dark">Enter Sub-Category</label>
+                                            </div>
+                                          </div>
+                                         
+                                      </div>
+                                      <button type="button" class="btn btn-success fw-bold px-3">Submit</button>
+
+                                  </form>
+                                  </div>
+                              </div>
+                          </div>
+                        <!-- <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary px-3" data-bs-dismiss="modal">Close</button>
+                        
+                      </div> -->
+                    </div>
+                  </div>
+                </div>
                 <button type="button" id="add_trac" class="btn add_btn bg-success" data-bs-toggle="modal"  data-bs-target="#staticBackdrop">
                   <i class="fa fa-plus" aria-hidden="true"></i>Haatbazaar Items
                 </button>

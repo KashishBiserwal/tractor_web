@@ -124,19 +124,18 @@ function login() {
         type: "POST",
         data: paraArr,
         success: function(result) {
-          window.location.href = "<?php echo $baseUrl; ?>usermanagement.php"; 
+        
         },
         complete: function(data) {
           console.log(data);
             var res = data.responseJSON;
             if (data.status == 200) {
                 console.log("login success");
+                window.location.href = "<?php echo $baseUrl; ?>usermanagement.php"; 
             }
-            if (res.message == "Login credentials are invalid.") {
-                alert("Login credentials are invalid. Please enter valid credentials");
-            }
+           
             localStorage.setItem("token", res.access_token);
-            // localStorage.setItem("expireIn", res.expires_in);
+            localStorage.setItem("expireIn", res.expires_in);
             console.log("login successfully");
         },
         error: function(data) {

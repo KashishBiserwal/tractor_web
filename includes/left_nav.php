@@ -22,6 +22,16 @@
           </ul>
         </div>
 
+        <button class="d-inline-flex fw-bold text-white w-100 my-1 admin-collapse align-items-center rounded" data-bs-toggle="collapse" data-bs-target="#about-lookup" aria-expanded="true">
+        <i class="fas fa-list-alt pe-3"></i>Lookup listing <span class="ps-2"> <i class="fa-solid fa-caret-down"></i></span>
+        </button>
+        <div class="collapse px-2" id="about-lookup">
+          <ul class="list-unstyled fw-normal small">
+              <li class="py-1 ps-3"><a href="lookupvalue.php" class="d-inline-flex align-items-center text-white   text-decoration-none rounded">lookup Values</a></li>
+              <li class="py-1 ps-3"><a href="lookupdata.php" class="d-inline-flex align-items-center text-white  text-decoration-none rounded">Lookup Data</a></li>
+          </ul>
+        </div>
+
         <button class=" d-inline-flex fw-bold text-white w-100 my-1 admin-collapse align-items-center rounded" data-bs-toggle="collapse" data-bs-target="#about-collapselist" aria-expanded="true">
         <i class="fa-solid fa-list pe-3"></i>  Product Listings <span class="ps-2"> <i class="fa-solid fa-caret-down"></i></span>
         </button>
