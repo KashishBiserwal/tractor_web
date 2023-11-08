@@ -1577,3 +1577,14 @@ input[type="checkbox"]:checked + label:before {
   margin-left: 28px;
 } */
 
+/* .compare::after{
+  content: "";
+  background-image: url(../images/versus.jpg);
+  background-repeat: no-repeat;
+  top: 0;
+  position: absolute;
+  width: 20%;
+  right: 0;
+  height: 105%;
+  opacity: 0.2px;
+} */

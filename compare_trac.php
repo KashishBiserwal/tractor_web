@@ -119,61 +119,62 @@
   </section>
 
   <!-- Compare To Buy The Right Tractor  -->   <!--WITH THE "TABS"-->
-  <section>
+
+  <section class="">
     <div class="container bg-light">
-      <ul class="nav nav-tabs">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Under 20 HP</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link active" href="#">21-30</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link active" href="#">31-40</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link active" href="#">41-45</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link active" href="#">46-50</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link active" href="#">Above 50</a>
-        </li>
-      </ul>
-    </div>
-  </section>
-  <!-- CONTENT IN THE TABS -->
-  <section>
-    <div class="container">
-    <div class="col-12 col-lg-3 col-sm-3 col-md-3 mt-2 mb-2">
-            <div class="success__stry__item shadow h-100">
-              <div class="thumb">
-                <a href="#">
-                  <div class="">
-                    <img src="assets\images\mqdefault 1.jpg" class="object-fit-cover p-3 w-100" alt="img">
+      <h3 class="my-3 pt-3 fw-bold mb-4">Compare To Buy The Right Tractor</h3>
+      <nav class="">
+        <div class="nav nav-tabs w-100" id="nav-tab" role="tablist">
+          <a class="nav-link active px-3 py-3 h5 fw-bold text-dark py-2" type="button" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Under 20 HP</a>
+          <a class="nav-link px-3 py-3 h5 fw-bold text-dark" id="nav-contact-tab" type="button" data-bs-toggle="tab" data-bs-target="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">21-30 HP</a>
+          <a class="nav-link px-3 py-3 h5 fw-bold text-dark" id="nav-contact-tab" type="button" data-bs-toggle="tab" data-bs-target="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">31-40 HP</a>
+          <a class="nav-link px-3 py-3 h5 fw-bold text-dark" id="nav-Personal-tab" type="button" data-bs-toggle="tab" data-bs-target="#nav-Personal" role="tab" aria-controls="nav-Personal" aria-selected="false">41-45 HP</a>
+          <a class="nav-link px-3 py-3 h5 fw-bold text-dark" id="nav-Personal-tab" type="button" data-bs-toggle="tab" data-bs-target="#nav-Personal" role="tab" aria-controls="nav-Personal" aria-selected="false">46-50 HP</a>
+          <a class="nav-link px-3 py-3 h5 fw-bold text-dark" id="nav-Personal-tab" type="button" data-bs-toggle="tab" data-bs-target="#nav-Personal" role="tab" aria-controls="nav-Personal" aria-selected="false">Above 50 HP</a>
+        </div>       
+      </nav>
+      <div class="col-12 col-lg-4 col-sm-4 col-md-4 mt-2 mb-2">
+            <div class="compare shadow h-100">
+              <div class="row">
+                <div class="col-12 col-md-6 col-lg-6 col-sm-6">
+                  <div class="thumb">
+                    <a href="#">
+                      <div class="">
+                        <img src="assets\images\mqdefault 1.jpg" class="object-fit-cover w-100" alt="img">
+                      </div>
+                    </a>
                   </div>
-                </a>
-              </div>
-              <div class="content mb-3 pb-3 ms-3">
-                <a href="#" class="text-decoration-none text-dark ">
-                  <h4 class="fs-6 mt-1">Compare Tractors 5060e and 6010...</h3>
-                </a>
-                <a href="#" class="text-decoration-none fs-6 text-dark">
-                  <span class="">-23 jun 2020 </span>                  
-                </a>
-              </div>
+                  <div class="content mb-3 pb-3">
+                    <a href="#" class="text-decoration-none text-dark ">
+                      <h4 class="fs-6 mt-1">Mahindra</h3>
+                    </a>
+                    <a href="#" class="text-decoration-none fs-6 text-dark">
+                      <span class="">-23 jun 2020 </span>                  
+                    </a>
+                  </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-6 col-sm-6">
+                  <div class="thumb">
+                    <a href="#">
+                      <div class="position-relative">
+                        <img src="assets\images\mqdefault 1.jpg" class="object-fit-cover w-100" alt="img">
+                    </div>
+                    </a>
+                  </div>
+                  <div class="content mb-3 pb-3 ms-3">
+                    <a href="#" class="text-decoration-none text-dark ">
+                      <h4 class="fs-6 mt-1">Compare Tractors 5060e and 6010...</h3>
+                    </a>
+                    <a href="#" class="text-decoration-none fs-6 text-dark">
+                      <span class="">-23 jun 2020 </span>                  
+                    </a>
+                  </div>
+                </div>
+              </div>             
             </div>
           </div> 
-    </div>
+        </div>
   </section>
-
-
-
-
-
-
-
 
 
 

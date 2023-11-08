@@ -16,7 +16,7 @@
       <div class="container pt-4">
         <div class="">
           <span class="mt-5 text-white pt-5 ">
-              <a href="index.php" class="text-decoration-none header-link px-1">Home <i class="fa-solid fa-chevron-right px-1"></i></a>
+            <a href="index.php" class="text-decoration-none header-link px-1">Home <i class="fa-solid fa-chevron-right px-1"></i></a>
          </span>
          <span class="text-dark"> All News</span>
           </span> 
@@ -24,9 +24,9 @@
       </div>
     </section>
   <section>
-  <div class="marquee_tag my-1">
-  <marquee behavior=" scroll" class="py-2"direction="" scrollamount="10"><b> 90% छूट पर ले जाएं कॉम्पैक्ट सोलर पंप, ऐसे करें आवेदन | 3 से 10 एचपी के सोलर पंप पर मिल रही है बंपर सब्सिडी, यहां करें आवेदन | Domestic Tractor Sales Report October 2023 - Sales Dropped by 3.93%, 118232 Units Sold | स्क्वायर बेलर मशीन पर मिल रही है 6,25,000 रुपए की सब्सिडी, यहां करें आवेदन | लाड़ली बहना योजना : धनतेरस पर महिलाओं को मिलेगा दिवाली का गिफ्ट, खाते में आएंगे पैसे</b></marquee>
-  </div>
+    <div class="marquee_tag my-1">
+      <marquee behavior=" scroll" class="py-2"direction="" scrollamount="10"><b> 90% छूट पर ले जाएं कॉम्पैक्ट सोलर पंप, ऐसे करें आवेदन | 3 से 10 एचपी के सोलर पंप पर मिल रही है बंपर सब्सिडी, यहां करें आवेदन | Domestic Tractor Sales Report October 2023 - Sales Dropped by 3.93%, 118232 Units Sold | स्क्वायर बेलर मशीन पर मिल रही है 6,25,000 रुपए की सब्सिडी, यहां करें आवेदन | लाड़ली बहना योजना : धनतेरस पर महिलाओं को मिलेगा दिवाली का गिफ्ट, खाते में आएंगे पैसे</b></marquee>
+    </div>
     <!-- All News Section -->
     <div class="container" id="an">       
         <div class="row py-1">
