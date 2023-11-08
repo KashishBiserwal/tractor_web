@@ -39,7 +39,7 @@
                                                           <div class="input-group-prepend">
                                                             <div class="input-group-text py-3"><i class="fas fa-eye-slash" id="eyeeye"></i></div>
                                                           </div>
-                                                          <input type="password" class="form-control py-2" for="password" id="password" placeholder="Enter Password">
+                                                          <input type="password" class="form-control pb-2" for="password" id="password" placeholder="Enter Password">
                                                         </div>
                                               </div>
                                               <div class="col-12 text-center">

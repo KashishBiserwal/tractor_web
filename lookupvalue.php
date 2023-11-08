@@ -36,19 +36,18 @@
                               <div class="row justify-content-center">
                                   <div class="col-12">
                                     <h5 class="text-center">Fill Details</h5>
-                                  <form>
+                                    <form id="form">
                                       <div class="row justify-content-center">
-                                        
                                           <div class="col-12 mt-3">
-                                            <div class="form-group">
-                                              <input type="text" class="py-3" placeholder=" " id="brand">
-                                              <label for="name" class="text-dark">Add Value</label>
+                                            <div class="">
+                                                <label class="text-dark"> Lookup Value<span class="text-danger">*</span></label>
+                                                <input type="text" class="form-control py-2" id="name" for="name" name="name" placeholder="Enter Value">
                                             </div>
                                           </div>
                                       </div>
-                                      <button type="button" class="btn btn-success fw-bold px-3">Submit</button>
-
-                                  </form>
+                                      <!-- <button type="button" id="" class="btn btn-success fw-bold px-3">Submit</button> -->
+                                      <button type="submit" class="btn px-4 bg-success" id="login">Submit</button>
+                                    </form>
                                   </div>
                               </div>
                           </div>
@@ -77,7 +76,7 @@
                     <div class="col-12 col-sm-12 col-md-4 col-lg-4">
                         <div class="form-outline">
                             <label class="form-label">Search by Any Field</label>
-                            <input type="text" id="name"  name="search_name" class=" data_search form-control input-group-sm" />
+                            <input type="text" id="namesearch"  name="search_name" class=" data_search form-control input-group-sm" />
                         </div>
                     </div>
                     <div class="col-12 col-sm-12 col-md-8 col-lg-8">
@@ -98,7 +97,7 @@
                                             <th class="d-none d-md-table-cell text-white">Action</th>
                                         </tr>
                                     </thead>
-                                    <tbody>
+                                    <tbody id="data-table">
                                     </tbody>
                                 </table>
                             </div>
@@ -114,3 +113,137 @@
 <?php
    include 'includes/footertag.php';
    ?> 
+   <script>
+    $(document).ready(function() {
+
+$("#form").validate({
+  rules:{
+    name:"required"
+},
+messages:{
+    name:"Field is required"
+}
+
+});
+
+$('#login').click(store);
+  });
+
+  function store(event) {
+    // Get values from form fields
+    event.preventDefault();
+    console.log('jfhfhw');
+    var lookup_type = $('#name').val();
+
+    // Prepare data to send to the server
+    var paraArr = {
+      'lookup_type': lookup_type
+    };
+
+    // Define the URL where you want to send the data
+    var url = "<?php echo $APIBaseURL; ?>LookupType";
+    console.log(url);
+
+    // You may need to include headers, but you should ensure they are properly configured
+    var token = localStorage.getItem('token');
+    var headers = {
+      'Authorization': 'Bearer ' + token
+    };
+
+    // Make an AJAX request to the server
+    $.ajax({
+      url: url,
+      type: "POST",
+      data: paraArr,
+      headers: headers,
+      success: function (result) {
+        console.log(result, "result");
+        // Redirect to a success page or perform other actions
+        window.location.href = "<?php echo $baseUrl; ?>lookupvalue.php"; 
+        console.log("Add successfully");
+        alert('successfully inserted..!')
+      },
+      error: function (error) {
+        console.error('Error fetching data:', error);
+      }
+    });
+  }
+
+
+  function get() {
+    var url = "<?php echo $APIBaseURL; ?>LookupType";
+    $.ajax({
+        url: url,
+        type: "GET",
+        headers: {
+            'Authorization': 'Bearer ' + localStorage.getItem('token')
+        },
+        success: function (data) {
+          console.log(data);
+            const tableBody = document.getElementById('data-table');
+            tableBody.innerHTML = ''; // Clear previous data
+
+            
+
+            if (data.lookup_type.length > 0) {
+          console.log(typeof data.lookup_type);
+
+                // Loop through the data and create table rows
+                data.lookup_type.map(row => {
+                  console.log(row);
+                    const tableRow = document.createElement('tr');
+                    tableRow.innerHTML = `
+                        <td>${row.id}</td>
+                        <td>${row.name}</td>
+                        <td><div class="d-flex"><button class="btn btn-danger btn-sm mx-1" id="delete_user" onclick="destroy(${row.id});"><i class="fa fa-trash" style="font-size: 11px;"></i></button></div></td>
+                    `;
+                    tableBody.appendChild(tableRow);
+                });
+            } else {
+                // Display a message if there's no valid data
+                tableBody.innerHTML = '<tr><td colspan="7">No valid data available</td></tr>';
+            }
+        },
+        error: function (error) {
+            console.error('Error fetching data:', error);
+            // Display an error message or handle the error as needed
+        }
+    });
+}
+get();
+
+function destroy(id) {
+  var url = "<?php echo $APIBaseURL; ?>LookupType/" + id;
+  var token = localStorage.getItem('token');
+  
+  if (!token) {
+    console.error("Token is missing");
+    return;
+  }
+
+  $.ajax({
+    url: url,
+    type: "DELETE",
+    headers: {
+      'Authorization': 'Bearer ' + token
+    },
+    success: function(result) {
+      // window.location.reload();
+      get();
+      console.log("Delete request successful");
+      alert("Delete operation successful");
+    },
+    error: function(error) {
+      console.error('Error fetching data:', error);
+      alert("Error during delete operation");
+    }
+  });
+}
+
+$(".data_search").on("keyup", function() {
+  var value = $(this).val().toLowerCase();
+  $("#data-table tr").filter(function() {
+    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+  });
+});
+   </script>

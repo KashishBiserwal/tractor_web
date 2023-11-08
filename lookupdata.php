@@ -35,17 +35,23 @@
                       <div class="modal-body bg-light">
                               <div class="row justify-content-center">
                                   <div class="col-12">
-                                    <h5 class="text-center">Fill  Details</h5>
+                                    <h5 class="text-center">Fill Details</h5>
                                   <form>
                                       <div class="row justify-content-center">
                                         <div class="col-12 col-sm-12 col-md-12 col-lg-12">
                                             <div class="form-outline">
                                                 <!-- <input type="text" id="search_email" name="search_email" class="form-control" /> -->
                                                 <select class="form-select py-2" aria-label="Default select example">
-                                                    <option selected>Select Brand</option>
-                                                    <option value="1">Mahindra</option>
-                                                    <option value="2">Swaraj</option>
-                                                    <option value="3">John Deere</option>
+                                                <?php
+                                                    $query=mysqli_query();
+
+                                                    while($row=mysqli_fetch_array($query)){
+                                                    ?>
+
+                                                    <option value="<?php  echo($row['id'])?>"> <?php echo($row['clg_name']) ?></option>
+                                                    <?php
+                                                    }
+                                                    ?>
                                                 </select>
                                             </div>
                                         </div>
