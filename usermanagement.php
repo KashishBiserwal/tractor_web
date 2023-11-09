@@ -214,10 +214,10 @@
                     <th class="d-none d-md-table-cell text-white py-2">Action</th>
                   </tr>
                 </thead>
-              <tbody id="data-table">
-              </tbody>
-            </table>
-          </div>
+                <tbody id="data-table">
+                </tbody>
+              </table>
+            </div>
         </div>
     </div>
    </section>

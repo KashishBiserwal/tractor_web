@@ -28,79 +28,75 @@
                 <h3 class="py-2">Find Your <span class="text-success fw-bold"> Nursery Items</span> </h3>
                 <div class="row my-4">
                     <div class="col-12 col-lg-4 col-md-4 col-sm-4 mb-4">
-                        <div class="h-auto success__stry__item d-flex flex-column text-decoration-none shadow ">
+                        <a href="nursery_inner.php" class="h-auto success__stry__item d-flex flex-column text-decoration-none shadow ">
                             <div class="thumb">
                                 <div>
-                                    <a href="nursery_inner.php" class="ratio ratio-16x9">
-                                        <img src="assets/images/merigold.webp" class="object-fit-cover " alt="img">
-                                    </a>
+                                    <img src="assets/images/40009999.webp" class="object-fit-cover " alt="img">
                                 </div>
                             </div>
                             <div class="content d-flex flex-column flex-grow-1 ">
                                 
                                 <div class="power text-center mt-3">
-                                    <div class="row ">
-                                        <div class="col-12 col-lg-6 col-md-6 col-sm-6"><p class="text-success ps-2"> <i class="fa fa-leaf" aria-hidden="true"></i> Flower</p></div>
-                                        <div class="col-12 col-lg-6 col-md-6 col-sm-6" style="padding-right: 32px;">
-                                             <a href="nursery_inner.php"  id="adduser" type="" class="text-danger fw-bold text-decoration-none"> Merigold</a>
-                                        </div>
-                                    </div>    
-                                </div>
                                 <div class="row text-center">
-                                    <div class="col-12f text-center">
-                                        <p class="fw-bold pe-3 text-primary">Ambikapur(C.G)</p>
+                                    <div class="col-12 text-center">
+                                        <p class="fw-bold pe-3 text-primary">Kartar 4000</p>
                                     </div>
                                 </div>
-                                <div class="col-12 btn-success">
-                                    <button type="button" class="btn btn-success py-2 w-100" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="fa-solid fa-phone"></i> 
-                                    Contact Seller
-                                    </button>
+                                    <div class="row ">
+                                        <div class="col-12 "><p class="text-dark ps-2">Cutting Width : 14 Feet</p></div>
+                                        
+                                    </div>    
                                 </div>
-
+                            </div>
+                            
+                        </a>
+                        <div class="col-12 btn-success">
+                            <button type="button" class="btn btn-success py-2 w-100" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="fa-solid fa-phone"></i> 
+                                Contact Seller
+                            </button>
+                        </div>
                                 <!-- Modal -->
-                                <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                                    <div class="modal-dialog modal-lg modal-dialog-centered">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title text-danger" id="staticBackdropLabel">Contact Seller</h5>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                            </div>
-                                            <div class="modal-body">
-                                                <div class="model-cont">
-                                                    <h4 class="text-center text-danger">Request to Call</h3>
-                                                    <div class="row px-3 py-2">
-                                                        <div class="col-12  col-sm-12 col-md-6 col-lg-6 ">
-                                                            <label for="slr_name" class="form-label fw-bold text-dark">  Seller Name</label>
-                                                            <input type="text" class="form-control"  id="slr_name">
-                                                        </div>
-                                                        <div class="col-12 col-sm-12 col-md-6 col-lg-6  ">
-                                                            <label for="number" class="form-label text-dark fw-bold">  Phone Number</label>
-                                                            <input type="text" class="form-control" id="number">
-                                                        </div>
-                                                        <div class="col-12 col-sm-12 col-md-6 col-lg-6  ">
-                                                            <label for="number" class="form-label text-dark fw-bold"> State</label>
-                                                                <select class="form-select py-2 " aria-label=".form-select-lg example">
-                                                                    <option selected>Select State</option>
-                                                                    <option value="1">Chhattisgarh</option>
-                                                                    <option value="2">Other</option>
-                                                                </select>
-                                                        </div>
-                                                        <div class="col-12 col-sm-12 col-md-6 col-lg-6  ">
-                                                            <label for="number" class="form-label text-dark fw-bold"> District</label>
-                                                            <select class="form-select py-2 " aria-label=".form-select-lg example">
-                                                                <option selected>Select District</option>
-                                                                <option value="1">Mungeli</option>
-                                                                <option value="2">Durg</option>
-                                                            </select>
-                                                        </div>
-                                                    </div>
+                            <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-lg modal-dialog-centered">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title text-danger" id="staticBackdropLabel">Contact Seller</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="model-cont">
+                                            <h4 class="text-center text-danger">Request to Call</h3>
+                                            <div class="row px-3 py-2">
+                                                <div class="col-12  col-sm-12 col-md-6 col-lg-6 ">
+                                                    <label for="slr_name" class="form-label fw-bold text-dark">  Seller Name</label>
+                                                    <input type="text" class="form-control"  id="slr_name">
+                                                </div>
+                                                <div class="col-12 col-sm-12 col-md-6 col-lg-6  ">
+                                                    <label for="number" class="form-label text-dark fw-bold">  Phone Number</label>
+                                                    <input type="text" class="form-control" id="number">
+                                                </div>
+                                                <div class="col-12 col-sm-12 col-md-6 col-lg-6  ">
+                                                    <label for="number" class="form-label text-dark fw-bold"> State</label>
+                                                    <select class="form-select py-2 " aria-label=".form-select-lg example">
+                                                        <option selected>Select State</option>
+                                                        <option value="1">Chhattisgarh</option>
+                                                        <option value="2">Other</option>
+                                                    </select>
+                                                </div>
+                                                <div class="col-12 col-sm-12 col-md-6 col-lg-6  ">
+                                                    <label for="number" class="form-label text-dark fw-bold"> District</label>
+                                                    <select class="form-select py-2 " aria-label=".form-select-lg example">
+                                                        <option selected>Select District</option>
+                                                        <option value="1">Mungeli</option>
+                                                        <option value="2">Durg</option>
+                                                    </select>
                                                 </div>
                                             </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                                <button type="button" class="btn btn-danger">Request</button>
-                                            </div>
                                         </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                        <button type="button" class="btn btn-danger">Request</button>
                                     </div>
                                 </div>
                             </div>
