@@ -63,24 +63,24 @@
 <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
 <script>
 $(document).ready(function() {
-    $("#form").validate({
-        rules: {
-            email: {
-                required: true,
-                email: true
-            },
-            password: {
-                required: true
-            }
-        },
-        messages: {
-            email: "Please Enter Your Email id",
-            password: "Please provide a valid password"
-        },
-        submitHandler: function(form) {
-            // login();
-        }
-    });
+    // $("#form").validate({
+    //     rules: {
+    //         email: {
+    //             required: true,
+    //             email: true
+    //         },
+    //         password: {
+    //             required: true
+    //         }
+    //     },
+    //     messages: {
+    //         email: "Please Enter Your Email id",
+    //         password: "Please provide a valid password"
+    //     },
+    //     submitHandler: function(form) {
+    //         login();
+    //     }
+    // });
 
     // if (document.getElementById('login')) {
     //     document.getElementById('login').addEventListener('click', function(event) {
