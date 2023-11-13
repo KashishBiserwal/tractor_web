@@ -71,7 +71,7 @@
                                         <label for="name" class="text-dark ">Contact Number</label>
                                       </div>
                                     </div>
-                                    <div class="col-12my-1">
+                                    <div class="col-12 my-1">
                                       <div class="form-group">
                                         <input type="text" class="py-5" placeholder=" " id="model_name">
                                         <label for="name" class="text-dark">Address</label>
@@ -79,7 +79,7 @@
                                     </div>
                                     
                                     
-                                    <div class="col-12 col-lg-3 col-md-3 col-sm-3  my-1">
+                                    <div class="col-12 col-lg-4 col-md-4 col-sm-4  my-1">
                                       <div class="form-group">
                                         <label for="name" class="text-dark "></label>
                                         <select class="form-select py-3" aria-label="Default select example">
@@ -89,7 +89,7 @@
                                         </select>
                                       </div>
                                     </div>
-                                    <div class="col-12 col-lg-3 col-md-3 col-sm-3  my-1">
+                                    <div class="col-12 col-lg-4 col-md-4 col-sm-4  my-1">
                                       <div class="form-group">
                                         <label for="name" class="text-dark "></label>
                                         <select class="form-select py-3" aria-label="Default select example">
@@ -99,7 +99,7 @@
                                         </select>
                                       </div>
                                     </div>
-                                    <div class="col-12 col-lg-3 col-md-3 col-sm-3  my-1">
+                                    <div class="col-12 col-lg-4 col-md-4 col-sm-4  my-1">
                                       <div class="form-group">
                                         <label for="name" class="text-dark "></label>
                                         <select class="form-select py-3" aria-label="Default select example">
@@ -151,7 +151,7 @@
                 </select>
               </div>
             </div>
-            <div class="col-12 col-sm-12 col-md-4 col-lg-4">
+            <!-- <div class="col-12 col-sm-12 col-md-4 col-lg-4">
               <div class="form-outline">
                 <label class="form-label">State</label>
                 <select class="form-select py-2" aria-label="Default select example">
@@ -160,7 +160,7 @@
                     <option value="2">Others</option>
                 </select>
               </div>
-            </div>
+            </div> -->
             <div class="col-12 col-sm-12 col-md-4 col-lg-4">
               <div class="form-outline">
                 <label class="form-label">District</label>

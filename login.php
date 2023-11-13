@@ -39,11 +39,11 @@
                                                           <div class="input-group-prepend">
                                                             <div class="input-group-text py-3"><i class="fas fa-eye-slash" id="eyeeye"></i></div>
                                                           </div>
-                                                          <input type="password" class="form-control pb-2" for="password" id="password" placeholder="Enter Password">
+                                                          <input type="password" class="form-control pb-3" for="password" id="password" placeholder="Enter Password">
                                                         </div>
                                               </div>
                                               <div class="col-12 text-center">
-                                                <button type="submit" class="btn px-4 bg-success" id="login">Login</button>
+                                                <a href="usermanagement.php" type="submit" class="btn px-4 bg-success" id="login">Login</a>
                                               </div>
                                               <div class="col-12 text-center">
                                                   <a href="#" class="text-success text-decoration-none">Forgot Password?</a>
@@ -78,16 +78,16 @@ $(document).ready(function() {
             password: "Please provide a valid password"
         },
         submitHandler: function(form) {
-            login();
+            // login();
         }
     });
 
-    if (document.getElementById('login')) {
-        document.getElementById('login').addEventListener('click', function(event) {
-            event.preventDefault();
-            $("#form").submit();
-        });
-    }
+    // if (document.getElementById('login')) {
+    //     document.getElementById('login').addEventListener('click', function(event) {
+    //         event.preventDefault();
+    //         $("#form").submit();
+    //     });
+    // }
 });
 
 $(function(){
@@ -112,41 +112,41 @@ $(function(){
         }
     });
 });
-function login() {
-    var email = document.getElementById('email').value;
-    var password = document.getElementById('password').value;
-    var paraArr = {};
-    paraArr['email'] = email;
-    paraArr['password'] = password;
-    var url = "<?php echo $APIBaseURL; ?>user_login";
-    $.ajax({
-        url: url,
-        type: "POST",
-        data: paraArr,
-        success: function(result) {
+// function login() {
+//     var email = document.getElementById('email').value;
+//     var password = document.getElementById('password').value;
+//     var paraArr = {};
+//     paraArr['email'] = email;
+//     paraArr['password'] = password;
+//     var url = "<?php echo $APIBaseURL; ?>user_login";
+//     $.ajax({
+//         url: url,
+//         type: "POST",
+//         data: paraArr,
+//         success: function(result) {
         
-        },
-        complete: function(data) {
-          console.log(data);
-            var res = data.responseJSON;
-            if (data.status == 200) {
-                console.log("login success");
-                window.location.href = "<?php echo $baseUrl; ?>usermanagement.php"; 
-            }
+//         },
+//         complete: function(data) {
+//           console.log(data);
+//             var res = data.responseJSON;
+//             if (data.status == 200) {
+//                 console.log("login success");
+//                 window.location.href = "<?php echo $baseUrl; ?>usermanagement.php"; 
+//             }
            
-            localStorage.setItem("token", res.access_token);
-            localStorage.setItem("expireIn", res.expires_in);
-            console.log("login successfully");
-        },
-        error: function(data) {
-            console.log(data, "data");
-            var res = data.responseJSON;
-            if (data.status == 401) {
-                console.log("invalid credentials");
-                alert(" Please enter valid credentials..!");
-            }
-        }
-    });
-}
+//             localStorage.setItem("token", res.access_token);
+//             localStorage.setItem("expireIn", res.expires_in);
+//             console.log("login successfully");
+//         },
+//         error: function(data) {
+//             console.log(data, "data");
+//             var res = data.responseJSON;
+//             if (data.status == 401) {
+//                 console.log("invalid credentials");
+//                 alert(" Please enter valid credentials..!");
+//             }
+//         }
+//     });
+// }
 </script>
 </html>
