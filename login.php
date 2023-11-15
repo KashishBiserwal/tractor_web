@@ -43,7 +43,7 @@
                                                         </div>
                                               </div>
                                               <div class="col-12 text-center">
-                                                <a href="usermanagement.php" type="submit" class="btn px-4 bg-success" id="login">Login</a>
+                                                <a href="" type="submit" class="btn px-4 bg-success" id="login">Login</a>
                                               </div>
                                               <div class="col-12 text-center">
                                                   <a href="#" class="text-success text-decoration-none">Forgot Password?</a>
@@ -63,31 +63,31 @@
 <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
 <script>
 $(document).ready(function() {
-    // $("#form").validate({
-    //     rules: {
-    //         email: {
-    //             required: true,
-    //             email: true
-    //         },
-    //         password: {
-    //             required: true
-    //         }
-    //     },
-    //     messages: {
-    //         email: "Please Enter Your Email id",
-    //         password: "Please provide a valid password"
-    //     },
-    //     submitHandler: function(form) {
-    //         login();
-    //     }
-    // });
+    $("#form").validate({
+        rules: {
+            email: {
+                required: true,
+                email: true
+            },
+            password: {
+                required: true
+            }
+        },
+        messages: {
+            email: "Please Enter Your Email id",
+            password: "Please provide a valid password"
+        },
+        submitHandler: function(form) {
+            login();
+        }
+    });
 
-    // if (document.getElementById('login')) {
-    //     document.getElementById('login').addEventListener('click', function(event) {
-    //         event.preventDefault();
-    //         $("#form").submit();
-    //     });
-    // }
+    if (document.getElementById('login')) {
+        document.getElementById('login').addEventListener('click', function(event) {
+            event.preventDefault();
+            $("#form").submit();
+        });
+    }
 });
 
 $(function(){
@@ -112,8 +112,45 @@ $(function(){
         }
     });
 });
+function login() {
+    var email = document.getElementById('email').value;
+    var password = document.getElementById('password').value;
+    var paraArr = {};
+    paraArr['email'] = email;
+    paraArr['password'] = password;
+    var url = "<?php echo $APIBaseURL; ?>user_login";
+    $.ajax({
+        url: url,
+        type: "POST",
+        data: paraArr,
+        success: function(result) {
+        
+        },
+        complete: function(data) {
+          console.log(data);
+            var res = data.responseJSON;
+            if (data.status == 200) {
+                console.log("login success");
+                window.location.href = "<?php echo $baseUrl; ?>usermanagement.php"; 
+            }
+           
+            localStorage.setItem("token", res.access_token);
+            localStorage.setItem("expireIn", res.expires_in);
+            // console.log("login successfully");
+        },
+        error: function(data) {
+            console.log(data, "data");
+            var res = data.responseJSON;
+            if (data.status == 401) {
+                console.log("invalid credentials");
+                alert(" Please enter valid credentials..!");
+            }
+        }
+    });
+}
+
 // function login() {
-//     var email = document.getElementById('email').value;
+//   var email = document.getElementById('email').value;
 //     var password = document.getElementById('password').value;
 //     var paraArr = {};
 //     paraArr['email'] = email;
@@ -124,19 +161,23 @@ $(function(){
 //         type: "POST",
 //         data: paraArr,
 //         success: function(result) {
-        
+//             // Handle successful login if needed
 //         },
 //         complete: function(data) {
-//           console.log(data);
+//             console.log(data);
 //             var res = data.responseJSON;
 //             if (data.status == 200) {
 //                 console.log("login success");
-//                 window.location.href = "<?php echo $baseUrl; ?>usermanagement.php"; 
+//                 window.location.href = "<?php echo $baseUrl; ?>usermanagement.php";
+//             } else {
+//                 localStorage.setItem("token", res.access_token);
+//                 localStorage.setItem("expireIn", res.expires_in);
+                
+//                 if (res.token_expire) {
+//                     console.log("Token expired. Redirecting to login page.");
+//                     window.location.href = "<?php echo $baseUrl; ?>login.php";
+//                 }
 //             }
-           
-//             localStorage.setItem("token", res.access_token);
-//             localStorage.setItem("expireIn", res.expires_in);
-//             console.log("login successfully");
 //         },
 //         error: function(data) {
 //             console.log(data, "data");
@@ -148,5 +189,6 @@ $(function(){
 //         }
 //     });
 // }
+
 </script>
 </html>

@@ -357,18 +357,18 @@
             'Authorization': 'Bearer ' + localStorage.getItem('token')
         },
         success: function (data) {
-          console.log(data);
+          // console.log(data);
             const tableBody = document.getElementById('data-table');
             tableBody.innerHTML = ''; // Clear previous data
 
             let users=data.user;
 
             if (users.length > 0) {
-          console.log(typeof users);
+          // console.log(typeof users);
 
                 // Loop through the data and create table rows
                 users.map(row => {
-                  console.log(row);
+                  // console.log(row);
                     const tableRow = document.createElement('tr');
                     let originalDate= new Date(row.created_at);
 

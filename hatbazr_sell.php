@@ -93,18 +93,9 @@
                                           </select>
                                       </div>
                                     </div>
-                                    <div class="col-12 col-sm-12 col-md-7 col-lg-7 ">
+                                    <div class="col-12 ">
                                        <div class="input-group">
-                                          <input type="number" class="form-control text-black" placeholder="Quantity" aria-label="Text input with dropdown button">
-                                          <!-- <select class="dropdown-menu dropdown-menu-end btn btn-outline-secondary dropdown-toggle"type="" data-bs-toggle="dropdown" aria-expanded="false">
-                                             <option class="dropdown-item" href="#">As per</option>
-                                             <option class="dropdown-item" href="#">gram</option>
-                                             <option class="dropdown-item" href="#">Kg</option>
-                                             <option class="dropdown-item" href="#">Quintal</option>
-                                             <option class="dropdown-item" href="#">Ton</option>
-                                             <option class="dropdown-item" href="#">Pack</option>
-                                             <option class="dropdown-item" href="#">Unit</option>
-                                          </select> -->
+                                          <input type="number"  id="firstNumber" class="form-control text-black" placeholder="Quantity" aria-label="Text input with dropdown button">
                                           <select type="button" class="btn border border-secondary-2 h-25  dropdown-toggle" data-bs-toggle="dropdown">
                                              <ul class="dropdown-menu">
                                              <option class="dropdown-item" href="#">As per</option>
@@ -118,11 +109,16 @@
                                           </select>
                                        </div>
                                     </div>
-                                    <div class="col-12 col-sm-5 col-md-5 col-lg-5 ">
-                                       <div class="form-group w-100">
-                                          <input type="text" class="py-2" placeholder=" " id="quantity">
-                                          <label for="quantity" class="text-dark"> Price per Quantity</label>
+                                    <div class="col-12 col-sm-6 col-md-6 col-lg-6 ">
+                                       <div class="form-group w-100 mt-2">
+                                          <input type="text" class="py-2" placeholder=" " id="secondNumber"  onchange="multiplyBy()" Value="">
+                                          <label for="quantity" class="text-dark"> Price </label>
                                        </div>
+                                    </div>
+                                    <div class="col-12 col-sm-6 col-md-6 col-lg-6 mt-2 pt-1">
+                                       <!-- <input type="button" onClick="multiplyBy()" Value="Multiply" /> -->
+                                       <p >Total Price:  <span id = "result"class="text-danger fw-bold"> </span>/-</p>
+                                         
                                     </div>
                                     <div class="col-12 ">
                                        <div class="form-group w-100">
@@ -238,3 +234,11 @@
 
     ?>
     </html>
+    <script>
+      function multiplyBy()
+{
+        num1 = document.getElementById("firstNumber").value;
+        num2 = document.getElementById("secondNumber").value;
+        document.getElementById("result").innerHTML = num1 * num2;
+}
+    </script>
