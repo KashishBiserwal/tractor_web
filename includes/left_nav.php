@@ -27,7 +27,7 @@
         </button>
         <div class="collapse px-2" id="about-lookup">
           <ul class="list-unstyled fw-normal small">
-              <li class="py-1 ps-3"><a href="lookupvalue.php" class="d-inline-flex align-items-center text-white   text-decoration-none rounded">lookup Values</a></li>
+              <li class="py-1 ps-3"><a href="lookupvalue.php" class="d-inline-flex align-items-center text-white   text-decoration-none rounded">Lookup Types</a></li>
               <li class="py-1 ps-3"><a href="lookupdata.php" class="d-inline-flex align-items-center text-white  text-decoration-none rounded">Lookup Data</a></li>
           </ul>
         </div>

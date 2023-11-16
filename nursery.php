@@ -39,52 +39,64 @@
                               <h4 class="text-center">Fill your Details</h4>
                             <form>
                                 <div class="row justify-content-center pt-4">
-                                   
-                                    <div class="col-12 col-lg-6 col-md-6 col-sm-6  my-2">
+                                  <div class="col-12 ">
                                       <div class="form-group">
-                                        <input type="text" class="py-3" placeholder=" " id="brand">
+                                        <input type="text" class="" placeholder=" " id="brand">
+                                        <label for="name" class="text-dark ">Nursery Name</label>
+                                      </div>
+                                    </div>
+                                   
+                                    <div class="col-12 col-lg-6 col-md-6 col-sm-6">
+                                      <div class="form-group">
+                                        <input type="text" class="" placeholder=" " id="brand">
                                         <label for="name" class="text-dark "> Name</label>
                                       </div>
                                     </div>
-                                    <div class="col-12 col-lg-6 col-md-6 col-sm-6  my-1">
+                                    <div class="col-12 col-lg-6 col-md-6 col-sm-6">
                                       <div class="form-group">
-                                        <input type="text" class="py-3" placeholder=" " id="model_name">
+                                        <input type="text" class="" placeholder=" " id="model_name">
                                         <label for="name" class="text-dark">Contact Number</label>
                                       </div>
                                     </div>
-                                    <div class="col-12 col-lg-4 col-md-4 col-sm-4  my-1">
+                                    <div class="col-12 col-lg-4 col-md-4 col-sm-4">
                                       <div class="form-group">
                                         <label for="name" class="text-dark"></label>
-                                        <select class="form-select py-3" aria-label="Default select example">
+                                        <select class="form-select" aria-label="Default select example">
                                             <option selected>Select State</option>
                                             <option value="1">Chattisgarh</option>
                                             <option value="2">Other</option>
                                         </select>
                                       </div>
                                     </div>
-                                    <div class="col-12 col-lg-4 col-md-4 col-sm-4  my-1">
+                                    <div class="col-12 col-lg-4 col-md-4 col-sm-4 ">
                                       <div class="form-group">
                                         <label for="name" class="text-dark"></label>
-                                        <select class="form-select py-3" aria-label="Default select example">
+                                        <select class="form-select" aria-label="Default select example">
                                             <option selected>Select District</option>
                                             <option value="1">Raipur</option>
                                             <option value="2">Bilaspur</option>
                                         </select>
                                       </div>
                                     </div>
-                                    <div class="col-12 col-lg-4 col-md-4 col-sm-4 my-1">
+                                    <div class="col-12 col-lg-4 col-md-4 col-sm-4">
                                       <div class="form-group">
                                         <label for="name" class="text-dark"></label>
-                                        <select class="form-select py-3" aria-label="Default select example">
+                                        <select class="form-select " aria-label="Default select example">
                                             <option selected>Select Tehsil</option>
                                             <option value="1">Raipur</option>
                                             <option value="2">Bilaspur</option>
                                         </select>
                                       </div>
                                     </div>
-                                    <div class="col-12 my-1">
+                                    <div class="col-12 ">
                                       <div class="form-group">
-                                        <input type="text" class="py-5" placeholder=" " id="model_name">
+                                        <input type="text" class="" placeholder=" " id="brand">
+                                        <label for="name" class="text-dark "> Location</label>
+                                      </div>
+                                    </div>
+                                    <div class="col-12 ">
+                                      <div class="form-group">
+                                      <textarea id="w3review" name="w3review" rows="4" class="p-3" cols="73">description</textarea>
                                         <label for="name" class="text-dark">Discription</label>
                                       </div>
                                     </div>
