@@ -161,24 +161,36 @@
            Enquiries
           </a>
           <ul class="dropdown-menu pt-3 mt-2">
-            <li><a class="dropdown-item fw-bold" href="#"> On-Load Price</a></li>
+            <li><a class="dropdown-item fw-bold" href="#"> On-Road Price</a></li>
             <hr class="dropdown-divider">
-            <li><a class="dropdown-item fw-bold" href="#">Loan</a></li>
+            <li><a class="dropdown-item fw-bold" href="#">Compare</a></li>
           </ul>
         </li>
         
-        <li class="nav-item dropdown dropdown-toggle mt-3 px-2">
-          <a class="nav-link dropdown-toggle text-white fw-bold" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Loan
+      <li class="nav-item dropdown dropdown-toggle px-2 mt-3">
+          <a class="nav-link dropdown-toggle text-white fw-bold " href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Finance
           </a>
-          <ul class="dropdown-menu pt-3 mt-2">
-            <li><a class="dropdown-item fw-bold" href="new_tractor_loan.php">New Tractor Loan</a></li>
+          <ul class="dropdown-menu mt-2">
+            <!-- <li class="nav-item dropend "> 
+              <a class=" nav-link nav-link_brand dropdown-toggle fw-bold text-dark " href="new_tractor_loan.php" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Loan
+              </a>
+              <ul class="dropdown-menu mt-2  pt-1">
+              <li><a class="dropdown-item fw-bold" href="new_tractor_loan.php" onclick="button1()">New Tractor Loan</a></li>
             <hr class="dropdown-divider">
-            <li><a class="dropdown-item fw-bold" href="#">Used Tractor Loan</a></li>
+            <li><a class="dropdown-item fw-bold" href="#" onclick="button2()">Used Tractor Loan</a></li>
             <hr class="dropdown-divider">
-            <li><a class="dropdown-item fw-bold" href="#">Loan Against Tractor</a></li>
+            <li><a class="dropdown-item fw-bold" href="#" onclick="button3()">Loan Against Tractor</a></li>
             <hr class="dropdown-divider">
-            <li><a class="dropdown-item fw-bold" href="#">Personal Loan</a></li>
+            <li><a class="dropdown-item fw-bold" href="#" onclick="button4()">Personal Loan</a></li>
+              </ul>
+            </li>
+            <li>
+            </li> -->
+            <li><a href="new_tractor_loan.php" class="dropdown-item fw-bold" >Loan</a></li>
+            <hr class="dropdown-divider">
+            <li><a href="insurance.php" class="dropdown-item fw-bold" >Insurance</a></li>
           </ul>
         </li>
         <div class="col-2 text-center">
@@ -214,8 +226,7 @@
                 <li><a class="dropdown-item  fw-bold" href="#">Dealership Enquiry</a></li>
                 <hr class="dropdown-divider">
                 <li><a class="dropdown-item fw-bold" href="#">Certified Dealers</a></li>
-                <hr class="dropdown-divider">
-                <li><a class="dropdown-item fw-bold" href="#">Compare</a></li>
+               
           </ul>
         </li>
        
