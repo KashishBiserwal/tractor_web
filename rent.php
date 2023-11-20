@@ -140,18 +140,7 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- <div class="col-12 col-md-3 col-lg-3 col-sm-3">
-                            <div class="tjcol states-block">
-                                <div class="brand-main box-shadow mt-2 text-center">
-                                    <a class="weblink text-decoration-none text-dark" href="#"
-                                        title="Sonalika Old Tractors">
-                                        <img class="img-fluid w-25 h-25" src="assets/images/new-holland-1579511945.webp"
-                                            data-src="" alt="Sonalika Brand Logo">
-                                        <p class="mb-2  oneline">New-holland</p>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
+                       
                         <div class="col-12 col-md-3 col-lg-3 col-sm-3">
                             <div class="tjcol states-block">
                                 <div class="brand-main box-shadow mt-2 text-center">
