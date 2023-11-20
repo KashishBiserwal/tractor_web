@@ -1,7 +1,5 @@
 <?php
    include 'includes/headertagadmin.php';
-  
-   
    ?> 
 <body class="loaded"> 
 <div class="main-wrapper">
