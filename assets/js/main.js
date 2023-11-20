@@ -425,11 +425,11 @@ $("#imageUpload").change(function() {
 
 
 // datatable brand listing
-$('#example_brand').DataTable({
-  "processing":true,
-   "serverSide":true,
-   "ajax":'fetchbrandData.php',  
-});
+// $('#example_brand').DataTable({
+//   "processing":true,
+//    "serverSide":true,
+//    "ajax":'fetchbrandData.php',  
+// });
 
 
 // haatbazar sell form

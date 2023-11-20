@@ -70,9 +70,7 @@
         </div>
     </section> -->
    <!-- about mahindra -->
-   <section class="about__section__five bg-white">
-       
-      <!--Container-->
+   <!-- <section class="about__section__five bg-white">
       <div class="container mt-0">
          <div class="row align-items-center justify-content-center">
             <div class="col-12 col-sm-12 col-xxl-6 col-xl-6 col-lg-6">
@@ -117,23 +115,14 @@
                   <div id="main_swiper-next" class="swiper-button-next material-symbols-outlined swiper-button-round  rounded-circle fs-6 text-white"></div>
                </div>
             </div>
-           
-
-            <!-- <div class="col text-center z-5">
-               <div class="py-3"></div>
-               <a href="our_team.php"  class="btn btn-primary btn-lg">Meet the Team</a>
-            </div> -->
-
          </div>
       </div>
-      <!--Container-->
-
-   </section>
+   </section> -->
   
   <section>
     <div class="container">
         <div class="row">
-            <h1 class=" ">Popular Mahindra Tractors</h1>
+            <h1 class=" mt-5">Popular Mahindra Tractors</h1>
             <div class="col-12 col-sm-6 col-md-3 col-lg-4 px-2 py-3 h-100">
                 <div class="h-auto success__stry__item d-flex flex-column shadow ">
                     <div class="thumb">
@@ -145,7 +134,7 @@
                     </div>
                     <div class="content d-flex flex-column flex-grow-1 ">
 
-                        <a href="mahindra_575.php" class="text-decoration-none text-dark">
+                        <a href="Mahindra_575.php" class="text-decoration-none text-dark">
                             <h4 class="fw-bold mt-3 mx-3">Mahindra 575 DI XP Plus</h3>
                         </a>
                         <div class="row mt-1 ps-1">

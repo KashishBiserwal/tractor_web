@@ -131,8 +131,6 @@
               <hr class="dropdown-divider">
             </li>
             <li class="" ><a class="dropdown-item text-dark fw-bold" href="harvester.php">Harvester</a></li>
-           
-           
           </ul>
         </li>
         <li class="nav-item dropdown dropdown-toggle  mt-3">
@@ -177,10 +175,10 @@
           </ul>
         </li>
         
-        <li class="nav-item dropdown dropdown-toggle mt-3 ">
+        <!-- <li class="nav-item dropdown dropdown-toggle mt-3 ">
           <a class="nav-link dropdown-toggle text-white fw-bold" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Loan
-          </a>
+          </a> -->
           <ul class="dropdown-menu pt-3 mt-2">
             <li><a class="dropdown-item fw-bold" href="new_tractor_loan.php">New Tractor Loan</a></li>
             <hr class="dropdown-divider">

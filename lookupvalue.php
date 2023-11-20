@@ -131,13 +131,13 @@
    <script>
     $(document).ready(function() {
 
-$("#form").validate({
-  rules:{
-    name:"required"
-},
-messages:{
-    name:"Field is required"
-}
+      $("#form").validate({
+        rules:{
+          name:"required"
+      },
+      messages:{
+          name:"Field is required"
+      }
 
 });
 

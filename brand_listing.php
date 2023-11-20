@@ -53,7 +53,7 @@
                                         
                                         <div class="col- col-sm-6 col-lg-6 col-md-6">
                                           <label class="text-dark"> Brand Name<span class="text-danger">*</span></label>
-                                          <input type="text" class="form-control py-2" id="brand" placeholder="Enter brand">
+                                          <input type="text" class="form-control py-2" id="brand_name" placeholder="Enter brand">
                                           <small></small>
                                         </div>
                                         <div class="col-12 col-sm-4 col-lg-4 col-md-4 ps-3">
@@ -61,7 +61,7 @@
                                                 <div class="background__btn-box ">
                                                     <label class="background__btn">
                                                     <p class="text-white bg-success p-2 rounded">Upload images</p>
-                                                        <input type="file" data-max_length="20"name="imgfile"  ref="fileInput"
+                                                        <input type="file" id="brand_img" data-max_length="20"name="brand_img"  ref="fileInput"
                                                         style="display: none"
                                                         @change="handleFileInput"
                                                         accept="image/png, image/jpg, image/jpeg" class="background__inputfile" id="banner_image">
@@ -147,10 +147,44 @@
    include 'includes/footertag.php';
    ?> 
     <script>
-     jQuery(document).ready(function () {
-    
+   $(document).ready(function () {
     BackgroundUpload();
-  });
+    // $('#save').click(store); 
+});
+
+function store(event) {
+    event.preventDefault();
+    console.log('jfhfhw');
+    var brand_name = $('#brand_name').val();
+    var brand_img = $('#brand_img').val();
+    var paraArr = {
+        'brand_name': brand_name,
+        'brand_img': brand_img
+    };
+    var url = "<?php echo $APIBaseURL; ?>storeBrands";
+    var token = localStorage.getItem('token');
+    var headers = {
+        'Authorization': 'Bearer ' + token
+    };
+    $.ajax({
+        url: url,
+        type: "POST",
+        data: paraArr,
+        headers: headers,
+        success: function (result) {
+            console.log(result, "result");
+            window.location.href = "<?php echo $baseUrl; ?>brand_listing.php";
+            console.log("Add successfully");
+            alert('successfully inserted..!')
+        },
+        error: function (error) {
+            console.error('Error fetching data:', error);
+        }
+    });
+    // Add the following line to submit the form
+    // $('#form').submit();
+}
+
 
 function BackgroundUpload() {
     var imgWrap = "";
@@ -213,4 +247,5 @@ function BackgroundUpload() {
       $(this).parent().parent().remove();
     });
 }
+
    </script>
