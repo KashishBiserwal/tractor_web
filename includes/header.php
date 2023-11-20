@@ -1,7 +1,7 @@
 
 <nav class="navbar navbar-index navbar-expand-lg navbar-dark fixed-top" >
   <div class="container">
-    <div class="logo pe-5">
+    <div class="logo ">
       <a href="index.php" class="text-decoration-none">
         <img src="assets/images/logotrac.jpg"alt="reload img" class="logo rounded-circle">
       </a>
@@ -10,8 +10,8 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse container" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0 ps-2">
-        <li class="nav-item dropdown dropdown-toggle px-2 mt-3">
+      <ul class="navbar-nav  mb-2 mb-lg-0 ">
+        <li class="nav-item dropdown dropdown-toggle mt-3">
           <a class="nav-link dropdown-toggle text-white fw-bold " href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             New Tractor
           </a>
@@ -52,7 +52,7 @@
             <li><a href="#" class="dropdown-item fw-bold">4WD Tractor</a></li>
           </ul>
         </li>
-        <li class="nav-item dropdown dropdown-toggle px-2 mt-3">
+        <li class="nav-item dropdown dropdown-toggle mt-3">
           <a class="nav-link dropdown-toggle text-white fw-bold " href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Used
           </a>
@@ -94,15 +94,15 @@
                 Rent & Hire
               </a>
               <ul class="dropdown-menu mt-2  pt-1">
-                <li><a class="dropdown-item fw-bold  py-2" href="#">On Rent</a></li>
+                <li><a class="dropdown-item fw-bold  py-2" href="rent.php">On Rent</a></li>
                 <hr class="dropdown-divider">
-                <li><a class="dropdown-item fw-bold  py-2" href="#">On Sell</a></li>
+                <li><a class="dropdown-item fw-bold  py-2" href="hire.php">On Sell</a></li>
               </ul>
             </li>
           </ul>
         </li>
         
-        <li class="nav-item dropdown dropdown-toggle px-2 mt-3">
+        <li class="nav-item dropdown dropdown-toggle  mt-3">
           <a class="nav-link dropdown-toggle text-white fw-bold" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
            Farm Equipment's
           </a>
@@ -135,7 +135,7 @@
            
           </ul>
         </li>
-        <li class="nav-item dropdown dropdown-toggle px-2 mt-3">
+        <li class="nav-item dropdown dropdown-toggle  mt-3">
           <a class="nav-link dropdown-toggle text-white fw-bold" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
            Market & Farms
           </a>
@@ -163,11 +163,21 @@
           <ul class="dropdown-menu pt-3 mt-2">
             <li><a class="dropdown-item fw-bold" href="onload.php"> On-Road Price</a></li>
             <hr class="dropdown-divider">
-            <li><a class="dropdown-item fw-bold" href="#">Loan</a></li>
+            <li><a class="dropdown-item fw-bold" href="#">Compare</a></li>
+          </ul>
+        </li>
+        <li class="nav-item dropdown dropdown-toggle mt-3 ">
+          <a class="nav-link dropdown-toggle text-white fw-bold" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+           Finance
+          </a>
+          <ul class="dropdown-menu pt-3 mt-2">
+            <li><a class="dropdown-item fw-bold" href="new_tractor_loan.php">Loan</a></li>
+            <hr class="dropdown-divider">
+            <li><a class="dropdown-item fw-bold" href="Insurance.php">Insurance</a></li>
           </ul>
         </li>
         
-        <li class="nav-item dropdown dropdown-toggle mt-3 px-2">
+        <li class="nav-item dropdown dropdown-toggle mt-3 ">
           <a class="nav-link dropdown-toggle text-white fw-bold" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Loan
           </a>
@@ -182,7 +192,7 @@
           </ul>
         </li>
         <div class="col-2 text-center">
-          <li class="nav-item dropdown dropdown-toggle mt-3 px-2">
+          <li class="nav-item dropdown dropdown-toggle mt-3 ">
             <a class="nav-link dropdown-toggle text-white fw-bold" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               News & Update
             </a>
@@ -198,7 +208,7 @@
 
           </li>
         </div>
-        <li class="nav-item dropdown dropdown-toggle px-2">
+        <li class="nav-item dropdown dropdown-toggle ">
           <a class="nav-link dropdown-toggle text-white fw-bold mt-3" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             More
           </a>
