@@ -396,7 +396,6 @@
           </div>
         </div>
       </div>
-      <!-- Table Card -->
       <div class=" mb-5">
                             <div class="table-responsive">
                                 <table  id="example" class="table dataTable no-footer py-1" width="100%">
