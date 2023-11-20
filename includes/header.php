@@ -94,9 +94,9 @@
                 Rent & Hire
               </a>
               <ul class="dropdown-menu mt-2  pt-1">
-                <li><a class="dropdown-item fw-bold  py-2" href="#">On Rent</a></li>
+                <li><a class="dropdown-item fw-bold  py-2" href="rent.php">On Rent</a></li>
                 <hr class="dropdown-divider">
-                <li><a class="dropdown-item fw-bold  py-2" href="#">On Sell</a></li>
+                <li><a class="dropdown-item fw-bold  py-2" href="hire.php">On Sell</a></li>
               </ul>
             </li>
           </ul>
