@@ -143,23 +143,29 @@
                                           <small></small>
                                         </div>
                                         <div class="col- col-sm-6 col-lg-6 col-md-6">
+                                          <!-- <div class="form-group mt-4 pt-1"> -->
                                           <label class="text-dark">User Type<span class="text-danger">*</span></label>
-                                          <input type="text" class="form-control py-2" id="user_type" name="user_type" for="user_type" placeholder="Eg- Admin or User">
-                                          <small></small>
+                                            <select class="form-select py-2" aria-label="Default select example">
+                                                <option selected>Select User</option>
+                                                <option value="1" >Admin</option>
+                                                <option value="2">User</option>
+                                            </select>
+                                          <!-- </div> -->
                                         </div>
                                         <div class="col-12 col-sm-6 col-md-6 col-lg-6">
-                                          <div class="form-group mt-4 pt-1">
+                                          <!-- <div class="form-group mt-4 pt-1"> -->
+                                          <label class="text-dark"> State<span class="text-danger">*</span></label>
                                             <select class="form-select py-2" aria-label="Default select example">
                                                 <option selected>Select Status</option>
                                                 <option value="1">Active</option>
                                                 <option value="2">In Active</option>
                                             </select>
-                                          </div>
+                                          <!-- </div> -->
                                         </div>
                         
-                                        <div class="col-12 ">
-                                            <div class="text-center ">
-                                                <button class="btn px-4 bg-success " id="save">Submit</button>
+                                        <div class="col-12 mt-4 ">
+                                            <div class="text-center">
+                                                <button class="btn px-5 bg-success text-white" id="save">Submit</button>
                                             </div>
                                         </div>
                                       </div>
@@ -283,7 +289,6 @@
         required:"Please provide a valid password",
         minlenght:"Your password must be atleast 5 character long",
         equalTo:"Please enter  as same password above"
-
       },
       user_type:"Enter a user type"
     }

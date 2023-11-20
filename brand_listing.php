@@ -46,44 +46,9 @@
                         <div class="row justify-content-center">
                             <div class="col-lg-10">
                               <h4 class="text-center">Fill your Brand Details</h4>
-                            <!-- <form>
-                                <div class="row justify-content-center pt-4">
-                                   
-                                    <div class="col-12 col-lg-6 col-sm-5 col-md-6 ">
-                                      <div class="form-group">
-                                        <input type="text" class="py-3" placeholder=" " id="brand">
-                                        <label for="name" class="text-dark"> Brand Name</label>
-                                      </div>
-                                    </div>
-                                    <div class="col-12 col-lg-6 col-sm-5 col-md-6">
-                                      <div class="form-group">
-                                        <input type="text" class="py-3" placeholder=" " id="model">
-                                        <label for="name" class="text-dark ">Model</label>
-                                      </div>
-                                    </div>
-                                    <div class="col-12 col-lg-6 col-sm-5 col-md-6  ">
-                                      <div class="form-group">
-                                        <input type="text" class="py-3" placeholder=" " id="category">
-                                        <label for="name" class="text-dark">Category</label>
-                                      </div>
-                                    </div>
-                                    <div class="col-12 col-lg-6 col-sm-5 col-md-6  ">
-                                      <div class="form-group">
-                                        <select class="form-select py-3" aria-label="Default select example">
-                                          <option selected>Select Type</option>
-                                          <option value="1">Tractor</option>
-                                          <option value="2">Farm Implementation</option>
-                                          <option value="3">Harvester</option>
-                                        </select>
-                                      </div>
-                                    </div>
-                                   
-                                </div>
-                                
-                            </form> -->
-                            <form action="" method="POST"  class="" id="form">
-                                  <div class="filter-card ">
-                                    <div class="card-body">
+                              <form action="" method="POST"  class="" id="form">
+                                  <div class="">
+                                    <div class="">
                                       <div class="row">
                                         
                                         <div class="col- col-sm-6 col-lg-6 col-md-6">
@@ -91,32 +56,27 @@
                                           <input type="text" class="form-control py-2" id="brand" placeholder="Enter brand">
                                           <small></small>
                                         </div>
-                                        <div class="col- col-sm-6 col-lg-6 col-md-6">
-                                          <label class="text-dark">Model<span class="text-danger">*</span></label>
-                                          <input type="text" class="form-control py-2" id="model" placeholder="Enter Model">
-                                          <small></small>
-                                        </div>
-                                        <div class="col- col-sm-6 col-lg-6 col-md-6">
-                                          <label class="text-dark">Category<span class="text-danger">*</span></label>
-                                          <input type="text" class="form-control py-2" id="category" placeholder="Enter Category">
-                                          <small></small>
-                                        </div>
-                                        
-                                        
-                                        <div class="col-12 col-lg-6 col-sm-5 col-md-6  ">
-                                          <div class="form-group mt-4 pt-1">
-                                            <select class="form-select" aria-label="Default select example">
-                                              <option selected>Select Type</option>
-                                              <option value="1">Tractor</option>
-                                              <option value="2">Farm Implementation</option>
-                                              <option value="3">Harvester</option>
-                                            </select>
+                                        <div class="col-12 col-sm-4 col-lg-4 col-md-4 ps-3">
+                                          <div class="background__box mt-4 pt-1">
+                                                <div class="background__btn-box ">
+                                                    <label class="background__btn">
+                                                    <p class="text-white bg-success p-2 rounded">Upload images</p>
+                                                        <input type="file" data-max_length="20"name="imgfile"  ref="fileInput"
+                                                        style="display: none"
+                                                        @change="handleFileInput"
+                                                        accept="image/png, image/jpg, image/jpeg" class="background__inputfile" id="banner_image">
+                                                        <small></small>
+                                                    </label>
+                                                </div>
+                                                <div class="">
+                                                    <div class="background__img-wrap"></div>
+                                                </div>
                                           </div>
                                         </div>
                         
-                                        <div class="col-12 ">
-                                            <div class="text-center ">
-                                                <button class="btn px-4 bg-success " id="save">Submit</button>
+                                        <div class="col-12 col-sm-2 col-lg-2 col-md-2 ">
+                                            <div class="float-left mt-4 pt-2">
+                                                <button class="btn px-4 bg-success text-white" id="save">Submit</button>
                                             </div>
                                         </div>
                                       </div>
@@ -143,20 +103,10 @@
             <div class="col-12 col-sm-12 col-md-4 col-lg-4">
               <div class="form-outline">
                 <select class="form-select" aria-label="Default select example">
-                  <option selected>Select Brand Name</option>
+                  <option selected> Brand Name</option>
                   <option value="1">Mahindra</option>
                   <option value="2">Swaraj</option>
                   <option value="3">John Deere</option>
-                </select>
-              </div>
-            </div>
-            <div class="col-12 col-sm-12 col-md-4 col-lg-4">
-              <div class="form-outline">
-                <select class="form-select" aria-label="Default select example">
-                  <option selected>Select Model Name</option>
-                  <option value="1">Model1</option>
-                  <option value="2">Model2</option>
-                  <option value="3">Model3</option>
                 </select>
               </div>
             </div>
@@ -173,11 +123,11 @@
                                 <table id="example_brand" class="table dataTable no-footer py-1" width="100%">
                                     <thead>
                                         <tr>
-                                            <th class="d-none d-md-table-cell text-white">S.No.</th>
-                                            <th class="d-none d-md-table-cell text-white">  Brand Name</th>
-                                           <th class="d-none d-md-table-cell text-white">Model</th>
-                                           <th class="d-none d-md-table-cell text-white">Category</th>
-                                           <th class="d-none d-md-table-cell text-white">Action</th>
+                                          <th class="d-none d-md-table-cell text-white">S.No.</th>
+                                          <th class="d-none d-md-table-cell text-white">Brand Name</th>
+                                          <th class="d-none d-md-table-cell text-white">Model</th>
+                                          <th class="d-none d-md-table-cell text-white">Category</th>
+                                          <th class="d-none d-md-table-cell text-white">Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -196,73 +146,71 @@
 <?php
    include 'includes/footertag.php';
    ?> 
-   <script>
- const form = document.getElementById('form');
-const brand = document.getElementById('brand');
-const model = document.getElementById('model');
-const category = document.getElementById('category');
+    <script>
+     jQuery(document).ready(function () {
+    
+    BackgroundUpload();
+  });
 
-// Show input error messages
-function showError(input, message) {
-    const formControl = input.parentElement;
-    const small = formControl.querySelector('small');
-    formControl.className = 'form-outline mb-4 error';
-    small.innerText = message;
-    small.classList.add('error-message');
-}
+function BackgroundUpload() {
+    var imgWrap = "";
+    var imgArray = [];
 
-// Show success color
-function showSuccess(input) {
-    const formControl = input.parentElement;
-    formControl.className = 'form-outline mb-4 success';
-}
+    function generateUniqueClassName(index) {
+      return "background-image-" + index;
+    }
 
-// Check required fields
-function checkRequired(inputArr) {
-    inputArr.forEach(function (input) {
-        if (input.value.trim() === '') {
-            showError(input, `${getFieldName(input)} is required`);
-           
-        } else {
-            showSuccess(input);
+    $('.background__inputfile').each(function () {
+      $(this).on('change', function (e) {
+        imgWrap = $(this).closest('.background__box').find('.background__img-wrap');
+        var maxLength = $(this).attr('data-max_length');
+
+        var files = e.target.files;
+        var filesArr = Array.prototype.slice.call(files);
+        var iterator = 0;
+        filesArr.forEach(function (f, index) {
+
+          if (!f.type.match('image.*')) {
+            return;
+          }
+
+          if (imgArray.length > maxLength) {
+            return false;
+          } else {
+            var len = 0;
+            for (var i = 0; i < imgArray.length; i++) {
+              if (imgArray[i] !== undefined) {
+                len++;
+              }
+            }
+            if (len > maxLength) {
+              return false;
+            } else {
+              imgArray.push(f);
+
+              var reader = new FileReader();
+              reader.onload = function (e) {
+                var className = generateUniqueClassName(iterator);
+                var html = "<div class='background__img-box'><div onclick='BackgroundImage(\"" + className + "\")' style='background-image: url(" + e.target.result + ")' data-number='" + $(".background__img-close").length + "' data-file='" + f.name + "' class='img-bg " + className + "'><div class='background__img-close'></div></div></div>";
+                imgWrap.append(html);
+                iterator++;
+              }
+              reader.readAsDataURL(f);
+            }
+          }
+        });
+      });
+    });
+
+    $('body').on('click', ".background__img-close", function (e) {
+      var file = $(this).parent().data("file");
+      for (var i = 0; i < imgArray.length; i++) {
+        if (imgArray[i].name === file) {
+          imgArray.splice(i, 1);
+          break;
         }
+      }
+      $(this).parent().parent().remove();
     });
 }
-
-// Check input length
-function checkLength(input, min, max) {
-    if (input.value.length < min) {
-        showError(input, `${getFieldName(input)} must be at least ${min} characters`);
-    } else if (input.value.length > max) {
-        showError(input, `${getFieldName(input)} must be less than ${max} characters`);
-    } else {
-        showSuccess(input);
-    }
-}
-
-// Get Field Name
-function getFieldName(input) {
-    return input.id.charAt(0).toUpperCase() + input.id.slice(1);
-}
-
-// Check email format
-function checkEmail(input) {
-    const emailValue = input.value.trim();
-    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailPattern.test(emailValue)) {
-        showError(input, 'Invalid email format');
-    } else {
-        showSuccess(input);
-    }
-}
-
-// Event Listeners
-form.addEventListener('submit', function (e) {
-    e.preventDefault();
-
-    checkRequired([brand, model, category]);
-    // checkEmail(email); // If you want to check email format
-});
-
-
-</script>
+   </script>

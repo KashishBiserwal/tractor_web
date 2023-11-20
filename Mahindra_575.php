@@ -33,70 +33,6 @@
                 <img src="assets/images/mahindra-575-di-sp-plus-836976961.avif" alt="mahindra-575-DI-XP-Plus">
             </div>
             <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                <!-- <div class="row ps-3">
-                  <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                    <h5> <i class="fa-solid fa-award"></i> Brand</h5>
-                  </div> 
-                  <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                    <p><a href="mahindra.php" class="text-decoration-none h5 text-danger ">Mahindra Tractors</a></p>
-                  </div> 
-                </div>
-                <div class="row ps-3 mt-3">
-                  <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                    <p><i class="fa-solid fa-pump"></i>  No. Of Cylinder</p>
-                  </div> 
-                  <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                    <p>4</p>
-                  </div> 
-                </div>
-                <div class="row ps-3">
-                  <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                    <p><i class="fas fa-bolt"></i> HP Category</p>
-                  </div> 
-                  <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                    <p>47 HP</p>
-                  </div> 
-                </div>
-                <div class="row ps-3">
-                  <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                    <p><i class="fas fa-bolt"></i> PTO HP</p>
-                  </div> 
-                  <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                    <p>42 HP</p>
-                  </div> 
-                </div>
-                <div class="row ps-3">
-                  <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                    <p> <i class="fa-solid fa-gear"></i> Gear Box</p>
-                  </div> 
-                  <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                    <p>8 Forward + 2 Reverse</p>
-                  </div> 
-                </div>
-                <div class="row ps-3">
-                  <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                    <p><i class="fa-solid fa-brake-warning"></i> Brakes</p>
-                  </div> 
-                  <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                    <p>Oil Immersed Brakes</p>
-                  </div> 
-                </div>
-                <div class="row ps-3">
-                  <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                    <p><i class="fa-solid fa-pen-to-square"></i> Warranty</p>
-                  </div> 
-                  <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                    <p>6 Year</p>
-                  </div> 
-                </div>
-                <div class="row ps-3">
-                  <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                    <p><i class="fas fa-rupee-sign"></i> Price</p>
-                  </div> 
-                  <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                    <p> <a href="#" class="text-decoration-none text-danger">Check Price</a></p>
-                  </div> 
-                </div> -->
                 <table class="table table-borderless">
                     <thead>
                         <tr>
@@ -289,11 +225,8 @@
                 <td class="table-data">Torque</td>
                 <td class="table-data">192 NM</td>
                 </tr>
-                
-
             </tbody>
         </table>
-
     </div>
 </section>
 
@@ -304,7 +237,6 @@
         </div>
 
         <table class="table w-75 table-hover table table-striped my-4">
-            
             <tbody>
                 <tr>
                 <td class="table-data">Type</td>
@@ -328,7 +260,6 @@
                 </tr>
             </tbody>
         </table>
-
     </div>
 </section>
 
@@ -339,16 +270,13 @@
         </div>
 
         <table class="table w-75 table-hover table table-striped my-4">
-            
             <tbody>
                 <tr>
                 <td class="table-data">Brakes</td>
                 <td class="table-data">Oil Immersed Brakes</td>
                 </tr>
-                
             </tbody>
         </table>
-
     </div>
 </section>
 
@@ -445,6 +373,22 @@
             </tbody>
         </table>
 
+    </div>
+</section>
+<section class="mt-3">
+    <div class="container">
+        <div class="about border-success  border-4 text-dark border-start">
+            <h3 class="text-dark fw-bold text-start ps-4">Mahindra 575 DI XP Plus Fuel Tank</h3>
+        </div>
+
+        <table class="table w-75 table-hover table table-striped my-4">
+            <tbody>
+                <tr>
+                <td class="table-data">Capacity</td>
+                <td class="table-data">1500 L</td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 </section>
 

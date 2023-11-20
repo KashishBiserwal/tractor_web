@@ -36,27 +36,25 @@
                               <div class="row justify-content-center">
                                   <div class="col-12">
                                     <h5 class="text-center">Fill Details</h5>
-                                  <form id="form">
+                                    <form id="form">
                                       <div class="row justify-content-center">
                                         <div class="col-12 col-sm-12 col-md-12 col-lg-12">
                                             <div class="form-outline">
                                                 <label for="name" class="text-dark">Type</label>
                                                 <select class="form-select py-2" value="lookupSelectbox" for="lookupSelectbox" id="lookupSelectbox" aria-label="Default select example">
-                                                    <option value="" id="lookupSelect">Select Type Name</option>
+                                                  <option value="" id="lookupSelect">Select Type Name</option>
                                                 </select>
                                             </div>
                                         </div>
-                                        
                                         <div class="col-12 mt-3">
                                             <div class="form-group">
                                               <input type="text" class="" placeholder=" " id="lookup_data_value"  for="lookup_data_value" >
                                               <label for="name" class="text-dark"> Lookup Data Name</label>
                                             </div>
-                                          </div>
+                                        </div>
                                       </div>
                                       <button type="button" class="btn btn-success fw-bold px-3 " id="login">Submit</button>
-
-                                  </form>
+                                    </form>
                                   </div>
                               </div>
                           </div>
@@ -68,11 +66,8 @@
                   </div>
                 </div>
               </div>
-            
             </div>
           </div>
-         
-         
         </div>
       </div>
     </div>

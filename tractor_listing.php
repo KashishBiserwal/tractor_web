@@ -43,35 +43,45 @@
                             <form>
                                 <div class="row justify-content-center pt-4">
                                   <h5 class="fw-bold">Listing</h5>
-                                    <div class="col-12 col-sm-6 col-lg-6 col-md-6">
-                                      <div class="form-group col-12">
-                                        <input type="text" class="" placeholder=" " id="brand">
-                                        <label for="name" class="text-dark">Brand</label>
-                                      </div>
+                                    <div class="col-12 col-sm-6 col-lg-6 col-md-6 my-2">
+                                      <select class="form-select py-2" aria-label="Default select example">
+                                        <option selected> Brand</option>
+                                        <option value="1">Mahindra</option>
+                                        <option value="2">Swaraj</option>
+                                        <option value="3">John Deere</option>
+                                      </select>
                                     </div>
-                                    <div class="col-12 col-sm-6 col-lg-6 col-md-6">
-                                      <div class="form-group col-12">
-                                        <input type="text" class="" placeholder=" " id="brand">
-                                        <label for="name" class="text-dark">Model Name</label>
-                                      </div>
+                                    <div class="col-12 col-sm-6 col-lg-6 col-md-6 my-2">
+                                      <select class="form-select py-2" aria-label="Default select example">
+                                          <option selected> Model Name</option>
+                                          <option value="1">frsg</option>
+                                          <option value="2">dffsdf</option>
+                                          <option value="3">ggf</option>
+                                      </select>
                                     </div>
-                                    <div class="col-12 col-sm-4 col-lg-4 col-md-4">
-                                      <div class="form-group">
-                                        <input type="text" class="" placeholder=" " id="brand">
-                                        <label for="name" class="text-dark ">No. Of Cylinder</label>
-                                      </div>
+                                    <div class="col-12 col-sm-4 col-lg-4 col-md-4 my-2">
+                                      <select class="form-select py-2" aria-label="Default select example">
+                                          <option selected> No of Cylinder</option>
+                                          <option value="1">1</option>
+                                          <option value="2">2</option>
+                                          <option value="3">3</option>
+                                          <option value="3">4</option>
+                                      </select>
                                     </div>
-                                    <div class="col-12 col-sm-4 col-lg-4 col-md-4">
+                                    <div class="col-12 col-sm-4 col-lg-4 col-md-4 my-2">
                                       <div class="form-group">
                                         <input type="text" class="" placeholder=" " id="brand">
                                         <label for="name" class="text-dark "> HP Category</label>
                                       </div>
                                     </div>
-                                    <div class="col-12 col-sm-4 col-lg-4 col-md-4">
-                                      <div class="form-group">
-                                        <input type="text" class="" placeholder=" " id="brand">
-                                        <label for="name" class="text-dark ">PTO HP</label>
-                                      </div>
+                                    <div class="col-12 col-sm-4 col-lg-4 col-md-4 my-2">
+                                      <select class="form-select py-2" aria-label="Default select example">
+                                          <option selected> No of Cylinder</option>
+                                          <option value="1">1</option>
+                                          <option value="2">2</option>
+                                          <option value="3">3</option>
+                                          <option value="3">4</option>
+                                      </select>
                                     </div>
                                     <div class="col-12 col-sm-4 col-lg-4 col-md-4">
                                       <div class="form-group">
@@ -79,11 +89,14 @@
                                         <label for="name" class="text-dark ">Gear Box</label>
                                       </div>
                                     </div>
-                                    <div class="col-12 col-sm-4 col-lg-4 col-md-4">
-                                      <div class="form-group">
-                                        <input type="text" class="" placeholder=" " id="brand">
-                                        <label for="name" class="text-dark ">Brakes</label>
-                                      </div>
+                                    <div class="col-12 col-sm-4 col-lg-4 col-md-4 ">
+                                      <select class="form-select py-2" aria-label="Default select example">
+                                          <option selected>Brakes</option>
+                                          <option value="1">gbdf</option>
+                                          <option value="2">fdvsdf</option>
+                                          <option value="3">dfsd</option>
+                                          <option value="3">fds</option>
+                                      </select>
                                     </div>
                                     <div class="col-12 col-sm-4 col-lg-4 col-md-4">
                                       <div class="form-group">
@@ -124,10 +137,13 @@
                                     </div>
                                     <h5 class="fw-bold"> Brand Details</h5>
                                     <div class="col-12 col-sm-4 col-lg-4 col-md-4">
-                                      <div class="form-group">
-                                        <input type="text" class="" placeholder=" " id="brand">
-                                        <label for="name" class="text-dark ">Capacity CC</label>
-                                      </div>
+                                      <select class="form-select py-2" aria-label="Default select example">
+                                          <option selected>Capacity CC</option>
+                                          <option value="1">gbdf</option>
+                                          <option value="2">fdvsdf</option>
+                                          <option value="3">dfsd</option>
+                                          <option value="3">fds</option>
+                                      </select>
                                     </div>
                                     <div class="col-12 col-sm-4 col-lg-4 col-md-4">
                                       <div class="form-group">
@@ -136,41 +152,55 @@
                                       </div>
                                     </div>
                                     <div class="col-12 col-sm-4 col-lg-4 col-md-4">
-                                      <div class="form-group">
-                                        <input type="text" class="" placeholder=" " id="brand">
-                                        <label for="name" class="text-dark ">Cooling</label>
-                                      </div>
+                                      <select class="form-select py-2" value="cooling_id" name="cooling_id" id="cooling_id " aria-label="Default select example">
+                                          <option selected>Select Cooling</option>
+                                      </select>
                                     </div>
                                     <div class="col-12 col-sm-4 col-lg-4 col-md-4">
-                                      <div class="form-group">
-                                        <input type="text" class="" placeholder=" " id="brand">
-                                        <label for="name" class="text-dark ">Air Filter</label>
-                                      </div>
+                                      <select class="form-select py-2" aria-label="Default select example">
+                                          <option selected>Air Filter</option>
+                                          <option value="1">gbdf</option>
+                                          <option value="2">fdvsdf</option>
+                                          <option value="3">dfsd</option>
+                                          <option value="3">fds</option>
+                                      </select>
                                     </div>
                                     <div class="col-12 col-sm-4 col-lg-4 col-md-4">
-                                      <div class="form-group">
-                                        <input type="text" class="" placeholder=" " id="brand">
-                                        <label for="name" class="text-dark ">Fuel Pump</label>
-                                      </div>
+                                      <select class="form-select py-2" aria-label="Default select example">
+                                          <option selected>Fuel Pump</option>
+                                          <option value="1">gbdf</option>
+                                          <option value="2">fdvsdf</option>
+                                          <option value="3">dfsd</option>
+                                          <option value="3">fds</option>
+                                      </select>
                                     </div>
                                     <div class="col-12 col-sm-4 col-lg-4 col-md-4">
-                                      <div class="form-group">
-                                        <input type="text" class="" placeholder=" " id="brand">
-                                        <label for="name" class="text-dark ">Torque</label>
-                                      </div>
+                                      <select class="form-select py-2" aria-label="Default select example">
+                                          <option selected>Torque</option>
+                                          <option value="1">gbdf</option>
+                                          <option value="2">fdvsdf</option>
+                                          <option value="3">dfsd</option>
+                                          <option value="3">fds</option>
+                                      </select>
                                     </div>
-                                    <h5 class="fw-bold">Transmission Details</h5>
-                                    <div class="col-12 col-sm-6 col-lg-6 col-md-6">
-                                      <div class="form-group">
-                                        <input type="text" class="" placeholder=" " id="brand">
-                                        <label for="name" class="text-dark ">Type</label>
-                                      </div>
+                                    <h5 class="fw-bold mt-4">Transmission Details</h5>
+                                    <div class="col-12 col-sm-6 col-lg-6 col-md-6 mb-4">
+                                      <select class="form-select py-2" aria-label="Default select example">
+                                          <option selected>Type</option>
+                                          <option value="1">gbdf</option>
+                                          <option value="2">fdvsdf</option>
+                                          <option value="3">dfsd</option>
+                                          <option value="3">fds</option>
+                                      </select>
                                     </div>
-                                    <div class="col-12 col-sm-6 col-lg-6 col-md-6">
-                                      <div class="form-group">
-                                        <input type="text" class="" placeholder=" " id="brand">
-                                        <label for="name" class="text-dark ">Clutch</label>
-                                      </div>
+                                    <div class="col-12 col-sm-6 col-lg-6 col-md-6 mb-4">
+                                      <select class="form-select py-2" aria-label="Default select example">
+                                          <option selected>Clutch</option>
+                                          <option value="1">gbdf</option>
+                                          <option value="2">fdvsdf</option>
+                                          <option value="3">dfsd</option>
+                                          <option value="3">fds</option>
+                                      </select>
                                     </div>
                                     <div class="col-12 col-sm-6 col-lg-6 col-md-6">
                                       <div class="form-group">
@@ -186,23 +216,32 @@
                                     </div>
                                     <h5 class="fw-bold"> Steering Details</h5>
                                     <div class="col-12 col-sm-6 col-lg-6 col-md-6">
-                                      <div class="form-group">
-                                        <input type="text" class="" placeholder=" " id="brand">
-                                        <label for="name" class="text-dark ">Type</label>
-                                      </div>
+                                      <select class="form-select py-2" aria-label="Default select example">
+                                          <option selected>Type</option>
+                                          <option value="1">gbdf</option>
+                                          <option value="2">fdvsdf</option>
+                                          <option value="3">dfsd</option>
+                                          <option value="3">fds</option>
+                                      </select>
                                     </div>
                                     <div class="col-12 col-sm-6 col-lg-6 col-md-6">
-                                      <div class="form-group">
-                                        <input type="text" class="" placeholder=" " id="brand">
-                                        <label for="name" class="text-dark ">Steering Column</label>
-                                      </div>
+                                      <select class="form-select py-2" aria-label="Default select example">
+                                          <option selected>Steering Coloumn</option>
+                                          <option value="1">gbdf</option>
+                                          <option value="2">fdvsdf</option>
+                                          <option value="3">dfsd</option>
+                                          <option value="3">fds</option>
+                                      </select>
                                     </div>
-                                    <h5 class="fw-bold">Power Take Off Details</h5>
+                                    <h5 class="fw-bold mt-3 ">Power Take Off Details</h5>
                                     <div class="col-12 col-sm-6 col-lg-6 col-md-6">
-                                      <div class="form-group">
-                                        <input type="text" class="" placeholder=" " id="brand">
-                                        <label for="name" class="text-dark ">Type</label>
-                                      </div>
+                                      <select class="form-select py-2" aria-label="Default select example">
+                                          <option selected>Type</option>
+                                          <option value="1">gbdf</option>
+                                          <option value="2">fdvsdf</option>
+                                          <option value="3">dfsd</option>
+                                          <option value="3">fds</option>
+                                      </select>
                                     </div>
                                     <div class="col-12 col-sm-6 col-lg-6 col-md-6">
                                       <div class="form-group">
@@ -218,30 +257,49 @@
                                       </div>
                                     </div>
                                     <div class="col-12 col-sm-6 col-lg-6 col-md-6">
-                                      <div class="form-group">
-                                        <input type="text" class="" placeholder=" " id="brand">
-                                        <label for="name" class="text-dark ">Wheel Base</label>
-                                      </div>
+                                      <select class="form-select py-2" aria-label="Default select example">
+                                          <option selected>Wheel Base</option>
+                                          <option value="1">gbdf</option>
+                                          <option value="2">fdvsdf</option>
+                                          <option value="3">dfsd</option>
+                                          <option value="3">fds</option>
+                                      </select>
                                     </div>
                                     <h5 class="fw-bold">Hydraulics Details</h5>
                                     <div class="col-12 col-sm-6 col-lg-6 col-md-6">
-                                      <div class="form-group">
-                                        <input type="text" class="" placeholder=" " id="brand">
-                                        <label for="name" class="text-dark ">Lifting Capacity</label>
-                                      </div>
+                                      <select class="form-select py-2" aria-label="Default select example">
+                                          <option selected>Lifting Capacity</option>
+                                          <option value="1">gbdf</option>
+                                          <option value="2">fdvsdf</option>
+                                          <option value="3">dfsd</option>
+                                          <option value="3">fds</option>
+                                      </select>
                                     </div>
+                                    <div class="col-12 col-sm-6 col-lg-6 col-md-6">
+                                      <select class="form-select py-2" aria-label="Default select example">
+                                          <option selected>3 Point Linkage</option>
+                                          <option value="1">gbdf</option>
+                                          <option value="2">fdvsdf</option>
+                                          <option value="3">dfsd</option>
+                                          <option value="3">fds</option>
+                                      </select>
+                                    </div>
+                                    <h5 class="fw-bold mt-3">Fuel Tank</h5>
                                     <div class="col-12 col-sm-6 col-lg-6 col-md-6">
                                       <div class="form-group">
                                         <input type="text" class="" placeholder=" " id="brand">
-                                        <label for="name" class="text-dark ">3 point Linkage</label>
+                                        <label for="name" class="text-dark ">Capacity(Ltr)</label>
                                       </div>
                                     </div>
                                     <h5 class="fw-bold"> Wheels And Tyres Details</h5>
                                     <div class="col-12 col-sm-4 col-lg-4 col-md-4">
-                                      <div class="form-group">
-                                        <input type="text" class="" placeholder=" " id="brand">
-                                        <label for="name" class="text-dark ">Wheel drive</label>
-                                      </div>
+                                      <select class="form-select py-2" aria-label="Default select example">
+                                          <option selected>Wheel Drive</option>
+                                          <option value="1">gbdf</option>
+                                          <option value="2">fdvsdf</option>
+                                          <option value="3">dfsd</option>
+                                          <option value="3">fds</option>
+                                      </select>
                                     </div>
                                     <div class="col-12 col-sm-4 col-lg-4 col-md-4">
                                       <div class="form-group">
@@ -257,10 +315,13 @@
                                     </div>
                                     <h5 class="fw-bold">Other Information Details</h5>
                                     <div class="col-12 col-sm-6 col-lg-6 col-md-6">
-                                      <div class="form-group">
-                                        <input type="text" class="" placeholder=" " id="brand">
-                                        <label for="name" class="text-dark ">Accessories</label>
-                                      </div>
+                                      <select class="form-select py-2" aria-label="Default select example">
+                                          <option selected>Accessories</option>
+                                          <option value="1">gbdf</option>
+                                          <option value="2">fdvsdf</option>
+                                          <option value="3">dfsd</option>
+                                          <option value="3">fds</option>
+                                      </select>
                                     </div>
                                     <div class="col-12 col-sm-6 col-lg-6 col-md-6">
                                       <div class="form-group">
@@ -437,4 +498,36 @@ function BackgroundUpload() {
       $(this).parent().parent().remove();
     });
 }
+function get() {
+    var url = "<?php echo $APIBaseURL; ?>getLookupData";
+    $.ajax({
+        url: url,
+        type: "GET",
+        headers: {
+            'Authorization': 'Bearer' + localStorage.getItem('token')
+        },
+        success: function (data) {
+            console.log(data);
+            const select = document.getElementById('lookupSelectbox');
+            select.innerHTML = ''; // Clear previous data
+
+            if (data.lookup_type.length > 0) {
+                data.lookup_type.forEach(row => {
+                    const option = document.createElement('option');
+                    option.textContent = row.cooling_id;
+                    option.value = row.id; // Set the value attribute if needed
+                    select.appendChild(option);
+                });
+            } else {
+                // Display a message if there's no valid data
+                select.innerHTML = '<option> No valid data available</option>';
+            }
+        },
+        error: function (error) {
+            console.error('Error fetching data:', error);
+            // Display an error message or handle the error as needed
+        }
+    });
+}
+get();
    </script>

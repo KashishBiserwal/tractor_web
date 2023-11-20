@@ -16,12 +16,12 @@
             <ol class="breadcrumb my-0 ms-2">
               
               <li class="breadcrumb-item">
-                <span>Old Tractor List</span>
+                <span>Old Harvester List</span>
               </li>
             </ol>
           </nav>
           <button type="button" id="add_trac" class="btn add_btn btn-success float-right" data-bs-toggle="modal"  data-bs-target="#staticBackdrop">
-            <i class="fa fa-plus" aria-hidden="true"></i>Add Old tractor
+            <i class="fa fa-plus" aria-hidden="true"></i>Add Old Harvester
           </button>
 
           <!-- Modal -->
@@ -29,7 +29,7 @@
             <div class="modal-dialog modal-xl modal-dialog-centered">
               <div class="modal-content modal_box">
                 <div class="modal-header modal_head">
-                  <h5 class="modal-title text-white fw-bold" id="staticBackdropLabel">Add Old tractor</h5>
+                  <h5 class="modal-title text-white fw-bold" id="staticBackdropLabel">Add Old Harvester</h5>
                   <button type="button" class="btn-close btn-success" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body bg-light">
@@ -38,78 +38,47 @@
                               <!-- <h4 class="text-center">Fill your Tractor Details</h4> -->
                             <form id="form">
                                 <div class="row justify-content-center pt-4">
-                                  <h5 class="fw-bold">Your old tractor detail</h5>
-                                    <div class="col-12 col-sm-4 col-lg-4 col-md-4 mt-2">
+                                  <h5 class="fw-bold">Your Harvester Information</h5>
+                                    <div class="col-12 col-sm-6 col-lg-6 col-md-6 mt-2">
                                       <select class="form-select py-2" aria-label="Default select example">
-                                        <option selected> Location</option>
-                                        <option value="1">Baloda bazar </option>
-                                        <option value="2">Ambikapur</option>
-                                        <option value="3"> Sarguja</option>
+                                        <option selected> Brand</option>
+                                        <option value="1">Mahindra</option>
+                                        <option value="2">Swaraj</option>
+                                        <option value="3">John Deere</option>
                                       </select>
                                     </div>
-                                    <div class="col-12 col-sm-4 col-lg-4 col-md-4 mt-2">
-                                      <select class="form-select py-2" aria-label="Default select example">
-                                          <option selected>Name</option>
-                                          <option value="1">frsg</option>
-                                          <option value="2">dffsdf</option>
-                                          <option value="3">ggf</option>
-                                      </select>
-                                    </div>
-                                    <div class="col-12 col-sm-4 col-lg-4 col-md-4 mt-2">
+                                    <div class="col-12 col-sm-6 col-lg-6 col-md-6 mt-2">
                                       <div class="form-group">
                                         <input type="text" class="" placeholder=" " id="brand">
-                                        <label for="name" class="text-dark ">Mobile Number</label>
+                                        <label for="name" class="text-dark ">Model Name</label>
                                       </div>
                                     </div>
-                                    <h5 class="fw-bold"> Which tractor do you own ?</h5>
-                                    <div class="col-12 col-sm-4 col-lg-4 col-md-4">
+                                    <div class="col-12 col-sm-6 col-lg-6 col-md-6">
                                       <select class="form-select py-2" aria-label="Default select example">
-                                          <option selected>Brand</option>
-                                          <option value="1">Mahindra</option>
-                                          <option value="2">Swaraj</option>
-                                          <option value="3">John Deere</option>
+                                        <option selected> Crop Type</option>
+                                        <option value="1">MultiCrop</option>
+                                        <option value="2">Paddy</option>
+                                        <option value="3">Maize</option>
+                                        <option value="3">Sugarcane</option>
                                       </select>
+                                    </div>
+                                    <div class="col-12 col-sm-6 col-lg-6 col-md-6">
+                                      <select class="form-select py-2" aria-label="Default select example">
+                                        <option selected> Power Source</option>
+                                        <option value="1">Self</option>
+                                        <option value="2">Tractor Mounted</option>
+                                      </select>
+                                    </div>
+                                    <h5 class="fw-bold mt-3"> Your Harvester Condition</h5>
+                                    <div class="col-12 col-sm-8 col-lg-8 col-md-8">
+                                      <div class="form-group">
+                                        <input type="text" class="" placeholder=" " id="brand">
+                                        <label for="name" class="text-dark ">Type (eg. key features of your item)</label>
+                                      </div>
                                     </div>
                                     <div class="col-12 col-sm-4 col-lg-4 col-md-4">
                                       <select class="form-select py-2" aria-label="Default select example">
-                                          <option selected>Model</option>
-                                          <option value="1">gbdf</option>
-                                          <option value="2">fdvsdf</option>
-                                          <option value="3">dfsd</option>
-                                          <option value="3">fds</option>
-                                      </select>
-                                    </div>
-                                    <div class="col-12 col-sm-4 col-lg-4 col-md-4">
-                                      <select class="form-select py-2" aria-label="Default select example">
-                                          <option selected>Year</option>
-                                          <option value="1">2023</option>
-                                          <option value="2">2022</option>
-                                          <option value="3">2021</option>
-                                          <option value="3">2020</option>
-                                      </select>
-                                    </div>
-                                    <h5 class="fw-bold mt-3 ">Share Tractor Condition with Buyres</h5>
-                                    <div class="col-12 col-sm-4 col-lg-4 col-md-4">
-                                      <select class="form-select py-2" aria-label="Default select example">
-                                          <option selected>Engine Condition</option>
-                                          <option value="1">0-25% (Poor)</option>
-                                          <option value="2">26-50% (Average)</option>
-                                          <option value="3">51-75% (Good)</option>
-                                          <option value="3">76-100% (Very Good)</option>
-                                      </select>
-                                    </div>
-                                    <div class="col-12 col-sm-4 col-lg-4 col-md-4">
-                                      <select class="form-select py-2" aria-label="Default select example">
-                                          <option value="0" selected>Tyre Condition</option>
-                                          <option value="1">0-25% (Poor)</option>
-                                          <option value="2">26-50% (Average)</option>
-                                          <option value="3">51-75% (Good)</option>
-                                          <option value="3">76-100% (Very Good)</option>
-                                      </select>
-                                    </div>
-                                    <div class="col-12 col-sm-4 col-lg-4 col-md-4">
-                                      <select class="form-select py-2" aria-label="Default select example">
-                                          <option selected>Hours Driven</option>
+                                          <option selected>Hours</option>
                                           <option value="1">Less than 1000 </option>
                                           <option value="2">1001 - 2000</option>
                                           <option value="3">2001 - 3000</option>
@@ -124,7 +93,21 @@
                                           <option value="3">Not Available</option>
                                       </select>
                                     </div>
-                                    <h5 class="fw-bold mt-3">Upload Tractor Images</h5>
+                                    <div class="col-12 col-sm-4 col-lg-4 col-md-4">
+                                      <select class="form-select py-2" aria-label="Default select example">
+                                          <option selected>Purchase Year</option>
+                                          <option value="1">2023</option>
+                                          <option value="2">2022</option>
+                                          <option value="3">2021</option>
+                                          <option value="3">2020</option>
+                                      </select>
+                                    </div>
+                                    <div class="col-12 col-sm-4 col-lg-4 col-md-4">
+                                      <div class="form-group">
+                                        <input type="text" class="" placeholder=" " id="brand">
+                                        <label for="name" class="text-dark ">Price</label>
+                                      </div>
+                                    </div>
                                     <div class="col-12 col-sm-4 col-lg-4 col-md-4 ps-3">
                                       <div class="background__box pt-1">
                                         <div class="background__btn-box ">
@@ -141,22 +124,61 @@
                                         </div>
                                       </div>
                                     </div>
-                                    <div class="col-12 col-sm-8 col-lg-8 col-md-8">
+                                    <div class="col-12">
+                                      <div class="form-group">
+                                        <textarea id="w3review" name="w3review" rows="4" cols="70"> </textarea>
+                                        <label for="name" class="text-dark ">About</label>
+                                      </div>
+                                    </div>
+                                    
+                                    <h5 class="fw-bold mt-3 ">Personal Information</h5>
+                                    <div class="col-12 col-sm-4 col-lg-4 col-md-4">
+                                      <div class="form-group">
+                                        <input type="text" class="" placeholder=" " id="brand">
+                                        <label for="name" class="text-dark ">Name</label>
+                                      </div>
+                                    </div>
+                                    <div class="col-12 col-sm-4 col-lg-4 col-md-4">
+                                      <div class="form-group">
+                                        <input type="text" class="" placeholder=" " id="brand">
+                                        <label for="name" class="text-dark ">Mobile Number</label>
+                                      </div>
+                                    </div>
+                                    <div class="col-12 col-sm-4 col-lg-4 col-md-4">
                                       <select class="form-select py-2" aria-label="Default select example">
-                                          <option selected>How early do you want to sell</option>
-                                          <option value="1">Within 15Days</option>
-                                          <option value="2">15 - 30Days</option>
-                                          <option value="3">More than 30 Days</option>
+                                          <option selected>Select State</option>
+                                          <option value="1">Chhattisgarh</option>
+                                          <option value="2">Others</option>
                                       </select>
                                     </div>
+                                    <div class="col-12 col-sm-4 col-lg-4 col-md-4">
+                                      <select class="form-select py-2" aria-label="Default select example">
+                                          <option selected>Select District</option>
+                                          <option value="1">Jagdalpur</option>
+                                          <option value="2">Sarguja</option>
+                                      </select>
+                                    </div>
+                                    <div class="col-12 col-sm-4 col-lg-4 col-md-4">
+                                      <select class="form-select py-2" aria-label="Default select example">
+                                          <option selected>Select Tehsil</option>
+                                          <option value="1">Jagdalpur</option>
+                                          <option value="2">Sarguja</option>
+                                      </select>
+                                    </div>
+                                    <div class="col-12 col-sm-4 col-lg-4 col-md-4">
+                                      <div class="form-group">
+                                        <input type="text" class="" placeholder=" " id="brand">
+                                        <label for="name" class="text-dark ">Pincode</label>
+                                      </div>
+                                    </div>
                                 </div>
+                                <div class="col-12"> <button type="button" class="btn btn-success fw-bold px-3">Submit</button></div>
                               </form>
                             </div>
                         </div>
                     </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-secondary px-3" data-bs-dismiss="modal">Close</button>
-                  <button type="button" class="btn btn-success fw-bold px-3">Submit</button>
                 </div>
               </div>
             </div>

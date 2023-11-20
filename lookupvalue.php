@@ -41,7 +41,7 @@
                                           <div class="col-12 mt-3">
                                             <div class="">
                                                 <label class="text-dark">Lookup Type Name<span class="text-danger">*</span></label>
-                                                <input type="text" class="form-control py-2" id="name" for="name" name="name" placeholder="Enter Value">
+                                                <input type="text" class="form-control py-2 text-uppercase" id="name" for="name" name="name" placeholder="">
                                             </div>
                                           </div>
                                       </div>

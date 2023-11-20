@@ -17,8 +17,8 @@
         <div class="py-2">
             <span class="my-4 text-white pt-4 ">
                 <a href="index.php" class="text-decoration-none header-link px-1">Home <i class="fa-solid fa-chevron-right px-1"></i></a>
-                    <span class=""><a href="#" class="text-decoration-none header-link  px-1">Buy Used <i class="fa-solid fa-chevron-right px-1"></i> </a></span>
-                    <span class="text-dark">Sell Old Tractor</span>
+                    <span class=""><a href="#" class="text-decoration-none header-link  px-1">Sell Used <i class="fa-solid fa-chevron-right px-1"></i> </a></span>
+                    <span class="text-dark">Sell Used Tractor</span>
             </span> 
         </div>
     </div>
