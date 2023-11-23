@@ -118,7 +118,7 @@
     </div>
   </section>
 
-  <!-- Compare To Buy The Right Tractor  -->   <!--WITH THE "TABS"-->
+  <!-- Compare To Buy The Right Tractor  -->  
 
   <section class="">
     <div class="container bg-light">
