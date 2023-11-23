@@ -6,87 +6,189 @@
    include 'includes/headertag.php';
    ?>
 </head>
-<!-- <div class="container my-5 py-5">
-  <div class="row">
-    <div class="col-2"></div>
-    <div class="col-8">
-    <div class="row">
-    <div class="col-12 col-lg-4 col-md-4 col-sm-4">
-      <img src="assets/images/why.jpg" class="w-100 h-100" alt="">
-    </div>
-    <div class="col-12 col-lg-6 col-md-6 col-sm-6 py-4">
+<style>
+    .error-message {
+    color: red;
    
-                            <h2 class="text-dark cursor-pointer">Login Your Account</h2>
-                            <form>
-                            <label for="password" class="text-dark">UserName</label>
-                            <input type="password" id="password" placeholder="Enter Name/ Email ID">
-                            <label for="password" class="text-dark">Password</label>
-                            <input type="password" id="password" placeholder="Enter Password">
-                           
-
-                            <button type="submit" class="pt-3 mt-1 w-50  fw-bold ">Search</button>
-                            
-                            </form>
-                        </div>
-    
-  </div> 
-    </div>
-    <div class="col-2"></div>
-  </div>
-  
-</div> -->
-  <div class="login-page">
-          <div class="container form-container">
+}
+</style>
+<section class="bg-light">
+  <div class="login-page ">
+          <div class="container form-container bg-light">
                       <div class="bg-white shadow rounded">
                               <div class=" pe-0">
                                   <div class="form-center h-100 py-5 px-5">
-                                      <form action="" class="row g-4">
+                                      <form action="" id="form" class="row g-2">
                                         <img src="assets/images/user.webp" class="rounded-circle text-center user-login" alt="">
+                                        <h5 class="text-center">Admin Login </h5>
                                               <div class="col-12">
-                                                  <label class="text-dark fw-bold"><i class="fa-solid fa-user"></i> Phone No.<span class="text-danger">*</span></label>
+                                                  <label class="text-dark fw-bold"><i class="fa-solid fa-user"></i> Email ID<span class="text-danger">*</span></label>
                                                       
-                                                      <input type="text" class="form-control py-2" placeholder="Enter phone number">
-                                                  
+                                                      <input type="text" class="form-control py-2" id="email" for="email" name="email" placeholder="Enter Email Id">
+                                                      <small></small>
                                               </div>
-
                                               <div class="col-12">
-                                                  <label class="text-dark fw-bold"><i class="fa-solid fa-lock"></i> OTP<span class="text-danger">*</span></label>
-                                                  
-                                                      <input type="text" class="form-control" placeholder="Enter OTP">
-                                                
+                                                  <!-- <label class="text-dark fw-bold"><i class="fa-solid fa-lock"></i> Password<span class="text-danger">*</span></label>
+                                                    <div class="input-group-prepend">
+                                                      <div class="input-group-text py-3"><i class="fas fa-eye-slash" id="eyeeye"></i></div>
+                                                    </div>
+                                                      <input type="password" class="form-control" for="password" name="password" id="password" placeholder="Enter Password">
+                                                      <small></small> -->
+                                                     <label class="text-dark fw-bold"><i class="fa-solid fa-lock"></i> Password<span class="text-danger">*</span></label>
+                                                        <div class="input-group  mr-sm-2">
+                                                          <div class="input-group-prepend">
+                                                            <div class="input-group-text py-3"><i class="fas fa-eye-slash" id="eyeeye"></i></div>
+                                                          </div>
+                                                          <input type="password" class="form-control pb-3" for="password" id="password" placeholder="Enter Password">
+                                                        </div>
                                               </div>
-                                    
-
-                                              
-
                                               <div class="col-12 text-center">
-                                                  <button type="submit" class="btn btn-success px-4 ">login</button>
+                                                <a href="" type="submit" class="btn px-4 bg-success" id="login">Login</a>
                                               </div>
-
                                               <div class="col-12 text-center">
-                                                  <p class="text-dark">Don't Have an Account ? <a href="#" class="text-success text-center text-decoration-none"><strong>Sign-Up</strong></a> </p>
-                                                  <a href="#" class=" text-success text-decoration-none">Forgot Password?</a>
+                                                  <a href="#" class="text-success text-decoration-none">Forgot Password?</a>
                                               </div>
-                                              
                                       </form>
                                   </div>
                               </div>
                       </div>
           </div>
   </div>
-  <!-- <body class="login-body">
-    <div class="loginBox">
-      <img src="assets/images/user.webp" class="rounded-circle text-center  user" alt="">
-      <h2 class="h2login">Log In Here</h2>
-      <form>
-        <p>Email</p>
-        <input type="email" name="email" placeholder="Enter Email" required>
-        <p>Password</p>
-        <input type="password" name="password" placeholder="Enter Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
-        <input type="submit" name="sign-in" value="Sign In">
-        <a href="#">Forget Password</a>
-      </form>
-    </div>
+  <?php
+   include 'includes/footertag.php';
+   ?> 
 
-  </body> -->
- 
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
+<script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
+<script>
+$(document).ready(function() {
+    $("#form").validate({
+        rules: {
+            email: {
+                required: true,
+                email: true
+            },
+            password: {
+                required: true
+            }
+        },
+        messages: {
+            email: "Please Enter Your Email id",
+            password: "Please provide a valid password"
+        },
+        submitHandler: function(form) {
+            login();
+        }
+    });
+
+    if (document.getElementById('login')) {
+        document.getElementById('login').addEventListener('click', function(event) {
+            event.preventDefault();
+            $("#form").submit();
+        });
+    }
+});
+
+$(function(){
+  
+  $('#eyeeye').click(function(){
+       
+        if($(this).hasClass('fa-eye-slash')){
+           
+          $(this).removeClass('fa-eye-slash');
+          
+          $(this).addClass('fa-eye');
+          
+          $('#password').attr('type','text');
+            
+        }else{
+         
+          $(this).removeClass('fa-eye');
+          
+          $(this).addClass('fa-eye-slash');  
+          
+          $('#password').attr('type','password');
+        }
+    });
+});
+function login() {
+    var email = document.getElementById('email').value;
+    var password = document.getElementById('password').value;
+    var paraArr = {};
+    paraArr['email'] = email;
+    paraArr['password'] = password;
+    var url = "<?php echo $APIBaseURL; ?>user_login";
+    $.ajax({
+        url: url,
+        type: "POST",
+        data: paraArr,
+        success: function(result) {
+        
+        },
+        complete: function(data) {
+          console.log(data);
+            var res = data.responseJSON;
+            if (data.status == 200) {
+                console.log("login success");
+                window.location.href = "<?php echo $baseUrl; ?>usermanagement.php"; 
+            }
+           
+            localStorage.setItem("token", res.access_token);
+            localStorage.setItem("expireIn", res.expires_in);
+            // console.log("login successfully");
+        },
+        error: function(data) {
+            console.log(data, "data");
+            var res = data.responseJSON;
+            if (data.status == 401) {
+                console.log("invalid credentials");
+                alert(" Please enter valid credentials..!");
+            }
+        }
+    });
+}
+
+// function login() {
+//   var email = document.getElementById('email').value;
+//     var password = document.getElementById('password').value;
+//     var paraArr = {};
+//     paraArr['email'] = email;
+//     paraArr['password'] = password;
+//     var url = "<?php echo $APIBaseURL; ?>user_login";
+//     $.ajax({
+//         url: url,
+//         type: "POST",
+//         data: paraArr,
+//         success: function(result) {
+//             // Handle successful login if needed
+//         },
+//         complete: function(data) {
+//             console.log(data);
+//             var res = data.responseJSON;
+//             if (data.status == 200) {
+//                 console.log("login success");
+//                 window.location.href = "<?php echo $baseUrl; ?>usermanagement.php";
+//             } else {
+//                 localStorage.setItem("token", res.access_token);
+//                 localStorage.setItem("expireIn", res.expires_in);
+                
+//                 if (res.token_expire) {
+//                     console.log("Token expired. Redirecting to login page.");
+//                     window.location.href = "<?php echo $baseUrl; ?>login.php";
+//                 }
+//             }
+//         },
+//         error: function(data) {
+//             console.log(data, "data");
+//             var res = data.responseJSON;
+//             if (data.status == 401) {
+//                 console.log("invalid credentials");
+//                 alert(" Please enter valid credentials..!");
+//             }
+//         }
+//     });
+// }
+
+</script>
+</html>

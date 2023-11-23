@@ -3,6 +3,12 @@
   
    include 'includes/headertag.php';
    ?> 
+    <style>
+    .error-message {
+    color: red;
+   
+}
+</style>
 <body class="loaded"> 
 <div class="main-wrapper">
     <div class="app" id="app">
@@ -40,36 +46,48 @@
                         <div class="row justify-content-center">
                             <div class="col-lg-10">
                               <h4 class="text-center">Fill your Brand Details</h4>
-                            <form>
-                                <div class="row justify-content-center pt-4">
-                                   
-                                    <div class="col-12 col-lg-6 col-sm-5 col-md-6 my-2">
-                                      <div class="form-group">
-                                        <input type="text" class="py-3" placeholder=" " id="brand">
-                                        <label for="name" class="text-dark"> Brand Name</label>
+                              <form action="" method="POST"  class="" id="form">
+                                  <div class="">
+                                    <div class="">
+                                      <div class="row">
+                                        
+                                        <div class="col- col-sm-6 col-lg-6 col-md-6">
+                                          <label class="text-dark"> Brand Name<span class="text-danger">*</span></label>
+                                          <input type="text" class="form-control py-2" id="brand_name" placeholder="Enter brand">
+                                          <small></small>
+                                        </div>
+                                        <div class="col-12 col-sm-4 col-lg-4 col-md-4 ps-3">
+                                          <div class="background__box mt-4 pt-1">
+                                                <div class="background__btn-box ">
+                                                    <label class="background__btn">
+                                                    <p class="text-white bg-success p-2 rounded">Upload images</p>
+                                                        <input type="file" id="brand_img" data-max_length="20"name="brand_img"  ref="fileInput"
+                                                        style="display: none"
+                                                        @change="handleFileInput"
+                                                        accept="image/png, image/jpg, image/jpeg" class="background__inputfile" id="banner_image">
+                                                        <small></small>
+                                                    </label>
+                                                </div>
+                                                <div class="">
+                                                    <div class="background__img-wrap"></div>
+                                                </div>
+                                          </div>
+                                        </div>
+                        
+                                        <div class="col-12 col-sm-2 col-lg-2 col-md-2 ">
+                                            <div class="float-left mt-4 pt-2">
+                                                <button class="btn px-4 bg-success text-white" id="save">Submit</button>
+                                            </div>
+                                        </div>
                                       </div>
-                                    </div>
-                                    <div class="col-12 col-lg-6 col-sm-5 col-md-6 my-2">
-                                      <div class="form-group">
-                                        <input type="text" class="py-3" placeholder=" " id="name">
-                                        <label for="name" class="text-dark ">Model</label>
-                                      </div>
-                                    </div>
-                                    <div class="col-12  my-2">
-                                      <div class="form-group">
-                                        <input type="text" class="py-3" placeholder=" " id="name">
-                                        <label for="name" class="text-dark">Category</label>
-                                      </div>
-                                    </div>
-                                   
-                                </div>
-                            </form>
+                                  </div>
+                              </form>
                             </div>
                         </div>
                     </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-secondary px-3" data-bs-dismiss="modal">Close</button>
-                  <button type="button" class="btn btn-success fw-bold px-3">Submit</button>
+                 
                 </div>
               </div>
             </div>
@@ -84,29 +102,17 @@
           <div class="row">
             <div class="col-12 col-sm-12 col-md-4 col-lg-4">
               <div class="form-outline">
-                <label class="form-label"> Brand Name</label>
                 <select class="form-select" aria-label="Default select example">
-                  <option selected>Select Brand Name</option>
+                  <option selected> Brand Name</option>
                   <option value="1">Mahindra</option>
                   <option value="2">Swaraj</option>
                   <option value="3">John Deere</option>
                 </select>
               </div>
             </div>
-            <div class="col-12 col-sm-12 col-md-4 col-lg-4">
-              <div class="form-outline">
-                <label class="form-label">Model</label>
-                <select class="form-select" aria-label="Default select example">
-                  <option selected>Select Model Name</option>
-                  <option value="1">Model1</option>
-                  <option value="2">Model2</option>
-                  <option value="3">Model3</option>
-                </select>
-              </div>
-            </div>
             <div class="col-12 col-sm-12 col-md-4 col-lg-4 text-center">
-                <button type="button" class="btn-success btn_search" id="Search">Search</button>
-                <button type="button" class="btn-success  mx-2 btn_search" id="Reset">Reset</button>
+                <button type="button" class="btn-success px-3" id="Search">Search</button>
+                <button type="button" class="btn-success px-3  mx-2 " id="Reset">Reset</button>
             </div>
           </div>
         </div>
@@ -117,11 +123,11 @@
                                 <table id="example_brand" class="table dataTable no-footer py-1" width="100%">
                                     <thead>
                                         <tr>
-                                            <th class="d-none d-md-table-cell text-white">S.No.</th>
-                                            <th class="d-none d-md-table-cell text-white">  Brand Name</th>
-                                           <th class="d-none d-md-table-cell text-white">Model</th>
-                                           <th class="d-none d-md-table-cell text-white">Category</th>
-                                           <th class="d-none d-md-table-cell text-white">Action</th>
+                                          <th class="d-none d-md-table-cell text-white">S.No.</th>
+                                          <th class="d-none d-md-table-cell text-white">Brand Name</th>
+                                          <th class="d-none d-md-table-cell text-white">Model</th>
+                                          <th class="d-none d-md-table-cell text-white">Category</th>
+                                          <th class="d-none d-md-table-cell text-white">Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -140,3 +146,106 @@
 <?php
    include 'includes/footertag.php';
    ?> 
+    <script>
+   $(document).ready(function () {
+    BackgroundUpload();
+    // $('#save').click(store); 
+});
+
+function store(event) {
+    event.preventDefault();
+    console.log('jfhfhw');
+    var brand_name = $('#brand_name').val();
+    var brand_img = $('#brand_img').val();
+    var paraArr = {
+        'brand_name': brand_name,
+        'brand_img': brand_img
+    };
+    var url = "<?php echo $APIBaseURL; ?>storeBrands";
+    var token = localStorage.getItem('token');
+    var headers = {
+        'Authorization': 'Bearer ' + token
+    };
+    $.ajax({
+        url: url,
+        type: "POST",
+        data: paraArr,
+        headers: headers,
+        success: function (result) {
+            console.log(result, "result");
+            window.location.href = "<?php echo $baseUrl; ?>brand_listing.php";
+            console.log("Add successfully");
+            alert('successfully inserted..!')
+        },
+        error: function (error) {
+            console.error('Error fetching data:', error);
+        }
+    });
+    // Add the following line to submit the form
+    // $('#form').submit();
+}
+
+
+function BackgroundUpload() {
+    var imgWrap = "";
+    var imgArray = [];
+
+    function generateUniqueClassName(index) {
+      return "background-image-" + index;
+    }
+
+    $('.background__inputfile').each(function () {
+      $(this).on('change', function (e) {
+        imgWrap = $(this).closest('.background__box').find('.background__img-wrap');
+        var maxLength = $(this).attr('data-max_length');
+
+        var files = e.target.files;
+        var filesArr = Array.prototype.slice.call(files);
+        var iterator = 0;
+        filesArr.forEach(function (f, index) {
+
+          if (!f.type.match('image.*')) {
+            return;
+          }
+
+          if (imgArray.length > maxLength) {
+            return false;
+          } else {
+            var len = 0;
+            for (var i = 0; i < imgArray.length; i++) {
+              if (imgArray[i] !== undefined) {
+                len++;
+              }
+            }
+            if (len > maxLength) {
+              return false;
+            } else {
+              imgArray.push(f);
+
+              var reader = new FileReader();
+              reader.onload = function (e) {
+                var className = generateUniqueClassName(iterator);
+                var html = "<div class='background__img-box'><div onclick='BackgroundImage(\"" + className + "\")' style='background-image: url(" + e.target.result + ")' data-number='" + $(".background__img-close").length + "' data-file='" + f.name + "' class='img-bg " + className + "'><div class='background__img-close'></div></div></div>";
+                imgWrap.append(html);
+                iterator++;
+              }
+              reader.readAsDataURL(f);
+            }
+          }
+        });
+      });
+    });
+
+    $('body').on('click', ".background__img-close", function (e) {
+      var file = $(this).parent().data("file");
+      for (var i = 0; i < imgArray.length; i++) {
+        if (imgArray[i].name === file) {
+          imgArray.splice(i, 1);
+          break;
+        }
+      }
+      $(this).parent().parent().remove();
+    });
+}
+
+   </script>

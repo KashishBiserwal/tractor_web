@@ -28,30 +28,28 @@
                 <h3 class="py-2">Find Your <span class="text-success fw-bold"> Nursery Items</span> </h3>
                 <div class="row my-4">
                     <div class="col-12 col-lg-4 col-md-4 col-sm-4 mb-4">
-                        <div class="h-auto success__stry__item d-flex flex-column text-decoration-none shadow ">
+                        <a href="nursery_inner.php" class="h-auto success__stry__item text-decoration-none d-flex flex-column shadow ">
                             <div class="thumb">
                                 <div>
-                                    <a href="nursery_inner.php" class="ratio ratio-16x9">
-                                        <img src="assets/images/merigold.webp" class="object-fit-cover " alt="img">
-                                    </a>
+                                    <div class="ratio ratio-16x9">
+                                        <img src="assets/images/sunflower.jpg" class="object-fit-cover " alt="img">
+                                    </div>
                                 </div>
                             </div>
                             <div class="content d-flex flex-column flex-grow-1 ">
-                                
                                 <div class="power text-center mt-3">
-                                    <div class="row ">
-                                        <div class="col-12 col-lg-6 col-md-6 col-sm-6"><p class="text-success ps-2"> <i class="fa fa-leaf" aria-hidden="true"></i> Flower</p></div>
-                                        <div class="col-12 col-lg-6 col-md-6 col-sm-6" style="padding-right: 32px;">
-                                             <a href="nursery_inner.php"  id="adduser" type="" class="text-danger fw-bold text-decoration-none"> Merigold</a>
-                                        </div>
-                                    </div>    
+                                    <div class="col-12">
+                                      <p class="text-success fw-bold">Nursury Name</p>
+                                    </div>  
                                 </div>
                                 <div class="row text-center">
-                                    <div class="col-12f text-center">
-                                        <p class="fw-bold pe-3 text-primary">Ambikapur(C.G)</p>
+                                    <div class="col-12 text-center">
+                                        <p class="fw-bold pe-3">Durg(C.G)</p>
                                     </div>
                                 </div>
-                                <div class="col-12 btn-success">
+                            </div>
+                        </a>
+                        <div class="col-12 btn-success">
                                     <button type="button" class="btn btn-success py-2 w-100" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="fa-solid fa-phone"></i> 
                                     Contact Seller
                                     </button>
@@ -98,13 +96,31 @@
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                                <button type="button" class="btn btn-danger">Request</button>
+                                                <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#staticBackdrop4">
+                                                    Request
+                                                </button>
+                                                <div class="modal fade" id="staticBackdrop4"data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                                    <div class="modal-dialog modal-dialog-centered">
+                                                        <div class="modal-content">
+                                                            <!-- <div class="modal-header">
+                                                                <h5 class="modal-title" id="staticBackdropLabel"></h5>
+                                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                            </div> -->
+                                                            <div class="modal-body">
+                                                                <div class="row px-3  mb-4 text-center">
+                                                                    <h2 class="col-12 text-danger"><strong>ThankYou For Contacting Us..!</strong></h2>
+                                                                    <div class="col-12 text-center"><img class="tick w-100" alt="dfd" src="assets/images/dribbble_yamm.gif"></div>
+                                                                    <h6 class="col-12 mt-3"><i>We will Connect You Soon</i></h6>
+                                                                    <h6 class="col-12 mt-2"><i>Enjoy Your Day..!</i></h6>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
                     </div>
                     <div class="col-12 col-lg-4 col-md-4 col-sm-4 mb-4">
                         <div class="h-auto success__stry__item d-flex flex-column text-decoration-none shadow ">
@@ -117,12 +133,9 @@
                             </div>
                             <div class="content d-flex flex-column flex-grow-1 ">
                                 <div class="power text-center mt-3">
-                                    <div class="row ">
-                                        <div class="col-12 col-lg-6 col-md-6 col-sm-6"><p class="text-success ps-2"> <i class="fa fa-leaf" aria-hidden="true"></i> plant</p></div>
-                                        <a href="#" class="col-12 col-lg-6 col-md-6 col-sm-6 text-decoration-none" style="padding-right: 32px;">
-                                             <p id="adduser" type="" class="text-danger fw-bold"> plant</p>
-                                        </a>
-                                    </div>    
+                                    <div class="col-12">
+                                      <p class="text-success fw-bold">Nursury Name</p>
+                                    </div>   
                                 </div>
                                 <div class="row text-center">
                                     <div class="col-12 text-center">
@@ -195,12 +208,9 @@
                             </div>
                             <div class="content d-flex flex-column flex-grow-1 ">
                                 <div class="power text-center mt-3">
-                                    <div class="row ">
-                                        <div class="col-12 col-lg-6 col-md-6 col-sm-6"><p class="text-success ps-2"> <i class="fa fa-leaf" aria-hidden="true"></i> plant</p></div>
-                                        <div class="col-12 col-lg-6 col-md-6 col-sm-6" style="padding-right: 32px;">
-                                             <p id="adduser" type="" class="text-danger fw-bold"> name</p>
-                                        </div>
-                                    </div>    
+                                    <div class="col-12">
+                                      <p class="text-success fw-bold">Nursury Name</p>
+                                    </div>  
                                 </div>
                                 <div class="row text-center">
                                     <div class="col-12 text-center">
@@ -273,12 +283,9 @@
                             </div>
                             <div class="content d-flex flex-column flex-grow-1 ">  
                                 <div class="power text-center mt-3">
-                                    <div class="row ">
-                                        <div class="col-12 col-lg-6 col-md-6 col-sm-6"><p class="text-success ps-2"> <i class="fa fa-leaf" aria-hidden="true"></i>   Seed</p></div>
-                                        <div class="col-12 col-lg-6 col-md-6 col-sm-6" style="padding-right: 32px;">
-                                             <p id="adduser" type="" class="text-danger fw-bold"> Seed</p>
-                                        </div>
-                                    </div>    
+                                    <div class="col-12">
+                                      <p class="text-success fw-bold">Nursury Name</p>
+                                    </div>   
                                 </div>
                                 <div class="row text-center">
                                     <div class="col-12 text-center">
@@ -302,12 +309,9 @@
                             </div>
                             <div class="content d-flex flex-column flex-grow-1 ">
                                 <div class="power text-center mt-3">
-                                    <div class="row ">
-                                        <div class="col-12 col-lg-6 col-md-6 col-sm-6"><p class="text-success ps-2"> <i class="fa fa-leaf" aria-hidden="true"></i> child plant</p></div>
-                                        <div class="col-12 col-lg-6 col-md-6 col-sm-6" style="padding-right: 32px;">
-                                             <p id="adduser" type="" class="text-danger fw-bold"> Brinjal</p>
-                                        </div>
-                                    </div>    
+                                    <div class="col-12">
+                                      <p class="text-success fw-bold">Nursury Name</p>
+                                    </div>  
                                 </div>
                                 <div class="row text-center">
                                     <div class="col-12 text-center">
@@ -331,12 +335,9 @@
                             </div>
                             <div class="content d-flex flex-column flex-grow-1 ">
                                 <div class="power text-center mt-3">
-                                    <div class="row ">
-                                        <div class="col-12 col-lg-6 col-md-6 col-sm-6"><p class="text-success ps-2"> <i class="fa fa-leaf" aria-hidden="true"></i> plant</p></div>
-                                        <div class="col-12 col-lg-6 col-md-6 col-sm-6" style="padding-right: 32px;">
-                                             <p id="adduser" type="" class="text-danger fw-bold"> Sunflower</p>
-                                        </div>
-                                    </div>    
+                                    <div class="col-12">
+                                      <p class="text-success fw-bold">Nursury Name</p>
+                                    </div>   
                                 </div>
                                 <div class="row text-center">
                                     <div class="col-12 text-center">
@@ -406,7 +407,7 @@
                             <input type="checkbox" class="checkbox-round ms-3" value="Ambikapur"/><span class="ps-2 fs-6">Ambikapur</span><br />
                             <input type="checkbox" class="checkbox-round ms-3" value="Raigarh"/><span class="ps-2 fs-6">Raigarh</span><br />
                             <input type="checkbox" class="checkbox-round ms-3" value="Surajpur"/><span class="ps-2 fs-6">Surajpur</span><br />
-                            <input type="checkbox" class="checkbox-round ms-3" value="Chirmiri"/><span class="ps-2 fs-6">Chirmiri</span><br />
+                            <input type="checkbox" class="checkbox-round ms-3" value="Jagdalpur"/><span class="ps-2 fs-6">Chirmiri</span><br />
                             <input type="checkbox" class="checkbox-round ms-3" value="Korba"/><span class="ps-2 fs-6">Korba</span><br />
                         </div>
                     </div>

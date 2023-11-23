@@ -1,0 +1,861 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head> <?php
+   include 'includes/headertag.php';
+   ?>
+</head>
+<style>
+.form-outline .form-label {
+    color: #454444;
+    font-weight: 500;
+    margin-bottom: 5px;
+    position: absolute;
+    margin-top: -12px;
+    background: #fff;
+    margin-left: 20px;
+}
+
+.card {
+    margin-right: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.cards {
+    max-height: 5rem;
+    object-fit: contain;
+    width: 100%;
+}
+</style>
+
+<body> <?php
+   include 'includes/header.php';
+   ?>
+    <section class=" mt-5 pt-5 bg-light">
+        <div class="container pt-3">
+            <div class="py-2">
+                <span class="text-white ">
+                    <a href="index.php" class="text-decoration-none header-link px-1">Home <i
+                            class="fa-solid fa-chevron-right px-1"></i>
+                    </a>
+                    <span class="">
+                        <span class="text-dark header-link  px-1">Enquiries <i
+                                class="fa-solid fa-chevron-right px-1"></i>
+                        </span>
+                    </span>
+                    <span class="text-dark">All Loan</span>
+                </span>
+            </div>
+        </div>
+    </section>
+    <!--Banner-->
+    <div class="container-fluid">
+        <div class="row siv" id="">
+            <img src="assets/images/loans.jpg" alt="reload img" class="w-100" style="height: 350px;">
+            <div class="container-mid">
+                <div class="row justify-content-center loan_form bg-light border border-dark">
+                    <h3 class="text-dark text-center fw-bold mt-4">Secure Your Loan with the Best Rates</h3>
+                    <h6 class="text-dark text-center mt-2">Provide Your Details to Access Exclusive Loan Options</h6>
+
+                    <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-4">
+                        <div class="form-outline">
+                            <label class="form-label">Loan Type</label>
+                            <select class="form-select py-2" aria-label="Default select example">
+                                <option value="#"></option>
+                                <option value="1">New Tractor Loan</option>
+                                <option value="2">Used Tractor Loan,</option>
+                                <option value="3">Loan Against Tractor</option>
+                                <option value="4">Harvester Loan</option>
+                                <option value="5">Used Harvester Loan</option>
+                                <option value="6">Implement Loan</option>
+                                <option value="7">Personal Loan</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-4">
+                        <div class="form-outline">
+                            <label class="form-label">First Name</label>
+                            <input type="text" id="name" name="search_name"
+                                class=" data_search form-control input-group-sm py-2" />
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-4">
+                        <div class="form-outline">
+                            <label class="form-label">Last Name</label>
+                            <input type="text" id="name" name="search_name"
+                                class=" data_search form-control input-group-sm py-2" />
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-4">
+                        <div class="form-outline">
+                            <label class="form-label">Mobile Number</label>
+                            <input type="text" id="name" name="search_name"
+                                class=" data_search form-control input-group-sm py-2" />
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-4">
+                        <div class="form-outline">
+                            <label class="form-label">Brand</label>
+                            <select class="form-select py-2" aria-label="Default select example">
+                                <option selected></option>
+                                <option value="1">name1</option>
+                                <option value="2">name2</option>
+                                <option value="3">name3</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-4">
+                        <div class="form-outline">
+                            <label class="form-label">Model</label>
+                            <select class="form-select py-2" aria-label="Default select example">
+                                <option selected></option>
+                                <option value="1">name1</option>
+                                <option value="2">name2</option>
+                                <option value="3">name3</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-4">
+                        <div class="form-outline">
+                            <label class="form-label">Enter Model</label>
+                            <input type="text" id="name" name="search_name"
+                                class=" data_search form-control input-group-sm py-2" />
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-4">
+                        <div class="form-outline">
+                            <label class="form-label">Vehicle Registered Number</label>
+                            <input type="text" id="name" name="search_name"
+                                class=" data_search form-control input-group-sm py-2" />
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-4">
+                        <div class="form-outline">
+                            <label class="form-label">Registered Year</label>
+                            <select class="form-select py-2" aria-label="Default select example">
+                                <option selected></option>
+                                <option value="1">name1</option>
+                                <option value="2">name2</option>
+                                <option value="3">name3</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-4 col-lg-4 mt-4">
+                        <div class="form-outline">
+                            <label class="form-label">State</label>
+                            <select class="form-select py-2 " aria-label="Default select example">
+                                <option selected></option>
+                                <option value="1">name1</option>
+                                <option value="2">name2</option>
+                                <option value="3">name3</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-4">
+                        <div class="form-outline">
+                            <label class="form-label">District</label>
+                            <select class="form-select py-2" aria-label="Default select example">
+                                <option selected></option>
+                                <option value="1">name1</option>
+                                <option value="2">name2</option>
+                                <option value="3">name3</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-4">
+                        <div class="form-outline">
+                            <label class="form-label ">Tehsil</label>
+                            <select class="form-select py-2" aria-label="Default select example">
+                                <option selected></option>
+                                <option value="1">name1</option>
+                                <option value="2">name2</option>
+                                <option value="3">name3</option>
+                            </select>
+                        </div>
+                    </div>
+
+
+                    <div class="col-12">
+                        <p class=" mt-3 "> Claims Made in Previous Policy</p>
+                        <div class="form-check form-check-inline ">
+                            <input class="form-check-input border border-dark" type="radio" id="inlineCheckbox1"
+                                name="x" value="option1">
+                            <label class="form-check-label text-dark" for="inlineCheckbox1">Yes</label>
+                        </div>
+                        <div class="form-check form-check-inline text-center">
+                            <input class="form-check-input border border-dark" type="radio" id="inlineCheckbox2"
+                                name="x" value="option2">
+                            <label class="form-check-label text-dark" for="inlineCheckbox2">No</label>
+                        </div>
+                    </div>
+                    <p class="text-center">By proceeding ahead you expressly agree to the Bharat Tractors <a
+                            href="privacy_and_policy.php" class="text-decoration-none">Terms & Conditions*</a></p>
+                    <div class="d-grid col-8 mx-auto mb-3">
+                        <button type="submit" class="btn btn-success fw-bold" data-bs-toggle="modal"
+                            data-bs-target="#contactModal">Apply for Loan</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="contactModal" tabindex="-1" aria-labelledby="contactModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title text-success" id="contactModalLabel">Thank You!</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p class="fw-bold">“Thankyou for contacting us we will get back to you”</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <!--Popular Tractor Insurance Companies-->
+
+
+    <div class="container">
+        <h4 class="mt-5 mb-4 assured px-2 fw-bold">Popular Tractor Loan Companies</h4>
+        <div class="row mt-3 row-cols-1 row-cols-md-2 row-cols-lg-3 justify-content-center">
+
+            <!-- Card 1 -->
+            <div class="col mb-4">
+                <div class="card">
+                    <img src="assets\images\tata1.png" class="card-img-top cards" alt="Company 1">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">TATA AIG</h5>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="col mb-4">
+                <div class="card">
+                    <img src="assets\images\magma1.png" class="card-img-top cards" alt="Company 2">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">Magma HDI</h5>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col mb-4">
+                <div class="card">
+                    <img src="assets\images\icici.jpg" class="card-img-top cards" alt="Company 3">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">ICICI Lombard</h5>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col mb-4">
+                <div class="card">
+                    <img src="assets\images\iffco.png" class="card-img-top cards" alt="Company 4">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">IFFCO-TOKIO</h5>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col mb-4">
+                <div class="card">
+                    <img src="assets\images\chola.webp" class="card-img-top cards" alt="Company 5">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">Chola MS</h5>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col mb-4">
+                <div class="card">
+                    <img src="assets\images\bajaj.jpeg" class="card-img-top cards" alt="Company 6">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">Bajaj Allianz</h5>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+    <!--Popular Tractor Insurance Companies End-->
+
+    <!-- card  -->
+    <div class="container mt-5">
+        <div class="row row-cols-1 row-cols-md-1 row-cols-lg-1">
+            <div class="col">
+                <div class="card bg-light">
+                    <!-- <img src="https://via.placeholder.com/400x200" class="card-img-top" alt="Card Image"> -->
+                    <div class="card-body">
+                        <h3 class="card-title  fw-bold assured px-2">Your Loan Path: Types and Eligibility</h3>
+                        <p class="card-text">
+                        <div class="more-content" style="display:none;">
+                            <table class="table table-bordered table-responsive mt-4 border border-dark bg-light">
+                                <thead>
+                                    <tr class="text-center">
+                                        <th>Type of Loan</th>
+                                        <th>Eligibility</th>
+                                        <th>Documents</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>New Tractor/ New Harvester</td>
+                                        <td>
+                                            <li>Age 18 years to 65 years</li>
+                                            <li>Income proof & minimum land holding of 2 acres</li>
+                                        <td>
+                                            <li>Land ownership proof.</li>
+                                            <li>Aadhar Card/Voter Id/Passport/Driving license</li>
+                                            <li>3 months bank statement</li>
+                                            <li> CV 12 months track record</li>
+                                    </tr>
+                                    <tr>
+                                        <td>Used Tractor/ Used Harvester</td>
+                                        <td>
+                                            <li>Age 18 years to 65 years</li>
+                                            <li>Satisfactory prior credit history</li>
+                                        </td>
+                                        <td>
+                                            <li>Land ownership proof.</li>
+                                            <li>Aadhar Card/Voter Id/Passport/Driving license</li>
+                                            <li>3 months bank statement</li>
+                                            <li>CV 12 months track record</li>
+                                            <li>Used tractor RC</li>
+                                            <li>Used tractor insurance</li>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Loan Against Tractor</td>
+                                        <td>
+                                            <li>Owner of tractor</li>
+                                            <li>Proof of ownership</li>
+                                            <li>Need to have paid at least 12 EMIs of Current Loan</li>
+                                        </td>
+                                        <td>
+                                            <li>Proof of ownership (RC)</li>
+                                            <li>Bank account statement</li>
+                                            <li>KYC Documents</li>
+                                            <li>Pan Card</li>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Implement</td>
+                                        <td>
+                                            <li> Age 18 years to 65 years</li>
+                                            <li>Satisfactory prior credit history</li>
+
+                                        </td>
+                                        <td>
+                                            <li>Land ownership proof.</li>
+                                            <li>Aadhar Card/Voter Id/Passport/Driving license</li>
+                                            <li>3 months bank statement</li>
+                                            <li>CV 12 months track record</li>
+                                        </td>
+
+                                    </tr>
+                                    <tr>
+                                        <td>Personal Loan</td>
+                                        <td>
+                                            <li>Personal loan eligibility depends on the lender's policy.</li>
+
+                                        </td>
+                                        <td>
+                                            <li>Photo</li>
+                                            <li>Aadhar Card/Voter Id/Passport/Driving license</li>
+                                            <li>3 months bank statement</li>
+                                            <li> Latest salary statement as Proof of Income</li>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        </p>
+                        <a href="javascript:void(0)"
+                            class=" text-primary read-more text-decoration-none fw-bold float-end"
+                            data-toggle="collapse" data-target="#collapse1">Read More</a>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+        </div>
+    </div>
+    <!--Banner End-->
+
+
+    <!-- <div class="container mt-4">  
+      <div class="text-center mb-3">
+    <h3 class="text-dark fw-bold">Your Loan Path: Types and Eligibility</h3>
+  </div>
+  <table class="table table-bordered table-responsive mt-4 border border-dark">
+    <thead>
+      <tr class="text-center">
+        <th>Type of Loan</th>
+        <th>Eligibility</th>
+        <th>Documents</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>New Tractor/ New Harvester</td>
+        <td><li>Age 18 years to 65 years</li>
+           <li>Income proof & minimum land holding of 2 acres</li>
+        <td>
+          <li>Land ownership proof.</li>
+            <li>Aadhar Card/Voter Id/Passport/Driving license</li>
+            <li>3 months bank statement</li>
+            <li> CV 12 months track record</li>
+       </tr>
+      <tr>
+        <td>Used Tractor/ Used Harvester</td>
+        <td>
+        <li>Age 18 years to 65 years</li>
+         <li>Satisfactory prior credit history</li>
+        </td>
+        <td>
+          <li>Land ownership proof.</li>
+          <li>Aadhar Card/Voter Id/Passport/Driving license</li>
+          <li>3 months bank statement</li>
+          <li>CV 12 months track record</li>
+          <li>Used tractor RC</li>
+          <li>Used tractor insurance</li>
+        </td>
+      </tr>
+      <tr>
+        <td>Loan Against Tractor</td>
+        <td>
+          <li>Owner of tractor</li>
+          <li>Proof of ownership</li>
+          <li>Need to have paid at least 12 EMIs of Current Loan</li>
+        </td>
+        <td>
+          <li>Proof of ownership (RC)</li>
+          <li>Bank account statement</li>
+          <li>KYC Documents</li>
+          <li>Pan Card</li>
+        </td>
+      </tr>
+      <tr>
+      <td>Implement</td>
+        <td>
+          <li> Age 18 years to 65 years</li>
+          <li>Satisfactory prior credit history</li>
+         
+        </td>
+        <td>
+          <li>Land ownership proof.</li>
+          <li>Aadhar Card/Voter Id/Passport/Driving license</li>
+          <li>3 months bank statement</li>
+          <li>CV 12 months track record</li>
+        </td>
+        
+      </tr>
+      <tr>
+      <td>Personal Loan</td>
+        <td>
+          <li>Personal loan eligibility depends on the lender's policy.</li>
+          
+        </td>
+        <td>
+          <li>Photo</li>
+          <li>Aadhar Card/Voter Id/Passport/Driving license</li>
+          <li>3 months bank statement</li>
+          <li> Latest salary statement as Proof of Income</li>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div> -->
+
+    <!-- Your Loan Path: Types and Eligibility Table End -->
+    <!--Table Content-->
+    <div class="container bg-light">
+        <div class="section-heading mb-2  text-center ">
+            <h3 class="text-dark fw-bold mt-5">Tractor Loan Interest Rate Comparison</h3>
+            <p class="mb-2">Compare the tractor loan interest rate below.</p>
+        </div>
+        <div class="row text-center">
+            <table class="mb-3 table table-bordered border border-dark" style=" background-color:#77bd57;">
+                <tbody>
+                    <thead>
+                        <tr>
+                            <th>Bank Name</th>
+                            <th>Interest Rate</th>
+                            <th>Loan Amount</th>
+                            <th>Loan Tenure</th>
+                        </tr>
+                    </thead>
+                <tbody>
+                    <tr>
+                        <td>ICICI Bank</td>
+                        <td>13% p.a. to 22% p.a.</td>
+                        <td>As per terms and conditions</td>
+                        <td>Up to 5 years</td>
+                    </tr>
+                    <tr>
+                        <td>State Bank of India </td>
+                        <td>9.00% p.a. - 10.25% p.a.</td>
+                        <td>Up to 100% finance</td>
+                        <td>Up to 5 years</td>
+                    </tr>
+                    <tr>
+                        <td>HDFC Bank</td>
+                        <td>12.57% p.a. to 23.26% p.a.*</td>
+                        <td>Up to 90% finance </td>
+                        <td> 12 months to 84 months</td>
+                    </tr>
+                    <tr>
+                        <td>Poonawalla Fincorp</td>
+                        <td>16% p.a. to 20% p.a.</td>
+                        <td> Up to 90% - 95% finance </td>
+                        <td>According to bank</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <!--Table Content End-->
+    <!-- Loan Solutions Tailored for Your Agricultural Needs at Bharat Tractors Start -->
+    <div class="container">
+        <h4 class="mt-5 assured px-2 fw-bold">Loan Solutions Tailored for Your Agricultural Needs at Bharat Tractors
+        </h4>
+        <p class="px-2 mt-3">Empower your farming journey with the right financial support. At Bharat Tractors, we offer
+            a variety of loan options to suit your specific requirements. Whether you are looking to invest in a new
+            tractor, a used one, implements, or even a harvester, we have you covered. Explore our diverse range of loan
+            offerings and take the first step towards achieving your agricultural goals.
+        </p>
+        ​​​​​ <h6 class="assured px-1 fw-bold">New Tractor Loan: Transforming Agriculture</h6>
+        <p class=" px-2">Unleash the potential of modern farming with our New Tractor Loans. We understand the
+            significance of a reliable tractor in boosting agricultural productivity. Benefit from competitive interest
+            rates and flexible repayment options, ensuring you don't compromise on your farming ambitions.
+        <p>
+        <h6 class=" assured fw-bold px-1 mt-5">Used Tractor Loan: Maximizing Value</h6>
+        <p class="px-2">Looking to invest in a pre-owned tractor? Our Used Tractor Loans provide a financial bridge to
+            make it happen. Enjoy hassle-free documentation and attractive interest rates, allowing you to bring home
+            the tractor you need without financial stress.</p>
+        <h6 class="assured fw-bold px-1 mt-5">Implement Loan: Enhance Your Efficiency</h6>
+        <p class="px-2">Upgrade your farming equipment with our Implement Loans. From plows to harvesters, we've got you
+            covered. Flexible repayment options and quick approvals make acquiring the necessary implements a seamless
+            process.</p>
+
+        <h6 class="assured  fw-bold px-1 mt-5">New Harvester Loan: Harvesting Success</h6>
+
+        <p class="px-2">Invest in the latest harvesting technology with our New Harvester Loans. Avail yourself of
+            attractive interest rates and financing options, ensuring you stay at the forefront of agricultural
+            innovation.
+        </p>
+
+        <h6 class="assured fw-bold px-1 mt-5">Old Harvester Loan: Sustaining Tradition</h6>
+        <p class="px-2">Preserve your traditional harvesting methods with our Old Harvester Loans. Enjoy cost-effective
+            financing solutions that honor your farming heritage.
+        </p>
+
+        <h6 class="assured fw-bold px-1 mt-5">Loan Against Tractor: Unlock Your Tractor's Value</h6>
+        <p class="px-2">Harness the equity in your tractor with our Loan Against Tractor. Quick approvals and convenient
+            repayment options provide you with the financial flexibility you need.</p>
+
+        <h6 class="assured fw-bold px-1 mt-5">Personal Loan: Flexible Financing for Your Needs</h6>
+        <p class="px-2">For miscellaneous agricultural expenses, our Personal Loans offer a versatile financing
+            solution. Whether it's for farm improvements or unexpected costs, our personal loans are tailored to meet
+            your unique needs.</p>
+
+        <h6 class="assured fw-bold px-1 mt-5">Why Choose Bharat Tractors for Your Agricultural Loans?</h6>
+        <p class=" px-2">Specialization in Agricultural Equipment: We understand the unique needs of farmers,
+            specializing in tractors and related equipment.</p>
+        <p class=" px-2">Extensive Network: Our wide network of dealers, lenders, and financial institutions ensures you
+            have access to the best loan options available.
+        </p>
+        <p class=" px-2">Tailored Solutions: We provide customized loan solutions based on your individual requirements,
+            ensuring a perfect fit for your financial situation.</p>
+        <p class="px-2">Transparency: We believe in transparent communication, ensuring you fully understand the terms,
+            interest rates, and fees associated with your loan.</p>
+        <p class="px-2">Online Accessibility: With our online services, the loan application and approval process
+            becomes convenient and accessible, especially for those in remote areas.</p>
+        <p class="px-2">Take the first step towards securing your agricultural future. Explore our loan options today at
+            Bharat Tractors and experience farming with financial confidence. Get in touch with us to start your loan
+            application process.</p>
+        <p class="px-2">Protect Your Investment: While you're investing in your farm, don't forget to safeguard your
+            equipment with our comprehensive Tractor Insurance. Learn more (link to insurance page).</p>
+
+
+
+
+    </div>
+
+
+
+    <!-- Loan Solutions Tailored for Your Agricultural Needs at Bharat Tractors End -->
+
+
+    <!--Question Section-->
+    <section class="about bg-white">
+        <div class="container">
+            <div class="lecture_heading text-center">
+                <h3 class="fw-bold mt-4 pt-4">FAQs on Tractor Loan</h3>
+                <p>Check out the frequently asked questions below.</p>
+            </div>
+            <div class="mt-4 pb-5">
+                <div class="accordion " id="accordionFlushExample">
+                    <div class="accordion-item  rounded-3">
+                        <h2 class="accordion-header " id="flush-headingOne">
+                            <button class="accordion-button collapsed  text-primary fw-bold h4" type="button"
+                                data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false"
+                                aria-controls="flush-collapseOne">Questions Related to New Tractor Loan</button>
+                        </h2>
+                        <div id="flush-collapseOne" class="accordion-collapse collapse"
+                            aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                            <div class="accordion-body">
+                                <p class="text-dark">
+                                <ul>
+                                    <li>
+                                        <b>Que. Who can apply for a new tractor loan?</b>
+                                        <p>Ans. All cultivators and farmland owners are eligible to apply for a new
+                                            tractor loan.</p>
+                                    </li>
+
+                                    <li><b>Que. How long is the repayment period, and what is the repayment rate for a
+                                            new tractor loan?</b>
+                                        <p>Ans. The repayment period for a new tractor loan is typically 60 months (5
+                                            years), and the rate is decided based on the customer's repayment capacity.
+                                        </p>
+                                    </li>
+
+                                    <li>
+                                        <b>Que. Is property mortgaging required for a new tractor loan?</b>
+                                        <p>Ans. No, property mortgaging is not required for a new tractor loan.</p>
+                                    </li>
+                                    <li>
+                                        <b>Que. Do I need a guarantor for a new tractor loan application?</b>
+                                        <p>Ans. No, a guarantor is not required for a new tractor loan application.</p>
+                                    </li>
+
+                                    <li>
+                                        <b>Que. What documents are needed when applying for a new tractor loan?</b>
+                                        <p>Ans. Required documents include a filled application form, KYC documents,
+                                            passport-sized photos, loan statements (if applicable), and land documents.
+                                        </p>
+                                    <li>
+                                </ul>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item rounded-3 my-3">
+                        <h2 class="accordion-header" id="flush-headingTwo">
+                            <button class="accordion-button collapsed  text-primary fw-bold h4" type="button"
+                                data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false"
+                                aria-controls="flush-collapseTwo">Questions Related to Used Tractor Loan</button>
+                        </h2>
+                        <div id="flush-collapseTwo" class="accordion-collapse collapse"
+                            aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
+                            <div class="accordion-body">
+                                <p class="text-dark">
+                                <ul>
+                                    <li>
+                                        <b>Que. Who is eligible for a used tractor loan?</b>
+                                        <p>Ans. Individuals with a satisfactory credit history are eligible for a used
+                                            tractor loan.</p>
+                                    </li>
+
+                                    <li><b>Que. How much can I borrow for a used tractor loan?</b>
+                                        <p>Ans. You can borrow up to 90% of the tractor's price with a used tractor
+                                            loan.
+                                        </p>
+                                    </li>
+
+                                    <li>
+                                        <b>Que. Is there an early repayment option for a used tractor loan?</b>
+                                        <p>Ans. Repayment and closure are allowed after 6 months with some charges as
+                                            mentioned in the loan agreement.</p>
+                                    </li>
+                                    <li>
+                                        <b>Que. Where can I get a hassle-free used tractor loan?</b>
+                                        <p>
+                                            Ans. Tractor Junction provides hassle-free used tractor loans.</p>
+                                    </li>
+
+                                    <li>
+                                        <b>Que. How long does it take to approve a used tractor loan?</b>
+                                        <p>Ans. Approval for a used tractor loan is immediate after the application is
+                                            submitted.</p>
+                                    <li>
+                                </ul>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item  rounded-3 my-3">
+                        <h2 class="accordion-header" id="flush-headingThree">
+                            <button class="accordion-button collapsed text-primary fw-bold h4" type="button"
+                                data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false"
+                                aria-controls="flush-collapseThree">Questions Related to Implement Loan</button>
+                        </h2>
+                        <div id="flush-collapseThree" class="accordion-collapse collapse"
+                            aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
+                            <div class="accordion-body">
+                                <p class="text-dark">
+                                <ul>
+                                    <li>
+                                        <b>Que. Who is eligible for an implement loan?</b>
+                                        <p>Ans. Individuals aged 18 to 65 years with a satisfactory credit history can
+                                            apply for an implement loan.</p>
+                                    </li>
+
+                                    <li><b>Que. Can I use the implement loan for any type of farming equipment?</b>
+                                        <p>Ans. Yes, the implement loan can be used for various farming equipment.
+                                        </p>
+                                    </li>
+
+                                    <li>
+                                        <b>Que. What documents are required for an implement loan?</b>
+                                        <p>Ans. Required documents include a filled application form, KYC documents,
+                                            passport-sized photos, loan statements (if applicable), and land documents.
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <b>Que. Is there a specific repayment period for implement loans?</b>
+                                        <p>Ans. The repayment period for implement loans is typically 60 months (5
+                                            years).</p>
+                                    </li>
+
+                                    <li>
+                                        <b>Que. Can I get an implement loan without submitting collateral?</b>
+                                        <p>
+                                            Ans. Yes, implement loans can be availed with or without submitting
+                                            collateral, providing flexibility to applicants.</p>
+                                    <li>
+                                </ul>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item  rounded-3 my-3">
+                        <h2 class="accordion-header" id="flush-heading4">
+                            <button class="accordion-button collapsed text-primary fw-bold h4" type="button"
+                                data-bs-toggle="collapse" data-bs-target="#flush-collapse4" aria-expanded="false"
+                                aria-controls="flush-collapse4">Questions Related to Loan Against Tractor </button>
+                        </h2>
+                        <div id="flush-collapse4" class="accordion-collapse collapse" aria-labelledby="flush-heading4"
+                            data-bs-parent="#accordionFlushExample">
+                            <div class="accordion-body">
+                                <p class="text-dark">
+                                <ul>
+                                    <li>
+                                        <b>Que. Who is eligible for a loan against tractor?</b>
+                                        <p>Ans. The owner of the tractor is eligible for a loan against tractor.</p>
+                                    </li>
+
+                                    <li><b>Que. Do I have to mortgage my tractor for a loan against tractor?</b>
+                                        <p>Ans. No, you do not have to mortgage your tractor for a loan against tractor.
+                                        </p>
+                                    </li>
+
+                                    <li>
+                                        <b>Que. What is the minimum ownership period required for a loan against
+                                            tractor?</b>
+                                        <p>Ans. To be eligible, the owner must have paid at least 12 EMIs of the current
+                                            loan.</p>
+                                    </li>
+                                    <li>
+                                        <b>Que. What documents are needed for a loan against tractor?</b>
+                                        <p>Ans. Required documents include proof of ownership (RC), bank account
+                                            statement, KYC documents, and PAN card.</p>
+                                    </li>
+
+                                    <li>
+                                        <b>Que. Is there a specific waiting period for repayment and closure?</b>
+                                        <p>Ans. Repayment and closure are not allowed for the first 6 months. After
+                                            that, it can be done with charges mentioned in the loan agreement.</p>
+                                    <li>
+                                </ul>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item  rounded-3 my-3">
+                        <h2 class="accordion-header" id="flush-heading5">
+                            <button class="accordion-button collapsed text-primary fw-bold h4" type="button"
+                                data-bs-toggle="collapse" data-bs-target="#flush-collapse5" aria-expanded="false"
+                                aria-controls="flush-collapse5">Questions Related to Personal Loan</button>
+                        </h2>
+                        <div id="flush-collapse5" class="accordion-collapse collapse" aria-labelledby="flush-heading5"
+                            data-bs-parent="#accordionFlushExample">
+                            <div class="accordion-body">
+                                <p class="text-dark">
+                                <ul>
+                                    <li>
+                                        <b>Que. Who is eligible for a personal loan?</b>
+                                        <p>Ans. Personal loan eligibility depends on the lender's policy.</p>
+                                    </li>
+
+                                    <li><b>Que. What documents are required for a personal loan?</b>
+                                        <p>Ans. Required documents include a photo, identity proof, address proof,
+                                            income proof, and a 3-month bank statement.
+                                        </p>
+                                    </li>
+
+                                    <li>
+                                        <b>Que. Can I apply for a personal loan online?</b>
+                                        <p>Ans. Yes, you can apply for a personal loan online at Bharat Tractors.</p>
+                                    </li>
+                                    <li>
+                                        <b>Que. What is the age requirement for availing a personal loan?</b>
+                                        <p>Ans. The age requirement for availing a personal loan is 23-57 years.</p>
+                                    </li>
+
+                                    <li>
+                                        <b>Que. What is the interest rate for a personal loan?</b>
+                                        <p>Ans. The interest rate for a personal loan ranges from 11.00% to 24.00%.</p>
+                                    <li>
+                                </ul>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--Question Section End-->
+
+    <?php
+    include 'includes/footer.php';
+    include 'includes/footertag.php';
+
+    ?>
+    <script>
+    // JavaScript to handle "Read More" and "Read Less" functionality
+    document.querySelectorAll('.read-more').forEach(function(button, index) {
+        button.addEventListener('click', function() {
+            var moreContent = document.querySelectorAll('.more-content')[index];
+            var buttonText = button.innerText.trim().toLowerCase();
+
+            if (buttonText === 'read more') {
+                moreContent.style.display = 'inline';
+                button.innerText = 'Read Less';
+            } else {
+                moreContent.style.display = 'none';
+                button.innerText = 'Read More';
+            }
+        });
+    });
+    </script>
+
+</body>
+
+</html>

@@ -28,185 +28,176 @@
             <div class="col-12 col-sm-9 col-lg-9 col-md-9">
                 <h3 class="">Used <span class="text-success fw-bold">Tractor Combine Harvesters</span> </h3>
               
-                <div class="row my-3">
-                    <div class="col-12 col-lg-4 col-md-4 col-sm-4 my-3 ">
-                            <div class=" success__stry__item d-flex flex-column shadow ">
-                                <div class="thumb">
-                                    <a href="#">
-                                        <div class="ratio ratio-16x9">
-                                            <img src="assets/images/40009999.webp" class="object-fit-cover " alt="img">
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="content d-flex flex-column flex-grow-1 ">
-                                    <div class="caption text-center">
-                                        <a href="#" class="text-decoration-none text-dark">
-                                            <p class="pt-3"><strong class="series_tractor_strong text-center h4 fw-bold ">Kartar 4000</strong></p>
-                                        </a>      
-                                    </div>
-                                    <div class="row text-center">
-                                        <div class="col-6">
-                                            <p class="fw-bold ps-2 text-dark">Width : 14 Feet</p>
-                                        </div>
-                                        <div class="col-6">
-                                            <p class="fw-bold pe-2 text-dark">Self Propelled</p>
-                                        </div>
-                                    </div>
-                                    <div class=" bg-success">
-                                        <p class="text-white text-center pt-2">Power : 101 HP</p>
-                                    </div>
-                                </div>
-                            </div>
-                    </div>
-                    <div class="col-12 col-lg-4 col-md-4 col-sm-4 my-3 ">
-                        <div class=" success__stry__item d-flex flex-column shadow ">
+                <div class="row my-4">
+                    <div class="col-12 col-lg-4 col-md-4 col-sm-4 mb-4">
+                        <a href="harvester_inner.php" class="h-auto success__stry__item d-flex flex-column text-decoration-none shadow ">
                             <div class="thumb">
-                                <a href="#">
-                                    <div class="ratio ratio-16x9">
-                                        <img src="assets/images/987-1646896081.webp" class="object-fit-cover " alt="img">
-                                    </div>
-                                </a>
+                                <div>
+                                    <img src="assets/images/40009999.webp" class="object-fit-cover w-100" alt="img">
+                                </div>
                             </div>
                             <div class="content d-flex flex-column flex-grow-1 ">
-                                <div class="caption text-center">
-                                    <a href="#" class="text-decoration-none text-dark">
-                                        <p class="pt-3"><strong class="series_tractor_strong text-center h4 fw-bold ">Preet 987</strong></p>
-                                    </a>      
-                                </div>
+                                
+                                <div class="power text-center mt-3">
                                 <div class="row text-center">
-                                    <div class="col-6">
-                                        <p class="fw-bold ps-2 text-dark">Width: 14feet</p>
-                                    </div>
-                                    <div class="col-6">
-                                        <p class="fw-bold pe-2 text-dark">Self Propelled</p>
+                                    <div class="col-12 text-center">
+                                        <p class="fw-bold pe-3 text-primary">Kartar 4000</p>
                                     </div>
                                 </div>
-                                <div class=" bg-success">
-                                    <p class="text-white text-center pt-2">Power : 101</p>
+                                    <div class="row ">
+                                        <div class="col-12 "><p class="text-dark ps-2">Cutting Width : 14 Feet</p></div>
+                                        
+                                    </div>    
                                 </div>
                             </div>
-                        </div>
+                            <div class="col-12 btn-success">
+                                <button type="button" class="btn btn-success py-2 w-100"></i> 
+                                Power : 101 HP
+                                </button>
+                            </div>
+                        </a>
                     </div>
-                    <div class="col-12 col-lg-4 col-md-4 col-sm-4 my-3 ">
-                        <div class=" success__stry__item d-flex flex-column shadow ">
+                    <div class="col-12 col-lg-4 col-md-4 col-sm-4 mb-4">
+                        <a href="#" class="h-auto success__stry__item d-flex flex-column text-decoration-none shadow ">
                             <div class="thumb">
-                                <a href="#">
-                                    <div class="ratio ratio-16x9">
-                                        <img src="assets/images/435-1647923189.webp" class="object-fit-cover " alt="img">
-                                    </div>
-                                </a>
+                                <div>
+                                    <img src="assets/images/987-1646896081.webp" class="object-fit-cover  w-100" alt="img">
+                                </div>
                             </div>
                             <div class="content d-flex flex-column flex-grow-1 ">
-                                <div class="caption text-center">
-                                    <a href="#" class="text-decoration-none text-dark">
-                                        <p class="pt-3"><strong class="series_tractor_strong text-center h4 fw-bold ">Vishal 435</strong></p>
-                                    </a>      
-                                </div>
+                                
+                                <div class="power text-center mt-3">
                                 <div class="row text-center">
-                                    <div class="col-6">
-                                        <p class="fw-bold ps-2 text-dark">Width : N/A</p>
-                                    </div>
-                                    <div class="col-6">
-                                        <p class="fw-bold pe-2 text-dark">Tillage</p>
+                                    <div class="col-12 text-center">
+                                        <p class="fw-bold pe-3 text-primary">Preet 987</p>
                                     </div>
                                 </div>
-                                <div class=" bg-success">
-                                    <p class="text-white text-center pt-2">Self Propelled</p>
+                                    <div class="row ">
+                                        <div class="col-12 "><p class="text-dark ps-2">Cutting Width : 14 feet(4.3 m)</p></div>
+                                        
+                                    </div>    
                                 </div>
                             </div>
-                        </div>
+                            <div class="col-12 btn-success">
+                                <button type="button" class="btn btn-success py-2 w-100"></i> 
+                                Power : 101 HP
+                                </button>
+                            </div>
+                        </a>
                     </div>
-                    <div class="col-12 col-lg-4 col-md-4 col-sm-4 my-3 ">
-                        <div class=" success__stry__item d-flex flex-column shadow ">
+                    <div class="col-12 col-lg-4 col-md-4 col-sm-4 mb-4">
+                        <a href="#" class="h-auto success__stry__item d-flex flex-column text-decoration-none shadow ">
                             <div class="thumb">
-                                <a href="#">
-                                    <div class="ratio ratio-16x9">
-                                        <img src="assets/images/8200-1691580440.webp" class="object-fit-cover " alt="img">
-                                    </div>
-                                </a>
+                                <div>
+                                    <img src="assets/images/435-1647923189.webp" class="object-fit-cover  w-100 " alt="img">
+                                </div>
                             </div>
                             <div class="content d-flex flex-column flex-grow-1 ">
-                                <div class="caption text-center">
-                                    <a href="#" class="text-decoration-none text-dark">
-                                        <p class="pt-3"><strong class="series_tractor_strong text-center h4 fw-bold ">Swaraj 8200</strong></p>
-                                    </a>      
-                                </div>
+                                
+                                <div class="power text-center mt-3">
                                 <div class="row text-center">
-                                    <div class="col-6">
-                                        <p class="fw-bold ps-2 text-dark">Width : 4.2 m</p>
-                                    </div>
-                                    <div class="col-6">
-                                        <p class="fw-bold pe-2 text-dark">Self Propelled</p>
+                                    <div class="col-12 text-center">
+                                        <p class="fw-bold pe-3 text-primary">Vishal 435</p>
                                     </div>
                                 </div>
-                                <div class=" bg-success">
-                                    <p class="text-white text-center pt-2">Power : 73.5kW</p>
+                                    <div class="row ">
+                                        <div class="col-12 "><p class="text-dark ps-2">Cutting Width : N/A</p></div>
+                                        
+                                    </div>    
                                 </div>
                             </div>
-                        </div>
+                            <div class="col-12 btn-success">
+                                <button type="button" class="btn btn-success py-2 w-100"></i> 
+                                Power : N/A
+                                </button>
+                            </div>
+                        </a>
                     </div>
-                    <div class="col-12 col-lg-4 col-md-4 col-sm-4 my-3 ">
-                        <div class=" success__stry__item d-flex flex-column shadow ">
+                    <div class="col-12 col-lg-4 col-md-4 col-sm-4 mb-4">
+                        <a href="#" class="h-auto success__stry__item d-flex flex-column text-decoration-none shadow ">
                             <div class="thumb">
-                                <a href="#">
-                                    <div class="ratio ratio-16x9">
-                                        <img src="assets/images/7499999.webp" class="object-fit-cover " alt="img">
-                                    </div>
-                                </a>
+                                <div>
+                                    <img src="assets/images/harvestmaster-h12-4wd-1649325881.webp" class="object-fit-cover  w-100" alt="img">
+                                </div>
                             </div>
                             <div class="content d-flex flex-column flex-grow-1 ">
-                                <div class="caption text-center">
-                                    <a href="#" class="text-decoration-none text-dark">
-                                        <p class="pt-3"><strong class="series_tractor_strong text-center h4 fw-bold ">Preet 749</strong></p>
-                                    </a>      
-                                </div>
+                                
+                                <div class="power text-center mt-3">
                                 <div class="row text-center">
-                                    <div class="col-6">
-                                        <p class="fw-bold ps-2 text-dark"> Width :9Feet</p>
-                                    </div>
-                                    <div class="col-6">
-                                        <p class="fw-bold pe-2 text-dark">Self Propelled</p>
+                                    <div class="col-12 text-center">
+                                        <p class="fw-bold text-primary">Mahindra HarvestMaster H12 4WD</p>
                                     </div>
                                 </div>
-                                <div class=" bg-success">
-                                    <p class="text-white text-center pt-2">Power : 70 HP</p>
+                                    <div class="row ">
+                                        <div class="col-12 "><p class="text-dark ps-2">Cutting Width : 12 feet</p></div>
+                                        
+                                    </div>    
                                 </div>
                             </div>
-                        </div>
+                            <div class="col-12 btn-success">
+                                <button type="button" class="btn btn-success py-2 w-100"></i> 
+                                Power : N/A
+                                </button>
+                            </div>
+                        </a>
                     </div>
-                    <div class="col-12 col-lg-4 col-md-4 col-sm-4 my-3 ">
-                        <div class=" success__stry__item d-flex flex-column shadow ">
+                    <div class="col-12 col-lg-4 col-md-4 col-sm-4 mb-4">
+                        <a href="#" class="h-auto success__stry__item d-flex flex-column text-decoration-none shadow ">
                             <div class="thumb">
-                                <a href="#">
-                                    <div class="ratio ratio-16x9">
-                                        <img src="assets/images/71009999.webp" class="object-fit-cover " alt="img">
-                                    </div>
-                                </a>
+                                <div>
+                                    <img src="assets/images/harvesking-dc-68g-hk-1647922688.webp" class="object-fit-cover  w-100" alt="img">
+                                </div>
                             </div>
                             <div class="content d-flex flex-column flex-grow-1 ">
-                                <div class="caption text-center">
-                                    <a href="#" class="text-decoration-none text-dark">
-                                        <p class="pt-3"><strong class="series_tractor_strong text-center h4 fw-bold ">Dasmesh 7100</strong></p>
-                                    </a>      
-                                </div>
+                                
+                                <div class="power text-center mt-3">
                                 <div class="row text-center">
-                                    <div class="col-6">
-                                        <p class="fw-bold ps-2 text-dark">Width: 9Feet</p>
-                                    </div>
-                                    <div class="col-6">
-                                        <p class="fw-bold pe-2 text-dark">Self Propelled</p>
+                                    <div class="col-12 text-center">
+                                        <p class="fw-bold text-primary">Kubota HARVESKING DC-68G-HK</p>
                                     </div>
                                 </div>
-                                <div class=" bg-success">
-                                    <p class="text-white text-center pt-2">Power : 76 HP</p>
+                                    <div class="row ">
+                                        <div class="col-12 "><p class="text-dark ps-2">Cutting Width : 900 x 1903 MM</p></div>
+                                        
+                                    </div>    
                                 </div>
                             </div>
-                        </div>
+                            <div class="col-12 btn-success">
+                                <button type="button" class="btn btn-success py-2 w-100"></i> 
+                                Power : 68
+                                </button>
+                            </div>
+                        </a>
                     </div>
-                    <div class="col-12 text-center mt-3">
-                        <button id="adduser" type="button" class="add_btn btn-success px-3">
-                        <i class="fas fa-undo"></i>  Load More  </button>
+                    <div class="col-12 col-lg-4 col-md-4 col-sm-4 mb-4">
+                        <a href="#" class="h-auto success__stry__item d-flex flex-column text-decoration-none shadow ">
+                            <div class="thumb">
+                                <div>
+                                    <img src="assets/images/40009999.webp" class="object-fit-cover  w-100" alt="img">
+                                </div>
+                            </div>
+                            <div class="content d-flex flex-column flex-grow-1 ">
+                                
+                                <div class="power text-center mt-3">
+                                <div class="row text-center">
+                                    <div class="col-12 text-center">
+                                        <p class="fw-bold pe-3 text-primary">Kartar 4000</p>
+                                    </div>
+                                </div>
+                                    <div class="row ">
+                                        <div class="col-12 "><p class="text-dark ps-2">Cutting Width : 14 Feet</p></div>
+                                        
+                                    </div>    
+                                </div>
+                            </div>
+                            <div class="col-12 btn-success">
+                                <button type="button" class="btn btn-success py-2 w-100"></i> 
+                                Power : 101 HP
+                                </button>
+                            </div>
+                        </a>
                     </div>
+
                 </div>
             </div>
             

@@ -425,11 +425,11 @@ $("#imageUpload").change(function() {
 
 
 // datatable brand listing
-$('#example_brand').DataTable({
-  "processing":true,
-   "serverSide":true,
-   "ajax":'fetchbrandData.php',  
-});
+// $('#example_brand').DataTable({
+//   "processing":true,
+//    "serverSide":true,
+//    "ajax":'fetchbrandData.php',  
+// });
 
 
 // haatbazar sell form
@@ -502,13 +502,47 @@ previous_fs.css({
 });
 
 // swiper hatbazar buy inner
+// document.addEventListener("DOMContentLoaded", function () {
+//   const mySwiper2_wrapper = document.querySelector(".mySwiper2_buy .swiper-wrapper_buy"),
+//   mySwiper_container = document.querySelector(".mySwiper_buy"),
+//         clone = mySwiper2_wrapper.cloneNode(true);
+//   mySwiper_container.appendChild(clone);
+
+//   const swiper_buy = new Swiper(".mySwiper_buy", {
+//   loop: true,
+//   spaceBetween: 10,
+//   slidesPerView: mySwiper2_wrapper.childNodes.length,
+//   freeMode: true,
+//   watchSlidesProgress: true
+//   });
+
+//   const swiper2_buy = new Swiper(".mySwiper2_buy", {
+//   autoplay: {
+//       delay: 5000,
+//       disableOnInteraction: false
+//   },
+//   slidesPerView: "auto",
+//   centeredSlides: true,
+//   loop: true,
+//   loopedSlides: mySwiper2_wrapper.childNodes.length,
+//   spaceBetween: 10,
+//   speed: 800,
+//   navigation: {
+//       nextEl: ".swiper-button-next",
+//       prevEl: ".swiper-button-prev"
+//   },
+//   thumbs: {
+//       swiper: swiper
+//   }
+//   });
+// },false);
 document.addEventListener("DOMContentLoaded", function () {
   const mySwiper2_wrapper = document.querySelector(".mySwiper2_buy .swiper-wrapper_buy"),
   mySwiper_container = document.querySelector(".mySwiper_buy"),
         clone = mySwiper2_wrapper.cloneNode(true);
   mySwiper_container.appendChild(clone);
 
-  const swiper_buy = new Swiper(".mySwiper_buy", {
+  const swiper = new Swiper(".mySwiper_buy", {
   loop: true,
   spaceBetween: 10,
   slidesPerView: mySwiper2_wrapper.childNodes.length,
@@ -516,7 +550,7 @@ document.addEventListener("DOMContentLoaded", function () {
   watchSlidesProgress: true
   });
 
-  const swiper2_buy = new Swiper(".mySwiper2_buy", {
+  const swiper3 = new Swiper(".mySwiper2_buy", {
   autoplay: {
       delay: 5000,
       disableOnInteraction: false

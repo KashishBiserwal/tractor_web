@@ -109,7 +109,7 @@
           <div class="row">
           <div class="col-12 col-sm-12 col-md-3 col-lg-3">
               <div class="form-outline">
-                <label class="form-label"> Seller Name</label>
+                <!-- <label class="form-label"> Seller Name</label> -->
                 <!-- <input type="text" id="search_email" name="search_email" class="form-control" /> -->
                 <select class="form-select py-2" aria-label="Default select example">
                     <option selected>Select Name</option>
@@ -121,7 +121,7 @@
             </div>
             <div class="col-12 col-sm-12 col-md-3 col-lg-3">
               <div class="form-outline">
-                <label class="form-label"> Brand Name</label>
+                <!-- <label class="form-label"> Brand Name</label> -->
                 <!-- <input type="text" id="search_email" name="search_email" class="form-control" /> -->
                 <select class="form-select py-2" aria-label="Default select example">
                     <option selected>Select Brand</option>
@@ -144,19 +144,18 @@
             </div> -->
             <div class="col-12 col-sm-12 col-md-3 col-lg-3">
               <div class="form-outline">
-                <label class="form-label">District</label>
                     <select class="form-select py-2" aria-label="Default select example">
-                        <option selected>Select District</option>
-                        <option value="1">Raipur</option>
+                       
+                        <option value="1" selected> Select District</option>
                         <option value="2">Bilaspur</option>
                         <option value="3">Ambikapur</option>
                     </select>
               </div>
             </div>
             <div class="col-12 col-sm-12 col-md-3 col-lg-3">
-              <div class=" mt-4 pt-1">
-                <button type="button" class="btn-success btn px-3 py-2" id="Search">Search</button>
-                <button type="button" class="btn-success btn  mx-2 px-3 py-2" id="Reset">Reset</button>
+              <div class=" ">
+                <!-- <button type="button" class="btn-success btn px-3 py-2" id="Search">Search</button> -->
+                <button type="button" class="btn-success btn  mx-2 px-3 " id="Reset">Reset</button>
               </div>
             </div>
           </div>
