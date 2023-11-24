@@ -441,7 +441,7 @@ $(".data_search").on("keyup", function() {
   $("#data-table tr").filter(function() {
     $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
   });
-});
+});  
 
 
 </script>

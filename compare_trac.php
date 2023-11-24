@@ -1,113 +1,188 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-   <?php
-   include 'includes/headertag.php';
-   ?>
-</head>
-   <?php
-   include 'includes/header.php';
-   ?>
+  <head>
+    <?php
+      include 'includes/headertag.php';
+    ?>
+  </head>
+  <?php
+    include 'includes/header.php';
+  ?>
 
-    <section class="mt-5 pt-5">
-        <div class="container pt-4">
-            <div class="">
-                <span class="mt-5 text-white pt-5 ">
-                <a href="index.php" class="text-decoration-none header-link px-1">Home <i class="fa-solid fa-chevron-right px-1"></i></a>
-                 </span>
-                <span class="text-dark">Compare</span>
-                </span> 
-            </div>
-        </div>
-    </section>
-    <!-- All News Section -->
-    <div class="container" id="an">       
-        <div class="row py-1">
-         <h3 class="mt-2 mb-3 bg-light">Compare Tractors</h3>
-
-            <div class="col-12 col-lg-3 col-sm-3 col-md-3 mt-2 mb-2">
-               <div class="success__stry__item shadow h-100">
-                   <div class="thumb">
-                      <a href="#">
-                        <div class="">
-                         <img src="assets\images\default-image.jpg" class="object-fit-cover p-3 w-100" alt="img">
-                        </div>
-                      </a>
-                   </div>
-                   <div class="content mt-5 py-5 pb-3 text-center">                        
-                      <a href="#" class="text-decoration-none fs-5 text-primary pb-1">
-                        <span class="">Select Tractor </span>                          
-                      </a>                     
-                   </div>
-                   <div class="col-12  text-center"> 
-                      <button class="btn btn-success text-white col-12 px-5">Compare</button>
-                    </div>
-               </div>
-            </div>   
-
-            <div class="col-12 col-lg-3 col-sm-3 col-md-3 mt-2 mb-2">
-              <div class="success__stry__item shadow h-100">
-                <div class="thumb">
-                  <a href="#">
-                    <div class="">
-                      <img src="assets\images\default-image.jpg" class="object-fit-cover p-3 w-100" alt="img">
-                    </div>
-                  </a>
-                </div>
-                <div class="content mt-5 py-5 pb-3 text-center">                        
-                  <a href="#" class="text-decoration-none fs-5 text-primary pb-1">
-                    <span class="">Select Tractor </span>                          
-                  </a>
-                </div>
-                <div class="col-12  text-center"> 
-                  <button class="btn btn-success text-white col-12 px-5">Compare</button>
-                </div>                
-              </div>
-            </div>   
-
-            <div class="col-12 col-lg-3 col-sm-3 col-md-3 mt-2 mb-2">
-              <div class="success__stry__item shadow h-100">
-                <div class="thumb">
-                  <a href="#">
-                    <div class="">
-                      <img src="assets\images\default-image.jpg" class="object-fit-cover p-3 w-100" alt="img">
-                    </div>
-                  </a>
-                </div>
-                <div class="content mt-5 py-5 pb-3 text-center">                        
-                  <a href="#" class="text-decoration-none fs-5 text-primary pb-1">
-                    <span class="">Select Tractor </span>                          
-                  </a>
-                </div>
-                <div class="col-12  text-center"> 
-                  <button class="btn btn-success text-white col-12 px-5">Compare</button>
-                </div>  
-              </div>
-            </div>               
-            
-            <div class="col-12 col-lg-3 col-sm-3 col-md-3 mt-2 mb-2">
-              <div class="success__stry__item shadow h-100">
-                <div class="thumb">
-                  <a href="#">
-                    <div class="">
-                      <img src="assets\images\default-image.jpg" class="object-fit-cover p-3 w-100" alt="img">
-                    </div>
-                  </a>
-                </div>
-                <div class="content mt-5 py-5 pb-3 text-center">                        
-                  <a href="#" class="text-decoration-none fs-5 text-primary pb-1">
-                    <span class="">Select Tractor </span>                          
-                  </a>
-                </div>
-                <div class="col-12  text-center"> 
-                  <button class="btn btn-success text-white col-12 px-5">Compare</button>
-                </div>  
-              </div>
-            </div>   
-
-        </div>
+  <section class="mt-5 pt-5">
+    <div class="container pt-4">
+      <div class="">
+        <span class="mt-5 text-white pt-5 ">
+          <a href="index.php" class="text-decoration-none header-link px-1">Home <i class="fa-solid fa-chevron-right px-1"></i></a>
+        </span>
+        <span class="text-dark">Compare</span>
+      </div>
     </div>
+  </section>
+  <!-- All News Section -->
+  <div class="container" id="an">       
+    <div class="row py-1">
+      <h3 class="mt-2 mb-3 bg-light">Compare Tractors</h3>
+
+      <div class="col-12 col-lg-3 col-sm-3 col-md-3 mt-2 mb-2">
+        <div class="success__stry__item shadow h-100">
+          <div class="thumb">
+            <a href="#">
+              <div class="">
+                <img src="assets\images\default-image.jpg" class="object-fit-cover p-3 w-100" alt="img">
+              </div>
+            </a>
+          </div>
+          <div class="content mt-5 py-5 pb-3 text-center">                        
+            <button type="button" class="text-primary fs-5" data-bs-toggle="modal" data-bs-target="#select_trac_modal">
+              Select Tractor
+            </button>                    
+          </div>
+          <div class="col-12  text-center"> 
+            <button class="btn btn-success text-white col-12 px-5">Compare</button>
+          </div>  
+        </div>
+      </div>   
+
+      <div class="col-12 col-lg-3 col-sm-3 col-md-3 mt-2 mb-2">
+        <div class="success__stry__item shadow h-100">
+          <div class="thumb">
+            <a href="#">
+              <div class="">
+                <img src="assets\images\default-image.jpg" class="object-fit-cover p-3 w-100" alt="img">
+              </div>
+            </a>
+          </div>
+          <div class="content mt-5 py-5 pb-3 text-center">                        
+            <button type="button" class="text-primary fs-5" data-bs-toggle="modal" data-bs-target="#select_trac_modal">
+              Select Tractor
+            </button>                    
+          </div>
+          <div class="col-12  text-center"> 
+            <button class="btn btn-success text-white col-12 px-5">Compare</button>
+          </div>  
+        </div>
+      </div>   
+
+
+      <div class="col-12 col-lg-3 col-sm-3 col-md-3 mt-2 mb-2">
+        <div class="success__stry__item shadow h-100">
+          <div class="thumb">
+            <a href="#">
+              <div class="">
+                <img src="assets\images\default-image.jpg" class="object-fit-cover p-3 w-100" alt="img">
+              </div>
+            </a>
+          </div>
+          <div class="content mt-5 py-5 pb-3 text-center">                        
+            <button type="button" class="text-primary fs-5" data-bs-toggle="modal" data-bs-target="#select_trac_modal">
+              Select Tractor
+            </button>                    
+          </div>
+          <div class="col-12  text-center"> 
+            <button class="btn btn-success text-white col-12 px-5">Compare</button>
+          </div>  
+        </div>
+      </div>   
+              
+      <div class="col-12 col-lg-3 col-sm-3 col-md-3 mt-2 mb-2">
+        <div class="success__stry__item shadow h-100">
+          <div class="thumb">
+            <a href="#">
+              <div class="">
+                <img src="assets\images\default-image.jpg" class="object-fit-cover p-3 w-100" alt="img">
+              </div>
+            </a>
+          </div>
+          <div class="content mt-5 py-5 pb-3 text-center">                        
+            <button type="button" class="text-primary fs-5" data-bs-toggle="modal" data-bs-target="#select_trac_modal">
+              Select Tractor
+            </button>                    
+          </div>
+          <div class="col-12  text-center"> 
+            <button class="btn btn-success text-white col-12 px-5">Compare</button>
+          </div>  
+        </div>
+      </div>   
+
+    </div>
+  </div>
+  <!-- MODAL SELECT BRANDS -->
+  <section>
+    <div class="modal fade" id="select_trac_modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <div>
+              <h5 class="modal-title fs-2" id="exampleModalLabel"><i class="fa-solid fa-arrow-left"></i>   Select Brand</h5>
+            </div> 
+            <!-- SEARCH BOX  -->
+            <div>
+              <div class="input-group">
+                <div class="form-outline" data-mdb-input-init>
+                  <input type="search" id="form1" class="form-control" />
+                  <label class="form-label" style="margin-top:-61px;" for="form1">Search</label>
+                </div>
+                <button type="button" class="btn btn-primary" data-mdb-ripple-init>
+                  <i class="fas fa-search"></i>
+                </button>
+              </div>             
+            </div>          
+          </div>
+          <div class="modal-body">
+            <div>
+              <p class="fs-5">Popular Brands</p> 
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                <label class="form-check-label text-dark" for="flexRadioDefault1">
+                  Mahindra
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
+                <label class="form-check-label text-dark" for="flexRadioDefault2">
+                  Swaraj
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
+                <label class="form-check-label text-dark" for="flexRadioDefault2">
+                  Massey Ferguson
+                </label>
+              </div>
+              <p class="fs-5 py-2">Other Brands</p> 
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                <label class="form-check-label text-dark" for="flexRadioDefault1">
+                  ACE
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
+                <label class="form-check-label text-dark" for="flexRadioDefault2">
+                  Autonxt
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
+                <label class="form-check-label text-dark" for="flexRadioDefault2">
+                  captain
+                </label>
+              </div>
+            </div>
+          </div>
+          <!-- <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Save changes</button>
+          </div> -->
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
   <section>
     <div class="container">
       <div class=" ps-5 pe-5">
@@ -1023,5 +1098,14 @@
    include 'includes/footer.php';
    include 'includes/footertag.php';
    ?>
+
+  <script>
+    $(".data_search").on("keyup", function() {
+      var value = $(this).val().toLowerCase();
+      $("#data-table tr").filter(function() {
+        $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+      });
+    }); 
+  </script>
 </body>
 </html>
