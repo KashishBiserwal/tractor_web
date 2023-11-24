@@ -29,14 +29,10 @@
             <span class="text-secondary text-uppercase"></span>
             <h2 class=" text-dark ">Sell Your <span class="text-success">Used Tractor</span></h2>
             <h4 class="mb-4">"Photo Khicho Tractor Becho"</h4>
-            <!-- <a class="btn px-5 py-3 text-white mt-3 mt-sm-0 btn-success" type="
-            button"  data-toggle="modal" data-target="#exampleModal" style="border-radius: 30px; ">Get Valuation</a> -->
-            <!-- Button trigger modal -->
-            <button type="button" class="btn px-5 py-3 text-white mt-3 mt-sm-0 btn-success" data-bs-toggle="modal" style="border-radius: 27px; "data-bs-target="#exampleModal">
+           
+            <!-- <button type="button" class="btn px-5 py-3 text-white mt-3 mt-sm-0 btn-success" data-bs-toggle="modal" style="border-radius: 27px; "data-bs-target="#exampleModal">
                 Sell Now
             </button>
-
-            <!-- Modal -->
             <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-lg modal-dialog-centered">
                     <div class="modal-content modal_box">
@@ -47,7 +43,6 @@
                     <div class="modal-body">
                         <div class="row justify-content-center">
                             <div class="col-lg-10">
-                            <!-- <h3 class="mb-3">Fill The Form</h3> -->
                             <form>
                                 <div class="row ">
                                     <div class="col-12 col-lg-6 col-sm-5 col-md-6 my-2">
@@ -76,17 +71,89 @@
                     </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
 
              
             
         </div>
             
         <!-- in mobile remove the clippath -->
-        <div class="col-md-8 h-100 clipped" style="min-height: 350px; background-image: url(assets/images/image_2023_09_02T08_22_01_554Z.png); background-position: center; background-size: cover;">
+        <div class="col-md-8 h-100 clipped" id="backgraund_img" style="min-height: 350px; background-image: url(assets/images/image_2023_09_02T08_22_01_554Z.png); background-position: center; background-size: cover;">
 
         </div>
     </div>
+</section>
+
+<section class="form-view form-view_sell bg-white pb-4">
+  <div class="container-mid">
+    <div class="row justify-content-center">
+      <div class="col-md-8 col-lg-7">
+        <form id="tractor_submit_form" class="form-view-inner form-view-overlay_sell bg-light box-shadow p-3" action="" method="" novalidate="novalidate">
+            <div class="row justify-content-center">
+                <div class="col-12 col-lg-6 col-md-6 col-sm-6  ">
+                    <div class="mt-2">
+                        <label class="form-label text-dark">Brand</label>
+                        <select class="form-control" name="brand_id" id="brand_id" onchange="getModel(this.value)" required="">
+                            <option value="" selected="">Select Brand</option>
+                            <option value="64">ACE</option>
+                            <option value="211">Digitrac</option>
+                            <option value="56">Eicher</option>
+                            <option value="60">Escorts</option>
+                            <option value="75">Farmtrac</option>
+                            <option value="66">Force</option>
+                            <option value="223">Hindustan</option>
+                            <option value="68">Indo Farm</option>
+                            <option value="59">John Deere</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-12 col-lg-6 col-md-6 col-sm-6  ">
+                    <div class="mt-2">
+                        <label class="form-label text-dark">Model</label>
+                        <select class="form-control" name="model_id" id="modelreview" required="">
+                            <option value="">Select Model</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-12 col-lg-6 col-md-6 col-sm-6 mt-2 ">
+                    <div class="mt-2">
+                        <label class="form-label text-dark">Name</label>
+                        <input type="text" id="search_name" placeholder="Enter Name" name="search_name" class=" search form-control input-group-sm" />
+                    </div>
+                </div>
+                <div class="col-12 col-lg-6 col-md-6 col-sm-6 mt-2 ">
+                    <div class=" mt-2">
+                        <label class="form-label text-dark">Mobile Number</label>
+                        <input type="text" id="search_name" placeholder="Enter Number"  name="search_name" class=" search form-control input-group-sm" />
+                    </div>
+                </div>
+                <div class="col-6 col-sm-6">
+                    <div class="mt-2">
+                    <label class="form-label text-dark">District</label>
+                        <select class="form-control" name="brand_id" id="brand_id"  required="">
+                            <option value="" selected="">Select Brand</option><option value="632">Balod</option>
+                            <option value="770">Baloda Bazar</option><option value="656">Balrampur</option>
+                            <option value="436">Bastar</option><option value="675">Bemetra</option><option value="725">Bhatapara</option>
+                            <option value="735">Bijapur</option><option value="437">Bilaspur</option><option value="438">Dantewada</option>
+                            <option value="439">Dhamtari</option><option value="440">Durg</option><option value="676">Gariaband</option><option value="441">Janjgir - Champa</option><option value="442">Jashpur</option><option value="769">Kabirdham</option><option value="443">Kanker</option><option value="444">Kawardha</option><option value="693">Kondagaon</option><option value="445">Korba</option><option value="446">Koriya</option><option value="447">Mahasamund</option><option value="664">Mungeli</option><option value="729">Narayanpur</option><option value="755">Pendra</option><option value="448">Raigarh</option><option value="449">Raipur</option><option value="450">Rajnandgaon</option><option value="793">Sakti</option><option value="782">Sarangarh</option><option value="702">Sukma</option><option value="700">Surajpur</option><option value="451">Surguja</option><option value="736">Udaipur</option></select>
+                        <span class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-6 col-sm-6">
+                    <div class=" mt-2">
+                        <label class="form-label text-dark">Tehsil </label>
+                        <input type="text" id="search_name" placeholder="Enter Tehsil"  name="search_name" class=" search form-control input-group-sm" />
+                    </div>
+                </div> 
+                <div class="col-12">
+                    <button class="tractor_submit form-submit-btn  text-white bg-success w-100 px-3 mt-2 mb-3" type="submit">CHECK ON ROAD PRICE</button>
+                </div>
+                <p class="mb-0 text-center">By proceeding ahead you expressly agree to the Tractor Junctions <a href="#" class="text-decoration-none" target="_blank" title="terms and conditions">terms and conditions*</a></p>
+            </div>
+        </form>
+      </div>
+    </div>
+  </div>
 </section>
 
 
