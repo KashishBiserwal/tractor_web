@@ -125,55 +125,775 @@
       <h3 class="my-3 pt-3 fw-bold mb-4">Compare To Buy The Right Tractor</h3>
       <nav class="">
         <div class="nav nav-tabs w-100" id="nav-tab" role="tablist">
-          <a class="nav-link active px-3 py-3 h5 fw-bold text-dark py-2" type="button" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Under 20 HP</a>
-          <a class="nav-link px-3 py-3 h5 fw-bold text-dark" id="nav-contact-tab" type="button" data-bs-toggle="tab" data-bs-target="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">21-30 HP</a>
-          <a class="nav-link px-3 py-3 h5 fw-bold text-dark" id="nav-contact-tab" type="button" data-bs-toggle="tab" data-bs-target="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">31-40 HP</a>
-          <a class="nav-link px-3 py-3 h5 fw-bold text-dark" id="nav-Personal-tab" type="button" data-bs-toggle="tab" data-bs-target="#nav-Personal" role="tab" aria-controls="nav-Personal" aria-selected="false">41-45 HP</a>
-          <a class="nav-link px-3 py-3 h5 fw-bold text-dark" id="nav-Personal-tab" type="button" data-bs-toggle="tab" data-bs-target="#nav-Personal" role="tab" aria-controls="nav-Personal" aria-selected="false">46-50 HP</a>
-          <a class="nav-link px-3 py-3 h5 fw-bold text-dark" id="nav-Personal-tab" type="button" data-bs-toggle="tab" data-bs-target="#nav-Personal" role="tab" aria-controls="nav-Personal" aria-selected="false">Above 50 HP</a>
+          <a class="nav-link active px-3 py-3 h5 fw-bold text-dark py-2" id="nav-under20-tab" type="button" data-bs-toggle="tab" data-bs-target="#nav-under20" role="tab" aria-controls="nav-under20" aria-selected="true">Under 20 HP</a>
+          <a class="nav-link px-3 py-3 h5 fw-bold text-dark"id="nav-21_30-tab" type="button" data-bs-toggle="tab" data-bs-target="#nav-21_30" role="tab" aria-controls="nav-21_30" aria-selected="false">21-30 HP</a>
+          <a class="nav-link px-3 py-3 h5 fw-bold text-dark"id="nav-31_40-tab" type="button" data-bs-toggle="tab" data-bs-target="#nav-31_40" role="tab" aria-controls="nav-31_40" aria-selected="false">31-40 HP</a>
+          <a class="nav-link px-3 py-3 h5 fw-bold text-dark"id="nav-41_45-tab" type="button" data-bs-toggle="tab" data-bs-target="#nav-41_45" role="tab" aria-controls="nav-41_45" aria-selected="false">41-45 HP</a>
+          <a class="nav-link px-3 py-3 h5 fw-bold text-dark"id="nav-46_50-tab" type="button" data-bs-toggle="tab" data-bs-target="#nav-46_50" role="tab" aria-controls="nav-46_50" aria-selected="false">46-50 HP</a>
+          <a class="nav-link px-3 py-3 h5 fw-bold text-dark"id="nav-above_50-tab" type="button" data-bs-toggle="tab" data-bs-target="#nav-above_50" role="tab" aria-controls="nav-above_50-tab" aria-selected="false">Above 50 HP</a>
         </div>       
       </nav>
-      <div class="col-12 col-lg-4 col-sm-4 col-md-4 mt-2 mb-2">
-            <div class="compare shadow h-100">
-              <div class="row">
-                <div class="col-12 col-md-6 col-lg-6 col-sm-6">
-                  <div class="thumb">
-                    <a href="#">
-                      <div class="">
-                        <img src="assets\images\mqdefault 1.jpg" class="object-fit-cover w-100" alt="img">
-                      </div>
-                    </a>
-                  </div>
-                  <div class="content mb-3 pb-3">
-                    <a href="#" class="text-decoration-none text-dark ">
-                      <h4 class="fs-6 mt-1">Mahindra</h3>
-                    </a>
-                    <a href="#" class="text-decoration-none fs-6 text-dark">
-                      <span class="">-23 jun 2020 </span>                  
-                    </a>
-                  </div>
-                </div>
-                <div class="col-12 col-md-6 col-lg-6 col-sm-6">
-                  <div class="thumb">
-                    <a href="#">
-                      <div class="position-relative">
-                        <img src="assets\images\mqdefault 1.jpg" class="object-fit-cover w-100" alt="img">
+
+
+      <!-- UNDER 20 HP -->
+      <div class="tab-content p-3 " id="nav-tabContent">
+        <div class="tab-pane fade active show" id="nav-under20" role="tabpanel" aria-labelledby="nav-under20-tab">
+          <div class="row">
+          <!--Under 20 HP 1st Comparison card -->
+            <div class="col-12 col-lg-4 col-sm-4 col-md-4 mt-3 mb-2">
+              <div class="success__stry__item shadow h-100">
+                <div class="thumb">
+                  <a href="#">
+                    <div class="">
+                      <img src="assets\images\compare1.jpg" class="object-fit-cover p-3 w-100" alt="img">
                     </div>
-                    </a>
-                  </div>
-                  <div class="content mb-3 pb-3 ms-3">
-                    <a href="#" class="text-decoration-none text-dark ">
-                      <h4 class="fs-6 mt-1">Compare Tractors 5060e and 6010...</h3>
-                    </a>
-                    <a href="#" class="text-decoration-none fs-6 text-dark">
-                      <span class="">-23 jun 2020 </span>                  
-                    </a>
+                  </a>
+                  <div class="row">
+                    <div class="col-12 col-lg-6 col-md-6 col-sm-6 mt-n3">
+                      <div class="content justify-content-center text-align-center ms-4 col-12 ">
+                        <a href="#" class="text-decoration-none text-dark mt-n3">
+                          <p>Mahindra</p>
+                        </a>
+                        <a href="#" class="text-decoration-none text-dark mt-n3 mb-n2">
+                          <p>Yuvraj 215 NXT</p>
+                        </a>
+                        <p> ₹ 3.20-3.40 Lakhs</p>
+                      </div>
+                    </div>
+                    <div class="col-12 col-lg-6 col-md-6 col-sm-6">
+                      <div class="content justify-content-center text-align-center  col-12 ">
+                        <a href="#" class="text-decoration-none text-dark">
+                          <p>Swaraj</p>
+                        </a>
+                        <a href="#" class="text-decoration-none text-dark">
+                          <p>717</p>
+                        </a>
+                        <p> ₹ 3.20-3.30 Lakhs</p>
+                      </div>              
+                    </div> 
+                    <div class="">
+                      <button type="button" class=" btn btn-compare border-success col-12">Compare</button>
+                    </div>  
                   </div>
                 </div>
-              </div>             
+              </div>
             </div>
-          </div> 
+
+            <!--Under 20 HP 2nd Comparison card-->
+            <div class="col-12 col-lg-4 col-sm-4 col-md-4 mt-3 mb-2">
+              <div class="success__stry__item shadow h-100">
+                <div class="thumb">
+                  <a href="#">
+                    <div class="">
+                      <img src="assets\images\compare1.jpg" class="object-fit-cover p-3 w-100" alt="img">
+                    </div>
+                  </a>
+                  <div class="row">
+                    <div class="col-12 col-lg-6 col-md-6 col-sm-6 mt-n3">
+                      <div class="content text-center  col-12 ">
+                        <a href="#" class="text-decoration-none text-dark mt-n3">
+                          <p>VST</p>
+                        </a>
+                        <a href="#" class="text-decoration-none text-dark mt-n3 mb-n2">
+                          <p>VT-180D HS/JAI-4W...</p>
+                        </a>
+                        <p> ₹ 2.98-3.35 Lakhs</p>
+                      </div>
+                    </div>
+                    <div class="col-12 col-lg-6 col-md-6 col-sm-6">
+                      <div class="content text-center  col-12 ">
+                        <a href="#" class="text-decoration-none text-dark">
+                          <p>Mahindra</p>
+                        </a>
+                        <a href="#" class="text-decoration-none text-dark">
+                          <p>JIVO 225 DI</p>
+                        </a>
+                        <p> ₹ 4.30-4.50 Lakhs</p>
+                      </div>              
+                    </div>               
+                    <div class="">
+                      <button type="button" class=" btn btn-compare border-success col-12">Compare</button>
+                    </div>  
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!--Under 20 HP 3rd  Comparison card-->
+            <div class="col-12 col-lg-4 col-sm-4 col-md-4 mt-3 mb-2">
+              <div class="success__stry__item shadow h-100">
+                <div class="thumb">
+                  <a href="#">
+                    <div class="">
+                      <img src="assets\images\compare1.jpg" class="object-fit-cover p-3 w-100" alt="img">
+                    </div>
+                  </a>
+                  <div class="row">
+                    <div class="col-12 col-lg-6 col-md-6 col-sm-6 mt-n3">
+                      <div class="content text-center  col-12 ">
+                        <a href="#" class="text-decoration-none text-dark mt-n3">
+                          <p>massey Ferguson</p>
+                        </a>
+                        <a href="#" class="text-decoration-none text-dark mt-n3 mb-n2">
+                          <p>5118</p>
+                        </a>
+                        <p> ₹ 3.47-3.60 Lakhs</p>
+                      </div>
+                    </div>
+                    <div class="col-12 col-lg-6 col-md-6 col-sm-6">
+                      <div class="content text-center  col-12 ">
+                        <a href="#" class="text-decoration-none text-dark">
+                          <p>Captain</p>
+                        </a>
+                        <a href="#" class="text-decoration-none text-dark">
+                          <p>200 DI</p>
+                        </a>
+                        <p> ₹ 3.29-3.39 Lakhs</p>
+                      </div>              
+                    </div>               
+                    <div class="">
+                      <button type="button" class=" btn btn-compare border-success col-12">Compare</button>
+                    </div>  
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
+
+
+
+        <!--21-30 HP Comparison  -->
+        <div class="tab-pane fade " id="nav-21_30" role="tabpanel" aria-labelledby="nav-21_30-tab">
+          <div class="row">
+            <!--21-30 HP 1st Comparison card -->
+            <div class="col-12 col-lg-4 col-sm-4 col-md-4 mt-3 mb-2">
+              <div class="success__stry__item shadow h-100">
+                <div class="thumb">
+                  <a href="#">
+                    <div class="">
+                      <img src="assets\images\compare1.jpg" class="object-fit-cover p-3 w-100" alt="img">
+                    </div>
+                  </a>
+                  <div class="row">
+                    <div class="col-12 col-lg-6 col-md-6 col-sm-6 mt-n3">
+                      <div class="content justify-content-center text-align-center ms-4 col-12 ">
+                        <a href="#" class="text-decoration-none text-dark mt-n3">
+                          <p>Eicher</p>
+                        </a>
+                        <a href="#" class="text-decoration-none text-dark mt-n3 mb-n2">
+                          <p>241</p>
+                        </a>
+                        <p> ₹ 3.83-4.15 Lakhs</p>
+                      </div>
+                    </div>
+                    <div class="col-12 col-lg-6 col-md-6 col-sm-6">
+                      <div class="content justify-content-center text-align-center  col-12 ">
+                        <a href="#" class="text-decoration-none text-dark">
+                          <p>Eicher</p>
+                        </a>
+                        <a href="#" class="text-decoration-none text-dark">
+                          <p>242</p>
+                        </a>
+                        <p> ₹ 4.05-4.40 Lakhs</p>
+                      </div>              
+                    </div> 
+                    <div class="">
+                      <button type="button" class=" btn btn-compare border-success col-12">Compare</button>
+                    </div>  
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!--21-30 HP 2nd Comparison card-->
+            <div class="col-12 col-lg-4 col-sm-4 col-md-4 mt-3 mb-2">
+              <div class="success__stry__item shadow h-100">
+                <div class="thumb">
+                  <a href="#">
+                    <div class="">
+                      <img src="assets\images\compare1.jpg" class="object-fit-cover p-3 w-100" alt="img">
+                    </div>
+                  </a>
+                  <div class="row">
+                    <div class="col-12 col-lg-6 col-md-6 col-sm-6 mt-n3">
+                      <div class="content text-center  col-12 ">
+                        <a href="#" class="text-decoration-none text-dark mt-n3">
+                          <p>Mahindra</p>
+                        </a>
+                        <a href="#" class="text-decoration-none text-dark mt-n3 mb-n2">
+                          <p>265 DI</p>
+                        </a>
+                        <p> ₹ 4.95-5.10 Lakhs</p>
+                      </div>
+                    </div>
+                    <div class="col-12 col-lg-6 col-md-6 col-sm-6">
+                      <div class="content text-center  col-12 ">
+                        <a href="#" class="text-decoration-none text-dark">
+                          <p>Swaraj</p>
+                        </a>
+                        <a href="#" class="text-decoration-none text-dark">
+                          <p>825 XM</p>
+                        </a>
+                        <p> ₹ 3.90-5.20 Lakhs</p>
+                      </div>              
+                    </div>               
+                    <div class="">
+                      <button type="button" class=" btn btn-compare border-success col-12">Compare</button>
+                    </div>  
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!--21-30 HP 3rd  Comparison card-->
+            <div class="col-12 col-lg-4 col-sm-4 col-md-4 mt-3 mb-2">
+              <div class="success__stry__item shadow h-100">
+                <div class="thumb">
+                  <a href="#">
+                    <div class="">
+                      <img src="assets\images\compare1.jpg" class="object-fit-cover p-3 w-100" alt="img">
+                    </div>
+                  </a>
+                  <div class="row">
+                    <div class="col-12 col-lg-6 col-md-6 col-sm-6 mt-n3">
+                      <div class="content text-center  col-12 ">
+                        <a href="#" class="text-decoration-none text-dark mt-n3">
+                          <p>Swaraj</p>
+                        </a>
+                        <a href="#" class="text-decoration-none text-dark mt-n3 mb-n2">
+                          <p>724 XM ORCHARD</p>
+                        </a>
+                        <p> ₹ 4.70-5.05 Lakhs</p>
+                      </div>
+                    </div>
+                    <div class="col-12 col-lg-6 col-md-6 col-sm-6">
+                      <div class="content text-center  col-12 ">
+                        <a href="#" class="text-decoration-none text-dark">
+                          <p>Kubota</p>
+                        </a>
+                        <a href="#" class="text-decoration-none text-dark">
+                          <p>NeoStar B2741S 4..</p>
+                        </a>
+                        <p> ₹ 6.27-6.29 Lakhs</p>
+                      </div>              
+                    </div>               
+                    <div class="">
+                      <button type="button" class=" btn btn-compare border-success col-12">Compare</button>
+                    </div>  
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <!--31-40 HP Comparison  -->
+        <div class="tab-pane fade " id="nav-31_40" role="tabpanel" aria-labelledby="nav-31_40-tab">
+          <div class="row">
+            <!-- 31-40 HP 1st Comparison card -->
+            <div class="col-12 col-lg-4 col-sm-4 col-md-4 mt-3 mb-2">
+              <div class="success__stry__item shadow h-100">
+                <div class="thumb">
+                  <a href="#">
+                    <div class="">
+                      <img src="assets\images\compare1.jpg" class="object-fit-cover p-3 w-100" alt="img">
+                    </div>
+                  </a>
+                  <div class="row">
+                    <div class="col-12 col-lg-6 col-md-6 col-sm-6 mt-n3">
+                      <div class="content justify-content-center text-align-center ms-4 col-12 ">
+                        <a href="#" class="text-decoration-none text-dark mt-n3">
+                          <p>Swaraj</p>
+                        </a>
+                        <a href="#" class="text-decoration-none text-dark mt-n3 mb-n2">
+                          <p>735 FE</p>
+                        </a>
+                        <p> ₹ 5.85-620 Lakhs</p>
+                      </div>
+                    </div>
+                    <div class="col-12 col-lg-6 col-md-6 col-sm-6">
+                      <div class="content justify-content-center text-align-center  col-12 ">
+                        <a href="#" class="text-decoration-none text-dark">
+                          <p>Massey Ferguson</p>
+                        </a>
+                        <a href="#" class="text-decoration-none text-dark">
+                          <p>475 DI</p>
+                        </a>
+                        <p> ₹ 8.30-8.40 Lakhs</p>
+                      </div>              
+                    </div> 
+                    <div class="">
+                      <button type="button" class=" btn btn-compare border-success col-12">Compare</button>
+                    </div>  
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 31-40 HP 2nd Comparison card-->
+            <div class="col-12 col-lg-4 col-sm-4 col-md-4 mt-3 mb-2">
+              <div class="success__stry__item shadow h-100">
+                <div class="thumb">
+                  <a href="#">
+                    <div class="">
+                      <img src="assets\images\compare1.jpg" class="object-fit-cover p-3 w-100" alt="img">
+                    </div>
+                  </a>
+                  <div class="row">
+                    <div class="col-12 col-lg-6 col-md-6 col-sm-6 mt-n3">
+                      <div class="content text-center  col-12 ">
+                        <a href="#" class="text-decoration-none text-dark mt-n3">
+                          <p>Massey Ferguson</p>
+                        </a>
+                        <a href="#" class="text-decoration-none text-dark mt-n3 mb-n2">
+                          <p>475 DI</p>
+                        </a>
+                        <p> ₹ 6.45-6.75 Lakhs</p>
+                      </div>
+                    </div>
+                    <div class="col-12 col-lg-6 col-md-6 col-sm-6">
+                      <div class="content text-center  col-12 ">
+                        <a href="#" class="text-decoration-none text-dark">
+                          <p>Mahindra</p>
+                        </a>
+                        <a href="#" class="text-decoration-none text-dark">
+                          <p>475 DI</p>
+                        </a>
+                        <p> ₹ 8.30-8.40 Lakhs</p>
+                      </div>              
+                    </div>               
+                    <div class="">
+                      <button type="button" class=" btn btn-compare border-success col-12">Compare</button>
+                    </div>  
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 31-40 HP 3rd  Comparison card-->
+            <div class="col-12 col-lg-4 col-sm-4 col-md-4 mt-3 mb-2">
+              <div class="success__stry__item shadow h-100">
+                <div class="thumb">
+                  <a href="#">
+                    <div class="">
+                      <img src="assets\images\compare1.jpg" class="object-fit-cover p-3 w-100" alt="img">
+                    </div>
+                  </a>
+                  <div class="row">
+                    <div class="col-12 col-lg-6 col-md-6 col-sm-6 mt-n3">
+                      <div class="content text-center  col-12 ">
+                        <a href="#" class="text-decoration-none text-dark mt-n3">
+                          <p>Swaraj</p>
+                        </a>
+                        <a href="#" class="text-decoration-none text-dark mt-n3 mb-n2">
+                          <p>475 DI</p>
+                        </a>
+                        <p> ₹ 6.45-6.75 Lakhs</p>
+                      </div>
+                    </div>
+                    <div class="col-12 col-lg-6 col-md-6 col-sm-6">
+                      <div class="content text-center  col-12 ">
+                        <a href="#" class="text-decoration-none text-dark">
+                          <p>Mahindra</p>
+                        </a>
+                        <a href="#" class="text-decoration-none text-dark">
+                          <p>475 DI</p>
+                        </a>
+                        <p> ₹ 8.30-8.40 Lakhs</p>
+                      </div>              
+                    </div>               
+                    <div class="">
+                      <button type="button" class=" btn btn-compare border-success col-12">Compare</button>
+                    </div>  
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+
+        <!-- 41-45 HP Comparison -->
+        <div class="tab-pane fade " id="nav-41_45" role="tabpanel" aria-labelledby="nav-41_45-tab">
+          <div class="row">
+            <!--41-45 HP 1st Comparison card -->
+            <div class="col-12 col-lg-4 col-sm-4 col-md-4 mt-3 mb-2">
+              <div class="success__stry__item shadow h-100">
+                <div class="thumb">
+                  <a href="#">
+                    <div class="">
+                      <img src="assets\images\compare1.jpg" class="object-fit-cover p-3 w-100" alt="img">
+                    </div>
+                  </a>
+                  <div class="row">
+                    <div class="col-12 col-lg-6 col-md-6 col-sm-6 mt-n3">
+                      <div class="content justify-content-center text-align-center ms-4 col-12 ">
+                        <a href="#" class="text-decoration-none text-dark mt-n3">
+                          <p>Mahindra</p>
+                        </a>
+                        <a href="#" class="text-decoration-none text-dark mt-n3 mb-n2">
+                          <p>475 DI</p>
+                        </a>
+                        <p> ₹ 6.45-6.75 Lakhs</p>
+                      </div>
+                    </div>
+                    <div class="col-12 col-lg-6 col-md-6 col-sm-6">
+                      <div class="content justify-content-center text-align-center  col-12 ">
+                        <a href="#" class="text-decoration-none text-dark">
+                          <p>Kubota</p>
+                        </a>
+                        <a href="#" class="text-decoration-none text-dark">
+                          <p>475 DI</p>
+                        </a>
+                        <p> ₹ 8.30-8.40 Lakhs</p>
+                      </div>              
+                    </div> 
+                    <div class="">
+                      <button type="button" class=" btn btn-compare border-success col-12">Compare</button>
+                    </div>  
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!--41-45 HP 2nd Comparison card-->
+            <div class="col-12 col-lg-4 col-sm-4 col-md-4 mt-3 mb-2">
+              <div class="success__stry__item shadow h-100">
+                <div class="thumb">
+                  <a href="#">
+                    <div class="">
+                      <img src="assets\images\compare1.jpg" class="object-fit-cover p-3 w-100" alt="img">
+                    </div>
+                  </a>
+                  <div class="row">
+                    <div class="col-12 col-lg-6 col-md-6 col-sm-6 mt-n3">
+                      <div class="content text-center  col-12 ">
+                        <a href="#" class="text-decoration-none text-dark mt-n3">
+                          <p>Mahindra</p>
+                        </a>
+                        <a href="#" class="text-decoration-none text-dark mt-n3 mb-n2">
+                          <p>475 DI</p>
+                        </a>
+                        <p> ₹ 6.45-6.75 Lakhs</p>
+                      </div>
+                    </div>
+                    <div class="col-12 col-lg-6 col-md-6 col-sm-6">
+                      <div class="content text-center  col-12 ">
+                        <a href="#" class="text-decoration-none text-dark">
+                          <p>Mahindra</p>
+                        </a>
+                        <a href="#" class="text-decoration-none text-dark">
+                          <p>475 DI</p>
+                        </a>
+                        <p> ₹ 8.30-8.40 Lakhs</p>
+                      </div>              
+                    </div>               
+                    <div class="">
+                      <button type="button" class=" btn btn-compare border-success col-12">Compare</button>
+                    </div>  
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!--41-45 HP 3rd  Comparison card-->
+            <div class="col-12 col-lg-4 col-sm-4 col-md-4 mt-3 mb-2">
+              <div class="success__stry__item shadow h-100">
+                <div class="thumb">
+                  <a href="#">
+                    <div class="">
+                      <img src="assets\images\compare1.jpg" class="object-fit-cover p-3 w-100" alt="img">
+                    </div>
+                  </a>
+                  <div class="row">
+                    <div class="col-12 col-lg-6 col-md-6 col-sm-6 mt-n3">
+                      <div class="content text-center  col-12 ">
+                        <a href="#" class="text-decoration-none text-dark mt-n3">
+                          <p>John Deere</p>
+                        </a>
+                        <a href="#" class="text-decoration-none text-dark mt-n3 mb-n2">
+                          <p>475 DI</p>
+                        </a>
+                        <p> ₹ 6.45-6.75 Lakhs</p>
+                      </div>
+                    </div>
+                    <div class="col-12 col-lg-6 col-md-6 col-sm-6">
+                      <div class="content text-center  col-12 ">
+                        <a href="#" class="text-decoration-none text-dark">
+                          <p>Mahindra</p>
+                        </a>
+                        <a href="#" class="text-decoration-none text-dark">
+                          <p>475 DI</p>
+                        </a>
+                        <p> ₹ 8.30-8.40 Lakhs</p>
+                      </div>              
+                    </div>               
+                    <div class="">
+                      <button type="button" class=" btn btn-compare border-success col-12">Compare</button>
+                    </div>  
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <!--46-50 HP Comparison -->
+        <div class="tab-pane fade " id="nav-46_50" role="tabpanel" aria-labelledby="nav-46_50-tab">
+          <div class="row">
+            <!--46-50 HP 1st Comparison card -->
+            <div class="col-12 col-lg-4 col-sm-4 col-md-4 mt-3 mb-2">
+              <div class="success__stry__item shadow h-100">
+                <div class="thumb">
+                  <a href="#">
+                    <div class="">
+                      <img src="assets\images\compare1.jpg" class="object-fit-cover p-3 w-100" alt="img">
+                    </div>
+                  </a>
+                  <div class="row">
+                    <div class="col-12 col-lg-6 col-md-6 col-sm-6 mt-n3">
+                      <div class="content justify-content-center text-align-center ms-4 col-12 ">
+                        <a href="#" class="text-decoration-none text-dark mt-n3">
+                          <p>Mahindra</p>
+                        </a>
+                        <a href="#" class="text-decoration-none text-dark mt-n3 mb-n2">
+                          <p>475 DI</p>
+                        </a>
+                        <p> ₹ 6.45-6.75 Lakhs</p>
+                      </div>
+                    </div>
+                    <div class="col-12 col-lg-6 col-md-6 col-sm-6">
+                      <div class="content justify-content-center text-align-center  col-12 ">
+                        <a href="#" class="text-decoration-none text-dark">
+                          <p>Swaraj</p>
+                        </a>
+                        <a href="#" class="text-decoration-none text-dark">
+                          <p>475 DI</p>
+                        </a>
+                        <p> ₹ 8.30-8.40 Lakhs</p>
+                      </div>              
+                    </div> 
+                    <div class="">
+                      <button type="button" class=" btn btn-compare border-success col-12">Compare</button>
+                    </div>  
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!--46-50 HP 2nd Comparison card-->
+            <div class="col-12 col-lg-4 col-sm-4 col-md-4 mt-3 mb-2">
+              <div class="success__stry__item shadow h-100">
+                <div class="thumb">
+                  <a href="#">
+                    <div class="">
+                      <img src="assets\images\compare1.jpg" class="object-fit-cover p-3 w-100" alt="img">
+                    </div>
+                  </a>
+                  <div class="row">
+                    <div class="col-12 col-lg-6 col-md-6 col-sm-6 mt-n3">
+                      <div class="content text-center  col-12 ">
+                        <a href="#" class="text-decoration-none text-dark mt-n3">
+                          <p>Mahindra</p>
+                        </a>
+                        <a href="#" class="text-decoration-none text-dark mt-n3 mb-n2">
+                          <p>VT-180D HS/JAI-4W...</p>
+                        </a>
+                        <p> ₹ 6.45-6.75 Lakhs</p>
+                      </div>
+                    </div>
+                    <div class="col-12 col-lg-6 col-md-6 col-sm-6">
+                      <div class="content text-center  col-12 ">
+                        <a href="#" class="text-decoration-none text-dark">
+                          <p>Mahindra</p>
+                        </a>
+                        <a href="#" class="text-decoration-none text-dark">
+                          <p>475 DI</p>
+                        </a>
+                        <p> ₹ 8.30-8.40 Lakhs</p>
+                      </div>              
+                    </div>               
+                    <div class="">
+                      <button type="button" class=" btn btn-compare border-success col-12">Compare</button>
+                    </div>  
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!--46-50 HP 3rd  Comparison card-->
+            <div class="col-12 col-lg-4 col-sm-4 col-md-4 mt-3 mb-2">
+              <div class="success__stry__item shadow h-100">
+                <div class="thumb">
+                  <a href="#">
+                    <div class="">
+                      <img src="assets\images\compare1.jpg" class="object-fit-cover p-3 w-100" alt="img">
+                    </div>
+                  </a>
+                  <div class="row">
+                    <div class="col-12 col-lg-6 col-md-6 col-sm-6 mt-n3">
+                      <div class="content text-center  col-12 ">
+                        <a href="#" class="text-decoration-none text-dark mt-n3">
+                          <p>John Deere</p>
+                        </a>
+                        <a href="#" class="text-decoration-none text-dark mt-n3 mb-n2">
+                          <p>475 DI</p>
+                        </a>
+                        <p> ₹ 6.45-6.75 Lakhs</p>
+                      </div>
+                    </div>
+                    <div class="col-12 col-lg-6 col-md-6 col-sm-6">
+                      <div class="content text-center  col-12 ">
+                        <a href="#" class="text-decoration-none text-dark">
+                          <p>Swaraj</p>
+                        </a>
+                        <a href="#" class="text-decoration-none text-dark">
+                          <p>475 DI</p>
+                        </a>
+                        <p> ₹ 8.30-8.40 Lakhs</p>
+                      </div>              
+                    </div>               
+                    <div class="">
+                      <button type="button" class=" btn btn-compare border-success col-12">Compare</button>
+                    </div>  
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Above 50 HP Comparison -->
+        <div class="tab-pane fade " id="nav-above_50" role="tabpanel" aria-labelledby="nav-above_50-tab">
+          <div class="row">
+            <!--Above 50 HP 1st Comparision card -->
+            <div class="col-12 col-lg-4 col-sm-4 col-md-4 mt-3 mb-2">
+              <div class="success__stry__item shadow h-100">
+                <div class="thumb">
+                  <a href="#">
+                    <div class="">
+                      <img src="assets\images\compare1.jpg" class="object-fit-cover p-3 w-100" alt="img">
+                    </div>
+                  </a>
+                  <div class="row">
+                    <div class="col-12 col-lg-6 col-md-6 col-sm-6 mt-n3">
+                      <div class="content justify-content-center text-align-center ms-4 col-12 ">
+                        <a href="#" class="text-decoration-none text-dark mt-n3">
+                          <p>Swaraj</p>
+                        </a>
+                        <a href="#" class="text-decoration-none text-dark mt-n3 mb-n2">
+                          <p>475 DI</p>
+                        </a>
+                        <p> ₹ 6.45-6.75 Lakhs</p>
+                      </div>
+                    </div>
+                    <div class="col-12 col-lg-6 col-md-6 col-sm-6">
+                      <div class="content justify-content-center text-align-center  col-12 ">
+                        <a href="#" class="text-decoration-none text-dark">
+                          <p>Powertrac</p>
+                        </a>
+                        <a href="#" class="text-decoration-none text-dark">
+                          <p>475 DI</p>
+                        </a>
+                        <p> ₹ 8.30-8.40 Lakhs</p>
+                      </div>              
+                    </div> 
+                    <div class="">
+                      <button type="button" class=" btn btn-compare border-success col-12">Compare</button>
+                    </div>  
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!--Above 50 HP 2nd Comparision card-->
+            <div class="col-12 col-lg-4 col-sm-4 col-md-4 mt-3 mb-2">
+              <div class="success__stry__item shadow h-100">
+                <div class="thumb">
+                  <a href="#">
+                    <div class="">
+                      <img src="assets\images\compare1.jpg" class="object-fit-cover p-3 w-100" alt="img">
+                    </div>
+                  </a>
+                  <div class="row">
+                    <div class="col-12 col-lg-6 col-md-6 col-sm-6 mt-n3">
+                      <div class="content text-center  col-12 ">
+                        <a href="#" class="text-decoration-none text-dark mt-n3">
+                          <p>Massey Ferguson</p>
+                        </a>
+                        <a href="#" class="text-decoration-none text-dark mt-n3 mb-n2">
+                          <p>475 DI</p>
+                        </a>
+                        <p> ₹ 6.45-6.75 Lakhs</p>
+                      </div>
+                    </div>
+                    <div class="col-12 col-lg-6 col-md-6 col-sm-6">
+                      <div class="content text-center  col-12 ">
+                        <a href="#" class="text-decoration-none text-dark">
+                          <p>Swaraj</p>
+                        </a>
+                        <a href="#" class="text-decoration-none text-dark">
+                          <p>475 DI</p>
+                        </a>
+                        <p> ₹ 8.30-8.40 Lakhs</p>
+                      </div>              
+                    </div>               
+                    <div class="">
+                      <button type="button" class=" btn btn-compare border-success col-12">Compare</button>
+                    </div>  
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!--Above 50 HP 3rd  Comparision card-->
+            <div class="col-12 col-lg-4 col-sm-4 col-md-4 mt-3 mb-2">
+              <div class="success__stry__item shadow h-100">
+                <div class="thumb">
+                  <a href="#">
+                    <div class="">
+                      <img src="assets\images\compare1.jpg" class="object-fit-cover p-3 w-100" alt="img">
+                    </div>
+                  </a>
+                  <div class="row">
+                    <div class="col-12 col-lg-6 col-md-6 col-sm-6 mt-n3">
+                      <div class="content text-center  col-12 ">
+                        <a href="#" class="text-decoration-none text-dark mt-n3">
+                          <p>Digitrac</p>
+                        </a>
+                        <a href="#" class="text-decoration-none text-dark mt-n3 mb-n2">
+                          <p>475 DI</p>
+                        </a>
+                        <p> ₹ 6.45-6.75 Lakhs</p>
+                      </div>
+                    </div>
+                    <div class="col-12 col-lg-6 col-md-6 col-sm-6">
+                      <div class="content text-center  col-12 ">
+                        <a href="#" class="text-decoration-none text-dark">
+                          <p>Sonalika</p>
+                        </a>
+                        <a href="#" class="text-decoration-none text-dark">
+                          <p>475 DI</p>
+                        </a>
+                        <p> ₹ 8.30-8.40 Lakhs</p>
+                      </div>              
+                    </div>               
+                    <div class="">
+                      <button type="button" class=" btn btn-compare border-success col-12">Compare</button>
+                    </div>  
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
   </section>
 
 
@@ -182,7 +902,7 @@
     <div class="container">       
       <div class="row py-1 bg-lighta">
         <h1 class="mt-2 mb-3 fs-5 mt-4">Watch Tractors Comparison Videos</h1> 
-          <!-- 1st comparision card -->
+          <!-- 1st comparison card -->
           <div class="col-12 col-lg-3 col-sm-3 col-md-3 mt-2 mb-2">
             <div class="success__stry__item shadow h-100">
               <div class="thumb">
@@ -202,7 +922,7 @@
               </div>
             </div>
           </div> 
-          <!-- 2nd comparision card -->
+          <!-- 2nd comparison card -->
           <div class="col-12 col-lg-3 col-sm-3 col-md-3 mt-2 mb-2">
             <div class="success__stry__item shadow h-100">
               <div class="thumb">
@@ -222,7 +942,7 @@
               </div>
             </div>
           </div> 
-          <!-- 3rd comparision card -->
+          <!-- 3rd comparison card -->
           <div class="col-12 col-lg-3 col-sm-3 col-md-3 mt-2 mb-2">
             <div class="success__stry__item shadow h-100">
               <div class="thumb">
@@ -242,7 +962,7 @@
               </div>
             </div>
           </div> 
-          <!-- 4th comparision card -->
+          <!-- 4th comparison card -->
           <div class="col-12 col-lg-3 col-sm-3 col-md-3 mt-2 mb-2">
             <div class="success__stry__item shadow h-100">
               <div class="thumb">

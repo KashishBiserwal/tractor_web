@@ -273,7 +273,7 @@
       </div>
       <div class="tab-pane fade justify-content-center" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
         <div class="tab-pane fade active show justify-content-center" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
-          <div class="row  justify-content-between">
+          <div class="row  justify-content-between  ">
             <div class="col-12 ">
               <div class="position-relative justify-content-center" id="proj_swip">
                 <div class="swiper swiper-slides-visible p-5 m-n5 testimonial__wrap">

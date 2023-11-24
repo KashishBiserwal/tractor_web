@@ -2,10 +2,10 @@
 <html lang="en">
 
 <head>
-   <?php
-   include 'includes/headertag.php';   
-   ?>
-   <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+  <?php
+    include 'includes/headertag.php';   
+  ?>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -36,35 +36,22 @@
                     <div class="thumb">
                         <a href="#">
                           <div class="">
-                          <img src="assets\images\sarkari-yojana-1698841100.webp" class="object-fit-cover p-3 w-100" alt="img">
+                            <img src="assets\images\sarkari-yojana-1698841100.webp" class="object-fit-cover p-3 w-100" alt="img">
                           </div>
                         </a>
                     </div>
                     <div class="content mb-3 pb-3 ms-3">
-                        <a href="#" class="text-decoration-none text-dark ">
-                          <h4 class="fw-bold mt-1">Same Deutz Fahr Agromaxx 40 </h3>
-                        </a>
-                        <div class="row mt-1 ps-3">
-                            <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                            <p class="">
-                              <i class="fas fa-bolt"></i> 50HP
-                            </p>
-                        </div>
-                        <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                            <p class="">
-                              <i class="fa fa-cog" aria-hidden="true"></i> 3000 CC
-                            </p>
-                        </div>
+                        <button type="button" class="btn btn-warning">Latest News</button>
+                        <div class="row mt-2">
+                            <p>खुशखबरी दिवाली पर 1.75 करोड़ परिवारों को फ्री में गैस...</p>
                         </div>
                         <a href="#" class="text-decoration-none text-dark pb-1">
-                          <span class=""> Get On Road price </span>
-                          <span class="icon">
-                            <i class="fa-solid fa-chevron-right"></i>
-                          </span>
+                          <span class=""> 23-November-2023 </span>
                         </a>
                     </div>
                 </div>
-            </div>                
+            </div>   
+
             <div class="col-12 col-lg-4 col-sm-4 col-md-4 mt-2 mb-2">
                 <div class="success__stry__item shadow h-100">
                     <div class="thumb">
@@ -75,27 +62,13 @@
                         </a>
                     </div>
                     <div class="content ms-3">
-                        <a href="#" class="text-decoration-none text-dark ">
-                          <h4 class="fw-bold mt-3">Same Deutz Fahr Agromaxx 40 </h3>
-                        </a>
-                        <div class="row mt-1 ps-3">
-                            <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                            <p class="">
-                              <i class="fas fa-bolt"></i> 50HP
-                            </p>
-                        </div>
-                        <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                            <p class="">
-                              <i class="fa fa-cog" aria-hidden="true"></i> 3000 CC
-                            </p>
-                        </div>
-                    </div>
-                        <a href="#" class="text-decoration-none text-dark mb-4">
-                          <span> Get On Road price </span>
-                          <span class="icon">
-                            <i class="fa-solid fa-chevron-right"></i>
-                          </span>
-                        </a>
+                      <button type="button" class="btn btn-warning">Sarkari Yojana News</button>
+                      <div class="row mt-1 ps-0">
+                        <p class="mt-2">लाड़ली बहना योजना : महिलाओं को 7वीं किस्त में मिल सक...</p>
+                      </div>
+                      <a href="#" class="text-decoration-none text-dark">
+                        <span> 23-November-2023 </span>
+                      </a>
                     </div>
                 </div>
             </div>                

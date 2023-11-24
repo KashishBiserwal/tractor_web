@@ -223,6 +223,12 @@
   background: var(--black-300);
 }
 
+/* compare css */
+.btn-compare:hover{
+background: #06740a;
+color: white;
+}
+
 /* latest sell */
 
 
