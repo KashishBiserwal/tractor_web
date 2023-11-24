@@ -6,7 +6,9 @@
     padding-left: 15px;
     padding-right: 15px;
   }
-  
+#home-banner .carousel-inner img{
+  height: 600px;
+}
 
   /* header */
   .navbar-nav .nav-link {
@@ -128,7 +130,7 @@
  right: 0;
   bottom: 0;
   z-index:4;
-  background: #f8f9fa4d;
+  background: #f8f9fac9;
 }
 .why_head{
   /* background: #24273e; */

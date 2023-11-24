@@ -1,6 +1,6 @@
 <?php
-   include 'includes/headertagadmin.php';
-   ?> 
+  include 'includes/headertagadmin.php';
+?> 
 <body class="loaded"> 
  <div class="main-wrapper">
     <div class="app" id="app">
@@ -14,7 +14,6 @@
         <div class="card-body d-flex align-items-center justify-content-between page_title">
           <nav aria-label="breadcrumb">
             <ol class="breadcrumb my-0 ms-2">
-              
               <li class="breadcrumb-item">
                 <span> Used Tractor Enquiries</span>
               </li>
