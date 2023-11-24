@@ -127,7 +127,7 @@ function login() {
         
         },
         complete: function(data) {
-          console.log(data);
+          console.log(data,"login");
             var res = data.responseJSON;
             if (data.status == 200) {
                 console.log("login success");

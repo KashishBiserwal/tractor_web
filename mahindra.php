@@ -329,7 +329,7 @@
   </section>
 
   <!-- series -->
-  <section class="bg-light">
+  <!-- <section class="bg-light">
     <div class="container ">
         <h3 class="py-4 fw-bold">Mahindra Tractor Series</h3>
         <div class="row">
@@ -422,7 +422,7 @@
             </div>
         </div>
     </div>
-  </section>
+  </section> -->
 
   <!-- used tractor -->
     <section>

@@ -501,6 +501,7 @@ previous_fs.css({
 });
 });
 
+
 // swiper hatbazar buy inner
 // document.addEventListener("DOMContentLoaded", function () {
 //   const mySwiper2_wrapper = document.querySelector(".mySwiper2_buy .swiper-wrapper_buy"),
@@ -628,6 +629,9 @@ const swiper_sell = new Swiper(".slider", {
   }
 });
 
+
+
+
 // Open links in mobiles
 // function handleSmallScreens() {
 //   document.querySelector('.navbar-toggler')
@@ -644,6 +648,6 @@ const swiper_sell = new Swiper(".slider", {
 
 // handleSmallScreens()
 
-
+//------Validation --------
   
 

@@ -211,7 +211,6 @@
                 <thead class="">
                   <tr>
                     <th class="d-none d-md-table-cell text-white py-2">S.No.</th>
-                   
                     <th class="d-none d-md-table-cell text-white py-2">Name</th>
                     <th class="d-none d-md-table-cell text-white py-2">Mobile Number</th>
                     <th class="d-none d-md-table-cell text-white py-2">User Type</th>
@@ -404,10 +403,9 @@
         }
     });
 }
-
-// Call the fetchData function to initiate the API request
 get();
 
+// delete data
 function destroy(id) {
   var url = "<?php echo $APIBaseURL; ?>deleteUser/" + id;
   var token = localStorage.getItem('token');
