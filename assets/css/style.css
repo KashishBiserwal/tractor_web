@@ -373,8 +373,10 @@ ul{
 }
 .loan_form{
   margin-top: -121px;
-
 }
+/* .loan_form_rent{
+  margin-top: -282px;
+} */
 /*responsive*/
 @media(max-width: 767px){
   .footer-col{
