@@ -5,6 +5,8 @@
    <?php
    include 'includes/headertag.php';
    include 'includes/footertag.php';
+
+   
    ?>
 <script> var APIBaseURL = "<?php echo $APIBaseURL; ?>";</script>
     <script src="model/login.js"></script>
