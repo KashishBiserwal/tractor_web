@@ -16,6 +16,12 @@
         background: #fff;
         margin-left: 23px;
     }
+
+    .error {
+        color: red !important;
+        margin-bottom: 2px;
+        font-size: 13px;
+    }
     </style>
 </head>
 
@@ -48,10 +54,10 @@
                                 <div class="thumb">
                                     <a href="hire_inner.php">
                                         <div class="ratio ratio-16x9">
-                                            
-                                                <img src="assets/images/575-di-xp-plus-1632207330.webp"
-                                                    class="object-fit-cover " alt="img">
-                                           
+
+                                            <img src="assets/images/575-di-xp-plus-1632207330.webp"
+                                                class="object-fit-cover " alt="img">
+
                                         </div>
                                     </a>
                                 </div>
@@ -103,93 +109,89 @@
                                         <div class="modal-header">
                                             <h4 class="modal-title text-dark fw-bold" id="staticBackdropLabel">Send
                                                 Rental Enquiry Mahindra 575 DI XP Plus</h4>
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                aria-label="Close"></button>
                                         </div>
                                         <div class="modal-body">
                                             <div class="model-cont">
-                                                <!-- <h4 class="text-center text-danger">Request to Call</h3> -->
-                                                <div class="row">
-                                                    <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-4">
-                                                        <div class="form-outline">
-                                                            <label class="form-label" for="first_name">First
-                                                                Name</label>
-                                                            <input type="text" id="first_name" name="first_name"
-                                                                class=" data_search form-control input-group-sm py-2" />
+                                                <form id="hire_inner" name="hire_inner" method="post">
+                                                    <div class="row">
+                                                        <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-4">
+                                                            <div class="form-outline">
+                                                                <label class="form-label" for="first_name">First
+                                                                    Name</label>
+                                                                <input type="text" id="first_name" name="first_name"
+                                                                    class=" data_search form-control input-group-sm py-2" />
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-4">
+                                                            <div class="form-outline">
+                                                                <label class="form-label" for="last_name">Last
+                                                                    Name</label>
+                                                                <input type="text" id="last_name" name="last_name"
+                                                                    class=" data_search form-control input-group-sm py-2" />
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-4">
+                                                            <div class="form-outline">
+                                                                <label class="form-label" for="mobile_number">Mobile
+                                                                    Number</label>
+                                                                <input type="text" id="mobile_number"
+                                                                    name="mobile_number"
+                                                                    class=" data_search form-control input-group-sm py-2" />
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-4">
+                                                            <div class="form-outline">
+                                                                <label class="form-label" for="state">State</label>
+                                                                <select class="form-select py-2"
+                                                                    aria-label="Default select example" id="state"
+                                                                    name="state">
+                                                                    <option selected></option>
+                                                                    <option value="1">New Tractor Loan</option>
+                                                                    <option value="2">Used Tractor Loan,</option>
+                                                                    <option value="3">Loan Against Tractor</option>
+                                                                    <option value="4">Harvester Loan</option>
+                                                                    <option value="5">Used Harvester Loan</option>
+                                                                    <option value="6">Implement Loan</option>
+                                                                    <option value="7">Personal Loan</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-4">
+                                                            <div class="form-outline">
+                                                                <label class="form-label"
+                                                                    for="district">District</label>
+                                                                <select class="form-select py-2"
+                                                                    aria-label="Default select example" name="district"
+                                                                    id="district">
+                                                                    <option selected></option>
+                                                                    <option value="1">name1</option>
+                                                                    <option value="2">name2</option>
+                                                                    <option value="3">name3</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-4">
+                                                            <div class="form-outline">
+                                                                <label class="form-label" for="taluka">Tehsil</label>
+                                                                <select class="form-select py-2"
+                                                                    aria-label="Default select example" name="taluka"
+                                                                    id="taluka">
+                                                                    <option selected></option>
+                                                                    <option value="1">name1</option>
+                                                                    <option value="2">name2</option>
+                                                                    <option value="3">name3</option>
+                                                                </select>
+                                                            </div>
                                                         </div>
                                                     </div>
-                                                    <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-4">
-                                                        <div class="form-outline">
-                                                            <label class="form-label" for="last_name">Last Name</label>
-                                                            <input type="text" id="last_name" name="last_name"
-                                                                class=" data_search form-control input-group-sm py-2" />
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-4">
-                                                        <div class="form-outline">
-                                                            <label class="form-label" for="mobile_number">Mobile
-                                                                Number</label>
-                                                            <input type="text" id="mobile_number" name="mobile_number"
-                                                                class=" data_search form-control input-group-sm py-2" />
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-4">
-                                                        <div class="form-outline">
-                                                            <label class="form-label" for="email">Email Id</label>
-                                                            <input type="text" id="email" name="email"
-                                                                class=" data_search form-control input-group-sm py-2" />
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-4">
-                                                        <div class="form-outline">
-                                                            <label class="form-label" for="state">State</label>
-                                                            <select class="form-select py-2"
-                                                                aria-label="Default select example" id="state"
-                                                                name="state">
-                                                                <option value="#"></option>
-                                                                <option value="1">New Tractor Loan</option>
-                                                                <option value="2">Used Tractor Loan,</option>
-                                                                <option value="3">Loan Against Tractor</option>
-                                                                <option value="4">Harvester Loan</option>
-                                                                <option value="5">Used Harvester Loan</option>
-                                                                <option value="6">Implement Loan</option>
-                                                                <option value="7">Personal Loan</option>
-                                                            </select>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-4">
-                                                        <div class="form-outline">
-                                                            <label class="form-label" for="district">District</label>
-                                                            <select class="form-select py-2"
-                                                                aria-label="Default select example" name="district"
-                                                                id="district">
-                                                                <option selected></option>
-                                                                <option value="1">name1</option>
-                                                                <option value="2">name2</option>
-                                                                <option value="3">name3</option>
-                                                            </select>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-4">
-                                                        <div class="form-outline">
-                                                            <label class="form-label" for="taluka">Tehsil</label>
-                                                            <select class="form-select py-2"
-                                                                aria-label="Default select example" name="taluka"
-                                                                id="taluka">
-                                                                <option selected></option>
-                                                                <option value="1">name1</option>
-                                                                <option value="2">name2</option>
-                                                                <option value="3">name3</option>
-                                                            </select>
-                                                        </div>
-                                                    </div>
-                                                </div>
+                                                </form>
                                             </div>
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary"
                                                 data-bs-dismiss="modal">Close</button>
-                                            <button type="button" class="btn btn-danger">Request</button>
+                                            <button type="button" id="button_hire"
+                                                class="btn btn-danger">Request</button>
                                         </div>
                                     </div>
                                 </div>
@@ -603,10 +605,33 @@
     </section>
 
 
+
     <?php
     include 'includes/footer.php';
     include 'includes/footertag.php';
 
     ?>
+    <script>
+    $(document).ready(function() {
+        $("#hire_inner").validate({
+            rules: {
+                first_name: 'required',
+
+                last_name: 'required',
+                mobile_number: {
+                    required: true,
+                    digits: true, // Allow only digits
+                },
+                state: "required",
+                district: "required",
+            }
+        });
+        $('#button_hire').on('click', function() {
+            $('#hire_inner').valid();
+            console.log($('#hire_inner').valid());
+        });
+    });
+    </script>
+
 
 </html>

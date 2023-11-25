@@ -219,7 +219,7 @@
                 <hr class="dropdown-divider">
                 <li><a class="dropdown-item fw-bold" href="#">Finance</a></li>
                 <hr class="dropdown-divider">
-                <li><a class="dropdown-item fw-bold" href="#">Tyres</a></li>
+                <li><a class="dropdown-item fw-bold" href="tyre.php">Tyres</a></li>
                 <hr class="dropdown-divider">
                 <li><a class="dropdown-item fw-bold" href="#">Insurance</a></li>
                 <hr class="dropdown-divider">
