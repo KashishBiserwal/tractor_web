@@ -50,10 +50,10 @@
                                       </div>
                                     </div>
                                     <div class="col-12 col-sm-6 col-lg-6 col-md-6">
-                                      <div class="form-group">
+                                      <!-- <div class="form-group">
                                         <input type="text" class="py-2" placeholder=" " id="model">
                                         <label for="name" class="text-dark ">Name</label>
-                                      </div>
+                                      </div> -->
                                     </div>
                                     <div class="col-12 col-sm-6 col-lg-6 col-md-6 ">
                                       <div class="form-group">

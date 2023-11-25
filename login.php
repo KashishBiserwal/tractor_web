@@ -6,7 +6,7 @@
    include 'includes/headertag.php';
    include 'includes/footertag.php';
    ?>
-   <script src="model/login.js"></script>
+  
 </head>
 
 <style>
@@ -15,13 +15,17 @@
    
 }
 </style>
+<body>
+
 <section class="bg-light">
   <div class="login-page ">
           <div class="container form-container bg-light">
                       <div class="bg-white shadow rounded">
                               <div class=" pe-0">
                                   <div class="form-center h-100 py-5 px-5">
+                                    <!-- {% csrf %} -->
                                       <form action="" id="form" class="row g-2">
+                                        <!-- @csrf -->
                                         <img src="assets/images/user.webp" class="rounded-circle text-center user-login" alt="">
                                         <h5 class="text-center">Admin Login </h5>
                                               <div class="col-12">
@@ -31,12 +35,6 @@
                                                       <small></small>
                                               </div>
                                               <div class="col-12">
-                                                  <!-- <label class="text-dark fw-bold"><i class="fa-solid fa-lock"></i> Password<span class="text-danger">*</span></label>
-                                                    <div class="input-group-prepend">
-                                                      <div class="input-group-text py-3"><i class="fas fa-eye-slash" id="eyeeye"></i></div>
-                                                    </div>
-                                                      <input type="password" class="form-control" for="password" name="password" id="password" placeholder="Enter Password">
-                                                      <small></small> -->
                                                      <label class="text-dark fw-bold"><i class="fa-solid fa-lock"></i> Password<span class="text-danger">*</span></label>
                                                         <div class="input-group  mr-sm-2">
                                                           <div class="input-group-prepend">
@@ -58,15 +56,13 @@
                       </div>
           </div>
   </div>
-  <?php
-   
-   ?> 
+
+  <script src="/model/login.js"></script>
+</body>
 
 
 <script>
 // $(document).ready(function() {
- 
-
 //     if (document.getElementById('login')) {
 //         document.getElementById('login').addEventListener('click', function(event) {
 //             event.preventDefault();
