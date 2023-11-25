@@ -6,12 +6,18 @@
     padding-left: 15px;
     padding-right: 15px;
   }
+
 #home-banner .carousel-inner img{
   height: 600px;
 }
-
+#home-banner{
+  top:-75px;
+}
   /* header */
-  .navbar-nav .nav-link {
+  .main-navbar{
+    z-index: 99;
+  }
+  .main-navbar .navbar-nav .nav-link {
     color: #fff;
   }
   .nav-item{
@@ -65,7 +71,7 @@
 
 /* tractor logo */
 .logo{
-  width: 91px;
+  width:60px;
   /* box-shadow: 0px 6px 30px rgba(0, 0, 0, 0.08); */
   /* border-radius: 50%; */
   

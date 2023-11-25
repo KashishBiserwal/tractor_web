@@ -15,7 +15,12 @@ function login() {
     var paraArr = {};
     paraArr['email'] = email;
     paraArr['password'] = password;
-    var url = "<?php echo $APIBaseURL; ?>user_login";
+    console.log(APIBaseURL,"$APIBaseURL")
+    
+var apiBaseURL =APIBaseURL;
+// Now you can use the retrieved value in your JavaScript logic
+var url = apiBaseURL + 'user_login';
+   // var url = "<?php echo $APIBaseURL; ?>user_login";
     $.ajax({
         url: url,
         type: "POST",

@@ -6,13 +6,13 @@
    include 'includes/headertag.php';
    include 'includes/footertag.php';
    ?>
-   <script src="model/login.js"></script>
+<script> var APIBaseURL = "<?php echo $APIBaseURL; ?>";</script>
+    <script src="model/login.js"></script>
 </head>
 
 <style>
     .error-message {
     color: red;
-   
 }
 </style>
 <section class="bg-light">

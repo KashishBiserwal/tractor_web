@@ -1,29 +1,45 @@
-<!-- <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">Logo</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="collapsibleNavbar">
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
-        </li>    
-      </ul>
+ <nav class="navbar navbar-expand-sm navbar-index1">
+  <div class="container">
+    <div class="row w-100">
+      <div class="logo col-sm-3">
+        <a href="index.php" class="text-decoration-none">
+          <img src="assets/images/logotrac.png"alt="reload img" class="logo">
+        </a>
+      </div>
+      <button class="navbar-toggler col-sm-6" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse col-sm-9" id="collapsibleNavbar">
+        <div class="row w-100">
+          <div class="col-sm-8">
+        <!-- <form > -->
+       <!--    <input class="form-control me-2" type="text" placeholder="Search">
+          <button class="btn btn-primary" type="button">Search</button>
+        </form> -->
+</div>
+        <div class="col-sm-4">
+        <ul class="navbar-nav float-end">
+          <li class="nav-item "> 
+            <a class="nav-link" href="#">Download App</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Login</a>
+          </li>
+        
+        </ul>
+        </div>
+        
+        </div>
+       
+      </div>
     </div>
   </div>
-</nav> -->
-<nav class="navbar navbar-index navbar-expand-lg navbar-dark fixed-top" >
+</nav> 
+<nav class="navbar  navbar-expand-lg navbar-dark main-navbar" >
   <div class="container">
     <div class="logo ">
       <a href="index.php" class="text-decoration-none">
-        <img src="assets/images/logotrac.jpg"alt="reload img" class="logo rounded-circle">
+        <img src="assets/images/logotrac.png"alt="reload img" class="logo">
       </a>
     </div>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
