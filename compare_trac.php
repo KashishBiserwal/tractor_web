@@ -110,77 +110,162 @@
   </div>
   <!-- MODAL SELECT BRANDS -->
   <section>
-    <div class="modal fade" id="select_trac_modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="select_trac_modal"  tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-lg">
         <div class="modal-content">
-          <div class="modal-header">
-            <div>
-              <h5 class="modal-title fs-2" id="exampleModalLabel"><i class="fa-solid fa-arrow-left"></i>   Select Brand</h5>
-            </div> 
-            <!-- SEARCH BOX  -->
-            <div>
-              <div class="input-group">
-                <div class="form-outline" data-mdb-input-init>
-                  <input type="search" id="form1" class="form-control" />
-                  <label class="form-label" style="margin-top:-61px;" for="form1">Search</label>
-                </div>
-                <button type="button" class="btn btn-primary" data-mdb-ripple-init>
-                  <i class="fas fa-search"></i>
-                </button>
-              </div>             
-            </div>          
-          </div>
-          <div class="modal-body">
-            <div>
-              <p class="fs-5">Popular Brands</p> 
-              <div class="form-check">
-                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                <label class="form-check-label text-dark" for="flexRadioDefault1">
-                  Mahindra
-                </label>
-              </div>
-              <div class="form-check">
-                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
-                <label class="form-check-label text-dark" for="flexRadioDefault2">
-                  Swaraj
-                </label>
-              </div>
-              <div class="form-check">
-                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
-                <label class="form-check-label text-dark" for="flexRadioDefault2">
-                  Massey Ferguson
-                </label>
-              </div>
-              <p class="fs-5 py-2">Other Brands</p> 
-              <div class="form-check">
-                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                <label class="form-check-label text-dark" for="flexRadioDefault1">
-                  ACE
-                </label>
-              </div>
-              <div class="form-check">
-                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
-                <label class="form-check-label text-dark" for="flexRadioDefault2">
-                  Autonxt
-                </label>
-              </div>
-              <div class="form-check">
-                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
-                <label class="form-check-label text-dark" for="flexRadioDefault2">
-                  captain
-                </label>
-              </div>
-            </div>
-          </div>
-          <!-- <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">Save changes</button>
+          <!-- <div class="modal-header">         
           </div> -->
+          <div class="modal-body">
+            <form id="multi-step-form">
+              <div class="step step-1">
+                <!-- Step 1 form fields here -->
+                <div class="row mt-3 mb-3">
+                  <div class="col-12 col-lg-6 col-md-6 col-sm-6">
+                    <div>
+                      <h5 class="modal-title fs-2" id="exampleModalLabel"><i class="fa-solid fa-arrow-left"></i>Select Brand</h5>
+                    </div>
+                  </div>
+                  <div class="col-12 col-lg-6 col-md-6 col sm 6 d-flex justify-content-end">
+                    <!-- SEARCH BOX  -->
+                    <div>
+                      <div class="input-group">
+                        <div class="form-outline" data-mdb-input-init>
+                          <input type="search" id="form1" class="form-control" />
+                          <label class="form-label" style="margin-top:-61px;" for="form1">Search</label>
+                        </div>
+                        <button type="button" style="margin-top:-11px;"class="btn btn-primary" data-mdb-ripple-init>
+                          <i class="fas fa-search"></i>
+                        </button>
+                      </div>             
+                    </div>
+                  </div>
+                </div>
+                <div>
+                  <p class="fs-5">Popular Brands</p> 
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="radio_brand" id="radio_brand1">
+                    <label class="form-check-label text-dark" for="radio_brand1">
+                      Mahindra
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="radio_brand" id="radio_brand2">
+                    <label class="form-check-label text-dark" for="radio_brand2">
+                      Swaraj
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="radio_brand" id="radio_brand3">
+                    <label class="form-check-label text-dark" for="radio_brand3">
+                      Massey Ferguson
+                    </label>
+                  </div>
+                  <p class="fs-5 py-2">Other Brands</p> 
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="radio_brand" id="radio_brand4">
+                    <label class="form-check-label text-dark" for="radio_brand4">
+                      ACE
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="radio_brand" id="radio_brand5">
+                    <label class="form-check-label text-dark" for="radio_brand5">
+                      Autonxt
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="radio_brand" id="radio_brand6">
+                    <label class="form-check-label text-dark" for="radio_brand6">
+                      captain
+                    </label>
+                  </div>
+                </div>
+                <button type="button" class="btn btn-primary  next-step mt-4">Next</button>
+              </div>
+
+              <div class="step step-2">
+                <!-- Step 2 form fields here -->
+                <div class="row mt-3 mb-3">
+                  <div class="col-12 col-lg-6 col-md-6 col-sm-6">
+                    <div>
+                      <h5 class="modal-title fs-2" id="exampleModalLabel"><i class="fa-solid fa-arrow-left"></i>Select Modal</h5>
+                    </div>
+                  </div>
+                  <div class="col-12 col-lg-6 col-md-6 col sm 6 d-flex justify-content-end">
+                    <!-- SEARCH BOX  -->
+                    <div>
+                      <div class="input-group">
+                        <div class="form-outline" data-mdb-input-init>
+                          <input type="search" id="form1" class="form-control" />
+                          <label class="form-label" style="margin-top:-61px;" for="form1">Search</label>
+                        </div>
+                        <button type="button" style="margin-top:-11px;"class="btn btn-primary" data-mdb-ripple-init>
+                          <i class="fas fa-search"></i>
+                        </button>
+                      </div>             
+                    </div>
+                  </div>
+                </div>
+                <div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="radio_model" id="radio_model1">
+                    <label class="form-check-label text-dark" for="radio_model1">
+                      575 DI XP Plus
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="radio_model" id="radio_model2">
+                    <label class="form-check-label text-dark" for="radio_model2">
+                      Oja 3140 4WD
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="radio_model" id="radio_model3">
+                    <label class="form-check-label text-dark" for="radio_model3">
+                      265 DI
+                    </label>
+                  </div> 
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="radio_model" id="radio_model4">
+                    <label class="form-check-label text-dark" for="radio_model4">
+                      Arjun Novo 605 Di-i2WD
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="radio_model" id="radio_model5">
+                    <label class="form-check-label text-dark" for="radio_model5">
+                      Arjun 555 DI
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="radio_model" id="radio_model6">
+                    <label class="form-check-label text-dark" for="radio_model6">
+                      475 DI
+                    </label>
+                  </div>
+                </div>
+                <button type="button" class="btn btn-primary prev-step mt-4">Previous</button>
+                <button type="submit" class="btn btn-success mt-4">Submit</button>
+              </div>
+
+              <!-- <div class="step step-3"> -->
+                <!-- Step 3 form fields here -->
+                <!-- <h3>Step 3</h3>
+                <div class="mb-3">
+                  <label for="field3" class="form-label">Field 3:</label>
+                  <input type="text" class="form-control" id="field3" name="field3">
+                </div>
+                <button type="button" class="btn btn-primary prev-step">Previous</button>
+                <button type="submit" class="btn btn-success">Submit</button>
+              </div> -->
+            </form>
+          </div>
         </div>
-      </div>
+      </div>          
+      <!-- </div>
+      </div> -->
     </div>
   </section>
-
 
 
   <section>
@@ -335,7 +420,6 @@
             </div>
           </div>
         </div>
-
 
 
         <!--21-30 HP Comparison  -->
@@ -1100,12 +1184,59 @@
    ?>
 
   <script>
+    // SCRIPT FOR THE SEARCH BOX
     $(".data_search").on("keyup", function() {
       var value = $(this).val().toLowerCase();
       $("#data-table tr").filter(function() {
         $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
       });
     }); 
+
+    // SCRIPT FOR THE SELECTION OF BRANDS & MODAL
+    var currentStep = 1;
+    var updateProgressBar;
+
+    function displayStep(stepNumber) {
+      if (stepNumber >= 1 && stepNumber <= 3) {
+        $(".step-" + currentStep).hide();
+        $(".step-" + stepNumber).show();
+        currentStep = stepNumber;
+        updateProgressBar();
+      }
+    }
+
+    $(document).ready(function() {
+      $('#multi-step-form').find('.step').slice(1).hide();
+    
+      $(".next-step").click(function() {
+        if (currentStep < 3) {
+          $(".step-" + currentStep).addClass("animate__animated animate__fadeOutLeft");
+          currentStep++;
+          setTimeout(function() {
+            $(".step").removeClass("animate__animated animate__fadeOutLeft").hide();
+            $(".step-" + currentStep).show().addClass("animate__animated animate__fadeInRight");
+            updateProgressBar();
+          }, 500);
+        }
+      });
+
+      $(".prev-step").click(function() {
+        if (currentStep > 1) {
+          $(".step-" + currentStep).addClass("animate__animated animate__fadeOutRight");
+          currentStep--;
+          setTimeout(function() {
+            $(".step").removeClass("animate__animated animate__fadeOutRight").hide();
+            $(".step-" + currentStep).show().addClass("animate__animated animate__fadeInLeft");
+            updateProgressBar();
+          }, 500);
+        }
+      });
+
+      updateProgressBar = function() {
+        var progressPercentage = ((currentStep - 1) / 2) * 100;
+        $(".progress-bar").css("width", progressPercentage + "%");
+      }
+    });
   </script>
 </body>
 </html>
