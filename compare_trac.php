@@ -180,7 +180,7 @@
                     </label>
                   </div>
                 </div>
-                <button type="button" class="btn btn-primary  next-step mt-4">Next</button>
+                <button type="button"  class="btn btn-primary  next-step mt-4">Next</button>
               </div>
 
               <div class="step step-2">
