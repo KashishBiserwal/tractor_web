@@ -574,75 +574,78 @@ document.addEventListener("DOMContentLoaded", function () {
 // latest sell swiper
 
 // carousal
-$("#news-slider").owlCarousel({
-  items : 3,
-  itemsDesktop:[1199,3],
-  itemsDesktopSmall:[980,2],
-  itemsMobile : [600,1],
-  navigation:true,
-  navigationText:["",""],
-  pagination:true,
-  autoPlay:true
-});
-const swiper_sell = new Swiper(".slider", {
-  // Optional parameters
-  centeredSlides: true,
-  slidesPerView: 1,
-  grabCursor: true,
-  freeMode: false,
-  loop: true,
-  mousewheel: false,
-  keyboard: {
-    enabled: true
-  },
+// $("#news-slider").owlCarousel({
+//   items : 3,
+//   itemsDesktop:[1199,3],
+//   itemsDesktopSmall:[980,2],
+//   itemsMobile : [600,1],
+//   navigation:true,
+//   navigationText:["",""],
+//   pagination:true,
+//   autoPlay:true
+// });
+// const swiper_sell = new Swiper(".slider", {
+//   // Optional parameters
+//   centeredSlides: true,
+//   slidesPerView: 1,
+//   grabCursor: true,
+//   freeMode: false,
+//   loop: true,
+//   mousewheel: false,
+//   keyboard: {
+//     enabled: true
+//   },
 
-  // Enabled autoplay mode
-  autoplay: {
-    delay: 2000,
-    disableOnInteraction: false
-  },
+//   // Enabled autoplay mode
+//   autoplay: {
+//     delay: 2000,
+//     disableOnInteraction: false
+//   },
 
-  // If we need pagination
-  pagination: {
-    el: ".swiper-pagination",
-    dynamicBullets: false,
-    clickable: true
-  },
+//   // If we need pagination
+//   pagination: {
+//     el: ".swiper-pagination",
+//     dynamicBullets: false,
+//     clickable: true
+//   },
 
-  // If we need navigation
-  navigation: {
-    nextEl: ".swiper-button-next",
-    prevEl: ".swiper-button-prev"
-  },
+//   // If we need navigation
+//   navigation: {
+//     nextEl: ".swiper-button-next",
+//     prevEl: ".swiper-button-prev"
+//   },
 
-  // Responsive breakpoints
-  breakpoints: {
-    640: {
-      slidesPerView: 1.25,
-      spaceBetween: 20
-    },
-    1024: {
-      slidesPerView: 2,
-      spaceBetween: 20
-    }
+//   // Responsive breakpoints
+//   breakpoints: {
+//     640: {
+//       slidesPerView: 1.25,
+//       spaceBetween: 20
+//     },
+//     1024: {
+//       slidesPerView: 2,
+//       spaceBetween: 20
+//     }
+//   }
+// });
+
+// carousel for used tractor 
+$('.carousel .carousel-item').each(function(){
+  var minPerSlide = 4;
+  var next = $(this).next();
+  if (!next.length) {
+  next = $(this).siblings(':first');
   }
+  next.children(':first-child').clone().appendTo($(this));
+  
+  for (var i=0;i<minPerSlide;i++) {
+      next=next.next();
+      if (!next.length) {
+        next = $(this).siblings(':first');
+      }
+      
+      next.children(':first-child').clone().appendTo($(this));
+    }
 });
-
-// Open links in mobiles
-// function handleSmallScreens() {
-//   document.querySelector('.navbar-toggler')
-//     .addEventListener('click', () => {
-//       let navbarMenu = document.querySelector('.navbar-menu')
-
-//       if (!navbarMenu.classList.contains('active')) {
-//         navbarMenu.classList.add('active')
-//       } else {
-//         navbarMenu.classList.remove('active')
-//       }
-//     })
-// }
-
-// handleSmallScreens()
 
 
   
