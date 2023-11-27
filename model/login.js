@@ -32,7 +32,7 @@ var url = apiBaseURL + 'user_login';
             console.log(result, "login success");
             localStorage.setItem("token", result.access_token);
             localStorage.setItem("expireIn", result.expires_in);
-            window.location.href = "<?php echo $baseUrl; ?>usermanagement.php";
+            window.location.href = baseUrl +"usermanagement.php";
         },
         error: function (xhr, textStatus, errorThrown) {
             console.log(xhr.status, "error");

@@ -9,7 +9,8 @@
    
    ?>
 <script> var APIBaseURL = "<?php echo $APIBaseURL; ?>";</script>
-    <script src="model/login.js"></script>
+<script> var baseUrl = "<?php echo $baseUrl; ?>";</script>
+    <script src="<?php $baseUrl; ?>model/login.js"></script>
 </head>
 
 <style>
@@ -59,7 +60,6 @@
           </div>
   </div>
 
-  <script src="/model/login.js"></script>
 </body>
 
 

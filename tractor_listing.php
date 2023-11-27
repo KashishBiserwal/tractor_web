@@ -359,7 +359,6 @@
                     </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-secondary px-3" data-bs-dismiss="modal">Close</button>
-                  
                 </div>
               </div>
             </div>
@@ -512,7 +511,7 @@
     });
   });
 
-  function BackgroundUpload() {
+  function BackgroundUpload(){
     var imgWrap = "";
     var imgArray = [];
 
@@ -583,19 +582,19 @@ function get() {
                 'Authorization': 'Bearer ' + localStorage.getItem('token')
             },
             success: function (data) {
-                // console.log(data);
+                console.log(data);
                 const select = document.getElementById('brand_name');
                 select.innerHTML = '';
 
                 if (data.brands.length > 0) {
                     data.brands.forEach(row => {
                         const option = document.createElement('option');
-                        // option.value = row.brand_id; // You might want to set a value for each option
+                        option.value = row.id; // You might want to set a value for each option
                         option.textContent = row.brand_name;
                         select.appendChild(option);
                     });
                 } else {
-                    select.innerHTML = '<option>No valid data available</option>';
+                    select.innerHTML ='<option>No valid data available</option>';
                 }
             },
             error: function (error) {
@@ -614,33 +613,9 @@ function get_lookup() {
             'Authorization': 'Bearer' + localStorage.getItem('token')
         },
         success: function (data) {
-            // console.log(data);
-           // const select = document.getElementById('lookupSelectbox');
-           // select.innerHTML = ''; //Clear previous data
-         // console.log(data.tractor_type[].lookup_data_value,"data.tractor_type.lookup_data_value.length")
-           
-                // data.tractor_type.forEach(row => {
-             
-                //     const option = document.createElement('option');
-                //     option.brake_type_id= row.name;
-                //     // option.cooling_id = row.name;
-                //     // option.total_cyclinder_id= row.name; // Set the value attribute if needed
-                //     var noofcylinder = document.getElementById("total_cyclinder_id");
-                //     var brake_type_id = document.getElementById("brake_type_id");
-                //     if(row.lookup_type_id == 16)
-                //     brake_type_id.appendChild(option);
-                  
-                // });
-
                 for (var i = 0; i <  data.tractor_type.length; i++) {
                         $("select#"+data.tractor_type[i].name).append('<option value="'+data.tractor_type[i].id+'">'+data.tractor_type[i].lookup_data_value+'</option>');
-
                     }
-            
-            // else {
-                // Display a message if there's no valid data
-               // select.innerHTML = '<option> No valid data available</option>';
-           // }
         },
         error: function (error) {
             console.error('Error fetching data:', error);
@@ -742,7 +717,7 @@ function store(event) {
     };
 
     var url = "<?php echo $APIBaseURL; ?>storeProduct";
-    console.log(url);
+    // console.log(url);
     var token = localStorage.getItem('token');
     var headers = {
       'Authorization': 'Bearer ' + token
@@ -754,7 +729,7 @@ function store(event) {
       headers: headers,
       success: function (result) {
         console.log(result, "result");
-        // window.location.href = "<?php echo $baseUrl; ?>tractor_listing.php"; 
+        window.location.href = "<?php echo $baseUrl; ?>tractor_listing.php"; 
         console.log("Add successfully");
         // alert('successfully inserted..!')
       },
@@ -775,24 +750,20 @@ function store(event) {
             'Authorization': 'Bearer ' + localStorage.getItem('token')
         },
         success: function (data) {
-          console.log(data);
+            console.log(data);
             const tableBody = document.getElementById('data-table');
-            // tableBody.innerHTML = ''; // Clear previous data
 
-            let users=data.product_type;
-
-            if (users.length > 0) {
-          console.log(typeof users);
-                users.map(row => {
-                  console.log(row);
+            if (data.product_type > 0) {
+                console.log(typeof data.product_type);
+                // Corrected the variable name from 'users' to 'data.product_type'
+                data.product_type.map(row => {
+                    console.log(row);
                     const tableRow = document.createElement('tr');
-                    let originalDate= new Date(row.created_at);
-
-                    let day=originalDate.getDate();
-                    let month=originalDate.getMonth()+1;
-                    let year=originalDate.getFullYear();
-
-                    let formatDate=`${day}-${month}-${year}`;
+                    let originalDate = new Date(row.created_at);
+                    let day = originalDate.getDate();
+                    let month = originalDate.getMonth() + 1;
+                    let year = originalDate.getFullYear();
+                    let formatDate = `${day}-${month}-${year}`;
                     tableRow.innerHTML = `
                         <td>${row.id}</td>
                         <td>${row.brand_name}</td>
@@ -815,6 +786,8 @@ function store(event) {
         }
     });
 }
+
 get_tractor_list();
+
 </script>
 

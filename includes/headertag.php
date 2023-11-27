@@ -1,7 +1,7 @@
 <?php
-//  $$APIBaseURL = 'http://127.0.0.1:8000/api/admin/';
+ $APIBaseURL = 'http://127.0.0.1:8000/api/admin/';
 $baseUrl = '/tractor-project/tractor_project/';
-  $APIBaseURL = "http://192.168.1.41:8000/api/admin/";
+//   $APIBaseURL = "http://192.168.1.41:8000/api/admin/";
 ?>
 <meta charset="UTF-8">
 	<title>Tractor Junction</title>
