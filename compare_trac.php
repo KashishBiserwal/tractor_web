@@ -6,6 +6,10 @@
       include 'includes/headertag.php';
     ?>
   </head>
+  <style>
+    #more {display: none;}
+  </style>
+
   <?php
     include 'includes/header.php';
   ?>
@@ -1152,7 +1156,7 @@
       <div class=" fw-bold fs-5 mt-3 ">
         <p class="mb-n4">Compare Tractors</p>
       </div>
-      <p class="">Tractorjunction.com is a one-stop authentic online destination where you can compare a variety of Tractors and Farm Implements. All top tractor brands are available here including Mahindra, John Deere, Escorts, Sonalika, Eicher, TAFE, New Holland and many more. The information displayed on Tractor Junction is believed to be accurate, unbiased and correct. Choose at least two tractors as per your choice to compare based on their specifications, features, mileage, Price, overall perf<span id="dots">...</span><span id="more">ormance and warranty. All Indian Farmers can easily compare tractors of distinct varieties just in a few clicks. TractorJunction brings a welfare opportunity to compare tractor price in India. This allows farmers from every region to compare tractors in India.<br><br>
+      <p class="">Tractorjunction.com is a one-stop authentic online destination where you can compare a variety of Tractors and Farm Implements. All top tractor brands are available here including Mahindra, John Deere, Escorts, Sonalika, Eicher, TAFE, New Holland and many more. The information displayed on Tractor Junction is believed to be accurate, unbiased and correct. Choose at least two tractors as per your choice to compare based on their specifications, features, mileage, Price, overall perf<span id="dots">...</span><span id="more">ormance and warranty. All Indian Farmers can easily compare tractors of distinct varieties just in a few clicks. TractorJunction brings a welfare opportunity to compare tractor price in India. This allows farmers from every region to compare tractors in India.
 
       TractorJunction provides the most comprehensive tractor comparison tool in India on which you can select at least two or more tractors of your choice for comparison. This online platform provides all the useful guidelines for tractor comparison India. TractorJunction always works to empower Indian farmers with a new tractor compare section.<br><br>
 
