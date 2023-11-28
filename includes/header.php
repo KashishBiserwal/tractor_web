@@ -1,7 +1,9 @@
- <nav class="navbar navbar-expand-sm navbar-index1">
-  <div class="container">
-    <div class="row w-100">
-      <div class="logo col-sm-3">
+
+<div class="fixed_nav">
+<nav class="navbar navbar-expand-sm navbar-index">
+  <div class="container p-0">
+    <div class="row w-100 m-0">
+      <div class="col-sm-3">
         <a href="index.php" class="text-decoration-none">
           <img src="assets/images/logotrac.png"alt="reload img" class="logo">
         </a>
@@ -9,46 +11,47 @@
       <button class="navbar-toggler col-sm-6" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse col-sm-9" id="collapsibleNavbar">
+      <div class="collapse navbar-collapse col-sm-9 pe-0" id="collapsibleNavbar" style="    justify-content: end;">
         <div class="row w-100">
           <div class="col-sm-8">
-        <!-- <form > -->
-       <!--    <input class="form-control me-2" type="text" placeholder="Search">
-          <button class="btn btn-primary" type="button">Search</button>
-        </form> -->
-</div>
-        <div class="col-sm-4">
-        <ul class="navbar-nav float-end">
-          <li class="nav-item "> 
-            <a class="nav-link" href="#">Download App</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Login</a>
-          </li>
-        
-        </ul>
+       <form class="mb-0 navserach">
+        <div class="row w-100">
+        <div class="col-sm-9 pe-0">
+                <input class="form-control mb-0" type="text" placeholder="Search">
+              </div> 
+              <div class="col-sm-3 ps-0">
+              <button class="btn btn-primary" type="button"><i class="fa-solid fa-magnifying-glass" style="font-size: 24px;"></i></button>
+              </div> 
         </div>
-        
+              
+              
+              
+            </form> 
+          </div>
+          <div class="col-sm-4">
+            <ul class="navbar-nav float-end">
+              <li class="nav-item "> 
+                <a class="nav-link" href="#" style="border-right: 1px solid #fff;">Download App</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="login.php">Login</a>
+              </li>
+            </ul>
+          </div>
         </div>
-       
       </div>
     </div>
   </div>
 </nav> 
 <nav class="navbar  navbar-expand-lg navbar-dark main-navbar" >
   <div class="container">
-    <div class="logo ">
-      <a href="index.php" class="text-decoration-none">
-        <img src="assets/images/logotrac.png"alt="reload img" class="logo">
-      </a>
-    </div>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse container" id="navbarSupportedContent">
+    <div class="collapse navbar-collapse p-0" id="navbarSupportedContent">
       <ul class="navbar-nav  mb-2 mb-lg-0 ">
-        <li class="nav-item dropdown dropdown-toggle mt-3">
-          <a class="nav-link dropdown-toggle text-white fw-bold " href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        <li class="nav-item dropdown dropdown-toggle ">
+          <a class="nav-link dropdown-toggle  fw-bold " href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             New Tractor
           </a>
           <ul class="dropdown-menu mt-2">
@@ -72,8 +75,6 @@
                 <li><a class="dropdown-item  fw-bold py-2" href="#">ALL BRANDS</a></li>
               </ul>
             </li>
-            <li>
-            </li>
             <hr class="dropdown-divider">
             <li><a href="find_new_tractors.php" class="dropdown-item fw-bold" >Find New Tractors</a></li>
             <hr class="dropdown-divider">
@@ -88,8 +89,8 @@
             <li><a href="#" class="dropdown-item fw-bold">4WD Tractor</a></li>
           </ul>
         </li>
-        <li class="nav-item dropdown dropdown-toggle mt-3">
-          <a class="nav-link dropdown-toggle text-white fw-bold " href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        <li class="nav-item dropdown dropdown-toggle ">
+          <a class="nav-link dropdown-toggle  fw-bold " href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Used
           </a>
           <ul class="dropdown-menu mt-2">
@@ -138,8 +139,8 @@
           </ul>
         </li>
         
-        <li class="nav-item dropdown dropdown-toggle  mt-3">
-          <a class="nav-link dropdown-toggle text-white fw-bold" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        <li class="nav-item dropdown dropdown-toggle">
+          <a class="nav-link dropdown-toggle  fw-bold" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
            Farm Equipment's
           </a>
           <ul class="dropdown-menu mt-2">
@@ -169,8 +170,8 @@
             <li class="" ><a class="dropdown-item text-dark fw-bold" href="harvester.php">Harvester</a></li>
           </ul>
         </li>
-        <li class="nav-item dropdown dropdown-toggle  mt-3">
-          <a class="nav-link dropdown-toggle text-white fw-bold" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        <li class="nav-item dropdown dropdown-toggle">
+          <a class="nav-link dropdown-toggle  fw-bold" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
            Market & Farms
           </a>
           <ul class="dropdown-menu mt-2">
@@ -190,8 +191,8 @@
             <li class="" ><a class="dropdown-item text-dark fw-bold" href="nursery_ui.php">Nursery</a></li>
           </ul>
         </li>
-        <li class="nav-item dropdown dropdown-toggle mt-3 px-2">
-          <a class="nav-link dropdown-toggle text-white fw-bold" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        <li class="nav-item dropdown dropdown-toggle">
+          <a class="nav-link dropdown-toggle  fw-bold" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
            Enquiries
           </a>
           <ul class="dropdown-menu pt-3 mt-2">
@@ -200,8 +201,8 @@
             <li><a class="dropdown-item fw-bold" href="#">Compare</a></li>
           </ul>
         </li>
-        <li class="nav-item dropdown dropdown-toggle mt-3 ">
-          <a class="nav-link dropdown-toggle text-white fw-bold" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        <li class="nav-item dropdown dropdown-toggle">
+          <a class="nav-link dropdown-toggle  fw-bold" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
            Finance
           </a>
           <ul class="dropdown-menu pt-3 mt-2">
@@ -214,7 +215,7 @@
         <!-- <li class="nav-item dropdown dropdown-toggle mt-3 ">
           <a class="nav-link dropdown-toggle text-white fw-bold" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Loan
-          </a> -->
+          </a> 
           <ul class="dropdown-menu pt-3 mt-2">
             <li><a class="dropdown-item fw-bold" href="new_tractor_loan.php">New Tractor Loan</a></li>
             <hr class="dropdown-divider">
@@ -224,10 +225,10 @@
             <hr class="dropdown-divider">
             <li><a class="dropdown-item fw-bold" href="#">Personal Loan</a></li>
           </ul>
-        </li>
-        <div class="col-2 text-center">
-          <li class="nav-item dropdown dropdown-toggle mt-3 ">
-            <a class="nav-link dropdown-toggle text-white fw-bold" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        </li>-->
+     
+          <li class="nav-item dropdown dropdown-toggle">
+            <a class="nav-link dropdown-toggle fw-bold" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               News & Update
             </a>
             <ul class="dropdown-menu pt-3 mt-2">
@@ -241,9 +242,9 @@
             </ul>
 
           </li>
-        </div>
+  
         <li class="nav-item dropdown dropdown-toggle ">
-          <a class="nav-link dropdown-toggle text-white fw-bold mt-3" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <a class="nav-link dropdown-toggle  fw-bold " href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             More
           </a>
           <ul class="dropdown-menu  pt-3 mt-2 ">
@@ -262,18 +263,11 @@
                 <li><a class="dropdown-item fw-bold" href="#">Compare</a></li>
           </ul>
         </li>
-        <li class="nav-item px-2">
-        <a href="login.php" class="btn btn-st4 text-decoration-none text-white fw-bold pt-3 mt-2"> Login</a>
-        </li>
       </ul>
-      <!-- <div class="ps-4">
-      <a href="" class="btn btn-st4 text-decoration-none text-white fw-bold" > Login</button>
-      </div> -->
      
-      <!-- <form class="d-flex" role="search">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-light" type="submit">Search</button>
-      </form> -->
     </div>
   </div>
 </nav>
+</div>
+
+
