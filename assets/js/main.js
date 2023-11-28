@@ -629,24 +629,48 @@ document.addEventListener("DOMContentLoaded", function () {
 // });
 
 // carousel for used tractor 
-$('.carousel .carousel-item').each(function(){
-  var minPerSlide = 4;
-  var next = $(this).next();
-  if (!next.length) {
-  next = $(this).siblings(':first');
-  }
-  next.children(':first-child').clone().appendTo($(this));
-  
-  for (var i=0;i<minPerSlide;i++) {
-      next=next.next();
-      if (!next.length) {
-        next = $(this).siblings(':first');
-      }
-      
-      next.children(':first-child').clone().appendTo($(this));
+jQuery("#carousel").owlCarousel({
+  autoplay: true,
+  rewind: true, /* use rewind if you don't want loop */
+  margin: 20,
+   /*
+  animateOut: 'fadeOut',
+  animateIn: 'fadeIn',
+  */
+  responsiveClass: true,
+  autoHeight: true,
+  autoplayTimeout: 7000,
+  smartSpeed: 800,
+  nav: true,
+  responsive: {
+    0: {
+      items: 1
+    },
+
+    600: {
+      items: 3
+    },
+
+    1024: {
+      items: 4
+    },
+
+    1366: {
+      items: 4
     }
+  }
 });
 
+$(function() {
+  // Owl Carousel
+  var owl = $(".owl-carousel");
+  owl.owlCarousel({
+    items: 4,
+    margin: 15,
+    loop: true,
+    nav: true
+  });
+});
 
   
 
