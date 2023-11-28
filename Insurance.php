@@ -7,7 +7,7 @@
 			?>
 </head>
 <style>
-.error {
+label.error {
     color: red !important;
     margin-bottom:2px;
     font-size:13px;

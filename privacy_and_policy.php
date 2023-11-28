@@ -3,34 +3,27 @@
 <?php
    include 'includes/headertag.php';
 ?>
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-
 <body>
     <div class="container">
         <div class="row mt-4">
-            <b class="mt-3">Bharat Tractors Privacy Policy</b>
-            <p class="mt-4">THIS PRIVACY POLICY IS AN ELECTRONIC RECORD IN THE FORM OF ELECTRONIC CONTRACT IN TERMS OF
+            <h2 class="mt-3 text-center text-success fw-bold">Bharat Tractors Privacy Policy</h2>
+            <p class="mt-4 justify-content-center">THIS PRIVACY POLICY IS AN ELECTRONIC RECORD IN THE FORM OF ELECTRONIC CONTRACT IN TERMS OF
                 INFORMATION
                 TECHNOLOGY ACT, 2000 AND RULES MADE THEREUNDER (AS AMENDED FROM TIME TO TIME) AND DOES NOT REQUIRE ANY
                 PHYSICAL SIGNATURE OR SEAL.
             </p>
-            <p>This Privacy Policy is applicable to www.bharattractors.com. The domain name www.bharattractors.com is
+            <p class="justify-content-center">This Privacy Policy is applicable to www.bharattractors.com. The domain name www.bharattractors.com is
                 owned by FarmJunction Marketing Private Limited [U74999RJ2019PTC065863], a company incorporated under
                 the Companies Act, 2013 (18 of 2013) with its registered office at Plot No-09, N.E.B Subhas Nagar,
                 Alwar, Rajasthan, India, 301001.
             </p>
-            <p>The term “We”/ “Us” / “Our” used in this document refer to Bharat Tractors and "You" / "Your" /
+            <p class="justify-content-center">The term “We”/ “Us” / “Our” used in this document refer to Bharat Tractors and "You" / "Your" /
                 "Yourself" refer to the users, who visit or access or use or avail any service or product (collectively
                 “usage”) on or through website/mobile site/App (individually and collectively, “Website”).
             </p>
             <b class="mt-3">TERMS AND CONDITIONS</b>
             <p class="fw-bold mt-4">Acknowledgment</p>
-            <p>PLEASE READ THIS PRIVACY POLICY CAREFULLY. YOU INDICATE THAT YOU UNDERSTAND, AGREE AND CONSENT TO THIS
+            <p class="justify-content-center">PLEASE READ THIS PRIVACY POLICY CAREFULLY. YOU INDICATE THAT YOU UNDERSTAND, AGREE AND CONSENT TO THIS
                 PRIVACY POLICY. HENCE BY VISITING OUR WEBSITE OR BY USING / AVAILING ANY OF OUR SERVICE OR PRODUCT, YOU
                 HEREBY GIVE YOUR UNCONDITIONAL CONSENT OR AGREEMENTS TO BHARAT TRACTORS AS PROVIDED UNDER SECTION 43A
                 AND SECTION 72A OF INFORMATION TECHNOLOGY ACT, 2000 FOR COLLECTION, USE, STORAGE, PROCESSING AND
@@ -42,11 +35,11 @@
             </p>
 
             <b class="mt-3">Information We Collect (Your Information) and store:</b>
-            <p class="mt-3">We collect Your information during your usage to Website or when you avail any of services or products
+            <p class=" mt-3 justify-content-center">We collect Your information during your usage to Website or when you avail any of services or products
                 available on Website, either as a registered user or otherwise. The information collected may consist
                 of:
             </p>
-            <p>Your Personal Information including Your name, age, address, email id, phone number, date of birth,
+            <p class="justify-content-center">Your Personal Information including Your name, age, address, email id, phone number, date of birth,
                 gender, address, any other sensitive personal data or information etc. We may receive Your Information
                 from third parties such as social media, and in such case, the information We collect may include your
                 user name associated with that social media, any information or content the social media has the right
@@ -55,7 +48,7 @@
                 with any Bharat Tractors entity through social media, you are authorizing Bharat Tractors to collect,
                 store, use and retain such information and content in accordance with the terms of this Privacy Policy.
             </p>
-            <p>Your Information will mostly be stored in electronic form however certain data may be stored in physical
+            <p class="justify-content-center">Your Information will mostly be stored in electronic form however certain data may be stored in physical
                 form. We may store, collect, use and process Your Information in countries other than the Republic of
                 India subject to compliance under applicable laws. We may enter into agreements with third parties (in
                 or outside of India) to store or process Your Information and such third parties may have their own
@@ -63,7 +56,7 @@
             </p>
 
             <p>Purpose of Collection, Storage, Processing: </p>
-            <p>Bharat Tractors collect Your Information solely for the purpose of providing you the product or service
+            <p class="justify-content-center">Bharat Tractors collect Your Information solely for the purpose of providing you the product or service
                 that is connected with the function or activity of Bharat Tractors which includes but not limited to the
                 following (“Purpose”):
             </p>
@@ -88,27 +81,27 @@
             </ul>
 
             <b class="mt-3">Sharing, Transfer or Disclosure:</b>
-            <p class="mt-3">Any service or product provided through Our Website may be provided either by BHARAT TRACTORS or its
+            <p class="mt-3 justify-content-center mt-3">Any service or product provided through Our Website may be provided either by BHARAT TRACTORS or its
                 vendor, dealer, OEM, channel partners and other third parties (“other entities”) which are registered
                 with Bharat Tractors to render the services or provide products through the Website.
             </p>
-            <p>You acknowledge and agree that Bharat Tractors may share, disclose, transfer or part with Your
+            <p class="justify-content-center">You acknowledge and agree that Bharat Tractors may share, disclose, transfer or part with Your
                 Information to other entities depending upon the type of service or product You are looking for or for
                 one or more of the permissible purposes. Bharat Tractors may also share Your personal or non-personal
                 information where it is required to share the same with such other entities for providing you the
                 service or product and You provide Bharat Tractors, Your unconditional consent to do the same.
             </p>
-            <p>Bharat Tractors may share statistical data and/or other Non-personal Information or details without your
+            <p class="justify-content-center">Bharat Tractors may share statistical data and/or other Non-personal Information or details without your
                 express or implied consent to facilitate various programs or initiatives launched by Bharat Tractors,
                 third party service providers, partners or financial institutions, from time to time.
             </p>
-            <p>In addition to this, Bharat Tractors reserve the right to share Your Information with any Government
+            <p class="justify-content-center">In addition to this, Bharat Tractors reserve the right to share Your Information with any Government
                 Agency or other authorized law enforcement agencies (LEAs) mandated under law to obtain Your Information
                 for the purpose of verification of identity or for prevention, detection, investigation including but
                 not limited to cyber incidents, prosecution, and punishment of offenses etc.
             </p>
             <b>Third Party Links:</b>
-            <p class="mt-3">It is clarified that while Your usage to Our Website, you might see the links to the third party website
+            <p  class="justify-content-center mt-3">It is clarified that while Your usage to Our Website, you might see the links to the third party website
                 / advertisements / electronic communication service, which are provided by the third parties. As the
                 operation of the third party is not under control Bharat Tractors, therefore Bharat Tractors does not
                 make any endorsement / guarantee of any service or product neither offered through third party websites
@@ -117,14 +110,14 @@
                 be at Your risk and Bharat Tractors is not responsible for any loss / damage or otherwise.
             </p>
             <b>Security Measures:</b>
-            <p class="mt-3">Bharat Tractors takes utmost care to secure Your Information from unauthorized access, usage or
+            <p class="justify-content-center mt-3">Bharat Tractors takes utmost care to secure Your Information from unauthorized access, usage or
                 disclosure or alteration. We take appropriate steps and security measures to safeguard Your Information
                 and make sure that Your Information is secured as mandated by law. For this purpose we adopt reasonable
                 security practices and procedures, in line with the industry standard, to include, technical,
                 operational, managerial and physical security controls in order to protect your personal information
                 from unauthorized access, or disclosure while it is under our control.
             </p>
-            <p>While We protect Your Personal information as per industry standards. You acknowledge that the internet
+            <p class="justify-content-center mt-3">While We protect Your Personal information as per industry standards. You acknowledge that the internet
                 or computer networks are not fully secure and that We cannot provide any absolute assurance regarding
                 the security of Your Personal information. Therefore You acknowledge that You shall not hold responsible
                 Bharat Tractors in any manner whatsoever for loss of Your Information, or any other data, which You
@@ -132,7 +125,7 @@
                 events. You further acknowledge that any information (including your personal information) transmitted
                 to Us or from Your use of Website will therefore be at Your own risk.
             </p>
-            <p>It is clarified that Force Majeure events includes any event which is beyond the reasonable control of
+            <p class="justify-content-center mt-3">It is clarified that Force Majeure events includes any event which is beyond the reasonable control of
                 the Bharat Tractors which may include but not limited to sabotage, fire, flood, explosion, acts of God,
                 civil commotion, strikes or industrial action of any kind, riots, insurrection, war, acts of government,
                 computer hacking, unauthorized access to computer, computer system or computer network, computer
@@ -140,11 +133,11 @@
             </p>
 
             <b>Update Your Information:</b>
-            <p class="mt-3">Bharat Tractors take all endeavors to update Our records with latest information as provided by you,
+            <p class="mt-3 justify-content-center">Bharat Tractors take all endeavors to update Our records with latest information as provided by you,
                 however if you see any discrepancy in your personal information you may contact to Us through Grievance
                 Officer to have Your Information updated with Us.
             </p>
-            <p>You also acknowledge that all the information provided by You are out of Your free will and in compliance
+            <p class="justify-content-center">You also acknowledge that all the information provided by You are out of Your free will and in compliance
                 with applicable laws in Your territory. If We found that any of Your Information is in non-compliance
                 with the terms and conditions and Privacy policy, Bharat Tractors reserves the right to remove your
                 non-compliant information from its systems. Further, depending on the seriousness of the non-compliance,
@@ -160,12 +153,12 @@
             </p>
 
             <b>Change in terms of Privacy Policy:</b>
-            <p class="mt-3">Bharat Tractors reserves the right to amend or modify this Privacy Policy at any time, as and when the
+            <p class="mt-3 justify-content-center">Bharat Tractors reserves the right to amend or modify this Privacy Policy at any time, as and when the
                 need arises. We request you to regularly check this Privacy Policy from time to time to keep you
                 apprised of changes made. Your continued use of the Website gives your unconditional acceptance to such
                 change in terms of Privacy Policy.
             </p>
-            <p>If you have any concern related to this Privacy Policy or collection, storage, retention or disclosure of
+            <p class="justify-content-center mt-3">If you have any concern related to this Privacy Policy or collection, storage, retention or disclosure of
                 Your Information under the terms of this Privacy Policy or Terms of Use or any other terms and
                 conditions of Bharat Tractors or its other business entities including any queries or grievances, You
                 can contact to Bharat Tractors through its Grievance Redressal Officer at the below given details:
