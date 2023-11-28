@@ -3,6 +3,9 @@
   
    
    ?> 
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2-bootstrap-5-theme@1.3.0/dist/select2-bootstrap-5-theme.min.css" />
 <body class="loaded"> 
 <div class="main-wrapper">
     <div class="app" id="app">
@@ -123,13 +126,14 @@
                                     </div>
                                     <div class="col-12 col-sm-8 col-lg-8 col-md-8">
                                       <div class="form-outline">
-                                        <label class="form-label">Tractor Type</label>
-                                        <select  class="form-select py-2" id="TRACTOR_TYPE" aria-label="Default select example">
-                                        <option value="0">Latest</option>
+                                        <label class="form-label" id="my-input" >Tractor Type</label>
+                                        <select  class="form-select js-example-basic-multiple py-2" id="TRACTOR_TYPE" name="states[]" multiple="multiple">
+                                        <option selected disabled="" value="">Please select an option</option>
+                                        <!-- <option value="0">Latest</option>
                                         <option value="1">Popular</option>
                                         <option value="2">Upcoming</option>
                                         <option value="3">4WD</option>
-                                        <option value="3">Mini Tractor</option>
+                                        <option value="3">Mini Tractor</option> -->
                                       </select>
                                       </div>
                                     </div>
@@ -428,7 +432,7 @@
                                             <th class="d-none d-md-table-cell text-white">Tyres</th>
                                         </tr>
                                     </thead>
-                                    <tbody class="data-table">
+                                    <tbody id="data-table" class="">
                                     </tbody>
                                 </table>
                             </div>
@@ -444,9 +448,13 @@
 <?php
    include 'includes/footertag.php';
    ?> 
-   
+   <script src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.full.min.js"></script>
    <script>
   $(document).ready(function () {
+
+    $('.js-example-basic-multiple').select2();
+
+    getTractorList();
     BackgroundUpload();
     $('#save').click(store);
     console.log('fjfej');
@@ -613,8 +621,8 @@ function get_lookup() {
             'Authorization': 'Bearer' + localStorage.getItem('token')
         },
         success: function (data) {
-                for (var i = 0; i <  data.tractor_type.length; i++) {
-                        $("select#"+data.tractor_type[i].name).append('<option value="'+data.tractor_type[i].id+'">'+data.tractor_type[i].lookup_data_value+'</option>');
+                for (var i = 0; i <  data.data.length; i++) {
+                        $("select#"+data.data[i].name).append('<option value="'+data.data[i].id+'">'+data.data[i].lookup_data_value+'</option>');
                     }
         },
         error: function (error) {
@@ -740,9 +748,10 @@ function store(event) {
   }
 
   // fetch data
-  function get_tractor_list() {
+  function getTractorList() {
     var url = "<?php echo $APIBaseURL; ?>getProduct";
     console.log(url);
+
     $.ajax({
         url: url,
         type: "GET",
@@ -751,34 +760,40 @@ function store(event) {
         },
         success: function (data) {
             console.log(data);
+
             const tableBody = document.getElementById('data-table');
 
-            if (data.product_type > 0) {
-                console.log(typeof data.product_type);
-                // Corrected the variable name from 'users' to 'data.product_type'
-                data.product_type.map(row => {
-                    console.log(row);
-                    const tableRow = document.createElement('tr');
-                    let originalDate = new Date(row.created_at);
-                    let day = originalDate.getDate();
-                    let month = originalDate.getMonth() + 1;
-                    let year = originalDate.getFullYear();
-                    let formatDate = `${day}-${month}-${year}`;
+            if (data.product && data.product.length > 0) {
+                // console.log(typeof product);
+
+                data.product.forEach(row => {
+                  
+                  const tableRow = document.createElement('tr');
+                  console.log(tableRow, 'helloooo');
+                   
+
                     tableRow.innerHTML = `
+                   
                         <td>${row.id}</td>
-                        <td>${row.brand_name}</td>
-                        <td>${row.model_name}</td>
+                        <td>${row.brand_id}</td>
+                        <td>${row.model}</td>
                         <td>${row.total_cyclinder_id}</td>
                         <td>${row.hp_category}</td>
                         <td>${row.horse_power}</td>
                         <td>${row.brake_type_id}</td>
                         <td>${row.steering_details_id}</td>
-                        <td><div class="d-flex"><button class="btn btn-danger btn-sm mx-1" id="delete_user" onclick="destroy(${row.id});"><i class="fa fa-trash" style="font-size: 11px;"></i></button></div></td>
+                        <td>
+                            <div class="d-flex">
+                                <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.id});">
+                                    <i class="fa fa-trash" style="font-size: 11px;"></i>
+                                </button>
+                            </div>
+                        </td>
                     `;
                     tableBody.appendChild(tableRow);
                 });
             } else {
-                tableBody.innerHTML = '<tr><td colspan="7">No valid data available</td></tr>';
+                tableBody.innerHTML = '<tr><td colspan="9">No valid data available</td></tr>';
             }
         },
         error: function (error) {
@@ -787,7 +802,35 @@ function store(event) {
     });
 }
 
-get_tractor_list();
+// delete data
+function destroy(id) {
+  var url = "<?php echo $APIBaseURL; ?>deleteProduct/" + id;
+  var token = localStorage.getItem('token');
+  
+  if (!token) {
+    console.error("Token is missing");
+    return;
+  }
+
+  $.ajax({
+    url: url,
+    type: "DELETE",
+    headers: {
+      'Authorization': 'Bearer ' + token
+    },
+    success: function(result) {
+      window.location.reload();
+      console.log("Delete request successful");
+      alert("Delete operation successful");
+    },
+    error: function(error) {
+      console.error('Error fetching data:', error);
+      alert("Error during delete operation");
+    }
+  });
+}
+
+
 
 </script>
 
