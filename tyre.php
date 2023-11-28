@@ -74,28 +74,30 @@
                                     </div>
                                     <div class="content d-flex flex-column flex-grow-1 ">
                                         <div class="caption text-center">
-                                            <a href="#" class="text-decoration-none text-dark">
+                                            <a href="tyre_inner.php" class="text-decoration-none text-dark">
                                                 <p class="pt-3"><strong
                                                         class="series_tractor_strong text-center h6 fw-bold ">MRF SHAKTI
                                                         LIFE 13.6 - 28</strong></p>
                                             </a>
                                         </div>
                                         <div class="power">
-                                            <div class="row text-center ">
-                                                <div class="col-4 col-lg-4 col-md-4 col-sm-4">
+                                            <a href="tyre_inner.php" class="text-decoration-none text-dark">
+                                                <div class="row text-center ">
+                                                    <div class="col-4 col-lg-4 col-md-4 col-sm-4">
 
-                                                    <p class="text-dark ">Tractor</p>
-                                                </div>
-                                                <div class="col-4 col-lg-4 col-md-4 col-sm-4">
+                                                        <p class="text-dark ">Tractor</p>
+                                                    </div>
+                                                    <div class="col-4 col-lg-4 col-md-4 col-sm-4">
 
-                                                    <p class="text-dark"> Rear</p>
-                                                </div>
-                                                <div class="col-4 col-lg-4 col-md-4 col-sm-4">
+                                                        <p class="text-dark"> Rear</p>
+                                                    </div>
+                                                    <div class="col-4 col-lg-4 col-md-4 col-sm-4">
 
-                                                    <p id="adduser" type="" class="text-dark">18.4-30
-                                                    </p>
+                                                        <p id="adduser" type="" class="text-dark">18.4-30
+                                                        </p>
+                                                    </div>
                                                 </div>
-                                            </div>
+                                            </a>
                                         </div>
                                         <div class="col-12">
                                             <button id="adduser" type="button" class="add_btn  btn-success w-100"
@@ -112,7 +114,8 @@
                                     <div class="modal-dialog modal-lg modal-dialog-centered">
                                         <div class="modal-content">
                                             <div class="modal-header">
-                                                <h4 class="modal-title text-dark fw-bold" id="staticBackdropLabel">Fill the form to Get Tyre Price MRF SHAKTI LIFE 13.6 - 28</h4>
+                                                <h4 class="modal-title text-dark fw-bold" id="staticBackdropLabel">Fill
+                                                    the form to Get Tyre Price MRF SHAKTI LIFE 13.6 - 28</h4>
                                             </div>
                                             <div class="modal-body">
                                                 <div class="model-cont">
@@ -526,11 +529,14 @@
             <div class="container my-5">
                 <h3 class="fw-bold assured px-2 py-2">Tractor Tyres Price</h3>
                 <div class="" role="alert">
-                    <p class="text-dark">Tyres come at different prices that are economical and easy to purchase. Some of the heavy loaded tractors require heavy tyres on the front and rear. Thus, some brands tyres are cost effective. For the enquiry of the tyres contact KhetiGaadi executives.</p>
+                    <p class="text-dark">Tyres come at different prices that are economical and easy to purchase. Some
+                        of the heavy loaded tractors require heavy tyres on the front and rear. Thus, some brands tyres
+                        are cost effective. For the enquiry of the tyres contact KhetiGaadi executives.</p>
 
-                    <p class="text-dark">Hence, KhetiGaadi provides you with all the details related to tyres, brand tyres, comparison tyres and tyres main benefits working on the roads.</p>
+                    <p class="text-dark">Hence, KhetiGaadi provides you with all the details related to tyres, brand
+                        tyres, comparison tyres and tyres main benefits working on the roads.</p>
 
-             
+
 
 
                 </div>

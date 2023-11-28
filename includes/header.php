@@ -215,7 +215,7 @@
             More
           </a>
           <ul class="dropdown-menu  pt-3 mt-2 ">
-                <li><a class="dropdown-item fw-bold" href="#">EMI Calculator</a></li>
+                <li><a class="dropdown-item fw-bold" href="emi.php">EMI Calculator</a></li>
                 <hr class="dropdown-divider">
                 <li><a class="dropdown-item fw-bold" href="#">Finance</a></li>
                 <hr class="dropdown-divider">

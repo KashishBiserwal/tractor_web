@@ -207,6 +207,17 @@
             </div>
         </div>
     </section>
+
+    <section >
+        <div class="container">
+            <h3 class="fw-bold assured px-2">About MRF SHAKTI LIFE 13.6 - 28</h3>
+            <div class="" role="alert">
+                <p class="text-dark py-3 ">
+                Choose the MRF SHAKTI LIFE Tyre for a driving experience that transcends the ordinary. Whether you're a performance enthusiast or a practical driver, these tyres are crafted to exceed expectations and redefine what's possible on the road. Elevate your journey with the MRF SHAKTI LIFE  – where innovation meets excellence.
+                </p>
+            </div>
+        </div>
+    </section>
     <section class="section slider-section">
 
         <div class="container slider-column">
@@ -370,6 +381,9 @@
         <a href="tyre.php"><button id="adduser" type="button" class="add_btn btn btn-success">
                 <i class="fas fa-undo"></i> Load More Tyres</button></a>
     </div>
+
+   
+
 
     <div class="container">
         <h4 class="fw-bold assured px-2">Quick Links</h4>
