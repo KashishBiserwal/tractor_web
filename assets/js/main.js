@@ -538,15 +538,15 @@ previous_fs.css({
 //   });
 // },false);
 document.addEventListener("DOMContentLoaded", function () {
-  const mySwiper2_wrapper = document.querySelector(".mySwiper2_buy .swiper-wrapper_buy"),
-  mySwiper_container = document.querySelector(".mySwiper_buy"),
-        clone = mySwiper2_wrapper.cloneNode(true);
-  mySwiper_container.appendChild(clone);
+  // const mySwiper2_wrapper = document.querySelector(".mySwiper2_buy .swiper-wrapper_buy"),
+  // mySwiper_container = document.querySelector(".mySwiper_buy"),
+        // clone = mySwiper2_wrapper.cloneNode(true);
+  // mySwiper_container.appendChild(clone);
 
   const swiper = new Swiper(".mySwiper_buy", {
   loop: true,
   spaceBetween: 10,
-  slidesPerView: mySwiper2_wrapper.childNodes.length,
+  // slidesPerView: mySwiper2_wrapper.childNodes.length,
   freeMode: true,
   watchSlidesProgress: true
   });
@@ -559,7 +559,7 @@ document.addEventListener("DOMContentLoaded", function () {
   slidesPerView: "auto",
   centeredSlides: true,
   loop: true,
-  loopedSlides: mySwiper2_wrapper.childNodes.length,
+  // loopedSlides: mySwiper2_wrapper.childNodes.length,
   spaceBetween: 10,
   speed: 800,
   navigation: {
