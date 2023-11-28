@@ -219,18 +219,11 @@
           <ul class="dropdown-menu pt-3 mt-2">
             <li><a class="dropdown-item fw-bold" href="new_tractor_loan.php">New Tractor Loan</a></li>
             <hr class="dropdown-divider">
-            <li><a class="dropdown-item fw-bold" href="#" onclick="button2()">Used Tractor Loan</a></li>
+            <li><a class="dropdown-item fw-bold" href="#">Used Tractor Loan</a></li>
             <hr class="dropdown-divider">
-            <li><a class="dropdown-item fw-bold" href="#" onclick="button3()">Loan Against Tractor</a></li>
+            <li><a class="dropdown-item fw-bold" href="#">Loan Against Tractor</a></li>
             <hr class="dropdown-divider">
-            <li><a class="dropdown-item fw-bold" href="#" onclick="button4()">Personal Loan</a></li>
-              </ul>
-            </li>
-            <li>
-            </li> -->
-            <li><a href="new_tractor_loan.php" class="dropdown-item fw-bold" >Loan</a></li>
-            <hr class="dropdown-divider">
-            <li><a href="insurance.php" class="dropdown-item fw-bold" >Insurance</a></li>
+            <li><a class="dropdown-item fw-bold" href="#">Personal Loan</a></li>
           </ul>
         </li>-->
      
@@ -259,14 +252,15 @@
                 <hr class="dropdown-divider">
                 <li><a class="dropdown-item fw-bold" href="#">Finance</a></li>
                 <hr class="dropdown-divider">
-                <li><a class="dropdown-item fw-bold" href="tyre.php">Tyres</a></li>
+                <li><a class="dropdown-item fw-bold" href="#">Tyres</a></li>
                 <hr class="dropdown-divider">
                 <li><a class="dropdown-item fw-bold" href="#">Insurance</a></li>
                 <hr class="dropdown-divider">
                 <li><a class="dropdown-item  fw-bold" href="#">Dealership Enquiry</a></li>
                 <hr class="dropdown-divider">
                 <li><a class="dropdown-item fw-bold" href="#">Certified Dealers</a></li>
-               
+                <!-- <hr class="dropdown-divider"> -->
+                <!-- <li><a class="dropdown-item fw-bold" href="">Compare</a></li> -->
           </ul>
         </li>
       </ul>
