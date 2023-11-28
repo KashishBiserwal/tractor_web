@@ -198,7 +198,7 @@
           <ul class="dropdown-menu pt-3 mt-2">
             <li><a class="dropdown-item fw-bold" href="onload.php"> On-Road Price</a></li>
             <hr class="dropdown-divider">
-            <li><a class="dropdown-item fw-bold" href="#">Compare</a></li>
+            <li><a class="dropdown-item fw-bold" href="compare_trac.php">Compare</a></li>
           </ul>
         </li>
         <li class="nav-item dropdown dropdown-toggle">
@@ -259,8 +259,8 @@
                 <li><a class="dropdown-item  fw-bold" href="#">Dealership Enquiry</a></li>
                 <hr class="dropdown-divider">
                 <li><a class="dropdown-item fw-bold" href="#">Certified Dealers</a></li>
-                <hr class="dropdown-divider">
-                <li><a class="dropdown-item fw-bold" href="#">Compare</a></li>
+                <!-- <hr class="dropdown-divider"> -->
+                <!-- <li><a class="dropdown-item fw-bold" href="">Compare</a></li> -->
           </ul>
         </li>
       </ul>

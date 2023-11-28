@@ -262,6 +262,12 @@ border-radius:0;
   background: var(--black-300);
 }
 
+/* compare css */
+.btn-compare:hover{
+background: #06740a;
+color: white;
+}
+
 /* latest sell */
 
 
@@ -622,6 +628,10 @@ div.swiper-5 {
   /* height: 235px; */
 }
 
+/* engine oil css */
+.engineoil_img{
+  height: 235px;
+}
 /*  */
 /* tractor implement */
 
@@ -1702,6 +1712,15 @@ input[type="checkbox"]:checked + label:before {
 /* .quick-links{
   margin-left: 28px;
 } */
-.quick-links-heading {
-  background-color: rgb(245, 239, 239);
-}
+
+/* .compare::after{
+  content: "";
+  background-image: url(../images/versus.jpg);
+  background-repeat: no-repeat;
+  top: 0;
+  position: absolute;
+  width: 20%;
+  right: 0;
+  height: 105%;
+  opacity: 0.2px;
+} */
