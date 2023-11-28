@@ -284,10 +284,7 @@ color: white;
 }
 
 /* footer */
-.row{
-	display: flex;
-	flex-wrap: wrap;
-}
+
 ul{
 	list-style: none;
   padding-left: 0rem
