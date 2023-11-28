@@ -135,7 +135,7 @@
   });
   function get_data() {
     console.log('hhsdfshdfch');
-    var url = "<?php echo $APIBaseURL; ?>LookupData";
+    var url = "<?php echo $APIBaseURL; ?>lookup_data";
     console.log(url);
     $.ajax({
         url: url,
@@ -179,7 +179,6 @@
 get_data();
 
   function store(event) {
-    // Get values from form fields
     event.preventDefault();
     console.log('jfhfhw');
     var lookup_type = $('#lookupSelectbox').val();
@@ -192,11 +191,9 @@ get_data();
       'lookup_data_value':lookup_data_value
     };
 
-    // Define the URL where you want to send the data
-    var url = "<?php echo $APIBaseURL; ?>LookupData";
+    var url = "<?php echo $APIBaseURL; ?>lookup_data";
     console.log(url);
 
-    // You may need to include headers, but you should ensure they are properly configured
     var token = localStorage.getItem('token');
     var headers = {
       'Authorization': 'Bearer ' + token
@@ -210,8 +207,7 @@ get_data();
       headers: headers,
       success: function (result) {
         console.log(result, "result");
-        // Redirect to a success page or perform other actions
-        window.location.href = "<?php echo $baseUrl; ?>lookupdata.php"; 
+        window.location.href = "<?php echo $baseUrl; ?>lookup_data.php"; 
         console.log("Add successfully");
         alert('successfully inserted..!')
       },
@@ -223,12 +219,12 @@ get_data();
 
 //   get data in select box
 function get() {
-    var url = "<?php echo $APIBaseURL; ?>LookupType";
+    var url = "<?php echo $APIBaseURL; ?>lookup_type";
     $.ajax({
         url: url,
         type: "GET",
         headers: {
-            'Authorization': 'Bearer' + localStorage.getItem('token')
+            'Authorization':'Bearer' + localStorage.getItem('token')
         },
         success: function (data) {
             console.log(data);
@@ -239,17 +235,16 @@ function get() {
                 data.lookup_type.forEach(row => {
                     const option = document.createElement('option');
                     option.textContent = row.name;
-                    option.value = row.id; // Set the value attribute if needed
+                  
+                    option.value = row.id;
                     select.appendChild(option);
                 });
             } else {
-                // Display a message if there's no valid data
                 select.innerHTML = '<option> No valid data available</option>';
             }
         },
         error: function (error) {
             console.error('Error fetching data:', error);
-            // Display an error message or handle the error as needed
         }
     });
 }
@@ -259,7 +254,7 @@ get();
 // get data in table
 // delete data
 function destroy(id) {
-  var url = "<?php echo $APIBaseURL; ?>LookupData/" + id;
+  var url = "<?php echo $APIBaseURL; ?>lookup_data/" + id;
   var token = localStorage.getItem('token');
   
   if (!token) {

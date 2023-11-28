@@ -1,5 +1,5 @@
-<script>
 $(document).ready(function() {
+  /*   ------------ Login ----------- */
     $("#form").validate({
         rules: {
             email: {
@@ -12,11 +12,11 @@ $(document).ready(function() {
         },
         messages: {
             email: "Please Enter Your Email id",
-            password:"Please provide a valid password"
+            password: "Please provide a valid password"
         },
         submitHandler: function(form) {
             login();
         }
-    })
-});
-</script>
+    });
+    
+})

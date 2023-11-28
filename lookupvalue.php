@@ -156,7 +156,7 @@ $('#login').click(store);
     };
 
     // Define the URL where you want to send the data
-    var url = "<?php echo $APIBaseURL; ?>LookupType";
+    var url = "<?php echo $APIBaseURL; ?>lookup_type";
     console.log(url);
 
     // You may need to include headers, but you should ensure they are properly configured
@@ -186,7 +186,7 @@ $('#login').click(store);
 
 
   function get() {
-    var url = "<?php echo $APIBaseURL; ?>LookupType";
+    var url = "<?php echo $APIBaseURL; ?>lookup_type";
     $.ajax({
         url: url,
         type: "GET",
@@ -228,7 +228,7 @@ $('#login').click(store);
 get();
 
 function destroy(id) {
-  var url = "<?php echo $APIBaseURL; ?>LookupType/" + id;
+  var url = "<?php echo $APIBaseURL; ?>lookup_type/" + id;
   var token = localStorage.getItem('token');
   
   if (!token) {

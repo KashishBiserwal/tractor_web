@@ -40,7 +40,7 @@
 <section>
    <div class="container">
       <div class="formcard">
-        <form action="">
+        <form action="" id="hatbazr_sell_form">
             <div class="container-fluid px-1 px-md-4 py-3 mx-auto">
                <div class="row d-flex justify-content-center">
                   <div class="col-12 col-md-11 col-lg-10 col-xl-9">
@@ -73,7 +73,7 @@
                                  <div class="row px-3 mt-4">
                                     <div class="col-12 ">
                                       <div class="form-group w-100">
-                                          <select class="form-select py-2 mb-3" aria-label=".form-select-lg example">
+                                          <select class="form-select py-2 mb-3" aria-label=".form-select-lg example" id="select_category">
                                              <option selected>Select Category</option>
                                              <option value="1">Vegetable</option>
                                              <option value="2">Fruits</option>
@@ -84,7 +84,7 @@
                                     </div>
                                     <div class="col-12 ">
                                       <div class="form-group w-100">
-                                          <select class="form-select py-2 " aria-label=".form-select-lg example">
+                                          <select class="form-select py-2 " aria-label=".form-select-lg example" id="select_sub_categary">
                                              <option selected>Select Sub-Category</option>
                                              <option value="1">Potato</option>
                                              <option value="2">Papaya</option>
@@ -122,11 +122,11 @@
                                     </div>
                                     <div class="col-12 ">
                                        <div class="form-group w-100">
-                                          <input type="text" class="py-4" placeholder=" " id="quantity">
+                                          <input type="text" class="py-4" placeholder=" " id="about_your_harvest">
                                           <label for="quantity" class="text-dark">About Your  Harvest</label>
                                        </div>
                                     </div>
-                                    <div class="next-button text-center ms-3"> <span class="fa fa-arrow-right "></span> </div>
+                                    <div class="next-button text-center ms-3" id="next_btn"> <span class="fa fa-arrow-right "></span> </div>
                                  </div>
                                  
                                  </div>
@@ -154,7 +154,7 @@
                                        </div>
                                        <div class="col-12">
                                           <div class="form-group w-100">
-                                             <input type="Text" class="py-2" placeholder=" " name="name" id="name" >
+                                             <input type="Text" class="py-2" placeholder=" " name="name" id="Phone_no" >
                                              <label for="name" class="text-dark">Phone Number</label>
                                           </div>
                                        </div>
@@ -190,7 +190,7 @@
                                           </div>
                                        </div>
                                        <div class="next-button text-center text-success ms-5 px-3 w-75">
-                                          <a href="#" class="text-decoration-none text-white"> Submit</a>
+                                          <a href="#" class="text-decoration-none text-white" id="submit">Submit</a>
                                        </div>
                                     </div>
                                  </div>
@@ -241,4 +241,68 @@
         num2 = document.getElementById("secondNumber").value;
         document.getElementById("result").innerHTML = num1 * num2;
 }
-    </script>
+
+ </script>
+ <!-- <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script> -->
+ <script>
+//    $(document).ready(function(){
+//       $('#hatbazr_sell_form').validate({
+//        rules: {
+//          name:{
+//                required:true,
+//             },
+//             Phone_no:{
+//                required:true,
+//             },
+//             tehsil:{
+//                required:true,
+//             },
+//             pincode:{
+//                required:true,
+//             }
+//          },
+//          messages:{
+//               name:"field is requred",
+//               phone_no:"field is requred",
+//               tehsil:"field is requred",
+//               pincode:"field is requred"
+//          },
+//   submitHandler: function(form) {
+//     form.submit();
+//     }
+//    });
+//  });
+$(document).ready(function(){
+    $('#hatbazr_sell_form').validate({
+      rules:{
+         select_category:{
+            required:true,
+      },
+      select_sub_categary:{
+         required:true,
+      },
+      firstNumbe:{
+         required:true,
+      },
+      secondNumber:{
+         required:true,
+      },
+      about_your_harvest:{
+         required:true,
+      }
+   },
+   messages:{
+      select_category:"Field is required",
+      select_sub_categary:"Field is required",
+      firstNumbe:"Field is required",
+      secondNumber:"Field is required",
+      about_your_harvest:"Field is required"
+   },
+   submiHandler: function(forn){
+      next_btn();
+   }
+    });
+});
+
+
+ </script>

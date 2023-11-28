@@ -6,12 +6,29 @@
     padding-left: 15px;
     padding-right: 15px;
   }
-  
+.fixed_nav{
+  width: 100%;
+    position: fixed;
+    z-index: 999;
+    height: 125px;
+    top: 0;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
 
+}
+#home-banner .carousel-inner img{
+  height: 600px;
+}
+#home-banner{
+  margin-top: 125px;
+}
   /* header */
-  .navbar-nav .nav-link {
-    color: #fff;
+  .main-navbar{
+    z-index: 99;
+    background-color: #fff;
   }
+  /* .main-navbar .navbar-nav .nav-link { */
+    /* color: #fff; */
+  /* } */
   .nav-item{
     --b: 0.1em;   /*the thickness of the line*/
   --c: #07791a; /* the color */
@@ -63,11 +80,33 @@
 
 /* tractor logo */
 .logo{
-  width: 91px;
+  width:50px;
   /* box-shadow: 0px 6px 30px rgba(0, 0, 0, 0.08); */
-  /* border-radius: 50%; */
+   border-radius: 50%; 
   
 }
+.navbar-index .navbar-collapse .navbar-nav .nav-item  a{
+  color:#fff;
+  font-weight: 700;
+  font-size: 14px;
+  padding: 0 14px;
+}
+.navbar-index .navbar-collapse .navbar-nav .nav-item {
+  padding: 8px 0;
+}
+.navserach input{
+border-radius:0;
+}
+.navserach button{
+  border-radius:0;
+  background-color: #157347;
+  border-color: #157347;
+  }
+  .navserach button:hover{
+    border-radius:0;
+    background-color: #157347;
+    border-color: #157347;
+    }
 /* login */
 .login-page {
   width: 100%;
@@ -128,7 +167,7 @@
  right: 0;
   bottom: 0;
   z-index:4;
-  background: #f8f9fa4d;
+  background: #f8f9fac9;
 }
 .why_head{
   /* background: #24273e; */
@@ -245,10 +284,7 @@ color: white;
 }
 
 /* footer */
-.row{
-	display: flex;
-	flex-wrap: wrap;
-}
+
 ul{
 	list-style: none;
   padding-left: 0rem
@@ -666,7 +702,6 @@ button {
 .ul-box li a:hover{
   color: rgb(3, 199, 3);
 }
-
 /* .newsimg{
   height: 300px;
   
@@ -678,6 +713,9 @@ button {
   width: 329px;
   height: 475px;
 }
+
+/* select 2 tractor listing */
+
 
 
 /* header dropdown*/
