@@ -25,7 +25,7 @@
         </div>
       </div>
     </section>
-    <section>
+<section>
       <div class="container">
         <div class="vegehead pt-3">
           <div class="row">
@@ -192,7 +192,7 @@
         </table> -->
       </div>
     </section>
-    <section class="mt-3">
+  <section class="mt-3">
          <div class="container">
             <h2 class="fw-bold text-dark text-start mt-4 assured ps-3">Similar Product</h3>
             <div class="row">

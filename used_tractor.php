@@ -59,18 +59,13 @@
                             </div>
                             <div class="content d-flex flex-column flex-grow-1 ">
                                 <div class="caption text-center">
-                                    <a href="#" class="text-decoration-none text-dark">
+                                    <a href="farmtrac_60.php" class="text-decoration-none text-dark">
                                         <p class="pt-3"><strong class="series_tractor_strong text-center h4 fw-bold ">Farmtrac 60 </strong></p>
                                     </a>      
                                 </div>
                                 <div class="power text-center mt-2">
-                                    <div class="row ">
-                                        <div class="col-12 col-lg-6 col-md-6 col-sm-6"><p class="text-success ps-2">Price: ₹ 4,50,000</p></div>
-                                        <div class="col-12 col-lg-6 col-md-6 col-sm-6" style="padding-right: 32px;">
-                                             <p id="adduser" type="" class="btn-success">
-                                                <i class="fa-solid fa-award"></i>  Certified </p>
-                                        </div>
-                                    </div>    
+                                        <div class="col-12 col-lg-6 col-md-6 col-sm-6"><p class="text-success text-center">Price: ₹ 4,50,000</p></div>
+                                         
                                 </div>
                                 <div class="row text-center">
                                     <div class="col-6">
