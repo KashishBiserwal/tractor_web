@@ -25,7 +25,7 @@
         </div>
       </div>
     </section>
-<section>
+    <section>
       <div class="container">
         <div class="vegehead pt-3">
           <div class="row">
@@ -58,7 +58,7 @@
             </div>
           </div>
           <div class="col-12 col-sm-6 col-lg-6 col-md-6">
-          <h2 class="text-danger fw-bold">Are You Intrested in this Nursery</h2>
+            <h2 class="text-danger fw-bold">Are You Intrested in this Nursery</h2>
               <form action="">
                 <div class="row my-3">
                   <div class="col-12 justify-content-center">
@@ -124,11 +124,11 @@
                                   </div>
                                 </div>
                               </div>
+                            </div>
                           </div>
                         </div>
                       </div>
                     </div>
-                  </div>
                   <div class="col-12">
                     <div class="row px-3 float-end">
                       <img class="pic  mr-3 " src="assets/images/vege.png">
@@ -192,7 +192,7 @@
         </table> -->
       </div>
     </section>
-  <section class="mt-3">
+    <section class="mt-3">
          <div class="container">
             <h2 class="fw-bold text-dark text-start mt-4 assured ps-3">Similar Product</h3>
             <div class="row">

@@ -17,123 +17,361 @@
             </div>
         </div>
     </section>
-
+    <!-- IMAGE SWIPER WITH THREE THUMBNAIL IMAGE -->
     <section>
-      <div class="container">
-        <div class="vegehead pt-3">
-            <div class="row">
-                <div class="col-12 col-lg-6 ">
-                    <h1 class="fw-bold text-danger pt-3">Engine Oil</h1>
+        <div class="container">
+            <div class="vegehead pt-3">
+                <div class="row">
+                    <div class="col-12 col-lg-6 ">
+                      <h1 class="fw-bold text-danger pt-3">Engine Oil</h1>
+                    </div>
                 </div>
             </div>
-        </div>
        
-        <div class="row mt-3">
-          <div class="col-12 col-sm-6 col-lg-6 col-md-6">
-            <div>
-              <div class="swiper swiper_buy mySwiper2_buy">
-                <div class="swiper-wrapper swiper-wrapper_buy">
-                  <div class=" swiper-slide swiper-slide_buy">
-                    <img class="img_buy" src="assets/images/nursury.jpg" />
-                  </div>
-                  <div class="swiper-slide swiper-slide_buy">
-                    <img class="img_buy " src="assets/images/engineoiltotal.webp" />
-                  </div>
-                  <div class="swiper-slide swiper-slide_buy">
-                    <img class="img_buy " src="assets/images/nursry.jpg" />
-                  </div>
-                </div>
-              </div>
-              <div thumbsSlider="" class="swiper mySwiper_buy"></div>
-            </div>
-          </div>
-          <div class="col-12 col-sm-6 col-lg-6 col-md-6">
-          <h2 class="text-danger fw-bold">About This Engine Oil</h2>
-              <form action="">
-                <div class="row my-3">
-                  <div class="col-12 justify-content-center">
-                    <div class="d-flex flex-md-row px-3  flex-column-reverse">
-                      <div class="col-md-12 col-12 col-lg-12 col-lg-12">
-                        <div class=" ml-2">
-                          <div class="row px-3 ">
-                            <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
-                              <label for="name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i> First Name</label>
-                              <input type="text" class="form-control" placeholder="Enter Your Name" id="name">
-                            </div>
-                            <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
-                              <label for="name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i> Last Name</label>
-                              <input type="text" class="form-control" placeholder="Enter Your Name" id="name">
-                            </div>
-                            <div class="col-12 ">
-                              <label for="number" class="form-label text-dark fw-bold"> <i class="fa fa-phone" aria-hidden="true"></i> Phone Number</label>
-                              <input type="password" class="form-control" placeholder="Enter Number" id="number">
-                            </div>
-                            <div class="col-12 col-sm-12 col-md-6 col-lg-6">
-                              <label for="yr_state" class="form-label text-dark fw-bold"> <i class="fas fa-location"></i> State</label>
-                              <select class="form-select py-2 " aria-label=".form-select-lg example">
-                                <option selected>Select State</option>
-                                <option value="1">Chhattisgarh</option>
-                                <option value="2">Other</option>
-                              </select>
-                            </div>
-                            <div class="col-12 col-sm-12 col-md-6 col-lg-6">
-                              <label for="yr_dist" class="form-label text-dark"><i class="fa-solid fa-location-dot"></i> District</label>
-                              <select class="form-select py-2 " aria-label=".form-select-lg example">
-                                <option selected>Select District</option>
-                                <option value="1">Raipur</option>
-                                <option value="2">Bilaspur</option>
-                                <option value="2">Durg</option>
-                              </select>
-                            </div>
-                            <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-2">
-                              <label for="yr_price" class="form-label text-dark"> Tehsil</label>
-                              <input type="yr_price" class="form-control" placeholder="Enter Tehsil" id="tehsil">
-                            </div>
-                            
-                             <!-- Button trigger modal -->
-                            <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-4 pt-3">
-                              <button type="button" class="btn btn-success w-100" data-bs-toggle="modal" data-bs-target="#staticBackdrop3">
-                                  Request
-                                </button>
-                              </div>
-                              <div class="modal fade" id="staticBackdrop3" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                                <div class="modal-dialog modal-dialog-centered">
-                                  <div class="modal-content">
-                                    <div class="modal-header">
-                                      <h5 class="modal-title" id="staticBackdropLabel"></h5>
-                                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                    </div>
-                                    <div class="modal-body">
-                                      <div class="row px-3  mb-4 text-center">
-                                        <h2 class="col-12 text-danger"><strong>ThankYou For Contacting Us..!</strong></h2>
-                                        <div class="col-12 text-center"><img class="tick w-100" alt="dfd" src="assets/images/dribbble_yamm.gif"></div>
-                                        <h6 class="col-12 mt-3"><i>We will Connect You Soon</i></h6>
-                                        <h6 class="col-12 mt-2"><i>Enjoy Your Day..!</i></h6>
-                                      </div>
-                                    </div>
-                                  </div>
+            <div class="row mt-3">
+                <div class="col-12 col-sm-6 col-lg-6 col-md-6">
+                    <div>
+                        <div class="swiper swiper_buy mySwiper2_buy">
+                            <div class="swiper-wrapper swiper-wrapper_buy">
+                                <div class=" swiper-slide swiper-slide_buy" style="height: 129px;">
+                                    <img class="img_buy" src="assets/images/engineoiltotal.webp" style="height: 100%; object-fit:contain;"/>
                                 </div>
-                              </div>
-                          </div>
+                                <div class="swiper-slide swiper-slide_buy  "style="height: 129px;">
+                                    <img class="img_buy" src="assets/images/engineoiltotal.webp" style="height: 100%; object-fit:contain;"/>
+                                </div>
+                                <div class="swiper-slide swiper-slide_buy"style="height: 129px;">
+                                    <img class="img_buy" src="assets/images/engineoiltotal.webp" style="height: 100%; object-fit:contain;"/>
+                                </div>
+                            </div>
                         </div>
-                      </div>
+                        <div thumbsSlider="" class="swiper mySwiper_buy"></div>
                     </div>
-                  </div>
-                  <div class="col-12">
-                    <div class="row px-3 float-end">
-                      <img class="pic  mr-3 " src="assets/images/vege.png">
-                    </div>
-                  </div>
                 </div>
-              </form>
-          </div>
+                <div class="col-12 col-sm-6 col-lg-6 col-md-6">
+                    <h2 class="text-danger fw-bold me-5">About This Engine Oil</h2>
+                    <form action="">
+                        <div class="row my-3">
+                            <div class="col-12 justify-content-center">
+                                <div class="d-flex flex-md-row px-3  flex-column-reverse">
+                                    <div class="col-md-12 col-12 col-lg-12 col-lg-12">
+                                        <!-- <div class=" ml-2"> -->
+                                        <div class="row px-3 ">
+                                            <div class="col-12 col-lg-3 col-md-3 col-sm-3 ">
+                                                <p class="fw-bold text-dark">Name:-</p>                                
+                                            </div>
+                                            <div class="col-12 col-lg-9 col-md-9 col-sm-9 ">
+                                                <p>M-Star Mahindra Genuine Engine Oil</p>                                
+                                            </div>
+                                            <div class="col-12 col-lg-3 col-md-3 col-sm-3 ">
+                                                <p class="fw-bold text-dark">Grade:-</p>                                
+                                            </div>
+                                            <div class="col-12 col-lg-9 col-md-9 col-sm-9 ">
+                                                <p>20W</p>                                
+                                            </div>
+                                            <div class="col-12 col-lg-3 col-md-3 col-sm-3 ">
+                                                <p class="fw-bold text-dark">Quantity:-</p>                                
+                                            </div>
+                                            <div class="col-12 col-lg-9 col-md-9 col-sm-9 ">
+                                                <p>7.0 L</p>                                
+                                            </div>
+                                            <div class="col-12 col-lg-3 col-md-3 col-sm-3 ">
+                                                <p class="fw-bold text-dark">price:-</p>                                
+                                            </div>
+                                            <div class="col-12 col-lg-9 col-md-9 col-sm-9 ">
+                                                <p>4099/-</p>                                
+                                            </div>
+                                            <div class="col-12 col-lg-3 col-md-3 col-sm-3 ">
+                                                <p class="fw-bold text-dark">Compatible Tractors:-</p>                                
+                                            </div>
+                                            <div class="col-12 col-lg-2 col-md-2 col-sm-2">
+                                                <p>475 DI </p>                                
+                                            </div>
+                                            <div class="col-12 col-lg-2 col-md-2 col-sm-2">
+                                                <p>475 DI </p>                                
+                                            </div>
+                                            <div class="col-12 col-lg-2 col-md-2 col-sm-2">
+                                                <p>475 DI </p>                                
+                                            </div>                                            
+                                            <div class="row mt-1">
+                                                <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
+                                                    <button type="button" class="btn btn-success w-100" data-bs-toggle="modal" data-bs-target="#staticBackdrop3">
+                                                        Request A Call Back
+                                                    </button>
+                                                </div>
+                                            </div> 
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
         </div>
-      </div>
     </section>
 
+    <!-- MODAL -->
+    <section>
+        <div class="modal fade" id="staticBackdrop3" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="staticBackdropLabel"> Request A Call Back</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <!-- MODAL BODY -->
+                    <div class="modal-body">
+                        <form action="">
+                            <div class="row">
+                                <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
+                                    <label for="name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i> First Name</label>
+                                    <input type="text" class="form-control" placeholder="Enter Your Name" id="name">
+                                </div>
+                                <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
+                                    <label for="name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i> Last Name</label>
+                                    <input type="text" class="form-control" placeholder="Enter Your Name" id="name">
+                                </div>
+                                <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
+                                    <label for="number" class="form-label text-dark fw-bold"> <i class="fa fa-phone" aria-hidden="true"></i> Phone Number</label>
+                                    <input type="password" class="form-control" placeholder="Enter Number" id="number">
+                                </div>
+                                <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+                                    <label for="yr_price" class="form-label text-dark"> Tehsil</label>
+                                    <input type="yr_price" class="form-control" placeholder="Enter Tehsil" id="tehsil">
+                                </div>
+                                <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+                                    <label for="yr_state" class="form-label text-dark fw-bold"> <i class="fas fa-location"></i> State</label>
+                                    <select class="form-select py-2 " aria-label=".form-select-lg example">
+                                        <option selected>Select State</option>
+                                        <option value="1">Chhattisgarh</option>
+                                        <option value="2">Other</option>
+                                    </select>
+                                </div>
+                                <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+                                    <label for="yr_dist" class="form-label text-dark"><i class="fa-solid fa-location-dot"></i> District</label>
+                                    <select class="form-select py-2 " aria-label=".form-select-lg example">
+                                        <option selected>Select District</option>
+                                        <option value="1">Raipur</option>
+                                        <option value="2">Bilaspur</option>
+                                        <option value="2">Durg</option>
+                                    </select>
+                                </div>
+                                <div class="text-center my-3">
+                                    <button type="button" class="btn btn-success px-5 w-40">Submit</button>         
+                                </div>        
+                            </div>                      
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
+    <!--DESCRIPTION  -->
+    <section>
+        <div class="container">
+            <div class="row ">
+                <h3> Description</h3>
+                <p>Mahindra Genuine Engine Oil is specially formulated tractor engine oil for all types of Mahindra & Mahindra Tractors, designed to deliver EXTRA ENGINE PERFORMANCE.</p>
+                <p>Its OPTI-FILM FORMULA ensures that optimum oil film thickness is maintained between all moving parts of the engine throughout its operation, leading to reduce overall friction inside the engine.</p>
 
+            </div>
+        </div>
+    </section>
 
+    <section>
+        <div class="container">
+            <div class="row py-1 mb-3">
+                <h2 class="fw-bold text-dark text-start mt-4 assured ps-3">Similar Product</h3>
+
+                <div class="col-12 col-lg-3 col-sm-3 col-md-3 mt-2 mb-2 text-decoration-none">           
+                    <div class="success__stry__item h-100 shadow text-dark">
+                        <div class="thumb">
+                            <a href="engine_oil.php">
+                                <img src="assets\images\engineoilmahindra3.webp" class="object-fit-cover engineoil_img px-3 h-25 w-100" alt="img">
+                            </a>
+                        </div>
+                        <a href="engine_oil.php" class=" text-decoration-none text-dark content mb-0 ps-4">
+                            <p class="fs-5 fw-bold ps-4" >Mahindra </p>
+                            <p class="text-success text-center me-3 fw-bold ms-2 border border-success border-2 rounded-pill hover">M-Star Mahindra Genuine Engine</p>
+                            <div class="row mt-0 ms-2">
+                                <div class="col-12 col-lg-6 col-md-6 col-sm-6">
+                                    <div class="row">
+                                        <div class="col-12 col-lg-5 col-md-5 col-sm-5">
+                                            <p>Grade- </p>
+                                        </div> 
+                                        <div class="col-12 col-lg-7  col-md-7 col-sm-7">
+                                            <p> 20W</p>
+                                        </div>  
+                                    </div>                                                     
+                                </div>
+                                <div class="col-12 col-lg-6 col-md-6 col-sm-6">
+                                    <div class="row">
+                                        <div class="col-12 col-lg-6 col-md-6 col-sm-6">
+                                            <p>Quantity-</p>
+                                        </div>  
+                                        <div class="col-12 col-lg-6 col-md-6 col-sm-6">
+                                            <p>7L</p>
+                                        </div>  
+                                    </div>
+                                </div>                  
+                            </div>
+                            <div class="row ms-2">
+                                <div class="col-12 col-lg-2 col-md-2 col-sm-2">
+                                <p>Price-</p>
+                                </div>
+                                <div class="col-12 col-lg-10 col-md-10 col-sm-10 text-start">
+                                <p class="ms-2">₹ 4099</p>
+                                </div>                  
+                            </div>  
+                        </a>
+                        <button type="button" class="btn btn-success w-100" data-bs-toggle="modal" data-bs-target="#staticBackdrop3">Request A Call Back</button>
+                    </div>              
+                </div>
+
+                <div class="col-12 col-lg-3 col-sm-3 col-md-3 mt-2 mb-2 text-decoration-none">           
+                    <div class="success__stry__item h-100 shadow text-dark">
+                        <div class="thumb">
+                            <a href="engine_oil.php">
+                                <img src="assets\images\engineoilmahindra3.webp" class="object-fit-cover engineoil_img px-3 h-25 w-100" alt="img">
+                            </a>
+                        </div>
+                        <a href="engine_oil.php" class=" text-decoration-none text-dark content mb-0 ps-4">
+                            <p class="fs-5 fw-bold ps-4" >Mahindra </p>
+                            <p class="text-success text-center me-3 fw-bold ms-2 border border-success border-2 rounded-pill hover">M-Star Mahindra Genuine Engine</p>
+                            <div class="row mt-0 ms-2">
+                                <div class="col-12 col-lg-6 col-md-6 col-sm-6">
+                                    <div class="row">
+                                        <div class="col-12 col-lg-5 col-md-5 col-sm-5">
+                                            <p>Grade- </p>
+                                        </div> 
+                                        <div class="col-12 col-lg-7  col-md-7 col-sm-7">
+                                            <p> 20W</p>
+                                        </div>  
+                                    </div>                                                     
+                                </div>
+                                <div class="col-12 col-lg-6 col-md-6 col-sm-6">
+                                    <div class="row">
+                                        <div class="col-12 col-lg-6 col-md-6 col-sm-6">
+                                            <p>Quantity-</p>
+                                        </div>  
+                                        <div class="col-12 col-lg-6 col-md-6 col-sm-6">
+                                            <p>7L</p>
+                                        </div>  
+                                    </div>
+                                </div>                  
+                            </div>
+                            <div class="row ms-2">
+                                <div class="col-12 col-lg-2 col-md-2 col-sm-2">
+                                <p>Price-</p>
+                                </div>
+                                <div class="col-12 col-lg-10 col-md-10 col-sm-10 text-start">
+                                <p class="ms-2">₹ 4099</p>
+                                </div>                  
+                            </div>  
+                        </a>
+                        <button type="button" class="btn btn-success w-100" data-bs-toggle="modal" data-bs-target="#staticBackdrop3">Request A Call Back</button>
+                    </div>              
+                </div>
+
+                <div class="col-12 col-lg-3 col-sm-3 col-md-3 mt-2 mb-2 text-decoration-none">           
+                    <div class="success__stry__item h-100 shadow text-dark">
+                        <div class="thumb">
+                            <a href="engine_oil.php">
+                                <img src="assets\images\engineoilmahindra3.webp" class="object-fit-cover engineoil_img px-3 h-25 w-100" alt="img">
+                            </a>
+                        </div>
+                        <a href="engine_oil.php" class=" text-decoration-none text-dark content mb-0 ps-4">
+                            <p class="fs-5 fw-bold ps-4" >Mahindra </p>
+                            <p class="text-success text-center me-3 fw-bold ms-2 border border-success border-2 rounded-pill hover">M-Star Mahindra Genuine Engine</p>
+                            <div class="row mt-0 ms-2">
+                                <div class="col-12 col-lg-6 col-md-6 col-sm-6">
+                                    <div class="row">
+                                        <div class="col-12 col-lg-5 col-md-5 col-sm-5">
+                                            <p>Grade- </p>
+                                        </div> 
+                                        <div class="col-12 col-lg-7  col-md-7 col-sm-7">
+                                            <p> 20W</p>
+                                        </div>  
+                                    </div>                                                     
+                                </div>
+                                <div class="col-12 col-lg-6 col-md-6 col-sm-6">
+                                    <div class="row">
+                                        <div class="col-12 col-lg-6 col-md-6 col-sm-6">
+                                            <p>Quantity-</p>
+                                        </div>  
+                                        <div class="col-12 col-lg-6 col-md-6 col-sm-6">
+                                            <p>7L</p>
+                                        </div>  
+                                    </div>
+                                </div>                  
+                            </div>
+                            <div class="row ms-2">
+                                <div class="col-12 col-lg-2 col-md-2 col-sm-2">
+                                <p>Price-</p>
+                                </div>
+                                <div class="col-12 col-lg-10 col-md-10 col-sm-10 text-start">
+                                <p class="ms-2">₹ 4099</p>
+                                </div>                  
+                            </div>  
+                        </a>
+                        <button type="button" class="btn btn-success w-100" data-bs-toggle="modal" data-bs-target="#staticBackdrop3">Request A Call Back</button>
+                    </div>              
+                </div>
+
+                <div class="col-12 col-lg-3 col-sm-3 col-md-3 mt-2 mb-2 text-decoration-none">           
+                    <div class="success__stry__item h-100 shadow text-dark">
+                        <div class="thumb">
+                            <a href="engine_oil.php">
+                                <img src="assets\images\engineoilmahindra3.webp" class="object-fit-cover engineoil_img px-3 h-25 w-100" alt="img">
+                            </a>
+                        </div>
+                        <a href="engine_oil.php" class=" text-decoration-none text-dark content mb-0 ps-4">
+                            <p class="fs-5 fw-bold ps-4" >Mahindra </p>
+                            <p class="text-success text-center me-3 fw-bold ms-2 border border-success border-2 rounded-pill hover">M-Star Mahindra Genuine Engine</p>
+                            <div class="row mt-0 ms-2">
+                                <div class="col-12 col-lg-6 col-md-6 col-sm-6">
+                                    <div class="row">
+                                        <div class="col-12 col-lg-5 col-md-5 col-sm-5">
+                                            <p>Grade- </p>
+                                        </div> 
+                                        <div class="col-12 col-lg-7  col-md-7 col-sm-7">
+                                            <p> 20W</p>
+                                        </div>  
+                                    </div>                                                     
+                                </div>
+                                <div class="col-12 col-lg-6 col-md-6 col-sm-6">
+                                    <div class="row">
+                                        <div class="col-12 col-lg-6 col-md-6 col-sm-6">
+                                            <p>Quantity-</p>
+                                        </div>  
+                                        <div class="col-12 col-lg-6 col-md-6 col-sm-6">
+                                            <p>7L</p>
+                                        </div>  
+                                    </div>
+                                </div>                  
+                            </div>
+                            <div class="row ms-2">
+                                <div class="col-12 col-lg-2 col-md-2 col-sm-2">
+                                <p>Price-</p>
+                                </div>
+                                <div class="col-12 col-lg-10 col-md-10 col-sm-10 text-start">
+                                <p class="ms-2">₹ 4099</p>
+                                </div>                  
+                            </div>  
+                        </a>
+                        <button type="button" class="btn btn-success w-100" data-bs-toggle="modal" data-bs-target="#staticBackdrop3">Request A Call Back</button>
+                    </div>              
+                </div>
+
+                <div class="col text-center mt-3">
+                    <a href="engine_oil.php" class="btn btn-success btn-lg">View All</a>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
 
 
     <?php   
