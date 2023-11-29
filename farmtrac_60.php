@@ -60,25 +60,54 @@
                 </div>
             </div>
             <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                <div class="row my-4">
-                       <div class="justify-content-center ps-5">
-                        <p class="uid">UID-TH895452
-                            <span>|</span>
-                        </p>
-                        <div class="">
-                            <h1 class="h5">Farmtrac_60 2023</h1>
+            <div class="row my-3">
+                     <div class="pirce-section ">
+                        <h5>Price - ₹ 5,00,000</h5>
+                     </div>
+                   <form action="" class="box-shadow px-2 py-2">
+                      <p class="text-center boldfont fs-15">Are You Interested In This Tractors?</p>
+                      <input type="text" class="form-control my-2" name="" id="" placeholder="Enter Your Name">
+                      <input type="text" class="form-control my-2" name="" id="" placeholder="Enter Mobile Number">
+                        <div class="row ">
+                            <div class="col-6 my-2">
+                            <div class="form-group">
+                                    <select class="custom select form-control" name="" id="">
+                                        <option value="">Select State</option>
+                                        <option value="">..............</option>
+                                        <option value="">..............</option>
+                                        <option value="">..............</option>
+                                        <option value="">..............</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-6 my-2">
+                                <div class="form-group">
+                                    <select class="custom select form-control" name="" id="">
+                                        <option value="">Select District</option>
+                                        <option value="">..............</option>
+                                        <option value="">..............</option>
+                                        <option value="">..............</option>
+                                        <option value="">..............</option>
+                                    </select>
+                                </div>
+                            </div>
                         </div>
-                        <div class="">
-                            <p><b>₹</b> 50,850,00</p>
+                            <div class="">
+                                <input type="number" class="form-control form-group" name="price" placeholder="Enter Your Price">
+                            </div>
+                        <div class="row my-1">
+                            <div class="col-6">
+                                <div class="phone-call demanMost-wrap">
+                                    <a href="#" class="btn btn-success boldfont w-100">Cantanct Seller</a>
+                                </div>
+                            </div>
+                            <div class="col-6 ">
+                                <div class="get-loan text-center ">
+                                    <a href="#" class="btn border-success blodfont text-success w-100">View Loan Offer</a>
+                                </div>
+                            </div>
                         </div>
-                        <div class="">
-                            <p>EMI start at <b>₹</b> 12,850/month</p>
-                        </div>
-                        <div class="phone-call demanMost-wrap">
-                            <a href="#" class="btn btn-success  w-50">Call Now</a>
-                        </div>
-                        </div>
-                    </div>
+                   </form>
                 </div>
             </div>
         </div>
@@ -478,18 +507,18 @@
                 <h3 class="assured ps-3 mb-4">Similar Used Tractors</h3>
             </div>
             <div class="owl-carousel owl-theme">
-                <div class="item">
+            <div class="item">
                     <div class="col-md-12 shadow d-flex flex-row">
-                        <div>
-                            <a href="Mahindra_575.php"><img class="img-fluid" src="assets/images/farmtrac60 (1).jpg"></a>
+                        <div class="">
+                            <a href="#"><img class="img-fluid" src="assets/images/farmtrac60 (1).jpg"></a>
                             <div class="p-2">
-                                <a href="Mahindra_575.php" class="weblink"><h5>Mahindra_575</h5></a>
-                                <p class=""> 45 HP <span>|</span> 2019 Model</p>
+                                <a href="#" class="weblink"><h4>Farmtac 45</h4></a>
+                                <p> 45 HP <span>|</span> 2019 Model</p>
                                 <p><b>₹</b>4,56,000</p>
                             </div>
                             <div class="phone-call demanMost-wrap">
                              <a href="#" class="btn btn-success  w-100">Call Now</a>
-                            </div>   
+                            </div>
                         </div>
                     </div>
                 </div>
