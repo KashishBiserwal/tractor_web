@@ -61,234 +61,16 @@
             <div class="py-3"></div>
         </div>
    </section>
-    <!-- <section>
-        <div class="mt-3 container">
-            <span class="mt-4 ">
-                <a href="index.php" class="text-decoration-none header-link px-1">Home <i class="fa-solid fa-chevron-right px-1"></i></a>
-                <span class=""><span class=" header-link  px-1 text-text">Brand <i class="fa-solid fa-chevron-right px-1"></i> </span><span class=" header-link  px-1 text-text">Mahindra </span></span>
-            </span> 
-        </div>
-    </section> -->
-   <!-- about mahindra -->
-   <!-- <section class="about__section__five bg-white">
-      <div class="container mt-0">
-         <div class="row align-items-center justify-content-center">
-            <div class="col-12 col-sm-12 col-xxl-6 col-xl-6 col-lg-6">
-               <div class="section__header px-0 px-md-3">
-                  <h1 class="mt-0">
-                     About Mahindra Tractor
-                  </h1>
-                  <p class="intro_P  text-dark justify-content-center"> As India's leading tractor manufacturer, Mahindra has truly made a name for itself in its home country. But not only that, theyve also become extremely successful around the globe. With a long-storied history of manufacturing durable and versatile farm equipment for over 75 years, yearly revenues over $15 billion and 40,000 employees, Mahindra is a force to be reckoned with. Read on to learn more about the history of this Mumbai-based company.</p>
-                  <p class="intro_P text-dark">As India’s leading tractor manufacturer, Mahindra has truly made a name for itself in its home country. But not only that, they’ve also become extremely successful around the globe. With a long-storied history of manufacturing durable and versatile farm equipment for over 75 years, yearly revenues over $15 billion and 40,000 employees, Mahindra is a force to be reckoned with. Read on to learn more about the history of this Mumbai-based company.</p>
-
-               </div>
-
-            </div>
-
-            <div class="col-12 col-sm-12 col-xxl-6 col-xl-6 col-lg-6 pt-4 mt-5">
-               <div class="position-relative" id="main_swiper">
-                  <div class="swiper swiper-slides-visible mySwiper">
-                     <div class="swiper-wrapper">
-                        <div class="swiper-slide">
-                           <div class="ratio ratio-16x9">
-                              <img src="assets/images/mahindra-oja-2121-4wd-1692163509.webp" class="object-fit-cover" alt="img">
-                           </div>
-                        </div>
-                        <div class="swiper-slide">
-                           <div class="ratio ratio-16x9">
-                              <img src="assets/images/arjun-novo-605-di-i-1632207718.webp" class="object-fit-cover" alt="img">
-                           </div>
-                        </div>
-                        <div class="swiper-slide">
-                           <div class="ratio ratio-16x9">
-                              <img src="assets/images/575-di-xp-plus-1632207330.webp" class="object-fit-cover" alt="img">
-                           </div>
-                        </div>
-                        <div class="swiper-slide">
-                           <div class="ratio ratio-16x9">
-                              <img src="assets/images/yuvo-575-di-4wd-1632209384.webp" class="object-fit-cover" alt="img">
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-                  <div id="main_swiper-prev" class="swiper-button-prev material-symbols-outlined swiper-button-round  rounded-circle fs-6 text-white"></div>
-                  <div id="main_swiper-next" class="swiper-button-next material-symbols-outlined swiper-button-round  rounded-circle fs-6 text-white"></div>
-               </div>
-            </div>
-         </div>
-      </div>
-   </section> -->
-  
   <section>
     <div class="container">
         <div class="row">
             <h1 class=" mt-5">Popular Mahindra Tractors</h1>
-            <div class="col-12 col-sm-6 col-md-3 col-lg-4 px-2 py-3 h-100">
-                <div class="h-auto success__stry__item d-flex flex-column shadow ">
-                    <div class="thumb">
-                        <a href="#">
-                            <div class="ratio ratio-16x9">
-                                <img src="assets/images/575-di-xp-plus-1632207330.webp" class="object-fit-cover " alt="img">
-                            </div>
-                        </a>
-                    </div>
-                    <div class="content d-flex flex-column flex-grow-1 ">
 
-                        <a href="Mahindra_575.php" class="text-decoration-none text-dark">
-                            <h4 class="fw-bold mt-3 mx-3">Mahindra 575 DI XP Plus</h3>
-                        </a>
-                        <div class="row mt-1 ps-1">
-                            <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                                <p class=" ps-3"> <i class="fas fa-bolt"></i> 47 HP</p>
-                            </div>
-                            <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                                <p class="pe-5 me-4"> <i class="fa fa-cog" aria-hidden="true"></i>  2979 CC </p>
-                            </div>
-                        </div>
-                        <a href="#" class="text-decoration-none text-dark pb-3  fw-bold">
-                            <span class="p-3">
-                                Get On Road price
-                            </span>
-                            <span class="icon">
-                                <i class="fa-solid fa-chevron-right"></i>
-                            </span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 col-sm-6 col-md-3 col-lg-4 px-2 py-3 h-100">
-                <div class="h-auto success__stry__item d-flex flex-column shadow ">
-                    <div class="thumb">
-                        <a href="#">
-                            <div class="ratio ratio-16x9">
-                                <img src="assets/images/mahindra-oja-3140-4wd-1692164169.webp" class="object-fit-cover " alt="img">
-                            </div>
-                        </a>
-                    </div>
-                    <div class="content d-flex flex-column flex-grow-1 ">
+            <div id="productContainer" class="row f-flex">
 
-                        <a href="#" class="text-decoration-none text-dark">
-                            <h4 class="fw-bold mt-3 mx-3">Mahindra Oja 3140 4WD</h3>
-                        </a>
-                        <div class="row mt-1 ps-1">
-                            <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                                <p class=" ps-3"> <i class="fas fa-bolt"></i> 40 HP</p>
-                            </div>
-                            <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                                <!-- <p class="pe-5 me-4"> <i class="fa fa-cog" aria-hidden="true"></i>  CC </p> -->
-                            </div>
-                        </div>
-                        <a href="#" class="text-decoration-none text-dark pb-3  fw-bold">
-                            <span class="p-3">
-                                Get On Road price
-                            </span>
-                            <span class="icon">
-                                <i class="fa-solid fa-chevron-right"></i>
-                            </span>
-                        </a>
-                    </div>
-                </div>
             </div>
-            <div class="col-12 col-sm-6 col-md-3 col-lg-4 px-2 py-3 h-100">
-                <div class="h-auto success__stry__item d-flex flex-column shadow ">
-                    <div class="thumb">
-                        <a href="#">
-                            <div class="ratio ratio-16x9">
-                                <img src="assets/images/mahindra-oja-2121-4wd-1692163509.webp" class="object-fit-cover" alt="img">
-                            </div>
-                        </a>
-                    </div>
-                    <div class="content d-flex flex-column flex-grow-1 ">
-
-                        <a href="#" class="text-decoration-none text-dark">
-                            <h4 class="fw-bold mt-3 mx-3">Mahindra OJA 2121 4WD</h3>
-                        </a>
-                        <div class="row mt-1 ps-1">
-                            <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                                <p class=" ps-3"> <i class="fas fa-bolt"></i> 21 HP</p>
-                            </div>
-                            <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                                <!-- <p class="pe-5 me-4"> <i class="fa fa-cog" aria-hidden="true"></i>  3531 CC </p> -->
-                            </div>
-                        </div>
-                        <a href="#" class="text-decoration-none text-dark pb-3  fw-bold">
-                            <span class="p-3">
-                                Get On Road price
-                            </span>
-                            <span class="icon">
-                                <i class="fa-solid fa-chevron-right"></i>
-                            </span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 col-sm-6 col-md-3 col-lg-4 px-2 py-3 h-100">
-                <div class="h-auto success__stry__item d-flex flex-column shadow ">
-                    <div class="thumb">
-                        <a href="#">
-                            <div class="ratio ratio-16x9">
-                                <img src="assets/images/275-di-tu-1632206550.webp" class="object-fit-cover " alt="img">
-                            </div>
-                        </a>
-                    </div>
-                    <div class="content d-flex flex-column flex-grow-1 ">
-
-                        <a href="#" class="text-decoration-none text-dark">
-                            <h4 class="fw-bold mt-3 mx-3">Mahindra 275 DI TU</h3>
-                        </a>
-                        <div class="row mt-1 ps-1">
-                            <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                                <p class=" ps-3"> <i class="fas fa-bolt"></i> 39 HP</p>
-                            </div>
-                            <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                                <p class="pe-5 me-4"> <i class="fa fa-cog" aria-hidden="true"></i>  2048 CC </p>
-                            </div>
-                        </div>
-                        <a href="#" class="text-decoration-none text-dark pb-3  fw-bold">
-                            <span class="p-3">
-                                Get On Road price
-                            </span>
-                            <span class="icon">
-                                <i class="fa-solid fa-chevron-right"></i>
-                            </span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 col-sm-6 col-md-3 col-lg-4 px-2 py-3 h-100">
-                <div class="h-auto success__stry__item d-flex flex-column shadow ">
-                    <div class="thumb">
-                        <a href="#">
-                            <div class="ratio ratio-16x9">
-                                <img src="assets/images/arjun-novo-605-di-i-1632207718.webp" class="object-fit-cover " alt="img">
-                            </div>
-                        </a>
-                    </div>
-                    <div class="content d-flex flex-column flex-grow-1 ">
-
-                        <a href="#" class="text-decoration-none text-dark">
-                            <h4 class="fw-bold mt-3 mx-3">Mahindra Yuvo 575 DI 4WD</h3>
-                        </a>
-                        <div class="row mt-1 ps-1">
-                            <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                                <p class=" ps-3"> <i class="fas fa-bolt"></i> 45 HP</p>
-                            </div>
-                            <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                                <p class="pe-5 me-4"> <i class="fa fa-cog" aria-hidden="true"></i>  2979 CC </p>
-                            </div>
-                        </div>
-                        <a href="#" class="text-decoration-none text-dark pb-3  fw-bold">
-                            <span class="p-3">
-                                Get On Road price
-                            </span>
-                            <span class="icon">
-                                <i class="fa-solid fa-chevron-right"></i>
-                            </span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 col-sm-6 col-md-3 col-lg-4 px-2 py-3 h-100">
+          
+            <!-- <div class="col-12 col-sm-6 col-md-3 col-lg-4 px-2 py-3 h-100">
                 <div class="h-auto success__stry__item d-flex flex-column shadow ">
                     <div class="thumb">
                         <a href="#">
@@ -320,7 +102,7 @@
                         </a>
                     </div>
                 </div>
-            </div>
+            </div> -->
         </div>
         <div class="col text-center my-3">
             <a href="#" class="btn btn-success btn-lg">Load More Tractors</a>
@@ -675,103 +457,6 @@
         </div>
     </section>
 
-
-    <!-- Related Brands -->
-    <!-- <section class="">
-     <div class="container">
-        <h3 class="my-3 pt-4  fw-bold">Tractors by Brands</h2>
-        <div class="container bg-light"></div>
-            <div class="swiper swiper-container1 my-2 py-3 row">
-            <ul class="swiper-wrapper my-gallery py-4" itemscope itemtype="">
-            
-                <li class="swiper-slide slide1 shadow bg-white text-center text-align-center" itemprop="associatedMedia" itemscope itemtype="">
-                    <a title="click to zoom-in" href="#" itemprop="contentUrl">
-                        <img src="assets/images/mahindra-1673872647.webp" itemprop="thumbnail" class=" w-50 text-center text-align-center" alt="Image description" />
-                    </a>
-                </li>
-                <li class="swiper-slide slide1 shadow bg-white text-center text-align-center" itemprop="associatedMedia" itemscope itemtype="">
-                    <a title="click to zoom-in" href="#" itemprop="contentUrl ">
-                        <img src="assets/images/massey-ferguson-1579512590.webp" class="w-50 text-center text-align-center" itemprop="thumbnail" alt="Image description" />
-                    </a>
-                </li>
-                <li class="swiper-slide slide1 shadow bg-white text-center text-align-center" itemprop="associatedMedia" itemscope itemtype="">
-                    <a title="click to zoom-in" href="#" itemprop="contentUrl">
-                        <img src="assets/images/swaraj-1608095532.webp" class="w-50 text-center text-align-center" itemprop="thumbnail" alt="Image description" />
-                    </a>
-                </li>
-                <li class="swiper-slide slide1 shadow bg-white text-center text-align-center" itemprop="associatedMedia" itemscope itemtype="">
-                    <a title="click to zoom-in" href="#" itemprop="contentUrl ">
-                        <img src="assets/images/farmtrac-1579511831.webp" class="w-50 text-center text-align-center" itemprop="thumbnail" alt="Image description" />
-                    </a>
-                </li>
-                <li class="swiper-slide slide1 shadow bg-white text-center text-align-center" itemprop="associatedMedia" itemscope itemtype="">
-                    <a title="click to zoom-in" href="#" itemprop="contentUrl">
-                        <img src="assets/images/new-holland-1579511945.webp" class="w-50 text-center text-align-center" itemprop="thumbnail" alt="Image description" />
-                    </a>
-                </li>
-                <li class="swiper-slide slide1 shadow bg-white text-center text-align-center" itemprop="associatedMedia" itemscope itemtype="">
-                    <a title="click to zoom-in" href="#" itemprop="contentUrl">
-                        <img src="assets/images/john-deere-1579511882.webp" class="w-50 text-center text-align-center" itemprop="thumbnail" alt="Image description" />
-                    </a>
-                </li>
-                <li class="swiper-slide slide1 shadow bg-white text-center text-align-center" itemprop="associatedMedia" itemscope itemtype="">
-                    <a title="click to zoom-in" href="#" itemprop="contentUrl">
-                        <img src="assets/images/powertrac-1579511958-2.webp" class="w-50 text-center text-align-center" itemprop="thumbnail" alt="Image description" />
-                    </a>
-                </li>
-                <li class="swiper-slide slide1 shadow bg-white text-center text-align-center" itemprop="associatedMedia" itemscope itemtype="">
-                    <a title="click to zoom-in" href="#" itemprop="contentUrl">
-                        <img src="assets/images/a-c-e-1579511768.webp" class="w-50 text-center text-align-center" itemprop="thumbnail" alt="Image description" />
-                    </a>
-                </li> 
-               <li class="swiper-slide slide1 shadow bg-white" itemprop="associatedMedia" itemscope itemtype="">
-                    <a title="click to zoom-in" href="#" itemprop="contentUrl">
-                        <img src="assets/images/force-1579511844.webp" class="w-50 text-center text-align-center" itemprop="thumbnail" alt="Image description" />
-                    </a>
-                </li>
-                <li class="swiper-slide slide1 shadow bg-white" itemprop="associatedMedia" itemscope itemtype="">
-                    <a title="click to zoom-in" href="#" itemprop="contentUrl">
-                        <img src="assets/images/preet-1579511971.webp" class="w-50 text-center text-align-center" itemprop="thumbnail" alt="Image description" />
-                    </a>
-                </li>
-                <li class="swiper-slide slide1 shadow bg-white text-center text-align-center" itemprop="associatedMedia" itemscope itemtype="">
-                    <a title="click to zoom-in" href="#" itemprop="contentUrl">
-                        <img src="assets/images/eicher-1608095225.webp" class="w-50 text-center text-align-center" itemprop="thumbnail" alt="Image description" />
-                    </a>
-                </li>
-                <li class="swiper-slide slide1 shadow bg-white text-center text-align-center" itemprop="associatedMedia" itemscope itemtype="">
-                    <a title="click to zoom-in" href="#" itemprop="contentUrl">
-                        <img src="assets/images/kubota-1579512571.webp" class="w-50 text-center text-align-center" itemprop="thumbnail" alt="Image description" />
-                    </a>
-                </li>
-                <li class="swiper-slide slide1 shadow bg-white text-center text-align-center" itemprop="associatedMedia" itemscope itemtype="">
-                    <a title="click to zoom-in" href="#" itemprop="contentUrl">
-                        <img src="assets/images/vst-shakti-1623048840.webp" class="w-50 text-center text-align-center" itemprop="thumbnail" alt="Image description" />
-                    </a>
-                </li>
-                <li class="swiper-slide slide1 shadow bg-white text-center text-align-center"  itemprop="associatedMedia" itemscope itemtype="">
-                    <a title="click to zoom-in" href="#" itemprop="contentUrl">
-                        <img src="assets/images/indo-farm-1608095474.webp" class="w-50 text-center text-align-center" itemprop="thumbnail" alt="Image description" />
-                    </a>
-                </li>
-            </ul>
-
-               
-             <div class="swiper-pagination1"></div>
-
-            
-            <div title="Prev" class="swiper-button-prev"></div>
-            <div title="Next" class="swiper-button-next"></div>
-            <div class="col text-center "> 
-                <a href="#" class="btn btn-success btn-lg">View all Tractor Brands</a>
-            </div>
-        </div>
-
-                    
-     </div>
-    
-  </section> -->
-
   <!--  Mahindra Tractor Dealers & Service Centers-->
     <section>
         <div class="container mt-4 pt-3 ">
@@ -1081,112 +766,6 @@
                 </div>
             </div>
 
-            <!-- <div class="collection">
-                <h4 class="fw-bold mb-2"> <i class="far fa-star"></i> &nbsp; “ट्रैक्टर जंक्शन पर मिलेगी ट्रैक्टर की सही कीमत, साथ ही मिलेगा नए व पुराने ट्रैक्टरों का शानदार कलेक्शन”</h4>
-
-
-                <div class="mt-4 pb-5">
-                    <div class="accordion accordion-col" id="accordionFlushExample">
-                        <div class="accordion-item p-2 rounded-3">
-                            <h2 class="accordion-header" id="flush-headingbox2" >
-                            <button  class="accordion-button collapsed  fw-bold h4" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapsebox2" aria-expanded="false" aria-controls="flush-collapsebox2">
-                                Top New Tractors
-                            </button>
-                            </h2>
-                            <div id="flush-collapsebox2" class="accordion-collapse collapse" aria-labelledby="flush-headingbox2" data-bs-parent="#accordionFlushExample">
-                                <div class="container">
-                                    <div class="row my-2 py-2">
-                                        <div class="col-12 col-md-4 col-lg-4 col-sm-4 shadow">
-                                            <ul class="justify-content-center ul-box  ">
-                                                <li class=""> <a href="#" class="text-dark text-decoration-none"><p>  <i class="fa-solid fa-angles-right"></i> &nbsp;Mahindra ARJUN NOVO 605 DI-i-4WD</p></a></li>
-                                                <li class=""> <a href="#" class="text-dark text-decoration-none"><p>  <i class="fa-solid fa-angles-right"></i> &nbsp;Sonalika WT 60</p></a></li>
-                                                <li class=""> <a href="#" class="text-dark text-decoration-none"><p> <i class="fa-solid fa-angles-right"></i> &nbsp;John Deere 3028 EN</p></a></li>
-                                                <li class=""> <a href="#" class="text-dark text-decoration-none"><p> <i class="fa-solid fa-angles-right"></i> &nbsp;VST 927 4WD</p></a></li>
-                                                <li class=""> <a href="#" class="text-dark text-decoration-none"><p> <i class="fa-solid fa-angles-right"></i> &nbsp;Farmtrac 60</p></a></li>
-                                                <li class=""> <a href="#" class="text-dark text-decoration-none"><p> <i class="fa-solid fa-angles-right"></i> &nbsp;VST 927 4WD</p></a></li>
-                                                <li class=""> <a href="#" class="text-dark text-decoration-none"><p> <i class="fa-solid fa-angles-right"></i> &nbsp;VST 918 4WD 60</p></a></li>
-                                                <li class=""> <a href="#" class="text-dark text-decoration-none"><p> <i class="fa-solid fa-angles-right"></i> &nbsp;Farmtrac 50 EPI Classic Pro</p></a></li>
-                                            </ul>
-                                        </div>
-                                        <div class="col-12 col-md-4 col-lg-4 col-sm-4 shadow">
-                                            <ul class="justify-content-center ul-box ">
-                                                <li class=""><a href="#" class="text-dark text-decoration-none"><p>  <i class="fa-solid fa-angles-right"></i> &nbsp;Mahindra 475 DI</p></a></li>
-                                                <li class=""><a href="#" class="text-dark text-decoration-none"><p>  <i class="fa-solid fa-angles-right"></i> &nbsp;Eicher 380 2WD Prima G3</p></a></li>
-                                                <li class=""><a href="#" class="text-dark text-decoration-none"><p> <i class="fa-solid fa-angles-right"></i> &nbsp;Eicher 548</p></a></li>
-                                                <li class=""><a href="#" class="text-dark text-decoration-none"><p> <i class="fa-solid fa-angles-right"></i> &nbsp;Sonalika Tiger 50</p></a></li>
-                                                <li class=""><a href="#" class="text-dark text-decoration-none"><p> <i class="fa-solid fa-angles-right"></i> &nbsp;Swaraj 742 FE</p></a></li>
-                                                <li class=""> <a href="#" class="text-dark text-decoration-none"><p> <i class="fa-solid fa-angles-right"></i> &nbsp;Massey Ferguson 9500 Smart 4WD</p></a></li>
-                                                <li class=""> <a href="#" class="text-dark text-decoration-none"><p> <i class="fa-solid fa-angles-right"></i> &nbsp;Powertrac Euro 60</p></a></li>
-                                            </ul>
-                                        </div>
-                                        <div class="col-12 col-md-4 col-lg-4 col-sm-4 shadow">
-                                            <ul class="justify-content-center ul-box">
-                                                <li class=""><a href="#" class="text-dark text-decoration-none"><p>  <i class="fa-solid fa-angles-right"></i> &nbsp;Swaraj 969 FE</p></a></li>
-                                                <li class=""><a href="#" class="text-dark text-decoration-none"><p>  <i class="fa-solid fa-angles-right"></i> &nbsp;John Deere 3028 EN</p></a></li>
-                                                <li class=""><a href="#" class="text-dark text-decoration-none"><p> <i class="fa-solid fa-angles-right"></i> &nbsp;John Deere 3028 EN</p></a></li>
-                                                <li class=""><a href="#" class="text-dark text-decoration-none"><p> <i class="fa-solid fa-angles-right"></i> &nbsp;New Holland 3630-TX Super</p></a></li>
-                                                <li class=""><a href="#" class="text-dark text-decoration-none"><p> <i class="fa-solid fa-angles-right"></i> &nbsp;New Holland Excel 4710 Red</p></a></li>
-                                                <li class=""> <a href="#" class="text-dark text-decoration-none"><p> <i class="fa-solid fa-angles-right"></i> &nbsp;Massey Ferguson 9500 Smart</p></a></li>
-                                                <li class=""> <a href="#" class="text-dark text-decoration-none"><p> <i class="fa-solid fa-angles-right"></i> &nbsp;Farmtrac 60</p></a></li>
-                                                <li class=""> <a href="#" class="text-dark text-decoration-none"><p> <i class="fa-solid fa-angles-right"></i> &nbsp;Powertrac Euro 47 PowerHouse</p></a></li>
-                                            </ul>
-                                        </div> 
-                                    </div>
-                                </div>
-                               
-                            </div>
-                        </div>
-                        <div class="accordion-item  rounded-3 my-3">
-                                    <h2 class="accordion-header p-2" id="flush-headingbox">
-                                        <button class="accordion-button collapsed  fw-bold h4" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapsebox" aria-expanded="false" aria-controls="flush-collapsebox">
-                                        Other Information Segments
-                                        </button>
-                                        </h2>
-                                        <div id="flush-collapsebox" class="accordion-collapse collapse" aria-labelledby="flush-headingbox" data-bs-parent="#accordionFlushExample">
-                                        <div class="container">
-                                            <div class="accordion-body">
-                                                    
-                                                    <div class="row my-2 py-2">
-                                                    <div class="col-12 col-md-4 col-lg-4 col-sm-4 shadow">
-                                                        <ul class="justify-content-center ul-box">
-                                                            <li class=""> <a href="#" class="text-dark text-decoration-none"><p> <i class="fa-solid fa-angles-right"></i> &nbsp;New Tractors</p></a></li>
-                                                            <li class=""> <a href="#" class="text-dark text-decoration-none"><p>  <i class="fa-solid fa-angles-right"></i> &nbsp;Offers</p></a></li>
-                                                            <li class=""> <a href="#" class="text-dark text-decoration-none"><p> <i class="fa-solid fa-angles-right"></i> &nbsp;Popular Tractors</p></a></li>
-                                                            <li class=""> <a href="#" class="text-dark text-decoration-none"><p> <i class="fa-solid fa-angles-right"></i> &nbsp;Dealership Enquiry</p></a></li>
-                                                        
-                                                        </ul>
-                                                    </div>
-                                                    <div class="col-12 col-md-4 col-lg-4 col-sm-4 shadow">
-                                                        <ul class="justify-content-center ul-box ">
-                                                            <li class=""><a href="#" class="text-dark text-decoration-none"><p>  <i class="fa-solid fa-angles-right"></i> &nbsp;Latest Tractors</p></a></li>
-                                                            <li class=""><a href="#" class="text-dark text-decoration-none"><p>  <i class="fa-solid fa-angles-right"></i> &nbsp;Tractor News</p></a></li>
-                                                            <li class=""><a href="#" class="text-dark text-decoration-none"><p> <i class="fa-solid fa-angles-right"></i> &nbsp;Upcoming Tractors</p></a></li>
-                                                            <li class=""><a href="#" class="text-dark text-decoration-none"><p> <i class="fa-solid fa-angles-right"></i> &nbsp;Compare</p></a></li>
-                                                        
-                                                        </ul>
-                                                    </div>
-                                                    <div class="col-12 col-md-4 col-lg-4 col-sm-4 shadow">
-                                                        <ul class="justify-content-center ul-box">
-                                                            <li class=""><a href="#" class="text-dark text-decoration-none"><p>  <i class="fa-solid fa-angles-right"></i> &nbsp;Finance</a></li>
-                                                            <li class=""><a href="#" class="text-dark text-decoration-none"><p>  <i class="fa-solid fa-angles-right"></i> &nbsp;Contact / Mail Us</p></a></li>
-                                                            <li class=""><a href="#" class="text-dark text-decoration-none"><p> <i class="fa-solid fa-angles-right"></i> &nbsp;Insurance</p></a></li>
-                                                            
-                                                        </ul>
-                                                    </div> 
-                                                </div>
-                                            </div>
-                                            
-                                        </div>
-                            </div>
-                        </div>
-                        
-                    </div>
-                </div> 
-
-                
-            </div> -->
-
-           
         </div>
     </section>
 
@@ -1210,8 +789,6 @@
                             <div class="nav nav-tabs mb-3 " id="nav-tab" role="tablist">
                                 <button class="nav-link active  py-3 h5 fw-bold text-dark" id="nav-all-tab" data-bs-toggle="tab" data-bs-target="#nav-all" type="button" role="tab" aria-controls="nav-all" aria-selected="true">Tractor News</button>
                                 <button class="nav-link py-3 h5 fw-bold text-dark" id="nav-tractor-tab" data-bs-toggle="tab" data-bs-target="#nav-tractor" type="button" role="tab" aria-controls="nav-tractor" aria-selected="false">Agriculture News</button>
-                            
-                            
                             </div>
                         </nav>
                         <div class="tab-content p-3 border bg-light" id="nav-tabContent">
@@ -1232,7 +809,6 @@
                                     </div>
                                 </div>
                             </div>
-                        
                         </div>
                     </div>
                 </div>
@@ -1247,3 +823,83 @@
 
     ?>
     </html>
+
+    <script>
+        $(document).ready(function() {
+            console.log("ready!");
+            getTractorList();
+        });
+
+        function getTractorList() {
+            var url = "http://127.0.0.1:8000/api/customer/getProduct";
+            console.log(url);
+
+            $.ajax({ 
+                url: url,
+                type: "GET",
+                success: function(data) {
+                    console.log(data,'abc');
+                    var productContainer = document.getElementById("productContainer");
+                    if (data.product && data.product.length > 0) {
+                    data.product.forEach(function(p) {
+                    console.log(p.description,'p')
+                // var card = document.createElement('div');
+                //     card.className = "col-12 col-sm-6 col-md-3 col-lg-4 px-2 py-3 h-100";
+
+                //     var productName = document.createElement('h4');
+                //     productName.className = "fw-bold mt-3 mx-3";
+                //     productName.textContent = p.hp_category;
+
+                //     card.appendChild(productName);
+                //     // Append the card to the product container
+                //     productContainer.appendChild(card);
+
+                var newCard = `
+                        <div class="col-12 col-sm-6 col-md-4 col-lg-4 px-2 py-3 h-100">
+                            <div class="h-auto success__stry__item d-flex flex-column shadow ">
+                                <div class="thumb">
+                                    <a href="#">
+                                        <div class="ratio ratio-16x9">
+                                            <img src="${p.image_url}" class="object-fit-cover" alt="${p.description}">
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="content d-flex flex-column flex-grow-1 ">
+                                    <a href="#" class="text-decoration-none text-dark">
+                                        <h4 class="fw-bold mt-3 mx-3">${p.description}</h4>
+                                    </a>
+                                    <div class="row mt-1 ps-1">
+                                        <div class="col-12 col-lg-6 col-md-6 col-sm-6">
+                                            <p class="ps-3"> <i class="fas fa-bolt"></i> ${p.hp_category} HP</p>
+                                        </div>
+                                        <div class="col-12 col-lg-6 col-md-6 col-sm-6">
+                                            <p class="pe-5 me-4"> <i class="fa fa-cog" aria-hidden="true"></i> ${p.engine_capacity_cc} CC </p>
+                                        </div>
+                                    </div>
+                                    <a href="#" class="text-decoration-none text-dark pb-3 fw-bold">
+                                        <span class="p-3">
+                                            Get On Road price
+                                        </span>
+                                        <span class="icon">
+                                            <i class="fa-solid fa-chevron-right"></i>
+                                        </span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                    // Append the new card to the container
+                    $("#productContainer").append(newCard);
+            })
+        }
+                },
+                error: function(error) {
+                    console.error('Error fetching data:', error);
+                }
+            });
+        }
+
+      
+    </script>
+</body>
+</html>

@@ -127,7 +127,7 @@
                                     <div class="col-12 col-sm-8 col-lg-8 col-md-8">
                                       <div class="form-outline">
                                         <label class="form-label" id="my-input" >Tractor Type</label>
-                                        <select  class="form-select js-example-basic-multiple py-2" id="TRACTOR_TYPE" name="states[]" multiple="multiple">
+                                        <select  class="form-select py-2" id="TRACTOR_TYPE" >
                                         <option selected disabled="" value="">Please select an option</option>
                                         <!-- <option value="0">Latest</option>
                                         <option value="1">Popular</option>
@@ -753,7 +753,7 @@ function store(event) {
   // fetch data
   function getTractorList() {
     var url = "<?php echo $APIBaseURL; ?>getProduct";
-    console.log(url);
+    console.log(url);  
 
     $.ajax({
         url: url,
