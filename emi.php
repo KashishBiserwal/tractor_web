@@ -39,49 +39,42 @@
     }
 
     .slidecontainer {
-  width: 100%;
-    padding: -36px;
-    margin-bottom: 10px;
-    border: 1px solid rgb(92, 197, 92);
-    /* border-radius: 5px; */
-    color: #80c390;
-    /* background-color: rgba(255, 255, 255, 0.8); */
-    background-color: rgb(240 230 230 / 80%);
-}
+        width: 100%;
+    }
 
-.slider {
-  -webkit-appearance: none;
-  width: 100%;
-  height: 15px;
-  border-radius: 5px;
-  background: #d3d3d3;
-  outline: none;
-  opacity: 0.7;
-  -webkit-transition: .2s;
-  transition: opacity .2s;
-}
+    .slider {
+        -webkit-appearance: none;
+        width: 100%;
+        height: 15px;
+        border-radius: 20px;
+        background: #d3d3d3;
+        outline: none;
+        opacity: 0.7;
+        -webkit-transition: .2s;
+        transition: opacity .2s;
+    }
 
-.slider:hover {
-  opacity: 1;
-}
+    .slider:hover {
+        opacity: 1;
+    }
 
-.slider::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  appearance: none;
-  width: 25px;
-  height: 25px;
-  border-radius: 50%;
-  background: #04AA6D;
-  cursor: pointer;
-}
+    .slider::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 25px;
+        height: 25px;
+        border-radius: 50%;
+        background: #04AA6D;
+        cursor: pointer;
+    }
 
-.slider::-moz-range-thumb {
-  width: 25px;
-  height: 25px;
-  border-radius: 50%;
-  background: #04AA6D;
-  cursor: pointer;
-}
+    .slider::-moz-range-thumb {
+        width: 25px;
+        height: 25px;
+        border-radius: 50%;
+        background: #04AA6D;
+        cursor: pointer;
+    }
     </style>
 
 </head>
@@ -140,9 +133,8 @@
     </div>
 
     <section class="my-4">
-        <div class="container my-5 shadow">
-
-            <div class="" role="alert" id="form1">
+        <div class="container  shadow">
+            <div class="" id="form1">
                 <h3 class="fw-bold assured px-2 mt-2">Calculate Your Tractor Loan EMI</h3>
                 <div class="row">
                     <div class="col-12 col-sm-12 col-md-6 col-lg-6">
@@ -197,6 +189,9 @@
 
             <div id="form2" class="hidden">
                 <h3 class="fw-bold assured px-2 mt-2">EMI Calculation Form</h3>
+                <button type="button" class="btn btn-success mt-3 fw-bold" onclick="showBrandModelForm()">Go
+                    Back
+                </button>
                 <div class="row">
                     <div class="col-12 col-sm-12 col-md-6 col-lg-6">
                         <img src="assets\images\eicher-551-2wd-prima-g3.webp" class="w-100 h-50 mt-3" alt="Edit">
@@ -206,34 +201,75 @@
                             <h5 class="mt-4 ">Down Payment</h5>
                             <i class="fa-solid fa-indian-rupee-sign fs-5 mx-2 "></i><input type="text" class="text_emi">
                             <div class="slidecontainer">
-                                <input type="range" min="0" max="100" value="750000" class="slider" id="myRange">
-                                <p>Value: <span id="demo"></span></p>
+                                <input type="range" min="0" max="100" value="750000" class="slider py-1" id="myRange">
+                                <!-- <p>Value: <span id="demo"></span></p> -->
                             </div>
                         </div>
 
                         <div>
-                            <h5 class="mt-4 ">Bank Interest Rate</h5>
+                            <h5 class="mt-4">Bank Interest Rate</h5>
                             <input type="text" class="text_emi"> <i class="fa-solid fa-percent ms-2"></i>
-                        </div>
-                        <!-- <form id="brandModelForm" action="" method="post">
-                            <div class="form-outline mt-2 py-3">
-                                <label class="form-label fw-bold" for="brandSelect">Brand</label>
-                                <select class="form-select py-2" aria-label="Default select example" id="brandSelect"
-                                    name="brandSelect" onchange="populateModels()">
-                                    <option value="">Select Brand</option>
-                                </select>
+                            <div class="slidecontainer">
+                                <input type="range" min="0" max="100" value="7500" class="slider py-1" id="myRange2">
+                                <!-- <p>Value: <span id="demo2"></span></p> -->
                             </div>
-                            <div class="form-outline mt-3">
-                                <label class="form-label fw-bold" for="modelSelect">Model</label>
-                                <select class="form-select py-2" aria-label="Default select example" id="modelSelect"
-                                    name="modelSelect">
-                                    <option value="">Select Model</option>
-                                </select>
+                        </div>
+                        <div>
+                            <h5 class="mt-4 ">Loan Period Months</h5>
+
+                            <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                                <label class="btn btn-success ">
+                                    <input type="radio" name="options" id="option1" autocomplete="off">12
+                                </label>
+                                <label class="btn btn-success">
+                                    <input type="radio" name="options" id="option2" autocomplete="off">18
+                                </label>
+                                <label class="btn btn-success">
+                                    <input type="radio" name="options" id="option3" autocomplete="off">24
+                                </label>
+                                <label class="btn btn-success">
+                                    <input type="radio" name="options" id="option4" autocomplete="off">30
+                                </label>
+                                <label class="btn btn-success">
+                                    <input type="radio" name="options" id="option5" autocomplete="off">36
+                                </label>
+                                <label class="btn btn-success">
+                                    <input type="radio" name="options" id="option6" autocomplete="off">42
+                                </label>
+                                <label class="btn btn-success">
+                                    <input type="radio" name="options" id="option7" autocomplete="off">48
+                                </label>
+                                <label class="btn btn-success">
+                                    <input type="radio" name="options" id="option8" autocomplete="off">54
+                                </label>
+                                <label class="btn btn-success">
+                                    <input type="radio" name="options" id="option9" autocomplete="off" checked>60
+                                </label>
+                                <label class="btn btn-success">
+                                    <input type="radio" name="options" id="option10" autocomplete="off">66
+                                </label>
+                                <label class="btn btn-success">
+                                    <input type="radio" name="options" id="option11" autocomplete="off">72
+                                </label>
+                                <label class="btn btn-success">
+                                    <input type="radio" name="options" id="option12" autocomplete="off">78
+                                </label>
+                                <label class="btn btn-success">
+                                    <input type="radio" name="options" id="option13" autocomplete="off">84
+                                </label>
                             </div>
 
-                        </form> -->
+
+                        </div>
+
+                        <div>
+                            <h5 class="mt-4 ">Repayment Interval</h5>
+
+                        </div>
+
+
                     </div>
-                    <div class="col-12 col-sm-12 col-md-6 col-lg-6 ">
+                    <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-5 ">
                         <div class="row">
                             <div class="col-6 col-lg-6 col-md-6 col-sm-6 text-center mb-4">
                                 <h3 class="fw-bold">EMI</h3>
@@ -262,12 +298,8 @@
                         </div>
                     </div>
                 </div>
-
-                <button type="button" class="btn btn-success mb-3 mt-3 fw-bold" onclick="showBrandModelForm()">Go
-                    Back</button>
             </div>
         </div>
-
     </section>
     <section class="my-4">
         <div class="container my-5">

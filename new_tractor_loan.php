@@ -63,7 +63,7 @@
                             <select class="form-select py-2" aria-label="Default select example">
                                 <option value="#"></option>
                                 <option value="1">New Tractor Loan</option>
-                                <option value="2">Used Tractor Loan,</option>
+                                <option value="2">Used Tractor Loan</option>
                                 <option value="3">Loan Against Tractor</option>
                                 <option value="4">Harvester Loan</option>
                                 <option value="5">Used Harvester Loan</option>
