@@ -22,6 +22,66 @@
         margin-bottom: 2px;
         font-size: 13px;
     }
+
+    .hidden {
+        display: none;
+    }
+
+    .text_emi {
+        padding: 4px;
+        margin-bottom: 15px;
+        border: 1px solid black;
+        /* border-radius: 5px; */
+        color: black;
+        /* background-color: rgba(255, 255, 255, 0.8); */
+        background-color: rgb(243 238 238 / 80%);
+
+    }
+
+    .slidecontainer {
+  width: 100%;
+    padding: -36px;
+    margin-bottom: 10px;
+    border: 1px solid rgb(92, 197, 92);
+    /* border-radius: 5px; */
+    color: #80c390;
+    /* background-color: rgba(255, 255, 255, 0.8); */
+    background-color: rgb(240 230 230 / 80%);
+}
+
+.slider {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 15px;
+  border-radius: 5px;
+  background: #d3d3d3;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+}
+
+.slider:hover {
+  opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: #04AA6D;
+  cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: #04AA6D;
+  cursor: pointer;
+}
     </style>
 
 </head>
@@ -81,8 +141,9 @@
 
     <section class="my-4">
         <div class="container my-5 shadow">
-            <h3 class="fw-bold assured px-2 mt-2">Calculate Your Tractor Loan EMI</h3>
-            <div class="" role="alert">
+
+            <div class="" role="alert" id="form1">
+                <h3 class="fw-bold assured px-2 mt-2">Calculate Your Tractor Loan EMI</h3>
                 <div class="row">
                     <div class="col-12 col-sm-12 col-md-6 col-lg-6">
                         <form id="brandModelForm" action="" method="post">
@@ -100,7 +161,8 @@
                                     <option value="">Select Model</option>
                                 </select>
                             </div>
-                            <button type="button" class="w-100 fw-bold btn btn-success mt-3" id="calculateEMI">Calculate
+                            <button type="button" class="w-100 fw-bold btn btn-success mt-3 mb-1" id="calculateEMI"
+                                onclick="showEMIForm()">Calculate
                                 EMI</button>
                         </form>
                     </div>
@@ -132,7 +194,80 @@
                     </div>
                 </div>
             </div>
+
+            <div id="form2" class="hidden">
+                <h3 class="fw-bold assured px-2 mt-2">EMI Calculation Form</h3>
+                <div class="row">
+                    <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+                        <img src="assets\images\eicher-551-2wd-prima-g3.webp" class="w-100 h-50 mt-3" alt="Edit">
+                        <button type="button" class="w-100 btn btn-outline-success fw-bold mt-3 mb-1">Get on road
+                            Price</button>
+                        <div>
+                            <h5 class="mt-4 ">Down Payment</h5>
+                            <i class="fa-solid fa-indian-rupee-sign fs-5 mx-2 "></i><input type="text" class="text_emi">
+                            <div class="slidecontainer">
+                                <input type="range" min="0" max="100" value="750000" class="slider" id="myRange">
+                                <p>Value: <span id="demo"></span></p>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h5 class="mt-4 ">Bank Interest Rate</h5>
+                            <input type="text" class="text_emi"> <i class="fa-solid fa-percent ms-2"></i>
+                        </div>
+                        <!-- <form id="brandModelForm" action="" method="post">
+                            <div class="form-outline mt-2 py-3">
+                                <label class="form-label fw-bold" for="brandSelect">Brand</label>
+                                <select class="form-select py-2" aria-label="Default select example" id="brandSelect"
+                                    name="brandSelect" onchange="populateModels()">
+                                    <option value="">Select Brand</option>
+                                </select>
+                            </div>
+                            <div class="form-outline mt-3">
+                                <label class="form-label fw-bold" for="modelSelect">Model</label>
+                                <select class="form-select py-2" aria-label="Default select example" id="modelSelect"
+                                    name="modelSelect">
+                                    <option value="">Select Model</option>
+                                </select>
+                            </div>
+
+                        </form> -->
+                    </div>
+                    <div class="col-12 col-sm-12 col-md-6 col-lg-6 ">
+                        <div class="row">
+                            <div class="col-6 col-lg-6 col-md-6 col-sm-6 text-center mb-4">
+                                <h3 class="fw-bold">EMI</h3>
+                            </div>
+                            <div class="col-6 col-lg-6 col-md-6 col-sm-6 text-center mb-4">
+                                <h3 class="fw-bold"><span class="px-1">₹</span>0</h3>
+                            </div>
+                            <div class="col-6 col-lg-6 col-md-6 col-sm-6 py-2 text-center">
+                                <h5>*Ex-showroom Price</h5>
+                                <h6><span class="px-1">₹</span>0</h6>
+                            </div>
+                            <div class="col-6 col-lg-6 col-md-6 col-sm-6 py-2 text-center">
+                                <h5>Total Loan Amount</h5>
+                                <h6><span class="px-1">₹</span>0</h6>
+                            </div>
+                            <div class="col-6 col-lg-6 col-md-6 col-sm-6 py-2 text-center">
+                                <h5>Payable Amount</h5>
+                                <h6><span class="px-1">₹</span>0</h6>
+                            </div>
+                            <div class="col-6 col-lg-6 col-md-6 col-sm-6 py-2 text-center">
+                                <h5>You’ll pay extra</h5>
+                                <h6><span class="px-1">₹</span>0</h6>
+                            </div>
+                            <button type="button" class="w-100 fw-bold btn btn-success mt-3 mb-1">View Loan
+                                Offers</button>
+                        </div>
+                    </div>
+                </div>
+
+                <button type="button" class="btn btn-success mb-3 mt-3 fw-bold" onclick="showBrandModelForm()">Go
+                    Back</button>
+            </div>
         </div>
+
     </section>
     <section class="my-4">
         <div class="container my-5">
@@ -382,7 +517,6 @@
         </div>
 
     </section>
-
     <?php
     include 'includes/footer.php';
     include 'includes/footertag.php';
@@ -457,7 +591,24 @@
             console.log($('#brandModelForm').valid());
         });
     });
+
+    function showEMIForm() {
+        // Validate the first form
+        if ($("#brandModelForm").valid()) {
+            // Hide the first form and show the second form
+            $("#form1").addClass("hidden");
+            $("#form2").removeClass("hidden");
+        }
+    }
+
+    function showBrandModelForm() {
+        // Hide the second form and show the first form
+        $("#form2").addClass("hidden");
+        $("#form1").removeClass("hidden");
+    }
     </script>
+
+
 </body>
 
 </html>
