@@ -64,7 +64,7 @@
                      <div class="pirce-section mt-3">
                         <h5>Price - ₹ 1,05,000</h5>
                      </div>
-                     <form action="" class="used_farm_inner_from box-shadow px-2 py-2">
+                     <form action="" class="used_farm_inner_from box-shadow px-2 py-2" id="used_farm_inner_from">
                       <p class="text-center boldfont fs-15">Interested In Implement</p>
                       <input type="text" class="form-control my-2" name="" id="name" placeholder="Enter Your Name">
                       <input type="text" class="form-control my-2" name="" id="number" placeholder="Enter Mobile Number">
