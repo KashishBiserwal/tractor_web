@@ -65,45 +65,12 @@
     <div class="container">
         <div class="row">
             <h1 class=" mt-5">Popular Mahindra Tractors</h1>
-
-            <div id="productContainer" class="row f-flex">
-
+            <div class="swiper swiper-slides-visible p-5 m-n5 testimonial__wrap">
+            <div id="productContainer" class="row">
+                <div class="swiper-wrapper "></div>
+             </div>
             </div>
-          
-            <!-- <div class="col-12 col-sm-6 col-md-3 col-lg-4 px-2 py-3 h-100">
-                <div class="h-auto success__stry__item d-flex flex-column shadow ">
-                    <div class="thumb">
-                        <a href="#">
-                            <div class="ratio ratio-16x9">
-                                <img src="assets/images/265-di-xp-plus-1632206429.webp" class="object-fit-cover" alt="img">
-                            </div>
-                        </a>
-                    </div>
-                    <div class="content d-flex flex-column flex-grow-1 ">
-
-                        <a href="#" class="text-decoration-none text-dark">
-                            <h4 class="fw-bold mt-3 mx-3">Mahindra 265 DI XP Plus</h3>
-                        </a>
-                        <div class="row mt-1 ps-1">
-                            <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                                <p class=" ps-3"> <i class="fas fa-bolt"></i> 33 HP</p>
-                            </div>
-                            <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                                <p class="pe-5 me-4"> <i class="fa fa-cog" aria-hidden="true"></i>  2048 CC </p>
-                            </div>
-                        </div>
-                        <a href="#" class="text-decoration-none text-dark pb-3 fw-bold">
-                            <span class="p-3">
-                                Get On Road price
-                            </span>
-                            <span class="icon">
-                                <i class="fa-solid fa-chevron-right"></i>
-                            </span>
-                        </a>
-                    </div>
-                </div>
-            </div> -->
-        </div>
+		</div>
         <div class="col text-center my-3">
             <a href="#" class="btn btn-success btn-lg">Load More Tractors</a>
         </div>
@@ -855,7 +822,7 @@
                 //     productContainer.appendChild(card);
 
                 var newCard = `
-                        <div class="col-12 col-sm-6 col-md-4 col-lg-4 px-2 py-3 h-100">
+                        <div class="swiper-slide h-auto success__stry__item d-flex flex-column shadow">
                             <div class="h-auto success__stry__item d-flex flex-column shadow ">
                                 <div class="thumb">
                                     <a href="#">
@@ -898,8 +865,6 @@
                 }
             });
         }
-
-      
     </script>
 </body>
 </html>

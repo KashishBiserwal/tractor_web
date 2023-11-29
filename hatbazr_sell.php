@@ -298,7 +298,7 @@ $(document).ready(function(){
       secondNumber:"Field is required",
       about_your_harvest:"Field is required"
    },
-   submiHandler: function(forn){
+   submiHandler: function(form){
       next_btn();
    }
     });

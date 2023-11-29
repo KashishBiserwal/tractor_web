@@ -1,10 +1,14 @@
 <?php
+include 'includes/headertag.php';
    include 'includes/headertagadmin.php';
-  
+   include 'includes/footertag.php';
    
    ?> 
-
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css" />
+<script> var APIBaseURL = "<?php echo $APIBaseURL; ?>";</script>
+<script> var baseUrl = "<?php echo $baseUrl; ?>";</script>
+    <script src="<?php $baseUrl; ?>model/tractor_listing.js"></script>
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css"/>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2-bootstrap-5-theme@1.3.0/dist/select2-bootstrap-5-theme.min.css" />
 <body class="loaded"> 
 <div class="main-wrapper">
@@ -449,10 +453,10 @@
 </body>
 
 <?php
-   include 'includes/footertag.php';
+   
    ?> 
    <script src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.full.min.js"></script>
-   <script>
+   <!-- <script>
   $(document).ready(function () {
 
     $('.js-example-basic-multiple').select2();
@@ -835,5 +839,5 @@ function destroy(id) {
 
 
 
-</script>
+</script> -->
 

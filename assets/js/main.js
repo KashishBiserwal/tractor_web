@@ -629,6 +629,7 @@ const swiper_sell = new Swiper(".slider", {
   }
 });
 
+// mahindra brand carousel
 
 
 

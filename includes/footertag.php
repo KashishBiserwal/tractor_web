@@ -5,7 +5,7 @@
 <script src="assets/js/datatables.js"></script>
 <script src="assets/js/datatables.min.js"></script>
 <script src="assets/js/owl.carousel.js"></script>
-<script src="assets/js/owl.carousel.min.js"></script>
+<!-- <script src="assets/js/owl.carousel.min.js"></script> -->
 <script src="assets/js/jquery.validate.js"></script>
 <script src="assets/js/jquery.validate.js"></script>
 
