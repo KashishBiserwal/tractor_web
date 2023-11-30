@@ -1,6 +1,7 @@
 <?php
+ include 'includes/headertag.php';
    include 'includes/headertagadmin.php';
-  
+   include 'includes/footertag.php';
    
    ?> 
    <style>
@@ -336,7 +337,7 @@
 </body>
 
 <?php
-   include 'includes/footertag.php';
+   
    ?> 
 
 <script>

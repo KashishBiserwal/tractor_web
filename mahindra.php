@@ -41,12 +41,7 @@
                         <div class="col-12 col-sm-12 col-xxl-6 col-xl-6 col-lg-6">
                             <div class="banner__content float-start ">
                                 <h1 class="d3 mb-0 text-white display-5 fw-bold">Mahindra </h1>
-                                <!-- <span>
-                                    <a type="button" class="btn btn-primary rounded-circle m-4" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                    <span class="play__icon"> <i class="fa-solid fa-play"> </i> </span>
-                                    <span> Watch Intro Video</span>
-                                    </a><span data-bs-toggle="modal" class="fw-dark text-white pe-auto watch me-2" data-bs-target="#exampleModal"> Watch Intro Video</span>
-                                </span> -->
+                                
                                 <div>
                                  
                                 
@@ -65,13 +60,12 @@
     <div class="container">
         <div class="row">
             <h1 class=" mt-5">Popular Mahindra Tractors</h1>
-            <div class="swiper swiper-slides-visible p-5 m-n5 testimonial__wrap">
-            <div id="productContainer" class="row">
-                <div class="swiper-wrapper "></div>
-             </div>
-            </div>
+            
+            <div id="productContainer" class="row"></div>
+                
+		    </div>
 		</div>
-        <div class="col text-center my-3">
+        <div class="col text-center">
             <a href="#" class="btn btn-success btn-lg">Load More Tractors</a>
         </div>
     </div>
@@ -801,29 +795,18 @@
             var url = "http://127.0.0.1:8000/api/customer/getProduct";
             console.log(url);
 
-            $.ajax({ 
+            $.ajax({
                 url: url,
                 type: "GET",
                 success: function(data) {
-                    console.log(data,'abc');
-                    var productContainer = document.getElementById("productContainer");
+                    console.log(data, 'abc');
+                    var productContainer = $("#productContainer");
+
                     if (data.product && data.product.length > 0) {
-                    data.product.forEach(function(p) {
-                    console.log(p.description,'p')
-                // var card = document.createElement('div');
-                //     card.className = "col-12 col-sm-6 col-md-3 col-lg-4 px-2 py-3 h-100";
-
-                //     var productName = document.createElement('h4');
-                //     productName.className = "fw-bold mt-3 mx-3";
-                //     productName.textContent = p.hp_category;
-
-                //     card.appendChild(productName);
-                //     // Append the card to the product container
-                //     productContainer.appendChild(card);
-
-                var newCard = `
-                        <div class="swiper-slide h-auto success__stry__item d-flex flex-column shadow">
-                            <div class="h-auto success__stry__item d-flex flex-column shadow ">
+                        data.product.forEach(function (p) {
+                            var newCard = `
+                            <div class="item px-2 py-3 h-100 ">
+                            <div class="h-auto success__stry__item shadow">
                                 <div class="thumb">
                                     <a href="#">
                                         <div class="ratio ratio-16x9">
@@ -854,13 +837,37 @@
                                 </div>
                             </div>
                         </div>
-                    `;
-                    // Append the new card to the container
-                    $("#productContainer").append(newCard);
-            })
-        }
+                            `;
+
+                            // Append the new card to the container
+                            productContainer.append(newCard);
+                        });
+
+                        // Initialize Owl Carousel after adding cards
+                        productContainer.owlCarousel({
+                            items:3,
+                            loop: true,
+                            margin: 10,
+                            responsiveClass: true,
+                            responsive: {
+                                0: {
+                                    items: 1,
+                                    nav: true
+                                },
+                                600: {
+                                    items: 3,
+                                    nav: false
+                                },
+                                1000: {
+                                    items: 3,
+                                    nav: true,
+                                    loop: false
+                                }
+                            }
+                        });
+                    }
                 },
-                error: function(error) {
+                error: function (error) {
                     console.error('Error fetching data:', error);
                 }
             });

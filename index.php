@@ -2021,7 +2021,7 @@
             <div class="col-12 col-md-2 col-lg-2 col-sm-3 p-4 ">
               <div class="p-3 toolsservice rounded-3 shadow">
                 <div class="col-12 text-center">
-                  <img src="assets/images/about-us.png" class="w-50 img-tools p-4" alt="">
+                  <img src="assets/images/about-us.png" class="w-50 img-tools p-3" alt="">
                 </div>
                 <div class="col-12">
                   <h6 class="service-box fw-bold fs-6 mt-2 text-center text-dark">About Us</h6>

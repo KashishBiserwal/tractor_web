@@ -250,11 +250,7 @@
           <ul class="dropdown-menu  pt-3 mt-2 ">
                 <li><a class="dropdown-item fw-bold" href="emi.php">EMI Calculator</a></li>
                 <hr class="dropdown-divider">
-                <li><a class="dropdown-item fw-bold" href="#">Finance</a></li>
-                <hr class="dropdown-divider">
-                <li><a class="dropdown-item fw-bold" href="#">Tyres</a></li>
-                <hr class="dropdown-divider">
-                <li><a class="dropdown-item fw-bold" href="#">Insurance</a></li>
+                <li><a class="dropdown-item fw-bold" href="tyre.php">Tyres</a></li>
                 <hr class="dropdown-divider">
                 <li><a class="dropdown-item  fw-bold" href="#">Dealership Enquiry</a></li>
                 <hr class="dropdown-divider">

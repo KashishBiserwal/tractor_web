@@ -1,9 +1,12 @@
 <?php
+include 'includes/headertag.php';
    include 'includes/headertagadmin.php';
-   
-  
+   include 'includes/footertag.php';
    
    ?> 
+<script> var APIBaseURL = "<?php echo $APIBaseURL; ?>";</script>
+<script> var baseUrl = "<?php echo $baseUrl; ?>";</script>
+<script src="<?php $baseUrl; ?>model/usermanagement.js"></script>
    <style>
     .error-message {
     color: red;
@@ -252,10 +255,8 @@
     })
 })
  </script>  -->
- <?php
-   include 'includes/footertag.php';
-   ?> 
-<script>
+
+<!-- <script>
    $(document).ready(function() {
 
     $("#form").validate({
@@ -442,6 +443,6 @@ $(".data_search").on("keyup", function() {
 });  
 
 
-</script>
+</script> -->
   
 

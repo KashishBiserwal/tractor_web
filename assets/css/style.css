@@ -1708,4 +1708,9 @@ input[type="checkbox"]:checked + label:before {
 }
 
 /* caraousel mahindra brand */
-
+#productContainer .owl-stage-outer{
+  overflow: hidden;
+}
+#productContainer .owl-stage{
+  display: flex;
+}
