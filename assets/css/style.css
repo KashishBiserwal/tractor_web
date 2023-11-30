@@ -1721,3 +1721,7 @@ input[type="checkbox"]:checked + label:before {
   height: 105%;
   opacity: 0.2px;
 } */
+/* dealers */
+.trac_dealers li{
+  list-style-type: square;
+}

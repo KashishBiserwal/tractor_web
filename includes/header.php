@@ -256,9 +256,9 @@
                 <hr class="dropdown-divider">
                 <li><a class="dropdown-item fw-bold" href="#">Insurance</a></li>
                 <hr class="dropdown-divider">
-                <li><a class="dropdown-item  fw-bold" href="#">Dealership Enquiry</a></li>
+                <li><a class="dropdown-item  fw-bold" href="dealership_enq.php">Dealership Enquiry</a></li>
                 <hr class="dropdown-divider">
-                <li><a class="dropdown-item fw-bold" href="#">Certified Dealers</a></li>
+                <li><a class="dropdown-item fw-bold" href="certified_dealers.php">Certified Dealers</a></li>
                 <!-- <hr class="dropdown-divider"> -->
                 <!-- <li><a class="dropdown-item fw-bold" href="">Compare</a></li> -->
           </ul>

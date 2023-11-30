@@ -24,7 +24,7 @@
       </div>
     </div>
   </section>
-  <!-- All News Section -->
+  <!--  -->
   <div class="container" id="an">       
     <div class="row py-1">
       <h3 class="mt-2 mb-3 bg-light">Compare Tractors</h3>
@@ -43,9 +43,9 @@
               Select Tractor
             </button>                    
           </div>
-          <div class="col-12  text-center"> 
+          <!-- <div class="col-12  text-center"> 
             <button class="btn btn-success text-white col-12 px-5">Compare</button>
-          </div>  
+          </div>   -->
         </div>
       </div>   
 
@@ -63,9 +63,9 @@
               Select Tractor
             </button>                    
           </div>
-          <div class="col-12  text-center"> 
+          <!-- <div class="col-12  text-center"> 
             <button class="btn btn-success text-white col-12 px-5">Compare</button>
-          </div>  
+          </div>   -->
         </div>
       </div>   
 
@@ -84,9 +84,9 @@
               Select Tractor
             </button>                    
           </div>
-          <div class="col-12  text-center"> 
+          <!-- <div class="col-12  text-center"> 
             <button class="btn btn-success text-white col-12 px-5">Compare</button>
-          </div>  
+          </div>   -->
         </div>
       </div>   
               
@@ -104,11 +104,15 @@
               Select Tractor
             </button>                    
           </div>
-          <div class="col-12  text-center"> 
+          <!-- <div class="col-12  text-center"> 
             <button class="btn btn-success text-white col-12 px-5">Compare</button>
-          </div>  
+          </div>   -->
         </div>
-      </div>   
+      </div>  
+
+      <div class="col-12  text-center mt-3"> 
+        <button class="btn btn-success text-white col-12 px-5" style="width:40% ">Compare</button>
+      </div> 
 
     </div>
   </div>
@@ -270,8 +274,6 @@
       </div> -->
     </div>
   </section>
-
-
   <section>
     <div class="container">
       <div class=" ps-5 pe-5">
