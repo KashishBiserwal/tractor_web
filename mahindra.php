@@ -808,15 +808,15 @@
                             <div class="item px-2 py-3 h-100 ">
                             <div class="h-auto success__stry__item shadow">
                                 <div class="thumb">
-                                    <a href="#">
+                                    <a href="${p.id}">
                                         <div class="ratio ratio-16x9">
                                             <img src="${p.image_url}" class="object-fit-cover" alt="${p.description}">
                                         </div>
                                     </a>
                                 </div>
                                 <div class="content d-flex flex-column flex-grow-1 ">
-                                    <a href="#" class="text-decoration-none text-dark">
-                                        <h4 class="fw-bold mt-3 mx-3">${p.description}</h4>
+                                    <ahref="${p.id}" class="text-decoration-none text-dark">
+                                        <h4 class="fw-bold mt-3 mx-3">${p.model}</h4>
                                     </a>
                                     <div class="row mt-1 ps-1">
                                         <div class="col-12 col-lg-6 col-md-6 col-sm-6">

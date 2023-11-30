@@ -129,7 +129,7 @@ $(document).ready(function () {
     });
 }
 
-function get() {
+    function get() {
         // var url = "<?php echo $APIBaseURL; ?>getBrands";
         var apiBaseURL =APIBaseURL;
         // Now you can use the retrieved value in your JavaScript logic
@@ -162,29 +162,58 @@ function get() {
         });
     }
     get();
+
+
+
 // fetch lookup data in select box
 function get_lookup() {
-    // var url = "<?php echo $APIBaseURL; ?>getLookupData";
-    var apiBaseURL =APIBaseURL;
-    // Now you can use the retrieved value in your JavaScript logic
+    var apiBaseURL = APIBaseURL;
     var url = apiBaseURL + 'getLookupData';
     $.ajax({
         url: url,
         type: "GET",
-        headers:{
-            'Authorization': 'Bearer' + localStorage.getItem('token')
+        headers: {
+            'Authorization': 'Bearer ' + localStorage.getItem('token')
         },
         success: function (data) {
-                for (var i = 0; i <  data.data.length; i++) {
-                        $("select#"+data.data[i].name).append('<option value="'+data.data[i].id+'">'+data.data[i].lookup_data_value+'</option>');
-                    }
+            for (var i = 0; i < data.data.length; i++) {
+                $("select#" + data.data[i].name).append('<option value="' + data.data[i].id + '">' + data.data[i].lookup_data_value + '</option>');
+            }
+
+            // for (var i = 0; i < data.tractor_type_data.length; i++) {
+            //     $("select#" + data.tractor_type_data[i].type_name).append('<option value="' + data.tractor_type_data[i].id + '">' + data.tractor_type_data[i].type_name + '</option>');
+            // }
+            // var tractorTypeSelect = $("select#type_name");
+            var tractorTypeSelect = $("#staticBackdrop #type_name");
+            tractorTypeSelect.empty(); // Clear existing options
+            tractorTypeSelect.append('<option selected disabled="" value="">Please select an option</option>'); 
+
+            // for (var i = 0; i < data.tractor_type_data.length; i++) {
+            //     tractorTypeSelect.append('<option value="' + data.tractor_type_data[i].id + '">' + data.tractor_type_data[i].type_name + '</option>');
+            // }
+
+            for (var i = 0; i < data.tractor_type_data.length; i++) {
+                tractorTypeSelect.append('<option value="' + data.tractor_type_data[i].id + '">' + data.tractor_type_data[i].type_name + '</option>');
+            }
+
+            console.log($("#staticBackdrop #type_name"));
+            // $("#staticBackdrop #type_name").select2({
+            
+            // });
+            tractorTypeSelect.select2();  
+           
+        },
+        complete:function(){
+         
         },
         error: function (error) {
             console.error('Error fetching data:', error);
         }
     });
 }
+
 get_lookup();
+
 
 
 // insert data
@@ -235,7 +264,7 @@ function store(event) {
 
     // Prepare data to send to the server
     var paraArr = {
-      'brand_id': brand_name,
+      'brand_name': brand_name,
       'model': model,
       'product_type_id': product_type_id,
       'hp_category': hp_category,
@@ -306,12 +335,13 @@ function store(event) {
 
   // fetch data
   function getTractorList() {
+    console.log('kjhskdjf');
     // var url = "<?php echo $APIBaseURL; ?>getProduct";
     var apiBaseURL =APIBaseURL;
     // Now you can use the retrieved value in your JavaScript logic
     var url = apiBaseURL + 'getProduct';
 
-    console.log(url);  
+    // console.log(url);  
 
     $.ajax({
         url: url,
@@ -336,7 +366,7 @@ function store(event) {
                     tableRow.innerHTML = `
                    
                         <td>${row.id}</td>
-                        <td>${row.brand_id}</td>
+                        <td>${row.brand_name}</td>
                         <td>${row.model}</td>
                         <td>${row.total_cyclinder_id}</td>
                         <td>${row.hp_category}</td>

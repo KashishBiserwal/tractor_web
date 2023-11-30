@@ -46,7 +46,8 @@ var url = apiBaseURL + 'lookup_type';
     success: function (result) {
       console.log(result, "result");
       // Redirect to a success page or perform other actions
-      window.location.href = "<?php echo $baseUrl; ?>lookupvalue.php"; 
+    //   window.location.href = "<?php echo $baseUrl; ?>lookupvalue.php"; 
+    get();
       console.log("Add successfully");
       alert('successfully inserted..!')
     },

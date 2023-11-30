@@ -19,7 +19,7 @@ var apiBaseURL =APIBaseURL;
 // Now you can use the retrieved value in your JavaScript logic
 var url = apiBaseURL + 'lookup_data';
 
-console.log(url);
+// console.log(url);
 $.ajax({
     url: url,
     type: "GET",
@@ -27,14 +27,14 @@ $.ajax({
         'Authorization': 'Bearer ' + localStorage.getItem('token')
     },
     success: function (data) {
-      console.log(data);
+    //   console.log(data);
         const tableBody = document.getElementById('data-table');
         tableBody.innerHTML = ''; // Clear previous data
 
         
 
         if (data.lookup_data.length > 0) {
-      console.log(typeof data.lookup_data);
+    //   console.log(typeof data.lookup_data);
 
             // Loop through the data and create table rows 
             data.lookup_data.map(row => {
@@ -65,19 +65,18 @@ function store(event) {
 event.preventDefault();
 console.log('jfhfhw');
 var lookup_type = $('#lookupSelectbox').val();
-var lookup_data_value = $('#lookup_data_value').val();
+var lookup_type = $('#lookup_data_value').val();
 console.log(lookup_type);
 
 // Prepare data to send to the server
 var paraArr = {
   'lookup_type_id': lookup_type,
-  'lookup_data_value':lookup_data_value
+  'lookup_type':lookup_type
 };
 
 // var url = "<?php echo $APIBaseURL; ?>lookup_data";
 var apiBaseURL =APIBaseURL;
-// Now you can use the retrieved value in your JavaScript logic
-var url = apiBaseURL + 'lookup_type';
+var url = apiBaseURL + 'lookup_data';
 
 console.log(url);
 
@@ -86,7 +85,6 @@ var headers = {
   'Authorization': 'Bearer ' + token
 };
 
-// Make an AJAX request to the server
 $.ajax({
   url: url,
   type: "POST",
@@ -117,7 +115,7 @@ $.ajax({
         'Authorization':'Bearer' + localStorage.getItem('token')
     },
     success: function (data) {
-        console.log(data);
+        // console.log(data);
         const select = document.getElementById('lookupSelectbox');
         select.innerHTML = ''; // Clear previous data
 

@@ -17,7 +17,7 @@ function login() {
     var paraArr = {};
     paraArr['email'] = email;
     paraArr['password'] = password;
-    console.log(APIBaseURL,"$APIBaseURL")
+    // console.log(APIBaseURL,"$APIBaseURL")
     
 var apiBaseURL =APIBaseURL;
 // Now you can use the retrieved value in your JavaScript logic
