@@ -5,6 +5,77 @@
     <?php
    include 'includes/headertag.php';
    ?>
+    <style>
+    .form-outline .form-label {
+        color: #454444;
+        font-weight: 500;
+        margin-bottom: 5px;
+        position: absolute;
+        padding: 0px 10px;
+        margin-top: -11px;
+        background: #fff;
+        margin-left: 20px;
+    }
+
+    label.error {
+        color: red !important;
+        margin-bottom: 2px;
+        font-size: 13px;
+    }
+
+    .hidden {
+        display: none;
+    }
+
+    .text_emi {
+        padding: 4px;
+        margin-bottom: 15px;
+        border: 1px solid black;
+        /* border-radius: 5px; */
+        color: black;
+        /* background-color: rgba(255, 255, 255, 0.8); */
+        background-color: rgb(243 238 238 / 80%);
+
+    }
+
+    .slidecontainer {
+        width: 100%;
+    }
+
+    .slider {
+        -webkit-appearance: none;
+        width: 100%;
+        height: 15px;
+        border-radius: 20px;
+        background: #d3d3d3;
+        outline: none;
+        opacity: 0.7;
+        -webkit-transition: .2s;
+        transition: opacity .2s;
+    }
+
+    .slider:hover {
+        opacity: 1;
+    }
+
+    .slider::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 25px;
+        height: 25px;
+        border-radius: 50%;
+        background: #04AA6D;
+        cursor: pointer;
+    }
+
+    .slider::-moz-range-thumb {
+        width: 25px;
+        height: 25px;
+        border-radius: 50%;
+        background: #04AA6D;
+        cursor: pointer;
+    }
+    </style>
 
 </head>
 
@@ -62,102 +133,39 @@
     </div>
 
     <section class="my-4">
-        <div class="container my-5">
-            <h3 class="fw-bold assured px-2 py-2">Calculate Your Tractor Loan EMI</h3>
-            <div class="" role="alert">
+        <div class="container  shadow">
+            <div class="" id="form1">
+                <h3 class="fw-bold assured px-2 mt-2">Calculate Your Tractor Loan EMI</h3>
                 <div class="row">
                     <div class="col-12 col-sm-12 col-md-6 col-lg-6">
-                        <form>
-                            <div class="calculate-row no-margin">
-                                <div class="calculate-emi-select">
-                                    <span class="form-title">Brand</span>
-                                    <div class="form-group mb-0">
-                                        <select class="form-control" name="brand_id" id="brand_id"
-                                            onchange="getModelForLoan(this.value)">
-                                            <option value="">Select Brand</option>
-                                            <option value="64" data-slug="ace">ACE</option>
-                                            <option value="244" data-slug="autonxt">Autonxt</option>
-                                            <option value="65" data-slug="captain">Captain</option>
-                                            <option value="243" data-slug="cellestial">Cellestial</option>
-                                            <option value="211" data-slug="digitrac">Digitrac</option>
-                                            <option value="56" data-slug="eicher">Eicher</option>
-                                            <option value="60" data-slug="escort">Escorts</option>
-                                            <option value="75" data-slug="farmtrac">Farmtrac</option>
-                                            <option value="66" data-slug="force">Force</option>
-                                            <option value="242" data-slug="hav">HAV</option>
-                                            <option value="223" data-slug="hindustan">Hindustan</option>
-                                            <option value="68" data-slug="indo-farm">Indo Farm</option>
-                                            <option value="59" data-slug="john-deere">John Deere</option>
-                                            <option value="87" data-slug="kartar">Kartar</option>
-                                            <option value="63" data-slug="kubota">Kubota</option>
-                                            <option value="55" data-slug="mahindra">Mahindra</option>
-                                            <option value="74" data-slug="massey-ferguson">Massey Ferguson</option>
-                                            <option value="62" data-slug="new-holland">New Holland</option>
-                                            <option value="76" data-slug="powertrac">Powertrac</option>
-                                            <option value="61" data-slug="preet">Preet</option>
-                                            <option value="93" data-slug="same-deutz-fahr">Same Deutz Fahr</option>
-                                            <option value="210" data-slug="solis">Solis</option>
-                                            <option value="57" data-slug="sonalika">Sonalika</option>
-                                            <option value="90" data-slug="standard">Standard</option>
-                                            <option value="58" data-slug="swaraj">Swaraj</option>
-                                            <option value="208" data-slug="trakstar">Trakstar</option>
-                                            <option value="240" data-slug="valdo">Valdo</option>
-                                            <option value="71" data-slug="vst-shakti" selected="">VST</option>
-                                        </select>
-                                        <div id="brand-block"></div>
-                                    </div>
-                                </div>
-                                <div class="calculate-emi-select">
-                                    <span class="form-title">Model</span>
-                                    <div class="form-group mb-0">
-                                        <select class="form-control" name="model_id" id="modelreview">
-                                            <option value="0">Select Model</option>
-                                            <option value="274" data-slug="mt-180d">MT180D / JAI-2W</option>
-                                            <option value="377" data-slug="mt-171-di-samraat">MT 171 DI - SAMRAAT
-                                            </option>
-                                            <option value="275" data-slug="vt180d-jai-2w">VT-180D HS/JAI-4W Tractor
-                                            </option>
-                                            <option value="473" data-slug="viraaj-xt-9045-di">Viraaj XT 9045 DI</option>
-                                            <option value="273" data-slug="mt-270-viraat-4wd">MT 270 - VIRAAT 4WD
-                                            </option>
-                                            <option value="277" data-slug="vt-224-1d">VT 224 -1D</option>
-                                            <option value="578" data-slug="932">932</option>
-                                            <option value="376" data-slug="mt-270-viraat-4wd-plus">MT 270- VIRAAT 4WD
-                                                PLUS</option>
-                                            <option value="474" data-slug="viraaj-xp-9054-di" selected="">Viraaj XP 9054
-                                                DI</option>
-                                            <option value="477" data-slug="225-rjri-power-plus">225 - AJAI POWER PLUS
-                                            </option>
-                                            <option value="884" data-slug="929-di-egt">929 DI EGT 4WD</option>
-                                            <option value="564" data-slug="mt-270-viraat-2w-agrimaster">MT 270 -VIRAAT
-                                                2W-AGRIMASTER</option>
-                                            <option value="903" data-slug="mt-270-high-torque">MT 270 High Torque
-                                            </option>
-                                            <option value="475" data-slug="5025-r-branson">5025 R Branson</option>
-                                            <option value="476" data-slug="viraaj-xs-9042-di">Viraaj XS 9042 DI</option>
-                                            <option value="879" data-slug="4511-pro-2wd">4511 Pro 2WD</option>
-                                            <option value="734" data-slug="927">927</option>
-                                        </select>
-                                        <div id="model-block"></div>
-                                    </div>
-                                </div>
+                        <form id="brandModelForm" action="" method="post">
+                            <div class="form-outline mt-2 py-3">
+                                <label class="form-label fw-bold" for="brandSelect">Brand</label>
+                                <select class="form-select py-2" aria-label="Default select example" id="brandSelect"
+                                    name="brandSelect" onchange="populateModels()">
+                                    <option value="">Select Brand</option>
+                                </select>
                             </div>
-                            <div class="loanOffer-btn-row">
-                                <button type="button" class="w-100 fillBtn" onclick="EmiResult()">Calculate EMI</button>
+                            <div class="form-outline mt-3">
+                                <label class="form-label fw-bold" for="modelSelect">Model</label>
+                                <select class="form-select py-2" aria-label="Default select example" id="modelSelect"
+                                    name="modelSelect">
+                                    <option value="">Select Model</option>
+                                </select>
                             </div>
+                            <button type="button" class="w-100 fw-bold btn btn-success mt-3 mb-1" id="calculateEMI"
+                                onclick="showEMIForm()">Calculate
+                                EMI</button>
                         </form>
                     </div>
-                    <div class="col-12 col-sm-12 col-md-6 col-lg-6 ">  
-                        
-                    
-                    
+                    <div class="col-12 col-sm-12 col-md-6 col-lg-6 ">
                         <div class="row">
-                        <div class="col-6 col-lg-6 col-md-6 col-sm-6 text-center mb-4">
-                            <h3 class="fw-bold">EMI</h3>
-                        </div>
-                        <div class="col-6 col-lg-6 col-md-6 col-sm-6 text-center mb-4">
-                            <h3 class="fw-bold">--</h3>
-                        </div>
+                            <div class="col-6 col-lg-6 col-md-6 col-sm-6 text-center mb-4">
+                                <h3 class="fw-bold">EMI</h3>
+                            </div>
+                            <div class="col-6 col-lg-6 col-md-6 col-sm-6 text-center mb-4">
+                                <h3 class="fw-bold">--</h3>
+                            </div>
                             <div class="col-6 col-lg-6 col-md-6 col-sm-6 py-2 text-center">
                                 <h6>*Ex-showroom Price</h6>
                                 <p>--</p>
@@ -178,38 +186,121 @@
                     </div>
                 </div>
             </div>
-        </div>
-        <!-- <div class="emi-months-wrp floating-price-wrp priccls">
-                        <div class="road-price clearfix">
-                            <div class="emi-road-price">
-                                <h3>--</h3>
-                                <p>EMI Per Month</p>
+
+            <div id="form2" class="hidden">
+                <h3 class="fw-bold assured px-2 mt-2">EMI Calculation Form</h3>
+                <button type="button" class="btn btn-success mt-3 fw-bold" onclick="showBrandModelForm()">Go
+                    Back
+                </button>
+                <div class="row">
+                    <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+                        <img src="assets\images\eicher-551-2wd-prima-g3.webp" class="w-100 h-50 mt-3" alt="Edit">
+                        <button type="button" class="w-100 btn btn-outline-success fw-bold mt-3 mb-1">Get on road
+                            Price</button>
+                        <div>
+                            <h5 class="mt-4 ">Down Payment</h5>
+                            <i class="fa-solid fa-indian-rupee-sign fs-5 mx-2 "></i><input type="text" class="text_emi">
+                            <div class="slidecontainer">
+                                <input type="range" min="0" max="100" value="750000" class="slider py-1" id="myRange">
+                                <!-- <p>Value: <span id="demo"></span></p> -->
                             </div>
                         </div>
-                        <div class="calculate-row no-margin">
-                            <div class="calculate-emi-label">
-                                <h6>*Ex-showroom Price</h6>
-                                <p>--</p>
-                            </div>
-                            <div class="calculate-emi-label">
-                                <h6>Total Loan Amount</h6>
-                                <p>--</p>
-                            </div>
-                            <div class="calculate-emi-label">
-                                <h6>Payable Amount</h6>
-                                <p>--</p>
-                            </div>
-                            <div class="calculate-emi-label">
-                                <h6>You’ll pay extra</h6>
-                                <p>--</p>
+
+                        <div>
+                            <h5 class="mt-4">Bank Interest Rate</h5>
+                            <input type="text" class="text_emi"> <i class="fa-solid fa-percent ms-2"></i>
+                            <div class="slidecontainer">
+                                <input type="range" min="0" max="100" value="7500" class="slider py-1" id="myRange2">
+                                <!-- <p>Value: <span id="demo2"></span></p> -->
                             </div>
                         </div>
-                    </div> -->
-        </div>
-        </div>
+                        <div>
+                            <h5 class="mt-4 ">Loan Period Months</h5>
+
+                            <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                                <label class="btn btn-success ">
+                                    <input type="radio" name="options" id="option1" autocomplete="off">12
+                                </label>
+                                <label class="btn btn-success">
+                                    <input type="radio" name="options" id="option2" autocomplete="off">18
+                                </label>
+                                <label class="btn btn-success">
+                                    <input type="radio" name="options" id="option3" autocomplete="off">24
+                                </label>
+                                <label class="btn btn-success">
+                                    <input type="radio" name="options" id="option4" autocomplete="off">30
+                                </label>
+                                <label class="btn btn-success">
+                                    <input type="radio" name="options" id="option5" autocomplete="off">36
+                                </label>
+                                <label class="btn btn-success">
+                                    <input type="radio" name="options" id="option6" autocomplete="off">42
+                                </label>
+                                <label class="btn btn-success">
+                                    <input type="radio" name="options" id="option7" autocomplete="off">48
+                                </label>
+                                <label class="btn btn-success">
+                                    <input type="radio" name="options" id="option8" autocomplete="off">54
+                                </label>
+                                <label class="btn btn-success">
+                                    <input type="radio" name="options" id="option9" autocomplete="off" checked>60
+                                </label>
+                                <label class="btn btn-success">
+                                    <input type="radio" name="options" id="option10" autocomplete="off">66
+                                </label>
+                                <label class="btn btn-success">
+                                    <input type="radio" name="options" id="option11" autocomplete="off">72
+                                </label>
+                                <label class="btn btn-success">
+                                    <input type="radio" name="options" id="option12" autocomplete="off">78
+                                </label>
+                                <label class="btn btn-success">
+                                    <input type="radio" name="options" id="option13" autocomplete="off">84
+                                </label>
+                            </div>
+
+
+                        </div>
+
+                        <div>
+                            <h5 class="mt-4 ">Repayment Interval</h5>
+
+                        </div>
+
+
+                    </div>
+                    <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-5 ">
+                        <div class="row">
+                            <div class="col-6 col-lg-6 col-md-6 col-sm-6 text-center mb-4">
+                                <h3 class="fw-bold">EMI</h3>
+                            </div>
+                            <div class="col-6 col-lg-6 col-md-6 col-sm-6 text-center mb-4">
+                                <h3 class="fw-bold"><span class="px-1">₹</span>0</h3>
+                            </div>
+                            <div class="col-6 col-lg-6 col-md-6 col-sm-6 py-2 text-center">
+                                <h5>*Ex-showroom Price</h5>
+                                <h6><span class="px-1">₹</span>0</h6>
+                            </div>
+                            <div class="col-6 col-lg-6 col-md-6 col-sm-6 py-2 text-center">
+                                <h5>Total Loan Amount</h5>
+                                <h6><span class="px-1">₹</span>0</h6>
+                            </div>
+                            <div class="col-6 col-lg-6 col-md-6 col-sm-6 py-2 text-center">
+                                <h5>Payable Amount</h5>
+                                <h6><span class="px-1">₹</span>0</h6>
+                            </div>
+                            <div class="col-6 col-lg-6 col-md-6 col-sm-6 py-2 text-center">
+                                <h5>You’ll pay extra</h5>
+                                <h6><span class="px-1">₹</span>0</h6>
+                            </div>
+                            <button type="button" class="w-100 fw-bold btn btn-success mt-3 mb-1">View Loan
+                                Offers</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
-
     <section class="my-4">
         <div class="container my-5">
             <h3 class="fw-bold assured px-2 py-2">About Tractor Loan EMI Calculator in India</h3>
@@ -458,7 +549,6 @@
         </div>
 
     </section>
-
     <?php
     include 'includes/footer.php';
     include 'includes/footertag.php';
@@ -479,7 +569,78 @@
             }
         });
     });
+    var brandModelData = {
+        "Brand 1": ["Model A", "Model B", "Model C"],
+        "Brand 2": ["Model X", "Model Y", "Model Z"],
+        "Brand 3": ["Model I", "Model II", "Model III"]
+    };
+    var brandSelect = document.getElementById("brandSelect");
+    for (var brand in brandModelData) {
+        var option = document.createElement("option");
+        option.value = brand;
+        option.text = brand;
+        brandSelect.add(option);
+    }
+
+    function populateModels() {
+        var brandSelect = document.getElementById("brandSelect");
+        var modelSelect = document.getElementById("modelSelect");
+
+        modelSelect.innerHTML = '<option value="">Select Model</option>';
+
+        var selectedBrand = brandSelect.value;
+
+        var models = brandModelData[selectedBrand];
+        if (models) {
+            models.forEach(function(model) {
+                addOption(modelSelect, model);
+            });
+        }
+    }
+
+    function addOption(selectElement, optionText) {
+        var option = document.createElement("option");
+        option.text = optionText;
+        selectElement.add(option);
+    }
+    //  function calculateEMI() {
+    //     // Add your EMI calculation logic here
+    //     alert("EMI Calculation not implemented in this example.");
+    // }
+
+
+    $(document).ready(function() {
+        $("#brandModelForm").validate({
+            rules: {
+                brandSelect: 'required',
+                modelSelect: 'required',
+            }
+        });
+
+
+        $('#calculateEMI').on('click', function() {
+            $('#brandModelForm').valid();
+            console.log($('#brandModelForm').valid());
+        });
+    });
+
+    function showEMIForm() {
+        // Validate the first form
+        if ($("#brandModelForm").valid()) {
+            // Hide the first form and show the second form
+            $("#form1").addClass("hidden");
+            $("#form2").removeClass("hidden");
+        }
+    }
+
+    function showBrandModelForm() {
+        // Hide the second form and show the first form
+        $("#form2").addClass("hidden");
+        $("#form1").removeClass("hidden");
+    }
     </script>
+
+
 </body>
 
 </html>

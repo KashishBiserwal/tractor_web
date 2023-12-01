@@ -42,7 +42,7 @@
                     <div class="col-12 col-lg-4 col-md-4 col-sm-4 mt-3 ">
                         <div class="h-auto success__stry__item d-flex flex-column shadow ">
                             <div class="thumb">
-                                <a href="#">
+                                <a href="used_farm_inner.php">
                                     <div class="ratio ratio-16x9">
                                         <img src="assets/images/Sell-implement-product-1674815159-0.jpeg" class="object-fit-cover " alt="img">
                                     </div>
@@ -50,7 +50,7 @@
                             </div>
                             <div class="content d-flex flex-column flex-grow-1 ">
                                 <div class="caption text-center">
-                                    <a href="#" class="text-decoration-none text-dark">
+                                    <a href="used_farm_inner.php" class="text-decoration-none text-dark">
                                         <p class="pt-3"><strong class="series_tractor_strong text-center h4 fw-bold ">Mourya 2013</strong></p>
                                     </a>      
                                 </div>

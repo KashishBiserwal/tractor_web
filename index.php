@@ -1816,29 +1816,6 @@
                         </div>
                       </a>
                     </div>
-                    <!-- <div class="content ">
-                      <a href="#" class="text-decoration-none text-dark">
-                        <h4 class="fw-bold mt-2">Mahindra JIVO 305 DI </h3>
-                      </a>
-                      <div class="row mt-1 ps-1">
-                        <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                          <p class="">
-                            <i class="fas fa-bolt"></i> 30 HP
-                          </p>
-                        </div>
-                        <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                          <p class="">
-                            <i class="fa fa-cog" aria-hidden="true"></i>1290CC
-                          </p>
-                        </div>
-                      </div>
-                      <a href="#" class="text-decoration-none text-dark mb-4 ms-3">
-                        <span> Get On Road price </span>
-                        <span class="icon">
-                          <i class="fa-solid fa-chevron-right"></i>
-                        </span>
-                      </a>
-                    </div> -->
                     <div class="post-content">
                       <h5 class="post-title">
                         <a href="#" class="text-decoration-none text-dark fw-bold">Mahindra JIVO 305 DI</a>
@@ -1976,7 +1953,6 @@
                     </div>
                   </div>
                 </div>
-                <!-- </div> -->
                 <div class="swiper-pagination"></div>
                 <div class="swiper_nav">
                   <!-- <div class="swiper-button-prev"></div><div class="swiper-button-next "></div> -->
@@ -2045,7 +2021,7 @@
             <div class="col-12 col-md-2 col-lg-2 col-sm-3 p-4 ">
               <div class="p-3 toolsservice rounded-3 shadow">
                 <div class="col-12 text-center">
-                  <img src="assets/images/about-us.png" class="w-50 img-tools p-4" alt="">
+                  <img src="assets/images/about-us.png" class="w-50 img-tools p-3" alt="">
                 </div>
                 <div class="col-12">
                   <h6 class="service-box fw-bold fs-6 mt-2 text-center text-dark">About Us</h6>

@@ -629,8 +629,50 @@ const swiper_sell = new Swiper(".slider", {
   }
 });
 
+// mahindra brand carousel
 
+jQuery("#carousel_related").owlCarousel({
+  autoplay: true,
+  rewind: true,
+  margin: 20,
+   /*
+  animateOut: 'fadeOut',
+  animateIn: 'fadeIn',
+  */
+  responsiveClass: true,
+  autoHeight: true,
+  autoplayTimeout: 7000,
+  smartSpeed: 800,
+  nav: true,
+  responsive: {
+    0: {
+      items: 1
+    },
 
+    600: {
+      items: 3
+    },
+
+    1024: {
+      items: 4
+    },
+
+    1366: {
+      items: 4
+    }
+  }
+});
+
+// $(function() {
+//   // Owl Carousel
+//   var owl = $(".owl-carousel");
+//   owl.owlCarousel({
+//     items: 4,
+//     margin: 15,
+//     loop: true,
+//     nav: true
+//   });
+// });
 
 // Open links in mobiles
 // function handleSmallScreens() {

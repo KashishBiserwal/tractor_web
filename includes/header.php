@@ -46,7 +46,7 @@
 <nav class="navbar  navbar-expand-lg navbar-dark main-navbar" >
   <div class="container">
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
+      <span class="navbar-toggler-icon bg-dark"></span>
     </button>
     <div class="collapse navbar-collapse p-0" id="navbarSupportedContent">
       <ul class="navbar-nav  mb-2 mb-lg-0 ">
@@ -250,11 +250,7 @@
           <ul class="dropdown-menu  pt-3 mt-2 ">
                 <li><a class="dropdown-item fw-bold" href="emi.php">EMI Calculator</a></li>
                 <hr class="dropdown-divider">
-                <li><a class="dropdown-item fw-bold" href="#">Finance</a></li>
-                <hr class="dropdown-divider">
-                <li><a class="dropdown-item fw-bold" href="#">Tyres</a></li>
-                <hr class="dropdown-divider">
-                <li><a class="dropdown-item fw-bold" href="#">Insurance</a></li>
+                <li><a class="dropdown-item fw-bold" href="tyre.php">Tyres</a></li>
                 <hr class="dropdown-divider">
                 <li><a class="dropdown-item  fw-bold" href="dealership_enq.php">Dealership Enquiry</a></li>
                 <hr class="dropdown-divider">
