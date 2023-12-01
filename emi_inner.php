@@ -127,7 +127,6 @@
             </div>
         </div>
     </div>
-
     <section class="my-4">
         <div class="container">
             <h3 class="fw-bold assured px-2 mt-2">EMI Calculation Form</h3>
