@@ -67,9 +67,7 @@
 .e-condition{
   font-size: 0.7rem;
 }
-.p-4{
-    padding: 1.5rem!important;
-}
+
 .col-lg-2{
     flex: 0,0 auto;
     width: 16.666666;
@@ -145,4 +143,8 @@
     margin: 0;
     font-style: italic;
     font-weight: 300;
+}
+.img-fluid{
+  max-width: 100%;
+  height: 300;
 }

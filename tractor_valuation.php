@@ -23,20 +23,16 @@
         </div>
     </div>
 </section>
-<section>
+<!-- <section>
     <div class="d-sm-flex align-items-center justify-content-between w-100">
         <div class="col-md-4 mx-auto mb-4 mb-sm-0 text-center headline">
             <span class="text-secondary text-uppercase"></span>
             <h2 class=" text-dark ">Get True Price of a <span class="text-success">Used Tractor</span></h2>
             <h4 class="mb-4">जानिए अपने ट्रैक्टर की सही कीमत</h4>
-            <!-- <a class="btn px-5 py-3 text-white mt-3 mt-sm-0 btn-success" type="
-            button"  data-toggle="modal" data-target="#exampleModal" style="border-radius: 30px; ">Get Valuation</a> -->
-            <!-- Button trigger modal -->
             <button type="button" class="btn px-5 py-3 text-white mt-3 mt-sm-0 btn-success" data-bs-toggle="modal" style="border-radius: 30px; "data-bs-target="#exampleModal">
             Get Valuation
             </button>
 
-            <!-- Modal -->
             <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-lg modal-dialog-centered">
                     <div class="modal-content">
@@ -47,12 +43,12 @@
                     <div class="modal-body">
                         <div class="row justify-content-center">
                             <div class="col-lg-10">
-                            <!-- <h3 class="mb-3">Fill The Form</h3> -->
+                      
                             <form>
                                 <div class="row ">
                                     <div class="col-12 col-lg-6 col-sm-5 col-md-6 my-2">
                                         <label for="your-name" class=" text-dark float-start fw-bold">Select Brand</label>
-                                        <!-- <input type="text" class="form-control" id="your-name" name="your-name" required> -->
+                                
                                         <select class="form-select form-control" aria-label="Default select example" name="select_brand" id="select_brand">
                                             <option selected>Hindustan</option>
                                             <option value="1">Mahindra</option>
@@ -150,17 +146,22 @@
                 </div>
             </div>
 
-             
-            
         </div>
             
-        <!-- in mobile remove the clippath -->
         <div class="col-md-8 h-100 clipped" style="min-height: 350px; background-image: url(assets/images/farm-landscape-vector-illustration-with-green-meadow-field-tractor-and-animal-cow-horse-nature-illustration_csp85113722.webp); background-position: center; background-size: cover;">
 
         </div>
     </div>
+</section> -->
+<section>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="page-bannerimage">
+                <img class="img-fluid" src="assets/images/istockphoto-1033665866-612x612.jpg" alt="">
+            </div>
+        </div>
+    </div>
 </section>
-
 <section>
     <div class="container  my-5">
         <div class="my-3">
