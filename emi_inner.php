@@ -134,16 +134,16 @@
         <div class="container">
             <div class="row">
                 <div class="col-12 col-md-6 col-sm-6 col-lg-6">
-                    <img src="assets\images\eicher-551-2wd-prima-g3.webp" class="w-100 h-50 mt-3">
+                    <img src="assets\images\powertrac-euro-47-1690880683.webp" class="w-100">
                     <button type="button" class="w-100 btn btn-outline-success fw-bold mt-3 mb-1">Get on road
                         Price</button>
                 </div>
-                <div class="col-12 col-md-6 col-sm-6 col-lg-6">
+                <div class="col-12 col-md-6 col-sm-6 col-lg-6 mt-5">
                     <div class="row">
-                        <div class="col-6 col-lg-6 col-md-6 col-sm-6 text-center mb-4">
+                        <div class="col-6 col-lg-6 col-md-6 col-sm-6 text-center mt-4 mb-4">
                             <h3 class="fw-bold">EMI</h3>
                         </div>
-                        <div class="col-6 col-lg-6 col-md-6 col-sm-6 text-center mb-4">
+                        <div class="col-6 col-lg-6 col-md-6 col-sm-6 text-center mt-4 mb-4">
                             <h3 class="fw-bold"><span class="px-1">₹</span>0</h3>
                         </div>
                         <div class="col-6 col-lg-6 col-md-6 col-sm-6 py-2 text-center">
