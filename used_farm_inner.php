@@ -485,7 +485,8 @@
                                 <a href="#" title="Mahendra Yuvo 265 DI" class="weblink" tabindex="0">
                                     <p class="para h5 pt-2">Mourya 265 DI</p>
                                 </a>
-                                <p class="mt-2 nb-0"> From:₹4.96-5.19lac*</p>
+                                <p class="mt-2 nb-0"> Price <b>₹</b> 5,00,000</p>
+                                <p class=""><span class="text-center">Hours:N/A</span></p>
                             </div>
                             <div class="col-12">
                                 <span><a href="#" class="btn price-bnt btn-success w-100 ">Get On Road Price</a></span>
@@ -501,7 +502,8 @@
                                 <a href="#" title="Mahendra Yuvo 265 DI" class="weblink" tabindex="0">
                                     <p class="para h5 pt-2">Mourya 2013</p>
                                 </a>
-                                <p class="mt-2 nb-0"> From:₹4.96-5.19lac*</p>
+                                <p class="mt-2 nb-0"> Price <b>₹</b> 5,00,000</p>
+                                <p class=""><span class="text-center">Hours:N/A</span></p>
                             </div>
                             <div class="col-12">
                                 <span><a href="#" class="btn price-bnt btn-success w-100 ">Get On Road Price</a></span>
@@ -517,7 +519,8 @@
                                 <a href="#" title="Mahendra Yuvo 265 DI" class="weblink" tabindex="0">
                                     <p class="para h5 pt-2">Mahendra Yuvo 265 DI</p>
                                 </a>
-                                <p class="mt-2 nb-0"> From:₹4.96-5.19lac*</p>
+                                <p class="mt-2 nb-0"> Price <b>₹</b> 5,00,000</p>
+                                <p class=""><span class="text-center">Hours:N/A</span></p>
                             </div>
                             <div class="col-12">
                                 <span><a href="#" class="btn price-bnt btn-success w-100 ">Get On Road Price</a></span>
@@ -533,7 +536,8 @@
                                 <a href="#" title="Mahendra Yuvo 265 DI" class="weblink" tabindex="0">
                                     <p class="para h5 pt-2">Mahendra Yuvo 265 DI</p>
                                 </a>
-                                <p class="mt-2 nb-0"> From:₹4.96-5.19lac*</p>
+                                <p class="mt-2 nb-0">Price <b>₹</b> 5,00,000</p>
+                                <p class=""><span class="text-center">Hours:N/A</span></p>
                             </div>
                             <div class="col-12">
                                 <span><a href="#" class="btn price-bnt btn-success w-100 ">Get On Road Price</a></span>
@@ -549,7 +553,8 @@
                                 <a href="#" title="Mahendra Yuvo 265 DI" class="weblink" tabindex="0">
                                     <p class="para h5 pt-2">Mahendra Yuvo 265 DI</p>
                                 </a>
-                                <p class="mt-2 nb-0"> From:₹4.96-5.19lac*</p>
+                                <p class="mt-2 nb-0"> Price <b>₹</b> 5,00,000</p>
+                                <p class=""><span class="text-center">Hours:N/A</span></p>
                             </div>
                             <div class="col-12">
                                 <span><a href="#" class="btn price-bnt btn-success w-100 ">Get On Road Price</a></span>
@@ -565,7 +570,8 @@
                                 <a href="#" title="Mahendra Yuvo 265 DI" class="weblink" tabindex="0">
                                     <p class="para h5 pt-2">Sonalika</p>
                                 </a>
-                                <p class="mt-2 nb-0"> From:₹4.96-5.19lac*</p>
+                                <p class="mt-2 nb-0"> Price <b>₹</b> 5,00,000</p>
+                                <p class=""><span class="text-center">Hours:N/A</span></p>
                             </div>
                             <div class="">
                                 <span><a href="#" class="btn price-bnt btn-success w-100 ">Get On Road Price</a></span>
@@ -580,7 +586,8 @@
                             <div class="text-center">
                                     <a href="#" title="Mahendra Yuvo 265 DI" class="weblink" tabindex="0">
                                     <p class="para h5 pt-2">Mourya 2013</p></a>
-                                    <p class="mt-2 nb-0"> From:₹4.96-5.19lac*</p>
+                                    <p class="mt-2 nb-0">Price <b>₹</b> 5,00,000</p>
+                                    <p class=""><span class="text-center">Hours:N/A</span></p>
                             </div>
                             <div class="">
                                     <span><a href="#" class="btn price-bnt btn-success w-100 ">Get On Road Price</a></span>
@@ -699,7 +706,7 @@
 </section> -->
 <section class="bg-light">
     <div class="container">
-        <h5 class="assured ps-3">Disclaimer:-</h5>
+        <h5 class="assured ps-3 p-2">Disclaimer:-</h5>
         <p>*Used tractors and Farm Equipments Buy/Sell is totally Farmer-To-Farmer driven transactions. Tractor Junction has provided the platform for Used tractors and Farm Equipments to support & help Farmers. Tractor Junction is not for information provided by Sellers/Brokers or any such frauds resulting from the same. Please read safety tips carefully before making any purchase.</p>
         </div>
     </div>
