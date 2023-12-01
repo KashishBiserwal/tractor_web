@@ -94,13 +94,11 @@
             </div>
         </div>
     </section>
-
     <div class="container-fluid">
         <div class="row siv" id="">
             <img src="assets/images/emi_calculator.webp" alt="reload img" class="w-100" style="height: 350px;">
         </div>
     </div>
-
     <div class="container mt-5">
         <div class="row row-cols-1 row-cols-md-1 row-cols-lg-1">
             <div class="col">
@@ -130,7 +128,6 @@
     <section class="my-4">
         <div class="container">
             <h3 class="fw-bold assured px-2 mt-2">EMI Calculation Form</h3>
-
             <div class="row">
                 <div class="col-12 col-sm-12 col-md-6 col-lg-6">
                     <img src="assets\images\eicher-551-2wd-prima-g3.webp" class="w-100 h-50 mt-3" alt="Edit">
@@ -144,7 +141,6 @@
                             <!-- <p>Value: <span id="demo"></span></p> -->
                         </div>
                     </div>
-
                     <div>
                         <h5 class="mt-4">Bank Interest Rate</h5>
                         <input type="text" class="text_emi"> <i class="fa-solid fa-percent ms-2"></i>
@@ -155,7 +151,6 @@
                     </div>
                     <div>
                         <h5 class="mt-4 ">Loan Period Months</h5>
-
                         <div class="btn-group btn-group-toggle" data-toggle="buttons">
                             <label class="btn btn-success ">
                                 <input type="radio" name="options" id="option1" autocomplete="off">12
@@ -197,16 +192,10 @@
                                 <input type="radio" name="options" id="option13" autocomplete="off">84
                             </label>
                         </div>
-
-
                     </div>
-
                     <div>
                         <h5 class="mt-4 ">Repayment Interval</h5>
-
                     </div>
-
-
                 </div>
                 <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-5 ">
                     <div class="row">
