@@ -25,7 +25,7 @@
 </section>
 
 <!-- Mahindra 575 DI XP Plus -->
-<section>
+<section id="Mahindra_575">
     <div class="container">
         <h1 class="mt-4">Mahindra 575 DI XP Plus</h1>
         <div class="row">
@@ -33,70 +33,6 @@
                 <img src="assets/images/mahindra-575-di-sp-plus-836976961.avif" alt="mahindra-575-DI-XP-Plus">
             </div>
             <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                <!-- <div class="row ps-3">
-                  <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                    <h5> <i class="fa-solid fa-award"></i> Brand</h5>
-                  </div> 
-                  <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                    <p><a href="mahindra.php" class="text-decoration-none h5 text-danger ">Mahindra Tractors</a></p>
-                  </div> 
-                </div>
-                <div class="row ps-3 mt-3">
-                  <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                    <p><i class="fa-solid fa-pump"></i>  No. Of Cylinder</p>
-                  </div> 
-                  <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                    <p>4</p>
-                  </div> 
-                </div>
-                <div class="row ps-3">
-                  <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                    <p><i class="fas fa-bolt"></i> HP Category</p>
-                  </div> 
-                  <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                    <p>47 HP</p>
-                  </div> 
-                </div>
-                <div class="row ps-3">
-                  <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                    <p><i class="fas fa-bolt"></i> PTO HP</p>
-                  </div> 
-                  <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                    <p>42 HP</p>
-                  </div> 
-                </div>
-                <div class="row ps-3">
-                  <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                    <p> <i class="fa-solid fa-gear"></i> Gear Box</p>
-                  </div> 
-                  <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                    <p>8 Forward + 2 Reverse</p>
-                  </div> 
-                </div>
-                <div class="row ps-3">
-                  <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                    <p><i class="fa-solid fa-brake-warning"></i> Brakes</p>
-                  </div> 
-                  <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                    <p>Oil Immersed Brakes</p>
-                  </div> 
-                </div>
-                <div class="row ps-3">
-                  <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                    <p><i class="fa-solid fa-pen-to-square"></i> Warranty</p>
-                  </div> 
-                  <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                    <p>6 Year</p>
-                  </div> 
-                </div>
-                <div class="row ps-3">
-                  <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                    <p><i class="fas fa-rupee-sign"></i> Price</p>
-                  </div> 
-                  <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                    <p> <a href="#" class="text-decoration-none text-danger">Check Price</a></p>
-                  </div> 
-                </div> -->
                 <table class="table table-borderless">
                     <thead>
                         <tr>
@@ -183,48 +119,6 @@
                    
                 </div>
             </div>
-            <!-- <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                <div class="featureservice rounded-3">
-                    <div class="row p-3 ">
-                        <div class="col-12 col-lg-5 col-md-5 col-sm-5">
-                            <img src="assets/images/lifting.webp" class="w-50 rounded-circle" alt="">
-                        </div>
-                        <div class="col-12 col-lg-7 col-md-7 col-sm-7">
-                            <h6 class="service-box fw-bold fs-5 mt-3 text-white">LIFTING CAPACITY </h6>
-                            <p class="text-white">1500 Kg</p>
-                        </div>
-                    </div>
-                   
-                </div>
-            </div>
-            <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                <div class="featureservice rounded-3">
-                    <div class="row p-3 ">
-                        <div class="col-12 col-lg-5 col-md-5 col-sm-5">
-                            <img src="assets/images/1892668-200wheel.png" class="w-50 rounded-circle bg-white" alt="">
-                        </div>
-                        <div class="col-12 col-lg-7 col-md-7 col-sm-7">
-                            <h6 class="service-box fw-bold fs-5 mt-3 text-white">WHEEL DRIVE </h6>
-                            <p class="text-white">2 WD</p>
-                        </div>
-                    </div>
-                   
-                </div>
-            </div>
-            <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                <div class="featureservice rounded-3">
-                    <div class="row p-3 ">
-                        <div class="col-12 col-lg-5 col-md-5 col-sm-5">
-                            <img src="assets/images/rpmrated.jpg" class="w-50 rounded-circle" alt="">
-                        </div>
-                        <div class="col-12 col-lg-7 col-md-7 col-sm-7">
-                            <h6 class="service-box fw-bold fs-5 mt-3 text-white">ENGINE RATED RPM</h6>
-                            <p class="text-white">2000</p>
-                        </div>
-                    </div>
-                   
-                </div>
-            </div> -->
         </div>
     </div>
 </section>
@@ -289,11 +183,8 @@
                 <td class="table-data">Torque</td>
                 <td class="table-data">192 NM</td>
                 </tr>
-                
-
             </tbody>
         </table>
-
     </div>
 </section>
 
@@ -304,7 +195,6 @@
         </div>
 
         <table class="table w-75 table-hover table table-striped my-4">
-            
             <tbody>
                 <tr>
                 <td class="table-data">Type</td>
@@ -328,7 +218,6 @@
                 </tr>
             </tbody>
         </table>
-
     </div>
 </section>
 
@@ -339,16 +228,13 @@
         </div>
 
         <table class="table w-75 table-hover table table-striped my-4">
-            
             <tbody>
                 <tr>
                 <td class="table-data">Brakes</td>
                 <td class="table-data">Oil Immersed Brakes</td>
                 </tr>
-                
             </tbody>
         </table>
-
     </div>
 </section>
 
@@ -447,6 +333,22 @@
 
     </div>
 </section>
+<section class="mt-3">
+    <div class="container">
+        <div class="about border-success  border-4 text-dark border-start">
+            <h3 class="text-dark fw-bold text-start ps-4">Mahindra 575 DI XP Plus Fuel Tank</h3>
+        </div>
+
+        <table class="table w-75 table-hover table table-striped my-4">
+            <tbody>
+                <tr>
+                <td class="table-data">Capacity</td>
+                <td class="table-data">1500 L</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</section>
 
 <section class="mt-3">
     <div class="container">
@@ -502,656 +404,7 @@
 
     </div>
 </section>
-<!-- table end -->
 
-    <!-- <section class=" my-5">
-        <div class="container">
-            <h2 class="fw-bold text-dark text-start">Similar Mahindra 575 DI XP Plus</h3>
-            <div class="container "></div>
-                <div class="swiper swiper-container1 my-2 py-3 row">
-                    <div class="swiper-wrapper ">
-                                <div class="swiper-slide h-auto success__stry__item d-flex flex-column shadow ">
-
-                                    <div class="thumb">
-                                        <a href="#">
-                                            <div class="ratio ratio-16x9">
-                                                <img src="assets/images/hav-55-s1-plus.webp" class="object-fit-cover py-2" alt="img">
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div class="content d-flex flex-column flex-grow-1 ms-3">
-                                     
-                                        <a href="#" class="text-decoration-none text-dark">
-                                            <h4 class="fw-bold mt-3">HAV 55 S1 Plus</h3>
-                                        </a>
-
-                                        <a href="# " class="text-dark flex-grow-1 text-decoration-none ">
-                                            <p>From: ₹13.99 lac*</p>
-                                        </a>
-                                        <a href="#" class="text-decoration-none text-dark mb-4">
-                                            <span>
-                                                Get On Road price
-                                            </span>
-                                            <span class="icon">
-                                                <i class="fa-solid fa-chevron-right"></i>
-                                            </span>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide h-auto success__stry__item d-flex flex-column shadow">
-
-                                    <div class="thumb">
-                                        <a href="#">
-                                            <div class="ratio ratio-16x9">
-                                                <img src="assets/images/farmtrac-champion-42-1690538013.webp" class="object-fit-cover" alt="img">
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div class="content d-flex flex-column flex-grow-1 ms-3">
-                                     
-                                        <a href="#" class="text-decoration-none text-dark ">
-                                            <h4 class="fw-bold mt-3">Farmtrac 50 Smart</h3>
-                                        </a>
-
-                                        <a href="# " class="text-dark flex-grow-1 text-decoration-none ">
-                                            <p>Rs. 6.50 - 6.70 Lakh*</p>
-                                        </a>
-                                        <a href="#" class="text-decoration-none text-dark mb-4">
-                                            <span>
-                                                Get On Road price
-                                            </span>
-                                            <span class="icon">
-                                                <i class="fa-solid fa-chevron-right"></i>
-                                            </span>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide h-auto success__stry__item d-flex flex-column shadow ">
-
-                                    <div class="thumb">
-                                        <a href="#">
-                                            <div class="ratio ratio-16x9">
-                                                <img src="assets/images/powertrac-euro-47-1690880683.webp" class="object-fit-cover" alt="img">
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div class="content d-flex flex-column flex-grow-1 ms-3">
-                                     
-                                        <a href="#" class="text-decoration-none text-dark">
-                                            <h4 class="fw-bold mt-3">Powertrac Euro 47</h3>
-                                        </a>
-
-                                        <a href="# " class="text-dark flex-grow-1 text-decoration-none ">
-                                            <p> Rs. 6.67-7.06 Lakh*</p>
-                                        </a>
-                                        <a href="#" class="text-decoration-none text-dark mb-4">
-                                            <span>
-                                                Get On Road price
-                                            </span>
-                                            <span class="icon">
-                                                <i class="fa-solid fa-chevron-right"></i>
-                                            </span>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide h-auto success__stry__item d-flex flex-column shadow ">
-                                    <div class="thumb">
-                                        <a href="#">
-                                            <div class="ratio ratio-16x9">
-                                                <img src="assets/images/sonalika-rx-42-4wd-1693217919.webp" class="object-fit-cover" alt="img">
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div class="content d-flex flex-column flex-grow-1 ms-3">
-                                    
-                                        <a href="#" class="text-decoration-none text-dark">
-                                            <h4 class="fw-bold mt-3">Sonalika RX 42 4WD</h3>
-                                        </a>
-
-                                        <a href="# " class="text-dark flex-grow-1 text-decoration-none ">
-                                            <p>*</p>
-                                        </a>
-                                        <a href="#" class="text-decoration-none text-dark mb-4">
-                                            <span>
-                                                Get On Road price
-                                            </span>
-                                            <span class="icon">
-                                                <i class="fa-solid fa-chevron-right"></i>
-                                            </span>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide h-auto success__stry__item d-flex flex-column shadow">
-                                    <div class="thumb">
-                                        <a href="#">
-                                            <div class="ratio ratio-16x9">
-                                                <img src="assets/images/digitrac-pp-46i7.webp" class="object-fit-cover" alt="img">
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div class="content d-flex flex-column flex-grow-1 ms-3">
-                                     
-                                        <a href="#" class="text-decoration-none text-dark">
-                                            <h4 class="fw-bold mt-3">Digitrac PP 46i</h3>
-                                        </a>
-
-                                        <a href="# " class="text-dark flex-grow-1 text-decoration-none ">
-                                            <p>From: ₹6.82- 7.52 lac*</p>
-                                        </a>
-                                        <a href="#" class="text-decoration-none text-dark mb-4">
-                                            <span>
-                                                Get On Road price
-                                            </span>
-                                            <span class="icon">
-                                                <i class="fa-solid fa-chevron-right"></i>
-                                            </span>
-                                        </a>
-                                    </div>
-                                 
-                                </div>
-                                <div class="swiper-slide h-auto success__stry__item d-flex flex-column shadow">
-                                    <div class="thumb">
-                                        <a href="#">
-                                            <div class="ratio ratio-16x9">
-                                                <img src="assets/images/massey-ferguson-241-di-1693217292.webp" class="object-fit-cover" alt="img">
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div class="content d-flex flex-column flex-grow-1 ms-3">
-                                     
-                                        <a href="#" class="text-decoration-none text-dark">
-                                            <h4 class="fw-bold mt-3">Massey Ferguson 241 DI</h3>
-                                        </a>
-
-                                        <a href="# " class="text-dark flex-grow-1 text-decoration-none ">
-                                            <p>44hp*</p>
-                                        </a>
-                                        <a href="#" class="text-decoration-none text-dark mb-4">
-                                            <span>
-                                                Get On Road price
-                                            </span>
-                                            <span class="icon">
-                                                <i class="fa-solid fa-chevron-right"></i>
-                                            </span>
-                                        </a>
-                                    </div>
-                                 
-                                </div>
-                                <div class="swiper-slide h-auto success__stry__item d-flex flex-column shadow">
-                                    <div class="thumb">
-                                        <a href="#">
-                                            <div class="ratio ratio-16x9">
-                                                <img src="assets/images/4549-cr-4wd-1631532714.webp" class="object-fit-cover" alt="img">
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div class="content d-flex flex-column flex-grow-1 ms-3">
-                                     
-                                        <a href="#" class="text-decoration-none text-dark">
-                                            <h4 class="fw-bold mt-3">Preet 4549 CR - 4WD</h3>
-                                        </a>
-
-                                        <a href="# " class="text-dark flex-grow-1 text-decoration-none ">
-                                            <p>Rs 7.50 Lakh* - Rs 8.00 Lakh*</p>
-                                        </a>
-                                        <a href="#" class="text-decoration-none text-dark mb-4">
-                                            <span>
-                                                Get On Road price
-                                            </span>
-                                            <span class="icon">
-                                                <i class="fa-solid fa-chevron-right"></i>
-                                            </span>
-                                        </a>
-                                    </div>
-                                 
-                                </div>
-                                <div class="swiper-slide h-auto success__stry__item d-flex flex-column shadow">
-                                    <div class="thumb">
-                                        <a href="#">
-                                            <div class="ratio ratio-16x9">
-                                                <img src="assets/images/valdo-945-sdi9.webp" class="object-fit-cover" alt="img">
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div class="content d-flex flex-column flex-grow-1 ms-3">
-                                     
-                                        <a href="#" class="text-decoration-none text-dark">
-                                            <h4 class="fw-bold mt-3">Valdo 945 - SDI</h3>
-                                        </a>
-
-                                        <a href="# " class="text-dark flex-grow-1 text-decoration-none ">
-                                            <p>Rs. 6.80-7.25 Lakh*</p>
-                                        </a>
-                                        <a href="#" class="text-decoration-none text-dark mb-4">
-                                            <span>
-                                                Get On Road price
-                                            </span>
-                                            <span class="icon">
-                                                <i class="fa-solid fa-chevron-right"></i>
-                                            </span>
-                                        </a>
-                                    </div>
-                                 
-                                </div>
-                                <div class="swiper-slide h-auto success__stry__item d-flex flex-column shadow ">
-
-                                    <div class="thumb">
-                                        <a href="#">
-                                            <div class="ratio ratio-16x9">
-                                                <img src="assets/images/powertrac-euro-47-1690880683.webp" class="object-fit-cover" alt="img">
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div class="content d-flex flex-column flex-grow-1 ms-3">
-                                     
-                                        <a href="#" class="text-decoration-none text-dark">
-                                            <h4 class="fw-bold mt-3">Powertrac Euro 47</h3>
-                                        </a>
-
-                                        <a href="# " class="text-dark flex-grow-1 text-decoration-none ">
-                                            <p> Rs. 6.67-7.06 Lakh*</p>
-                                        </a>
-                                        <a href="#" class="text-decoration-none text-dark mb-4">
-                                            <span>
-                                                Get On Road price
-                                            </span>
-                                            <span class="icon">
-                                                <i class="fa-solid fa-chevron-right"></i>
-                                            </span>
-                                        </a>
-                                    </div>
-                                </div>
-
-    
-                            </div>
-                <div class="swiper-pagination1"></div>
-                <div title="Prev" class="swiper-button-prev"></div>
-                <div title="Next" class="swiper-button-next"></div>
-            </div>         
-        </div>
-    </section> -->
-
-    <!-- tyres -->
-    <!-- <section class=" my-5">
-        <div class="container">
-            <h2 class="fw-bold text-dark text-start">Mahindra 575 DI XP Plus Tractor Tyres</h3>
-            <div class="container "></div>
-                <div class="swiper swiper-container1 my-2 py-3 row">
-                    <div class="swiper-wrapper ">
-                                <div class="swiper-slide h-auto success__stry__item d-flex flex-column shadow ">
-
-                                    <div class="thumb">
-                                        <a href="#">
-                                            <div class="ratio ratio-16x9">
-                                                <img src="assets/images/aayushmaan-1567511584-0.jpeg" class="object-fit-cover  py-2" alt="img">
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div class="content d-flex flex-column flex-grow-1 mt-2 ms-3">
-                                     
-                                        <a href="#" class="text-decoration-none text-dark">
-                                            <h4 class="fw-bold mt-3">Aayushmaan</h3>
-                                        </a>
-
-                                        <div class="row">
-                                            <div class="col-6 ">
-                                                <p class="">6.00 X 16</p>
-                                                
-                                            </div>
-                                            <div class="col-6 ">
-                                            <p class="">CEAT Tractor Tyres</p>
-                                            </div>
-                                        </div>
-                                        <a href="#" class="text-decoration-none text-dark mb-4">
-                                            <span>
-                                            Check Detailes
-                                            </span>
-                                            <span class="icon">
-                                                <i class="fa-solid fa-chevron-right"></i>
-                                            </span>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide h-auto success__stry__item d-flex flex-column shadow ">
-
-                                    <div class="thumb">
-                                        <a href="#">
-                                            <div class="ratio ratio-16x9">
-                                                <img src="assets/images/aayushmaan-plus-14-9-x-28-1656139379-0.jpg" class="object-fit-cover  py-2" alt="img">
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div class="content d-flex flex-column flex-grow-1 mt-2 ms-3">
-                                     
-                                        <a href="#" class="text-decoration-none text-dark">
-                                            <h4 class="fw-bold mt-3">Aayushmaan Plus</h3>
-                                        </a>
-
-                                        <div class="row justify-content-center">
-                                            <div class="col-6 ">
-                                                <p class="">14.9 X 28</p>
-                                                
-                                            </div>
-                                            <div class="col-6 ">
-                                            <p class="">CEAT Tractor Tyres</p>
-                                            </div>
-                                        </div>
-                                        <a href="#" class="text-decoration-none text-dark mb-4">
-                                            <span>
-                                            Check Detailes
-                                            </span>
-                                            <span class="icon">
-                                                <i class="fa-solid fa-chevron-right"></i>
-                                            </span>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide h-auto success__stry__item d-flex flex-column shadow ">
-                                    <div class="thumb">
-                                        <a href="#">
-                                            <div class="ratio ratio-16x9">
-                                                <img src="assets/images/aayushmaan-1567667997-0.jpeg" class="object-fit-cover  py-2" alt="img">
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div class="content d-flex flex-column flex-grow-1 mt-2 ms-3">
-                                    
-                                        <a href="#" class="text-decoration-none text-dark">
-                                            <h4 class="fw-bold mt-3">Aayushmaan</h3>
-                                        </a>
-
-                                        <div class="row justify-content-center">
-                                            <div class="col-6 ">
-                                                <p class="">14.9 X 28</p>
-                                                
-                                            </div>
-                                            <div class="col-6 ">
-                                            <p class="">CEAT Tractor Tyres</p>
-                                            </div>
-                                        </div>
-                                        <a href="#" class="text-decoration-none text-dark mb-4">
-                                            <span>
-                                                Check Detailes
-                                            </span>
-                                            <span class="icon">
-                                                <i class="fa-solid fa-chevron-right"></i>
-                                            </span>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide h-auto success__stry__item d-flex flex-column shadow ">
-                                    <div class="thumb">
-                                        <a href="#">
-                                            <div class="ratio ratio-16x9">
-                                                <img src="assets/images/krishak-gold-drive-1582976185-0.jpg" class="object-fit-cover  py-2" alt="img">
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div class="content d-flex flex-column flex-grow-1 mt-2 ms-3">
-                                    
-                                        <a href="#" class="text-decoration-none text-dark">
-                                            <h4 class="fw-bold mt-3">Krishak Gold - Drive</h3>
-                                        </a>
-
-                                        <div class="row justify-content-center">
-                                            <div class="col-6 ">
-                                                <p class="">14.9 X 28</p>
-                                                
-                                            </div>
-                                            <div class="col-6 ">
-                                            <p class="">Apollo Tractor Tyres</p>
-                                            </div>
-                                        </div>
-                                        <a href="#" class="text-decoration-none text-dark mb-4">
-                                            <span>
-                                                Check Detailes
-                                            </span>
-                                            <span class="icon">
-                                                <i class="fa-solid fa-chevron-right"></i>
-                                            </span>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide h-auto success__stry__item d-flex flex-column shadow ">
-                                    <div class="thumb">
-                                        <a href="#">
-                                            <div class="ratio ratio-16x9">
-                                                <img src="assets/images/sona-1567669312-0.jpeg" class="object-fit-cover  py-2" alt="img">
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div class="content d-flex flex-column flex-grow-1 mt-2 ms-3">
-                                    
-                                        <a href="#" class="text-decoration-none text-dark">
-                                            <h4 class="fw-bold mt-3">Sona</h3>
-                                        </a>
-
-                                        <div class="row justify-content-center">
-                                            <div class="col-6 ">
-                                                <p class="">6.00 X 16</p>
-                                                
-                                            </div>
-                                            <div class="col-6 ">
-                                            <p class="">JK Tractor Tyres</p>
-                                            </div>
-                                        </div>
-                                        <a href="#" class="text-decoration-none text-dark mb-4">
-                                            <span>
-                                                Check Detailes
-                                            </span>
-                                            <span class="icon">
-                                                <i class="fa-solid fa-chevron-right"></i>
-                                            </span>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide h-auto success__stry__item d-flex flex-column shadow ">
-                                    <div class="thumb">
-                                        <a href="#">
-                                            <div class="ratio ratio-16x9">
-                                                <img src="assets/images/sona-1-6-00-x-16-1657106540-0.jpg" class="object-fit-cover  py-2" alt="img">
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div class="content d-flex flex-column flex-grow-1 mt-2 ms-3">
-                                    
-                                        <a href="#" class="text-decoration-none text-dark">
-                                            <h4 class="fw-bold mt-3">Sona - 1</h3>
-                                        </a>
-
-                                        <div class="row justify-content-center">
-                                            <div class="col-6 ">
-                                                <p class="">6.00 X 16</p>
-                                                
-                                            </div>
-                                            <div class="col-6 ">
-                                            <p class="">JK Tractor Tyres</p>
-                                            </div>
-                                        </div>
-                                        <a href="#" class="text-decoration-none text-dark mb-4">
-                                            <span>
-                                                Check Detailes
-                                            </span>
-                                            <span class="icon">
-                                                <i class="fa-solid fa-chevron-right"></i>
-                                            </span>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide h-auto success__stry__item d-flex flex-column shadow ">
-                                    <div class="thumb">
-                                        <a href="#">
-                                            <div class="ratio ratio-16x9">
-                                                <img src="assets/images/shakti-life-1577606242-0.jpg" class="object-fit-cover  py-2" alt="img">
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div class="content d-flex flex-column flex-grow-1 mt-2 ms-3">
-                                    
-                                        <a href="#" class="text-decoration-none text-dark">
-                                            <h4 class="fw-bold mt-3">Shakti Life</h3>
-                                        </a>
-
-                                        <div class="row justify-content-center">
-                                            <div class="col-6 ">
-                                                <p class="">6.00 X 16</p>
-                                                
-                                            </div>
-                                            <div class="col-6 ">
-                                            <p class="">MRF Tractor Tyres</p>
-                                            </div>
-                                        </div>
-                                        <a href="#" class="text-decoration-none text-dark mb-4">
-                                            <span>
-                                                Check Detailes
-                                            </span>
-                                            <span class="icon">
-                                                <i class="fa-solid fa-chevron-right"></i>
-                                            </span>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide h-auto success__stry__item d-flex flex-column shadow ">
-                                    <div class="thumb">
-                                        <a href="#">
-                                            <div class="ratio ratio-16x9">
-                                                <img src="assets/images/shakti-super-1577607081-0.jpg" class="object-fit-cover  py-2" alt="img">
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div class="content d-flex flex-column flex-grow-1 mt-2 ms-3">
-                                    
-                                        <a href="#" class="text-decoration-none text-dark">
-                                            <h4 class="fw-bold mt-3">Shakti Super</h3>
-                                        </a>
-
-                                        <div class="row justify-content-center">
-                                            <div class="col-6 ">
-                                                <p class="">14.9 X 28</p>
-                                                
-                                            </div>
-                                            <div class="col-6 ">
-                                            <p class="">MRF Tractor Tyres</p>
-                                            </div>
-                                        </div>
-                                        <a href="#" class="text-decoration-none text-dark mb-4">
-                                            <span>
-                                                Check Detailes
-                                            </span>
-                                            <span class="icon">
-                                                <i class="fa-solid fa-chevron-right"></i>
-                                            </span>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide h-auto success__stry__item d-flex flex-column shadow ">
-                                    <div class="thumb">
-                                        <a href="#">
-                                            <div class="ratio ratio-16x9">
-                                                <img src="assets/images/farm-haul-platina-front-6-00-x-16-1657169956-0.jpg" class="object-fit-cover  py-2" alt="img">
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div class="content d-flex flex-column flex-grow-1 mt-2 ms-3">
-                                    
-                                        <a href="#" class="text-decoration-none text-dark">
-                                            <h4 class="fw-bold mt-3">Farm Haul Platina - Front</h3>
-                                        </a>
-
-                                        <div class="row justify-content-center">
-                                            <div class="col-6 ">
-                                                <p class="">6.00 X 16</p>
-                                                
-                                            </div>
-                                            <div class="col-6 ">
-                                            <p class="">Birla Tractor Tyres</p>
-                                            </div>
-                                        </div>
-                                        <a href="#" class="text-decoration-none text-dark mb-4">
-                                            <span>
-                                                Check Detailes
-                                            </span>
-                                            <span class="icon">
-                                                <i class="fa-solid fa-chevron-right"></i>
-                                            </span>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide h-auto success__stry__item d-flex flex-column shadow ">
-                                    <div class="thumb">
-                                        <a href="#">
-                                            <div class="ratio ratio-16x9">
-                                                <img src="assets/images/commander-6-00-x-16-1656917276-0.jpg" class="object-fit-cover  py-2" alt="img">
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div class="content d-flex flex-column flex-grow-1 mt-2 ms-3">
-                                    
-                                        <a href="#" class="text-decoration-none text-dark">
-                                            <h4 class="fw-bold mt-3">COMMANDER</h3>
-                                        </a>
-
-                                        <div class="row justify-content-center">
-                                            <div class="col-6 ">
-                                                <p class="">6.00 X 16</p>
-                                                
-                                            </div>
-                                            <div class="col-6 ">
-                                            <p class="">BKT Tractor Tyres</p>
-                                            </div>
-                                        </div>
-                                        <a href="#" class="text-decoration-none text-dark mb-4">
-                                            <span>
-                                                Check Detailes
-                                            </span>
-                                            <span class="icon">
-                                                <i class="fa-solid fa-chevron-right"></i>
-                                            </span>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide h-auto success__stry__item d-flex flex-column shadow ">
-                                    <div class="thumb">
-                                        <a href="#">
-                                            <div class="ratio ratio-16x9">
-                                                <img src="assets/images/commander-6-00-x-16-1656917276-0.jpg" class="object-fit-cover  py-2" alt="img">
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div class="content d-flex flex-column flex-grow-1 mt-2 ms-3">
-                                    
-                                        <a href="#" class="text-decoration-none text-dark">
-                                            <h4 class="fw-bold mt-3">COMMANDER</h3>
-                                        </a>
-
-                                        <div class="row justify-content-center">
-                                            <div class="col-6 ">
-                                                <p class="">6.00 X 16</p>
-                                                
-                                            </div>
-                                            <div class="col-6 ">
-                                            <p class="">BKT Tractor Tyres</p>
-                                            </div>
-                                        </div>
-                                        <a href="#" class="text-decoration-none text-dark mb-4">
-                                            <span>
-                                                Check Detailes
-                                            </span>
-                                            <span class="icon">
-                                                <i class="fa-solid fa-chevron-right"></i>
-                                            </span>
-                                        </a>
-                                    </div>
-                                </div>
-
-    
-                            </div>
-                <div class="swiper-pagination1"></div>
-                <div title="Prev" class="swiper-button-prev"></div>
-                <div title="Next" class="swiper-button-next"></div>
-            </div>         
-        </div>
-    </section> -->
     <section>
          <div class="container">
             <h2 class="fw-bold text-dark text-start">Similar Used Tractors</h3>

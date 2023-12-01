@@ -43,28 +43,45 @@
                             <form>
                                 <div class="row justify-content-center pt-4">
                                    
-                                    <div class="col-12  my-2">
+                                    <div class="col-12 col-sm-6 col-lg-6 col-md-6">
                                       <div class="form-group">
-                                        <input type="text" class="py-4" placeholder=" " id="brand">
-                                        <label for="name" class="text-dark fw-bold"> News Category</label>
+                                        <input type="text" class="py-2" placeholder=" " id="brand">
+                                        <label for="name" class="text-dark "> News Category</label>
                                       </div>
                                     </div>
-                                    <div class="col-12  my-2">
+                                    <div class="col-12 col-sm-6 col-lg-6 col-md-6">
+                                      <!-- <div class="form-group">
+                                        <input type="text" class="py-2" placeholder=" " id="model">
+                                        <label for="name" class="text-dark ">Name</label>
+                                      </div> -->
+                                    </div>
+                                    <div class="col-12 col-sm-6 col-lg-6 col-md-6 ">
                                       <div class="form-group">
-                                        <input type="text" class="py-4" placeholder=" " id="model">
-                                        <label for="name" class="text-dark fw-bold">Name</label>
+                                        <input type="text" class="py-2" placeholder=" " id="model_name">
+                                        <label for="name" class="text-dark ">News Headline</label>
                                       </div>
                                     </div>
-                                    <div class="col-12 my-1">
+                                    <div class="col-12 col-sm-6 col-lg-6 col-md-6 ">
                                       <div class="form-group">
-                                        <input type="text" class="py-4" placeholder=" " id="model_name">
-                                        <label for="name" class="text-dark fw-bold">News Headline</label>
+                                        <textarea id="w3review" name="w3review" rows="2" cols="40"></textarea>
+                                        <label for="name" class="text-dark ">Body/ News Content</label>
                                       </div>
                                     </div>
-                                    <div class="col-12 my-1">
-                                      <div class="form-group">
-                                        <input type="text" class="py-4" placeholder=" " id="model_name">
-                                        <label for="name" class="text-dark fw-bold">Body/ News Content</label>
+                                    <div class="col-12  ">
+                                      <div class="background__box">
+                                            <div class="background__btn-box ">
+                                                <label class="background__btn">
+                                                <p class="text-white bg-success p-2 rounded">Upload images</p>
+                                                    <input type="file" data-max_length="20"name="imgfile"  ref="fileInput"
+                                                    style="display: none"
+                                                    @change="handleFileInput"
+                                                    accept="image/png, image/jpg, image/jpeg" class="background__inputfile" id="banner_image">
+                                                    <small></small>
+                                                </label>
+                                            </div>
+                                            <div class="">
+                                                <div class="background__img-wrap"></div>
+                                            </div>
                                       </div>
                                     </div>
                                     
@@ -141,3 +158,72 @@
 <?php
    include 'includes/footertag.php';
    ?> 
+   <script>
+
+jQuery(document).ready(function () {
+    
+    BackgroundUpload();
+  });
+
+function BackgroundUpload() {
+    var imgWrap = "";
+    var imgArray = [];
+
+    function generateUniqueClassName(index) {
+      return "background-image-" + index;
+    }
+
+    $('.background__inputfile').each(function () {
+      $(this).on('change', function (e) {
+        imgWrap = $(this).closest('.background__box').find('.background__img-wrap');
+        var maxLength = $(this).attr('data-max_length');
+
+        var files = e.target.files;
+        var filesArr = Array.prototype.slice.call(files);
+        var iterator = 0;
+        filesArr.forEach(function (f, index) {
+
+          if (!f.type.match('image.*')) {
+            return;
+          }
+
+          if (imgArray.length > maxLength) {
+            return false;
+          } else {
+            var len = 0;
+            for (var i = 0; i < imgArray.length; i++) {
+              if (imgArray[i] !== undefined) {
+                len++;
+              }
+            }
+            if (len > maxLength) {
+              return false;
+            } else {
+              imgArray.push(f);
+
+              var reader = new FileReader();
+              reader.onload = function (e) {
+                var className = generateUniqueClassName(iterator);
+                var html = "<div class='background__img-box'><div onclick='BackgroundImage(\"" + className + "\")' style='background-image: url(" + e.target.result + ")' data-number='" + $(".background__img-close").length + "' data-file='" + f.name + "' class='img-bg " + className + "'><div class='background__img-close'></div></div></div>";
+                imgWrap.append(html);
+                iterator++;
+              }
+              reader.readAsDataURL(f);
+            }
+          }
+        });
+      });
+    });
+
+    $('body').on('click', ".background__img-close", function (e) {
+      var file = $(this).parent().data("file");
+      for (var i = 0; i < imgArray.length; i++) {
+        if (imgArray[i].name === file) {
+          imgArray.splice(i, 1);
+          break;
+        }
+      }
+      $(this).parent().parent().remove();
+    });
+}
+   </script>

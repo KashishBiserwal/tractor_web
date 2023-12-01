@@ -31,7 +31,7 @@
             <div class="modal-dialog modal-lg modal-dialog-centered">
               <div class="modal-content modal_box">
                 <div class="modal-header modal_head">
-                  <h5 class="modal-title text-white fw-bold" id="staticBackdropLabel">Add Farm Equipments</h5>
+                  <h5 class="modal-title text-white fw-bold" id="staticBackdropLabel">Add New Harvester</h5>
                   <button type="button" class="btn-close btn-success" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body bg-light">
@@ -39,52 +39,178 @@
                             <div class="col-lg-10">
                               <h4 class="text-center">Fill your Details</h4>
                             <form>
-                                <div class="row justify-content-center pt-4">
-                                   
-                                    <div class="col-12 col-lg-6 col-sm-5 col-md-6 my-2">
+                                <div class="row justify-content-center py-3">
+                                  <h5 class="fw-bold">Specification</h5>
+                                    <div class="col-12 col-sm-6 col-lg-6 col-md-6">
                                       <div class="form-group">
-                                        <input type="text" class="py-3" placeholder=" " id="brand">
-                                        <label for="name" class="text-dark fw-bold"> Brand</label>
+                                        <input type="text" class="" placeholder=" " id="brand">
+                                        <label for="name" class="text-dark ">Engine Rated RPM</label>
                                       </div>
                                     </div>
-                                    <div class="col-12 col-lg-6 col-sm-5 col-md-6 my-2">
+                                    <div class="col-12 col-sm-6 col-lg-6 col-md-6">
                                       <div class="form-group">
-                                        <input type="text" class="py-3" placeholder=" " id="model">
-                                        <label for="name" class="text-dark fw-bold">Name</label>
+                                        <input type="text" class="" placeholder=" " id="brand">
+                                        <label for="name" class="text-dark ">HP Power</label>
                                       </div>
                                     </div>
-                                    <div class="col-12 col-lg-6 col-sm-5 col-md-6 my-1">
+                                    <div class="col-12 col-sm-6 col-lg-6 col-md-6 my-1">
                                       <div class="form-group">
-                                        <input type="text" class="py-3" placeholder=" " id="model_name">
-                                        <label for="name" class="text-dark fw-bold">Implement Type</label>
+                                        <input type="text" class="" placeholder=" " id="name">
+                                        <label for="name" class="text-dark">Air Cleaner</label>
                                       </div>
                                     </div>
-                                    <div class="col-12 col-lg-6 col-sm-5 col-md-6 my-1">
+                                    <div class="col-12 col-sm-6 col-lg-6 col-md-6 my-1">
                                       <div class="form-group">
-                                        <input type="text" class="py-3" placeholder=" " id="model_name">
-                                        <label for="name" class="text-dark fw-bold">Implement Power</label>
-                                      </div>
-                                    </div>
-                                    <div class="col-12 col-lg-6 col-sm-5 col-md-6  my-1">
-                                      <div class="form-group">
-                                        <input type="text" class="py-3" placeholder=" " id="name">
-                                        <label for="name" class="text-dark fw-bold">Categories</label>
-                                      </div>
-                                    </div>
-                                    <div class="col-12 col-lg-6 col-sm-5 col-md-6  my-1">
-                                      <div class="form-group">
-                                      <input type="file" name="files[]" class="py-3" multiple >
-                                        <label for="name" class="text-dark fw-bold">Categories</label>
+                                        <input type="text" class="" placeholder=" " id="name">
+                                        <label for="name" class="text-dark ">Engine</label>
                                       </div>
                                     </div>
                                     <div class="col-12  my-1">
                                       <div class="form-group">
-                                        <input type="text" class="py-5" placeholder=" " id="name">
-                                        <label for="name" class="text-dark fw-bold">Description</label>
+                                        <input type="text" class="" placeholder=" " id="name">
+                                        <label for="name" class="text-dark ">Cylinder</label>
                                       </div>
                                     </div>
-                                    
-                                   
+                                    <h5 class="fw-bold">Cutter Bar & Cutting Mechanism</h5>
+                                    <div class="col-12 col-sm-6 col-lg-6 col-md-6  my-1">
+                                      <div class="form-group">
+                                        <input type="text" class="" placeholder=" " id="name">
+                                        <label for="name" class="text-dark ">Cutter Bar Width (ft.)</label>
+                                      </div>
+                                    </div>
+                                    <div class="col-12 col-sm-6 col-lg-6 col-md-6  my-1">
+                                      <div class="form-group">
+                                        <input type="text" class="" placeholder=" " id="name">
+                                        <label for="name" class="text-dark ">Minimum Cutting Height</label>
+                                      </div>
+                                    </div>
+                                    <div class="col-12 col-sm-6 col-lg-6 col-md-6 ">
+                                      <div class="form-group">
+                                        <input type="text" class="" placeholder=" " id="name">
+                                        <label for="name" class="text-dark ">Reel Speed Control</label>
+                                      </div>
+                                    </div>
+                                    <div class="col-12 col-sm-6 col-lg-6 col-md-6 ">
+                                      <div class="form-group">
+                                        <input type="text" class="" placeholder=" " id="name">
+                                        <label for="name" class="text-dark ">Height Control</label>
+                                      </div>
+                                    </div>
+                                    <h5 class="fw-bold">Cooling System</h5>
+                                    <div class="col-12  my-1">
+                                      <div class="form-group">
+                                        <input type="text" class="" placeholder=" " id="name">
+                                        <label for="name" class="text-dark ">Cooling System</label>
+                                      </div>
+                                    </div>
+                                    <h5 class="fw-bold">Threshing & Cleaning System</h5>
+                                    <div class="col-12 col-sm-6 col-lg-6 col-md-6 mt-1">
+                                      <div class="form-group">
+                                        <input type="text" class="" placeholder=" " id="name">
+                                        <label for="name" class="text-dark ">Thresing Drum Width</label>
+                                      </div>
+                                    </div>
+                                    <div class="col-12 col-sm-6 col-lg-6 col-md-6 mt-1 ">
+                                      <div class="form-group">
+                                        <input type="text" class="" placeholder=" " id="name">
+                                        <label for="name" class="text-dark ">Thresing Drum Diameter</label>
+                                      </div>
+                                    </div>
+                                    <div class="col-12 col-sm-6 col-lg-6 col-md-6 ">
+                                      <div class="form-group">
+                                        <input type="text" class="" placeholder=" " id="name">
+                                        <label for="name" class="text-dark ">Thresing Drum Speed Adjustment</label>
+                                      </div>
+                                    </div>
+                                    <div class="col-12 col-sm-6 col-lg-6 col-md-6 ">
+                                      <div class="form-group">
+                                        <input type="text" class="" placeholder=" " id="name">
+                                        <label for="name" class="text-dark ">Clearance Concave</label>
+                                      </div>
+                                    </div>
+                                    <h5 class="fw-bold">Grain Handling</h5>
+                                    <div class="col-12  col-sm-6 col-lg-6 col-md-6 my-1">
+                                      <div class="form-group">
+                                        <input type="text" class="" placeholder=" " id="name">
+                                        <label for="name" class="text-dark ">Grain Tank Capacity(ms)</label>
+                                      </div>
+                                    </div>
+                                    <h5 class="fw-bold">Transmission & clutch</h5>
+                                    <div class="col-12  col-sm-6 col-lg-6 col-md-6 my-1">
+                                      <div class="form-group">
+                                        <input type="text" class="" placeholder=" " id="name">
+                                        <label for="name" class="text-dark ">Transmission</label>
+                                      </div>
+                                    </div>
+                                    <div class="col-12 col-sm-6 col-lg-6 col-md-6 my-1">
+                                      <div class="form-group">
+                                        <input type="text" class="" placeholder=" " id="name">
+                                        <label for="name" class="text-dark ">Clutch Type</label>
+                                      </div>
+                                    </div>
+                                    <h5 class="fw-bold">Tyre Specification</h5>
+                                    <div class="col-12 col-sm-6 col-lg-6 col-md-6 my-1">
+                                      <div class="form-group">
+                                        <input type="text" class="" placeholder=" " id="name">
+                                        <label for="name" class="text-dark ">Tyre Size(Front)</label>
+                                      </div>
+                                    </div>
+                                    <div class="col-12  col-sm-6 col-lg-6 col-md-6 my-1">
+                                      <div class="form-group">
+                                        <input type="text" class="" placeholder=" " id="name">
+                                        <label for="name" class="text-dark ">Tyre Size(Rear)</label>
+                                      </div>
+                                    </div>
+                                    <h5 class="fw-bold">Fuel & Capacity</h5>
+                                    <div class="col-12  col-sm-6 col-lg-6 col-md-6 my-1">
+                                      <div class="form-group">
+                                        <input type="text" class="" placeholder=" " id="name">
+                                        <label for="name" class="text-dark ">Fuel Tank Capacity</label>
+                                      </div>
+                                    </div>
+                                    <div class="col-12  col-sm-6 col-lg-6 col-md-6 my-1">
+                                      <div class="form-group">
+                                        <input type="text" class="" placeholder=" " id="name">
+                                        <label for="name" class="text-dark ">Total Weight without grain</label>
+                                      </div>
+                                    </div>
+                                    <h5 class="fw-bold">Dimensions & Clearance</h5>
+                                    <div class="col-12 col-sm-6 col-lg-6 col-md-6 my-1">
+                                      <div class="form-group">
+                                        <input type="text" class="" placeholder=" " id="name">
+                                        <label for="name" class="text-dark ">Dimensions(Field Mode)LxWxH</label>
+                                      </div>
+                                    </div>
+                                    <div class="col-12  col-sm-6 col-lg-6 col-md-6 my-1">
+                                      <div class="form-group">
+                                        <input type="text" class="" placeholder=" " id="name">
+                                        <label for="name" class="text-dark ">Ground Clearance (mm)</label>
+                                      </div>
+                                    </div>
+                                    <h5 class="fw-bold">Crops & Additional Features</h5>
+                                    <div class="col-12  col-sm-6 col-lg-6 col-md-6 my-1">
+                                      <div class="form-group">
+                                        <input type="text" class="" placeholder=" " id="name">
+                                        <label for="name" class="text-dark ">Ground Clearance (mm)</label>
+                                      </div>
+                                    </div>
+                                    <div class="col-12 col-sm-6 col-lg-6 col-md-6 ps-3">
+                                      <div class="background__box">
+                                            <div class="background__btn-box ">
+                                                <label class="background__btn">
+                                                <p class="text-white bg-success p-2 rounded">Upload images</p>
+                                                    <input type="file" data-max_length="20"name="imgfile"  ref="fileInput"
+                                                    style="display: none"
+                                                    @change="handleFileInput"
+                                                    accept="image/png, image/jpg, image/jpeg" class="background__inputfile" id="banner_image">
+                                                    <small></small>
+                                                </label>
+                                            </div>
+                                            <div class="">
+                                                <div class="background__img-wrap"></div>
+                                            </div>
+                                      </div>
+                                    </div>
                                 </div>
                             </form>
                             </div>
@@ -139,7 +265,7 @@
               </div>
             </div>
             <div class="col-12 col-sm-12 col-md-3 col-lg-3">
-                <div class="text-center mt-4 pt-1">
+                <div class="text-center">
                     <button type="button" class="btn-success btn px-3" id="Search">Search</button>
                     <button type="button" class="btn-success btn mx-2 px-3" id="Reset">Reset</button>
                 </div>
@@ -179,3 +305,71 @@
 <?php
    include 'includes/footertag.php';
    ?> 
+   <script>
+    jQuery(document).ready(function () {
+    
+    BackgroundUpload();
+  });
+
+function BackgroundUpload() {
+    var imgWrap = "";
+    var imgArray = [];
+
+    function generateUniqueClassName(index) {
+      return "background-image-" + index;
+    }
+
+    $('.background__inputfile').each(function () {
+      $(this).on('change', function (e) {
+        imgWrap = $(this).closest('.background__box').find('.background__img-wrap');
+        var maxLength = $(this).attr('data-max_length');
+
+        var files = e.target.files;
+        var filesArr = Array.prototype.slice.call(files);
+        var iterator = 0;
+        filesArr.forEach(function (f, index) {
+
+          if (!f.type.match('image.*')) {
+            return;
+          }
+
+          if (imgArray.length > maxLength) {
+            return false;
+          } else {
+            var len = 0;
+            for (var i = 0; i < imgArray.length; i++) {
+              if (imgArray[i] !== undefined) {
+                len++;
+              }
+            }
+            if (len > maxLength) {
+              return false;
+            } else {
+              imgArray.push(f);
+
+              var reader = new FileReader();
+              reader.onload = function (e) {
+                var className = generateUniqueClassName(iterator);
+                var html = "<div class='background__img-box'><div onclick='BackgroundImage(\"" + className + "\")' style='background-image: url(" + e.target.result + ")' data-number='" + $(".background__img-close").length + "' data-file='" + f.name + "' class='img-bg " + className + "'><div class='background__img-close'></div></div></div>";
+                imgWrap.append(html);
+                iterator++;
+              }
+              reader.readAsDataURL(f);
+            }
+          }
+        });
+      });
+    });
+
+    $('body').on('click', ".background__img-close", function (e) {
+      var file = $(this).parent().data("file");
+      for (var i = 0; i < imgArray.length; i++) {
+        if (imgArray[i].name === file) {
+          imgArray.splice(i, 1);
+          break;
+        }
+      }
+      $(this).parent().parent().remove();
+    });
+}
+   </script>

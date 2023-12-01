@@ -173,49 +173,49 @@ $(document).ready(function () {
 
 // Other important pens.
 
-let dropdowns = document.querySelectorAll('.navbar .dropdown-toggler')
-let dropdownIsOpen = false
+// let dropdowns = document.querySelectorAll('.navbar .dropdown-toggler')
+// let dropdownIsOpen = false
 
-// Handle dropdown menues
-if (dropdowns.length) {
-  // Usually I don't recommend doing this (adding many event listeners to elements have the same handler)
-  // Instead use event delegation: https://javascript.info/event-delegation
-  // Why: https://gomakethings.com/why-event-delegation-is-a-better-way-to-listen-for-events-in-vanilla-js
-  // But since we only have two dropdowns, no problem with that. 
-  dropdowns.forEach((dropdown) => {
-    dropdown.addEventListener('click', (event) => {
-      let target = document.querySelector(`#${event.target.dataset.dropdown}`)
+// // Handle dropdown menues
+// if (dropdowns.length) {
+//   // Usually I don't recommend doing this (adding many event listeners to elements have the same handler)
+//   // Instead use event delegation: https://javascript.info/event-delegation
+//   // Why: https://gomakethings.com/why-event-delegation-is-a-better-way-to-listen-for-events-in-vanilla-js
+//   // But since we only have two dropdowns, no problem with that. 
+//   dropdowns.forEach((dropdown) => {
+//     dropdown.addEventListener('click', (event) => {
+//       let target = document.querySelector(`#${event.target.dataset.dropdown}`)
 
-      if (target) {
-        if (target.classList.contains('show')) {
-          target.classList.remove('show')
-          dropdownIsOpen = false
-        } else {
-          target.classList.add('show')
-          dropdownIsOpen = true
-        }
-      }
-    })
-  })
-}
+//       if (target) {
+//         if (target.classList.contains('show')) {
+//           target.classList.remove('show')
+//           dropdownIsOpen = false
+//         } else {
+//           target.classList.add('show')
+//           dropdownIsOpen = true
+//         }
+//       }
+//     })
+//   })
+// }
 
-// Handle closing dropdowns if a user clicked the body
-window.addEventListener('mouseup', (event) => {
-  if (dropdownIsOpen) {
-    dropdowns.forEach((dropdownButton) => {
-      let dropdown = document.querySelector(`#${dropdownButton.dataset.dropdown}`)
-      let targetIsDropdown = dropdown == event.target
+// // Handle closing dropdowns if a user clicked the body
+// window.addEventListener('mouseup', (event) => {
+//   if (dropdownIsOpen) {
+//     dropdowns.forEach((dropdownButton) => {
+//       let dropdown = document.querySelector(`#${dropdownButton.dataset.dropdown}`)
+//       let targetIsDropdown = dropdown == event.target
 
-      if (dropdownButton == event.target) {
-        return
-      }
+//       if (dropdownButton == event.target) {
+//         return
+//       }
 
-      if ((!targetIsDropdown) && (!dropdown.contains(event.target))) {
-        dropdown.classList.remove('show')
-      }
-    })
-  }
-})
+//       if ((!targetIsDropdown) && (!dropdown.contains(event.target))) {
+//         dropdown.classList.remove('show')
+//       }
+//     })
+//   }
+// })
 // main swip
 var swiper = new Swiper('.swiper-5', {
   navigation: {
@@ -425,11 +425,11 @@ $("#imageUpload").change(function() {
 
 
 // datatable brand listing
-$('#example_brand').DataTable({
-  "processing":true,
-   "serverSide":true,
-   "ajax":'fetchbrandData.php',  
-});
+// $('#example_brand').DataTable({
+//   "processing":true,
+//    "serverSide":true,
+//    "ajax":'fetchbrandData.php',  
+// });
 
 
 // haatbazar sell form
@@ -501,22 +501,57 @@ previous_fs.css({
 });
 });
 
-// swiper hatbazar buy inner
-document.addEventListener("DOMContentLoaded", function () {
-  // const mySwiper2_wrapper = document.querySelector(".mySwiper2_buy .swiper-wrapper_buy"),
-  // mySwiper_container = document.querySelector(".mySwiper_buy"),
-        // clone = mySwiper2_wrapper.cloneNode(true);
-  // mySwiper_container.appendChild(clone);
 
-  const swiper_buy = new Swiper(".mySwiper_buy", {
+// swiper hatbazar buy inner
+// document.addEventListener("DOMContentLoaded", function () {
+//   const mySwiper2_wrapper = document.querySelector(".mySwiper2_buy .swiper-wrapper_buy"),
+//   mySwiper_container = document.querySelector(".mySwiper_buy"),
+//         clone = mySwiper2_wrapper.cloneNode(true);
+//   mySwiper_container.appendChild(clone);
+
+//   const swiper_buy = new Swiper(".mySwiper_buy", {
+//   loop: true,
+//   spaceBetween: 10,
+//   slidesPerView: mySwiper2_wrapper.childNodes.length,
+//   freeMode: true,
+//   watchSlidesProgress: true
+//   });
+
+//   const swiper2_buy = new Swiper(".mySwiper2_buy", {
+//   autoplay: {
+//       delay: 5000,
+//       disableOnInteraction: false
+//   },
+//   slidesPerView: "auto",
+//   centeredSlides: true,
+//   loop: true,
+//   loopedSlides: mySwiper2_wrapper.childNodes.length,
+//   spaceBetween: 10,
+//   speed: 800,
+//   navigation: {
+//       nextEl: ".swiper-button-next",
+//       prevEl: ".swiper-button-prev"
+//   },
+//   thumbs: {
+//       swiper: swiper
+//   }
+//   });
+// },false);
+document.addEventListener("DOMContentLoaded", function () {
+  const mySwiper2_wrapper = document.querySelector(".mySwiper2_buy .swiper-wrapper_buy"),
+  mySwiper_container = document.querySelector(".mySwiper_buy"),
+        clone = mySwiper2_wrapper.cloneNode(true);
+  mySwiper_container.appendChild(clone);
+
+  const swiper = new Swiper(".mySwiper_buy", {
   loop: true,
   spaceBetween: 10,
-  // slidesPerView: mySwiper2_wrapper.childNodes.length,
+  slidesPerView: mySwiper2_wrapper.childNodes.length,
   freeMode: true,
   watchSlidesProgress: true
   });
 
-  const swiper2_buy = new Swiper(".mySwiper2_buy", {
+  const swiper3 = new Swiper(".mySwiper2_buy", {
   autoplay: {
       delay: 5000,
       disableOnInteraction: false
@@ -524,7 +559,7 @@ document.addEventListener("DOMContentLoaded", function () {
   slidesPerView: "auto",
   centeredSlides: true,
   loop: true,
-  // loopedSlides: mySwiper2_wrapper.childNodes.length,
+  loopedSlides: mySwiper2_wrapper.childNodes.length,
   spaceBetween: 10,
   speed: 800,
   navigation: {
@@ -594,6 +629,51 @@ const swiper_sell = new Swiper(".slider", {
   }
 });
 
+// mahindra brand carousel
+
+jQuery("#carousel_related").owlCarousel({
+  autoplay: true,
+  rewind: true,
+  margin: 20,
+   /*
+  animateOut: 'fadeOut',
+  animateIn: 'fadeIn',
+  */
+  responsiveClass: true,
+  autoHeight: true,
+  autoplayTimeout: 7000,
+  smartSpeed: 800,
+  nav: true,
+  responsive: {
+    0: {
+      items: 1
+    },
+
+    600: {
+      items: 3
+    },
+
+    1024: {
+      items: 4
+    },
+
+    1366: {
+      items: 4
+    }
+  }
+});
+
+// $(function() {
+//   // Owl Carousel
+//   var owl = $(".owl-carousel");
+//   owl.owlCarousel({
+//     items: 4,
+//     margin: 15,
+//     loop: true,
+//     nav: true
+//   });
+// });
+
 // Open links in mobiles
 // function handleSmallScreens() {
 //   document.querySelector('.navbar-toggler')
@@ -610,6 +690,5 @@ const swiper_sell = new Swiper(".slider", {
 
 // handleSmallScreens()
 
-
+//------Validation --------
   
-

@@ -40,7 +40,7 @@
 <section>
    <div class="container">
       <div class="formcard">
-        <form action="">
+        <form action="" id="hatbazr_sell_form">
             <div class="container-fluid px-1 px-md-4 py-3 mx-auto">
                <div class="row d-flex justify-content-center">
                   <div class="col-12 col-md-11 col-lg-10 col-xl-9">
@@ -73,7 +73,7 @@
                                  <div class="row px-3 mt-4">
                                     <div class="col-12 ">
                                       <div class="form-group w-100">
-                                          <select class="form-select py-2 mb-3" aria-label=".form-select-lg example">
+                                          <select class="form-select py-2 mb-3" aria-label=".form-select-lg example" id="select_category">
                                              <option selected>Select Category</option>
                                              <option value="1">Vegetable</option>
                                              <option value="2">Fruits</option>
@@ -84,7 +84,7 @@
                                     </div>
                                     <div class="col-12 ">
                                       <div class="form-group w-100">
-                                          <select class="form-select py-2 " aria-label=".form-select-lg example">
+                                          <select class="form-select py-2 " aria-label=".form-select-lg example" id="select_sub_categary">
                                              <option selected>Select Sub-Category</option>
                                              <option value="1">Potato</option>
                                              <option value="2">Papaya</option>
@@ -93,30 +93,40 @@
                                           </select>
                                       </div>
                                     </div>
-                                    <div class="col-12 col-sm-12 col-md-6 col-lg-6 ">
-                                       <div class="input-group mb-3 w-100">
-                                          <input type="text" class="form-control mt-2 text-black" placeholder="Quantity" aria-label="Text input with dropdown button">
-                                          <button class="btn btn-outline-secondary dropdown-toggle" type="" data-bs-toggle="dropdown" aria-expanded="false">as Per</button>
-                                          <ul class="dropdown-menu dropdown-menu-end">
-                                             <li><a class="dropdown-item" href="#">Kg</a></li>
-                                             <li><a class="dropdown-item" href="#">Quintal</a></li>
-                                             <li><a class="dropdown-item" href="#">Ton</a></li>
-                                          </ul>
+                                    <div class="col-12 ">
+                                       <div class="input-group">
+                                          <input type="number"  id="firstNumber" class="form-control text-black" placeholder="Quantity" aria-label="Text input with dropdown button">
+                                          <select type="button" class="btn border border-secondary-2 h-25  dropdown-toggle" data-bs-toggle="dropdown">
+                                             <ul class="dropdown-menu">
+                                             <option class="dropdown-item" href="#">As per</option>
+                                             <option class="dropdown-item" href="#">gram</option>
+                                             <option class="dropdown-item" href="#">Kg</option>
+                                             <option class="dropdown-item" href="#">Quintal</option>
+                                             <option class="dropdown-item" href="#">Ton</option>
+                                             <option class="dropdown-item" href="#">Pack</option>
+                                             <option class="dropdown-item" href="#">Unit</option>
+                                             </ul>
+                                          </select>
                                        </div>
                                     </div>
                                     <div class="col-12 col-sm-6 col-md-6 col-lg-6 ">
-                                       <div class="form-group w-100">
-                                          <input type="text" class="py-2" placeholder=" " id="quantity">
-                                          <label for="quantity" class="text-dark"> <i class="fa fa-inr" aria-hidden="true"></i> Price as per Quantity</label>
+                                       <div class="form-group w-100 mt-2">
+                                          <input type="text" class="py-2" placeholder=" " id="secondNumber"  onchange="multiplyBy()" Value="">
+                                          <label for="quantity" class="text-dark"> Price </label>
                                        </div>
+                                    </div>
+                                    <div class="col-12 col-sm-6 col-md-6 col-lg-6 mt-2 pt-1">
+                                       <!-- <input type="button" onClick="multiplyBy()" Value="Multiply" /> -->
+                                       <p >Total Price:  <span id = "result"class="text-danger fw-bold"> </span>/-</p>
+                                         
                                     </div>
                                     <div class="col-12 ">
                                        <div class="form-group w-100">
-                                          <input type="text" class="py-4" placeholder=" " id="quantity">
+                                          <input type="text" class="py-4" placeholder=" " id="about_your_harvest">
                                           <label for="quantity" class="text-dark">About Your  Harvest</label>
                                        </div>
                                     </div>
-                                    <div class="next-button text-center ms-3"> <span class="fa fa-arrow-right "></span> </div>
+                                    <div class="next-button text-center ms-3" id="next_btn"> <span class="fa fa-arrow-right "></span> </div>
                                  </div>
                                  
                                  </div>
@@ -144,7 +154,7 @@
                                        </div>
                                        <div class="col-12">
                                           <div class="form-group w-100">
-                                             <input type="Text" class="py-2" placeholder=" " name="name" id="name" >
+                                             <input type="Text" class="py-2" placeholder=" " name="name" id="Phone_no" >
                                              <label for="name" class="text-dark">Phone Number</label>
                                           </div>
                                        </div>
@@ -167,20 +177,20 @@
                                              </select>
                                           </div>
                                        </div>
-                                       <div class="col-12  col-sm-6 col-md-6 col-lg-6 ">
+                                       <div class="col-12  col-sm-6 col-md-6 col-lg-6">
                                           <div class="form-group w-100">
                                              <input type="Text" class="py-2" placeholder=" " name="tehsil" id="tehsil" >
                                              <label for="tehsil" class="text-dark">Tehsil</label>
                                           </div>
                                        </div>
-                                       <div class="col-12 col-sm-6 col-md-6 col-lg-6 ">
+                                       <div class="col-12 col-sm-6 col-md-6 col-lg-6">
                                           <div class="form-group w-100">
                                              <input type="Text" class="py-2" placeholder=" " name="pincode" id="pincode" >
                                              <label for="pincode" class="text-dark">Pincode</label>
                                           </div>
                                        </div>
                                        <div class="next-button text-center text-success ms-5 px-3 w-75">
-                                          <a href="#" class="text-decoration-none text-white"> Submit</a>
+                                          <a href="#" class="text-decoration-none text-white" id="submit">Submit</a>
                                        </div>
                                     </div>
                                  </div>
@@ -224,3 +234,75 @@
 
     ?>
     </html>
+    <script>
+      function multiplyBy()
+{
+        num1 = document.getElementById("firstNumber").value;
+        num2 = document.getElementById("secondNumber").value;
+        document.getElementById("result").innerHTML = num1 * num2;
+}
+
+ </script>
+ <!-- <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script> -->
+ <script>
+//    $(document).ready(function(){
+//       $('#hatbazr_sell_form').validate({
+//        rules: {
+//          name:{
+//                required:true,
+//             },
+//             Phone_no:{
+//                required:true,
+//             },
+//             tehsil:{
+//                required:true,
+//             },
+//             pincode:{
+//                required:true,
+//             }
+//          },
+//          messages:{
+//               name:"field is requred",
+//               phone_no:"field is requred",
+//               tehsil:"field is requred",
+//               pincode:"field is requred"
+//          },
+//   submitHandler: function(form) {
+//     form.submit();
+//     }
+//    });
+//  });
+$(document).ready(function(){
+    $('#hatbazr_sell_form').validate({
+      rules:{
+         select_category:{
+            required:true,
+      },
+      select_sub_categary:{
+         required:true,
+      },
+      firstNumbe:{
+         required:true,
+      },
+      secondNumber:{
+         required:true,
+      },
+      about_your_harvest:{
+         required:true,
+      }
+   },
+   messages:{
+      select_category:"Field is required",
+      select_sub_categary:"Field is required",
+      firstNumbe:"Field is required",
+      secondNumber:"Field is required",
+      about_your_harvest:"Field is required"
+   },
+   submiHandler: function(form){
+      next_btn();
+   }
+    });
+});
+
+
+ </script>

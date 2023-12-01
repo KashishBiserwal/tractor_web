@@ -6,8 +6,8 @@
 	<meta name="apple-touch-fullscreen" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="default" />
 	<meta name="description" content="">
-	<link rel="stylesheet" type="text/css" href="assets/css/bootstrap.css" />
-	<link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css" />
+	<!-- <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.css" />
+	<link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css" /> -->
 	<!-- <link rel="stylesheet" type="text/css" href="assets/css/style.css" /> -->
 	<link rel="stylesheet" type="text/css" href="assets/css/main.css" />
 	<link rel="stylesheet" type="text/css" href="assets/css/swiper.css" />

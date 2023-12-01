@@ -10,7 +10,39 @@
    ?>
     <!-- Banner Here -->
     <section id="home-banner" class="banner__section overflow-hidden">
-      <img src="assets/images/tractorzip.gif" alt="reload" class="bannerimg w-100">
+      <!-- Carousel wrapper -->
+      <div id="demo" class="carousel slide" data-bs-ride="carousel">
+
+<!-- Indicators/dots -->
+<div class="carousel-indicators">
+  <button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active"></button>
+  <button type="button" data-bs-target="#demo" data-bs-slide-to="1"></button>
+  <button type="button" data-bs-target="#demo" data-bs-slide-to="2"></button>
+</div>
+
+<!-- The slideshow/carousel -->
+<div class="carousel-inner">
+  <div class="carousel-item active">
+    <img src="assets/images/slider1.jpg" alt="Los Angeles" class="d-block w-100">
+  </div>
+  <div class="carousel-item">
+    <img src="assets/images/slider2.jpg" alt="Chicago" class="d-block w-100">
+  </div>
+  <div class="carousel-item">
+    <img src="assets/images/slider3.jpg" alt="New York" class="d-block w-100">
+  </div>
+</div>
+
+<!-- Left and right controls/icons -->
+<button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">
+  <span class="carousel-control-prev-icon"></span>
+</button>
+<button class="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next">
+  <span class="carousel-control-next-icon"></span>
+</button>
+</div>
+<!-- Carousel wrapper -->
+      <!-- <img src="assets/images/tractorzip.gif" alt="reload" class="bannerimg w-100"> -->
       <!-- <video class="video-parallax video-fluid bannerimg w-100 " autoplay loop muted><source src="assets/images/index_video.mp4" type="video/mp4"><source src="movie.ogg" type="video/ogg"> 
              Your browser does not support the video tag.
         </video>-->
@@ -23,29 +55,44 @@
             <div class="col-lg-10">
               <h3 class="text-center fw-bold pt-2">Find Your Own Tractor</h3>
               <form>
-                <div class="row justify-content-center pt-4">
+                <div class="row justify-content-center ">
                   <div class="col-12 col-lg-4 col-sm-4 col-md-4 mt-2">
-                    <div class="form-group">
-                      <input type="text" class="py-3" placeholder=" " id="brand">
-                      <label for="name" class="text-dark "> Select HP <i class="fa-solid fa-caret-down"></i>
-                      </label>
+                    <div class="">
+                        <label class="form-label text-dark fw-bold">Select HP</label>
+                        <select class="form-control" name="hp" id="hp"  required="">
+                            <option value="" selected="">Select HP</option>
+                            <option value="64">39 HP</option>
+                            <option value="211">23 HP</option>
+                            <option value="56">45 HP</option>
+                            <option value="60">31 HP</option>
+                            <option value="75">36 HP</option>
+                        </select>
                     </div>
                   </div>
                   <div class="col-12 col-lg-4 col-sm-4 col-md-4 mt-2">
-                    <div class="form-group">
-                      <input type="text" class="py-3" placeholder=" " id="name">
-                      <label for="name" class="text-dark ">Select Brand <i class="fa-solid fa-caret-down"></i>
-                      </label>
+                    <div class="">
+                        <label class="form-label text-dark fw-bold">Select Brand</label>
+                        <select class="form-control" name="brand" id="brand"  required="">
+                            <option value="" selected="">Select Brand</option>
+                            <option value="64">Mahindra</option>
+                            <option value="211">Hindustan</option>
+                            <option value="56">Force</option>
+                            <option value="60">John Deere</option>
+                        </select>
                     </div>
                   </div>
                   <div class="col-12 col-lg-4 col-sm-4 col-md-4 mt-2">
-                    <div class="form-group">
-                      <input type="text" class="py-3" placeholder=" " id="name">
-                      <label for="name" class="text-dark ">Select Price <i class="fa-solid fa-caret-down"></i>
-                      </label>
+                  <div class="">
+                        <label class="form-label text-dark fw-bold">Select Price</label>
+                        <select class="form-control" name="price" id="price"  required="">
+                            <option value="" selected="">Select Price</option>
+                            <option value="64">20000</option>
+                            <option value="211">1000000</option>
+                            <option value="56">1200000</option>
+                        </select>
                     </div>
                   </div>
-                  <div class="col-12  text-center">
+                  <div class="col-12  text-center mt-4">
                     <button type="button" class=" btn btn-success btn_search px-5 py-2" id="Search">Search</button>
                   </div>
                 </div>
@@ -136,9 +183,9 @@
                           </div>
                           <div class="content ms-3">
                             <a href="#" class="text-decoration-none text-dark">
-                              <h4 class="fw-bold mt-3">Mahindra 575 DI XP Plus</h4>
+                              <h5 class="fw-bold mt-2">Mahindra 575 DI XP Plus</h5>
                             </a>
-                            <a href="# " class="text-dark text-decoration-none ">
+                            <a href="#" class="text-dark text-decoration-none ">
                             <p>From: ₹6.90-7.27 lac*</p>
                             </a>
                             <a href="#" class="text-decoration-none text-dark mb-4">
@@ -159,7 +206,7 @@
                         </div>
                         <div class="content ms-3">
                         <a href="#" class="text-decoration-none text-dark ">
-                            <h4 class="fw-bold ">Farmtrac 50 Smart </h3>
+                            <h5 class="fw-bold mt-2">Farmtrac 50 Smart </h5>
                         </a>
                         <a href="# " class="text-dark text-decoration-none ">
                             <p>From: ₹7.33-7.60 lac*</p>
@@ -182,7 +229,7 @@
                         </div>
                         <div class="content flex-column ms-3">
                         <a href="#" class="text-decoration-none text-dark">
-                            <h4 class="fw-bold mt-3">Mahindra 275 DI XP Plus </h3>
+                            <h5 class="fw-bold mt-2">Mahindra 275 DI XP Plus </h5>
                         </a>
                         <a href="# " class="text-dark text-decoration-none ">
                             <p>From: ₹5.65-5.90 lac*</p>
@@ -205,7 +252,7 @@
                         </div>
                         <div class="content ms-3">
                         <a href="#" class="text-decoration-none text-dark">
-                            <h4 class="fw-bold mt-3">Farmtrac Atom 26 </h3>
+                            <h5 class="fw-bold mt-2">Farmtrac Atom 26 </h5>
                         </a>
                         <a href="# " class="text-dark text-decoration-none ">
                             <p>From: ₹5.65-5.85 lac*</p>
@@ -258,7 +305,7 @@
       </div>
       <div class="tab-pane fade justify-content-center" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
         <div class="tab-pane fade active show justify-content-center" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
-          <div class="row  justify-content-between">
+          <div class="row  justify-content-between  ">
             <div class="col-12 ">
               <div class="position-relative justify-content-center" id="proj_swip">
                 <div class="swiper swiper-slides-visible p-5 m-n5 testimonial__wrap">
@@ -273,7 +320,7 @@
                       </div>
                       <div class="content">
                         <a href="#" class="text-decoration-none text-dark">
-                          <h4 class="fw-bold mt-3 mx-3">Mahindra 475 DI XP Plus </h3>
+                          <h5 class="fw-bold mt-2 mx-3">Mahindra 475 DI XP Plus </h5>
                         </a>
                         <div class="row mt-1 ps-3">
                           <div class="col-12 col-lg-6 col-md-6 col-sm-6">
@@ -305,9 +352,9 @@
                       </div>
                       <div class="content ms-3">
                         <a href="#" class="text-decoration-none text-dark ">
-                          <h4 class="fw-bold mt-3">Same Deutz Fahr Agromaxx 40 </h3>
+                          <h5 class="fw-bold mt-2">Same Deutz Fahr Agromaxx 40 </h5>
                         </a>
-                        <div class="row mt-1 ps-3">
+                        <div class="row mt-1 ">
                           <div class="col-12 col-lg-6 col-md-6 col-sm-6">
                             <p class="">
                               <i class="fas fa-bolt"></i> 50HP
@@ -337,9 +384,9 @@
                       </div>
                       <div class="content ms-3">
                         <a href="#" class="text-decoration-none text-dark">
-                          <h4 class="fw-bold mt-3">Mahindra 585 DI XP Plus </h3>
+                          <h5 class="fw-bold mt-2">Mahindra 585 DI XP Plus </h5>
                         </a>
-                        <div class="row mt-1 ps-3">
+                        <div class="row mt-1">
                           <div class="col-12 col-lg-6 col-md-6 col-sm-6">
                             <p class="">
                               <i class="fas fa-bolt"></i> 49HP
@@ -369,7 +416,7 @@
                       </div>
                       <div class="content ms-3">
                         <a href="#" class="text-decoration-none text-dark">
-                          <h4 class="fw-bold mt-3">Same Deutz Fahr Agromaxx 4055 E </h3>
+                          <h5 class="fw-bold mt-2">Same Deutz Fahr Agromaxx 4055 E </h5>
                         </a>
                         <p>From: ₹7.55-8.50 lac*</p>
                         <a href="#" class="text-decoration-none text-dark mb-4">
@@ -390,9 +437,9 @@
                       </div>
                       <div class="content ms-3">
                         <a href="#" class="text-decoration-none text-dark">
-                          <h4 class="fw-bold mt-3">Mahindra 275 DI TU XP Plus </h3>
+                          <h5 class="fw-bold mt-2">Mahindra 275 DI TU XP Plus </h5>
                         </a>
-                        <div class="row mt-1 ps-3">
+                        <div class="row mt-1 ">
                           <div class="col-12 col-lg-6 col-md-6 col-sm-6">
                             <p class="">
                               <i class="fas fa-bolt"></i> 39HP
@@ -416,8 +463,8 @@
                   <!-- </div> -->
                   <div class="swiper-pagination"></div>
                   <div class="swiper_nav">
-                    <div class="swiper-button-prev fs-6"></div>
-                    <div class="swiper-button-next  fs-6 "></div>
+                    <!-- <div class="swiper-button-prev fs-6"></div>
+                    <div class="swiper-button-next fs-6 "></div> -->
                   </div>
                   <!-- If we need scrollbar -->
                   <!-- <div class="swiper-scrollbar"></div> -->
@@ -448,11 +495,11 @@
                       </div>
                       <div class="content">
                         <a href="#" class="text-decoration-none text-dark">
-                          <h4 class="fw-bold mt-3 mx-3">Eicher 551 Prima G3 </h3>
+                          <h5 class="fw-bold mt-2 mx-3">Eicher 551 Prima G3 </h5>
                         </a>
-                        <div class="row mt-1 ps-3">
+                        <div class="row mt-1">
                           <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                            <p class="">
+                            <p class="ps-3">
                               <i class="fas fa-bolt"></i> 49HP
                             </p>
                           </div>
@@ -480,9 +527,9 @@
                       </div>
                       <div class="content ms-3">
                         <a href="#" class="text-decoration-none text-dark ">
-                          <h4 class="fw-bold mt-3">Farmtrac 3600 </h3>
+                          <h5 class="fw-bold mt-2">Farmtrac 3600 </h5>
                         </a>
-                        <div class="row mt-1 ps-3">
+                        <div class="row mt-1">
                           <div class="col-12 col-lg-6 col-md-6 col-sm-6">
                             <p class="">
                               <i class="fas fa-bolt"></i> 37HP
@@ -512,15 +559,20 @@
                       </div>
                       <div class="content ms-3">
                         <a href="#" class="text-decoration-none text-dark">
-                          <h4 class="fw-bold mt-3">Swaraj Target 625 </h3>
+                          <h5 class="fw-bold mt-2">Swaraj Target 625 </h5>
                         </a>
-                        <div class="row mt-1 ps-3">
+                        <div class="row mt-1">
                           <div class="col-12 col-lg-6 col-md-6 col-sm-6">
                             <p class="">
                               <i class="fas fa-bolt"></i> 45HP
                             </p>
                           </div>
-                          <!-- <div class="col-12 col-lg-6 col-md-6 col-sm-6"><p class="pe-5 me-3"><i class="fa fa-cog" aria-hidden="true"></i>  3054 CC</p></div> -->
+                          <div class="col-12 col-lg-6 col-md-6 col-sm-6">
+                            <p class="">
+                              <i class="fa fa-cog" aria-hidden="true"></i> 3300 CC
+                            </p>
+                          </div>
+                       
                         </div>
                         <a href="#" class="text-decoration-none text-dark mb-4">
                           <span> Get On Road price </span>
@@ -540,9 +592,9 @@
                       </div>
                       <div class="content ms-3">
                         <a href="#" class="text-decoration-none text-dark">
-                          <h4 class="fw-bold mt-3">Powertrac ALT 3000 </h3>
+                          <h5 class="fw-bold mt-2">Powertrac ALT 3000 </h5>
                         </a>
-                        <div class="row mt-1 ps-3">
+                        <div class="row mt-1 ">
                           <div class="col-12 col-lg-6 col-md-6 col-sm-6">
                             <p class="">
                               <i class="fas fa-bolt"></i> 21HP
@@ -572,9 +624,9 @@
                       </div>
                       <div class="content ms-3">
                         <a href="#" class="text-decoration-none text-dark">
-                          <h4 class="fw-bold mt-3">Solis 6524 S </h3>
+                          <h4 class="fw-bold mt-2">Solis 6524 S </h3>
                         </a>
-                        <div class="row mt-1 ps-3">
+                        <div class="row mt-1 ">
                           <div class="col-12 col-lg-6 col-md-6 col-sm-6">
                             <p class="">
                               <i class="fas fa-bolt"></i> 65HP
@@ -632,8 +684,236 @@
     <div class="tab-content  justify-content-center" >
       <div role="tabpanel" class="tab-pane fade show active" id="premium" aria-labelledby="premium-tab">
         <section class="section slider-section">
-          <div class="container slider-column" style=" height: 540px;">
-            <div class="swiper swiper-slider slider">
+          <div class="container slider-column">
+          <div class="carousel-wrap">
+            <div class="owl-carousel" id="usedtractorforsell">
+              <div class="item">
+                <div class="post-slide">
+                    <div class="post-img">
+                      <img src="assets/images/45-classic-146132-1696568052-0.webp" alt="">
+                      <a href="#" class="over-layer">
+                        <i class="fa fa-link"></i>
+                      </a>
+                    </div>
+                    <div class="post-content">
+                      <h3 class="post-title">
+                        <a href="#" class="text-decoration-none fw-bold">Farmtrac 45 Classic</a>
+                      </h3>
+                      <p class="post-description">Price: ₹ 6,50,000</p>
+                      <div class="row">
+                        <div class="col-12 col-lg-3 col-md-3 col-sm-3">
+                          <p>45 Hp</p>
+                        </div>
+                        <div class="col-12 col-lg-4 col-md-4 col-sm-4">
+                          <p>2022 Model</p>
+                        </div>
+                        <div class="col-12 col-lg-5 col-md-5 col-sm-5">
+                          <p class="btn btn-success ">Great Deal <i class="fa fa-thumbs-up" aria-hidden="true"></i>
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+              </div>
+              <div class="item">
+                  <div class="post-slide">
+                    <div class="post-img">
+                      <img src="assets/images/45-classic-146132-1696568052-0.webp" alt="">
+                      <a href="#" class="over-layer">
+                        <i class="fa fa-link"></i>
+                      </a>
+                    </div>
+                    <div class="post-content">
+                      <h3 class="post-title">
+                        <a href="#" class="text-decoration-none fw-bold">Farmtrac 45 Classic</a>
+                      </h3>
+                      <p class="post-description">Price: ₹ 6,50,000</p>
+                      <div class="row">
+                        <div class="col-12 col-lg-3 col-md-3 col-sm-3">
+                          <p>45 Hp</p>
+                        </div>
+                        <div class="col-12 col-lg-4 col-md-4 col-sm-4">
+                          <p>2022 Model</p>
+                        </div>
+                        <div class="col-12 col-lg-5 col-md-5 col-sm-5">
+                          <p class="btn btn-success ">Great Deal <i class="fa fa-thumbs-up" aria-hidden="true"></i>
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+              </div>
+              <div class="item">
+                  <div class="post-slide">
+                    <div class="post-img">
+                      <img src="assets/images/45-classic-146132-1696568052-0.webp" alt="">
+                      <a href="#" class="over-layer">
+                        <i class="fa fa-link"></i>
+                      </a>
+                    </div>
+                    <div class="post-content">
+                      <h3 class="post-title">
+                        <a href="#" class="text-decoration-none fw-bold">Farmtrac 45 Classic</a>
+                      </h3>
+                      <p class="post-description">Price: ₹ 6,50,000</p>
+                      <div class="row">
+                        <div class="col-12 col-lg-3 col-md-3 col-sm-3">
+                          <p>45 Hp</p>
+                        </div>
+                        <div class="col-12 col-lg-4 col-md-4 col-sm-4">
+                          <p>2022 Model</p>
+                        </div>
+                        <div class="col-12 col-lg-5 col-md-5 col-sm-5">
+                          <p class="btn btn-success ">Great Deal <i class="fa fa-thumbs-up" aria-hidden="true"></i>
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+              </div>
+              <div class="item">
+                  <div class="post-slide">
+                    <div class="post-img">
+                      <img src="assets/images/45-classic-146132-1696568052-0.webp" alt="">
+                      <a href="#" class="over-layer">
+                        <i class="fa fa-link"></i>
+                      </a>
+                    </div>
+                    <div class="post-content">
+                      <h3 class="post-title">
+                        <a href="#" class="text-decoration-none fw-bold">Farmtrac 45 Classic</a>
+                      </h3>
+                      <p class="post-description">Price: ₹ 6,50,000</p>
+                      <div class="row">
+                        <div class="col-12 col-lg-3 col-md-3 col-sm-3">
+                          <p>45 Hp</p>
+                        </div>
+                        <div class="col-12 col-lg-4 col-md-4 col-sm-4">
+                          <p>2022 Model</p>
+                        </div>
+                        <div class="col-12 col-lg-5 col-md-5 col-sm-5">
+                          <p class="btn btn-success ">Great Deal <i class="fa fa-thumbs-up" aria-hidden="true"></i>
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+              </div>
+              <div class="item">
+                  <div class="post-slide">
+                    <div class="post-img">
+                      <img src="assets/images/45-classic-146132-1696568052-0.webp" alt="">
+                      <a href="#" class="over-layer">
+                        <i class="fa fa-link"></i>
+                      </a>
+                    </div>
+                    <div class="post-content">
+                      <h3 class="post-title">
+                        <a href="#" class="text-decoration-none fw-bold">Farmtrac 45 Classic</a>
+                      </h3>
+                      <p class="post-description">Price: ₹ 6,50,000</p>
+                      <div class="row">
+                        <div class="col-12 col-lg-3 col-md-3 col-sm-3">
+                          <p>45 Hp</p>
+                        </div>
+                        <div class="col-12 col-lg-4 col-md-4 col-sm-4">
+                          <p>2022 Model</p>
+                        </div>
+                        <div class="col-12 col-lg-5 col-md-5 col-sm-5">
+                          <p class="btn btn-success ">Great Deal <i class="fa fa-thumbs-up" aria-hidden="true"></i>
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+              </div>
+              <div class="item">
+                  <div class="post-slide">
+                    <div class="post-img">
+                      <img src="assets/images/45-classic-146132-1696568052-0.webp" alt="">
+                      <a href="#" class="over-layer">
+                        <i class="fa fa-link"></i>
+                      </a>
+                    </div>
+                    <div class="post-content">
+                      <h3 class="post-title">
+                        <a href="#" class="text-decoration-none fw-bold">Farmtrac 45 Classic</a>
+                      </h3>
+                      <p class="post-description">Price: ₹ 6,50,000</p>
+                      <div class="row">
+                        <div class="col-12 col-lg-3 col-md-3 col-sm-3">
+                          <p>45 Hp</p>
+                        </div>
+                        <div class="col-12 col-lg-4 col-md-4 col-sm-4">
+                          <p>2022 Model</p>
+                        </div>
+                        <div class="col-12 col-lg-5 col-md-5 col-sm-5">
+                          <p class="btn btn-success ">Great Deal <i class="fa fa-thumbs-up" aria-hidden="true"></i>
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+              </div>
+              <div class="item">
+                  <div class="post-slide">
+                    <div class="post-img">
+                      <img src="assets/images/45-classic-146132-1696568052-0.webp" alt="">
+                      <a href="#" class="over-layer">
+                        <i class="fa fa-link"></i>
+                      </a>
+                    </div>
+                    <div class="post-content">
+                      <h3 class="post-title">
+                        <a href="#" class="text-decoration-none fw-bold">Farmtrac 45 Classic</a>
+                      </h3>
+                      <p class="post-description">Price: ₹ 6,50,000</p>
+                      <div class="row">
+                        <div class="col-12 col-lg-3 col-md-3 col-sm-3">
+                          <p>45 Hp</p>
+                        </div>
+                        <div class="col-12 col-lg-4 col-md-4 col-sm-4">
+                          <p>2022 Model</p>
+                        </div>
+                        <div class="col-12 col-lg-5 col-md-5 col-sm-5">
+                          <p class="btn btn-success ">Great Deal <i class="fa fa-thumbs-up" aria-hidden="true"></i>
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+              </div>
+              <div class="item">
+                  <div class="post-slide">
+                    <div class="post-img">
+                      <img src="assets/images/45-classic-146132-1696568052-0.webp" alt="">
+                      <a href="#" class="over-layer">
+                        <i class="fa fa-link"></i>
+                      </a>
+                    </div>
+                    <div class="post-content">
+                      <h3 class="post-title">
+                        <a href="#" class="text-decoration-none fw-bold">Farmtrac 45 Classic</a>
+                      </h3>
+                      <p class="post-description">Price: ₹ 6,50,000</p>
+                      <div class="row">
+                        <div class="col-12 col-lg-3 col-md-3 col-sm-3">
+                          <p>45 Hp</p>
+                        </div>
+                        <div class="col-12 col-lg-4 col-md-4 col-sm-4">
+                          <p>2022 Model</p>
+                        </div>
+                        <div class="col-12 col-lg-5 col-md-5 col-sm-5">
+                          <p class="btn btn-success ">Great Deal <i class="fa fa-thumbs-up" aria-hidden="true"></i>
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+              </div>
+            </div>
+          </div>
+            <!-- <div class="swiper swiper-slider slider">
               <div class="swiper-wrapper wrapper">
                 <div class="swiper-slide">
                   <div class="post-slide">
@@ -663,7 +943,7 @@
                     </div>
                   </div>
                 </div>
-            <div class="swiper-slide">
+                <div class="swiper-slide">
                   <div class="post-slide">
                     <div class="post-img">
                       <img src="assets/images/45-classic-146132-1696568052-0.webp" alt="">
@@ -864,7 +1144,7 @@
              <span class="swiper-pagination"></span>
               <span class="swiper-button-prev"></span>
               <span class="swiper-button-next"></span> 
-            </div>
+            </div> -->
             <div class="col text-center pb-4">
               <a href="#" class="btn btn-success btn-lg">View all  Tractors</a>
             </div>
@@ -1115,6 +1395,7 @@
       <div role="tabpanel" class="tab-pane fade" id="popular" aria-labelledby="popularl-tab">
         <section class="section slider-section">
           <div class="container slider-column" style=" height: 540px;">
+        
             <div class="swiper swiper-slider slider">
               <div class="swiper-wrapper wrapper">
                 <div class="swiper-slide">
@@ -1411,7 +1692,7 @@
             </div>
           </div>
           <div class="col-12 col-lg-6 col-md-6 col-sm-6 align-center">
-            <img src="assets/images/new-tractors.jpg" class="w-100 h-75 text-align-center mt-5 pt-5 tractor" alt="">
+            <img src="assets/images/new-tractors.jpg" class=" h-75 text-align-center mt-5 pt-5 tractor" alt="">
           </div>
         </div>
       </div>
@@ -1522,9 +1803,9 @@
           <spna class="text-success">Mini </spna> Tractors
         </h3>
         <p>Mini tractor price range starts from <strong> Rs. 2.45 Lakh to Rs. 9.21 Lakh*</strong>. </p>
-        <div class="row  justify-content-between">
+        <div class="row ">
           <div class="col-12 ">
-            <div class="position-relative justify-content-center" id="proj_swip">
+            <div class="position-relative " id="proj_swip">
               <div class="swiper swiper-slides-visible p-5 m-n5 testimonial__wrap">
                 <div class="swiper-wrapper ">
                   <div class="swiper-slide h-auto success__stry__item d-flex flex-column shadow ">
@@ -1535,28 +1816,24 @@
                         </div>
                       </a>
                     </div>
-                    <div class="content ">
-                      <a href="#" class="text-decoration-none text-dark">
-                        <h4 class="fw-bold mt-3 mx-3">Mahindra JIVO 305 DI </h3>
-                      </a>
-                      <div class="row mt-1 ps-1">
-                        <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                          <p class="">
-                            <i class="fas fa-bolt"></i> 30 HP
-                          </p>
+                    <div class="post-content">
+                      <h5 class="post-title">
+                        <a href="#" class="text-decoration-none text-dark fw-bold">Mahindra JIVO 305 DI</a>
+                      </h5>
+                      <div class="row mt-1">
+                        <div class="col-12 col-lg-3 col-md-3 col-sm-3">
+                          <p><i class="fas fa-bolt"></i> 30 HP</p>
                         </div>
-                        <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                          <p class="">
-                            <i class="fa fa-cog" aria-hidden="true"></i>1290CC
-                          </p>
+                        <div class="col-12 col-lg-4 col-md-4 col-sm-4">
+                          <p> <i class="fa fa-cog" aria-hidden="true"></i> 1290CC</p>
                         </div>
-                      </div>
-                      <a href="#" class="text-decoration-none text-dark mb-4 ms-3">
+                        <a href="#" class="text-decoration-none text-dark mb-4 ">
                         <span> Get On Road price </span>
                         <span class="icon">
                           <i class="fa-solid fa-chevron-right"></i>
                         </span>
-                      </a>
+                        </a>
+                      </div>
                     </div>
                   </div>
                   <div class="swiper-slide h-auto success__stry__item d-flex flex-column shadow">
@@ -1568,28 +1845,23 @@
                       </a>
                     </div>
                     <div class="content ms-3">
-                      <a href="#" class="text-decoration-none text-dark ">
-                        <h4 class="fw-bold mt-3">Captain 250 DI </h3>
-                      </a>
-                      <div class="row mt-1 ps-1">
-                        <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                          <p class="">
-                            <i class="fas fa-bolt"></i> 25 HP
-                          </p>
+                      <h5 class="post-title">
+                        <a href="#" class="text-decoration-none text-dark fw-bold">Captain 250 DI </a>
+                      </h5>
+                      <div class="row mt-1">
+                        <div class="col-12 col-lg-3 col-md-3 col-sm-3">
+                          <p><i class="fas fa-bolt"></i> 30 HP</p>
                         </div>
-                        <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                          <p class="">
-                            <i class="fa fa-cog" aria-hidden="true"></i>
-                            <span>1200cc</span>
-                          </p>
+                        <div class="col-12 col-lg-4 col-md-4 col-sm-4">
+                          <p> <i class="fa fa-cog" aria-hidden="true"></i> 1290CC</p>
                         </div>
-                      </div>
-                      <a href="#" class="text-decoration-none text-dark mb-4">
+                        <a href="#" class="text-decoration-none text-dark mb-4 ">
                         <span> Get On Road price </span>
                         <span class="icon">
                           <i class="fa-solid fa-chevron-right"></i>
                         </span>
-                      </a>
+                        </a>
+                      </div>
                     </div>
                   </div>
                   <div class="swiper-slide h-auto success__stry__item d-flex flex-column shadow ">
@@ -1602,7 +1874,7 @@
                     </div>
                     <div class="content ms-3">
                       <a href="#" class="text-decoration-none text-dark">
-                        <h4 class="fw-bold mt-3">Mahindra JIVO 245 VINEYARD </h3>
+                        <h5 class="fw-bold mt-2">Mahindra JIVO 245 VINEYARD </h5>
                       </a>
                       <div class="row mt-1 ps-1">
                         <div class="col-12 col-lg-6 col-md-6 col-sm-6">
@@ -1624,72 +1896,63 @@
                       </a>
                     </div>
                   </div>
-                  <div class="swiper-slide h-auto success__stry__item d-flex flex-column shadow ">
+                  <div class="swiper-slide h-auto success__stry__item d-flex flex-column shadow">
                     <div class="thumb">
                       <a href="#">
                         <div class="">
-                          <img src="assets/images/agromaxx-4055-e-1632289120.webp" class="object-fit-cover p-3 w-100" alt="img">
+                          <img src="assets/images/250-di-1630740119.webp" class="object-fit-cover p-3 w-100" alt="img">
                         </div>
                       </a>
                     </div>
                     <div class="content ms-3">
-                      <a href="#" class="text-decoration-none text-dark">
-                        <h4 class="fw-bold mt-3">vst-mt-270-viraat-2w-agrimaster </h3>
-                      </a>
-                      <div class="row mt-1 ps-1">
-                        <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                          <p class="">
-                            <i class="fas fa-bolt"></i> 47 HP
-                          </p>
+                      <h5 class="post-title">
+                        <a href="#" class="text-decoration-none text-dark fw-bold">Captain 250 DI </a>
+                      </h5>
+                      <div class="row mt-1">
+                        <div class="col-12 col-lg-3 col-md-3 col-sm-3">
+                          <p><i class="fas fa-bolt"></i> 30 HP</p>
                         </div>
-                        <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                          <p class="">
-                            <i class="fa fa-cog" aria-hidden="true"></i> 1306 CC
-                          </p>
+                        <div class="col-12 col-lg-4 col-md-4 col-sm-4">
+                          <p> <i class="fa fa-cog" aria-hidden="true"></i> 1290CC</p>
                         </div>
-                      </div>
-                      <a href="#" class="text-decoration-none text-dark mb-4">
+                        <a href="#" class="text-decoration-none text-dark mb-4 ">
                         <span> Get On Road price </span>
                         <span class="icon">
                           <i class="fa-solid fa-chevron-right"></i>
                         </span>
-                      </a>
+                        </a>
+                      </div>
                     </div>
                   </div>
-                  <div class="swiper-slide h-auto success__stry__item d-flex flex-column shadow ">
+                  <div class="swiper-slide h-auto success__stry__item d-flex flex-column shadow">
                     <div class="thumb">
                       <a href="#">
                         <div class="">
-                          <img src="assets/images/jivo-225-di-4wd-1632304571.webp" class="object-fit-cover p-3 w-100" alt="img">
+                          <img src="assets/images/250-di-1630740119.webp" class="object-fit-cover p-3 w-100" alt="img">
                         </div>
                       </a>
                     </div>
                     <div class="content ms-3">
-                      <a href="#" class="text-decoration-none text-dark">
-                        <h4 class="fw-bold mt-3">Mahindra JIVO 225 DI 4WD </h3>
-                      </a>
-                      <div class="row mt-1 ps-3">
-                        <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                          <p class="">
-                            <i class="fas fa-bolt"></i> 20 HP
-                          </p>
+                      <h5 class="post-title">
+                        <a href="#" class="text-decoration-none text-dark fw-bold">Captain 250 DI </a>
+                      </h5>
+                      <div class="row mt-1">
+                        <div class="col-12 col-lg-3 col-md-3 col-sm-3">
+                          <p><i class="fas fa-bolt"></i> 30 HP</p>
                         </div>
-                        <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                          <p class="">
-                            <i class="fa fa-cog" aria-hidden="true"></i> 1366 CC
-                          </p>
+                        <div class="col-12 col-lg-4 col-md-4 col-sm-4">
+                          <p> <i class="fa fa-cog" aria-hidden="true"></i> 1290CC</p>
                         </div>
-                      </div>
-                      <a href="#" class="text-decoration-none text-dark mb-4">
+                        <a href="#" class="text-decoration-none text-dark mb-4 ">
                         <span> Get On Road price </span>
                         <span class="icon">
                           <i class="fa-solid fa-chevron-right"></i>
                         </span>
-                      </a>
+                        </a>
+                      </div>
                     </div>
                   </div>
                 </div>
-                <!-- </div> -->
                 <div class="swiper-pagination"></div>
                 <div class="swiper_nav">
                   <!-- <div class="swiper-button-prev"></div><div class="swiper-button-next "></div> -->
@@ -1708,95 +1971,93 @@
     </section>
     <!-- POPULAR TRACTOR implement -->
     <!-- <section class="section-imple slider-section bg-light"><div class="container "><h3 class="mb-3 display-6 fw-bold">Popular Tractor Implements</h3><div class="container-imple slider-column mt-4"><div class="swiper swiper-slider"><div class="swiper-wrapper"><div class="swiper-slide h-auto  d-flex img-imple flex-column shadow "><div class="thumb"><a href="#"><div class="ratio ratio-16x9"><img src="assets/images/mini-series-68-1608276318.webp" class="object-fit-cover py-2 h-100" alt="img"></div></a></div><div class="content d-flex flex-column flex-grow-1 "><a href="#" class="text-decoration-none text-dark text-center"><h4 class="fw-bold mt-3 mx-3">Universal Mini Series</h3></a><p class="text-center ">Tillage</p><p class="text-dark text-center fw-bold">Power:15-25</p></div></div><div class="swiper-slide h-autod-flex img-imple flex-column shadow "><div class="thumb"><a href="#"><div class="ratio ratio-16x9"><img src="assets/images/medium-duty-spring-loaded-cultivator-32943.webp" class="object-fit-cover py-2 h-100" alt="img"></div></a></div><div class="content d-flex flex-column flex-grow-1 "><a href="#" class="text-decoration-none text-dark text-center"><h4 class="fw-bold mt-3 mx-3">Fieldking Medium Duty Spring Loaded Cultivator</h3></a><p class="text-center ">Tillage</p><p class="text-dark text-center fw-bold">Power : 50-65 HP</p></div></div><div class="swiper-slide h-auto d-flex img-imple flex-column shadow "><div class="thumb"><a href="#"><div class="ratio ratio-16x9"><img src="assets/images/plant-topper-2-row-58-1675748621.webp" class="object-fit-cover py-2 h-100" alt="img"></div></a></div><div class="content d-flex flex-column flex-grow-1 "><a href="#" class="text-decoration-none text-dark text-center"><h4 class="fw-bold mt-3 mx-3">Shaktiman Grimme Plant Topper - 2 Row</h3></a><p class="text-center ">Seeding And Planting</p><p class="text-dark text-center fw-bold">Power : N/A</p></div></div><div class="swiper-slide h-auto  d-flex img-imple flex-column shadow "><div class="thumb"><a href="#"><div class="ratio ratio-16x9"><img src="assets/images/dr-multicrop-thresher-g-series-66-1679740591.webp" class="object-fit-cover py-2 h-100" alt="img"></div></a></div><div class="content d-flex flex-column flex-grow-1 "><a href="#" class="text-decoration-none text-dark text-center"><h4 class="fw-bold mt-3 mx-3">Dasmesh D.R. Multicrop Thresher (G-Series)</h3></a><p class="text-center ">Post Harvest</p><p class="text-dark text-center fw-bold">Power : 35 HP</p></div></div><div class="swiper-slide h-auto  d-flex img-imple flex-column shadow "><div class="thumb"><a href="#"><div class="ratio ratio-16x9"><img src="assets/images/hay-rake.webp" class="object-fit-cover py-2 h-100" alt="img"></div></a></div><div class="content d-flex flex-column flex-grow-1 "><a href="#" class="text-decoration-none text-dark text-center"><h4 class="fw-bold mt-3 mx-3">Fieldking Hay Rake</h3></a><p class="text-center ">LandScaping</p><p class="text-dark text-center fw-bold">Power : 25 & Above</p></div></div></div><span class="swiper-button-prev"></span><span class="swiper-button-next"></span><div class="col text-center my-4 py-"><a href="#" class="btn btn-success btn-lg">View all Tractors Implementation</a></div></div></div></div></section> -->
-    <section>
+    <section class="bg-light">
       <div class="container">
         <div class=" my-3 py-3">
-          <h3 class="display-6 fw-bold  my-3 ">
+          <h3 class="display-6 fw-bold  my-3">
             <span class="text-success">Tools</span> and <span class="text-success">Services</span>
           </h3>
-          <div class="row">
-            <div class="col-12 col-md-3 col-lg-3 col-sm-3 p-4  my-1 ">
+          <div class="row text-center">
+            <div class="col-12 col-md-2 col-lg-2 col-sm-3 p-4">
+              <div class="p-3 toolsservice rounded-3 shadow">
+                <div class="col-12 text-center">
+                  <img src="assets/images/service.png" class="img-tools p-3  w-50 " alt="">
+                </div>
+                <div class="col-12">
+                  <h6 class="service-box text-center fw-bold fs-6 mt-2 text-dark">Service Center</h6>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-md-2 col-lg-2 col-sm-3 p-4 ">
+              <div class="p-3 toolsservice rounded-3 shadow">
+                <div class="col-12 text-center">
+                  <img src="assets/images/call-service.png" class="w-50 img-tools p-3" alt="">
+                </div>
+                <div class="col-12">
+                  <h6 class="service-box fw-bold fs-6 mt-2 text-center text-dark">Contact Us</h6>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-md-2 col-lg-2 col-sm-3 p-4 ">
+              <div class="p-3 toolsservice rounded-3 shadow">
+                <div class="col-12 text-center">
+                  <img src="assets/images/dealer.png" class="w-50 img-tools p-3" alt="">
+                </div>
+                <div class="col-12">
+                  <h6 class="service-box fw-bold fs-6 mt-2 text-center text-dark">Dealer Locator</h6>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-md-2 col-lg-2 col-sm-3 p-4">
+              <div class="p-3 toolsservice rounded-3 shadow">
+                <div class="col-12 text-center">
+                  <img src="assets/images/offers-1.png" class="w-50 img-tools p-2" alt="">
+                </div>
+                <div class="col-12">
+                  <h6 class="service-box fw-bold fs-6 mt-2 text-center text-dark">Offers</h6>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-md-2 col-lg-2 col-sm-3 p-4 ">
+              <div class="p-3 toolsservice rounded-3 shadow">
+                <div class="col-12 text-center">
+                  <img src="assets/images/about-us.png" class="w-50 img-tools p-3" alt="">
+                </div>
+                <div class="col-12">
+                  <h6 class="service-box fw-bold fs-6 mt-2 text-center text-dark">About Us</h6>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-md-2 col-lg-2 col-sm-3 p-4 ">
+              <div class="p-3 toolsservice  rounded-3 shadow">
+                <div class="col-12 text-center">
+                  <img src="assets/images/dealer.png" class="w-50 img-tools p-3" alt="">
+                </div>
+                <div class="col-12 text-center">
+                  <h6 class="service-box fw-bold fs-6 mt-2 text-center text-dark ">Customer Care</h6>
+                </div>
+              </div>
+            </div>
+             <!-- <div class="col-12 col-md-3 col-lg-3 col-sm-4 p-4 my-1 ">
               <div class="row p-3 toolsservice rounded-3 shadow">
-                <div class="col-12 col-md-5 col-lg-5 col-sm-5">
-                  <img src="assets/images/service.png" class="w-100 img-tools p-4 h-100" alt="">
+                <div class="col-12">
+                  <img src="assets/images/dealer.png" class="w-50 img-tools p-3" alt="">
                 </div>
-                <div class="col-12 col-md-7 col-lg-7 col-sm-7">
-                  <h6 class="service-box fw-bold fs-5 mt-2 text-white">Service Center</h6>
+                <div class="col-12 text-center">
+                  <h6 class="service-box fw-bold fs-6 mt-2 text-dark ">Customer Care</h6>
                 </div>
               </div>
             </div>
-            <!-- <div class="col-12 col-lg-2 col-md-2 col-sm-2"></div> -->
-            <div class="col-12 col-md-3 col-lg-3 col-sm-3 p-4  my-1">
+            <div class="col-12 col-md-3 col-lg-3 col-sm-4 p-4">
               <div class="row p-3 toolsservice rounded-3 shadow">
-                <div class="col-12 col-md-5 col-lg-5 col-sm-5">
-                  <img src="assets/images/call-service.png" class="w-100 img-tools p-4 h-100" alt="">
+                <div class="col-12">
+                  <img src="assets/images/loan.png" class="w-50 img-tools p-3" alt="">
                 </div>
-                <div class="col-12 col-md-7 col-lg-7 col-sm-7">
-                  <h6 class="service-box fw-bold fs-5 mt-3 text-white">Contact Us</h6>
-                </div>
-              </div>
-            </div>
-            <div class="col-12 col-md-3 col-lg-3 col-sm-3 p-4  my-1">
-              <div class="row p-3 toolsservice rounded-3 shadow">
-                <div class="col-12 col-md-5 col-lg-5 col-sm-5">
-                  <img src="assets/images/dealer.png" class="w-100 img-tools p-4 h-100" alt="">
-                </div>
-                <div class="col-12 col-md-7 col-lg-7 col-sm-7">
-                  <h6 class="service-box fw-bold fs-5 mt-2 text-white">Dealer Locator</h6>
+                <div class="col-12 text-center">
+                  <h6 class="service-box fw-bold fs-6 mt-2 text-dark">Loan</h6>
                 </div>
               </div>
-            </div>
-            <div class="col-12 col-md-3 col-lg-3 col-sm-3 p-4  my-1 ">
-              <div class="row p-3 toolsservice rounded-3 shadow">
-                <div class="col-12 col-md-5 col-lg-5 col-sm-5">
-                  <img src="assets/images/offers-1.png" class="w-100 img-tools p-4 h-100" alt="">
-                </div>
-                <div class="col-12 col-md-7 col-lg-7 col-sm-7">
-                  <h6 class="service-box fw-bold fs-5 mt-4 text-white ">Offers</h6>
-                </div>
-              </div>
-            </div>
-            <div class="col-12 col-md-3 col-lg-3 col-sm-3 p-4">
-              <div class="row p-3 toolsservice  rounded-3 shadow">
-                <div class="col-12 col-md-5 col-lg-5 col-sm-5">
-                  <img src="assets/images/offers-1.png" class="w-100 img-tools p-4 h-100" alt="">
-                </div>
-                <div class="col-12 col-md-7 col-lg-7 col-sm-7">
-                  <h6 class="service-box fw-bold fs-5 mt-3 text-white ">Compare</h6>
-                </div>
-              </div>
-            </div>
-            <div class="col-12 col-md-3 col-lg-3 col-sm-3 p-4 ">
-              <div class="row p-3 toolsservice rounded-3 shadow">
-                <div class="col-12 col-md-5 col-lg-5 col-sm-5">
-                  <img src="assets/images/dealer.png" class="w-100 img-tools p-4 h-100" alt="">
-                </div>
-                <div class="col-12 col-md-7 col-lg-7 col-sm-7">
-                  <h6 class="service-box fw-bold fs-5 mt-2 text-white ">Customer Care</h6>
-                </div>
-              </div>
-            </div>
-            <div class="col-12 col-md-3 col-lg-3 col-sm-3 p-4">
-              <div class="row p-3 toolsservice rounded-3 shadow">
-                <div class="col-12 col-md-5 col-lg-5 col-sm-5">
-                  <img src="assets/images/loan.png" class="w-100 img-tools p-4 h-100" alt="">
-                </div>
-                <div class="col-12 col-md-7 col-lg-7 col-sm-7">
-                  <h6 class="service-box fw-bold fs-5 mt-4 text-white">Loan</h6>
-                </div>
-              </div>
-            </div>
-            <div class="col-12 col-md-3 col-lg-3 col-sm-3 p-4 ">
-              <div class="row p-3 toolsservice rounded-3 shadow">
-                <div class="col-12 col-md-5 col-lg-5 col-sm-5">
-                  <img src="assets/images/about-us.png" class="w-100 img-tools p-4 mb-2 h-100" alt="">
-                </div>
-                <div class="col-12 col-md-7 col-lg-7 col-sm-7">
-                  <h6 class="service-box fw-bold fs-5 mt-3 text-white">About Us</h6>
-                </div>
-              </div>
-            </div>
-            <!-- <div class="col-12 col-md-3 col-lg-3 col-sm-3 p-4  my-4 "><div class="row p-3 toolsservice  rounded-3 shadow"><div class="col-12 col-md-5 col-lg-5 col-sm-5"><img src="assets/images/about-us.png" class="w-100 img-tools p-4 h-100"alt=""></div><div class="col-12 col-md-7 col-lg-7 col-sm-7"><h6 class="service-box fw-bold fs-5 mt-3 text-white ">About Us</h6></div></div></div> -->
+            </div> -->
           </div>
         </div>
       </div>
@@ -1839,7 +2100,7 @@
                 <div class="row align-items-center bg-white shadow rounded-3">
                   <div class="col-lg-4 col-12 col-sm-4 col-lg-4">
                     <a href="#" class="">
-                      <img src="assets/images/tractor-1693830307.webp" class="w-100 rounded-3 newsimg " alt="">
+                      <img src="assets/images/tractor-1693830307.webp" class="w-100 rounded-3 newsimg" alt="">
                     </a>
                   </div>
                   <div class="col-lg-8 pt-4">
@@ -1878,24 +2139,7 @@
                       <img src="assets/images/agriculture-1693304057.webp" class="w-100 rounded-3 newsimg " alt="">
                     </a>
                   </div>
-                  <div class="col-lg-8 pt-4">
-                    <a href="#" class="text-decoration-none text-dark">
-                      <h5 class="news-head"> कम बारिश की स्थिति में मूंगफली की पैदावार बढ़ाने के वैज्ञा</h5>
-                    </a>
-                    <p>
-                      <i class="fa fa-calendar" aria-hidden="true"></i> 22 aug 2023
-                    </p>
-                    <p class="text-success">Agriculture</p>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-6 px-5  my-3 ">
-                <div class="row align-items-center bg-white shadow rounded-3">
-                  <div class="col-lg-4 col-12 col-sm-4 col-lg-4">
-                    <a href="#" class="">
-                      <img src="assets/images/sarkari-yojana-1693915364.webp" class="w-100 rounded-3 newsimg " alt="">
-                    </a>
-                  </div>
+                  
                   <div class="col-lg-8 pt-4">
                     <a href="#" class="text-decoration-none text-dark">
                       <h5 class="news-head">प्रधानमंत्री उज्जवला योजना : 75 लाख नए रसोई गैस कनेक्श</h5>
@@ -1922,6 +2166,24 @@
                       <i class="fa fa-calendar" aria-hidden="true"></i> 06 sep 2023
                     </p>
                     <p class="text-success">Sarkari Yojna</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-6 px-5 my-3  ">
+                <div class="row align-items-center bg-white shadow rounded-3">
+                  <div class="col-lg-4 col-12 col-sm-4 col-lg-4">
+                    <a href="#" class="">
+                      <img src="assets/images/agriculture-1693463723.webp" class="w-100 rounded-3 newsimg " alt="">
+                    </a>
+                  </div>
+                  <div class="col-lg-8 pt-4">
+                    <a href="#" class="text-decoration-none text-dark">
+                      <h5 class="news-head"> मुनाफे की गारंटी : इन तीन पेड़ों से होगी करोड़ों रुपए की </h5>
+                    </a>
+                    <p>
+                      <i class="fa fa-calendar" aria-hidden="true"></i> 31 aug 2023
+                    </p>
+                    <p class="text-success">Agriculture</p>
                   </div>
                 </div>
               </div>
@@ -1974,7 +2236,7 @@
                   </div>
                   <div class="col-lg-8 py-4">
                     <a href="#" class="text-decoration-none text-dark">
-                      <h5 class="news-head"> Retail Tractors Sales Report August 2023: Tra</h5>
+                      <h5 class="news-head"> Retail Tractors Sales Report August 2023: </h5>
                     </a>
                     <p>
                       <i class="fa fa-calendar" aria-hidden="true"></i> 5 Sep 2023
@@ -2543,9 +2805,36 @@
           </div>
         </div>
       </div>
-    </section> <?php
+    </section> 
+    <?php
     include 'includes/footer.php';
     include 'includes/footertag.php';
 
     ?>
+    <script>
+      $('#usedtractorforsell').owlCarousel({
+        loop: true,
+        margin: 10,
+        nav: true,
+        navText: [
+          "<i class='fa fa-caret-left'></i>",
+          "<i class='fa fa-caret-right'></i>"
+        ],
+        
+    autoplay:false,
+    autoplayTimeout:3000,
+    autoplayHoverPause:true,
+        responsive: {
+          0: {
+            items: 1
+          },
+          600: {
+            items: 3
+          },
+          1000: {
+            items: 3
+          }
+        }
+})
+    </script>
 </html>

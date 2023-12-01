@@ -56,11 +56,66 @@
                                         <p class="fw-bold pe-3">Ambikapur(C.G)</p>
                                     </div>
                                 </div>
-                                <div class="col-12 btn-success">
-                                    <p class="call text-center pt-2"> <i class="fa-solid fa-phone"></i> Contact Seller</p>
-                                </div>
                             </div>
                         </a>
+                        <div class="col-12 btn-success">
+                            <button type="button" class="btn btn-success py-2 w-100" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="fa-solid fa-phone"></i> 
+                                Contact Seller
+                            </button>
+                        </div>
+
+                                <!-- Modal -->
+                        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-lg modal-dialog-centered">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title text-danger" id="staticBackdropLabel">Contact Seller</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="model-cont">
+                                            <h4 class="text-center text-danger">Contact with Seller</h3>
+                                            <div class="row px-3 py-2">
+                                                <div class="col-12  col-sm-12 col-md-6 col-lg-6 ">
+                                                    <label for="slr_name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i>Name</label>
+                                                    <input type="text" class="form-control"  id="slr_name">
+                                                </div>
+                                                <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+                                                    <label for="number" class="form-label text-dark fw-bold"> <i class="fa fa-phone" aria-hidden="true"></i> Phone Number</label>
+                                                    <input type="text" class="form-control" id="number">
+                                                </div>
+                                                <div class="col-12 col-sm-12 col-md-6 col-lg-6  ">
+                                                    <label for="number" class="form-label text-dark fw-bold"> State</label>
+                                                    <select class="form-select py-2 " aria-label=".form-select-lg example">
+                                                        <option selected>Select State</option>
+                                                        <option value="1">Chhattisgarh</option>
+                                                        <option value="2">Other</option>
+                                                    </select>
+                                                </div>
+                                                <div class="col-12 col-sm-12 col-md-6 col-lg-6  ">
+                                                    <label for="number" class="form-label text-dark fw-bold"> District</label>
+                                                    <select class="form-select py-2 " aria-label=".form-select-lg example">
+                                                        <option selected>Select District</option>
+                                                        <option value="1">Mungeli</option>
+                                                        <option value="2">Durg</option>
+                                                    </select>
+                                                </div>
+                                                <div class="col-12  col-sm-12 col-md-6 col-lg-6 ">
+                                                    <label for="slr_name" class="form-label fw-bold text-dark mt-2"> Price</label>
+                                                    <input type="text" class="form-control" placeholder="Enter price" id="price">
+                                                </div>
+                                                <div class="col-12  col-sm-12 col-md-6 col-lg-6 mt-4 pt-3">
+                                                    <button type="button" class="btn btn-success px-3">Request</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer py-4">
+                                        <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> -->
+                                    </div>
+                                 </div>
+                            </div>
+                        </div>
                     </div>
                     <div class="col-12 col-lg-4 col-md-4 col-sm-4 mb-4">
                         <a href="#" class="h-auto success__stry__item d-flex flex-column text-decoration-none shadow ">
@@ -88,11 +143,66 @@
                                         <p class="fw-bold pe-3">Ambikapur(C.G)</p>
                                     </div>
                                 </div>
-                                <div class="col-12 btn-success">
-                                    <p class="call text-center pt-2"> <i class="fa-solid fa-phone"></i> Contact Seller</p>
-                                </div>
                             </div>
                         </a>
+                        <div class="col-12 btn-success">
+                            <button type="button" class="btn btn-success py-2 w-100" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="fa-solid fa-phone"></i> 
+                                Contact Seller
+                            </button>
+                        </div>
+
+                                <!-- Modal -->
+                        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-lg modal-dialog-centered">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title text-danger" id="staticBackdropLabel">Contact Seller</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="model-cont">
+                                            <h4 class="text-center text-danger">Contact with Seller</h3>
+                                            <div class="row px-3 py-2">
+                                                <div class="col-12  col-sm-12 col-md-6 col-lg-6 ">
+                                                    <label for="slr_name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i>Name</label>
+                                                    <input type="text" class="form-control"  id="slr_name">
+                                                </div>
+                                                <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+                                                    <label for="number" class="form-label text-dark fw-bold"> <i class="fa fa-phone" aria-hidden="true"></i> Phone Number</label>
+                                                    <input type="text" class="form-control" id="number">
+                                                </div>
+                                                <div class="col-12 col-sm-12 col-md-6 col-lg-6  ">
+                                                    <label for="number" class="form-label text-dark fw-bold"> State</label>
+                                                    <select class="form-select py-2 " aria-label=".form-select-lg example">
+                                                        <option selected>Select State</option>
+                                                        <option value="1">Chhattisgarh</option>
+                                                        <option value="2">Other</option>
+                                                    </select>
+                                                </div>
+                                                <div class="col-12 col-sm-12 col-md-6 col-lg-6  ">
+                                                    <label for="number" class="form-label text-dark fw-bold"> District</label>
+                                                    <select class="form-select py-2 " aria-label=".form-select-lg example">
+                                                        <option selected>Select District</option>
+                                                        <option value="1">Mungeli</option>
+                                                        <option value="2">Durg</option>
+                                                    </select>
+                                                </div>
+                                                <div class="col-12  col-sm-12 col-md-6 col-lg-6 ">
+                                                    <label for="slr_name" class="form-label fw-bold text-dark mt-2"> Price</label>
+                                                    <input type="text" class="form-control" placeholder="Enter price" id="price">
+                                                </div>
+                                                <div class="col-12  col-sm-12 col-md-6 col-lg-6 mt-4 pt-3">
+                                                    <button type="button" class="btn btn-success px-3">Request</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer py-4">
+                                        <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> -->
+                                    </div>
+                                 </div>
+                            </div>
+                        </div>
                     </div>
                     <div class="col-12 col-lg-4 col-md-4 col-sm-4 mb-4">
                         <a href="#" class="h-auto success__stry__item text-decoration-none d-flex flex-column shadow ">
@@ -120,11 +230,66 @@
                                         <p class="fw-bold pe-3">Surajpur(C.G)</p>
                                     </div>
                                 </div>
-                                <div class="col-12 btn-success">
-                                    <p class="call text-center pt-2"> <i class="fa-solid fa-phone"></i> Contact Seller</p>
-                                </div>
                             </div>
                         </a>
+                        <div class="col-12 btn-success">
+                            <button type="button" class="btn btn-success py-2 w-100" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="fa-solid fa-phone"></i> 
+                                Contact Seller
+                            </button>
+                        </div>
+
+                                <!-- Modal -->
+                        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-lg modal-dialog-centered">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title text-danger" id="staticBackdropLabel">Contact Seller</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="model-cont">
+                                            <h4 class="text-center text-danger">Contact with Seller</h3>
+                                            <div class="row px-3 py-2">
+                                                <div class="col-12  col-sm-12 col-md-6 col-lg-6 ">
+                                                    <label for="slr_name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i>Name</label>
+                                                    <input type="text" class="form-control"  id="slr_name">
+                                                </div>
+                                                <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+                                                    <label for="number" class="form-label text-dark fw-bold"> <i class="fa fa-phone" aria-hidden="true"></i> Phone Number</label>
+                                                    <input type="text" class="form-control" id="number">
+                                                </div>
+                                                <div class="col-12 col-sm-12 col-md-6 col-lg-6  ">
+                                                    <label for="number" class="form-label text-dark fw-bold"> State</label>
+                                                    <select class="form-select py-2 " aria-label=".form-select-lg example">
+                                                        <option selected>Select State</option>
+                                                        <option value="1">Chhattisgarh</option>
+                                                        <option value="2">Other</option>
+                                                    </select>
+                                                </div>
+                                                <div class="col-12 col-sm-12 col-md-6 col-lg-6  ">
+                                                    <label for="number" class="form-label text-dark fw-bold"> District</label>
+                                                    <select class="form-select py-2 " aria-label=".form-select-lg example">
+                                                        <option selected>Select District</option>
+                                                        <option value="1">Mungeli</option>
+                                                        <option value="2">Durg</option>
+                                                    </select>
+                                                </div>
+                                                <div class="col-12  col-sm-12 col-md-6 col-lg-6 ">
+                                                    <label for="slr_name" class="form-label fw-bold text-dark mt-2"> Price</label>
+                                                    <input type="text" class="form-control" placeholder="Enter price" id="price">
+                                                </div>
+                                                <div class="col-12  col-sm-12 col-md-6 col-lg-6 mt-4 pt-3">
+                                                    <button type="button" class="btn btn-success px-3">Request</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer py-4">
+                                        <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> -->
+                                    </div>
+                                 </div>
+                            </div>
+                        </div>
                     </div>
                     <div class="col-12 col-lg-4 col-md-4 col-sm-4 mb-4">
                         <a href="#" class="h-auto success__stry__item d-flex text-decoration-none flex-column shadow ">
@@ -152,11 +317,67 @@
                                         <p class="fw-bold pe-3">Raipur(C.G)</p>
                                     </div>
                                 </div>
-                                <div class="col-12 btn-success">
-                                    <p class="call text-center pt-2"> <i class="fa-solid fa-phone"></i> Contact Seller</p>
-                                </div>
+                                
                             </div>
                         </a>
+                        <div class="col-12 btn-success">
+                            <button type="button" class="btn btn-success py-2 w-100" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="fa-solid fa-phone"></i> 
+                                Contact Seller
+                            </button>
+                        </div>
+
+                                <!-- Modal -->
+                        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-lg modal-dialog-centered">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title text-danger" id="staticBackdropLabel">Contact Seller</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="model-cont">
+                                            <h4 class="text-center text-danger">Contact with Seller</h3>
+                                            <div class="row px-3 py-2">
+                                                <div class="col-12  col-sm-12 col-md-6 col-lg-6 ">
+                                                    <label for="slr_name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i>Name</label>
+                                                    <input type="text" class="form-control"  id="slr_name">
+                                                </div>
+                                                <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+                                                    <label for="number" class="form-label text-dark fw-bold"> <i class="fa fa-phone" aria-hidden="true"></i> Phone Number</label>
+                                                    <input type="text" class="form-control" id="number">
+                                                </div>
+                                                <div class="col-12 col-sm-12 col-md-6 col-lg-6  ">
+                                                    <label for="number" class="form-label text-dark fw-bold"> State</label>
+                                                    <select class="form-select py-2 " aria-label=".form-select-lg example">
+                                                        <option selected>Select State</option>
+                                                        <option value="1">Chhattisgarh</option>
+                                                        <option value="2">Other</option>
+                                                    </select>
+                                                </div>
+                                                <div class="col-12 col-sm-12 col-md-6 col-lg-6  ">
+                                                    <label for="number" class="form-label text-dark fw-bold"> District</label>
+                                                    <select class="form-select py-2 " aria-label=".form-select-lg example">
+                                                        <option selected>Select District</option>
+                                                        <option value="1">Mungeli</option>
+                                                        <option value="2">Durg</option>
+                                                    </select>
+                                                </div>
+                                                <div class="col-12  col-sm-12 col-md-6 col-lg-6 ">
+                                                    <label for="slr_name" class="form-label fw-bold text-dark mt-2"> Price</label>
+                                                    <input type="text" class="form-control" placeholder="Enter price" id="price">
+                                                </div>
+                                                <div class="col-12  col-sm-12 col-md-6 col-lg-6 mt-4 pt-3">
+                                                    <button type="button" class="btn btn-success px-3">Request</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer py-4">
+                                        <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> -->
+                                    </div>
+                                 </div>
+                            </div>
+                        </div>
                     </div>
                     <div class="col-12 col-lg-4 col-md-4 col-sm-4 mb-4">
                         <a href="#" class="h-auto success__stry__item text-decoration-none d-flex flex-column shadow ">
@@ -184,11 +405,66 @@
                                         <p class="fw-bold pe-3">Surajpur(C.G)</p>
                                     </div>
                                 </div>
-                                <div class="col-12 btn-success">
-                                    <p class="call text-center pt-2"> <i class="fa-solid fa-phone"></i> Contact Seller</p>
-                                </div>
                             </div>
                         </a>
+                        <div class="col-12 btn-success">
+                            <button type="button" class="btn btn-success py-2 w-100" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="fa-solid fa-phone"></i> 
+                                Contact Seller
+                            </button>
+                        </div>
+
+                                <!-- Modal -->
+                        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-lg modal-dialog-centered">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title text-danger" id="staticBackdropLabel">Contact Seller</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="model-cont">
+                                            <h4 class="text-center text-danger">Contact with Seller</h3>
+                                            <div class="row px-3 py-2">
+                                                <div class="col-12  col-sm-12 col-md-6 col-lg-6 ">
+                                                    <label for="slr_name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i>Name</label>
+                                                    <input type="text" class="form-control"  id="slr_name">
+                                                </div>
+                                                <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+                                                    <label for="number" class="form-label text-dark fw-bold"> <i class="fa fa-phone" aria-hidden="true"></i> Phone Number</label>
+                                                    <input type="text" class="form-control" id="number">
+                                                </div>
+                                                <div class="col-12 col-sm-12 col-md-6 col-lg-6  ">
+                                                    <label for="number" class="form-label text-dark fw-bold"> State</label>
+                                                    <select class="form-select py-2 " aria-label=".form-select-lg example">
+                                                        <option selected>Select State</option>
+                                                        <option value="1">Chhattisgarh</option>
+                                                        <option value="2">Other</option>
+                                                    </select>
+                                                </div>
+                                                <div class="col-12 col-sm-12 col-md-6 col-lg-6  ">
+                                                    <label for="number" class="form-label text-dark fw-bold"> District</label>
+                                                    <select class="form-select py-2 " aria-label=".form-select-lg example">
+                                                        <option selected>Select District</option>
+                                                        <option value="1">Mungeli</option>
+                                                        <option value="2">Durg</option>
+                                                    </select>
+                                                </div>
+                                                <div class="col-12  col-sm-12 col-md-6 col-lg-6 ">
+                                                    <label for="slr_name" class="form-label fw-bold text-dark mt-2"> Price</label>
+                                                    <input type="text" class="form-control" placeholder="Enter price" id="price">
+                                                </div>
+                                                <div class="col-12  col-sm-12 col-md-6 col-lg-6 mt-4 pt-3">
+                                                    <button type="button" class="btn btn-success px-3">Request</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer py-4">
+                                        <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> -->
+                                    </div>
+                                 </div>
+                            </div>
+                        </div>
                     </div>
                     <div class="col-12 col-lg-4 col-md-4 col-sm-4 mb-4">
                         <a href="#" class="h-auto success__stry__item text-decoration-none d-flex flex-column shadow ">
@@ -216,11 +492,66 @@
                                         <p class="fw-bold pe-3">Ratanpur(C.G)</p>
                                     </div>
                                 </div>
-                                <div class="col-12 btn-success">
-                                    <p class="call text-center pt-2"> <i class="fa-solid fa-phone"></i> Contact Seller</p>
-                                </div>
                             </div>
                         </a>
+                        <div class="col-12 btn-success">
+                            <button type="button" class="btn btn-success py-2 w-100" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="fa-solid fa-phone"></i> 
+                                Contact Seller
+                            </button>
+                        </div>
+
+                                <!-- Modal -->
+                        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-lg modal-dialog-centered">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title text-danger" id="staticBackdropLabel">Contact Seller</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="model-cont">
+                                            <h4 class="text-center text-danger">Contact with Seller</h3>
+                                            <div class="row px-3 py-2">
+                                                <div class="col-12  col-sm-12 col-md-6 col-lg-6 ">
+                                                    <label for="slr_name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i>Name</label>
+                                                    <input type="text" class="form-control"  id="slr_name">
+                                                </div>
+                                                <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+                                                    <label for="number" class="form-label text-dark fw-bold"> <i class="fa fa-phone" aria-hidden="true"></i> Phone Number</label>
+                                                    <input type="text" class="form-control" id="number">
+                                                </div>
+                                                <div class="col-12 col-sm-12 col-md-6 col-lg-6  ">
+                                                    <label for="number" class="form-label text-dark fw-bold"> State</label>
+                                                    <select class="form-select py-2 " aria-label=".form-select-lg example">
+                                                        <option selected>Select State</option>
+                                                        <option value="1">Chhattisgarh</option>
+                                                        <option value="2">Other</option>
+                                                    </select>
+                                                </div>
+                                                <div class="col-12 col-sm-12 col-md-6 col-lg-6  ">
+                                                    <label for="number" class="form-label text-dark fw-bold"> District</label>
+                                                    <select class="form-select py-2 " aria-label=".form-select-lg example">
+                                                        <option selected>Select District</option>
+                                                        <option value="1">Mungeli</option>
+                                                        <option value="2">Durg</option>
+                                                    </select>
+                                                </div>
+                                                <div class="col-12  col-sm-12 col-md-6 col-lg-6 ">
+                                                    <label for="slr_name" class="form-label fw-bold text-dark mt-2"> Price</label>
+                                                    <input type="text" class="form-control" placeholder="Enter price" id="price">
+                                                </div>
+                                                <div class="col-12  col-sm-12 col-md-6 col-lg-6 mt-4 pt-3">
+                                                    <button type="button" class="btn btn-success px-3">Request</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer py-4">
+                                        <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> -->
+                                    </div>
+                                 </div>
+                            </div>
+                        </div>
                     </div>
 
                 </div>
