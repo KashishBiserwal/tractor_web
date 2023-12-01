@@ -8,21 +8,70 @@
 </head>
 <body>
     <section>
-        <div class="container mt-5 pt-4">
-            <div class="mt-5 pt-5">
-                <span class="mt-4 pt-4 ">
-                    <a href="index.php" class="text-decoration-none header-link px-1">Home <i class="fa-solid fa-chevron-right px-1"></i></a>
-                    <span class=""><span class=" header-link  px-1">Certified Dealers</span></span>
-                </span> 
-            </div>
+      <div class="container mt-5 pt-4">
+        <div class="mt-5 pt-5">
+          <span class="mt-4 pt-4 ">
+            <a href="index.php" class="text-decoration-none header-link px-1">Home <i class="fa-solid fa-chevron-right px-1"></i></a>
+            <span class=""><span class=" header-link  px-1">Certified Dealers</span></span>
+          </span> 
         </div>
+      </div>
     </section>
 
     <section>
-        <div class="row mt-3">
-            <img src="assets/images/certified-dealer-main.jpg" height="400"alt="dealership-image">
-        </div>            
+      <div class="row mt-3">
+        <img src="assets/images/certified-dealer-main.jpg" height="400"alt="dealership-image">
+      </div>            
     </section>
+
+    <section class="form-view bg-white pb-4">
+      <div class="container-mid" style="position: relative;">
+        <div class="row justify-content-center">
+          <div class="col-md-8 col-lg-7">
+            <form id="dealership_enq_from" class="form-view-inner form-view-overlay bg-light box-shadow p-3" action="" method="" >
+              <div class="row justify-content-center">            
+                <div class="col-12 col-sm-4 col-md-4 col-lg-4">
+                  <label for="yr_dist" class="form-label fw-bold text-dark">Brand</label>
+                  <select class="form-select py-2 " id="_brand" name="_brand"aria-label=".form-select-lg example">
+                    <option selected>Select Brand</option>
+                    <option value="1">Mahindra</option>
+                    <option value="2">Swaraj</option>
+                    <option value="2">Powertrac</option>
+                  </select>
+                </div>                
+                <div class="col-12 col-sm-4 col-md-4 col-lg-4">
+                  <label for="yr_state" class="form-label text-dark fw-bold"> <i class="fas fa-location"></i> State</label>
+                  <select class="form-select py-2" id="_state" name="_state"aria-label=".form-select-lg example">
+                    <option selected>Select State</option>
+                    <option value="1">Chhattisgarh</option>
+                    <option value="2">Other</option>
+                  </select>
+                </div>
+                <div class="col-12 col-sm-4 col-md-4 col-lg-4">
+                  <label for="yr_dist" class="form-label fw-bold  text-dark"><i class="fa-solid fa-location-dot"></i> District</label>
+                  <select class="form-select py-2" id="_district" name="_district" aria-label=".form-select-lg example">
+                    <option selected>Select District</option>
+                    <option value="1">Raipur</option>
+                    <option value="2">Bilaspur</option>
+                    <option value="2">Durg</option>
+                  </select>
+                </div>
+                <div class="row">
+                  <div class="text-center col-12 col-lg-6 col-md-6 col-sm-6 my-3">
+                    <button type="submit" id="delership_enq_btn" class="btn btn-success px-5 w-100 ">Search Dealer</button>         
+                  </div>        
+                  <div class="text-center col-12 col-lg-6 col-md-6 col-sm-6 my-3">
+                    <button type="submit" id="delership_enq_btn" class="btn btn-success px-5 w-100 ">Become Certified Dealer</button>         
+                  </div>        
+                </div>
+                <p class="mb-0 text-center">By proceeding ahead you expressly agree to the Tractor Junctions <a href="#" class="text-decoration-none" target="_blank" title="terms and conditions">terms and conditions*</a></p>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
 
     <!-- TOOLS AND SERVICES -->
     <!-- <section class="bg-light">
