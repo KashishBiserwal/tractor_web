@@ -51,7 +51,7 @@
                     <div class="col-12 col-lg-4 col-md-4 col-sm-4 ">
                         <div class="h-auto success__stry__item d-flex flex-column shadow ">
                             <div class="thumb">
-                                <a href="#">
+                                <a href="farmtrac_60.php">
                                     <div class="ratio ratio-16x9">
                                         <img src="assets/images/60-140739-1692601922-0.webp" class="object-fit-cover " alt="img">
                                     </div>

@@ -32,7 +32,7 @@
                     <div class="col-12 col-lg-4 col-md-4 col-sm-4 mb-3">
                         <div class="h-auto success__stry__item d-flex flex-column shadow ">
                             <div class="thumb">
-                                <a href="#">
+                                <a href="Mahindra_575.php">
                                     <div class="ratio ratio-16x9">
                                         <img src="assets/images/575-di-xp-plus-1632207330.webp" class="object-fit-cover " alt="img">
                                     </div>
@@ -40,7 +40,7 @@
                             </div>
                             <div class="content d-flex flex-column flex-grow-1 ">
                                 <div class="caption text-center">
-                                    <a href="#" class="text-decoration-none text-dark">
+                                    <a href="Mahindra_575.php" class="text-decoration-none text-dark">
                                         <p class="pt-3"><strong class="series_tractor_strong text-center h4 fw-bold ">Mahindra 575 DI XP Plus</strong></p>
                                     </a>      
                                 </div>
