@@ -1714,3 +1714,6 @@ input[type="checkbox"]:checked + label:before {
 #productContainer .owl-stage{
   display: flex;
 }
+.trac_dealers li{
+  list-style-type: square;
+}
