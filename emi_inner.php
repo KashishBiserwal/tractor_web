@@ -125,79 +125,20 @@
             </div>
         </div>
     </div>
-    <section class="my-4">
+    <!-- 
+        
+     -->
+
+
+    <section>
         <div class="container">
-            <h3 class="fw-bold assured px-2 mt-2">EMI Calculation Form</h3>
             <div class="row">
-                <div class="col-12 col-sm-12 col-md-6 col-lg-6">
-                    <img src="assets\images\eicher-551-2wd-prima-g3.webp" class="w-100 h-50 mt-3" alt="Edit">
+                <div class="col-12 col-md-6 col-sm-6 col-lg-6">
+                    <img src="assets\images\eicher-551-2wd-prima-g3.webp" class="w-100 h-50 mt-3">
                     <button type="button" class="w-100 btn btn-outline-success fw-bold mt-3 mb-1">Get on road
                         Price</button>
-                    <div>
-                        <h5 class="mt-4 ">Down Payment</h5>
-                        <i class="fa-solid fa-indian-rupee-sign fs-5 mx-2 "></i><input type="text" class="text_emi">
-                        <div class="slidecontainer">
-                            <input type="range" min="0" max="100" value="750000" class="slider py-1" id="myRange">
-                            <!-- <p>Value: <span id="demo"></span></p> -->
-                        </div>
-                    </div>
-                    <div>
-                        <h5 class="mt-4">Bank Interest Rate</h5>
-                        <input type="text" class="text_emi"> <i class="fa-solid fa-percent ms-2"></i>
-                        <div class="slidecontainer">
-                            <input type="range" min="0" max="100" value="7500" class="slider py-1" id="myRange2">
-                            <!-- <p>Value: <span id="demo2"></span></p> -->
-                        </div>
-                    </div>
-                    <div>
-                        <h5 class="mt-4 ">Loan Period Months</h5>
-                        <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                            <label class="btn btn-success ">
-                                <input type="radio" name="options" id="option1" autocomplete="off">12
-                            </label>
-                            <label class="btn btn-success">
-                                <input type="radio" name="options" id="option2" autocomplete="off">18
-                            </label>
-                            <label class="btn btn-success">
-                                <input type="radio" name="options" id="option3" autocomplete="off">24
-                            </label>
-                            <label class="btn btn-success">
-                                <input type="radio" name="options" id="option4" autocomplete="off">30
-                            </label>
-                            <label class="btn btn-success">
-                                <input type="radio" name="options" id="option5" autocomplete="off">36
-                            </label>
-                            <label class="btn btn-success">
-                                <input type="radio" name="options" id="option6" autocomplete="off">42
-                            </label>
-                            <label class="btn btn-success">
-                                <input type="radio" name="options" id="option7" autocomplete="off">48
-                            </label>
-                            <label class="btn btn-success">
-                                <input type="radio" name="options" id="option8" autocomplete="off">54
-                            </label>
-                            <label class="btn btn-success">
-                                <input type="radio" name="options" id="option9" autocomplete="off" checked>60
-                            </label>
-                            <label class="btn btn-success">
-                                <input type="radio" name="options" id="option10" autocomplete="off">66
-                            </label>
-                            <label class="btn btn-success">
-                                <input type="radio" name="options" id="option11" autocomplete="off">72
-                            </label>
-                            <label class="btn btn-success">
-                                <input type="radio" name="options" id="option12" autocomplete="off">78
-                            </label>
-                            <label class="btn btn-success">
-                                <input type="radio" name="options" id="option13" autocomplete="off">84
-                            </label>
-                        </div>
-                    </div>
-                    <div>
-                        <h5 class="mt-4 ">Repayment Interval</h5>
-                    </div>
                 </div>
-                <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-5 ">
+                <div class="col-12 col-md-6 col-sm-6 col-lg-6">
                     <div class="row">
                         <div class="col-6 col-lg-6 col-md-6 col-sm-6 text-center mb-4">
                             <h3 class="fw-bold">EMI</h3>
@@ -227,9 +168,90 @@
                 </div>
             </div>
         </div>
-       
     </section>
-    
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-md-6 col-sm-6 col-lg-6">
+                    <h5 class="mt-4">Bank Interest Rate</h5>
+                    <input type="text" class="text_emi"> <i class="fa-solid fa-percent ms-2"></i>
+                    <div class="slidecontainer">
+                        <input type="range" min="0" max="100" value="7500" class="slider py-1" id="myRange2">
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-sm-6 col-lg-6">
+                    <h5 class="mt-4 ">Down Payment</h5>
+                    <i class="fa-solid fa-indian-rupee-sign fs-5 mx-2 "></i><input type="text" class="text_emi">
+                    <div class="slidecontainer">
+                        <input type="range" min="0" max="100" value="750000" class="slider py-1" id="myRange">
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-sm-6 col-lg-6">
+                    <h5 class="mt-4 fw-bold">Loan Period Months</h5>
+                    <div class="btn-group btn-group-toggle mb-5" data-toggle="buttons">
+                        <label class="btn btn-success ">
+                            <input type="radio" name="options" id="option1" autocomplete="off"></br>12
+                        </label>
+                        <label class="btn btn-success">
+                            <input type="radio" name="options" id="option2" autocomplete="off"></br>18
+                        </label>
+                        <label class="btn btn-success">
+                            <input type="radio" name="options" id="option3" autocomplete="off"></br>24
+                        </label>
+                        <label class="btn btn-success">
+                            <input type="radio" name="options" id="option4" autocomplete="off"></br>30
+                        </label>
+                        <label class="btn btn-success">
+                            <input type="radio" name="options" id="option5" autocomplete="off"></br>36
+                        </label>
+                        <label class="btn btn-success">
+                            <input type="radio" name="options" id="option6" autocomplete="off"></br>42
+                        </label>
+                        <label class="btn btn-success">
+                            <input type="radio" name="options" id="option7" autocomplete="off"></br>48
+                        </label>
+                        <label class="btn btn-success">
+                            <input type="radio" name="options" id="option8" autocomplete="off"></br>54
+                        </label>
+                        <label class="btn btn-success">
+                            <input type="radio" name="options" id="option9" autocomplete="off" checked></br>60
+                        </label>
+                        <label class="btn btn-success">
+                            <input type="radio" name="options" id="option10" autocomplete="off"></br>66
+                        </label>
+                        <label class="btn btn-success">
+                            <input type="radio" name="options" id="option11" autocomplete="off"></br>72
+                        </label>
+                        <label class="btn btn-success">
+                            <input type="radio" name="options" id="option12" autocomplete="off"></br>78
+                        </label>
+                        <label class="btn btn-success">
+                            <input type="radio" name="options" id="option13" autocomplete="off"></br>84
+                        </label>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-sm-6 col-lg-6">
+                    <h5 class="mt-4 mx-5 fw-bold">Repayment Interval</h5>
+                    <div class="form-check form-check-inline ">
+                        <input class="form-check-input border border-dark  mx-2" type="radio" id="inlineCheckbox1"
+                            name="x" value="option1">
+                        <label class="form-check-label text-dark" for="inlineCheckbox1">Monthly</label>
+                    </div>
+                    <div class="form-check form-check-inline text-center">
+                        <input class="form-check-input border border-dark  mx-2" type="radio" id="inlineCheckbox2"
+                            name="x" value="option2">
+                        <label class="form-check-label text-dark" for="inlineCheckbox2">Quarterly</label>
+                    </div>
+                    <div class="form-check form-check-inline text-center">
+                        <input class="form-check-input border border-dark  mx-2" type="radio" id="inlineCheckbox3"
+                            name="x" value="option3">
+                        <label class="form-check-label text-dark" for="inlineCheckbox3">Half-Yearly</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <?php
     include 'includes/footer.php';
     include 'includes/footertag.php';
