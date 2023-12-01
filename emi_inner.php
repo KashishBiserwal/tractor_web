@@ -130,60 +130,6 @@
 
     <section class="my-4">
         <div class="container">
-            <!-- <div class="" id="form1">
-                <h3 class="fw-bold assured px-2 mt-2">Calculate Your Tractor Loan EMI</h3>
-                <div class="row">
-                    <div class="col-12 col-sm-12 col-md-6 col-lg-6">
-                        <form id="brandModelForm" action="" method="post">
-                            <div class="form-outline mt-2 py-3">
-                                <label class="form-label fw-bold" for="brandSelect">Brand</label>
-                                <select class="form-select py-2" aria-label="Default select example" id="brandSelect"
-                                    name="brandSelect" onchange="populateModels()">
-                                    <option value="">Select Brand</option>
-                                </select>
-                            </div>
-                            <div class="form-outline mt-3">
-                                <label class="form-label fw-bold" for="modelSelect">Model</label>
-                                <select class="form-select py-2" aria-label="Default select example" id="modelSelect"
-                                    name="modelSelect">
-                                    <option value="">Select Model</option>
-                                </select>
-                            </div>
-                            <button type="button" class="w-100 fw-bold btn btn-success mt-3 mb-1" id="calculateEMI"
-                                onclick="showEMIForm()">Calculate
-                                EMI</button>
-                        </form>
-                    </div>
-                    <div class="col-12 col-sm-12 col-md-6 col-lg-6 ">
-                        <div class="row">
-                            <div class="col-6 col-lg-6 col-md-6 col-sm-6 text-center mb-4">
-                                <h3 class="fw-bold">EMI</h3>
-                            </div>
-                            <div class="col-6 col-lg-6 col-md-6 col-sm-6 text-center mb-4">
-                                <h3 class="fw-bold">--</h3>
-                            </div>
-                            <div class="col-6 col-lg-6 col-md-6 col-sm-6 py-2 text-center">
-                                <h6>*Ex-showroom Price</h6>
-                                <p>--</p>
-                            </div>
-                            <div class="col-6 col-lg-6 col-md-6 col-sm-6 py-2 text-center">
-                                <h6>Total Loan Amount</h6>
-                                <p>--</p>
-                            </div>
-                            <div class="col-6 col-lg-6 col-md-6 col-sm-6 py-2 text-center">
-                                <h6>Payable Amount</h6>
-                                <p>--</p>
-                            </div>
-                            <div class="col-6 col-lg-6 col-md-6 col-sm-6 py-2 text-center">
-                                <h6>You’ll pay extra</h6>
-                                <p>--</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div> -->
-
-
             <h3 class="fw-bold assured px-2 mt-2">EMI Calculation Form</h3>
 
             <div class="row">
