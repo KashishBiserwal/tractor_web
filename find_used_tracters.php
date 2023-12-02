@@ -23,20 +23,17 @@
         </div>
     </div>
 </section>
-<section>
+<!-- <section>
     <div class="d-sm-flex align-items-center justify-content-between w-100" >
         <div class="col-md-4 mx-auto mb-4 mb-sm-0 text-center headline">
             <span class="text-secondary text-uppercase"></span>
             <h2 class=" text-dark ">Interested To <span class="text-success">Buy Old Tractor</span></h2>
             <h5 class="mb-4">Fill the form will contact you shortly</h4>
-            <!-- <a class="btn px-5 py-3 text-white mt-3 mt-sm-0 btn-success" type="
-            button"  data-toggle="modal" data-target="#exampleModal" style="border-radius: 30px; ">Get Valuation</a> -->
-            <!-- Button trigger modal -->
+           
             <button type="button" class="btn px-5 py-3 text-white mt-3 mt-sm-0 btn-success" data-bs-toggle="modal" style="border-radius: 30px; "data-bs-target="#exampleModal">
             Click Here
             </button>
 
-            <!-- Modal -->
             <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-lg modal-dialog-centered">
                 <div class="modal-content">
@@ -47,7 +44,7 @@
                 <div class="modal-body">
                     <div class="row justify-content-center">
                         <div class="col-lg-10">
-                        <!-- <h3 class="mb-3">Fill The Form</h3> -->
+                    
                         <form>
                             <div class="row ">
                                 <div class="col-12 col-lg-6 col-sm-5 col-md-6 my-2">
@@ -76,7 +73,7 @@
                                 </div>
                                 <div class="col-12 col-lg-6 col-sm-5 col-md-6 my-2">
                                     <label for="Budget" class=" text-dark float-start fw-bold">Select your Budget</label>
-                                    <!-- <input type="text" class="form-control" id="your-name" name="your-name" required> -->
+                                    
                                     <select class="form-select form-control" aria-label="Default select example" name="Budget" id="Budget">
                                         <option selected>Select your Budget</option>
                                         <option value="1">1-2 lakh</option>
@@ -161,10 +158,120 @@
             
         </div>
             
-        <!-- in mobile remove the clippath -->
+       
         <div class="col-md-8 h-100 clipped" style="min-height: 350px; background-image: url(assets/images/istockphoto-1033665866-612x612.jpg); background-position: center; background-size: cover;">
 
         </div>
+    </div>
+</section> -->
+<section>
+    <div class="d-sm-flex align-items-center justify-content-between w-100">
+        <div class="col-12 h- " style="min-height: 360px; background-image: url(assets/images/tractor-valuation.jpg); background-position: center; background-size: cover;"></div>
+    </div>
+    <div class="page-banner-content text-center position-absolute px-2">
+    <h2 class=" text-dark ">Interested To <span class="text-success">Buy Old Tractor</span></h2>
+            <h5 class="mb-4">Fill the form will contact you shortly</h4>
+    </div>
+</section>
+<section class="form-view bg-white pb-4">
+    <div class="container-mid" style="position: relative;">
+            <div class="row justify-content-center">
+                <div class="col-md-8 col-lg-7">
+                    <form id="find-used-tractor-form" class="form-view-inner form-view-overlay bg-light box-shadow p-3" action="" method="" >
+                        <div class="row justify-content-center">
+                            <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+                                <div class="mt-2">
+                                    <label for="your-name" class=" text-dark float-start">Select Brand</label>
+                                    <select class="form-select form-control" aria-label="Default select example" name="select_brand" id="select_brand">
+                                        <option value>Hindustan</option>
+                                        <option value="1">Mahindra</option>
+                                        <option value="2">Swaraj</option>
+                                        <option value="3">Massey Ferguson</option>
+                                        <option value="4">Sonalika</option>
+                                        <option value="5">Farmtrac</option>
+                                        <option value="6">Eicher</option>
+                                        <option value="7">John Deere</option>
+                                        <option value="8">Powertrac</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+                                <div class="mt-2">
+                                    <label for="model" class=" text-dark float-start">Model</label>
+                                    <select class="form-select form-control" aria-label="Default select example" name="model" id="model">
+                                        <option value>select Model</option>
+                                        <option value="1">3055 DI</option>
+                                        <option value="2">3040 DI</option>
+                                        <option value="3">3048 DI</option>
+                                        <option value="4">2035 DI</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+                                <label for="State" class=" text-dark float-start my-2">State</label>
+                                <select class="form-select form-control" aria-label="Default select example" name="select_state" id="select_state">
+                                    <option value>Select State</option>
+                                    <option value="Assam">Assam</option>
+                                    <option value="Bihar">Bihar</option>
+                                    <option value="Chandigarh">Chandigarh</option>
+                                    <option value="Chhattisgarh">Chhattisgarh</option>
+                                </select>
+                            </div>
+                            <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+                                <label for="Owners" class=" text-dark float-start my-2">Owners</label>
+                                <select class="form-select form-control" aria-label="Default select example" name="Owners" id="Owners">
+                                    <option value>Select Owner</option>
+                                    <option value="1st">1st</option>
+                                    <option value="2st">2st</option>
+                                    <option value="3st">3st</option>
+                                    <option value="All">All Above</option>
+                                </select>
+                            </div>
+                            <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+                                 <label for="Manufacture" class=" text-dark float-start  my-2">Manufacture Year</label>
+                                <select class="form-select form-control" aria-label="Default select example" name="Manufacture" id="Manufacture">
+                                    <option value>Select Year</option>
+                                    <option value="2023">2023</option>
+                                    <option value="2022">2022</option>
+                                    <option value="2021">2021</option>
+                                    <option value="2020">2020</option>
+                                    <option value="2018">2018</option>
+                                    <option value="2017">2017</option>
+                                    <option value="2016">2016</option>
+                                    <option value="2015">2015</option>
+                                    <option value="2014">2014</option>
+                                </select>
+                            </div>
+                            <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+                                <label for="Tyre" class=" text-dark float-start my-2">Tyre Condition</label>
+                                <select class="form-select form-control" aria-label="Default select example" name="Tyre" id="Tyre">
+                                    <option value>Select Tyre Condition</option>
+                                    <option value="10">10%</option>
+                                    <option value="20">20%</option>
+                                    <option value="30">30%</option>
+                                    <option value="40">40%</option>
+                                    <option value="50">50%</option>
+                                    <option value="60">60%</option>
+                                    <option value="70">70%</option>
+                                    <option value="80">80%</option>
+                                    <option value="100">100%</option>
+                                </select>
+                            </div>
+                            <div class="col-12 col-lg-6 col-sm-5 col-md-6 my-2">
+                                <label for="Tyre" class=" text-dark float-start  my-2">Name</label>
+                                <input type="text" class="form-control text-dark" placeholder="Enter Name" id="your_name" name="your_name">
+                            </div>
+                            <div class="col-12 col-lg-6 col-sm-5 col-md-6 my-2">
+                                <label for="Mobile" class=" text-dark float-start  my-2">Mobile Number</label>
+                                <input type="text" class="form-control text-dark" placeholder="Enter Name" id="Mobile" name="Mobile">
+                            </div>
+                            <div class="col-12 mt-3">
+                                <button data-res="<?php echo $sum; ?>" type="submit" class="btn-success w-100 fw-bold" >Get valuation</button>
+                            </div>       
+                        </div>
+                    </form>
+               </div>
+           </div>
     </div>
 </section>
 <section class="bg-light">
@@ -378,4 +485,67 @@
     include 'includes/footertag.php';
 
     ?>
+    <script>
+ $(document).ready(function(){
+    console.log('testing');
+    $('#find-used-tractor-form').validate({
+        rules:{
+            select_brand:{
+                required:true,
+            },
+            model:{
+                required:true,
+            },
+            select_state:{
+                required:true,
+            },
+            Owners:{
+                required:true,
+            },
+            Manufacture:{
+                required:true,
+            },
+            Tyre:{
+                required:true,
+            },
+            your_name:{
+                required:true,
+            },
+            Mobile:{
+                  required:true,
+            }
+        },
+        messages:{
+            select_brand:{
+                required:"This field is required",
+            },
+            model:{
+                required:"This field is required",
+            },
+            select_state:{
+                required:"This field is required",
+            },
+            Owners:{
+                required:"This field is required",
+            },
+            Manufacture:{
+                required:"This field is required",
+            },
+            Tyre:{
+                required:"This field is required",
+            },
+            your_name:{
+                required:"This field is required",
+            },
+            Mobile:{
+                required:"This field is required",
+            }
+        },
+        submitHandler: function(form) {
+        form.submit();
+        }
+    });
+});
+    </script>
+    </body>
     </html>

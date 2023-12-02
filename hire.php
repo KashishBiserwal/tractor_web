@@ -42,23 +42,37 @@
                                 </div>
                                 <div class="content d-flex flex-column flex-grow-1 ">
                                     <div class="caption text-center">
-                                        <a href="#" class="text-decoration-none text-dark">
+                                        <a href="hire_inner.php" class="text-decoration-none text-dark">
                                             <p class="pt-3"><strong
                                                     class="series_tractor_strong text-center h4 fw-bold ">Mahindra 575
                                                     DI XP Plus</strong></p>
                                         </a>
                                     </div>
                                     <div class="power text-center mt-2">
-                                        <div class="row ">
-                                            <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                                                <p class="text-dark ps-2"><i class="fas fa-bolt"></i> 47 HP</p>
+                                        <a href="hire_inner.php" class="text-decoration-none text-dark">
+                                            <div class="row ">
+                                                <div class="col-6 col-lg-6 col-md-6 col-sm-6">
+                                                    <p class="text-dark"><i
+                                                            class="fa-solid fa-location-dot mx-2"></i>Dhamtari</p>
+                                                </div>
+                                                <div class="col-6 col-lg-6 col-md-6 col-sm-6">
+                                                    <p class="text-dark" style="margin-left:32px;"><i
+                                                            class="fas fa-bolt mx-2"></i>47 HP</p>
+                                                </div>
+                                                <div class="col-6 col-lg-6 col-md-6 col-sm-6">
+                                                    <p id="adduser" type="" class="text-dark">
+                                                        <i class="fa-solid fa-indian-rupee-sign mx-2"></i>30 per Acre/hr
+                                                    </p>
+                                                </div>
+
+                                                <div class="col-6 col-lg-6 col-md-6 col-sm-6">
+                                                    <p id="adduser" type="" class="text-dark "
+                                                        style="margin-left:29px;">
+                                                        <i class="fa-solid fa-gear mx-2"></i>2979 CC
+                                                    </p>
+                                                </div>
                                             </div>
-                                            <div class="col-12 col-lg-6 col-md-6 col-sm-6" style="padding-right: 32px;">
-                                                <p id="adduser" type="" class="text-dark">
-                                                    <i class="fa-solid fa-gear"></i> 2979 CC
-                                                </p>
-                                            </div>
-                                        </div>
+                                        </a>
                                     </div>
                                     <div class="col-12">
                                         <button id="adduser" type="button" class="add_btn  btn-success w-100">

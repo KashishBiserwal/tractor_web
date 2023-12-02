@@ -1,8 +1,14 @@
 <?php
+ include 'includes/headertag.php';
    include 'includes/headertagadmin.php';
-  
+   include 'includes/footertag.php';
    
    ?> 
+   <style>
+     label.error {
+    color: red;
+  }
+   </style>
 <body class="loaded"> 
 <div class="main-wrapper">
     <div class="app" id="app">
@@ -130,24 +136,24 @@
                               <div class="row justify-content-center">
                                   <div class="col-lg-10">
                                     <h4 class="text-center">Fill your Details</h4>
-                                  <form>
+                                  <form id="hatbazar_form">
                                       <div class="row justify-content-center pt-4">
                                         
                                           <div class="col-12 col-lg-4 col-sm-4 col-md-4 my-2">
                                             <div class="form-group">
-                                              <input type="text" class="py-3" placeholder=" " id="brand">
+                                              <input type="text" class="py-3" placeholder=" " id="category" name="category">
                                               <label for="name" class="text-dark"> Category</label>
                                             </div>
                                           </div>
                                           <div class="col-12 col-lg-4 col-sm-4 col-md-4 my-2">
                                             <div class="form-group">
-                                              <input type="text" class="py-3" placeholder=" " id="model">
+                                              <input type="text" class="py-3" placeholder=" " id="subcategory" value="" name="subcategory">
                                               <label for="name" class="text-dark">Sub-Category</label>
                                             </div>
                                           </div>
                                           <div class="col-12 col-lg-4 col-sm-4 col-md-4 my-2">
                                             <div class="form-group">
-                                              <input type="text" class="py-3" placeholder=" " id="model">
+                                              <input type="text" class="py-3" placeholder=" " id="quantity" name="quantity">
                                               <label for="name" class="text-dark">Quantity</label>
                                             </div>
                                           </div>
@@ -155,7 +161,7 @@
                                             <div class="form-group">
                                               <!-- <input type="text" class="py-3" placeholder=" " id="model_name"> -->
                                               <label for="name" class="text-dark"> </label>
-                                              <select class="form-select py-3" aria-label="Default select example">
+                                              <select class="form-select py-3" aria-label="Default select example" id="quantity_per" name="quantity_per">
                                                   <option selected>Select Quantity per</option>
                                                   <option value="1">Kg</option>
                                                   <option value="2">Quintal</option>
@@ -165,20 +171,20 @@
                                           </div>
                                           <div class="col-12 col-lg-6 col-sm-5 col-md-6 my-1">
                                             <div class="form-group">
-                                              <input type="text" class="py-3" placeholder=" " id="model_name">
+                                              <input type="text" class="py-3" placeholder=" " id="price" name="price">
                                               <label for="name" class="text-dark">Price</label>
                                             </div>
                                           </div>
                                           
                                           <div class="col-12  my-1">
                                             <div class="form-group">
-                                              <input type="text" class="py-5" placeholder=" " id="name">
+                                              <input type="text" class="py-5" placeholder=" " id="about" name="about">
                                               <label for="name" class="text-dark">About Your Harvest</label>
                                             </div>
                                           </div>
                                           <div class="col-12 col-lg-6 col-sm-5 col-md-6  my-1">
                                             <div class="form-group">
-                                            <input type="file" name="files[]" class="py-3" multiple >
+                                            <input type="file" name="files[]" id="image"  class="py-3" multiple >
                                               <label for="name" class="text-dark fw-bold"></label>
                                             </div>
                                           </div>
@@ -187,19 +193,19 @@
                                           </div>
                                           <div class="col-12 col-lg-6 col-sm-5 col-md-6 my-1">
                                             <div class="form-group">
-                                              <input type="text" class="py-3" placeholder=" " id="model_name">
+                                              <input type="text" class="py-3" placeholder=" " name="name" id="name">
                                               <label for="name" class="text-dark">Seller Name</label>
                                             </div>
                                           </div>
                                           <div class="col-12 col-lg-6 col-sm-5 col-md-6 my-1">
                                             <div class="form-group">
-                                              <input type="text" class="py-3" placeholder=" " id="model_name">
+                                              <input type="text" class="py-3" placeholder=" " name="number" id="number">
                                               <label for="name" class="text-dark">Mobile Number</label>
                                             </div>
                                           </div>
                                           <div class="col-12 col-lg-6 col-sm-5 col-md-6 my-1">
                                             <div class="form-group">
-                                              <select class="form-select py-3" aria-label="Default select example">
+                                              <select class="form-select py-3" aria-label="Default select example" id="state" name="state">
                                                   <option selected>Select State</option>
                                                   <option value="1">Chattisgarh</option>
                                                   <option value="2">Other</option>
@@ -208,7 +214,7 @@
                                           </div>
                                           <div class="col-12 col-lg-6 col-sm-5 col-md-6 my-1">
                                             <div class="form-group">
-                                              <select class="form-select py-3" aria-label="Default select example">
+                                              <select class="form-select py-3" aria-label="Default select example" name="district" id="district">
                                                   <option selected>Select District</option>
                                                   <option value="1">Raipur</option>
                                                   <option value="2">Bilaspur</option>
@@ -217,7 +223,7 @@
                                           </div>
                                           <div class="col-12 col-lg-6 col-sm-5 col-md-6 my-1">
                                             <div class="form-group">
-                                              <select class="form-select py-3" aria-label="Default select example">
+                                              <select class="form-select py-3" id="tehsil" name="tehsil" aria-label="Default select example">
                                                   <option selected>Select Tehsil</option>
                                                   <option value="1">Raipur</option>
                                                   <option value="2">Bilaspur</option>
@@ -226,19 +232,20 @@
                                           </div>
                                           <div class="col-12 col-lg-6 col-sm-5 col-md-6 my-1">
                                             <div class="form-group">
-                                              <input type="text" class="py-3" placeholder=" " id="model_name">
+                                              <input type="text" class="py-3" placeholder=" " id="pincode" name="pincode">
                                               <label for="name" class="text-dark">Pincode</label>
                                             </div>
                                           </div>
                                       </div>
 
+                                      <button type="button" id="save" class="btn btn-success fw-bold px-3" onclick="validateForm()">Submit</button>
                                   </form>
                                   </div>
                               </div>
                           </div>
                       <div class="modal-footer">
                         <button type="button" class="btn btn-secondary px-3" data-bs-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-success fw-bold px-3">Submit</button>
+                        
                       </div>
                     </div>
                   </div>
@@ -330,5 +337,80 @@
 </body>
 
 <?php
-   include 'includes/footertag.php';
+   
    ?> 
+
+<script>
+  $(document).ready(function () {
+    $("#hatbazar_form").validate({
+      rules: {
+        category: {
+          required: true,
+        },
+        subcategory: {
+          required: true,
+        },
+        quantity: {
+          required: true,
+        },
+        quantity_per: {
+          required: true,
+        },
+        price: {
+          required: true,
+        },
+        about: {
+          required: true,
+        },
+        image: {
+          required: true,
+        },
+        name: {
+          required: true,
+        },
+        number: {
+          required: true,
+        },
+        state: {
+          required: true,
+        },
+        district: {
+          required: true,
+        },
+        tehsil: {
+          required: true,
+        },
+        pincode: {
+          required: true,
+        },
+      },
+      messages: {
+        category: "Category field is required",
+        subcategory: "Sub-Category field is required",
+        quantity: "Quantity field is required",
+        quantity_per: "Quantity per field is required",
+        price: "Price field is required",
+        about: "About Your Harvest field is required",
+        image: "Image field is required",
+        name: "Seller Name field is required",
+        number: "Mobile Number field is required",
+        state: "State field is required",
+        district: "District field is required",
+        tehsil: "Tehsil field is required",
+        pincode: "Pincode field is required",
+      },
+      success: function (element) {
+        // Hide the error message when the field becomes valid
+        label.hide();
+      },
+    });
+  });
+
+  function validateForm() {
+    if ($("#hatbazar_form").valid()) {
+      // Your form submission logic goes here
+      alert("Form is valid. Submitting...");
+    }
+  }
+</script>
+

@@ -71,7 +71,7 @@
                                     <div class="col-12 col-sm-12 col-md-6 col-lg-6">
                                         <label for="yr_state" class="form-label text-dark fw-bold" id="state" name="state"> <i class="fas fa-location"></i> State</label>
                                         <select class="form-select py-2 " aria-label=".form-select-lg example"id="state" name="state">
-                                            <option selected>Select State</option>
+                                            <option value>Select State</option>
                                             <option value="1">Chhattisgarh</option>
                                             <option value="2">Other</option>
                                         </select>
@@ -79,7 +79,7 @@
                                     <div class="col-12 col-sm-12 col-md-6 col-lg-6">
                                         <label class="form-label text-dark"><i class="fa-solid fa-location-dot"></i> District</label>
                                         <select class="form-select py-2 " aria-label=".form-select-lg example" name="district" id="district">
-                                            <option selected>Select District</option>
+                                            <option value>Select District</option>
                                             <option value="1">Raipur</option>
                                             <option value="2">Bilaspur</option>
                                             <option value="2">Durg</option>
@@ -146,7 +146,7 @@
                             </div>
                             <div class="col-12">
                                 <h6 class="tyre-condition text-center fw-bold m-1 text-dark">Tyre Conditons</h6>
-                                <p class="t-condition text-center">76-100% (Very Good)</p>
+                                <p class="t-condition text-center ">76-100% (Very Good)</p>
                             </div>
                         </div>
                     </div>
@@ -157,7 +157,7 @@
                             </div>
                             <div class="col-12">
                                 <h6 class="engine-condition text-center fw-bold m-1 text-dark">Engine Conditions</h6>
-                                <p class="e-condition text-center">76-100% (Very Good)</p>
+                                <p class="t-condition text-center">76-100% (Very Good)</p>
                             </div>
                         </div>
                     </div>

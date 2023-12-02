@@ -164,7 +164,7 @@
                                         <div class="col-12 col-sm-12 col-md-6 col-lg-6">
                                             <label for="yr_state" class="form-label text-dark fw-bold" id="state" name="state"> <i class="fas fa-location"></i> State</label>
                                             <select class="form-select py-2 " aria-label=".form-select-lg example"id="state" name="state">
-                                                <option selected>Select State</option>
+                                                <option value>Select State</option>
                                                 <option value="1">Chhattisgarh</option>
                                                 <option value="2">Other</option>
                                             </select>
@@ -172,7 +172,7 @@
                                         <div class="col-12 col-sm-12 col-md-6 col-lg-6">
                                             <label class="form-label text-dark"><i class="fa-solid fa-location-dot"></i> District</label>
                                             <select class="form-select py-2 " aria-label=".form-select-lg example" name="district" id="district">
-                                                <option selected>Select District</option>
+                                                <option value>Select District</option>
                                                 <option value="1">Raipur</option>
                                                 <option value="2">Bilaspur</option>
                                                 <option value="2">Durg</option>
@@ -469,14 +469,13 @@
         </div>
     </div>
 </section>
-
 <section>
     <div class="container">
         <div class="text-editor-black  my-3" style="background-color:#fff">
              <h4><p class="mt-md mt-3 p-2 mb-3 my-3 assured">Related Tractor Trailer </p></h4>
         </div>
         <div class="owl-slider">
-            <div id="carousel" class="owl-carousel">
+            <div id="carousel_related" class="owl-carousel owl-carousel_related">
                  <div class="item">
                     <div class="col-md-12 shadow d-flex flex-row">
                         <div class="">

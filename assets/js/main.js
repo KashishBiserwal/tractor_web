@@ -173,49 +173,49 @@ $(document).ready(function () {
 
 // Other important pens.
 
-let dropdowns = document.querySelectorAll('.navbar .dropdown-toggler')
-let dropdownIsOpen = false
+// let dropdowns = document.querySelectorAll('.navbar .dropdown-toggler')
+// let dropdownIsOpen = false
 
-// Handle dropdown menues
-if (dropdowns.length) {
-  // Usually I don't recommend doing this (adding many event listeners to elements have the same handler)
-  // Instead use event delegation: https://javascript.info/event-delegation
-  // Why: https://gomakethings.com/why-event-delegation-is-a-better-way-to-listen-for-events-in-vanilla-js
-  // But since we only have two dropdowns, no problem with that. 
-  dropdowns.forEach((dropdown) => {
-    dropdown.addEventListener('click', (event) => {
-      let target = document.querySelector(`#${event.target.dataset.dropdown}`)
+// // Handle dropdown menues
+// if (dropdowns.length) {
+//   // Usually I don't recommend doing this (adding many event listeners to elements have the same handler)
+//   // Instead use event delegation: https://javascript.info/event-delegation
+//   // Why: https://gomakethings.com/why-event-delegation-is-a-better-way-to-listen-for-events-in-vanilla-js
+//   // But since we only have two dropdowns, no problem with that. 
+//   dropdowns.forEach((dropdown) => {
+//     dropdown.addEventListener('click', (event) => {
+//       let target = document.querySelector(`#${event.target.dataset.dropdown}`)
 
-      if (target) {
-        if (target.classList.contains('show')) {
-          target.classList.remove('show')
-          dropdownIsOpen = false
-        } else {
-          target.classList.add('show')
-          dropdownIsOpen = true
-        }
-      }
-    })
-  })
-}
+//       if (target) {
+//         if (target.classList.contains('show')) {
+//           target.classList.remove('show')
+//           dropdownIsOpen = false
+//         } else {
+//           target.classList.add('show')
+//           dropdownIsOpen = true
+//         }
+//       }
+//     })
+//   })
+// }
 
-// Handle closing dropdowns if a user clicked the body
-window.addEventListener('mouseup', (event) => {
-  if (dropdownIsOpen) {
-    dropdowns.forEach((dropdownButton) => {
-      let dropdown = document.querySelector(`#${dropdownButton.dataset.dropdown}`)
-      let targetIsDropdown = dropdown == event.target
+// // Handle closing dropdowns if a user clicked the body
+// window.addEventListener('mouseup', (event) => {
+//   if (dropdownIsOpen) {
+//     dropdowns.forEach((dropdownButton) => {
+//       let dropdown = document.querySelector(`#${dropdownButton.dataset.dropdown}`)
+//       let targetIsDropdown = dropdown == event.target
 
-      if (dropdownButton == event.target) {
-        return
-      }
+//       if (dropdownButton == event.target) {
+//         return
+//       }
 
-      if ((!targetIsDropdown) && (!dropdown.contains(event.target))) {
-        dropdown.classList.remove('show')
-      }
-    })
-  }
-})
+//       if ((!targetIsDropdown) && (!dropdown.contains(event.target))) {
+//         dropdown.classList.remove('show')
+//       }
+//     })
+//   }
+// })
 // main swip
 var swiper = new Swiper('.swiper-5', {
   navigation: {
@@ -501,6 +501,7 @@ previous_fs.css({
 });
 });
 
+
 // swiper hatbazar buy inner
 // document.addEventListener("DOMContentLoaded", function () {
 //   const mySwiper2_wrapper = document.querySelector(".mySwiper2_buy .swiper-wrapper_buy"),
@@ -574,64 +575,65 @@ document.addEventListener("DOMContentLoaded", function () {
 // latest sell swiper
 
 // carousal
-// $("#news-slider").owlCarousel({
-//   items : 3,
-//   itemsDesktop:[1199,3],
-//   itemsDesktopSmall:[980,2],
-//   itemsMobile : [600,1],
-//   navigation:true,
-//   navigationText:["",""],
-//   pagination:true,
-//   autoPlay:true
-// });
-// const swiper_sell = new Swiper(".slider", {
-//   // Optional parameters
-//   centeredSlides: true,
-//   slidesPerView: 1,
-//   grabCursor: true,
-//   freeMode: false,
-//   loop: true,
-//   mousewheel: false,
-//   keyboard: {
-//     enabled: true
-//   },
+$("#news-slider").owlCarousel({
+  items : 3,
+  itemsDesktop:[1199,3],
+  itemsDesktopSmall:[980,2],
+  itemsMobile : [600,1],
+  navigation:true,
+  navigationText:["",""],
+  pagination:true,
+  autoPlay:true
+});
+const swiper_sell = new Swiper(".slider", {
+  // Optional parameters
+  centeredSlides: true,
+  slidesPerView: 1,
+  grabCursor: true,
+  freeMode: false,
+  loop: true,
+  mousewheel: false,
+  keyboard: {
+    enabled: true
+  },
 
-//   // Enabled autoplay mode
-//   autoplay: {
-//     delay: 2000,
-//     disableOnInteraction: false
-//   },
+  // Enabled autoplay mode
+  autoplay: {
+    delay: 2000,
+    disableOnInteraction: false
+  },
 
-//   // If we need pagination
-//   pagination: {
-//     el: ".swiper-pagination",
-//     dynamicBullets: false,
-//     clickable: true
-//   },
+  // If we need pagination
+  pagination: {
+    el: ".swiper-pagination",
+    dynamicBullets: false,
+    clickable: true
+  },
 
-//   // If we need navigation
-//   navigation: {
-//     nextEl: ".swiper-button-next",
-//     prevEl: ".swiper-button-prev"
-//   },
+  // If we need navigation
+  navigation: {
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev"
+  },
 
-//   // Responsive breakpoints
-//   breakpoints: {
-//     640: {
-//       slidesPerView: 1.25,
-//       spaceBetween: 20
-//     },
-//     1024: {
-//       slidesPerView: 2,
-//       spaceBetween: 20
-//     }
-//   }
-// });
+  // Responsive breakpoints
+  breakpoints: {
+    640: {
+      slidesPerView: 1.25,
+      spaceBetween: 20
+    },
+    1024: {
+      slidesPerView: 2,
+      spaceBetween: 20
+    }
+  }
+});
 
-// carousel for used tractor 
-jQuery("#carousel").owlCarousel({
+// mahindra brand carousel
+
+jQuery("#carousel_related").owlCarousel({
   autoplay: true,
-  rewind: true, /* use rewind if you don't want loop */
+  rewind: true,
   margin: 20,
    /*
   animateOut: 'fadeOut',
@@ -661,16 +663,32 @@ jQuery("#carousel").owlCarousel({
   }
 });
 
-$(function() {
-  // Owl Carousel
-  var owl = $(".owl-carousel");
-  owl.owlCarousel({
-    items: 4,
-    margin: 15,
-    loop: true,
-    nav: true
-  });
-});
+// $(function() {
+//   // Owl Carousel
+//   var owl = $(".owl-carousel");
+//   owl.owlCarousel({
+//     items: 4,
+//     margin: 15,
+//     loop: true,
+//     nav: true
+//   });
+// });
 
+// Open links in mobiles
+// function handleSmallScreens() {
+//   document.querySelector('.navbar-toggler')
+//     .addEventListener('click', () => {
+//       let navbarMenu = document.querySelector('.navbar-menu')
+
+//       if (!navbarMenu.classList.contains('active')) {
+//         navbarMenu.classList.add('active')
+//       } else {
+//         navbarMenu.classList.remove('active')
+//       }
+//     })
+// }
+
+// handleSmallScreens()
+
+//------Validation --------
   
-

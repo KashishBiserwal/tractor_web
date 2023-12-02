@@ -7,7 +7,7 @@
 			?>
 </head>
 <style>
-.error {
+label.error {
     color: red !important;
 }
 

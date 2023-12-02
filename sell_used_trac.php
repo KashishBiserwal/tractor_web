@@ -25,10 +25,11 @@
 </section>
 <section>
     <div class="d-sm-flex align-items-center justify-content-between w-100">
-        <div class="col-md-4 mx-auto mb-4 mb-sm-0 text-center headline">
+        <div class="col-md-4 mx-auto mb-4 mb-sm-0 text-center headline ">
             <span class="text-secondary text-uppercase"></span>
             <h2 class=" text-dark ">Sell Your <span class="text-success">Used Tractor</span></h2>
             <h4 class="mb-4">"Photo Khicho Tractor Becho"</h4>
+            
            
             <!-- <button type="button" class="btn px-5 py-3 text-white mt-3 mt-sm-0 btn-success" data-bs-toggle="modal" style="border-radius: 27px; "data-bs-target="#exampleModal">
                 Sell Now
@@ -84,7 +85,7 @@
     </div>
 </section>
 
-<section class="form-view form-view_sell bg-white pb-4">
+<!-- <section class="form-view form-view_sell bg-white pb-4">
   <div class="container-mid">
     <div class="row justify-content-center">
       <div class="col-md-8 col-lg-7">
@@ -154,8 +155,156 @@
       </div>
     </div>
   </div>
+</section> -->
+<section class="form-view bg-white pb-4">
+    <div class="container-mid" style="position: relative;">
+        <div class="row justify-content-center">
+            <div class="col-md-8 col-lg-7">
+                <form id="find-used-tractor-form" class="form-view-inner form-view-overlay bg-light box-shadow p-3" action="" method="" >
+                    <div class="row justify-content-center">
+                        <div class="col-12 col-lg-4 col-md-4 col-sm-4 ">
+                                <label for="name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i> First Name</label>
+                                <input type="text" class="form-control" placeholder="Enter Your Name" id="fname" name="fname">
+                        </div>
+                        <div class="col-12 col-lg-4 col-md-4 col-sm-4  ">
+                            <label for="name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i> Last Name</label>
+                            <input type="text" class="form-control" placeholder="Enter Your Name" id="lname" name="lname">
+                        </div>
+                        <div class="col-12 col-lg-4 col-md-4 col-sm-4 ">
+                            <label for="number" class="form-label text-dark fw-bold"> <i class="fa fa-phone" aria-hidden="true"></i> Phone Number</label>
+                            <input type="password" class="form-control" placeholder="Enter Number" id="number" name="number">
+                        </div>
+                        <div class="col-12 col-lg-4 col-md-4 col-sm-4 ">
+                            <label for="yr_state" class="form-label text-dark fw-bold"> <i class="fas fa-location"></i> State</label>
+                            <select class="form-select py-2 " aria-label=".form-select-lg example" id="state" name="state">
+                                <option value>Select State</option>
+                                <option value="1">Chhattisgarh</option>
+                                <option value="2">Other</option>
+                            </select>
+                        </div>
+                        <div class="col-12 col-lg-4 col-md-4 col-sm-4 ">
+                            <label for="yr_dist" class="form-label text-dark"><i class="fa-solid fa-location-dot"></i> District</label>
+                            <select class="form-select py-2 " aria-label=".form-select-lg example" id="district" name="district">
+                                <option value>Select District</option>
+                                <option value="1">Raipur</option>
+                                <option value="2">Bilaspur</option>
+                                <option value="2">Durg</option>
+                            </select>
+                        </div>
+                        <div class="col-12 col-lg-4 col-md-4 col-sm-4 ">
+                                <label for="yr_price" class="form-label text-dark">Tehsil</label>
+                            <input type="yr_price" class="form-control" placeholder="Enter Your Tehsil" id="Tehsil" name="Tehsil">
+                        </div>
+                        <div class="col-12 col-lg-4 col-md-4 col-sm-4">
+                            <div class="mt-2">
+                                <label for="your-name" class=" text-dark float-start">Select Brand</label>
+                                <select class="form-select form-control" aria-label="Default select example" name="select_brand" id="select_brand">
+                                    <option value>Hindustan</option>
+                                    <option value="1">Mahindra</option>
+                                    <option value="2">Swaraj</option>
+                                    <option value="3">Massey Ferguson</option>
+                                    <option value="4">Sonalika</option>
+                                    <option value="5">Farmtrac</option>
+                                    <option value="6">Eicher</option>
+                                    <option value="7">John Deere</option>
+                                    <option value="8">Powertrac</option>
+                                </select>
+                            </div>
+                         </div>
+                        <div class="col-12 col-lg-4 col-md-4 col-sm-4">
+                            <div class="mt-2">
+                                <label for="model" class=" text-dark float-start">Model</label>
+                                <select class="form-select form-control" aria-label="Default select example" name="model" id="model">
+                                    <option value>select Model</option>
+                                    <option value="1">3055 DI</option>
+                                    <option value="2">3040 DI</option>
+                                    <option value="3">3048 DI</option>
+                                    <option value="4">2035 DI</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-4 col-md-4 col-sm-4">
+                                <label for="Manufacture" class=" text-dark float-start  my-2">Manufacture Year</label>
+                                <select class="form-select form-control" aria-label="Default select example" name="Manufacture" id="Manufacture">
+                                    <option value>Select Year</option>
+                                    <option value="2023">2023</option>
+                                    <option value="2022">2022</option>
+                                    <option value="2021">2021</option>
+                                    <option value="2020">2020</option>
+                                    <option value="2018">2018</option>
+                                    <option value="2017">2017</option>
+                                    <option value="2016">2016</option>
+                                    <option value="2015">2015</option>
+                                    <option value="2014">2014</option>
+                                </select>
+                        </div>
+                        <div class="col-12 col-lg-4 col-md-4 col-sm-4">
+                                <label for="Tyre" class=" text-dark float-start my-2">Tyre Condition</label>
+                                <select class="form-select form-control" aria-label="Default select example" name="Tyre" id="Tyre">
+                                    <option value>Select Tyre Condition</option>
+                                    <option value="10">10%</option>
+                                    <option value="20">20%</option>
+                                    <option value="30">30%</option>
+                                    <option value="40">40%</option>
+                                    <option value="50">50%</option>
+                                    <option value="60">60%</option>
+                                    <option value="70">70%</option>
+                                    <option value="80">80%</option>
+                                    <option value="100">100%</option>
+                                </select>
+                        </div>
+                        <div class="col-12 col-lg-4 col-md-4 col-sm-4">
+                                <label for="Tyre" class=" text-dark float-start my-2">Engine Condition</label>
+                                <select class="form-select form-control" aria-label="Default select example" name="engine" id="engine">
+                                    <option value>Select Engine Condition</option>
+                                    <option value="10">10%</option>
+                                    <option value="20">20%</option>
+                                    <option value="30">30%</option>
+                                    <option value="40">40%</option>
+                                    <option value="50">50%</option>
+                                    <option value="60">60%</option>
+                                    <option value="70">70%</option>
+                                    <option value="80">80%</option>
+                                    <option value="100">100%</option>
+                                </select>
+                        </div>
+                        <div class="col-12 col-lg-4 col-md-4 col-sm-4 ">
+                                <label for="Tyre" class=" text-dark float-start my-2">Hours Driven</label>
+                                <select class="form-select form-control" aria-label="Default select example" name="hours_driven" id="hours_driven">
+                                    <option value>Select Hours Driven</option>
+                                    <option value="10">1001-2000</option>
+                                    <option value="20">2001-3000</option>
+                                    <option value="30">3001-4000</option>
+                                    <option value="40">4001-5000</option>
+                                    <option value="50">5001-6000</option>
+                                    <option value="60">6001-7000</option>
+                                    <option value="70">7001-8000</option>
+                                    <option value="80">8001-9000</option>
+                                    <option value="100">Not Available</option>
+                                </select>
+                        </div>
+                            <div class="col-12 col-lg-6 col-sm-6 col-md-6">
+                               <label for="Tyre" class=" text-dark float-start my-2 ">Uplode Your Image</label>
+                               <input type="file" id="myFile" name="filename">
+                            </div>
+                            <div class="col-12 col-lg-6 col-md-6 col-ms-6">
+                            <label for="Tyre" class=" text-dark float-start my-2">How early do you want to sell?</label>
+                                <select class="form-select form-control" aria-label="Default select example" name="hours_driven" id="hours_driven">
+                                    <option value>Select Hours Driven</option>
+                                    <option value="10">within 15-days</option>
+                                    <option value="20">within 30-days</option>
+                                    <option value="30">Nore then 30 days</option>
+                                </select>
+                            </div>
+                            <div class="col-12 mt-4">
+                                <button data-res="<?php echo $sum; ?>" type="submit" class="btn-success w-100 fw-bold" >Submit</button>
+                            </div>       
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 </section>
-
 
 <section class="about bg-light">
         <div class="container">

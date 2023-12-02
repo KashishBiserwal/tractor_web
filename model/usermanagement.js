@@ -1,0 +1,189 @@
+$(document).ready(function() {
+
+    $("#form").validate({
+      rules:{
+        first_name:"required",
+        last_name:"required",
+     password:{
+      required:true,
+      minlenght:5
+     },
+     password_confirmation:{
+      required:true,
+      minlenght:5,
+      equalTo:"password"
+     },
+     email:{
+      required:true,
+      email:true
+     },
+     user_type:"required"
+    },
+    messages:{
+      first_name:"Please Enter Your First Name",
+      last_name:"Please Enter Your Last Name",
+      password:{
+        required:"Please provide a valid password",
+        minlenght:"Your password must be atleast 5 character long"
+      },
+      password_confirmation:{
+        required:"Please provide a valid password",
+        minlenght:"Your password must be atleast 5 character long",
+        equalTo:"Please enter  as same password above"
+      },
+      user_type:"Enter a user type"
+    }
+
+    });
+
+
+
+  $('#save').click(user_registration);
+  });
+
+  function user_registration(event) {
+    // Get values from form fields
+    event.preventDefault();
+    console.log('jfhfhw');
+    var first_name = $('#first_name').val();
+    var last_name = $('#last_name').val();
+    var email = $('#email').val();
+    var mobile = $('#mobile').val();
+    var password = $('#password').val();
+    var password_confirmation = $('#password_confirmation').val();
+    var user_type = $('#user_type').val();
+
+    // Prepare data to send to the server
+    var paraArr = {
+      'first_name': first_name,
+      'last_name': last_name,
+      'email': email,
+      'mobile': mobile,
+      'password': password,
+      'password_confirmation': password_confirmation,
+      'user_type': user_type
+    };
+
+    // var url = "<?php echo $APIBaseURL; ?>user_registration";
+    var apiBaseURL =APIBaseURL;
+    var url = apiBaseURL + 'user_registration';
+    console.log(url);
+
+    // You may need to include headers, but you should ensure they are properly configured
+    var token = localStorage.getItem('token');
+    var headers = {
+      'Authorization': 'Bearer ' + token
+    };
+
+    // Make an AJAX request to the server
+    $.ajax({
+      url: url,
+      type: "POST",
+      data: paraArr,
+      headers: headers,
+      success: function (result) {
+        console.log(result, "result");
+        // Redirect to a success page or perform other actions
+        window.location.href = "<?php echo $baseUrl; ?>usermanagement.php"; 
+        console.log("Add successfully");
+        alert('successfully inserted..!')
+      },
+      error: function (error) {
+        console.error('Error fetching data:', error);
+      }
+    });
+  }
+
+  // fetch data
+  function get() {
+    // var url = "<?php echo $APIBaseURL; ?>getUsers";
+    var apiBaseURL =APIBaseURL;
+    var url = apiBaseURL + 'getUsers';
+    $.ajax({
+        url: url,
+        type: "GET",
+        headers: {
+            'Authorization': 'Bearer ' + localStorage.getItem('token')
+        },
+        success: function (data) {
+          // console.log(data);
+            const tableBody = document.getElementById('data-table');
+            tableBody.innerHTML = ''; // Clear previous data
+
+            let users=data.user;
+
+            if (users.length > 0) {
+          // console.log(typeof users);
+
+                // Loop through the data and create table rows
+                users.map(row => {
+                  // console.log(row);
+                    const tableRow = document.createElement('tr');
+                    let originalDate= new Date(row.created_at);
+
+                    let day=originalDate.getDate();
+                    let month=originalDate.getMonth()+1;
+                    let year=originalDate.getFullYear();
+
+                    let formatDate=`${day}-${month}-${year}`;
+                    tableRow.innerHTML = `
+                        <td>${row.id}</td>
+                        <td>${row.first_name}</td>
+                        <td>${row.mobile}</td>
+                        <td>${row.user_type}</td>
+                        <td>${row.status}</td>
+                        <td>${formatDate}</td>
+                        <td><div class="d-flex"><button class="btn btn-danger btn-sm mx-1" id="delete_user" onclick="destroy(${row.id});"><i class="fa fa-trash" style="font-size: 11px;"></i></button></div></td>
+                    `;
+                    tableBody.appendChild(tableRow);
+                });
+            } else {
+                // Display a message if there's no valid data
+                tableBody.innerHTML = '<tr><td colspan="7">No valid data available</td></tr>';
+            }
+        },
+        error: function (error) {
+            console.error('Error fetching data:', error);
+            // Display an error message or handle the error as needed
+        }
+    });
+}
+get();
+
+// delete data
+function destroy(id) {
+//   var url = "<?php echo $APIBaseURL; ?>deleteUser/" + id;
+var apiBaseURL =APIBaseURL;
+var url = apiBaseURL + "deleteUser/" + id;
+  var token = localStorage.getItem('token');
+  
+  if (!token) {
+    console.error("Token is missing");
+    return;
+  }
+
+  $.ajax({
+    url: url,
+    type: "DELETE",
+    headers: {
+      'Authorization': 'Bearer ' + token
+    },
+    success: function(result) {
+      // window.location.reload();
+      get();
+      console.log("Delete request successful");
+      alert("Delete operation successful");
+    },
+    error: function(error) {
+      console.error('Error fetching data:', error);
+      alert("Error during delete operation");
+    }
+  });
+}
+
+$(".data_search").on("keyup", function() {
+  var value = $(this).val().toLowerCase();
+  $("#data-table tr").filter(function() {
+    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+  });
+});  

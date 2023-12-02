@@ -1,9 +1,12 @@
 <?php
+include 'includes/headertag.php';
    include 'includes/headertagadmin.php';
-   
-  
+   include 'includes/footertag.php';
    
    ?> 
+<script> var APIBaseURL = "<?php echo $APIBaseURL; ?>";</script>
+<script> var baseUrl = "<?php echo $baseUrl; ?>";</script>
+<script src="<?php $baseUrl; ?>model/usermanagement.js"></script>
    <style>
     .error-message {
     color: red;
@@ -211,7 +214,6 @@
                 <thead class="">
                   <tr>
                     <th class="d-none d-md-table-cell text-white py-2">S.No.</th>
-                   
                     <th class="d-none d-md-table-cell text-white py-2">Name</th>
                     <th class="d-none d-md-table-cell text-white py-2">Mobile Number</th>
                     <th class="d-none d-md-table-cell text-white py-2">User Type</th>
@@ -253,10 +255,8 @@
     })
 })
  </script>  -->
- <?php
-   include 'includes/footertag.php';
-   ?> 
-<script>
+
+<!-- <script>
    $(document).ready(function() {
 
     $("#form").validate({
@@ -404,10 +404,9 @@
         }
     });
 }
-
-// Call the fetchData function to initiate the API request
 get();
 
+// delete data
 function destroy(id) {
   var url = "<?php echo $APIBaseURL; ?>deleteUser/" + id;
   var token = localStorage.getItem('token');
@@ -441,9 +440,9 @@ $(".data_search").on("keyup", function() {
   $("#data-table tr").filter(function() {
     $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
   });
-});
+});  
 
 
-</script>
+</script> -->
   
 
