@@ -5,78 +5,6 @@
     <?php
    include 'includes/headertag.php';
    ?>
-    <style>
-    .form-outline .form-label {
-        color: #454444;
-        font-weight: 500;
-        margin-bottom: 5px;
-        position: absolute;
-        padding: 0px 10px;
-        margin-top: -11px;
-        background: #fff;
-        margin-left: 20px;
-    }
-
-    label.error {
-        color: red !important;
-        margin-bottom: 2px;
-        font-size: 13px;
-    }
-
-    /* .hidden {
-        display: none;
-    } */
-
-    .text_emi {
-        padding: 4px;
-        margin-bottom: 15px;
-        border: 1px solid black;
-        /* border-radius: 5px; */
-        color: black;
-        /* background-color: rgba(255, 255, 255, 0.8); */
-        background-color: rgb(243 238 238 / 80%);
-
-    }
-
-    .slidecontainer {
-        width: 100%;
-    }
-
-    .slider {
-        -webkit-appearance: none;
-        width: 100%;
-        height: 15px;
-        border-radius: 20px;
-        background: #d3d3d3;
-        outline: none;
-        opacity: 0.7;
-        -webkit-transition: .2s;
-        transition: opacity .2s;
-    }
-
-    .slider:hover {
-        opacity: 1;
-    }
-
-    .slider::-webkit-slider-thumb {
-        -webkit-appearance: none;
-        appearance: none;
-        width: 25px;
-        height: 25px;
-        border-radius: 50%;
-        background: #04AA6D;
-        cursor: pointer;
-    }
-
-    .slider::-moz-range-thumb {
-        width: 25px;
-        height: 25px;
-        border-radius: 50%;
-        background: #04AA6D;
-        cursor: pointer;
-    }
-    </style>
-
 </head>
 
 <body>
@@ -125,44 +53,52 @@
             </div>
         </div>
     </div>
-    <!-- 
-        
-     -->
 
 
     <section>
         <div class="container">
             <div class="row">
                 <div class="col-12 col-md-6 col-sm-6 col-lg-6">
+                    <h3 class="assured py-2 p-2 mt-2 fw-bold">Calculate Your Tractor Loan EMI</h3>
                     <img src="assets\images\powertrac-euro-47-1690880683.webp" class="w-100">
-                    <button type="button" class="w-100 btn btn-outline-success fw-bold mt-3 mb-1">Get on road
+                    <button type="button" class="w-100 btn btn-outline-success fw-bold mt-3 mb-2">Get on road
                         Price</button>
                 </div>
                 <div class="col-12 col-md-6 col-sm-6 col-lg-6 mt-5">
                     <div class="row">
                         <div class="col-6 col-lg-6 col-md-6 col-sm-6 text-center mt-4 mb-4">
-                            <h3 class="fw-bold">EMI</h3>
+                            <label for="emiResult" class="form-label h4 text-dark fw-bold">EMI per Month (₹)</label>
+
                         </div>
                         <div class="col-6 col-lg-6 col-md-6 col-sm-6 text-center mt-4 mb-4">
-                            <h3 class="fw-bold"><span class="px-1">₹</span>0</h3>
+                            <input type="text" class="form-control" id="emiResult" readonly>
+
                         </div>
-                        <div class="col-6 col-lg-6 col-md-6 col-sm-6 py-2 text-center">
-                            <h5>*Ex-showroom Price</h5>
-                            <h6><span class="px-1">₹</span>0</h6>
+                        <div class="col-6 col-lg-6 col-md-6 col-sm-6 py-2 mt-4 text-center">
+
+                            <label for="exshowroomprice" class="form-label h6 text-dark fw-bold">*Ex-showroom Price
+                                (₹)</label>
+                            <input type="text" class="form-control" readonly value="6,40,000.00">
+
                         </div>
-                        <div class="col-6 col-lg-6 col-md-6 col-sm-6 py-2 text-center">
-                            <h5>Total Loan Amount</h5>
-                            <h6><span class="px-1">₹</span>0</h6>
+                        <div class="col-6 col-lg-6 col-md-6 col-sm-6 py-2 mt-4 text-center">
+                            <label for="totalLoanAmount" class="form-label h6 text-dark fw-bold">Total Loan Amount
+                                (₹)</label>
+                            <input type="text" class="form-control" id="totalLoanAmount" readonly>
                         </div>
-                        <div class="col-6 col-lg-6 col-md-6 col-sm-6 py-2 text-center">
-                            <h5>Payable Amount</h5>
-                            <h6><span class="px-1">₹</span>0</h6>
+                        <div class="col-6 col-lg-6 col-md-6 col-sm-6 py-2 mt-4 text-center">
+                            <label for="totalRepayment" class="form-label h6 text-dark fw-bold">Total Repayment Amount
+                                (₹)</label>
+                            <input type="text" class="form-control" id="totalRepayment" readonly>
+
                         </div>
-                        <div class="col-6 col-lg-6 col-md-6 col-sm-6 py-2 text-center">
-                            <h5>You’ll pay extra</h5>
-                            <h6><span class="px-1">₹</span>0</h6>
+                        <div class="col-6 col-lg-6 col-md-6 col-sm-6 py-2 mt-4 text-center">
+                            <label for="extraAmount" class="form-label h6 text-dark fw-bold">Extra Amount Paid
+                                (₹)</label>
+                            <input type="text" class="form-control" id="extraAmount" readonly>
+
                         </div>
-                        <button type="button" class="w-100 fw-bold btn btn-success mt-3 mb-1">View Loan
+                        <button type="button" class="w-100 fw-bold btn btn-success mt-4 mb-1">View Loan
                             Offers</button>
                     </div>
                 </div>
@@ -170,88 +106,53 @@
         </div>
     </section>
     <section>
-        <div class="container">
+        <div class="container mt-3 shadow">
             <div class="row">
-                <div class="col-12 col-md-6 col-sm-6 col-lg-6">
-                    <h5 class="mt-4">Bank Interest Rate</h5>
-                    <input type="text" class="text_emi"> <i class="fa-solid fa-percent ms-2"></i>
-                    <div class="slidecontainer">
-                        <input type="range" min="0" max="100" value="7500" class="slider py-1" id="myRange2">
-                    </div>
+                <div class="col-12 col-md-6 col-sm-6 col-lg-6 mb-3 ">
+                    <label for="interestRate" class="form-label text-dark h5 mb-3 ">Bank Interest Rate (%)</label>
+                    <input type="range" class="form-range" id="interestRate" min="11" max="22" step="0.1">
+                    <input type="text" class="form-control w-25 mt-2" id="interestRateValue"
+                        placeholder="Enter interest rate" readonly>
+
                 </div>
-                <div class="col-12 col-md-6 col-sm-6 col-lg-6">
-                    <h5 class="mt-4 ">Down Payment</h5>
-                    <i class="fa-solid fa-indian-rupee-sign fs-5 mx-2 "></i><input type="text" class="text_emi">
-                    <div class="slidecontainer">
-                        <input type="range" min="0" max="100" value="750000" class="slider py-1" id="myRange">
-                    </div>
+                <div class="col-12 col-md-6 col-sm-6 col-lg-6 mb-3 ">
+                    <label for="downPayment" class="form-label text-dark mb-3  h5">Down Payment (₹)</label>
+                    <input type="range" class="form-range" id="downPayment" min="0" max="640000" step="1000">
+                    <input type="text" class="form-control w-25 mt-2" id="downPaymentValue"
+                        placeholder="Enter down payment" readonly>
+
                 </div>
-                <div class="col-12 col-md-6 col-sm-6 col-lg-6">
-                    <h5 class="mt-4 fw-bold">Loan Period Months</h5>
-                    <div class="btn-group btn-group-toggle mb-5" data-toggle="buttons">
-                        <label class="btn btn-success ">
-                            <input type="radio" name="options" id="option1" autocomplete="off"></br>12
-                        </label>
-                        <label class="btn btn-success">
-                            <input type="radio" name="options" id="option2" autocomplete="off"></br>18
-                        </label>
-                        <label class="btn btn-success">
-                            <input type="radio" name="options" id="option3" autocomplete="off"></br>24
-                        </label>
-                        <label class="btn btn-success">
-                            <input type="radio" name="options" id="option4" autocomplete="off"></br>30
-                        </label>
-                        <label class="btn btn-success">
-                            <input type="radio" name="options" id="option5" autocomplete="off"></br>36
-                        </label>
-                        <label class="btn btn-success">
-                            <input type="radio" name="options" id="option6" autocomplete="off"></br>42
-                        </label>
-                        <label class="btn btn-success">
-                            <input type="radio" name="options" id="option7" autocomplete="off"></br>48
-                        </label>
-                        <label class="btn btn-success">
-                            <input type="radio" name="options" id="option8" autocomplete="off"></br>54
-                        </label>
-                        <label class="btn btn-success">
-                            <input type="radio" name="options" id="option9" autocomplete="off" checked></br>60
-                        </label>
-                        <label class="btn btn-success">
-                            <input type="radio" name="options" id="option10" autocomplete="off"></br>66
-                        </label>
-                        <label class="btn btn-success">
-                            <input type="radio" name="options" id="option11" autocomplete="off"></br>72
-                        </label>
-                        <label class="btn btn-success">
-                            <input type="radio" name="options" id="option12" autocomplete="off"></br>78
-                        </label>
-                        <label class="btn btn-success">
-                            <input type="radio" name="options" id="option13" autocomplete="off"></br>84
-                        </label>
-                    </div>
+                <div class="col-12 col-md-6 col-sm-6 col-lg-6 mb-3 ">
+                    <label for="loanPeriod" class="form-label text-dark mb-3  h5">Loan Period (Months)</label>
+                    <select class="form-select" id="loanPeriod">
+                        <option value="12">12</option>
+                        <option value="24">18</option>
+                        <option value="36">24</option>
+                        <option value="48">30</option>
+                        <option value="12">36</option>
+                        <option value="24">42</option>
+                        <option value="36">48</option>
+                        <option value="48">54</option>
+                        <option value="60" selected>60</option>
+                        <option value="12">66</option>
+                        <option value="24">72</option>
+                        <option value="36">78</option>
+                        <option value="48">84</option>
+                    </select>
+
                 </div>
-                <div class="col-12 col-md-6 col-sm-6 col-lg-6">
-                    <h5 class="mt-4 mx-5 fw-bold">Repayment Interval</h5>
-                    <div class="form-check form-check-inline ">
-                        <input class="form-check-input border border-dark  mx-2" type="radio" id="inlineCheckbox1"
-                            name="x" value="option1">
-                        <label class="form-check-label text-dark" for="inlineCheckbox1">Monthly</label>
-                    </div>
-                    <div class="form-check form-check-inline text-center">
-                        <input class="form-check-input border border-dark  mx-2" type="radio" id="inlineCheckbox2"
-                            name="x" value="option2">
-                        <label class="form-check-label text-dark" for="inlineCheckbox2">Quarterly</label>
-                    </div>
-                    <div class="form-check form-check-inline text-center">
-                        <input class="form-check-input border border-dark  mx-2" type="radio" id="inlineCheckbox3"
-                            name="x" value="option3">
-                        <label class="form-check-label text-dark" for="inlineCheckbox3">Half-Yearly</label>
-                    </div>
+                <div class="col-12 col-md-6 col-sm-6 col-lg-6  mb-3 ">
+                    <label for="repaymentInterval" class="form-label text-dark mb-3  h5">Repayment Interval</label>
+                    <select class="form-select" id="repaymentInterval">
+                        <option value="monthly" selected>Monthly</option>
+                        <option value="quarterly">Quarterly</option>
+                        <option value="halfyearly">Half-Yearly</option>
+                    </select>
+
                 </div>
             </div>
         </div>
     </section>
-
     <?php
     include 'includes/footer.php';
     include 'includes/footertag.php';
@@ -306,10 +207,7 @@
         option.text = optionText;
         selectElement.add(option);
     }
-    //  function calculateEMI() {
-    //     // Add your EMI calculation logic here
-    //     alert("EMI Calculation not implemented in this example.");
-    // }
+
 
 
     $(document).ready(function() {
@@ -321,23 +219,83 @@
         });
 
     });
-
-    // function showEMIForm() {
-    //     // Validate the first form
-    //     if ($("#brandModelForm").valid()) {
-    //         // Hide the first form and show the second form
-    //         $("#form1").addClass("hidden");
-    //         $("#form2").removeClass("hidden");
-    //     }
-    // }
-
-    // function showBrandModelForm() {
-    //     // Hide the second form and show the first form
-    //     $("#form2").addClass("hidden");
-    //     $("#form1").removeClass("hidden");
-    // })
     </script>
+    <script>
+    // Get DOM elements
+    const downPaymentRange = document.getElementById('downPayment');
+    const downPaymentValue = document.getElementById('downPaymentValue');
+    const interestRateRange = document.getElementById('interestRate');
+    const interestRateValue = document.getElementById('interestRateValue');
+    const loanPeriod = document.getElementById('loanPeriod');
+    const repaymentInterval = document.getElementById('repaymentInterval');
+    const emiResult = document.getElementById('emiResult');
+    const totalRepayment = document.getElementById('totalRepayment');
+    const extraAmount = document.getElementById('extraAmount');
+    const totalLoanAmount = document.getElementById('totalLoanAmount');
 
+    // Initialize values
+    downPaymentRange.value = 0;
+    downPaymentValue.value = '0';
+    interestRateRange.value = 15;
+    interestRateValue.value = '15';
+    totalLoanAmount.value = '640000';
+
+    // Function to calculate EMI
+    function calculateEMI() {
+        const exShowroomPrice = 640000;
+        const loanAmount = exShowroomPrice - parseFloat(downPaymentValue.value);
+        const interestRate = parseFloat(interestRateValue.value);
+        const loanTenure = parseInt(loanPeriod.value);
+        const repaymentInt = repaymentInterval.value;
+
+        const monthlyInterestRate = (interestRate / 100) / 12;
+        const numberOfPayments = loanTenure * (repaymentInt === 'monthly' ? 1 : repaymentInt === 'quarterly' ? 3 : 6);
+
+        const emi = (loanAmount * monthlyInterestRate * Math.pow(1 + monthlyInterestRate, numberOfPayments)) /
+            (Math.pow(1 + monthlyInterestRate, numberOfPayments) - 1);
+
+        emiResult.value = emi.toFixed(2);
+
+        const totalRepay = emi * numberOfPayments;
+        totalRepayment.value = totalRepay.toFixed(2);
+
+        const extraAmountPaid = totalRepay - loanAmount;
+        extraAmount.value = extraAmountPaid.toFixed(2);
+    }
+
+    // Event listeners
+
+    downPaymentValue.addEventListener('input', function() {
+        downPaymentRange.value = totalLoanAmount.value;
+        calculateEMI();
+    });
+
+    downPaymentRange.addEventListener('input', function() {
+        downPaymentValue.value = downPaymentRange.value;
+        calculateEMI();
+    });
+
+    interestRateRange.addEventListener('input', function() {
+        interestRateValue.value = interestRateRange.value;
+        calculateEMI();
+    });
+
+    downPaymentValue.addEventListener('input', function() {
+        downPaymentRange.value = downPaymentValue.value;
+        calculateEMI();
+    });
+
+    interestRateValue.addEventListener('input', function() {
+        interestRateRange.value = parseFloat(interestRateValue.value);
+        calculateEMI();
+    });
+
+    loanPeriod.addEventListener('change', calculateEMI);
+    repaymentInterval.addEventListener('change', calculateEMI);
+
+    // Initial calculation
+    calculateEMI();
+    </script>
 
 </body>
 
