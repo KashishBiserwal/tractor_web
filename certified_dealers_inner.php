@@ -49,6 +49,8 @@
                         <div thumbsSlider="" class="swiper mySwiper_buy"></div>
                     </div>
                 </div>
+
+                
                 <div class="col-12 col-sm-6 col-lg-6 col-md-6">
                   <form action="">
                         <div class="row my-3">
@@ -255,11 +257,6 @@
             </div>
         </div>
     </section>
-
-
-
-
-
 
 
     <section class="">
