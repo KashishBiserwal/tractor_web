@@ -141,8 +141,9 @@
                  <div class="pirce-section ">
                     <h5>Price - ₹ 5,00,000</h5>
                 </div>
+                
+                <form action="" id="interested-form" class="outline-solid bg-light">
                 <h5 class="text-black fw-bold text-center my-2 ">Interested In Implement</h5>
-                <form action="" id="interested-form">
                     <div class="row my-3">
                         <div class="col-12 justify-content-center">
                             <div class="d-flex flex-md-row px-3  flex-column-reverse">
@@ -161,6 +162,14 @@
                                             <label for="number" class="form-label text-dark fw-bold"> <i class="fa fa-phone" aria-hidden="true"></i> Phone Number</label>
                                             <input type="password" class="form-control" placeholder="Enter Number" id="number" name="number">
                                         </div>
+                                        <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+                                            <label for="yr_state" class="form-label text-dark fw-bold" id="state" name="state"> <i class="fas fa-location"></i> State</label>
+                                            <select class="form-select py-2 " aria-label=".form-select-lg example"id="state" name="state">
+                                                <option value>Select State</option>
+                                                <option value="1">Chhattisgarh</option>
+                                                <option value="2">Other</option>
+                                            </select>
+                                        </div> 
                                         <div class="col-12 col-sm-12 col-md-6 col-lg-6">
                                             <label for="yr_state" class="form-label text-dark fw-bold" id="state" name="state"> <i class="fas fa-location"></i> State</label>
                                             <select class="form-select py-2 " aria-label=".form-select-lg example"id="state" name="state">

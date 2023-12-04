@@ -266,7 +266,7 @@
                                 <input type="text" class="form-control text-dark" placeholder="Enter Name" id="Mobile" name="Mobile">
                             </div>
                             <div class="col-12 mt-3">
-                                <button data-res="<?php echo $sum; ?>" type="submit" class="btn-success w-100 fw-bold" >Get valuation</button>
+                                <button data-res="<?php echo $sum; ?>" type="submit" class="btn-success w-100 fw-bold" >Get OTP</button>
                             </div>       
                         </div>
                     </form>

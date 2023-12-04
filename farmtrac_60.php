@@ -49,7 +49,7 @@
             </div>
             <div class="col-12 col-sm-6 col-lg-6 col-md-6">
             <h5 class="text-black fw-bold text-center ">Are You Intrested in this Tractor?</h5>
-                <form action="" id="used_farm_inner_from">
+                <form action="" id="used_farm_inner_from" class="outline-solid bg-light">
                     <div class="row my-3">
                     <div class="col-12 justify-content-center">
                         <div class="d-flex flex-md-row px-3  flex-column-reverse">
