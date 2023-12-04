@@ -14,7 +14,9 @@
             <div class="py-2">
                 <span class="text-white ">
                     <a href="index.php" class="text-decoration-none header-link px-1">Home <i class="fa-solid fa-chevron-right px-1"></i></a>
-                        <span class=""><span class="text-dark header-link  px-1">Enquiries<i class="fa-solid fa-chevron-right px-1"></i> </span></span>
+
+                        <span class=""><span class="text-dark header-link  px-1">Dealership Enquiry<i class="fa-solid fa-chevron-right px-1"></i> </span></span>
+                        
                         <span class="text-dark">On-Road Price</span>
                 </span> 
             </div>
@@ -97,7 +99,7 @@
             </div>
         </div>
     </section>
-
+        
     <section>
         <div class="container">
             <div class="row">
