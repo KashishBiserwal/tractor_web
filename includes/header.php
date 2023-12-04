@@ -54,25 +54,25 @@
           <a class="nav-link dropdown-toggle  fw-bold " href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             New Tractor
           </a>
-          <ul class="dropdown-menu mt-2">
-            <li class="nav-item dropend ">
+          <ul class="dropdown-menu">
+            <li class="nav-item dropend">
               <a class=" nav-link nav-link_brand dropdown-toggle fw-bold text-dark " href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Brands
+                Brand
               </a>
-              <ul class="dropdown-menu mt-2  pt-1">
-                <li><a class="dropdown-item fw-bold  py-2" href="mahindra.php">Mahindra</a></li>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item fw-bold  py-1" href="mahindra.php">Mahindra</a></li>
                 <hr class="dropdown-divider">
-                <li><a class="dropdown-item fw-bold  py-2" href="#">Swaraj</a></li>
+                <li><a class="dropdown-item fw-bold  py-1" href="#">Swaraj</a></li>
                 <hr class="dropdown-divider">
-                <li><a class="dropdown-item fw-bold  py-2" href="#">Farmtrac</a></li>
+                <li><a class="dropdown-item fw-bold  py-1" href="#">Farmtrac</a></li>
                 <hr class="dropdown-divider">
-                <li><a class="dropdown-item fw-bold py-2" href="#">Massey Ferguson</a></li>
+                <li><a class="dropdown-item fw-bold py-1" href="#">Massey Ferguson</a></li>
                 <hr class="dropdown-divider">
-                <li><a class="dropdown-item  fw-bold py-2" href="#">John Deere</a></li>
+                <li><a class="dropdown-item  fw-bold py-1" href="#">John Deere</a></li>
                 <hr class="dropdown-divider">
-                <li><a class="dropdown-item  fw-bold py-2" href="#">Sonalika</a></li>
+                <li><a class="dropdown-item  fw-bold py-1" href="#">Sonalika</a></li>
                 <hr class="dropdown-divider">
-                <li><a class="dropdown-item  fw-bold py-2" href="#">ALL BRANDS</a></li>
+                <li><a class="dropdown-item  fw-bold py-1" href="#">ALL BRANDS</a></li>
               </ul>
             </li>
             <hr class="dropdown-divider">
@@ -93,23 +93,23 @@
           <a class="nav-link dropdown-toggle  fw-bold " href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Used
           </a>
-          <ul class="dropdown-menu mt-2">
+          <ul class="dropdown-menu ">
             <li class="nav-item dropend ">
-              <a class=" nav-link nav-link_brand dropdown-toggle fw-bold text-dark " href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <a class=" nav-link nav-link_brand dropdown-toggle fw-bold text-dark" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 Buy Used
               </a>
-              <ul class="dropdown-menu mt-2  pt-1">
-                <li><a class="dropdown-item fw-bold  py-2" href="certified_used_tractor.php">Certified Used Tractors</a></li>
+              <ul class="dropdown-menu">
+                <!-- <li><a class="dropdown-item fw-bold  py-2" href="certified_used_tractor.php">Certified Used Tractors</a></li>
+                <hr class="dropdown-divider"> -->
+                <li><a class="dropdown-item fw-bold  py-1" href="used_tractor.php">Used Tractors</a></li>
                 <hr class="dropdown-divider">
-                <li><a class="dropdown-item fw-bold  py-2" href="used_tractor.php">Used Tractors</a></li>
+                <li><a class="dropdown-item fw-bold  py-1" href="used_farm_imple.php">Used Farm Implements</a></li>
                 <hr class="dropdown-divider">
-                <li><a class="dropdown-item fw-bold  py-2" href="used_farm_imple.php">Used Farm Implements</a></li>
+                <li><a class="dropdown-item fw-bold py-1" href="used_harvester.php">Used Harvester</a></li>
                 <hr class="dropdown-divider">
-                <li><a class="dropdown-item fw-bold py-2" href="used_harvester.php">Used Harvester</a></li>
+                <li><a class="dropdown-item  fw-bold py-1" href="tractor_valuation.php">Tractor valuation</a></li>
                 <hr class="dropdown-divider">
-                <li><a class="dropdown-item  fw-bold py-2" href="tractor_valuation.php">Tractor valuation</a></li>
-                <hr class="dropdown-divider">
-                <li><a class="dropdown-item  fw-bold py-2" href="find_used_tracters.php">Find Used Tractor</a></li>
+                <li><a class="dropdown-item  fw-bold py-1" href="find_used_tracters.php">Find Used Tractor</a></li>
               </ul>
             </li>
             <hr class="dropdown-divider">
@@ -117,12 +117,12 @@
               <a class=" nav-link nav-link_brand dropdown-toggle fw-bold text-dark " href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 Sell Used
               </a>
-              <ul class="dropdown-menu mt-2  pt-1">
-                <li><a class="dropdown-item fw-bold  py-2" href="sell_used_trac.php">Sell Used Tractor</a></li>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item fw-bold  py-1" href="sell_used_trac.php">Sell Used Tractor</a></li>
                 <hr class="dropdown-divider">
-                <li><a class="dropdown-item fw-bold  py-2" href="sell_used_farm_imple.php">Used Farm Implements</a></li>
+                <li><a class="dropdown-item fw-bold  py-1" href="sell_used_farm_imple.php">Used Farm Implements</a></li>
                 <hr class="dropdown-divider">
-                <li><a class="dropdown-item fw-bold  py-2" href="#">Used Harveste</a></li>
+                <li><a class="dropdown-item fw-bold  py-1" href="#">Used Harvester</a></li>
               </ul>
             </li>
             <hr class="dropdown-divider">
@@ -130,10 +130,10 @@
               <a class=" nav-link nav-link_brand dropdown-toggle fw-bold text-dark " href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 Rent & Hire
               </a>
-              <ul class="dropdown-menu mt-2  pt-1">
-                <li><a class="dropdown-item fw-bold  py-2" href="rent.php">On Rent</a></li>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item fw-bold  py-1" href="rent.php">Rent Tractor</a></li>
                 <hr class="dropdown-divider">
-                <li><a class="dropdown-item fw-bold  py-2" href="hire.php">On Sell</a></li>
+                <li><a class="dropdown-item fw-bold  py-1" href="hire.php">Hire tractor</a></li>
               </ul>
             </li>
           </ul>
@@ -143,12 +143,12 @@
           <a class="nav-link dropdown-toggle  fw-bold" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
            Farm Equipment's
           </a>
-          <ul class="dropdown-menu mt-2">
+          <ul class="dropdown-menu">
             <li class="nav-item dropend">
               <a class="nav-link dropdown-toggle text-dark fw-bold" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 Implements
               </a>
-              <ul class="dropdown-menu pt-1 mt-2">
+              <ul class="dropdown-menu">
                 <li><a class="dropdown-item fw-bold py-1 mt-2" href="all_farm_imple.php">All Implements</a></li>
                 <hr class="dropdown-divider">
                 <li><a class="dropdown-item fw-bold py-1" href="#">Rotary Tiller</a></li>
@@ -174,15 +174,15 @@
           <a class="nav-link dropdown-toggle  fw-bold" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
            Market & Farms
           </a>
-          <ul class="dropdown-menu mt-2">
+          <ul class="dropdown-menu">
             <li class="nav-item dropend">
               <a class="nav-link dropdown-toggle text-dark fw-bold" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               HaatBazaar
               </a>
-              <ul class="dropdown-menu pt-1 mt-2">
-                <li><a class="dropdown-item fw-bold py-1 mt-2" href="hatbazr_sell.php">Sell Product</a></li>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item fw-bold" href="hatbazr_sell.php">Sell Product</a></li>
                 <hr class="dropdown-divider">
-                <li><a class="dropdown-item fw-bold py-1" href="hatbazar_buy.php">Buy Product</a></li>
+                <li><a class="dropdown-item fw-bold " href="hatbazar_buy.php">Buy Product</a></li>
               </ul>
             </li>
             <li>
@@ -195,7 +195,7 @@
           <a class="nav-link dropdown-toggle  fw-bold" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
            Enquiries
           </a>
-          <ul class="dropdown-menu pt-3 mt-2">
+          <ul class="dropdown-menu">
             <li><a class="dropdown-item fw-bold" href="onload.php"> On-Road Price</a></li>
             <hr class="dropdown-divider">
             <li><a class="dropdown-item fw-bold" href="compare_trac.php">Compare</a></li>
@@ -205,7 +205,7 @@
           <a class="nav-link dropdown-toggle  fw-bold" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
            Finance
           </a>
-          <ul class="dropdown-menu pt-3 mt-2">
+          <ul class="dropdown-menu">
             <li><a class="dropdown-item fw-bold" href="new_tractor_loan.php">Loan</a></li>
             <hr class="dropdown-divider">
             <li><a class="dropdown-item fw-bold" href="Insurance.php">Insurance</a></li>
@@ -231,7 +231,7 @@
             <a class="nav-link dropdown-toggle fw-bold" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               News & Update
             </a>
-            <ul class="dropdown-menu pt-3 mt-2">
+            <ul class="dropdown-menu ">
                 <li id="allNews"><a class="dropdown-item fw-bold" href="all_news.php">All News</a></li>
                 <hr class="dropdown-divider">
                 <li id="tractorNews"><a class="dropdown-item fw-bold" href="#" >Tractor News</a></li>
@@ -247,7 +247,7 @@
           <a class="nav-link dropdown-toggle  fw-bold " href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             More
           </a>
-          <ul class="dropdown-menu  pt-3 mt-2 ">
+          <ul class="dropdown-menu ">
                 <li><a class="dropdown-item fw-bold" href="emi.php">EMI Calculator</a></li>
                 <hr class="dropdown-divider">
                 <li><a class="dropdown-item fw-bold" href="tyre.php">Tyres</a></li>

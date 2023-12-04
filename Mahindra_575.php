@@ -24,10 +24,9 @@
     </div>
 </section>
 
-<!-- Mahindra 575 DI XP Plus -->
 <section id="Mahindra_575">
     <div class="container">
-        <h1 class="mt-4">Mahindra 575 DI XP Plus</h1>
+        <h1 class="mt-4" class="model_name"></h1>
         <div class="row">
             <div class="col-12 col-lg-6 col-md-6 col-sm-6 mt-5 pt-3">
                 <img src="assets/images/mahindra-575-di-sp-plus-836976961.avif" alt="mahindra-575-DI-XP-Plus">
@@ -37,38 +36,38 @@
                     <thead>
                         <tr>
                             <th scope="col"><h5> <i class="fa-solid fa-award"></i> Brand</h5></th>
-                            <th scope="col"> <p><a href="mahindra.php" class="text-decoration-none h5 text-danger ">Mahindra Tractors</a></p></th>
+                            <th scope="col"> <p><a href="mahindra.php" class="text-decoration-none h5 text-danger " id="brand_name"></a></p></th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td><p><i class="fa-solid fa-gas-pump"></i>  No. Of Cylinder</p></td>
-                            <td><p>4</p></td>
+                            <td><p><i class="fa-solid fa-gas-pump"></i> Number of Cylinder</p></td>
+                            <td><p id="total_cyclinder_value"></p></td>
                         </tr>
                         <tr>
                             <td> <p><i class="fas fa-bolt"></i> HP Category</p></td>
-                            <td><p>47 HP</p></td>
+                            <td><p> <span id="hp_category"></span> HP</p> </td>
                         </tr>
                         <tr>
                             <td><p><i class="fas fa-bolt"></i> PTO HP</p></td>
-                            <td><p>42 HP</p></td>
+                            <td><p> <span  id="horse_power"></span> HP</p> </td>
                         </tr>
                         <tr>
                             <td> <i class="fa-solid fa-gear"></i> Gear Box</p></p></td>
-                            <td><p>8 Forward + 2 Reverse</p></td>
+                            <td><p><span id="gear_box_forward"></span> Forward + <span id="gear_box_reverse"></span> Reverse</p></td>
                         </tr>
                         <tr>
                             <td><p><i class="fa fa-chain-broken" aria-hidden="true"></i> Brakes</p></td>
-                            <td><p>Oil Immersed Brakes</p></td>
+                            <td><p id="brake_value"></p></td>
                         </tr>
                         <tr>
                             <td> <p><i class="fa-solid fa-pen-to-square"></i> Warranty</p></td>
-                            <td> <p>6 Year</p></td>
+                            <td> <p><span id="warranty"></span> Year</p></td>
                         </tr>
-                        <tr>
+                        <!-- <tr>
                             <td>  <p><i class="fas fa-rupee-sign"></i> Price</p></td>
                             <td> <p> <a href="#" class="text-decoration-none text-danger">Check Price</a></p></td>
-                        </tr>
+                        </tr> -->
                     </tbody>
                 </table>
                 <div class="row my-3 text-center">
@@ -90,7 +89,7 @@
 
 <section class="bg-light">
     <div class="container my-4">
-        <h3 class="text-dark fw-bold assured  ps-3"><span class="text-success">Mahindra 575 DI XP Plus</span> Other Features</h3>
+        <h3 class="text-dark fw-bold assured  ps-3" ><span class="text-success"  class="model_name"></span> Other Features</h3>
         <div class="row mt-3 pt-4">
             <div class="col-12 col-lg-6 col-md-6 col-sm-6">
                 <div class="featureservice rounded-3">
@@ -100,7 +99,7 @@
                         </div>
                         <div class="col-12 col-lg-7 col-md-7 col-sm-7">
                             <h6 class="service-box fw-bold fs-5 mt-3 text-white">CLUTCH </h6>
-                            <p class="text-white">Single / Dual clutch</p>
+                            <p class="text-white" id="">Single / Dual clutch</p>
                         </div>
                     </div>
                 </div>
@@ -113,7 +112,7 @@
                         </div>
                         <div class="col-12 col-lg-7 col-md-7 col-sm-7">
                             <h6 class="service-box fw-bold fs-5 mt-3 text-white">STEERING </h6>
-                            <p class="text-white">Dual Acting Power steering</p>
+                            <p class="text-white" id="steering_column_value">Dual Acting Power steering</p>
                         </div>
                     </div>
                    
@@ -126,62 +125,59 @@
 <section>
     <div class="container my-5">
         <div class="about border-success  border-4 text-dark border-start">
-            <h2 class="text-dark fw-bold text-start ps-4"> About Mahindra 575 DI XP Plus</h2>
+            <h2 class="text-dark fw-bold text-start ps-4"> About <span id="brand_name"></span></h2>
 
         </div>
         <div class="mt-1">
-            <p class="text-dark">
-            Mahindra 575 DI XP Plus Tractor is manufactured by Mahindra Tractor Manufacturer. Sometimes demand increases, and supply decreases for any product. The Mahindra 575 XP tractor model never relies on it; its market demand and supply always rises and is stable on the hike. A farmer always demands the Mahindra 575 XP price like models, providing better potency or production to their farms. As we all know, the Mahindra 575 DI XP Plus comes from the house of Mahindra & Mahindra, which is popular for the advanced tractors in the field. This amazing tractor is packed with quality features for high performance. Here, you can get all the information about the tractor like the Mahindra 575 di XP plus specification, price, hp, PTO hp, engine and many more.</p>
+            <p class="text-dark" id="description"></p>
         </div>
      
 
     </div>
 </section>
-<!-- table -->
 <section class="mt-3">
     <div class="container">
         <div class="about border-success  border-4 text-dark border-start">
-            <h3 class="text-dark fw-bold text-start ps-4"> Mahindra 575 DI XP Plus Engine</h3>
+            <h3 class="text-dark fw-bold text-start ps-4"> <span class="model_name"></span> Engine</h3>
         </div>
 
         <table class="table w-75 table-hover table table-striped my-4">
-            
             <tbody>
                 <tr>
                 <td class="table-data">No. Of Cylinder</td>
-                <td class="table-data">4</td>
+                <td class="table-data"><p id="total_cyclinder_value"></p></td>
                 </tr>
                 <tr>
                 <td class="table-data">HP Category</td>
-                <td class="table-data">47 HP</td>
+                <td class="table-data"><span id="hp_category_id"></span> HP</td>
                 </tr>
                 <tr>
                 <td class="table-data">Capacity CC</td>
-                <td class="table-data">2979 CC</td>
+                <td class="table-data" ><span id="engine_capacity_cc"></span> CC</td>
                 </tr>
                 <tr>
                 <td class="table-data">Engine Rated RPM</td>
-                <td class="table-data">2000 RPM</td>
+                <td class="table-data"><span id="engine_rated_rpm"></span> RPM</td>
                 </tr>
                 <tr>
                 <td class="table-data">Cooling</td>
-                <td class="table-data">Water Cooled</td>
+                <td class="table-data"><span id="engine_rated_rpm"></span> </td>
                 </tr>
                 <tr>
                 <td class="table-data">Air Filter</td>
-                <td class="table-data" > 3 stage oil bath type with Pre Cleaner</td>
+                <td class="table-data" id="air_filter"></td>
                 </tr>
                 <tr>
                 <td  class="table-data">PTO HP</td>
-                <td class="table-data">42</td>
+                <td class="table-data"><p> <span  id="horse_power_2"></span> HP</p> </td>
                 </tr>
                 <tr>
                 <td class="table-data">Fuel Pump</td>
-                <td class="table-data">Inline</td>
+                <td class="table-data"> <span  id="fuel_value"></span></td>
                 </tr>
                 <tr>
                 <td class="table-data">Torque</td>
-                <td class="table-data">192 NM</td>
+                <td class="table-data"><span  id="torque"></span> NM</td>
                 </tr>
             </tbody>
         </table>
@@ -198,23 +194,23 @@
             <tbody>
                 <tr>
                 <td class="table-data">Type</td>
-                <td class="table-data">Partial Constant Mesh</td>
+                <td class="table-data"><span  id="transmission_type_value"></span></td>
                 </tr>
                 <tr>
                 <td class="table-data">Clutch</td>
-                <td class="table-data">Single / Dual clutch</td>
+                <td class="table-data"><span  id="transmission_clutch_value"></span></td>
                 </tr>
                 <tr>
                 <td class="table-data">Gear Box</td>
-                <td class="table-data">8 Forward + 2 Reverse</td>
+                <td class="table-data"><span  id="gear_box_forward_2"></span> Forward + <span  id="gear_box_reverse_2"></span> Reverse</td>
                 </tr>
                 <tr>
                 <td class="table-data">Forward Speed</td>
-                <td class="table-data">3.1 - 31.3 kmph</td>
+                <td class="table-data"><span  id="transmission_forward"></span> kmph</td>
                 </tr>
                 <tr>
                 <td class="table-data">Reverse Speed</td>
-                <td class="table-data">4.3 - 12.5 kmph</td>
+                <td class="table-data"><span  id="transmission_reverse"></span> kmph</td>
                 </tr>
             </tbody>
         </table>
@@ -231,7 +227,7 @@
             <tbody>
                 <tr>
                 <td class="table-data">Brakes</td>
-                <td class="table-data">Oil Immersed Brakes</td>
+                <td class="table-data"><span  id="brake_value"></span></td>
                 </tr>
             </tbody>
         </table>
@@ -249,13 +245,12 @@
             <tbody>
                 <tr>
                 <td class="table-data">Type</td>
-                <td class="table-data">Dual Acting Power steering / Manual Steering (Optional)</td>
+                <td class="table-data"><span id="steering_details_value"></span></td>
                 </tr>
                 <tr>
                 <td class="table-data">Steering Column</td>
-                <td class="table-data"> Single Drop Arm</td>
+                <td class="table-data"><span id="steering_column_value"></span></td>
                 </tr>
-                
             </tbody>
         </table>
 
@@ -277,9 +272,8 @@
                 </tr>
                 <tr>
                 <td class="table-data">RPM</td>
-                <td class="table-data">540 @ 1890</td>
+                <td class="table-data"><span id="power_take_off_rpm"></span></td>
                 </tr>
-                
             </tbody>
         </table>
 
@@ -297,13 +291,12 @@
             <tbody>
                 <tr>
                 <td class="table-data">Total Weight</td>
-                <td class="table-data">1890 KG</td>
+                <td class="table-data"><span id="total_weight"></span> KG</td>
                 </tr>
                 <tr>
                 <td class="table-data">Wheel Base</td>
-                <td class="table-data"> 1960 MM</td>
+                <td class="table-data"><span id="wheel_base"></span>  MM</td>
                 </tr>
-                
             </tbody>
         </table>
 
@@ -321,11 +314,11 @@
             <tbody>
                 <tr>
                 <td class="table-data">Lifting Capacity</td>
-                <td class="table-data">1500 Kg</td>
+                <td class="table-data"><span id="lifting_capacity"></span> Kg</td>
                 </tr>
                 <tr>
                 <td class="table-data">3 point Linkage</td>
-                <td class="table-data"> High precision, CAT-2</td>
+                <td class="table-data"> <span id="linkage_point_value"></span></td>
                 </tr>
                 
             </tbody>
@@ -361,15 +354,15 @@
             <tbody>
                 <tr>
                 <td class="table-data">Wheel drive</td>
-                <td class="table-data">2 WD</td>
+                <td class="table-data"><span id="wheel_drive_value"></span> WD</td>
                 </tr>
                 <tr>
                 <td class="table-data">Front</td>
-                <td class="table-data">6.00 x 16</td>
+                <td class="table-data"><span id="front_tyre"></span></td>
                 </tr>
                 <tr>
                 <td class="table-data">Rear</td>
-                <td class="table-data">14.9 x 28</td>
+                <td class="table-data"><span id="rear_tyre"></span></td>
                 </tr>
                 
             </tbody>
@@ -380,7 +373,7 @@
 <section class="mt-3">
     <div class="container">
         <div class="about border-success  border-4 text-dark border-start">
-            <h3 class="text-dark fw-bold text-start ps-4">Mahindra 575 DI XP Plus Other Information</h3>
+            <h3 class="text-dark fw-bold text-start ps-4"><span id="brand_name"></span> Other Information</h3>
         </div>
 
         <table class="table w-75 table-hover table table-striped my-4">
@@ -388,15 +381,15 @@
             <tbody>
                 <tr>
                 <td class="table-data">Accessories</td>
-                <td class="table-data">Hook, Drawbar, Hood, Bumper Etc. </td>
+                <td class="table-data"><span id="accessory_id"></span> </td>
                 </tr>
                 <tr>
                 <td class="table-data">Warranty</td>
-                <td> class="table-data"6 Year</td>
+                <td> <span id="warranty_2"></span></td>
                 </tr>
                 <tr>
                 <td class="table-data">Status</td>
-                <td class="table-data">Launched</td>
+                <td class="table-data"><span id="status_value"></span></td>
                 </tr>
                 
             </tbody>
@@ -434,9 +427,6 @@
                                     <div class="col-12 col-lg-4 col-md-4 col-sm-4">
                                         <p class="ps-1">2021 Model</p>
                                     </div>
-                                    <!-- <div class="col-12 col-lg-5 col-md-5 col-sm-5 pe-1">
-                                        <button class="btn btn-success p-1">Great Deal <i class="fa fa-thumbs-up" aria-hidden="true"></i></button>
-                                    </div> -->
                             </div>
                             <a href="#" class="text-decoration-none text-dark mb-4 ps-3">
                                 <span>
@@ -474,9 +464,6 @@
                                     <div class="col-12 col-lg-4 col-md-4 col-sm-4">
                                         <p class="ps-1">2021 Model</p>
                                     </div>
-                                    <!-- <div class="col-12 col-lg-5 col-md-5 col-sm-5 pe-1">
-                                        <button class="btn btn-success p-1">Great Deal <i class="fa fa-thumbs-up" aria-hidden="true"></i></button>
-                                    </div> -->
                             </div>
                             <a href="#" class="text-decoration-none text-dark mb-4 ps-3">
                                 <span>
@@ -514,9 +501,6 @@
                                     <div class="col-12 col-lg-4 col-md-4 col-sm-4">
                                         <p class="ps-1">2021 Model</p>
                                     </div>
-                                    <!-- <div class="col-12 col-lg-5 col-md-5 col-sm-5 pe-1">
-                                        <button class="btn btn-success p-1">Great Deal <i class="fa fa-thumbs-up" aria-hidden="true"></i></button>
-                                    </div> -->
                             </div>
                             <a href="#" class="text-decoration-none text-dark mb-4 ps-3">
                                 <span>
@@ -554,9 +538,6 @@
                                     <div class="col-12 col-lg-4 col-md-4 col-sm-4">
                                         <p class="ps-1">2021 Model</p>
                                     </div>
-                                    <!-- <div class="col-12 col-lg-5 col-md-5 col-sm-5 pe-1">
-                                        <button class="btn btn-success p-1">Great Deal <i class="fa fa-thumbs-up" aria-hidden="true"></i></button>
-                                    </div> -->
                             </div>
                             <a href="#" class="text-decoration-none text-dark mb-4 ps-3">
                                 <span>
@@ -594,9 +575,6 @@
                                     <div class="col-12 col-lg-4 col-md-4 col-sm-4">
                                         <p class="ps-1">2021 Model</p>
                                     </div>
-                                    <!-- <div class="col-12 col-lg-5 col-md-5 col-sm-5 pe-1">
-                                        <button class="btn btn-success p-1">Great Deal <i class="fa fa-thumbs-up" aria-hidden="true"></i></button>
-                                    </div> -->
                             </div>
                             <a href="#" class="text-decoration-none text-dark mb-4 ps-3">
                                 <span>
@@ -634,9 +612,6 @@
                                     <div class="col-12 col-lg-4 col-md-4 col-sm-4">
                                         <p class="ps-1">2021 Model</p>
                                     </div>
-                                    <!-- <div class="col-12 col-lg-5 col-md-5 col-sm-5 pe-1">
-                                        <button class="btn btn-success p-1">Great Deal <i class="fa fa-thumbs-up" aria-hidden="true"></i></button>
-                                    </div> -->
                             </div>
                             <a href="#" class="text-decoration-none text-dark mb-4 ps-3">
                                 <span>
@@ -656,6 +631,8 @@
         </div>
     </section>
 
+    <h2 id="productName"></h2>
+
 
 <?php
     include 'includes/footer.php';
@@ -663,3 +640,59 @@
 
     ?>
     </html>
+    <script>
+    $(document).ready(function() {
+            console.log("ready!");
+            getProductById();
+        });
+
+        function getProductById() {
+            var url = "http://127.0.0.1:8000/api/customer/get_product_by_id/" + 55;
+            console.log(url);
+
+            $.ajax({
+                url: url,
+                type: "GET",
+                success: function(data) {
+                    console.log(data, 'abc');
+                document.getElementsByClassName('model_name').innerText=data.product[0].model;
+                document.getElementById('brand_name').innerText=data.product[0].brand_name;
+                document.getElementById('total_cyclinder_value').innerText=data.product[0].total_cyclinder_value;
+                document.getElementById('hp_category').innerText=data.product[0].hp_category;
+                document.getElementById('hp_category_id').innerText=data.product[0].hp_category;
+                document.getElementById('horse_power').innerText=data.product[0].horse_power;
+                document.getElementById('gear_box_forward').innerText=data.product[0].gear_box_forward;
+                document.getElementById('gear_box_reverse').innerText=data.product[0].gear_box_reverse;
+                document.getElementById('brake_value').innerText=data.product[0].brake_value;
+                document.getElementById('warranty').innerText=data.product[0].warranty;
+                document.getElementById('description').innerText=data.product[0].description;
+                document.getElementById('steering_column_value').innerText=data.product[0].steering_column_value;
+                document.getElementById('engine_capacity_cc').innerText=data.product[0].engine_capacity_cc;
+                document.getElementById('engine_rated_rpm').innerText=data.product[0].engine_rated_rpm;
+                document.getElementById('cooling_value').innerText=data.product[0].cooling_value;
+                document.getElementById('air_filter').innerText=data.product[0].air_filter;
+                document.getElementById('horse_power_2').innerText=data.product[0].horse_power_2;
+                document.getElementById('fuel_value').innerText=data.product[0].fuel_value;
+                document.getElementById('torque').innerText=data.product[0].torque;
+                document.getElementById('transmission_type_value').innerText=data.product[0].transmission_type_value;
+                document.getElementById('transmission_clutch_value').innerText=data.product[0].transmission_clutch_value;
+                document.getElementById('gear_box_forward_2').innerText=data.product[0].gear_box_forward;
+                document.getElementById('gear_box_reverse_2').innerText=data.product[0].gear_box_reverse;
+                document.getElementById('steering_details_value').innerText=data.product[0].steering_details_value;
+                document.getElementById('steering_column_value').innerText=data.product[0].power_take_off_rpm;
+                document.getElementById('total_weight').innerText=data.product[0].total_weight;
+                document.getElementById('wheel_base').innerText=data.product[0].wheel_base;
+                document.getElementById('lifting_capacity').innerText=data.product[0].lifting_capacity;
+                document.getElementById('linkage_point_value').innerText=data.product[0].linkage_point_value;
+                document.getElementById('wheel_drive_value').innerText=data.product[0].wheel_drive_value;
+                document.getElementById('rear_tyre').innerText=data.product[0].rear_tyre;
+                document.getElementById('front_tyre').innerText=data.product[0].front_tyre;
+                document.getElementById('accessory_id').innerText=data.product[0].accessory_id;
+                document.getElementById('warranty_2').innerText=data.product[0].warranty;
+                },
+                error: function (error) {
+                    console.error('Error fetching data:', error);
+                }
+            });
+        }
+        </script>

@@ -71,101 +71,7 @@
     </div>
   </section>
 
-  <!-- series -->
-  <!-- <section class="bg-light">
-    <div class="container ">
-        <h3 class="py-4 fw-bold">Mahindra Tractor Series</h3>
-        <div class="row">
-            <div class="col-12 col-sm-6 col-md-4 col-lg-3 px-2 py-3 series_tractor ">
-                <div class="thumbnail thumb_tractors rounded-circle" >
-                    <a href="#" target="_blank" title="Mahindra Jivo" class="text-decoration-none text-dark">
-                        <img src="assets/images/jivo.jpg" alt="tractor jivo series" class="w-100 mt-2 series-img text-center">
-                        <div class="caption text-center">
-                            <p><strong class="series_tractor_strong text-center ">Mahindra Jivo</strong></p>
-                        </div>
-                    </a>
-                </div>
-            </div>
-            <div class="col-12 col-sm-6 col-md-4 col-lg-3 px-2 py-3 series_tractor ">
-                <div class="thumbnail thumb_tractors rounded-circle">
-                    <a href="#" target="_blank" title="Mahindra Jivo" class="text-decoration-none text-dark">
-                        <img src="assets/images/xp-plus.jpg" alt="tractor jivo series" class="w-100 mt-2 series-img text-center">
-                        <div class="caption text-center">
-                            <p><strong class="series_tractor_strong text-center">Mahindra XP Plus</strong></p>
-                            
-                        </div>
-                    </a>
-                </div>
-            </div>
-            <div class="col-12 col-sm-6 col-md-4 col-lg-3 px-2 py-3 series_tractor ">
-                <div class="thumbnail thumb_tractors rounded-circle">
-                    <a href="#" target="_blank" title="Mahindra Jivo" class="text-decoration-none text-dark">
-                        <img src="assets/images/sp-plus.jpg" alt="tractor jivo series" class="w-100 mt-2 series-img text-center">
-                        <div class="caption text-center">
-                            <p><strong class="series_tractor_strong text-center">Mahindra SP Plus</strong></p>
-                            
-                        </div>
-                    </a>
-                </div>
-            </div>
-            <div class="col-12 col-sm-6 col-md-4 col-lg-3 px-2 py-3 series_tractor ">
-                <div class="thumbnail thumb_tractors rounded-circle">
-                    <a href="#" target="_blank" title="Mahindra Jivo" class="text-decoration-none text-dark">
-                        <img src="assets/images/yuvo.jpg" alt="tractor jivo series" class="w-100 mt-2 series-img text-center">
-                        <div class="caption text-center">
-                            <p><strong class="series_tractor_strong text-center">Mahindra Yuvo</strong></p>
-                            
-                        </div>
-                    </a>
-                </div>
-            </div>
-            <div class="col-12 col-sm-6 col-md-4 col-lg-3 px-2 py-3 series_tractor ">
-                <div class="thumbnail thumb_tractors rounded-circle">
-                    <a href="#" target="_blank" title="Mahindra Jivo" class="text-decoration-none text-dark">
-                        <img src="assets/images/novo.jpg" alt="tractor jivo series" class="w-100 mt-2 series-img text-center">
-                        <div class="caption text-center">
-                            <p><strong class="series_tractor_strong text-center">Mahindra Novo</strong></p>
-                            
-                        </div>
-                    </a>
-                </div>
-            </div>
-            <div class="col-12 col-sm-6 col-md-4 col-lg-3 px-2 py-3 series_tractor ">
-                <div class="thumbnail thumb_tractors rounded-circle">
-                    <a href="#" target="_blank" title="Mahindra Jivo" class="text-decoration-none text-dark">
-                        <img src="assets/images/bhoomiputra.jpg" alt="tractor jivo series" class="w-100 series-img mt-2 text-center">
-                        <div class="caption text-center">
-                            <p><strong class="series_tractor_strong text-center">Mahindra Bhoomiputra</strong></p>
-                            
-                        </div>
-                    </a>
-                </div>
-            </div>
-            <div class="col-12 col-sm-6 col-md-4 col-lg-3 px-2 py-3 series_tractor ">
-                <div class="thumbnail thumb_tractors rounded-circle">
-                    <a href="#" target="_blank" title="Mahindra Jivo" class="text-decoration-none text-dark">
-                        <img src="assets/images/yuvo-tech-series.jpg" alt="tractor jivo series" class="w-100 series-img mt-2 text-center">
-                        <div class="caption text-center">
-                            <p><strong class="series_tractor_strong text-center">Mahindra Yuvo Tech Plus Series</strong></p>
-                            
-                        </div>
-                    </a>
-                </div>
-            </div>
-             <div class="col-12 col-sm-6 col-md-4 col-lg-3 px-2 py-3 series_tractor ">
-                <div class="thumbnail thumb_tractors rounded-circle">
-                    <a href="#" target="_blank" title="Mahindra Jivo" class="text-decoration-none text-dark">
-                        <img src="assets/images/jivo.jpg" alt="tractor jivo series" class="w-100 series-img mt-2 text-center">
-                        <div class="caption text-center">
-                            <p><strong class="series_tractor_strong text-center">Mahindra Yuvo Tech Plus Series</strong></p>
-                            
-                        </div>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
-  </section> -->
+ 
 
   <!-- used tractor -->
     <section>
@@ -815,7 +721,7 @@
                                     </a>
                                 </div>
                                 <div class="content d-flex flex-column flex-grow-1 ">
-                                    <ahref="${p.id}" class="text-decoration-none text-dark">
+                                    <a href="${p.id}" class="text-decoration-none text-dark">
                                         <h4 class="fw-bold mt-3 mx-3">${p.model}</h4>
                                     </a>
                                     <div class="row mt-1 ps-1">

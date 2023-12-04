@@ -126,13 +126,9 @@ include 'includes/footertag.php';
                                 </div>
                               </div>
                               <div class="col-12 col-sm-8 col-lg-8 col-md-8">
-                                <div class="form-outline">
-                                  <label class="form-label" id="">Tractor Type</label>
-                               <!--<select  class="form-select py-2" id="type_name" >
-                                      <option selected disabled="" value="">Please select an option</option>
-                                    </select>-->
-                                  <select placeholder="Choose skills" id="type_name" multiple class="select2">
-                                    <option selected disabled="" value="">Please select an option</option>
+                                <div class=""  >
+                                  <select placeholder="Choose skills"  id="type_name" multiple class="select2">
+                                    <!-- <option selected disabled="" value="">Please select an option</option> -->
 
                                   </select>
                                 </div>
