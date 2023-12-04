@@ -24,10 +24,10 @@
     </section>
     <div class="container-fluid">
         <div class="row siv" id="">
-            <img src="assets/images/emi_calculator.webp" alt="reload img" class="w-100" style="height: 350px;">
+            <img src="assets/images/emi_tractor.png" alt="reload img" class="w-100" style="height: 373px;">
         </div>
     </div>
-    <div class="container mt-5">
+    <div class="container mt-2 mb-4">
         <div class="row row-cols-1 row-cols-md-1 row-cols-lg-1">
             <div class="col">
                 <div class="card bg-light">
@@ -54,76 +54,164 @@
         </div>
     </div>
 
-
     <section>
         <div class="container">
             <div class="row">
                 <div class="col-12 col-md-6 col-sm-6 col-lg-6">
-                    <h3 class="assured py-2 p-2 mt-2 fw-bold">Calculate Your Tractor Loan EMI</h3>
-                    <img src="assets\images\powertrac-euro-47-1690880683.webp" class="w-100">
-                    <button type="button" class="w-100 btn btn-outline-success fw-bold mt-3 mb-2">Get on road
+                    <h3 class="assured  p-2 mt-2 fw-bold">Preet 4049 4WD Tractor</h3>
+                    <img src="assets\images\preet-4049-4WD.webp" class="w-100 mt-3">
+                    <button type="button" class="w-100 btn btn-outline-success fw-bold mt-3 mb-2" data-bs-toggle="modal"
+                        data-bs-target="#staticBackdrop">Get on road
                         Price</button>
+                    <!-- Modal -->
+                    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
+                        tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-lg modal-dialog-centered">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h4 class="modal-title text-dark fw-bold" id="staticBackdropLabel">Fill
+                                        the form to Get Tyre Price MRF SHAKTI LIFE 13.6 - 28</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="model-cont">
+                                        <form id="hire_inner" name="hire_inner" method="post">
+                                            <div class="row">
+                                                <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-4">
+                                                    <div class="form-outline">
+                                                        <label class="form-label" for="first_name">First
+                                                            Name</label>
+                                                        <input type="text" id="first_name" name="first_name"
+                                                            class=" data_search form-control input-group-sm py-2" />
+                                                    </div>
+                                                </div>
+                                                <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-4">
+                                                    <div class="form-outline">
+                                                        <label class="form-label" for="last_name">Last
+                                                            Name</label>
+                                                        <input type="text" id="last_name" name="last_name"
+                                                            class=" data_search form-control input-group-sm py-2" />
+                                                    </div>
+                                                </div>
+                                                <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-4">
+                                                    <div class="form-outline">
+                                                        <label class="form-label" for="mobile_number">Mobile
+                                                            Number</label>
+                                                        <input type="text" id="mobile_number" name="mobile_number"
+                                                            class=" data_search form-control input-group-sm py-2" />
+                                                    </div>
+                                                </div>
+                                                <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-4">
+                                                    <div class="form-outline">
+                                                        <label class="form-label" for="state">State</label>
+                                                        <select class="form-select py-2"
+                                                            aria-label="Default select example" id="state" name="state">
+                                                            <option selected></option>
+                                                            <option value="1">New Tractor Loan</option>
+                                                            <option value="2">Used Tractor Loan,</option>
+                                                            <option value="3">Loan Against Tractor</option>
+                                                            <option value="4">Harvester Loan</option>
+                                                            <option value="5">Used Harvester Loan</option>
+                                                            <option value="6">Implement Loan</option>
+                                                            <option value="7">Personal Loan</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-4">
+                                                    <div class="form-outline">
+                                                        <label class="form-label" for="district">District</label>
+                                                        <select class="form-select py-2"
+                                                            aria-label="Default select example" name="district"
+                                                            id="district">
+                                                            <option selected></option>
+                                                            <option value="1">name1</option>
+                                                            <option value="2">name2</option>
+                                                            <option value="3">name3</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-4">
+                                                    <div class="form-outline">
+                                                        <label class="form-label" for="taluka">Tehsil</label>
+                                                        <select class="form-select py-2"
+                                                            aria-label="Default select example" name="taluka"
+                                                            id="taluka">
+                                                            <option selected></option>
+                                                            <option value="1">name1</option>
+                                                            <option value="2">name2</option>
+                                                            <option value="3">name3</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary"
+                                        data-bs-dismiss="modal">Close</button>
+                                    <button type="button" id="button_hire" class="btn btn-danger">Request</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+
                 <div class="col-12 col-md-6 col-sm-6 col-lg-6 mt-5">
                     <div class="row">
                         <div class="col-6 col-lg-6 col-md-6 col-sm-6 text-center mt-4 mb-4">
-                            <label for="emiResult" class="form-label h4 text-dark fw-bold">EMI per Month (₹)</label>
+                            <label for="emiAmount" class="form-label h3 text-dark fw-bold">EMI</label>
 
                         </div>
                         <div class="col-6 col-lg-6 col-md-6 col-sm-6 text-center mt-4 mb-4">
-                            <input type="text" class="form-control" id="emiResult" readonly>
-
+                            <input type="text" class="form-control" id="emiAmount" readonly>
                         </div>
-                        <div class="col-6 col-lg-6 col-md-6 col-sm-6 py-2 mt-4 text-center">
-
-                            <label for="exshowroomprice" class="form-label h6 text-dark fw-bold">*Ex-showroom Price
-                                (₹)</label>
-                            <input type="text" class="form-control" readonly value="6,40,000.00">
-
+                        <div class="col-6 col-lg-6 col-md-6 col-sm-6 py-2 mt-3 text-center">
+                            <label for="exShowroomPrice" class="form-label h5 text-dark fw-bold">Ex-showroom
+                                Price</label>
+                            <input type="number" class="form-control" id="exShowroomPrice" value="640000" readonly>
                         </div>
-                        <div class="col-6 col-lg-6 col-md-6 col-sm-6 py-2 mt-4 text-center">
-                            <label for="totalLoanAmount" class="form-label h6 text-dark fw-bold">Total Loan Amount
-                                (₹)</label>
+                        <div class="col-6 col-lg-6 col-md-6 col-sm-6 py-2 mt-3 text-center">
+                            <label for="totalLoanAmount" class="form-label h5 text-dark fw-bold">Total Loan
+                                Amount</label>
                             <input type="text" class="form-control" id="totalLoanAmount" readonly>
                         </div>
-                        <div class="col-6 col-lg-6 col-md-6 col-sm-6 py-2 mt-4 text-center">
-                            <label for="totalRepayment" class="form-label h6 text-dark fw-bold">Total Repayment Amount
-                                (₹)</label>
-                            <input type="text" class="form-control" id="totalRepayment" readonly>
-
+                        <div class="col-6 col-lg-6 col-md-6 col-sm-6 py-2 mt-3 text-center">
+                            <label for="payableAmount" class="form-label h5 text-dark fw-bold">Payable Amount</label>
+                            <input type="text" class="form-control" id="payableAmount" readonly>
                         </div>
-                        <div class="col-6 col-lg-6 col-md-6 col-sm-6 py-2 mt-4 text-center">
-                            <label for="extraAmount" class="form-label h6 text-dark fw-bold">Extra Amount Paid
-                                (₹)</label>
-                            <input type="text" class="form-control" id="extraAmount" readonly>
-
+                        <div class="col-6 col-lg-6 col-md-6 col-sm-6 py-2 mt-3 text-center">
+                            <label for="extraPayment" class="form-label h5 text-dark fw-bold">You'll Pay Extra</label>
+                            <input type="text" class="form-control" id="extraPayment" readonly>
                         </div>
-                        <button type="button" class="w-100 fw-bold btn btn-success mt-4 mb-1">View Loan
-                            Offers</button>
+                         <a href="new_tractor_loan.php"><button type="button" class="w-100 fw-bold btn btn-success mt-4 mb-2">View Loan
+                            Offers</button></a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+
     <section>
-        <div class="container mt-3 shadow">
+        <div class="container shadow mt-5 mb-3">
             <div class="row">
-                <div class="col-12 col-md-6 col-sm-6 col-lg-6 mb-3 ">
-                    <label for="interestRate" class="form-label text-dark h5 mb-3 ">Bank Interest Rate (%)</label>
-                    <input type="range" class="form-range" id="interestRate" min="11" max="22" step="0.1">
-                    <input type="text" class="form-control w-25 mt-2" id="interestRateValue"
-                        placeholder="Enter interest rate" readonly>
-
+                <!-- Downpayment -->
+                <div class="col-12 col-lg-6 col-md-6 col-sm-6 py-2 mt-4 text-center mb-3">
+                    <label for="downPayment" class="form-label fw-bold text-dark h5 mb-3 ">Downpayment (₹)</label>
+                    <input type="range" class="form-range" id="downPayment" min="0" max="640000" value="64000">
+                    <input type="number" class="form-control mt-2 w-25" id="downPaymentValue" value="64000" readonly>
                 </div>
-                <div class="col-12 col-md-6 col-sm-6 col-lg-6 mb-3 ">
-                    <label for="downPayment" class="form-label text-dark mb-3  h5">Down Payment (₹)</label>
-                    <input type="range" class="form-range" id="downPayment" min="0" max="640000" step="1000">
-                    <input type="text" class="form-control w-25 mt-2" id="downPaymentValue"
-                        placeholder="Enter down payment" readonly>
 
+                <!-- Bank Interest Rate -->
+                <div class=" col-12 col-lg-6 col-md-6 col-sm-6 py-2 mt-4 text-center mb-3">
+                    <label for="interestRate" class="form-label fw-bold text-dark h5 mb-3 ">Bank Interest Rate
+                        (%)</label>
+                    <input type="range" class="form-range" id="interestRate" min="11" max="22" value="15">
+                    <input type="number" class="form-control mt-2 w-25" id="interestRateValue" value="15" readonly>
                 </div>
-                <div class="col-12 col-md-6 col-sm-6 col-lg-6 mb-3 ">
-                    <label for="loanPeriod" class="form-label text-dark mb-3  h5">Loan Period (Months)</label>
+
+                <!-- Loan Period -->
+                <div class="col-12 col-lg-6 col-md-6 col-sm-6 py-2 mt-4 text-center mb-3">
+                    <label for="loanPeriod" class="form-label fw-bold text-dark h5 mb-3 ">Loan Period (Months)</label>
                     <select class="form-select" id="loanPeriod">
                         <option value="12">12</option>
                         <option value="24">18</option>
@@ -138,17 +226,18 @@
                         <option value="24">72</option>
                         <option value="36">78</option>
                         <option value="48">84</option>
-                    </select>
 
+                    </select>
                 </div>
-                <div class="col-12 col-md-6 col-sm-6 col-lg-6  mb-3 ">
-                    <label for="repaymentInterval" class="form-label text-dark mb-3  h5">Repayment Interval</label>
+                <!-- Repayment Interval -->
+                <div class="col-12 col-lg-6 col-md-6 col-sm-6 py-2 mt-4 text-center mb-3">
+                    <label for="repaymentInterval" class="form-label fw-bold text-dark h5 mb-3 ">Repayment
+                        Interval</label>
                     <select class="form-select" id="repaymentInterval">
                         <option value="monthly" selected>Monthly</option>
                         <option value="quarterly">Quarterly</option>
-                        <option value="halfyearly">Half-Yearly</option>
+                        <option value="halfYearly">Half-Yearly</option>
                     </select>
-
                 </div>
             </div>
         </div>
@@ -220,83 +309,88 @@
 
     });
     </script>
+
+
     <script>
-    // Get DOM elements
-    const downPaymentRange = document.getElementById('downPayment');
-    const downPaymentValue = document.getElementById('downPaymentValue');
-    const interestRateRange = document.getElementById('interestRate');
-    const interestRateValue = document.getElementById('interestRateValue');
-    const loanPeriod = document.getElementById('loanPeriod');
-    const repaymentInterval = document.getElementById('repaymentInterval');
-    const emiResult = document.getElementById('emiResult');
-    const totalRepayment = document.getElementById('totalRepayment');
-    const extraAmount = document.getElementById('extraAmount');
-    const totalLoanAmount = document.getElementById('totalLoanAmount');
+    // Update downpayment value on range input change
+    document.getElementById('downPayment').addEventListener('input', function() {
+        var downPaymentValue = document.getElementById('downPayment').value;
+        document.getElementById('downPaymentValue').value = downPaymentValue;
+        updateEMI();
+    });
 
-    // Initialize values
-    downPaymentRange.value = 0;
-    downPaymentValue.value = '0';
-    interestRateRange.value = 15;
-    interestRateValue.value = '15';
-    totalLoanAmount.value = '640000';
+    // Update interest rate value on range input change
+    document.getElementById('interestRate').addEventListener('input', function() {
+        var interestRateValue = document.getElementById('interestRate').value;
+        document.getElementById('interestRateValue').value = interestRateValue;
+        updateEMI();
+    });
 
-    // Function to calculate EMI
-    function calculateEMI() {
-        const exShowroomPrice = 640000;
-        const loanAmount = exShowroomPrice - parseFloat(downPaymentValue.value);
-        const interestRate = parseFloat(interestRateValue.value);
-        const loanTenure = parseInt(loanPeriod.value);
-        const repaymentInt = repaymentInterval.value;
+    // Update EMI when loan period or repayment interval changes
+    document.getElementById('loanPeriod').addEventListener('change', updateEMI);
+    document.getElementById('repaymentInterval').addEventListener('change', updateEMI);
 
-        const monthlyInterestRate = (interestRate / 100) / 12;
-        const numberOfPayments = loanTenure * (repaymentInt === 'monthly' ? 1 : repaymentInt === 'quarterly' ? 3 : 6);
+    // Update EMI calculation based on user input
+    function updateEMI() {
+        var exShowroomPrice = 640000; // Example value, you can modify this
+        var downPayment = parseFloat(document.getElementById('downPayment').value);
+        var loanAmount = exShowroomPrice - downPayment;
+        var interestRate = parseFloat(document.getElementById('interestRate').value);
+        var loanPeriod = parseInt(document.getElementById('loanPeriod').value);
+        var repaymentInterval = document.getElementById('repaymentInterval').value;
 
-        const emi = (loanAmount * monthlyInterestRate * Math.pow(1 + monthlyInterestRate, numberOfPayments)) /
-            (Math.pow(1 + monthlyInterestRate, numberOfPayments) - 1);
+        // Calculate EMI
+        var monthlyInterestRate = (interestRate / 100) / 12;
+        var numberOfPayments = loanPeriod;
+        var emi;
 
-        emiResult.value = emi.toFixed(2);
+        if (monthlyInterestRate > 0) {
+            emi = (loanAmount * monthlyInterestRate * Math.pow(1 + monthlyInterestRate, numberOfPayments)) /
+                (Math.pow(1 + monthlyInterestRate, numberOfPayments) - 1);
+        } else {
+            emi = loanAmount / numberOfPayments;
+        }
 
-        const totalRepay = emi * numberOfPayments;
-        totalRepayment.value = totalRepay.toFixed(2);
+        // Adjust EMI for different repayment intervals
+        if (repaymentInterval === 'quarterly') {
+            emi *= 3;
+            numberOfPayments /= 3;
+        } else if (repaymentInterval === 'halfYearly') {
+            emi *= 6;
+            numberOfPayments /= 6;
+        }
 
-        const extraAmountPaid = totalRepay - loanAmount;
-        extraAmount.value = extraAmountPaid.toFixed(2);
+        // Display calculated results
+        document.getElementById('emiAmount').value = `₹${emi.toFixed(2)} ${repaymentInterval}`;
+        document.getElementById('totalLoanAmount').value = `₹${loanAmount.toFixed(2)}`;
+        document.getElementById('payableAmount').value = `₹${(emi * numberOfPayments).toFixed(2)}`;
+        document.getElementById('extraPayment').value = `₹${((emi * numberOfPayments) - loanAmount).toFixed(2)}`;
     }
 
-    // Event listeners
-
-    downPaymentValue.addEventListener('input', function() {
-        downPaymentRange.value = totalLoanAmount.value;
-        calculateEMI();
-    });
-
-    downPaymentRange.addEventListener('input', function() {
-        downPaymentValue.value = downPaymentRange.value;
-        calculateEMI();
-    });
-
-    interestRateRange.addEventListener('input', function() {
-        interestRateValue.value = interestRateRange.value;
-        calculateEMI();
-    });
-
-    downPaymentValue.addEventListener('input', function() {
-        downPaymentRange.value = downPaymentValue.value;
-        calculateEMI();
-    });
-
-    interestRateValue.addEventListener('input', function() {
-        interestRateRange.value = parseFloat(interestRateValue.value);
-        calculateEMI();
-    });
-
-    loanPeriod.addEventListener('change', calculateEMI);
-    repaymentInterval.addEventListener('change', calculateEMI);
-
-    // Initial calculation
-    calculateEMI();
+    // Initial EMI calculation
+    updateEMI();
     </script>
+ <script>
+        $(document).ready(function() {
+            $("#hire_inner").validate({
+                rules: {
+                    first_name: 'required',
 
+                    last_name: 'required',
+                    mobile_number: {
+                        required: true,
+                        digits: true, // Allow only digits
+                    },
+                    state: "required",
+                    district: "required",
+                }
+            });
+            $('#button_hire').on('click', function() {
+                $('#hire_inner').valid();
+                console.log($('#hire_inner').valid());
+            });
+        });
+        </script>
 </body>
 
 </html>
