@@ -26,6 +26,7 @@
       <h1>Find Tractor Dealer</h1>
     </div>           -->
   </section>
+
   <!-- FORM -->
   <section class="form-view bg-white me-5 pb-4">
     <div class="container-mid me-5" style="position: relative; margin-top:-230px; float:right;">
@@ -81,94 +82,22 @@
     <div class="container">
       <div class="row">
         <h3 class=" mt-1">Recent Certified Dealers</h3>
-
-        <div class="col-12 col-sm-6 col-md-3 col-lg-4 px-2 py-3 h-100">
-          <div class="h-auto success__stry__item d-flex flex-column shadow ">
-            <div class="thumb">
-              <a href="#">
-                <div class="ratio ratio-16x9">
-                  <img src="assets/images/ratnaautomotive.webp" class="object-fit-cover " alt="img">
-                </div>
-              </a>
-            </div>
-            <div class="">
-              <a href="Mahindra_575.php" class="text-decoration-none text-dark">
-                <h5 class="fw-bold text-center mt-3 mx-3">Ratna Automotive Pvt. Ltd. </h5>
-              </a> 
-              <div class="row">
-                <div class="col-12 col-lg-9 col-md-9 col-sm-9 fw-bold "><p class="text-dark ps-3">Sonalika Dealer</p></div>
-                <div class="col-12 col-lg-3 col-md-3 col-sm-3"><p class="rounded-pill bg-warning text-center">Certified</p></div>
-              </div>
-              <div class="justify-content-center  d-flex position-relative" >
-                <button typt="button" class="btn btn-success w-100">Rangareddy, Telangana</button>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-12 col-sm-6 col-md-3 col-lg-4 px-2 py-3 h-100">
-          <div class="h-auto success__stry__item d-flex flex-column shadow ">
-            <div class="thumb">
-              <a href="#">
-                <div class="ratio ratio-16x9">
-                  <img src="assets/images/ratnaautomotive.webp" class="object-fit-cover " alt="img">
-                </div>
-              </a>
-            </div>
-            <div class="">
-              <a href="Mahindra_575.php" class="text-decoration-none text-dark">
-                <h5 class="fw-bold text-center mt-3 mx-3">Ratna Automotive Pvt. Ltd. </h5>
-              </a> 
-              <div class="row">
-                <div class="col-12 col-lg-9 col-md-9 col-sm-9 "><p class="text-dark ps-3">Sonalika Dealer</p></div>
-                <div class="col-12 col-lg-3 col-md-3 col-sm-3"><p class="rounded-pill bg-warning text-center">Certified</p></div>
-              </div>
-              <div class="justify-content-center  d-flex position-relative" >
-                <button typt="button" class="btn btn-success w-100">Rangareddy, Telangana</button>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-12 col-sm-6 col-md-3 col-lg-4 px-2 py-3 h-100">
-          <div class="h-auto success__stry__item d-flex flex-column shadow ">
-            <div class="thumb">
-              <a href="#">
-                <div class="ratio ratio-16x9">
-                  <img src="assets/images/ratnaautomotive.webp" class="object-fit-cover " alt="img">
-                </div>
-              </a>
-            </div>
-            <div class="">
-              <a href="Mahindra_575.php" class="text-decoration-none text-dark">
-                <h5 class="fw-bold text-center mt-3 mx-3">Ratna Automotive Pvt. Ltd. </h5>
-              </a> 
-              <div class="row">
-                <div class="col-12 col-lg-9 col-md-9 col-sm-9 "><p class="text-dark ps-3">Sonalika Dealer</p></div>
-                <div class="col-12 col-lg-3 col-md-3 col-sm-3"><p class="rounded-pill bg-warning text-center">Certified</p></div>
-              </div>
-              <div class="justify-content-center  d-flex position-relative" >
-                <button typt="button" class="btn btn-success w-100">Rangareddy, Telangana</button>
-              </div>
-            </div>
-          </div>
-        </div>
-
+        <!-- RECENT CERTIFIED DEALER CARDS  -->
         <div class="col-12 col-sm-3 col-md-3 col-lg-3 px-2 py-3 h-100">
           <div class="h-auto success__stry__item d-flex flex-column shadow ">
             <div class="thumb">
-              <a href="#">
+              <a href="certified_dealers_inner.php">
                 <div class="ratio ratio-16x9">
                   <img src="assets/images/ratnaautomotive.webp" class="object-fit-cover " alt="img">
                 </div>
               </a>
             </div>
             <div class="">
-              <a href="Mahindra_575.php" class="text-decoration-none text-dark">
+              <a href="certified_dealers_inner.php" class="text-decoration-none text-dark">
                 <h5 class="fw-bold text-center mt-3 mx-3">Ratna Automotive Pvt. Ltd. </h5>
               </a> 
               <div class="row">
-                <div class="col-12 col-lg-8 col-md-8 col-sm-8 "><p class="text-dark ps-3">Sonalika Dealer</p></div>
+                <div class="col-12 col-lg-8 col-md-8 col-sm-8 "><p class=" text-center text-dark fw-bold ps-3">Sonalika Dealer</p></div>
                 <div class="col-12 col-lg-4 col-md-4 col-sm-4"><p class="rounded-pill bg-warning text-center">Certified</p></div>
               </div>
               <div class="justify-content-center  d-flex position-relative" >
@@ -181,18 +110,18 @@
         <div class="col-12 col-sm-3 col-md-3 col-lg-3 px-2 py-3 h-100">
           <div class="h-auto success__stry__item d-flex flex-column shadow ">
             <div class="thumb">
-              <a href="#">
+              <a href="certified_dealers_inner.php">
                 <div class="ratio ratio-16x9">
                   <img src="assets/images/ratnaautomotive.webp" class="object-fit-cover " alt="img">
                 </div>
               </a>
             </div>
             <div class="">
-              <a href="Mahindra_575.php" class="text-decoration-none text-dark">
+              <a href="certified_dealers_inner.php" class="text-decoration-none text-dark">
                 <h5 class="fw-bold text-center mt-3 mx-3">Ratna Automotive Pvt. Ltd. </h5>
               </a> 
               <div class="row">
-                <div class="col-12 col-lg-8 col-md-8 col-sm-8 "><p class="text-dark ps-3">Sonalika Dealer</p></div>
+                <div class="col-12 col-lg-8 col-md-8 col-sm-8 "><p class=" text-center text-dark fw-bold ps-3">Sonalika Dealer</p></div>
                 <div class="col-12 col-lg-4 col-md-4 col-sm-4"><p class="rounded-pill bg-warning text-center">Certified</p></div>
               </div>
               <div class="justify-content-center  d-flex position-relative" >
@@ -205,18 +134,18 @@
         <div class="col-12 col-sm-3 col-md-3 col-lg-3 px-2 py-3 h-100">
           <div class="h-auto success__stry__item d-flex flex-column shadow ">
             <div class="thumb">
-              <a href="#">
+              <a href="certified_dealers_inner.php">
                 <div class="ratio ratio-16x9">
                   <img src="assets/images/ratnaautomotive.webp" class="object-fit-cover " alt="img">
                 </div>
               </a>
             </div>
             <div class="">
-              <a href="Mahindra_575.php" class="text-decoration-none text-dark">
+              <a href="certified_dealers_inner.php" class="text-decoration-none text-dark">
                 <h5 class="fw-bold text-center mt-3 mx-3">Ratna Automotive Pvt. Ltd. </h5>
               </a> 
               <div class="row">
-                <div class="col-12 col-lg-8 col-md-8 col-sm-8 "><p class="text-dark ps-3">Sonalika Dealer</p></div>
+                <div class="col-12 col-lg-8 col-md-8 col-sm-8 "><p class=" text-center text-dark fw-bold ps-3">Sonalika Dealer</p></div>
                 <div class="col-12 col-lg-4 col-md-4 col-sm-4"><p class="rounded-pill bg-warning text-center">Certified</p></div>
               </div>
               <div class="justify-content-center  d-flex position-relative" >
@@ -229,18 +158,18 @@
         <div class="col-12 col-sm-3 col-md-3 col-lg-3 px-2 py-3 h-100">
           <div class="h-auto success__stry__item d-flex flex-column shadow ">
             <div class="thumb">
-              <a href="#">
+              <a href="certified_dealers_inner.php">
                 <div class="ratio ratio-16x9">
                   <img src="assets/images/ratnaautomotive.webp" class="object-fit-cover " alt="img">
                 </div>
               </a>
             </div>
             <div class="">
-              <a href="Mahindra_575.php" class="text-decoration-none text-dark">
+              <a href="certified_dealers_inner.php" class="text-decoration-none text-dark">
                 <h5 class="fw-bold text-center mt-3 mx-3">Ratna Automotive Pvt. Ltd. </h5>
               </a> 
               <div class="row">
-                <div class="col-12 col-lg-8 col-md-8 col-sm-8 "><p class="text-dark ps-3">Sonalika Dealer</p></div>
+                <div class="col-12 col-lg-8 col-md-8 col-sm-8 "><p class=" text-center text-dark fw-bold ps-3">Sonalika Dealer</p></div>
                 <div class="col-12 col-lg-4 col-md-4 col-sm-4"><p class="rounded-pill bg-warning text-center">Certified</p></div>
               </div>
               <div class="justify-content-center  d-flex position-relative" >
@@ -249,6 +178,7 @@
             </div>
           </div>
         </div>
+
 
       </div>
     </div>

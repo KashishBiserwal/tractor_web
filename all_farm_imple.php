@@ -23,6 +23,7 @@
         </div>
     </div>
 </section>
+<!-- TRACTOR IMPLEMENTS -->
 <section >
     <div class="container mt-3">
         <div class="row">
