@@ -195,24 +195,24 @@
         <div class="container shadow mt-5 mb-3">
             <div class="row">
                 <!-- Downpayment -->
-                <div class="col-12 col-lg-6 col-md-6 col-sm-6 py-2 mt-4 text-center mb-3">
-                    <label for="downPayment" class="form-label fw-bold text-dark h5 mb-3 ">Downpayment (₹)</label>
+                <div class="col-12 col-lg-6 col-md-6 col-sm-6 py-2 mt-2 mb-1">
+                    <label for="downPayment" class="form-label fw-bold text-dark h5 ">Downpayment (₹)</label>
                     <input type="range" class="form-range" id="downPayment" min="0" max="640000" value="64000">
-                    <input type="number" class="form-control mt-2 w-25" id="downPaymentValue" value="64000" readonly>
+                    <input type="number" class="form-control  w-25" id="downPaymentValue" value="64000" readonly>
                 </div>
 
                 <!-- Bank Interest Rate -->
-                <div class=" col-12 col-lg-6 col-md-6 col-sm-6 py-2 mt-4 text-center mb-3">
-                    <label for="interestRate" class="form-label fw-bold text-dark h5 mb-3 ">Bank Interest Rate
+                <div class=" col-12 col-lg-6 col-md-6 col-sm-6 py-2 mt-2 mb-1">
+                    <label for="interestRate" class="form-label fw-bold text-dark h5 ">Bank Interest Rate
                         (%)</label>
                     <input type="range" class="form-range" id="interestRate" min="11" max="22" value="15">
-                    <input type="number" class="form-control mt-2 w-25" id="interestRateValue" value="15" readonly>
+                    <input type="number" class="form-control  w-25" id="interestRateValue" value="15" readonly>
                 </div>
 
                 <!-- Loan Period -->
-                <div class="col-12 col-lg-6 col-md-6 col-sm-6 py-2 mt-4 text-center mb-3">
-                    <label for="loanPeriod" class="form-label fw-bold text-dark h5 mb-3 ">Loan Period (Months)</label>
-                    <select class="form-select" id="loanPeriod">
+                <div class="col-12 col-lg-6 col-md-6 col-sm-6 py-2 mt-2 mb-1">
+                    <label for="loanPeriod" class="form-label fw-bold text-dark h5 ">Loan Period (Months)</label>
+                    <select class="form-select w-25" id="loanPeriod">
                         <option value="12">12</option>
                         <option value="24">18</option>
                         <option value="36">24</option>
@@ -230,10 +230,10 @@
                     </select>
                 </div>
                 <!-- Repayment Interval -->
-                <div class="col-12 col-lg-6 col-md-6 col-sm-6 py-2 mt-4 text-center mb-3">
-                    <label for="repaymentInterval" class="form-label fw-bold text-dark h5 mb-3 ">Repayment
+                <div class="col-12 col-lg-6 col-md-6 col-sm-6 py-2 mt-2 mb-1">
+                    <label for="repaymentInterval" class="form-label fw-bold text-dark h5">Repayment
                         Interval</label>
-                    <select class="form-select" id="repaymentInterval">
+                    <select class="form-select w-25" id="repaymentInterval">
                         <option value="monthly" selected>Monthly</option>
                         <option value="quarterly">Quarterly</option>
                         <option value="halfYearly">Half-Yearly</option>
