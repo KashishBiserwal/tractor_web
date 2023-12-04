@@ -54,7 +54,7 @@
                             <option value="75">Farmtrac</option>
                             <option value="66">Force</option>
                             <option value="223">Hindustan</option>
-                            <option value="68">Indo Farm</option>
+                            <option value="68">Indo Farm</option> 
                             <option value="59">John Deere</option>
                         </select>
                     </div>

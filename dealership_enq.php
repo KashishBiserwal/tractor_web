@@ -10,28 +10,29 @@
 <body>
     
     <section class=" mt-5 pt-5 bg-light">
-    <div class="container pt-3">
-        <div class="py-2">
-            <span class="text-white ">
-                <a href="index.php" class="text-decoration-none header-link px-1">Home <i class="fa-solid fa-chevron-right px-1"></i></a>
-                    <span class=""><span class="text-dark header-link  px-1">Enquiries<i class="fa-solid fa-chevron-right px-1"></i> </span></span>
-                    <span class="text-dark">On-Road Price</span>
-            </span> 
-        </div>
-    </div>
-</section>
-<section>
-    <div class="d-sm-flex align-items-center justify-content-between w-100">
+        <div class="container pt-3">
+            <div class="py-2">
+                <span class="text-white ">
+                    <a href="index.php" class="text-decoration-none header-link px-1">Home <i class="fa-solid fa-chevron-right px-1"></i></a>
 
-        <!-- in mobile remove the clippath -->
-        <div class="col-12 h-100 " style="min-height: 360px; background-image: url(assets/images/dealership-enquiry.jpg); background-position: center; background-size: cover;">
+                        <span class=""><span class="text-dark header-link  px-1">Dealership Enquiry<i class="fa-solid fa-chevron-right px-1"></i> </span></span>
+                        
+                        <span class="text-dark">On-Road Price</span>
+                </span> 
+            </div>
         </div>
-    </div>
-    <div class="page-banner-content text-center position-absolute px-2">
-        <h1>Tractor Dealer Enquiry</h1>
-        <p>Enquiry Form</p>
+    </section>
+    
+    <section>
+        <div class="d-sm-flex align-items-center justify-content-between w-100">
+            <div class="col-12 h-100 " style="min-height: 360px; background-image: url(assets/images/dealership-enquiry.jpg); background-position: center; background-size: cover;">
+            </div>
         </div>
-</section>
+        <div class="page-banner-content text-center position-absolute px-2">
+            <h1>Tractor Dealer Enquiry</h1>
+            <p>Enquiry Form</p>
+        </div>
+    </section>
 
     <!-- FORM -->
     <section class="form-view bg-white pb-4">
@@ -59,10 +60,6 @@
                                 </div>
                             </div>
                             <div class="col-12 col-sm-12 col-md-6 col-lg-6">
-                                <label for="yr_price" class="form-label text-dark"> Tehsil</label>
-                                <input type="yr_price" class="form-control" placeholder="Enter Tehsil" id="_tehsil" name="_tehsil">
-                            </div>
-                            <div class="col-12 col-sm-12 col-md-6 col-lg-6">
                                 <label for="yr_state" class="form-label text-dark fw-bold"> <i class="fas fa-location"></i> State</label>
                                 <select class="form-select py-2" id="_state" name="_state"aria-label=".form-select-lg example">
                                     <option selected>Select State</option>
@@ -78,6 +75,10 @@
                                     <option value="2">Bilaspur</option>
                                     <option value="2">Durg</option>
                                 </select>
+                            </div>
+                            <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+                                <label for="yr_price" class="form-label text-dark"> Tehsil</label>
+                                <input type="yr_price" class="form-control" placeholder="Enter Tehsil" id="_tehsil" name="_tehsil">
                             </div>
                             <div class="col-12 col-sm-12 col-md-6 col-lg-6">
                                 <label for="yr_dist" class="form-label text-dark">Brand</label>
@@ -98,7 +99,7 @@
             </div>
         </div>
     </section>
-
+        
     <section>
         <div class="container">
             <div class="row">
