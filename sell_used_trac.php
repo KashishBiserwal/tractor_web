@@ -162,19 +162,19 @@
             <div class="col-md-8 col-lg-7">
                 <form id="find-used-tractor-form" class="form-view-inner form-view-overlay bg-light box-shadow p-3" action="" method="" >
                     <div class="row justify-content-center">
-                        <div class="col-12 col-lg-4 col-md-4 col-sm-4 ">
+                        <div class="col-12 col-lg-6 col-md-6 col-sm-6">
                                 <label for="name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i> First Name</label>
                                 <input type="text" class="form-control" placeholder="Enter Your Name" id="fname" name="fname">
                         </div>
-                        <div class="col-12 col-lg-4 col-md-4 col-sm-4  ">
+                        <div class="col-12 col-lg-6 col-md-6 col-sm-6">
                             <label for="name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i> Last Name</label>
                             <input type="text" class="form-control" placeholder="Enter Your Name" id="lname" name="lname">
                         </div>
-                        <div class="col-12 col-lg-4 col-md-4 col-sm-4 ">
+                        <div class="col-12 col-lg-6 col-md-6 col-sm-6">
                             <label for="number" class="form-label text-dark fw-bold"> <i class="fa fa-phone" aria-hidden="true"></i> Phone Number</label>
                             <input type="password" class="form-control" placeholder="Enter Number" id="number" name="number">
                         </div>
-                        <div class="col-12 col-lg-4 col-md-4 col-sm-4 ">
+                        <div class="col-12 col-lg-6 col-md-6 col-sm-6">
                             <label for="yr_state" class="form-label text-dark fw-bold"> <i class="fas fa-location"></i> State</label>
                             <select class="form-select py-2 " aria-label=".form-select-lg example" id="state" name="state">
                                 <option value>Select State</option>
@@ -182,7 +182,7 @@
                                 <option value="2">Other</option>
                             </select>
                         </div>
-                        <div class="col-12 col-lg-4 col-md-4 col-sm-4 ">
+                        <div class="col-12 col-lg-6 col-md-6 col-sm-6">
                             <label for="yr_dist" class="form-label text-dark"><i class="fa-solid fa-location-dot"></i> District</label>
                             <select class="form-select py-2 " aria-label=".form-select-lg example" id="district" name="district">
                                 <option value>Select District</option>
@@ -191,11 +191,14 @@
                                 <option value="2">Durg</option>
                             </select>
                         </div>
-                        <div class="col-12 col-lg-4 col-md-4 col-sm-4 ">
+                        <div class="col-12 col-lg-6 col-md-6 col-sm-6">
                                 <label for="yr_price" class="form-label text-dark">Tehsil</label>
                             <input type="yr_price" class="form-control" placeholder="Enter Your Tehsil" id="Tehsil" name="Tehsil">
                         </div>
-                        <div class="col-12 col-lg-4 col-md-4 col-sm-4">
+                        <div class="col-12 mt-4">
+                                <a href="#"><button data-res="<?php echo $sum; ?>" type="submit" id="next-btn" class=" btn-success w-100 fw-bold" >Sell Now</button></a>
+                            </div>
+                        <!-- <div class="col-12 col-lg-4 col-md-4 col-sm-4">
                             <div class="mt-2">
                                 <label for="your-name" class=" text-dark float-start">Select Brand</label>
                                 <select class="form-select form-control" aria-label="Default select example" name="select_brand" id="select_brand">
@@ -210,8 +213,8 @@
                                     <option value="8">Powertrac</option>
                                 </select>
                             </div>
-                         </div>
-                        <div class="col-12 col-lg-4 col-md-4 col-sm-4">
+                         </div> -->
+                        <!-- <div class="col-12 col-lg-4 col-md-4 col-sm-4">
                             <div class="mt-2">
                                 <label for="model" class=" text-dark float-start">Model</label>
                                 <select class="form-select form-control" aria-label="Default select example" name="model" id="model">
@@ -298,14 +301,13 @@
                             </div>
                             <div class="col-12 mt-4">
                                 <button data-res="<?php echo $sum; ?>" type="submit" class="btn-success w-100 fw-bold" >Submit</button>
-                            </div>       
+                            </div>        -->
                     </div>
                 </form>
             </div>
         </div>
     </div>
 </section>
-
 <section class="about bg-light">
         <div class="container">
             <div class="lecture_heading text-center">
