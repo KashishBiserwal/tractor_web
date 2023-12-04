@@ -16,7 +16,7 @@
 
 }
 #home-banner .carousel-inner img{
-  height: 600px;
+  height: 502px;
 }
 #home-banner{
   margin-top: 125px;
@@ -34,7 +34,7 @@
   --c: #07791a; /* the color */
   
   color: #0000;
-  padding-block: var(--b);
+  /* padding-block: var(--b); */
   background: 
     linear-gradient(var(--c) 50%,#000 0) 0% calc(100% - var(--_p,0%))/100% 200%,
     linear-gradient(var(--c) 0 0) 0% var(--_p,0%)/var(--_p,0%) var(--b) no-repeat;
@@ -159,8 +159,8 @@ border-radius:0;
 }
 .bannerbg00 {
   position: absolute;
-  top: 59%;
-  transform: translateY(8%);
+  top: 55%;
+  /* transform: translateY(8%); */
   height: 222px;
   left: 0px; 
   float: right;
@@ -452,11 +452,11 @@ label {
 input {
   padding: 10px;
   margin-bottom: 10px;
-  border: 1px solid rgb(92, 197, 92);
+  border: 1px solid rgb(206 203 203);
   border-radius: 5px;
   /* color: #80c390; */
   /* background-color: rgba(255, 255, 255, 0.8); */
-  background-color: rgba(230, 223, 223, 0.8);
+  /* background-color: rgba(230, 223, 223, 0.8); */
 }
 
 button {
