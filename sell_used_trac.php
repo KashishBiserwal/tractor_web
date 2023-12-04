@@ -85,7 +85,6 @@
     </div>
 </section>
 
-<!-- <section class="form-view form-view_sell bg-white pb-4">
   <div class="container-mid">
     <div class="row justify-content-center">
       <div class="col-md-8 col-lg-7">
