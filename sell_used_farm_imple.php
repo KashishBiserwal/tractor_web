@@ -106,7 +106,7 @@
                             </div>
                             <div class="col-12 col-sm-12 col-md-6 col-lg-6">
                                 <label class="form-label text-dark my-1">Year</label>
-                                <select class="form-select py-2 " aria-label=".form-select-lg example" name="Model" id="Model">
+                                <select class="form-select py-2 " aria-label=".form-select-lg example" name="year" id="year">
                                     <option value>Select year</option>
                                     <option value="1">2007</option>
                                     <option value="2">2008</option>
@@ -159,8 +159,8 @@
                         </div>
                     </div>
                      <div class="form-footer d-flex my-3">
-                        <button type="button" id="prevBtn_sellused" onclick="nextPrev(-1)">Previous</button>
-                        <button type="button" id="nextBtn_sellused" onclick="nextPrev(1)">Next</button>
+                        <button type="submit" id="prevBtn_sellused" onclick="nextPrev(-1)">Previous</button>
+                        <button type="submit" id="nextBtn_sellused" onclick="nextPrev(1)">Next</button>
                     </div>
                 </form>
             </div>
@@ -221,4 +221,90 @@
     include 'includes/footertag.php';
 
     ?>
+    <script>
+          $(document).ready(function(){
+        $('#signUpForm_sellused').validate({
+          rules:{
+            fname:{
+                required:true,
+            },
+            lname:{
+                required:true,
+            },
+            number:{
+                required:true,
+            },
+            state:{
+                required:true,
+            },
+            district:{
+                required:true,
+            },
+            Brand:{
+                required:true,
+            },
+            Model:{
+                required:true,
+            },
+            year:{
+                required:true,
+            },
+            engine_condition:{
+                required:true,
+            },
+            Tyre_Condition:{
+                required:true,
+            },
+            hours_driven:{
+                required:true,
+            },
+            myFile:{
+                required:true,
+            }
+          },
+          messages:{
+            fname:{
+                required:"This flied is requred",
+            },
+            lname:{
+                required:"This flied is requred",
+            },
+            number:{
+                required:"This flied is requred",
+            },
+            state:{
+                required:"This flied is requred",
+            },
+            district:{
+                required:"This flied is requred",
+            },
+            Brand:{
+                required:"This flied is requred",
+            },
+            Model:{
+                required:"This flied is requred",
+            },
+            year:{
+                required:"This flied is requred",
+            },
+            engine_condition:{
+                required:"This flied is requred",
+            },
+            Tyre_Condition:{
+                required:"This flied is requred",
+            },
+            hours_driven:{
+                required:"This flied is requred",
+            },
+            myFile:{
+                required:"This flied is requred",
+            }
+          },
+          submitHandler: function(form) {
+        form.submit();
+          }
+        });
+        });
+        
+    </script>
     </html>

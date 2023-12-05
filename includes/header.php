@@ -122,7 +122,7 @@
                 <hr class="dropdown-divider">
                 <li><a class="dropdown-item fw-bold  py-1" href="sell_used_farm_imple.php">Used Farm Implements</a></li>
                 <hr class="dropdown-divider">
-                <li><a class="dropdown-item fw-bold  py-1" href="#">Used Harvester</a></li>
+                <li><a class="dropdown-item fw-bold  py-1" href="sell_used_harvester.php">Used Harvester</a></li>
               </ul>
             </li>
             <hr class="dropdown-divider">

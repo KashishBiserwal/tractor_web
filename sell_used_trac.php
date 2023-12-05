@@ -75,8 +75,8 @@
                                 <input type="password" class="form-control" placeholder="Enter Number" id="number" name="number">
                             </div>
                             <div class="col-12 col-sm-12 col-md-6 col-lg-6">
-                                <label for="yr_tehsil" class="form-label text-dark"> Tehsil</label>
-                                <input type="yr_tehsil" class="form-control" placeholder="Enter Tehsil" id="tehsil" name="tehsil">
+                                <label for="yr_tehsil" class="form-label text-dark">Tehsil</label>
+                                <input type="yr_tehsil" class="form-control" placeholder="Enter Your Tehsil" id="tehsil_" name="tehsil_">
                             </div>
                             <div class="col-12 col-sm-12 col-md-6 col-lg-6">
                                 <label for="yr_state" class="form-label text-dark fw-bold" id="state" name="state"> <i class="fas fa-location"></i> State</label>
@@ -120,7 +120,7 @@
                             </div>
                             <div class="col-12 col-sm-12 col-md-6 col-lg-6">
                                 <label class="form-label text-dark my-1">Year</label>
-                                <select class="form-select py-2 " aria-label=".form-select-lg example" name="Model" id="Model">
+                                <select class="form-select py-2 " aria-label=".form-select-lg example" name="year" id="year">
                                     <option value>Select year</option>
                                     <option value="1">2007</option>
                                     <option value="2">2008</option>
@@ -161,7 +161,7 @@
                     <div class="step_sellused">
                         <p class="text-center mb-4">Upload Tractor Images</p>
                         <div class="col-12 col-sm-12 col-md-12 col-lg-12">
-                            <input type="file" id="myFile" name="filename">
+                            <input type="file" id="myFile" name="myFile">
                         </div>
                         <div class="col-12 col-sm-12 col-md-12 col-lg-12">
                             <label class="form-label text-dark my-1">How early do you want to sell?</label>
@@ -173,8 +173,8 @@
                         </div>
                     </div>
                      <div class="form-footer d-flex my-3">
-                        <button type="button" id="prevBtn_sellused" onclick="nextPrev(-1)">Previous</button>
-                        <button type="button" id="nextBtn_sellused" onclick="nextPrev(1)">Next</button>
+                        <button type="submit" id="prevBtn_sellused" onclick="nextPrev(-1)">Previous</button>
+                        <button type="submit" id="nextBtn_sellused" onclick="nextPrev(1)">Next</button>
                     </div>
                 </form>
             </div>
@@ -348,5 +348,91 @@
     include 'includes/footertag.php';
 
     ?>
+    <script>
+        $(document).ready(function(){
+        $('#signUpForm_sellused').validate({
+          rules:{
+            fname:{
+                required:true,
+            },
+            lname:{
+                required:true,
+            },
+            number:{
+                required:true,
+            },
+            state:{
+                required:true,
+            },
+            district:{
+                required:true,
+            },
+            Brand:{
+                required:true,
+            },
+            Model:{
+                required:true,
+            },
+            year:{
+                required:true,
+            },
+            engine_condition:{
+                required:true,
+            },
+            Tyre_Condition:{
+                required:true,
+            },
+            hours_driven:{
+                required:true,
+            },
+            myFile:{
+                required:true,
+            }
+          },
+          messages:{
+            fname:{
+                required:"This flied is requred",
+            },
+            lname:{
+                required:"This flied is requred",
+            },
+            number:{
+                required:"This flied is requred",
+            },
+            state:{
+                required:"This flied is requred",
+            },
+            district:{
+                required:"This flied is requred",
+            },
+            Brand:{
+                required:"This flied is requred",
+            },
+            Model:{
+                required:"This flied is requred",
+            },
+            year:{
+                required:"This flied is requred",
+            },
+            engine_condition:{
+                required:"This flied is requred",
+            },
+            Tyre_Condition:{
+                required:"This flied is requred",
+            },
+            hours_driven:{
+                required:"This flied is requred",
+            },
+            myFile:{
+                required:"This flied is requred",
+            }
+          },
+          submitHandler: function(form) {
+        form.submit();
+          }
+        });
+        });
+        
+    </script>
     </html>
     
