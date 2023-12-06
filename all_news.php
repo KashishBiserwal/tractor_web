@@ -116,24 +116,24 @@
             </div>   
 
             <div class="col-12 col-lg-4 col-sm-4 col-md-4 mt-2 mb-2">
-                <div class="success__stry__item shadow h-100">
-                    <div class="thumb">
-                      <a href="news_content.php">
-                          <div class="">
-                          <img src="assets\images\tractor-1698836924.webp" class="object-fit-cover p-3 w-100" alt="img">
-                          </div>
-                        </a>
+              <div class="success__stry__item shadow h-100">
+                <div class="thumb">
+                  <a href="news_content.php">
+                    <div class="">
+                      <img src="assets\images\tractor-1698836924.webp" class="object-fit-cover p-3 w-100" alt="img">
                     </div>
-                    <div class="content ms-3">
-                      <button type="button" class="btn btn-warning">Sarkari Yojana News</button>
-                      <div class="row mt-1 ps-0">
-                        <p class="mt-2">लाड़ली बहना योजना : महिलाओं को 7वीं किस्त में मिल सक...</p>
-                      </div>
-                      <a href="#" class="text-decoration-none text-dark">
-                        <span> 23-November-2023 </span>
-                      </a>
-                    </div>
+                  </a>
                 </div>
+                <div class="content ms-3">
+                  <button type="button" class="btn btn-warning">Sarkari Yojana News</button>
+                  <div class="row mt-1 ps-0">
+                    <p class="mt-2">लाड़ली बहना योजना : महिलाओं को 7वीं किस्त में मिल सक...</p>
+                  </div>
+                  <a href="#" class="text-decoration-none text-dark">
+                    <span> 23-November-2023 </span>
+                  </a>
+                </div>
+              </div>
             </div>                
 
             <div class="col-12 col-lg-4 col-sm-4 col-md-4 mt-2 mb-2">
@@ -161,7 +161,7 @@
 
 
     <!-- Tractor News -->
-    <div class="container" id="tn">       
+      <!-- <div class="container" id="tn">       
         <div class="row py-1">
           <h1 class="mt-2 mb-3">Tractor News</h1> 
 
@@ -289,11 +289,12 @@
                   </a>
                 </div>
               </div>
-            </div>        </div>
-    </div>
+            </div> 
+          </div>
+      </div> -->
 
     <!-- Agriculture News -->
-    <div class="container" id="agn">       
+    <!-- <div class="container" id="agn">       
       <div class="row py-1">
         <h1 class="mt-2 mb-3">Agriculture News</h1> 
 
@@ -423,10 +424,10 @@
               </div>
             </div>
       </div>
-    </div>
+    </div> -->
 
     <!-- Sarkari Yojna News -->
-    <div class="container" id="syn">       
+    <!-- <div class="container" id="syn">       
       <div class="row py-1">
         <h1 class="mt-2 mb-3">Sarkari Yojana News</h1> 
 
@@ -494,45 +495,45 @@
             </div>            
             
             <div class="col-12 col-lg-4 col-sm-4 col-md-4 mt-2 mb-2">
-                <div class="success__stry__item shadow h-100">
-                    <div class="thumb">
-                      <a href="news_content.php">
-                        <div class="">
-                          <img src="assets\images\tractor-1698836924.webp" class="object-fit-cover p-3 w-100" alt="img">
-                        </div>
-                      </a>
+              <div class="success__stry__item shadow h-100">
+                <div class="thumb">
+                  <a href="news_content.php">
+                    <div class="">
+                      <img src="assets\images\tractor-1698836924.webp" class="object-fit-cover p-3 w-100" alt="img">
                     </div>
-                    <div class="content mb-3 ms-3">
-                        <button type="button" class="btn btn-warning">Latest News</button>
-                        <div class="row mt-2">
-                            <p>खुशखबरी दिवाली पर 1.75 करोड़ परिवारों को फ्री में गैस...</p>
-                        </div>
-                        <a href="#" class="text-decoration-none text-dark pb-1">
-                          <span class=""> 23-November-2023 </span>
-                        </a>
-                    </div>
+                  </a>
                 </div>
+                <div class="content mb-3 ms-3">
+                  <button type="button" class="btn btn-warning">Latest News</button>
+                  <div class="row mt-2">
+                    <p>खुशखबरी दिवाली पर 1.75 करोड़ परिवारों को फ्री में गैस...</p>
+                  </div>
+                  <a href="#" class="text-decoration-none text-dark pb-1">
+                    <span class=""> 23-November-2023 </span>
+                  </a>
+                </div>
+              </div>
             </div>   
 
             <div class="col-12 col-lg-4 col-sm-4 col-md-4 mt-2 mb-2">
-                <div class="success__stry__item shadow h-100">
-                    <div class="thumb">
-                      <a href="news_content.php">
-                          <div class="">
-                          <img src="assets\images\tractor-1698836924.webp" class="object-fit-cover p-3 w-100" alt="img">
-                          </div>
-                        </a>
+              <div class="success__stry__item shadow h-100">
+                <div class="thumb">
+                  <a href="news_content.php">
+                    <div class="">
+                      <img src="assets\images\tractor-1698836924.webp" class="object-fit-cover p-3 w-100" alt="img">
                     </div>
-                    <div class="content ms-3">
-                      <button type="button" class="btn btn-warning">Sarkari Yojana News</button>
-                      <div class="row mt-1 ps-0">
-                        <p class="mt-2">लाड़ली बहना योजना : महिलाओं को 7वीं किस्त में मिल सक...</p>
-                      </div>
-                      <a href="#" class="text-decoration-none text-dark">
-                        <span> 23-November-2023 </span>
-                      </a>
-                    </div>
+                  </a>
                 </div>
+                <div class="content ms-3">
+                  <button type="button" class="btn btn-warning">Sarkari Yojana News</button>
+                  <div class="row mt-1 ps-0">
+                    <p class="mt-2">लाड़ली बहना योजना : महिलाओं को 7वीं किस्त में मिल सक...</p>
+                  </div>
+                  <a href="#" class="text-decoration-none text-dark">
+                    <span> 23-November-2023 </span>
+                  </a>
+                </div>
+              </div>
             </div>                
 
             <div class="col-12 col-lg-4 col-sm-4 col-md-4 mt-2 mb-2">
@@ -556,14 +557,14 @@
               </div>
             </div>
       </div>
-    </div>
+    </div> -->
 
   </section>
 
 
 
-
-  <script>
+j
+  <!-- <script>
       var aNews = document.getElementById('an');
       var tn= document.getElementById('tn');
       var agn= document.getElementById('agn');
@@ -594,33 +595,35 @@
         tn.style.display = 'none';
         console.log("Sarkari Yojana news called")
       });
-    </script>
+  </script> -->
 
+  <!-- Want to be Featured in Tractor Junction Weekly News? Connect With Us -->
   <section>
     <div class="container">
       <div class="row  align-items-center my-3">
        
-        <div class="col-12 col-lg-9 col-sm-9 col-md-9">
+        <div class="col-12">
           <div class="py-3 my-3 ps-4">
-            <p class="fw-bold fs-5">Want to be Featured in Tractor Junction Weekly News? Connect With Us</p>
+            <p class="fw-bold text-center fs-5">Want to be Featured in Tractor Junction Weekly News? Connect With Us</p>
+            <p class="text-center mt-n-2"> <button class="btn btn-primary btn-lg btn-block">Write for Us</button></p> 
           </div>
         </div>
-        <div class="col-12 col-sm-3 col-lg-3 col-md-3">
-          <button class="btn btn-primary btn-lg btn-block">Write for Us</button>
+        
+        
         </div>
       </div>
     </div>
   </section>
-
+  <!--NEWS  -->
   <section>
-    <div class="container py-2 mt-3 ">
-      <div class="bg-light p-3">
-      <h5 class="assured ps-3 py-1">News</h5>
-      <p class="py-2">All are curious nowadays that what is happening in India. So with TractorJunction, you get detailed latest news of India. Till now you are getting tractor news and agriculture news on TractorJunction now for your convenience we are here starting India news online segment from where you can update daily with the latest breaking news. Here we update daily latest news headlines, today's state news, live news and many more in one place. On this page, we are going to show today's news headlines in Hindi with full detail and images. TarctorJunction always cares about you, you all are like a family to us. So, it is our responsibility to aware you of all breaking news of India.</p>
-      <p>At TractorJunction, we introduced a new section for the comfort of the farmers. Here you can find Tractor News, Agriculture News, Weather News, Agri Business News, Sarkari Yojana News, Animal Husbandry News and Social News.</p>
-      <p>So, why search anywhere when here at one place in separate segment getting even pin size details about India in an easy language. We are hereby trying to aware of all of you about news India because it is each of your right to know what is happening in our nation</p>
-      <p>So, Find out here today news, news Hindi and many more only on TractorJunction. You can also visit our TractorJunction youtube channel for news videos. </p>
-      </div>
+    <div class="container py-2 ">
+        <div class="bg-light p-3">
+            <h5 class="assured ps-3 py-1">News</h5>
+            <p class="py-2">All are curious nowadays that what is happening in India. So with TractorJunction, you get detailed latest news of India. Till now you are getting tractor news and agriculture news on TractorJunction now for your convenience we are here starting India news online segment from where you can update daily with the latest breaking news. Here we update daily latest news headlines, today's state news, live news and many more in one place. On this page, we are going to show today's news headlines in Hindi with full detail and images. TarctorJunction always cares about you, you all are like a family to us. So, it is our responsibility to aware you of all breaking news of India.</p>
+            <p>At TractorJunction, we introduced a new section for the comfort of the farmers. Here you can find Tractor News, Agriculture News, Weather News, Agri Business News, Sarkari Yojana News, Animal Husbandry News and Social News.</p>
+            <p>So, why search anywhere when here at one place in separate segment getting even pin size details about India in an easy language. We are hereby trying to aware of all of you about news India because it is each of your right to know what is happening in our nation</p>
+            <p>So, Find out here today news, news Hindi and many more only on TractorJunction. You can also visit our TractorJunction youtube channel for news videos. </p>
+        </div>
       
     </div>
   </section>

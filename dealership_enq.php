@@ -62,7 +62,7 @@
                             <div class="col-12 col-sm-12 col-md-6 col-lg-6">
                                 <label for="yr_state" class="form-label text-dark fw-bold"> <i class="fas fa-location"></i> State</label>
                                 <select class="form-select py-2" id="_state" name="_state"aria-label=".form-select-lg example">
-                                    <option selected>Select State</option>
+                                    <option value="">Select State</option>
                                     <option value="1">Chhattisgarh</option>
                                     <option value="2">Other</option>
                                 </select>
@@ -70,7 +70,7 @@
                             <div class="col-12 col-sm-12 col-md-6 col-lg-6">
                                 <label for="yr_dist" class="form-label text-dark"><i class="fa-solid fa-location-dot"></i> District</label>
                                 <select class="form-select py-2" id="_district" name="_district" aria-label=".form-select-lg example">
-                                    <option selected>Select District</option>
+                                    <option value="">Select District</option>
                                     <option value="1">Raipur</option>
                                     <option value="2">Bilaspur</option>
                                     <option value="2">Durg</option>
@@ -83,7 +83,7 @@
                             <div class="col-12 col-sm-12 col-md-6 col-lg-6">
                                 <label for="yr_dist" class="form-label text-dark">Brand</label>
                                 <select class="form-select py-2 " id="_brand" name="_brand"aria-label=".form-select-lg example">
-                                    <option selected>Select Brand</option>
+                                    <option value="">Select Brand</option>
                                     <option value="1">Mahindra</option>
                                     <option value="2">Swaraj</option>
                                     <option value="2">Powertrac</option>
@@ -269,6 +269,7 @@
                         </div>
                     </div>
                 </div>
+
                 <div class="col-12 col-sm-6 col-md-3 col-lg-4 px-2 py-3 h-100">
                     <div class="h-auto success__stry__item d-flex flex-column shadow ">
                         <div class="thumb">
@@ -308,17 +309,6 @@
             </div>
         </div>
     </section>
-
-
-
-    <!-- <section>
-        <div class="container">
-            <div class="row mt-3 mb-3">
-                <img src="assets/images/dealership_image2.jpg" alt="image">
-                
-            </div>
-        </div>
-    </section> -->
 
     <!-- WHY BECOME A DEALER -->
     <section>

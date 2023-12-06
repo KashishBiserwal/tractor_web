@@ -19,8 +19,8 @@
   </section>
   <!--TEXT Find Tractor Dealer -->
   <section>
-    <div class="row mt-3">
-      <img src="assets/images/tractor dealerimg.png" alt="dealership-image">
+    <div class="row mt-3 ">
+      <img src="assets/images/tractor dealerimg.png" class="position-relative" alt="dealership-image">
     </div>  
     <!-- <div class="page-banner-content text-center position-absolute mt-3 px-2">
       <h1>Find Tractor Dealer</h1>
@@ -28,51 +28,48 @@
   </section>
 
   <!-- FORM -->
-  <section class="form-view bg-white me-5 pb-4">
-    <div class="container-mid me-5" style="position: relative; margin-top:-230px; float:right;">
-      <div class="row justify-content-center me-5">
+  <section class="form-view bg-white pb-4">
+    <div class="container-sm float-start mt-n4">
+      <div class="row justify-content-center">
         <div class="col-md-8 col-lg-7">
-          <form id="dealership_enq_from" style="" class="form-view-inner w-75 form-view-overlay bg-light box-shadow p-3" action="" method="" >
-            <div class="row justify-content-center">       
-              <!-- <p class="fw-bold fs-5">Find Tractor Dealers</p>      -->
+          <form id="dealership_enq_from" style="margin-top: -202px;" class="form-view-inner position-absolute form-view-overlay bg-light box-shadow p-3" action="" method="" >
+            <div class="row justify-content-center">                 
               <div class="col-12 col-sm-4 col-md-4 col-lg-4">
                 <label for="yr_dist" class="form-label fw-bold text-dark">Brand</label>
-                <select class="form-select py-2 " id="_brand" name="_brand"aria-label=".form-select-lg example">
+                <select class="form-select form-select-sm py-2 " id="_brand" name="_brand"aria-label=".form-select-sm example">
                   <option selected>Select Brand</option>
                   <option value="1">Mahindra</option>
                   <option value="2">Swaraj</option>
                   <option value="2">Powertrac</option>
                 </select>
-              </div>                
-              <div class="col-12 col-sm-4 col-md-4 col-lg-4">
-                <label for="yr_state" class="form-label text-dark fw-bold"> <i class="fas fa-location"></i> State</label>
-                <select class="form-select py-2" id="_state" name="_state"aria-label=".form-select-lg example">
-                  <option selected>Select State</option>
-                  <option value="1">Chhattisgarh</option>
-                  <option value="2">Other</option>
-                </select>
-              </div>
-              <div class="col-12 col-sm-4 col-md-4 col-lg-4">
-                <label for="yr_dist" class="form-label fw-bold  text-dark"><i class="fa-solid fa-location-dot"></i> District</label>
-                <select class="form-select py-2" id="_district" name="_district" aria-label=".form-select-lg example">
-                  <option selected>Select District</option>
-                  <option value="1">Raipur</option>
-                  <option value="2">Bilaspur</option>
-                  <option value="2">Durg</option>
-                </select>
-              </div>
-              <div class="row">
-                <div class="text-center col-12 col-lg-6 col-md-6 col-sm-6 my-3">
-                  <button type="submit" id="delership_enq_btn" class="btn btn-success px-5 w-100 ">Search Dealer</button>         
-                </div>        
-                <div class="text-center col-12 col-lg-6 col-md-6 col-sm-6 my-3">
-                  <button type="submit" id="delership_enq_btn" class="btn btn-success px-5 w-100 fs-6">Become Certified Dealer</button>         
-                </div>        
-              </div>
-              <!-- <p class="mb-0 text-center">By proceeding ahead you expressly agree to the Tractor Junctions <a href="#" class="text-decoration-none" target="_blank" title="terms and conditions">terms and conditions*</a></p> -->
+            </div>                
+            <div class="col-12 col-sm-4 col-md-4 col-lg-4">
+              <label for="yr_state" class="form-label text-dark fw-bold"> <i class="fas fa-location"></i> State</label>
+              <select class="form-select form-select-sm py-2" id="_state" name="_state"aria-label=".form-select-sm example">
+                <option selected>Select State</option>
+                <option value="1">Chhattisgarh</option>
+                <option value="2">Other</option>
+              </select>
             </div>
-          </form>
-        </div>
+            <div class="col-12 col-sm-4 col-md-4 col-lg-4">
+              <label for="yr_dist" class="form-label fw-bold  text-dark"><i class="fa-solid fa-location-dot"></i> District</label>
+              <select class="form-select form-select-sm py-2" id="_district" name="_district" aria-label=".form-select-sm example">
+                <option selected>Select District</option>
+                <option value="1">Raipur</option>
+                <option value="2">Bilaspur</option>
+                <option value="2">Durg</option>
+              </select>
+            </div>
+            <div class="row">
+              <div class="text-center col-12 col-lg-6 col-md-6 col-sm-6 my-3">
+                <button type="submit" id="delership_enq_btn" class="btn btn-success px-5 w-100 ">Search Dealer</button>         
+              </div>        
+              <div class="text-center col-12 col-lg-6 col-md-6 col-sm-6 my-3">
+                <button type="submit" id="delership_enq_btn" class="btn btn-success px-5 w-100 fs-6">Become Certified Dealer</button>         
+              </div>        
+            </div>              
+          </div>
+        </form>
       </div>
     </div>
   </section>
@@ -82,25 +79,26 @@
     <div class="container">
       <div class="row">
         <h3 class=" mt-1">Recent Certified Dealers</h3>
-        <!-- RECENT CERTIFIED DEALER CARDS  -->
         <div class="col-12 col-sm-3 col-md-3 col-lg-3 px-2 py-3 h-100">
           <div class="h-auto success__stry__item d-flex flex-column shadow ">
-            <div class="thumb">
+            <div class="thumb" style="positon:relative;">
               <a href="certified_dealers_inner.php">
                 <div class="ratio ratio-16x9">
                   <img src="assets/images/ratnaautomotive.webp" class="object-fit-cover " alt="img">
                 </div>
-              </a>
+              </a>            
+            </div>
+            <div class="position-absolute" >
+              <p class="rounded-pill bg-warning text-center px-2 mt-1">Certified</p>
             </div>
             <div class="">
               <a href="certified_dealers_inner.php" class="text-decoration-none text-dark">
                 <h5 class="fw-bold text-center mt-3 mx-3">Ratna Automotive Pvt. Ltd. </h5>
               </a> 
-              <div class="row">
-                <div class="col-12 col-lg-8 col-md-8 col-sm-8 "><p class=" text-center text-dark fw-bold ps-3">Sonalika Dealer</p></div>
-                <div class="col-12 col-lg-4 col-md-4 col-sm-4"><p class="rounded-pill bg-warning text-center">Certified</p></div>
-              </div>
-              <div class="justify-content-center  d-flex position-relative" >
+              <div class="col-12 col-lg-12 col-md-12 col-sm-12">
+                <p class=" text-center text-dark fw-bold ps-3">Sonalika Dealer</p>
+              </div>              
+              <div class="justify-content-center  d-flex">
                 <button typt="button" class="btn btn-success w-100">Rangareddy, Telangana</button>
               </div>
             </div>
@@ -109,76 +107,83 @@
 
         <div class="col-12 col-sm-3 col-md-3 col-lg-3 px-2 py-3 h-100">
           <div class="h-auto success__stry__item d-flex flex-column shadow ">
-            <div class="thumb">
+            <div class="thumb" style="positon:relative;">
               <a href="certified_dealers_inner.php">
                 <div class="ratio ratio-16x9">
                   <img src="assets/images/ratnaautomotive.webp" class="object-fit-cover " alt="img">
                 </div>
-              </a>
+              </a>            
+            </div>
+            <div class="position-absolute" >
+              <p class="rounded-pill bg-warning text-center px-2 mt-1">Certified</p>
             </div>
             <div class="">
               <a href="certified_dealers_inner.php" class="text-decoration-none text-dark">
                 <h5 class="fw-bold text-center mt-3 mx-3">Ratna Automotive Pvt. Ltd. </h5>
               </a> 
               <div class="row">
-                <div class="col-12 col-lg-8 col-md-8 col-sm-8 "><p class=" text-center text-dark fw-bold ps-3">Sonalika Dealer</p></div>
-                <div class="col-12 col-lg-4 col-md-4 col-sm-4"><p class="rounded-pill bg-warning text-center">Certified</p></div>
+              <div class="col-12 col-lg-12 col-md-12 col-sm-12"><p class=" text-center text-dark fw-bold ps-3">Sonalika Dealer</p></div>
+               
               </div>
-              <div class="justify-content-center  d-flex position-relative" >
+              <div class="justify-content-center  d-flex">
                 <button typt="button" class="btn btn-success w-100">Rangareddy, Telangana</button>
               </div>
             </div>
           </div>
         </div>
-
         <div class="col-12 col-sm-3 col-md-3 col-lg-3 px-2 py-3 h-100">
           <div class="h-auto success__stry__item d-flex flex-column shadow ">
-            <div class="thumb">
+            <div class="thumb" style="positon:relative;">
               <a href="certified_dealers_inner.php">
                 <div class="ratio ratio-16x9">
                   <img src="assets/images/ratnaautomotive.webp" class="object-fit-cover " alt="img">
                 </div>
-              </a>
+              </a>            
+            </div>
+            <div class="position-absolute" >
+              <p class="rounded-pill bg-warning text-center px-2 mt-1">Certified</p>
             </div>
             <div class="">
               <a href="certified_dealers_inner.php" class="text-decoration-none text-dark">
                 <h5 class="fw-bold text-center mt-3 mx-3">Ratna Automotive Pvt. Ltd. </h5>
               </a> 
               <div class="row">
-                <div class="col-12 col-lg-8 col-md-8 col-sm-8 "><p class=" text-center text-dark fw-bold ps-3">Sonalika Dealer</p></div>
-                <div class="col-12 col-lg-4 col-md-4 col-sm-4"><p class="rounded-pill bg-warning text-center">Certified</p></div>
+              <div class="col-12 col-lg-12 col-md-12 col-sm-12"><p class=" text-center text-dark fw-bold ps-3">Sonalika Dealer</p></div>
+               
               </div>
-              <div class="justify-content-center  d-flex position-relative" >
+              <div class="justify-content-center  d-flex">
                 <button typt="button" class="btn btn-success w-100">Rangareddy, Telangana</button>
               </div>
             </div>
           </div>
         </div>
-
+        
         <div class="col-12 col-sm-3 col-md-3 col-lg-3 px-2 py-3 h-100">
           <div class="h-auto success__stry__item d-flex flex-column shadow ">
-            <div class="thumb">
+            <div class="thumb" style="positon:relative;">
               <a href="certified_dealers_inner.php">
                 <div class="ratio ratio-16x9">
                   <img src="assets/images/ratnaautomotive.webp" class="object-fit-cover " alt="img">
                 </div>
-              </a>
+              </a>            
+            </div>
+            <div class="position-absolute" >
+              <p class="rounded-pill bg-warning text-center px-2 mt-1">Certified</p>
             </div>
             <div class="">
               <a href="certified_dealers_inner.php" class="text-decoration-none text-dark">
                 <h5 class="fw-bold text-center mt-3 mx-3">Ratna Automotive Pvt. Ltd. </h5>
               </a> 
               <div class="row">
-                <div class="col-12 col-lg-8 col-md-8 col-sm-8 "><p class=" text-center text-dark fw-bold ps-3">Sonalika Dealer</p></div>
-                <div class="col-12 col-lg-4 col-md-4 col-sm-4"><p class="rounded-pill bg-warning text-center">Certified</p></div>
+                <div class="col-12 col-lg-12 col-md-12 col-sm-12"><p class=" text-center text-dark fw-bold ps-3">Sonalika Dealer</p></div>
+               
               </div>
-              <div class="justify-content-center  d-flex position-relative" >
+              <div class="justify-content-center  d-flex">
                 <button typt="button" class="btn btn-success w-100">Rangareddy, Telangana</button>
               </div>
             </div>
           </div>
         </div>
-
 
       </div>
     </div>
