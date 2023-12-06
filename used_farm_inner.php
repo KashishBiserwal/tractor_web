@@ -158,7 +158,7 @@
                                             <label for="name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i> Last Name</label>
                                             <input type="text" class="form-control" placeholder="Enter Your Name" id="lname" name="lname">
                                         </div>
-                                        <div class="col-12 ">
+                                        <div class="col-12 col-sm-12 col-md-6 col-lg-6 ">
                                             <label for="number" class="form-label text-dark fw-bold"> <i class="fa fa-phone" aria-hidden="true"></i> Phone Number</label>
                                             <input type="password" class="form-control" placeholder="Enter Number" id="number" name="number">
                                         </div>
@@ -220,7 +220,7 @@
         <div class="row ">
             <div class="col-12 col-lg-9 col-md-9 col-sm-9">
                 <div class="row my-4">
-                    <div class="col-3 col-md-3 col-lg-3 col-sm-3 ">
+                    <div class="col-12 col-md-3 col-lg-3 col-sm-3 mb-3">
                         <div class="Engine shadow p-3 "style="background-color:#fff">
                             <div class="col-12 text-center">
                                 <img src="assets/images/engine.png" width="50" height="50" alt="">
@@ -231,7 +231,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-3 col-md-3 col-lg-3 col-sm-3 ">
+                    <div class="col-12 col-md-3 col-lg-3 col-sm-3 mb-3">
                         <div class=" Total-Hours shadow p-3" style="background-color:#fff">
                             <div class="col-12 text-center">
                                 <img src="assets/images/total-hours.png" width="50" height="50" alt="">
@@ -242,25 +242,26 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-3 col-md-3 col-lg-3 col-sm-3 ">
-                        <div class=" RTO shadow p-3" style="background-color:#fff">
+                    <div class="col-12 col-md-3 col-lg-3 col-sm-3 mb-3">
+                        <div class=" Total-Hours shadow p-3" style="background-color:#fff">
                             <div class="col-12 text-center">
-                                <img src="assets/images/tyre-condition.png" width="50" height="58" alt="">
+                                <img src="assets/images/tyre-condition.png" width="50" height="50" alt="">
                             </div>
                             <div class="col-12">
-                                <h6 class="tyre-condition text-center fw-bold m-1 text-dark">Tyre Conditon</h6>
-                                <p class="t-condition text-center">76-100% (Very Good)</p>
+                                <h6 class="total_hours text-center fw-bold fs-6 m-1 text-dark">Tyre Conditon</h6>
+                                <p class="total_time text-center">76-100% (Very Good)</p>
                             </div>
                         </div>
                     </div>
-                    <div class="col-3 col-md-3 col-lg-3 col-sm-3 ">
-                        <div class=" RTO shadow p-3" style="background-color:#fff">
+
+                    <div class="col-12 col-md-3 col-lg-3 col-sm-3 mb-3">
+                        <div class=" Total-Hours shadow" style="background-color:#fff">
                             <div class="col-12 text-center">
-                                <img src="assets/images/engine-condition.png" width="50" height="58" alt="">
+                                <img src="assets/images/engine-condition.png" width="50" height="50" alt="">
                             </div>
-                            <div class="col-12">
-                                <h6 class="tyre-condition text-center fw-bold m-1 text-dark">Engine Conditon</h6>
-                                <p class="t-condition text-center">76-100% (Very Good)</p>
+                            <div class="col-12 py-3">
+                                <h6 class="total_hours text-center fw-bold fs-6 m-1 text-dark">Engine Conditon</h6>
+                                <p class="total_time text-center">76-100% (Very Good)</p>
                             </div>
                         </div>
                     </div>

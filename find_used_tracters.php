@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
    <?php
    include 'includes/headertag.php';
    ?>
@@ -13,7 +14,7 @@
    ?>
 
 <section class=" bg-light mt-5 pt-5">
-    <div class="container py-2">
+    <div class="container pt-5">
         <div class="py-2">
             <span class="my-4 text-white">
                 <a href="index.php" class="text-decoration-none header-link px-1">Home <i class="fa-solid fa-chevron-right px-1"></i></a>
@@ -23,147 +24,7 @@
         </div>
     </div>
 </section>
-<!-- <section>
-    <div class="d-sm-flex align-items-center justify-content-between w-100" >
-        <div class="col-md-4 mx-auto mb-4 mb-sm-0 text-center headline">
-            <span class="text-secondary text-uppercase"></span>
-            <h2 class=" text-dark ">Interested To <span class="text-success">Buy Old Tractor</span></h2>
-            <h5 class="mb-4">Fill the form will contact you shortly</h4>
-           
-            <button type="button" class="btn px-5 py-3 text-white mt-3 mt-sm-0 btn-success" data-bs-toggle="modal" style="border-radius: 30px; "data-bs-target="#exampleModal">
-            Click Here
-            </button>
 
-            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-lg modal-dialog-centered">
-                <div class="modal-content">
-                <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Interested To Buy Old Tractor</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="row justify-content-center">
-                        <div class="col-lg-10">
-                    
-                        <form>
-                            <div class="row ">
-                                <div class="col-12 col-lg-6 col-sm-5 col-md-6 my-2">
-                                    <label for="Tyre" class=" text-dark float-start fw-bold">Name</label>
-                                    <input type="text" class="form-control text-dark" placeholder="Enter Name" id="your-name" name="your-name" required>
-                                </div>
-                                <div class="col-12 col-lg-6 col-sm-5 col-md-6 my-2">
-                                    <label for="Mobile" class=" text-dark float-start fw-bold">Mobile Number</label>
-                                    <input type="text" class="form-control text-dark" placeholder="Enter Name" id="Mobile" name="Mobile" required>
-                                </div>
-                                <div class="col-12 col-lg-6 col-sm-5 col-md-6 my-2">
-                                    <label for="your-name" class=" text-dark float-start fw-bold">State</label>
-                                    <select class="form-select form-control" aria-label="Default select example" name="select_brand" id="select_brand">
-                                        <option selected>Select State</option>
-                                        <option value="Assam">Assam</option>
-                                        <option value="Bihar">Bihar</option>
-                                        <option value="Chandigarh">Chandigarh</option>
-                                        <option value="Chhattisgarh">Chhattisgarh</option>
-                                    </select>
-                                </div>
-                                <div class="col-12 col-lg-6 col-sm-5 col-md-6 my-2">
-                                    <label for="District" class=" text-dark float-start fw-bold">District</label>
-                                    <select class="form-select form-control" aria-label="Default select example" name="District" id="District">
-                                        <option selected>Select District</option>
-                                    </select>
-                                </div>
-                                <div class="col-12 col-lg-6 col-sm-5 col-md-6 my-2">
-                                    <label for="Budget" class=" text-dark float-start fw-bold">Select your Budget</label>
-                                    
-                                    <select class="form-select form-control" aria-label="Default select example" name="Budget" id="Budget">
-                                        <option selected>Select your Budget</option>
-                                        <option value="1">1-2 lakh</option>
-                                        <option value="2">3-4 Lakh</option>
-                                        <option value="3">5-7 Lakh </option>
-                                        <option value="4">Above 7 Lakh</option>
-                                        
-                                    </select>
-                                </div>
-                                <div class="col-12 col-lg-6 col-sm-5 col-md-6 my-2">
-                                    <label for="Manufacture" class=" text-dark float-start fw-bold">Manufacture Year</label>
-                                    <select class="form-select form-control" aria-label="Default select example" name="Manufacture" id="Manufacture">
-                                        <option selected>Select Year</option>
-                                        <option value="2023">2023</option>
-                                        <option value="2022">2022</option>
-                                        <option value="2021">2021</option>
-                                        <option value="2020">2020</option>
-                                        <option value="2018">2018</option>
-                                        <option value="2017">2017</option>
-                                        <option value="2016">2016</option>
-                                        <option value="2015">2015</option>
-                                        <option value="2014">2014</option>
-                                    </select>
-                                </div>
-                                <div class="col-12 col-lg-6 col-sm-5 col-md-6 my-2">
-                                    <label for="brand" class=" text-dark float-start fw-bold">Brand</label>
-                                    <select class="form-select form-control" aria-label="Default select example" name="brand" id="brand">
-                                        <option selected>Select brand</option>
-                                        <option value="1st">Mahindra</option>
-                                        <option value="2st">Swaraj</option>
-                                        <option value="3st">Hindustan</option>
-                                        <option value="All">Ford</option>
-                                    </select>
-                                </div>
-                                <div class="col-12 col-lg-6 col-sm-5 col-md-6 my-2">
-                                    <label for="model" class=" text-dark float-start fw-bold">Model</label>
-                                    <select class="form-select form-control" aria-label="Default select example" name="model" id="model">
-                                        <option selected>select Model</option>
-                                        <option value="1">3055 DI</option>
-                                        <option value="2">3040 DI</option>
-                                        <option value="3">3048 DI</option>
-                                        <option value="4">2035 DI</option>
-                                    </select>
-                                </div>
-                               
-                                
-                                <div class="col-12 col-lg-6 col-sm-5 col-md-6 my-2">
-                                    <label for="Manufacture" class=" text-dark float-start fw-bold">Manufacture Year</label>
-                                    <select class="form-select form-control" aria-label="Default select example" name="Manufacture" id="Manufacture">
-                                        <option selected>Select Year</option>
-                                        <option value="2023">2023</option>
-                                        <option value="2022">2022</option>
-                                        <option value="2021">2021</option>
-                                        <option value="2020">2020</option>
-                                        <option value="2018">2018</option>
-                                        <option value="2017">2017</option>
-                                        <option value="2016">2016</option>
-                                        <option value="2015">2015</option>
-                                        <option value="2014">2014</option>
-                                    </select>
-                                </div>
-                                
-                                
-                                
-                                <div class="col-6 mt-4 pt-2">
-                                    <button data-res="<?php echo $sum; ?>" type="submit" class="btn-success w-100 fw-bold" >Get OTP</button>
-                                </div>
-                            </div>
-                        </form>
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn-info" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class=" btn-success">Save changes</button>
-                </div>
-                </div>
-            </div>
-            </div>
-
-             
-            
-        </div>
-            
-       
-        <div class="col-md-8 h-100 clipped" style="min-height: 350px; background-image: url(assets/images/istockphoto-1033665866-612x612.jpg); background-position: center; background-size: cover;">
-
-        </div>
-    </div>
-</section> -->
 <section>
     <div class="d-sm-flex align-items-center justify-content-between w-100">
         <div class="col-12 h- " style="min-height: 360px; background-image: url(assets/images/tractor-valuation.jpg); background-position: center; background-size: cover;"></div>
@@ -179,95 +40,122 @@
                 <div class="col-md-8 col-lg-7">
                     <form id="find-used-tractor-form" class="form-view-inner form-view-overlay bg-light box-shadow p-3" action="" method="" >
                         <div class="row justify-content-center">
-                            <div class="col-12 col-sm-12 col-md-6 col-lg-6">
-                                <div class="mt-2">
-                                    <label for="your-name" class=" text-dark float-start">Select Brand</label>
-                                    <select class="form-select form-control" aria-label="Default select example" name="select_brand" id="select_brand">
-                                        <option value>Hindustan</option>
-                                        <option value="1">Mahindra</option>
-                                        <option value="2">Swaraj</option>
-                                        <option value="3">Massey Ferguson</option>
-                                        <option value="4">Sonalika</option>
-                                        <option value="5">Farmtrac</option>
-                                        <option value="6">Eicher</option>
-                                        <option value="7">John Deere</option>
-                                        <option value="8">Powertrac</option>
+                                <div class="col-12 col-lg-6 col-sm-5 col-md-6 my-2">
+                                    <label for="Tyre" class=" text-dark float-start  my-2"> First Name</label>
+                                    <input type="text" class="form-control text-dark" placeholder="Enter Name" id="your_name" name="your_name">
+                                </div>
+                                <div class="col-12 col-lg-6 col-sm-5 col-md-6 my-2">
+                                    <label for="Tyre" class=" text-dark float-start  my-2">Last Name</label>
+                                    <input type="text" class="form-control text-dark" placeholder="Enter Name" id="your_lname" name="your_lname">
+                                </div>
+                                <div class="col-12 col-lg-6 col-sm-5 col-md-6 my-2">
+                                    <label for="Mobile" class=" text-dark float-start my-1">Mobile Number</label>
+                                    <input type="text" class="form-control text-dark" placeholder="Enter Name" id="Mobile" name="Mobile">
+                                </div>
+                                
+                                <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+                                    <label for="State" class=" text-dark float-start my-2">State</label>
+                                    <select class="form-select form-control" aria-label="Default select example" name="select_state" id="select_state">
+                                        <option value>Select State</option>
+                                        <option value="Assam">Assam</option>
+                                        <option value="Bihar">Bihar</option>
+                                        <option value="Chandigarh">Chandigarh</option>
+                                        <option value="Chhattisgarh">Chhattisgarh</option>
                                     </select>
                                 </div>
-                            </div>
-                            <div class="col-12 col-sm-12 col-md-6 col-lg-6">
-                                <div class="mt-2">
-                                    <label for="model" class=" text-dark float-start">Model</label>
-                                    <select class="form-select form-control" aria-label="Default select example" name="model" id="model">
-                                        <option value>select Model</option>
-                                        <option value="1">3055 DI</option>
-                                        <option value="2">3040 DI</option>
-                                        <option value="3">3048 DI</option>
-                                        <option value="4">2035 DI</option>
+                                <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+                                    <label for="Owners" class=" text-dark float-start my-2">Owners</label>
+                                    <select class="form-select form-control" aria-label="Default select example" name="Owners" id="Owners">
+                                        <option value>Select Owner</option>
+                                        <option value="1st">1st</option>
+                                        <option value="2st">2st</option>
+                                        <option value="3st">3st</option>
+                                        <option value="All">All Above</option>
                                     </select>
                                 </div>
+                              
+                                <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+                                    <label for="Tyre" class=" text-dark float-start my-2">Tyre Condition</label>
+                                    <select class="form-select form-control" aria-label="Default select example" name="Tyre" id="Tyre">
+                                        <option value>Select Tyre Condition</option>
+                                        <option value="10">10%</option>
+                                        <option value="20">20%</option>
+                                        <option value="30">30%</option>
+                                        <option value="40">40%</option>
+                                        <option value="50">50%</option>
+                                        <option value="60">60%</option>
+                                        <option value="70">70%</option>
+                                        <option value="80">80%</option>
+                                        <option value="100">100%</option>
+                                    </select>
+                                </div>
+                                  <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+                                    <label for="Manufacture" class=" text-dark float-start  my-2">Manufacture Year</label>
+                                    <select class="form-select" id="multiple-select-field" data-placeholder="Choose anything" multiple>
+                                            <option>2023</option>
+                                            <option>2022</option>
+                                            <option>2021</option>
+                                            <option>2020</option>
+                                            <option>2019</option>
+                                            <option>2018</option>
+                                            <option>2017</option>
+                                            <option>2016</option>
+                                            <option>2015</option>
+                                    </select>
+                                    <!-- <select class="form-select form-control" aria-label="Default select example" name="Manufacture" id="Manufacture">
+                                        <option value>Select Year</option>
+                                        <option value="2023">2023</option>
+                                        <option value="2022">2022</option>
+                                        <option value="2021">2021</option>
+                                        <option value="2020">2020</option>
+                                        <option value="2018">2018</option>
+                                        <option value="2017">2017</option>
+                                        <option value="2016">2016</option>
+                                        <option value="2015">2015</option>
+                                        <option value="2014">2014</option>
+                                    </select> -->
+                                </div>
+                                <div class="add-more">
+                                    <div class="row">
+                                        <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+                                            <div class="mt-2">
+                                                <label for="your-name" class=" text-dark float-start">Select Brand</label>
+                                                <select class="form-select form-control" aria-label="Default select example" name="select_brand" id="select_brand">
+                                                    <option value>Hindustan</option>
+                                                    <option value="1">Mahindra</option>
+                                                    <option value="2">Swaraj</option>
+                                                    <option value="3">Massey Ferguson</option>
+                                                    <option value="4">Sonalika</option>
+                                                    <option value="5">Farmtrac</option>
+                                                    <option value="6">Eicher</option>
+                                                    <option value="7">John Deere</option>
+                                                    <option value="8">Powertrac</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+                                            <div class="form-outline"></div>
+                                            <div class="mt-2">
+                                                <label for="model" class=" text-dark float-start">Model</label>
+                                                <select class="form-select form-control" aria-label="Default select example" name="model" id="model">
+                                                    <option value>select Model</option>
+                                                    <option value="1">3055 DI</option>
+                                                    <option value="2">3040 DI</option>
+                                                    <option value="3">3048 DI</option>
+                                                    <option value="4">2035 DI</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="text-right">
+                                        <p class="addlink "><a href="">Add More</a></p>
+                                        </div>
+                                       
+                                    </div>
+                                </div>
+                                <div class="col-12 mt-3">
+                                    <button data-res="<?php echo $sum; ?>" type="submit" class="btn-success w-100 fw-bold" >Get OTP</button>
+                                </div>       
                             </div>
-                            <div class="col-12 col-sm-12 col-md-6 col-lg-6">
-                                <label for="State" class=" text-dark float-start my-2">State</label>
-                                <select class="form-select form-control" aria-label="Default select example" name="select_state" id="select_state">
-                                    <option value>Select State</option>
-                                    <option value="Assam">Assam</option>
-                                    <option value="Bihar">Bihar</option>
-                                    <option value="Chandigarh">Chandigarh</option>
-                                    <option value="Chhattisgarh">Chhattisgarh</option>
-                                </select>
-                            </div>
-                            <div class="col-12 col-sm-12 col-md-6 col-lg-6">
-                                <label for="Owners" class=" text-dark float-start my-2">Owners</label>
-                                <select class="form-select form-control" aria-label="Default select example" name="Owners" id="Owners">
-                                    <option value>Select Owner</option>
-                                    <option value="1st">1st</option>
-                                    <option value="2st">2st</option>
-                                    <option value="3st">3st</option>
-                                    <option value="All">All Above</option>
-                                </select>
-                            </div>
-                            <div class="col-12 col-sm-12 col-md-6 col-lg-6">
-                                 <label for="Manufacture" class=" text-dark float-start  my-2">Manufacture Year</label>
-                                <select class="form-select form-control" aria-label="Default select example" name="Manufacture" id="Manufacture">
-                                    <option value>Select Year</option>
-                                    <option value="2023">2023</option>
-                                    <option value="2022">2022</option>
-                                    <option value="2021">2021</option>
-                                    <option value="2020">2020</option>
-                                    <option value="2018">2018</option>
-                                    <option value="2017">2017</option>
-                                    <option value="2016">2016</option>
-                                    <option value="2015">2015</option>
-                                    <option value="2014">2014</option>
-                                </select>
-                            </div>
-                            <div class="col-12 col-sm-12 col-md-6 col-lg-6">
-                                <label for="Tyre" class=" text-dark float-start my-2">Tyre Condition</label>
-                                <select class="form-select form-control" aria-label="Default select example" name="Tyre" id="Tyre">
-                                    <option value>Select Tyre Condition</option>
-                                    <option value="10">10%</option>
-                                    <option value="20">20%</option>
-                                    <option value="30">30%</option>
-                                    <option value="40">40%</option>
-                                    <option value="50">50%</option>
-                                    <option value="60">60%</option>
-                                    <option value="70">70%</option>
-                                    <option value="80">80%</option>
-                                    <option value="100">100%</option>
-                                </select>
-                            </div>
-                            <div class="col-12 col-lg-6 col-sm-5 col-md-6 my-2">
-                                <label for="Tyre" class=" text-dark float-start  my-2">Name</label>
-                                <input type="text" class="form-control text-dark" placeholder="Enter Name" id="your_name" name="your_name">
-                            </div>
-                            <div class="col-12 col-lg-6 col-sm-5 col-md-6 my-2">
-                                <label for="Mobile" class=" text-dark float-start  my-2">Mobile Number</label>
-                                <input type="text" class="form-control text-dark" placeholder="Enter Name" id="Mobile" name="Mobile">
-                            </div>
-                            <div class="col-12 mt-3">
-                                <button data-res="<?php echo $sum; ?>" type="submit" class="btn-success w-100 fw-bold" >Get OTP</button>
-                            </div>       
                         </div>
                     </form>
                </div>
@@ -545,7 +433,20 @@
         form.submit();
         }
     });
+
+      
+  $( '#multiple-select-field' ).select2( {
+    theme: "bootstrap-5",
+    width: $( this ).data( 'width' ) ? $( this ).data( 'width' ) : $( this ).hasClass( 'w-100' ) ? '100%' : 'style',
+    placeholder: $( this ).data( 'placeholder' ),
+    closeOnSelect: false,
 });
+});
+
     </script>
+
+  
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
     </body>
     </html>
