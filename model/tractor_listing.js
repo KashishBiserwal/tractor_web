@@ -164,9 +164,37 @@ $(document).ready(function () {
     get();
 
 
+    function getProductById() {
+      var url = "http://127.0.0.1:8000/api/admin/getLookupData";
+      console.log(url);
+
+      $.ajax({
+          url: url,
+          type: "GET",
+          headers: {
+            'Authorization': 'Bearer ' + localStorage.getItem('token')
+        },
+          success: function(data) {
+              console.log(data, 'qqqqqqqq');
+
+              data.tractor_type_data.map((i)=>{
+
+              })
+              
+          // document.getElementById('productName').innerText=data.product.air_filter;
+          },
+          error: function (error) {
+              console.error('Error fetching data:', error);
+          }
+      });
+  }
+
+  getProductById();
+
 
 // fetch lookup data in select box
 function get_lookup() {
+  console.log('initsfd')
     var apiBaseURL = APIBaseURL;
     var url = apiBaseURL + 'getLookupData';
     $.ajax({
@@ -176,6 +204,7 @@ function get_lookup() {
             'Authorization': 'Bearer ' + localStorage.getItem('token')
         },
         success: function (data) {
+          console.log(data,'ok');
             for (var i = 0; i < data.data.length; i++) {
                 $("select#" + data.data[i].name).append('<option value="' + data.data[i].id + '">' + data.data[i].lookup_data_value + '</option>');
             }
@@ -196,10 +225,7 @@ function get_lookup() {
                 tractorTypeSelect.append('<option value="' + data.tractor_type_data[i].id + '">' + data.tractor_type_data[i].type_name + '</option>');
             }
 
-            console.log($("#staticBackdrop #type_name"));
-            // $("#staticBackdrop #type_name").select2({
-            
-            // });
+          
             tractorTypeSelect.select2();  
            
         },
@@ -212,7 +238,7 @@ function get_lookup() {
     });
 }
 
-get_lookup();
+// get_lookup();
 
 
 
