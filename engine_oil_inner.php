@@ -7,30 +7,32 @@
     ?>
 </head>
 <body>
-    <section>
-        <div class="container mt-5 pt-4">
-            <div class="pt-5">
-                <span class="mt-4 pt-4 ">
-                    <a href="index.php" class="text-decoration-none header-link px-1">Home <i class="fa-solid fa-chevron-right px-1"></i></a>
-                    <span class=""><span class=" header-link  px-1">Engine Oil</span></span>
-                </span> 
-            </div>
+    <section class="mt-4 pt-5">
+    <div class="container mt-5 pt-4">
+        <div class="">
+            <span class="mt-5 text-white pt-5 ">
+                <a href="index.php" class="text-decoration-none header-link px-1">Home <i class="fa-solid fa-chevron-right px-1"></i></a>
+            </span>
+            <span class="mt-5 text-white pt-5 ">
+                <a href="engine_oil.php" class="text-decoration-none header-link px-1">Engine Oil <i class="fa-solid fa-chevron-right px-1"></i></a>
+            </span>
+            <!-- </span>  -->
         </div>
+    </div>
     </section>
     <!-- IMAGE SWIPER WITH THREE THUMBNAIL IMAGE -->
     <section>
         <div class="container">
             <div class="vegehead pt-3">
                 <div class="row">
-                    <div class="col-12 col-lg-6 ">
-                      <h1 class="fw-bold text-danger pt-3">Engine Oil</h1>
-                    </div>
+                    <!-- <h1 class="fw-bold text-danger pt-3">Engine Oil</h1> -->
                 </div>
             </div>
        
             <div class="row mt-3">
                 <div class="col-12 col-sm-6 col-lg-6 col-md-6">
                     <div>
+                    <h1 class="fw-bold text-danger pt-3">Engine Oil</h1>
                         <div class="swiper swiper_buy mySwiper2_buy">
                             <div class="swiper-wrapper swiper-wrapper_buy">
                                 <div class=" swiper-slide swiper-slide_buy" style="height: 129px;">
@@ -95,7 +97,7 @@
                                             <div class="row mt-1">
                                                 <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
                                                     <button type="button" class="btn btn-success w-100" data-bs-toggle="modal" data-bs-target="#staticBackdrop3">
-                                                        Request A Call Back
+                                                        Request Call Back
                                                     </button>
                                                 </div>
                                             </div> 
@@ -121,46 +123,50 @@
                     </div>
                     <!-- MODAL BODY -->
                     <div class="modal-body">
-                        <form action="">
-                            <div class="row">
-                                <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
-                                    <label for="name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i> First Name</label>
-                                    <input type="text" class="form-control" placeholder="Enter Your Name" id="name">
-                                </div>
-                                <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
-                                    <label for="name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i> Last Name</label>
-                                    <input type="text" class="form-control" placeholder="Enter Your Name" id="name">
-                                </div>
-                                <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
-                                    <label for="number" class="form-label text-dark fw-bold"> <i class="fa fa-phone" aria-hidden="true"></i> Phone Number</label>
-                                    <input type="password" class="form-control" placeholder="Enter Number" id="number">
-                                </div>
-                                <div class="col-12 col-sm-12 col-md-6 col-lg-6">
-                                    <label for="yr_state" class="form-label text-dark fw-bold"> <i class="fas fa-location"></i> State</label>
-                                    <select class="form-select py-2 " aria-label=".form-select-lg example">
-                                        <option selected>Select State</option>
-                                        <option value="1">Chhattisgarh</option>
-                                        <option value="2">Other</option>
-                                    </select>
-                                </div>
-                                <div class="col-12 col-sm-12 col-md-6 col-lg-6">
-                                    <label for="yr_dist" class="form-label fw-bold text-dark"><i class="fa-solid fa-location-dot"></i> District</label>
-                                    <select class="form-select py-2 " aria-label=".form-select-lg example">
-                                        <option selected>Select District</option>
-                                        <option value="1">Raipur</option>
-                                        <option value="2">Bilaspur</option>
-                                        <option value="2">Durg</option>
-                                    </select>
-                                </div>
-                                <div class="col-12 col-sm-12 col-md-6 col-lg-6">
-                                    <label for="yr_price" class="form-label fw-bold text-dark"> Tehsil</label>
-                                    <input type="yr_price" class="form-control" placeholder="Enter Tehsil" id="tehsil">
-                                </div>
-                                <div class="text-center my-3">
-                                    <button type="button" class="btn btn-success px-5 w-40">Submit</button>         
-                                </div>        
-                            </div>                      
-                        </form>
+                    <form id="engine_oil_form" class="bg-light"action="">
+                <div class="row">
+                  <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
+                    <label for="f_name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i> First Name</label>
+                      <input type="text" class="form-control" placeholder="Enter Your Name" id="f_name" name="f_name">
+                  </div>
+                  <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
+                    <label for="last_name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i> Last Name</label>
+                      <input type="text" class="form-control" placeholder="Enter Your Name" id="eo_name" name="eo_name">
+                  </div>
+                  <div class="col-12 col-sm-6 col-md-6 col-lg-6">
+                    <label for="eo_number" class="form-label text-dark fw-bold"> <i class="fa fa-phone" aria-hidden="true"></i> Phone Number</label>
+                    <input type="text" class="form-control" placeholder="Enter Number" id="eo_number" name="eo_number" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');">
+                  </div>
+                  <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+                    <label for="eo_state" class="form-label text-dark fw-bold"> <i class="fas fa-location"></i> State</label>
+                    <select class="form-select py-2 " aria-label=".form-select-lg example" id="eo_state" name="eo_state">
+                      <option value="" selected disabled=""></option>  
+                      <option value="1">Chhattisgarh</option>
+                      <option value="2">Other</option>
+                    </select>
+                  </div>
+                  <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+                    <label for="eo_dist" class="form-label fw-bold  text-dark"><i class="fa-solid fa-location-dot"></i> District</label>
+                    <select class="form-select py-2 " aria-label=".form-select-lg example" id="eo_dist" name="eo_dist">
+                      <option value="" selected disabled=""></option>
+                      <option value="1">Raipur</option>
+                      <option value="2">Bilaspur</option>
+                      <option value="2">Durg</option>
+                    </select>
+                  </div>                           
+                  <div class="col-12 col-sm-6 col-md-6 col-lg-6">
+                    <label for="eo_tehsil" class="form-label fw-bold text-dark"> Tehsil</label>
+                    <select class="form-select py-2 " aria-label=".form-select-lg example" id="eo_tehsil" name="eo_tehsil">
+                      <option value="" selected disabled=""></option>
+                      <option value="2">Durg</option>
+                    </select>
+                  </div>
+
+                </div> 
+                <div class="text-center my-3">
+                  <button type="submit" id="engine_oil_btn" class="btn btn-success px-5 w-40">Submit</button>         
+                </div>        
+              </form>         
                     </div>
                 </div>
             </div>
@@ -377,6 +383,80 @@
     <?php   
         include 'includes/footer.php';
         include 'includes/footertag.php';
-    ?>    
+    ?> 
+    
+    <script>
+        $(document).ready(function(){
+          jQuery.validator.addMethod("customPhoneNumber", function(value, element) {
+            return /^[6-9]\d{9}$/.test(value);
+          }, "Phone number must start with 6 or above");
+            $("#engine_oil_btn").click(function () {
+                // setTimeout(() => {
+                //     console.log("validation of Department")
+                // }, 2000);
+                $("form[id='engine_oil_form']").validate({
+                    rules: {
+                        f_name: {
+                            required: true,
+                            minlength: 3
+                        },
+
+                        eo_name: {
+                            required: true,
+                            minlength: 3
+                        },
+                        eo_number: {
+                            required: true,
+                            minlength: 10,
+                            digits: true,
+                            customPhoneNumber: true 
+                        },
+                        eo_state: {
+                            required: true,
+                            // minlength: 3
+                        },
+                        eo_dist: {
+                            required: true,
+                            // minlength: 3
+                        },
+                        eo_tehsil: {
+                            required: true,
+                            // minlength: 3
+                        }
+                    },
+                    messages: {
+                        f_name: {
+                            required: "Enter Your First Name",
+                            minlength: "First Name must be atleast 3 characters long"
+                        },
+                        eo_name: {
+                            required: "Enter Your Last Name",
+                            minlength: "Last Name must be atleast 3 characters long"
+                        },
+                        eo_number: {
+                            required: "Enter Your Phone Number",
+                            minlength: "Phone Number must be of 10 Digit long",
+                            digits: "Please enter only digits"
+                        },
+                        eo_state: {
+                            required: "Select Your State",
+                            // minlength: "First Name must be atleast 3 characters long"
+                        },
+                        eo_dist: {
+                            required: "Select Your District",
+                            // minlength: "First Name must be atleast 3 characters long"
+                        },
+                        eo_tehsil: {
+                            required: "Select Your Tehsil",
+                            // minlength: "First Name must be atleast 3 characters long"
+                        }
+                    },
+
+                });
+            })
+        });
+  </script>
+
+
 </body>
 </html>

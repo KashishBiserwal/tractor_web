@@ -12,18 +12,19 @@
    <?php
    include 'includes/header.php';
    ?>
-   <section class="mt-5 pt-5">
-      <div class="container pt-4">
+
+  <section class="mt-4 pt-5">
+    <div class="container mt-5 pt-4">
         <div class="">
-          <span class="mt-5 text-white pt-5 ">
-            <a href="index.php" class="text-decoration-none header-link px-1">Home <i class="fa-solid fa-chevron-right px-1"></i></a>
-         </span>
-         <span class="text-dark"> All News</span>
-          </span> 
+            <span class="mt-5 text-white pt-5 ">
+                <a href="index.php" class="text-decoration-none header-link px-1">Home <i class="fa-solid fa-chevron-right px-1"></i></a>
+            </span>
+            <span class="text-dark"> All News</span>
+            </span> 
         </div>
-      </div>
-    </section>
-  <section>
+    </div>
+  </section>
+
     <div class="marquee_tag my-1">
       <marquee behavior=" scroll" class="py-2"direction="" scrollamount="10"><b> 90% छूट पर ले जाएं कॉम्पैक्ट सोलर पंप, ऐसे करें आवेदन | 3 से 10 एचपी के सोलर पंप पर मिल रही है बंपर सब्सिडी, यहां करें आवेदन | Domestic Tractor Sales Report October 2023 - Sales Dropped by 3.93%, 118232 Units Sold | स्क्वायर बेलर मशीन पर मिल रही है 6,25,000 रुपए की सब्सिडी, यहां करें आवेदन | लाड़ली बहना योजना : धनतेरस पर महिलाओं को मिलेगा दिवाली का गिफ्ट, खाते में आएंगे पैसे</b></marquee>
     </div>
@@ -83,7 +84,7 @@
                   </a>
                 </div>
                 <div class="content ms-3">
-                  <button type="button" class="btn btn-warning">Sarkari Yojana News</button>
+                  <button type="button" class="btn btn-warning">Tractor News</button>
                   <div class="row mt-1 ps-0">
                     <p class="mt-2">स्क्वायर बेलर मशीन पर मिल रही है 6,25,000 रुपए की...</p>
                   </div>
@@ -125,7 +126,7 @@
                   </a>
                 </div>
                 <div class="content ms-3">
-                  <button type="button" class="btn btn-warning">Sarkari Yojana News</button>
+                  <button type="button" class="btn btn-warning">Tractor News</button>
                   <div class="row mt-1 ps-0">
                     <p class="mt-2">लाड़ली बहना योजना : महिलाओं को 7वीं किस्त में मिल सक...</p>
                   </div>
@@ -141,7 +142,7 @@
                 <div class="thumb">
                   <a href="news_content.php">
                     <div class="">
-                    <img src="assets/images/250-di-1630740119.webp" class="object-fit-cover p-3 w-100" alt="img">
+                    <img src="assets/images/sarkari-yojana-1698841100.webp" class="object-fit-cover p-3 w-100" alt="img">
                     </div>
                   </a>
                 </div>
@@ -597,14 +598,14 @@ j
       });
   </script> -->
 
-  <!-- Want to be Featured in Tractor Junction Weekly News? Connect With Us -->
+  <!-- Want to be Featured in Bharat Tractor Weekly News? Connect With Us -->
   <section>
     <div class="container">
       <div class="row  align-items-center my-3">
        
         <div class="col-12">
           <div class="py-3 my-3 ps-4">
-            <p class="fw-bold text-center fs-5">Want to be Featured in Tractor Junction Weekly News? Connect With Us</p>
+            <p class="fw-bold text-center fs-5">Want to be Featured in Bharat Tractor Weekly News? Connect With Us</p>
             <p class="text-center mt-n-2"> <button class="btn btn-primary btn-lg btn-block">Write for Us</button></p> 
           </div>
         </div>

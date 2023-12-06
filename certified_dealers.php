@@ -7,10 +7,10 @@
     ?>
 </head>
 <body>
-  <section>
-    <div class="container mt-5 pt-4">
-      <div class="mt-5 pt-5">
-        <span class="mt-4 pt-4 ">
+  <section class="bg-light">
+    <div class="container mt-5 pt-5">
+      <div class="mt-5 mb-1 py-2">
+        <span class="">
           <a href="index.php" class="text-decoration-none header-link px-1">Home <i class="fa-solid fa-chevron-right px-1"></i></a>
           <span class=""><span class=" header-link  px-1">Certified Dealers</span></span>
         </span> 
@@ -19,20 +19,17 @@
   </section>
   <!--TEXT Find Tractor Dealer -->
   <section>
-    <div class="row mt-3 ">
+    <div class="row">
       <img src="assets/images/tractor dealerimg.png" class="position-relative" alt="dealership-image">
-    </div>  
-    <!-- <div class="page-banner-content text-center position-absolute mt-3 px-2">
-      <h1>Find Tractor Dealer</h1>
-    </div>           -->
+    </div>
   </section>
 
   <!-- FORM -->
   <section class="form-view bg-white pb-4">
     <div class="container-sm float-start mt-n4">
-      <div class="row justify-content-center">
+      <div class="row">
         <div class="col-md-8 col-lg-7">
-          <form id="dealership_enq_from" style="margin-top: -202px;" class="form-view-inner position-absolute form-view-overlay bg-light box-shadow p-3" action="" method="" >
+          <form id="dealership_enq_from" style="margin-top: -340px; margin-left: 55px;" class="form-view-inner w-50  position-absolute form-view-overlay bg-light box-shadow p-3" action="" method="" >
             <div class="row justify-content-center">                 
               <div class="col-12 col-sm-4 col-md-4 col-lg-4">
                 <label for="yr_dist" class="form-label fw-bold text-dark">Brand</label>
@@ -42,37 +39,40 @@
                   <option value="2">Swaraj</option>
                   <option value="2">Powertrac</option>
                 </select>
-            </div>                
-            <div class="col-12 col-sm-4 col-md-4 col-lg-4">
-              <label for="yr_state" class="form-label text-dark fw-bold"> <i class="fas fa-location"></i> State</label>
-              <select class="form-select form-select-sm py-2" id="_state" name="_state"aria-label=".form-select-sm example">
-                <option selected>Select State</option>
-                <option value="1">Chhattisgarh</option>
-                <option value="2">Other</option>
-              </select>
+              </div>                
+              <div class="col-12 col-sm-4 col-md-4 col-lg-4">
+                <label for="yr_state" class="form-label text-dark fw-bold"> <i class="fas fa-location"></i> State</label>
+                <select class="form-select form-select-sm py-2" id="_state" name="_state"aria-label=".form-select-sm example">
+                  <option selected>Select State</option>
+                  <option value="1">Chhattisgarh</option>
+                  <option value="2">Other</option>
+                </select>
+              </div>
+              <div class="col-12 col-sm-4 col-md-4 col-lg-4">
+                <label for="yr_dist" class="form-label fw-bold  text-dark"><i class="fa-solid fa-location-dot"></i> District</label>
+                <select class="form-select form-select-sm py-2" id="_district" name="_district" aria-label=".form-select-sm example">
+                  <option selected>Select District</option>
+                  <option value="1">Raipur</option>
+                  <option value="2">Bilaspur</option>
+                  <option value="2">Durg</option>
+                </select>
+              </div>
+              <div class="row">
+                <div class="text-center col-12 col-lg-6 col-md-6 col-sm-6 my-3">
+                  <button type="submit" id="delership_enq_btn" class="btn btn-success px-5 w-100 ">Search Dealer</button>         
+                </div>                    
+                <div class="text-center col-12 col-lg-6 col-md-6 col-sm-6 my-3">
+                  <a href="become_certified_dealer.php" >
+                    <p type="submit" id="" class="btn btn-success px-5 w-100 fs-6">Become Certified Dealer</p>         
+                  </a>         
+                </div>                   
+              </div>              
             </div>
-            <div class="col-12 col-sm-4 col-md-4 col-lg-4">
-              <label for="yr_dist" class="form-label fw-bold  text-dark"><i class="fa-solid fa-location-dot"></i> District</label>
-              <select class="form-select form-select-sm py-2" id="_district" name="_district" aria-label=".form-select-sm example">
-                <option selected>Select District</option>
-                <option value="1">Raipur</option>
-                <option value="2">Bilaspur</option>
-                <option value="2">Durg</option>
-              </select>
-            </div>
-            <div class="row">
-              <div class="text-center col-12 col-lg-6 col-md-6 col-sm-6 my-3">
-                <button type="submit" id="delership_enq_btn" class="btn btn-success px-5 w-100 ">Search Dealer</button>         
-              </div>        
-              <div class="text-center col-12 col-lg-6 col-md-6 col-sm-6 my-3">
-                <button type="submit" id="delership_enq_btn" class="btn btn-success px-5 w-100 fs-6">Become Certified Dealer</button>         
-              </div>        
-            </div>              
-          </div>
-        </form>
+          </form>
+        </div>
       </div>
-    </div>
-  </section>
+    </div>    
+</section>
 
   <!-- CERTIFIED DEALER CARDS -->
   <section>

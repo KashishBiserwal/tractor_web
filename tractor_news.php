@@ -8,7 +8,7 @@
 </head>
 <body>
 <section class="mt-5 pt-5">
-    <div class="container mt-5 pt-4">
+    <div class="container mt-4 pt-4">
         <div class="">
             <span class="mt-5 text-white pt-5 ">
                 <a href="index.php" class="text-decoration-none header-link px-1">Home <i class="fa-solid fa-chevron-right px-1"></i></a>
@@ -138,7 +138,7 @@
                     <div class="thumb">
                         <a href="news_content.php">
                             <div class="">
-                                <img src="assets/images/250-di-1630740119.webp" class="object-fit-cover p-3 w-100" alt="img">
+                                <img src="assets/images/sarkari-yojana-1698841100.webp" class="object-fit-cover p-3 w-100" alt="img">
                             </div>
                         </a>
                     </div>
@@ -161,14 +161,14 @@
 </section>
 
 
-  <!-- Want to be Featured in Tractor Junction Weekly News? Connect With Us -->
+  <!-- Want to be Featured in Bharat Tractor Weekly News? Connect With Us -->
   <section>
     <div class="container">
       <div class="row  align-items-center my-3">
        
         <div class="col-12">
           <div class="py-3 my-3 ps-4">
-            <p class="fw-bold text-center fs-5">Want to be Featured in Tractor Junction Weekly News? Connect With Us</p>
+            <p class="fw-bold text-center fs-5">Want to be Featured in Bharat Tractor Weekly News? Connect With Us</p>
             <p class="text-center mt-n-2"> <button class="btn btn-primary btn-lg btn-block">Write for Us</button></p> 
           </div>
         </div>
