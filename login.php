@@ -27,7 +27,7 @@
                               <div class=" pe-0">
                                   <div class="form-center h-100 py-5 px-5">
                                     <!-- {% csrf %} -->
-                                      <form action="" id="form" class="row g-2">
+                                      <form action="" id="form_add" class="row g-2">
                                         <!-- @csrf -->
                                         <img src="assets/images/user.webp" class="rounded-circle text-center user-login" alt="">
                                         <h5 class="text-center">Admin Login </h5>

@@ -6,6 +6,7 @@
    <?php
    include 'includes/headertag.php';
    ?>
+   
 </head>
 
 <body>
@@ -89,9 +90,10 @@
                                         <option value="100">100%</option>
                                     </select>
                                 </div>
-                                  <div class="col-12 col-sm-12 col-md-12 col-lg-12">
-                                    <label for="Manufacture" class=" text-dark float-start  my-2">Manufacture Year</label>
-                                    <select class="form-select" id="multiple-select-field" data-placeholder="Choose anything" multiple>
+                                <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+                                    <div class="row pt-4 justify-content-center ">
+                                        <label for="Manufacture" class=" text-dark float-start  my-2">Manufacture Year</label>
+                                        <select class="form-select p-2" id="multiple-select-field" aria-label="Default select example" data-placeholder="Choose anything" multiple name="Manufacture" id="Manufacture">
                                             <option>2023</option>
                                             <option>2022</option>
                                             <option>2021</option>
@@ -101,19 +103,8 @@
                                             <option>2017</option>
                                             <option>2016</option>
                                             <option>2015</option>
-                                    </select>
-                                    <!-- <select class="form-select form-control" aria-label="Default select example" name="Manufacture" id="Manufacture">
-                                        <option value>Select Year</option>
-                                        <option value="2023">2023</option>
-                                        <option value="2022">2022</option>
-                                        <option value="2021">2021</option>
-                                        <option value="2020">2020</option>
-                                        <option value="2018">2018</option>
-                                        <option value="2017">2017</option>
-                                        <option value="2016">2016</option>
-                                        <option value="2015">2015</option>
-                                        <option value="2014">2014</option>
-                                    </select> -->
+                                        </select>
+                                    </div> 
                                 </div>
                                 <div class="add-more">
                                     <div class="row">
@@ -145,15 +136,14 @@
                                                     <option value="4">2035 DI</option>
                                                 </select>
                                             </div>
-                                        </div>
-                                        <div class="text-right">
+                                        </div>   
+                                    </div>
+                                     <div class="addbnt text-right">
                                         <p class="addlink "><a href="">Add More</a></p>
                                         </div>
-                                       
-                                    </div>
                                 </div>
                                 <div class="col-12 mt-3">
-                                    <button data-res="<?php echo $sum; ?>" type="submit" class="btn-success w-100 fw-bold" >Get OTP</button>
+                                    <button data-res="<?php echo $sum; ?>" type="submit" class="btn-success w-100 fw-bold" data-bs-toggle="modal" data-bs-target="#get_OTP_btn">Get OTP</button>
                                 </div>       
                             </div>
                         </div>
@@ -365,7 +355,33 @@
 </section>
 
 
-
+<div class="modal fade" id="get_OTP_btn" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Verify Your OTP</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form>
+            <div class=" col-12 input-group">
+                <div class="col-12">
+                    <label for="Mobile" class=" text-dark float-start pl-2">Enter OTP</label>
+                    <input type="text" class="form-control text-dark" placeholder="Enter OTP" id="Mobile" name="Mobile">
+                </div>
+                <div class="float-end col-12">
+                    <a href="" class="float-end">Resend OTP</a>
+                </div>
+            </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> -->
+        <button type="button" class="btn btn-success">Verify</button>
+      </div>
+    </div>
+  </div>
+</div>
 
 
 <?php
@@ -450,3 +466,52 @@
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
     </body>
     </html>
+
+
+
+
+
+
+
+
+
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="path/to/select2.min.css" rel="stylesheet">
+    <!-- Include jQuery -->
+    <script src="path/to/jquery.min.js"></script>
+    <!-- Include Select2 JavaScript -->
+    <script src="path/to/select2.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#Manufacture').select2({
+                theme: "bootstrap-5",
+                width: $(this).data('width') ? $(this).data('width') : $(this).hasClass('w-100') ? '100%' : 'style',
+                placeholder: $(this).data('placeholder'),
+                closeOnSelect: false
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+        <div class="row pt-4 justify-content-center">
+            <label for="Manufacture" class="text-dark float-start my-2">Manufacture Year</label>
+            <select class="form-select p-2" id="Manufacture" aria-label="Default select example" data-placeholder="Choose anything" multiple name="Manufacture">
+                <option>2023</option>
+                <option>2022</option>
+                <option>2021</option>
+                <option>2020</option>
+                <option>2019</option>
+                <option>2018</option>
+                <option>2017</option>
+                <option>2016</option>
+                <option>2015</option>
+            </select>
+        </div>
+    </div>
+</body>
+</html>

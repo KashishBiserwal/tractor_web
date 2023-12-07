@@ -20,14 +20,12 @@ function login() {
     // console.log(APIBaseURL,"$APIBaseURL")
     
 var apiBaseURL =APIBaseURL;
-// Now you can use the retrieved value in your JavaScript logic
 var url = apiBaseURL + 'user_login';
-   // var url = "<?php echo $APIBaseURL; ?>user_login";
     $.ajax({
         url: url,
         type: "POST",
-        contentType: "application/json", // Set content type to JSON
-        data: JSON.stringify(paraArr), // Convert data to JSON string
+        contentType: "application/json", 
+        data: JSON.stringify(paraArr), 
         success: function (result) {
             console.log(result, "login success");
             localStorage.setItem("token", result.access_token);
