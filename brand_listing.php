@@ -119,7 +119,7 @@
       </div>
       <!-- Table Card -->
       <div class=" mb-5">
-            <div class="table-responsive">
+            <div class="table-responsive shadow bg-white">
               <table id="example" class="table bg-white table-striped table-hover py-1" width="100%">
                 <thead class="">
                   <tr>

@@ -1095,22 +1095,22 @@ border-radius: 50%;
 /* input[type="checkbox"] { display: none; } */
 
 input[type="checkbox"] + label {
-  display: block;
-  position: relative;
-  padding-left: 35px;
+  /* display: block; */
+  /* position: relative; */
+  padding-left: 7PX;
   margin-bottom: 20px;
-  font: 14px/20px 'Open Sans', Arial, sans-serif;
+  /* font: 14px/20px 'Open Sans', Arial, sans-serif; */
   color: black;
   cursor: pointer;
-  -webkit-user-select: none;
+  /* -webkit-user-select: none;
   -moz-user-select: none;
-  -ms-user-select: none;
+  -ms-user-select: none; */
 }
 
 input[type="checkbox"] + label:last-child { margin-bottom: 0; }
 
 input[type="checkbox"] + label:before {
-  content: '';
+  /* content: '';
   display: block;
   width: 20px;
   height: 20px;
@@ -1120,7 +1120,7 @@ input[type="checkbox"] + label:before {
   top: 0;
   opacity: .6;
   -webkit-transition: all .12s, border-color .08s;
-  transition: all .12s, border-color .08s;
+  transition: all .12s, border-color .08s; */
 }
 
 input[type="checkbox"]:checked + label:before {
@@ -1570,6 +1570,42 @@ input[type="checkbox"]:checked + label:before {
   padding-left: 8px;
   padding-right: 8px;
 }
+
+/* spinner */
+#overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(204, 197, 197, 0.8);
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+.cv-spinner {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;  
+}
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px #ddd solid;
+  border-top: 4px #2e93e6 solid;
+  border-radius: 50%;
+  animation: sp-anime 0.8s infinite linear;
+}
+@keyframes sp-anime {
+  100% { 
+    transform: rotate(360deg); 
+  }
+}
+.is-hide{
+  display:none;
+}
 /* carousal */
 #news-slider{
   /* margin-top: 80px; */
@@ -1716,4 +1752,19 @@ input[type="checkbox"]:checked + label:before {
 }
 .trac_dealers li{
   list-style-type: square;
+}
+/* container full width for all screen */
+@media screen and (min-device-width:1000px) and (max-width:1320px){.container-fullwidth{width:1200px !important;margin:0 auto;}
+}
+@media screen and (min-device-width:1520px) and (max-width:1920px){.container-fullwidth{width:1440px !important;margin:0 auto;}
+}
+
+@media screen and (min-device-width:1400px) and (max-device-width:1520px){.container-fullwidth{width:1370px !important;margin:0 auto;}
+}
+
+@media screen and (min-device-width:1320px) and (max-device-width:1400px){.container-fullwidth{width:1270px !important;margin:0 auto;}
+}
+@media only screen and (max-width:786px)
+{}@media only screen and (orientation:landscape){
+.container-fullwidth{width:100%;margin:0 auto;}
 }

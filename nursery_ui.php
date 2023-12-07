@@ -13,7 +13,7 @@
    ?>
 
 <section class="mt-5 pt-5">
-    <div class="container pt-4">
+    <div class="container-fullwidth pt-4">
         <div class="">
             <span class="mt-5 text-white pt-5 ">
                 <a href="index.php" class="text-decoration-none header-link px-1">Home <i class="fa-solid fa-chevron-right px-1"></i></a><span class="text-dark">Nursery</span>
@@ -22,7 +22,7 @@
     </div>
 </section>
 <section >
-    <div class="container mt-4">
+    <div class="container-fullwidth mt-4">
         <div class="row">
             <div class="col-12 col-sm-9 col-lg-9 col-md-9">
                 <h3 class="py-2">Find Your <span class="text-success fw-bold"> Nursery Items</span> </h3>

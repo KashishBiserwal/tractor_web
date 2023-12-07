@@ -624,20 +624,20 @@
         });
     });
 
-    function showEMIForm() {
-        // Validate the first form
-        if ($("#brandModelForm").valid()) {
-            // Hide the first form and show the second form
-            $("#form1").addClass("hidden");
-            $("#form2").removeClass("hidden");
-        }
-    }
+    // function showEMIForm() {
+    //     // Validate the first form
+    //     if ($("#brandModelForm").valid()) {
+    //         // Hide the first form and show the second form
+    //         $("#form1").addClass("hidden");
+    //         $("#form2").removeClass("hidden");
+    //     }
+    // }
 
-    function showBrandModelForm() {
-        // Hide the second form and show the first form
-        $("#form2").addClass("hidden");
-        $("#form1").removeClass("hidden");
-    }
+    // function showBrandModelForm() {
+    //     // Hide the second form and show the first form
+    //     $("#form2").addClass("hidden");
+    //     $("#form1").removeClass("hidden");
+    // }
     </script>
 
 
