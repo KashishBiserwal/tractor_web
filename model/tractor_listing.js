@@ -1,17 +1,13 @@
 $(document).ready(function () {
   get_lookup();
-    // $('.js-example-basic-multiple').select2();
-    $( '#multiple-select-field' ).select2( {
-      theme: "bootstrap-5",
-      width: $( this ).data( 'width' ) ? $( this ).data( 'width' ) : $( this ).hasClass( 'w-100' ) ? '100%' : 'style',
-      placeholder: $( this ).data( 'placeholder' ),
-      closeOnSelect: false,
-  } );
+  $('.js-example-basic-multiple').select2();
 
     getTractorList();
     BackgroundUpload();
+
     $('#save').click(store);
     console.log('fjfej');
+
     $("#add_tractor_form").validate({
       
       rules: {
@@ -138,7 +134,6 @@ $(document).ready(function () {
     function get() {
         // var url = "<?php echo $APIBaseURL; ?>getBrands";
         var apiBaseURL =APIBaseURL;
-        // Now you can use the retrieved value in your JavaScript logic
         var url = apiBaseURL + 'getBrands';
         $.ajax({
             url: url,
@@ -149,7 +144,7 @@ $(document).ready(function () {
             success: function (data) {
                 console.log(data);
                 const select = document.getElementById('brand_name');
-                select.innerHTML = '';
+                // select.innerHTML = '';
 
                 if (data.brands.length > 0) {
                     data.brands.forEach(row => {
@@ -170,33 +165,6 @@ $(document).ready(function () {
     get();
 
 
-  //   function getProductById() {
-  //     var url = "http://127.0.0.1:8000/api/admin/getLookupData";
-  //     console.log(url);
-
-  //     $.ajax({
-  //         url: url,
-  //         type: "GET",
-  //         headers: {
-  //           'Authorization': 'Bearer ' + localStorage.getItem('token')
-  //       },
-  //         success: function(data) {
-  //             console.log(data, 'qqqqqqqq');
-
-  //             data.tractor_type_data.map((i)=>{
-
-  //             })
-              
-  //         // document.getElementById('productName').innerText=data.product.air_filter;
-  //         },
-  //         error: function (error) {
-  //             console.error('Error fetching data:', error);
-  //         }
-  //     });
-  // }
-
-  // getProductById();
-
 
 // fetch lookup data in select box
 function get_lookup() {
@@ -210,11 +178,22 @@ function get_lookup() {
             'Authorization': 'Bearer ' + localStorage.getItem('token')
         },
         success: function (data) {
+          // lookup select
           console.log(data,'ok');
             for (var i = 0; i < data.data.length; i++) {
                 $("select#" + data.data[i].name).append('<option value="' + data.data[i].id + '">' + data.data[i].lookup_data_value + '</option>');
             }
-              
+            // accessory 
+            var acce_Select = $(" #ass_list");
+            acce_Select.empty(); // Clear existing options
+            acce_Select.append('<option selected disabled="" value="">Please select an option</option>'); 
+
+            for (var k = 0; k < data.accessory.length; k++) {
+              acce_Select.append('<option value="' + data.accessory[k].id + '">' + data.accessory[k].accessory+ '</option>');
+            }
+
+
+            // checkbox
             $("#type_name").empty();
             var tractorTypesArray = [];
             // Create checkboxes for each tractor type
@@ -238,13 +217,10 @@ function get_lookup() {
     });
 }
 
-// get_lookup();
-
-
 
 // insert data
 function store(event) {
-
+ console.log('run store function');
   // Get the parent div
   var typeDiv = document.getElementById('type_name');
 
@@ -260,10 +236,21 @@ function store(event) {
       var checkboxValue = checkbox.value;
       selectedCheckboxValues.push(checkboxValue);
     }
+   
+  });
+
+  var selectedOptions = [];
+
+  $("#ass_list option:selected").each(function(){
+      var value = $(this).val();
+      if($.trim(value)){
+          selectedOptions.push(value);
+      }
   });
   
     event.preventDefault();
     console.log("Tractor TYpe : ",selectedCheckboxValues);
+    console.log("accessory select : ",selectedOptions);
     var brand_id = $('#brand_name').val();
     var model = $('#model').val();
     var product_type_id = $('#product_type_id').val();
@@ -302,7 +289,7 @@ function store(event) {
     var WHEEL_DRIVE = $('#WHEEL_DRIVE').val();
     var front_tyre = $('#front_tyre').val();
     var rear_tyre = $('#rear_tyre').val();
-    var accessory = $('#accessory').val();
+    var accessory = selectedOptions;
     var STATUS = $('#STATUS').val();
     var description = $('#description').val();
 
@@ -324,7 +311,7 @@ function store(event) {
       'image_name': image_name,
       'CAPACITY_CC': CAPACITY_CC,
       'engine_rated_rpm': engine_rated_rpm,
-      'COOLING': COOLING,
+      'cooling_id': COOLING,
       'AIR_FILTER': AIR_FILTER,
       'fuel_pump_id': fuel_pump_id,
       'TORQUE': TORQUE,
@@ -346,7 +333,7 @@ function store(event) {
       'WHEEL_DRIVE': WHEEL_DRIVE,
       'front_tyre':front_tyre,
       'rear_tyre':rear_tyre,
-      'accessory':accessory,
+      'accessory_id':accessory,
       'STATUS':STATUS,
       'description':description,
     };
@@ -354,7 +341,6 @@ function store(event) {
     var apiBaseURL =APIBaseURL;
     // Now you can use the retrieved value in your JavaScript logic
     var url = apiBaseURL + 'storeProduct';
-   // var url = "<?php echo $APIBaseURL; ?>user_login";
     // console.log(url);
     var token = localStorage.getItem('token');
     var headers = {
@@ -377,120 +363,4 @@ function store(event) {
     });
   }
 
-  // fetch data
-  function getTractorList() {
-    console.log('kjhskdjf');
-    // var url = "<?php echo $APIBaseURL; ?>getProduct";
-    var apiBaseURL =APIBaseURL;
-    // Now you can use the retrieved value in your JavaScript logic
-    var url = apiBaseURL + 'getProduct';
-
-    // console.log(url);  
-
-    $.ajax({
-        url: url,
-        type: "GET",
-        headers: {
-            'Authorization': 'Bearer ' + localStorage.getItem('token')
-        },
-        success: function (data) {
-            console.log(data);
-
-            const tableBody = document.getElementById('data-table');
-
-            if (data.product && data.product.length > 0) {
-                // console.log(typeof product);
-
-                data.product.forEach(row => {
-                  
-                  const tableRow = document.createElement('tr');
-                  console.log(tableRow, 'helloooo');
-                   
-
-                    tableRow.innerHTML = `
-                   
-                        <td>${row.id}</td>
-                        <td>${row.brand_name}</td>
-                        <td>${row.model}</td>
-                        <td>${row.total_cyclinder_id}</td>
-                        <td>${row.hp_category}</td>
-                        <td>${row.horse_power}</td>
-                        <td>${row.brake_type_id}</td>
-                        <td>${row.steering_details_id}</td>
-                        <td>
-                            <div class="d-flex">
-                                <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.id});">
-                                    <i class="fa fa-trash" style="font-size: 11px;"></i>
-                                </button>
-                            </div>
-                        </td>
-                    `;
-                    tableBody.appendChild(tableRow);
-                });
-            } else {
-                tableBody.innerHTML = '<tr><td colspan="9">No valid data available</td></tr>';
-            }
-        },
-        error: function (error) {
-            console.error('Error fetching data:', error);
-        }
-    });
-}
-
-// delete data
-function destroy(id) {
-//   var url = "<?php echo $APIBaseURL; ?>deleteProduct/" + id;
-var apiBaseURL =APIBaseURL;
-// Now you can use the retrieved value in your JavaScript logic
-var url = apiBaseURL + 'deleteProduct/'+ id;
-
-  var token = localStorage.getItem('token');
-  
-  if (!token) {
-    console.error("Token is missing");
-    return;
-  }
-
-  $.ajax({
-    url: url,
-    type: "DELETE",
-    headers: {
-      'Authorization': 'Bearer ' + token
-    },
-    success: function(result) {
-      window.location.reload();
-      console.log("Delete request successful");
-      alert("Delete operation successful");
-    },
-    error: function(error) {
-      console.error('Error fetching data:', error);
-      alert("Error during delete operation");
-    }
-  });
-}
-
-
-
-
-            // var tractorTypeSelect = $("#type_name");
-            // data.tractor_type_data.map((i)=>{
-              
-            // });
-            // for (var i = 0; i < data.tractor_type_data.length; i++) {
-            //     $("select#" + data.tractor_type_data[i].type_name).append('<option value="' + data.tractor_type_data[i].id + '">' + data.tractor_type_data[i].type_name + '</option>');
-            // }
-            // var tractorTypeSelect = $("select#type_name");
-            // var tractorTypeSelect = $("#staticBackdrop #type_name");
-            // tractorTypeSelect.empty(); // Clear existing options
-            // tractorTypeSelect.append('<option selected disabled="" value="">Please select an option</option>'); 
-
-            // for (var i = 0; i < data.tractor_type_data.length; i++) {
-            //     tractorTypeSelect.append('<option value="' + data.tractor_type_data[i].id + '">' + data.tractor_type_data[i].type_name + '</option>');
-            // }
-
-            // for (var i = 0; i < data.tractor_type_data.length; i++) {
-            //     tractorTypeSelect.append('<option value="' + data.tractor_type_data[i].id + '">' + data.tractor_type_data[i].type_name + '</option>');
-            // }
-
-          
-            // tractorTypeSelect.select2();
+ 
