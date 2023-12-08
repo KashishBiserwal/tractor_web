@@ -65,7 +65,7 @@
                                 </div>
                             </div>
                             <div class="col-12">
-                                    <button type="button" id="adduser"class="btn-state text-decoration-none px-2 w-100">Raipur, Chhattisgarh</a>
+                                    <button type="button" id="adduser"class="btn-state state btn-success text-decoration-none px-2 w-100">Raipur, Chhattisgarh</a>
                             </div>
                         </div>
                     </div>
@@ -95,7 +95,7 @@
                                 </div>
                             </div>
                             <div class="col-12">
-                                    <button type="button" id="adduser"class="btn-state text-decoration-none px-2 w-100">Bilaspur, Chhattisgarh</a>
+                                    <button type="button" id="adduser"class="btn-state state btn-success text-decoration-none px-2 w-100">Bilaspur, Chhattisgarh</a>
                             </div>
                         </div>
                     </div>
@@ -125,7 +125,7 @@
                                 </div>
                             </div>
                             <div class="col-12">
-                                    <button type="button" id="adduser"class="btn-state text-decoration-none px-2 w-100">Surajpur, Chhattisgarh</a>
+                                    <button type="button" id="adduser"class="btn-state state btn-success text-decoration-none px-2 w-100">Surajpur, Chhattisgarh</a>
                             </div>
                         </div>
                     </div>
@@ -155,7 +155,7 @@
                                 </div>
                             </div>
                             <div class="col-12">
-                                    <button type="button" id="adduser"class="btn-state text-decoration-none px-2 w-100">Raipur, Chhattisgarh</a>
+                                    <button type="button" id="adduser"class="btn-state state btn-success text-decoration-none px-2 w-100">Raipur, Chhattisgarh</a>
                             </div>
                         </div>
                     </div>
@@ -186,7 +186,7 @@
                                 </div>
                             </div>
                             <div class="col-12">
-                                    <button type="button" id="adduser"class="btn-state text-decoration-none px-2 w-100">Raipur, Chhattisgarh</a>
+                                    <button type="button" id="adduser"class="btn-state state btn-success text-decoration-none px-2 w-100">Raipur, Chhattisgarh</a>
                             </div>
                         </div>
                     </div>
@@ -216,7 +216,7 @@
                                 </div>
                             </div>
                             <div class="col-12">
-                                    <button type="button" id="adduser"class="btn-state text-decoration-none px-2 w-100">Raipur, Chhattisgarh</a>
+                                    <button type="button" id="adduser"class="btn-state state btn-success text-decoration-none px-2 w-100">Raipur, Chhattisgarh</a>
                             </div>
                         </div>
                     </div>
@@ -246,7 +246,7 @@
                                 </div>
                             </div>
                             <div class="col-12">
-                                    <button type="button" id="adduser"class="btn-state text-decoration-none px-2 w-100">Raipur, Chhattisgarh</a>
+                                    <button type="button" id="adduser"class="btn-state state btn-success text-decoration-none px-2 w-100">Raipur, Chhattisgarh</a>
                             </div>
                         </div>
                     </div>
@@ -276,7 +276,7 @@
                                 </div>
                             </div>
                             <div class="col-12">
-                                    <button type="button" id="adduser"class="btn-state text-decoration-none px-2 w-100">Raipur, Chhattisgarh</a>
+                                    <button type="button" id="adduser"class="btn-state state btn-success text-decoration-none px-2 w-100">Raipur, Chhattisgarh</a>
                             </div>
                         </div>
                     </div>
@@ -306,7 +306,7 @@
                                 </div>
                             </div>
                             <div class="col-12">
-                                    <button type="button" id="adduser"class="btn-state text-decoration-none px-2 w-100">Raipur, Chhattisgarh</a>
+                                    <button type="button" id="adduser"class="btn-state state btn-success text-decoration-none px-2 w-100">Raipur, Chhattisgarh</a>
                             </div>
                         </div>
                     </div>

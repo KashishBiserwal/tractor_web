@@ -47,10 +47,11 @@
             </div>
             <div class="col-12 col-sm-6 col-lg-6 col-md-6">
                  <div class="pirce-section ">
-                    <h5 class="my-1">Price - ₹ 9,50,000</h5>
+                    <h5 class="my-2">Price - ₹ 9,50,000</h5>
                 </div>
+          
+                <form action="" id="interested-harvester-form" class="outline-solid bg-light">
                 <h5 class="text-black fw-bold text-center my-2 ">Interested In Harvester</h5>
-                <form action="" id="interested-harvester-form">
                     <div class="row my-3">
                         <div class="col-12 justify-content-center">
                             <div class="d-flex flex-md-row px-3  flex-column-reverse">

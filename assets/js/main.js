@@ -690,5 +690,137 @@ jQuery("#carousel_related").owlCarousel({
 
 // handleSmallScreens()
 
-//------Validation --------
+
+// sell used**********************
+var currentTab = 0; // Current tab is set to be the first tab (0)
+showTab(currentTab); // Display the current tab
+
+function showTab(n) {
+  // This function will display the specified tab of the form...
+  var x = document.getElementsByClassName("step_sellused");
+  x[n].style.display = "block";
+  //... and fix the Previous/Next buttons:
+  if (n == 0) {
+    document.getElementById("prevBtn_sellused").style.display = "none";
+  } else {
+    document.getElementById("prevBtn_sellused").style.display = "inline";
+  }
+  if (n == (x.length - 1)) {
+    document.getElementById("nextBtn_sellused").innerHTML = "Submit";
+  } else {
+    document.getElementById("nextBtn_sellused").innerHTML = "Next";
+  }
+  //... and run a function that will display the correct step indicator:
+  fixStepIndicator(n)
+}
+
+function nextPrev(n) {
+  // This function will figure out which tab to display
+  var x = document.getElementsByClassName("step_sellused");
+  // Exit the function if any field in the current tab is invalid:
+  if (n == 1 && !validateForm()) return false;
+  // Hide the current tab:
+  x[currentTab].style.display = "none";
+  // Increase or decrease the current tab by 1:
+  currentTab = currentTab + n;
+  // if you have reached the end of the form...
+  if (currentTab >= x.length) {
+    // ... the form gets submitted:
+    document.getElementById("signUpForm_sellused").submit();
+    return false;
+  }
+  // Otherwise, display the correct tab:
+  showTab(currentTab);
+}
+
+//  function validateForm(){
+//   var x, y, i, valid = true;
+//   x = document.getElementsByClassName("step_sellused");
+//   y = x[currentTab].getElementsByTagName("input");
+//   for (i = 0; i < y.length; i++) {
   
+//     if (y[i].value == "") {
+
+//      y[i].className += " invalid";
+
+//       valid = false;
+//     }
+//   }
+
+//  if (valid) {
+//    document.getElementsByClassName("stepIndicator_sellused")[currentTab].className += " finish";
+//  }
+// return valid;                     
+// }
+
+function fixStepIndicator(n) {
+  // This function removes the "active" class of all steps...
+  var i, x = document.getElementsByClassName("stepIndicator_sellused");
+  for (i = 0; i < x.length; i++) {
+    x[i].className = x[i].className.replace(" active", "");
+  }
+  //... and adds the "active" class on the current step:
+  x[n].className += " active";
+}
+
+/* sell harvester multi-image uplode */
+jQuery(document).ready(function () {
+  ImgUpload();
+});
+
+function ImgUpload() {
+  var imgWrap = "";
+  var imgArray = [];
+
+  $('.upload__inputfile').each(function () {
+    $(this).on('change', function (e) {
+      imgWrap = $(this).closest('.upload__box').find('.upload__img-wrap');
+      var maxLength = $(this).attr('data-max_length');
+
+      var files = e.target.files;
+      var filesArr = Array.prototype.slice.call(files);
+      var iterator = 0;
+      filesArr.forEach(function (f, index) {
+
+        if (!f.type.match('image.*')) {
+          return;
+        }
+
+        if (imgArray.length > maxLength) {
+          return false
+        } else {
+          var len = 0;
+          for (var i = 0; i < imgArray.length; i++) {
+            if (imgArray[i] !== undefined) {
+              len++;
+            }
+          }
+          if (len > maxLength) {
+            return false;
+          } else {
+            imgArray.push(f);
+
+            var reader = new FileReader();
+            reader.onload = function (e) {
+              var html = "<div class='upload__img-box'><div style='background-image: url(" + e.target.result + ")' data-number='" + $(".upload__img-close").length + "' data-file='" + f.name + "' class='img-bg'><div class='upload__img-close'></div></div></div>";
+              imgWrap.append(html);
+              iterator++;
+            }
+            reader.readAsDataURL(f);
+          }
+        }
+      });
+    });
+  });
+
+  $('body').on('click', ".upload__img-close", function (e) {
+    var file = $(this).parent().data("file");
+    for (var i = 0; i < imgArray.length; i++) {
+      if (imgArray[i].name === file) {
+        imgArray.splice(i, 1);
+        break;
+      }
+    }
+    $(this).parent().parent().remove();
+  });
+}

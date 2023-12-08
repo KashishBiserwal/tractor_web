@@ -14,8 +14,8 @@
 
 <section class="mt-5 pt-5">
     <div class="container pt-3">
-        <div class="mt-4">
-            <span class="mt-4 text-white pt-4 ">
+        <div class="mt-5">
+            <span class="mt-4 text-white pt-3 ">
                 <a href="index.php" class="text-decoration-none header-link px-1">Home <i class="fa-solid fa-chevron-right px-1"></i></a>
                     <span class=""><a href="#" class="text-decoration-none header-link  px-1">Buy Used <i class="fa-solid fa-chevron-right px-1"></i> </a></span>
                     <span class="text-dark"> Used Harvesters</span>
@@ -51,14 +51,14 @@
                             <div class="content d-flex flex-column flex-grow-1 ">
                                 <div class="caption text-center">
                                     <a href="used_harvester_inner.php" class="text-decoration-none text-dark">
-                                        <p class="pt-3"><strong class="series_tractor_strong text-center h4 fw-bold ">John Deere Green Gold</strong></p>
+                                        <p class="pt-1"><strong class="series_tractor_strong text-center h4 fw-bold ">John Deere Green Gold</strong></p>
                                     </a>      
                                 </div>
-                                <div class="power text-center mt-2">
+                                <div class="power text-center mt-1">
                                     <div class="row ">
                                         <div class="col-12 col-lg-6 col-md-6 col-sm-6"><p class="text-success ps-2">Price : ₹ 950000</p></div>
                                         <div class="col-12 col-lg-6 col-md-6 col-sm-6" style="padding-right: 32px;">
-                                             <p id="adduser" type="" class="btn-success">
+                                             <p id="adduser" type="" class="btn-success rounded-3">
                                              <i class="fa-solid fa-clock"></i> Year : 2011</p>
                                         </div>
                                     </div>  
@@ -68,7 +68,7 @@
                                 </div>
                             </div>
                             <div class="col-12">
-                                    <button type="button" id="adduser"class="btn-state text-decoration-none px-2 w-100">Raipur, Chhattisgarh</a>
+                                    <button type="button" id="adduser"class="btn-state btn-success w-100 text-decoration-none px-2 w-100">Raipur, Chhattisgarh</a>
                             </div>
                         </div>
                     </div>
@@ -84,14 +84,14 @@
                             <div class="content d-flex flex-column flex-grow-1 ">
                                 <div class="caption text-center">
                                     <a href="#" class="text-decoration-none text-dark">
-                                        <p class="pt-3"><strong class="series_tractor_strong text-center h4 fw-bold ">John Deere 12 12 2021</strong></p>
+                                        <p class="pt-1"><strong class="series_tractor_strong text-center h4 fw-bold ">John Deere 12 12 2021</strong></p>
                                     </a>      
                                 </div>
-                                <div class="power text-center mt-2">
+                                <div class="power text-center mt-1">
                                     <div class="row ">
                                         <div class="col-12 col-lg-6 col-md-6 col-sm-6"><p class="text-success ps-2">Price : ₹ 2050000</p></div>
                                         <div class="col-12 col-lg-6 col-md-6 col-sm-6" style="padding-right: 32px;">
-                                             <p id="adduser" type="" class="btn-success">
+                                             <p id="adduser" type="" class="btn-success rounded-3">
                                              <i class="fa-solid fa-clock"></i>Year : 2021</p>
                                         </div>
                                     </div>  
@@ -101,7 +101,7 @@
                                 </div>
                             </div>
                             <div class="col-12">
-                                    <button type="button" id="adduser"class="btn-state text-decoration-none px-2 w-100">Raipur, Chhattisgarh</a>
+                                    <button type="button" id="adduser"class="btn-state btn-success w-100 text-decoration-none px-2 w-100">Raipur, Chhattisgarh</a>
                             </div>
                         </div>
                     </div>
@@ -117,14 +117,14 @@
                             <div class="content d-flex flex-column flex-grow-1 ">
                                 <div class="caption text-center">
                                     <a href="#" class="text-decoration-none text-dark">
-                                        <p class="pt-3"><strong class="series_tractor_strong text-center h4 fw-bold ">Preet 987</strong></p>
+                                        <p class="pt-1"><strong class="series_tractor_strong text-center h4 fw-bold ">Preet 987</strong></p>
                                     </a>      
                                 </div>
-                                <div class="power text-center mt-2">
+                                <div class="power text-center mt-1">
                                     <div class="row ">
                                         <div class="col-12 col-lg-6 col-md-6 col-sm-6"><p class="text-success ps-2">Price : ₹ 1900000</p></div>
                                         <div class="col-12 col-lg-6 col-md-6 col-sm-6" style="padding-right: 32px;">
-                                             <p id="adduser" type="" class="btn-success">
+                                             <p id="adduser" type="" class="btn-success rounded-3">
                                              <i class="fa-solid fa-clock"></i>Year : 2020</p>
                                         </div>
                                     </div>  
@@ -134,7 +134,7 @@
                                 </div>
                             </div>
                             <div class="col-12">
-                                    <button type="button" id="adduser"class="btn-state text-decoration-none px-2 w-100">Raipur, Chhattisgarh</a>
+                                    <button type="button" id="adduser"class="btn-state btn-success w-100 text-decoration-none px-2 w-100">Raipur, Chhattisgarh</a>
                             </div>
                         </div>
                     </div>
@@ -150,14 +150,14 @@
                             <div class="content d-flex flex-column flex-grow-1 ">
                                 <div class="caption text-center">
                                     <a href="#" class="text-decoration-none text-dark">
-                                        <p class="pt-3"><strong class="series_tractor_strong text-center h4 fw-bold ">Kubota Harvest King </strong></p>
+                                        <p class="pt-1"><strong class="series_tractor_strong text-center h4 fw-bold ">Kubota Harvest King </strong></p>
                                     </a>      
                                 </div>
-                                <div class="power text-center mt-2">
+                                <div class="power text-center mt-1">
                                     <div class="row ">
                                         <div class="col-12 col-lg-6 col-md-6 col-sm-6"><p class="text-success ps-2">Price : ₹ 1150000</p></div>
                                         <div class="col-12 col-lg-6 col-md-6 col-sm-6" style="padding-right: 32px;">
-                                             <p id="adduser" type="" class="btn-success">
+                                             <p id="adduser" type="" class="btn-success rounded-3">
                                              <i class="fa-solid fa-clock"></i> Year : 2018</p>
                                         </div>
                                     </div>  
@@ -167,7 +167,7 @@
                                 </div>
                             </div>
                             <div class="col-12">
-                                    <button type="button" id="adduser"class="btn-state text-decoration-none px-2 w-100">Raipur, Chhattisgarh</a>
+                                    <button type="button" id="adduser"class="btn-state btn-success w-100 text-decoration-none px-2 w-100">Raipur, Chhattisgarh</a>
                             </div>
                         </div>
                     </div>
@@ -183,14 +183,14 @@
                             <div class="content d-flex flex-column flex-grow-1 ">
                                 <div class="caption text-center">
                                     <a href="#" class="text-decoration-none text-dark">
-                                        <p class="pt-3"><strong class="series_tractor_strong text-center h4 fw-bold ">Mahindra 2017</strong></p>
+                                        <p class="pt-1"><strong class="series_tractor_strong text-center h4 fw-bold ">Mahindra 2017</strong></p>
                                     </a>      
                                 </div>
-                                <div class="power text-center mt-2">
+                                <div class="power text-center mt-1">
                                     <div class="row ">
                                         <div class="col-12 col-lg-6 col-md-6 col-sm-6"><p class="text-success ps-2">Price : ₹ 1100000</p></div>
                                         <div class="col-12 col-lg-6 col-md-6 col-sm-6" style="padding-right: 32px;">
-                                             <p id="adduser" type="" class="btn-success">
+                                             <p id="adduser" type="" class="btn-success rounded-3">
                                              <i class="fa-solid fa-clock"></i> Year : 2017</p>
                                         </div>
                                     </div>  
@@ -200,7 +200,7 @@
                                 </div>
                             </div>
                             <div class="col-12">
-                                    <button type="button" id="adduser"class="btn-state text-decoration-none px-2 w-100">Raipur, Chhattisgarh</a>
+                                    <button type="button" id="adduser"class="btn-state btn-success w-100 text-decoration-none px-2 w-100">Raipur, Chhattisgarh</a>
                             </div>
                         </div>
                     </div>
@@ -216,14 +216,14 @@
                             <div class="content d-flex flex-column flex-grow-1 ">
                                 <div class="caption text-center">
                                     <a href="#" class="text-decoration-none text-dark">
-                                        <p class="pt-3"><strong class="series_tractor_strong text-center h4 fw-bold ">John Deere Green Gold</strong></p>
+                                        <p class="pt-1"><strong class="series_tractor_strong text-center h4 fw-bold ">John Deere Green Gold</strong></p>
                                     </a>      
                                 </div>
-                                <div class="power text-center mt-2">
+                                <div class="power text-center mt-1">
                                     <div class="row ">
                                         <div class="col-12 col-lg-6 col-md-6 col-sm-6"><p class="text-success ps-2">Price : ₹ 950000</p></div>
                                         <div class="col-12 col-lg-6 col-md-6 col-sm-6" style="padding-right: 32px;">
-                                             <p id="adduser" type="" class="btn-success">
+                                             <p id="adduser" type="" class="btn-success rounded-3">
                                              <i class="fa-solid fa-clock"></i> Year : 2011</p>
                                         </div>
                                     </div>  
@@ -233,7 +233,7 @@
                                 </div>
                             </div>
                             <div class="col-12">
-                                    <button type="button" id="adduser"class="btn-state text-decoration-none px-2 w-100">Raipur, Chhattisgarh</a>
+                                    <button type="button" id="adduser"class="btn-state btn-success text-decoration-none px-2 w-100">Raipur, Chhattisgarh</a>
                             </div>
                         </div>
                     </div>
@@ -249,14 +249,14 @@
                             <div class="content d-flex flex-column flex-grow-1 ">
                                 <div class="caption text-center">
                                     <a href="#" class="text-decoration-none text-dark">
-                                        <p class="pt-3"><strong class="series_tractor_strong text-center h4 fw-bold ">John Deere Green Gold</strong></p>
+                                        <p class="pt-1"><strong class="series_tractor_strong text-center h4 fw-bold ">John Deere Green Gold</strong></p>
                                     </a>      
                                 </div>
-                                <div class="power text-center mt-2">
+                                <div class="power text-center mt-1">
                                     <div class="row ">
                                         <div class="col-12 col-lg-6 col-md-6 col-sm-6"><p class="text-success ps-2">Price : ₹ 950000</p></div>
                                         <div class="col-12 col-lg-6 col-md-6 col-sm-6" style="padding-right: 32px;">
-                                             <p id="adduser" type="" class="btn-success">
+                                             <p id="adduser" type="" class="btn-success rounded-3">
                                              <i class="fa-solid fa-clock"></i> Year : 2011</p>
                                         </div>
                                     </div>  
@@ -266,7 +266,7 @@
                                 </div>
                             </div>
                             <div class="col-12">
-                                    <button type="button" id="adduser"class="btn-state text-decoration-none px-2 w-100">Raipur, Chhattisgarh</a>
+                                    <button type="button" id="adduser"class="btn-state btn-success text-decoration-none px-2 w-100">Raipur, Chhattisgarh</a>
                             </div>
                         </div>
                     </div>
@@ -282,14 +282,14 @@
                             <div class="content d-flex flex-column flex-grow-1 ">
                                 <div class="caption text-center">
                                     <a href="#" class="text-decoration-none text-dark">
-                                        <p class="pt-3"><strong class="series_tractor_strong text-center h4 fw-bold ">John Deere 12 12 2021</strong></p>
+                                        <p class="pt-1"><strong class="series_tractor_strong text-center h4 fw-bold ">John Deere 12 12 2021</strong></p>
                                     </a>      
                                 </div>
-                                <div class="power text-center mt-2">
+                                <div class="power text-center mt-1">
                                     <div class="row ">
                                         <div class="col-12 col-lg-6 col-md-6 col-sm-6"><p class="text-success ps-2">Price : ₹ 2050000</p></div>
                                         <div class="col-12 col-lg-6 col-md-6 col-sm-6" style="padding-right: 32px;">
-                                             <p id="adduser" type="" class="btn-success">
+                                             <p id="adduser" type="" class="btn-success rounded-3">
                                              <i class="fa-solid fa-clock"></i>Year : 2021</p>
                                         </div>
                                     </div>  
@@ -299,7 +299,7 @@
                                 </div>
                             </div>
                             <div class="col-12">
-                                    <button type="button" id="adduser"class="btn-state text-decoration-none px-2 w-100">Raipur, Chhattisgarh</a>
+                                    <button type="button" id="adduser"class="btn-state btn-success text-decoration-none px-2 w-100">Raipur, Chhattisgarh</a>
                             </div>
                         </div>
                     </div>
@@ -315,14 +315,14 @@
                             <div class="content d-flex flex-column flex-grow-1 ">
                                 <div class="caption text-center">
                                     <a href="#" class="text-decoration-none text-dark">
-                                        <p class="pt-3"><strong class="series_tractor_strong text-center h4 fw-bold ">Preet 987</strong></p>
+                                        <p class="pt-1"><strong class="series_tractor_strong text-center h4 fw-bold ">Preet 987</strong></p>
                                     </a>      
                                 </div>
-                                <div class="power text-center mt-2">
+                                <div class="power text-center mt-1">
                                     <div class="row ">
                                         <div class="col-12 col-lg-6 col-md-6 col-sm-6"><p class="text-success ps-2">Price : ₹ 1900000</p></div>
                                         <div class="col-12 col-lg-6 col-md-6 col-sm-6" style="padding-right: 32px;">
-                                             <p id="adduser" type="" class="btn-success">
+                                             <p id="adduser" type="" class="btn-success rounded-3">
                                              <i class="fa-solid fa-clock"></i>Year : 2020</p>
                                         </div>
                                     </div>  
@@ -332,7 +332,7 @@
                                 </div>
                             </div>
                             <div class="col-12">
-                                    <button type="button" id="adduser"class="btn-state text-decoration-none px-2 w-100">Raipur, Chhattisgarh</a>
+                                    <button type="button" id="adduser"class="btn-state btn-success text-decoration-none px-2 w-100">Raipur, Chhattisgarh</a>
                             </div>
                         </div>
                     </div>

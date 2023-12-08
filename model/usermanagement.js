@@ -95,6 +95,10 @@ submitHandler: function(form) {
 form.submit();
 }
 });
+$('#save').on('click', function() {
+  $('#form_add').valid();
+  console.log($('#form_add').valid());
+});
 
 
 
@@ -129,18 +133,17 @@ form.submit();
     var url = apiBaseURL + 'user_registration';
     console.log(url);
 
-    // You may need to include headers, but you should ensure they are properly configured
-    var token = localStorage.getItem('token');
-    var headers = {
-      'Authorization': 'Bearer ' + token
-    };
+    // var token = localStorage.getItem('token');
+    // var headers = {
+    //   'Authorization': 'Bearer ' + token
+    // };
 
     // Make an AJAX request to the server
     $.ajax({
       url: url,
       type: "POST",
       data: paraArr,
-      headers: headers,
+      // headers: headers,
       success: function (result) {
         console.log(result, "result");
         get();

@@ -124,3 +124,189 @@
   font-style: italic;
   font-weight: 300;
 }
+
+
+/* sell used */
+#signUpForm_sellused{
+  /* max-width: 500px; */
+  background-color: #ffffff;
+  margin: 40px auto;
+  padding: 40px;
+  box-shadow: 0px 6px 18px rgb(0 0 0 / 9%);
+  border-radius: 12px;
+  margin-top: -170px;
+}
+#signUpForm_sellused .form-header {
+  gap: 5px;
+  text-align: center;
+  font-size: .9em;
+}
+#signUpForm_sellused .form-header .stepIndicator_sellused {
+  position: relative;
+  flex: 1;
+  padding-bottom: 30px;
+}
+#signUpForm_sellused .form-header .stepIndicator_sellused.active {
+  font-weight: 600;
+}
+#signUpForm_sellused .form-header .stepIndicator_sellused.finish {
+  font-weight: 600;
+  color:#129656;
+}
+#signUpForm_sellused .form-header .stepIndicator_sellused::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  z-index: 9;
+  width: 20px;
+  height: 20px;
+  background-color: #d5efed;
+  border-radius: 50%;
+  border: 3px solid #ecf5f4;
+}
+#signUpForm_sellused .form-header .stepIndicator_sellused.active::before {
+  background-color: #a7ede8;
+  border: 3px solid #d5f9f6;
+}
+#signUpForm_sellused .form-header .stepIndicator_sellused.finish::before {
+  background-color: #129656;
+  border: 3px solid #b7e1dd;
+}
+#signUpForm_sellused .form-header .stepIndicator_sellused::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 8px;
+  width: 100%;
+  height: 3px;
+  background-color: #f3f3f3;
+}
+#signUpForm_sellused .form-header .stepIndicator_sellused.active::after {
+  background-color: #a7ede8;
+}
+#signUpForm_sellused .form-header .stepIndicator_sellused.finish::after {
+  background-color: #129656;
+}
+#signUpForm_sellused .form-header .stepIndicator_sellused:last-child:after {
+  display: none;
+}
+#signUpForm_sellused input {
+  padding: 8px 20px;
+  width: 100%;
+  font-size: 1em;
+  border: 1px solid #e3e3e3;
+  border-radius: 5px;
+}
+#signUpForm_sellused input:focus {
+  border: 1px solid #129656;
+  outline: 0;
+}
+#signUpForm_sellused input.invalid {
+  border: 1px solid #ffaba5;
+}
+#signUpForm_sellused .step_sellused {
+display: none;
+}
+#signUpForm_sellused .form-footer{
+  overflow:auto;
+  gap: 20px;
+}
+#signUpForm_sellused .form-footer button{
+  background-color: #129656;
+  border: 1px solid #129656 !important;
+  color: #ffffff;
+  border: none;
+  padding: 13px 30px;
+  font-size: 1em;
+  cursor: pointer;
+  border-radius: 5px;
+  flex: 1;
+  margin-top: 5px;
+}
+#signUpForm_sellused .form-footer button:hover {
+opacity: 0.8;
+}
+
+#signUpForm_sellused .form-footer #prevBtn_sellused {
+  background-color: #fff;
+  color: #129656;
+}
+
+
+/* sell harvester multi-image uplode */
+.upload__box {
+  padding: 40px;
+ }
+.upload__inputfile {
+  width: .1;
+  height: .1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+}
+
+.upload__btn {
+  display: inline-block;
+  font-weight: 600;
+  color: #fff;
+  text-align: center;
+  min-width: 116px;
+  padding: 3px;
+  transition: all .3s ease;
+  cursor: pointer; */
+  border: 2px solid;
+  background-color: #129656;
+  border-color: #129656;
+  border-radius: 10px;
+  line-height: 26px;
+  font-size: 14px;
+}
+  .upload__btn:hover {
+    background-color: unset;
+    color:  #129656;
+    transition: all .3s ease;
+    border-color: #129656;
+  }
+  
+  .upload__btn-box {
+    margin-bottom: 10px;
+  }
+
+
+.upload__img-wrap{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -10px;
+  }
+  
+  .upload__btn-box{
+    width: 200px;
+    padding: 0 10px;
+    margin-bottom: 12px;
+  }
+  
+  .upload__btn-box-close {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background-color:#129656;
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      text-align: center;
+      line-height: 24px;
+      z-index: 1;
+      cursor: pointer;
+  }
+.img-bg {
+background-repeat: no-repeat;
+background-position: center;
+background-size: cover;
+position: relative;
+padding-bottom: 100%;
+}
+
+

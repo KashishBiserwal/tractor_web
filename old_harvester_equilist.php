@@ -173,7 +173,7 @@
                                     </div>
                                 </div>
                                 <div class="col-12"> <button type="button" class="btn btn-success fw-bold px-3">Submit</button></div>
-                              </form>
+                            </form>
                             </div>
                         </div>
                     </div>
