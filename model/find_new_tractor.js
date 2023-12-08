@@ -5,7 +5,7 @@ $(document).ready(function() {
 });
 
 function getTractorList() {
-    var url = "http://127.0.0.1:8000/api/customer/getProduct";
+    var url = "http://127.0.0.1:8000/api/customer/get_new_tractor";
     console.log(url);
 
     $.ajax({
@@ -20,8 +20,8 @@ function getTractorList() {
             // });
             var productContainer = $("#productContainer");
 
-            if (data.product && data.product.length > 0) {
-                data.product.forEach(function (p) {
+            if (data.product.allProductData && data.product.allProductData.length > 0) {
+                data.product.allProductData.forEach(function (p) {
                     var newCard = `
                     <div class="col-12 col-lg-4 col-md-4 col-sm-4 mb-3">
                     <div class="h-auto success__stry__item d-flex flex-column shadow ">

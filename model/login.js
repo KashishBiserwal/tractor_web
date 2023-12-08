@@ -23,13 +23,15 @@ function login() {
     var paraArr = {};
     paraArr['email'] = email;
     paraArr['password'] = password;
-
-    var apiBaseURL = APIBaseURL; 
-    var url = apiBaseURL + 'user_login';
+    // console.log(APIBaseURL,"$APIBaseURL")
+    
+var apiBaseURL =APIBaseURL;
+var url = apiBaseURL + 'user_login';
     $.ajax({
         url: url,
-        type: 'POST',
-        data: paraArr,
+        type: "POST",
+        contentType: "application/json", 
+        data: JSON.stringify(paraArr), 
         success: function (result) {
             console.log(result, 'login success');
             localStorage.setItem('token', result.access_token);

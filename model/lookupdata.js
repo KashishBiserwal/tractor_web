@@ -65,13 +65,13 @@ function store(event) {
 event.preventDefault();
 console.log('jfhfhw');
 var lookup_type = $('#lookupSelectbox').val();
-var lookup_type = $('#lookup_data_value').val();
+var lookup_data_value = $('#lookup_data_value').val();
 console.log(lookup_type);
 
 // Prepare data to send to the server
 var paraArr = {
   'lookup_type_id': lookup_type,
-  'lookup_type':lookup_type
+  'lookup_data_value':lookup_data_value
 };
 
 // var url = "<?php echo $APIBaseURL; ?>lookup_data";
@@ -92,7 +92,7 @@ $.ajax({
   headers: headers,
   success: function (result) {
     console.log(result, "result");
-    window.location.href = "<?php echo $baseUrl; ?>lookup_data.php"; 
+    // window.location.href = "<?php echo $baseUrl; ?>lookup_data.php"; 
     console.log("Add successfully");
     alert('successfully inserted..!')
   },

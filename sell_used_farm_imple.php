@@ -13,7 +13,7 @@
    ?>
 
 <section class="bg-light mt-5 pt-5">
-    <div class="container py-2">
+    <div class="container pt-5">
         <div class="py-2">
             <span class="my-4 text-white pt-4 ">
                 <a href="index.php" class="text-decoration-none header-link px-1">Home <i class="fa-solid fa-chevron-right px-1"></i></a>
@@ -25,85 +25,145 @@
 </section>
 <section>
     <div class="d-sm-flex align-items-center justify-content-between w-100">
-        <div class="col-md-4 mx-auto mb-4 mb-sm-0 text-center headline ps-4">
-            <span class="text-secondary text-uppercase"></span>
-            <h2 class=" text-dark ">Sell Your <span class="text-success"> Used Implements</span></h2>
-            <h4 class="mb-4">Fill the information to sell your used Implement</h4>
-            <!-- <a class="btn px-5 py-3 text-white mt-3 mt-sm-0 btn-success" type="
-            button"  data-toggle="modal" data-target="#exampleModal" style="border-radius: 30px; ">Get Valuation</a> -->
-            <!-- Button trigger modal -->
-            <button type="button" class="btn px-5 py-3 text-white mt-3 mt-sm-0 btn-success" data-bs-toggle="modal" style="border-radius: 27px; "data-bs-target="#exampleModal">
-                Sell Used Implements
-            </button>
 
-            <!-- Modal -->
-            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-lg modal-dialog-centered">
-                    <div class="modal-content modal_box">
-                    <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="exampleModalLabel">YOUR IMPLEMENT INFORMATIONS</h1>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <!-- in mobile remove the clippath -->
+        <div class="col-12 h-100 " style="min-height: 360px; background-image: url(assets/images/image_2023_09_02T08_22_01_554Z.png); background-position: center; background-size: cover;">
+        </div>
+    </div>
+    <div class="page-banner-content text-center position-absolute px-2">
+    <h2 class=" text-dark ">Sell Your <span class="text-success">Used Implements</span></h2>
+    <h4 class="mb-4">"Fill the information to sell your used Implement"</h4>
+        </div>
+</section>
+<section class="form-view bg-white ">
+    <div class="container-mid" style="position: relative;">
+        <div class="row justify-content-center">
+            <div class="col-md-8 col-lg-7">
+                <form id="signUpForm_sellused" action="#!" class="bg-light">
+                    <div class="form-header d-flex mb-4">
+                        <span class="stepIndicator_sellused">Tractor Type</span>
+                        <span class="stepIndicator_sellused">Condition State</span>
+                        <span class="stepIndicator_sellused">Images</span>
                     </div>
-                    <div class="modal-body">
-                        <div class="row justify-content-center">
-                            <div class="col-lg-10">
-                            <!-- <h3 class="mb-3">Fill The Form</h3> -->
-                            <form>
-                                <div class="row ">
-                                    <div class="col-12 my-2">
-                                        <label for="location" class=" text-dark float-start fw-bold"> Category</label>
-                                        <select class="form-select" aria-label="Default select example">
-                                            <option selected>Select Category</option>
-                                            <option value="Rotavator">Rotavator</option>
-                                            <option value="Mounted">Tractor Mounted Sprayer</option>
-                                            <option value="Plough">Plough</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-12 col-lg-6 col-sm-6 col-md-6 my-2">
-                                        <label for="location" class=" text-dark float-start fw-bold"> Brand</label>
-                                        <select class="form-select" aria-label="Default select example">
-                                            <option selected>Select Brand</option>
-                                            <option value="Agristar">Agristar</option>
-                                            <option value="Agrizone">Agrizone</option>
-                                            <option value="Plough">Balwaan</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-12 col-lg-6 col-sm-6 col-md-6 my-2">
-                                        <label for="name" class=" text-dark float-start fw-bold">Model Name</label>
-                                        <input type="text" class="form-control" id="name" placeholder="Model Name" name="name" required>
-                                    </div>
-                                    <div class="col-12 col-lg-6 col-sm-5 col-md-6 my-2">
-                                        <label for="location" class=" text-dark float-start fw-bold">Purchase Year</label>
-                                        <select class="form-select" aria-label="Default select example">
-                                            <option selected>Select Purchase Year</option>
-                                            <option value="2023">2023</option>
-                                            <option value="2022">2022</option>
-                                            <option value="2021">2021</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-12 col-lg-6 col-sm-5 col-md-6 mt-4 pt-2">
-                                        <button data-res="<?php echo $sum; ?>" type="submit" class=" btn btn-success w-100 fw-bold" >Sell Now</button>
-                                    </div>
-                                </div>
-                            </form>
+                    <div class="step_sellused">
+                        <p class="text-center mb-4">Sell Your Used Tractort</p>
+                        <div class="row">
+                            <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
+                                <label for="name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i> First Name</label>
+                                <input type="text" class="form-control" placeholder="Enter Your Name" id="fname" name="fname">
+                            </div>
+                            <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
+                                <label for="name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i> Last Name</label>
+                                <input type="text" class="form-control" placeholder="Enter Your Name" id="lname" name="lname">
+                            </div>
+                            <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
+                                <label for="number" class="form-label text-dark fw-bold"> <i class="fa fa-phone" aria-hidden="true"></i> Phone Number</label>
+                                <input type="password" class="form-control" placeholder="Enter Number" id="number" name="number">
+                            </div>
+                            <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+                                <label for="yr_tehsil" class="form-label text-dark"> Tehsil</label>
+                                <input type="yr_tehsil" class="form-control" placeholder="Enter Tehsil" id="tehsil" name="tehsil">
+                            </div>
+                            <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+                                <label for="yr_state" class="form-label text-dark fw-bold" id="state" name="state"> <i class="fas fa-location"></i> State</label>
+                                <select class="form-select py-2 " aria-label=".form-select-lg example"id="state" name="state">
+                                    <option value>Select State</option>
+                                    <option value="1">Chhattisgarh</option>
+                                    <option value="2">Other</option>
+                                </select>
+                            </div>
+                            <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+                                <label class="form-label text-dark"><i class="fa-solid fa-location-dot"></i> District</label>
+                                <select class="form-select py-2 " aria-label=".form-select-lg example" name="district" id="district">
+                                    <option value>Select District</option>
+                                    <option value="1">Raipur</option>
+                                    <option value="2">Bilaspur</option>
+                                    <option value="2">Durg</option>
+                                </select>
                             </div>
                         </div>
                     </div>
-                    <div class="modal-footer">
-                        <button type="button" class=" btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="button" class=" btn btn-success">Save changes</button>
+                    <div class="step_sellused">
+                        <p class="text-center mb-4">Which tractor do you Own?</p>
+                        <div class="row">
+                            <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+                                <label class="form-label text-dark">Brand</label>
+                                <select class="form-select py-2 " aria-label=".form-select-lg example" name="Brand" id="Brand">
+                                    <option value>Select Brand</option>
+                                    <option value="1">Mahindra</option>
+                                    <option value="2">svaraj</option>
+                                    <option value="2">sonakila</option>
+                                </select>
+                            </div>
+                            <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+                                <label class="form-label text-dark my-1">Model</label>
+                                <select class="form-select py-2 " aria-label=".form-select-lg example" name="Model" id="Model">
+                                    <option value>Select Model</option>
+                                    <option value="1">MU4501 2WD</option>
+                                    <option value="2">MU5501</option>
+                                    <option value="2">A211N-OP</option>
+                                </select>
+                            </div>
+                            <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+                                <label class="form-label text-dark my-1">Year</label>
+                                <select class="form-select py-2 " aria-label=".form-select-lg example" name="year" id="year">
+                                    <option value>Select year</option>
+                                    <option value="1">2007</option>
+                                    <option value="2">2008</option>
+                                    <option value="2">2010</option>
+                                </select>
+                            </div>
+                            <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+                                <label class="form-label text-dark my-1">Engine Condition</label>
+                               <select class="form-select py-2 " aria-label=".form-select-lg example" name="engine_condition" id="engine_conditin">
+                                    <option value>Select Engine Condition</option>
+                                    <option value="1">0-25%(poor)</option>
+                                    <option value="2">25-50%(Average)</option>
+                                    <option value="2">51-75%(Good)</option>
+                                    <option value="2">76-100%(Very Good)</option>
+                                </select>
+                            </div>
+                            <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+                                <label class="form-label text-dark my-1">Tyre Condition</label>
+                                <select class="form-select py-2" aria-label=".form-select-lg example" name="Tyre_Condition"id="Tyre_Condition">
+                                    <option value>Select Engine Condition</option>
+                                    <option value="1">0-25%(poor)</option>
+                                    <option value="2">25-50%(Average)</option>
+                                    <option value="2">51-75%(Good)</option>
+                                    <option value="2">76-100%(Very Good)</option>
+                                </select>
+                            </div>
+                            <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+                                <label class="form-label text-dark my-1">Hours driven</label>
+                                <select class="form-select py-2 " aria-label=".form-select-lg example" name="hours_driven" id="hours_driven">
+                                    <option value>Select Hours Driven</option>
+                                    <option value="1">Less then 1000</option>
+                                    <option value="2">1001-2000</option>
+                                    <option value="2">2001-3000</option>
+                                </select>
+                            </div>
+                        </div>
                     </div>
+                    <div class="step_sellused">
+                        <p class="text-center mb-4">Upload Tractor Images</p>
+                        <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+                            <input type="file" id="myFile" name="filename">
+                        </div>
+                        <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+                            <label class="form-label text-dark my-1">How early do you want to sell?</label>
+                            <select class="form-select py-2 " aria-label=".form-select-lg example" name="" id="">
+                                <option value>Within 15 days</option>
+                                <option value="1">15-30 days</option>
+                                <option value="2">More then 30 days</option>
+                            </select>
+                        </div>
                     </div>
-                </div>
+                     <div class="form-footer d-flex my-3">
+                        <button type="submit" id="prevBtn_sellused" onclick="nextPrev(-1)">Previous</button>
+                        <button type="submit" id="nextBtn_sellused" onclick="nextPrev(1)">Next</button>
+                    </div>
+                </form>
             </div>
-
-             
-            
-        </div>
-            
-        <!-- in mobile remove the clippath -->
-        <div class="col-md-8 h-100 clipped" style="min-height: 350px; background-image: url(assets/images/image_2023_09_02T08_22_01_554Z.png); background-position: center; background-size: cover;">
-
         </div>
     </div>
 </section>
@@ -161,4 +221,90 @@
     include 'includes/footertag.php';
 
     ?>
+    <script>
+          $(document).ready(function(){
+        $('#signUpForm_sellused').validate({
+          rules:{
+            fname:{
+                required:true,
+            },
+            lname:{
+                required:true,
+            },
+            number:{
+                required:true,
+            },
+            state:{
+                required:true,
+            },
+            district:{
+                required:true,
+            },
+            Brand:{
+                required:true,
+            },
+            Model:{
+                required:true,
+            },
+            year:{
+                required:true,
+            },
+            engine_condition:{
+                required:true,
+            },
+            Tyre_Condition:{
+                required:true,
+            },
+            hours_driven:{
+                required:true,
+            },
+            myFile:{
+                required:true,
+            }
+          },
+          messages:{
+            fname:{
+                required:"This flied is requred",
+            },
+            lname:{
+                required:"This flied is requred",
+            },
+            number:{
+                required:"This flied is requred",
+            },
+            state:{
+                required:"This flied is requred",
+            },
+            district:{
+                required:"This flied is requred",
+            },
+            Brand:{
+                required:"This flied is requred",
+            },
+            Model:{
+                required:"This flied is requred",
+            },
+            year:{
+                required:"This flied is requred",
+            },
+            engine_condition:{
+                required:"This flied is requred",
+            },
+            Tyre_Condition:{
+                required:"This flied is requred",
+            },
+            hours_driven:{
+                required:"This flied is requred",
+            },
+            myFile:{
+                required:"This flied is requred",
+            }
+          },
+          submitHandler: function(form) {
+        form.submit();
+          }
+        });
+        });
+        
+    </script>
     </html>

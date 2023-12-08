@@ -1,40 +1,104 @@
 $(document).ready(function() {
+console.log("ready");
+  jQuery.validator.addMethod("customPhoneNumber", function(value, element) {
+    return /^[6-9]\d{9}$/.test(value); 
+  }, "Phone number must start with 6 or above");
 
-    $("#form").validate({
-      rules:{
-        first_name:"required",
-        last_name:"required",
-     password:{
-      required:true,
-      minlenght:5
-     },
-     password_confirmation:{
-      required:true,
-      minlenght:5,
-      equalTo:"password"
-     },
-     email:{
-      required:true,
-      email:true
-     },
-     user_type:"required"
-    },
-    messages:{
-      first_name:"Please Enter Your First Name",
-      last_name:"Please Enter Your Last Name",
-      password:{
-        required:"Please provide a valid password",
-        minlenght:"Your password must be atleast 5 character long"
-      },
-      password_confirmation:{
-        required:"Please provide a valid password",
-        minlenght:"Your password must be atleast 5 character long",
-        equalTo:"Please enter  as same password above"
-      },
-      user_type:"Enter a user type"
+  $('#password, #password_confirmation').on('keyup', function(){
+    $('.confirm-message').removeClass('success-message').removeClass('error-message');
+    let password=$('#password').val();
+    let confirm_password=$('#password_confirmation').val();
+    if(password===""){
+      $('.confirm-message').text("Password Field cannot be empty").addClass('error-message');
+    }
+    else if(confirm_password===""){
+        $('.confirm-message').text("Confirm Password Field cannot be empty").addClass('error-message');
+    }
+    else if(confirm_password===password)
+    {
+        $('.confirm-message').text('Password Match!').addClass('success-message');
+    }
+    else{
+        $('.confirm-message').text("Password Doesn't Match!").addClass('error-message');
     }
 
-    });
+  });
+$('#form_add').validate({
+rules:{
+  first_name:{
+        required:true,
+    },
+    last_name:{
+        required:true,
+    },
+    mobile:{
+      required:true,
+      minlength: 10,
+      maxlength:10,
+      digits: true,
+      customPhoneNumber: true
+    },
+    password:{
+        required:true,
+        minlength:5
+    },
+    password_confirmation:{
+     required:true,
+     minlength:5,
+     
+     equalTo:'[name="password"]'
+    },
+    email:{
+        required:true,
+        email:true
+    },
+    user_type:{
+        required:true,
+    },
+    status:{
+        required:true,
+    }
+},
+messages:{
+  first_name:{
+        required:"Please Enter Your First Name",
+    },
+    last_name:{
+        required:"Please Enter Your Last Name",
+    },
+    mobile:{
+      required:"Please Enter Your Contact Number",
+      minlength: "Phone Number must be of 10 Digit long",
+      maxlength:"Enter only 10 digits",
+      digits: "Please enter only digits"
+    },
+    password:{
+      required:"Please provide a valid password",
+      minlenght:"Your password must be atleast 5 character long"
+    },
+    password_confirmation:{
+      required:"Please provide a valid password",
+      minlenght:"Your password must be atleast 5 character long",
+      equalTo:"Please enter  as same password above"
+    },
+    email:{
+        required:"Please Enter Your Email",
+    },
+    user_type:{
+        required:"Please Select Your User Type",
+    },
+    status:{
+        required:"Please select Your Status",
+    }
+},
+submitHandler: function(form) {
+form.submit();
+}
+});
+$('#save').on('click', function() {
+  $('#form_add').valid();
+  console.log($('#form_add').valid());
+});
 
 
 
@@ -69,22 +133,20 @@ $(document).ready(function() {
     var url = apiBaseURL + 'user_registration';
     console.log(url);
 
-    // You may need to include headers, but you should ensure they are properly configured
-    var token = localStorage.getItem('token');
-    var headers = {
-      'Authorization': 'Bearer ' + token
-    };
+    // var token = localStorage.getItem('token');
+    // var headers = {
+    //   'Authorization': 'Bearer ' + token
+    // };
 
     // Make an AJAX request to the server
     $.ajax({
       url: url,
       type: "POST",
       data: paraArr,
-      headers: headers,
+      // headers: headers,
       success: function (result) {
         console.log(result, "result");
-        // Redirect to a success page or perform other actions
-        window.location.href = "<?php echo $baseUrl; ?>usermanagement.php"; 
+        get();
         console.log("Add successfully");
         alert('successfully inserted..!')
       },

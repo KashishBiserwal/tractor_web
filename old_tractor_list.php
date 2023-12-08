@@ -271,7 +271,6 @@ include 'includes/headertag.php';
    ?> 
  <script>
         $(document).ready(function() {
-
           $('input[type="radio"]').change(function(){
         if($(this).attr('id') == 'yes'){
             $('#nocDiv').show();
@@ -279,97 +278,98 @@ include 'includes/headertag.php';
             $('#nocDiv').hide();
         }
       });
+    });
         
-          BackgroundUpload()
-            $("#old_tract").validate({
-                rules: {
-                    first_name: 'required',
-                    last_name: 'required',
-                    mobile_number: {
-                        required: true,
-                        digits: true, // Allow only digits
-                    },
-                    state: "required",
-                    district: "required",
-                    brand:"required",
-                    model:"required",
-                    year:"required",
-                    condition:"required",
-                    tyrecondition:"required",
-                    brand_img:"required",
-                    hour:"required",
-                    rc:"rc",
-                    description:"required",
-                    fav_language:"required",
-                    fav_language1:"required",
-                }
-            });
-            $('#old_btn').on('click', function() {
-                $('#old_tract').valid();
-                console.log($('#old_tract').valid());
-            });
-        });
+//           BackgroundUpload()
+//             $("#old_tract").validate({
+//                 rules: {
+//                     first_name: 'required',
+//                     last_name: 'required',
+//                     mobile_number: {
+//                         required: true,
+//                         digits: true, // Allow only digits
+//                     },
+//                     state: "required",
+//                     district: "required",
+//                     brand:"required",
+//                     model:"required",
+//                     year:"required",
+//                     condition:"required",
+//                     tyrecondition:"required",
+//                     brand_img:"required",
+//                     hour:"required",
+//                     rc:"rc",
+//                     description:"required",
+//                     fav_language:"required",
+//                     fav_language1:"required",
+//                 }
+//             });
+//             $('#old_btn').on('click', function() {
+//                 $('#old_tract').valid();
+//                 console.log($('#old_tract').valid());
+//             });
+//         });
 
-function BackgroundUpload(){
-    var imgWrap = "";
-    var imgArray = [];
+// function BackgroundUpload(){
+//     var imgWrap = "";
+//     var imgArray = [];
 
-    function generateUniqueClassName(index) {
-      return "background-image-" + index;
-    }
+//     function generateUniqueClassName(index) {
+//       return "background-image-" + index;
+//     }
 
-    $('.background__inputfile').each(function () {
-      $(this).on('change', function (e) {
-        imgWrap = $(this).closest('.background__box').find('.background__img-wrap');
-        var maxLength = $(this).attr('data-max_length');
+//     $('.background__inputfile').each(function () {
+//       $(this).on('change', function (e) {
+//         imgWrap = $(this).closest('.background__box').find('.background__img-wrap');
+//         var maxLength = $(this).attr('data-max_length');
 
-        var files = e.target.files;
-        var filesArr = Array.prototype.slice.call(files);
-        var iterator = 0;
-        filesArr.forEach(function (f, index) {
+//         var files = e.target.files;
+//         var filesArr = Array.prototype.slice.call(files);
+//         var iterator = 0;
+//         filesArr.forEach(function (f, index) {
 
-          if (!f.type.match('image.*')) {
-            return;
-          }
+//           if (!f.type.match('image.*')) {
+//             return;
+//           }
 
-          if (imgArray.length > maxLength) {
-            return false;
-          } else {
-            var len = 0;
-            for (var i = 0; i < imgArray.length; i++) {
-              if (imgArray[i] !== undefined) {
-                len++;
-              }
-            }
-            if (len > maxLength) {
-              return false;
-            } else {
-              imgArray.push(f);
+//           if (imgArray.length > maxLength) {
+//             return false;
+//           } else {
+//             var len = 0;
+//             for (var i = 0; i < imgArray.length; i++) {
+//               if (imgArray[i] !== undefined) {
+//                 len++;
+//               }
+//             }
+//             if (len > maxLength) {
+//               return false;
+//             } else {
+//               imgArray.push(f);
 
-              var reader = new FileReader();
-              reader.onload = function (e) {
-                var className = generateUniqueClassName(iterator);
-                var html = "<div class='background__img-box'><div onclick='BackgroundImage(\"" + className + "\")' style='background-image: url(" + e.target.result + ")' data-number='" + $(".background__img-close").length + "' data-file='" + f.name + "' class='img-bg " + className + "'><div class='background__img-close'></div></div></div>";
-                imgWrap.append(html);
-                iterator++;
-              }
-              reader.readAsDataURL(f);
-            }
-          }
-        });
-      });
-    });
+//               var reader = new FileReader();
+//               reader.onload = function (e) {
+//                 var className = generateUniqueClassName(iterator);
+//                 var html = "<div class='background__img-box'><div onclick='BackgroundImage(\"" + className + "\")' style='background-image: url(" + e.target.result + ")' data-number='" + $(".background__img-close").length + "' data-file='" + f.name + "' class='img-bg " + className + "'><div class='background__img-close'></div></div></div>";
+//                 imgWrap.append(html);
+//                 iterator++;
+//               }
+//               reader.readAsDataURL(f);
+//             }
+//           }
+//         });
+//       });
+//     });
 
-    $('body').on('click', ".background__img-close", function (e) {
-      var file = $(this).parent().data("file");
-      for (var i = 0; i < imgArray.length; i++) {
-        if (imgArray[i].name === file) {
-          imgArray.splice(i, 1);
-          break;
-        }
-      }
-      $(this).parent().parent().remove();
-    });
-}
+//     $('body').on('click', ".background__img-close", function (e) {
+//       var file = $(this).parent().data("file");
+//       for (var i = 0; i < imgArray.length; i++) {
+//         if (imgArray[i].name === file) {
+//           imgArray.splice(i, 1);
+//           break;
+//         }
+//       }
+//       $(this).parent().parent().remove();
+//     });
+// }
    </script>
                        
