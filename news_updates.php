@@ -16,7 +16,6 @@
         <div class="card-body d-flex align-items-center justify-content-between page_title">
           <nav aria-label="breadcrumb">
             <ol class="breadcrumb my-0 ms-2">
-              
               <li class="breadcrumb-item">
                 <span>News & Updates</span>
               </li>
@@ -120,25 +119,24 @@
             </div>
             <div class="col-12 col-sm-12 col-md-4 col-lg-4">
               <div class="text-center float-end">
+              <button type="button" class="btn-success btn mx-2 btn_search" id="Reset">Reset</button>
                 <button type="button" class="btn-success btn btn_search" id="Search">Search</button>
-                <button type="button" class="btn-success btn mx-2 btn_search" id="Reset">Reset</button>
               </div>
             </div>
           </div>
         </div>
       </div>
       <!-- Table Card -->
-      <div class=" mb-5">
+                         <div class=" mb-5">
                             <div class="table-responsive">
                                 <table id="example" class="table dataTable no-footer py-1" width="100%">
                                     <thead>
                                         <tr>
                                             <th class="d-none d-md-table-cell text-dark">S.No.</th>
-                                            <!-- <th class="d-none d-md-table-cell text-dark">Category</th> -->
+                                            <th class="d-none d-md-table-cell text-dark">Date</th>
                                             <th class="d-none d-md-table-cell text-dark">Category</th>
-                                            <th class="d-none d-md-table-cell text-dark">Photo</th>
                                             <th class="d-none d-md-table-cell text-dark">Headline </th>
-                                            <th class="d-none d-md-table-cell text-dark">Body</th>
+                                            <th class="d-none d-md-table-cell text-dark">Action</th>
                                            
                                         </tr>
                                     </thead>
@@ -146,7 +144,7 @@
                                     </tbody>
                                 </table>
                             </div>
-      </div>
+                       </div>
     </div>
    </section>
       
