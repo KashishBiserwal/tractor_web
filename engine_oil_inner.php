@@ -49,7 +49,7 @@
                         <div thumbsSlider="" class="swiper mySwiper_buy"></div>
                     </div>
                 </div>
-                <div class="col-12 col-sm-6 col-lg-6 col-md-6">
+                <div class="col-12 col-sm-6 col-lg-6 col-md-6 mt-4">
                     <h2 class="text-danger fw-bold me-5">About This Engine Oil</h2>
                     <form action="">
                         <div class="row my-3">
@@ -59,31 +59,31 @@
                                         <!-- <div class=" ml-2"> -->
                                         <div class="row px-3 ">
                                             <div class="col-12 col-lg-3 col-md-3 col-sm-3 ">
-                                                <p class="fw-bold text-dark">Name:-</p>                                
+                                                <p class="fw-bold text-dark">Name</p>                                
                                             </div>
                                             <div class="col-12 col-lg-9 col-md-9 col-sm-9 ">
                                                 <p>M-Star Mahindra Genuine Engine Oil</p>                                
                                             </div>
                                             <div class="col-12 col-lg-3 col-md-3 col-sm-3 ">
-                                                <p class="fw-bold text-dark">Grade:-</p>                                
+                                                <p class="fw-bold text-dark">Grade</p>                                
                                             </div>
                                             <div class="col-12 col-lg-9 col-md-9 col-sm-9 ">
                                                 <p>20W</p>                                
                                             </div>
                                             <div class="col-12 col-lg-3 col-md-3 col-sm-3 ">
-                                                <p class="fw-bold text-dark">Quantity:-</p>                                
+                                                <p class="fw-bold text-dark">Quantity</p>                                
                                             </div>
                                             <div class="col-12 col-lg-9 col-md-9 col-sm-9 ">
                                                 <p>7.0 L</p>                                
                                             </div>
                                             <div class="col-12 col-lg-3 col-md-3 col-sm-3 ">
-                                                <p class="fw-bold text-dark">price:-</p>                                
+                                                <p class="fw-bold text-dark">Price</p>                                
                                             </div>
                                             <div class="col-12 col-lg-9 col-md-9 col-sm-9 ">
-                                                <p>4099/-</p>                                
+                                                <p>₹4099/-</p>                                
                                             </div>
                                             <div class="col-12 col-lg-3 col-md-3 col-sm-3 ">
-                                                <p class="fw-bold text-dark">Compatible Tractors:-</p>                                
+                                                <p class="fw-bold text-dark">Compatible Tractors</p>                                
                                             </div>
                                             <div class="col-12 col-lg-2 col-md-2 col-sm-2">
                                                 <p>475 DI </p>                                
@@ -95,8 +95,8 @@
                                                 <p>475 DI </p>                                
                                             </div>                                            
                                             <div class="row mt-1">
-                                                <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
-                                                    <button type="button" class="btn btn-success w-100" data-bs-toggle="modal" data-bs-target="#staticBackdrop3">
+                                                <div class="col-12 col-lg-12 col-md-12 col-sm-12">
+                                                    <button type="button" class="btn btn-success text-center ms-1 w-100" data-bs-toggle="modal" data-bs-target="#staticBackdrop3">
                                                         Request Call Back
                                                     </button>
                                                 </div>
@@ -227,7 +227,7 @@
                                 <p>Price-</p>
                                 </div>
                                 <div class="col-12 col-lg-10 col-md-10 col-sm-10 text-start">
-                                <p class="ms-2">₹ 4099</p>
+                                <p class="ms-2">₹4099</p>
                                 </div>                  
                             </div>  
                         </a>
@@ -272,7 +272,7 @@
                                 <p>Price-</p>
                                 </div>
                                 <div class="col-12 col-lg-10 col-md-10 col-sm-10 text-start">
-                                <p class="ms-2">₹ 4099</p>
+                                <p class="ms-2">₹4099</p>
                                 </div>                  
                             </div>  
                         </a>
@@ -317,7 +317,7 @@
                                 <p>Price-</p>
                                 </div>
                                 <div class="col-12 col-lg-10 col-md-10 col-sm-10 text-start">
-                                <p class="ms-2">₹ 4099</p>
+                                <p class="ms-2">₹4099</p>
                                 </div>                  
                             </div>  
                         </a>
@@ -362,7 +362,7 @@
                                 <p>Price-</p>
                                 </div>
                                 <div class="col-12 col-lg-10 col-md-10 col-sm-10 text-start">
-                                <p class="ms-2">₹ 4099</p>
+                                <p class="ms-2">₹4099</p>
                                 </div>                  
                             </div>  
                         </a>

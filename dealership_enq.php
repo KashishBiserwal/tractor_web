@@ -30,7 +30,7 @@
         </div>
         <div class="page-banner-content text-center position-absolute px-2">
             <h1>Tractor Dealer Enquiry</h1>
-            <p>Enquiry Form</p>
+            <!-- <p>Enquiry Form</p> -->
         </div>
     </section>
 
@@ -108,9 +108,9 @@
                                 </div>
                             </div>
                             <div class="text-center  my-3">
-                                <button type="submit" id="delership_enq_btn" class="btn btn-success mt-1 px-5 w-100 ">Click Here</button>         
+                                <button type="submit" id="delership_enq_btn" class="btn btn-success mt-1 px-5 w-100 ">Submit</button>         
                             </div>        
-                            <p class="mb-0 text-center">By proceeding ahead you expressly agree to the Tractor Junctions <a href="#" class="text-decoration-none" target="_blank" title="terms and conditions">terms and conditions*</a></p>
+                            <p class="mb-0 text-center">By proceeding ahead you expressly agree to the Bharat Tractors <a href="#" class="text-decoration-none" target="_blank" title="terms and conditions">terms and conditions*</a></p>
                         </div>
                     </form>
                 </div>

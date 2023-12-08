@@ -13,67 +13,116 @@
           <span class="mt-4 pt-4 ">
           <a href="index.php" class="text-decoration-none header-link px-1">Home <i class="fa-solid fa-chevron-right px-1"></i></a>
           <a href="certified_dealers.php" class="text-decoration-none header-link px-1">Certified Dealers <i class="fa-solid fa-chevron-right px-1"></i></a>
-          <span class="text-dark">Ratna Automotive Pvt. Ltd.</span>
+          <span class="text-dark" id="">Ratna Automotive Pvt. Ltd.</span>
         </div>
       </div>
     </section>
     
     <section>
       <div class="container">
-        <div class="vegehead pt-3">
-          <div class="row">
-            <div class="col-12 col-lg-6 ">
-              <h1 class="fw-bold text-danger pt-3">Ratna Automotive Pvt. Ltd.</h1>
-            </div>
-          </div>
-        </div>        
-        <div class="row mt-3">
-
-        <div class="col-12 col-sm-6 col-lg-6 col-md-6">
-            <div>
-              <div class="swiper swiper_buy mySwiper2_buy">
-                <div class="swiper-wrapper swiper-wrapper_buy" style="height:60px">
-                  <div class=" swiper-slide swiper-slide_buy">
-                    <img class="img_buy" src="assets/images/nursury.jpg" />
-                  </div>
-                  <div class="swiper-slide swiper-slide_buy">
-                    <img class="img_buy " src="assets/images/360_F_244762082_uooufBapemjGDq3em6RW41iiYvMoifJS.jpg" />
-                  </div>
-                  <div class="swiper-slide swiper-slide_buy">
-                    <img class="img_buy " src="assets/images/nursry.jpg" />
-                  </div>
-                </div>
-              </div>
-              <div thumbsSlider="" class="swiper mySwiper_buy"></div>
-            </div>
-          </div>
-
+        <div class="row mt-2">
           <div class="col-12 col-sm-6 col-lg-6 col-md-6">
-            <tr>
-              <td>
-                Brand
-              </td>
-            </tr>
-
-            <div class="text-center mt-3">
-              <div class="row">
-                <div class="col-lg-5 col-md-5 col-sm-5">
-                  <button type="button" id="certified_dlr_rcb_btn" class="btn btn-success btn-block w-100 justify-content-end" data-bs-toggle="modal" data-bs-target="#staticBackdrop3">Request Call Back</button>                                
+            <div>
+            <h1 class="fw-bold text-danger pt-3">Ratna Automotive Pvt. Ltd.</h1>
+            <div class="swiper swiper_buy mySwiper2_buy">
+              <div class="swiper-wrapper swiper-wrapper_buy" style="margin-bottom:-100px;">
+                <div class=" swiper-slide swiper-slide_buy">
+                  <img class="img_buy" src="assets/images/ratnaautomotive.webp"/>
                 </div>
-                <div class="col-lg-7 col-md-7 col-sm-7">
-                  <a href="become_certified_dealer.php" class="text-decoration-none">
-                    <div class="">
-                      <button type="button" class="btn btn-success btn-block d-flex justify-content-end">Become Certified Dealer</button>
-                    </div>
-                  </a>
-                </div>
+                <div class="swiper-slide swiper-slide_buy">
+                <img class="img_buy " src="assets/images/ratnaautomotive.webp"/>
+              </div>
+              <div class="swiper-slide swiper-slide_buy">
+                <img class="img_buy " src="assets/images/ratnaautomotive.webp" />
               </div>
             </div>
-
           </div>
-        </div>  
+          <div thumbsSlider="" class="swiper mySwiper_buy"></div>
+        </div>
       </div>
-    </section>
+      <div class="col-12 col-sm-6 col-lg-6 col-md-6 py-2">
+        <table class="mt-5 table table-border">
+          <div class="col-12 mt-2">
+            <tr>
+              <div class="col-12 col-sm-6 col-lg-6 col-md-6">
+                 <td style="width:25%;">Brand</td>
+               </div>
+               <div class="col-12 col-sm-6 col-lg-6 col-md-6">
+                <td><a href="" class="text-decoration-none">Sonalika</a></td>
+              </div>
+            </tr>
+          </div>
+          <div class="col-12 mt-2">
+            <tr>
+              <div class="col-12 col-sm-6 col-lg-6 col-md-6">
+                <td>Address</td>
+              </div>
+              <div class="col-12 col-sm-6 col-lg-6 col-md-6">
+                <td>B.O: 7-316/1, Sagar Road, Green City, Ibrahimpatnam, Rangareddy District, Telangana, 502506, Rangareddy,Telangana</td>
+              </div>
+            </tr>
+          </div>
+          <div class="col-12 my-2">
+            <tr>
+              <div class="col-12 col-sm-6 col-lg-6 col-md-6">
+                <td>Email</td>
+              </div>
+              <div class="col-12 col-sm-6 col-lg-6 col-md-6 ">
+                <td>digital@ricomtechnologies.com</td>
+              </div>
+            </tr>
+          </div>
+                
+          <div class="col-12 my-2">
+            <tr>
+              <div class="col-12 col-sm-6 col-lg-6 col-md-6">
+                <td>Contact</td>
+              </div>
+              <div class="col-12 col-sm-6 col-lg-6 col-md-6">
+                <td>+91****</td>
+              </div>
+            </tr>
+          </div>
+                
+          <div class="col-12">
+            <tr>
+              <div class="col-12 col-sm-6 col-lg-6 col-md-6">
+                <td>State</td>
+              </div>
+              <div class="col-12 col-sm-6 col-lg-6 col-md-6">
+                <td>Telangana</td>
+              </div>
+            </tr>
+          </div>
+                
+          <div class="col-12">
+            <tr>
+              <div class="col-12 col-sm-6 col-lg-6 col-md-6">
+                <td>District</td>
+              </div>
+              <div class="col-12 col-sm-6 col-lg-6 col-md-6">
+                <td>Rangareddy</td>
+              </div>
+            </tr>
+          </div>
+        </table>
+        <div class="text-center mt-4">
+          <div class="row">
+            <div class="col-lg-5 col-md-5 col-sm-5">
+              <button type="button" id="certified_dlr_rcb_btn" class="btn btn-success btn-block w-100 justify-content-end" data-bs-toggle="modal" data-bs-target="#staticBackdrop3">Request Call Back</button>                                
+            </div>
+            <div class="col-lg-7 col-md-7 col-sm-7">
+              <a href="become_certified_dealer.php" class="text-decoration-none">
+                <div class="">
+                  <button type="button" class="btn btn-success btn-block d-flex justify-content-end">Become Certified Dealer</button>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>      <!-- </div>-->
+    </section>                <!-- </div>        -->
+  
     
     <!-- MODAL  REQUEST CALL BACK -->
     <section>
@@ -145,7 +194,7 @@
                   <div class="text-center my-3">
                     <button type="submit" id="delership_enq_btn" class="btn btn-success px-5 w-100 ">Click Here</button>         
                   </div>        
-                  <p class="mb-0 text-center">By proceeding ahead you expressly agree to the Tractor Junctions <a href="#" class="text-decoration-none" target="_blank" title="terms and conditions">terms and conditions*</a></p>
+                  <p class="mb-0 text-center">By proceeding ahead you expressly agree to the Bharat Tractors <a href="#" class="text-decoration-none" target="_blank" title="terms and conditions">terms and conditions*</a></p>
                 </div>
               </form>                                       
             </div>
@@ -156,7 +205,7 @@
 
     <!-- BRAND SIMILAR TRACTOR -->
   <section>
-    <div class="container">
+    <div class="container bg-light">
       <div class="text-editor-black  my-3" style="background-color:#fff">
         <h3 class="">Sonalika <span class="text-success fw-bold"> Tractors</span> </h3>
       </div>
@@ -165,7 +214,7 @@
           <div class="item">
             <div class="success__stry__item shadow h-100">
               <div class="thumb">
-                <a href="news_content.php">
+                <a href="#">
                   <div class="">
                     <img src="assets\images\sonalika-rx-42-4wd-1693217919.webp" class="object-fit-cover p-3 w-100" alt="img">
                   </div>
@@ -193,7 +242,7 @@
           <div class="item">
             <div class="success__stry__item shadow h-100">
               <div class="thumb">
-                <a href="news_content.php">
+                <a href="#">
                   <div class="">
                     <img src="assets\images\sonalika-rx-42-4wd-1693217919.webp" class="object-fit-cover p-3 w-100" alt="img">
                   </div>
@@ -221,7 +270,7 @@
           <div class="item">
             <div class="success__stry__item shadow h-100">
               <div class="thumb">
-                <a href="news_content.php">
+                <a href="#">
                   <div class="">
                     <img src="assets\images\sonalika-rx-42-4wd-1693217919.webp" class="object-fit-cover p-3 w-100" alt="img">
                   </div>
@@ -249,7 +298,7 @@
           <div class="item">
             <div class="success__stry__item shadow h-100">
               <div class="thumb">
-                <a href="news_content.php">
+                <a href="#">
                   <div class="">
                     <img src="assets\images\sonalika-rx-42-4wd-1693217919.webp" class="object-fit-cover p-3 w-100" alt="img">
                   </div>
@@ -277,7 +326,7 @@
           <div class="item">
             <div class="success__stry__item shadow h-100">
               <div class="thumb">
-                <a href="news_content.php">
+                <a href="#">
                   <div class="">
                     <img src="assets\images\sonalika-rx-42-4wd-1693217919.webp" class="object-fit-cover p-3 w-100" alt="img">
                   </div>
@@ -305,7 +354,7 @@
           <div class="item">
             <div class="success__stry__item shadow h-100">
               <div class="thumb">
-                <a href="news_content.php">
+                <a href="#">
                   <div class="">
                     <img src="assets\images\sonalika-rx-42-4wd-1693217919.webp" class="object-fit-cover p-3 w-100" alt="img">
                   </div>
@@ -333,7 +382,7 @@
           <div class="item">
             <div class="success__stry__item shadow h-100">
               <div class="thumb">
-                <a href="news_content.php">
+                <a href="#">
                   <div class="">
                     <img src="assets\images\sonalika-rx-42-4wd-1693217919.webp" class="object-fit-cover p-3 w-100" alt="img">
                   </div>

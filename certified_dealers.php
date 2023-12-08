@@ -34,7 +34,7 @@
               <div class="col-12 col-sm-4 col-md-4 col-lg-4">
                 <label for="yr_dist" class="form-label fw-bold text-dark">Brand</label>
                 <select class="form-select form-select-sm py-2 " id="_brand" name="_brand"aria-label=".form-select-sm example">
-                  <option selected>Select Brand</option>
+                  <option value="" selected disabled=""></option>
                   <option value="1">Mahindra</option>
                   <option value="2">Swaraj</option>
                   <option value="2">Powertrac</option>
@@ -43,7 +43,7 @@
               <div class="col-12 col-sm-4 col-md-4 col-lg-4">
                 <label for="yr_state" class="form-label text-dark fw-bold"> <i class="fas fa-location"></i> State</label>
                 <select class="form-select form-select-sm py-2" id="_state" name="_state"aria-label=".form-select-sm example">
-                  <option selected>Select State</option>
+                  <option value="" selected disabled=""></option>
                   <option value="1">Chhattisgarh</option>
                   <option value="2">Other</option>
                 </select>
@@ -51,7 +51,7 @@
               <div class="col-12 col-sm-4 col-md-4 col-lg-4">
                 <label for="yr_dist" class="form-label fw-bold  text-dark"><i class="fa-solid fa-location-dot"></i> District</label>
                 <select class="form-select form-select-sm py-2" id="_district" name="_district" aria-label=".form-select-sm example">
-                  <option selected>Select District</option>
+                  <option value="" selected disabled=""></option>
                   <option value="1">Raipur</option>
                   <option value="2">Bilaspur</option>
                   <option value="2">Durg</option>
@@ -195,7 +195,7 @@
     <div class="container">
       <div class="row">
         <p class="fw-bold text-dark bg-light text-start mt-4 assured ps-3">Find tractor dealers near you</p>
-        <p class="justify-content-center">Tractor Junction is India’s leading digital platform for all kinds of Tractor related services be it buying, selling, financing, insuring or servicing the machine we serve you all. Tractor Junction, in order to meet your expectations and needs strive hard in order to get more resources on-board for your betterment. One such feature we offer you is to find best and certified dealers for your desired activity. Finding a dealer we know can be very messy sometimes but we assure you ease through our highly selective database. Find best dealers in your locality and get a list of all the dealers in your proximity. We believe in making the tasks of buying and selling tractors easy for you and hassle free. When it is with us, it is assured, it is guaranteed and it is safe. Tractor Junction brings to you the best after scrutinizing the companies, brands, models and dealers through our integrated process of selection</p>
+        <p class="justify-content-center">Bharat Tractor is India’s leading digital platform for all kinds of Tractor related services be it buying, selling, financing, insuring or servicing the machine we serve you all. Bharat Tractor, in order to meet your expectations and needs strive hard in order to get more resources on-board for your betterment. One such feature we offer you is to find best and certified dealers for your desired activity. Finding a dealer we know can be very messy sometimes but we assure you ease through our highly selective database. Find best dealers in your locality and get a list of all the dealers in your proximity. We believe in making the tasks of buying and selling tractors easy for you and hassle free. When it is with us, it is assured, it is guaranteed and it is safe. Bharat Tractor brings to you the best after scrutinizing the companies, brands, models and dealers through our integrated process of selection</p>
         <p class="justify-content-center">We offer you a hassle-free process to buy tractor dealerships in India. You just need to fill up the above form asking for basic details like name, tractor brand preferences, state, district, etc. We will help you identify the right steps to start your new tractor dealerships. We will help you with pre and post-opening & product support, prepare a marketing and advertising plan & even provide assistance on gathering resources for ideal site selection, followed by quality control parameters. For any further Tractor dealership enquiry, reach us.</p>
       </div>
     </div>
