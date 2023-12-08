@@ -116,7 +116,7 @@
             <div class="modal-dialog modal-lg modal-dialog-centered">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="staticBackdropLabel"> Request A Call Back</h5>
+                        <h5 class="modal-title" id="staticBackdropLabel"> Request Call Back</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <!-- MODAL BODY -->
@@ -136,10 +136,6 @@
                                     <input type="password" class="form-control" placeholder="Enter Number" id="number">
                                 </div>
                                 <div class="col-12 col-sm-12 col-md-6 col-lg-6">
-                                    <label for="yr_price" class="form-label text-dark"> Tehsil</label>
-                                    <input type="yr_price" class="form-control" placeholder="Enter Tehsil" id="tehsil">
-                                </div>
-                                <div class="col-12 col-sm-12 col-md-6 col-lg-6">
                                     <label for="yr_state" class="form-label text-dark fw-bold"> <i class="fas fa-location"></i> State</label>
                                     <select class="form-select py-2 " aria-label=".form-select-lg example">
                                         <option selected>Select State</option>
@@ -148,13 +144,17 @@
                                     </select>
                                 </div>
                                 <div class="col-12 col-sm-12 col-md-6 col-lg-6">
-                                    <label for="yr_dist" class="form-label text-dark"><i class="fa-solid fa-location-dot"></i> District</label>
+                                    <label for="yr_dist" class="form-label fw-bold text-dark"><i class="fa-solid fa-location-dot"></i> District</label>
                                     <select class="form-select py-2 " aria-label=".form-select-lg example">
                                         <option selected>Select District</option>
                                         <option value="1">Raipur</option>
                                         <option value="2">Bilaspur</option>
                                         <option value="2">Durg</option>
                                     </select>
+                                </div>
+                                <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+                                    <label for="yr_price" class="form-label fw-bold text-dark"> Tehsil</label>
+                                    <input type="yr_price" class="form-control" placeholder="Enter Tehsil" id="tehsil">
                                 </div>
                                 <div class="text-center my-3">
                                     <button type="button" class="btn btn-success px-5 w-40">Submit</button>         

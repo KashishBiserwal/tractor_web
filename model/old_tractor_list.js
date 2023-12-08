@@ -12,7 +12,7 @@ function get() {
         },
         success: function (data) {
             console.log(data);
-            const select = document.getElementById('brand_name');
+            const select = document.getElementById('brand');
             select.innerHTML = '';
 
             if (data.brands.length > 0) {
@@ -33,41 +33,6 @@ function get() {
 }
 get();
 
-// get model
-// function get_model() {
-//     // var url = "<?php echo $APIBaseURL; ?>lookup_type";
-//     var apiBaseURL =APIBaseURL;
-//     // Now you can use the retrieved value in your JavaScript logic
-//     var url = apiBaseURL + 'lookup_type';
-//     $.ajax({
-//         url: url,
-//         type: "GET",
-//         headers: {
-//             'Authorization':'Bearer' + localStorage.getItem('token')
-//         },
-//         success: function (data) {
-//             console.log(data);
-//             const select = document.getElementById('lookupSelectbox');
-//             select.innerHTML = ''; // Clear previous data
-    
-//             if (data.lookup_type.length > 0) {
-//                 data.lookup_type.forEach(row => {
-//                     const option = document.getElementById('Model_name');
-//                     option.textContent = row.name;
-                  
-//                     option.value = row.id;
-//                     select.appendChild(option);
-//                 });
-//             } else {
-//                 select.innerHTML = '<option> No valid data available</option>';
-//             }
-//         },
-//         error: function (error) {
-//             console.error('Error fetching data:', error);
-//         }
-//     });
-//     }
-//     get_model();
 
 // store
 
@@ -82,6 +47,9 @@ function store(event) {
     var year = $('#year').val();
     var engine_condition = $('#engine_condition').val();
     var hr_driven = $('#hr_driven').val();
+    // var rc = $('#rc').val();
+    var financed = $('input[name="fav_language"]:checked').val();
+    var nocAvailable = $('input[name="fav_language1"]:checked').val();
     var image = $('#image').val();
     var sell_day = $('#sell_day').val();
 
@@ -95,8 +63,11 @@ function store(event) {
       'year': year,
       'engine_condition': engine_condition,
       'hr_driven': hr_driven,
+      // 'rc':rc,
       'image': image,
       'sell_day': sell_day,
+      'financed': financed,
+      'nocAvailable': nocAvailable,
     };
 
     var apiBaseURL =APIBaseURL;
@@ -124,3 +95,64 @@ function store(event) {
       }
     });
   }
+
+
+   // fetch data
+   function getTractorList() {
+    console.log('kjhskdjf');
+    // var url = "<?php echo $APIBaseURL; ?>getProduct";
+    var apiBaseURL =APIBaseURL;
+    // Now you can use the retrieved value in your JavaScript logic
+    var url = apiBaseURL + 'getProduct';
+
+    // console.log(url);  
+
+    $.ajax({
+        url: url,
+        type: "GET",
+        headers: {
+            'Authorization': 'Bearer ' + localStorage.getItem('token')
+        },
+        success: function (data) {
+            console.log(data);
+
+            const tableBody = document.getElementById('data-table');
+
+            if (data.product && data.product.length > 0) {
+                // console.log(typeof product);
+
+                data.product.forEach(row => {
+                  
+                  const tableRow = document.createElement('tr');
+                  console.log(tableRow, 'helloooo');
+                   
+
+                    tableRow.innerHTML = `
+                   
+                        <td>${row.id}</td>
+                        <td>${row.brand_name}</td>
+                        <td>${row.model}</td>
+                        <td>${row.total_cyclinder_id}</td>
+                        <td>${row.hp_category}</td>
+                        <td>${row.horse_power}</td>
+                        <td>${row.brake_type_id}</td>
+                        <td>${row.steering_details_id}</td>
+                        <td>
+                            <div class="d-flex">
+                                <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.id});">
+                                    <i class="fa fa-trash" style="font-size: 11px;"></i>
+                                </button>
+                            </div>
+                        </td>
+                    `;
+                    tableBody.appendChild(tableRow);
+                });
+            } else {
+                tableBody.innerHTML = '<tr><td colspan="9">No valid data available</td></tr>';
+            }
+        },
+        error: function (error) {
+            console.error('Error fetching data:', error);
+        }
+    });
+}

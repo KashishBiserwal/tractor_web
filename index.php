@@ -1741,13 +1741,13 @@
     <!-- <section class="section-imple slider-section bg-light"><div class="container "><h3 class="mb-3 display-6 fw-bold">Popular Tractor Implements</h3><div class="container-imple slider-column mt-4"><div class="swiper swiper-slider"><div class="swiper-wrapper"><div class="swiper-slide h-auto  d-flex img-imple flex-column shadow "><div class="thumb"><a href="#"><div class="ratio ratio-16x9"><img src="assets/images/mini-series-68-1608276318.webp" class="object-fit-cover py-2 h-100" alt="img"></div></a></div><div class="content d-flex flex-column flex-grow-1 "><a href="#" class="text-decoration-none text-dark text-center"><h4 class="fw-bold mt-3 mx-3">Universal Mini Series</h3></a><p class="text-center ">Tillage</p><p class="text-dark text-center fw-bold">Power:15-25</p></div></div><div class="swiper-slide h-autod-flex img-imple flex-column shadow "><div class="thumb"><a href="#"><div class="ratio ratio-16x9"><img src="assets/images/medium-duty-spring-loaded-cultivator-32943.webp" class="object-fit-cover py-2 h-100" alt="img"></div></a></div><div class="content d-flex flex-column flex-grow-1 "><a href="#" class="text-decoration-none text-dark text-center"><h4 class="fw-bold mt-3 mx-3">Fieldking Medium Duty Spring Loaded Cultivator</h3></a><p class="text-center ">Tillage</p><p class="text-dark text-center fw-bold">Power : 50-65 HP</p></div></div><div class="swiper-slide h-auto d-flex img-imple flex-column shadow "><div class="thumb"><a href="#"><div class="ratio ratio-16x9"><img src="assets/images/plant-topper-2-row-58-1675748621.webp" class="object-fit-cover py-2 h-100" alt="img"></div></a></div><div class="content d-flex flex-column flex-grow-1 "><a href="#" class="text-decoration-none text-dark text-center"><h4 class="fw-bold mt-3 mx-3">Shaktiman Grimme Plant Topper - 2 Row</h3></a><p class="text-center ">Seeding And Planting</p><p class="text-dark text-center fw-bold">Power : N/A</p></div></div><div class="swiper-slide h-auto  d-flex img-imple flex-column shadow "><div class="thumb"><a href="#"><div class="ratio ratio-16x9"><img src="assets/images/dr-multicrop-thresher-g-series-66-1679740591.webp" class="object-fit-cover py-2 h-100" alt="img"></div></a></div><div class="content d-flex flex-column flex-grow-1 "><a href="#" class="text-decoration-none text-dark text-center"><h4 class="fw-bold mt-3 mx-3">Dasmesh D.R. Multicrop Thresher (G-Series)</h3></a><p class="text-center ">Post Harvest</p><p class="text-dark text-center fw-bold">Power : 35 HP</p></div></div><div class="swiper-slide h-auto  d-flex img-imple flex-column shadow "><div class="thumb"><a href="#"><div class="ratio ratio-16x9"><img src="assets/images/hay-rake.webp" class="object-fit-cover py-2 h-100" alt="img"></div></a></div><div class="content d-flex flex-column flex-grow-1 "><a href="#" class="text-decoration-none text-dark text-center"><h4 class="fw-bold mt-3 mx-3">Fieldking Hay Rake</h3></a><p class="text-center ">LandScaping</p><p class="text-dark text-center fw-bold">Power : 25 & Above</p></div></div></div><span class="swiper-button-prev"></span><span class="swiper-button-next"></span><div class="col text-center my-4 py-"><a href="#" class="btn btn-success btn-lg">View all Tractors Implementation</a></div></div></div></div></section> -->
     <section class="bg-light">
       <div class="container">
-        <div class=" my-3 py-3">
-          <h3 class="display-6 fw-bold  my-3">
+        <div class=" my-3  ">
+          <h3 class="display-6 fw-bold  pt-2">
             <span class="text-success">Tools</span> and <span class="text-success">Services</span>
           </h3>
           <div class="row text-center">
-            <div class="col-12 col-md-2 col-lg-2 col-sm-3 p-4">
-              <div class="p-3 toolsservice rounded-3 shadow">
+            <div class="col-12 col-md-2 col-lg-2 col-sm-3 p-4 ">
+              <div class="p-3 toolsservice rounded-3 shadow h-100 bg-white">
                 <div class="col-12 text-center">
                   <img src="assets/images/service.png" class="img-tools p-3  w-50 " alt="">
                 </div>
@@ -1757,7 +1757,7 @@
               </div>
             </div>
             <div class="col-12 col-md-2 col-lg-2 col-sm-3 p-4 ">
-              <div class="p-3 toolsservice rounded-3 shadow">
+              <div class="p-3 toolsservice rounded-3 shadow h-100 bg-white">
                 <div class="col-12 text-center">
                   <img src="assets/images/call-service.png" class="w-50 img-tools p-3" alt="">
                 </div>
@@ -1767,7 +1767,7 @@
               </div>
             </div>
             <div class="col-12 col-md-2 col-lg-2 col-sm-3 p-4 ">
-              <div class="p-3 toolsservice rounded-3 shadow">
+              <div class="p-3 toolsservice rounded-3 shadow h-100 bg-white">
                 <div class="col-12 text-center">
                   <img src="assets/images/dealer.png" class="w-50 img-tools p-3" alt="">
                 </div>
@@ -1777,7 +1777,7 @@
               </div>
             </div>
             <div class="col-12 col-md-2 col-lg-2 col-sm-3 p-4">
-              <div class="p-3 toolsservice rounded-3 shadow">
+              <div class="p-3 toolsservice rounded-3 shadow h-100 bg-white">
                 <div class="col-12 text-center">
                   <img src="assets/images/offers-1.png" class="w-50 img-tools p-2" alt="">
                 </div>
@@ -1786,18 +1786,18 @@
                 </div>
               </div>
             </div>
-            <div class="col-12 col-md-2 col-lg-2 col-sm-3 p-4 ">
-              <div class="p-3 toolsservice rounded-3 shadow">
+            <div class="col-12 col-md-2 col-lg-2 col-sm-3 p-4">
+              <div class="p-3 toolsservice rounded-3 h-100 shadow bg-white">
                 <div class="col-12 text-center">
                   <img src="assets/images/about-us.png" class="w-50 img-tools p-3" alt="">
                 </div>
                 <div class="col-12">
-                  <h6 class="service-box fw-bold fs-6 mt-2 text-center text-dark">About Us</h6>
+                  <h6 class="service-box fw-bold fs-6 mt-2 t-condition text-center text-dark">About Us</h6>
                 </div>
               </div>
             </div>
             <div class="col-12 col-md-2 col-lg-2 col-sm-3 p-4 ">
-              <div class="p-3 toolsservice  rounded-3 shadow">
+              <div class="p-3 toolsservice  rounded-3 shadow h-100 bg-white">
                 <div class="col-12 text-center">
                   <img src="assets/images/dealer.png" class="w-50 img-tools p-3" alt="">
                 </div>

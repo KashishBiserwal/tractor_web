@@ -25,6 +25,7 @@
         </div>
       </div>
     </section>
+    
     <section>
       <div class="container">
         <div class="vegehead pt-3">
@@ -140,6 +141,7 @@
         </div>
       </div>
     </section>
+
     <section>
       <div class="container">
         <h3 class="text-danger assured ps-3">About Nursery</h3>

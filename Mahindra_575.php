@@ -4,6 +4,9 @@
 <head>
    <?php
    include 'includes/headertag.php';
+   $id=$_REQUEST['id'];
+   echo $id;
+
    ?>
 </head>
 
@@ -643,11 +646,12 @@
     <script>
     $(document).ready(function() {
             console.log("ready!");
+            
             getProductById();
         });
 
         function getProductById() {
-            var url = "http://127.0.0.1:8000/api/customer/get_product_by_id/" + 55;
+            var url = "http://127.0.0.1:8000/api/customer/get_new_tractor_by_id/" +<?php echo $id ?>;
             console.log(url);
 
             $.ajax({

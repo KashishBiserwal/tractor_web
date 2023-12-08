@@ -37,9 +37,10 @@
         </button>
         <div class="collapse px-2  " id="about-collapselist">
           <ul class="list-unstyled fw-normal small">
+              <li class="py-1 ps-3"><a href="brand_listing.php" class="d-inline-flex align-items-center text-white text-decoration-none rounded"> Brand Listings</a></li>
               <li class="py-1 ps-3"><a href="tractor_listing.php" class="d-inline-flex align-items-center text-white   text-decoration-none rounded"> New Tractor Listings</a></li>
               <li class="py-1 ps-3"><a href="old_tractor_list.php" class="d-inline-flex align-items-center text-white text-decoration-none rounded">Old Tractor List</a></li>
-              <li class="py-1 ps-3"><a href="brand_listing.php" class="d-inline-flex align-items-center text-white text-decoration-none rounded"> Brand Listings</a></li>
+              <li class="py-1 ps-3"><a href="accessories.php" class="d-inline-flex align-items-center text-white text-decoration-none rounded"> Accessories Listing</a></li>
               <li class="py-1 ps-3"><a href="farm_equip.php" class="d-inline-flex align-items-center text-white text-decoration-none rounded"> New Farm Equipment Listings</a></li>
               <li class="py-1 ps-3"><a href="old_farm_equilist.php" class="d-inline-flex align-items-center text-white text-decoration-none rounded">Old Farm Equipment  List</a></li>
               <li class="py-1 ps-3"><a href="harvester_list.php" class="d-inline-flex align-items-center text-white text-decoration-none rounded">New Harvester Listing</a></li>

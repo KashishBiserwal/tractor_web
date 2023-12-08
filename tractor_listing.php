@@ -6,7 +6,6 @@ include 'includes/footertag.php';
 ?>
 
 
-
 <body class="loaded">
   <div class="main-wrapper">
     <div class="app" id="app">
@@ -27,7 +26,7 @@ include 'includes/footertag.php';
                 </ol>
               </nav>
 
-
+              <!-- Add new tractor -->
               <button type="button" id="add_trac" class="btn add_btn btn-success float-right" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                 <i class="fa fa-plus" aria-hidden="true"></i>Add New tractor
               </button>
@@ -109,13 +108,13 @@ include 'includes/footertag.php';
                               </div>
                               <div class="col-12 col-sm-4 col-lg-4 col-md-4">
                                 <div class="form-group">
-                                  <input type="number" class="" placeholder=" " id="starting_price">
+                                  <input type="" class="" placeholder=" " id="starting_price">
                                   <label for="name" class="text-dark ">Starting Price</label>
                                 </div>
                               </div>
                               <div class="col-12 col-sm-4 col-lg-4 col-md-4">
                                 <div class="form-group">
-                                  <input type="number" class="" placeholder=" " id="ending_price">
+                                  <input type="" class="" placeholder=" " id="ending_price">
                                   <label for="name" class="text-dark ">Ending Price</label>
                                 </div>
                               </div>
@@ -126,12 +125,13 @@ include 'includes/footertag.php';
                                 </div>
                               </div>
                               <div class="col-12 col-sm-8 col-lg-8 col-md-8">
-                                <div class=""  >
+                                <!-- <div class=""  >
                                   <select placeholder="Choose skills"  id="type_name" multiple class="select2">
-                                    <!-- <option selected disabled="" value="">Please select an option</option> -->
+                                    <option selected disabled="" value="">Please select an option</option>
 
                                   </select>
-                                </div>
+                                </div> -->
+                                <div id="type_name"></div>
                               </div>
 
 
@@ -332,10 +332,32 @@ include 'includes/footertag.php';
                               </div>
                               <h5 class="fw-bold">Other Information Details</h5>
                               <div class="col-12 col-sm-6 col-lg-6 col-md-6">
-                                <div class="form-group">
+                                <!-- <div class="form-group">
                                   <input type="text" class="" placeholder=" " id="accessory">
                                   <label for="name" class="text-dark ">Accessories</label>
-                                </div>
+                                </div> -->
+                                <select class="form-select" id="multiple-select-field" data-placeholder="Choose anything" multiple>
+                                  <option>Christmas Island</option>
+                                  <option>South Sudan</option>
+                                  <option>Jamaica</option>
+                                  <option>Kenya</option>
+                                  <option>French Guiana</option>
+                                  <option>Mayotta</option>
+                                  <option>Liechtenstein</option>
+                                  <option>Denmark</option>
+                                  <option>Eritrea</option>
+                                  <option>Gibraltar</option>
+                                  <option>Saint Helena, Ascension and Tristan da Cunha</option>
+                                  <option>Haiti</option>
+                                  <option>Namibia</option>
+                                  <option>South Georgia and the South Sandwich Islands</option>
+                                  <option>Vietnam</option>
+                                  <option>Yemen</option>
+                                  <option>Philippines</option>
+                                  <option>Benin</option>
+                                  <option>Czech Republic</option>
+                                  <option>Russia</option>
+                                </select>
                               </div>
                               <div class="col-12 col-sm-6 col-lg-6 col-md-6">
                                 <div class="form-outline">
@@ -449,11 +471,3 @@ include 'includes/footertag.php';
 </script>
 
 <script src="<?php $baseUrl; ?>model/tractor_listing.js"></script>
-
-
-
-<script>
-  // $(document).ready(function() {
-  //   $('#type_name').select2();
-  // });
-</script>

@@ -527,7 +527,14 @@
           
         // });
 
-       
+    // function showEMIForm() {
+    //     // Validate the first form
+    //     if ($("#brandModelForm").valid()) {
+    //         // Hide the first form and show the second form
+    //         $("#form1").addClass("hidden");
+    //         $("#form2").removeClass("hidden");
+    //     }
+    // }
 
     </script>
 

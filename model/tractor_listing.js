@@ -1,6 +1,12 @@
 $(document).ready(function () {
-
-    $('.js-example-basic-multiple').select2();
+  get_lookup();
+    // $('.js-example-basic-multiple').select2();
+    $( '#multiple-select-field' ).select2( {
+      theme: "bootstrap-5",
+      width: $( this ).data( 'width' ) ? $( this ).data( 'width' ) : $( this ).hasClass( 'w-100' ) ? '100%' : 'style',
+      placeholder: $( this ).data( 'placeholder' ),
+      closeOnSelect: false,
+  } );
 
     getTractorList();
     BackgroundUpload();
@@ -164,32 +170,32 @@ $(document).ready(function () {
     get();
 
 
-    function getProductById() {
-      var url = "http://127.0.0.1:8000/api/admin/getLookupData";
-      console.log(url);
+  //   function getProductById() {
+  //     var url = "http://127.0.0.1:8000/api/admin/getLookupData";
+  //     console.log(url);
 
-      $.ajax({
-          url: url,
-          type: "GET",
-          headers: {
-            'Authorization': 'Bearer ' + localStorage.getItem('token')
-        },
-          success: function(data) {
-              console.log(data, 'qqqqqqqq');
+  //     $.ajax({
+  //         url: url,
+  //         type: "GET",
+  //         headers: {
+  //           'Authorization': 'Bearer ' + localStorage.getItem('token')
+  //       },
+  //         success: function(data) {
+  //             console.log(data, 'qqqqqqqq');
 
-              data.tractor_type_data.map((i)=>{
+  //             data.tractor_type_data.map((i)=>{
 
-              })
+  //             })
               
-          // document.getElementById('productName').innerText=data.product.air_filter;
-          },
-          error: function (error) {
-              console.error('Error fetching data:', error);
-          }
-      });
-  }
+  //         // document.getElementById('productName').innerText=data.product.air_filter;
+  //         },
+  //         error: function (error) {
+  //             console.error('Error fetching data:', error);
+  //         }
+  //     });
+  // }
 
-  getProductById();
+  // getProductById();
 
 
 // fetch lookup data in select box
@@ -208,27 +214,21 @@ function get_lookup() {
             for (var i = 0; i < data.data.length; i++) {
                 $("select#" + data.data[i].name).append('<option value="' + data.data[i].id + '">' + data.data[i].lookup_data_value + '</option>');
             }
-
-            // for (var i = 0; i < data.tractor_type_data.length; i++) {
-            //     $("select#" + data.tractor_type_data[i].type_name).append('<option value="' + data.tractor_type_data[i].id + '">' + data.tractor_type_data[i].type_name + '</option>');
-            // }
-            // var tractorTypeSelect = $("select#type_name");
-            var tractorTypeSelect = $("#staticBackdrop #type_name");
-            tractorTypeSelect.empty(); // Clear existing options
-            tractorTypeSelect.append('<option selected disabled="" value="">Please select an option</option>'); 
-
-            // for (var i = 0; i < data.tractor_type_data.length; i++) {
-            //     tractorTypeSelect.append('<option value="' + data.tractor_type_data[i].id + '">' + data.tractor_type_data[i].type_name + '</option>');
-            // }
-
-            for (var i = 0; i < data.tractor_type_data.length; i++) {
-                tractorTypeSelect.append('<option value="' + data.tractor_type_data[i].id + '">' + data.tractor_type_data[i].type_name + '</option>');
-            }
-
+              
+            $("#type_name").empty();
+            var tractorTypesArray = [];
+            // Create checkboxes for each tractor type
+            for (var j = 0; j < data.tractor_type_data.length; j++) {
+              var checkbox = $('<input type="checkbox" id="tractor_type_' + data.tractor_type_data[j].id + '" value="' + data.tractor_type_data[j].id + '">');
+              var label = $('<label for="tractor_type_' + data.tractor_type_data[j].id + '">' + data.tractor_type_data[j].type_name + '</label>');
           
-            tractorTypeSelect.select2();  
-           
+              // Append checkbox and label to the div
+              $("#type_name").append(checkbox);
+              $("#type_name").append(label);
+          }
+          
         },
+        
         complete:function(){
          
         },
@@ -244,9 +244,27 @@ function get_lookup() {
 
 // insert data
 function store(event) {
+
+  // Get the parent div
+  var typeDiv = document.getElementById('type_name');
+
+  // Get all input elements inside the div
+  var checkboxes = typeDiv.querySelectorAll('input[type="checkbox"]');
+
+  var selectedCheckboxValues = [];
+  // Loop through each checkbox and get its value
+  checkboxes.forEach(function (checkbox) {
+    // Check if the checkbox is checked
+    if (checkbox.checked) {
+      // If checked, push its value into the array
+      var checkboxValue = checkbox.value;
+      selectedCheckboxValues.push(checkboxValue);
+    }
+  });
+  
     event.preventDefault();
-    console.log('jfhfhw');
-    var brand_name = $('#brand_name').val();
+    console.log("Tractor TYpe : ",selectedCheckboxValues);
+    var brand_id = $('#brand_name').val();
     var model = $('#model').val();
     var product_type_id = $('#product_type_id').val();
     var hp_category = $('#hp_category').val();
@@ -258,7 +276,7 @@ function store(event) {
     var starting_price = $('#starting_price').val();
     var  ending_price= $('#ending_price').val();
     var  warranty= $('#warranty').val();
-    var tractor_type_id = $('#TRACTOR_TYPE').val();
+    var tractor_type_id = selectedCheckboxValues;
     var image_name = $('#image_name').val();
     var CAPACITY_CC = $('#CAPACITY_CC').val();
     var engine_rated_rpm = $('#engine_rated_rpm').val();
@@ -274,7 +292,7 @@ function store(event) {
     var max_reverse_speed = $('#max_reverse_speed').val();
     var STEERING_DETAIL = $('#STEERING_DETAIL').val();
     var STEERING_COLUMN = $('#STEERING_COLUMN').val();
-    var POWER_TAKEOFF_TYPE = $('#POWER_TAKEOFF_TYPE').val();
+    var power_take_off_type = $('#POWER_TAKEOFF_TYPE').val();
     var power_take_off_rpm = $('#power_take_off_rpm').val();
     var totat_weight = $('#totat_weight').val();
     var WHEEL_BASE = $('#WHEEL_BASE').val();
@@ -290,7 +308,7 @@ function store(event) {
 
     // Prepare data to send to the server
     var paraArr = {
-      'brand_name': brand_name,
+      'brand_id': brand_id,
       'model': model,
       'product_type_id': product_type_id,
       'hp_category': hp_category,
@@ -318,7 +336,7 @@ function store(event) {
       'max_reverse_speed': max_reverse_speed,
       'STEERING_DETAIL': STEERING_DETAIL,
       'STEERING_COLUMN': STEERING_COLUMN,
-      'POWER_TAKEOFF_TYPE': POWER_TAKEOFF_TYPE,
+      'power_take_off_type': power_take_off_type,
       'power_take_off_rpm': power_take_off_rpm,
       'totat_weight': totat_weight,
       'WHEEL_BASE': WHEEL_BASE,
@@ -349,7 +367,7 @@ function store(event) {
       headers: headers,
       success: function (result) {
         console.log(result, "result");
-        window.location.href = "<?php echo $baseUrl; ?>tractor_listing.php"; 
+        // getTractorList();
         console.log("Add successfully");
         // alert('successfully inserted..!')
       },
@@ -450,3 +468,29 @@ var url = apiBaseURL + 'deleteProduct/'+ id;
     }
   });
 }
+
+
+
+
+            // var tractorTypeSelect = $("#type_name");
+            // data.tractor_type_data.map((i)=>{
+              
+            // });
+            // for (var i = 0; i < data.tractor_type_data.length; i++) {
+            //     $("select#" + data.tractor_type_data[i].type_name).append('<option value="' + data.tractor_type_data[i].id + '">' + data.tractor_type_data[i].type_name + '</option>');
+            // }
+            // var tractorTypeSelect = $("select#type_name");
+            // var tractorTypeSelect = $("#staticBackdrop #type_name");
+            // tractorTypeSelect.empty(); // Clear existing options
+            // tractorTypeSelect.append('<option selected disabled="" value="">Please select an option</option>'); 
+
+            // for (var i = 0; i < data.tractor_type_data.length; i++) {
+            //     tractorTypeSelect.append('<option value="' + data.tractor_type_data[i].id + '">' + data.tractor_type_data[i].type_name + '</option>');
+            // }
+
+            // for (var i = 0; i < data.tractor_type_data.length; i++) {
+            //     tractorTypeSelect.append('<option value="' + data.tractor_type_data[i].id + '">' + data.tractor_type_data[i].type_name + '</option>');
+            // }
+
+          
+            // tractorTypeSelect.select2();

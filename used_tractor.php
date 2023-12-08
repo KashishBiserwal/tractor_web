@@ -30,21 +30,10 @@
                 <h3 class="">SEARCH USED  <span class="text-success fw-bold">TRACTORS IN INDIA</span> </h3>
                 <div class=" row mb-3" id="">
                     <div class="col-12 col-sm-12 col-md-12 col-lg-12 my-3">
-                        <!-- <div class=" col-12 mt-3"> -->
-                             <button id="adduser" type="button" class="add_btn btn-success px-3">
+                        <button id="adduser" type="button" class="add_btn btn-success px-3">
                              <i class="fa-solid fa-cart-shopping"></i> Buy tractor </button>  &nbsp;
-                                <button id="adduser" type="button" class="add_btn btn-success">
-                                <i class="fa-sharp fa-solid fa-handshake"></i> Sell tractor </button>
-                            <!-- <div class="col-12 col-sm-6 col-lg-6 col-md-6">
-                                <button id="adduser" type="button" class="add_btn btn-success px-3">
-                                <i class="fas fa-undo"></i>  Reset </button>
-                            </div>
-                           <div class="col-12 col-sm-6 col-lg-6 col-md-6 pe-2">
-                                <button id="adduser" type="button" class="add_btn btn-success">
-                                <i class="fas fa-filter"></i>  Apply Filter </button>
-                           </div> -->
-                            
-                        <!-- </div> -->
+                        <button id="adduser" type="button" class="add_btn btn-success">
+                            <i class="fa-sharp fa-solid fa-handshake"></i> Sell tractor </button>
                     </div>
                 </div>
                 <div class="row my-3">
@@ -57,76 +46,67 @@
                                     </div>
                                 </a>
                             </div>
-                            <div class="content d-flex flex-column flex-grow-1 ">
-                                <div class="caption text-center">
-                                    <a href="farmtrac_60.php" class="text-decoration-none text-dark">
-                                        <p class="pt-3"><strong class="series_tractor_strong text-center h4 fw-bold ">Farmtrac 60 </strong></p>
-                                    </a>      
-                                </div>
-                                <div class="power text-center mt-2">
-                                        <div class="col-12 col-lg-6 col-md-6 col-sm-6"><p class="text-success text-center">Price: ₹ 4,50,000</p></div>
-                                         
-                                </div>
-                                <div class="row text-center">
-                                    <div class="col-6">
-                                        <p class="fw-bold ps-2">50 HP
-                                    </div>
-                                    <div class="col-6">
-                                        <p class="fw-bold pe-2">Great Deal  <i class="fa-regular fa-thumbs-up"></i></p>
-                                    </div>
+                        <div class="content d-flex flex-column flex-grow-1 ">
+                            <div class="caption text-center">
+                                <a href="farmtrac_60.php" class="text-decoration-none text-dark">
+                                     <p class="pt-3"><strong class="series_tractor_strong text-center h4 fw-bold ">Farmtrac 60 </strong></p>
+                                 </a>      
+                            </div>
+                            <div class=" row">
+                                <div class="col-12 ms-1">
+                                    <p class=" "><span>HP 50</span> | <span>2021 </span>| Jhalawar, Rajasthan</p>
                                 </div>
                             </div>
-                            <div class=" row state_btn">
-                                <div class="col-12 col-lg-9 col-md-9 col-sm-9 " style="padding-right: 0px;">
-                                    <button type="button" id="adduser"class="btn-state text-decoration-none px-2 w-100">Raipur, Chhattisgarh</a>
+                            <div class="row text-center">
+                                <div class="col-6">
+                                    <p class="fw-bold ms-1">Price: ₹ 4,50,000
                                 </div>
-                                <div class="col-12 col-lg-3 col-md-3 col-sm-3 ps-0 mb-1">
-                                    <button  id="adduser" type ="button"class="btn-success px-2 w-75 rounded-3 text-center"><i class="fa-solid fa-phone"></i></a>
+                                 <div class="col-6">
+                                    <p class="fw-bold pe-2">Great Deal  <i class="fa-regular fa-thumbs-up"></i></p>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-12 col-lg-4 col-md-4 col-sm-4 ">
-                        <div class="h-auto success__stry__item d-flex flex-column shadow ">
-                            <div class="thumb">
-                                <a href="#">
-                                    <div class="ratio ratio-16x9">
-                                        <img src="assets/images/475-di-140989-1692774638-0.webp" class="object-fit-cover " alt="img">
-                                    </div>
-                                </a>
+                        <div class=" row state_btn">
+                            <div class="col-12 ">
+                                <button  type ="button" class="btn-success w-100 p-2 rounded-3 text-decoration-none  text-center" data-bs-toggle="modal" data-bs-target="#used_tractor_callbnt"><i class="fa-solid fa-phone pe-2"></i>Call Now</button> 
                             </div>
-                            <div class="content d-flex flex-column flex-grow-1 ">
-                                <div class="caption text-center">
-                                    <a href="#" class="text-decoration-none text-dark">
-                                        <p class="pt-3"><strong class="series_tractor_strong text-center h4 fw-bold ">Mahindra 475 DI </strong></p>
-                                    </a>      
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-lg-4 col-md-4 col-sm-4 ">
+                    <div class="h-auto success__stry__item d-flex flex-column shadow ">
+                        <div class="thumb">
+                            <a href="#">
+                                <div class="ratio ratio-16x9">
+                                    <img src="assets/images/475-di-140989-1692774638-0.webp" class="object-fit-cover " alt="img">
                                 </div>
-                                <div class="power text-center mt-2">
-                                    <div class="row ">
-                                        <div class="col-12 col-lg-6 col-md-6 col-sm-6"><p class="text-success ps-2">Price: ₹ 4,50,000</p></div>
-                                        <div class="col-12 col-lg-6 col-md-6 col-sm-6" style="padding-right: 32px;">
-                                             <p id="adduser" type="" class="btn-success">
-                                                <i class="fa-solid fa-award"></i>  Certified </p>
-                                        </div>
-                                    </div>    
+                             </a>
+                        </div>
+                    <div class="content d-flex flex-column flex-grow-1 ">
+                        <div class="caption text-center">
+                            <a href="#" class="text-decoration-none text-dark">
+                                <p class="pt-3"><strong class="series_tractor_strong text-center h4 fw-bold ">Mahindra 475 DI </strong></p>
+                             </a>      
+                        </div>
+                            <div class=" row">
+                                <div class="col-12 ms-1">
+                                    <p class=" "><span>HP 50</span> | <span>2021 </span>| Jhalawar, Rajasthan</p>
                                 </div>
-                                <div class="row text-center">
-                                    <div class="col-6">
-                                        <p class="fw-bold ps-2">42 HP
-                                    </div>
-                                    <div class="col-6">
-                                        <p class="fw-bold pe-2">Great Deal  <i class="fa-regular fa-thumbs-up"></i></p>
-                                    </div>
+                            </div>
+                            <div class="row text-center">
+                                <div class="col-6">
+                                    <p class="fw-bold ms-1">Price: ₹ 4,50,000
                                 </div>
+                                 <div class="col-6">
+                                    <p class="fw-bold pe-2">Great Deal  <i class="fa-regular fa-thumbs-up"></i></p>
+                                </div>
+                            </div>
                             </div>
                             <div class=" row state_btn">
-                                <div class="col-12 col-lg-9 col-md-9 col-sm-9 " style="padding-right: 0px;">
-                                    <button type="button" id="adduser"class="btn-state text-decoration-none px-2 w-100">Ambikapur, Chhattisgarh</a>
+                                <div class="col-12 ">
+                                        <a href="" id="adduser" type ="button" class="btn-success w-100 p-2 rounded-3 text-decoration-none  text-center"><i class="fa-solid fa-phone pe-2"></i>Call Now</a>
                                 </div>
-                                <div class="col-12 col-lg-3 col-md-3 col-sm-3 ps-0 mb-1">
-                                    <button  id="adduser" type ="button"class="btn-success px-2 w-75 rounded-3 text-center"><i class="fa-solid fa-phone"></i></a>
-                                </div>
-                            </div>
+                             </div>
                         </div>
                     </div>
                     <div class="col-12 col-lg-4 col-md-4 col-sm-4 ">
@@ -140,22 +120,18 @@
                             </div>
                             <div class="content d-flex flex-column flex-grow-1 ">
                                 <div class="caption text-center">
-                                    <a href="#" class="text-decoration-none text-dark">
-                                        <p class="pt-3"><strong class="series_tractor_strong text-center h4 fw-bold ">Massey Ferguson 1035 DI</strong></p>
+                                    <a href="farmtrac_60.php" class="text-decoration-none text-dark">
+                                        <p class="pt-3"><strong class="series_tractor_strong text-center h4 fw-bold">Mahindra Arjun Novo</strong></p>
                                     </a>      
                                 </div>
-                                <div class="power text-center mt-2">
-                                    <div class="row ">
-                                        <div class="col-12 col-lg-6 col-md-6 col-sm-6"><p class="text-success ps-2">Price: ₹ 4,50,000</p></div>
-                                        <div class="col-12 col-lg-6 col-md-6 col-sm-6" style="padding-right: 32px;">
-                                             <p id="adduser" type="" class="btn-success">
-                                                <i class="fa-solid fa-award"></i>  Certified </p>
-                                        </div>
-                                    </div>    
+                                <div class=" row">
+                                    <div class="col-12 ms-1">
+                                        <p class=" "><span>HP 50</span> | <span>2021 </span>| Jhalawar, Rajasthan</p>
+                                    </div>
                                 </div>
                                 <div class="row text-center">
                                     <div class="col-6">
-                                        <p class="fw-bold ps-2">36 HP
+                                        <p class="fw-bold ms-1">Price: ₹ 4,50,000
                                     </div>
                                     <div class="col-6">
                                         <p class="fw-bold pe-2">Great Deal  <i class="fa-regular fa-thumbs-up"></i></p>
@@ -163,11 +139,8 @@
                                 </div>
                             </div>
                             <div class=" row state_btn">
-                                <div class="col-12 col-lg-9 col-md-9 col-sm-9 " style="padding-right: 0px;">
-                                    <button type="button" id="adduser"class="btn-state text-decoration-none px-2 w-100">Ambikapur, Chhattisgarh</a>
-                                </div>
-                                <div class="col-12 col-lg-3 col-md-3 col-sm-3 ps-0 mb-1">
-                                    <button  id="adduser" type ="button"class="btn-success rounded-3 px-2 w-75 text-center"><i class="fa-solid fa-phone"></i></a>
+                                <div class="col-12 ">
+                                    <button id="adduser" type ="button" class="btn-success w-100 p-2 rounded-3 text-decoration-none  text-center" data-bs-toggle="modal" data-bs-target="#staticBackdrop3"><i class="fa-solid fa-phone pe-2"></i>Call Now</button>
                                 </div>
                             </div>
                         </div>
@@ -176,29 +149,25 @@
                         <div class="h-auto success__stry__item d-flex flex-column shadow ">
                             <div class="thumb">
                                 <a href="#">
-                                    <div class="ratio ratio-16x9">
+                                   <div class="ratio ratio-16x9">
                                         <img src="assets/images/380-139151-1694943532-0.webp" class="object-fit-cover " alt="img">
                                     </div>
                                 </a>
                             </div>
                             <div class="content d-flex flex-column flex-grow-1 ">
                                 <div class="caption text-center">
-                                    <a href="#" class="text-decoration-none text-dark">
-                                        <p class="pt-3"><strong class="series_tractor_strong text-center h4 fw-bold ">Eicher 380 </strong></p>
+                                    <a href="farmtrac_60.php" class="text-decoration-none text-dark">
+                                        <p class="pt-3"><strong class="series_tractor_strong text-center h4 fw-bold ">Mahindra 475 DI </strong></p>
                                     </a>      
                                 </div>
-                                <div class="power text-center mt-2">
-                                    <div class="row ">
-                                        <div class="col-12 col-lg-6 col-md-6 col-sm-6"><p class="text-success ps-2">Price: ₹ 4,50,000</p></div>
-                                        <div class="col-12 col-lg-6 col-md-6 col-sm-6" style="padding-right: 32px;">
-                                             <p id="adduser" type="" class="btn-success">
-                                                <i class="fa-solid fa-award"></i>  Certified </p>
-                                        </div>
-                                    </div>    
+                                <div class=" row">
+                                    <div class="col-12 ms-1">
+                                        <p class=" "><span>HP 50</span> | <span>2021 </span>| Jhalawar, Rajasthan</p>
+                                    </div>
                                 </div>
                                 <div class="row text-center">
                                     <div class="col-6">
-                                        <p class="fw-bold ps-2">40 HP
+                                        <p class="fw-bold ms-1">Price: ₹ 4,50,000
                                     </div>
                                     <div class="col-6">
                                         <p class="fw-bold pe-2">Great Deal  <i class="fa-regular fa-thumbs-up"></i></p>
@@ -206,11 +175,8 @@
                                 </div>
                             </div>
                             <div class=" row state_btn">
-                                <div class="col-12 col-lg-9 col-md-9 col-sm-9 " style="padding-right: 0px;">
-                                    <button type="button" id="adduser"class="btn-state text-decoration-none px-2 w-100">Baloda Bajar, Chhattisgarh</a>
-                                </div>
-                                <div class="col-12 col-lg-3 col-md-3 col-sm-3 ps-0 mb-1">
-                                    <button  id="adduser" type ="button"class="btn-success rounded-3 px-2 w-75 text-center"><i class="fa-solid fa-phone"></i></a>
+                                <div class="col-12 ">
+                                    <a href="" id="adduser" type ="button" class="btn-success w-100 p-2 rounded-3 text-decoration-none  text-center"><i class="fa-solid fa-phone pe-2"></i>Call Now</a>
                                 </div>
                             </div>
                         </div>
@@ -226,22 +192,18 @@
                             </div>
                             <div class="content d-flex flex-column flex-grow-1 ">
                                 <div class="caption text-center">
-                                    <a href="#" class="text-decoration-none text-dark">
-                                        <p class="pt-3"><strong class="series_tractor_strong text-center h4 fw-bold ">Eicher 380 </strong></p>
+                                    <a href="farmtrac_60.php" class="text-decoration-none text-dark">
+                                        <p class="pt-3"><strong class="series_tractor_strong text-center h4 fw-bold ">Mahindra 275 DI</strong></p>
                                     </a>      
                                 </div>
-                                <div class="power text-center mt-2">
-                                    <div class="row ">
-                                        <div class="col-12 col-lg-6 col-md-6 col-sm-6"><p class="text-success ps-2">Price: ₹ 4,50,000</p></div>
-                                        <div class="col-12 col-lg-6 col-md-6 col-sm-6" style="padding-right: 32px;">
-                                             <p id="adduser" type="" class="btn-success">
-                                                <i class="fa-solid fa-award"></i>  Certified </p>
-                                        </div>
-                                    </div>    
+                                <div class=" row">
+                                    <div class="col-12 ms-1">
+                                        <p class=" "><span>HP 50</span> | <span>2021 </span>| Jhalawar, Rajasthan</p>
+                                    </div>
                                 </div>
                                 <div class="row text-center">
                                     <div class="col-6">
-                                        <p class="fw-bold ps-2">40 HP
+                                        <p class="fw-bold ms-1">Price: ₹ 4,50,000
                                     </div>
                                     <div class="col-6">
                                         <p class="fw-bold pe-2">Great Deal  <i class="fa-regular fa-thumbs-up"></i></p>
@@ -249,11 +211,8 @@
                                 </div>
                             </div>
                             <div class=" row state_btn">
-                                <div class="col-12 col-lg-9 col-md-9 col-sm-9 " style="padding-right: 0px;">
-                                    <button type="button" id="adduser"class="btn-state text-decoration-none px-2 w-100">Bilaspur, Chhattisgarh</a>
-                                </div>
-                                <div class="col-12 col-lg-3 col-md-3 col-sm-3 ps-0 mb-1">
-                                    <button  id="adduser" type ="button"class="btn-success rounded-3 px-2 w-75 text-center"><i class="fa-solid fa-phone"></i></a>
+                                <div class="col-12 ">
+                                    <a href="" id="adduser" type ="button" class="btn-success w-100 p-2 rounded-3 text-decoration-none  text-center"><i class="fa-solid fa-phone pe-2"></i>Call Now</a>
                                 </div>
                             </div>
                         </div>
@@ -273,30 +232,23 @@
                                         <p class="pt-3"><strong class="series_tractor_strong text-center h4 fw-bold ">Farmtrac 60 </strong></p>
                                     </a>      
                                 </div>
-                                <div class="power text-center mt-2">
-                                    <div class="row ">
-                                        <div class="col-12 col-lg-6 col-md-6 col-sm-6"><p class="text-success ps-2">Price: ₹ 4,50,000</p></div>
-                                        <div class="col-12 col-lg-6 col-md-6 col-sm-6" style="padding-right: 32px;">
-                                             <p id="adduser" type="" class="btn-success">
-                                                <i class="fa-solid fa-award"></i>  Certified </p>
-                                        </div>
-                                    </div>    
+                                <div class=" row">
+                                    <div class="col-12 ms-1">
+                                        <p class=" "><span>HP 50</span> | <span>2021 </span>| Jhalawar, Rajasthan</p>
+                                    </div>
                                 </div>
                                 <div class="row text-center">
                                     <div class="col-6">
-                                        <p class="fw-bold ps-2">50 HP
+                                        <p class="fw-bold ms-1">Price: ₹ 4,50,000
                                     </div>
                                     <div class="col-6">
                                         <p class="fw-bold pe-2">Great Deal  <i class="fa-regular fa-thumbs-up"></i></p>
                                     </div>
                                 </div>
-                            </div>
-                            <div class=" row state_btn">
-                                <div class="col-12 col-lg-9 col-md-9 col-sm-9 " style="padding-right: 0px;">
-                                    <button type="button" id="adduser"class="btn-state text-decoration-none px-2 w-100">Raipur, Chhattisgarh</a>
-                                </div>
-                                <div class="col-12 col-lg-3 col-md-3 col-sm-3 ps-0 mb-1">
-                                    <button  id="adduser" type ="button"class="btn-success rounded-3 px-2 w-75 text-center"><i class="fa-solid fa-phone"></i></a>
+                           </div>
+                           <div class=" row state_btn">
+                                <div class="col-12 ">
+                                    <a href="" id="adduser" type ="button" class="btn-success w-100 p-2 rounded-3 text-decoration-none  text-center"><i class="fa-solid fa-phone pe-2"></i>Call Now</a>
                                 </div>
                             </div>
                         </div>
@@ -316,30 +268,23 @@
                                         <p class="pt-3"><strong class="series_tractor_strong text-center h4 fw-bold ">Mahindra 475 DI </strong></p>
                                     </a>      
                                 </div>
-                                <div class="power text-center mt-2">
-                                    <div class="row ">
-                                        <div class="col-12 col-lg-6 col-md-6 col-sm-6"><p class="text-success ps-2">Price: ₹ 4,50,000</p></div>
-                                        <div class="col-12 col-lg-6 col-md-6 col-sm-6" style="padding-right: 32px;">
-                                             <p id="adduser" type="" class="btn-success">
-                                                <i class="fa-solid fa-award"></i>  Certified </p>
-                                        </div>
-                                    </div>    
+                                <div class=" row">
+                                    <div class="col-12 ms-1">
+                                        <p class=" "><span>HP 50</span> | <span>2021 </span>| Jhalawar, Rajasthan</p>
+                                    </div>
                                 </div>
                                 <div class="row text-center">
                                     <div class="col-6">
-                                        <p class="fw-bold ps-2">42 HP
+                                        <p class="fw-bold ms-1">Price: ₹ 4,50,000
                                     </div>
                                     <div class="col-6">
                                         <p class="fw-bold pe-2">Great Deal  <i class="fa-regular fa-thumbs-up"></i></p>
                                     </div>
                                 </div>
                             </div>
-                            <div class=" row state_btn">
-                                <div class="col-12 col-lg-9 col-md-9 col-sm-9 " style="padding-right: 0px;">
-                                    <button type="button" id="adduser"class="btn-state text-decoration-none px-2 w-100">Ambikapur, Chhattisgarh</a>
-                                </div>
-                                <div class="col-12 col-lg-3 col-md-3 col-sm-3 ps-0 mb-1">
-                                    <button  id="adduser" type ="button"class="btn-success px-2 w-75 rounded-3 text-center"><i class="fa-solid fa-phone"></i></a>
+                             <div class=" row state_btn">
+                                <div class="col-12 ">
+                                    <a href="" id="adduser" type ="button" class="btn-success w-100 p-2 rounded-3 text-decoration-none  text-center"><i class="fa-solid fa-phone pe-2"></i>Call Now</a>
                                 </div>
                             </div>
                         </div>
@@ -359,18 +304,14 @@
                                         <p class="pt-3"><strong class="series_tractor_strong text-center h4 fw-bold ">Eicher 380 </strong></p>
                                     </a>      
                                 </div>
-                                <div class="power text-center mt-2">
-                                    <div class="row ">
-                                        <div class="col-12 col-lg-6 col-md-6 col-sm-6"><p class="text-success ps-2">Price: ₹ 4,50,000</p></div>
-                                        <div class="col-12 col-lg-6 col-md-6 col-sm-6" style="padding-right: 32px;">
-                                             <p id="adduser" type="" class="btn-success">
-                                                <i class="fa-solid fa-award"></i>  Certified </p>
-                                        </div>
-                                    </div>    
+                                <div class=" row">
+                                    <div class="col-12 ms-1">
+                                        <p class=" "><span>HP 50</span> | <span>2021 </span>| Jhalawar, Rajasthan</p>
+                                    </div>
                                 </div>
                                 <div class="row text-center">
                                     <div class="col-6">
-                                        <p class="fw-bold ps-2">40 HP
+                                        <p class="fw-bold ms-1">Price: ₹ 4,50,000
                                     </div>
                                     <div class="col-6">
                                         <p class="fw-bold pe-2">Great Deal  <i class="fa-regular fa-thumbs-up"></i></p>
@@ -378,11 +319,8 @@
                                 </div>
                             </div>
                             <div class=" row state_btn">
-                                <div class="col-12 col-lg-9 col-md-9 col-sm-9 " style="padding-right: 0px;">
-                                    <button type="button" id="adduser"class="btn-state text-decoration-none px-2 w-100">Baloda Bajar, Chhattisgarh</a>
-                                </div>
-                                <div class="col-12 col-lg-3 col-md-3 col-sm-3 ps-0 mb-1">
-                                    <button  id="adduser" type ="button"class="btn-success rounded-3 px-2 w-75 text-center"><i class="fa-solid fa-phone"></i></a>
+                                <div class="col-12 ">
+                                    <a href="" id="adduser" type ="button" class="btn-success w-100 p-2 rounded-3 text-decoration-none  text-center"><i class="fa-solid fa-phone pe-2"></i>Call Now</a>
                                 </div>
                             </div>
                         </div>
@@ -401,19 +339,15 @@
                                     <a href="#" class="text-decoration-none text-dark">
                                         <p class="pt-3"><strong class="series_tractor_strong text-center h4 fw-bold ">Eicher 380 </strong></p>
                                     </a>      
-                                </div>
-                                <div class="power text-center mt-2">
-                                    <div class="row ">
-                                        <div class="col-12 col-lg-6 col-md-6 col-sm-6"><p class="text-success ps-2">Price: ₹ 4,50,000</p></div>
-                                        <div class="col-12 col-lg-6 col-md-6 col-sm-6" style="padding-right: 32px;">
-                                             <p id="adduser" type="" class="btn-success">
-                                                <i class="fa-solid fa-award"></i>  Certified </p>
-                                        </div>
-                                    </div>    
+                                </div> 
+                                <div class=" row">
+                                    <div class="col-12 ms-1">
+                                        <p class=" "><span>HP 50</span> | <span>2021 </span>| Jhalawar, Rajasthan</p>
+                                    </div>
                                 </div>
                                 <div class="row text-center">
                                     <div class="col-6">
-                                        <p class="fw-bold ps-2">40 HP
+                                        <p class="fw-bold ms-1">Price: ₹ 4,50,000
                                     </div>
                                     <div class="col-6">
                                         <p class="fw-bold pe-2">Great Deal  <i class="fa-regular fa-thumbs-up"></i></p>
@@ -421,23 +355,18 @@
                                 </div>
                             </div>
                             <div class=" row state_btn">
-                                <div class="col-12 col-lg-9 col-md-9 col-sm-9 " style="padding-right: 0px;">
-                                    <button type="button" id="adduser"class="btn-state text-decoration-none px-2 w-100">Bilaspur, Chhattisgarh</a>
-                                </div>
-                                <div class="col-12 col-lg-3 col-md-3 col-sm-3 ps-0 mb-1">
-                                    <button  id="adduser" type ="button"class="btn-success rounded-3 px-2 w-75 text-center"><i class="fa-solid fa-phone"></i></a>
+                                <div class="col-12 ">
+                                    <a href="" id="adduser" type ="button" class="btn-success w-100 p-2 rounded-3 text-decoration-none  text-center"><i class="fa-solid fa-phone pe-2"></i>Call Now</a>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    
                 </div>
                 <div class="col-12 text-center ">
                     <button id="adduser" type="button" class="add_btn btn-success">
                     <i class="fas fa-undo"></i>  Load More  </button>
                 </div>
             </div>
-            
             <div class="col-12 col-sm-3 col-lg-3 col-md-3">
                 <div class=" row mb-3" id="">
                     <div class="col-12 col-sm-12 col-md-12 col-lg-12">
@@ -634,6 +563,66 @@
     </div>
 </section>
 
+<section>
+      <div class="modal fade" id="used_tractor_callbnt" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title ms-1" id="staticBackdropLabel">Farmtrac_60</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <!-- MODAL BODY -->
+            <div class="modal-body">
+              <form action="" id="contact-seller-call">
+                <div class="row">
+                    <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
+                        <label for="name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i> First Name</label>
+                        <input type="text" class="form-control" placeholder="Enter Your Name" id="fname" name="fname">
+                    </div>
+                    <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
+                        <label for="name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i> Last Name</label>
+                        <input type="text" class="form-control" placeholder="Enter Your Name" id="lname" name="lname">
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-6 col-lg-6">
+                        <label for="number" class="form-label text-dark fw-bold"> <i class="fa fa-phone" aria-hidden="true"></i> Phone Number</label>
+                        <input type="password" class="form-control" placeholder="Enter Number" id="number" name="number">
+                    </div>
+                    <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+                        <label for="yr_state" class="form-label text-dark fw-bold"> <i class="fas fa-location"></i> State</label>
+                        <select class="form-select py-2 " aria-label=".form-select-lg example" id="state" name="state">
+                            <option value>Select State</option>
+                            <option value="1">Chhattisgarh</option>
+                            <option value="2">Other</option>
+                        </select>
+                    </div>
+                <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+                    <label for="yr_dist" class="form-label text-dark"><i class="fa-solid fa-location-dot"></i> District</label>
+                    <select class="form-select py-2 " aria-label=".form-select-lg example" id="district" name="district">
+                        <option value>Select District</option>
+                        <option value="1">Raipur</option>
+                        <option value="2">Bilaspur</option>
+                        <option value="2">Durg</option>
+                    </select>
+                </div>
+                <div class="col-12 col-sm-6 col-md-6 col-lg-6">
+                    <label for="yr_price" class="form-label text-dark">Tehsil</label>
+                    <input type="yr_price" class="form-control" placeholder="Enter Your Tehsil" id="Tehsil" name="Tehsil">
+                </div>
+                <div class="col-12 my-2">
+                    <label for="yr_price" class="form-label text-dark">Enter Your Badget</label>
+                    <input type="yr_price" class="form-control" placeholder="Enter Your Badget" id="badget" name="badget">
+                  </div>                           
+            </div> 
+                <div class="text-center my-3">
+                  <button type="submit" class="btn btn-success px-5 w-100">Call Now</button>         
+                </div>        
+              </form>                             
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
 
 
 <?php
@@ -641,4 +630,61 @@
     include 'includes/footertag.php';
 
     ?>
+    <script>
+ $(document).ready(function(){
+    console.log('testing');
+    $('#contact-seller-call').validate({
+        rules:{
+            fname:{
+                required:true,
+            },
+            lname:{
+                required:true,
+            },
+            number:{
+                required:true,
+            },
+            state:{
+                required:true,
+            },
+            district:{
+                required:true,
+            },
+            badget:{
+                required:true,
+            },
+            Tehsil:{
+                required:true,
+            }
+        },
+        messages:{
+            fname:{
+                required:"This field is required",
+            },
+            lname:{
+                required:"This field is required",
+            },
+            number:{
+                required:"This field is required",
+            },
+            state:{
+                required:"This field is required",
+            },
+            district:{
+                required:"This field is required",
+            },
+            badget:{
+                required:"This field is required",
+            },
+            Tehsil:{
+                required:"This field is required",
+            }
+        },
+        submitHandler: function(form) {
+        form.submit();
+        }
+    });
+});
+
+    </script>
     </html>

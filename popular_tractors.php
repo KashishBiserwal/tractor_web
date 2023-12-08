@@ -2,9 +2,15 @@
 <html lang="en">
 
 <head>
-   <?php
-   include 'includes/headertag.php';
-   ?>
+<?php
+include 'includes/headertag.php';
+   include 'includes/headertagadmin.php';
+   include 'includes/footertag.php';
+   
+   ?> 
+<script> var APIBaseURL = "<?php echo $APIBaseURL; ?>";</script>
+<script> var baseUrl = "<?php echo $baseUrl; ?>";</script>
+    <script src="<?php $baseUrl; ?>model/popular.js"></script>
 </head>
 
 <body>
@@ -28,8 +34,8 @@
         <div class="row">
             <div class="col-12 col-sm-9 col-lg-9 col-md-9">
                 <h3 class="pb-3">Popular  <span class="text-success fw-bold">Tractors in India</span> </h3>
-                <div class="row">
-                    <div class="col-12 col-lg-4 col-md-4 col-sm-4 mb-3">
+                <div id="productContainer" class="row">
+                    <!-- <div class="col-12 col-lg-4 col-md-4 col-sm-4 mb-3">
                         <div class="h-auto success__stry__item d-flex flex-column shadow ">
                             <div class="thumb">
                                 <a href="Mahindra_575.php">
@@ -59,162 +65,8 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-12 col-lg-4 col-md-4 col-sm-4 mb-3">
-                        <div class="h-auto success__stry__item d-flex flex-column shadow ">
-                            <div class="thumb">
-                                <a href="#">
-                                    <div class="ratio ratio-16x9">
-                                        <img src="assets/images/swaraj-855-fe-1694259363.webp" class="object-fit-cover " alt="img">
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="content d-flex flex-column flex-grow-1 ">
-                                <div class="caption text-center">
-                                    <a href="#" class="text-decoration-none text-dark">
-                                        <p class="pt-3"><strong class="series_tractor_strong text-center h4 fw-bold ">Swaraj 855 FE</strong></p>
-                                    </a>      
-                                </div>
-                                <div class="power text-center mt-2">
-                                    <div class="row ">
-                                        <div class="col-12 col-lg-6 col-md-6 col-sm-6"><p class="text-dark ps-2"><i class="fas fa-bolt"></i> 55 HP</p></div>
-                                        <div class="col-12 col-lg-6 col-md-6 col-sm-6" style="padding-right: 32px;">
-                                             <p id="adduser" type="" class="text-dark">
-                                              <i class="fa-solid fa-gear"></i>  3478  CC </p>
-                                        </div>
-                                    </div>    
-                                </div>
-                                <div class="col-12">
-                                    <button id="adduser" type="button" class="add_btn btn-success w-100">
-                                    <i class="fa-regular fa-handshake"></i> Get on Road Price </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-lg-4 col-md-4 col-sm-4 mb-3">
-                        <div class="h-auto success__stry__item d-flex flex-column shadow ">
-                            <div class="thumb">
-                                <a href="#">
-                                    <div class="ratio ratio-16x9">
-                                        <img src="assets/images/mahindra-275-di-xp-plus-1686557174.webp" class="object-fit-cover " alt="img">
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="content d-flex flex-column flex-grow-1 ">
-                                <div class="caption text-center">
-                                    <a href="#" class="text-decoration-none text-dark">
-                                        <p class="pt-3"><strong class="series_tractor_strong text-center h4 fw-bold ">Mahindra 275 DI XP Plus</strong></p>
-                                    </a>      
-                                </div>
-                                <div class="power text-center mt-2">
-                                    <div class="row ">
-                                        <div class="col-12 col-lg-6 col-md-6 col-sm-6"><p class="text-dark ps-2"><i class="fas fa-bolt"></i> 55 HP</p></div>
-                                        <div class="col-12 col-lg-6 col-md-6 col-sm-6" style="padding-right: 32px;">
-                                             <p id="adduser" type="" class="text-dark">
-                                              <i class="fa-solid fa-gear"></i>  3487 CC </p>
-                                        </div>
-                                    </div>    
-                                </div>
-                                <div class="col-12">
-                                    <button id="adduser" type="button" class="add_btn btn-success w-100">
-                                    <i class="fa-regular fa-handshake"></i> Get on Road Price </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-lg-4 col-md-4 col-sm-4 mb-3">
-                        <div class="h-auto success__stry__item d-flex flex-column shadow ">
-                            <div class="thumb">
-                                <a href="#">
-                                    <div class="ratio ratio-16x9">
-                                        <img src="assets/images/swaraj-744-fe-1694259976.webp" class="object-fit-cover " alt="img">
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="content d-flex flex-column flex-grow-1 ">
-                                <div class="caption text-center">
-                                    <a href="#" class="text-decoration-none text-dark">
-                                        <p class="pt-3"><strong class="series_tractor_strong text-center h4 fw-bold ">Swaraj 744 FE</strong></p>
-                                    </a>      
-                                </div>
-                                <div class="power text-center mt-2">
-                                    <div class="row ">
-                                        <div class="col-12 col-lg-6 col-md-6 col-sm-6"><p class="text-dark ps-2"><i class="fas fa-bolt"></i> 48 HP</p></div>
-                                        <div class="col-12 col-lg-6 col-md-6 col-sm-6" style="padding-right: 32px;">
-                                             <p id="adduser" type="" class="text-dark">
-                                              <i class="fa-solid fa-gear"></i>  3136 CC </p>
-                                        </div>
-                                    </div>    
-                                </div>
-                                <div class="col-12">
-                                    <button id="adduser" type="button" class="add_btn btn-success w-100">
-                                    <i class="fa-regular fa-handshake"></i> Get on Road Price </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-lg-4 col-md-4 col-sm-4 mb-3">
-                        <div class="h-auto success__stry__item d-flex flex-column shadow ">
-                            <div class="thumb">
-                                <a href="#">
-                                    <div class="ratio ratio-16x9">
-                                        <img src="assets/images/275-di-tu-1632206550.webp" class="object-fit-cover " alt="img">
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="content d-flex flex-column flex-grow-1 ">
-                                <div class="caption text-center">
-                                    <a href="#" class="text-decoration-none text-dark">
-                                        <p class="pt-3"><strong class="series_tractor_strong text-center h4 fw-bold ">Mahindra 275 DI TU</strong></p>
-                                    </a>      
-                                </div>
-                                <div class="power text-center mt-2">
-                                    <div class="row ">
-                                        <div class="col-12 col-lg-6 col-md-6 col-sm-6"><p class="text-dark ps-2"><i class="fas fa-bolt"></i> 39 HP</p></div>
-                                        <div class="col-12 col-lg-6 col-md-6 col-sm-6" style="padding-right: 32px;">
-                                             <p id="adduser" type="" class="text-dark">
-                                              <i class="fa-solid fa-gear"></i> 2048  CC </p>
-                                        </div>
-                                    </div>    
-                                </div>
-                                <div class="col-12">
-                                    <button id="adduser" type="button" class="add_btn btn-success w-100">
-                                    <i class="fa-regular fa-handshake"></i> Get on Road Price </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-lg-4 col-md-4 col-sm-4 mb-3">
-                        <div class="h-auto success__stry__item d-flex flex-column shadow ">
-                            <div class="thumb">
-                                <a href="#">
-                                    <div class="ratio ratio-16x9">
-                                        <img src="assets/images/380-1632220220.webp" class="object-fit-cover " alt="img">
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="content d-flex flex-column flex-grow-1 ">
-                                <div class="caption text-center">
-                                    <a href="#" class="text-decoration-none text-dark">
-                                        <p class="pt-3"><strong class="series_tractor_strong text-center h4 fw-bold ">Eicher 380</strong></p>
-                                    </a>      
-                                </div>
-                                <div class="power text-center mt-2">
-                                    <div class="row ">
-                                        <div class="col-12 col-lg-6 col-md-6 col-sm-6"><p class="text-dark ps-2"><i class="fas fa-bolt"></i> 40 HP</p></div>
-                                        <div class="col-12 col-lg-6 col-md-6 col-sm-6" style="padding-right: 32px;">
-                                             <p id="adduser" type="" class="text-dark">
-                                              <i class="fa-solid fa-gear"></i> 2500  CC </p>
-                                        </div>
-                                    </div>    
-                                </div>
-                                <div class="col-12">
-                                    <button id="adduser" type="button" class="add_btn btn-success w-100">
-                                    <i class="fa-regular fa-handshake"></i> Get on Road Price </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    </div> -->
+                  
                     
                 </div>
                 <div class="col-12 text-center mt-3 pt-2 ">

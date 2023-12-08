@@ -339,7 +339,7 @@
                     <div class="row">
                         <h3 class="text-center fw-bold mt-2">Related Brands</h3>
                         <div class=" col-6 col-lg-6 col-md-6 col-sm-6">
-                            <div class="brand-main box-shadow mt-2 text-center">
+                            <div class="brand-main box-shadow mt-2 text-center shadow">
                                 <a class="weblink text-decoration-none text-dark" href="#"
                                     title="Sonalika Old Tractors">
                                     <img class="img-fluid w-50" src="assets/images/mahindra-1673872647.webp"
@@ -349,7 +349,7 @@
                             </div>
                         </div>
                         <div class=" col-6 col-lg-6 col-md-6 col-sm-6">
-                            <div class="brand-main box-shadow mt-2 text-center ">
+                            <div class="brand-main box-shadow mt-2 text-center  shadow">
                                 <a class="weblink text-decoration-none text-dark" href="#"
                                     title="Sonalika Old Tractors">
                                     <img class="img-fluid w-50" src="assets/images/swaraj-1608095532.webp" data-src=""
@@ -359,7 +359,7 @@
                             </div>
                         </div>
                         <div class=" col-6 col-lg-6 col-md-6 col-sm-6">
-                            <div class="brand-main  box-shadow mt-2 text-center ">
+                            <div class="brand-main  box-shadow mt-2 text-center  shadow">
                                 <a class="weblink text-decoration-none text-dark" href="#"
                                     title="Sonalika Old Tractors">
                                     <img class="img-fluid w-50" src="assets/images/sonalika.png" data-src=""
@@ -369,7 +369,7 @@
                             </div>
                         </div>
                         <div class=" col-6 col-lg-6 col-md-6 col-sm-6">
-                            <div class="brand-main  box-shadow mt-2 text-center ">
+                            <div class="brand-main  box-shadow mt-2 text-center shadow ">
                                 <a class="weblink text-decoration-none text-dark" href="#"
                                     title="Sonalika Old Tractors">
                                     <img class="img-fluid w-50" src="assets/images/massey-ferguson-1579512590.webp"
@@ -379,7 +379,7 @@
                             </div>
                         </div>
                         <div class=" col-6 col-lg-6 col-md-6 col-sm-6">
-                            <div class="brand-main  box-shadow mt-2 text-center ">
+                            <div class="brand-main  box-shadow mt-2 text-center shadow ">
                                 <a class="weblink text-decoration-none text-dark" href="#"
                                     title="Sonalika Old Tractors">
                                     <img class="img-fluid w-50" src="assets/images/eicher-1608095225.webp" data-src=""
@@ -389,7 +389,7 @@
                             </div>
                         </div>
                         <div class=" col-6 col-lg-6 col-md-6 col-sm-6">
-                            <div class="brand-main  box-shadow mt-2 text-center">
+                            <div class="brand-main  box-shadow mt-2 text-center shadow">
                                 <a class="weblink text-decoration-none text-dark" href="#"
                                     title="Sonalika Old Tractors">
                                     <img class="img-fluid w-50" src="assets/images/farmtrac-1579511831.webp" data-src=""
@@ -399,7 +399,7 @@
                             </div>
                         </div>
                         <div class=" col-6 col-lg-6 col-md-6 col-sm-6">
-                            <div class="brand-main  box-shadow mt-2 text-center">
+                            <div class="brand-main  box-shadow mt-2 text-center  shadow">
                                 <a class="weblink text-decoration-none text-dark" href="#"
                                     title="Sonalika Old Tractors">
                                     <img class="img-fluid w-50" src="assets/images/john-deere-1579511882.webp"
@@ -409,7 +409,7 @@
                             </div>
                         </div>
                         <div class=" col-6 col-lg-6 col-md-6 col-sm-6">
-                            <div class="brand-main  box-shadow mt-2 text-center">
+                            <div class="brand-main  box-shadow mt-2 text-center  shadow">
                                 <a class="weblink text-decoration-none text-dark" href="#"
                                     title="Sonalika Old Tractors">
                                     <img class="img-fluid w-50" src="assets/images/powertrac-1579511958-2.webp"
