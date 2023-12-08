@@ -15,7 +15,7 @@
   ?>
 
   <section class="mt-5 pt-5">
-    <div class="container pt-4">
+    <div class="container mt-5 pt-4">
       <div class="">
         <span class="mt-5 text-white pt-5 ">
           <a href="index.php" class="text-decoration-none header-link px-1">Home <i class="fa-solid fa-chevron-right px-1"></i></a>
@@ -34,7 +34,7 @@
           <div class="thumb">
             <a href="#">
               <div class="">
-                <img src="assets\images\default-image.jpg" class="object-fit-cover p-3 w-100" alt="img">
+              <img src="assets\images\bharattractor2.png" class="object-fit-cover mt-4 p-3 w-100" width="100px" height="200px" alt="img">
               </div>
             </a>
           </div>
@@ -54,7 +54,7 @@
           <div class="thumb">
             <a href="#">
               <div class="">
-                <img src="assets\images\default-image.jpg" class="object-fit-cover p-3 w-100" alt="img">
+              <img src="assets\images\bharattractor2.png" class="object-fit-cover mt-4 p-3 w-100" width="100px" height="200px" alt="img">
               </div>
             </a>
           </div>
@@ -75,7 +75,7 @@
           <div class="thumb">
             <a href="#">
               <div class="">
-                <img src="assets\images\default-image.jpg" class="object-fit-cover p-3 w-100" alt="img">
+              <img src="assets\images\bharattractor2.png" class="object-fit-cover mt-4 p-3 w-100" width="100px" height="200px" alt="img">
               </div>
             </a>
           </div>
@@ -95,7 +95,7 @@
           <div class="thumb">
             <a href="#">
               <div class="">
-                <img src="assets\images\default-image.jpg" class="object-fit-cover p-3 w-100" alt="img">
+                <img src="assets\images\bharattractor2.png" class="object-fit-cover mt-4 p-3 w-100" width="100px" height="200px" alt="img">
               </div>
             </a>
           </div>
@@ -127,10 +127,10 @@
             <form id="multi-step-form">
               <div class="step step-1">
                 <!-- Step 1 form fields here -->
-                <div class="row mt-3 mb-3">
+                <div class="row mt-3 mb-0">
                   <div class="col-12 col-lg-6 col-md-6 col-sm-6">
                     <div>
-                      <h5 class="modal-title fs-2" id="exampleModalLabel"><i class="fa-solid fa-arrow-left"></i>Select Brand</h5>
+                      <h5 class="modal-title fs-5" id="exampleModalLabel"><a href="compare_trac.php" class="text-dark"><i class="fa-solid fa-arrow-left"></a></i> Select Brand</h5>
                     </div>
                   </div>
                   <div class="col-12 col-lg-6 col-md-6 col sm 6 d-flex justify-content-end">
@@ -148,43 +148,41 @@
                     </div>
                   </div>
                 </div>
-                <div>
+                <div class="">
                   <p class="fs-5">Popular Brands</p> 
                   <div class="form-check">
-                    <input class="form-check-input" type="radio" name="radio_brand" id="radio_brand1">
-                    <label class="form-check-label text-dark" for="radio_brand1">
+                    <input class="form-check-input p-1" type="radio" name="radio_brand" id="radio_brand1">
+                    <label class="form-check-label ms-1  text-dark" for="radio_brand1">
                       Mahindra
                     </label>
                   </div>
                   <div class="form-check">
-                    <input class="form-check-input" type="radio" name="radio_brand" id="radio_brand2">
-                    <label class="form-check-label text-dark" for="radio_brand2">
+                    <input class="form-check-input p-1" type="radio" name="radio_brand" id="radio_brand2">
+                    <label class="form-check-label  ms-1 text-dark" for="radio_brand2">
                       Swaraj
                     </label>
                   </div>
                   <div class="form-check">
-                    <input class="form-check-input" type="radio" name="radio_brand" id="radio_brand3">
-                    <label class="form-check-label text-dark" for="radio_brand3">
+                    <input class="form-check-input p-1" type="radio" name="radio_brand" id="radio_brand3">
+                    <label class="form-check-label ms-1  text-dark" for="radio_brand3">
                       Massey Ferguson
                     </label>
                   </div>
-                  <p class="fs-5 py-2">Other Brands</p> 
+                  <!-- <p class="fs-5 py-2">Other Brands</p>  -->
                   <div class="form-check">
-                    <input class="form-check-input" type="radio" name="radio_brand" id="radio_brand4">
-                    <label class="form-check-label text-dark" for="radio_brand4">
-                      ACE
-                    </label>
+                    <input class="form-check-input p-1" type="radio" name="radio_brand" id="radio_brand4">
+                    <label class="form-check-label ms-1 text-dark" for="radio_brand4"> ACE</label>
                   </div>
                   <div class="form-check">
-                    <input class="form-check-input" type="radio" name="radio_brand" id="radio_brand5">
-                    <label class="form-check-label text-dark" for="radio_brand5">
+                    <input class="form-check-input p-1" type="radio" name="radio_brand" id="radio_brand5">
+                    <label class="form-check-label  ms-1 text-dark" for="radio_brand5">
                       Autonxt
                     </label>
                   </div>
                   <div class="form-check">
-                    <input class="form-check-input" type="radio" name="radio_brand" id="radio_brand6">
-                    <label class="form-check-label text-dark" for="radio_brand6">
-                      captain
+                    <input class="form-check-input p-1" type="radio" name="radio_brand" id="radio_brand6">
+                    <label class="form-check-label ms-1  text-dark" for="radio_brand6">
+                      Captain
                     </label>
                   </div>
                 </div>
@@ -193,10 +191,10 @@
 
               <div class="step step-2">
                 <!-- Step 2 form fields here -->
-                <div class="row mt-3 mb-3">
+                <div class="row mt-3 mb-0">
                   <div class="col-12 col-lg-6 col-md-6 col-sm-6">
                     <div>
-                      <h5 class="modal-title fs-2" id="exampleModalLabel"><i class="fa-solid fa-arrow-left"></i>Select Model</h5>
+                    <h5 class="modal-title fs-5" id="exampleModalLabel"><a href="compare_trac.php" class="text-dark"><i class="fa-solid fa-arrow-left"></a></i> Select Model</h5>
                     </div>
                   </div>
                   <div class="col-12 col-lg-6 col-md-6 col sm 6 d-flex justify-content-end">
@@ -214,40 +212,40 @@
                     </div>
                   </div>
                 </div>
-                <div>
+                <div class="">
                   <div class="form-check">
-                    <input class="form-check-input" type="radio" name="radio_model" id="radio_model1">
-                    <label class="form-check-label text-dark" for="radio_model1">
+                    <input class="form-check-input p-1" type="radio" name="radio_model" id="radio_model1">
+                    <label class="form-check-label  ms-1 text-dark" for="radio_model1">
                       575 DI XP Plus
                     </label>
                   </div>
                   <div class="form-check">
-                    <input class="form-check-input" type="radio" name="radio_model" id="radio_model2">
-                    <label class="form-check-label text-dark" for="radio_model2">
+                    <input class="form-check-input p-1" type="radio" name="radio_model" id="radio_model2">
+                    <label class="form-check-label  ms-1 text-dark" for="radio_model2">
                       Oja 3140 4WD
                     </label>
                   </div>
                   <div class="form-check">
-                    <input class="form-check-input" type="radio" name="radio_model" id="radio_model3">
-                    <label class="form-check-label text-dark" for="radio_model3">
+                    <input class="form-check-input p-1" type="radio" name="radio_model" id="radio_model3">
+                    <label class="form-check-label ms-1  text-dark" for="radio_model3">
                       265 DI
                     </label>
                   </div> 
                   <div class="form-check">
-                    <input class="form-check-input" type="radio" name="radio_model" id="radio_model4">
-                    <label class="form-check-label text-dark" for="radio_model4">
+                    <input class="form-check-input p-1" type="radio" name="radio_model" id="radio_model4">
+                    <label class="form-check-label  ms-1 text-dark" for="radio_model4">
                       Arjun Novo 605 Di-i2WD
                     </label>
                   </div>
                   <div class="form-check">
-                    <input class="form-check-input" type="radio" name="radio_model" id="radio_model5">
-                    <label class="form-check-label text-dark" for="radio_model5">
+                    <input class="form-check-input p-1" type="radio" name="radio_model" id="radio_model5">
+                    <label class="form-check-label ms-1  text-dark" for="radio_model5">
                       Arjun 555 DI
                     </label>
                   </div>
                   <div class="form-check">
-                    <input class="form-check-input" type="radio" name="radio_model" id="radio_model6">
-                    <label class="form-check-label text-dark" for="radio_model6">
+                    <input class="form-check-input p-1" type="radio" name="radio_model" id="radio_model6">
+                    <label class="form-check-label ms-1  text-dark" for="radio_model6">
                       475 DI
                     </label>
                   </div>
@@ -284,7 +282,7 @@
     </div>
   </section>
 
-  <!-- Compare To Buy The Right Tractor  -->  
+  <!-- Compare To Buy The Right Tractor  TABS-->  
 
   <section class="">
     <div class="container bg-light">
@@ -427,7 +425,6 @@
           </div>
         </div>
 
-
         <!--21-30 HP Comparison  -->
         <div class="tab-pane fade " id="nav-21_30" role="tabpanel" aria-labelledby="nav-21_30-tab">
           <div class="row">
@@ -552,7 +549,6 @@
             </div>
           </div>
         </div>
-
 
         <!--31-40 HP Comparison  -->
         <div class="tab-pane fade " id="nav-31_40" role="tabpanel" aria-labelledby="nav-31_40-tab">
@@ -679,8 +675,6 @@
           </div>
         </div>
 
-
-
         <!-- 41-45 HP Comparison -->
         <div class="tab-pane fade " id="nav-41_45" role="tabpanel" aria-labelledby="nav-41_45-tab">
           <div class="row">
@@ -805,7 +799,6 @@
             </div>
           </div>
         </div>
-
 
         <!--46-50 HP Comparison -->
         <div class="tab-pane fade " id="nav-46_50" role="tabpanel" aria-labelledby="nav-46_50-tab">
@@ -1062,13 +1055,13 @@
   </section>
 
 
-
-  <section>
+   <!--WATCH TRACTOR COMPARISON VIDEOS  -->
+  <!-- <section>
     <div class="container">       
       <div class="row py-1 bg-lighta">
-        <h1 class="mt-2 mb-3 fs-5 mt-4">Watch Tractors Comparison Videos</h1> 
+        <h1 class="mt-2 mb-3 fs-5 mt-4">Watch Tractors Comparison Videos</h1>  -->
           <!-- 1st comparison card -->
-          <div class="col-12 col-lg-3 col-sm-3 col-md-3 mt-2 mb-2">
+          <!-- <div class="col-12 col-lg-3 col-sm-3 col-md-3 mt-2 mb-2">
             <div class="success__stry__item shadow h-100">
               <div class="thumb">
                 <a href="#">
@@ -1086,9 +1079,9 @@
                 </a>
               </div>
             </div>
-          </div> 
+          </div>  -->
           <!-- 2nd comparison card -->
-          <div class="col-12 col-lg-3 col-sm-3 col-md-3 mt-2 mb-2">
+          <!-- <div class="col-12 col-lg-3 col-sm-3 col-md-3 mt-2 mb-2">
             <div class="success__stry__item shadow h-100">
               <div class="thumb">
                 <a href="#">
@@ -1106,9 +1099,9 @@
                 </a>
               </div>
             </div>
-          </div> 
+          </div>  -->
           <!-- 3rd comparison card -->
-          <div class="col-12 col-lg-3 col-sm-3 col-md-3 mt-2 mb-2">
+          <!-- <div class="col-12 col-lg-3 col-sm-3 col-md-3 mt-2 mb-2">
             <div class="success__stry__item shadow h-100">
               <div class="thumb">
                 <a href="#">
@@ -1126,9 +1119,9 @@
                 </a>
               </div>
             </div>
-          </div> 
+          </div>  -->
           <!-- 4th comparison card -->
-          <div class="col-12 col-lg-3 col-sm-3 col-md-3 mt-2 mb-2">
+          <!-- <div class="col-12 col-lg-3 col-sm-3 col-md-3 mt-2 mb-2">
             <div class="success__stry__item shadow h-100">
               <div class="thumb">
                 <a href="#">
@@ -1146,11 +1139,11 @@
                 </a>
               </div>
             </div>
-          </div> 
+          </div>  -->
 
-      </div>
+      <!-- </div>
     </div>    
-  </section>
+  </section> -->
 
 
   <section>
@@ -1158,7 +1151,7 @@
       <div class=" fw-bold fs-5 mt-3 ">
         <p class="mb-n4">Compare Tractors</p>
       </div>
-      <p class="">Tractorjunction.com is a one-stop authentic online destination where you can compare a variety of Tractors and Farm Implements. All top tractor brands are available here including Mahindra, John Deere, Escorts, Sonalika, Eicher, TAFE, New Holland and many more. The information displayed on Tractor Junction is believed to be accurate, unbiased and correct. Choose at least two tractors as per your choice to compare based on their specifications, features, mileage, Price, overall perf<span id="dots">...</span><span id="more">ormance and warranty. All Indian Farmers can easily compare tractors of distinct varieties just in a few clicks. TractorJunction brings a welfare opportunity to compare tractor price in India. This allows farmers from every region to compare tractors in India.
+      <p class="">Tractorjunction.com is a one-stop authentic online destination where you can compare a variety of Tractors and Farm Implements. All top tractor brands are available here including Mahindra, John Deere, Escorts, Sonalika, Eicher, TAFE, New Holland and many more. The information displayed on Bharat Tractor is believed to be accurate, unbiased and correct. Choose at least two tractors as per your choice to compare based on their specifications, features, mileage, Price, overall perf<span id="dots">...</span><span id="more">ormance and warranty. All Indian Farmers can easily compare tractors of distinct varieties just in a few clicks. TractorJunction brings a welfare opportunity to compare tractor price in India. This allows farmers from every region to compare tractors in India.
 
       TractorJunction provides the most comprehensive tractor comparison tool in India on which you can select at least two or more tractors of your choice for comparison. This online platform provides all the useful guidelines for tractor comparison India. TractorJunction always works to empower Indian farmers with a new tractor compare section.<br><br>
 
@@ -1203,7 +1196,7 @@
     var updateProgressBar;
 
     function displayStep(stepNumber) {
-      if (stepNumber >= 1 && stepNumber <= 3) {
+      if (stepNumber >= 1 && stepNumber <= 2) {
         $(".step-" + currentStep).hide();
         $(".step-" + stepNumber).show();
         currentStep = stepNumber;
@@ -1215,7 +1208,7 @@
       $('#multi-step-form').find('.step').slice(1).hide();
     
       $(".next-step").click(function() {
-        if (currentStep < 3) {
+        if (currentStep < 2) {
           $(".step-" + currentStep).addClass("animate__animated animate__fadeOutLeft");
           currentStep++;
           setTimeout(function() {
