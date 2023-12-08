@@ -79,7 +79,7 @@ messages:{
     password_confirmation:{
       required:"Please provide a valid password",
       minlenght:"Your password must be atleast 5 character long",
-      equalTo:"Please enter  as same password above"
+      equalTo:"Please enter as same password above"
     },
     email:{
         required:"Please Enter Your Email",
