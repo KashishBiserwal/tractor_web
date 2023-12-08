@@ -196,7 +196,7 @@
                 <div class="row mt-3 mb-3">
                   <div class="col-12 col-lg-6 col-md-6 col-sm-6">
                     <div>
-                      <h5 class="modal-title fs-2" id="exampleModalLabel"><i class="fa-solid fa-arrow-left"></i>Select Modal</h5>
+                      <h5 class="modal-title fs-2" id="exampleModalLabel"><i class="fa-solid fa-arrow-left"></i>Select Model</h5>
                     </div>
                   </div>
                   <div class="col-12 col-lg-6 col-md-6 col sm 6 d-flex justify-content-end">

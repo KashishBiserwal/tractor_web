@@ -45,7 +45,7 @@ include 'includes/headertag.php';
                                           <div class="col-12 mt-3">
                                             <div class="">
                                                 <label class="text-dark">Lookup Type Name<span class="text-danger">*</span></label>
-                                                <input type="text" class="form-control py-2 text-uppercase" id="name" for="name" name="name" placeholder="">
+                                                <input type="text" class="form-control py-2" id="name" for="name" name="name" placeholder="">
                                             </div>
                                           </div>
                                       </div>
@@ -107,8 +107,8 @@ include 'includes/headertag.php';
         </div>
       </div> -->
       <div class="card mb-5">
-          <div class="table-responsive" style="overflow: hidden;">
-            <table id="example" class="table  table-striped table-hover table-bordered dataTable no-footer" width="100%; margin-bottom: 15px;">
+          <div class="table-responsive shadow" style="overflow: hidden;">
+            <table id="example" class="table  no-footer" width="100%; margin-bottom: 15px;">
                 <thead>
                     <tr class="bg-success">
                         <th class="d-none d-md-table-cell text-white">ID</th>

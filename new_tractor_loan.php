@@ -26,6 +26,14 @@
     object-fit: contain;
     width: 100%;
 }
+.container-mid {
+    max-width: 1280px;
+    margin: 0 auto;
+    width: 98%;
+    padding-left: 8px;
+    padding-right: 8px;
+    margin-top: -145px;
+}
 </style>
 
 <body> <?php
@@ -51,7 +59,7 @@
     <!--Banner-->
     <div class="container-fluid">
         <div class="row siv" id="">
-            <img src="assets/images/loans.jpg" alt="reload img" class="w-100" style="height: 350px;">
+            <img src="assets/images/loans.jpg" alt="reload img" class="w-100" style="height: 358px;">
             <div class="container-mid">
                 <div class="row justify-content-center loan_form bg-light border border-dark">
                     <h3 class="text-dark text-center fw-bold mt-4">Secure Your Loan with the Best Rates</h3>
@@ -826,7 +834,56 @@
                             </div>
                         </div>
                     </div>
-                    
+                    <!--  <div class="accordion-item  rounded-3 my-3">
+                <h2 class="accordion-header p-2" id="flush-heading6">
+                  <button class="accordion-button collapsed  fw-bold h4" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse6" aria-expanded="false" aria-controls="flush-collapse6"> Que. What documents are required when applying for a tractor loan? </button>
+                </h2>
+                <div id="flush-collapse6" class="accordion-collapse collapse" aria-labelledby="flush-heading6" data-bs-parent="#accordionFlushExample">
+                  <div class="accordion-body">
+                    <p class="text-dark">Ans. Documents required for a tractor loan are duly filled in an application form, KYC (Identity proof and Address proof), Latest passport size photos, Loan Statements in case of existing loans and Land Documents.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item  rounded-3 my-3">
+                <h2 class="accordion-header p-2" id="flush-headingoil">
+                  <button class="accordion-button collapsed  fw-bold h4" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseoil" aria-expanded="false" aria-controls="flush-collapseoil"> Que. What are the minimum and maximum deposit limits? </button>
+                </h2>
+                <div id="flush-collapseoil" class="accordion-collapse collapse" aria-labelledby="flush-headingoil" data-bs-parent="#accordionFlushExample">
+                  <div class="accordion-body">
+                    <p class="text-dark">Ans. The difference between the tractor price and the loan amount is the margin. So now the choice is for the borrower to select the margin option according to their needs.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item  rounded-3 my-3">
+                <h2 class="accordion-header p-2" id="flush-heading7">
+                  <button class="accordion-button collapsed  fw-bold h4" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse7" aria-expanded="false" aria-controls="flush-collapse7"> Que. How long does it take to process and approve a tractor loan? </button>
+                </h2>
+                <div id="flush-collapse7" class="accordion-collapse collapse" aria-labelledby="flush-heading7" data-bs-parent="#accordionFlushExample">
+                  <div class="accordion-body">
+                    <p class="text-dark">Ans.The processing and approval of a tractor loan take 3 working days, provided the documents are complete.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item  rounded-3 my-3">
+                <h2 class="accordion-header p-2" id="flush-heading8">
+                  <button class="accordion-button collapsed  fw-bold h4" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse8" aria-expanded="false" aria-controls="flush-collapse8"> Que. What is the total amount of credit that can be released for a tractor loan? </button>
+                </h2>
+                <div id="flush-collapse8" class="accordion-collapse collapse" aria-labelledby="flush-heading8" data-bs-parent="#accordionFlushExample">
+                  <div class="accordion-body">
+                    <p class="text-dark">Ans. The total amount of credit that can be released for a tractor loan is 90% of the tractor price.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item  rounded-3 my-3">
+                <h2 class="accordion-header p-2" id="flush-heading9">
+                  <button class="accordion-button collapsed  fw-bold h4" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse9" aria-expanded="false" aria-controls="flush-collapse9"> Que. Can I close or repay a tractor loan early? </button>
+                </h2>
+                <div id="flush-collapse9" class="accordion-collapse collapse" aria-labelledby="flush-heading9" data-bs-parent="#accordionFlushExample">
+                  <div class="accordion-body">
+                    <p class="text-dark">Ans. Repayment and closure are not allowed for up to 6 months. After that, you can repay and close the loan with some charges mentioned in the loan agreement.</p>
+                  </div>
+                </div>  
+              </div>-->
                 </div>
             </div>
         </div>

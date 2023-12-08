@@ -1,16 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-   <?php
-   include 'includes/headertag.php';
-   ?>
-</head>
+<?php
+include 'includes/headertag.php';
+   include 'includes/headertagadmin.php';
+   include 'includes/footertag.php';
+   
+   ?> 
+<script> var APIBaseURL = "<?php echo $APIBaseURL; ?>";</script>
+<script> var baseUrl = "<?php echo $baseUrl; ?>";</script>
+    <script src="<?php $baseUrl; ?>model/upcomig.js"></script>
 
 <body>
    <?php
    include 'includes/header.php';
-   ?>4
+   ?>
 
 <section class="mt-5 pt-3">
     <div class="container">
@@ -28,8 +32,8 @@
         <div class="row">
             <div class="col-12 col-sm-9 col-lg-9 col-md-9">
                 <h3 class="pb-3">Upcoming<span class="text-success fw-bold">Tractors in India</span> </h3>
-                <div class="row">
-                    <div class="col-12 col-lg-4 col-md-4 col-sm-4 mb-3">
+                <div id="productContainer" class="row">
+                    <!-- <div class="col-12 col-lg-4 col-md-4 col-sm-4 mb-3">
                         <div class="h-auto success__stry__item d-flex flex-column shadow ">
                             <div class="thumb">
                                 <a href="#">
@@ -214,7 +218,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                     
                 </div>
                 <div class="col-12 text-center mt-3 pt-2 ">

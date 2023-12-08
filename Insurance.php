@@ -9,6 +9,8 @@
 <style>
 label.error {
     color: red !important;
+    margin-bottom:2px;
+    font-size:13px;
 }
 
 .images {
@@ -40,6 +42,14 @@ label.error {
 
 #atag {
     text-decoration: none;
+}
+.container-mid {
+    max-width: 1280px;
+    margin: 0 auto;
+    width: 98%;
+    padding-left: 8px;
+    padding-right: 8px;
+    margin-top: -160px;
 }
 </style>
 
@@ -76,7 +86,7 @@ label.error {
 
                     <form id="myform" name="myform" method="post">
                         <div class="row">
-                            <div class="col-4 col-sm-4 col-md-4 col-lg-4 mt-4">
+                            <div class="col-12 col-sm-6 col-md-6 col-lg-4 mt-4">
                                 <div class="form-outline">
 
                                     <label class="form-label" for="insurance_type">Insurance Type</label>
@@ -89,7 +99,7 @@ label.error {
                                     </select>
                                 </div>
                             </div>
-                            <div class="col-4 col-sm-4 col-md-4 col-lg-4 mt-4">
+                            <div class="col-12 col-sm-6 col-md-6 col-lg-4 mt-4">
                                 <div class="form-outline">
                                     <label class="form-label " for="first_name">First Name</label>
                                     <input type="text" id="first_name" name="first_name"
@@ -97,129 +107,129 @@ label.error {
                                 </div>
                             </div>
 
-                            <div class="col-4 col-sm-4 col-md-4 col-lg-4 mt-4">
+                            <div class="col-12 col-sm-6 col-md-6 col-lg-4 mt-4">
                                 <div class="form-outline">
                                     <label class="form-label" for="last_name">Last Name</label>
                                     <input type="text" id="last_name" name="last_name"
                                         class=" data_search form-control input-group-sm py-2" />
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-4">
-                            <div class="form-outline">
-                                <label class="form-label" for="mobile_number">Mobile Number</label>
-                                <input type="text" id="mobile_number" name="mobile_number"
-                                    class=" data_search form-control input-group-sm py-2" />
-                            </div>
-                        </div>
-                        <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-4">
-                            <div class="form-outline">
-                                <label class="form-label" for="brand">Brand</label>
-                                <select class="form-select py-2" id="brand" name="brand"
-                                    aria-label="Default select example">
-                                    <option selected></option>
-                                    <option value="1">name1</option>
-                                    <option value="2">name2</option>
-                                    <option value="3">name3</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-4">
-                            <div class="form-outline">
-                                <label class="form-label" for="model">Model</label>
-                                <select class="form-select py-2" id="model" name="model"
-                                    aria-label="Default select example">
-                                    <option selected></option>
-                                    <option value="1">name1</option>
-                                    <option value="2">name2</option>
-                                    <option value="3">name3</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-4">
-                            <div class="form-outline">
-                                <label class="form-label" for="enter_model">Enter Model</label>
-                                <input type="text" id="enter_model" name="enter_model"
-                                    class=" data_search form-control input-group-sm py-2" />
-                            </div>
-                        </div>
-                        <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-4">
-                            <div class="form-outline">
-                                <label class="form-label" for="vehicle_registered_number">Vehicle Registered
-                                    Number</label>
-                                <input type="text" id="vehicle_registered_number" name="vehicle_registered_number"
-                                    class=" data_search form-control input-group-sm py-2" />
-                            </div>
-                        </div>
 
-                        <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-4">
-                            <div class="form-outline">
-                                <label class="form-label" for="registered_year">Registered Year</label>
-                                <select class="form-select py-2" id="registered_year" name="registered_year"
-                                    aria-label="Default select example">
-                                    <option selected></option>
-                                    <option value="1">name1</option>
-                                    <option value="2">name2</option>
-                                    <option value="3">name3</option>
-                                </select>
+                            <div class="col-12 col-sm-6 col-md-6 col-lg-4 mt-4">
+                                <div class="form-outline">
+                                    <label class="form-label" for="mobile_number">Mobile Number</label>
+                                    <input type="text" id="mobile_number" name="mobile_number"
+                                        class=" data_search form-control input-group-sm py-2" />
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-4">
-                            <div class="form-outline">
-                                <label class="form-label" for="state">State</label>
-                                <select class="form-select py-2" id="state" name="state"
-                                    aria-label="Default select example">
-                                    <option selected></option>
-                                    <option value="1">name1</option>
-                                    <option value="2">name2</option>
-                                    <option value="3">name3</option>
-                                </select>
+                            <div class="col-12 col-sm-6 col-md-6 col-lg-4 mt-4">
+                                <div class="form-outline">
+                                    <label class="form-label" for="brand">Brand</label>
+                                    <select class="form-select py-2" id="brand" name="brand"
+                                        aria-label="Default select example">
+                                        <option selected></option>
+                                        <option value="1">name1</option>
+                                        <option value="2">name2</option>
+                                        <option value="3">name3</option>
+                                    </select>
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-4">
-                            <div class="form-outline">
-                                <label class="form-label" for="district">District</label>
-                                <select class="form-select py-2" id="district" name="district"
-                                    aria-label="Default select example">
-                                    <option selected></option>
-                                    <option value="1">name1</option>
-                                    <option value="2">name2</option>
-                                    <option value="3">name3</option>
-                                </select>
+                            <div class="col-12 col-sm-6 col-md-6 col-lg-4 mt-4">
+                                <div class="form-outline">
+                                    <label class="form-label" for="model">Model</label>
+                                    <select class="form-select py-2" id="model" name="model"
+                                        aria-label="Default select example">
+                                        <option selected></option>
+                                        <option value="1">name1</option>
+                                        <option value="2">name2</option>
+                                        <option value="3">name3</option>
+                                    </select>
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-4">
-                            <div class="form-outline">
-                                <label class="form-label" for="tehsil">Tehsil</label>
-                                <select class="form-select py-2" id="tehsil" name="tehsil"
-                                    aria-label="Default select example">
-                                    <option selected></option>
-                                    <option value="1">name1</option>
-                                    <option value="2">name2</option>
-                                    <option value="3">name3</option>
-                                </select>
+                            <div class="col-12 col-sm-6 col-md-6 col-lg-4 mt-4">
+                                <div class="form-outline">
+                                    <label class="form-label" for="enter_model">Enter Model</label>
+                                    <input type="text" id="enter_model" name="enter_model"
+                                        class=" data_search form-control input-group-sm py-2" />
+                                </div>
                             </div>
-                        </div>
+                            <div class="col-12 col-sm-6 col-md-6 col-lg-4 mt-4">
+                                <div class="form-outline">
+                                    <label class="form-label" for="vehicle_registered_number">Vehicle Registered
+                                        Number</label>
+                                    <input type="text" id="vehicle_registered_number" name="vehicle_registered_number"
+                                        class=" data_search form-control input-group-sm py-2" />
+                                </div>
+                            </div>
 
-
-                        <div class="col-12">
-                            <p class=" mt-3 "> Claims Made in Previous Policy</p>
-                            <div class="form-check form-check-inline ">
-                                <input class="form-check-input border border-dark" type="radio" id="inlineCheckbox1"
-                                    name="x" value="Yes">
-                                <label class="form-check-label text-dark" for="inlineCheckbox1">Yes</label>
+                            <div class="col-12 col-sm-6 col-md-6 col-lg-4 mt-4">
+                                <div class="form-outline">
+                                    <label class="form-label" for="registered_year">Registered Year</label>
+                                    <select class="form-select py-2" id="registered_year" name="registered_year"
+                                        aria-label="Default select example">
+                                        <option selected></option>
+                                        <option value="1">name1</option>
+                                        <option value="2">name2</option>
+                                        <option value="3">name3</option>
+                                    </select>
+                                </div>
                             </div>
-                            <div class="form-check form-check-inline text-center">
-                                <input class="form-check-input border border-dark" type="radio" id="inlineCheckbox2"
-                                    name="x" value="No">
-                                <label class="form-check-label text-dark" for="inlineCheckbox2">No</label>
+                            <div class="col-12 col-sm-6 col-md-6 col-lg-4 mt-4">
+                                <div class="form-outline">
+                                    <label class="form-label" for="state">State</label>
+                                    <select class="form-select py-2" id="state" name="state"
+                                        aria-label="Default select example">
+                                        <option selected></option>
+                                        <option value="1">name1</option>
+                                        <option value="2">name2</option>
+                                        <option value="3">name3</option>
+                                    </select>
+                                </div>
                             </div>
-                        </div>
-                        <p class="text-center">By proceeding ahead you expressly agree to the Bharat Tractors <a
-                                href="privacy_and_policy.php" class="text-decoration-none">Terms & Conditions*</a></p>
-                        <div class="d-grid col-8 mx-auto mb-3">
-                            <button type="button" class="btn btn-success fw-bold" value="" id='button2'>Apply For
-                                Insurance</button>
+                            <div class="col-12 col-sm-6 col-md-6 col-lg-4 mt-4">
+                                <div class="form-outline">
+                                    <label class="form-label" for="district">District</label>
+                                    <select class="form-select py-2" id="district" name="district"
+                                        aria-label="Default select example">
+                                        <option selected></option>
+                                        <option value="1">name1</option>
+                                        <option value="2">name2</option>
+                                        <option value="3">name3</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm-6 col-md-6 col-lg-4 mt-4">
+                                <div class="form-outline">
+                                    <label class="form-label" for="tehsil">Tehsil</label>
+                                    <select class="form-select py-2" id="tehsil" name="tehsil"
+                                        aria-label="Default select example">
+                                        <option selected></option>
+                                        <option value="1">name1</option>
+                                        <option value="2">name2</option>
+                                        <option value="3">name3</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <!-- <div class="col-12">
+                                <p class=" mt-3 "> Claims Made in Previous Policy</p>
+                                <div class="form-check form-check-inline ">
+                                    <input class="form-check-input border border-dark" type="radio" id="inlineCheckbox1"
+                                        name="x" value="Yes">
+                                    <label class="form-check-label text-dark" for="inlineCheckbox1">Yes</label>
+                                </div>
+                                <div class="form-check form-check-inline text-center">
+                                    <input class="form-check-input border border-dark" type="radio" id="inlineCheckbox2"
+                                        name="x" value="No">
+                                    <label class="form-check-label text-dark" for="inlineCheckbox2">No</label>
+                                </div>
+                            </div> -->
+                            <p class="text-center mt-3">By proceeding ahead you expressly agree to the Bharat Tractors <a
+                                    href="privacy_and_policy.php" class="text-decoration-none">Terms & Conditions*</a>
+                            </p>
+                            <div class="d-grid col-8 mx-auto mb-3">
+                                <button type="button" class="btn btn-success fw-bold" value="" id='button2'>Apply For
+                                    Insurance</button>
+                            </div>
                         </div>
                     </form>
                 </div>
@@ -742,6 +752,18 @@ include 'includes/footertag.php';
                 first_name: 'required',
 
                 last_name: 'required',
+                mobile_number: {
+                    required: true,
+                    digits: true, // Allow only digits
+                },
+                brand: "required",
+                model: "required",
+                enter_model: "required",
+                vehicle_registered_number: "required",
+                registered_year: "required",
+                state: "required",
+                district: "required",
+                tehsil: "required",
             }
             // messages: {
             //        first_name: {

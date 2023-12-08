@@ -5,7 +5,7 @@
    <?php
    include 'includes/headertag.php';
    include 'includes/footertag.php';
-
+   include 'includes/spinner.php';
    
    ?>
 <script> var APIBaseURL = "<?php echo $APIBaseURL; ?>";</script>
@@ -20,9 +20,9 @@
 </style>
 <body>
 
-<section class="bg-light">
+<section class="">
   <div class="login-page ">
-          <div class="container form-container bg-light">
+          <div class="container form-container">
                       <div class="bg-white shadow rounded">
                               <div class=" pe-0">
                                   <div class="form-center h-100 py-5 px-5">
@@ -48,11 +48,11 @@
                                                         </div>
                                               </div>
                                               <div class="col-12 text-center">
-                                                <a href="" type="submit" class="btn px-4 bg-success" id="login">Login</a>
+                                                  <a href="" type="submit" class="btn px-4 bg-success text-white" id="login">Login</a>
                                               </div>
-                                              <div class="col-12 text-center">
+                                              <!-- <div class="col-12 text-center">
                                                   <a href="#" class="text-success text-decoration-none">Forgot Password?</a>
-                                              </div>
+                                              </div> -->
                                       </form>
                                   </div>
                               </div>

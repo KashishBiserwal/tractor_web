@@ -1,20 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-   <?php
-   include 'includes/headertag.php';
-   ?>
-</head>
+    <?php
+include 'includes/headertag.php';
+//    include 'includes/headertagadmin.php';
+   include 'includes/footertag.php';
+   
+   ?> 
+  <script> var APIBaseURL = "<?php echo $APIBaseURL; ?>";</script>
+  <script> var baseUrl = "<?php echo $baseUrl; ?>";</script>
+  <script src="<?php $baseUrl; ?>model/mahindra_brand.js"></script>
 
 <body>
    <?php
-   include 'includes/header.php';
+//    include 'includes/header.php';
    ?>
    <!-- Banner Here -->
    
    <section class="bg-cover bg-overlay" style="background-image: url('assets/images/mahindra-oja-tractors-homepage-desktop-1920x600.webp')">
-        <div class="container position-relative mt-5 pt-5">
+        <div class="container-fullwidth position-relative mt-5 pt-5">
             <div class="py-4"></div>
             <div class="py-5"></div>
             <div class="row justify-content-center">
@@ -57,7 +60,7 @@
         </div>
    </section>
   <section>
-    <div class="container">
+    <div class="container-fullwidth">
         <div class="row">
             <h1 class=" mt-5">Popular Mahindra Tractors</h1>
             
@@ -75,7 +78,7 @@
 
   <!-- used tractor -->
     <section>
-        <div class="container my-4">
+        <div class="container-fullwidth my-4">
         <h3 class="mt-5 pt-4 fw-bold">Used Mahindra Tractors</h3>
             <div class="row my-4">
             <div class="col-12 col-sm-6 col-md-4 col-lg-4 px-2 py-3 h-100">
@@ -206,7 +209,7 @@
 
     <!-- Mahindra Tractor Implements -->
     <section class="bg-light">
-        <div class="container">
+        <div class="container-fullwidth">
             <h3 class="my-4 pt-2 fw-bold">Mahindra Tractor Implements</h3>
             <div class="row">
                 <div class="col-12 col-sm-6 col-md-3 col-lg-3 px-2 py-3 h-100">
@@ -326,7 +329,7 @@
 
   <!--  Mahindra Tractor Dealers & Service Centers-->
     <section>
-        <div class="container mt-4 pt-3 ">
+        <div class="container-fullwidth mt-4 pt-3 ">
             <h3 class="fw-bold  my-3 ">Mahindra Tractor Dealers & Service Centers</h3>
             <nav class="my-4 pt-3 w-50">
                 <div class="nav nav-tabs mb-3 " id="nav-tab" role="tablist">
@@ -478,7 +481,7 @@
 
     <!--  -->
     <section class="about bg-light">
-        <div class="container">
+        <div class="container-fullwidth">
             <div class="lecture_heading text-center">
                 <h3 class="fw-bold my-5 pt-5">Recently Asked User Questions about Mahindra Tractor</h3>
             </div>
@@ -636,52 +639,7 @@
         </div>
     </section>
 
-    <section>
-        <div class="container mb-4">
-            <div class="lecture_heading text-center">
-                <h3 class="fw-bold  my-5">Mahindra Tractor Updates</h3>
-            </div>
-            <div class="row">
-                <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                    <img src="assets/images/news-mahindra.jpg"  alt="reload"class="rounded-3 w-100" alt="">
-                    <h4 class="fw-bold my-3">Latest News About Mahindra Tractors</h4>
-                    <p class="my-2 text-dark justify-content-center">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis assumenda voluptates sint voluptatem tempore soluta quod nam quas eius, consequuntur fugiat ratione a ullam sequi totam modi aut omnis labore quae incidunt atque.
-                    </p>
-                </div>
-                <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                    <div class="container">
-                        <!-- <h3 class="fw-bold ">Mahindra Tractor Dealers & Service Centers</h3> -->
-                        <nav class="">
-                            <div class="nav nav-tabs mb-3 " id="nav-tab" role="tablist">
-                                <button class="nav-link active  py-3 h5 fw-bold text-dark" id="nav-all-tab" data-bs-toggle="tab" data-bs-target="#nav-all" type="button" role="tab" aria-controls="nav-all" aria-selected="true">Tractor News</button>
-                                <button class="nav-link py-3 h5 fw-bold text-dark" id="nav-tractor-tab" data-bs-toggle="tab" data-bs-target="#nav-tractor" type="button" role="tab" aria-controls="nav-tractor" aria-selected="false">Agriculture News</button>
-                            </div>
-                        </nav>
-                        <div class="tab-content p-3 border bg-light" id="nav-tabContent">
-                            <div class="tab-pane fade active show" id="nav-all" role="tabpanel" aria-labelledby="nav-all-tab">
-                                <div class="row">
-                                    
-                                </div>
-                                <div class="col text-center mt-3 ">
-                                    <a href="#" class="btn btn-success btn-lg">View All Tractor News</a>
-                                </div>
-                            </div>
-
-                            <div class="tab-pane fade" id="nav-tractor" role="tabpanel" aria-labelledby="nav-tractor-tab">
-                                <div class="row">
-                                   
-                                    <div class="col text-center mt-3 ">
-                                        <a href="#" class="btn btn-success btn-lg">View  All Service Centers</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+   
 
 
     <?php
@@ -691,93 +649,6 @@
     ?>
     </html>
 
-    <script>
-        $(document).ready(function() {
-            console.log("ready!");
-            getTractorList();
-        });
-
-        function getTractorList() {
-            var url = "http://127.0.0.1:8000/api/customer/getProduct";
-            console.log(url);
-
-            $.ajax({
-                url: url,
-                type: "GET",
-                success: function(data) {
-                    console.log(data, 'abc');
-                    var productContainer = $("#productContainer");
-
-                    if (data.product && data.product.length > 0) {
-                        data.product.forEach(function (p) {
-                            var newCard = `
-                            <div class="item px-2 py-3 h-100 ">
-                            <div class="h-auto success__stry__item shadow">
-                                <div class="thumb">
-                                    <a href="${p.id}">
-                                        <div class="ratio ratio-16x9">
-                                            <img src="${p.image_url}" class="object-fit-cover" alt="${p.description}">
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="content d-flex flex-column flex-grow-1 ">
-                                    <a href="${p.id}" class="text-decoration-none text-dark">
-                                        <h4 class="fw-bold mt-3 mx-3">${p.model}</h4>
-                                    </a>
-                                    <div class="row mt-1 ps-1">
-                                        <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                                            <p class="ps-3"> <i class="fas fa-bolt"></i> ${p.hp_category} HP</p>
-                                        </div>
-                                        <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                                            <p class="pe-5 me-4"> <i class="fa fa-cog" aria-hidden="true"></i> ${p.engine_capacity_cc} CC </p>
-                                        </div>
-                                    </div>
-                                    <a href="#" class="text-decoration-none text-dark pb-3 fw-bold">
-                                        <span class="p-3">
-                                            Get On Road price
-                                        </span>
-                                        <span class="icon">
-                                            <i class="fa-solid fa-chevron-right"></i>
-                                        </span>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                            `;
-
-                            // Append the new card to the container
-                            productContainer.append(newCard);
-                        });
-
-                        // Initialize Owl Carousel after adding cards
-                        productContainer.owlCarousel({
-                            items:3,
-                            loop: true,
-                            margin: 10,
-                            responsiveClass: true,
-                            responsive: {
-                                0: {
-                                    items: 1,
-                                    nav: true
-                                },
-                                600: {
-                                    items: 3,
-                                    nav: false
-                                },
-                                1000: {
-                                    items: 3,
-                                    nav: true,
-                                    loop: false
-                                }
-                            }
-                        });
-                    }
-                },
-                error: function (error) {
-                    console.error('Error fetching data:', error);
-                }
-            });
-        }
-    </script>
+    
 </body>
 </html>

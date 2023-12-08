@@ -153,9 +153,9 @@
                                     <option value="">Select Model</option>
                                 </select>
                             </div>
-                            <button type="button" class="w-100 fw-bold btn btn-success mt-3 mb-1" id="calculateEMI"
+                            <a href="emi_inner.php"><button type="button" class="w-100 fw-bold btn btn-success mt-3 mb-1" id="calculateEMI"
                                 onclick="showEMIForm()">Calculate
-                                EMI</button>
+                                EMI</button></a>
                         </form>
                     </div>
                     <div class="col-12 col-sm-12 col-md-6 col-lg-6 ">
@@ -407,7 +407,7 @@
             <div class="mt-4 pb-5">
                 <div class="accordion " id="accordionFlushExample">
                     <div class="accordion-item  rounded-3">
-                        <h2 class="accordion-header p-2" id="flush-headingOne">
+                        <h2 class="accordion-header" id="flush-headingOne">
                             <button class="accordion-button collapsed fw-bold h4" type="button"
                                 data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false"
                                 aria-controls="flush-collapseOne">Que. What Is a tractor loan EMI?</button>
@@ -422,7 +422,7 @@
                         </div>
                     </div>
                     <div class="accordion-item rounded-3 my-3">
-                        <h2 class="accordion-header p-2" id="flush-headingTwo">
+                        <h2 class="accordion-header" id="flush-headingTwo">
                             <button class="accordion-button collapsed  fw-bold h4" type="button"
                                 data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false"
                                 aria-controls="flush-collapseTwo">Que. What is a tractor down payment?</button>
@@ -436,7 +436,7 @@
                         </div>
                     </div>
                     <div class="accordion-item  rounded-3 my-3">
-                        <h2 class="accordion-header p-2" id="flush-headingThree">
+                        <h2 class="accordion-header" id="flush-headingThree">
                             <button class="accordion-button collapsed  fw-bold h4" type="button"
                                 data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false"
                                 aria-controls="flush-collapseThree">Que. What will be the interest rate for a tractor
@@ -453,7 +453,7 @@
                         </div>
                     </div>
                     <div class="accordion-item  rounded-3 my-3">
-                        <h2 class="accordion-header p-2" id="flush-heading4">
+                        <h2 class="accordion-header" id="flush-heading4">
                             <button class="accordion-button collapsed  fw-bold h4" type="button"
                                 data-bs-toggle="collapse" data-bs-target="#flush-collapse4" aria-expanded="false"
                                 aria-controls="flush-collapse4">Que. What are the steps to calculate tractor loan EMI
@@ -475,7 +475,7 @@
                         </div>
                     </div>
                     <div class="accordion-item  rounded-3 my-3">
-                        <h2 class="accordion-header p-2" id="flush-heading5">
+                        <h2 class="accordion-header" id="flush-heading5">
                             <button class="accordion-button collapsed  fw-bold h4" type="button"
                                 data-bs-toggle="collapse" data-bs-target="#flush-collapse5" aria-expanded="false"
                                 aria-controls="flush-collapse5">Que. What late charges are applicable on missed
@@ -624,20 +624,20 @@
         });
     });
 
-    function showEMIForm() {
-        // Validate the first form
-        if ($("#brandModelForm").valid()) {
-            // Hide the first form and show the second form
-            $("#form1").addClass("hidden");
-            $("#form2").removeClass("hidden");
-        }
-    }
+    // function showEMIForm() {
+    //     // Validate the first form
+    //     if ($("#brandModelForm").valid()) {
+    //         // Hide the first form and show the second form
+    //         $("#form1").addClass("hidden");
+    //         $("#form2").removeClass("hidden");
+    //     }
+    // }
 
-    function showBrandModelForm() {
-        // Hide the second form and show the first form
-        $("#form2").addClass("hidden");
-        $("#form1").removeClass("hidden");
-    }
+    // function showBrandModelForm() {
+    //     // Hide the second form and show the first form
+    //     $("#form2").addClass("hidden");
+    //     $("#form1").removeClass("hidden");
+    // }
     </script>
 
 

@@ -1,11 +1,13 @@
 $(document).ready(function () {
-
-    $('.js-example-basic-multiple').select2();
+  get_lookup();
+  $('.js-example-basic-multiple').select2();
 
     getTractorList();
     BackgroundUpload();
+
     $('#save').click(store);
     console.log('fjfej');
+
     $("#add_tractor_form").validate({
       
       rules: {
@@ -132,7 +134,6 @@ $(document).ready(function () {
     function get() {
         // var url = "<?php echo $APIBaseURL; ?>getBrands";
         var apiBaseURL =APIBaseURL;
-        // Now you can use the retrieved value in your JavaScript logic
         var url = apiBaseURL + 'getBrands';
         $.ajax({
             url: url,
@@ -143,7 +144,7 @@ $(document).ready(function () {
             success: function (data) {
                 console.log(data);
                 const select = document.getElementById('brand_name');
-                select.innerHTML = '';
+                // select.innerHTML = '';
 
                 if (data.brands.length > 0) {
                     data.brands.forEach(row => {
@@ -164,33 +165,6 @@ $(document).ready(function () {
     get();
 
 
-    function getProductById() {
-      var url = "http://127.0.0.1:8000/api/admin/getLookupData";
-      console.log(url);
-
-      $.ajax({
-          url: url,
-          type: "GET",
-          headers: {
-            'Authorization': 'Bearer ' + localStorage.getItem('token')
-        },
-          success: function(data) {
-              console.log(data, 'qqqqqqqq');
-
-              data.tractor_type_data.map((i)=>{
-
-              })
-              
-          // document.getElementById('productName').innerText=data.product.air_filter;
-          },
-          error: function (error) {
-              console.error('Error fetching data:', error);
-          }
-      });
-  }
-
-  getProductById();
-
 
 // fetch lookup data in select box
 function get_lookup() {
@@ -204,31 +178,36 @@ function get_lookup() {
             'Authorization': 'Bearer ' + localStorage.getItem('token')
         },
         success: function (data) {
+          // lookup select
           console.log(data,'ok');
             for (var i = 0; i < data.data.length; i++) {
                 $("select#" + data.data[i].name).append('<option value="' + data.data[i].id + '">' + data.data[i].lookup_data_value + '</option>');
             }
+            // accessory 
+            var acce_Select = $(" #ass_list");
+            acce_Select.empty(); // Clear existing options
+            acce_Select.append('<option selected disabled="" value="">Please select an option</option>'); 
 
-            // for (var i = 0; i < data.tractor_type_data.length; i++) {
-            //     $("select#" + data.tractor_type_data[i].type_name).append('<option value="' + data.tractor_type_data[i].id + '">' + data.tractor_type_data[i].type_name + '</option>');
-            // }
-            // var tractorTypeSelect = $("select#type_name");
-            var tractorTypeSelect = $("#staticBackdrop #type_name");
-            tractorTypeSelect.empty(); // Clear existing options
-            tractorTypeSelect.append('<option selected disabled="" value="">Please select an option</option>'); 
-
-            // for (var i = 0; i < data.tractor_type_data.length; i++) {
-            //     tractorTypeSelect.append('<option value="' + data.tractor_type_data[i].id + '">' + data.tractor_type_data[i].type_name + '</option>');
-            // }
-
-            for (var i = 0; i < data.tractor_type_data.length; i++) {
-                tractorTypeSelect.append('<option value="' + data.tractor_type_data[i].id + '">' + data.tractor_type_data[i].type_name + '</option>');
+            for (var k = 0; k < data.accessory.length; k++) {
+              acce_Select.append('<option value="' + data.accessory[k].id + '">' + data.accessory[k].accessory+ '</option>');
             }
 
+
+            // checkbox
+            $("#type_name").empty();
+            var tractorTypesArray = [];
+            // Create checkboxes for each tractor type
+            for (var j = 0; j < data.tractor_type_data.length; j++) {
+              var checkbox = $('<input type="checkbox" id="tractor_type_' + data.tractor_type_data[j].id + '" value="' + data.tractor_type_data[j].id + '">');
+              var label = $('<label for="tractor_type_' + data.tractor_type_data[j].id + '">' + data.tractor_type_data[j].type_name + '</label>');
           
-            tractorTypeSelect.select2();  
-           
+              // Append checkbox and label to the div
+              $("#type_name").append(checkbox);
+              $("#type_name").append(label);
+          }
+          
         },
+        
         complete:function(){
          
         },
@@ -238,15 +217,41 @@ function get_lookup() {
     });
 }
 
-// get_lookup();
-
-
 
 // insert data
 function store(event) {
+ console.log('run store function');
+  // Get the parent div
+  var typeDiv = document.getElementById('type_name');
+
+  // Get all input elements inside the div
+  var checkboxes = typeDiv.querySelectorAll('input[type="checkbox"]');
+
+  var selectedCheckboxValues = [];
+  // Loop through each checkbox and get its value
+  checkboxes.forEach(function (checkbox) {
+    // Check if the checkbox is checked
+    if (checkbox.checked) {
+      // If checked, push its value into the array
+      var checkboxValue = checkbox.value;
+      selectedCheckboxValues.push(checkboxValue);
+    }
+   
+  });
+
+  var selectedOptions = [];
+
+  $("#ass_list option:selected").each(function(){
+      var value = $(this).val();
+      if($.trim(value)){
+          selectedOptions.push(value);
+      }
+  });
+  
     event.preventDefault();
-    console.log('jfhfhw');
-    var brand_name = $('#brand_name').val();
+    console.log("Tractor TYpe : ",selectedCheckboxValues);
+    console.log("accessory select : ",selectedOptions);
+    var brand_id = $('#brand_name').val();
     var model = $('#model').val();
     var product_type_id = $('#product_type_id').val();
     var hp_category = $('#hp_category').val();
@@ -258,7 +263,7 @@ function store(event) {
     var starting_price = $('#starting_price').val();
     var  ending_price= $('#ending_price').val();
     var  warranty= $('#warranty').val();
-    var tractor_type_id = $('#TRACTOR_TYPE').val();
+    var tractor_type_id = selectedCheckboxValues;
     var image_name = $('#image_name').val();
     var CAPACITY_CC = $('#CAPACITY_CC').val();
     var engine_rated_rpm = $('#engine_rated_rpm').val();
@@ -274,7 +279,7 @@ function store(event) {
     var max_reverse_speed = $('#max_reverse_speed').val();
     var STEERING_DETAIL = $('#STEERING_DETAIL').val();
     var STEERING_COLUMN = $('#STEERING_COLUMN').val();
-    var POWER_TAKEOFF_TYPE = $('#POWER_TAKEOFF_TYPE').val();
+    var power_take_off_type = $('#POWER_TAKEOFF_TYPE').val();
     var power_take_off_rpm = $('#power_take_off_rpm').val();
     var totat_weight = $('#totat_weight').val();
     var WHEEL_BASE = $('#WHEEL_BASE').val();
@@ -284,13 +289,13 @@ function store(event) {
     var WHEEL_DRIVE = $('#WHEEL_DRIVE').val();
     var front_tyre = $('#front_tyre').val();
     var rear_tyre = $('#rear_tyre').val();
-    var accessory = $('#accessory').val();
+    var accessory = selectedOptions;
     var STATUS = $('#STATUS').val();
     var description = $('#description').val();
 
     // Prepare data to send to the server
     var paraArr = {
-      'brand_name': brand_name,
+      'brand_id': brand_id,
       'model': model,
       'product_type_id': product_type_id,
       'hp_category': hp_category,
@@ -306,7 +311,7 @@ function store(event) {
       'image_name': image_name,
       'CAPACITY_CC': CAPACITY_CC,
       'engine_rated_rpm': engine_rated_rpm,
-      'COOLING': COOLING,
+      'cooling_id': COOLING,
       'AIR_FILTER': AIR_FILTER,
       'fuel_pump_id': fuel_pump_id,
       'TORQUE': TORQUE,
@@ -318,7 +323,7 @@ function store(event) {
       'max_reverse_speed': max_reverse_speed,
       'STEERING_DETAIL': STEERING_DETAIL,
       'STEERING_COLUMN': STEERING_COLUMN,
-      'POWER_TAKEOFF_TYPE': POWER_TAKEOFF_TYPE,
+      'power_take_off_type': power_take_off_type,
       'power_take_off_rpm': power_take_off_rpm,
       'totat_weight': totat_weight,
       'WHEEL_BASE': WHEEL_BASE,
@@ -328,7 +333,7 @@ function store(event) {
       'WHEEL_DRIVE': WHEEL_DRIVE,
       'front_tyre':front_tyre,
       'rear_tyre':rear_tyre,
-      'accessory':accessory,
+      'accessory_id':accessory,
       'STATUS':STATUS,
       'description':description,
     };
@@ -336,7 +341,6 @@ function store(event) {
     var apiBaseURL =APIBaseURL;
     // Now you can use the retrieved value in your JavaScript logic
     var url = apiBaseURL + 'storeProduct';
-   // var url = "<?php echo $APIBaseURL; ?>user_login";
     // console.log(url);
     var token = localStorage.getItem('token');
     var headers = {
@@ -349,7 +353,7 @@ function store(event) {
       headers: headers,
       success: function (result) {
         console.log(result, "result");
-        window.location.href = "<?php echo $baseUrl; ?>tractor_listing.php"; 
+        // getTractorList();
         console.log("Add successfully");
         // alert('successfully inserted..!')
       },
@@ -359,94 +363,4 @@ function store(event) {
     });
   }
 
-  // fetch data
-  function getTractorList() {
-    console.log('kjhskdjf');
-    // var url = "<?php echo $APIBaseURL; ?>getProduct";
-    var apiBaseURL =APIBaseURL;
-    // Now you can use the retrieved value in your JavaScript logic
-    var url = apiBaseURL + 'getProduct';
-
-    // console.log(url);  
-
-    $.ajax({
-        url: url,
-        type: "GET",
-        headers: {
-            'Authorization': 'Bearer ' + localStorage.getItem('token')
-        },
-        success: function (data) {
-            console.log(data);
-
-            const tableBody = document.getElementById('data-table');
-
-            if (data.product && data.product.length > 0) {
-                // console.log(typeof product);
-
-                data.product.forEach(row => {
-                  
-                  const tableRow = document.createElement('tr');
-                  console.log(tableRow, 'helloooo');
-                   
-
-                    tableRow.innerHTML = `
-                   
-                        <td>${row.id}</td>
-                        <td>${row.brand_name}</td>
-                        <td>${row.model}</td>
-                        <td>${row.total_cyclinder_id}</td>
-                        <td>${row.hp_category}</td>
-                        <td>${row.horse_power}</td>
-                        <td>${row.brake_type_id}</td>
-                        <td>${row.steering_details_id}</td>
-                        <td>
-                            <div class="d-flex">
-                                <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.id});">
-                                    <i class="fa fa-trash" style="font-size: 11px;"></i>
-                                </button>
-                            </div>
-                        </td>
-                    `;
-                    tableBody.appendChild(tableRow);
-                });
-            } else {
-                tableBody.innerHTML = '<tr><td colspan="9">No valid data available</td></tr>';
-            }
-        },
-        error: function (error) {
-            console.error('Error fetching data:', error);
-        }
-    });
-}
-
-// delete data
-function destroy(id) {
-//   var url = "<?php echo $APIBaseURL; ?>deleteProduct/" + id;
-var apiBaseURL =APIBaseURL;
-// Now you can use the retrieved value in your JavaScript logic
-var url = apiBaseURL + 'deleteProduct/'+ id;
-
-  var token = localStorage.getItem('token');
-  
-  if (!token) {
-    console.error("Token is missing");
-    return;
-  }
-
-  $.ajax({
-    url: url,
-    type: "DELETE",
-    headers: {
-      'Authorization': 'Bearer ' + token
-    },
-    success: function(result) {
-      window.location.reload();
-      console.log("Delete request successful");
-      alert("Delete operation successful");
-    },
-    error: function(error) {
-      console.error('Error fetching data:', error);
-      alert("Error during delete operation");
-    }
-  });
-}
+ 

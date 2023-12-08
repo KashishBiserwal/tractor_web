@@ -92,10 +92,7 @@ include 'includes/headertag.php';
                               <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-2">
                                 <div class="form-outline">
                                   <label class="form-label" for="district">Model</label>
-                                  <select class="form-select py-2" aria-label="Default select example" name="model" id="model">
-                                    <option selected disabled=""></option>
-                                    
-                                  </select>
+                                  <input type="text" id="model" name="model" class=" data_search form-control input-group-sm py-2" />
                                 </div>
                               </div>
                               <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-2">
@@ -152,23 +149,43 @@ include 'includes/headertag.php';
                                   </select>
                                 </div>
                               </div>
+                              <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-3">
+                                <div class="form-outline">
+                                  <label class="form-label" for="rc">RC Number</label>
+                                  <input type="text" id="rc" name="rc"class=" data_search form-control input-group-sm py-2" />
+                                </div>
+                              </div>
+                              <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-3">
+                                <label class="pe-3 fs-5 text-dark">Financed</label>
+                                <input type="radio" id="yes" name="fav_language" value="yes">
+                                <label for="html" class="text-dark">Yes</label> 
+                                <input type="radio" id="no" name="fav_language" value="no">
+                                <label for="css" class="text-dark">No</label>
+                              </div>
+                              <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-3" id="nocDiv" style="display: none;">
+                                <label class="pe-3 fs-5 text-dark">NOC Available:</label>
+                                <input type="radio" id="nocyes" name="fav_language1" value="nocyes">
+                                <label for="nocyes" class="text-dark">Yes</label> 
+                                <input type="radio" id="nocno" name="fav_language1" value="nocno">
+                                <label for="nocno" class="text-dark">No</label>
+                              </div>
                               <h5 class="mt-2">Upload Image</h5>
                               <div class="col-12 col-sm-4 col-lg-4 col-md-4 ps-3">
-                                          <div class="background__box ">
-                                                <div class="background__btn-box ">
-                                                    <label class="background__btn">
-                                                    <p class="text-white bg-success p-2 rounded">Upload images</p>
-                                                        <input type="file" id="brand_img" data-max_length="20"name="brand_img"  ref="fileInput"
-                                                        style="display: none"
-                                                        @change="handleFileInput"
-                                                        accept="image/png, image/jpg, image/jpeg" class="background__inputfile" id="banner_image">
-                                                        <small></small>
-                                                    </label>
-                                                </div>
-                                                <div class="">
-                                                    <div class="background__img-wrap"></div>
-                                                </div>
-                                          </div>
+                                <div class="background__box ">
+                                  <div class="background__btn-box ">
+                                      <label class="background__btn">
+                                        <p class="text-white bg-success p-2 rounded">Upload images</p>
+                                        <input type="file" id="brand_img" data-max_length="20"name="brand_img"  ref="fileInput"
+                                        style="display: none"
+                                        @change="handleFileInput"
+                                        accept="image/png, image/jpg, image/jpeg" class="background__inputfile" id="banner_image">
+                                                        
+                                      </label>
+                                    </div>
+                                    <div class="">
+                                      <div class="background__img-wrap"></div>
+                                    </div>
+                                </div>
                               </div>
                               <div class="col-12 col-sm-8 col-lg-8 col-md-8 ">
                                 <div class="form-outline">
@@ -254,95 +271,105 @@ include 'includes/headertag.php';
    ?> 
  <script>
         $(document).ready(function() {
-          BackgroundUpload()
-            $("#old_tract").validate({
-                rules: {
-                    first_name: 'required',
-
-                    last_name: 'required',
-                    mobile_number: {
-                        required: true,
-                        digits: true, // Allow only digits
-                    },
-                    state: "required",
-                    district: "required",
-                    brand:"required",
-                    model:"required",
-                    year:"required",
-                    condition:"required",
-                    tyrecondition:"required",
-                    brand_img:"required",
-                    hour:"required",
-                    description:"required",
-
-                }
-            });
-            $('#old_btn').on('click', function() {
-                $('#old_tract').valid();
-                console.log($('#old_tract').valid());
-            });
-        });
-
-function BackgroundUpload(){
-    var imgWrap = "";
-    var imgArray = [];
-
-    function generateUniqueClassName(index) {
-      return "background-image-" + index;
-    }
-
-    $('.background__inputfile').each(function () {
-      $(this).on('change', function (e) {
-        imgWrap = $(this).closest('.background__box').find('.background__img-wrap');
-        var maxLength = $(this).attr('data-max_length');
-
-        var files = e.target.files;
-        var filesArr = Array.prototype.slice.call(files);
-        var iterator = 0;
-        filesArr.forEach(function (f, index) {
-
-          if (!f.type.match('image.*')) {
-            return;
-          }
-
-          if (imgArray.length > maxLength) {
-            return false;
-          } else {
-            var len = 0;
-            for (var i = 0; i < imgArray.length; i++) {
-              if (imgArray[i] !== undefined) {
-                len++;
-              }
-            }
-            if (len > maxLength) {
-              return false;
-            } else {
-              imgArray.push(f);
-
-              var reader = new FileReader();
-              reader.onload = function (e) {
-                var className = generateUniqueClassName(iterator);
-                var html = "<div class='background__img-box'><div onclick='BackgroundImage(\"" + className + "\")' style='background-image: url(" + e.target.result + ")' data-number='" + $(".background__img-close").length + "' data-file='" + f.name + "' class='img-bg " + className + "'><div class='background__img-close'></div></div></div>";
-                imgWrap.append(html);
-                iterator++;
-              }
-              reader.readAsDataURL(f);
-            }
-          }
-        });
+          $('input[type="radio"]').change(function(){
+        if($(this).attr('id') == 'yes'){
+            $('#nocDiv').show();
+        } else if ($(this).attr('id') == 'no'){
+            $('#nocDiv').hide();
+        }
       });
     });
+        
+//           BackgroundUpload()
+//             $("#old_tract").validate({
+//                 rules: {
+//                     first_name: 'required',
+//                     last_name: 'required',
+//                     mobile_number: {
+//                         required: true,
+//                         digits: true, // Allow only digits
+//                     },
+//                     state: "required",
+//                     district: "required",
+//                     brand:"required",
+//                     model:"required",
+//                     year:"required",
+//                     condition:"required",
+//                     tyrecondition:"required",
+//                     brand_img:"required",
+//                     hour:"required",
+//                     rc:"rc",
+//                     description:"required",
+//                     fav_language:"required",
+//                     fav_language1:"required",
+//                 }
+//             });
+//             $('#old_btn').on('click', function() {
+//                 $('#old_tract').valid();
+//                 console.log($('#old_tract').valid());
+//             });
+//         });
 
-    $('body').on('click', ".background__img-close", function (e) {
-      var file = $(this).parent().data("file");
-      for (var i = 0; i < imgArray.length; i++) {
-        if (imgArray[i].name === file) {
-          imgArray.splice(i, 1);
-          break;
-        }
-      }
-      $(this).parent().parent().remove();
-    });
-}
+// function BackgroundUpload(){
+//     var imgWrap = "";
+//     var imgArray = [];
+
+//     function generateUniqueClassName(index) {
+//       return "background-image-" + index;
+//     }
+
+//     $('.background__inputfile').each(function () {
+//       $(this).on('change', function (e) {
+//         imgWrap = $(this).closest('.background__box').find('.background__img-wrap');
+//         var maxLength = $(this).attr('data-max_length');
+
+//         var files = e.target.files;
+//         var filesArr = Array.prototype.slice.call(files);
+//         var iterator = 0;
+//         filesArr.forEach(function (f, index) {
+
+//           if (!f.type.match('image.*')) {
+//             return;
+//           }
+
+//           if (imgArray.length > maxLength) {
+//             return false;
+//           } else {
+//             var len = 0;
+//             for (var i = 0; i < imgArray.length; i++) {
+//               if (imgArray[i] !== undefined) {
+//                 len++;
+//               }
+//             }
+//             if (len > maxLength) {
+//               return false;
+//             } else {
+//               imgArray.push(f);
+
+//               var reader = new FileReader();
+//               reader.onload = function (e) {
+//                 var className = generateUniqueClassName(iterator);
+//                 var html = "<div class='background__img-box'><div onclick='BackgroundImage(\"" + className + "\")' style='background-image: url(" + e.target.result + ")' data-number='" + $(".background__img-close").length + "' data-file='" + f.name + "' class='img-bg " + className + "'><div class='background__img-close'></div></div></div>";
+//                 imgWrap.append(html);
+//                 iterator++;
+//               }
+//               reader.readAsDataURL(f);
+//             }
+//           }
+//         });
+//       });
+//     });
+
+//     $('body').on('click', ".background__img-close", function (e) {
+//       var file = $(this).parent().data("file");
+//       for (var i = 0; i < imgArray.length; i++) {
+//         if (imgArray[i].name === file) {
+//           imgArray.splice(i, 1);
+//           break;
+//         }
+//       }
+//       $(this).parent().parent().remove();
+//     });
+// }
    </script>
                        

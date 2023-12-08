@@ -119,8 +119,8 @@
       </div>
       <!-- Table Card -->
       <div class=" mb-5">
-            <div class="table-responsive">
-              <table id="example" class="table dataTable no-footer py-1" width="100%">
+            <div class="table-responsive shadow bg-white">
+              <table id="example" class="table bg-white table-striped table-hover py-1" width="100%">
                 <thead class="">
                   <tr>
                     <th class="d-none d-md-table-cell text-white py-2">S.No.</th>

@@ -1,5 +1,5 @@
 $(document).ready(function() {
-
+console.log("ready");
   jQuery.validator.addMethod("customPhoneNumber", function(value, element) {
     return /^[6-9]\d{9}$/.test(value); 
   }, "Phone number must start with 6 or above");
@@ -95,6 +95,10 @@ submitHandler: function(form) {
 form.submit();
 }
 });
+$('#save').on('click', function() {
+  $('#form_add').valid();
+  console.log($('#form_add').valid());
+});
 
 
 
@@ -139,11 +143,10 @@ form.submit();
       url: url,
       type: "POST",
       data: paraArr,
-      headers: headers,
+      // headers: headers,
       success: function (result) {
         console.log(result, "result");
-        // Redirect to a success page or perform other actions
-        window.location.href = "<?php echo $baseUrl; ?>usermanagement.php"; 
+        get();
         console.log("Add successfully");
         alert('successfully inserted..!')
       },
