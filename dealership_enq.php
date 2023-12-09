@@ -45,7 +45,7 @@
                                 <div class="mt-2">
                                     <div class="form-outline">
                                         <label class="form-label text-dark">First Name</label>
-                                        <input type="text" class="form-control" id="f_name" name="f_name">
+                                        <input type="text" class="form-control mb-0" id="f_name" name="f_name">
                                     </div>
                                 </div>
                             </div>
@@ -53,7 +53,7 @@
                                 <div class="mt-2">
                                     <div class="form-outline">
                                         <label class="form-label text-dark">Last Name</label>
-                                        <input type="text" class="form-control" id="l_name" name="l_name">                                
+                                        <input type="text" class="form-control mb-0" id="l_name" name="l_name">                                
                                     </div>
                                 </div>
                             </div>
@@ -61,7 +61,7 @@
                             <div class="form-outline">    
                                 <div class="mt-2">
                                         <label class="form-label text-dark">Mobile Number</label>
-                                        <input type="text" class="form-control" id="mob_num" name="mob_num" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');">
+                                        <input type="text" class="form-control mb-0" id="mob_num" name="mob_num" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');">
                                     </div>
                                 </div>
                             </div>

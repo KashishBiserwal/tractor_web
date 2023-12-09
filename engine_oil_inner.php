@@ -127,15 +127,15 @@
                 <div class="row">
                   <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
                     <label for="f_name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i> First Name</label>
-                      <input type="text" class="form-control" placeholder="Enter Your Name" id="f_name" name="f_name">
+                      <input type="text" class="form-control mb-0" placeholder="Enter Your Name" id="f_name" name="f_name">
                   </div>
                   <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
                     <label for="last_name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i> Last Name</label>
-                      <input type="text" class="form-control" placeholder="Enter Your Name" id="eo_name" name="eo_name">
+                      <input type="text" class="form-control mb-0" placeholder="Enter Your Name" id="eo_name" name="eo_name">
                   </div>
                   <div class="col-12 col-sm-6 col-md-6 col-lg-6">
                     <label for="eo_number" class="form-label text-dark fw-bold"> <i class="fa fa-phone" aria-hidden="true"></i> Phone Number</label>
-                    <input type="text" class="form-control" placeholder="Enter Number" id="eo_number" name="eo_number" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');">
+                    <input type="text" class="form-control mb-0" placeholder="Enter Number" id="eo_number" name="eo_number" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');">
                   </div>
                   <div class="col-12 col-sm-12 col-md-6 col-lg-6">
                     <label for="eo_state" class="form-label text-dark fw-bold"> <i class="fas fa-location"></i> State</label>

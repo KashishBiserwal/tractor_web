@@ -94,7 +94,7 @@
     <section class="mt-4">
       <div class="container">
         <div class="about border-success  border-4 text-dark border-start">
-          <h3 class="text-dark fw-bold text-start ps-4">Engine</h3>
+          <h3 class="text-dark fw-bold text-start ps-3">Engine</h3>
         </div>
         <table class="table w-100 table-hover table table-striped my-4">               
           <tbody>                     
@@ -102,10 +102,10 @@
               <td class="w-100">
                 <div class="row w-100">
                   <div class="col-12 col-lg-4 col-md-4 col-sm-3">
-                    <p>No. Of Cylinder</p>
+                    <p class="mb-1">No. Of Cylinder</p>
                   </div>
                   <div class="col-12 col-lg-8 col-md-8 col-sm-8">
-                    <p>4</p>
+                    <p class="mb-1">4</p>
                   </div>
                 </div>
               </td>
@@ -115,10 +115,10 @@
               <td class="w-100">
                 <div class="row w-100">
                   <div class="col-12 col-lg-4 col-md-4 col-sm-3">
-                    <p>HP Category</p>
+                    <p class="mb-1">HP Category</p>
                   </div>
                   <div class="col-12 col-lg-8 col-md-8 col-sm-8">
-                    <p>42 HP</p>
+                    <p class="mb-1">42 HP</p>
                   </div>
                 </div>
               </td>
@@ -128,10 +128,10 @@
               <td class="w-100">
                 <div class="row w-100">
                   <div class="col-12 col-lg-4 col-md-4 col-sm-3">
-                    <p>Capacity CC</p>
+                    <p class="mb-1">Capacity CC</p>
                   </div>
                   <div class="col-12 col-lg-8 col-md-8 col-sm-8">
-                    <p>2500 CC</p>
+                    <p class="mb-1">2500 CC</p>
                   </div>
                 </div>
               </td>
@@ -141,10 +141,10 @@
               <td class="w-100">
                 <div class="row w-100">
                   <div class="col-12 col-lg-4 col-md-4 col-sm-3">
-                    <p>Engine Rated RPM</p>
+                    <p class="mb-1">Engine Rated RPM</p>
                   </div>
                   <div class="col-12 col-lg-8 col-md-8 col-sm-8">
-                    <p>1800 RPM</p>
+                    <p class="mb-1">1800 RPM</p>
                   </div>
                 </div>
               </td>
@@ -154,10 +154,10 @@
               <td class="w-100">
                 <div class="row w-100">
                   <div class="col-12 col-lg-4 col-md-4 col-sm-3">
-                    <p>Cooling</p>
+                    <p class="mb-1">Cooling</p>
                   </div>
                   <div class="col-12 col-lg-8 col-md-8 col-sm-8">
-                    <p>Water Cooled</p>
+                    <p class="mb-1">Water Cooled</p>
                   </div>
                 </div>
               </td>
@@ -167,10 +167,10 @@
               <td class="w-100">
                 <div class="row w-100">
                   <div class="col-12 col-lg-4 col-md-4 col-sm-3">
-                    <p>Air Filter</p>
+                    <p class="mb-1">Air Filter</p>
                   </div>
                   <div class="col-12 col-lg-8 col-md-8 col-sm-8">
-                    <p>Wet Type</p>
+                    <p class="mb-1">Wet Type</p>
                   </div>
                 </div>
               </td>
@@ -181,10 +181,10 @@
               <td class="w-100">
                 <div class="row w-100">
                   <div class="col-12 col-lg-4 col-md-4 col-sm-3">
-                    <p>PTO HP</p>
+                    <p class="mb-1">PTO HP</p>
                   </div>
                   <div class="col-12 col-lg-8 col-md-8 col-sm-8">
-                    <p>38</p>
+                    <p class="mb-1">38</p>
                   </div>
                 </div>
               </td>
@@ -194,146 +194,196 @@
               <td class="w-100">
                 <div class="row w-100">
                   <div class="col-12 col-lg-4 col-md-4 col-sm-3">
-                    <p>Fuel Pump</p>
+                    <p class="mb-1">Fuel Pump</p>
                   </div>
                   <div class="col-12 col-lg-8 col-md-8 col-sm-8">
-                    <p>N/A</p>
+                    <p class="mb-1">N/A</p>
                   </div>
                 </div>
               </td>
             </tr>  
+            
           </tbody>
         </table>
       </div>
     </section>
       <!-- TRANSMISSION -->
       <section class="mt-3">
-         <div class="container">
-            <div class="about border-success  border-4 text-dark border-start">
-               <h3 class="text-dark fw-bold text-start ps-4">Transmission</h3>
-            </div>
-            <table class="table w-100 table-hover table table-striped my-4">
-               <tbody>
-                  <tr>
-                     <div class="row">
-                     <div class="col-12 col-lg-3 col-md-3 col-sm-3">
-                        <td class="table-data">Type</td>
-                     </div>
-                     <div class="col-12 col-lg-3 col-md-3 col-sm-3">
-                        <td class="table-data" >Partial Constant Mesh</td> 
-                     </div>
-                     <div class="col-12 col-lg-3 col-md-3 col-sm-3"></div>
-                     <div class="col-12 col-lg-3 col-md-3 col-sm-3"></div>
+        <div class="container">
+          <div class="about border-success  border-4 text-dark border-start">
+            <h3 class="text-dark fw-bold text-start ps-3">Transmission</h3>
+          </div>
+          <table class="table w-100 table-hover table table-striped my-4">
+            <tbody>
+                <tr>
+                  <td class="w-100">
+                    <div class="row w-100">
+                      <div class="col-12 col-lg-4 col-md-4 col-sm-3">
+                        <p class="mb-1">Type</p>
+                      </div>
+                      <div class="col-12 col-lg-8 col-md-8 col-sm-8">
+                        <p class="mb-1">Partial Constant Mesh</p>
+                      </div>
+                    </div>
+                  </td>
+                </tr>  
 
-                     </div>
-                     
-                     
-                  </tr>
-                  <tr>
-                     <div class="col-12 col-lg-3 col-md-3 col-sm-3">
-                        <td class="table-data">Clutch</td>
-                     </div>
-                     <div class="col-12 col-lg-3 col-md-3 col-sm-3">
-                        <td class="table-data">Single / Dual clutch</td>
-                     </div>   
-                     <div class="col-12 col-lg-3 col-md-3 col-sm-3"></div>
-                     <div class="col-12 col-lg-3 col-md-3 col-sm-3"></div>                  
-                  </tr>
-                  <tr>
-                     <div class="col-12 col-lg-3 col-md-3 col-sm-3">
-                        <td class="table-data">Gear Box</td>
-                     </div> 
-                     <div class="col-12 col-lg-3 col-md-3 col-sm-3">
-                        <td class="table-data">8 Forward + 2 Reverse</td>
-                     </div> 
-                     <div class="col-12 col-lg-3 col-md-3 col-sm-3"></div>
-                     <div class="col-12 col-lg-3 col-md-3 col-sm-3"></div>
-                     
-                  </tr>
-                  <tr>
-                     <div class="col-12 col-lg-3 col-md-3 col-sm-3">
-                        <td class="table-data">Forward Speed</td>
-                     </div>                                           
-                     <div class="col-12 col-lg-3 col-md-3 col-sm-3">
-                     <td class="table-data">3.1 - 31.3 kmph</td>
-                     </div> 
-                     <div class="col-12 col-lg-3 col-md-3 col-sm-3"></div>
-                     <div class="col-12 col-lg-3 col-md-3 col-sm-3"></div>                                             
-                  </tr>
-                  <tr>
-                     <div class="col-12 col-lg-3 col-md-3 col-sm-3">
-                        <td class="table-data">Reverse Speed</td>
-                     </div> 
-                     <div class="col-12 col-lg-3 col-md-3 col-sm-3">
-                        <td class="table-data">4.3 - 12.5 kmph</td>
-                     </div>  
-                     <div class="col-12 col-lg-3 col-md-3 col-sm-3"></div>
-                     <div class="col-12 col-lg-3 col-md-3 col-sm-3"></div>                                            
-                  </tr>
-               </tbody>
-            </table>
-         </div>
+                <tr>
+                  <td class="w-100">
+                    <div class="row w-100">
+                      <div class="col-12 col-lg-4 col-md-4 col-sm-3">
+                        <p class="mb-1">Clutch</p>
+                      </div>
+                      <div class="col-12 col-lg-8 col-md-8 col-sm-8">
+                        <p class="mb-1">Single / Dual clutch</p>
+                      </div>
+                    </div>
+                  </td>
+                </tr>  
+
+                <tr>
+                <td class="w-100">
+                  <div class="row w-100">
+                    <div class="col-12 col-lg-4 col-md-4 col-sm-3">
+                      <p class="mb-1">Gear Box</p>
+                    </div>
+                    <div class="col-12 col-lg-8 col-md-8 col-sm-8">
+                      <p class="mb-1">8 Forward + 2 Reverse</p>
+                    </div>
+                  </div>
+                </td>
+              </tr>  
+
+              <tr>
+                <td class="w-100">
+                  <div class="row w-100">
+                    <div class="col-12 col-lg-4 col-md-4 col-sm-3">
+                      <p class="mb-1">Forward Speed</p>
+                    </div>
+                    <div class="col-12 col-lg-8 col-md-8 col-sm-8">
+                      <p class="mb-1">3.1 - 31.3 kmph</p>
+                    </div>
+                  </div>
+                </td>
+              </tr>  
+
+              <tr>
+              <td class="w-100">
+                <div class="row w-100">
+                  <div class="col-12 col-lg-4 col-md-4 col-sm-3">
+                    <p class="mb-1">Reverse Speed</p>
+                  </div>
+                  <div class="col-12 col-lg-8 col-md-8 col-sm-8">
+                    <p class="mb-1">4.3 - 12.5 kmph</p>
+                  </div>
+                </div>
+              </td>
+              </tr>  
+
+            </tbody>
+          </table>
+        </div>
       </section>
-      
+      <!-- BRAKES -->
       <section class="mt-3">
-         <div class="container">
-            <div class="about border-success  border-4 text-dark border-start">
-                  <h3 class="text-dark fw-bold text-start ps-4">Brakes</h3>
-            </div>
-            <table class="table w-100 table-hover table table-striped my-4">
-                  <tbody>
-                     <tr >
-                     <td class="table-data" >Brakes</td>
-                     <td class="table-data" colspan="4">Oil Immersed Brakes</td>
-                     </tr>
-                  </tbody>
-            </table>
-         </div>
-      </section>
-
-      <section class="mt-3">
-         <div class="container">
-            <div class="about border-success  border-4 text-dark border-start">
-                  <h3 class="text-dark fw-bold text-start ps-4">Steering</h3>
-            </div>
-
-            <table class="table w-100 table-hover table table-striped my-4">
-                  
-                  <tbody>
-                     <tr>
-                     <td class="table-data">Type</td>
-                     <td class="table-data">Dual Acting Power steering / Manual Steering (Optional)</td>
-                     </tr>
-                     <tr>
-                     <td class="table-data">Steering Column</td>
-                     <td class="table-data"> Single Drop Arm</td>
-                     </tr>
-                     
-                  </tbody>
-            </table>
-
-         </div>
+        <div class="container">
+          <div class="about border-success  border-4 text-dark border-start">
+            <h3 class="text-dark fw-bold text-start ps-3">Brakes</h3>
+          </div>
+          <table class="table w-100 table-hover table table-striped my-4">
+            <tbody>
+              <tr>
+                <td class="w-100">
+                  <div class="row w-100">
+                    <div class="col-12 col-lg-4 col-md-4 col-sm-3">
+                      <p class="mb-1">Brakes</p>
+                    </div>
+                    <div class="col-12 col-lg-8 col-md-8 col-sm-8">
+                      <p class="mb-1">Oil Immersed Brakes</p>
+                    </div>
+                  </div>
+                </td>
+              </tr>  
+            </tbody>
+          </table>
+        </div>
       </section>
 
+      <!-- STEERING -->
       <section class="mt-3">
-         <div class="container">
-            <div class="about border-success  border-4 text-dark border-start">
-                  <h3 class="text-dark fw-bold text-start ps-4">Power Take Off</h3>
-            </div>
-            <table class="table w-100 table-hover table table-striped my-4">                  
-                  <tbody>
-                     <tr>
-                     <td class="table-data">Type</td>
-                     <td class="table-data">6 Spline</td>
-                     </tr>
-                     <tr>
-                     <td class="table-data">RPM</td>
-                     <td class="table-data">540 @ 1890</td>
-                     </tr>
-                     
-                  </tbody>
-            </table>
-         </div>
+        <div class="container">
+          <div class="about border-success  border-4 text-dark border-start">
+            <h3 class="text-dark fw-bold text-start ps-3">Steering</h3>
+          </div>
+
+          <table class="table w-100 table-hover table table-striped my-4">                  
+            <tbody>
+              <tr>
+                <td class="w-100">
+                  <div class="row w-100">
+                    <div class="col-12 col-lg-4 col-md-4 col-sm-3">
+                      <p class="mb-1">Type</p>
+                    </div>
+                    <div class="col-12 col-lg-8 col-md-8 col-sm-8">
+                      <p class="mb-1">Dual Acting Power steering / Manual Steering (Optional)</p>
+                    </div>
+                  </div>
+                </td>
+              </tr>  
+              <tr>
+                <td class="w-100">
+                  <div class="row w-100">
+                    <div class="col-12 col-lg-4 col-md-4 col-sm-3">
+                      <p class="mb-1">Steering Column</p>
+                    </div>
+                    <div class="col-12 col-lg-8 col-md-8 col-sm-8">
+                      <p class="mb-1">Single Drop Arm</p>
+                    </div>
+                  </div>
+                </td>
+              </tr>                                            
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- POWER TAKE OFF -->
+      <section class="mt-3">
+        <div class="container">
+          <div class="about border-success  border-4 text-dark border-start">
+            <h3 class="text-dark fw-bold text-start ps-3">Power Take Off</h3>
+          </div>
+          <table class="table w-100 table-hover table table-striped my-4">                  
+            <tbody>
+              <tr>
+                <td class="w-100">
+                  <div class="row w-100">
+                    <div class="col-12 col-lg-4 col-md-4 col-sm-3">
+                      <p class="mb-1">Type</p>
+                    </div>
+                    <div class="col-12 col-lg-8 col-md-8 col-sm-8">
+                      <p class="mb-1">6 Spline</p>
+                    </div>
+                  </div>
+                </td>
+              </tr>  
+
+              <tr>
+                <td class="w-100">
+                  <div class="row w-100">
+                    <div class="col-12 col-lg-4 col-md-4 col-sm-3">
+                      <p class="mb-1">RPM</p>
+                    </div>
+                    <div class="col-12 col-lg-8 col-md-8 col-sm-8">
+                      <p class="mb-1">540 @ 1890</p>
+                    </div>
+                  </div>
+                </td>
+              </tr> 
+
+            </tbody>
+          </table>
+        </div>
       </section>
       
       <!-- Tractors in 2023  -->
@@ -367,7 +417,7 @@
                                           <h5 class="fw-bold mt-2">Mahindra 575 DI XP Plus</h5>
                                        </a>
                                        <a href="#" class="text-dark text-decoration-none ">
-                                       <p>From: ₹6.90-7.27 lac*</p>
+                                       <p class="mb-1">From: ₹6.90-7.27 lac*</p>
                                        </a>
                                        <a href="#" class="text-decoration-none text-dark mb-4">
                                        <span> Get On Road price </span>
@@ -390,7 +440,7 @@
                                        <h5 class="fw-bold mt-2">Farmtrac 50 Smart </h5>
                                     </a>         
                                     <a href="#" class="text-dark text-decoration-none ">
-                                       <p>From: ₹7.33-7.60 lac*</p>
+                                       <p class="mb-1">From: ₹7.33-7.60 lac*</p>
                                     </a>
                                     <a href="#" class="text-decoration-none text-dark mb-4">
                                        <span> Get On Road price </span>
@@ -413,7 +463,7 @@
                                        <h5 class="fw-bold mt-2">Mahindra 275 DI XP Plus </h5>
                                    </a>
                         <a href="# " class="text-dark text-decoration-none ">
-                            <p>From: ₹5.65-5.90 lac*</p>
+                            <p class="mb-1">From: ₹5.65-5.90 lac*</p>
                         </a>
                         <a href="#" class="text-decoration-none text-dark mb-4">
                             <span> Get On Road price </span>
@@ -436,7 +486,7 @@
                             <h5 class="fw-bold mt-2">Farmtrac Atom 26 </h5>
                         </a>
                         <a href="# " class="text-dark text-decoration-none ">
-                            <p>From: ₹5.65-5.85 lac*</p>
+                            <p class="mb-1">From: ₹5.65-5.85 lac*</p>
                         </a>
                         <a href="#" class="text-decoration-none text-dark mb-4">
                             <span> Get On Road price </span>
@@ -459,7 +509,7 @@
                             <h4 class="fw-bold mt-3">John Deere Tractors </h3>
                         </a>
                         <a href="# " class="text-dark text-decoration-none ">
-                            <p>From: 5.40 Lakh*</p>
+                            <p class="mb-1">From: 5.40 Lakh*</p>
                         </a>
                         <a href="#" class="text-decoration-none text-dark mb-4">
                             <span> Get On Road price </span>
@@ -599,7 +649,7 @@
                         <a href="#" class="text-decoration-none text-dark">
                           <h5 class="fw-bold mt-2">Same Deutz Fahr Agromaxx 4055 E </h5>
                         </a>
-                        <p>From: ₹7.55-8.50 lac*</p>
+                        <p class="mb-1">From: ₹7.55-8.50 lac*</p>
                         <a href="#" class="text-decoration-none text-dark mb-4">
                           <span> Get On Road price </span>
                           <span class="icon">
@@ -849,109 +899,213 @@
          </div>
       </section>
 
+      <!-- Mahindra 575 DI XP Plus Fuel Tank -->
       <section class="mt-3">
-         <div class="container">
-            <div class="about border-success  border-4 text-dark border-start">
-                  <h3 class="text-dark fw-bold text-start ps-4">Mahindra 575 DI XP Plus Fuel Tank</h3>
-            </div>
-            <table class="table w-100 table-hover table table-striped my-4">
-                  <tbody>
-                     <tr>
-                     <td class="table-data">Capacity</td>
-                     <td class="table-data">1500 L</td>
-                     </tr>
-                  </tbody>
-            </table>
-         </div>
+        <div class="container">
+          <div class="about border-success  border-4 text-dark border-start">
+            <h3 class="text-dark fw-bold text-start ps-3">Mahindra 575 DI XP Plus Fuel Tank</h3>
+          </div>
+          <table class="table w-100 table-hover table table-striped my-4">
+            <tbody>
+              <tr>
+                <td class="w-100">
+                  <div class="row w-100">
+                    <div class="col-12 col-lg-4 col-md-4 col-sm-3">
+                      <p class="mb-1">Capacity</p>
+                    </div>
+                    <div class="col-12 col-lg-8 col-md-8 col-sm-8">
+                      <p class="mb-1">1500 L</p>
+                    </div>
+                  </div>
+                </td>
+              </tr> 
+            </tbody>
+          </table>
+        </div>
       </section>
 
+      <!-- Mahindra 575 DI XP Plus Dimensions And Weight Of Tractor -->
       <section class="mt-3">
-         <div class="container">
-            <div class="about border-success  border-4 text-dark border-start">
-                  <h3 class="text-dark fw-bold text-start ps-4">Mahindra 575 DI XP Plus Dimensions And Weight Of Tractor</h3>
-            </div>
-            <table class="table w-100 table-hover table table-striped my-4">            
-               <tbody>
-                  <tr>
-                     <td class="table-data">Total Weight</td>
-                     <td class="table-data">1890 KG</td>
-                  </tr>
-                  <tr>
-                     <td class="table-data">Wheel Base</td>
-                     <td class="table-data"> 1960 MM</td>
-                  </tr>                     
-               </tbody>
-            </table>
-         </div>
+        <div class="container">
+          <div class="about border-success  border-4 text-dark border-start">
+            <h3 class="text-dark fw-bold text-start ps-3">Mahindra 575 DI XP Plus Dimensions And Weight Of Tractor</h3>
+          </div>
+          <table class="table w-100 table-hover table table-striped my-4">            
+            <tbody>
+              <tr>
+                <td class="w-100">
+                  <div class="row w-100">
+                    <div class="col-12 col-lg-4 col-md-4 col-sm-3">
+                      <p class="mb-1">Total Weight</p>
+                    </div>
+                    <div class="col-12 col-lg-8 col-md-8 col-sm-8">
+                      <p class="mb-1">1890 KG</p>
+                    </div>
+                  </div>
+                </td>
+              </tr> 
+
+              <tr>
+                <td class="w-100">
+                  <div class="row w-100">
+                    <div class="col-12 col-lg-4 col-md-4 col-sm-3">
+                      <p class="mb-1">Wheel Base</p>
+                    </div>
+                    <div class="col-12 col-lg-8 col-md-8 col-sm-8">
+                      <p class="mb-1">1960 MM</p>
+                    </div>
+                  </div>
+                </td>
+              </tr> 
+
+            </tbody>
+          </table>
+        </div>
       </section>
 
+      <!-- Mahindra 575 DI XP Plus Hydraulics -->
       <section class="mt-3">
-         <div class="container">
-            <div class="about border-success  border-4 text-dark border-start">
-                  <h3 class="text-dark fw-bold text-start ps-4">Mahindra 575 DI XP Plus Hydraulics</h3>
-            </div>
-            <table class="table w-100 table-hover table table-striped my-4">                  
-               <tbody>
-                  <tr>
-                     <td class="table-data">Lifting Capacity</td>
-                     <td class="table-data">1500 Kg</td>
-                  </tr>
-                  <tr>
-                     <td class="table-data">3 point Linkage</td>
-                     <td class="table-data"> High precision, CAT-2</td>
-                  </tr>                     
-               </tbody>
-            </table>
-         </div>
+        <div class="container">
+          <div class="about border-success  border-4 text-dark border-start">
+            <h3 class="text-dark fw-bold text-start ps-3">Mahindra 575 DI XP Plus Hydraulics</h3>
+          </div>
+          <table class="table w-100 table-hover table table-striped my-4">                  
+            <tbody>
+              <tr>
+                <td class="w-100">
+                  <div class="row w-100">
+                    <div class="col-12 col-lg-4 col-md-4 col-sm-3">
+                      <p class="mb-1">Lifting Capacity</p>
+                    </div>
+                    <div class="col-12 col-lg-8 col-md-8 col-sm-8">
+                      <p class="mb-1">1500 Kg</p>
+                    </div>
+                  </div>
+                </td>
+              </tr> 
+
+              <tr>
+                <td class="w-100">
+                  <div class="row w-100">
+                    <div class="col-12 col-lg-4 col-md-4 col-sm-3">
+                      <p class="mb-1">3 point Linkage</p>
+                    </div>
+                    <div class="col-12 col-lg-8 col-md-8 col-sm-8">
+                      <p class="mb-1">High precision, CAT-2</p>
+                    </div>
+                  </div>
+                </td>
+              </tr> 
+
+            </tbody>
+          </table>
+        </div>
       </section>
 
+      <!-- Mahindra 575 DI XP Plus Wheels And Tyres -->
       <section class="mt-3">
-         <div class="container">
-            <div class="about border-success  border-4 text-dark border-start">
-                  <h3 class="text-dark fw-bold text-start ps-4">Mahindra 575 DI XP Plus Wheels And Tyres</h3>
-            </div>
-            <table class="table w-100 table-hover table table-striped my-4">                  
-               <tbody>
-                  <tr>
-                     <td class="table-data">Wheel drive</td>
-                     <td class="table-data">2 WD</td>
-                  </tr>
-                     <tr>
-                     <td class="table-data">Front</td>
-                     <td class="table-data">6.00 x 16</td>
-                     </tr>
-                     <tr>
-                     <td class="table-data">Rear</td>
-                     <td class="table-data">14.9 x 28</td>
-                  </tr>                     
-               </tbody>
-            </table>
+        <div class="container">
+          <div class="about border-success  border-4 text-dark border-start">
+            <h3 class="text-dark fw-bold text-start ps-3">Mahindra 575 DI XP Plus Wheels And Tyres</h3>
+          </div>
+          <table class="table w-100 table-hover table table-striped my-4">                  
+            <tbody>
 
-         </div>
+              <tr>
+                <td class="w-100">
+                  <div class="row w-100">
+                    <div class="col-12 col-lg-4 col-md-4 col-sm-3">
+                      <p class="mb-1">Wheel drive</p>
+                    </div>
+                    <div class="col-12 col-lg-8 col-md-8 col-sm-8">
+                      <p class="mb-1">2 WD</p>
+                    </div>
+                  </div>
+                </td>
+              </tr> 
+
+              <tr>
+                <td class="w-100">
+                  <div class="row w-100">
+                    <div class="col-12 col-lg-4 col-md-4 col-sm-3">
+                      <p class="mb-1">Front</p>
+                    </div>
+                    <div class="col-12 col-lg-8 col-md-8 col-sm-8">
+                      <p class="mb-1">6.00 x 16</p>
+                    </div>
+                  </div>
+                </td>
+              </tr> 
+
+              <tr>
+                <td class="w-100">
+                  <div class="row w-100">
+                    <div class="col-12 col-lg-4 col-md-4 col-sm-3">
+                      <p class="mb-1">Rear</p>
+                    </div>
+                    <div class="col-12 col-lg-8 col-md-8 col-sm-8">
+                      <p class="mb-1">14.9 x 28</p>
+                    </div>
+                  </div>
+                </td>
+              </tr> 
+                  
+            </tbody>
+          </table>
+        </div>
       </section>
 
+      <!-- Mahindra 575 DI XP Plus Other Information -->
       <section class="mt-3">
-         <div class="container">
-            <div class="about border-success  border-4 text-dark border-start">
-                  <h3 class="text-dark fw-bold text-start ps-4">Mahindra 575 DI XP Plus Other Information</h3>
-            </div>
-            <table class="table w-100 table-hover table table-striped my-4">                  
-               <tbody>
-                  <tr>
-                     <td class="table-data">Accessories</td>
-                     <td class="table-data">Hook, Drawbar, Hood, Bumper Etc. </td>
-                  </tr>
-                  <tr>
-                     <td class="table-data">Warranty</td>
-                     <td> class="table-data"6 Year</td>
-                  </tr>
-                  <tr>
-                     <td class="table-data">Status</td>
-                     <td class="table-data">Launched</td>
-                  </tr>                     
-               </tbody>
-            </table>
-         </div>
+        <div class="container">
+          <div class="about border-success  border-4 text-dark border-start">
+            <h3 class="text-dark fw-bold text-start ps-3">Mahindra 575 DI XP Plus Other Information</h3>
+          </div>
+          <table class="table w-100 table-hover table table-striped my-4">                  
+            <tbody>
+
+              <tr>
+                <td class="w-100">
+                  <div class="row w-100">
+                    <div class="col-12 col-lg-4 col-md-4 col-sm-3">
+                      <p class="mb-1">Accessories</p>
+                    </div>
+                    <div class="col-12 col-lg-8 col-md-8 col-sm-8">
+                      <p class="mb-1">Hook, Drawbar, Hood, Bumper Etc.</p>
+                    </div>
+                  </div>
+                </td>
+              </tr> 
+
+              <tr>
+                <td class="w-100">
+                  <div class="row w-100">
+                    <div class="col-12 col-lg-4 col-md-4 col-sm-3">
+                      <p class="mb-1">Warranty</p>
+                    </div>
+                    <div class="col-12 col-lg-8 col-md-8 col-sm-8">
+                      <p class="mb-1">6 Year</p>
+                    </div>
+                  </div>
+                </td>
+              </tr> 
+
+              <tr>
+                <td class="w-100">
+                  <div class="row w-100">
+                    <div class="col-12 col-lg-4 col-md-4 col-sm-3">
+                      <p class="mb-1">Status</p>
+                    </div>
+                    <div class="col-12 col-lg-8 col-md-8 col-sm-8">
+                      <p class="mb-1">Launched</p>
+                    </div>
+                  </div>
+                </td>
+              </tr> 
+
+            </tbody>
+          </table>
+        </div>
       </section>
 
       <?php
