@@ -91,116 +91,121 @@
       </div>
    </div>
       <!-- ENGINE -->
-      <section class="mt-4">
-         <div class="container">
-            <div class="about border-success  border-4 text-dark border-start">
-                  <h3 class="text-dark fw-bold text-start ps-4">Engine</h3>
-            </div>
-            <table class="table w-100 table-hover table table-striped my-4">               
-                  <tbody>
-                     
-                     <tr>
-                        <div class="col-12 col-lg-3 col-md-3 col-sm-3">
-                           <td class="table-data">No. Of Cylinder</td>
-                        </div>
-                        <div class="col-12 col-lg-3 col-md-3 col-sm-3">
-                           <td class="table-data">4</td>
-                        </div> 
-                        <div class="col-12 col-lg-3 col-md-3 col-sm-3"></div>
-                     <div class="col-12 col-lg-3 col-md-3 col-sm-3"></div>                 
-                     </tr>
+    <section class="mt-4">
+      <div class="container">
+        <div class="about border-success  border-4 text-dark border-start">
+          <h3 class="text-dark fw-bold text-start ps-4">Engine</h3>
+        </div>
+        <table class="table w-100 table-hover table table-striped my-4">               
+          <tbody>                     
+            <tr>
+              <td class="w-100">
+                <div class="row w-100">
+                  <div class="col-12 col-lg-4 col-md-4 col-sm-3">
+                    <p>No. Of Cylinder</p>
+                  </div>
+                  <div class="col-12 col-lg-8 col-md-8 col-sm-8">
+                    <p>4</p>
+                  </div>
+                </div>
+              </td>
+            </tr>
 
-                     <tr>
-                        <div class="col-12 col-lg-3 col-md-3 col-sm-3">
-                           <td class="table-data">HP Category</td>         
-                        </div>
-                        <div class="col-12 col-lg-3 col-md-3 col-sm-3">
-                           <td class="table-data">47 HP</td>      
-                        </div>              
-                        <div class="col-12 col-lg-3 col-md-3 col-sm-3"></div>
-                     <div class="col-12 col-lg-3 col-md-3 col-sm-3"></div>                        
-                     </tr>
-                     <tr>
-                        <div class="col-12 col-lg-3 col-md-3 col-sm-3">
-                           <td class="table-data">Capacity CC</td>
-                        </div> 
-                        <div class="col-12 col-lg-3 col-md-3 col-sm-3">
-                           <td class="table-data">2979 CC</td>
-                        </div>       
-                        <div class="col-12 col-lg-3 col-md-3 col-sm-3"></div>
-                     <div class="col-12 col-lg-3 col-md-3 col-sm-3"></div>                                   
-                     </tr>
-                     <tr>
-                     <div class="col-12 col-lg-3 col-md-3 col-sm-3">
-                     <td class="table-data">Engine Rated RPM</td>
-                        </div>   
-                        <div class="col-12 col-lg-3 col-md-3 col-sm-3">
-                        <td class="table-data">2000 RPM</td>
-                        </div>   
-                        <div class="col-12 col-lg-3 col-md-3 col-sm-3"></div>
-                     <div class="col-12 col-lg-3 col-md-3 col-sm-3"></div>                 
-                     
-                     </tr>
-                     <tr>
-                     <div class="col-12 col-lg-3 col-md-3 col-sm-3">
-                     <td class="table-data">Cooling</td>
-                        </div> 
-                        <div class="col-12 col-lg-3 col-md-3 col-sm-3">
-                        <td class="table-data">Water Cooled</td>
-                        </div> 
-                     
-                        <div class="col-12 col-lg-3 col-md-3 col-sm-3"></div>
-                     <div class="col-12 col-lg-3 col-md-3 col-sm-3"></div>                 
-                     </tr>
-                     <tr>
-                     <div class="col-12 col-lg-3 col-md-3 col-sm-3">
-                     <td class="table-data">Air Filter</td>
-                        </div> 
-                        <div class="col-12 col-lg-3 col-md-3 col-sm-3">
-                        <td class="table-data" > 3 stage oil bath type with Pre Cleaner</td>
-                        </div> 
-                        <div class="col-12 col-lg-3 col-md-3 col-sm-3"></div>
-                     <div class="col-12 col-lg-3 col-md-3 col-sm-3"></div>                 
-                     
-                     </tr>
-                     <tr>
-                     <div class="col-12 col-lg-3 col-md-3 col-sm-3">
-                     <td  class="table-data">PTO HP</td>
-                        </div> 
-                        <div class="col-12 col-lg-3 col-md-3 col-sm-3">
-                        <td class="table-data">42</td>
-                        </div> 
-                        <div class="col-12 col-lg-3 col-md-3 col-sm-3"></div>
-                     <div class="col-12 col-lg-3 col-md-3 col-sm-3"></div>                 
-                     
-                     </tr>
-                     <tr>
-                     <div class="col-12 col-lg-3 col-md-3 col-sm-3">
-                     <td class="table-data">Fuel Pump</td>
-                        </div> 
-                        <div class="col-12 col-lg-3 col-md-3 col-sm-3">
-                        <td class="table-data">Inline</td>
-                        </div> 
-                        <div class="col-12 col-lg-3 col-md-3 col-sm-3"></div>
-                     <div class="col-12 col-lg-3 col-md-3 col-sm-3"></div>                 
-                     
-                     </tr>
-                     <tr>
-                        <div class="row"><div class="col-12 col-lg-3 col-md-3 col-sm-3">
-                     <td class="table-data">Torque</td>
-                        </div> 
-                        <div class="col-12 col-lg-3 col-md-3 col-sm-3">
-                        <td class="table-data">192 NM</td>
-                        </div> 
-                        <div class="col-12 col-lg-3 col-md-3 col-sm-3"></div>
-                     <div class="col-12 col-lg-3 col-md-3 col-sm-3"></div>                 
-                     </div>
-                     
-                     </tr>
-                  </tbody>
-            </table>
-         </div>
-      </section>
+            <tr>
+              <td class="w-100">
+                <div class="row w-100">
+                  <div class="col-12 col-lg-4 col-md-4 col-sm-3">
+                    <p>HP Category</p>
+                  </div>
+                  <div class="col-12 col-lg-8 col-md-8 col-sm-8">
+                    <p>42 HP</p>
+                  </div>
+                </div>
+              </td>
+            </tr>  
+                               
+            <tr>
+              <td class="w-100">
+                <div class="row w-100">
+                  <div class="col-12 col-lg-4 col-md-4 col-sm-3">
+                    <p>Capacity CC</p>
+                  </div>
+                  <div class="col-12 col-lg-8 col-md-8 col-sm-8">
+                    <p>2500 CC</p>
+                  </div>
+                </div>
+              </td>
+            </tr>  
+
+            <tr>
+              <td class="w-100">
+                <div class="row w-100">
+                  <div class="col-12 col-lg-4 col-md-4 col-sm-3">
+                    <p>Engine Rated RPM</p>
+                  </div>
+                  <div class="col-12 col-lg-8 col-md-8 col-sm-8">
+                    <p>1800 RPM</p>
+                  </div>
+                </div>
+              </td>
+            </tr>  
+
+            <tr>
+              <td class="w-100">
+                <div class="row w-100">
+                  <div class="col-12 col-lg-4 col-md-4 col-sm-3">
+                    <p>Cooling</p>
+                  </div>
+                  <div class="col-12 col-lg-8 col-md-8 col-sm-8">
+                    <p>Water Cooled</p>
+                  </div>
+                </div>
+              </td>
+            </tr> 
+            
+            <tr>
+              <td class="w-100">
+                <div class="row w-100">
+                  <div class="col-12 col-lg-4 col-md-4 col-sm-3">
+                    <p>Air Filter</p>
+                  </div>
+                  <div class="col-12 col-lg-8 col-md-8 col-sm-8">
+                    <p>Wet Type</p>
+                  </div>
+                </div>
+              </td>
+            </tr>  
+
+
+            <tr>
+              <td class="w-100">
+                <div class="row w-100">
+                  <div class="col-12 col-lg-4 col-md-4 col-sm-3">
+                    <p>PTO HP</p>
+                  </div>
+                  <div class="col-12 col-lg-8 col-md-8 col-sm-8">
+                    <p>38</p>
+                  </div>
+                </div>
+              </td>
+            </tr>  
+
+            <tr>
+              <td class="w-100">
+                <div class="row w-100">
+                  <div class="col-12 col-lg-4 col-md-4 col-sm-3">
+                    <p>Fuel Pump</p>
+                  </div>
+                  <div class="col-12 col-lg-8 col-md-8 col-sm-8">
+                    <p>N/A</p>
+                  </div>
+                </div>
+              </td>
+            </tr>  
+          </tbody>
+        </table>
+      </div>
+    </section>
       <!-- TRANSMISSION -->
       <section class="mt-3">
          <div class="container">

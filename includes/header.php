@@ -256,6 +256,8 @@
             <li><a class="dropdown-item fw-bold" href="certified_dealers.php">Certified Dealers</a></li>
             <hr class="dropdown-divider">
             <li><a class="dropdown-item fw-bold" href="engine_oil.php">Engine Oil</a></li>
+            <hr class="dropdown-divider">
+            <li><a class="dropdown-item fw-bold" href="blog.php">Blogs</a></li>
           </ul>
         </li>
       </ul>

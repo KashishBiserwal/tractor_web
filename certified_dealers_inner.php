@@ -192,7 +192,7 @@
                     </select>
                   </div>
                   <div class="text-center my-3">
-                    <button type="submit" id="delership_enq_btn" class="btn btn-success px-5 w-100 ">Click Here</button>         
+                    <button type="submit" id="delership_enq_btn" class="btn btn-success px-5 w-100 ">Submit</button>         
                   </div>        
                   <p class="mb-0 text-center">By proceeding ahead you expressly agree to the Bharat Tractors <a href="#" class="text-decoration-none" target="_blank" title="terms and conditions">terms and conditions*</a></p>
                 </div>
@@ -211,6 +211,7 @@
       </div>
       <div class="owl-slider ">
         <div id="carousel_related_brand" class="owl-carousel owl-carousel_related">
+
           <div class="item">
             <div class="success__stry__item shadow h-100">
               <div class="thumb">
@@ -599,85 +600,83 @@
     include 'includes/footertag.php';
   ?>
 
-<script>
-        $(document).ready(function(){
-          jQuery.validator.addMethod("customPhoneNumber", function(value, element) {
-            return /^[6-9]\d{9}$/.test(value);
-          }, "Phone number must start with 6 or above");
-            $("#delership_enq_btn").click(function () {
-                // setTimeout(() => {
-                //     console.log("validation of Department")
-                // }, 2000);
-                $("form[id='dealership_enq_from']").validate({
-                    rules: {
-                        f_name: {
-                            required: true,
-                            minlength: 3
-                        },
+  <script>
+    $(document).ready(function(){
+      jQuery.validator.addMethod("customPhoneNumber", function(value, element) {
+        return /^[6-9]\d{9}$/.test(value);
+      }, "Phone number must start with 6 or above");
+      $("#delership_enq_btn").click(function () {
+        // setTimeout(() => {
+        //     console.log("validation of Department")
+        // }, 2000);
+        $("form[id='dealership_enq_from']").validate({
+          rules: {
+            f_name: {
+                required: true,
+                minlength: 3
+            },
 
-                        l_name: {
-                            required: true,
-                            minlength: 3
-                        },
-                        mob_num: {
-                            required: true,
-                            minlength: 10,
-                            digits: true,
-                            customPhoneNumber: true 
-                        },
-                        _tehsil: {
-                            required: true,
-                            minlength: 3
-                        },
-                        _state: {
-                            required: true,
-                            // minlength: 10
-                        },
-                        _district: {
-                            required: true,
-                            // minlength: 10
-                        },
-                        _brand: {
-                            required: true,
-                            // minlength: 10
-                        }
-                    },
-                    messages: {
-                        f_name: {
-                            required: "Enter Your First Name",
-                            minlength: "First Name must be atleast 3 characters long"
-                        },
-                        l_name: {
-                            required: "Enter Your Last Name",
-                            minlength: "Last Name must be atleast 3 characters long"
-                        },
-                        mob_num: {
-                            required: "Enter Your Mobile Number",
-                            minlength: "Mobile must be 10 characters long",
-                            digits: "Please enter only digits"
-                        },
-                        _tehsil: {
-                            required: "Select Your Tehsil Name",
-                            minlength: "Tehsil Name must be atleast 3 characters long"
-                        },
-                        _state: {
-                            required: "Select Your State",
-                            // minlength: ""
-                        },
-                        _district: {
-                            required: "Select Your District Name",
-                            // minlength: ""
-                        },
-                        _brand: {
-                            required: "Select Your Brand Name",
-                            // minlength: ""
-                        }
-                    },
-
-                });
-            })
-        });
-</script>
+           l_name: {
+              required: true,
+              minlength: 3
+            }
+            mb_num: {
+                required: true,
+              minlength: 10,
+              digits: true,
+              customPhoneNumber: true 
+            }
+           // _tehsil: {
+           //     required: true,
+            //     minlength: 3
+           // },
+            _state: {
+             required: true,
+               // minlength: 10
+           },
+            _district: {
+              required: true,
+              // minlength: 10
+            },
+            _brand: {
+              required: true,
+               // minlength: 10
+            }
+          },
+          messages: {
+            f_name: {
+              required: "Enter Your First Name",
+              minlength: "First Name must be atleast 3 characters long"
+            },
+            l_name: {
+              required: "Enter Your Last Name",
+              minlength: "Last Name must be atleast 3 characters long"
+            },
+            mb_num: {
+              required: "Enter Your Mobile Number",
+              minlength: "Mobile must be 10 characters long",
+              digits: "Please enter only digits"
+            },
+            // _tehsil: {
+            //     required: "Select Your Tehsil Name",
+            //     minlength: "Tehsil Name must be atleast 3 characters long"
+              // },
+            _state: {
+              required: "Select Your State",
+              // minlength: ""
+            },
+            _district: {
+              required: "Select Your District Name",
+              // minlength: ""
+            },
+            _brand: {
+              required: "Select Your Brand Name",
+              // minlength: ""
+            }                
+          });
+        })
+      });
+  </script>
 
 </body>
 </html>

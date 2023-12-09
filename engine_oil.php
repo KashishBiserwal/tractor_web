@@ -389,6 +389,10 @@
                 <button type="submit" class="btn btn-success w-100" data-bs-toggle="modal" data-bs-target="#staticBackdrop3">Request Call Back</button>
               </div>              
             </div>
+            
+            <div class="col text-center mt-3">
+              <a href="engine_oil.php" class="btn btn-success btn-lg">View All</a>
+            </div>
                             
         </div>
       </div>
@@ -490,11 +494,11 @@
                             required: true,
                             // minlength: 3
                         },
+                        // eo_tehsil: {
+                        //     required: true,
+                        //     // minlength: 3
+                        // },
                         eo_dist: {
-                            required: true,
-                            // minlength: 3
-                        },
-                        eo_tehsil: {
                             required: true,
                             // minlength: 3
                         }
@@ -517,14 +521,14 @@
                             required: "Select Your State",
                             // minlength: "First Name must be atleast 3 characters long"
                         },
+                        // eo_tehsil: {
+                        //     required: "Select Your Tehsil",
+                        //     // minlength: "First Name must be atleast 3 characters long"
+                        // },
                         eo_dist: {
                             required: "Select Your District",
                             // minlength: "First Name must be atleast 3 characters long"
-                        },
-                        eo_tehsil: {
-                            required: "Select Your Tehsil",
-                            // minlength: "First Name must be atleast 3 characters long"
-                        }
+                        }                        
                     },
 
                 });

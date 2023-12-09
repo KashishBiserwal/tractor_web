@@ -111,198 +111,465 @@
 <section class="mt-3">
     <div class="container">
         <div class="about border-success  border-4 text-dark border-start">
-            <h4 class="text-dark fw-bold text-start ps-4">Specifications For Kartar 4000 ("51")</h4>
+            <h4 class="text-dark fw-bold text-start ps-3">Specifications For Kartar 4000 ("51")</h4>
         </div>
-        <h5 class="fw-bold pt-2 ps-3">Engine</h5>
+        <h5 class="fw-bold pt-2 ps-2">Engine</h5>
 
         <table class="table w-75 table-hover table table-striped my-4">
             
             <tbody>
+          
                 <tr>
-                <td class="table-data">TYPE</td>
-                <td class="table-data">	Ashok Leyland
-                    H6ET1C3RD22/1
-                    101 H.P @2200
-                    RPM
-                </td>
+                    <td class="w-100">
+                        <div class="row w-100">
+                            <div class="col-12 col-lg-4 col-md-4 col-sm-3">
+                                <p>TYPE</p>
+                            </div>
+                            <div class="col-12 col-lg-8 col-md-8 col-sm-8">
+                                <p>	Ashok Leyland H6ET1C3RD22/1101 H.P @2200 RPM </p>
+                            </div>
+                        </div>
+                    </td>                  
                 </tr>
+
                 <tr>
-                <td class="table-data">No. of Cylinders:</td>
-                <td class="table-data">6(SIX)</td>
+                    <td class="w-100">
+                        <div class="row w-100">
+                            <div class="col-12 col-lg-4 col-md-4 col-sm-3">
+                                <p>No. of Cylinders:</p>
+                            </div>
+                            <div class="col-12 col-lg-8 col-md-8 col-sm-8">
+                                <p>6(SIX) </p>
+                            </div>
+                        </div>
+                    </td>                  
                 </tr>
+
                 <tr>
-                <td class="table-data">Cooling System</td>
-                <td class="table-data">Water Cooled</td>
+                    <td class="w-100">
+                        <div class="row w-100">
+                            <div class="col-12 col-lg-4 col-md-4 col-sm-3">
+                                <p>Cooling System</p>
+                            </div>
+                            <div class="col-12 col-lg-8 col-md-8 col-sm-8">
+                                <p>Water Cooled</p>
+                            </div>
+                        </div>
+                    </td>                  
                 </tr>
                 
-
             </tbody>
         </table>
+
         <h5 class="fw-bold pt-2 ps-3">CUTTER BAR</h5>
-
         <table class="table w-75 table-hover table table-striped my-4">
             
             <tbody>
+
                 <tr>
-                <td class="table-data">Width:</td>
-                <td class="table-data">	4199 mm</td>
+                    <td class="w-100">
+                        <div class="row w-100">
+                            <div class="col-12 col-lg-4 col-md-4 col-sm-3">
+                                <p>Width:</p>
+                            </div>
+                            <div class="col-12 col-lg-8 col-md-8 col-sm-8">
+                                <p>4199 mm</p>
+                            </div>
+                        </div>
+                    </td>                  
                 </tr>
+
                 <tr>
-                <td class="table-data">Height Adjustment:</td>
-                <td class="table-data">Hydraulically</td>
+                    <td class="w-100">
+                        <div class="row w-100">
+                            <div class="col-12 col-lg-4 col-md-4 col-sm-3">
+                                <p>Height Adjustment:</p>
+                            </div>
+                            <div class="col-12 col-lg-8 col-md-8 col-sm-8">
+                                <p>Hydraulically</p>
+                            </div>
+                        </div>
+                    </td>                  
                 </tr>
+
                 <tr>
-                <td class="table-data">Cutting Height Max:</td>
-                <td class="table-data">700 mm</td>
-                </tr>
-                
+                    <td class="w-100">
+                        <div class="row w-100">
+                            <div class="col-12 col-lg-4 col-md-4 col-sm-3">
+                                <p>Cutting Height Max:</p>
+                            </div>
+                            <div class="col-12 col-lg-8 col-md-8 col-sm-8">
+                                <p>700 mm</p>
+                            </div>
+                        </div>
+                    </td>                  
+                </tr>                
 
             </tbody>
         </table>
-        <h5 class="fw-bold pt-2 ps-3">REEL</h5>
 
+        <h5 class="fw-bold pt-2 ps-2">REEL</h5>
         <table class="table w-75 table-hover table table-striped my-4">
             
             <tbody>
+
                 <tr>
-                <td class="table-data">TYPE:</td>
-                <td class="table-data">	Pick Up</td>
-                </tr>
+                    <td class="w-100">
+                        <div class="row w-100">
+                            <div class="col-12 col-lg-4 col-md-4 col-sm-3">
+                                <p>TYPE:</p>
+                            </div>
+                            <div class="col-12 col-lg-8 col-md-8 col-sm-8">
+                                <p>Pick Up</p>
+                            </div>
+                        </div>
+                    </td>                  
+                </tr>                  
+
                 <tr>
-                <td class="table-data">Speed Adjustment:</td>
-                <td class="table-data">Mechanically</td>
-                </tr>
+                    <td class="w-100">
+                        <div class="row w-100">
+                            <div class="col-12 col-lg-4 col-md-4 col-sm-3">
+                                <p>Speed Adjustment:</p>
+                            </div>
+                            <div class="col-12 col-lg-8 col-md-8 col-sm-8">
+                                <p>Mechanically</p>
+                            </div>
+                        </div>
+                    </td>                  
+                </tr>                  
+
                 <tr>
-                <td class="table-data">Height Adjustment:</td>
-                <td class="table-data">Hydraulically</td>
-                </tr>
-                
+                    <td class="w-100">
+                        <div class="row w-100">
+                            <div class="col-12 col-lg-4 col-md-4 col-sm-3">
+                                <p>Height Adjustment:</p>
+                            </div>
+                            <div class="col-12 col-lg-8 col-md-8 col-sm-8">
+                                <p>Hydraulically</p>
+                            </div>
+                        </div>
+                    </td>                  
+                </tr>                
 
             </tbody>
         </table>
+
         <h5 class="fw-bold pt-2 ps-3">Thresher Drum</h5>
-
         <table class="table w-75 table-hover table table-striped my-4">
             
             <tbody>
+
                 <tr>
-                <td class="table-data">Dia of Drum:</td>
-                <td class="table-data">	600 mm</td>
+                    <td class="w-100">
+                        <div class="row w-100">
+                            <div class="col-12 col-lg-4 col-md-4 col-sm-3">
+                                <p>Dia of Drum:</p>
+                            </div>
+                            <div class="col-12 col-lg-8 col-md-8 col-sm-8">
+                                <p>600 mm</p>
+                            </div>
+                        </div>
+                    </td>                  
                 </tr>
+
                 <tr>
-                <td class="table-data">Length of Drum:</td>
-                <td class="table-data">	1270 mm</td>
+                    <td class="w-100">
+                        <div class="row w-100">
+                            <div class="col-12 col-lg-4 col-md-4 col-sm-3">
+                                <p>Length of Drum:</p>
+                            </div>
+                            <div class="col-12 col-lg-8 col-md-8 col-sm-8">
+                                <p>1270 mm</p>
+                            </div>
+                        </div>
+                    </td>                  
                 </tr>
+
                 <tr>
-                <td class="table-data">Speed of Drum:</td>
-                <td class="table-data">535 to 1210 rpm</td>
+                    <td class="w-100">
+                        <div class="row w-100">
+                            <div class="col-12 col-lg-4 col-md-4 col-sm-3">
+                                <p>Speed of Drum:</p>
+                            </div>
+                            <div class="col-12 col-lg-8 col-md-8 col-sm-8">
+                                <p>535 to 1210 rpm</p>
+                            </div>
+                        </div>
+                    </td>                  
                 </tr>
+
                 <tr>
-                <td class="table-data">Adjustment:</td>
-                <td class="table-data">	Mechanically</td>
+                    <td class="w-100">
+                        <div class="row w-100">
+                            <div class="col-12 col-lg-4 col-md-4 col-sm-3">
+                                <p>Adjustment:</p>
+                            </div>
+                            <div class="col-12 col-lg-8 col-md-8 col-sm-8">
+                                <p>Mechanically</p>
+                            </div>
+                        </div>
+                    </td>                  
                 </tr>
+
                 <tr>
-                <td class="table-data">No. of Rasp Bars:</td>
-                <td class="table-data">8(Eight)</td>
+                    <td class="w-100">
+                        <div class="row w-100">
+                            <div class="col-12 col-lg-4 col-md-4 col-sm-3">
+                                <p>No. of Rasp Bars:</p>
+                            </div>
+                            <div class="col-12 col-lg-8 col-md-8 col-sm-8">
+                                <p>8(Eight)</p>
+                            </div>
+                        </div>
+                    </td>                  
                 </tr>
+
                 <tr>
-                <td class="table-data">No. of Spikes:</td>
-                <td class="table-data">128</td>
+                    <td class="w-100">
+                        <div class="row w-100">
+                            <div class="col-12 col-lg-4 col-md-4 col-sm-3">
+                                <p>No. of Spikes:</p>
+                            </div>
+                            <div class="col-12 col-lg-8 col-md-8 col-sm-8">
+                                <p>128</p>
+                            </div>
+                        </div>
+                    </td>                  
                 </tr>
+
             </tbody>
         </table>
+
         <h5 class="fw-bold pt-2 ps-3">Concave</h5>
-
         <table class="table w-75 table-hover table table-striped my-4">
             
             <tbody>
                 <tr>
-                <td class="table-data">Clearance Between:</td>
-                <td class="table-data">	16 to 39 mm</td>
+                    <td class="w-100">
+                        <div class="row w-100">
+                            <div class="col-12 col-lg-4 col-md-4 col-sm-3">
+                                <p>Clearance Between:</p>
+                            </div>
+                            <div class="col-12 col-lg-8 col-md-8 col-sm-8">
+                                <p>16 to 39 mm</p>
+                            </div>
+                        </div>
+                    </td>                  
                 </tr>
+
                 <tr>
-                <td class="table-data">Concave & Thresher:</td>
-                <td class="table-data">	3 to 16 mm</td>
+                    <td class="w-100">
+                        <div class="row w-100">
+                            <div class="col-12 col-lg-4 col-md-4 col-sm-3">
+                                <p>Concave & Thresher:</p>
+                            </div>
+                            <div class="col-12 col-lg-8 col-md-8 col-sm-8">
+                                <p>3 to 16 mm</p>
+                            </div>
+                        </div>
+                    </td>                  
                 </tr>
+
                 <tr>
-                <td class="table-data">No. of Spikes:</td>
-                <td class="table-data">Mechanically 36</td>
+                    <td class="w-100">
+                        <div class="row w-100">
+                            <div class="col-12 col-lg-4 col-md-4 col-sm-3">
+                                <p>No. of Spikes:</p>
+                            </div>
+                            <div class="col-12 col-lg-8 col-md-8 col-sm-8">
+                                <p>Mechanically 36</p>
+                            </div>
+                        </div>
+                    </td>                  
                 </tr>
+
             </tbody>
         </table>
-        <h5 class="fw-bold pt-2 ps-3">Straw Walkers</h5>
 
+        <h5 class="fw-bold pt-2 ps-2">Straw Walkers</h5>
         <table class="table w-75 table-hover table table-striped my-4">
             
             <tbody>
                 <tr>
-                <td class="table-data">No. of Straw Walkers :</td>
-                <td class="table-data">	5(FIVE)</td>
+                    <td class="w-100">
+                        <div class="row w-100">
+                            <div class="col-12 col-lg-4 col-md-4 col-sm-3">
+                                <p>No. of Straw Walkers :</p>
+                            </div>
+                            <div class="col-12 col-lg-8 col-md-8 col-sm-8">
+                                <p>5(FIVE)</p>
+                            </div>
+                        </div>
+                    </td>                  
                 </tr>
+
                 <tr>
-                <td class="table-data">Total Area :</td>
-                <td class="table-data">46565 sq. cm.</td>
+                    <td class="w-100">
+                        <div class="row w-100">
+                            <div class="col-12 col-lg-4 col-md-4 col-sm-3">
+                                <p>Total Area :</p>
+                            </div>
+                            <div class="col-12 col-lg-8 col-md-8 col-sm-8">
+                                <p>46565 sq. cm.</p>
+                            </div>
+                        </div>
+                    </td>                  
                 </tr>
             </tbody>
         </table>
-        <h5 class="fw-bold pt-2 ps-3">Cleaning</h5>
+
+        <h5 class="fw-bold pt-2 ps-2">Cleaning</h5>
         <table class="table w-75 table-hover table table-striped my-4">
             <tbody>
                 <tr>
-                <td class="table-data">Area :</td>
-                <td class="table-data">	16422 sq. cm.</td>
+                    <td class="w-100">
+                        <div class="row w-100">
+                            <div class="col-12 col-lg-4 col-md-4 col-sm-3">
+                                <p>Area:</p>
+                            </div>
+                            <div class="col-12 col-lg-8 col-md-8 col-sm-8">
+                                <p>16422 sq. cm.</p>
+                            </div>
+                        </div>
+                    </td>                  
                 </tr>
+
                 <tr>
-                <td class="table-data">Adjustment:</td>
-                <td class="table-data">Mechanically</td>
+                    <td class="w-100">
+                        <div class="row w-100">
+                            <div class="col-12 col-lg-4 col-md-4 col-sm-3">
+                                <p>Adjustment:</p>
+                            </div>
+                            <div class="col-12 col-lg-8 col-md-8 col-sm-8">
+                                <p>Mechanically</p>
+                            </div>
+                        </div>
+                    </td>                  
                 </tr>
+
             </tbody>
         </table>
-        <h5 class="fw-bold pt-2 ps-3">Tyre Size</h5>
+
+        <h5 class="fw-bold pt-2 ps-2">Tyre Size</h5>
         <table class="table w-75 table-hover table table-striped my-4">
             <tbody>
                 <tr>
-                <td class="table-data">Front:   </td>
-                <td class="table-data">	18.4/15/30</td>
+                    <td class="w-100">
+                        <div class="row w-100">
+                            <div class="col-12 col-lg-4 col-md-4 col-sm-3">
+                                <p>Front:</p>
+                            </div>
+                            <div class="col-12 col-lg-8 col-md-8 col-sm-8">
+                                <p>18.4/15/30</p>
+                            </div>
+                        </div>
+                    </td>                  
                 </tr>
+                
                 <tr>
-                <td class="table-data">Rear/Trolley :</td>
-                <td class="table-data">9.00 X 16</td>
+                    <td class="w-100">
+                        <div class="row w-100">
+                            <div class="col-12 col-lg-4 col-md-4 col-sm-3">
+                                <p>Rear/Trolley:</p>
+                            </div>
+                            <div class="col-12 col-lg-8 col-md-8 col-sm-8">
+                                <p>9.00 X 16</p>
+                            </div>
+                        </div>
+                    </td>                  
                 </tr>
+                
             </tbody>
         </table>
-        <h5 class="fw-bold pt-2 ps-3">Dimensions</h5>
+
+        <h5 class="fw-bold pt-2 ps-2">Dimensions</h5>
         <table class="table w-75 table-hover table table-striped my-4">
             <tbody>
                 <tr>
-                <td class="table-data">Length : </td>
-                <td class="table-data">	8535 mm</td>
+                    <td class="w-100">
+                        <div class="row w-100">
+                            <div class="col-12 col-lg-4 col-md-4 col-sm-3">
+                                <p>Length:</p>
+                            </div>
+                            <div class="col-12 col-lg-8 col-md-8 col-sm-8">
+                                <p>8535 mm</p>
+                            </div>
+                        </div>
+                    </td>                  
                 </tr>
+
                 <tr>
-                <td class="table-data">Height :</td>
-                <td class="table-data">4572 mm</td>
+                    <td class="w-100">
+                        <div class="row w-100">
+                            <div class="col-12 col-lg-4 col-md-4 col-sm-3">
+                                <p>Height:</p>
+                            </div>
+                            <div class="col-12 col-lg-8 col-md-8 col-sm-8">
+                                <p>4572 mm</p>
+                            </div>
+                        </div>
+                    </td>                  
                 </tr>
+
                 <tr>
-                <td class="table-data">Min Ground Clearance:</td>
-                <td class="table-data">460 mm</td>
+                    <td class="w-100">
+                        <div class="row w-100">
+                            <div class="col-12 col-lg-4 col-md-4 col-sm-3">
+                                <p>Min Ground Clearance:</p>
+                            </div>
+                            <div class="col-12 col-lg-8 col-md-8 col-sm-8">
+                                <p>460 mm</p>
+                            </div>
+                        </div>
+                    </td>                  
                 </tr>
+
                 <tr>
-                <td class="table-data">Weight :</td>
-                <td class="table-data">9150 Kgs. (Approx.)</td>
+                    <td class="w-100">
+                        <div class="row w-100">
+                            <div class="col-12 col-lg-4 col-md-4 col-sm-3">
+                                <p>Weight:</p>
+                            </div>
+                            <div class="col-12 col-lg-8 col-md-8 col-sm-8">
+                                <p>9150 Kgs. (Approx.)</p>
+                            </div>
+                        </div>
+                    </td>                  
                 </tr>
+
             </tbody>
         </table>
-        <h5 class="fw-bold pt-2 ps-3"> Working Capacity</h5>
+
+        <h5 class="fw-bold pt-2 ps-2">Working Capacity</h5>
         <table class="table w-75 table-hover table table-striped my-4">
             <tbody>
                 <tr>
-                <td class="table-data ">Wheat :</td>
-                <td class="table-data">	4.5 Acres/hour(approx)</td>
+                    <td class="w-100">
+                        <div class="row w-100">
+                            <div class="col-12 col-lg-4 col-md-4 col-sm-3">
+                                <p>Wheat:</p>
+                            </div>
+                            <div class="col-12 col-lg-8 col-md-8 col-sm-8">
+                                <p>4.5 Acres/hour(approx)</p>
+                            </div>
+                        </div>
+                    </td>                  
                 </tr>
+
                 <tr>
-                <td class="table-data">Paddy :</td>
-                <td class="table-data">	4 Acres/hour(approx)</td>
+                    <td class="w-100">
+                        <div class="row w-100">
+                            <div class="col-12 col-lg-4 col-md-4 col-sm-3">
+                                <p>Paddy:</p>
+                            </div>
+                            <div class="col-12 col-lg-8 col-md-8 col-sm-8">
+                                <p>4 Acres/hour(approx)</p>
+                            </div>
+                        </div>
+                    </td>                  
                 </tr>
+
             </tbody>
         </table>
 

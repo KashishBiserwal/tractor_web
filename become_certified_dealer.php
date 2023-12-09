@@ -39,7 +39,7 @@
             <div class="container-mid" style="position: relative;">
                 <div class="row justify-content-center">
                     <div class="col-md-8 col-lg-7">
-                        <form id="dealership_enq_from" class="form-view-inner form-view-overlay bg-light box-shadow p-3" action="" method="" >
+                        <form id="become_dealership_enq_from" class="form-view-inner form-view-overlay bg-light box-shadow p-3" action="" method="" >
                             <div class="row justify-content-center">
                                 <div class="col-12 col-sm-12 col-md-6 col-lg-6">
                                     <div class="form-outline">
@@ -53,7 +53,7 @@
                                     <div class="form-outline">
                                         <div class="mt-2">
                                             <label class="form-label text-dark">Last Name</label>
-                                            <input type="text" class="form-control" id="l_name" name="l_name">
+                                            <input type="text" class="form-control" id="bcd_name" name="bcd_name">
                                         </div>
                                     </div>
                                 </div>
@@ -61,7 +61,7 @@
                                     <div class="form-outline">
                                         <div class="mt-2">
                                             <label class="form-label text-dark">Mobile Number</label>
-                                            <input type="text" class="form-control" id="mob_num" name="mob_num">
+                                            <input type="text" class="form-control" id="bcd_num" name="bcd_num"  oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');">
                                         </div>
                                     </div>
                                 </div>
@@ -69,15 +69,15 @@
                                     <div class="form-outline">
                                         <div class="mt-2">
                                             <label class="form-label text-dark">Email</label>
-                                            <input type="text" class="form-control" id="_email" name="mob_num">
+                                            <input type="email" class="form-control" id="bcd_email" name="bcd_email">
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-3">
                                     <div class="form-outline">
-                                        <label for="yr_state" class="form-label text-dark fw-bold"> <i class="fas fa-location"></i> State</label>
-                                        <select class="form-select py-2" id="_state" name="_state"aria-label=".form-select-lg example">
-                                            <option selected>Select State</option>
+                                        <label for="bcd_state" class="form-label text-dark fw-bold"> <i class="fas fa-location"></i> State</label>
+                                        <select class="form-select py-2" id="bcd_state" name="bcd_state"aria-label=".form-select-lg example">
+                                            <option value="" selected-disabled="">Select State</option>
                                             <option value="1">Chhattisgarh</option>
                                             <option value="2">Other</option>
                                         </select>
@@ -85,9 +85,9 @@
                                 </div>
                                 <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-3">
                                     <div class="form-outline">
-                                        <label for="yr_dist" class="form-label text-dark"><i class="fa-solid fa-location-dot"></i> District</label>
-                                        <select class="form-select py-2" id="_district" name="_district" aria-label=".form-select-lg example">
-                                            <option selected>Select District</option>
+                                        <label for="bcd_district" class="form-label text-dark"><i class="fa-solid fa-location-dot"></i> District</label>
+                                        <select class="form-select py-2" id="bcd_district" name="bcd_district" aria-label=".form-select-lg example">
+                                            <option value=""selected-disabled="">Select District</option>
                                             <option value="1">Raipur</option>
                                             <option value="2">Bilaspur</option>
                                             <option value="2">Durg</option>
@@ -96,15 +96,20 @@
                                 </div>
                                 <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-4">
                                     <div class="form-outline">
-                                        <label for="yr_price" class="form-label text-dark"> Tehsil</label>
-                                        <input type="yr_price" class="form-control" placeholder="Enter Tehsil" id="_tehsil" name="_tehsil">
+                                        <label for="bcd_tehsil" class="form-label text-dark"> Tehsil</label>                                        
+                                        <select class="form-select py-2 " id="bcd_tehsil" name="bcd_tehsil"aria-label=".form-select-lg example">
+                                            <option value="" selected-disabled="">Select Brand</option>
+                                            <option value="1">Mahindra</option>
+                                            <option value="2">Swaraj</option>
+                                            <option value="2">Powertrac</option>
+                                        </select>
                                     </div>
                                 </div>
                                 <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-4">
                                     <div class="form-outline">
-                                        <label for="yr_dist" class="form-label text-dark">Brand</label>
-                                        <select class="form-select py-2 " id="_brand" name="_brand"aria-label=".form-select-lg example">
-                                            <option selected>Select Brand</option>
+                                        <label for="bcd_brand" class="form-label text-dark">Brand</label>
+                                        <select class="form-select py-2 " id="bcd_brand" name="bcd_brand"aria-label=".form-select-lg example">
+                                            <option value="" selected-disabled="">Select Brand</option>
                                             <option value="1">Mahindra</option>
                                             <option value="2">Swaraj</option>
                                             <option value="2">Powertrac</option>
@@ -114,13 +119,13 @@
                                 <div class="col-12 col-lg-12 col-md-12 col-sm-12  mt-2">
                                     <div class="form-outline">
                                         <div class="mt-2">
-                                            <label class="form-label text-dark">Message</label>
-                                            <textarea rows="2" class="form-control" id="_msg" name="message"></textarea>
+                                            <label for="bcd_message"class="form-label text-dark">Message</label>
+                                            <textarea rows="2" class="form-control" id="bcd_message" name="bcd_message"></textarea>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="text-center my-3">
-                                    <button type="submit" id="delership_enq_btn" class="btn btn-success mt-1 px-5 w-100 ">Submit</button>         
+                                    <button type="submit" id="become_delership_enq_btn" class="btn btn-success mt-1 px-5 w-100 ">Submit</button>         
                                 </div>        
                                 <p class="mb-0 text-center">By proceeding ahead you expressly agree to the Bharat Tractors <a href="#" class="text-decoration-none" target="_blank" title="terms and conditions">terms and conditions*</a></p>
                             </div>
@@ -131,13 +136,109 @@
         <!-- </div> -->
     </section>
 
-
-
     <?php
         include 'includes/footer.php';
         include 'includes/footertag.php';
         
     ?>
+
+    <script>
+        $(document).ready(function(){
+          jQuery.validator.addMethod("customPhoneNumber", function(value, element) {
+            return /^[6-9]\d{9}$/.test(value); 
+          }, "Phone number must start with 6 or above");
+            $("#become_delership_enq_btn").click(function () {
+                // setTimeout(() => {
+                //     console.log("validation of Department")
+                // }, 2000);
+                $("form[id='become_dealership_enq_from']").validate({
+                    rules: {
+                        f_name: {
+                            required: true,
+                            minlength: 3
+                        },
+
+                        bcd_name: {
+                            required: true,
+                            minlength: 3
+                        },
+                        bcd_num: {
+                            required: true,
+                            minlength: 10,
+                            digits: true,
+                            customPhoneNumber: true 
+                        },
+                        bcd_state: {
+                            required: true,
+                            // minlength: 3
+                        },
+                        bcd_email: {
+                            required: true,
+                            // minlength: 3
+                        },
+                        bcd_message: {
+                            required: true,
+                            // minlength: 3
+                        },
+                        
+                        bcd_brand: {
+                            required: true,
+                            // minlength: 3
+                        },
+                        // eo_tehsil: {
+                        //     required: true,
+                        //     // minlength: 3
+                        // },
+                        bcd_district: {
+                            required: true,
+                            // minlength: 3
+                        }
+                    },
+                    messages: {
+                        f_name: {
+                            required: "Enter Your First Name",
+                            minlength: "First Name must be atleast 3 characters long"
+                        },
+                        bcd_name: {
+                            required: "Enter Your Last Name",
+                            minlength: "Last Name must be atleast 3 characters long"
+                        },
+                        bcd_num: {
+                            required: "Enter Your Phone Number",
+                            minlength: "Phone Number must be of 10 Digit long",
+                            digits: "Please enter only digits"
+                        },
+                        bcd_state: {
+                            required: "Select Your State",
+                            // minlength: "First Name must be atleast 3 characters long"
+                        },
+                        bcd_email: {
+                            required: "Enter Your Email Address",
+                            // minlength: "First Name must be atleast 3 characters long"
+                        },
+                        bcd_brand: {
+                            required: "Select Your Brand",
+                            // minlength: "First Name must be atleast 3 characters long"
+                        },
+                        bcd_message: {
+                            required: "Enter Your Message",
+                            // minlength: "First Name must be atleast 3 characters long"
+                        },
+                        // eo_tehsil: {
+                        //     required: "Select Your Tehsil",
+                        //     // minlength: "First Name must be atleast 3 characters long"
+                        // },
+                        bcd_district: {
+                            required: "Select Your District",
+                            // minlength: "First Name must be atleast 3 characters long"
+                        }                        
+                    },
+
+                });
+            })
+        });
+    </script>
+
     
 </body>
 </html>

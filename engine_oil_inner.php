@@ -415,11 +415,11 @@
                             required: true,
                             // minlength: 3
                         },
+                        // eo_tehsil: {
+                        //     required: true,
+                        //     // minlength: 3
+                        // }
                         eo_dist: {
-                            required: true,
-                            // minlength: 3
-                        },
-                        eo_tehsil: {
                             required: true,
                             // minlength: 3
                         }
@@ -442,12 +442,12 @@
                             required: "Select Your State",
                             // minlength: "First Name must be atleast 3 characters long"
                         },
+                        // eo_tehsil: {
+                        //     required: "Select Your Tehsil",
+                        //     // minlength: "First Name must be atleast 3 characters long"
+                        // }
                         eo_dist: {
                             required: "Select Your District",
-                            // minlength: "First Name must be atleast 3 characters long"
-                        },
-                        eo_tehsil: {
-                            required: "Select Your Tehsil",
                             // minlength: "First Name must be atleast 3 characters long"
                         }
                     },

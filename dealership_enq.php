@@ -499,10 +499,10 @@
                             digits: true,
                             customPhoneNumber: true 
                         },
-                        _tehsil: {
-                            required: true,
-                            minlength: 3
-                        },
+                        // _tehsil: {
+                        //     required: true,
+                        //     minlength: 3
+                        // },
                         _state: {
                             required: true,
                             // minlength: 10
@@ -530,10 +530,10 @@
                             minlength: "Mobile must be 10 Digit long",
                             digits: "Please enter only digits"
                         },
-                        _tehsil: {
-                            required: "Select Your Tehsil Name",
-                            // minlength: "Tehsil Name must be atleast 3 characters long"
-                        },
+                        // _tehsil: {
+                        //     required: "Select Your Tehsil Name",
+                        //     // minlength: "Tehsil Name must be atleast 3 characters long"
+                        // },
                         _state: {
                             required: "Select Your State",
                             // minlength: ""
