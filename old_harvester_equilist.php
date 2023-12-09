@@ -120,10 +120,10 @@
                                   </div>
                                </div>
                                 <div class="col-12 col-sm-6 col-lg-6 col-md-6 ">
-                                  <div class="upload__box pt-3 mt-3">
+                                  <div class="upload__box">
                                       <div class="upload__btn-box">
-                                        <label class="upload__btn">
-                                          <p>Upload images</p>
+                                        <label>
+                                          <p class="upload__btn">Upload images</p>
                                           <input type="file" multiple="" data-max_length="20" class="upload__inputfile" id="image" name="image">
                                         </label>
                                       </div>

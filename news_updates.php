@@ -119,8 +119,8 @@
             </div>
             <div class="col-12 col-sm-12 col-md-4 col-lg-4">
               <div class="text-center float-end">
-              <button type="button" class="btn-success btn mx-2 btn_search" id="Reset">Reset</button>
-                <button type="button" class="btn-success btn btn_search" id="Search">Search</button>
+              <button type="button" class="btn-success btn btn_search" id="Search">Search</button>
+                <button type="button" class="btn-success btn mx-2 btn_search" id="Reset">Reset</button>
               </div>
             </div>
           </div>
