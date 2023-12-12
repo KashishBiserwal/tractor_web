@@ -25,9 +25,9 @@
         <div class="page-banner-content position-absolute mt-4 px-2">
             <div class="row w-100 ms-5 text-dark">
                 <div class="col-12 text-center">
-                    <h1>Join TractorJunction as Certified Dealers</h1>
+                    <h1>Join Bharat Tractor as Certified Dealers</h1></br>
                     <p class="fw-bold">Get huge amount of enquiries for a perfect buisness. For enquiry call or</p>
-                    <p class="fw-bold">WhatsApp on 8769-934-402</p>
+                    <p class="fw-bold">WhatsApp on 8769-934-402</p></br>
                 <div>                
             </div>
         </div>
