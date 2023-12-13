@@ -198,7 +198,7 @@
           <ul class="dropdown-menu">
             <li><a class="dropdown-item fw-bold" href="onload.php"> On-Road Price</a></li>
             <hr class="dropdown-divider">
-            <li><a class="dropdown-item fw-bold" href="compare_trac.php">Compare</a></li>
+            <li><a class="dropdown-item fw-bold" href="compare_trac_model.php">Compare</a></li>
           </ul>
         </li>
         <li class="nav-item dropdown dropdown-toggle">
@@ -256,6 +256,8 @@
             <li><a class="dropdown-item fw-bold" href="certified_dealers.php">Certified Dealers</a></li>
             <hr class="dropdown-divider">
             <li><a class="dropdown-item fw-bold" href="engine_oil.php">Engine Oil</a></li>
+            <hr class="dropdown-divider">
+            <li><a class="dropdown-item fw-bold" href="blog.php">Blogs</a></li>
           </ul>
         </li>
       </ul>

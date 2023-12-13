@@ -1744,6 +1744,11 @@ input[type="checkbox"]:checked + label:before {
  background: rgb(241, 239, 239);
 }
 
+/* in compare cards change colour to the green */
+.text-hover-green:hover{
+  color:green;
+}
+
 /* caraousel mahindra brand */
 #productContainer .owl-stage-outer{
   overflow: hidden;

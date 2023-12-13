@@ -208,7 +208,7 @@ function getTractorList() {
 
 
 function get_allbrand() {
-    var url = "http://192.168.1.41:8000/api/customer/getBrands";
+    var url = "http://192.168.1.41:8000/api/customer/get_brands";
     // console.log(url);
 
     $.ajax({

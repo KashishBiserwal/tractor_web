@@ -161,22 +161,18 @@
 
 
   <!-- Want to be Featured in Bharat Tractor Weekly News? Connect With Us -->
-  <section>
-    <div class="container">
-      <div class="row  align-items-center my-3">
-       
-        <div class="col-12">
-          <div class="py-3 my-3 ps-4">
-            <p class="fw-bold text-center fs-5">Want to be Featured in Bharat Tractor Weekly News? Connect With Us</p>
-            <p class="text-center mt-n-2"> <button class="btn btn-primary btn-lg btn-block">Write for Us</button></p> 
-          </div>
+    <!-- <section>
+        <div class="container">
+            <div class="row  align-items-center my-3">       
+                <div class="col-12">
+                    <div class="py-3 my-3 ps-4">
+                        <p class="fw-bold text-center fs-5">Want to be Featured in Bharat Tractor Weekly News? Connect With Us</p>
+                        <p class="text-center mt-n-2"> <button class="btn btn-primary btn-lg btn-block">Write for Us</button></p> 
+                    </div>
+                </div>                
+            </div>
         </div>
-        
-        
-        </div>
-      </div>
-    </div>
-  </section>
+    </section> -->
   <!--NEWS  -->
   <section>
     <div class="container py-2 ">

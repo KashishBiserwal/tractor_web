@@ -161,7 +161,7 @@
 
 
   <!-- Want to be Featured in Bharat Tractor Weekly News? Connect With Us -->
-  <section>
+  <!-- <section>
     <div class="container">
       <div class="row mt-1 align-items-center my-3">
        
@@ -177,6 +177,7 @@
       </div>
     </div>
   </section>
+   -->
   <!--NEWS  -->
   <section>
     <div class="container py-2 ">
