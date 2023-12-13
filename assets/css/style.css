@@ -1717,3 +1717,8 @@ input[type="checkbox"]:checked + label:before {
 .trac_dealers li{
   list-style-type: square;
 }
+
+/* in compare cards change colour to the green */
+.text-hover-green:hover{
+  color:green;
+}

@@ -32,32 +32,38 @@
           <form id="dealership_enq_from" style="margin-top: -340px; margin-left: 55px;" class="form-view-inner w-50  position-absolute form-view-overlay bg-light box-shadow p-3" action="" method="" >
             <div class="row justify-content-center">                 
               <div class="col-12 col-sm-4 col-md-4 col-lg-4">
-                <label for="yr_dist" class="form-label fw-bold text-dark">Brand</label>
-                <select class="form-select form-select-sm py-2 " id="_brand" name="_brand"aria-label=".form-select-sm example">
-                  <option value="" selected disabled=""></option>
-                  <option value="1">Mahindra</option>
-                  <option value="2">Swaraj</option>
-                  <option value="2">Powertrac</option>
-                </select>
-              </div>                
-              <div class="col-12 col-sm-4 col-md-4 col-lg-4">
-                <label for="yr_state" class="form-label text-dark fw-bold"> <i class="fas fa-location"></i> State</label>
-                <select class="form-select form-select-sm py-2" id="_state" name="_state"aria-label=".form-select-sm example">
-                  <option value="" selected disabled=""></option>
-                  <option value="1">Chhattisgarh</option>
-                  <option value="2">Other</option>
-                </select>
+                <div class="form-outline">
+                  <label for="yr_dist" class="form-label fw-bold text-dark">Brand</label>
+                  <select class="form-select form-select-sm py-2 " id="_brand" name="_brand"aria-label=".form-select-sm example">
+                    <option value="" selected disabled=""></option>
+                    <option value="1">Mahindra</option>
+                    <option value="2">Swaraj</option>
+                    <option value="2">Powertrac</option>
+                  </select>
+                </div>                
               </div>
               <div class="col-12 col-sm-4 col-md-4 col-lg-4">
-                <label for="yr_dist" class="form-label fw-bold  text-dark"><i class="fa-solid fa-location-dot"></i> District</label>
-                <select class="form-select form-select-sm py-2" id="_district" name="_district" aria-label=".form-select-sm example">
-                  <option value="" selected disabled=""></option>
-                  <option value="1">Raipur</option>
-                  <option value="2">Bilaspur</option>
-                  <option value="2">Durg</option>
-                </select>
+                <div class="form-outline">
+                  <label for="yr_state" class="form-label text-dark fw-bold"> <i class="fas fa-location"></i> State</label>
+                  <select class="form-select form-select-sm py-2" id="_state" name="_state"aria-label=".form-select-sm example">
+                    <option value="" selected disabled=""></option>
+                    <option value="1">Chhattisgarh</option>
+                    <option value="2">Other</option>
+                  </select>
+                </div>
               </div>
-              <div class="row">
+              <div class="col-12 col-sm-4 col-md-4 col-lg-4">
+                <div class="form-outline">
+                  <label for="yr_dist" class="form-label fw-bold  text-dark"><i class="fa-solid fa-location-dot"></i> District</label>
+                  <select class="form-select form-select-sm py-2" id="_district" name="_district" aria-label=".form-select-sm example">
+                    <option value="" selected disabled=""></option>
+                    <option value="1">Raipur</option>
+                    <option value="2">Bilaspur</option>
+                    <option value="2">Durg</option>
+                  </select>
+                </div>
+              </div>
+              <div class="row mt-1 mb-0">
                 <div class="text-center col-12 col-lg-6 col-md-6 col-sm-6 my-3">
                   <button type="submit" id="delership_enq_btn" class="btn btn-success px-5 w-100 ">Search Dealer</button>         
                 </div>                    

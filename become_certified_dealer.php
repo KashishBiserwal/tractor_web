@@ -44,7 +44,7 @@
                                 <div class="col-12 col-sm-12 col-md-6 col-lg-6">
                                     <div class="form-outline">
                                         <div class="mt-2">
-                                            <label class="form-label text-dark">First Name</label>
+                                            <label class="form-label text-dark"><i class="fa-regular fa-user"></i> First Name</label>
                                             <input type="text" class="form-control mb-0" id="f_name" name="f_name">
                                         </div>
                                     </div>
@@ -52,20 +52,20 @@
                                 <div class="col-12 col-sm-12 col-md-6 col-lg-6">
                                     <div class="form-outline">
                                         <div class="mt-2">
-                                            <label class="form-label text-dark">Last Name</label>
+                                            <label class="form-label text-dark"><i class="fa-regular fa-user"></i> Last Name</label>
                                             <input type="text" class="form-control mb-0" id="bcd_name" name="bcd_name">
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-12 col-lg-6 col-md-6 col-sm-6 mt-2">
+                                <div class="col-12 col-lg-6 col-md-6 col-sm-6 mt-3">
                                     <div class="form-outline">
                                         <div class="mt-2">
-                                            <label class="form-label text-dark">Mobile Number</label>
+                                            <label class="form-label text-dark"> <i class="fa fa-phone" aria-hidden="true"></i> Mobile Number</label>
                                             <input type="text" class="form-control mb-0" id="bcd_num" name="bcd_num"  oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');">
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-12 col-lg-6 col-md-6 col-sm-6 mt-2">
+                                <div class="col-12 col-lg-6 col-md-6 col-sm-6 mt-3">
                                     <div class="form-outline">
                                         <div class="mt-2">
                                             <label class="form-label text-dark">Email</label>
@@ -73,7 +73,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-3">
+                                <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-4">
                                     <div class="form-outline">
                                         <label for="bcd_state" class="form-label text-dark fw-bold"> <i class="fas fa-location"></i> State</label>
                                         <select class="form-select py-2" id="bcd_state" name="bcd_state"aria-label=".form-select-lg example">
@@ -83,7 +83,7 @@
                                         </select>
                                     </div>
                                 </div>
-                                <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-3">
+                                <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-4">
                                     <div class="form-outline">
                                         <label for="bcd_district" class="form-label text-dark"><i class="fa-solid fa-location-dot"></i> District</label>
                                         <select class="form-select py-2" id="bcd_district" name="bcd_district" aria-label=".form-select-lg example">
@@ -116,7 +116,7 @@
                                         </select>
                                     </div>
                                 </div>
-                                <div class="col-12 col-lg-12 col-md-12 col-sm-12  mt-2">
+                                <div class="col-12 col-lg-12 col-md-12 col-sm-12  mt-3">
                                     <div class="form-outline">
                                         <div class="mt-2">
                                             <label for="bcd_message"class="form-label text-dark">Message</label>
@@ -165,6 +165,7 @@
                         bcd_num: {
                             required: true,
                             minlength: 10,
+                            maxlength: 10,
                             digits: true,
                             customPhoneNumber: true 
                         },
@@ -205,7 +206,8 @@
                         },
                         bcd_num: {
                             required: "Enter Your Phone Number",
-                            minlength: "Phone Number must be of 10 Digit long",
+                            minlength: "Phone Number must be of 10 Digit",
+                            maxlength: "Ensure exactly 10 digits of Mobile No.",
                             digits: "Please enter only digits"
                         },
                         bcd_state: {

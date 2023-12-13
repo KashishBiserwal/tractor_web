@@ -249,7 +249,7 @@
                             <input type="checkbox" class="checkbox-round ms-3" value="6-9"/><span class="ps-2 fs-6"> 5 Lakh - 6 Lakh</span><br />
                             <input type="checkbox" class="checkbox-round ms-3" value="6-9"/><span class="ps-2 fs-6"> 6 Lakh - 7 Lakh</span><br />
                             <input type="checkbox" class="checkbox-round ms-3" value="6-9"/><span class="ps-2 fs-6"> 7 Lakh - 9 Lakh</span><br />
-                        </div>
+                        </div>  
                     </div>
                 </div>
                 <div class="scrollbar mb-3" id="">

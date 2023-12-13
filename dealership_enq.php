@@ -44,7 +44,7 @@
                             <div class="col-12 col-sm-12 col-md-6 col-lg-6">
                                 <div class="mt-2">
                                     <div class="form-outline">
-                                        <label class="form-label text-dark">First Name</label>
+                                        <label class="form-label text-dark"><i class="fa-regular fa-user"></i> First Name</label>
                                         <input type="text" class="form-control mb-0" id="f_name" name="f_name">
                                     </div>
                                 </div>
@@ -52,20 +52,20 @@
                             <div class="col-12 col-sm-12 col-md-6 col-lg-6">
                                 <div class="mt-2">
                                     <div class="form-outline">
-                                        <label class="form-label text-dark">Last Name</label>
+                                        <label class="form-label text-dark"><i class="fa-regular fa-user"></i> Last Name</label>
                                         <input type="text" class="form-control mb-0" id="l_name" name="l_name">                                
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-12 col-lg-12 col-md-12 col-sm-12 mt-2">
+                            <div class="col-12 col-lg-12 col-md-12 col-sm-12 mt-3">
                             <div class="form-outline">    
                                 <div class="mt-2">
-                                        <label class="form-label text-dark">Mobile Number</label>
+                                        <label class="form-label text-dark"> <i class="fa fa-phone" aria-hidden="true"></i> Mobile Number</label>
                                         <input type="text" class="form-control mb-0" id="mob_num" name="mob_num" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');">
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-3">
+                            <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-4">
                                 <div class="form-outline">
                                     <label for="yr_state" class="form-label text-dark fw-bold"> <i class="fas fa-location"></i> State</label>
                                     <select class="form-select py-2" id="_state" name="_state"aria-label=".form-select-lg example">
@@ -75,7 +75,7 @@
                                     </select>
                                 </div>
                             </div>
-                            <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-3">
+                            <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-4">
                                 <div class="form-outline">
                                     <label for="yr_dist" class="form-label text-dark"><i class="fa-solid fa-location-dot"></i> District</label>
                                     <select class="form-select py-2" id="_district" name="_district" aria-label=".form-select-lg example">
@@ -93,7 +93,7 @@
                                     <select class="form-select py-2 " id="_tehsil" name="_tehsil"aria-label=".form-select-lg example">
                                         <option value="" selected disabled=""></option>
                                         <option value="1">Durg</option>
-                                    </select>
+                                    </select>    
                                 </div>  
                             </div>
                             <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-4">
@@ -496,6 +496,7 @@
                         mob_num: {
                             required: true,
                             minlength: 10,
+                            maxlength: 10,
                             digits: true,
                             customPhoneNumber: true 
                         },
@@ -526,8 +527,9 @@
                             minlength: "Last Name must be atleast 3 characters long"
                         },
                         mob_num: {
-                            required: "Enter Your Mobile Number",
-                            minlength: "Mobile must be 10 Digit long",
+                            required: "Enter Your Phone Number",
+                            minlength: "Phone Number must be of 10 Digit",
+                            maxlength: "Ensure exactly 10 digits of Mobile No.",
                             digits: "Please enter only digits"
                         },
                         // _tehsil: {
