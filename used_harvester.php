@@ -367,9 +367,9 @@
                     <div class="force-overflow">
                         <div class="price py-2 ">
                             <h5 class=" ps-3 text-dark fw-bold mb-3">Search By Budget</h5>
-                            <input type="checkbox" class="checkbox-round ms-3" value="0-3"/><span class="ps-2 fs-6"> 0 Lakh - 3 Lakh</span><br />
-                            <input type="checkbox" class="checkbox-round ms-3" value="3-6"/><span class="ps-2 fs-6"> 3 Lakh - 6 Lakh</span><br />
-                            <input type="checkbox" class="checkbox-round ms-3" value="6-9"/><span class="ps-2 fs-6"> 9 Lakh - 9 Lakh</span><br />
+                            <input type="checkbox" class="checkbox-round mt-1 ms-3" value="0-3"/><span class="ps-2 fs-6"> 0 Lakh - 3 Lakh</span><br />
+                            <input type="checkbox" class="checkbox-round mt-1 ms-3" value="3-6"/><span class="ps-2 fs-6"> 3 Lakh - 6 Lakh</span><br />
+                            <input type="checkbox" class="checkbox-round mt-1 ms-3" value="6-9"/><span class="ps-2 fs-6"> 9 Lakh - 9 Lakh</span><br />
                         </div>
                     </div>
                 </div>
@@ -379,42 +379,42 @@
                         <div class="HP py-2">
                            
                             <!-- <input type="checkbox" class="text-align-center ms-3" value=""/><span> This is checkbox </span><br /> -->
-                            <input type="checkbox" class="checkbox-round ms-3" value="Andaman"/><span class="ps-2 fs-6">Andaman Nicobar</span><br />
-                            <input type="checkbox" class="checkbox-round ms-3" value="Andhra"/><span class="ps-2 fs-6">Andhra Pradesh</span><br />
-                            <input type="checkbox" class="checkbox-round ms-3" value="Arunachal"/><span class="ps-2 fs-6">Arunachal Pradesh</span><br />
-                            <input type="checkbox" class="checkbox-round ms-3" value="Assam"/><span class="ps-2 fs-6">Assam</span><br />
-                            <input type="checkbox" class="checkbox-round ms-3" value="Bihar"/><span class="ps-2 fs-6">Bihar</span><br />
-                            <input type="checkbox" class="checkbox-round ms-3" value="Chhattisgarh"/><span class="ps-2 fs-6">Chhattisgarh</span><br />
-                            <input type="checkbox" class="checkbox-round ms-3" value="Dadra"/><span class="ps-2 fs-6">Dadra and Nagar Haveli </span><br />
-                            <input type="checkbox" class="checkbox-round ms-3" value="3-6"/><span class="ps-2 fs-6">Daman and Diu</span><br />
-                            <input type="checkbox" class="checkbox-round ms-3" value="6-9"/><span class="ps-2 fs-6">Delhi</span><br />
-                            <input type="checkbox" class="checkbox-round ms-3" value="3-6"/><span class="ps-2 fs-6">Goa</span><br />
-                            <input type="checkbox" class="checkbox-round ms-3" value="6-9"/><span class="ps-2 fs-6">Gujarat</span><br />
-                            <input type="checkbox" class="checkbox-round ms-3" value="3-6"/><span class="ps-2 fs-6">Jammu Kashmir</span><br />
-                            <input type="checkbox" class="checkbox-round ms-3" value="6-9"/><span class="ps-2 fs-6">Haryana</span><br />
-                            <input type="checkbox" class="checkbox-round ms-3" value="3-6"/><span class="ps-2 fs-6">Himachal Pradesh</span><br />
-                            <input type="checkbox" class="checkbox-round ms-3" value="6-9"/><span class="ps-2 fs-6">Gujarat</span><br />
-                            <input type="checkbox" class="checkbox-round ms-3" value="3-6"/><span class="ps-2 fs-6">Jharkhand</span><br />
-                            <input type="checkbox" class="checkbox-round ms-3" value="6-9"/><span class="ps-2 fs-6">Karnataka</span><br />
-                            <input type="checkbox" class="checkbox-round ms-3" value="3-6"/><span class="ps-2 fs-6">Kerala</span><br />
-                            <input type="checkbox" class="checkbox-round ms-3" value="6-9"/><span class="ps-2 fs-6">Lakshadweep</span><br />
-                            <input type="checkbox" class="checkbox-round ms-3" value="6-9"/><span class="ps-2 fs-6">Madhya Pradesh</span><br />
-                            <input type="checkbox" class="checkbox-round ms-3" value="6-9"/><span class="ps-2 fs-6">Maharashtra</span><br />
-                            <input type="checkbox" class="checkbox-round ms-3" value="6-9"/><span class="ps-2 fs-6">Manipur</span><br />
-                            <input type="checkbox" class="checkbox-round ms-3" value="6-9"/><span class="ps-2 fs-6">Meghalaya</span><br />
-                            <input type="checkbox" class="checkbox-round ms-3" value="6-9"/><span class="ps-2 fs-6">Mizoram</span><br />
-                            <input type="checkbox" class="checkbox-round ms-3" value="6-9"/><span class="ps-2 fs-6">Nagaland</span><br />
-                            <input type="checkbox" class="checkbox-round ms-3" value="6-9"/><span class="ps-2 fs-6">Orissa</span><br />
-                            <input type="checkbox" class="checkbox-round ms-3" value="6-9"/><span class="ps-2 fs-6">Pondicherry</span><br />
-                            <input type="checkbox" class="checkbox-round ms-3" value="6-9"/><span class="ps-2 fs-6">Punjab</span><br />
-                            <input type="checkbox" class="checkbox-round ms-3" value="6-9"/><span class="ps-2 fs-6">Rajasthan</span><br />
-                            <input type="checkbox" class="checkbox-round ms-3" value="6-9"/><span class="ps-2 fs-6">Sikkim</span><br />
-                            <input type="checkbox" class="checkbox-round ms-3" value="6-9"/><span class="ps-2 fs-6">Tamil Nadu</span><br />
-                            <input type="checkbox" class="checkbox-round ms-3" value="6-9"/><span class="ps-2 fs-6">Tripura</span><br />
-                            <input type="checkbox" class="checkbox-round ms-3" value="6-9"/><span class="ps-2 fs-6">Telangana</span><br />
-                            <input type="checkbox" class="checkbox-round ms-3" value="6-9"/><span class="ps-2 fs-6">Uttar Pradesh</span><br />
-                            <input type="checkbox" class="checkbox-round ms-3" value="6-9"/><span class="ps-2 fs-6">Uttarakhand</span><br />
-                            <input type="checkbox" class="checkbox-round ms-3" value="6-9"/><span class="ps-2 fs-6">West Bengal</span><br />
+                            <input type="checkbox" class="checkbox-round mt-1 ms-3" value="Andaman"/><span class="ps-2 fs-6">Andaman Nicobar</span><br />
+                            <input type="checkbox" class="checkbox-round mt-1 ms-3" value="Andhra"/><span class="ps-2 fs-6">Andhra Pradesh</span><br />
+                            <input type="checkbox" class="checkbox-round mt-1 ms-3" value="Arunachal"/><span class="ps-2 fs-6">Arunachal Pradesh</span><br />
+                            <input type="checkbox" class="checkbox-round mt-1 ms-3" value="Assam"/><span class="ps-2 fs-6">Assam</span><br />
+                            <input type="checkbox" class="checkbox-round mt-1 ms-3" value="Bihar"/><span class="ps-2 fs-6">Bihar</span><br />
+                            <input type="checkbox" class="checkbox-round mt-1 ms-3" value="Chhattisgarh"/><span class="ps-2 fs-6">Chhattisgarh</span><br />
+                            <input type="checkbox" class="checkbox-round mt-1 ms-3" value="Dadra"/><span class="ps-2 fs-6">Dadra and Nagar Haveli </span><br />
+                            <input type="checkbox" class="checkbox-round mt-1 ms-3" value="3-6"/><span class="ps-2 fs-6">Daman and Diu</span><br />
+                            <input type="checkbox" class="checkbox-round mt-1 ms-3" value="6-9"/><span class="ps-2 fs-6">Delhi</span><br />
+                            <input type="checkbox" class="checkbox-round mt-1 ms-3" value="3-6"/><span class="ps-2 fs-6">Goa</span><br />
+                            <input type="checkbox" class="checkbox-round mt-1 ms-3" value="6-9"/><span class="ps-2 fs-6">Gujarat</span><br />
+                            <input type="checkbox" class="checkbox-round mt-1 ms-3" value="3-6"/><span class="ps-2 fs-6">Jammu Kashmir</span><br />
+                            <input type="checkbox" class="checkbox-round mt-1 ms-3" value="6-9"/><span class="ps-2 fs-6">Haryana</span><br />
+                            <input type="checkbox" class="checkbox-round mt-1 ms-3" value="3-6"/><span class="ps-2 fs-6">Himachal Pradesh</span><br />
+                            <input type="checkbox" class="checkbox-round mt-1 ms-3" value="6-9"/><span class="ps-2 fs-6">Gujarat</span><br />
+                            <input type="checkbox" class="checkbox-round mt-1 ms-3" value="3-6"/><span class="ps-2 fs-6">Jharkhand</span><br />
+                            <input type="checkbox" class="checkbox-round mt-1 ms-3" value="6-9"/><span class="ps-2 fs-6">Karnataka</span><br />
+                            <input type="checkbox" class="checkbox-round mt-1 ms-3" value="3-6"/><span class="ps-2 fs-6">Kerala</span><br />
+                            <input type="checkbox" class="checkbox-round mt-1 ms-3" value="6-9"/><span class="ps-2 fs-6">Lakshadweep</span><br />
+                            <input type="checkbox" class="checkbox-round mt-1 ms-3" value="6-9"/><span class="ps-2 fs-6">Madhya Pradesh</span><br />
+                            <input type="checkbox" class="checkbox-round mt-1 ms-3" value="6-9"/><span class="ps-2 fs-6">Maharashtra</span><br />
+                            <input type="checkbox" class="checkbox-round mt-1 ms-3" value="6-9"/><span class="ps-2 fs-6">Manipur</span><br />
+                            <input type="checkbox" class="checkbox-round mt-1 ms-3" value="6-9"/><span class="ps-2 fs-6">Meghalaya</span><br />
+                            <input type="checkbox" class="checkbox-round mt-1 ms-3" value="6-9"/><span class="ps-2 fs-6">Mizoram</span><br />
+                            <input type="checkbox" class="checkbox-round mt-1 ms-3" value="6-9"/><span class="ps-2 fs-6">Nagaland</span><br />
+                            <input type="checkbox" class="checkbox-round mt-1 ms-3" value="6-9"/><span class="ps-2 fs-6">Orissa</span><br />
+                            <input type="checkbox" class="checkbox-round mt-1 ms-3" value="6-9"/><span class="ps-2 fs-6">Pondicherry</span><br />
+                            <input type="checkbox" class="checkbox-round mt-1 ms-3" value="6-9"/><span class="ps-2 fs-6">Punjab</span><br />
+                            <input type="checkbox" class="checkbox-round mt-1 ms-3" value="6-9"/><span class="ps-2 fs-6">Rajasthan</span><br />
+                            <input type="checkbox" class="checkbox-round mt-1 ms-3" value="6-9"/><span class="ps-2 fs-6">Sikkim</span><br />
+                            <input type="checkbox" class="checkbox-round mt-1 ms-3" value="6-9"/><span class="ps-2 fs-6">Tamil Nadu</span><br />
+                            <input type="checkbox" class="checkbox-round mt-1 ms-3" value="6-9"/><span class="ps-2 fs-6">Tripura</span><br />
+                            <input type="checkbox" class="checkbox-round mt-1 ms-3" value="6-9"/><span class="ps-2 fs-6">Telangana</span><br />
+                            <input type="checkbox" class="checkbox-round mt-1 ms-3" value="6-9"/><span class="ps-2 fs-6">Uttar Pradesh</span><br />
+                            <input type="checkbox" class="checkbox-round mt-1 ms-3" value="6-9"/><span class="ps-2 fs-6">Uttarakhand</span><br />
+                            <input type="checkbox" class="checkbox-round mt-1 ms-3" value="6-9"/><span class="ps-2 fs-6">West Bengal</span><br />
                         </div>
                     </div>
                 </div>
@@ -423,16 +423,16 @@
                     <h5 class=" ps-1 text-dark fw-bold  pt-2">Search By Brand</h5>
                         <div class="HP py-2">
                             <!-- <input type="checkbox" class="text-align-center ms-3" value=""/><span> This is checkbox </span><br /> -->
-                            <input type="checkbox" class="checkbox-round ms-3" value="Mahindra"/><span class="ps-2 fs-6">Mahindra (97)</span><br />
-                            <input type="checkbox" class="checkbox-round ms-3" value="Farmtrac"/><span class="ps-2 fs-6">Farmtrac (21)</span><br />
-                            <input type="checkbox" class="checkbox-round ms-3" value="Swaraj"/><span class="ps-2 fs-6">Swaraj (19)</span><br />
-                            <input type="checkbox" class="checkbox-round ms-3" value="Massey"/><span class="ps-2 fs-6">Massey Ferguson (16)</span><br />
-                            <input type="checkbox" class="checkbox-round ms-3" value="Powertrac"/><span class="ps-2 fs-6">Powertrac (15)</span><br />
-                            <input type="checkbox" class="checkbox-round ms-3" value="Sonalika"/><span class="ps-2 fs-6">Sonalika (15)</span><br />
-                            <input type="checkbox" class="checkbox-round ms-3" value="Eicher"/><span class="ps-2 fs-6">Eicher (12)</span><br />
-                            <input type="checkbox" class="checkbox-round ms-3" value="John"/><span class="ps-2 fs-6">John Deere (6)</span><br />
-                            <input type="checkbox" class="checkbox-round ms-3" value="Escorts"/><span class="ps-2 fs-6">Escorts (13)</span><br />
-                            <input type="checkbox" class="checkbox-round ms-3" value="Holland"/><span class="ps-2 fs-6">New Holland (2)</span><br />
+                            <input type="checkbox" class="checkbox-round mt-1 ms-3" value="Mahindra"/><span class="ps-2 fs-6">Mahindra (97)</span><br />
+                            <input type="checkbox" class="checkbox-round mt-1 ms-3" value="Farmtrac"/><span class="ps-2 fs-6">Farmtrac (21)</span><br />
+                            <input type="checkbox" class="checkbox-round mt-1 ms-3" value="Swaraj"/><span class="ps-2 fs-6">Swaraj (19)</span><br />
+                            <input type="checkbox" class="checkbox-round mt-1 ms-3" value="Massey"/><span class="ps-2 fs-6">Massey Ferguson (16)</span><br />
+                            <input type="checkbox" class="checkbox-round mt-1 ms-3" value="Powertrac"/><span class="ps-2 fs-6">Powertrac (15)</span><br />
+                            <input type="checkbox" class="checkbox-round mt-1 ms-3" value="Sonalika"/><span class="ps-2 fs-6">Sonalika (15)</span><br />
+                            <input type="checkbox" class="checkbox-round mt-1 ms-3" value="Eicher"/><span class="ps-2 fs-6">Eicher (12)</span><br />
+                            <input type="checkbox" class="checkbox-round mt-1 ms-3" value="John"/><span class="ps-2 fs-6">John Deere (6)</span><br />
+                            <input type="checkbox" class="checkbox-round mt-1 ms-3" value="Escorts"/><span class="ps-2 fs-6">Escorts (13)</span><br />
+                            <input type="checkbox" class="checkbox-round mt-1 ms-3" value="Holland"/><span class="ps-2 fs-6">New Holland (2)</span><br />
                         </div>
                     </div>
                 </div>
@@ -440,10 +440,10 @@
                     <div class="force-overflow">
                         <div class="price py-2 ">
                             <h5 class=" ps-3 text-dark fw-bold mb-3">Crop Type</h5>
-                            <input type="checkbox" class="checkbox-round ms-3" value="MultiCrop"/><span class="ps-2 fs-6"> MultiCrop</span><br />
-                            <input type="checkbox" class="checkbox-round ms-3" value="Paddy"/><span class="ps-2 fs-6">Paddy</span><br />
-                            <input type="checkbox" class="checkbox-round ms-3" value="Maize"/><span class="ps-2 fs-6">Maize</span><br />
-                            <input type="checkbox" class="checkbox-round ms-3" value="Sugarcane"/><span class="ps-2 fs-6">Sugarcane</span><br />
+                            <input type="checkbox" class="checkbox-round mt-1 ms-3" value="MultiCrop"/><span class="ps-2 fs-6"> MultiCrop</span><br />
+                            <input type="checkbox" class="checkbox-round mt-1 ms-3" value="Paddy"/><span class="ps-2 fs-6">Paddy</span><br />
+                            <input type="checkbox" class="checkbox-round mt-1 ms-3" value="Maize"/><span class="ps-2 fs-6">Maize</span><br />
+                            <input type="checkbox" class="checkbox-round mt-1 ms-3" value="Sugarcane"/><span class="ps-2 fs-6">Sugarcane</span><br />
                         </div>
                     </div>
                 </div>
@@ -451,9 +451,9 @@
                     <div class="force-overflow">
                         <div class="price py-2 ">
                             <h5 class=" ps-3 text-dark fw-bold mb-3">Cutting Width</h5>
-                            <input type="checkbox" class="checkbox-round ms-3" value="1_7_Feets"/><span class="ps-2 fs-6"> 1-7 Feets</span><br />
-                            <input type="checkbox" class="checkbox-round ms-3" value="8_14_feets"/><span class="ps-2 fs-6">8-14 Feets</span><br />
-                            <input type="checkbox" class="checkbox-round ms-3" value="Above_14"/><span class="ps-2 fs-6">Above 14 Feets</span><br />
+                            <input type="checkbox" class="checkbox-round mt-1 ms-3" value="1_7_Feets"/><span class="ps-2 fs-6"> 1-7 Feets</span><br />
+                            <input type="checkbox" class="checkbox-round mt-1 ms-3" value="8_14_feets"/><span class="ps-2 fs-6">8-14 Feets</span><br />
+                            <input type="checkbox" class="checkbox-round mt-1 ms-3" value="Above_14"/><span class="ps-2 fs-6">Above 14 Feets</span><br />
                         </div>
                     </div>
                 </div>
@@ -461,8 +461,8 @@
                     <div class="force-overflow">
                         <div class="price py-2 ">
                             <h5 class=" ps-3 text-dark fw-bold mb-3">Power Source</h5>
-                            <input type="checkbox" class="checkbox-round ms-3" value="1_7_Feets"/><span class="ps-2 fs-6"> Self</span><br />
-                            <input type="checkbox" class="checkbox-round ms-3" value="8_14_feets"/><span class="ps-2 fs-6">tractor Mounted</span><br />
+                            <input type="checkbox" class="checkbox-round mt-1 ms-3" value="1_7_Feets"/><span class="ps-2 fs-6"> Self</span><br />
+                            <input type="checkbox" class="checkbox-round mt-1 ms-3" value="8_14_feets"/><span class="ps-2 fs-6">tractor Mounted</span><br />
                         </div>
                     </div>
                 </div>
@@ -471,16 +471,16 @@
                     <h5 class=" ps-1 text-dark fw-bold  pt-2">Search By Year</h5>
                         <div class="HP py-2">
                             <!-- <input type="checkbox" class="text-align-center ms-3" value=""/><span> This is checkbox </span><br /> -->
-                            <input type="checkbox" class="checkbox-round ms-3" value="2021"/><span class="ps-2 fs-6">2021</span><br />
-                            <input type="checkbox" class="checkbox-round ms-3" value="2020"/><span class="ps-2 fs-6">2020</span><br />
-                            <input type="checkbox" class="checkbox-round ms-3" value="2019"/><span class="ps-2 fs-6">2019</span><br />
-                            <input type="checkbox" class="checkbox-round ms-3" value="2018"/><span class="ps-2 fs-6">2018 </span><br />
-                            <input type="checkbox" class="checkbox-round ms-3" value="2017"/><span class="ps-2 fs-6">2017</span><br />
-                            <input type="checkbox" class="checkbox-round ms-3" value="2016"/><span class="ps-2 fs-6">2016</span><br />
-                            <input type="checkbox" class="checkbox-round ms-3" value="2015"/><span class="ps-2 fs-6">2015</span><br />
-                            <input type="checkbox" class="checkbox-round ms-3" value="2014"/><span class="ps-2 fs-6">2006</span><br />
-                            <input type="checkbox" class="checkbox-round ms-3" value="2013"/><span class="ps-2 fs-6">2005</span><br />
-                            <input type="checkbox" class="checkbox-round ms-3" value="2012"/><span class="ps-2 fs-6">2009</span><br />
+                            <input type="checkbox" class="checkbox-round mt-1 ms-3" value="2021"/><span class="ps-2 fs-6">2021</span><br />
+                            <input type="checkbox" class="checkbox-round mt-1 ms-3" value="2020"/><span class="ps-2 fs-6">2020</span><br />
+                            <input type="checkbox" class="checkbox-round mt-1 ms-3" value="2019"/><span class="ps-2 fs-6">2019</span><br />
+                            <input type="checkbox" class="checkbox-round mt-1 ms-3" value="2018"/><span class="ps-2 fs-6">2018 </span><br />
+                            <input type="checkbox" class="checkbox-round mt-1 ms-3" value="2017"/><span class="ps-2 fs-6">2017</span><br />
+                            <input type="checkbox" class="checkbox-round mt-1 ms-3" value="2016"/><span class="ps-2 fs-6">2016</span><br />
+                            <input type="checkbox" class="checkbox-round mt-1 ms-3" value="2015"/><span class="ps-2 fs-6">2015</span><br />
+                            <input type="checkbox" class="checkbox-round mt-1 ms-3" value="2014"/><span class="ps-2 fs-6">2006</span><br />
+                            <input type="checkbox" class="checkbox-round mt-1 ms-3" value="2013"/><span class="ps-2 fs-6">2005</span><br />
+                            <input type="checkbox" class="checkbox-round mt-1 ms-3" value="2012"/><span class="ps-2 fs-6">2009</span><br />
                             
 
                         </div>
