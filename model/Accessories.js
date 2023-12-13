@@ -94,33 +94,69 @@ function get_data() {
     get_data();
 
     // delete data
-    function destroy(id) {
-        var apiBaseURL =APIBaseURL;
-        var url = apiBaseURL + 'accessory/'+ id;
-        var token = localStorage.getItem('token');
+    // function destroy(id) {
+    //     var apiBaseURL =APIBaseURL;
+    //     var url = apiBaseURL + 'accessory/'+ id;
+    //     var token = localStorage.getItem('token');
         
-        if (!token) {
-        console.error("Token is missing");
-        return;
-        }
+    //     if (!token) {
+    //     console.error("Token is missing");
+    //     return;
+    //     }
         
-        $.ajax({
-        url: url,
-        type: "DELETE",
-        headers: {
-          'Authorization': 'Bearer ' + token
-        },
-        success: function(result) {
-          get_data();
-          console.log("Delete request successful");
-          alert("Delete operation successful");
-        },
-        error: function(error) {
-          console.error('Error fetching data:', error);
-          alert("Error during delete operation");
-        }
-        });
-        }
+    //     $.ajax({
+    //     url: url,
+    //     type: "DELETE",
+    //     headers: {
+    //       'Authorization': 'Bearer ' + token
+    //     },
+    //     success: function(result) {
+    //       get_data();
+    //       console.log("Delete request successful");
+    //       alert("Delete operation successful");
+    //     },
+    //     error: function(error) {
+    //       console.error('Error fetching data:', error);
+    //       alert("Error during delete operation");
+    //     }
+    //     });
+    //     } 
+
+        // delete data
+function destroy(id) {
+  var apiBaseURL = APIBaseURL;
+  var url = apiBaseURL + 'accessory/' + id;
+  var token = localStorage.getItem('token');
+
+  if (!token) {
+    console.error("Token is missing");
+    return;
+  }
+
+  // Show a confirmation popup
+  var isConfirmed = confirm("Are you sure you want to delete this data?");
+  if (!isConfirmed) {
+    // User clicked 'Cancel' in the confirmation popup
+    return;
+  }
+
+  $.ajax({
+    url: url,
+    type: "DELETE",
+    headers: {
+      'Authorization': 'Bearer ' + token
+    },
+    success: function(result) {
+      get_data();
+      console.log("Delete request successful");
+    },
+    error: function(error) {
+      console.error('Error fetching data:', error);
+      alert("Error during delete operation");
+    }
+  });
+}
+
 
 
         // searching 

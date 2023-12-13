@@ -19,7 +19,7 @@ function getTractorList() {
                 const arr=s.tractor_type_name.split(',');
                 
                 console.log('arr',arr);
-                if(arr.includes('Latest')){
+                if(arr.includes('4WD')){
                     new_arr.push(s.product_id);
                     // jisme upcoming tha uska product_id ko new arr me push
                     return s.product_id;
@@ -28,7 +28,7 @@ function getTractorList() {
             console.log('new_data',new_data);
             console.log('new_arr',new_arr);
             // if(new_data.product_id==)
-            var productContainer = $("#productContainer");
+            var productContainer = $("#productContainer4wd");
             if (data.product.allProductData && data.product.allProductData.length > 0) {
                 data.product.allProductData.forEach(function (p) {
                     if(new_arr.includes(p.product_id)){

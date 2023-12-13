@@ -2,7 +2,7 @@ $(document).ready(function () {
   get_lookup();
   $('.js-example-basic-multiple').select2();
 
-    getTractorList();
+    // getTractorList();
     BackgroundUpload();
 
     $('#save').click(store);

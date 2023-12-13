@@ -3,8 +3,14 @@
 
 <head>
     <?php
-   include 'includes/headertag.php';
-   ?>
+    include 'includes/headertag.php';
+    // include 'includes/headertagadmin.php';
+   include 'includes/footertag.php';
+   
+   ?> 
+  <script> var APIBaseURL = "<?php echo $APIBaseURL; ?>";</script>
+  <script> var baseUrl = "<?php echo $baseUrl; ?>";</script>
+  <script src="<?php $baseUrl; ?>model/4wd.js"></script>
     <style>
     .form-outline .form-label {
         color: #454444;
@@ -30,9 +36,9 @@
    include 'includes/header.php';
    ?>
 
-    <section class="mt-5 pt-4">
-        <div class="container ">
-            <div class="mt-5 pt-3">
+    <section class="mt-5 pt-4 bg-light">
+        <div class="container py-2">
+            <div class="mt-5 pt-4">
                 <span class="mt-5 text-white">
                     <a href="index.php" class="text-decoration-none header-link px-1">Home <i
                             class="fa-solid fa-chevron-right px-1"></i></a>
@@ -45,10 +51,10 @@
     <section>
         <div class="container">
             <div class="row">
-                <div class="col-12 col-sm-9 col-lg-9 col-md-9">
-                    <h3 class="pb-3 fw-bold">276 - 4WD Tractors</h3>
-                    <div class="row">
-                        <div class="col-12 col-lg-4 col-md-4 col-sm-4 mb-3">
+                <div class="col-12 col-sm-9 col-lg-9 col-md-9 mt-3">
+                    <h3 class="pb-3 fw-bold">4WD Tractors</h3>
+                    <div id="productContainer4wd" class="row">
+                        <!-- <div class="col-12 col-lg-4 col-md-4 col-sm-4 mb-3">
                             <div class="h-auto success__stry__item d-flex flex-column shadow ">
                                 <div class="thumb">
                                     <a href="4wd_inner.php">
@@ -93,8 +99,6 @@
                                     </div>
                                 </div>
                             </div>
-
-                            <!-- Modal -->
                             <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static"
                                 data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel"
                                 aria-hidden="true">
@@ -190,332 +194,9 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-12 col-lg-4 col-md-4 col-sm-4 mb-3">
-                            <div class="h-auto success__stry__item d-flex flex-column shadow ">
-                                <div class="thumb">
-                                    <a href="#">
-                                        <div class="ratio ratio-16x9">
-                                            <img src="assets/images/swaraj-855-fe-1694259363.webp"
-                                                class="object-fit-cover " alt="img">
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="content d-flex flex-column flex-grow-1 ">
-                                    <div class="caption text-center">
-                                        <a href="#" class="text-decoration-none text-dark">
-                                            <p class="pt-3"><strong
-                                                    class="series_tractor_strong text-center h5 fw-bold ">Swaraj 855
-                                                    FE</strong></p>
-                                        </a>
-                                    </div>
-                                    <div class="power">
-                                        <div class="row ">
-                                           
-                                            <div class="col-6 col-lg-6 col-md-6 col-sm-6">
-                                                <p class="text-dark"><i
-                                                        class="fas fa-bolt mx-2"></i>47 HP</p>
-                                            </div>
-                                           
-
-                                            <div class="col-6 col-lg-6 col-md-6 col-sm-6">
-                                                <p id="adduser" type="" class="text-dark ">
-                                                    <i class="fa-solid fa-gear mx-2"></i>2979 CC
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-12">
-                                        <button id="adduser" type="button" class="add_btn btn-success w-100">
-                                        Get On Road Price</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-12 col-lg-4 col-md-4 col-sm-4 mb-3">
-                            <div class="h-auto success__stry__item d-flex flex-column shadow ">
-                                <div class="thumb">
-                                    <a href="#">
-                                        <div class="ratio ratio-16x9">
-                                            <img src="assets/images/swaraj-855-fe-1694259363.webp"
-                                                class="object-fit-cover " alt="img">
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="content d-flex flex-column flex-grow-1 ">
-                                    <div class="caption text-center">
-                                        <a href="#" class="text-decoration-none text-dark">
-                                            <p class="pt-3"><strong
-                                                    class="series_tractor_strong text-center h5 fw-bold ">Swaraj 855
-                                                    FE</strong></p>
-                                        </a>
-                                    </div>
-                                    <div class="power">
-                                        <div class="row ">
-                                           
-                                            <div class="col-6 col-lg-6 col-md-6 col-sm-6">
-                                                <p class="text-dark"><i
-                                                        class="fas fa-bolt mx-2"></i>47 HP</p>
-                                            </div>
-                                           
-
-                                            <div class="col-6 col-lg-6 col-md-6 col-sm-6">
-                                                <p id="adduser" type="" class="text-dark ">
-                                                    <i class="fa-solid fa-gear mx-2"></i>2979 CC
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-12">
-                                        <button id="adduser" type="button" class="add_btn btn-success w-100">
-                                        Get On Road Price</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-12 col-lg-4 col-md-4 col-sm-4 mb-3">
-                            <div class="h-auto success__stry__item d-flex flex-column shadow ">
-                                <div class="thumb">
-                                    <a href="#">
-                                        <div class="ratio ratio-16x9">
-                                            <img src="assets/images/swaraj-855-fe-1694259363.webp"
-                                                class="object-fit-cover " alt="img">
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="content d-flex flex-column flex-grow-1 ">
-                                    <div class="caption text-center">
-                                        <a href="#" class="text-decoration-none text-dark">
-                                            <p class="pt-3"><strong
-                                                    class="series_tractor_strong text-center h5 fw-bold ">Swaraj 855
-                                                    FE</strong></p>
-                                        </a>
-                                    </div>
-                                    <div class="power">
-                                        <div class="row ">
-                                           
-                                            <div class="col-6 col-lg-6 col-md-6 col-sm-6">
-                                                <p class="text-dark"><i
-                                                        class="fas fa-bolt mx-2"></i>47 HP</p>
-                                            </div>
-                                           
-
-                                            <div class="col-6 col-lg-6 col-md-6 col-sm-6">
-                                                <p id="adduser" type="" class="text-dark ">
-                                                    <i class="fa-solid fa-gear mx-2"></i>2979 CC
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-12">
-                                        <button id="adduser" type="button" class="add_btn btn-success w-100">
-                                        Get On Road Price</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-12 col-lg-4 col-md-4 col-sm-4 mb-3">
-                            <div class="h-auto success__stry__item d-flex flex-column shadow ">
-                                <div class="thumb">
-                                    <a href="#">
-                                        <div class="ratio ratio-16x9">
-                                            <img src="assets/images/swaraj-855-fe-1694259363.webp"
-                                                class="object-fit-cover " alt="img">
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="content d-flex flex-column flex-grow-1 ">
-                                    <div class="caption text-center">
-                                        <a href="#" class="text-decoration-none text-dark">
-                                            <p class="pt-3"><strong
-                                                    class="series_tractor_strong text-center h5 fw-bold ">Swaraj 855
-                                                    FE</strong></p>
-                                        </a>
-                                    </div>
-                                    <div class="power">
-                                        <div class="row ">
-                                           
-                                            <div class="col-6 col-lg-6 col-md-6 col-sm-6">
-                                                <p class="text-dark"><i
-                                                        class="fas fa-bolt mx-2"></i>47 HP</p>
-                                            </div>
-                                           
-
-                                            <div class="col-6 col-lg-6 col-md-6 col-sm-6">
-                                                <p id="adduser" type="" class="text-dark ">
-                                                    <i class="fa-solid fa-gear mx-2"></i>2979 CC
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-12">
-                                        <button id="adduser" type="button" class="add_btn btn-success w-100">
-                                        Get On Road Price</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-12 col-lg-4 col-md-4 col-sm-4 mb-3">
-                            <div class="h-auto success__stry__item d-flex flex-column shadow ">
-                                <div class="thumb">
-                                    <a href="#">
-                                        <div class="ratio ratio-16x9">
-                                            <img src="assets/images/mahindra-275-di-xp-plus-1686557174.webp"
-                                                class="object-fit-cover " alt="img">
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="content d-flex flex-column flex-grow-1 ">
-                                    <div class="caption text-center">
-                                        <a href="#" class="text-decoration-none text-dark">
-                                            <p class="pt-3"><strong
-                                                    class="series_tractor_strong text-center h5 fw-bold ">Mahindra 275
-                                                    DI XP Plus</strong></p>
-                                        </a>
-                                    </div>
-                                    <div class="power">
-                                        <div class="row ">
-                                           
-                                            <div class="col-6 col-lg-6 col-md-6 col-sm-6">
-                                                <p class="text-dark"><i
-                                                        class="fas fa-bolt mx-2"></i>47 HP</p>
-                                            </div>
-                                            
-
-                                            <div class="col-6 col-lg-6 col-md-6 col-sm-6">
-                                                <p id="adduser" type="" class="text-dark " >
-                                                    <i class="fa-solid fa-gear mx-2"></i>2979 CC
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-12">
-                                        <button id="adduser" type="button" class="add_btn btn-success w-100">
-                                        Get On Road Price</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-12 col-lg-4 col-md-4 col-sm-4 mb-3">
-                            <div class="h-auto success__stry__item d-flex flex-column shadow ">
-                                <div class="thumb">
-                                    <a href="#">
-                                        <div class="ratio ratio-16x9">
-                                            <img src="assets/images/swaraj-744-fe-1694259976.webp"
-                                                class="object-fit-cover " alt="img">
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="content d-flex flex-column flex-grow-1 ">
-                                    <div class="caption text-center">
-                                        <a href="#" class="text-decoration-none text-dark">
-                                            <p class="pt-3"><strong
-                                                    class="series_tractor_strong text-center h5 fw-bold ">Swaraj 744
-                                                    FE</strong></p>
-                                        </a>
-                                    </div>
-                                    <div class="power">
-                                        <div class="row ">
-                                           
-                                            <div class="col-6 col-lg-6 col-md-6 col-sm-6">
-                                                <p class="text-dark"><i
-                                                        class="fas fa-bolt mx-2"></i>47 HP</p>
-                                            </div>
-                                           
-
-                                            <div class="col-6 col-lg-6 col-md-6 col-sm-6">
-                                                <p id="adduser" type="" class="text-dark ">
-                                                    <i class="fa-solid fa-gear mx-2"></i>2979 CC
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-12">
-                                        <button id="adduser" type="button" class="add_btn btn-success w-100">
-                                        Get On Road Price</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-12 col-lg-4 col-md-4 col-sm-4 mb-3">
-                            <div class="h-auto success__stry__item d-flex flex-column shadow ">
-                                <div class="thumb">
-                                    <a href="#">
-                                        <div class="ratio ratio-16x9">
-                                            <img src="assets/images/275-di-tu-1632206550.webp" class="object-fit-cover "
-                                                alt="img">
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="content d-flex flex-column flex-grow-1 ">
-                                    <div class="caption text-center">
-                                        <a href="#" class="text-decoration-none text-dark">
-                                            <p class="pt-3"><strong
-                                                    class="series_tractor_strong text-center h5 fw-bold ">Mahindra 275
-                                                    DI TU</strong></p>
-                                        </a>
-                                    </div>
-                                    <div class="power">
-                                        <div class="row ">
-                                        
-                                            <div class="col-6 col-lg-6 col-md-6 col-sm-6">
-                                                <p class="text-dark"><i
-                                                        class="fas fa-bolt mx-2"></i>47 HP</p>
-                                            </div>
-                                           
-
-                                            <div class="col-6 col-lg-6 col-md-6 col-sm-6">
-                                                <p id="adduser" type="" class="text-dark">
-                                                    <i class="fa-solid fa-gear mx-2"></i>2979 CC
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-12">
-                                        <button id="adduser" type="button" class="add_btn btn-success w-100">
-                                        Get On Road Price</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-12 col-lg-4 col-md-4 col-sm-4 mb-3">
-                            <div class="h-auto success__stry__item d-flex flex-column shadow ">
-                                <div class="thumb">
-                                    <a href="#">
-                                        <div class="ratio ratio-16x9">
-                                            <img src="assets/images/380-1632220220.webp" class="object-fit-cover "
-                                                alt="img">
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="content d-flex flex-column flex-grow-1 ">
-                                    <div class="caption text-center">
-                                        <a href="#" class="text-decoration-none text-dark">
-                                            <p class="pt-3"><strong
-                                                    class="series_tractor_strong text-center h5 fw-bold ">Eicher
-                                                    380</strong></p>
-                                        </a>
-                                    </div>
-                                    <div class="power">
-                                        <div class="row ">
-                                            <div class="col-6 col-lg-6 col-md-6 col-sm-6">
-                                                <p class="text-dark"><i
-                                                        class="fas fa-bolt mx-2"></i>47 HP</p>
-                                            </div>
-                                            <div class="col-6 col-lg-6 col-md-6 col-sm-6">
-                                                <p id="adduser" type="" class="text-dark">
-                                                    <i class="fa-solid fa-gear mx-2"></i>2979 CC
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-12">
-                                        <button id="adduser" type="button" class="add_btn btn-success w-100">
-                                        Get On Road Price</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        </div> -->
+                        
+                       
 
                     </div>
                     <div class="col-12 text-center mt-3 mb-4 pt-2 ">
@@ -524,7 +205,7 @@
                     </div>
                 </div>
 
-                <div class="col-12 col-sm-3 col-lg-3 col-md-3">
+                <div class="col-12 col-sm-3 col-lg-3 col-md-3 mt-3">
                     <div class=" row mb-3" id="">
                         <div class="col-12 col-sm-12 col-md-12 col-lg-12">
                             <div class=" row text-center">
@@ -631,10 +312,7 @@
         <div class="container">
             <h3 class="fw-bold assured px-2">Find 4WD Tractors</h3>
             <div class="" role="alert">
-                <p class="text-dark">4WD tractors are rapidly becoming popular among the Indian farmers. Here on TractorJunction, you can find all popular 4WD tractor brands like Mahindra, John Deere, Swaraj, Farmtrac, Eicher, Sonalika, Kubota, New Holland and many more. We provide you 4WD tractor price, specification, and comparisons between 4WD tractors so that you get proper details about that tractor that you want to purchase. 
-                </p>
-                <p class="text-dark">4WD tractors increase productivity and are more stable in the fields. 4WD tractors are better with almost all implements, whether it's rotavator, cultivator, dozer, etc. 4WD tractors have more grip to the surface than the 2WD tractors. 4WD tractors have more advantages than 2WD tractors like 4WD tractors have a more elevating capacity, fuel efficiency, advanced features, and many more. All 4WD tractors give a higher performance on the field and provide long hours on the field.  
-                </p>
+                <p class="text-dark" id="4wd_descrip"></p>
             </div>
         </div>
     </section>

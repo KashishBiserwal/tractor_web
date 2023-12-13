@@ -4,8 +4,10 @@ $(document).ready(function() {
     getTractorList();
 });
 
+
+
 function getTractorList() {
-    var url = "http://192.168.1.41:8000/api/customer/getProduct";
+    var url = "http://127.0.0.1:8000/api/customer/get_new_tractor";
     console.log(url);
 
     $.ajax({
@@ -13,17 +15,27 @@ function getTractorList() {
         type: "GET",
         success: function(data) {
             console.log(data, 'abc');
-            console.log('prachi',data.product[0].tractor_type_value);
-            const new_data=data.product.filter((s)=>{ 
-                if(s.tractor_type_value=="Popular"){
-                    return s;
+            console.log('prachi',data.product.accessory_and_tractor_type[0].tractor_type_name);
+            let new_arr=[];
+            const new_data=data.product.accessory_and_tractor_type.filter((s)=>{ 
+                const arr=s.tractor_type_name.split(',');
+                
+                console.log('arr',arr);
+                if(arr.includes('Popular')){
+                    new_arr.push(s.product_id);
+                    // jisme upcoming tha uska product_id ko new arr me push
+                    return s.product_id;
                 }
             });
+            console.log('new_data',new_data);
+            console.log('new_arr',new_arr);
+            // if(new_data.product_id==)
             var productContainer = $("#productContainer");
-            console.log('shivhare',new_data);
-            if (data.product && data.product.length > 0) {
-                data.product.forEach(function (p) {
-                    var newCard = `
+            if (data.product.allProductData && data.product.allProductData.length > 0) {
+                data.product.allProductData.forEach(function (p) {
+                    if(new_arr.includes(p.product_id)){
+                        // new aar me match aa rhi array 
+                        var newCard = `
                     <div class="col-12 col-lg-4 col-md-4 col-sm-4 mb-3">
                     <div class="h-auto success__stry__item d-flex flex-column shadow ">
                         <div class="thumb">
@@ -59,7 +71,9 @@ function getTractorList() {
 
                     // Append the new card to the container
                     productContainer.append(newCard);
-                });
+                
+                    }
+                    });
 
            
             }
@@ -69,3 +83,4 @@ function getTractorList() {
         }
     });
 }
+           

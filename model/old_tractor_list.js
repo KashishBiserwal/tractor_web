@@ -1,27 +1,54 @@
 $(document).ready(function() {
-    BackgroundUpload()
+  $('#old_btn').click(store);
+  ImgUpload();
+    BackgroundUpload();
+    jQuery.validator.addMethod("customPhoneNumber", function(value, element) {
+      return /^[6-9]\d{9}$/.test(value); 
+    }, "Phone number must start with 6 or above");
       $("#old_tract").validate({
           rules: {
               first_name: 'required',
               last_name: 'required',
               mobile_number: {
-                  required: true,
-                  digits: true, // Allow only digits
+                required:true,
+                minlength: 10,
+                maxlength:10,
+                 digits: true,// Allow only digits
+                customPhoneNumber: true
               },
               state: "required",
               district: "required",
+              // tehsil:"required",
               brand:"required",
               model:"required",
-              year:"required",
+              purchase_year:"required",
               condition:"required",
               tyrecondition:"required",
-              brand_img:"required",
-              hour:"required",
-              rc:"rc",
-              description:"required",
+              price_old:{
+                required:'true',        
+               },
+              // brand_img:"required",
+              // image_pic:"required",
+              image_pic:{
+
+                required: true,
+              },
+              hours_driven:"required",
+              rc_num:"required",
+              description:{
+                required: true,
+                 minlength: 10, 
+                  maxlength: 1000 
+              },
               fav_language:"required",
               fav_language1:"required",
-          }
+          },  
+           messages: {
+            image:{
+              required: "This field is required",
+            },
+           },
+
       });
       $('#old_btn').on('click', function() {
           $('#old_tract').valid();
@@ -29,67 +56,124 @@ $(document).ready(function() {
       });
   });
 
-function BackgroundUpload(){
-var imgWrap = "";
-var imgArray = [];
+  function BackgroundUpload() {
+    var imgWrap = "";
+    var imgArray = [];
 
-function generateUniqueClassName(index) {
-return "background-image-" + index;
-}
-
-$('.background__inputfile').each(function () {
-$(this).on('change', function (e) {
-  imgWrap = $(this).closest('.background__box').find('.background__img-wrap');
-  var maxLength = $(this).attr('data-max_length');
-
-  var files = e.target.files;
-  var filesArr = Array.prototype.slice.call(files);
-  var iterator = 0;
-  filesArr.forEach(function (f, index) {
-
-    if (!f.type.match('image.*')) {
-      return;
+    function generateUniqueClassName(index) {
+      return "background-image-" + index;
     }
 
-    if (imgArray.length > maxLength) {
-      return false;
-    } else {
-      var len = 0;
+    $('.background__inputfile').each(function () {
+      $(this).on('change', function (e) {
+        imgWrap = $(this).closest('.background__box').find('.background__img-wrap');
+        var maxLength = $(this).attr('data-max_length');
+
+        var files = e.target.files;
+        var filesArr = Array.prototype.slice.call(files);
+        var iterator = 0;
+        filesArr.forEach(function (f, index) {
+
+          if (!f.type.match('image.*')) {
+            return;
+          }
+
+          if (imgArray.length > maxLength) {
+            return false;
+          } else {
+            var len = 0;
+            for (var i = 0; i < imgArray.length; i++) {
+              if (imgArray[i] !== undefined) {
+                len++;
+              }
+            }
+            if (len > maxLength) {
+              return false;
+            } else {
+              imgArray.push(f);
+
+              var reader = new FileReader();
+              reader.onload = function (e) {
+                var className = generateUniqueClassName(iterator);
+                var html = "<div class='background__img-box'><div onclick='BackgroundImage(\"" + className + "\")' style='background-image: url(" + e.target.result + ")' data-number='" + $(".background__img-close").length + "' data-file='" + f.name + "' class='img-bg " + className + "'><div class='background__img-close'></div></div></div>";
+                imgWrap.append(html);
+                iterator++;
+              }
+              reader.readAsDataURL(f);
+            }
+          }
+        });
+      });
+    });
+
+    $('body').on('click', ".background__img-close", function (e) {
+      var file = $(this).parent().data("file");
       for (var i = 0; i < imgArray.length; i++) {
-        if (imgArray[i] !== undefined) {
-          len++;
+        if (imgArray[i].name === file) {
+          imgArray.splice(i, 1);
+          break;
         }
       }
-      if (len > maxLength) {
-        return false;
-      } else {
-        imgArray.push(f);
-
-        var reader = new FileReader();
-        reader.onload = function (e) {
-          var className = generateUniqueClassName(iterator);
-          var html = "<div class='background__img-box'><div onclick='BackgroundImage(\"" + className + "\")' style='background-image: url(" + e.target.result + ")' data-number='" + $(".background__img-close").length + "' data-file='" + f.name + "' class='img-bg " + className + "'><div class='background__img-close'></div></div></div>";
-          imgWrap.append(html);
-          iterator++;
-        }
-        reader.readAsDataURL(f);
-      }
-    }
-  });
-});
-});
-
-$('body').on('click', ".background__img-close", function (e) {
-var file = $(this).parent().data("file");
-for (var i = 0; i < imgArray.length; i++) {
-  if (imgArray[i].name === file) {
-    imgArray.splice(i, 1);
-    break;
+      $(this).parent().parent().remove();
+    });
   }
-}
-$(this).parent().parent().remove();
-});
-}
+
+  function ImgUpload() {
+    var imgWrap = "";
+    var imgArray = [];
+  
+    $('.upload__inputfile').each(function () {
+      $(this).on('change', function (e) {
+        imgWrap = $(this).closest('.upload__box').find('.upload__img-wrap');
+        var maxLength = $(this).attr('data-max_length');
+  
+        var files = e.target.files;
+        var filesArr = Array.prototype.slice.call(files);
+        var iterator = 0;
+        filesArr.forEach(function (f, index) {
+  
+          if (!f.type.match('image.*')) {
+            return;
+          }
+  
+          if (imgArray.length > maxLength) {
+            return false
+          } else {
+            var len = 0;
+            for (var i = 0; i < imgArray.length; i++) {
+              if (imgArray[i] !== undefined) {
+                len++;
+              }
+            }
+            if (len > maxLength) {
+              return false;
+            } else {
+              imgArray.push(f);
+  
+              var reader = new FileReader();
+              reader.onload = function (e) {
+                var html = "<div class='upload__img-box'><div style='background-image: url(" + e.target.result + ")' data-number='" + $(".upload__img-close").length + "' data-file='" + f.name + "' class='img-bg'><div class='upload__img-close'></div></div></div>";
+                imgWrap.append(html);
+                iterator++;
+              }
+              reader.readAsDataURL(f);
+            }
+          }
+        });
+      });
+    });
+  
+    $('body').on('click', ".upload__img-close", function (e) {
+      var file = $(this).parent().data("file");
+      for (var i = 0; i < imgArray.length; i++) {
+        if (imgArray[i].name === file) {
+          imgArray.splice(i, 1);
+          break;
+        }
+      }
+      $(this).parent().parent().remove();
+    });
+  }
 
 
 // get brand
@@ -128,45 +212,96 @@ function get() {
 get();
 
 
+// get year
+function get_year() {
+  // var url = "<?php echo $APIBaseURL; ?>getBrands";
+  var apiBaseURL =APIBaseURL;
+  // Now you can use the retrieved value in your JavaScript logichttp://127.0.0.1:8000/api/customer/get_year_and_hours
+  var url = apiBaseURL + 'get_year_and_hours';
+  $.ajax({
+      url: url,
+      type: "GET",
+      headers: {
+          'Authorization': 'Bearer ' + localStorage.getItem('token')
+      },
+      success: function (data) {
+          console.log(data);
+          const select = document.getElementById('purchase_year');
+          select.innerHTML = '';
+
+          if (data.brands.length > 0) {
+              data.brands.forEach(row => {
+                  const option = document.createElement('option');
+                  option.value = row.id; // You might want to set a value for each option
+                  option.textContent = row.purchase_year;
+                  select.appendChild(option);
+              });
+          } else {
+              select.innerHTML ='<option>No valid data available</option>';
+          }
+      },
+      error: function (error) {
+          console.error('Error fetching data:', error);
+      }
+  });
+}
+get_year();
+
+
 // store
 
 function store(event) {
     event.preventDefault();
     console.log('jfhfhw');
-    var location = $('#location').val();
-    var name = $('#name').val();
-    var mobile_no = $('#mobile_no').val();
-    var brand_name = $('#brand_name').val();
-    var Model_name = $('#Model_name').val();
-    var year = $('#year').val();
-    var engine_condition = $('#engine_condition').val();
-    var hr_driven = $('#hr_driven').val();
-    var rc = $('#rc').val();
-    var financed = $('input[name="fav_language"]:checked').val();
+    // var location = $('#location').val();
+    var first_name = $('#first_name').val();
+    console.log(first_name);
+    var last_name = $('#last_name').val();
+    var mobile = $('#mobile_number').val();
+    var state = $('#state').val();
+    var district = $('#district').val();
+    var brand_name = $('#brand').val();
+    var Model_name = $('#model').val();
+    var purchase_year = $('#purchase_year').val();
+    var product_type = $('#product_type_id').val();
+    var tehsil = $('#tehsil').val();
+    var engine_condition = $('#condition').val();
+    var tyre_condition = $('#tyrecondition').val();
+    var hours_driven = $('#hours_driven').val();
+    
+    var rc = $('#rc_num').val();
+    var finance = $('input[name="fav_language"]:checked').val();
     var nocAvailable = $('input[name="fav_language1"]:checked').val();
-    var image = $('#image').val();
-    var sell_day = $('#sell_day').val();
+    var price= $('#price_old').val();
+    var image = $('#image_pic').val();
+    var description = $('#description').val();
 
     // Prepare data to send to the server
     var paraArr = {
-      'location': location,
-      'name': name,
-      'mobile_no': mobile_no,
-      'brand_name': brand_name,
-      'Model_name': Model_name,
-      'year': year,
+      'first_name': first_name,
+      'last_name': last_name,
+      'mobile': mobile,
+      'brand_id': brand_name,
+      'product_type': product_type,
+      'model': Model_name,
+      'purchase_year': purchase_year,
       'engine_condition': engine_condition,
-      'hr_driven': hr_driven,
-      'rc':rc,
+      'tyre_condition': tyre_condition,
+      'hours_driven': hours_driven,
+      'state':state,
+      'district':district,
+      'tehsil':tehsil,
+      'rc_number':rc,
+      'price':price,
       'image': image,
-      'sell_day': sell_day,
-      'financed': financed,
-      'nocAvailable': nocAvailable,
+      'description': description,
+      'finance': finance,
+      'noc': nocAvailable,
     };
 
     var apiBaseURL =APIBaseURL;
-    // Now you can use the retrieved value in your JavaScript logic
-    var url = apiBaseURL + 'storeProduct';
+    var url = apiBaseURL + 'storeProductType';
+    console.log(url);
    // var url = "<?php echo $APIBaseURL; ?>user_login";
     // console.log(url);
     var token = localStorage.getItem('token');
@@ -179,10 +314,13 @@ function store(event) {
       data: paraArr,
       headers: headers,
       success: function (result) {
-        console.log(result, "result");
-        // window.location.href = "<?php echo $baseUrl; ?>old_tractor_list.php"; 
-        console.log("Add successfully");
-        // alert('successfully inserted..!')
+        // console.log(result, "result");
+        if(result.length){
+          get_tractor_list();
+        }
+       
+        // console.log("Add successfully");
+        // alert('successfully inserted..!');
       },
       error: function (error) {
         console.error('Error fetching data:', error);
@@ -191,15 +329,26 @@ function store(event) {
   }
 
 
-   // fetch data
-   function getTractorList() {
-    console.log('kjhskdjf');
-    // var url = "<?php echo $APIBaseURL; ?>getProduct";
-    var apiBaseURL =APIBaseURL;
-    // Now you can use the retrieved value in your JavaScript logic
-    var url = apiBaseURL + 'getOldTractor';
 
-    // console.log(url);  
+  function formatDateTime(originalDateTimeStr) {
+    const originalDateTime = new Date(originalDateTimeStr);
+
+    const pad = (num) => (num < 10 ? '0' : '') + num;
+
+    const day = pad(originalDateTime.getDate());
+    const month = pad(originalDateTime.getMonth() + 1);
+    const year = originalDateTime.getFullYear();
+    const hours = pad(originalDateTime.getHours());
+    const minutes = pad(originalDateTime.getMinutes());
+    const seconds = pad(originalDateTime.getSeconds());
+
+    return `${day}-${month}-${year} / ${hours}:${minutes}:${seconds}`;
+    }
+   // fetch data
+   function get_tractor_list() {
+    console.log('kjhskdjf');
+    var apiBaseURL =APIBaseURL;
+    var url = apiBaseURL + 'getOldTractor';
 
     $.ajax({
         url: url,
@@ -219,18 +368,15 @@ function store(event) {
                   
                   const tableRow = document.createElement('tr');
                   console.log(tableRow, 'helloooo');
-                   
-
                     tableRow.innerHTML = `
                    
-                        <td>${row.id}</td>
+                        <td>${row.product_id}</td>
+                        <td>${formatDateTime(row.created_at)}</td>
+                        <td>${row.customer_id}</td>
                         <td>${row.brand_name}</td>
                         <td>${row.model}</td>
-                        <td>${row.total_cyclinder_id}</td>
-                        <td>${row.hp_category}</td>
-                        <td>${row.horse_power}</td>
-                        <td>${row.brake_type_id}</td>
-                        <td>${row.steering_details_id}</td>
+                        <td>${row.purchase_year}</td>
+                        <td>${row.state}</td>
                         <td>
                             <div class="d-flex">
                                 <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.id});">
@@ -250,3 +396,40 @@ function store(event) {
         }
     });
 }
+get_tractor_list();
+
+// delete data
+  function destroy(id) {
+    var apiBaseURL = APIBaseURL;
+    var url = apiBaseURL + 'deleteProduct/' + id;
+    var token = localStorage.getItem('token');
+  
+    if (!token) {
+      console.error("Token is missing");
+      return;
+    }
+  
+    // Show a confirmation popup
+    var isConfirmed = confirm("Are you sure you want to delete this data?");
+    if (!isConfirmed) {
+      // User clicked 'Cancel' in the confirmation popup
+      return;
+    }
+  
+    $.ajax({
+      url: url,
+      type: "DELETE",
+      headers: {
+        'Authorization': 'Bearer ' + token
+      },
+      success: function(result) {
+        get_tractor_list();
+        console.log("Delete request successful");
+        alert("Delete operation successful");
+      },
+      error: function(error) {
+        console.error('Error fetching data:', error);
+        alert("Error during delete operation");
+      }
+    });
+  }

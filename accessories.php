@@ -14,6 +14,13 @@ include 'includes/footertag.php';
       include 'includes/left_nav.php';
       include 'includes/header_admin.php';
       ?>
+
+
+<div id="confirmationModal" style="display: none;">
+  <p>Are you sure you want to delete this data?</p>
+  <button onclick="confirmDelete()">Yes</button>
+  <button onclick="cancelDelete()">No</button>
+</div>
       <section style="padding: 0 15px;">
         <div class="">
           <div class="container">
