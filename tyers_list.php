@@ -162,13 +162,13 @@
           <table id="example" class="table dataTable no-footer py-1" width="100%">
             <thead>
               <tr>
-                <th class="d-none d-md-table-cell text-dark">S.No.</th>
-                <th class="d-none d-md-table-cell text-dark">Brand</th>
-                <th class="d-none d-md-table-cell text-dark">Model</th>
-                <th class="d-none d-md-table-cell text-dark">Tyre Name</th>
-                <th class="d-none d-md-table-cell text-dark">Tyre Position</th>
-                <th class="d-none d-md-table-cell text-dark">Size</th>
-                <th class="d-none d-md-table-cell text-dark">Action</th>
+                <th class="d-none d-md-table-cell text-white">S.No.</th>
+                <th class="d-none d-md-table-cell text-white">Brand</th>
+                <th class="d-none d-md-table-cell text-white">Model</th>
+                <th class="d-none d-md-table-cell text-white">Tyre Name</th>
+                <th class="d-none d-md-table-cell text-white">Tyre Position</th>
+                <th class="d-none d-md-table-cell text-white">Size</th>
+                <th class="d-none d-md-table-cell text-white">Action</th>
               </tr>
             </thead>
           <tbody>
