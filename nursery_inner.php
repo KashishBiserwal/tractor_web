@@ -32,10 +32,10 @@
             <div class="vegehead pt-3">
                 <div class="row">
                     <div class="col-12 col-lg-6 ">
-                        <h2 class="fw-bold text-danger pt-3 ">Nursery in District Name</h2>
+                        <h3 class="fw-bold text-danger pt-3 ">Nursery in District Name</h3>
                     </div>
                     <div class="col-12 col-lg-6 ">
-                        <h2 class="fw-bold text-danger pt-3">Are You Intrested in this Nursery</h2>
+                        <h3 class="fw-bold text-danger pt-3">Are You Intrested in this Nursery</h3>
                     </div>
                 </div>
             </div>
