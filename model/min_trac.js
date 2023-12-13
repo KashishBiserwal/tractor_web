@@ -12,7 +12,7 @@ function btndtl(id){
 
 
 function getTractorList() {
-    var url = "http://127.0.0.1:8000/api/customer/get_new_tractor";
+    var url = "http://192.168.1.41:8000/api/customer/get_new_tractor";
     console.log(url);
 
     $.ajax({
@@ -208,7 +208,7 @@ function getTractorList() {
 
 
 function get_allbrand() {
-    var url = "http://127.0.0.1:8000/api/customer/getBrands";
+    var url = "http://192.168.1.41:8000/api/customer/getBrands";
     // console.log(url);
 
     $.ajax({

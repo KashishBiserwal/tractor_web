@@ -5,7 +5,7 @@ $(document).ready(function() {
 });
 
 function getTractorList() {
-    var url = "http://127.0.0.1:8000/api/customer/get_new_tractor";
+    var url = "http://192.168.1.41:8000/api/customer/get_new_tractor";
     console.log(url);
 
     $.ajax({
