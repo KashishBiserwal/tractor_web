@@ -6,9 +6,6 @@
    ?>
 </head>
 <style>
-     .hidden {
-      display: none;
-    }
 .form-outline .form-label {
     color: #454444;
     font-weight: 500;
@@ -29,6 +26,7 @@
     object-fit: contain;
     width: 100%;
 }
+
 .container-mid {
     max-width: 1280px;
     margin: 0 auto;
@@ -64,158 +62,145 @@
         <div class="row siv" id="">
             <img src="assets/images/loans.jpg" alt="reload img" class="w-100" style="height: 358px;">
             <div class="container-mid">
-                <div class="row justify-content-center loan_form bg-light border border-dark">
-                    <h3 class="text-dark text-center fw-bold mt-4">Secure Your Loan with the Best Rates</h3>
-                    <h6 class="text-dark text-center mt-2">Provide Your Details to Access Exclusive Loan Options</h6>
+                <div class="justify-content-center loan_form bg-light border border-dark">
+                    <div id="loanForm">
+                        <form id="applicationForm">
+                            <h3 class="text-dark text-center fw-bold mt-4">Secure Your Loan with the Best Rates</h3>
+                            <h6 class="text-dark text-center mt-2">Provide Your Details to Access Exclusive Loan Options
+                            </h6>
+                            <div class="row px-4">
+                                <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-4">
+                                    <div class="form-outline">
+                                        <label class="form-label" for="loanType">Loan Type</label>
+                                        <select class="form-select" id="loanType" name="loanType" required>
+                                            <option value="" selected disabled>Select Loan Type</option>
+                                            <option value="newTractorLoan">New Tractor Loan</option>
+                                            <option value="usedTractorLoan">Used Tractor Loan</option>
+                                            <option value="loanAgainstTractor">Loan Against Tractor</option>
+                                            <option value="usedHarvesterLoan">Used Harvester Loan</option>
+                                            <option value="harvesterLoan">Harvester Loan</option>
+                                            <option value="implementLoan">Implement Loan</option>
+                                            <option value="personalLoan">Personal Loan</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-4">
+                                    <div class="form-outline">
+                                        <label class="form-label" for="firstName">First Name</label>
+                                        <input type="text" class="form-control" id="firstName" name="firstName"
+                                            required />
+                                    </div>
+                                </div>
+                                <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-4">
+                                    <div class="form-outline">
+                                        <label class="form-label" for="lastName">Last Name</label>
+                                        <input type="text" class="form-control" id="lastName" name="lastName"
+                                            required />
+                                    </div>
+                                </div>
+                                <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-4">
+                                    <div class="form-outline">
+                                        <label class="form-label" for="mobileNo">Mobile Number</label>
+                                        <input type="tel" class="form-control" id="mobileNo" name="mobileNo" required />
+                                    </div>
+                                </div>
+                                <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-4">
+                                    <div class="form-outline">
+                                        <label class="form-label" for="brand">Brand</label>
+                                        <select class="form-select" id="brand" name="brand" required>
+                                            <option value="" selected disabled>Select Brand</option>
+                                            <option value="brand1">Brand 1</option>
+                                            <option value="brand2">Brand 2</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-4">
+                                    <div class="form-outline">
+                                        <label class="form-label" for="model">Model</label>
+                                        <select class="form-select" id="model" name="model" required>
+                                            <option value="" selected disabled>Select Model</option>
+                                            <option value="model1">Model 1</option>
+                                            <option value="model2">Model 2</option>
+                                            <option value="other">Other</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-4">
+                                    <div class="form-outline">
+                                        <label class="form-label" for="enterModel">Enter Model</label>
+                                        <input type="text" class="form-control" id="enterModel" name="enterModel"
+                                            disabled />
+                                    </div>
+                                </div>
+                                <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-4">
+                                    <div class="form-outline">
+                                        <label class="form-label" for="vehicleRegNo">Vehicle Registered Number</label>
+                                        <input type="text" class="form-control" id="vehicleRegNo" name="vehicleRegNo"
+                                            required />
+                                    </div>
+                                </div>
 
-                    <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-4">
-                        <div class="form-outline">
-                            <label class="form-label">Loan Type</label>
-                            <select class="form-select py-2" aria-label="Default select example">
-                                <option value="#"></option>
-                                <option value="1">New Tractor Loan</option>
-                                <option value="2">Used Tractor Loan</option>
-                                <option value="3">Loan Against Tractor</option>
-                                <option value="4">Harvester Loan</option>
-                                <option value="5">Used Harvester Loan</option>
-                                <option value="6">Implement Loan</option>
-                                <option value="7">Personal Loan</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-4">
-                        <div class="form-outline">
-                            <label class="form-label">First Name</label>
-                            <input type="text" id="name" name="search_name"
-                                class=" data_search form-control input-group-sm py-2" />
-                        </div>
-                    </div>
-                    <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-4">
-                        <div class="form-outline">
-                            <label class="form-label">Last Name</label>
-                            <input type="text" id="name" name="search_name"
-                                class=" data_search form-control input-group-sm py-2" />
-                        </div>
-                    </div>
-                    <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-4">
-                        <div class="form-outline">
-                            <label class="form-label">Mobile Number</label>
-                            <input type="text" id="name" name="search_name"
-                                class=" data_search form-control input-group-sm py-2" />
-                        </div>
-                    </div>
-                    <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-4">
-                        <div class="form-outline">
-                            <label class="form-label">Brand</label>
-                            <select class="form-select py-2" aria-label="Default select example">
-                                <option selected></option>
-                                <option value="1">name1</option>
-                                <option value="2">name2</option>
-                                <option value="3">name3</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-4">
-                        <div class="form-outline">
-                            <label class="form-label">Model</label>
-                            <select class="form-select py-2" aria-label="Default select example">
-                                <option selected></option>
-                                <option value="1">name1</option>
-                                <option value="2">name2</option>
-                                <option value="3">name3</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-4">
-                        <div class="form-outline">
-                            <label class="form-label">Enter Model</label>
-                            <input type="text" id="name" name="search_name"
-                                class=" data_search form-control input-group-sm py-2" />
-                        </div>
-                    </div>
-                    <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-4">
-                        <div class="form-outline">
-                            <label class="form-label">Vehicle Registered Number</label>
-                            <input type="text" id="name" name="search_name"
-                                class=" data_search form-control input-group-sm py-2" />
-                        </div>
-                    </div>
+                                <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-4">
+                                    <div class="form-outline">
+                                        <label class="form-label" for="registeredYear">Registered Year</label>
+                                        <select class="form-select" id="registeredYear" name="registeredYear"
+                                            required>
+                                            <option value="" selected disabled>Select Year</option>
+                                            <!-- Assuming the range is from 2008 to 2023 -->
+                                            <script>
+                                            for (let year = 2023; year >= 2008; year--) {
+                                                document.write(`<option value="${year}">${year}</option>`);
+                                            }
+                                            </script>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-sm-6 col-md-4 col-lg-4 mt-4">
+                                    <div class="form-outline">
+                                        <label class="form-label" for="state">State</label>
+                                        <select class="form-select" id="state" name="state" required>
+                                            <option value="" selected disabled>Select State</option>
+                                            
+                                            <option value="Chhattisgarh">Chhattisgarh</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-4">
+                                    <div class="form-outline">
+                                        <label class="form-label" for="district">District</label>
+                                        <select class="form-control" id="district" name="district" required>
+                                            <option value="" selected disabled>Select District</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-4">
+                                    <div class="form-outline">
+                                        <label class="form-label " for="tehsil">Tehsil</label>
+                                        <select class="form-control" id="tehsil" name="tehsil">
+                                            <option value="" selected>Select Tehsil</option>
+                                           
+                                        </select>
+                                    </div>
+                                </div>
 
-                    <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-4">
-                        <div class="form-outline">
-                            <label class="form-label">Registered Year</label>
-                            <select class="form-select py-2" aria-label="Default select example">
-                                <option selected></option>
-                                <option value="1">name1</option>
-                                <option value="2">name2</option>
-                                <option value="3">name3</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="col-12 col-sm-6 col-md-4 col-lg-4 mt-4">
-                        <div class="form-outline">
-                            <label class="form-label">State</label>
-                            <select class="form-select py-2 " aria-label="Default select example">
-                                <option selected></option>
-                                <option value="1">name1</option>
-                                <option value="2">name2</option>
-                                <option value="3">name3</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-4">
-                        <div class="form-outline">
-                            <label class="form-label">District</label>
-                            <select class="form-select py-2" aria-label="Default select example">
-                                <option selected></option>
-                                <option value="1">name1</option>
-                                <option value="2">name2</option>
-                                <option value="3">name3</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-4">
-                        <div class="form-outline">
-                            <label class="form-label ">Tehsil</label>
-                            <select class="form-select py-2" aria-label="Default select example">
-                                <option selected></option>
-                                <option value="1">name1</option>
-                                <option value="2">name2</option>
-                                <option value="3">name3</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <p class="text-center mt-3">By proceeding ahead you expressly agree to the Bharat Tractors <a
-                            href="privacy_and_policy.php" class="text-decoration-none">Terms & Conditions*</a></p>
-                    <div class="d-grid col-8 mx-auto mb-3">
-                        <button type="submit" class="btn btn-success fw-bold" data-bs-toggle="modal"
-                            data-bs-target="#contactModal">Apply for Loan</button>
+                                <p class="text-center mt-3">By proceeding ahead you expressly agree to the Bharat
+                                    Tractors
+                                    <a href="privacy_and_policy.php" class="text-decoration-none">Terms &
+                                        Conditions*</a>
+                                </p>
+                                <div class="d-grid col-8 mx-auto mb-3">
+                                    <button type="submit" class="btn btn-success fw-bold" onclick="applyForLoan()">Apply
+                                        for
+                                        Loan</button>
+                                </div>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-
-    <!-- Modal -->
-    <div class="modal fade" id="contactModal" tabindex="-1" aria-labelledby="contactModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title text-success" id="contactModalLabel">Thank You!</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <p class="fw-bold">“Thankyou for contacting us we will get back to you”</p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    </div>
 
     <!--Popular Tractor Insurance Companies-->
 
@@ -393,89 +378,7 @@
     <!--Banner End-->
 
 
-    <!-- <div class="container mt-4">  
-      <div class="text-center mb-3">
-    <h3 class="text-dark fw-bold">Your Loan Path: Types and Eligibility</h3>
-  </div>
-  <table class="table table-bordered table-responsive mt-4 border border-dark">
-    <thead>
-      <tr class="text-center">
-        <th>Type of Loan</th>
-        <th>Eligibility</th>
-        <th>Documents</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>New Tractor/ New Harvester</td>
-        <td><li>Age 18 years to 65 years</li>
-           <li>Income proof & minimum land holding of 2 acres</li>
-        <td>
-          <li>Land ownership proof.</li>
-            <li>Aadhar Card/Voter Id/Passport/Driving license</li>
-            <li>3 months bank statement</li>
-            <li> CV 12 months track record</li>
-       </tr>
-      <tr>
-        <td>Used Tractor/ Used Harvester</td>
-        <td>
-        <li>Age 18 years to 65 years</li>
-         <li>Satisfactory prior credit history</li>
-        </td>
-        <td>
-          <li>Land ownership proof.</li>
-          <li>Aadhar Card/Voter Id/Passport/Driving license</li>
-          <li>3 months bank statement</li>
-          <li>CV 12 months track record</li>
-          <li>Used tractor RC</li>
-          <li>Used tractor insurance</li>
-        </td>
-      </tr>
-      <tr>
-        <td>Loan Against Tractor</td>
-        <td>
-          <li>Owner of tractor</li>
-          <li>Proof of ownership</li>
-          <li>Need to have paid at least 12 EMIs of Current Loan</li>
-        </td>
-        <td>
-          <li>Proof of ownership (RC)</li>
-          <li>Bank account statement</li>
-          <li>KYC Documents</li>
-          <li>Pan Card</li>
-        </td>
-      </tr>
-      <tr>
-      <td>Implement</td>
-        <td>
-          <li> Age 18 years to 65 years</li>
-          <li>Satisfactory prior credit history</li>
-         
-        </td>
-        <td>
-          <li>Land ownership proof.</li>
-          <li>Aadhar Card/Voter Id/Passport/Driving license</li>
-          <li>3 months bank statement</li>
-          <li>CV 12 months track record</li>
-        </td>
-        
-      </tr>
-      <tr>
-      <td>Personal Loan</td>
-        <td>
-          <li>Personal loan eligibility depends on the lender's policy.</li>
-          
-        </td>
-        <td>
-          <li>Photo</li>
-          <li>Aadhar Card/Voter Id/Passport/Driving license</li>
-          <li>3 months bank statement</li>
-          <li> Latest salary statement as Proof of Income</li>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-</div> -->
+
 
     <!-- Your Loan Path: Types and Eligibility Table End -->
     <!--Table Content-->
@@ -823,56 +726,7 @@
                             </div>
                         </div>
                     </div>
-                    <!--  <div class="accordion-item  rounded-3 my-3">
-                <h2 class="accordion-header p-2" id="flush-heading6">
-                  <button class="accordion-button collapsed  fw-bold h4" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse6" aria-expanded="false" aria-controls="flush-collapse6"> Que. What documents are required when applying for a tractor loan? </button>
-                </h2>
-                <div id="flush-collapse6" class="accordion-collapse collapse" aria-labelledby="flush-heading6" data-bs-parent="#accordionFlushExample">
-                  <div class="accordion-body">
-                    <p class="text-dark">Ans. Documents required for a tractor loan are duly filled in an application form, KYC (Identity proof and Address proof), Latest passport size photos, Loan Statements in case of existing loans and Land Documents.</p>
-                  </div>
-                </div>
-              </div>
-              <div class="accordion-item  rounded-3 my-3">
-                <h2 class="accordion-header p-2" id="flush-headingoil">
-                  <button class="accordion-button collapsed  fw-bold h4" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseoil" aria-expanded="false" aria-controls="flush-collapseoil"> Que. What are the minimum and maximum deposit limits? </button>
-                </h2>
-                <div id="flush-collapseoil" class="accordion-collapse collapse" aria-labelledby="flush-headingoil" data-bs-parent="#accordionFlushExample">
-                  <div class="accordion-body">
-                    <p class="text-dark">Ans. The difference between the tractor price and the loan amount is the margin. So now the choice is for the borrower to select the margin option according to their needs.</p>
-                  </div>
-                </div>
-              </div>
-              <div class="accordion-item  rounded-3 my-3">
-                <h2 class="accordion-header p-2" id="flush-heading7">
-                  <button class="accordion-button collapsed  fw-bold h4" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse7" aria-expanded="false" aria-controls="flush-collapse7"> Que. How long does it take to process and approve a tractor loan? </button>
-                </h2>
-                <div id="flush-collapse7" class="accordion-collapse collapse" aria-labelledby="flush-heading7" data-bs-parent="#accordionFlushExample">
-                  <div class="accordion-body">
-                    <p class="text-dark">Ans.The processing and approval of a tractor loan take 3 working days, provided the documents are complete.</p>
-                  </div>
-                </div>
-              </div>
-              <div class="accordion-item  rounded-3 my-3">
-                <h2 class="accordion-header p-2" id="flush-heading8">
-                  <button class="accordion-button collapsed  fw-bold h4" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse8" aria-expanded="false" aria-controls="flush-collapse8"> Que. What is the total amount of credit that can be released for a tractor loan? </button>
-                </h2>
-                <div id="flush-collapse8" class="accordion-collapse collapse" aria-labelledby="flush-heading8" data-bs-parent="#accordionFlushExample">
-                  <div class="accordion-body">
-                    <p class="text-dark">Ans. The total amount of credit that can be released for a tractor loan is 90% of the tractor price.</p>
-                  </div>
-                </div>
-              </div>
-              <div class="accordion-item  rounded-3 my-3">
-                <h2 class="accordion-header p-2" id="flush-heading9">
-                  <button class="accordion-button collapsed  fw-bold h4" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse9" aria-expanded="false" aria-controls="flush-collapse9"> Que. Can I close or repay a tractor loan early? </button>
-                </h2>
-                <div id="flush-collapse9" class="accordion-collapse collapse" aria-labelledby="flush-heading9" data-bs-parent="#accordionFlushExample">
-                  <div class="accordion-body">
-                    <p class="text-dark">Ans. Repayment and closure are not allowed for up to 6 months. After that, you can repay and close the loan with some charges mentioned in the loan agreement.</p>
-                  </div>
-                </div>  
-              </div>-->
+
                 </div>
             </div>
         </div>
@@ -902,74 +756,148 @@
     });
     </script>
 
-<script>
+    <script>
     $(document).ready(function() {
-      // Function to show or hide fields based on loan type
-      function toggleFields() {
-        var loanType = $('#loanType').val();
-        // Enable or disable fields based on loan type
-        if (loanType === 'New Tractor Loan' || loanType === 'New Harvester Loan') {
-          $('#enterModel').addClass('hidden');
-          $('#vehicleRegisteredNo, #registeredYear').removeClass('hidden');
-        } else if (loanType === 'Personal Loan') {
-          $('#enterModel, #vehicleRegisteredNo, #registeredYear').addClass('hidden');
-        } else {
-          $('#enterModel, #vehicleRegisteredNo, #registeredYear').removeClass('hidden');
-        }
-      }
+        $.validator.addMethod("indianMobile", function(value, element) {
+            return this.optional(element) || /^[789]\d{9}$/.test(value);
+        }, "Please enter a valid Indian mobile number.");
 
-      // Initialize the form validation
-      $("#loanForm").validate({
-        rules: {
-          loanType: {
-            required: true
-          },
-          // Add rules for other form fields
-          name: {
-            required: true
-          },
-          // Add rules for other form fields
-        },
-        messages: {
-          loanType: {
-            required: "Please select a loan type."
-          },
-          // Add messages for other form fields
-          name: {
-            required: "Please enter your name."
-          },
-          // Add messages for other form fields
-        },
-        errorPlacement: function (error, element) {
-          if (element.hasClass("loanType")) {
-            error.insertAfter(element.parent());
-          } else {
-            error.insertAfter(element);
-          }
-        }
-      });
+        $("#applicationForm").validate({
+            rules: {
+                loanType: "required",
+                firstName: "required",
+                lastName: "required",
+                mobileNo: {
+                    required: true,
+                    digits: true,
+                    indianMobile: true
+                },
+                brand: "required",
+                model: "required",
+                enterModel: {
+                    required: function(element) {
+                        return $('#model').val() === 'other';
+                    }
+                },
+                vehicleRegNo: "required",
+                registeredYear: "required",
+                state: "required",
+                district: "required"
+            },
+        });
 
-      // Initial setup
-      toggleFields();
+        updateFormFields();
+        updateEnterModelField();
 
-      // Event listener for loan type change
-      $('#loanType').on('change', function() {
-        toggleFields();
-      });
 
-      // Event listener for Apply for Loan button click
-      $('#applyButton').on('click', function() {
-        // Validate the form
-        if ($('#loanForm').valid()) {
-          // Save data to the database and show a popup message
-          alert('Thank you for contacting us. We will get back to you.');
-        } else {
-          // If the form is not valid, show an error message or handle accordingly
-          alert('Please fill in all required fields.');
-        }
-      });
+        $('#loanType').change(function() {
+            updateFormFields();
+        });
+
+
+        $('#model').change(function() {
+            updateEnterModelField();
+        });
+
+
     });
-  </script>
+
+    function updateFormFields() {
+        var loanType = $('#loanType').val();
+
+        $('input, select').prop('disabled', false);
+
+        if (loanType === 'newTractorLoan' || loanType === 'newHarvesterLoan') {
+            $('#enterModel, #vehicleRegNo').prop('disabled', true);
+        } else if (loanType === 'implementLoan') {
+            $('#vehicleRegNo, #registeredYear,#enterModel').prop('disabled', true);
+        } else if (loanType === 'personalLoan') {
+            $('#brand, #model, #enterModel, #registeredYear, #vehicleRegNo').prop('disabled', true);
+        } else if (loanType === 'newHarvesterLoan') {
+            $('#enterModel, #vehicleRegNo').prop('disabled', true);
+        } else if (loanType === 'usedTractorLoan' || loanType === 'loanAgainstTractor' || loanType ===
+            'usedHarvesterLoan') {
+            $('#enterModel').prop('disabled', true);
+        }
+    }
+
+    function updateEnterModelField() {
+        var selectedModel = $('#model').val();
+        $('#enterModel').prop('disabled', selectedModel !== 'other');
+    }
+
+    function applyForLoan() {
+        if ($("#applicationForm").valid()) {
+            alert('Thank you for contacting us. We will get back to you.');
+        }
+    }
+
+    $('#state').change(function() {
+        updateDistricts();
+    });
+
+    // Handle district change
+    $('#district').change(function() {
+        updateTehsils();
+    });
+
+    // ... (other event handlers) ...
+
+    function updateDistricts() {
+        var selectedState = $('#state').val();
+        var districtGroup = $('#districtGroup');
+        var districtDropdown = $('#district');
+
+        if (selectedState) {
+            // Show the District dropdown
+            districtGroup.show();
+
+            // Implement logic to fetch and populate districts based on the selected state
+            // This may involve an AJAX call to a server-side script or using a predefined dataset
+            // Example:
+            districtDropdown.empty();
+            if (selectedState === 'Chhattisgarh') {
+                districtDropdown.append('<option value="District1">District 1</option>');
+                districtDropdown.append('<option value="District2">District 2</option>');
+                // Add more districts as needed
+            }
+        } else {
+            // Hide the District dropdown when no state is selected
+            districtGroup.hide();
+            // Clear the District dropdown options
+            districtDropdown.empty();
+        }
+
+        // Reset Tehsil dropdown and hide it
+        updateTehsils();
+    }
+
+    function updateTehsils() {
+        var selectedDistrict = $('#district').val();
+        var tehsilGroup = $('#tehsilGroup');
+        var tehsilDropdown = $('#tehsil');
+
+        if (selectedDistrict) {
+            // Show the Tehsil dropdown
+            tehsilGroup.show();
+
+            // Implement logic to fetch and populate tehsils based on the selected district
+            // This may involve an AJAX call to a server-side script or using a predefined dataset
+            // Example:
+            tehsilDropdown.empty();
+            if (selectedDistrict === 'District1') {
+                tehsilDropdown.append('<option value="Tehsil1">Tehsil 1</option>');
+                tehsilDropdown.append('<option value="Tehsil2">Tehsil 2</option>');
+                // Add more tehsils as needed
+            }
+        } else {
+            // Hide the Tehsil dropdown when no district is selected
+            tehsilGroup.hide();
+            // Clear the Tehsil dropdown options
+            tehsilDropdown.empty();
+        }
+    }
+    </script>
 
 </body>
 
