@@ -323,6 +323,34 @@
     ?>
 <script>
 $(document).ready(function() {
+
+    $("#multistep-form").validate({
+        rules: {
+            // Define validation rules for your form fields
+            category: "required",
+            subcategory: "required",
+            quantity: "required",
+            // Add rules for other fields
+        },
+        messages: {
+            // Define error messages for your form fields
+            category: "Please select a category",
+            subcategory: "Please select a sub-category",
+            quantity: "Please enter a quantity",
+            // Add error messages for other fields
+        },
+        errorElement: "div",
+        errorPlacement: function(error, element) {
+            // Customize the error message placement if needed
+            error.addClass("text-danger");
+            error.insertAfter(element);
+        },
+        submitHandler: function(form) {
+            // Handle the form submission (e.g., AJAX request)
+            form.submit();
+        }
+    });
+
     var currentGfgStep, nextGfgStep, previousGfgStep;
     var opacity;
     var current = 1;

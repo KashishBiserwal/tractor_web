@@ -25,7 +25,7 @@
     <div class="container-fullwidth mt-4">
         <div class="row">
             <div class="col-12 col-sm-9 col-lg-9 col-md-9">
-                <h3 class="py-2">Find Your <span class="text-success fw-bold"> Nursery Items</span> </h3>
+                <h3 class="py-2  fw-bold">Locate <span class="text-success fw-bold"> Nurseries </span>Near You</h3>
                 <div class="row my-4">
                     <div class="col-12 col-lg-4 col-md-4 col-sm-4 mb-4">
                         <a href="nursery_inner.php" class="h-auto success__stry__item text-decoration-none d-flex flex-column shadow ">
@@ -39,19 +39,19 @@
                             <div class="content d-flex flex-column flex-grow-1 ">
                                 <div class="power text-center mt-3">
                                     <div class="col-12">
-                                      <p class="text-success fw-bold">Nursury Name</p>
+                                      <p class="text-success fw-bold">Nursery Name</p>
                                     </div>  
                                 </div>
                                 <div class="row text-center">
                                     <div class="col-12 text-center">
-                                        <p class="fw-bold pe-3">Durg(C.G)</p>
+                                        <p class="fw-bold pe-3">Durg, Chhattisgarh</p>
                                     </div>
                                 </div>
                             </div>
                         </a>
                         <div class="col-12 btn-success">
                                     <button type="button" class="btn btn-success py-2 w-100" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="fa-solid fa-phone"></i> 
-                                    Contact Seller
+                                    Contact Nursery
                                     </button>
                                 </div>
 
@@ -60,7 +60,7 @@
                                     <div class="modal-dialog modal-lg modal-dialog-centered">
                                         <div class="modal-content">
                                             <div class="modal-header">
-                                                <h5 class="modal-title text-danger" id="staticBackdropLabel">Contact Seller</h5>
+                                                <h5 class="modal-title text-danger" id="staticBackdropLabel">Contact Nursery</h5>
                                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                             </div>
                                             <div class="modal-body">
@@ -134,17 +134,17 @@
                             <div class="content d-flex flex-column flex-grow-1 ">
                                 <div class="power text-center mt-3">
                                     <div class="col-12">
-                                      <p class="text-success fw-bold">Nursury Name</p>
+                                      <p class="text-success fw-bold">Nursery Name</p>
                                     </div>   
                                 </div>
                                 <div class="row text-center">
                                     <div class="col-12 text-center">
-                                        <p class="fw-bold pe-3 text-primary">raipur(C.G)</p>
+                                        <p class="fw-bold pe-3 text-primary">Raipur,Chhattisgarh</p>
                                     </div>
                                 </div>
                                 <div class="col-12 btn-success">
                                     <button type="button" class="btn btn-success py-2 w-100" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="fa-solid fa-phone"></i> 
-                                    Contact Seller
+                                    Contact Nursery
                                     </button>
                                 </div>
 
@@ -153,7 +153,7 @@
                                     <div class="modal-dialog modal-lg modal-dialog-centered">
                                         <div class="modal-content">
                                             <div class="modal-header">
-                                                <h5 class="modal-title text-danger" id="staticBackdropLabel">Contact Seller</h5>
+                                                <h5 class="modal-title text-danger" id="staticBackdropLabel">Contact Nursery</h5>
                                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                             </div>
                                             <div class="modal-body">
@@ -209,17 +209,17 @@
                             <div class="content d-flex flex-column flex-grow-1 ">
                                 <div class="power text-center mt-3">
                                     <div class="col-12">
-                                      <p class="text-success fw-bold">Nursury Name</p>
+                                      <p class="text-success fw-bold">Nursery Name</p>
                                     </div>  
                                 </div>
                                 <div class="row text-center">
                                     <div class="col-12 text-center">
-                                        <p class="fw-bold pe-3">Surajpur(C.G)</p>
+                                        <p class="fw-bold pe-3">Surajpur, Chhattisgarh</p>
                                     </div>
                                 </div>
                                 <div class="col-12 btn-success">
                                     <button type="button" class="btn btn-success py-2 w-100" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="fa-solid fa-phone"></i> 
-                                    Contact Seller
+                                    Contact Nursery
                                     </button>
                                 </div>
 
@@ -228,7 +228,7 @@
                                     <div class="modal-dialog modal-lg modal-dialog-centered">
                                         <div class="modal-content">
                                             <div class="modal-header">
-                                                <h5 class="modal-title text-danger" id="staticBackdropLabel">Contact Seller</h5>
+                                                <h5 class="modal-title text-danger" id="staticBackdropLabel">Contact Nursery</h5>
                                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                             </div>
                                             <div class="modal-body">
@@ -284,16 +284,16 @@
                             <div class="content d-flex flex-column flex-grow-1 ">  
                                 <div class="power text-center mt-3">
                                     <div class="col-12">
-                                      <p class="text-success fw-bold">Nursury Name</p>
+                                      <p class="text-success fw-bold">Nursery Name</p>
                                     </div>   
                                 </div>
                                 <div class="row text-center">
                                     <div class="col-12 text-center">
-                                        <p class="fw-bold pe-3">Raipur(C.G)</p>
+                                        <p class="fw-bold pe-3">Raipur, Chhattisgarh</p>
                                     </div>
                                 </div>
                                 <div class="col-12 btn-success">
-                                    <p class="call text-center pt-2"> <i class="fa-solid fa-phone"></i> Contact Seller</p>
+                                    <p class="call text-center pt-2"> <i class="fa-solid fa-phone"></i> Contact Nursery</p>
                                 </div>
                             </div>
                         </a>
@@ -310,16 +310,16 @@
                             <div class="content d-flex flex-column flex-grow-1 ">
                                 <div class="power text-center mt-3">
                                     <div class="col-12">
-                                      <p class="text-success fw-bold">Nursury Name</p>
+                                      <p class="text-success fw-bold">Nursery Name</p>
                                     </div>  
                                 </div>
                                 <div class="row text-center">
                                     <div class="col-12 text-center">
-                                        <p class="fw-bold pe-3">Surajpur(C.G)</p>
+                                        <p class="fw-bold pe-3">Surajpur, Chhattisgarh</p>
                                     </div>
                                 </div>
                                 <div class="col-12 btn-success">
-                                    <p class="call text-center pt-2"> <i class="fa-solid fa-phone"></i> Contact Seller</p>
+                                    <p class="call text-center pt-2"> <i class="fa-solid fa-phone"></i> Contact Nursery</p>
                                 </div>
                             </div>
                         </a>
@@ -336,16 +336,16 @@
                             <div class="content d-flex flex-column flex-grow-1 ">
                                 <div class="power text-center mt-3">
                                     <div class="col-12">
-                                      <p class="text-success fw-bold">Nursury Name</p>
+                                      <p class="text-success fw-bold">Nursery Name</p>
                                     </div>   
                                 </div>
                                 <div class="row text-center">
                                     <div class="col-12 text-center">
-                                        <p class="fw-bold pe-3">Durg(C.G)</p>
+                                        <p class="fw-bold pe-3">Durg, Chhattisgarh</p>
                                     </div>
                                 </div>
                                 <div class="col-12 btn-success">
-                                    <p class="call text-center pt-2"> <i class="fa-solid fa-phone"></i> Contact Seller</p>
+                                    <p class="call text-center pt-2"> <i class="fa-solid fa-phone"></i> Contact Nursery</p>
                                 </div>
                             </div>
                         </a>
@@ -362,11 +362,11 @@
                 <div class=" row mb-3" id="">
                     <div class="col-12 col-sm-12 col-md-12 col-lg-12">
                         <div class=" row text-center">
-                            <div class="col-12 col-sm-6 col-lg-6 col-md-6">
+                            <div class="col-12 col-sm-6 col-lg-6 col-md-6 g-1">
                                 <button id="adduser" type="button" class="add_btn btn-success px-3">
                                 <i class="fas fa-undo"></i>  Reset </button>
                             </div>
-                           <div class="col-12 col-sm-6 col-lg-6 col-md-6 pe-2">
+                           <div class="col-12 col-sm-6 col-lg-6 col-md-6 g-1">
                                 <button id="adduser" type="button" class="add_btn btn-success">
                                 <i class="fas fa-filter"></i>  Apply Filter </button>
                            </div>
@@ -379,7 +379,7 @@
                     <div class="force-overflow">
                         <div class="price py-2 ">
                             <h5 class=" ps-3 text-dark fw-bold mb-3">Search By State</h5>
-                            <input type="checkbox" class="checkbox-round ms-3" value="cg"/><span class="ps-2 fs-6"> Chhattisgarh</span><br />
+                            <input type="checkbox" class="checkbox-round ms-3" value="cg"/><span class="ps-2 fs-6">Chhattisgarh</span><br />
                             <input type="checkbox" class="checkbox-round ms-3" value="other"/><span class="ps-2 fs-6">Other</span><br />
                         </div>
                     </div>
@@ -418,7 +418,7 @@
                         <div class="price py-2 ">
                             <input type="checkbox" class="checkbox-round ms-3" value="less_30day"/><span class="ps-2 fs-6">Less than 30 days</span><br />
                             <input type="checkbox" class="checkbox-round ms-3" value="less_30mnth"/><span class="ps-2 fs-6">Less than 3 months</span><br />
-                            <input type="checkbox" class="checkbox-round ms-3" value="less_60_mnth"/><span class="ps-2 fs-6"> Less than 6 months</span><br />
+                            <input type="checkbox" class="checkbox-round ms-3" value="less_60_mnth"/><span class="ps-2 fs-6">Less than 6 months</span><br />
                         </div>
                     </div>
                 </div>
