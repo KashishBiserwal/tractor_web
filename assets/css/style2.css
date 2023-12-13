@@ -239,7 +239,7 @@ opacity: 0.8;
 .upload__box {
   padding: 40px;
  }
-.upload__inputfile {
+.upload__inputfile{
   width: .1;
   height: .1px;
   opacity: 0;
@@ -253,13 +253,13 @@ opacity: 0.8;
   font-weight: 600;
   color: #fff;
   text-align: center;
-  min-width: 116px;
-  padding: 3px;
+  min-width: 262px;
+  padding: 5px;
   transition: all .3s ease;
-  cursor: pointer; */
+  cursor: pointer;
   border: 2px solid;
-  background-color: #129656;
-  border-color: #129656;
+  background-color:  #198754;
+  border-color:  #198754;
   border-radius: 10px;
   line-height: 26px;
   font-size: 14px;

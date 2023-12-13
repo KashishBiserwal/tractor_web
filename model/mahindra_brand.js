@@ -4,7 +4,7 @@ $(document).ready(function() {
 });
 
 function getTractorList() {
-    var url = "http://192.168.1.41:8000/customer/get_new_tractor";
+    var url = "http://192.168.1.41:8000/api/customer/get_new_tractor";
     console.log(url);
 
     $.ajax({
@@ -16,18 +16,19 @@ function getTractorList() {
 
             if (data.product.allProductData && data.product.allProductData.length > 0) {
                 data.product.allProductData.forEach(function (p) {
+                    console.log(p,"pp");
                     var newCard = `
                     <div class="item px-2 py-3 h-100 ">
                     <div class="h-auto success__stry__item shadow">
                         <div class="thumb">
-                            <a href="Mahindra_575.php?id=${p.id}">
+                            <a href="detail_tractor.php?id=${p.product_id}">
                                 <div class="ratio ratio-16x9">
-                                    <img src="${p.image_url}" class="object-fit-cover" alt="${p.description}">
+                                    <img src="${p.uploads/product_img/file_name/image_names}" class="object-fit-cover" alt="${p.description}">
                                 </div>
                             </a>
                         </div>
                         <div class="content d-flex flex-column flex-grow-1 ">
-                            <a href="${p.id}" class="text-decoration-none text-dark">
+                            <a href="detail_tractor.php?id=${p.product_id}" class="text-decoration-none text-dark">
                                 <h4 class="fw-bold mt-3 mx-3">${p.model}</h4>
                             </a>
                             <div class="row mt-1 ps-1">

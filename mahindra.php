@@ -12,7 +12,7 @@ include 'includes/headertag.php';
 
 <body>
    <?php
-//    include 'includes/header.php';
+   include 'includes/header.php';
    ?>
    <!-- Banner Here -->
    
