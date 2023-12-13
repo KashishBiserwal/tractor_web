@@ -123,62 +123,62 @@
                     </div>
                     <!-- MODAL BODY -->
                     <div class="modal-body bg-light">
-                    <form id="engine_oil_form" class=""action="">
-                <div class="row">
-                  <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
-                    <div class="form-outline">
-                        <label for="f_name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i> First Name</label>
-                        <input type="text" class="form-control mb-0" placeholder="Enter Your Name" id="f_name" name="f_name">
-                    </div>
-                  </div>
-                  <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                    <div class="form-outline">
-                        <label for="last_name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i> Last Name</label>
-                        <input type="text" class="form-control mb-0" placeholder="Enter Your Name" id="eo_name" name="eo_name">
-                    </div>
-                  </div>
-                  <div class="col-12 col-sm-6 col-md-6 col-lg-6 mt-4">
-                    <div class="form-outline">
-                        <label for="eo_number" class="form-label text-dark fw-bold"> <i class="fa fa-phone" aria-hidden="true"></i> Phone Number</label>
-                        <input type="text" class="form-control mb-0" placeholder="Enter Number" id="eo_number" name="eo_number" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');">
-                    </div>
-                  </div>
-                  <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-4">
-                    <div class="form-outline">
-                        <label for="eo_state" class="form-label text-dark fw-bold"> <i class="fas fa-location"></i> State</label>
-                        <select class="form-select py-2 " aria-label=".form-select-lg example" id="eo_state" name="eo_state">
-                        <option value="" selected disabled=""></option>  
-                        <option value="1">Chhattisgarh</option>
-                        <option value="2">Other</option>
-                        </select>
-                    </div>
-                  </div>
-                  <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-4">
-                    <div class="form-outline">
-                        <label for="eo_dist" class="form-label fw-bold  text-dark"><i class="fa-solid fa-location-dot"></i> District</label>
-                        <select class="form-select py-2 " aria-label=".form-select-lg example" id="eo_dist" name="eo_dist">
-                        <option value="" selected disabled=""></option>
-                        <option value="1">Raipur</option>
-                        <option value="2">Bilaspur</option>
-                        <option value="2">Durg</option>
-                        </select>
-                    </div>                    
-                  </div>       
-                  <div class="col-12 col-sm-6 col-md-6 col-lg-6 mt-4">
-                    <div class="form-outline">
-                        <label for="eo_tehsil" class="form-label fw-bold text-dark"> Tehsil</label>
-                        <select class="form-select py-2 " aria-label=".form-select-lg example" id="eo_tehsil" name="eo_tehsil">
-                        <option value="" selected disabled=""></option>
-                        <option value="2">Durg</option>
-                        </select>
-                    </div>
-                  </div>
+                        <form id="engine_oil_form" class=""action="">
+                            <div class="row">
+                            <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
+                                <div class="form-outline">
+                                    <label for="f_name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i> First Name</label>
+                                    <input type="text" class="form-control mb-0" placeholder="Enter Your Name" id="f_name" name="f_name">
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-6 col-md-6 col-sm-6">
+                                <div class="form-outline">
+                                    <label for="last_name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i> Last Name</label>
+                                    <input type="text" class="form-control mb-0" placeholder="Enter Your Name" id="eo_name" name="eo_name">
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm-6 col-md-6 col-lg-6 mt-4">
+                                <div class="form-outline">
+                                    <label for="eo_number" class="form-label text-dark fw-bold"> <i class="fa fa-phone" aria-hidden="true"></i> Phone Number</label>
+                                    <input type="text" class="form-control mb-0" placeholder="Enter Number" id="eo_number" name="eo_number" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');">
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-4">
+                                <div class="form-outline">
+                                    <label for="eo_state" class="form-label text-dark fw-bold"> <i class="fas fa-location"></i> State</label>
+                                    <select class="form-select py-2 " aria-label=".form-select-lg example" id="eo_state" name="eo_state">
+                                    <option value="" selected disabled=""></option>  
+                                    <option value="1">Chhattisgarh</option>
+                                    <option value="2">Other</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-4">
+                                <div class="form-outline">
+                                    <label for="eo_dist" class="form-label fw-bold  text-dark"><i class="fa-solid fa-location-dot"></i> District</label>
+                                    <select class="form-select py-2 " aria-label=".form-select-lg example" id="eo_dist" name="eo_dist">
+                                    <option value="" selected disabled=""></option>
+                                    <option value="1">Raipur</option>
+                                    <option value="2">Bilaspur</option>
+                                    <option value="2">Durg</option>
+                                    </select>
+                                </div>                    
+                            </div>       
+                            <div class="col-12 col-sm-6 col-md-6 col-lg-6 mt-4">
+                                <div class="form-outline">
+                                    <label for="eo_tehsil" class="form-label fw-bold text-dark"> Tehsil</label>
+                                    <select class="form-select py-2 " aria-label=".form-select-lg example" id="eo_tehsil" name="eo_tehsil">
+                                    <option value="" selected disabled=""></option>
+                                    <option value="2">Durg</option>
+                                    </select>
+                                </div>
+                            </div>
 
-                </div> 
-                <div class="text-center my-3">
-                  <button type="submit" id="engine_oil_btn" class="btn btn-success px-5 w-40">Submit</button>         
-                </div>        
-              </form>         
+                            </div> 
+                            <div class="text-center my-3">
+                            <button type="submit" id="engine_oil_btn" class="btn btn-success px-5 w-40">Submit</button>         
+                            </div>        
+                        </form>         
                     </div>
                 </div>
             </div>

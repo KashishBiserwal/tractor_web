@@ -499,7 +499,7 @@
                   </div>
                   <div class="col-12 col-sm-12 col-md-6 col-lg-6">
                     <label for="yr_state" class="form-label text-dark fw-bold"> <i class="fas fa-location"></i> State</label>
-                    <select class="form-select py-2 " aria-label=".form-select-lg example">
+                    <select class="form-select py-2" aria-label=".form-select-lg example">
                       <option selected>Select State</option>
                       <option value="1">Chhattisgarh</option>
                       <option value="2">Other</option>
@@ -532,77 +532,71 @@
     ?>
 
   <script>
-        $(document).ready(function(){
-          jQuery.validator.addMethod("customPhoneNumber", function(value, element) {
-            return /^[6-9]\d{9}$/.test(value); 
-          }, "Phone number must start with 6 or above");
-            $("#engine_oil_btn").click(function () {
-                // setTimeout(() => {
-                //     console.log("validation of Department")
-                // }, 2000);
-                $("form[id='engine_oil_form']").validate({
-                    rules: {
-                        f_name: {
-                            required: true,
-                            minlength: 3
-                        },
-
-                        eo_name: {
-                            required: true,
-                            minlength: 3
-                        },
-                        eo_number: {
-                            required: true,
-                            minlength: 10,
-                            maxlength: 10,
-                            digits: true,
-                            customPhoneNumber: true 
-                        },
-                        eo_state: {
-                            required: true,
-                            // minlength: 3
-                        },
-                        // eo_tehsil: {
-                        //     required: true,
-                        //     // minlength: 3
-                        // },
-                        eo_dist: {
-                            required: true,
-                            // minlength: 3
-                        }
-                    },
-                    messages: {
-                        f_name: {
-                            required: "Enter Your First Name",
-                            minlength: "First Name must be atleast 3 characters long"
-                        },
-                        eo_name: {
-                            required: "Enter Your Last Name",
-                            minlength: "Last Name must be atleast 3 characters long"
-                        },
-                        eo_number: {
-                          required: "Enter Your Phone Number",
-                          minlength: "Phone Number must be of 10 Digit",
-                          maxlength: "Ensure exactly 10 digits of Mobile No.",
-                          digits: "Please enter only digits"
-                        },
-                        eo_state: {
-                            required: "Select Your State",
-                            // minlength: "First Name must be atleast 3 characters long"
-                        },
-                        // eo_tehsil: {
-                        //     required: "Select Your Tehsil",
-                        //     // minlength: "First Name must be atleast 3 characters long"
-                        // },
-                        eo_dist: {
-                            required: "Select Your District",
-                            // minlength: "First Name must be atleast 3 characters long"
-                        }                        
-                    },
-
-                });
-            })
+    $(document).ready(function(){
+      jQuery.validator.addMethod("customPhoneNumber", function(value, element) {
+        return /^[6-9]\d{9}$/.test(value); 
+      }, "Phone number must start with 6 or above");
+      $("#engine_oil_btn").click(function () {
+        // setTimeout(() => {
+        //     console.log("validation of Department")
+        // }, 2000);
+        $("form[id='engine_oil_form']").validate({
+          rules: {
+            f_name: {
+              required: true,
+              minlength: 3
+            },
+            eo_name: {
+              required: true,
+              minlength: 3
+            },
+            eo_number: {
+              required: true,
+              minlength: 10,
+              maxlength: 10,
+              digits: true,
+              customPhoneNumber: true 
+            },
+            eo_state: {
+              required: true,
+              // minlength: 3
+            },
+            eo_dist: {
+              required: true,
+              // minlength: 3
+            }
+          },
+          messages: {
+            f_name: {
+              required: "Enter Your First Name",
+              minlength: "First Name must be atleast 3 characters long"
+            },
+            eo_name: {
+              required: "Enter Your Last Name",
+              minlength: "Last Name must be atleast 3 characters long"
+            },
+            eo_number: {
+              required: "Enter Your Phone Number",
+              minlength: "Phone Number must be of 10 Digit",
+              maxlength: "Ensure exactly 10 digits of Mobile No.",
+              digits: "Please enter only digits"
+            },
+            eo_state: {
+              required: "Select Your State",
+              // minlength: "First Name must be atleast 3 characters long"
+            },
+            // eo_tehsil: {
+              //     required: "Select Your Tehsil",
+              //     // minlength: "First Name must be atleast 3 characters long"
+              // },
+            eo_dist: {
+              required: "Select Your District",
+              // minlength: "First Name must be atleast 3 characters long"
+            }                        
+          },
         });
+      })
+    });
   </script>
 
 </body>

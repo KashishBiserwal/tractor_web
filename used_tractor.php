@@ -331,8 +331,8 @@
                             </div>
                         </div> -->
                     </div>
-                    <div class="col-12 text-center ">
-                        <button id="adduser" type="button" class="add_btn btn btn-success">
+                    <div class="col-12 text-center">
+                        <button id="adduser" type="button" class="add_btn btn btn-success mt-4 shadow">
                         <i class="fas fa-undo"></i>  Load More  </button>
                     </div>
                 </div>

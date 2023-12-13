@@ -1034,7 +1034,7 @@ border-radius: 50%;
   position: absolute;
   /* padding: 0px 10px; */
   margin-top: -11px;
-  background: #fff;
+  background: #fcfcfc54;
   margin-left: 20px;
 }
 .admin_btn{
