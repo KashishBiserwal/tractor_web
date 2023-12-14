@@ -213,39 +213,83 @@ get();
 
 
 // get year
-function get_year_and_hours() {
-  // var url = "<?php echo $APIBaseURL; ?>getBrands";
-  var apiBaseURL =APIBaseURL;
-  // Now you can use the retrieved value in your JavaScript logic
-  var url = apiBaseURL + 'get_year_and_hours';
-  $.ajax({
-      url: url,
-      type: "GET",
-      headers: {
-          'Authorization': 'Bearer ' + localStorage.getItem('token')
-      },
-      success: function (data) {
-          console.log(data);
-          const select = document.getElementById('brand');
-          select.innerHTML = '';
+// function get_year_and_hours() {
+//   // var url = "<?php echo $APIBaseURL; ?>getBrands";
+//   var apiBaseURL =APIBaseURL;
+//   // Now you can use the retrieved value in your JavaScript logic
+//   var url = apiBaseURL + 'get_year_and_hours';
+//   $.ajax({
+//       url: url,
+//       type: "GET",
+//       headers: {
+//           'Authorization': 'Bearer ' + localStorage.getItem('token')
+//       },
+//       success: function (data) {
+//           console.log(data);
+//           const select = document.getElementById('brand');
+//           select.innerHTML = '';
 
-          if (data.brands.length > 0) {
-              data.brands.forEach(row => {
-                  const option = document.createElement('option');
-                  option.value = row.id; // You might want to set a value for each option
-                  option.textContent = row.brand_name;
-                  select.appendChild(option);
-              });
-          } else {
-              select.innerHTML ='<option>No valid data available</option>';
-          }
-      },
-      error: function (error) {
-          console.error('Error fetching data:', error);
-      }
-  });
+//           if (data.brands.length > 0) {
+//               data.brands.forEach(row => {
+//                   const option = document.createElement('option');
+//                   option.value = row.id; // You might want to set a value for each option
+//                   option.textContent = row.brand_name;
+//                   select.appendChild(option);
+//               });
+//           } else {
+//               select.innerHTML ='<option>No valid data available</option>';
+//           }
+//       },
+//       error: function (error) {
+//           console.error('Error fetching data:', error);
+//       }
+//   });
+// }
+// get_year_and_hours();
+
+function get_year_and_hours() {
+  console.log('initsfd')
+    var apiBaseURL = APIBaseURL;
+    var url = apiBaseURL + 'get_year_and_hours';
+    $.ajax({
+        url: url,
+        type: "GET",
+        headers: {
+            'Authorization': 'Bearer ' + localStorage.getItem('token')
+        },
+        success: function (data) {
+
+          var hours_select = $("#hours_driven");
+          hours_select.empty(); // Clear existing options
+          hours_select.append('<option selected disabled="" value="">Please select an option</option>'); 
+          console.log(data,'ok');
+          for (var k = 0; k < data.getHoursDriven.length; k++){
+            var optionText = data.getHoursDriven[k].start + " - " + data.getHoursDriven[k].end;
+            hours_select.append('<option value="' + k + '">' + optionText + '</option>');
+          } 
+
+          var select_year = $("#purchase_year");
+          select_year.empty(); // Clear existing options
+          select_year.append('<option selected disabled="" value="">Please select an option</option>'); 
+          console.log(data,'ok');
+          for (var j = 0; j < data.getYears.length; j++) {
+            select_year.append('<option value="' + data.getYears[j] + '">' + data.getYears[j] + '</option>');
+        }
+
+        },
+
+     
+        
+        complete:function(){
+         
+        },
+        error: function (error) {
+            console.error('Error fetching data:', error);
+        }
+    });
 }
 get_year_and_hours();
+
 
 
 // store

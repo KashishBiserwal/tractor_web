@@ -479,7 +479,7 @@
                             <h5 class=" ps-1 text-dark fw-bold pt-2">Search By District</h5>
                             <div class="HP py-2">
                                 <input type="checkbox" class="checkbox-round ms-3" value="0-20" /><span
-                                    class="ps-2 fs-6">Manendragarh Chirmiri Bharatpur</span><br />
+                                    class="ps-2 fs-6">Manendragarh </span><br />
                                 <input type="checkbox" class="checkbox-round ms-3" value="21-30" /><span
                                     class="ps-2 fs-6">Koriya</span><br />
                                 <input type="checkbox" class="checkbox-round ms-3" value="31-40" /><span

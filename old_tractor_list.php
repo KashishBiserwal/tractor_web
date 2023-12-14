@@ -122,9 +122,6 @@ include 'includes/headertag.php';
                                   <label class="form-label" for="district">Purchase Year</label>
                                   <select class="form-select py-2" aria-label="Default select example" name="purchase_year" id="purchase_year">
                                     <option selected disabled=""></option>
-                                    <option value="1">2000</option>
-                                    <option value="2">2001</option>
-                                    <option value="3">2013</option>
                                   </select>
                                 </div>
                               </div>
@@ -156,20 +153,8 @@ include 'includes/headertag.php';
                               <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-2">
                                 <div class="form-outline">
                                   <label class="form-label" for="tehsil">Hours Driven</label>
-                                  <select class="form-select py-2" aria-label="Default select example" name="hours_driven" id="hours_driven">
-                                    <option selected disabled=""></option>
-                                    <option value="1">Less than 1000</option>
-                                    <option value="2">1001-2000</option>
-                                    <option value="3">2001-3000</option>
-                                    <option value="4">3001-4000</option>
-                                    <option value="5">4001-5000</option>
-                                    <option value="6">5001-6000</option>
-                                    <option value="7">6001-7000</option>
-                                    <option value="8">7001-8000</option>
-                                    <option value="9">8001-9000</option>
-                                    <option value="10">9001-10000</option>
-                                    <option value="11">Above 10000</option>
-                                    <option value="12">Not Available</option>
+                                  <select class="form-select py-2"  name="hours_driven" id="hours_driven" aria-label="Default select example">
+                                    <option selected disabled="" value="">Please select an option</option>
                                   </select>
                                 </div>
                               </div>
@@ -207,21 +192,6 @@ include 'includes/headertag.php';
                               </div>
                               <h5 class="mt-2">Upload Image</h5>
                               <div class="col-12 col-sm-4 col-lg-4 col-md-4">
-                                <!-- <div class="background__box ">
-                                  <div class="background__btn-box ">
-                                      <label class="background__btn">
-                                        <p class="text-white bg-success p-2 rounded">Upload images</p>
-                                        <input type="file" id="image_pic" data-max_length="20"name="image_pic"  ref="fileInput"
-                                        style="display: none"
-                                        @change="handleFileInput"
-                                        accept="image/png, image/jpg, image/jpeg" class="background__inputfile" id="banner_image">
-                                                        
-                                      </label>
-                                    </div>
-                                    <div class="">
-                                      <div class="background__img-wrap"></div>
-                                    </div>
-                                </div> -->
                                 <div class="">
                                       <div class="upload__btn-box">
                                         <label class="upload__btn">

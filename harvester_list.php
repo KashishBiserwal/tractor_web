@@ -45,13 +45,13 @@ include 'includes/footertag.php';
                             <form>
                                 <div class="row justify-content-center py-3">
                                   <h5 class="fw-bold mb-3">Specification</h5>
-                                    <div class="col-12 col-sm-6 col-lg-6 col-md-6">
+                                    <div class="col-12 col-sm-6 col-lg-6 col-md-6 my-2">
                                       <div class="form-outline">
                                         <label class="form-label">Brand</label>
                                         <input type="email" name="brand" id="brand" class="form-control">
                                       </div>
                                     </div>
-                                    <div class="col-12 col-sm-6 col-lg-6 col-md-6">
+                                    <div class="col-12 col-sm-6 col-lg-6 col-md-6 my-2">
                                       <div class="form-outline">
                                         <label class="form-label">Model</label>
                                         <input type="email" name="model" id="model" class="form-control">
