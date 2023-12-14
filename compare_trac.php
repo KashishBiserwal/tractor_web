@@ -112,7 +112,9 @@
       </div>  
 
       <div class="col-12  text-center mt-3"> 
-        <button class="btn btn-success text-white col-12 px-5" style="width:40% ">Compare</button>
+        <a href="compare_trac_model.php">
+          <button class="btn btn-success text-white col-12 px-5" style="width:40% ">Compare</button>
+        </a>
       </div> 
 
     </div>
