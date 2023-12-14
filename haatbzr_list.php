@@ -16,7 +16,7 @@
     include 'includes/left_nav.php';
     include 'includes/header_admin.php';
     ?>
-   <section style="padding: 0 15px;">
+<section style="padding: 0 15px;">
     <div class="">
       <div class="container">
         <div class="align-items-center justify-content-between page_title my-4">
@@ -329,7 +329,7 @@
                             </div>
       </div>
     </div>
-   </section>
+</section>
       
     
 </div>
