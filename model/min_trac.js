@@ -195,8 +195,6 @@ function getTractorList() {
                 
                     }
                     });
-
-           
             }
         },
         error: function (error) {

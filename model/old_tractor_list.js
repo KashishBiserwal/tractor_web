@@ -213,39 +213,39 @@ get();
 
 
 // get year
-function get_year() {
-  // var url = "<?php echo $APIBaseURL; ?>getBrands";
-  var apiBaseURL =APIBaseURL;
-  // Now you can use the retrieved value in your JavaScript logichttp://127.0.0.1:8000/api/customer/get_year_and_hours
-  var url = apiBaseURL + 'get_year_and_hours';
-  $.ajax({
-      url: url,
-      type: "GET",
-      headers: {
-          'Authorization': 'Bearer ' + localStorage.getItem('token')
-      },
-      success: function (data) {
-          console.log(data);
-          const select = document.getElementById('purchase_year');
-          select.innerHTML = '';
+// function get_year() {
+//   // var url = "<?php echo $APIBaseURL; ?>getBrands";
+//   var apiBaseURL =APIBaseURL;
+//   // Now you can use the retrieved value in your JavaScript logichttp://127.0.0.1:8000/api/customer/get_year_and_hours
+//   var url = apiBaseURL + 'get_year_and_hours';
+//   $.ajax({
+//       url: url,
+//       type: "GET",
+//       headers: {
+//           'Authorization': 'Bearer ' + localStorage.getItem('token')
+//       },
+//       success: function (data) {
+//           console.log(data);
+//           const select = document.getElementById('purchase_year');
+//           select.innerHTML = '';
 
-          if (data.brands.length > 0) {
-              data.brands.forEach(row => {
-                  const option = document.createElement('option');
-                  option.value = row.id; // You might want to set a value for each option
-                  option.textContent = row.purchase_year;
-                  select.appendChild(option);
-              });
-          } else {
-              select.innerHTML ='<option>No valid data available</option>';
-          }
-      },
-      error: function (error) {
-          console.error('Error fetching data:', error);
-      }
-  });
-}
-get_year();
+//           if (data.brands.length > 0) {
+//               data.brands.forEach(row => {
+//                   const option = document.createElement('option');
+//                   option.value = row.id; // You might want to set a value for each option
+//                   option.textContent = row.purchase_year;
+//                   select.appendChild(option);
+//               });
+//           } else {
+//               select.innerHTML ='<option>No valid data available</option>';
+//           }
+//       },
+//       error: function (error) {
+//           console.error('Error fetching data:', error);
+//       }
+//   });
+// }
+// get_year();
 
 
 // store
@@ -253,7 +253,8 @@ get_year();
 function store(event) {
     event.preventDefault();
     console.log('jfhfhw');
-    // var location = $('#location').val();
+    var form_type = $('#form_type').val();
+    var iend_id = $('#iend_id').val();
     var first_name = $('#first_name').val();
     console.log(first_name);
     var last_name = $('#last_name').val();
@@ -268,7 +269,6 @@ function store(event) {
     var engine_condition = $('#condition').val();
     var tyre_condition = $('#tyrecondition').val();
     var hours_driven = $('#hours_driven').val();
-    
     var rc = $('#rc_num').val();
     var finance = $('input[name="fav_language"]:checked').val();
     var nocAvailable = $('input[name="fav_language1"]:checked').val();
@@ -276,8 +276,13 @@ function store(event) {
     var image = $('#image_pic').val();
     var description = $('#description').val();
 
+    console.log("enquiry type :",iend_id);
+
+
     // Prepare data to send to the server
     var paraArr = {
+      'form_type':form_type,
+      'enquiry_type_id':iend_id,
       'first_name': first_name,
       'last_name': last_name,
       'mobile': mobile,
@@ -300,7 +305,7 @@ function store(event) {
     };
 
     var apiBaseURL =APIBaseURL;
-    var url = apiBaseURL + 'storeProductType';
+    var url = apiBaseURL + 'customer_enquiries';
     console.log(url);
    // var url = "<?php echo $APIBaseURL; ?>user_login";
     // console.log(url);
@@ -320,7 +325,6 @@ function store(event) {
         }
        
         // console.log("Add successfully");
-        // alert('successfully inserted..!');
       },
       error: function (error) {
         console.error('Error fetching data:', error);
@@ -348,7 +352,7 @@ function store(event) {
    function get_tractor_list() {
     console.log('kjhskdjf');
     var apiBaseURL =APIBaseURL;
-    var url = apiBaseURL + 'getOldTractor';
+    var url = apiBaseURL + 'get_old_tractor';
 
     $.ajax({
         url: url,

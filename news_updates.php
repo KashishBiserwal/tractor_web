@@ -1,8 +1,10 @@
 <?php
-   include 'includes/headertagadmin.php';
-  
+    include 'includes/headertag.php';
+    include 'includes/headertagadmin.php';
+   include 'includes/footertag.php';
    
    ?> 
+  <script src="<?php $baseUrl; ?>model/new_updates.js"></script>
 <body class="loaded"> 
 <div class="main-wrapper">
     <div class="app" id="app">
@@ -10,25 +12,20 @@
     include 'includes/left_nav.php';
     include 'includes/header_admin.php';
     ?>
-   <section style="padding: 0 15px;">
-    <div class="">
+  <section style="padding: 0 15px;">
+   <div class="">
       <div class="container">
         <div class="card-body d-flex align-items-center justify-content-between page_title">
           <nav aria-label="breadcrumb">
             <ol class="breadcrumb my-0 ms-2">
-              
               <li class="breadcrumb-item">
                 <span>News & Updates</span>
               </li>
             </ol>
           </nav>
-          <!-- <button id="adduser" type="button" class=" add_btn btn-success float-right">
-            <i class="fa fa-plus" aria-hidden="true"></i>Add News </button> -->
-            <button type="button" id="add_trac" class="btn add_btn btn-success float-right" data-bs-toggle="modal"  data-bs-target="#staticBackdrop">
+           <button type="button" id="add_trac" class="btn add_btn btn-success float-right" data-bs-toggle="modal"  data-bs-target="#staticBackdrop">
               <i class="fa fa-plus" aria-hidden="true"></i>News & Update
             </button>
-
-          <!-- Modal -->
           <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
             <div class="modal-dialog modal-lg modal-dialog-centered">
               <div class="modal-content modal_box">
@@ -40,61 +37,48 @@
                         <div class="row justify-content-center">
                             <div class="col-lg-10">
                               <h4 class="text-center">Fill your Details</h4>
-                            <form>
+                            <form id="form_news_updates">
                                 <div class="row justify-content-center pt-4">
-                                   
-                                    <div class="col-12 col-sm-6 col-lg-6 col-md-6">
-                                      <div class="form-group">
-                                        <input type="text" class="py-2" placeholder=" " id="brand">
-                                        <label for="name" class="text-dark "> News Category</label>
+                                    <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
+                                      <div class="form-outline mt-3">
+                                        <label for="name" class="form-label text-dark">News Category</label>
+                                        <input type="text" class="form-control" placeholder="" id="brand" name="brand">
                                       </div>
                                     </div>
-                                    <div class="col-12 col-sm-6 col-lg-6 col-md-6">
-                                      <!-- <div class="form-group">
-                                        <input type="text" class="py-2" placeholder=" " id="model">
-                                        <label for="name" class="text-dark ">Name</label>
-                                      </div> -->
-                                    </div>
-                                    <div class="col-12 col-sm-6 col-lg-6 col-md-6 ">
-                                      <div class="form-group">
-                                        <input type="text" class="py-2" placeholder=" " id="model_name">
-                                        <label for="name" class="text-dark ">News Headline</label>
+                                    <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
+                                      <div class="form-outline mt-3">
+                                        <label for="name" class="form-label text-dark">News Headline</label>
+                                        <input type="text" class="form-control" placeholder="" id="headline" name="headline">
                                       </div>
                                     </div>
-                                    <div class="col-12 col-sm-6 col-lg-6 col-md-6 ">
-                                      <div class="form-group">
-                                        <textarea id="w3review" name="w3review" rows="2" cols="40"></textarea>
-                                        <label for="name" class="text-dark ">Body/ News Content</label>
-                                      </div>
+                                    <div class="col-12 my-4">
+                                  <div class="form-outline">
+                                  <label class="form-label text-dark">Body/ News Content</label>
+                                  <textarea class="w-100" name="contant" id="contant" rows="4" cols="70" minlength="1" maxlength="255"></textarea>
+                                  </div>
+                               </div>
+                                    <div class="col-12 text-center w-50">
+                                        <div class="upload__box">
+                                          <div class="upload__btn-box">
+                                            <label >
+                                              <p class="upload__btn ">Upload images</p>
+                                              <input type="file" multiple="" data-max_length="20" class="upload__inputfile" id="image_" name="image_">
+                                            </label>
+                                            <p></p>
+                                          </div>
+                                          <div class="upload__img-wrap"></div>
+                                        </div>
                                     </div>
-                                    <div class="col-12  ">
-                                      <div class="background__box">
-                                            <div class="background__btn-box ">
-                                                <label class="background__btn">
-                                                <p class="text-white bg-success p-2 rounded">Upload images</p>
-                                                    <input type="file" data-max_length="20"name="imgfile"  ref="fileInput"
-                                                    style="display: none"
-                                                    @change="handleFileInput"
-                                                    accept="image/png, image/jpg, image/jpeg" class="background__inputfile" id="banner_image">
-                                                    <small></small>
-                                                </label>
-                                            </div>
-                                            <div class="">
-                                                <div class="background__img-wrap"></div>
-                                            </div>
-                                      </div>
-                                    </div>
-                                    
                                    
                                 </div>
                             </form>
                             </div>
                         </div>
                     </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary px-3" data-bs-dismiss="modal">Close</button>
-                  <button type="button" class="btn btn-success fw-bold px-3">Submit</button>
-                </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary px-3" data-bs-dismiss="modal">Close</button>
+                      <button type="submit" id="submitBtn" class="btn btn-success fw-bold px-3">Submit</button>
+                    </div>
               </div>
             </div>
           </div>
@@ -120,7 +104,7 @@
             </div>
             <div class="col-12 col-sm-12 col-md-4 col-lg-4">
               <div class="text-center float-end">
-                <button type="button" class="btn-success btn btn_search" id="Search">Search</button>
+              <button type="button" class="btn-success btn btn_search" id="Search">Search</button>
                 <button type="button" class="btn-success btn mx-2 btn_search" id="Reset">Reset</button>
               </div>
             </div>
@@ -128,102 +112,28 @@
         </div>
       </div>
       <!-- Table Card -->
-      <div class=" mb-5">
-                            <div class="table-responsive">
-                                <table id="example" class="table dataTable no-footer py-1" width="100%">
-                                    <thead>
-                                        <tr>
-                                            <th class="d-none d-md-table-cell text-dark">S.No.</th>
-                                            <!-- <th class="d-none d-md-table-cell text-dark">Category</th> -->
-                                            <th class="d-none d-md-table-cell text-dark">Category</th>
-                                            <th class="d-none d-md-table-cell text-dark">Photo</th>
-                                            <th class="d-none d-md-table-cell text-dark">Headline </th>
-                                            <th class="d-none d-md-table-cell text-dark">Body</th>
-                                           
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                    </tbody>
-                                </table>
-                            </div>
-      </div>
-    </div>
-   </section>
+        <div class=" mb-5">
+          <div class="table-responsive">
+              <table id="example" class="table dataTable no-footer py-1" width="100%">
+                <thead>
+                  <tr>
+                    <th class="d-none d-md-table-cell text-white">S.No.</th>
+                    <th class="d-none d-md-table-cell text-white">Date</th>
+                    <th class="d-none d-md-table-cell text-white">Category</th>
+                    <th class="d-none d-md-table-cell text-white">Headline </th>
+                    <th class="d-none d-md-table-cell text-white">Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                </tbody>
+              </table>
+           </div>
+          </div>
+        </div>
+</section>
       
     
 </div>
 </div>
 </body>
 
-<?php
-   include 'includes/footertag.php';
-   ?> 
-   <script>
-
-jQuery(document).ready(function () {
-    
-    BackgroundUpload();
-  });
-
-function BackgroundUpload() {
-    var imgWrap = "";
-    var imgArray = [];
-
-    function generateUniqueClassName(index) {
-      return "background-image-" + index;
-    }
-
-    $('.background__inputfile').each(function () {
-      $(this).on('change', function (e) {
-        imgWrap = $(this).closest('.background__box').find('.background__img-wrap');
-        var maxLength = $(this).attr('data-max_length');
-
-        var files = e.target.files;
-        var filesArr = Array.prototype.slice.call(files);
-        var iterator = 0;
-        filesArr.forEach(function (f, index) {
-
-          if (!f.type.match('image.*')) {
-            return;
-          }
-
-          if (imgArray.length > maxLength) {
-            return false;
-          } else {
-            var len = 0;
-            for (var i = 0; i < imgArray.length; i++) {
-              if (imgArray[i] !== undefined) {
-                len++;
-              }
-            }
-            if (len > maxLength) {
-              return false;
-            } else {
-              imgArray.push(f);
-
-              var reader = new FileReader();
-              reader.onload = function (e) {
-                var className = generateUniqueClassName(iterator);
-                var html = "<div class='background__img-box'><div onclick='BackgroundImage(\"" + className + "\")' style='background-image: url(" + e.target.result + ")' data-number='" + $(".background__img-close").length + "' data-file='" + f.name + "' class='img-bg " + className + "'><div class='background__img-close'></div></div></div>";
-                imgWrap.append(html);
-                iterator++;
-              }
-              reader.readAsDataURL(f);
-            }
-          }
-        });
-      });
-    });
-
-    $('body').on('click', ".background__img-close", function (e) {
-      var file = $(this).parent().data("file");
-      for (var i = 0; i < imgArray.length; i++) {
-        if (imgArray[i].name === file) {
-          imgArray.splice(i, 1);
-          break;
-        }
-      }
-      $(this).parent().parent().remove();
-    });
-}
-   </script>
