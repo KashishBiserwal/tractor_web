@@ -213,39 +213,39 @@ get();
 
 
 // get year
-// function get_year() {
-//   // var url = "<?php echo $APIBaseURL; ?>getBrands";
-//   var apiBaseURL =APIBaseURL;
-//   // Now you can use the retrieved value in your JavaScript logichttp://127.0.0.1:8000/api/customer/get_year_and_hours
-//   var url = apiBaseURL + 'get_year_and_hours';
-//   $.ajax({
-//       url: url,
-//       type: "GET",
-//       headers: {
-//           'Authorization': 'Bearer ' + localStorage.getItem('token')
-//       },
-//       success: function (data) {
-//           console.log(data);
-//           const select = document.getElementById('purchase_year');
-//           select.innerHTML = '';
+function get_year_and_hours() {
+  // var url = "<?php echo $APIBaseURL; ?>getBrands";
+  var apiBaseURL =APIBaseURL;
+  // Now you can use the retrieved value in your JavaScript logic
+  var url = apiBaseURL + 'get_year_and_hours';
+  $.ajax({
+      url: url,
+      type: "GET",
+      headers: {
+          'Authorization': 'Bearer ' + localStorage.getItem('token')
+      },
+      success: function (data) {
+          console.log(data);
+          const select = document.getElementById('brand');
+          select.innerHTML = '';
 
-//           if (data.brands.length > 0) {
-//               data.brands.forEach(row => {
-//                   const option = document.createElement('option');
-//                   option.value = row.id; // You might want to set a value for each option
-//                   option.textContent = row.purchase_year;
-//                   select.appendChild(option);
-//               });
-//           } else {
-//               select.innerHTML ='<option>No valid data available</option>';
-//           }
-//       },
-//       error: function (error) {
-//           console.error('Error fetching data:', error);
-//       }
-//   });
-// }
-// get_year();
+          if (data.brands.length > 0) {
+              data.brands.forEach(row => {
+                  const option = document.createElement('option');
+                  option.value = row.id; // You might want to set a value for each option
+                  option.textContent = row.brand_name;
+                  select.appendChild(option);
+              });
+          } else {
+              select.innerHTML ='<option>No valid data available</option>';
+          }
+      },
+      error: function (error) {
+          console.error('Error fetching data:', error);
+      }
+  });
+}
+get_year_and_hours();
 
 
 // store
@@ -254,7 +254,8 @@ function store(event) {
     event.preventDefault();
     console.log('jfhfhw');
     var form_type = $('#form_type').val();
-    var iend_id = $('#iend_id').val();
+    var enquiry_type_id = $('#enquiry_type_id').val();
+    console.log("enquiry type :",$('#enquiry_type_id').val());
     var first_name = $('#first_name').val();
     console.log(first_name);
     var last_name = $('#last_name').val();
@@ -264,7 +265,8 @@ function store(event) {
     var brand_name = $('#brand').val();
     var Model_name = $('#model').val();
     var purchase_year = $('#purchase_year').val();
-    var product_type = $('#product_type_id').val();
+    var product_type_id = $('#product_type_id').val();
+    console.log("enquiry type :",$('#product_type_id').val());
     var tehsil = $('#tehsil').val();
     var engine_condition = $('#condition').val();
     var tyre_condition = $('#tyrecondition').val();
@@ -276,18 +278,18 @@ function store(event) {
     var image = $('#image_pic').val();
     var description = $('#description').val();
 
-    console.log("enquiry type :",iend_id);
+    
 
 
     // Prepare data to send to the server
     var paraArr = {
       'form_type':form_type,
-      'enquiry_type_id':iend_id,
+      'enquiry_type_id':enquiry_type_id,
       'first_name': first_name,
       'last_name': last_name,
       'mobile': mobile,
       'brand_id': brand_name,
-      'product_type': product_type,
+      'product_type_id': product_type_id,
       'model': Model_name,
       'purchase_year': purchase_year,
       'engine_condition': engine_condition,
@@ -405,7 +407,7 @@ get_tractor_list();
 // delete data
   function destroy(id) {
     var apiBaseURL = APIBaseURL;
-    var url = apiBaseURL + 'deleteProduct/' + id;
+    var url = apiBaseURL + 'deleteProduct/' + customer_id;
     var token = localStorage.getItem('token');
   
     if (!token) {

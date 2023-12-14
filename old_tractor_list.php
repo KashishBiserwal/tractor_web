@@ -42,7 +42,7 @@ include 'includes/headertag.php';
                               <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-2" hidden>
                                 <div class="form-outline">
                                 
-                                  <input type="text" id="ienq_d" name="first_name" value="1" class=" data_search form-control input-group-sm py-2" />
+                                  <input type="text" id="enquiry_type_id" name="enquiry_type_id" value="1" class=" data_search form-control input-group-sm py-2" />
                                 </div>
                               </div>
                               <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-2" hidden>
