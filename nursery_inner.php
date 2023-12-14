@@ -61,7 +61,7 @@
                     </div>
                 </div>
                 <div class="col-12 col-sm-6 col-lg-6 col-md-6">
-                    <form action="" id="nursery_form" class="bg-light shadow ">
+                    <form action="" id="nursery_form" class="bg-light shadow " method="post">
                         <div class="row">
                             <div class="col-12 justify-content-center">
                                 <div class="d-flex flex-md-row px-3  flex-column-reverse">
@@ -183,7 +183,7 @@
 
             </div>
         </div>
-        </div>
+        
     </section>
 
     <section>
@@ -270,7 +270,7 @@
                                 </div>
                                 <div class="row text-center">
                                     <div class="col-12 text-center">
-                                        <p class="fw-bold pe-3 text-primary">Raipur, Chhattisgarh</p>
+                                        <p class="fw-bold pe-3 text-primary">Raipur,Chhattisgarh</p>
                                     </div>
                                 </div>
                                 <div class="col-12 btn-success">
@@ -353,6 +353,8 @@
                                     </div>
                                 </div>
                             </div>
+
+                            
                             <div class="content d-flex flex-column flex-grow-1 ">
                                 <div class="power text-center mt-3">
                                     <div class="col-12">
