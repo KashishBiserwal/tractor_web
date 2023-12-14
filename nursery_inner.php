@@ -26,7 +26,7 @@
             </div>
         </div>
     </section>
-
+    <!-- next section start -->
     <section>
         <div class="container">
             <div class="vegehead pt-3">
@@ -35,7 +35,7 @@
                         <h3 class="fw-bold text-danger pt-3 ">Nursery in District Name</h3>
                     </div>
                     <div class="col-12 col-lg-6 ">
-                        <h3 class="fw-bold text-danger pt-3">Are You Intrested in this Nursery</h3>
+                        <h4 class="fw-bold text-center text-danger pt-3">Are You Intrested In This Nursery ?</h4>
                     </div>
                 </div>
             </div>
@@ -61,74 +61,71 @@
                     </div>
                 </div>
                 <div class="col-12 col-sm-6 col-lg-6 col-md-6">
-                    <form action="" id="nursery_form">
+                    <form action="" id="nursery_form" class="bg-light shadow ">
                         <div class="row">
                             <div class="col-12 justify-content-center">
                                 <div class="d-flex flex-md-row px-3  flex-column-reverse">
                                     <div class="col-md-12 col-12 col-lg-12 col-lg-12">
                                         <div class=" ml-2">
                                             <div class="row">
-                                                <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
+                                                <div class="col-12 col-lg-6 col-md-6 col-sm-12 mt-4">
                                                     <div class="form-outline">
-                                                        <label for="fname" class="form-label text-dark"> <i
-                                                                class="fa-regular fa-user"></i> First Name</label>
+                                                        <label for="fname" class="form-label ">First Name</label>
                                                         <input type="text" class="form-control"
-                                                            placeholder="Enter Your Name" id="fname" name="fname">
+                                                          id="fname" name="fname">
                                                     </div>
                                                 </div>
-                                                <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
+                                                <div class="col-12 col-lg-6 col-md-6 col-sm-12 mt-4">
                                                     <div class="form-outline">
-                                                        <label for="lname" class="form-label text-dark"> <i
-                                                                class="fa-regular fa-user"></i> Last Name</label>
+                                                        <label for="lname" class="form-label ">Last Name</label>
                                                         <input type="text" class="form-control"
-                                                            placeholder="Enter Your Name" id="lname" name="lname">
+                                                             id="lname" name="lname">
                                                     </div>
                                                 </div>
-                                                <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
-                                                    <div class="form-outline mt-3">
-                                                        <label for="phone" class="form-label text-dark"> <i
-                                                                class="fa fa-phone" aria-hidden="true"></i> Phone
+                                                <div class="col-12 col-lg-6 col-md-6 col-sm-12 mt-4">
+                                                    <div class="form-outline ">
+                                                        <label for="phone" class="form-label ">Phone
                                                             Number</label>
                                                         <input type="password" class="form-control"
-                                                            placeholder="Enter Number" id="phone" name="phone">
+                                                            id="phone" name="phone">
                                                     </div>
                                                 </div>
 
-                                                <div class="col-12 col-sm-12 col-md-6 col-lg-6">
-                                                    <div class="form-outline my-3">
-                                                        <label for="state" class="form-label text-dark" id="state"
-                                                            name="state"> <i class="fas fa-location"></i> State</label>
+                                                <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-4">
+                                                    <div class="form-outline ">
+                                                        <label for="state" class="form-label " id="state"
+                                                            name="state">State</label>
                                                         <select class="form-select py-2 "
                                                             aria-label=".form-select-lg example" id="state"
                                                             name="state">
-                                                            <option value>Select State</option>
+                                                            <option value="" selected disabled></option>
                                                             <option value="1">Chhattisgarh</option>
                                                             <option value="2">Other</option>
                                                         </select>
                                                     </div>
                                                 </div>
-                                                <div class="col-12 col-sm-12 col-md-6 col-lg-6">
-                                                    <div class="form-outline my-3">
-                                                        <label class="form-label text-dark"><i
-                                                                class="fa-solid fa-location-dot"></i> District</label>
+
+                                                <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-4">
+                                                    <div class="form-outline ">
+                                                        <label class="form-label ">District</label>
                                                         <select class="form-select py-2 "
                                                             aria-label=".form-select-lg example" name="district"
                                                             id="district">
-                                                            <option value>Select District</option>
+                                                            <option value ="" selected disabled></option>
                                                             <option value="1">Raipur</option>
                                                             <option value="2">Bilaspur</option>
                                                             <option value="2">Durg</option>
                                                         </select>
                                                     </div>
                                                 </div>
-                                                <div class="col-12 col-sm-12 col-md-6 col-lg-6">
-                                                    <div class="form-outline my-3">
+                                                <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-4">
+                                                    <div class="form-outline ">
                                                         <label for="yr_tehsil"
-                                                            class="form-label text-dark">Tehsil</label>
+                                                            class="form-label">Tehsil</label>
                                                         <select class="form-select py-2 "
                                                             aria-label=".form-select-lg example" name="district"
                                                             id="district">
-                                                            <option value>Select District</option>
+                                                            <option value="" selected disabled></option>
                                                             <option value="1">Raipur</option>
                                                             <option value="2">Bilaspur</option>
                                                             <option value="2">Durg</option>
@@ -138,7 +135,7 @@
                                             </div>
 
                                             <!-- Button trigger modal -->
-                                            <div class="col-12 col-sm-12 col-md-6 col-lg-12 ">
+                                            <div class="col-12 col-sm-12 col-md-6 col-lg-12 mt-4">
                                                 <button type="button" class="btn btn-success w-100"
                                                     data-bs-toggle="modal" id="button_nursery"
                                                     data-bs-target="#staticBackdrop3">
@@ -209,6 +206,10 @@
                     <tr>
                         <td class="table-data">Tehsil</td>
                         <td class="table-data">Ambikapur</td>
+                    </tr>
+                    <tr>
+                        <td class="table-data">Phone Number</td>
+                        <td class="table-data">+9183*******</td>
                     </tr>
                     <tr>
                         <td class="table-data">About</td>
@@ -456,8 +457,9 @@
                                     </div>
                                 </div>
                                 <div class="col-12 btn-success">
-                                    <p class="call text-center pt-2"> <i class="fa-solid fa-phone"></i> Contact Nursery
-                                    </p>
+                                    <button type="button" class="btn btn-success py-2 w-100"><i class="fa-solid fa-phone"></i>
+                                        Contact Nursery
+                                    </button>
                                 </div>
                             </div>
                         </a>
@@ -484,8 +486,9 @@
                                     </div>
                                 </div>
                                 <div class="col-12 btn-success">
-                                    <p class="call text-center pt-2"> <i class="fa-solid fa-phone"></i> Contact Nursery
-                                    </p>
+                                    <button type="button" class="btn btn-success py-2 w-100"><i class="fa-solid fa-phone"></i>
+                                        Contact Nursery
+                                    </button>
                                 </div>
                             </div>
                         </a>
