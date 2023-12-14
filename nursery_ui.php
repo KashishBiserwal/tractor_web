@@ -429,7 +429,7 @@
                         <div class="col-12 col-sm-12 col-md-12 col-lg-12">
                             <div class=" row text-center">
                                 <div class="col-12 col-sm-6 col-lg-6 col-md-6 g-1">
-                                    <button id="adduser" type="button" class="add_btn btn btn-success px-3">
+                                    <button id="adduser" type="button" class="add_btn btn btn-success">
                                         <i class="fas fa-undo"></i> Reset </button>
                                 </div>
                                 <div class="col-12 col-sm-6 col-lg-6 col-md-6 g-1">
