@@ -279,12 +279,11 @@ opacity: 0.8;
   }
 
   .upload__img-wrap {
-  display: flex;
-  flex-wrap:nowrap;
-  /* margin: 0 -50px; */
-  margin: 0 auto;
-  justify-content: center;
-  float:right;
+    display: flex;
+    flex-wrap: nowrap;
+    /* margin: -21px -50px; */
+    margin: 0 auto;
+    justify-content: center;
   }
 
   .upload__img-box {

@@ -36,10 +36,21 @@ include 'includes/headertag.php';
                     <div class="modal-body bg-light">
                       <div class="row justify-content-center">
                         <div class="col-lg-10">
-                          
                           <form id="old_tract" name="old_tract" method="post">
                             <div class="row">
                               <h5>Fill Your Detail</h5>
+                              <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-2" hidden>
+                                <div class="form-outline">
+                                
+                                  <input type="text" id="enquiry_type_id" name="enquiry_type_id" value="1" class=" data_search form-control input-group-sm py-2" />
+                                </div>
+                              </div>
+                              <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-2" hidden>
+                                <div class="form-outline">
+                                
+                                  <input type="text" id="form_type" name="form_type" value="FOR_SELL_TRACTOR" class=" data_search form-control input-group-sm py-2" />
+                                </div>
+                              </div>
                               <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-2">
                                 <div class="form-outline">
                                   <label class="form-label" for="first_name">First Name</label>
@@ -176,16 +187,16 @@ include 'includes/headertag.php';
                               </div>
                               <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-3">
                                 <label class="pe-3 fs-5 text-dark">Financed</label>
-                                <input type="radio" id="yes" name="fav_language" value="yes">
+                                <input type="radio" id="yes" name="fav_language" value="1">
                                 <label for="html" class="text-dark">Yes</label> 
-                                <input type="radio" id="no" name="fav_language" value="no">
+                                <input type="radio" id="no" name="fav_language" value="0">
                                 <label for="css" class="text-dark">No</label>
                               </div>
                               <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-3" id="nocDiv" style="display: none;">
                                 <label class="pe-3 fs-5 text-dark">NOC Available:</label>
-                                <input type="radio" id="nocyes" name="fav_language1" value="nocyes">
+                                <input type="radio" id="nocyes" name="fav_language1" value="1">
                                 <label for="nocyes" class="text-dark">Yes</label> 
-                                <input type="radio" id="nocno" name="fav_language1" value="nocno">
+                                <input type="radio" id="nocno" name="fav_language1" value="0">
                                 <label for="nocno" class="text-dark">No</label>
                               </div>
                               <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-3">

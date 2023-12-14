@@ -30,14 +30,14 @@
    include 'includes/header.php';
    ?>
 
-    <section class="mt-5 pt-4">
-        <div class="container ">
-            <div class="mt-5 pt-3">
+    <section class="mt-5 pt-4 bg-light">
+        <div class="container py-2">
+            <div class="mt-5 pt-4">
                 <span class="mt-5 text-white">
                     <a href="index.php" class="text-decoration-none header-link px-1">Home <i
                             class="fa-solid fa-chevron-right px-1"></i></a>
 
-                    <span class="text-dark"> Popular Tractor</span>
+                    <span class="text-dark">Hire Tractor</span>
                 </span>
             </div>
         </div>
@@ -479,11 +479,11 @@
                             <h5 class=" ps-1 text-dark fw-bold pt-2">Search By District</h5>
                             <div class="HP py-2">
                                 <input type="checkbox" class="checkbox-round ms-3" value="0-20" /><span
-                                    class="ps-2 fs-6">Surajpur</span><br />
+                                    class="ps-2 fs-6">Manendragarh Chirmiri Bharatpur</span><br />
                                 <input type="checkbox" class="checkbox-round ms-3" value="21-30" /><span
                                     class="ps-2 fs-6">Koriya</span><br />
                                 <input type="checkbox" class="checkbox-round ms-3" value="31-40" /><span
-                                    class="ps-2 fs-6">Sarguja</span><br />
+                                    class="ps-2 fs-6">Surajpur</span><br />
                                 <input type="checkbox" class="checkbox-round ms-3" value="41-50" /><span
                                     class="ps-2 fs-6">Balrampur</span><br />
                                 <input type="checkbox" class="checkbox-round ms-3" value="51-60" /><span

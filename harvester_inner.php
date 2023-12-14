@@ -68,24 +68,104 @@
                 </table>
                 <div class="row my-3 text-center">
                     <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                        <button type="submit" class="btn btn-success w-100 fw-bold" >GET Best PRICE</button>
+                        <button type="button" class="btn-success w-100 fw-bold" data-bs-toggle="modal" data-bs-target="#staticBackdrop3">GET BEST PRICE</button>
                     </div>
-                    <div class="col-12 col-lg-6 col-md-6 col-sm-6 border border-success">
-                        <button type="submit" class="btn btn-white  text-success w-100 fw-bold" >VIEW LOAN OFFERS</button>
-                    </div>
+                    
+                    <div class="col-12 col-lg-5 col-md-5 col-sm-5 ms-4 border border-success">
+                        <a href="new_tractor_loan.php">
+                            <button type="submit" class="text-success w-100 fw-bold" >VIEW LOAN OFFERS</button>
+                        </a>    
+                    </div>                    
                 </div>
-
             </div>
-        </div>
-
-       
+        </div>       
     </div>
 </section>
 
+    <!-- MODAL -->
+    <section>
+        <div class="modal fade" id="staticBackdrop3" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title ms-1" id="staticBackdropLabel">Request Call Back</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+
+                    <!-- MODAL BODY -->
+                    <div class="modal-body">
+                        <form id="engine_oil_form" class="bg-light"action="">
+                            <div class="row">
+                                <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
+                                    <div class="form-outline">
+                                        <label for="f_name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i> First Name</label>
+                                        <input type="text" class="form-control mb-0" placeholder="Enter Your Name" id="f_name" name="f_name">
+                                    </div>
+                                </div>
+                                <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
+                                    <div class="form-outline">
+                                        <label for="last_name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i> Last Name</label>
+                                        <input type="text" class="form-control mb-0" placeholder="Enter Your Name" id="eo_name" name="eo_name">
+                                    </div>
+                                </div>
+                                <div class="col-12 col-sm-6 col-md-6 col-lg-6 mt-3">
+                                    <div class="form-outline">
+                                        <label for="eo_number" class="form-label text-dark fw-bold"> <i class="fa fa-phone" aria-hidden="true"></i> Phone Number</label>
+                                        <input type="text" class="form-control mb-0" placeholder="Enter Number" id="eo_number" name="eo_number" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');">
+                                    </div>
+                                </div>
+                                    <!-- <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+                                        <label for="eo_state" class="form-label text-dark fw-bold"> <i class="fas fa-location"></i> Number</label>
+                                        <input type="text" placeholder="Enter Mobile number "class="form-control mb-0" id="eo_number" name="eo_number" >
+                                        
+                                </div> -->
+                                <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-3">
+                                    <div class="form-outline">
+                                        <label for="eo_state" class="form-label text-dark fw-bold"> <i class="fas fa-location"></i> State</label>
+                                        <select class="form-select py-2 " aria-label=".form-select-lg example" id="eo_state" name="eo_state">
+                                        <option value="" selected disabled=""> </option>  
+                                        <option value="1">Chhattisgarh</option>
+                                        <option value="2">Other</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-4">
+                                    <div class="form-outline">
+                                        <label for="eo_dist" class="form-label fw-bold  text-dark"><i class="fa-solid fa-location-dot"></i> District</label>
+                                        <select class="form-select py-2 " aria-label=".form-select-lg example" id="eo_dist" name="eo_dist">
+                                            <option value="" selected disabled=""></option>
+                                            <option value="1">Raipur</option>
+                                            <option value="2">Bilaspur</option>
+                                            <option value="2">Durg</option>
+                                        </select>
+                                    </div>
+                                </div>                           
+                                <div class="col-12 col-sm-6 col-md-6 col-lg-6 mt-4">
+                                    <div class="form-outline">
+                                        <label for="eo_tehsil" class="form-label fw-bold text-dark"> Tehsil</label>
+                                        <select class="form-select py-2 " aria-label=".form-select-lg example" id="eo_tehsil" name="eo_tehsil">
+                                        <option value="" selected disabled=""></option>
+                                        <option value="2">Durg</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                            </div> 
+                            <div class="text-center my-3">
+                                <button type="submit" id="engine_oil_btn" class="btn btn-success px-5 w-40">Submit</button>         
+                            </div>        
+                        </form>                             
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<!-- Kartar 4000 Harvester Features -->
 <section>
     <div class="container my-5">
         <div class="about border-success  border-4 text-dark border-start">
-            <h2 class="text-dark fw-bold text-start ps-4">Kartar 4000 Harvester Features</h2>
+            <h2 class="text-dark fw-bold text-start ps-3">Kartar 4000 Harvester Features</h2>
 
         </div>
         <div class="mt-1">
@@ -107,202 +187,470 @@
 
     </div>
 </section>
-<!-- table -->
+
+<!-- Specifications For Kartar 4000 ("51") -->
 <section class="mt-3">
     <div class="container">
         <div class="about border-success  border-4 text-dark border-start">
-            <h4 class="text-dark fw-bold text-start ps-4">Specifications For Kartar 4000 ("51")</h4>
+            <h4 class="text-dark fw-bold text-start ps-3">Specifications For Kartar 4000 ("51")</h4>
         </div>
-        <h5 class="fw-bold pt-2 ps-3">Engine</h5>
+        <h5 class="fw-bold pt-2 ps-2">Engine</h5>
 
         <table class="table w-75 table-hover table table-striped my-4">
             
             <tbody>
+          
                 <tr>
-                <td class="table-data">TYPE</td>
-                <td class="table-data">	Ashok Leyland
-                    H6ET1C3RD22/1
-                    101 H.P @2200
-                    RPM
-                </td>
+                    <td class="w-100">
+                        <div class="row w-100">
+                            <div class="col-12 col-lg-5 col-md-5 col-sm-5">
+                                <p class="mb-1 mt-1">TYPE</p>
+                            </div>
+                            <div class="col-12 col-lg-7 col-md-7 col-sm-7">
+                                <p class="mb-1 mt-1">	Ashok Leyland H6ET1C3RD22/1101 H.P @2200 RPM </p>
+                            </div>
+                        </div>
+                    </td>                  
                 </tr>
+
                 <tr>
-                <td class="table-data">No. of Cylinders:</td>
-                <td class="table-data">6(SIX)</td>
+                    <td class="w-100">
+                        <div class="row w-100">
+                            <div class="col-12 col-lg-5 col-md-5 col-sm-5">
+                                <p class="mb-1 mt-1">No. of Cylinders:</p>
+                            </div>
+                            <div class="col-12 col-lg-7 col-md-7 col-sm-7">
+                                <p class="mb-1 mt-1">6(SIX) </p>
+                            </div>
+                        </div>
+                    </td>                  
                 </tr>
+
                 <tr>
-                <td class="table-data">Cooling System</td>
-                <td class="table-data">Water Cooled</td>
+                    <td class="w-100">
+                        <div class="row w-100">
+                            <div class="col-12 col-lg-5 col-md-5 col-sm-5">
+                                <p class="mb-1 mt-1">Cooling System</p>
+                            </div>
+                            <div class="col-12 col-lg-7 col-md-7 col-sm-7">
+                                <p class="mb-1 mt-1">Water Cooled</p>
+                            </div>
+                        </div>
+                    </td>                  
                 </tr>
                 
+            </tbody>
+        </table>
+
+        <h5 class="fw-bold pt-2 ps-2">CUTTER BAR</h5>
+        <table class="table w-75 table-hover table table-striped my-4">
+            
+            <tbody>
+
+                <tr>
+                    <td class="w-100">
+                        <div class="row w-100">
+                            <div class="col-12 col-lg-5 col-md-5 col-sm-5">
+                                <p class="mb-1 mt-1">Width:</p>
+                            </div>
+                            <div class="col-12 col-lg-7 col-md-7 col-sm-7">
+                                <p class="mb-1 mt-1">4199 mm</p>
+                            </div>
+                        </div>
+                    </td>                  
+                </tr>
+
+                <tr>
+                    <td class="w-100">
+                        <div class="row w-100">
+                            <div class="col-12 col-lg-5 col-md-5 col-sm-5">
+                                <p class="mb-1 mt-1">Height Adjustment:</p>
+                            </div>
+                            <div class="col-12 col-lg-7 col-md-7 col-sm-7">
+                                <p class="mb-1 mt-1">Hydraulically</p>
+                            </div>
+                        </div>
+                    </td>                  
+                </tr>
+
+                <tr>
+                    <td class="w-100">
+                        <div class="row w-100">
+                            <div class="col-12 col-lg-5 col-md-5 col-sm-5">
+                                <p class="mb-1 mt-1">Cutting Height Max:</p>
+                            </div>
+                            <div class="col-12 col-lg-7 col-md-7 col-sm-7">
+                                <p class="mb-1 mt-1">700 mm</p>
+                            </div>
+                        </div>
+                    </td>                  
+                </tr>                
 
             </tbody>
         </table>
-        <h5 class="fw-bold pt-2 ps-3">CUTTER BAR</h5>
 
+        <h5 class="fw-bold pt-2 ps-2">REEL</h5>
+        <table class="table w-75 table-hover table table-striped my-4">
+            
+            <tbody>
+
+                <tr>
+                    <td class="w-100">
+                        <div class="row w-100">
+                            <div class="col-12 col-lg-5 col-md-5 col-sm-5">
+                                <p class="mb-1 mt-1">TYPE:</p>
+                            </div>
+                            <div class="col-12 col-lg-7 col-md-7 col-sm-7">
+                                <p class="mb-1 mt-1">Pick Up</p>
+                            </div>
+                        </div>
+                    </td>                  
+                </tr>                  
+
+                <tr>
+                    <td class="w-100">
+                        <div class="row w-100">
+                            <div class="col-12 col-lg-5 col-md-5 col-sm-5">
+                                <p class="mb-1 mt-1">Speed Adjustment:</p>
+                            </div>
+                            <div class="col-12 col-lg-7 col-md-7 col-sm-7">
+                                <p class="mb-1 mt-1">Mechanically</p>
+                            </div>
+                        </div>
+                    </td>                  
+                </tr>                  
+
+                <tr>
+                    <td class="w-100">
+                        <div class="row w-100">
+                            <div class="col-12 col-lg-5 col-md-5 col-sm-5">
+                                <p class="mb-1 mt-1">Height Adjustment:</p>
+                            </div>
+                            <div class="col-12 col-lg-7 col-md-7 col-sm-7">
+                                <p class="mb-1 mt-1">Hydraulically</p>
+                            </div>
+                        </div>
+                    </td>                  
+                </tr>                
+
+            </tbody>
+        </table>
+
+        <h5 class="fw-bold pt-2 ps-2">Thresher Drum</h5>
+        <table class="table w-75 table-hover table table-striped my-4">
+            
+            <tbody>
+
+                <tr>
+                    <td class="w-100">
+                        <div class="row w-100">
+                            <div class="col-12 col-lg-5 col-md-5 col-sm-5">
+                                <p class="mb-1 mt-1">Dia of Drum:</p>
+                            </div>
+                            <div class="col-12 col-lg-7 col-md-7 col-sm-7">
+                                <p class="mb-1 mt-1">600 mm</p>
+                            </div>
+                        </div>
+                    </td>                  
+                </tr>
+
+                <tr>
+                    <td class="w-100">
+                        <div class="row w-100">
+                            <div class="col-12 col-lg-5 col-md-5 col-sm-5">
+                                <p class="mb-1 mt-1">Length of Drum:</p>
+                            </div>
+                            <div class="col-12 col-lg-7 col-md-7 col-sm-7">
+                                <p class="mb-1 mt-1">1270 mm</p>
+                            </div>
+                        </div>
+                    </td>                  
+                </tr>
+
+                <tr>
+                    <td class="w-100">
+                        <div class="row w-100">
+                            <div class="col-12 col-lg-5 col-md-5 col-sm-5">
+                                <p class="mb-1 mt-1">Speed of Drum:</p>
+                            </div>
+                            <div class="col-12 col-lg-7 col-md-7 col-sm-7">
+                                <p class="mb-1 mt-1">535 to 1210 rpm</p>
+                            </div>
+                        </div>
+                    </td>                  
+                </tr>
+
+                <tr>
+                    <td class="w-100">
+                        <div class="row w-100">
+                            <div class="col-12 col-lg-5 col-md-5 col-sm-5">
+                                <p class="mb-1 mt-1">Adjustment:</p>
+                            </div>
+                            <div class="col-12 col-lg-7 col-md-7 col-sm-7">
+                                <p class="mb-1 mt-1">Mechanically</p>
+                            </div>
+                        </div>
+                    </td>                  
+                </tr>
+
+                <tr>
+                    <td class="w-100">
+                        <div class="row w-100">
+                            <div class="col-12 col-lg-5 col-md-5 col-sm-5">
+                                <p class="mb-1 mt-1">No. of Rasp Bars:</p>
+                            </div>
+                            <div class="col-12 col-lg-7 col-md-7 col-sm-7">
+                                <p class="mb-1 mt-1">8(Eight)</p>
+                            </div>
+                        </div>
+                    </td>                  
+                </tr>
+
+                <tr>
+                    <td class="w-100">
+                        <div class="row w-100">
+                            <div class="col-12 col-lg-5 col-md-5 col-sm-5">
+                                <p class="mb-1 mt-1">No. of Spikes:</p>
+                            </div>
+                            <div class="col-12 col-lg-7 col-md-7 col-sm-7">
+                                <p class="mb-1 mt-1">128</p>
+                            </div>
+                        </div>
+                    </td>                  
+                </tr>
+
+            </tbody>
+        </table>
+
+        <h5 class="fw-bold pt-2 ps-2">Concave</h5>
         <table class="table w-75 table-hover table table-striped my-4">
             
             <tbody>
                 <tr>
-                <td class="table-data">Width:</td>
-                <td class="table-data">	4199 mm</td>
+                    <td class="w-100">
+                        <div class="row w-100">
+                            <div class="col-12 col-lg-5 col-md-5 col-sm-5">
+                                <p class="mb-1 mt-1">Clearance Between:</p>
+                            </div>
+                            <div class="col-12 col-lg-7 col-md-7 col-sm-7">
+                                <p class="mb-1 mt-1">16 to 39 mm</p>
+                            </div>
+                        </div>
+                    </td>                  
                 </tr>
+
                 <tr>
-                <td class="table-data">Height Adjustment:</td>
-                <td class="table-data">Hydraulically</td>
+                    <td class="w-100">
+                        <div class="row w-100">
+                            <div class="col-12 col-lg-5 col-md-5 col-sm-5">
+                                <p class="mb-1 mt-1">Concave & Thresher:</p>
+                            </div>
+                            <div class="col-12 col-lg-7 col-md-7 col-sm-7">
+                                <p class="mb-1 mt-1">3 to 16 mm</p>
+                            </div>
+                        </div>
+                    </td>                  
                 </tr>
+
                 <tr>
-                <td class="table-data">Cutting Height Max:</td>
-                <td class="table-data">700 mm</td>
+                    <td class="w-100">
+                        <div class="row w-100">
+                            <div class="col-12 col-lg-5 col-md-5 col-sm-5">
+                                <p class="mb-1 mt-1">No. of Spikes:</p>
+                            </div>
+                            <div class="col-12 col-lg-7 col-md-7 col-sm-7">
+                                <p class="mb-1 mt-1">Mechanically 36</p>
+                            </div>
+                        </div>
+                    </td>                  
+                </tr>
+
+            </tbody>
+        </table>
+
+        <h5 class="fw-bold pt-2 ps-2">Straw Walkers</h5>
+        <table class="table w-75 table-hover table table-striped my-4">
+            
+            <tbody>
+                <tr>
+                    <td class="w-100">
+                        <div class="row w-100">
+                            <div class="col-12 col-lg-5 col-md-5 col-sm-5">
+                                <p class="mb-1 mt-1">No. of Straw Walkers :</p>
+                            </div>
+                            <div class="col-12 col-lg-7 col-md-7 col-sm-7">
+                                <p class="mb-1 mt-1">5(FIVE)</p>
+                            </div>
+                        </div>
+                    </td>                  
+                </tr>
+
+                <tr>
+                    <td class="w-100">
+                        <div class="row w-100">
+                            <div class="col-12 col-lg-5 col-md-5 col-sm-5">
+                                <p class="mb-1 mt-1">Total Area :</p>
+                            </div>
+                            <div class="col-12 col-lg-7 col-md-7 col-sm-7">
+                                <p class="mb-1 mt-1">46565 sq. cm.</p>
+                            </div>
+                        </div>
+                    </td>                  
+                </tr>
+            </tbody>
+        </table>
+
+        <h5 class="fw-bold pt-2 ps-2">Cleaning</h5>
+        <table class="table w-75 table-hover table table-striped my-4">
+            <tbody>
+                <tr>
+                    <td class="w-100">
+                        <div class="row w-100">
+                            <div class="col-12 col-lg-5 col-md-5 col-sm-5">
+                                <p class="mb-1 mt-1">Area:</p>
+                            </div>
+                            <div class="col-12 col-lg-7 col-md-7 col-sm-7">
+                                <p class="mb-1 mt-1">16422 sq. cm.</p>
+                            </div>
+                        </div>
+                    </td>                  
+                </tr>
+
+                <tr>
+                    <td class="w-100">
+                        <div class="row w-100">
+                            <div class="col-12 col-lg-5 col-md-5 col-sm-5">
+                                <p class="mb-1 mt-1">Adjustment:</p>
+                            </div>
+                            <div class="col-12 col-lg-7 col-md-7 col-sm-7">
+                                <p class="mb-1 mt-1">Mechanically</p>
+                            </div>
+                        </div>
+                    </td>                  
+                </tr>
+
+            </tbody>
+        </table>
+
+        <h5 class="fw-bold pt-2 ps-2">Tyre Size</h5>
+        <table class="table w-75 table-hover table table-striped my-4">
+            <tbody>
+                <tr>
+                    <td class="w-100">
+                        <div class="row w-100">
+                            <div class="col-12 col-lg-5 col-md-5 col-sm-5">
+                                <p class="mb-1 mt-1">Front:</p>
+                            </div>
+                            <div class="col-12 col-lg-7 col-md-7 col-sm-7">
+                                <p class="mb-1 mt-1">18.4/15/30</p>
+                            </div>
+                        </div>
+                    </td>                  
                 </tr>
                 
-
-            </tbody>
-        </table>
-        <h5 class="fw-bold pt-2 ps-3">REEL</h5>
-
-        <table class="table w-75 table-hover table table-striped my-4">
-            
-            <tbody>
                 <tr>
-                <td class="table-data">TYPE:</td>
-                <td class="table-data">	Pick Up</td>
-                </tr>
-                <tr>
-                <td class="table-data">Speed Adjustment:</td>
-                <td class="table-data">Mechanically</td>
-                </tr>
-                <tr>
-                <td class="table-data">Height Adjustment:</td>
-                <td class="table-data">Hydraulically</td>
+                    <td class="w-100">
+                        <div class="row w-100">
+                            <div class="col-12 col-lg-5 col-md-5 col-sm-5">
+                                <p class="mb-1 mt-1">Rear/Trolley:</p>
+                            </div>
+                            <div class="col-12 col-lg-7 col-md-7 col-sm-7">
+                                <p class="mb-1 mt-1">9.00 X 16</p>
+                            </div>
+                        </div>
+                    </td>                  
                 </tr>
                 
+            </tbody>
+        </table>
+
+        <h5 class="fw-bold pt-2 ps-2">Dimensions</h5>
+        <table class="table w-75 table-hover table table-striped my-4">
+            <tbody>
+                <tr>
+                    <td class="w-100">
+                        <div class="row w-100">
+                            <div class="col-12 col-lg-5 col-md-5 col-sm-5">
+                                <p class="mb-1 mt-1">Length:</p>
+                            </div>
+                            <div class="col-12 col-lg-7 col-md-7 col-sm-7">
+                                <p class="mb-1 mt-1">8535 mm</p>
+                            </div>
+                        </div>
+                    </td>                  
+                </tr>
+
+                <tr>
+                    <td class="w-100">
+                        <div class="row w-100">
+                            <div class="col-12 col-lg-5 col-md-5 col-sm-5">
+                                <p class="mb-1 mt-1">Height:</p>
+                            </div>
+                            <div class="col-12 col-lg-7 col-md-7 col-sm-7">
+                                <p class="mb-1 mt-1">4572 mm</p>
+                            </div>
+                        </div>
+                    </td>                  
+                </tr>
+
+                <tr>
+                    <td class="w-100">
+                        <div class="row w-100">
+                            <div class="col-12 col-lg-5 col-md-5 col-sm-5">
+                                <p class="mb-1">Min Ground Clearance:</p>
+                            </div>
+                            <div class="col-12 col-lg-7 col-md-7 col-sm-7">
+                                <p class="mb-1">460 mm</p>
+                            </div>
+                        </div>
+                    </td>                  
+                </tr>
+
+                <tr>
+                    <td class="w-100">
+                        <div class="row w-100">
+                            <div class="col-12 col-lg-5 col-md-5 col-sm-5">
+                                <p class="mb-1 mt-1">Weight:</p>
+                            </div>
+                            <div class="col-12 col-lg-7 col-md-7 col-sm-7">
+                                <p class="mb-1 mt-1">9150 Kgs. (Approx.)</p>
+                            </div>
+                        </div>
+                    </td>                  
+                </tr>
 
             </tbody>
         </table>
-        <h5 class="fw-bold pt-2 ps-3">Thresher Drum</h5>
 
+        <h5 class="fw-bold pt-2 ps-2">Working Capacity</h5>
         <table class="table w-75 table-hover table table-striped my-4">
-            
             <tbody>
                 <tr>
-                <td class="table-data">Dia of Drum:</td>
-                <td class="table-data">	600 mm</td>
+                    <td class="w-100">
+                        <div class="row w-100">
+                            <div class="col-12 col-lg-5 col-md-5 col-sm-5">
+                                <p class="mb-1 mt-1">Wheat:</p>
+                            </div>
+                            <div class="col-12 col-lg-7 col-md-7 col-sm-7">
+                                <p class="mb-1 mt-1">4.5 Acres/hour(approx)</p>
+                            </div>
+                        </div>
+                    </td>                  
                 </tr>
-                <tr>
-                <td class="table-data">Length of Drum:</td>
-                <td class="table-data">	1270 mm</td>
-                </tr>
-                <tr>
-                <td class="table-data">Speed of Drum:</td>
-                <td class="table-data">535 to 1210 rpm</td>
-                </tr>
-                <tr>
-                <td class="table-data">Adjustment:</td>
-                <td class="table-data">	Mechanically</td>
-                </tr>
-                <tr>
-                <td class="table-data">No. of Rasp Bars:</td>
-                <td class="table-data">8(Eight)</td>
-                </tr>
-                <tr>
-                <td class="table-data">No. of Spikes:</td>
-                <td class="table-data">128</td>
-                </tr>
-            </tbody>
-        </table>
-        <h5 class="fw-bold pt-2 ps-3">Concave</h5>
 
-        <table class="table w-75 table-hover table table-striped my-4">
-            
-            <tbody>
                 <tr>
-                <td class="table-data">Clearance Between:</td>
-                <td class="table-data">	16 to 39 mm</td>
+                    <td class="w-100">
+                        <div class="row w-100">
+                            <div class="col-12 col-lg-5 col-md-5 col-sm-5">
+                                <p class="mb-1 mt-1">Paddy:</p>
+                            </div>
+                            <div class="col-12 col-lg-7 col-md-7 col-sm-7">
+                                <p class="mb-1 mt-1">4 Acres/hour(approx)</p>
+                            </div>
+                        </div>
+                    </td>                  
                 </tr>
-                <tr>
-                <td class="table-data">Concave & Thresher:</td>
-                <td class="table-data">	3 to 16 mm</td>
-                </tr>
-                <tr>
-                <td class="table-data">No. of Spikes:</td>
-                <td class="table-data">Mechanically 36</td>
-                </tr>
-            </tbody>
-        </table>
-        <h5 class="fw-bold pt-2 ps-3">Straw Walkers</h5>
 
-        <table class="table w-75 table-hover table table-striped my-4">
-            
-            <tbody>
-                <tr>
-                <td class="table-data">No. of Straw Walkers :</td>
-                <td class="table-data">	5(FIVE)</td>
-                </tr>
-                <tr>
-                <td class="table-data">Total Area :</td>
-                <td class="table-data">46565 sq. cm.</td>
-                </tr>
-            </tbody>
-        </table>
-        <h5 class="fw-bold pt-2 ps-3">Cleaning</h5>
-        <table class="table w-75 table-hover table table-striped my-4">
-            <tbody>
-                <tr>
-                <td class="table-data">Area :</td>
-                <td class="table-data">	16422 sq. cm.</td>
-                </tr>
-                <tr>
-                <td class="table-data">Adjustment:</td>
-                <td class="table-data">Mechanically</td>
-                </tr>
-            </tbody>
-        </table>
-        <h5 class="fw-bold pt-2 ps-3">Tyre Size</h5>
-        <table class="table w-75 table-hover table table-striped my-4">
-            <tbody>
-                <tr>
-                <td class="table-data">Front:   </td>
-                <td class="table-data">	18.4/15/30</td>
-                </tr>
-                <tr>
-                <td class="table-data">Rear/Trolley :</td>
-                <td class="table-data">9.00 X 16</td>
-                </tr>
-            </tbody>
-        </table>
-        <h5 class="fw-bold pt-2 ps-3">Dimensions</h5>
-        <table class="table w-75 table-hover table table-striped my-4">
-            <tbody>
-                <tr>
-                <td class="table-data">Length : </td>
-                <td class="table-data">	8535 mm</td>
-                </tr>
-                <tr>
-                <td class="table-data">Height :</td>
-                <td class="table-data">4572 mm</td>
-                </tr>
-                <tr>
-                <td class="table-data">Min Ground Clearance:</td>
-                <td class="table-data">460 mm</td>
-                </tr>
-                <tr>
-                <td class="table-data">Weight :</td>
-                <td class="table-data">9150 Kgs. (Approx.)</td>
-                </tr>
-            </tbody>
-        </table>
-        <h5 class="fw-bold pt-2 ps-3"> Working Capacity</h5>
-        <table class="table w-75 table-hover table table-striped my-4">
-            <tbody>
-                <tr>
-                <td class="table-data ">Wheat :</td>
-                <td class="table-data">	4.5 Acres/hour(approx)</td>
-                </tr>
-                <tr>
-                <td class="table-data">Paddy :</td>
-                <td class="table-data">	4 Acres/hour(approx)</td>
-                </tr>
             </tbody>
         </table>
 
@@ -310,7 +658,8 @@
 </section>
 
 
-    <section>
+        <!-- CARDS SIMILAR HARVETER -->
+        <section>
          <div class="container ">
             <h2 class="fw-bold text-dark text-start mt-4 assured ps-3">Similar Harvesters</h3>
             <div class="row">
@@ -430,9 +779,83 @@
     </section>
 
 
-<?php
-    include 'includes/footer.php';
-    include 'includes/footertag.php';
-
+    <?php
+        include 'includes/footer.php';
+        include 'includes/footertag.php';
     ?>
+
+    <script>
+        $(document).ready(function(){
+          jQuery.validator.addMethod("customPhoneNumber", function(value, element) {
+            return /^[6-9]\d{9}$/.test(value); 
+          }, "Phone number must start with 6 or above");
+            $("#engine_oil_btn").click(function () {
+                // setTimeout(() => {
+                //     console.log("validation of Department")
+                // }, 2000);
+                $("form[id='engine_oil_form']").validate({
+                    rules: {
+                        f_name: {
+                            required: true,
+                            minlength: 3
+                        },
+
+                        eo_name: {
+                            required: true,
+                            minlength: 3
+                        },
+                        eo_number: {
+                            required: true,
+                            minlength: 10,
+                            maxlength: 10,
+                            digits: true,
+                            customPhoneNumber: true 
+                        },
+                        eo_state: {
+                            required: true,
+                            // minlength: 3
+                        },
+                        // eo_tehsil: {
+                        //     required: true,
+                        //     // minlength: 3
+                        // },
+                        eo_dist: {
+                            required: true,
+                            // minlength: 3
+                        }
+                    },
+                    messages: {
+                        f_name: {
+                            required: "Enter Your First Name",
+                            minlength: "First Name must be atleast 3 characters long"
+                        },
+                        eo_name: {
+                            required: "Enter Your Last Name",
+                            minlength: "Last Name must be atleast 3 characters long"
+                        },
+                        eo_number: {
+                            required: "Enter Your Phone Number",
+                            minlength: "Phone Number must be of 10 Digit",
+                            maxlength: "Ensure exactly 10 digits of Mobile No.",
+                            digits: "Please enter only digits"
+                        },
+                        eo_state: {
+                            required: "Select Your State",
+                            // minlength: "First Name must be atleast 3 characters long"
+                        },
+                        // eo_tehsil: {
+                        //     required: "Select Your Tehsil",
+                        //     // minlength: "First Name must be atleast 3 characters long"
+                        // },
+                        eo_dist: {
+                            required: "Select Your District",
+                            // minlength: "First Name must be atleast 3 characters long"
+                        }                        
+                    },
+
+                });
+            })
+        });
+    </script>
+
     </html>

@@ -213,10 +213,10 @@ get();
 
 
 // get year
-function get_year() {
+function get_year_and_hours() {
   // var url = "<?php echo $APIBaseURL; ?>getBrands";
   var apiBaseURL =APIBaseURL;
-  // Now you can use the retrieved value in your JavaScript logichttp://127.0.0.1:8000/api/customer/get_year_and_hours
+  // Now you can use the retrieved value in your JavaScript logic
   var url = apiBaseURL + 'get_year_and_hours';
   $.ajax({
       url: url,
@@ -226,14 +226,14 @@ function get_year() {
       },
       success: function (data) {
           console.log(data);
-          const select = document.getElementById('purchase_year');
+          const select = document.getElementById('brand');
           select.innerHTML = '';
 
           if (data.brands.length > 0) {
               data.brands.forEach(row => {
                   const option = document.createElement('option');
                   option.value = row.id; // You might want to set a value for each option
-                  option.textContent = row.purchase_year;
+                  option.textContent = row.brand_name;
                   select.appendChild(option);
               });
           } else {
@@ -245,7 +245,7 @@ function get_year() {
       }
   });
 }
-get_year();
+get_year_and_hours();
 
 
 // store
@@ -253,7 +253,9 @@ get_year();
 function store(event) {
     event.preventDefault();
     console.log('jfhfhw');
-    // var location = $('#location').val();
+    var form_type = $('#form_type').val();
+    var enquiry_type_id = $('#enquiry_type_id').val();
+    console.log("enquiry type :",$('#enquiry_type_id').val());
     var first_name = $('#first_name').val();
     console.log(first_name);
     var last_name = $('#last_name').val();
@@ -263,12 +265,12 @@ function store(event) {
     var brand_name = $('#brand').val();
     var Model_name = $('#model').val();
     var purchase_year = $('#purchase_year').val();
-    var product_type = $('#product_type_id').val();
+    var product_type_id = $('#product_type_id').val();
+    console.log("enquiry type :",$('#product_type_id').val());
     var tehsil = $('#tehsil').val();
     var engine_condition = $('#condition').val();
     var tyre_condition = $('#tyrecondition').val();
     var hours_driven = $('#hours_driven').val();
-    
     var rc = $('#rc_num').val();
     var finance = $('input[name="fav_language"]:checked').val();
     var nocAvailable = $('input[name="fav_language1"]:checked').val();
@@ -276,13 +278,18 @@ function store(event) {
     var image = $('#image_pic').val();
     var description = $('#description').val();
 
+    
+
+
     // Prepare data to send to the server
     var paraArr = {
+      'form_type':form_type,
+      'enquiry_type_id':enquiry_type_id,
       'first_name': first_name,
       'last_name': last_name,
       'mobile': mobile,
       'brand_id': brand_name,
-      'product_type': product_type,
+      'product_type_id': product_type_id,
       'model': Model_name,
       'purchase_year': purchase_year,
       'engine_condition': engine_condition,
@@ -300,7 +307,7 @@ function store(event) {
     };
 
     var apiBaseURL =APIBaseURL;
-    var url = apiBaseURL + 'storeProductType';
+    var url = apiBaseURL + 'customer_enquiries';
     console.log(url);
    // var url = "<?php echo $APIBaseURL; ?>user_login";
     // console.log(url);
@@ -320,7 +327,6 @@ function store(event) {
         }
        
         // console.log("Add successfully");
-        // alert('successfully inserted..!');
       },
       error: function (error) {
         console.error('Error fetching data:', error);
@@ -348,7 +354,7 @@ function store(event) {
    function get_tractor_list() {
     console.log('kjhskdjf');
     var apiBaseURL =APIBaseURL;
-    var url = apiBaseURL + 'getOldTractor';
+    var url = apiBaseURL + 'get_old_tractor';
 
     $.ajax({
         url: url,
@@ -401,7 +407,7 @@ get_tractor_list();
 // delete data
   function destroy(id) {
     var apiBaseURL = APIBaseURL;
-    var url = apiBaseURL + 'deleteProduct/' + id;
+    var url = apiBaseURL + 'deleteProduct/' + customer_id;
     var token = localStorage.getItem('token');
   
     if (!token) {

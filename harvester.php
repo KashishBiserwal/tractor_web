@@ -6,6 +6,11 @@
    include 'includes/headertag.php';
    ?>
 </head>
+<style>
+  .negative-margin {
+    margin-top: -10px !important; /* Adjust this value as needed */
+  }
+</style>
 
 <body>
    <?php
@@ -14,7 +19,7 @@
 
 <section class="mt-5 pt-5">
     <div class="container">
-        <div class="pt-4">
+        <div class=" mt-4 pt-4">
             <span class="text-white pt-4 ">
                 <a href="index.php" class="text-decoration-none header-link px-1">Home <i class="fa-solid fa-chevron-right px-1"></i></a>
                     <span class="text-dark">Harvesters</span>
@@ -23,10 +28,10 @@
     </div>
 </section>
 <section >
-    <div class="container my-3">
+    <div class="container my-4">
         <div class="row">
             <div class="col-12 col-sm-9 col-lg-9 col-md-9">
-                <h3 class="">Used <span class="text-success fw-bold">Tractor Combine Harvesters</span> </h3>
+                <h3 class=" fw-bold">Harvesters</h3>
               
                 <div class="row my-4">
                     <div class="col-12 col-lg-4 col-md-4 col-sm-4 mb-4">
@@ -35,6 +40,9 @@
                                 <div>
                                     <img src="assets/images/40009999.webp" class="object-fit-cover w-100" alt="img">
                                 </div>
+                            </div>
+                            <div class="position-absolute" >
+                                <p  style="font-size:13px;" class="rounded-pill bg-success text-white ms-1 text-center px-2 mt-1">Self Propelled</p>
                             </div>
                             <div class="content d-flex flex-column flex-grow-1 ">
                                 
@@ -57,12 +65,16 @@
                             </div>
                         </a>
                     </div>
+
                     <div class="col-12 col-lg-4 col-md-4 col-sm-4 mb-4">
                         <a href="#" class="h-auto success__stry__item d-flex flex-column text-decoration-none shadow ">
                             <div class="thumb">
                                 <div>
                                     <img src="assets/images/987-1646896081.webp" class="object-fit-cover  w-100" alt="img">
                                 </div>
+                            </div>
+                            <div class="position-absolute" >
+                                <p  style="font-size:13px;"class="rounded-pill bg-success text-white ms-1 text-center px-2 mt-1">Self Propelled</p>
                             </div>
                             <div class="content d-flex flex-column flex-grow-1 ">
                                 
@@ -85,12 +97,16 @@
                             </div>
                         </a>
                     </div>
+                    
                     <div class="col-12 col-lg-4 col-md-4 col-sm-4 mb-4">
                         <a href="#" class="h-auto success__stry__item d-flex flex-column text-decoration-none shadow ">
                             <div class="thumb">
                                 <div>
                                     <img src="assets/images/435-1647923189.webp" class="object-fit-cover  w-100 " alt="img">
                                 </div>
+                            </div>
+                            <div class="position-absolute" >
+                                <p  style="font-size:13px;"class="rounded-pill bg-success text-white ms-1 text-center px-2 mt-1">Self Propelled</p>
                             </div>
                             <div class="content d-flex flex-column flex-grow-1 ">
                                 
@@ -113,12 +129,16 @@
                             </div>
                         </a>
                     </div>
+
                     <div class="col-12 col-lg-4 col-md-4 col-sm-4 mb-4">
                         <a href="#" class="h-auto success__stry__item d-flex flex-column text-decoration-none shadow ">
                             <div class="thumb">
                                 <div>
                                     <img src="assets/images/harvestmaster-h12-4wd-1649325881.webp" class="object-fit-cover  w-100" alt="img">
                                 </div>
+                            </div>
+                            <div class="position-absolute" >
+                                <p style="font-size:13px;" class="rounded-pill bg-success text-white ms-1 text-center px-2 mt-1">Self Mounted</p>
                             </div>
                             <div class="content d-flex flex-column flex-grow-1 ">
                                 
@@ -141,12 +161,16 @@
                             </div>
                         </a>
                     </div>
+
                     <div class="col-12 col-lg-4 col-md-4 col-sm-4 mb-4">
                         <a href="#" class="h-auto success__stry__item d-flex flex-column text-decoration-none shadow ">
                             <div class="thumb">
                                 <div>
                                     <img src="assets/images/harvesking-dc-68g-hk-1647922688.webp" class="object-fit-cover  w-100" alt="img">
                                 </div>
+                            </div>
+                            <div class="position-absolute" >
+                                <p  style="font-size:13px;"class="rounded-pill bg-success text-white ms-1 text-center px-2 mt-1">Self Propelled</p>
                             </div>
                             <div class="content d-flex flex-column flex-grow-1 ">
                                 
@@ -169,12 +193,16 @@
                             </div>
                         </a>
                     </div>
+
                     <div class="col-12 col-lg-4 col-md-4 col-sm-4 mb-4">
                         <a href="#" class="h-auto success__stry__item d-flex flex-column text-decoration-none shadow ">
                             <div class="thumb">
                                 <div>
                                     <img src="assets/images/40009999.webp" class="object-fit-cover  w-100" alt="img">
                                 </div>
+                            </div>
+                            <div class="position-absolute" >
+                                <p  style="font-size:13px;"class="rounded-pill bg-success text-white ms-1 text-center px-2 mt-1">Self Propelled</p>
                             </div>
                             <div class="content d-flex flex-column flex-grow-1 ">
                                 
@@ -198,9 +226,13 @@
                         </a>
                     </div>
 
+                    <div class="text-center my-2">
+                  <button type="submit" id="engine_oil_btn" class="btn btn-success shadow px-5 w-40">Load More</button>         
+                </div>     
+
                 </div>
             </div>
-            
+            <!-- RESET APPLY FILTER -->
             <div class="col-12 col-sm-3 col-lg-3 col-md-3">
                 <div class=" row mb-3" id="">
                     <div class="col-12 col-sm-12 col-md-12 col-lg-12">
@@ -216,16 +248,21 @@
                             
                         </div>
                     </div>
-                </div>
+                </div> 
                
                 <div class=" mb-3" id="">
                     <div class="force-overflow">
                         <h5 class=" ps-1  text-dark fw-bold mb-3">Cutting Width</h5>
                         <div class="price py-2 ">
-                         
-                            <input type="checkbox" class="checkbox-round ms-3" value="0-3"/><span class="ps-2 fs-6"> 1 to 10</span><br />
-                            <input type="checkbox" class="checkbox-round ms-3" value="3-6"/><span class="ps-2 fs-6">11 to 20</span><br />
-                            <input type="checkbox" class="checkbox-round ms-3" value="6-9"/><span class="ps-2 fs-6"> 9 Lakh - 9 Lakh</span><br />
+                            <div class=" d-flex">
+                                <input type="checkbox" class="checkbox-round mt-1 ms-3" value="0-3"/><span class="ps-2 fs-6"> 1 to 10</span><br />
+                            </div>
+                            <div class=" d-flex">
+                                <input type="checkbox" class="checkbox-round mt-1 ms-3" value="3-6"/><span class="ps-2 fs-6">11 to 20</span><br />
+                            </div>
+                            <div class=" d-flex">
+                                <input type="checkbox" class="checkbox-round mt-1 ms-3" value="6-9"/><span class="ps-2 fs-6"> 9 Lakh - 9 Lakh</span><br />
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -234,16 +271,37 @@
                     <h5 class=" ps-1 text-dark fw-bold  pt-2">Search By Brand</h5>
                         <div class="HP py-2">
                             <!-- <input type="checkbox" class="text-align-center ms-3" value=""/><span> This is checkbox </span><br /> -->
-                            <input type="checkbox" class="checkbox-round ms-3" value="Mahindra"/><span class="ps-2 fs-6">Mahindra (97)</span><br />
-                            <input type="checkbox" class="checkbox-round ms-3" value="Farmtrac"/><span class="ps-2 fs-6">Farmtrac (21)</span><br />
-                            <input type="checkbox" class="checkbox-round ms-3" value="Swaraj"/><span class="ps-2 fs-6">Swaraj (19)</span><br />
-                            <input type="checkbox" class="checkbox-round ms-3" value="Massey"/><span class="ps-2 fs-6">Massey Ferguson (16)</span><br />
-                            <input type="checkbox" class="checkbox-round ms-3" value="Powertrac"/><span class="ps-2 fs-6">Powertrac (15)</span><br />
-                            <input type="checkbox" class="checkbox-round ms-3" value="Sonalika"/><span class="ps-2 fs-6">Sonalika (15)</span><br />
-                            <input type="checkbox" class="checkbox-round ms-3" value="Eicher"/><span class="ps-2 fs-6">Eicher (12)</span><br />
-                            <input type="checkbox" class="checkbox-round ms-3" value="John"/><span class="ps-2 fs-6">John Deere (6)</span><br />
-                            <input type="checkbox" class="checkbox-round ms-3" value="Escorts"/><span class="ps-2 fs-6">Escorts (13)</span><br />
-                            <input type="checkbox" class="checkbox-round ms-3" value="Holland"/><span class="ps-2 fs-6">New Holland (2)</span><br />
+                            <div class=" d-flex">
+                                <input type="checkbox" class="checkbox-round mt-1 ms-3" value="Mahindra"/><span class="ps-2 fs-6">Mahindra (97)</span>
+                            </div>
+                            <div class=" d-flex">
+                                <input type="checkbox" class="checkbox-round mt-1 ms-3" value="Farmtrac"/><span class="ps-2 fs-6">Farmtrac (21)</span><br />
+                            </div>
+                            <div class=" d-flex">
+                                <input type="checkbox" class="checkbox-round mt-1 ms-3" value="Swaraj"/><span class="ps-2 fs-6">Swaraj (19)</span><br />
+                            </div>
+                            <div class=" d-flex">
+                                <input type="checkbox" class="checkbox-round mt-1 ms-3" value="Massey"/><span class="ps-2 fs-6">Massey Ferguson (16)</span><br />
+                            </div>
+                            <div class=" d-flex">
+                                <input type="checkbox" class="checkbox-round mt-1 ms-3" value="Powertrac"/><span class="ps-2 fs-6">Powertrac (15)</span><br />
+                            </div>
+                            <div class=" d-flex">
+                                <input type="checkbox" class="checkbox-round mt-1 ms-3" value="Sonalika"/><span class="ps-2 fs-6">Sonalika (15)</span><br />
+                            </div>
+                            <div class=" d-flex">
+                                <input type="checkbox" class="checkbox-round mt-1 ms-3" value="Eicher"/><span class="ps-2 fs-6">Eicher (12)</span><br />
+                            </div>
+                            <div class=" d-flex">
+                                <input type="checkbox" class="checkbox-round mt-1 ms-3" value="John"/><span class="ps-2 fs-6">John Deere (6)</span><br />
+                            </div>
+                            <div class=" d-flex">
+                                <input type="checkbox" class="checkbox-round mt-1 ms-3" value="Escorts"/><span class="ps-2 fs-6">Escorts (13)</span><br />
+                            </div>
+                            <div class=" d-flex">
+                                <input type="checkbox" class="checkbox-round mt-1 ms-3" value="Holland"/><span class="ps-2 fs-6">New Holland (2)</span><br />
+                            </div>
+
                         </div>
                     </div>
                 </div>
@@ -251,9 +309,12 @@
                     <div class="force-overflow">
                         <h5 class=" ps-1 text-dark fw-bold mb-3">Power Source</h5>
                         <div class="price py-2 ">
-                          
-                            <input type="checkbox" class="checkbox-round ms-3" value="0-3"/><span class="ps-2 fs-6">Self Propelled (104)</span><br />
-                            <input type="checkbox" class="checkbox-round ms-3" value="3-6"/><span class="ps-2 fs-6">Tractor Mounted (14)</span><br />
+                            <div class=" d-flex">
+                                <input type="checkbox" class="checkbox-round mt-1 ms-3" value="0-3"/><span class="ps-2 fs-6">Self Propelled (104)</span><br />
+                            </div>
+                            <div class=" d-flex">
+                                <input type="checkbox" class="checkbox-round mt-1 ms-3" value="3-6"/><span class="ps-2 fs-6">Tractor Mounted (14)</span><br />
+                            </div>
                         </div>
                     </div>
                 </div>
