@@ -1,14 +1,14 @@
 <?php
-//  $APIBaseURL = 'http://127.0.0.1:8000/api/admin/';
+ $APIBaseURL = 'http://tractor-api.divyaltech.com/api/admin/';
 $baseUrl = '/tractor-project/tractor_project/';
-  $APIBaseURL = "http://192.168.1.41:8000/api/admin/";
+//   $APIBaseURL = "http://192.168.1.41:8000/api/admin/";
 ?>
 <meta charset="UTF-8">
 	<title>Tractor Junction</title>
 	<link rel="icon" type="image/x-icon" href="favicon.ico">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="apple-mobile-web-app-capable" content="yes" />	
-	<meta name="apple-touch-fullscreen" content="yes" />
+	<meta name="apple-touch-fullscreen" content="yes"/>
     <meta name="apple-mobile-web-app-status-bar-style" content="default"/>
 	<meta name="description" content="">
 	<link rel="stylesheet" type="text/css" href="assets/css/bootstrap.css" />

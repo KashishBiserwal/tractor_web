@@ -65,31 +65,31 @@
                             <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
                                 <div class="form-outline">
                                     <label for="name" class="form-label text-dark"> <i class="fa-regular fa-user"></i> First Name</label>
-                                    <input type="text" class="form-control" placeholder="Enter Your Name" id="f_name" name="f_name">
+                                    <input type="text" class="form-control" placeholder="Enter Your Name" id="f_name" name="f_name" required>
                                 </div>
                             </div>
                             <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
                                 <div class="form-outline">
                                     <label for="name" class="form-label text-dark"> <i class="fa-regular fa-user"></i> Last Name</label>
-                                    <input type="text" class="form-control" placeholder="Enter Your Name" id="lname_" name="lname_">
+                                    <input type="text" class="form-control" placeholder="Enter Your Name" id="lname_" name="lname_"required>
                                 </div>
                             </div>
                             <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
                                 <div class="form-outline mt-3">
                                     <label for="number" class="form-label text-dark"> <i class="fa fa-phone" aria-hidden="true"></i> Phone Number</label>
-                                    <input type="password" class="form-control" placeholder="Enter Number" id="number" name="number">
+                                    <input type="password" class="form-control" placeholder="Enter Number" id="number" name="number" required>
                                 </div>
                             </div>
                             <div class="col-12 col-sm-12 col-md-6 col-lg-6">
                                 <div class="form-outline my-3">
                                     <label for="yr_tehsil" class="form-label text-dark">Tehsil</label>
-                                    <input type="yr_tehsil" class="form-control" placeholder="Enter Your Tehsil" id="tehsil_" name="tehsil_">
+                                    <input type="yr_tehsil" class="form-control" placeholder="Enter Your Tehsil" id="tehsil_" name="tehsil_" required>
                                 </div>
                             </div>
                             <div class="col-12 col-sm-12 col-md-6 col-lg-6">
                                <div class="form-outline my-3">
                                     <label for="yr_state" class="form-label text-dark" id="state" name="state"> <i class="fas fa-location"></i> State</label>
-                                    <select class="form-select py-2 " aria-label=".form-select-lg example"id="state" name="state">
+                                    <select class="form-select py-2 " aria-label=".form-select-lg example"id="state" name="state" required>
                                         <option value>Select State</option>
                                         <option value="1">Chhattisgarh</option>
                                         <option value="2">Other</option>
@@ -99,7 +99,7 @@
                             <div class="col-12 col-sm-12 col-md-6 col-lg-6">
                                 <div class="form-outline my-3">
                                     <label class="form-label text-dark"><i class="fa-solid fa-location-dot"></i> District</label>
-                                    <select class="form-select py-2 " aria-label=".form-select-lg example" name="district" id="district">
+                                    <select class="form-select py-2 " aria-label=".form-select-lg example" name="district" id="district" required>
                                         <option value>Select District</option>
                                         <option value="1">Raipur</option>
                                         <option value="2">Bilaspur</option>
@@ -115,7 +115,7 @@
                             <div class="col-12 col-sm-12 col-md-6 col-lg-6">
                                 <div class="form-outline">
                                     <label class="form-label text-dark">Brand</label>
-                                    <select class="form-select py-2 " aria-label=".form-select-lg example" name="Brand" id="Brand">
+                                    <select class="form-select py-2 " aria-label=".form-select-lg example" name="Brand" id="Brand" required>
                                         <option value>Select Brand</option>
                                         <option value="1">Mahindra</option>
                                         <option value="2">svaraj</option>
@@ -126,7 +126,7 @@
                             <div class="col-12 col-sm-12 col-md-6 col-lg-6">
                                 <div class="form-outline">
                                     <label class="form-label text-dark">Model</label>
-                                    <select class="form-select py-2 " aria-label=".form-select-lg example" name="Model" id="Model">
+                                    <select class="form-select py-2 " aria-label=".form-select-lg example" name="Model" id="Model" required>
                                         <option value="">Select Model</option>
                                         <option value="1">MU4501 2WD</option>
                                         <option value="2">MU5501</option>
@@ -137,7 +137,7 @@
                             <div class="col-12 col-sm-12 col-md-6 col-lg-6">
                                 <div class="form-outline my-2">
                                     <label class="form-label text-dark">Year</label>
-                                    <select class="form-select py-2 " aria-label=".form-select-lg example" name="year" id="year">
+                                    <select class="form-select py-2 " aria-label=".form-select-lg example" name="year" id="year" required>
                                         <option value="">Select year</option>
                                         <option value="1">2007</option>
                                         <option value="2">2008</option>
@@ -148,7 +148,7 @@
                             <div class="col-12 col-sm-12 col-md-6 col-lg-6">
                                 <div class="form-outline my-2">
                                     <label class="form-label text-dark">Engine Condition</label>
-                                    <select class="form-select py-2 " aria-label=".form-select-lg example" name="engine_condition" id="engine_condition">
+                                    <select class="form-select py-2 " aria-label=".form-select-lg example" name="engine_condition" id="engine_condition" required>
                                         <option value="">Select Engine Condition</option>
                                         <option value="1">0-25%(poor)</option>
                                         <option value="2">25-50%(Average)</option>
@@ -160,7 +160,7 @@
                             <div class="col-12 col-sm-12 col-md-6 col-lg-6">
                                 <div class="form-outline my-2">
                                     <label class="form-label text-dark">Tyre Condition</label>
-                                    <select class="form-select py-2 " aria-label=".form-select-lg example" name="Tyre_Condition" id="Tyre_Condition">
+                                    <select class="form-select py-2 " aria-label=".form-select-lg example" name="Tyre_Condition" id="Tyre_Condition" required>
                                         <option value="">Select Tyre Condition</option>
                                         <option value="1">0-25%(poor)</option>
                                         <option value="2">25-50%(Average)</option>
@@ -172,7 +172,7 @@
                             <div class="col-12 col-sm-12 col-md-6 col-lg-6">
                                 <div class="form-outline my-2">
                                     <label class="form-label text-dark">Hours driven</label>
-                                    <select class="form-select py-2 " aria-label=".form-select-lg example" name="hours_driven" id="hours_driven">
+                                    <select class="form-select py-2 " aria-label=".form-select-lg example" name="hours_driven" id="hours_driven"required>
                                         <option value="">Select Hours driven</option>
                                         <option value="1">Less then 1000</option>
                                         <option value="2">1001-2000</option>
@@ -185,7 +185,7 @@
                     <div class="step_sellused">
                         <p class="text-center mb-4">Upload Tractor Images</p>
                         <div class="col-12 col-sm-12 col-md-12 col-lg-12">
-                            <input type="file" id="myFile" name="myFile">
+                            <input type="file" id="myFile" name="myFile" required>
                         </div>
                         <div class="col-12 col-sm-12 col-md-12 col-lg-12">
                             <label class="form-label text-dark my-1">How early do you want to sell?</label>

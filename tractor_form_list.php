@@ -150,7 +150,7 @@ include 'includes/footertag.php';
                               <div class="col-12 col-sm-4 col-lg-4 col-md-4">
                                 <div class="form-outline">
                                   <label class="form-label">Fuel pump</label>
-                                  <select class="form-select py-2" id="fuel_pump_id" aria-label="Default select example">
+                                  <select class="form-select py-2" id="FUEL_PUMP" aria-label="Default select example">
                                     <option value=""></option>
                                   </select>
                                 </div>

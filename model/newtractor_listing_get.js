@@ -20,7 +20,7 @@ function formatDateTime(originalDateTimeStr) {
   function getTractorList() {
     console.log('kjhskdjf');
     var apiBaseURL =APIBaseURL;
-    var url = apiBaseURL + 'getNewTractor';
+    var url = apiBaseURL + 'get_new_tractor';
 
     // console.log(url);  
 

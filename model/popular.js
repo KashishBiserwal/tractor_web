@@ -7,7 +7,7 @@ $(document).ready(function() {
 
 
 function getTractorList() {
-    var url = "http://192.168.1.41:8000/api/customer/get_new_tractor";
+    var url = "http://tractor-api.divyaltech.com/api/customer/get_new_tractor";
     console.log(url);
 
     $.ajax({
