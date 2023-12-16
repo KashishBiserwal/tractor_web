@@ -863,7 +863,7 @@
 
                     <div class=" mb-3" id="">
                         <div class="force-overflow">
-                            <h5 class=" ps-3 text-dark fw-bold mb-3">Harvest</h5>
+                            <h5 class=" text-center text-dark fw-bold mb-3">Harvest</h5>
                             <div class="price py-2 " style="margin: 0 auto;">
                                 <div class=" d-flex">
                                     <input type="checkbox" class="checkbox-round ms-3 mt-1" value="vege" /><span
