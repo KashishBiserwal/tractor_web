@@ -4,6 +4,7 @@ include 'includes/headertag.php';
    include 'includes/footertag.php';
    
    ?> 
+ 
 <script> var APIBaseURL = "<?php echo $APIBaseURL; ?>";</script>
 <script> var baseUrl = "<?php echo $baseUrl; ?>";</script>
 <script src="<?php $baseUrl; ?>model/usermanagement.js"></script>

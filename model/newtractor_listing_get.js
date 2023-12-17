@@ -16,6 +16,34 @@ function formatDateTime(originalDateTimeStr) {
 
     return `${day}-${month}-${year} / ${hours}:${minutes}:${seconds}`;
     }
+
+  //   $('#Search').click(function(){
+  //     $('#example').DataTable().destroy();
+  //     $('#example').dataTable({
+  //         'processing': true,
+  //         'serverSide': true,
+  //         'bSort': true,
+  //         'bPaginate': false, // Set pagination to false
+  //         'bLengthChange': true,
+  //         'bFilter': false,
+  //         'iDisplayLength': 10,
+  //         'bRetrieve': true,
+  //         'ajax': {
+  //             'type': 'GET',
+  //             'url': 'getRoutes.cfm?method=selectALLData',
+  //             'data': {
+  //                 email: $('#search_Email').val(),
+  //                 name: $('#Search_name').val()
+  //             },
+  //             'error': function (jqXHR, textStatus, errorThrown) {
+  //                 //$("#loader-wrapper").hide();
+  //             }
+  //         }
+  //     });
+  // });
+  
+
+
   // fetch data
   function getTractorList() {
     console.log('kjhskdjf');
@@ -32,6 +60,22 @@ function formatDateTime(originalDateTimeStr) {
         },
         success: function (data) {
             console.log(data);
+            var select_model = $("#model");
+            select_model.empty(); // Clear existing options
+            select_model.append('<option selected disabled="" value="">Please select a model</option>'); 
+            console.log(data, 'ok');
+            for (var j = 0; j < data.product.allProductData.length; j++) {
+              var model = data.product.allProductData[j].model;
+              select_model.append('<option value="' + model + '">' + model + '</option>');
+          }
+          var select_hp = $("#hp");
+          select_hp.empty(); // Clear existing options
+          select_hp.append('<option selected disabled="" value="">Please select HP</option>'); 
+          console.log(data, 'ok');
+          for (var j = 0; j < data.product.allProductData.length; j++) {
+            var model = data.product.allProductData[j].hp_category;
+            select_hp.append('<option value="' + model + '">' + model + '</option>');
+        }
 
             const tableBody = document.getElementById('data-table');
 
@@ -39,9 +83,8 @@ function formatDateTime(originalDateTimeStr) {
                 // console.log(typeof product);
 
                 data.product.allProductData.forEach(row => {
-                  
                   const tableRow = document.createElement('tr');
-                //   console.log(tableRow, 'helloooo');
+                  // console.log(tableRow, 'helloooo');
                     tableRow.innerHTML = `
                    
                         <td>${row.product_id}</td>
@@ -70,6 +113,41 @@ function formatDateTime(originalDateTimeStr) {
         }
     });
 }
+
+// get brand
+function get() {
+  // var url = "<?php echo $APIBaseURL; ?>getBrands";
+  var apiBaseURL =APIBaseURL;
+  // Now you can use the retrieved value in your JavaScript logic
+  var url = apiBaseURL + 'getBrands';
+  $.ajax({
+      url: url,
+      type: "GET",
+      headers: {
+          'Authorization': 'Bearer ' + localStorage.getItem('token')
+      },
+      success: function (data) {
+          console.log(data);
+          const select = document.getElementById('brand');
+          select.innerHTML = '';
+
+          if (data.brands.length > 0) {
+              data.brands.forEach(row => {
+                  const option = document.createElement('option');
+                  option.value = row.id; // You might want to set a value for each option
+                  option.textContent = row.brand_name;
+                  select.appendChild(option);
+              });
+          } else {
+              select.innerHTML ='<option>No valid data available</option>';
+          }
+      },
+      error: function (error) {
+          console.error('Error fetching data:', error);
+      }
+  });
+}
+get();
 
 // delete data
 function destroy(id) {

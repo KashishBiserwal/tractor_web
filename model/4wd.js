@@ -12,6 +12,7 @@ function getTractorList() {
         url: url,
         type: "GET",
         success: function(data) {
+            document.getElementById('4wd_descrip').innerText=data.product.allProductData[0].description;
             console.log(data, 'abc');
             console.log('prachi',data.product.accessory_and_tractor_type[0].tractor_type_name);
             let new_arr=[];

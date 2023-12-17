@@ -2,6 +2,9 @@ jQuery(document).ready(function () {
     get_old_harvester();
     ImgUpload();
     $('#submitbtn').click(store);
+    // $('#old_form').on('submit',function(event){
+    //   store();
+    // });
     jQuery.validator.addMethod("customPhoneNumber", function(value, element) {
         return /^[6-9]\d{9}$/.test(value); 
     }, "Phone number must start with 6 or above");
@@ -300,8 +303,8 @@ function store(event) {
     var hours = $('#hours').val();
     var year = $('#year').val();
     var price = $('#price').val();
-    var image = $('#image').val();
-    console.log($('#image').val());
+    // var image = $('#image').val();
+    var image = document.getElementById('image').files[0];
     var about = $('#about').val();
     var name = $('#name').val();
     var lname =$('#lname').val();
@@ -309,30 +312,6 @@ function store(event) {
     var state = $('#state').val();
     var district = $('#district').val();
     var tehsil = $('#tehsil').val();
-
-    // Prepare data to send to the server
-    var paraArr = {
-        'form_type':form_type,
-        'enquiry_type_id':enquiry_type_id,
-        'product_type_id': product_type_id,
-      'brand':brand,
-      'model':model,
-      'crop_type':CROPS_TYPE,
-      'power':POWER_SOURCE,
-      'hours':hours,
-      'year':year,
-      'price':price,
-      'image':image,
-      'about':about,
-      'first_name':name,
-      'last_name':lname,
-      'mobile':Mobile,
-      'state':state,
-      'district':district,
-      'tehsil':tehsil,
-     
-    };
-
     var apiBaseURL =APIBaseURL;
     // var url = apiBaseURL + 'harvester';
     var url="http://tractor-api.divyaltech.com/api/customer/customer_enquiries";
@@ -343,11 +322,36 @@ function store(event) {
     var headers = {
       'Authorization': 'Bearer ' + token
     };
+    var data = new FormData();
+    var image = document.getElementById('image').files;
+for (var x = 0; x < image.length; x++) {
+    data.append("image[]", image[x]);
+}
+    // data.append('image', image);
+    data.append('form_type', form_type);
+    data.append('enquiry_type_id', enquiry_type_id);
+    data.append('product_type_id', product_type_id);
+    data.append('brand', brand);
+    data.append('model', model);
+    data.append('crop_type', CROPS_TYPE);
+    data.append('power', POWER_SOURCE);
+    data.append('hours', hours);
+    data.append('year', year);
+    data.append('price', price);
+    data.append('about', about);
+    data.append('first_name', name);
+    data.append('last_name', lname);
+    data.append('mobile', Mobile);
+    data.append('state', state);
+    data.append('district', district);
+    data.append('tehsil', tehsil);
     $.ajax({
       url: url,
       type: "POST",
-      data: paraArr,
+      data: data,
       headers: headers,
+      processData: false, 
+      contentType: false,
       success: function (result) {
         // console.log(result, "result");
         if(result.length){

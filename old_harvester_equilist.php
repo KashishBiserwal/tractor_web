@@ -44,7 +44,7 @@
                         <div class="row justify-content-center">
                             <div class="col-lg-10">
                               <!-- <h4 class="text-center">Fill your Tractor Details</h4> -->
-                              <form id="old_form">
+                              <form id="old_form" enctype="multipart/form-data" onsubmit="return false">
                             <div class="row justify-content-center pt-4">
                                 <h5 class="fw-bold">Your Harvester Information</h5>
                                 <div class="col-12 col-lg-6 col-md-6 col-sm-6" hidden>
@@ -123,7 +123,7 @@
                                             <div class="upload__btn-box text-center">
                                               <label >
                                                 <p class="upload__btn ">Upload images</p>
-                                                <input type="file" name='files[]' multiple="" data-max_length="20" class="upload__inputfile" id="image" name="image" enctype="multipart/form-data">
+                                                <input type="file" name='files[]' multiple="" data-max_length="20" class="upload__inputfile" id="image">
                                               </label>
                                             </div>
                                             <div id="selectedImagesContainer" class="upload__img-wrap"></div>

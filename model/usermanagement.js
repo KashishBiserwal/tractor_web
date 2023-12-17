@@ -1,5 +1,6 @@
 $(document).ready(function() {
 console.log("ready");
+
   jQuery.validator.addMethod("customPhoneNumber", function(value, element) {
     return /^[6-9]\d{9}$/.test(value); 
   }, "Phone number must start with 6 or above");

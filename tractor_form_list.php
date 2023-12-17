@@ -118,7 +118,7 @@ include 'includes/footertag.php';
                                   </div>
                                 </div>
                               </div>
-                              <h5 class="fw-bold"> Brand Details</h5>
+                              <h5 class="fw-bold"> Engine Details</h5>
                               <div class="col-12 col-sm-4 col-lg-4 col-md-4">
                                 <div class="form-group">
                                   <input type="text" class="" placeholder=" " id="CAPACITY_CC">

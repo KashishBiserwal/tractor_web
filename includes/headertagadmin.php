@@ -12,4 +12,6 @@
 	<link rel="stylesheet" type="text/css" href="assets/css/main.css" />
 	<link rel="stylesheet" type="text/css" href="assets/css/swiper.css" />
 	<link rel="stylesheet" type="text/css" href="assets/fontawesome/css/all.css" />
-	<link rel="stylesheet" type="text/css" href="assets/fontawesome/css/all.min.css" />
+	<link rel="stylesheet" type="text/css" href="assets/fontawesome/css/all.min.css"/>
+
+	

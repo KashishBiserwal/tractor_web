@@ -6,6 +6,8 @@ $(document).ready(function() {
             login();
         });
     }
+
+
 });
 
 function showOverlay() {
@@ -33,14 +35,42 @@ var url = apiBaseURL + 'user_login';
         contentType: "application/json", 
         data: JSON.stringify(paraArr), 
         success: function (result) {
+            // console.log(result, 'login success');
+            // localStorage.setItem('token', result.access_token);
+            // localStorage.setItem('expireIn', result.expires_in);
+            // window.location.href = baseUrl +"usermanagement.php"; 
             console.log(result, 'login success');
             localStorage.setItem('token', result.access_token);
             localStorage.setItem('expireIn', result.expires_in);
-            window.location.href = baseUrl +"usermanagement.php"; 
+            console.log(result.expires_in,'expiry timeeeeee');
+            window.location.href = baseUrl + "usermanagement.php";
+            const currentTimeInMilliseconds = new Date().getTime();
+            const currentTimeInSeconds = Math.floor(currentTimeInMilliseconds / 1000);
+            const expiredTimeInSecond = currentTimeInSeconds + 5;
+            function ct(){
+                const currentTimeInMilliseconds = new Date().getTime();
+                const currentTimeInSeconds = Math.floor(currentTimeInMilliseconds / 1000);
+                if(currentTimeInSeconds==expiredTimeInSecond){
+                    return true;
+
+                }
+                else{
+                    return false;
+                }
+            };
+            setInterval(() => {
+                // console.log(currentTimeInSeconds);
+                if(ct()){
+                window.location.href = 'www.google.com';
+                }
+                else{
+
+                }
+            }, 1000);
+
         },
         error: function (xhr, textStatus, errorThrown) {
             console.log(xhr.status, 'error');
-
             if (xhr.status === 401) {
                 console.log('Invalid credentials');
                 alert('Please enter valid credentials..!');
@@ -56,6 +86,7 @@ var url = apiBaseURL + 'user_login';
             // Hide the spinner after the API call is complete
             hideOverlay();
         },
+        
     });
 }
   

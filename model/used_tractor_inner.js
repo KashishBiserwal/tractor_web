@@ -142,12 +142,12 @@ function getpopularTractorList() {
                         var newCard = `
                         <div class="tractor-list mb-3 box-shadow grey-bg d-flex flex-row shadow p-1">
                         <div class="tractor-list-left text-center">
-                            <a href="#" class="weblink">
+                            <a href="detail_tractor.php?product_id=${p.product_id}" class="weblink">
                             <img src="${p.image_url}" id="image_popular" width="100" height="70" alt="${p.model}">
                             </a>
                         </div>
                         <div class="px-2 tractor-list-right d-flex flex-column justify-cintent-center">
-                            <a href="#" class="text-decoration-none"><p class="mb-1">${p.model} </p></a>
+                            <a href="detail_tractor.php?product_id=${p.product_id}" class="text-decoration-none"><p class="mb-1">${p.model} </p></a>
                             <div class="tractor-list-info mb-0 boldfont">
                                 <div class="row">
                                 <div class="col-12 col-lg-5 col-md-5 col-sm-5">
@@ -211,12 +211,12 @@ function getpopularTractorList() {
                         var newCard = `
                         <div class="used-tractor mb-3 d-flex flex-row shadow p-2" style="background-color:#fff">
                         <div class="text-center">
-                            <a href="#" class="weblink">
+                            <a href="detail_tractor.php?product_id=${p.product_id}" class="weblink">
                             <img src="${p.image_url}"  width="100" height="100" alt="" style=" border-radius: 10px;">
                             </a>
                         </div>
                         <div class="px-2 d-flex flex-column justify-cintent-center">
-                           <a href="#" class="text-decoration-none"><p class="mb-1">${p.model}</p></a>
+                           <a href="detail_tractor.php?product_id=${p.product_id}" class="text-decoration-none"><p class="mb-1">${p.model}</p></a>
                            <div class="tractor-list-info mb-0 boldfont">
                            <div class="row">
                            <div class="col-12 col-lg-5 col-md-5 col-sm-5">
