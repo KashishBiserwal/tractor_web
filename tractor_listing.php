@@ -47,7 +47,7 @@ include 'includes/footertag.php';
           <!-- Filter Card -->
           <div class="filter-card mb-2">
             <div class="card-body">
-              <div class="row">
+              <div class="row" id="myForm">
                 <div class="col-12 col-sm-12 col-md-3 col-lg-3">
                     <label class="text-dark fw-bold mb-2">Search By Brand</label>
                     <select class="js-select2 form-select" id="brand">
@@ -64,9 +64,9 @@ include 'includes/footertag.php';
                     </select>
                 </div>
                 <div class="col-12 col-sm-12 col-md-3 col-lg-3 text-center">
-                  <div class="">
-                    <button type="button" class="btn-success btn px-4 py-2" onclick="performSearch()" id="Search">Search</button>
-                    <button type="button" class="btn-success btn px-4 py-2" id="Reset">Reset</button>
+                  <div class="mt-3 pt-1">
+                    <button type="button" class="btn-success btn px-4 py-2"  id="Search">Search</button>
+                    <button type="reset" value = "Reset data"  class="btn-success btn px-4 py-2" id="Reset">Reset</button>
                   </div>
                 </div>
               </div>
@@ -106,4 +106,9 @@ include 'includes/footertag.php';
   var baseUrl = "<?php echo $baseUrl; ?>";
 </script>
 
+<script>
+//    function fun(){  
+//    document.getElementById("myForm").reset();  
+//  }   
+</script>
 <script src="<?php $baseUrl; ?>model/newtractor_listing_get.js"></script>

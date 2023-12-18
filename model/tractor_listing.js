@@ -186,7 +186,7 @@ function get_lookup() {
             // accessory 
             var acce_Select = $(" #ass_list");
             acce_Select.empty(); // Clear existing options
-            acce_Select.append('<option selected disabled="" value="">Please select an option</option>'); 
+            // acce_Select.append('<option selected disabled="" value=""></option>'); 
 
             for (var k = 0; k < data.accessory.length; k++) {
               acce_Select.append('<option value="' + data.accessory[k].id + '">' + data.accessory[k].accessory+ '</option>');
@@ -195,16 +195,16 @@ function get_lookup() {
 
             // checkbox
             $("#type_name").empty();
-            var tractorTypesArray = [];
-            // Create checkboxes for each tractor type
+
+            // var tractorTypesArray = [];
+            
             for (var j = 0; j < data.tractor_type_data.length; j++) {
               var checkbox = $('<input type="checkbox" id="tractor_type_' + data.tractor_type_data[j].id + '" value="' + data.tractor_type_data[j].id + '">');
               var label = $('<label for="tractor_type_' + data.tractor_type_data[j].id + '">' + data.tractor_type_data[j].type_name + '</label>');
-          
-              // Append checkbox and label to the div
+            
               $("#type_name").append(checkbox);
               $("#type_name").append(label);
-          }
+            }
           
         },
         
@@ -225,19 +225,26 @@ function store(event) {
   var typeDiv = document.getElementById('type_name');
 
   // Get all input elements inside the div
-  var checkboxes = typeDiv.querySelectorAll('input[type="checkbox"]');
+  var checkboxes = $("#type_name").find('input[type="checkbox"]');
 
   var selectedCheckboxValues = [];
+
   // Loop through each checkbox and get its value
-  checkboxes.forEach(function (checkbox) {
+  checkboxes.each(function () {
     // Check if the checkbox is checked
-    if (checkbox.checked) {
+    if ($(this).prop("checked")) {
       // If checked, push its value into the array
-      var checkboxValue = checkbox.value;
+      var checkboxValue = $(this).val();
       selectedCheckboxValues.push(checkboxValue);
+      console.log(selectedCheckboxValues);
     }
-   
   });
+
+  if(Array.isArray(selectedCheckboxValues)){
+    console.log("Array");
+  }else{
+    console.log("Not Array");
+  }
 
   var selectedOptions = [];
 
@@ -249,7 +256,7 @@ function store(event) {
   });
   
     event.preventDefault();
-    console.log("Tractor TYpe : ",selectedCheckboxValues);
+    console.log("Tractor TYpe : ", JSON.stringify(selectedCheckboxValues));
     console.log("accessory select : ",selectedOptions);
     var brand_id = $('#brand_name').val();
     var model = $('#model').val();
@@ -263,13 +270,16 @@ function store(event) {
     var starting_price = $('#starting_price').val();
     var  ending_price= $('#ending_price').val();
     var  warranty= $('#warranty').val();
-    var tractor_type_id = selectedCheckboxValues;
-    var image_name = $('#image_name').val();
+    var tractor_type_id = JSON.stringify(selectedCheckboxValues);
+    console.log('tractor_type_id',tractor_type_id);
+    // var image_name = $('#image_name').val();
+    var image_name = document.getElementById('image_name').files[0];
+    console.log("imageselect : ",image_name);
     var CAPACITY_CC = $('#CAPACITY_CC').val();
     var engine_rated_rpm = $('#engine_rated_rpm').val();
     var COOLING = $('#COOLING').val();
     var AIR_FILTER = $('#AIR_FILTER').val();
-    var fuel_pump_id = $('#fuel_pump_id').val();
+    var fuel_pump_id = $('#FUEL_PUMP').val();
     var TORQUE = $('#TORQUE').val();
     var TRANSMISSION_TYPE = $('#TRANSMISSION_TYPE').val();
     var TRANSMISSION_CLUTCH = $('#TRANSMISSION_CLUTCH').val();
@@ -289,55 +299,11 @@ function store(event) {
     var WHEEL_DRIVE = $('#WHEEL_DRIVE').val();
     var front_tyre = $('#front_tyre').val();
     var rear_tyre = $('#rear_tyre').val();
-    var accessory = selectedOptions;
+    var accessory =  JSON.stringify(selectedOptions);
     var STATUS = $('#STATUS').val();
     var description = $('#description').val();
 
-    // Prepare data to send to the server
-    var paraArr = {
-      'brand_id': brand_id,
-      'model': model,
-      'product_type_id': product_type_id,
-      'hp_category': hp_category,
-      'total_cyclinder_id': TOTAL_CYCLINDER,
-      'horse_power': horse_power,
-      'gear_box_forward': gear_box_forward,
-      'gear_box_reverse': gear_box_reverse,
-      'brake_type_id': BRAKE_TYPE,
-      'starting_price': starting_price,
-      'ending_price': ending_price,
-      'warranty': warranty,
-      'tractor_type_id': tractor_type_id,
-      'image_name': image_name,
-      'CAPACITY_CC': CAPACITY_CC,
-      'engine_rated_rpm': engine_rated_rpm,
-      'cooling_id': COOLING,
-      'AIR_FILTER': AIR_FILTER,
-      'fuel_pump_id': fuel_pump_id,
-      'TORQUE': TORQUE,
-      'TRANSMISSION_TYPE': TRANSMISSION_TYPE,
-      'TRANSMISSION_CLUTCH': TRANSMISSION_CLUTCH,
-      'min_forward_speed': min_forward_speed,
-      'max_forward_speed': max_forward_speed,
-      'min_reverse_speed': min_reverse_speed,
-      'max_reverse_speed': max_reverse_speed,
-      'STEERING_DETAIL': STEERING_DETAIL,
-      'STEERING_COLUMN': STEERING_COLUMN,
-      'power_take_off_type': power_take_off_type,
-      'power_take_off_rpm': power_take_off_rpm,
-      'totat_weight': totat_weight,
-      'WHEEL_BASE': WHEEL_BASE,
-      'LIFTING_CAPACITY': LIFTING_CAPACITY,
-      'LINKAGE_POINT': LINKAGE_POINT,
-      'fuel_tank_cc': fuel_tank_cc,
-      'WHEEL_DRIVE': WHEEL_DRIVE,
-      'front_tyre':front_tyre,
-      'rear_tyre':rear_tyre,
-      'accessory_id':accessory,
-      'STATUS':STATUS,
-      'description':description,
-    };
-
+   
     var apiBaseURL =APIBaseURL;
     // Now you can use the retrieved value in your JavaScript logic
     var url = apiBaseURL + 'storeProduct';
@@ -346,15 +312,67 @@ function store(event) {
     var headers = {
       'Authorization': 'Bearer ' + token
     };
+    var data = new FormData();
+    var image_name = document.getElementById('image_name').files;
+    console.log('imgds',image_name);
+    for (var x = 0; x < image_name.length; x++) {
+      console.log('safdas',image_name[x]);
+        data.append("image_name", image_name[x]);
+    }
+    data.append('brand_id', brand_id);
+      data.append('model', model);
+      data.append('product_type_id', product_type_id);
+      data.append('hp_category', hp_category);
+      data.append('total_cyclinder_id', TOTAL_CYCLINDER);
+      data.append('horse_power', horse_power);
+      data.append('gear_box_forward', gear_box_forward);
+      data.append('gear_box_reverse', gear_box_reverse);
+      data.append('brake_type_id', BRAKE_TYPE);
+      data.append('starting_price', starting_price);
+      data.append('ending_price', ending_price);
+      data.append('warranty', warranty);
+      data.append('tractor_type_id', tractor_type_id);
+      data.append('CAPACITY_CC', CAPACITY_CC);
+      data.append('engine_rated_rpm', engine_rated_rpm);
+      data.append('cooling_id', COOLING);
+      data.append('AIR_FILTER', AIR_FILTER);
+      data.append('fuel_pump_id', fuel_pump_id);
+      data.append('TORQUE', TORQUE);
+      data.append('TRANSMISSION_TYPE', TRANSMISSION_TYPE);
+      data.append('TRANSMISSION_CLUTCH', TRANSMISSION_CLUTCH);
+      data.append('min_forward_speed', min_forward_speed);
+      data.append('max_forward_speed', max_forward_speed);
+      data.append('min_reverse_speed', min_reverse_speed);
+      data.append('max_reverse_speed', max_reverse_speed);
+      data.append('STEERING_DETAIL', STEERING_DETAIL);
+      data.append('STEERING_COLUMN', STEERING_COLUMN);
+      data.append('power_take_off_type', power_take_off_type);
+      data.append('power_take_off_rpm', power_take_off_rpm);
+      data.append('totat_weight', totat_weight);
+      data.append('WHEEL_BASE', WHEEL_BASE);
+      data.append('LIFTING_CAPACITY', LIFTING_CAPACITY);
+      data.append('LINKAGE_POINT', LINKAGE_POINT);
+      data.append('fuel_tank_cc', fuel_tank_cc);
+      data.append('WHEEL_DRIVE', WHEEL_DRIVE);
+      data.append('front_tyre',front_tyre);
+      data.append('rear_tyre',rear_tyre);
+      data.append('accessory_id',accessory);
+      data.append('STATUS',STATUS);
+      data.append('description',description);
     $.ajax({
       url: url,
       type: "POST",
-      data: paraArr,
+      data: data,
       headers: headers,
+      processData: false, 
+      contentType: false,
       success: function (result) {
         console.log(result, "result");
         // getTractorList();
         console.log("Add successfully");
+         if(result.length){
+        //   get_tractor_list();
+        }
         // alert('successfully inserted..!')
       },
       error: function (error) {

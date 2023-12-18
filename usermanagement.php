@@ -126,16 +126,16 @@ include 'includes/headertag.php';
       <!-- Filter Card -->
       <div class="filter-card ">
         <div class="card-body" >
-          <form action="">
+          <form action="" id="myform">
             <div class="row">
               <div class="col-12 col-sm-12 col-md-4 col-lg-4">
                   <div class="form-outline">
                     <label class="form-label">Search by Any Field</label>
-                    <input type="text" id="name"  name="search_name" class=" data_search form-control input-group-sm" />
+                    <input type="text" id="name"  name="search_name" onkeyup="myFunction()" class=" data_search form-control input-group-sm" />
                   </div>
               </div>
               <div class="col-12 col-sm-12 col-md-8 col-lg-8">
-                <input type="reset" class="bg-success text-white btn px-4 py-2" value="Reset">
+              <input type="button" onclick="resetForm()" class="bg-success text-white btn px-4 py-2" value="Reset">
               </div>
             </div>
           </form>
@@ -149,11 +149,12 @@ include 'includes/headertag.php';
                 <thead class="">
                   <tr>
                     <th class="d-none d-md-table-cell text-white py-2">S.No.</th>
+                    <th class="d-none d-md-table-cell text-white py-2">Date</th>
                     <th class="d-none d-md-table-cell text-white py-2">Name</th>
                     <th class="d-none d-md-table-cell text-white py-2">Mobile Number</th>
                     <th class="d-none d-md-table-cell text-white py-2">User Type</th>
                     <th class="d-none d-md-table-cell text-white py-2">Status</th>
-                    <th class="d-none d-md-table-cell text-white py-2">Date</th>
+                    
                     <th class="d-none d-md-table-cell text-white py-2">Action</th>
                   </tr>
                 </thead>
@@ -170,6 +171,40 @@ include 'includes/headertag.php';
 </div>
 
 </body>
+<script>
+function myFunction() {
+  var input, filter, table, tr, td, i, j, txtValue;
+  input = document.getElementById("name");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("example");
+  tr = table.getElementsByTagName("tr");
+
+  for (i = 0; i < tr.length; i++) {
+    // Loop through all td elements in the current row
+    td = tr[i].getElementsByTagName("td");
+    for (j = 0; j < td.length; j++) {
+      txtValue = td[j].textContent || td[j].innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+        break; // Break the inner loop if a match is found in any td
+      } else {
+        tr[i].style.display = "none";
+      }
+    }
+  }
+}
+function resetForm() {
+        document.getElementById("myform").reset();
+
+        // Show all rows in the table
+        var table = document.getElementById("example");
+        var rows = table.getElementsByTagName("tr");
+
+        for (var i = 0; i < rows.length; i++) {
+            rows[i].style.display = "";
+        }
+    }
+</script>
 
   
 

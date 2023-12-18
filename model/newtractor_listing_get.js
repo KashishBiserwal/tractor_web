@@ -44,75 +44,191 @@ function formatDateTime(originalDateTimeStr) {
   
 
 
-  // fetch data
-  function getTractorList() {
-    console.log('kjhskdjf');
-    var apiBaseURL =APIBaseURL;
-    var url = apiBaseURL + 'get_new_tractor';
+  function displayData(data) {
+    const tableBody = document.getElementById('data-table');
+    tableBody.innerHTML = '';
+  
+    if (data.length > 0) {
+      data.forEach(row => {
+        const tableRow = document.createElement('tr');
+        tableRow.innerHTML = `
+          <td>${row.product_id}</td>
+          <td>${formatDateTime(row.created_at)}</td>
+          <td>${row.brand_name}</td>
+          <td>${row.model}</td>
+          <td>${row.wheel_drive_value}</td>
+          <td>${row.hp_category}</td>
+          <td>${row.ending_price}</td>
+          <td>
+            <div class="d-flex">
+              <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.id});">
+                <i class="fa fa-trash" style="font-size: 11px;"></i>
+              </button> 
+            </div>
+          </td>
+        `;
+        tableBody.appendChild(tableRow);
+      });
+    } else {
+      tableBody.innerHTML = '<tr><td colspan="9">No matching data available</td></tr>';
+    }
+  }
+  var originalData = [];
+  
+  
+  
 
-    // console.log(url);  
+function getTractorList() {
+  console.log('kjhskdjf');
+  var apiBaseURL = APIBaseURL;
+  var url = apiBaseURL + 'get_new_tractor';
 
-    $.ajax({
-        url: url,
-        type: "GET",
-        headers: {
-            'Authorization': 'Bearer ' + localStorage.getItem('token')
-        },
-        success: function (data) {
-            console.log(data);
-            var select_model = $("#model");
-            select_model.empty(); // Clear existing options
-            select_model.append('<option selected disabled="" value="">Please select a model</option>'); 
-            console.log(data, 'ok');
-            for (var j = 0; j < data.product.allProductData.length; j++) {
-              var model = data.product.allProductData[j].model;
-              select_model.append('<option value="' + model + '">' + model + '</option>');
-          }
-          var select_hp = $("#hp");
-          select_hp.empty(); // Clear existing options
-          select_hp.append('<option selected disabled="" value="">Please select HP</option>'); 
-          console.log(data, 'ok');
-          for (var j = 0; j < data.product.allProductData.length; j++) {
-            var model = data.product.allProductData[j].hp_category;
-            select_hp.append('<option value="' + model + '">' + model + '</option>');
-        }
+  // console.log(url);
 
-            const tableBody = document.getElementById('data-table');
+  $.ajax({
+    url: url,
+    type: 'GET',
+    headers: {
+      'Authorization': 'Bearer ' + localStorage.getItem('token')
+    },
+    success: function (data) {
+      console.log(data);
+      originalData = data.product.allProductData;
 
-            if (data.product.allProductData && data.product.allProductData.length > 0) {
-                // console.log(typeof product);
+      var select_model = $("#model");
+      select_model.empty(); // Clear existing options
+      select_model.append('<option selected disabled="" value="">Please select a model</option>');
+      console.log(data, 'ok');
+      for (var j = 0; j < data.product.allProductData.length; j++) {
+        var model = data.product.allProductData[j].model;
+        select_model.append('<option value="' + model + '">' + model + '</option>');
+      }
 
-                data.product.allProductData.forEach(row => {
-                  const tableRow = document.createElement('tr');
-                  // console.log(tableRow, 'helloooo');
-                    tableRow.innerHTML = `
-                   
-                        <td>${row.product_id}</td>
-                        <td>${formatDateTime(row.created_at)}</td>
-                        <td>${row.brand_name}</td>
-                        <td>${row.model}</td>
-                        <td>${row.wheel_base}</td>
-                        <td>${row.hp_category}</td>
-                        <td>${row.ending_price}</td>
-                        <td>
-                            <div class="d-flex">
-                                <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.id});">
-                                    <i class="fa fa-trash" style="font-size: 11px;"></i>
-                                </button>
-                            </div>
-                        </td>
-                    `;
-                    tableBody.appendChild(tableRow);
-                });
-            } else {
-                tableBody.innerHTML = '<tr><td colspan="9">No valid data available</td></tr>';
-            }
-        },
-        error: function (error) {
-            console.error('Error fetching data:', error);
-        }
-    });
+      var select_hp = $("#hp");
+      select_hp.empty(); // Clear existing options
+      select_hp.append('<option selected disabled="" value="">Please select HP</option>');
+      console.log(data, 'ok');
+      for (var j = 0; j < data.product.allProductData.length; j++) {
+        var model = data.product.allProductData[j].hp_category;
+        select_hp.append('<option value="' + model + '">' + model + '</option>');
+      }
+
+      const tableBody = document.getElementById('data-table');
+      tableBody.innerHTML = '';
+
+      if (data.product.allProductData && data.product.allProductData.length > 0) {
+        data.product.allProductData.forEach(row => {
+          const tableRow = document.createElement('tr');
+          tableRow.innerHTML = `
+              <td>${row.product_id}</td>
+              <td>${formatDateTime(row.created_at)}</td>
+              <td>${row.brand_name}</td>
+              <td>${row.model}</td>
+              <td>${row.wheel_drive_value}</td>
+              <td>${row.hp_category}</td>
+              <td>${row.ending_price}</td>
+              <td>
+                  <div class="d-flex">
+                      <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.id});">
+                          <i class="fa fa-trash" style="font-size: 11px;"></i>
+                      </button> 
+                      <button class="btn btn-primary btn-sm " id="" onclick="update(${row.id});"><i class="fas fa-edit" style="font-size: 11px;"></i></button>
+                  </div>
+              </td>
+          `;
+          tableBody.appendChild(tableRow);
+        });
+      } else {
+        tableBody.innerHTML = '<tr><td colspan="9">No valid data available</td></tr>';
+      }
+
+      // Display the original data in the table after populating it
+      // displayData(originalData);
+    },
+    error: function (error) {
+      console.error('Error fetching data:', error);
+    }
+  });
 }
+
+$("#Search").click(function () {
+
+
+  var apiBaseURL =APIBaseURL;
+  var url = apiBaseURL + 'get_new_tractor';
+  $.ajax({
+      url: url, 
+      type: 'GET',
+      data: searchData,
+      headers: {
+        'Authorization': 'Bearer ' + localStorage.getItem('token')
+      },
+      dataType: 'json',
+      success: function (data) {
+          console.log('data',data);    
+          // table.clear().rows.add(data.product.allProductData).draw(); 
+          console.log("Search records");
+      },
+      error: function (xhr, status, error) {
+          console.log("Error: " + error);
+      }
+  });
+});
+
+// function performSearch() {
+//   var brandValue = $("#brand").val();
+//   var modelValue = $("#model").val();
+//   var hpValue = $("#hp").val();
+
+//   // Perform the search
+//   var filteredData = originalData.filter(function (row) {
+//     return (
+//       (brandValue === "" || row.brand_name === brandValue) &&
+//       (modelValue === "" || row.model === modelValue) &&
+//       (hpValue === "" || row.hp_category === hpValue)
+//     );
+//   });
+
+//   // Display the filtered data in the table
+//   displayData(filteredData);
+// }
+
+// function displayData(data) {
+//   const tableBody = document.getElementById('data-table');
+ 
+//   tableBody.innerHTML = '';
+
+//   if (data.length > 0) {
+//     data.forEach(row => {
+//       const tableRow = document.createElement('tr');
+//       tableRow.innerHTML = `
+//         <td>${row.product_id}</td>
+//         <td>${formatDateTime(row.created_at)}</td>
+//         <td>${row.brand_name}</td>
+//         <td>${row.model}</td>
+//         <td>${row.wheel_drive_value}</td>
+//         <td>${row.hp_category}</td>
+//         <td>${row.ending_price}</td>
+//         <td>
+//         <div class="float-start">
+//         <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.id});">
+//         <i class="fa fa-trash" style="font-size: 11px;"></i>
+//         </button> 
+//         <button class="btn btn-primary btn-sm " id="" onclick="update(${row.id});"><i class="fas fa-edit" style="font-size: 11px;"></i></button>
+//         </div>
+//         </td>
+//       `;
+//       tableBody.appendChild(tableRow);
+      
+//     });
+   
+//   } else {
+//     tableBody.innerHTML = '<tr><td colspan="9">No matching data available</td></tr>';
+//   }
+// }
+
+// Initialize data on page load
+
 
 // get brand
 function get() {

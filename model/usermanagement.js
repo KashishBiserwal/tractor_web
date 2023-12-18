@@ -189,15 +189,22 @@ $('#save').on('click', function() {
                     let year=originalDate.getFullYear();
 
                     let formatDate=`${day}-${month}-${year}`;
+                    let userTypeLabel = row.user_type == 0 ? 'Admin' : 'User';
+                    let status = row.status == 0 ? 'Active' : 'InActive';
+                    let serialNumber = 1;
+
                     tableRow.innerHTML = `
-                        <td>${row.id}</td>
+                        <td>${serialNumber}</td>
+                        <td>${formatDate}</td>
                         <td>${row.first_name}</td>
                         <td>${row.mobile}</td>
-                        <td>${row.user_type}</td>
-                        <td>${row.status}</td>
-                        <td>${formatDate}</td>
-                        <td><div class="d-flex"><button class="btn btn-danger btn-sm mx-1" id="delete_user" onclick="destroy(${row.id});"><i class="fa fa-trash" style="font-size: 11px;"></i></button></div></td>
+                        <td>${userTypeLabel}</td>
+                        <td>${status}</td>
+                       
+                        <td><div class="float-start"><button class="btn btn-danger btn-sm " id="delete_user" onclick="destroy(${row.id});"><i class="fa fa-trash" style="font-size: 11px;"></i></button> <button class="btn btn-primary btn-sm " id="" onclick="update(${row.id});"><i class="fas fa-edit" style="font-size: 11px;"></i></button></div></td>
+                     
                     `;
+                    serialNumber++;
                     tableBody.appendChild(tableRow);
                 });
             } else {

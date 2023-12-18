@@ -44,29 +44,29 @@ var url = apiBaseURL + 'user_login';
             localStorage.setItem('expireIn', result.expires_in);
             console.log(result.expires_in,'expiry timeeeeee');
             window.location.href = baseUrl + "usermanagement.php";
-            const currentTimeInMilliseconds = new Date().getTime();
-            const currentTimeInSeconds = Math.floor(currentTimeInMilliseconds / 1000);
-            const expiredTimeInSecond = currentTimeInSeconds + 5;
-            function ct(){
-                const currentTimeInMilliseconds = new Date().getTime();
-                const currentTimeInSeconds = Math.floor(currentTimeInMilliseconds / 1000);
-                if(currentTimeInSeconds==expiredTimeInSecond){
-                    return true;
+        //     const currentTimeInMilliseconds = new Date().getTime();
+        //     const currentTimeInSeconds = Math.floor(currentTimeInMilliseconds / 1000);
+        //     const expiredTimeInSecond = currentTimeInSeconds + 5;
+        //     function ct(){
+        //         const currentTimeInMilliseconds = new Date().getTime();
+        //         const currentTimeInSeconds = Math.floor(currentTimeInMilliseconds / 1000);
+        //         if(currentTimeInSeconds==expiredTimeInSecond){
+        //             return true;
 
-                }
-                else{
-                    return false;
-                }
-            };
-            setInterval(() => {
-                // console.log(currentTimeInSeconds);
-                if(ct()){
-                window.location.href = 'www.google.com';
-                }
-                else{
+        //         }
+        //         else{
+        //             return false;
+        //         }
+        //     };
+        //     setInterval(() => {
+        //         // console.log(currentTimeInSeconds);
+        //         if(ct()){
+        //         window.location.href = 'www.google.com';
+        //         }
+        //         else{
 
-                }
-            }, 1000);
+        //         }
+        //     }, 1000);
 
         },
         error: function (xhr, textStatus, errorThrown) {
