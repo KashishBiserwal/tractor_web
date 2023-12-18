@@ -5,6 +5,24 @@
     <?php
    include 'includes/headertag.php';
    ?>
+    <style>
+    .form-outline .form-label {
+        color: #454444;
+        font-weight: 500;
+        font-size: 18px;
+        margin-bottom: 5px;
+        position: absolute;
+        margin-top: -12px;
+        background: #fff;
+        margin-left: 23px;
+    }
+
+    .error {
+        color: red !important;
+        margin-bottom: 2px;
+        font-size: 13px;
+    }
+    </style>
 </head>
 
 <body>
@@ -12,14 +30,14 @@
    include 'includes/header.php';
    ?>
 
-    <section class="mt-5 pt-4">
-        <div class="container ">
-            <div class="mt-5 pt-3">
+    <section class="mt-5 pt-4 bg-light">
+        <div class="container py-2">
+            <div class="mt-5 pt-4">
                 <span class="mt-5 text-white">
                     <a href="index.php" class="text-decoration-none header-link px-1">Home <i
                             class="fa-solid fa-chevron-right px-1"></i></a>
 
-                    <span class="text-dark"> Popular Tractor</span>
+                    <span class="text-dark">Hire Tractor</span>
                 </span>
             </div>
         </div>
@@ -28,15 +46,18 @@
         <div class="container my-4">
             <div class="row">
                 <div class="col-12 col-sm-9 col-lg-9 col-md-9">
-                    <h3 class="pb-3">Search<span class="text-success fw-bold"> rental tractors in INDIA</span> </h3>
+                    <h3 class="pb-3 fw-bold">Search<span class="text-success fw-bold"> Rental Tractors In INDIA</span>
+                    </h3>
                     <div class="row">
                         <div class="col-12 col-lg-4 col-md-4 col-sm-4 mb-3">
                             <div class="h-auto success__stry__item d-flex flex-column shadow ">
                                 <div class="thumb">
-                                    <a href="#">
+                                    <a href="hire_inner.php">
                                         <div class="ratio ratio-16x9">
+
                                             <img src="assets/images/575-di-xp-plus-1632207330.webp"
                                                 class="object-fit-cover " alt="img">
+
                                         </div>
                                     </a>
                                 </div>
@@ -48,7 +69,7 @@
                                                     DI XP Plus</strong></p>
                                         </a>
                                     </div>
-                                    <div class="power text-center mt-2">
+                                    <div class="power">
                                         <a href="hire_inner.php" class="text-decoration-none text-dark">
                                             <div class="row ">
                                                 <div class="col-6 col-lg-6 col-md-6 col-sm-6">
@@ -75,8 +96,106 @@
                                         </a>
                                     </div>
                                     <div class="col-12">
-                                        <button id="adduser" type="button" class="add_btn  btn-success w-100">
-                                        <i class="fa-solid fa-arrow-up-right-from-square"></i>Send Enquiry</button>
+                                        <button id="adduser" type="button" class="add_btn  btn-success w-100"
+                                            data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                                            Send Enquiry</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Modal -->
+                            <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static"
+                                data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel"
+                                aria-hidden="true">
+                                <div class="modal-dialog modal-lg modal-dialog-centered">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h4 class="modal-title text-dark fw-bold" id="staticBackdropLabel">Send
+                                                Rental Enquiry Mahindra 575 DI XP Plus</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="model-cont">
+                                                <form id="hire_inner" name="hire_inner" method="post">
+                                                    <div class="row">
+                                                        <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-4">
+                                                            <div class="form-outline">
+                                                                <label class="form-label" for="first_name">First
+                                                                    Name</label>
+                                                                <input type="text" id="first_name" name="first_name"
+                                                                    class=" data_search form-control input-group-sm py-2" />
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-4">
+                                                            <div class="form-outline">
+                                                                <label class="form-label" for="last_name">Last
+                                                                    Name</label>
+                                                                <input type="text" id="last_name" name="last_name"
+                                                                    class=" data_search form-control input-group-sm py-2" />
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-4">
+                                                            <div class="form-outline">
+                                                                <label class="form-label" for="mobile_number">Mobile
+                                                                    Number</label>
+                                                                <input type="text" id="mobile_number"
+                                                                    name="mobile_number"
+                                                                    class=" data_search form-control input-group-sm py-2" />
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-4">
+                                                            <div class="form-outline">
+                                                                <label class="form-label" for="state">State</label>
+                                                                <select class="form-select py-2"
+                                                                    aria-label="Default select example" id="state"
+                                                                    name="state">
+                                                                    <option selected></option>
+                                                                    <option value="1">New Tractor Loan</option>
+                                                                    <option value="2">Used Tractor Loan,</option>
+                                                                    <option value="3">Loan Against Tractor</option>
+                                                                    <option value="4">Harvester Loan</option>
+                                                                    <option value="5">Used Harvester Loan</option>
+                                                                    <option value="6">Implement Loan</option>
+                                                                    <option value="7">Personal Loan</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-4">
+                                                            <div class="form-outline">
+                                                                <label class="form-label"
+                                                                    for="district">District</label>
+                                                                <select class="form-select py-2"
+                                                                    aria-label="Default select example" name="district"
+                                                                    id="district">
+                                                                    <option selected></option>
+                                                                    <option value="1">name1</option>
+                                                                    <option value="2">name2</option>
+                                                                    <option value="3">name3</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-4">
+                                                            <div class="form-outline">
+                                                                <label class="form-label" for="taluka">Tehsil</label>
+                                                                <select class="form-select py-2"
+                                                                    aria-label="Default select example" name="taluka"
+                                                                    id="taluka">
+                                                                    <option selected></option>
+                                                                    <option value="1">name1</option>
+                                                                    <option value="2">name2</option>
+                                                                    <option value="3">name3</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary"
+                                                data-bs-dismiss="modal">Close</button>
+                                            <button type="button" id="button_hire"
+                                                class="btn btn-danger">Request</button>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -86,48 +205,45 @@
                                 <div class="thumb">
                                     <a href="#">
                                         <div class="ratio ratio-16x9">
-                                            <img src="assets/images/575-di-xp-plus-1632207330.webp"
+                                            <img src="assets/images/swaraj-855-fe-1694259363.webp"
                                                 class="object-fit-cover " alt="img">
                                         </div>
                                     </a>
                                 </div>
                                 <div class="content d-flex flex-column flex-grow-1 ">
                                     <div class="caption text-center">
-                                        <a href="hire_inner.php" class="text-decoration-none text-dark">
+                                        <a href="#" class="text-decoration-none text-dark">
                                             <p class="pt-3"><strong
-                                                    class="series_tractor_strong text-center h4 fw-bold ">Mahindra 575
-                                                    DI XP Plus</strong></p>
+                                                    class="series_tractor_strong text-center h4 fw-bold ">Swaraj 855
+                                                    FE</strong></p>
                                         </a>
                                     </div>
-                                    <div class="power text-center mt-2">
-                                        <a href="hire_inner.php" class="text-decoration-none text-dark">
-                                            <div class="row ">
-                                                <div class="col-6 col-lg-6 col-md-6 col-sm-6">
-                                                    <p class="text-dark"><i
-                                                            class="fa-solid fa-location-dot mx-2"></i>Dhamtari</p>
-                                                </div>
-                                                <div class="col-6 col-lg-6 col-md-6 col-sm-6">
-                                                    <p class="text-dark" style="margin-left:32px;"><i
-                                                            class="fas fa-bolt mx-2"></i>47 HP</p>
-                                                </div>
-                                                <div class="col-6 col-lg-6 col-md-6 col-sm-6">
-                                                    <p id="adduser" type="" class="text-dark">
-                                                        <i class="fa-solid fa-indian-rupee-sign mx-2"></i>30 per Acre/hr
-                                                    </p>
-                                                </div>
-
-                                                <div class="col-6 col-lg-6 col-md-6 col-sm-6">
-                                                    <p id="adduser" type="" class="text-dark "
-                                                        style="margin-left:29px;">
-                                                        <i class="fa-solid fa-gear mx-2"></i>2979 CC
-                                                    </p>
-                                                </div>
+                                    <div class="power">
+                                        <div class="row ">
+                                            <div class="col-6 col-lg-6 col-md-6 col-sm-6">
+                                                <p class="text-dark"><i
+                                                        class="fa-solid fa-location-dot mx-2"></i>Dhamtari</p>
                                             </div>
-                                        </a>
+                                            <div class="col-6 col-lg-6 col-md-6 col-sm-6">
+                                                <p class="text-dark" style="margin-left:32px;"><i
+                                                        class="fas fa-bolt mx-2"></i>47 HP</p>
+                                            </div>
+                                            <div class="col-6 col-lg-6 col-md-6 col-sm-6">
+                                                <p id="adduser" type="" class="text-dark">
+                                                    <i class="fa-solid fa-indian-rupee-sign mx-2"></i>30 per Acre/hr
+                                                </p>
+                                            </div>
+
+                                            <div class="col-6 col-lg-6 col-md-6 col-sm-6">
+                                                <p id="adduser" type="" class="text-dark " style="margin-left:29px;">
+                                                    <i class="fa-solid fa-gear mx-2"></i>2979 CC
+                                                </p>
+                                            </div>
+                                        </div>
                                     </div>
                                     <div class="col-12">
-                                        <button id="adduser" type="button" class="add_btn  btn-success w-100">
-                                        <i class="fa-solid fa-arrow-up-right-from-square"></i>Send Enquiry</button>
+                                        <button id="adduser" type="button" class="add_btn btn-success w-100">
+                                            Send Enquiry</button>
                                     </div>
                                 </div>
                             </div>
@@ -137,48 +253,45 @@
                                 <div class="thumb">
                                     <a href="#">
                                         <div class="ratio ratio-16x9">
-                                            <img src="assets/images/575-di-xp-plus-1632207330.webp"
+                                            <img src="assets/images/mahindra-275-di-xp-plus-1686557174.webp"
                                                 class="object-fit-cover " alt="img">
                                         </div>
                                     </a>
                                 </div>
                                 <div class="content d-flex flex-column flex-grow-1 ">
                                     <div class="caption text-center">
-                                        <a href="hire_inner.php" class="text-decoration-none text-dark">
+                                        <a href="#" class="text-decoration-none text-dark">
                                             <p class="pt-3"><strong
-                                                    class="series_tractor_strong text-center h4 fw-bold ">Mahindra 575
+                                                    class="series_tractor_strong text-center h4 fw-bold ">Mahindra 275
                                                     DI XP Plus</strong></p>
                                         </a>
                                     </div>
-                                    <div class="power text-center mt-2">
-                                        <a href="hire_inner.php" class="text-decoration-none text-dark">
-                                            <div class="row ">
-                                                <div class="col-6 col-lg-6 col-md-6 col-sm-6">
-                                                    <p class="text-dark"><i
-                                                            class="fa-solid fa-location-dot mx-2"></i>Dhamtari</p>
-                                                </div>
-                                                <div class="col-6 col-lg-6 col-md-6 col-sm-6">
-                                                    <p class="text-dark" style="margin-left:32px;"><i
-                                                            class="fas fa-bolt mx-2"></i>47 HP</p>
-                                                </div>
-                                                <div class="col-6 col-lg-6 col-md-6 col-sm-6">
-                                                    <p id="adduser" type="" class="text-dark">
-                                                        <i class="fa-solid fa-indian-rupee-sign mx-2"></i>30 per Acre/hr
-                                                    </p>
-                                                </div>
-
-                                                <div class="col-6 col-lg-6 col-md-6 col-sm-6">
-                                                    <p id="adduser" type="" class="text-dark "
-                                                        style="margin-left:29px;">
-                                                        <i class="fa-solid fa-gear mx-2"></i>2979 CC
-                                                    </p>
-                                                </div>
+                                    <div class="power">
+                                        <div class="row ">
+                                            <div class="col-6 col-lg-6 col-md-6 col-sm-6">
+                                                <p class="text-dark"><i
+                                                        class="fa-solid fa-location-dot mx-2"></i>Dhamtari</p>
                                             </div>
-                                        </a>
+                                            <div class="col-6 col-lg-6 col-md-6 col-sm-6">
+                                                <p class="text-dark" style="margin-left:32px;"><i
+                                                        class="fas fa-bolt mx-2"></i>47 HP</p>
+                                            </div>
+                                            <div class="col-6 col-lg-6 col-md-6 col-sm-6">
+                                                <p id="adduser" type="" class="text-dark">
+                                                    <i class="fa-solid fa-indian-rupee-sign mx-2"></i>30 per Acre/hr
+                                                </p>
+                                            </div>
+
+                                            <div class="col-6 col-lg-6 col-md-6 col-sm-6">
+                                                <p id="adduser" type="" class="text-dark " style="margin-left:29px;">
+                                                    <i class="fa-solid fa-gear mx-2"></i>2979 CC
+                                                </p>
+                                            </div>
+                                        </div>
                                     </div>
                                     <div class="col-12">
-                                        <button id="adduser" type="button" class="add_btn  btn-success w-100">
-                                        <i class="fa-solid fa-arrow-up-right-from-square"></i>Send Enquiry</button>
+                                        <button id="adduser" type="button" class="add_btn btn-success w-100">
+                                            Send Enquiry</button>
                                     </div>
                                 </div>
                             </div>
@@ -188,48 +301,45 @@
                                 <div class="thumb">
                                     <a href="#">
                                         <div class="ratio ratio-16x9">
-                                            <img src="assets/images/575-di-xp-plus-1632207330.webp"
+                                            <img src="assets/images/swaraj-744-fe-1694259976.webp"
                                                 class="object-fit-cover " alt="img">
                                         </div>
                                     </a>
                                 </div>
                                 <div class="content d-flex flex-column flex-grow-1 ">
                                     <div class="caption text-center">
-                                        <a href="hire_inner.php" class="text-decoration-none text-dark">
+                                        <a href="#" class="text-decoration-none text-dark">
                                             <p class="pt-3"><strong
-                                                    class="series_tractor_strong text-center h4 fw-bold ">Mahindra 575
-                                                    DI XP Plus</strong></p>
+                                                    class="series_tractor_strong text-center h4 fw-bold ">Swaraj 744
+                                                    FE</strong></p>
                                         </a>
                                     </div>
-                                    <div class="power text-center mt-2">
-                                        <a href="hire_inner.php" class="text-decoration-none text-dark">
-                                            <div class="row ">
-                                                <div class="col-6 col-lg-6 col-md-6 col-sm-6">
-                                                    <p class="text-dark"><i
-                                                            class="fa-solid fa-location-dot mx-2"></i>Dhamtari</p>
-                                                </div>
-                                                <div class="col-6 col-lg-6 col-md-6 col-sm-6">
-                                                    <p class="text-dark" style="margin-left:32px;"><i
-                                                            class="fas fa-bolt mx-2"></i>47 HP</p>
-                                                </div>
-                                                <div class="col-6 col-lg-6 col-md-6 col-sm-6">
-                                                    <p id="adduser" type="" class="text-dark">
-                                                        <i class="fa-solid fa-indian-rupee-sign mx-2"></i>30 per Acre/hr
-                                                    </p>
-                                                </div>
-
-                                                <div class="col-6 col-lg-6 col-md-6 col-sm-6">
-                                                    <p id="adduser" type="" class="text-dark "
-                                                        style="margin-left:29px;">
-                                                        <i class="fa-solid fa-gear mx-2"></i>2979 CC
-                                                    </p>
-                                                </div>
+                                    <div class="power">
+                                        <div class="row ">
+                                            <div class="col-6 col-lg-6 col-md-6 col-sm-6">
+                                                <p class="text-dark"><i
+                                                        class="fa-solid fa-location-dot mx-2"></i>Dhamtari</p>
                                             </div>
-                                        </a>
+                                            <div class="col-6 col-lg-6 col-md-6 col-sm-6">
+                                                <p class="text-dark" style="margin-left:32px;"><i
+                                                        class="fas fa-bolt mx-2"></i>47 HP</p>
+                                            </div>
+                                            <div class="col-6 col-lg-6 col-md-6 col-sm-6">
+                                                <p id="adduser" type="" class="text-dark">
+                                                    <i class="fa-solid fa-indian-rupee-sign mx-2"></i>30 per Acre/hr
+                                                </p>
+                                            </div>
+
+                                            <div class="col-6 col-lg-6 col-md-6 col-sm-6">
+                                                <p id="adduser" type="" class="text-dark " style="margin-left:29px;">
+                                                    <i class="fa-solid fa-gear mx-2"></i>2979 CC
+                                                </p>
+                                            </div>
+                                        </div>
                                     </div>
                                     <div class="col-12">
-                                        <button id="adduser" type="button" class="add_btn  btn-success w-100">
-                                        <i class="fa-solid fa-arrow-up-right-from-square"></i>Send Enquiry</button>
+                                        <button id="adduser" type="button" class="add_btn btn-success w-100">
+                                            Send Enquiry</button>
                                     </div>
                                 </div>
                             </div>
@@ -239,48 +349,45 @@
                                 <div class="thumb">
                                     <a href="#">
                                         <div class="ratio ratio-16x9">
-                                            <img src="assets/images/575-di-xp-plus-1632207330.webp"
-                                                class="object-fit-cover " alt="img">
+                                            <img src="assets/images/275-di-tu-1632206550.webp" class="object-fit-cover "
+                                                alt="img">
                                         </div>
                                     </a>
                                 </div>
                                 <div class="content d-flex flex-column flex-grow-1 ">
                                     <div class="caption text-center">
-                                        <a href="hire_inner.php" class="text-decoration-none text-dark">
+                                        <a href="#" class="text-decoration-none text-dark">
                                             <p class="pt-3"><strong
-                                                    class="series_tractor_strong text-center h4 fw-bold ">Mahindra 575
-                                                    DI XP Plus</strong></p>
+                                                    class="series_tractor_strong text-center h4 fw-bold ">Mahindra 275
+                                                    DI TU</strong></p>
                                         </a>
                                     </div>
-                                    <div class="power text-center mt-2">
-                                        <a href="hire_inner.php" class="text-decoration-none text-dark">
-                                            <div class="row ">
-                                                <div class="col-6 col-lg-6 col-md-6 col-sm-6">
-                                                    <p class="text-dark"><i
-                                                            class="fa-solid fa-location-dot mx-2"></i>Dhamtari</p>
-                                                </div>
-                                                <div class="col-6 col-lg-6 col-md-6 col-sm-6">
-                                                    <p class="text-dark" style="margin-left:32px;"><i
-                                                            class="fas fa-bolt mx-2"></i>47 HP</p>
-                                                </div>
-                                                <div class="col-6 col-lg-6 col-md-6 col-sm-6">
-                                                    <p id="adduser" type="" class="text-dark">
-                                                        <i class="fa-solid fa-indian-rupee-sign mx-2"></i>30 per Acre/hr
-                                                    </p>
-                                                </div>
-
-                                                <div class="col-6 col-lg-6 col-md-6 col-sm-6">
-                                                    <p id="adduser" type="" class="text-dark "
-                                                        style="margin-left:29px;">
-                                                        <i class="fa-solid fa-gear mx-2"></i>2979 CC
-                                                    </p>
-                                                </div>
+                                    <div class="power">
+                                        <div class="row ">
+                                            <div class="col-6 col-lg-6 col-md-6 col-sm-6">
+                                                <p class="text-dark"><i
+                                                        class="fa-solid fa-location-dot mx-2"></i>Dhamtari</p>
                                             </div>
-                                        </a>
+                                            <div class="col-6 col-lg-6 col-md-6 col-sm-6">
+                                                <p class="text-dark" style="margin-left:32px;"><i
+                                                        class="fas fa-bolt mx-2"></i>47 HP</p>
+                                            </div>
+                                            <div class="col-6 col-lg-6 col-md-6 col-sm-6">
+                                                <p id="adduser" type="" class="text-dark">
+                                                    <i class="fa-solid fa-indian-rupee-sign mx-2"></i>30 per Acre/hr
+                                                </p>
+                                            </div>
+
+                                            <div class="col-6 col-lg-6 col-md-6 col-sm-6">
+                                                <p id="adduser" type="" class="text-dark " style="margin-left:29px;">
+                                                    <i class="fa-solid fa-gear mx-2"></i>2979 CC
+                                                </p>
+                                            </div>
+                                        </div>
                                     </div>
                                     <div class="col-12">
-                                        <button id="adduser" type="button" class="add_btn  btn-success w-100">
-                                        <i class="fa-solid fa-arrow-up-right-from-square"></i>Send Enquiry</button>
+                                        <button id="adduser" type="button" class="add_btn btn-success w-100">
+                                            Send Enquiry</button>
                                     </div>
                                 </div>
                             </div>
@@ -290,48 +397,45 @@
                                 <div class="thumb">
                                     <a href="#">
                                         <div class="ratio ratio-16x9">
-                                            <img src="assets/images/575-di-xp-plus-1632207330.webp"
-                                                class="object-fit-cover " alt="img">
+                                            <img src="assets/images/380-1632220220.webp" class="object-fit-cover "
+                                                alt="img">
                                         </div>
                                     </a>
                                 </div>
                                 <div class="content d-flex flex-column flex-grow-1 ">
                                     <div class="caption text-center">
-                                        <a href="hire_inner.php" class="text-decoration-none text-dark">
+                                        <a href="#" class="text-decoration-none text-dark">
                                             <p class="pt-3"><strong
-                                                    class="series_tractor_strong text-center h4 fw-bold ">Mahindra 575
-                                                    DI XP Plus</strong></p>
+                                                    class="series_tractor_strong text-center h4 fw-bold ">Eicher
+                                                    380</strong></p>
                                         </a>
                                     </div>
-                                    <div class="power text-center mt-2">
-                                        <a href="hire_inner.php" class="text-decoration-none text-dark">
-                                            <div class="row ">
-                                                <div class="col-6 col-lg-6 col-md-6 col-sm-6">
-                                                    <p class="text-dark"><i
-                                                            class="fa-solid fa-location-dot mx-2"></i>Dhamtari</p>
-                                                </div>
-                                                <div class="col-6 col-lg-6 col-md-6 col-sm-6">
-                                                    <p class="text-dark" style="margin-left:32px;"><i
-                                                            class="fas fa-bolt mx-2"></i>47 HP</p>
-                                                </div>
-                                                <div class="col-6 col-lg-6 col-md-6 col-sm-6">
-                                                    <p id="adduser" type="" class="text-dark">
-                                                        <i class="fa-solid fa-indian-rupee-sign mx-2"></i>30 per Acre/hr
-                                                    </p>
-                                                </div>
-
-                                                <div class="col-6 col-lg-6 col-md-6 col-sm-6">
-                                                    <p id="adduser" type="" class="text-dark "
-                                                        style="margin-left:29px;">
-                                                        <i class="fa-solid fa-gear mx-2"></i>2979 CC
-                                                    </p>
-                                                </div>
+                                    <div class="power">
+                                        <div class="row ">
+                                            <div class="col-6 col-lg-6 col-md-6 col-sm-6">
+                                                <p class="text-dark"><i
+                                                        class="fa-solid fa-location-dot mx-2"></i>Dhamtari</p>
                                             </div>
-                                        </a>
+                                            <div class="col-6 col-lg-6 col-md-6 col-sm-6">
+                                                <p class="text-dark" style="margin-left:32px;"><i
+                                                        class="fas fa-bolt mx-2"></i>47 HP</p>
+                                            </div>
+                                            <div class="col-6 col-lg-6 col-md-6 col-sm-6">
+                                                <p id="adduser" type="" class="text-dark">
+                                                    <i class="fa-solid fa-indian-rupee-sign mx-2"></i>30 per Acre/hr
+                                                </p>
+                                            </div>
+
+                                            <div class="col-6 col-lg-6 col-md-6 col-sm-6">
+                                                <p id="adduser" type="" class="text-dark " style="margin-left:29px;">
+                                                    <i class="fa-solid fa-gear mx-2"></i>2979 CC
+                                                </p>
+                                            </div>
+                                        </div>
                                     </div>
                                     <div class="col-12">
-                                        <button id="adduser" type="button" class="add_btn  btn-success w-100">
-                                        <i class="fa-solid fa-arrow-up-right-from-square"></i>Send Enquiry</button>
+                                        <button id="adduser" type="button" class="add_btn btn-success w-100">
+                                            Send Enquiry</button>
                                     </div>
                                 </div>
                             </div>
@@ -364,17 +468,30 @@
                     <div class=" mb-3" id="">
                         <div class="force-overflow">
                             <div class="price py-2 ">
-                                <h5 class=" ps-3 text-dark fw-bold mb-3">Search By Budget</h5>
+                                <h5 class=" ps-3 text-dark fw-bold mb-3">Search By State</h5>
                                 <input type="checkbox" class="checkbox-round ms-3" value="0-3" /><span
-                                    class="ps-2 fs-6"> 0 Lakh - 3 Lakh</span><br />
-                                <input type="checkbox" class="checkbox-round ms-3" value="3-6" /><span
-                                    class="ps-2 fs-6"> 3 Lakh - 5 Lakh</span><br />
-                                <input type="checkbox" class="checkbox-round ms-3" value="6-9" /><span
-                                    class="ps-2 fs-6"> 5 Lakh - 6 Lakh</span><br />
-                                <input type="checkbox" class="checkbox-round ms-3" value="6-9" /><span
-                                    class="ps-2 fs-6"> 6 Lakh - 7 Lakh</span><br />
-                                <input type="checkbox" class="checkbox-round ms-3" value="6-9" /><span
-                                    class="ps-2 fs-6"> 7 Lakh - 9 Lakh</span><br />
+                                    class="ps-2 fs-6">Chhattisgarh</span><br />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="scrollbar mb-3" id="">
+                        <div class="force-overflow">
+                            <h5 class=" ps-1 text-dark fw-bold pt-2">Search By District</h5>
+                            <div class="HP py-2">
+                                <input type="checkbox" class="checkbox-round ms-3" value="0-20" /><span
+                                    class="ps-2 fs-6">Manendragarh </span><br />
+                                <input type="checkbox" class="checkbox-round ms-3" value="21-30" /><span
+                                    class="ps-2 fs-6">Koriya</span><br />
+                                <input type="checkbox" class="checkbox-round ms-3" value="31-40" /><span
+                                    class="ps-2 fs-6">Surajpur</span><br />
+                                <input type="checkbox" class="checkbox-round ms-3" value="41-50" /><span
+                                    class="ps-2 fs-6">Balrampur</span><br />
+                                <input type="checkbox" class="checkbox-round ms-3" value="51-60" /><span
+                                    class="ps-2 fs-6">Janjgir Champa</span><br />
+                                <input type="checkbox" class="checkbox-round ms-3" value="61-70" /><span
+                                    class="ps-2 fs-6">Korba</span><br />
+                                <input type="checkbox" class="checkbox-round ms-3" value="71-80" /><span
+                                    class="ps-2 fs-6">Raigarh</span><br />
                             </div>
                         </div>
                     </div>
@@ -382,8 +499,6 @@
                         <div class="force-overflow">
                             <h5 class=" ps-1 text-dark fw-bold pt-2">Search By HP</h5>
                             <div class="HP py-2">
-
-                                <!-- <input type="checkbox" class="text-align-center ms-3" value=""/><span> This is checkbox </span><br /> -->
                                 <input type="checkbox" class="checkbox-round ms-3" value="0-20" /><span
                                     class="ps-2 fs-6">0 HP - 20 HP</span><br />
                                 <input type="checkbox" class="checkbox-round ms-3" value="21-30" /><span
@@ -434,92 +549,7 @@
         </div>
     </section>
 
-    <!-- <section class="about bg-light">
-        <div class="container">
-            <div class="lecture_heading text-center">
-                <h3 class="fw-bold mt-4 pt-4">Recently Asked User Questions about New Tractor</h3>
-            </div>
-            <div class="mt-4 pb-5">
-                <div class="accordion " id="accordionFlushExample">
-                    <div class="accordion-item  rounded-3">
-                        <h2 class="accordion-header p-2" id="flush-headingOne" >
-                        <button class="accordion-button collapsed fw-bold h4" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
-                         Que. Which is the most popular tractor?
-                        </button>
-                        </h2>
-                        <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-                            <div class="accordion-body">
-                                <p class="text-dark">Ans. Powertrac Euro 47 PowerHouse, Massery 241 DI DYNATRACK and Swaraj 742 XT is the most popular tractor.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="accordion-item rounded-3 my-3">
-                        <h2 class="accordion-header p-2" id="flush-headingTwo">
-                        <button class="accordion-button collapsed  fw-bold h4" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
-                        Que. Which are the lowest priced popular tractor Models?
-                        </button>
-                        </h2>
-                        <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
-                        <div class="accordion-body">
-                            <p class="text-dark">Ans. The lowest priced popular tractors are VST VT 224 -1D priced at Rs. 3.71-4.12 lakh*,Mahindra 275 DI TU priced at Rs. 5.60 - 5.80 Lakh*, New Holland 3037 TX priced at Rs. 5.50 - 5.80 Lakh* and Sonalika 42 DI Sikander priced at Rs. 6.45 - 6.75 Lakh*.</p>
-                        </div>
-                        </div>
-                    </div>
-                    <div class="accordion-item  rounded-3 my-3">
-                        <h2 class="accordion-header p-2" id="flush-headingThree">
-                        <button class="accordion-button collapsed  fw-bold h4" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
-                        Que. How can I get a Popular Tractor without any hassle?
-                        </button>
-                        </h2>
-                        <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
-                        <div class="accordion-body">
-                           <p class="text-dark">Ans. Visit Tractor Junction, and here you can easily get a separate segment where you can filter Popular tractors according to your choice.</p>
-                        </div>
-                        </div>
-                    </div>
-                    <div class="accordion-item  rounded-3 my-3">
-                        <h2 class="accordion-header p-2" id="flush-heading4">
-                        <button class="accordion-button collapsed  fw-bold h4" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse4" aria-expanded="false" aria-controls="flush-collapse4">
-                          Que. How many popular tractors are listed at Tractor Junction?
-                        </button>
-                        </h2>
-                        <div id="flush-collapse4" class="accordion-collapse collapse" aria-labelledby="flush-heading4" data-bs-parent="#accordionFlushExample">
-                        <div class="accordion-body">
-                            <p class="text-dark">Ans. 40+ popular tractor models are available at Tractor Junction.</p>
-                        </div>
-                        </div>
-                    </div>
-                    <div class="accordion-item  rounded-3 my-3">
-                        <h2 class="accordion-header p-2" id="flush-heading5">
-                        <button class="accordion-button collapsed  fw-bold h4" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse5" aria-expanded="false" aria-controls="flush-collapse5">
-                        Que. Which are the highest priced popular tractor models in India?
-                        </button>
-                        </h2>
-                        <div id="flush-collapse5" class="accordion-collapse collapse" aria-labelledby="flush-heading5" data-bs-parent="#accordionFlushExample">
-                            <div class="accordion-body">
-                            <p class="text-dark">Ans. The highest priced popular tractor models are Mahindra ARJUN NOVO 605 DI-i-4WD priced at Rs. 9.80-10.50, John Deere 5050 D - 4WD priced at Rs. 8.70 - 9.22 Lakh*, Mahindra Arjun Novo 605 Di-ps priced at Rs. 7.60 - 7.85 Lakh* and Sonalika WT 60 priced at Rs. 8.90 - 9.25 Lakh*.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="accordion-item  rounded-3 my-3">
-                        <h2 class="accordion-header p-2" id="flush-heading6">
-                        <button class="accordion-button collapsed  fw-bold h4" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse6" aria-expanded="false" aria-controls="flush-collapse6">
-                        Que. Which is the most popular tractor in the 50 Hp power range?
-                        </button>
-                        </h2>
-                        <div id="flush-collapse6" class="accordion-collapse collapse" aria-labelledby="flush-heading6" data-bs-parent="#accordionFlushExample">
-                            <div class="accordion-body">
-                                <p class="text-dark">Ans. New Holland 3630-TX Super and Massey Ferguson 7250 Power Up are the most popular tractors in the 50 Hp power range.</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                </div>
-            </div>
 
-           
-        </div>
-</section> -->
 
     <section class="my-4">
         <div class="container my-5">
@@ -536,131 +566,47 @@
 
                 </p>
             </div>
-            <!-- <table class="table table-striped my-3">
-            <thead class="">
-                <tr class="py-3">
-                <th scope="col">Popular Tractors</th>
-                <th scope="col">Tractor HP</th>
-                <th scope="col">Popular  Tractors Price</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr class="">
-                    <td class="py-3">Powertrac ALT 3000</td>
-                    <td class="py-3">28  HP</td>
-                    <td class="py-3">Rs. 4.87 lac*</td>
-                </tr>
-                <tr  class="py-3">
-                    <td class="py-3">Farmtrac 3600</td>
-                    <td class="py-3">47  HP</td>
-                    <td class="py-3">Rs. 7.06-7.28 lac*</td>
-                </tr>
-                <tr class="py-3">
-                    <td class="py-3">Swaraj 978 FE</td>
-                    <td class="py-3">75  HP</td>
-                    <td class="py-3">Rs. 12.60-13.50 lac*</td>
-                </tr>
-                <tr class="py-3">
-                    <td class="py-3">Farmtrac 60 PowerMaxx</td>
-                    <td class="py-3">55 HP</td>
-                    <td class="py-3">Rs. 7.92-8.24 lac*</td>
-                </tr>
-                <tr>
-                    <td class="py-3">Mahindra OJA 2121 4WD</td>
-                    <td class="py-3">21 HP</td>
-                    <td class="py-3">Rs. 4.78 lac*</td>
-                </tr>
-                <tr>
-                    <td  class="py-3">Mahindra 275 DI XP Plus</td>
-                    <td class="py-3">37 HP</td>
-                    <td class="py-3">	Rs. 5.65-5.90 lac*</td>
-                </tr>
-                <tr>
-                    <td  class="py-3">Mahindra Yuvo 575 DI 4WD</td>
-                    <td class="py-3">52 HP</td>
-                    <td class="py-3">Rs. 7.59-7.90 lac*</td>
-                </tr>
-                <tr>
-                    <td class="py-3" >Sonalika Tiger 50</td>
-                    <td class="py-3">	45 HP</td>
-                    <td class="py-3">	Rs. 8.35-8.67 lac*</td>
-                </tr>
-            </tbody>
-        </table> -->
         </div>
     </section>
 
 
     <section>
         <div class="container">
-            <h3 class="fw-bold assured px-3">Tractors By HP</h3>
+            <h4 class="fw-bold assured px-2">Quick Links</h4>
             <div class="row my-4">
-                <div class="col-12 col-lg-3 col-md-4 col-sm-3 py-2">
+                <div class="col-12 col-lg-4 col-md-4 col-sm-4 py-2">
                     <a href="#" id="adduser" class="btn btn-outline-success text-decoration-none border-2 p-2 w-100">
-                        <i class="fas fa-bolt"></i> Under 20 HP</a>
+                        <i class="fas fa-bolt"></i>TRACTOR PRICE</a>
                 </div>
-                <div class="col-12 col-lg-3 col-md-4 col-sm-3 py-2">
+                <div class="col-12 col-lg-4 col-md-4 col-sm-4 py-2">
                     <a href="#" id="adduser"
-                        class=" btn btn-outline-success text-decoration-none border-2 p-2 w-100">
-                        <i class="fas fa-bolt"></i> 21-30 HP</a>
+                        class=" btn btn-outline-success text-decoration-none border-2 py-2 px-3 w-100">
+                        <i class="fas fa-bolt"></i>TRACTOR</a>
                 </div>
-                <div class="col-12 col-lg-3 col-md-4 col-sm-3 py-2">
+                <div class="col-12 col-lg-4 col-md-4 col-sm-4 py-2">
                     <a href="#" id="adduser"
-                        class="btn btn-outline-success text-decoration-none border-2 p-2 w-100">
-                        <i class="fas fa-bolt"></i> 31-40 HP</a>
+                        class=" btn btn-outline-success text-decoration-none border-2 py-2 px-3 w-100">
+                        <i class="fas fa-bolt"></i>HARVESTERS</a>
                 </div>
-                <div class="col-12 col-lg-3 col-md-4 col-sm-3 py-2">
+                <div class="col-12 col-lg-4 col-md-4 col-sm-4 py-2">
                     <a href="#" id="adduser"
-                        class="btn btn-outline-success text-decoration-none border-2 p-2 w-100">
-                        <i class="fas fa-bolt"></i> 41-45 HP</a>
+                        class="btn btn-outline-success text-decoration-none  border-2 py-2 px-3 w-100">
+                        <i class="fas fa-bolt"></i>SECOND HAND TRACTOR</a>
                 </div>
-                <div class="col-12 col-lg-3 col-md-4 col-sm-3 py-2">
+                <div class="col-12 col-lg-4 col-md-4 col-sm-4 py-2">
                     <a href="#" id="adduser"
-                        class="btn btn-outline-success text-decoration-none border-2 p-2 w-100">
-                        <i class="fas fa-bolt"></i> 46-50 HP</a>
+                        class="btn btn-outline-success text-decoration-none border-2 py-2 px-3 w-100">
+                        <i class="fas fa-bolt"></i>EASY FINANCE</a>
                 </div>
-                <div class="col-12 col-lg-3 col-md-4 col-sm-3 py-2">
+                <div class="col-12 col-lg-4 col-md-4 col-sm-4 py-2">
                     <a href="#" id="adduser"
-                        class="btn btn-outline-success text-decoration-none border-2 p-2 w-100">
-                        <i class="fas fa-bolt"></i> 51-60 HP</a>
-                </div>
-                <div class="col-12 col-lg-3 col-md-4 col-sm-3 py-2">
-                    <a href="#" id="adduser"
-                        class="btn btn-outline-success text-decoration-none border-2 p-2 w-100">
-                        <i class="fas fa-bolt"></i> 61-75 HP</a>
-                </div>
-                <div class="col-12 col-lg-3 col-md-4 col-sm-3 py-2">
-                    <a href="#" id="adduser"
-                        class="btn btn-outline-success text-decoration-none border-2 p-2 w-100">
-                        <i class="fas fa-bolt"></i> ABOVE 75 HP</a>
-                </div>
-            </div>
-        </div>
-        <div class="container">
-            <h3 class="fw-bold assured px-3">Tractors By Price</h3>
-            <div class="row my-4">
-                <div class="col-12 col-lg-3 col-md-4 col-sm-3 py-2">
-                    <a href="#" id="adduser" class="btn btn-outline-success text-decoration-none border-2 p-2 w-100">
-                        <i class="fas fa-rupee-sign"></i> Under 3 lakh</a>
-                </div>
-                <div class="col-12 col-lg-3 col-md-4 col-sm-3 py-2">
-                    <a href="#" id="adduser"
-                        class=" btn btn-outline-success text-decoration-none border-2 p-2 w-100">
-                        <i class="fas fa-rupee-sign"></i> 3-5 Lakh</a>
-                </div>
-                <div class="col-12 col-lg-3 col-md-4 col-sm-3 py-2">
-                    <a href="#" id="adduser"
-                        class="btn btn-outline-success text-decoration-none border-2 p-2 w-100">
-                        <i class="fas fa-rupee-sign"></i> 5-7 Lakh</a>
-                </div>
-                <div class="col-12 col-lg-3 col-md-4 col-sm-3 py-2">
-                    <a href="#" id="adduser"
-                        class="btn btn-outline-success text-decoration-none border-2 p-2 w-100">
-                        <i class="fas fa-rupee-sign"></i> Above 7 Lakh</a>
+                        class="btn btn-outline-success text-decoration-none border-2 py-2 px-3 w-100">
+                        <i class="fas fa-bolt"></i>DEALERSHIP</a>
                 </div>
             </div>
         </div>
     </section>
+
 
 
     <?php
@@ -668,5 +614,27 @@
     include 'includes/footertag.php';
 
     ?>
+    <script>
+    $(document).ready(function() {
+        $("#hire_inner").validate({
+            rules: {
+                first_name: 'required',
+
+                last_name: 'required',
+                mobile_number: {
+                    required: true,
+                    digits: true, // Allow only digits
+                },
+                state: "required",
+                district: "required",
+            }
+        });
+        $('#button_hire').on('click', function() {
+            $('#hire_inner').valid();
+            console.log($('#hire_inner').valid());
+        });
+    });
+    </script>
+
 
 </html>

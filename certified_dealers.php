@@ -7,10 +7,10 @@
     ?>
 </head>
 <body>
-  <section>
-    <div class="container mt-5 pt-4">
-      <div class="mt-5 pt-5">
-        <span class="mt-4 pt-4 ">
+  <section class="bg-light">
+    <div class="container mt-5 pt-5">
+      <div class="mt-5 mb-1 py-2">
+        <span class="">
           <a href="index.php" class="text-decoration-none header-link px-1">Home <i class="fa-solid fa-chevron-right px-1"></i></a>
           <span class=""><span class=" header-link  px-1">Certified Dealers</span></span>
         </span> 
@@ -19,135 +19,92 @@
   </section>
   <!--TEXT Find Tractor Dealer -->
   <section>
-    <div class="row mt-3">
-      <img src="assets/images/tractor dealerimg.png" alt="dealership-image">
-    </div>  
-    <!-- <div class="page-banner-content text-center position-absolute mt-3 px-2">
-      <h1>Find Tractor Dealer</h1>
-    </div>           -->
+    <div class="row">
+      <img src="assets/images/tractor dealerimg.png" class="position-relative" alt="dealership-image">
+    </div>
   </section>
+
   <!-- FORM -->
-  <section class="form-view bg-white me-5 pb-4">
-    <div class="container-mid me-5" style="position: relative; margin-top:-230px; float:right;">
-      <div class="row justify-content-center me-5">
+  <section class="form-view bg-white pb-4">
+    <div class="container-sm float-start mt-n4">
+      <div class="row">
         <div class="col-md-8 col-lg-7">
-          <form id="dealership_enq_from" style="" class="form-view-inner w-75 form-view-overlay bg-light box-shadow p-3" action="" method="" >
-            <div class="row justify-content-center">       
-              <!-- <p class="fw-bold fs-5">Find Tractor Dealers</p>      -->
+          <form id="dealership_enq_from" style="margin-top: -340px; margin-left: 55px;" class="form-view-inner w-50  position-absolute form-view-overlay bg-light box-shadow p-3" action="" method="" >
+            <div class="row justify-content-center">                 
               <div class="col-12 col-sm-4 col-md-4 col-lg-4">
-                <label for="yr_dist" class="form-label fw-bold text-dark">Brand</label>
-                <select class="form-select py-2 " id="_brand" name="_brand"aria-label=".form-select-lg example">
-                  <option selected>Select Brand</option>
-                  <option value="1">Mahindra</option>
-                  <option value="2">Swaraj</option>
-                  <option value="2">Powertrac</option>
-                </select>
-              </div>                
-              <div class="col-12 col-sm-4 col-md-4 col-lg-4">
-                <label for="yr_state" class="form-label text-dark fw-bold"> <i class="fas fa-location"></i> State</label>
-                <select class="form-select py-2" id="_state" name="_state"aria-label=".form-select-lg example">
-                  <option selected>Select State</option>
-                  <option value="1">Chhattisgarh</option>
-                  <option value="2">Other</option>
-                </select>
+                <div class="form-outline">
+                  <label for="yr_dist" class="form-label fw-bold text-dark">Brand</label>
+                  <select class="form-select form-select-sm py-2 " id="_brand" name="_brand"aria-label=".form-select-sm example">
+                    <option value="" selected disabled=""></option>
+                    <option value="1">Mahindra</option>
+                    <option value="2">Swaraj</option>
+                    <option value="2">Powertrac</option>
+                  </select>
+                </div>                
               </div>
               <div class="col-12 col-sm-4 col-md-4 col-lg-4">
-                <label for="yr_dist" class="form-label fw-bold  text-dark"><i class="fa-solid fa-location-dot"></i> District</label>
-                <select class="form-select py-2" id="_district" name="_district" aria-label=".form-select-lg example">
-                  <option selected>Select District</option>
-                  <option value="1">Raipur</option>
-                  <option value="2">Bilaspur</option>
-                  <option value="2">Durg</option>
-                </select>
+                <div class="form-outline">
+                  <label for="yr_state" class="form-label text-dark fw-bold"> <i class="fas fa-location"></i> State</label>
+                  <select class="form-select form-select-sm py-2" id="_state" name="_state"aria-label=".form-select-sm example">
+                    <option value="" selected disabled=""></option>
+                    <option value="1">Chhattisgarh</option>
+                    <option value="2">Other</option>
+                  </select>
+                </div>
               </div>
-              <div class="row">
+              <div class="col-12 col-sm-4 col-md-4 col-lg-4">
+                <div class="form-outline">
+                  <label for="yr_dist" class="form-label fw-bold  text-dark"><i class="fa-solid fa-location-dot"></i> District</label>
+                  <select class="form-select form-select-sm py-2" id="_district" name="_district" aria-label=".form-select-sm example">
+                    <option value="" selected disabled=""></option>
+                    <option value="1">Raipur</option>
+                    <option value="2">Bilaspur</option>
+                    <option value="2">Durg</option>
+                  </select>
+                </div>
+              </div>
+              <div class="row mt-1 mb-0">
                 <div class="text-center col-12 col-lg-6 col-md-6 col-sm-6 my-3">
                   <button type="submit" id="delership_enq_btn" class="btn btn-success px-5 w-100 ">Search Dealer</button>         
-                </div>        
+                </div>                    
                 <div class="text-center col-12 col-lg-6 col-md-6 col-sm-6 my-3">
-                  <button type="submit" id="delership_enq_btn" class="btn btn-success px-5 w-100 fs-6">Become Certified Dealer</button>         
-                </div>        
-              </div>
-              <!-- <p class="mb-0 text-center">By proceeding ahead you expressly agree to the Tractor Junctions <a href="#" class="text-decoration-none" target="_blank" title="terms and conditions">terms and conditions*</a></p> -->
+                  <a href="become_certified_dealer.php" >
+                    <p type="submit" id="" class="btn btn-success px-5 w-100 fs-6">Become Certified Dealer</p>         
+                  </a>         
+                </div>                   
+              </div>              
             </div>
           </form>
         </div>
       </div>
-    </div>
-  </section>
+    </div>    
+</section>
 
   <!-- CERTIFIED DEALER CARDS -->
   <section>
     <div class="container">
       <div class="row">
         <h3 class=" mt-1">Recent Certified Dealers</h3>
-
-        <div class="col-12 col-sm-6 col-md-3 col-lg-4 px-2 py-3 h-100">
+        <div class="col-12 col-sm-3 col-md-3 col-lg-3 px-2 py-3 h-100">
           <div class="h-auto success__stry__item d-flex flex-column shadow ">
-            <div class="thumb">
-              <a href="#">
+            <div class="thumb" style="positon:relative;">
+              <a href="certified_dealers_inner.php">
                 <div class="ratio ratio-16x9">
                   <img src="assets/images/ratnaautomotive.webp" class="object-fit-cover " alt="img">
                 </div>
-              </a>
+              </a>            
+            </div>
+            <div class="position-absolute" >
+              <p class="rounded-pill bg-warning text-center px-2 mt-1">Certified</p>
             </div>
             <div class="">
-              <a href="Mahindra_575.php" class="text-decoration-none text-dark">
+              <a href="certified_dealers_inner.php" class="text-decoration-none text-dark">
                 <h5 class="fw-bold text-center mt-3 mx-3">Ratna Automotive Pvt. Ltd. </h5>
               </a> 
-              <div class="row">
-                <div class="col-12 col-lg-9 col-md-9 col-sm-9 fw-bold "><p class="text-dark ps-3">Sonalika Dealer</p></div>
-                <div class="col-12 col-lg-3 col-md-3 col-sm-3"><p class="rounded-pill bg-warning text-center">Certified</p></div>
-              </div>
-              <div class="justify-content-center  d-flex position-relative" >
-                <button typt="button" class="btn btn-success w-100">Rangareddy, Telangana</button>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-12 col-sm-6 col-md-3 col-lg-4 px-2 py-3 h-100">
-          <div class="h-auto success__stry__item d-flex flex-column shadow ">
-            <div class="thumb">
-              <a href="#">
-                <div class="ratio ratio-16x9">
-                  <img src="assets/images/ratnaautomotive.webp" class="object-fit-cover " alt="img">
-                </div>
-              </a>
-            </div>
-            <div class="">
-              <a href="Mahindra_575.php" class="text-decoration-none text-dark">
-                <h5 class="fw-bold text-center mt-3 mx-3">Ratna Automotive Pvt. Ltd. </h5>
-              </a> 
-              <div class="row">
-                <div class="col-12 col-lg-9 col-md-9 col-sm-9 "><p class="text-dark ps-3">Sonalika Dealer</p></div>
-                <div class="col-12 col-lg-3 col-md-3 col-sm-3"><p class="rounded-pill bg-warning text-center">Certified</p></div>
-              </div>
-              <div class="justify-content-center  d-flex position-relative" >
-                <button typt="button" class="btn btn-success w-100">Rangareddy, Telangana</button>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-12 col-sm-6 col-md-3 col-lg-4 px-2 py-3 h-100">
-          <div class="h-auto success__stry__item d-flex flex-column shadow ">
-            <div class="thumb">
-              <a href="#">
-                <div class="ratio ratio-16x9">
-                  <img src="assets/images/ratnaautomotive.webp" class="object-fit-cover " alt="img">
-                </div>
-              </a>
-            </div>
-            <div class="">
-              <a href="Mahindra_575.php" class="text-decoration-none text-dark">
-                <h5 class="fw-bold text-center mt-3 mx-3">Ratna Automotive Pvt. Ltd. </h5>
-              </a> 
-              <div class="row">
-                <div class="col-12 col-lg-9 col-md-9 col-sm-9 "><p class="text-dark ps-3">Sonalika Dealer</p></div>
-                <div class="col-12 col-lg-3 col-md-3 col-sm-3"><p class="rounded-pill bg-warning text-center">Certified</p></div>
-              </div>
-              <div class="justify-content-center  d-flex position-relative" >
+              <div class="col-12 col-lg-12 col-md-12 col-sm-12">
+                <p class=" text-center text-dark fw-bold ps-3">Sonalika Dealer</p>
+              </div>              
+              <div class="justify-content-center  d-flex">
                 <button typt="button" class="btn btn-success w-100">Rangareddy, Telangana</button>
               </div>
             </div>
@@ -156,94 +113,78 @@
 
         <div class="col-12 col-sm-3 col-md-3 col-lg-3 px-2 py-3 h-100">
           <div class="h-auto success__stry__item d-flex flex-column shadow ">
-            <div class="thumb">
-              <a href="#">
+            <div class="thumb" style="positon:relative;">
+              <a href="certified_dealers_inner.php">
                 <div class="ratio ratio-16x9">
                   <img src="assets/images/ratnaautomotive.webp" class="object-fit-cover " alt="img">
                 </div>
-              </a>
+              </a>            
+            </div>
+            <div class="position-absolute" >
+              <p class="rounded-pill bg-warning text-center px-2 mt-1">Certified</p>
             </div>
             <div class="">
-              <a href="Mahindra_575.php" class="text-decoration-none text-dark">
+              <a href="certified_dealers_inner.php" class="text-decoration-none text-dark">
                 <h5 class="fw-bold text-center mt-3 mx-3">Ratna Automotive Pvt. Ltd. </h5>
               </a> 
               <div class="row">
-                <div class="col-12 col-lg-8 col-md-8 col-sm-8 "><p class="text-dark ps-3">Sonalika Dealer</p></div>
-                <div class="col-12 col-lg-4 col-md-4 col-sm-4"><p class="rounded-pill bg-warning text-center">Certified</p></div>
+              <div class="col-12 col-lg-12 col-md-12 col-sm-12"><p class=" text-center text-dark fw-bold ps-3">Sonalika Dealer</p></div>
+               
               </div>
-              <div class="justify-content-center  d-flex position-relative" >
+              <div class="justify-content-center  d-flex">
                 <button typt="button" class="btn btn-success w-100">Rangareddy, Telangana</button>
               </div>
             </div>
           </div>
         </div>
-
         <div class="col-12 col-sm-3 col-md-3 col-lg-3 px-2 py-3 h-100">
           <div class="h-auto success__stry__item d-flex flex-column shadow ">
-            <div class="thumb">
-              <a href="#">
+            <div class="thumb" style="positon:relative;">
+              <a href="certified_dealers_inner.php">
                 <div class="ratio ratio-16x9">
                   <img src="assets/images/ratnaautomotive.webp" class="object-fit-cover " alt="img">
                 </div>
-              </a>
+              </a>            
+            </div>
+            <div class="position-absolute" >
+              <p class="rounded-pill bg-warning text-center px-2 mt-1">Certified</p>
             </div>
             <div class="">
-              <a href="Mahindra_575.php" class="text-decoration-none text-dark">
+              <a href="certified_dealers_inner.php" class="text-decoration-none text-dark">
                 <h5 class="fw-bold text-center mt-3 mx-3">Ratna Automotive Pvt. Ltd. </h5>
               </a> 
               <div class="row">
-                <div class="col-12 col-lg-8 col-md-8 col-sm-8 "><p class="text-dark ps-3">Sonalika Dealer</p></div>
-                <div class="col-12 col-lg-4 col-md-4 col-sm-4"><p class="rounded-pill bg-warning text-center">Certified</p></div>
+              <div class="col-12 col-lg-12 col-md-12 col-sm-12"><p class=" text-center text-dark fw-bold ps-3">Sonalika Dealer</p></div>
+               
               </div>
-              <div class="justify-content-center  d-flex position-relative" >
+              <div class="justify-content-center  d-flex">
                 <button typt="button" class="btn btn-success w-100">Rangareddy, Telangana</button>
               </div>
             </div>
           </div>
         </div>
-
+        
         <div class="col-12 col-sm-3 col-md-3 col-lg-3 px-2 py-3 h-100">
           <div class="h-auto success__stry__item d-flex flex-column shadow ">
-            <div class="thumb">
-              <a href="#">
+            <div class="thumb" style="positon:relative;">
+              <a href="certified_dealers_inner.php">
                 <div class="ratio ratio-16x9">
                   <img src="assets/images/ratnaautomotive.webp" class="object-fit-cover " alt="img">
                 </div>
-              </a>
+              </a>            
+            </div>
+            <div class="position-absolute" >
+              <p class="rounded-pill bg-warning text-center px-2 mt-1">Certified</p>
             </div>
             <div class="">
-              <a href="Mahindra_575.php" class="text-decoration-none text-dark">
+              <a href="certified_dealers_inner.php" class="text-decoration-none text-dark">
                 <h5 class="fw-bold text-center mt-3 mx-3">Ratna Automotive Pvt. Ltd. </h5>
               </a> 
               <div class="row">
-                <div class="col-12 col-lg-8 col-md-8 col-sm-8 "><p class="text-dark ps-3">Sonalika Dealer</p></div>
-                <div class="col-12 col-lg-4 col-md-4 col-sm-4"><p class="rounded-pill bg-warning text-center">Certified</p></div>
+                <div class="col-12 col-lg-12 col-md-12 col-sm-12"><p class=" text-center text-dark fw-bold ps-3">Sonalika Dealer</p></div>
+               
               </div>
-              <div class="justify-content-center  d-flex position-relative" >
-                <button typt="button" class="btn btn-success w-100">Rangareddy, Telangana</button>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-12 col-sm-3 col-md-3 col-lg-3 px-2 py-3 h-100">
-          <div class="h-auto success__stry__item d-flex flex-column shadow ">
-            <div class="thumb">
-              <a href="#">
-                <div class="ratio ratio-16x9">
-                  <img src="assets/images/ratnaautomotive.webp" class="object-fit-cover " alt="img">
-                </div>
-              </a>
-            </div>
-            <div class="">
-              <a href="Mahindra_575.php" class="text-decoration-none text-dark">
-                <h5 class="fw-bold text-center mt-3 mx-3">Ratna Automotive Pvt. Ltd. </h5>
-              </a> 
-              <div class="row">
-                <div class="col-12 col-lg-8 col-md-8 col-sm-8 "><p class="text-dark ps-3">Sonalika Dealer</p></div>
-                <div class="col-12 col-lg-4 col-md-4 col-sm-4"><p class="rounded-pill bg-warning text-center">Certified</p></div>
-              </div>
-              <div class="justify-content-center  d-flex position-relative" >
+              <div class="justify-content-center  d-flex">
                 <button typt="button" class="btn btn-success w-100">Rangareddy, Telangana</button>
               </div>
             </div>
@@ -260,7 +201,7 @@
     <div class="container">
       <div class="row">
         <p class="fw-bold text-dark bg-light text-start mt-4 assured ps-3">Find tractor dealers near you</p>
-        <p class="justify-content-center">Tractor Junction is India’s leading digital platform for all kinds of Tractor related services be it buying, selling, financing, insuring or servicing the machine we serve you all. Tractor Junction, in order to meet your expectations and needs strive hard in order to get more resources on-board for your betterment. One such feature we offer you is to find best and certified dealers for your desired activity. Finding a dealer we know can be very messy sometimes but we assure you ease through our highly selective database. Find best dealers in your locality and get a list of all the dealers in your proximity. We believe in making the tasks of buying and selling tractors easy for you and hassle free. When it is with us, it is assured, it is guaranteed and it is safe. Tractor Junction brings to you the best after scrutinizing the companies, brands, models and dealers through our integrated process of selection</p>
+        <p class="justify-content-center">Bharat Tractor is India’s leading digital platform for all kinds of Tractor related services be it buying, selling, financing, insuring or servicing the machine we serve you all. Bharat Tractor, in order to meet your expectations and needs strive hard in order to get more resources on-board for your betterment. One such feature we offer you is to find best and certified dealers for your desired activity. Finding a dealer we know can be very messy sometimes but we assure you ease through our highly selective database. Find best dealers in your locality and get a list of all the dealers in your proximity. We believe in making the tasks of buying and selling tractors easy for you and hassle free. When it is with us, it is assured, it is guaranteed and it is safe. Bharat Tractor brings to you the best after scrutinizing the companies, brands, models and dealers through our integrated process of selection</p>
         <p class="justify-content-center">We offer you a hassle-free process to buy tractor dealerships in India. You just need to fill up the above form asking for basic details like name, tractor brand preferences, state, district, etc. We will help you identify the right steps to start your new tractor dealerships. We will help you with pre and post-opening & product support, prepare a marketing and advertising plan & even provide assistance on gathering resources for ideal site selection, followed by quality control parameters. For any further Tractor dealership enquiry, reach us.</p>
       </div>
     </div>

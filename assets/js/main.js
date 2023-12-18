@@ -663,6 +663,40 @@ jQuery("#carousel_related").owlCarousel({
   }
 });
 
+
+// certified dealers similar brands
+jQuery("#carousel_related_brand").owlCarousel({
+  autoplay: true,
+  rewind: true,
+  margin: 20,
+   /*
+  animateOut: 'fadeOut',
+  animateIn: 'fadeIn',
+  */
+  responsiveClass: true,
+  autoHeight: true,
+  autoplayTimeout: 7000,
+  smartSpeed: 800,
+  nav: true,
+  responsive: {
+    0: {
+      items: 1
+    },
+
+    600: {
+      items: 3
+    },
+
+    1024: {
+      items: 4
+    },
+
+    1366: {
+      items: 4
+    }
+  }
+});
+
 // $(function() {
 //   // Owl Carousel
 //   var owl = $(".owl-carousel");

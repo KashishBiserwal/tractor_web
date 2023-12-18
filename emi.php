@@ -97,7 +97,7 @@
 
     <div class="container-fluid">
         <div class="row siv" id="">
-            <img src="assets/images/emi_calculator.webp" alt="reload img" class="w-100" style="height: 350px;">
+            <img src="assets/images/emi_tractor.png" alt="reload img" class="w-100" style="height: 350px;">
         </div>
     </div>
 
@@ -134,171 +134,58 @@
 
     <section class="my-4">
         <div class="container  shadow">
-            <div class="" id="form1">
-                <h3 class="fw-bold assured px-2 mt-2">Calculate Your Tractor Loan EMI</h3>
-                <div class="row">
-                    <div class="col-12 col-sm-12 col-md-6 col-lg-6">
-                        <form id="brandModelForm" action="" method="post">
-                            <div class="form-outline mt-2 py-3">
-                                <label class="form-label fw-bold" for="brandSelect">Brand</label>
-                                <select class="form-select py-2" aria-label="Default select example" id="brandSelect"
-                                    name="brandSelect" onchange="populateModels()">
-                                    <option value="">Select Brand</option>
-                                </select>
-                            </div>
-                            <div class="form-outline mt-3">
-                                <label class="form-label fw-bold" for="modelSelect">Model</label>
-                                <select class="form-select py-2" aria-label="Default select example" id="modelSelect"
-                                    name="modelSelect">
-                                    <option value="">Select Model</option>
-                                </select>
-                            </div>
-                            <a href="emi_inner.php"><button type="button" class="w-100 fw-bold btn btn-success mt-3 mb-1" id="calculateEMI"
-                                onclick="showEMIForm()">Calculate
-                                EMI</button></a>
-                        </form>
-                    </div>
-                    <div class="col-12 col-sm-12 col-md-6 col-lg-6 ">
-                        <div class="row">
-                            <div class="col-6 col-lg-6 col-md-6 col-sm-6 text-center mb-4">
-                                <h3 class="fw-bold">EMI</h3>
-                            </div>
-                            <div class="col-6 col-lg-6 col-md-6 col-sm-6 text-center mb-4">
-                                <h3 class="fw-bold">--</h3>
-                            </div>
-                            <div class="col-6 col-lg-6 col-md-6 col-sm-6 py-2 text-center">
-                                <h6>*Ex-showroom Price</h6>
-                                <p>--</p>
-                            </div>
-                            <div class="col-6 col-lg-6 col-md-6 col-sm-6 py-2 text-center">
-                                <h6>Total Loan Amount</h6>
-                                <p>--</p>
-                            </div>
-                            <div class="col-6 col-lg-6 col-md-6 col-sm-6 py-2 text-center">
-                                <h6>Payable Amount</h6>
-                                <p>--</p>
-                            </div>
-                            <div class="col-6 col-lg-6 col-md-6 col-sm-6 py-2 text-center">
-                                <h6>You’ll pay extra</h6>
-                                <p>--</p>
-                            </div>
+
+            <h3 class="fw-bold assured px-2 mt-2">Calculate Your Tractor Loan EMI</h3>
+            <div class="row">
+                <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+                    <form id="brandModelForm"  method="post">
+                        <div class="form-outline mt-2 py-3">
+                            <label class="form-label fw-bold" for="brandSelect">Brand</label>
+                            <select class="form-select py-2" aria-label="Default select example" id="brandSelect"
+                                name="brandSelect" onchange="populateModels()">
+                                <option value="">Select Brand</option>
+                            </select>
+                        </div>
+                        <div class="form-outline mt-3">
+                            <label class="form-label fw-bold" for="modelSelect">Model</label>
+                            <select class="form-select py-2" aria-label="Default select example" id="modelSelect"
+                                name="modelSelect">
+                                <option value="">Select Model</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="w-100 fw-bold btn btn-success mt-3 mb-1"
+                            id="calculateEMI">Calculate
+                            EMI</button>
+                    </form>
+                </div>
+                <div class="col-12 col-sm-12 col-md-6 col-lg-6 ">
+                    <div class="row">
+                        <div class="col-6 col-lg-6 col-md-6 col-sm-6 text-center mb-4">
+                            <h3 class="fw-bold">EMI</h3>
+                        </div>
+                        <div class="col-6 col-lg-6 col-md-6 col-sm-6 text-center mb-4">
+                            <h3 class="fw-bold">--</h3>
+                        </div>
+                        <div class="col-6 col-lg-6 col-md-6 col-sm-6 py-2 text-center">
+                            <h6>*Ex-showroom Price</h6>
+                            <p>--</p>
+                        </div>
+                        <div class="col-6 col-lg-6 col-md-6 col-sm-6 py-2 text-center">
+                            <h6>Total Loan Amount</h6>
+                            <p>--</p>
+                        </div>
+                        <div class="col-6 col-lg-6 col-md-6 col-sm-6 py-2 text-center">
+                            <h6>Payable Amount</h6>
+                            <p>--</p>
+                        </div>
+                        <div class="col-6 col-lg-6 col-md-6 col-sm-6 py-2 text-center">
+                            <h6>You’ll pay extra</h6>
+                            <p>--</p>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div id="form2" class="hidden">
-                <h3 class="fw-bold assured px-2 mt-2">EMI Calculation Form</h3>
-                <button type="button" class="btn btn-success mt-3 fw-bold" onclick="showBrandModelForm()">Go
-                    Back
-                </button>
-                <div class="row">
-                    <div class="col-12 col-sm-12 col-md-6 col-lg-6">
-                        <img src="assets\images\eicher-551-2wd-prima-g3.webp" class="w-100 h-50 mt-3" alt="Edit">
-                        <button type="button" class="w-100 btn btn-outline-success fw-bold mt-3 mb-1">Get on road
-                            Price</button>
-                        <div>
-                            <h5 class="mt-4 ">Down Payment</h5>
-                            <i class="fa-solid fa-indian-rupee-sign fs-5 mx-2 "></i><input type="text" class="text_emi">
-                            <div class="slidecontainer">
-                                <input type="range" min="0" max="100" value="750000" class="slider py-1" id="myRange">
-                                <!-- <p>Value: <span id="demo"></span></p> -->
-                            </div>
-                        </div>
-
-                        <div>
-                            <h5 class="mt-4">Bank Interest Rate</h5>
-                            <input type="text" class="text_emi"> <i class="fa-solid fa-percent ms-2"></i>
-                            <div class="slidecontainer">
-                                <input type="range" min="0" max="100" value="7500" class="slider py-1" id="myRange2">
-                                <!-- <p>Value: <span id="demo2"></span></p> -->
-                            </div>
-                        </div>
-                        <div>
-                            <h5 class="mt-4 ">Loan Period Months</h5>
-
-                            <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                                <label class="btn btn-success ">
-                                    <input type="radio" name="options" id="option1" autocomplete="off">12
-                                </label>
-                                <label class="btn btn-success">
-                                    <input type="radio" name="options" id="option2" autocomplete="off">18
-                                </label>
-                                <label class="btn btn-success">
-                                    <input type="radio" name="options" id="option3" autocomplete="off">24
-                                </label>
-                                <label class="btn btn-success">
-                                    <input type="radio" name="options" id="option4" autocomplete="off">30
-                                </label>
-                                <label class="btn btn-success">
-                                    <input type="radio" name="options" id="option5" autocomplete="off">36
-                                </label>
-                                <label class="btn btn-success">
-                                    <input type="radio" name="options" id="option6" autocomplete="off">42
-                                </label>
-                                <label class="btn btn-success">
-                                    <input type="radio" name="options" id="option7" autocomplete="off">48
-                                </label>
-                                <label class="btn btn-success">
-                                    <input type="radio" name="options" id="option8" autocomplete="off">54
-                                </label>
-                                <label class="btn btn-success">
-                                    <input type="radio" name="options" id="option9" autocomplete="off" checked>60
-                                </label>
-                                <label class="btn btn-success">
-                                    <input type="radio" name="options" id="option10" autocomplete="off">66
-                                </label>
-                                <label class="btn btn-success">
-                                    <input type="radio" name="options" id="option11" autocomplete="off">72
-                                </label>
-                                <label class="btn btn-success">
-                                    <input type="radio" name="options" id="option12" autocomplete="off">78
-                                </label>
-                                <label class="btn btn-success">
-                                    <input type="radio" name="options" id="option13" autocomplete="off">84
-                                </label>
-                            </div>
-
-
-                        </div>
-
-                        <div>
-                            <h5 class="mt-4 ">Repayment Interval</h5>
-
-                        </div>
-
-
-                    </div>
-                    <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-5 ">
-                        <div class="row">
-                            <div class="col-6 col-lg-6 col-md-6 col-sm-6 text-center mb-4">
-                                <h3 class="fw-bold">EMI</h3>
-                            </div>
-                            <div class="col-6 col-lg-6 col-md-6 col-sm-6 text-center mb-4">
-                                <h3 class="fw-bold"><span class="px-1">₹</span>0</h3>
-                            </div>
-                            <div class="col-6 col-lg-6 col-md-6 col-sm-6 py-2 text-center">
-                                <h5>*Ex-showroom Price</h5>
-                                <h6><span class="px-1">₹</span>0</h6>
-                            </div>
-                            <div class="col-6 col-lg-6 col-md-6 col-sm-6 py-2 text-center">
-                                <h5>Total Loan Amount</h5>
-                                <h6><span class="px-1">₹</span>0</h6>
-                            </div>
-                            <div class="col-6 col-lg-6 col-md-6 col-sm-6 py-2 text-center">
-                                <h5>Payable Amount</h5>
-                                <h6><span class="px-1">₹</span>0</h6>
-                            </div>
-                            <div class="col-6 col-lg-6 col-md-6 col-sm-6 py-2 text-center">
-                                <h5>You’ll pay extra</h5>
-                                <h6><span class="px-1">₹</span>0</h6>
-                            </div>
-                            <button type="button" class="w-100 fw-bold btn btn-success mt-3 mb-1">View Loan
-                                Offers</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
     </section>
     <section class="my-4">
@@ -607,22 +494,38 @@
     //     // Add your EMI calculation logic here
     //     alert("EMI Calculation not implemented in this example.");
     // }
-
-
+    </script>
+    <script>
     $(document).ready(function() {
+        // var storedData = JSON.parse(localStorage.getItem('formData')) || {};
+        //     $('#brandSelect').val(storedData.brandSelect || '');
+        //     $('#modelSelect').val(storedData.modelSelect || '');
         $("#brandModelForm").validate({
             rules: {
                 brandSelect: 'required',
                 modelSelect: 'required',
-            }
+            },
+            submitHandler: function (form) {
+                // var formData = {
+                //     brandSelect: $('#brandSelect').val(),
+                //     modelSelect: $('#modelSelect').val()
+                //     };
+                //     localStorage.setItem('formData', JSON.stringify(formData));
+
+                    // If the form is valid, redirect to a new page
+                    window.location.href = "emi_inner.php";
+                    return false; // prevent default form submission
+                }
+            });
+    
         });
 
 
-        $('#calculateEMI').on('click', function() {
-            $('#brandModelForm').valid();
-            console.log($('#brandModelForm').valid());
-        });
-    });
+        // $('#calculateEMI').on('click', function() {
+        //     $('#brandModelForm').valid();
+        //     console.log($('#brandModelForm').valid());
+          
+        // });
 
     // function showEMIForm() {
     //     // Validate the first form
@@ -633,11 +536,6 @@
     //     }
     // }
 
-    // function showBrandModelForm() {
-    //     // Hide the second form and show the first form
-    //     $("#form2").addClass("hidden");
-    //     $("#form1").removeClass("hidden");
-    // }
     </script>
 
 

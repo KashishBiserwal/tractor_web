@@ -1,8 +1,13 @@
 <?php
-   include 'includes/headertagadmin.php';
-  
+    include 'includes/headertag.php';
+    include 'includes/headertagadmin.php';
+   include 'includes/footertag.php';
    
    ?> 
+  <script> var APIBaseURL = "<?php echo $APIBaseURL; ?>";</script>
+  <script> var baseUrl = "<?php echo $baseUrl; ?>";</script>
+  <script src="<?php $baseUrl; ?>model/tyres_list.js"></script>
+  
 <body class="loaded"> 
 <div class="main-wrapper">
     <div class="app" id="app">
@@ -28,7 +33,7 @@
 
           <!-- Modal -->
           <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-            <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-dialog modal-xl modal-dialog-centered">
               <div class="modal-content modal_box">
                 <div class="modal-header modal_head">
                   <h5 class="modal-title text-white fw-bold" id="staticBackdropLabel"> Add Tyres </h5>
@@ -38,40 +43,66 @@
                         <div class="row justify-content-center">
                             <div class="col-lg-10">
                               <h4 class="text-center">Fill your Details</h4>
-                            <form>
+                              <form id="form_tyre_list">
                                 <div class="row justify-content-center pt-4">
-                                   
-                                    <div class="col-12 col-lg-6 col-md-6 col-sm-6  my-2">
-                                      <div class="form-group">
-                                        <input type="text" class="py-3" placeholder=" " id="brand">
-                                        <label for="name" class="text-dark fw-bold"> Brand</label>
+                                    <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
+                                      <div class="form-outline mt-3">
+                                        <label for="name" class="form-label text-dark">Brand</label>
+                                        <input type="text" class="form-control" placeholder="" id="brand" name="brand">
                                       </div>
                                     </div>
-                                    <div class="col-12 col-lg-6 col-md-6 col-sm-6  my-2">
-                                      <div class="form-group">
-                                        <input type="text" class="py-3" placeholder=" " id="model">
-                                        <label for="name" class="text-dark fw-bold">Tyre Name</label>
+                                    <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
+                                      <div class="form-outline mt-3">
+                                        <label for="name" class="form-label text-dark">Tyre Model</label>
+                                        <input type="text" class="form-control" placeholder="" id="tyre" name="tyre">
                                       </div>
                                     </div>
-                                    <div class="col-12 col-lg-6 col-md-6 col-sm-6  my-1">
-                                      <div class="form-group">
-                                        <input type="text" class="py-3" placeholder=" " id="model_name">
-                                        <label for="name" class="text-dark fw-bold">Tyre Position</label>
+                                    <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
+                                      <div class="form-outline mt-3">
+                                        <label for="name" class="form-label text-dark">Tyre Position</label>
+                                        <input type="text" class="form-control" placeholder="" id="tyre_position" name="tyre_position">
                                       </div>
                                     </div>
-                                    <div class="col-12 col-lg-6 col-md-6 col-sm-6  my-1">
-                                      <div class="form-group">
-                                        <input type="text" class="py-3" placeholder=" " id="model_name">
-                                        <label for="name" class="text-dark fw-bold">Size of the tyre</label>
+                                    <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
+                                      <div class="form-outline mt-3">
+                                        <label for="name" class="form-label text-dark">Size of the tyre</label>
+                                        <input type="text" class="form-control" placeholder="" id="tyre_size" name="tyre_size">
                                       </div>
                                     </div>
-                                    <div class="col-12 col-lg-6 col-md-6 col-sm-6  my-1">
-                                      <div class="form-group">
-                                        <input type="file" name="files[]" class="py-3" multiple >
-                                        <label for="name" class="text-dark fw-bold"></label>
+                                    <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
+                                      <div class="form-outline mt-3">
+                                        <label for="name" class="form-label text-dark">Tyre Diameter</label>
+                                        <input type="text" class="form-control" placeholder="" id="tyre_diameter" name="tyre_diameter">
                                       </div>
                                     </div>
-                                    
+                                    <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
+                                      <div class="form-outline mt-3">
+                                        <label for="name" class="form-label text-dark">Tyre Width</label>
+                                        <input type="text" class="form-control" placeholder="" id="tyre_width" name="tyre_width">
+                                      </div>
+                                    </div>
+                                    <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+                                     <div class="form-outline my-3">
+                                      <label for="yr_state" class="form-label text-dark">Category</label>
+                                      <select class="form-select form-control" aria-label=".form-select-lg example"id="category" name="category">
+                                          <option value>Select Categoey</option>
+                                          <option value="1">tyre</option>
+                                          <option value="2">....</option>
+                                      </select>
+                                    </div>
+                                  </div>
+                                    <div class="col-12 col-lg-6 col-md-6 col-sm-6">
+                                      <div class="upload__box">
+                                        <div class="upload__btn-box text-center">
+                                          <label >
+                                            <p class="upload__btn ">Upload images</p>
+                                            <input type="file" multiple="" data-max_length="20" class="upload__inputfile" id="_image" name="_image">
+                                          </label>
+                                          <!-- <p></p> -->
+                                        </div>
+                                        <div id="selectedImagesContainer" class="upload__img-wrap"></div>
+                                      </div>
+                                    </div>
                                    
                                 </div>
                             </form>
@@ -80,7 +111,7 @@
                     </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-secondary px-3" data-bs-dismiss="modal">Close</button>
-                  <button type="button" class="btn btn-success fw-bold px-3">Submit</button>
+                  <button type="button" id="subbnt" class="btn btn-success fw-bold px-3">Submit</button>
                 </div>
               </div>
             </div>
@@ -108,7 +139,7 @@
               <div class="form-outline">
                 <label class="form-label">Tyre Position</label>
                 <select class="form-select" aria-label="Default select example">
-                  <option selected>Select Position</option>
+                  <option selected disabled>Select Position</option>
                   <option value="1">Front-Left</option>
                   <option value="2">Front-right</option>
                   <option value="2">Back-Left</option>
@@ -118,8 +149,8 @@
             </div>
             <div class="col-12 col-sm-12 col-md-4 col-lg-4">
               <div class="text-center">
-                <button type="button" class="btn-success btn btn_search" id="Search">Search</button>
-                <button type="button" class="btn-success btn  mx-2 btn_search" id="Reset">Reset</button>
+                <button type="button" class="btn-success btn px-4 py-2" id="Search">Search</button>
+                <button type="button" class="btn-success btn  mx-2 px-4 py-2" id="Reset">Reset</button>
               </div>
             </div>
           </div>
@@ -127,26 +158,26 @@
       </div>
       <!-- Table Card -->
       <div class=" mb-5">
-                            <div class="table-responsive">
-                                <table id="example" class="table dataTable no-footer py-1" width="100%">
-                                    <thead>
-                                        <tr>
-                                            <th class="d-none d-md-table-cell text-white">S.No.</th>
-                                            <!-- <th class="d-none d-md-table-cell text-dark">Category</th> -->
-                                            <th class="d-none d-md-table-cell text-white">Brand</th>
-                                            <th class="d-none d-md-table-cell text-white">Tyre Position  </th>
-                                            <th class="d-none d-md-table-cell text-white">Size </th>
-                                            <th class="d-none d-md-table-cell text-white">Photo</th>
-                                           
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                    </tbody>
-                                </table>
-                            </div>
+        <div class="table-responsive">
+          <table id="example" class="table dataTable no-footer py-1" width="100%">
+            <thead>
+              <tr>
+                <th class="d-none d-md-table-cell text-white">S.No.</th>
+                <th class="d-none d-md-table-cell text-white">Brand</th>
+                <th class="d-none d-md-table-cell text-white">Model</th>
+                <th class="d-none d-md-table-cell text-white">Tyre Name</th>
+                <th class="d-none d-md-table-cell text-white">Tyre Position</th>
+                <th class="d-none d-md-table-cell text-white">Size</th>
+                <th class="d-none d-md-table-cell text-white">Action</th>
+              </tr>
+            </thead>
+          <tbody>
+          </tbody>
+        </table>
       </div>
     </div>
-   </section>
+  </div>
+</section>
       
     
 </div>

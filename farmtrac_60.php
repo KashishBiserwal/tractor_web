@@ -2,18 +2,25 @@
 <html lang="en">
 <head>
 <?php
-   include 'includes/headertag.php';
-   ?>
-    <title>Used_darm_inner</title>
+    include 'includes/headertag.php';
+    $product_id=$_REQUEST['id'];
+    echo $product_id;
+    include 'includes/footertag.php';
+    ?>
+   
+   <script> var APIBaseURL = "<?php echo $APIBaseURL; ?>";</script>
+   <script> var baseUrl = "<?php echo $baseUrl; ?>";</script>
+   <script src="<?php $baseUrl; ?>model/used_tractor_inner.js"></script>
      
 </head>
 <body>
 <?php
    include 'includes/header.php';
+
    ?>
 <section class="bg-light mt-5 pt-5">
     <div class="container py-2">
-        <div class="py-2">
+        <div class="py-2 mt-3">
             <span class="my-4 text-white pt-4 ">
                 <a href="index.php" class="text-decoration-none header-link px-1">Home <i class="fa-solid fa-chevron-right px-1"></i></a>
                     <span class=""><a href="#" class="text-decoration-none header-link  px-1">Used tractor<i class="fa-solid fa-chevron-right px-1"></i> </a></span>
@@ -28,7 +35,7 @@
         <div class="row my-3">
             <div class="col-12 col-sm-6 col-lg-6 col-md-6">
                 <div>
-                <h4>Farmtrac_60</h4>
+                <h4 id="model_name"></h4>
                 </div>
                 <div>
                     <div class="swiper swiper_buy mySwiper2_buy">
@@ -66,11 +73,11 @@
                                     </div>
                                     <div class="col-12 ">
                                         <label for="number" class="form-label text-dark fw-bold"> <i class="fa fa-phone" aria-hidden="true"></i> Phone Number</label>
-                                        <input type="password" class="form-control" placeholder="Enter Number" id="number" name="number">
+                                        <input type="text" class="form-control" placeholder="Enter Number" id="number" name="number">
                                     </div>
                                     <div class="col-12 col-sm-12 col-md-6 col-lg-6">
                                         <label for="yr_state" class="form-label text-dark fw-bold" id="state" name="state"> <i class="fas fa-location"></i> State</label>
-                                        <select class="form-select py-2 " aria-label=".form-select-lg example"id="state" name="state">
+                                        <select class="form-select py-2" aria-label=".form-select-lg example" id="state_form" name="state">
                                             <option value>Select State</option>
                                             <option value="1">Chhattisgarh</option>
                                             <option value="2">Other</option>
@@ -78,7 +85,7 @@
                                     </div>
                                     <div class="col-12 col-sm-12 col-md-6 col-lg-6">
                                         <label class="form-label text-dark"><i class="fa-solid fa-location-dot"></i> District</label>
-                                        <select class="form-select py-2 " aria-label=".form-select-lg example" name="district" id="district">
+                                        <select class="form-select py-2 " aria-label=".form-select-lg example" name="district" id="district_form">
                                             <option value>Select District</option>
                                             <option value="1">Raipur</option>
                                             <option value="2">Bilaspur</option>
@@ -95,7 +102,7 @@
                                     </div>
                                     <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-3">
                                         <div class="">
-                                        <input type="submit" value="Contact Seller" class="btn btn-success w-100"> 
+                                        <input type="submit" value="Contact Seller" id="contact_seller" class="btn btn-success w-100"> 
                                         </div>
                                     </div>
                                     <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-3">
@@ -124,7 +131,7 @@
                             </div>
                             <div class="col-12">
                                 <h6 class="engine_ text-center fw-bold fs-6 m-1 text-dark">Engine Power</h6>
-                                <p class="engine_name text-center">36 HP</p>
+                                <p class="engine_name text-center"><span id="engine_powerhp"></span> HP</p>
                             </div>
                         </div>
                     </div>
@@ -135,7 +142,7 @@
                             </div>
                             <div class="col-12">
                                 <h6 class="total_hours text-center fw-bold fs-6 m-1 text-dark">Total Hours</h6>
-                                <p class="total_time text-center">Less than 1000</p>
+                                <p class="total_time text-center" id="hours_driven"></p>
                             </div>
                         </div>
                     </div>
@@ -146,7 +153,7 @@
                             </div>
                             <div class="col-12">
                                 <h6 class="tyre-condition text-center fw-bold m-1 text-dark">Tyre Conditons</h6>
-                                <p class="t-condition text-center ">76-100% (Very Good)</p>
+                                <p class="t-condition text-center" id="tyre_condition"></p>
                             </div>
                         </div>
                     </div>
@@ -157,7 +164,7 @@
                             </div>
                             <div class="col-12">
                                 <h6 class="engine-condition text-center fw-bold m-1 text-dark">Engine Conditions</h6>
-                                <p class="t-condition text-center">76-100% (Very Good)</p>
+                                <p class="t-condition text-center"id="engine_condition"></p>
                             </div>
                         </div>
                     </div>
@@ -168,7 +175,7 @@
                             </div>
                             <div class="col-12">
                                 <h6 class="rto_no text-center fw-bold fs-6 m-1 text-dark">Financier/NOC</h6>
-                                <p class="rto_noumber text-center">No</p>
+                                <p class="rto_noumber text-center" id="noc"></p>
                             </div>
                         </div>
                     </div>
@@ -179,77 +186,75 @@
                             </div>
                             <div class="col-12">
                                 <h6 class="financier_ text-center fw-bold fs-6 m-1 text-dark">RC</h6>
-                                <p class="financier_no text-center">Yes</p>
+                                <p class="financier_no text-center" id="rc_number">Yes</p>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="my-4">
                     <div class="text-editor-black my-4 " style="background-color:#fff">
-                        <h4><p class="mt-md mt-4 p-2 mb-3 my-4 assured">Specifications For Farmtrac_60</p></h4>
+                        <h4><p class="mt-md mt-4 p-2 mb-3 my-4 assured">Specifications For <span id="model_name2"></span></p></h4>
                     </div>
                 </div>
                 <table class="table w-100 table-hover table table-striped my-4">
                     <tbody>
                         <tr class="col-12">
                         <td class="table-data col-6">Brand</td>
-                        <td class="table-data col-6">Farmtrac</td>
+                        <td class="table-data col-6" id="brand_name"></td>
                         </tr>
                         <tr>
                         <td class="table-data">Model</td>
-                        <td class="table-data">Farmtrac_60</td>
+                        <td class="table-data" id="model_name3"></td>
                         </tr>
                         <tr>
                         <td class="table-data">Power</td>
-                        <td class="table-data">__HP</td>
+                        <td class="table-data"> <span  id="engine_powerhp2"></span> HP</td>
                         </tr>
                         <tr>
                         <td class="table-data">Tyre Condition</td>
-                        <td class="table-data">76-100%(Very Good)</td>
+                        <td class="table-data" id="tyre2"></td>
                         </tr>
                         <tr>
                         <td class="table-data">Engine Condition</td>
-                        <td class="table-data">76-100%(Very Good)</td>
+                        <td class="table-data"id="engine2"></td>
                     </tr>
                     </tbody>
                 </table>
                 <div class="my-4">
                     <div class="text-editor-black my-4 " style="background-color:#fff">
-                        <h4><p class="mt-md mt-4 p-2 mb-3 my-4 assured">Seller Info</p></h4>
+                        <h4><p class="mt-md mt-4 p-2 mb-3 my-4 assured">Seller Info <span id="model_name4"></span></p> </h4>
                     </div>
                 </div>
                 <table class="table1 w-100 table-hover table table-striped my-4">
                      <tbody>
                         <tr>
                         <td class="table-data">Name</td>
-                        <td class="table-data">Manohar</td>
+                        <td class="table-data" id="name"></td>
                         </tr>
                         <tr>
                         <td class="table-data">Mobile Number</td>
-                        <td class="table-data">+9199****5329</td>
+                        <td class="table-data" id="mobile"></td>
                         </tr>
                         <tr>
                         <td class="table-data">E-mail</td>
-                        <td class="table-data">___@gmail.com</td>
+                        <td class="table-data"id="email"></td>
                         </tr>
                         <tr>
                         <td class="table-data">District</td>
-                        <td class="table-data">Durg</td>
+                        <td class="table-data" id="district">Durg</td>
                         </tr>
                         <tr>
                         <td class="table-data">State</td>
-                        <td class="table-data">Chhattisgarh</td>
+                        <td class="table-data" id="state_td"></td>
                         </tr>
                     </tbody>
                 </table>
                 <div class="my-4">
                     <div class="text-editor-black my-4 " style="background-color:#fff">
-                        <h4><p class="mt-md mt-4 p-2 mb-3 my-4 assured">Farmtrac_60 Description</p></h4>
+                        <h4><p class="mt-md mt-4 p-2 mb-3 my-4 assured"><span id="model4"></span> Description</p></h4>
                     </div>
-                    <p>Buy Used Spectra SPL Implement in Hapur, Uttar Pradesh. You can buy a Spectra SPL Implement at Tractor Junction. Used Spectra SPL comes in the Laser Land Leveler category.</p>
-                    <p>This old Spectra Implement is a 2016 year model. The price of this used Spectra Implement is Rs. ₹ 1,05,000. If you are interested in Second hand Spectra SPL Implement, fill your details in the above form. You can also directly contact the Used Spectra SPL Implement owner Manohar by number +9199****5329 and email ___@gmail.com. Visit Tractor Junction for more updates regarding Spectra SPL Used Implement.</p>
-                    <p>Buy online second hand Spectra SPL in your budget, visit TractorJunction. Here you can find each detail regarding the old Spectra SPL Laser Land Leveler. Get Spectra SPL state-wise and budget-wise by applying filters. For more updates about this used Spectra SPL and price, fill the given form.</p>
-                    <p>Listed On: 05-October-2023</p>
+                    <p id="description"></p>
+                    
                 </div>
             </div>
             
@@ -258,10 +263,11 @@
                     <div>
                         <h1 class="h4  my-4">New Popular Tractor</h1>
                     </div>
-                    <div class="tractor-list mb-3 box-shadow grey-bg d-flex flex-row shadow p-1">
+                    <div id="productContainerpopular" class="row"></div>
+                    <!-- <div class="tractor-list mb-3 box-shadow grey-bg d-flex flex-row shadow p-1">
                         <div class="tractor-list-left text-center">
                             <a href="#" class="weblink">
-                            <img src="assets/images/275-di-tu-1632206550.webp" width="100" height="70" alt="">
+                            <img src="assets/images/275-di-tu-1632206550.webp" id="image_popular" width="100" height="70" alt="">
                             </a>
                         </div>
                         <div class="px-2 tractor-list-right d-flex flex-column justify-cintent-center">
@@ -271,8 +277,8 @@
                                 <span class=" bg-light m-1"style=" font-size: 0.9rem;">WD</span>
                             </p>
                         </div>
-                    </div>
-                    <div class="tractor-list mb-3 box-shadow grey-bg d-flex flex-row shadow p-1">
+                    </div> -->
+                    <!-- <div class="tractor-list mb-3 box-shadow grey-bg d-flex flex-row shadow p-1">
                         <div class="tractor-list-left text-center">
                             <a href="#" class="weblink">
                             <img src="assets/images/275-di-tu-1632206550.webp" width="100" height="70" alt="">
@@ -313,14 +319,15 @@
                                 <span class="bg-light"style=" font-size: 0.9rem;">WD</span>
                             </p>
                         </div>
-                    </div>
+                    </div> -->
                     <div class="sticky my-3">
                         <div class="popular_used_tractor mb-3">
-                            <h4>Popular Used Tractors</h4>
+                            <h4>New Upcoming Tractors</h4>
                         </div>
                 <div class="popular-used-tractor">
                     <div class="row">
-                        <div class="used-tractor mb-3 d-flex flex-row shadow p-2" style="background-color:#fff">
+                    <div id="productContainerupcoming" class="row"></div>
+                        <!-- <div class="used-tractor mb-3 d-flex flex-row shadow p-2" style="background-color:#fff">
                             <div class="text-center">
                                 <a href="#" class="weblink">
                                 <img src="assets/images/mahindra-585-di-xp-plus.webp" width="100" height="100" alt="" style=" border-radius: 10px;">
@@ -387,7 +394,7 @@
                                     <a href="#"><img src="assets/images/index_trac_files/park-solid_phone-call.svg"width="15" height="15" alt="phone-call-icon">Call Now</span></a>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>
@@ -399,7 +406,8 @@
     <div class="text-editor-black  my-4">
              <h4><p class="mt-md mt-3 p-1 mb-3 my-3 assured">Similar Used Tractor</p></h4>
         </div>
-        <div class="row">
+        <div id="productContainersimilar" class="row"></div>
+        <!-- <div class="row">
             <div class="col-12  d-flex flex-row">
                 <div class="col-3 m-2 shadow">
                     <a href="#"><img class="img-fluid" src="assets/images/265-di-xp-plus-1632206429.webp"></a>
@@ -446,7 +454,7 @@
                     </div>   
                 </div>
             </div>
-        </div>
+        </div> -->
         <div class="galleryBtn text-center mt-md mt-2 pt-1 mb-3">
             <span class="ViewBtn  my-3" data-toggle="modal" data-target="#">View All</span>
         </div>
@@ -568,13 +576,14 @@
         </div>
     </div>
 </section> -->
-<section class="bg-light">
+<!-- <section class="bg-light">
     <div class="container my-3 bg-light">
         <div class="p-2">
         <h5 class="assured ps-3">Disclaimer:-</h5>
         <p>*Used tractors and Farm Equipments Buy/Sell is totally Farmer-To-Farmer driven transactions. Tractor Junction has provided the platform for Used tractors and Farm Equipments to support & help Farmers. Tractor Junction is not for information provided by Sellers/Brokers or any such frauds resulting from the same. Please read safety tips carefully before making any purchase.</p>
         </div>
     </div>
+</section> -->
 
 <?php 
  include 'includes/footertag.php'; 

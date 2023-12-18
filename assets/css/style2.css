@@ -238,75 +238,87 @@ opacity: 0.8;
 /* sell harvester multi-image uplode */
 .upload__box {
   padding: 40px;
- }
-.upload__inputfile {
-  width: .1;
+  width: 50;
+  }
+
+  .upload__inputfile {
+  width: .1px;
   height: .1px;
   opacity: 0;
   overflow: hidden;
   position: absolute;
   z-index: -1;
-}
+  }
 
-.upload__btn {
+  .upload__btn {
   display: inline-block;
   font-weight: 600;
   color: #fff;
   text-align: center;
-  min-width: 116px;
-  padding: 3px;
+  min-width: 150px;
+  padding: 5px;
   transition: all .3s ease;
-  cursor: pointer; */
+  cursor: pointer;
   border: 2px solid;
-  background-color: #129656;
-  border-color: #129656;
+  background-color:  #198754;
+  border-color:  #198754;
   border-radius: 10px;
   line-height: 26px;
   font-size: 14px;
-}
+  }
+
   .upload__btn:hover {
-    background-color: unset;
-    color:  #129656;
-    transition: all .3s ease;
-    border-color: #129656;
+  background-color: unset;
+  color:  #198754;
+  transition: all .3s ease;
   }
-  
+
   .upload__btn-box {
-    margin-bottom: 10px;
+  margin-bottom: 10px;
+  margin-top:-25px;
   }
 
-
-.upload__img-wrap{
+  .upload__img-wrap {
     display: flex;
-    flex-wrap: wrap;
-    margin: 0 -10px;
+    flex-wrap: nowrap;
+    /* margin: -21px -50px; */
+    margin: 0 auto;
+    justify-content: center;
   }
-  
-  .upload__btn-box{
-    width: 200px;
-    padding: 0 10px;
-    margin-bottom: 12px;
+
+  .upload__img-box {
+  flex: 0 0 calc(33.333% - 20px); 
+  margin: 0 10px 20px; 
+  position: relative;
   }
-  
-  .upload__btn-box-close {
-      width: 24px;
-      height: 24px;
-      border-radius: 50%;
-      background-color:#129656;
-      position: absolute;
-      top: 10px;
-      right: 10px;
-      text-align: center;
-      line-height: 24px;
-      z-index: 1;
-      cursor: pointer;
+
+  .upload__img-close {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  text-align: center;
+  line-height: 24px;
+  z-index: 1;
+  cursor: pointer;
   }
-.img-bg {
-background-repeat: no-repeat;
-background-position: center;
-background-size: cover;
-position: relative;
-padding-bottom: 100%;
-}
+
+  .upload__img-close:after {
+  content: '\2716';
+  font-size: 14px;
+  color: white;
+  }
+
+  .img-bg {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  position: relative;
+  width: 160px;
+  height: 125px;
+  }
 
 

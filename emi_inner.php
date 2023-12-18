@@ -5,6 +5,12 @@
     <?php
    include 'includes/headertag.php';
    ?>
+    <style>
+
+        .invalid-feedback {
+            display: block;
+        }
+    </style>
 </head>
 
 <body>
@@ -22,11 +28,11 @@
             </div>
         </div>
     </section>
-    <div class="container-fluid">
+    <!-- <div class="container-fluid">
         <div class="row siv" id="">
             <img src="assets/images/emi_tractor.png" alt="reload img" class="w-100" style="height: 373px;">
         </div>
-    </div>
+    </div> -->
     <div class="container mt-2 mb-4">
         <div class="row row-cols-1 row-cols-md-1 row-cols-lg-1">
             <div class="col">
@@ -168,7 +174,7 @@
                         <div class="col-6 col-lg-6 col-md-6 col-sm-6 py-2 mt-3 text-center">
                             <label for="exShowroomPrice" class="form-label h5 text-dark fw-bold">Ex-showroom
                                 Price</label>
-                            <input type="number" class="form-control" id="exShowroomPrice" value="640000" readonly>
+                            <input type="text" class="form-control" id="exShowroomPrice" value="₹640000" readonly>
                         </div>
                         <div class="col-6 col-lg-6 col-md-6 col-sm-6 py-2 mt-3 text-center">
                             <label for="totalLoanAmount" class="form-label h5 text-dark fw-bold">Total Loan
@@ -183,8 +189,9 @@
                             <label for="extraPayment" class="form-label h5 text-dark fw-bold">You'll Pay Extra</label>
                             <input type="text" class="form-control" id="extraPayment" readonly>
                         </div>
-                         <a href="new_tractor_loan.php"><button type="button" class="w-100 fw-bold btn btn-success mt-4 mb-2">View Loan
-                            Offers</button></a>
+                        <a href="new_tractor_loan.php"><button type="button"
+                                class="w-100 fw-bold btn btn-success mt-4 mb-2">View Loan
+                                Offers</button></a>
                     </div>
                 </div>
             </div>
@@ -197,16 +204,23 @@
                 <!-- Downpayment -->
                 <div class="col-12 col-lg-6 col-md-6 col-sm-6 py-2 mt-2 mb-1">
                     <label for="downPayment" class="form-label fw-bold text-dark h5 ">Downpayment (₹)</label>
-                    <input type="range" class="form-range" id="downPayment" min="0" max="640000" value="64000">
-                    <input type="number" class="form-control  w-25" id="downPaymentValue" value="64000" readonly>
+                    <input type="range" class="form-range" id="downPaymentRange" min="0" max="640000" step="10000"
+                        value="64000">
+                    <input type="number" class="form-control mt-2 w-25" id="downPayment" min="0" max="640000" value="64000">
+                    <div class="invalid-feedback" id="downPaymentError"></div>
+                    <!-- <input type="range" class="form-range" id="downPayment" min="0" max="640000" value="64000">
+                    <input type="number" class="form-control  w-25" id="downPaymentValue" value="64000" readonly> -->
                 </div>
 
                 <!-- Bank Interest Rate -->
                 <div class=" col-12 col-lg-6 col-md-6 col-sm-6 py-2 mt-2 mb-1">
                     <label for="interestRate" class="form-label fw-bold text-dark h5 ">Bank Interest Rate
                         (%)</label>
-                    <input type="range" class="form-range" id="interestRate" min="11" max="22" value="15">
-                    <input type="number" class="form-control  w-25" id="interestRateValue" value="15" readonly>
+                    <input type="range" class="form-range" id="interestRateRange" min="11" max="25" value="15">
+                    <input type="number" class="form-control mt-2 w-25" id="interestRate" min="11" max="25" value="15">
+                    <div class="invalid-feedback" id="interestRateError"></div>
+                    <!-- <input type="range" class="form-range" id="interestRate" min="11" max="22" value="15">
+                    <input type="number" class="form-control  w-25" id="interestRateValue" value="15" readonly> -->
                 </div>
 
                 <!-- Loan Period -->
@@ -311,7 +325,7 @@
     </script>
 
 
-    <script>
+    <!-- <script>
     // Update downpayment value on range input change
     document.getElementById('downPayment').addEventListener('input', function() {
         var downPaymentValue = document.getElementById('downPayment').value;
@@ -370,27 +384,148 @@
     // Initial EMI calculation
     updateEMI();
     </script>
- <script>
-        $(document).ready(function() {
-            $("#hire_inner").validate({
-                rules: {
-                    first_name: 'required',
+    <script>
+    $(document).ready(function() {
+        $("#hire_inner").validate({
+            rules: {
+                first_name: 'required',
 
-                    last_name: 'required',
-                    mobile_number: {
-                        required: true,
-                        digits: true, // Allow only digits
-                    },
-                    state: "required",
-                    district: "required",
-                }
-            });
-            $('#button_hire').on('click', function() {
-                $('#hire_inner').valid();
-                console.log($('#hire_inner').valid());
-            });
+                last_name: 'required',
+                mobile_number: {
+                    required: true,
+                    digits: true, // Allow only digits
+                },
+                state: "required",
+                district: "required",
+            }
         });
-        </script>
+        $('#button_hire').on('click', function() {
+            $('#hire_inner').valid();
+            console.log($('#hire_inner').valid());
+        });
+    });
+    </script> -->
+    <script>
+        // Update EMI when input values change
+        $('#downPayment, #interestRate, #loanPeriod, #repaymentInterval').on('input change', function() {
+            updateEMI();
+        });
+
+        // Update range slider values when textboxes change
+        $('#downPayment').on('input', function() {
+            var value = $(this).val() || 0;  // Use 0 if the textbox is empty
+            $('#downPaymentRange').val(value);
+            updateEMI();
+        });
+
+        $('#interestRate').on('input', function() {
+            var value = $(this).val() || 0;  // Use 0 if the textbox is empty
+            $('#interestRateRange').val(value);
+            updateEMI();
+        });
+
+        // Update textboxes when range sliders change
+        $('#downPaymentRange').on('input', function() {
+            $('#downPayment').val($(this).val());
+            updateEMI();
+        });
+
+        $('#interestRateRange').on('input', function() {
+            $('#interestRate').val($(this).val());
+            updateEMI();
+        });
+
+        // jQuery validation for downpayment and interest rate
+        $('#downPayment').on('input', function() {
+            var downPayment = parseFloat($(this).val());
+            var errorMessage = $('#downPaymentError');
+            if (downPayment < 0 || downPayment > 640000) {
+                $(this).addClass('is-invalid');
+                errorMessage.text('Downpayment must be between 0 and 640,000.');
+            } else {
+                $(this).removeClass('is-invalid');
+                errorMessage.text('');
+            }
+        });
+
+        $('#interestRate').on('input', function() {
+            var interestRate = parseFloat($(this).val());
+            var errorMessage = $('#interestRateError');
+            if (interestRate < 11 || interestRate > 25) {
+                $(this).addClass('is-invalid');
+                errorMessage.text('Interest rate must be between 11 and 25.');
+            } else {
+                $(this).removeClass('is-invalid');
+                errorMessage.text('');
+            }
+        });
+
+        // Update EMI calculation based on user input
+        function updateEMI() {
+            var exShowroomPrice = 640000;  // Example value, you can modify this
+            var downPayment = parseFloat($('#downPayment').val());
+            var loanAmount = exShowroomPrice - downPayment;
+            var interestRate = parseFloat($('#interestRate').val());
+            var loanPeriod = parseInt($('#loanPeriod').val());
+            var repaymentInterval = $('#repaymentInterval').val();
+
+            // Validation
+            if (downPayment < 0 || downPayment > 640000 || interestRate < 11 || interestRate > 25) {
+                return;
+            }
+
+            // Calculate EMI
+            var monthlyInterestRate = (interestRate / 100) / 12;
+            var numberOfPayments = loanPeriod;
+            var emi;
+
+            if (monthlyInterestRate > 0) {
+                emi = (loanAmount * monthlyInterestRate * Math.pow(1 + monthlyInterestRate, numberOfPayments)) /
+                    (Math.pow(1 + monthlyInterestRate, numberOfPayments) - 1);
+            } else {
+                emi = loanAmount / numberOfPayments;
+            }
+
+            // Adjust EMI for different repayment intervals
+            if (repaymentInterval === 'quarterly') {
+                emi *= 3;
+                numberOfPayments /= 3;
+            } else if (repaymentInterval === 'halfYearly') {
+                emi *= 6;
+                numberOfPayments /= 6;
+            }
+
+            // Display calculated results
+            $('#emiAmount').val(`₹${emi.toFixed(2)} ${repaymentInterval}`);
+            $('#totalLoanAmount').val(`₹${loanAmount.toFixed(2)}`);
+            $('#payableAmount').val(`₹${(emi * numberOfPayments).toFixed(2)}`);
+            $('#extraPayment').val(`₹${((emi * numberOfPayments) - loanAmount).toFixed(2)}`);
+        }
+
+        // Initial EMI calculation
+        updateEMI();
+    </script>
+     <script>
+    $(document).ready(function() {
+        $("#hire_inner").validate({
+            rules: {
+                first_name: 'required',
+
+                last_name: 'required',
+                mobile_number: {
+                    required: true,
+                    digits: true, // Allow only digits
+                },
+                state: "required",
+                district: "required",
+            }
+        });
+        $('#button_hire').on('click', function() {
+            $('#hire_inner').valid();
+            console.log($('#hire_inner').valid());
+        });
+    });
+    </script>
 </body>
 
 </html>

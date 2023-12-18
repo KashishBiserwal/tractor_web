@@ -86,7 +86,7 @@
             <hr class="dropdown-divider">
             <li><a href="mini_tractor.php" class="dropdown-item fw-bold">Mini Tractor</a></li>
             <hr class="dropdown-divider">
-            <li><a href="#" class="dropdown-item fw-bold">4WD Tractor</a></li>
+            <li><a href="4wd.php" class="dropdown-item fw-bold">4WD Tractor</a></li>
           </ul>
         </li>
         <li class="nav-item dropdown dropdown-toggle ">
@@ -198,7 +198,7 @@
           <ul class="dropdown-menu">
             <li><a class="dropdown-item fw-bold" href="onload.php"> On-Road Price</a></li>
             <hr class="dropdown-divider">
-            <li><a class="dropdown-item fw-bold" href="compare_trac.php">Compare</a></li>
+            <li><a class="dropdown-item fw-bold" href="compare_trac_model.php">Compare</a></li>
           </ul>
         </li>
         <li class="nav-item dropdown dropdown-toggle">
@@ -227,36 +227,37 @@
           </ul>
         </li>-->
      
-          <li class="nav-item dropdown dropdown-toggle">
-            <a class="nav-link dropdown-toggle fw-bold" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              News & Update
-            </a>
-            <ul class="dropdown-menu ">
-                <li id="allNews"><a class="dropdown-item fw-bold" href="all_news.php">All News</a></li>
-                <hr class="dropdown-divider">
-                <li id="tractorNews"><a class="dropdown-item fw-bold" href="#" >Tractor News</a></li>
-                <hr class="dropdown-divider">
-                <li id="agricultureNews"><a class="dropdown-item fw-bold" href="#">Agriculture News</a></li>
-                <hr class="dropdown-divider">
-                <li id="sarkariNews"><a class="dropdown-item fw-bold" href="#">Sarkari Yojana news</a></li>
-            </ul>
-
-          </li>
+        <li class="nav-item dropdown dropdown-toggle">
+          <a class="nav-link dropdown-toggle fw-bold" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            News & Update
+          </a>
+          <ul class="dropdown-menu ">
+            <li id="allNews"><a class="dropdown-item fw-bold" href="all_news.php">All News</a></li>
+            <hr class="dropdown-divider">
+            <li id="tractorNews"><a class="dropdown-item fw-bold" href="tractor_news.php" >Tractor News</a></li>
+            <hr class="dropdown-divider">
+            <li id="agricultureNews"><a class="dropdown-item fw-bold" href="agri_news.php">Agriculture News</a></li>
+            <hr class="dropdown-divider">
+            <li id="sarkariNews"><a class="dropdown-item fw-bold" href="sarkari_news.php">Sarkari Yojana news</a></li>
+          </ul>
+        </li>
   
         <li class="nav-item dropdown dropdown-toggle ">
           <a class="nav-link dropdown-toggle  fw-bold " href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             More
           </a>
           <ul class="dropdown-menu ">
-                <li><a class="dropdown-item fw-bold" href="emi.php">EMI Calculator</a></li>
-                <hr class="dropdown-divider">
-                <li><a class="dropdown-item fw-bold" href="tyre.php">Tyres</a></li>
-                <hr class="dropdown-divider">
-                <li><a class="dropdown-item  fw-bold" href="dealership_enq.php">Dealership Enquiry</a></li>
-                <hr class="dropdown-divider">
-                <li><a class="dropdown-item fw-bold" href="certified_dealers.php">Certified Dealers</a></li>
-                <!-- <hr class="dropdown-divider"> -->
-                <!-- <li><a class="dropdown-item fw-bold" href="">Compare</a></li> -->
+            <li><a class="dropdown-item fw-bold" href="emi.php">EMI Calculator</a></li>
+            <hr class="dropdown-divider">
+            <li><a class="dropdown-item fw-bold" href="tyre.php">Tyres</a></li>
+            <hr class="dropdown-divider">
+            <li><a class="dropdown-item  fw-bold" href="dealership_enq.php">Dealership Enquiry</a></li>
+            <hr class="dropdown-divider">
+            <li><a class="dropdown-item fw-bold" href="certified_dealers.php">Certified Dealers</a></li>
+            <hr class="dropdown-divider">
+            <li><a class="dropdown-item fw-bold" href="engine_oil.php">Engine Oil</a></li>
+            <hr class="dropdown-divider">
+            <li><a class="dropdown-item fw-bold" href="blog.php">Blogs</a></li>
           </ul>
         </li>
       </ul>

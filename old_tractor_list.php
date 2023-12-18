@@ -36,10 +36,21 @@ include 'includes/headertag.php';
                     <div class="modal-body bg-light">
                       <div class="row justify-content-center">
                         <div class="col-lg-10">
-                          
                           <form id="old_tract" name="old_tract" method="post">
                             <div class="row">
                               <h5>Fill Your Detail</h5>
+                              <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-2" hidden>
+                                <div class="form-outline">
+                                
+                                  <input type="text" id="enquiry_type_id" name="enquiry_type_id" value="1" class=" data_search form-control input-group-sm py-2" />
+                                </div>
+                              </div>
+                              <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-2" hidden>
+                                <div class="form-outline">
+                                
+                                  <input type="text" id="form_type" name="form_type" value="FOR_SELL_TRACTOR" class=" data_search form-control input-group-sm py-2" />
+                                </div>
+                              </div>
                               <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-2">
                                 <div class="form-outline">
                                   <label class="form-label" for="first_name">First Name</label>
@@ -73,9 +84,20 @@ include 'includes/headertag.php';
                                   <label class="form-label" for="district">District</label>
                                   <select class="form-select py-2" aria-label="Default select example" name="district" id="district">
                                     <option selected disabled=""></option>
-                                    <option value="1">name1</option>
-                                    <option value="2">name2</option>
-                                    <option value="3">name3</option>
+                                    <option value="1">Raigarh</option>
+                                    <option value="2">Sarguja</option>
+                                    <option value="3">Surajpur</option>
+                                  </select>
+                                </div>
+                              </div>
+                              <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-2">
+                                <div class="form-outline">
+                                  <label class="form-label" for="district">Tehsil</label>
+                                  <select class="form-select py-2" aria-label="Default select example" name="tehsil" id="tehsil">
+                                    <option selected disabled=""></option>
+                                    <option value="1">Raigarh</option>
+                                    <option value="2">ambikapur</option>
+                                    <option value="3">chirmiri</option>
                                   </select>
                                 </div>
                               </div>
@@ -97,10 +119,9 @@ include 'includes/headertag.php';
                               </div>
                               <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-2">
                                 <div class="form-outline">
-                                  <label class="form-label" for="district">Year</label>
-                                  <select class="form-select py-2" aria-label="Default select example" name="year" id="year">
+                                  <label class="form-label" for="district">Purchase Year</label>
+                                  <select class="form-select py-2" aria-label="Default select example" name="purchase_year" id="purchase_year">
                                     <option selected disabled=""></option>
-                                    <option value="">2000</option>
                                   </select>
                                 </div>
                               </div>
@@ -132,65 +153,66 @@ include 'includes/headertag.php';
                               <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-2">
                                 <div class="form-outline">
                                   <label class="form-label" for="tehsil">Hours Driven</label>
-                                  <select class="form-select py-2" aria-label="Default select example" name="hour" id="hour">
-                                    <option selected disabled=""></option>
-                                    <option value="1">Less than 1000</option>
-                                    <option value="">1001-2000</option>
-                                    <option value="">2001-3000</option>
-                                    <option value="">3001-4000</option>
-                                    <option value="">4001-5000</option>
-                                    <option value="">5001-6000</option>
-                                    <option value="">6001-7000</option>
-                                    <option value="">7001-8000</option>
-                                    <option value="">8001-9000</option>
-                                    <option value="">9001-10000</option>
-                                    <option value="">Above 10000</option>
-                                    <option value="">Not Available</option>
+                                  <select class="form-select py-2"  name="hours_driven" id="hours_driven" aria-label="Default select example">
+                                    <option selected disabled="" value="">Please select an option</option>
                                   </select>
                                 </div>
                               </div>
-                              <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-3">
+                              <!-- <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-3">
                                 <div class="form-outline">
                                   <label class="form-label" for="rc">RC Number</label>
                                   <input type="text" id="rc" name="rc"class=" data_search form-control input-group-sm py-2" />
                                 </div>
+                              </div> -->
+                              <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-3">
+                                <div class="form-outline">
+                                  <label class="form-label" for="">RC Number</label>
+                                  <input type="text" id="rc_num" name="rc_num" class=" data_search form-control input-group-sm py-2" />
+                                </div>
                               </div>
                               <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-3">
                                 <label class="pe-3 fs-5 text-dark">Financed</label>
-                                <input type="radio" id="yes" name="fav_language" value="yes">
+                                <input type="radio" id="yes" name="fav_language" value="1">
                                 <label for="html" class="text-dark">Yes</label> 
-                                <input type="radio" id="no" name="fav_language" value="no">
+                                <input type="radio" id="no" name="fav_language" value="0">
                                 <label for="css" class="text-dark">No</label>
                               </div>
                               <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-3" id="nocDiv" style="display: none;">
                                 <label class="pe-3 fs-5 text-dark">NOC Available:</label>
-                                <input type="radio" id="nocyes" name="fav_language1" value="nocyes">
+                                <input type="radio" id="nocyes" name="fav_language1" value="1">
                                 <label for="nocyes" class="text-dark">Yes</label> 
-                                <input type="radio" id="nocno" name="fav_language1" value="nocno">
+                                <input type="radio" id="nocno" name="fav_language1" value="0">
                                 <label for="nocno" class="text-dark">No</label>
                               </div>
-                              <h5 class="mt-2">Upload Image</h5>
-                              <div class="col-12 col-sm-4 col-lg-4 col-md-4 ps-3">
-                                <div class="background__box ">
-                                  <div class="background__btn-box ">
-                                      <label class="background__btn">
-                                        <p class="text-white bg-success p-2 rounded">Upload images</p>
-                                        <input type="file" id="brand_img" data-max_length="20"name="brand_img"  ref="fileInput"
-                                        style="display: none"
-                                        @change="handleFileInput"
-                                        accept="image/png, image/jpg, image/jpeg" class="background__inputfile" id="banner_image">
-                                                        
-                                      </label>
-                                    </div>
-                                    <div class="">
-                                      <div class="background__img-wrap"></div>
-                                    </div>
+                              <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-3">
+                                <div class="form-outline">
+                                  <label class="form-label" for="">Price</label>
+                                  <input type="text" id="price_old" name="price_old" class=" data_search form-control input-group-sm py-2" />
                                 </div>
+                              </div>
+                              <h5 class="mt-2">Upload Image</h5>
+                              <div class="col-12 col-sm-4 col-lg-4 col-md-4">
+                                <div class="">
+                                      <div class="upload__btn-box">
+                                        <label class="upload__btn">
+                                          <p>Upload images</p>
+                                          <input type="file" multiple="" data-max_length="20" class="upload__inputfile" id="image_pic" name="image_pic">
+                                        </label>
+                                      </div>
+                                      <p>Upload minimum 2 images</p>
+                                      <div class="upload__img-wrap"></div>
+                                    </div>
                               </div>
                               <div class="col-12 col-sm-8 col-lg-8 col-md-8 ">
                                 <div class="form-outline">
                                   <label class="form-label" for="mobile_number">Description</label>
                                   <textarea type="text" id="description" name="description" class=" data_search form-control input-group-sm py-2"></textarea>
+                                </div>
+                              </div>
+                              <div class="col-12 col-sm-6 col-lg-6 col-md-6 my-2" hidden>
+                                <div class="form-outline">
+                                  <label class="form-label">Product Type</label>
+                                  <input type="text" class="" placeholder=" " value="1" id="product_type_id">
                                 </div>
                               </div>
                         
@@ -216,12 +238,12 @@ include 'includes/headertag.php';
           <div class="filter-card mb-2">
             <div class="card-body">
               <div class="row">
-                <div class="col-12 col-sm-12 col-md-3 col-lg-3">
+                <!-- <div class="col-12 col-sm-12 col-md-3 col-lg-3">
                   <div class="form-outline">
                     <label class="form-label"> Search by UID </label>
                     <input type="text" id="uid" name="search_email" class="form-control" />
                   </div>
-                </div>
+                </div> -->
                 <div class="col-12 col-sm-12 col-md-3 col-lg-3">
                   <div class="form-outline">
                     <label class="form-label">Search by Brand</label>
@@ -253,12 +275,12 @@ include 'includes/headertag.php';
                     <th class="d-none d-md-table-cell text-white">UID</th>
                     <th class="d-none d-md-table-cell text-white">Brand</th>
                     <th class="d-none d-md-table-cell text-white"> Model </th>
-                    <th class="d-none d-md-table-cell text-white"> Year </th>
-                    <th class="d-none d-md-table-cell text-white"> Status </th>
+                    <th class="d-none d-md-table-cell text-white"> Purchase Year </th>
+                    <th class="d-none d-md-table-cell text-white"> State </th>
                     <th class="d-none d-md-table-cell text-white"> Model </th>
                   </tr>
                 </thead>
-                <tbody></tbody>
+                <tbody id="data-table"></tbody>
               </table>
             </div>
           </div>

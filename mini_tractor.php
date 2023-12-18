@@ -2,9 +2,14 @@
 <html lang="en">
 
 <head>
-   <?php
-   include 'includes/headertag.php';
-   ?>
+<?php
+    include 'includes/headertag.php';
+    include 'includes/footertag.php';
+    ?>
+   <script> var APIBaseURL = "<?php echo $APIBaseURL; ?>";</script>
+   <script> var baseUrl = "<?php echo $baseUrl;?>";</script>
+   <script src="<?php $baseUrl; ?>model/min_trac.js"></script>
+     
 </head>
 
 <body>
@@ -14,7 +19,7 @@
 
 <section class="mt-5 pt-3">
     <div class="container pt-4">
-        <div class="mt-5">
+        <div class="mt-5  pt-3">
             <span class="mt-5 text-white pt-5 ">
                 <a href="index.php" class="text-decoration-none header-link px-1">Home <i class="fa-solid fa-chevron-right px-1"></i></a>
                    
@@ -28,8 +33,8 @@
         <div class="row">
             <div class="col-12 col-sm-9 col-lg-9 col-md-9">
                 <h3 class="pb-3">Mini <span class="text-success fw-bold">Tractors in India</span> </h3>
-                <div class="row">
-                    <div class="col-12 col-lg-4 col-md-4 col-sm-4 mb-3">
+                <div class="row" id="productContainermini">
+                    <!-- <div class="col-12 col-lg-4 col-md-4 col-sm-4 mb-3">
                         <div class="h-auto success__stry__item d-flex flex-column shadow ">
                             <div class="thumb">
                                 <a href="#">
@@ -59,8 +64,8 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-12 col-lg-4 col-md-4 col-sm-4 mb-3">
+                    </div> -->
+                    <!-- <div class="col-12 col-lg-4 col-md-4 col-sm-4 mb-3">
                         <div class="h-auto success__stry__item d-flex flex-column shadow ">
                             <div class="thumb">
                                 <a href="#">
@@ -214,13 +219,13 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                     
                 </div>
-                <div class="col-12 text-center mt-3 pt-2 ">
+                <!-- <div class="col-12 text-center mt-3 pt-2 ">
                     <button id="adduser" type="button" class="add_btn btn btn-success">
                     <i class="fas fa-undo"></i>  Load More tractors</button>
-                </div>
+                </div> -->
             </div>
             
             <div class="col-12 col-sm-3 col-lg-3 col-md-3">
@@ -244,11 +249,11 @@
                     <div class="force-overflow">
                         <div class="price py-2 ">
                             <h5 class=" ps-3 text-dark fw-bold mb-3">Search By Budget</h5>
-                            <input type="checkbox" class="checkbox-round ms-3" value="0-3"/><span class="ps-2 fs-6"> 0 Lakh - 3 Lakh</span><br />
-                            <input type="checkbox" class="checkbox-round ms-3" value="3-6"/><span class="ps-2 fs-6"> 3 Lakh - 5 Lakh</span><br />
-                            <input type="checkbox" class="checkbox-round ms-3" value="6-9"/><span class="ps-2 fs-6"> 5 Lakh - 6 Lakh</span><br />
-                            <input type="checkbox" class="checkbox-round ms-3" value="6-9"/><span class="ps-2 fs-6"> 6 Lakh - 7 Lakh</span><br />
-                            <input type="checkbox" class="checkbox-round ms-3" value="6-9"/><span class="ps-2 fs-6"> 7 Lakh - 9 Lakh</span><br />
+                            <input type="checkbox" class="checkbox-round mt-1 ms-3" value="0-3"/><span class="ps-2 fs-6"> 0 Lakh - 3 Lakh</span><br />
+                            <input type="checkbox" class="checkbox-round mt-1 ms-3" value="3-6"/><span class="ps-2 fs-6"> 3 Lakh - 5 Lakh</span><br />
+                            <input type="checkbox" class="checkbox-round mt-1 ms-3" value="6-9"/><span class="ps-2 fs-6"> 5 Lakh - 6 Lakh</span><br />
+                            <input type="checkbox" class="checkbox-round mt-1 ms-3" value="6-9"/><span class="ps-2 fs-6"> 6 Lakh - 7 Lakh</span><br />
+                            <input type="checkbox" class="checkbox-round mt-1 ms-3" value="6-9"/><span class="ps-2 fs-6"> 7 Lakh - 9 Lakh</span><br />
                         </div>
                     </div>
                 </div>
@@ -258,13 +263,13 @@
                         <div class="HP py-2">
                             
                             <!-- <input type="checkbox" class="text-align-center ms-3" value=""/><span> This is checkbox </span><br /> -->
-                            <input type="checkbox" class="checkbox-round ms-3" value="0-20"/><span class="ps-2 fs-6">0 HP - 20 HP</span><br />
-                            <input type="checkbox" class="checkbox-round ms-3" value="21-30"/><span class="ps-2 fs-6">21 HP - 30 HP</span><br />
-                            <input type="checkbox" class="checkbox-round ms-3" value="31-40"/><span class="ps-2 fs-6">31 HP - 40 HP</span><br />
-                            <input type="checkbox" class="checkbox-round ms-3" value="41-50"/><span class="ps-2 fs-6">41 HP - 50 HP</span><br />
-                            <input type="checkbox" class="checkbox-round ms-3" value="51-60"/><span class="ps-2 fs-6">51 HP - 60 HP</span><br />
-                            <input type="checkbox" class="checkbox-round ms-3" value="61-70"/><span class="ps-2 fs-6">61 HP - 75 HP</span><br />
-                            <input type="checkbox" class="checkbox-round ms-3" value="71-80"/><span class="ps-2 fs-6">Above 75 Hp </span><br />
+                            <input type="checkbox" class="checkbox-round mt-1 ms-3" value="0-20"/><span class="ps-2 fs-6">0 HP - 20 HP</span><br />
+                            <input type="checkbox" class="checkbox-round mt-1 ms-3" value="21-30"/><span class="ps-2 fs-6">21 HP - 30 HP</span><br />
+                            <input type="checkbox" class="checkbox-round mt-1 ms-3" value="31-40"/><span class="ps-2 fs-6">31 HP - 40 HP</span><br />
+                            <input type="checkbox" class="checkbox-round mt-1 ms-3" value="41-50"/><span class="ps-2 fs-6">41 HP - 50 HP</span><br />
+                            <input type="checkbox" class="checkbox-round mt-1 ms-3" value="51-60"/><span class="ps-2 fs-6">51 HP - 60 HP</span><br />
+                            <input type="checkbox" class="checkbox-round mt-1 ms-3" value="61-70"/><span class="ps-2 fs-6">61 HP - 75 HP</span><br />
+                            <input type="checkbox" class="checkbox-round mt-1 ms-3" value="71-80"/><span class="ps-2 fs-6">Above 75 Hp </span><br />
                         </div>
                     </div>
                 </div>
@@ -273,16 +278,16 @@
                     <h5 class=" ps-1 text-dark fw-bold  pt-2">Search By Brand</h5>
                         <div class="HP py-2">
                             <!-- <input type="checkbox" class="text-align-center ms-3" value=""/><span> This is checkbox </span><br /> -->
-                            <input type="checkbox" class="checkbox-round ms-3" value="Mahindra"/><span class="ps-2 fs-6">Mahindra (97)</span><br />
-                            <input type="checkbox" class="checkbox-round ms-3" value="Farmtrac"/><span class="ps-2 fs-6">Farmtrac (21)</span><br />
-                            <input type="checkbox" class="checkbox-round ms-3" value="Swaraj"/><span class="ps-2 fs-6">Swaraj (19)</span><br />
-                            <input type="checkbox" class="checkbox-round ms-3" value="Massey"/><span class="ps-2 fs-6">Massey Ferguson (16)</span><br />
-                            <input type="checkbox" class="checkbox-round ms-3" value="Powertrac"/><span class="ps-2 fs-6">Powertrac (15)</span><br />
-                            <input type="checkbox" class="checkbox-round ms-3" value="Sonalika"/><span class="ps-2 fs-6">Sonalika (15)</span><br />
-                            <input type="checkbox" class="checkbox-round ms-3" value="Eicher"/><span class="ps-2 fs-6">Eicher (12)</span><br />
-                            <input type="checkbox" class="checkbox-round ms-3" value="John"/><span class="ps-2 fs-6">John Deere (6)</span><br />
-                            <input type="checkbox" class="checkbox-round ms-3" value="Escorts"/><span class="ps-2 fs-6">Escorts (13)</span><br />
-                            <input type="checkbox" class="checkbox-round ms-3" value="Holland"/><span class="ps-2 fs-6">New Holland (2)</span><br />
+                            <input type="checkbox" class="checkbox-round mt-1 ms-3" value="Mahindra"/><span class="ps-2 fs-6">Mahindra (97)</span><br />
+                            <input type="checkbox" class="checkbox-round mt-1 ms-3" value="Farmtrac"/><span class="ps-2 fs-6">Farmtrac (21)</span><br />
+                            <input type="checkbox" class="checkbox-round mt-1 ms-3" value="Swaraj"/><span class="ps-2 fs-6">Swaraj (19)</span><br />
+                            <input type="checkbox" class="checkbox-round mt-1 ms-3" value="Massey"/><span class="ps-2 fs-6">Massey Ferguson (16)</span><br />
+                            <input type="checkbox" class="checkbox-round mt-1 ms-3" value="Powertrac"/><span class="ps-2 fs-6">Powertrac (15)</span><br />
+                            <input type="checkbox" class="checkbox-round mt-1 ms-3" value="Sonalika"/><span class="ps-2 fs-6">Sonalika (15)</span><br />
+                            <input type="checkbox" class="checkbox-round mt-1 ms-3" value="Eicher"/><span class="ps-2 fs-6">Eicher (12)</span><br />
+                            <input type="checkbox" class="checkbox-round mt-1 ms-3" value="John"/><span class="ps-2 fs-6">John Deere (6)</span><br />
+                            <input type="checkbox" class="checkbox-round mt-1 ms-3" value="Escorts"/><span class="ps-2 fs-6">Escorts (13)</span><br />
+                            <input type="checkbox" class="checkbox-round mt-1 ms-3" value="Holland"/><span class="ps-2 fs-6">New Holland (2)</span><br />
                         </div>
                     </div>
                 </div>
@@ -356,8 +361,8 @@
         <div class="old_tracter py-3 text-center">
             <h3 class="fw-bold mt-3">Old Tractors By Brand</h3>
         </div>
-        <div class="row mt-3 ps-5 justify-content-center m-0">
-            <div class="col-12 col-md-3 col-lg-3 col-sm-3">
+        <div class="row mt-3 ps-5 justify-content-center m-0" id="brandcontainer">
+            <!-- <div class="col-12 col-md-3 col-lg-3 col-sm-3">
                 <div class="tjcol states-block">
                     <div class="brand-main box-shadow mt-2 text-center">
                         <a class="weblink text-decoration-none text-dark" href="#" title="Sonalika Old Tractors">
@@ -366,8 +371,8 @@
                         </a>
                     </div>
                 </div>
-            </div>
-            <div class="col-12 col-md-3 col-lg-3 col-sm-3">
+            </div> -->
+            <!-- <div class="col-12 col-md-3 col-lg-3 col-sm-3">
                 <div class="tjcol states-block">
                     <div class="brand-main box-shadow mt-2 text-center">
                         <a class="weblink text-decoration-none text-dark" href="#" title="Sonalika Old Tractors">
@@ -516,9 +521,7 @@
                         </a>
                     </div>
                 </div>
-            </div>
-
-
+            </div> -->
         </div>
     </div>
 </section>
@@ -526,59 +529,65 @@
     <div class="container mt-5"> 
         <h3 class="fw-bold assured px-3 ">Tractors By HP</h3>
             <div class="row my-4">
-                <div class="col-12 col-lg-3 col-md-4 col-sm-3 py-2">
-                    <a href="#" id="adduser" class="btn add_btn text-decoration-none btn-danger border-2 p-2 w-100">
-                    <i class="fas fa-bolt"></i> Under 20 HP</a>
+                <div class="col-12 col-lg-4 col-md-4 col-sm-4 py-2">
+                    <a href="#" id="adduser" class="btn btn-outline-success text-decoration-none border-2 p-2 w-100">
+                        <i class="fas fa-bolt"></i>UNDER 20 HP</a>
                 </div>
-                <div class="col-12 col-lg-3 col-md-4 col-sm-3 py-2">
-                    <a href="#" id="adduser" class=" btn add_btn text-decoration-none btn-danger border-2 py-2 px-3 w-100">
-                    <i class="fas fa-bolt"></i> 21-30 HP</a>
+                <div class="col-12 col-lg-4 col-md-4 col-sm-4 py-2">
+                    <a href="#" id="adduser"
+                        class=" btn btn-outline-success text-decoration-none border-2 py-2 px-3 w-100">
+                        <i class="fas fa-bolt"></i>21-30 HP</a>
                 </div>
-                <div class="col-12 col-lg-3 col-md-4 col-sm-3 py-2">
-                    <a href="#" id="adduser" class=" btn add_btn text-decoration-none btn-danger border-2 py-2 px-3 w-100">
-                    <i class="fas fa-bolt"></i> 31-40 HP</a>
+                <div class="col-12 col-lg-4 col-md-4 col-sm-4 py-2">
+                    <a href="#" id="adduser"
+                        class=" btn btn-outline-success text-decoration-none border-2 py-2 px-3 w-100">
+                        <i class="fas fa-bolt"></i>31-40 HP</a>
                 </div>
-                <div class="col-12 col-lg-3 col-md-4 col-sm-3 py-2">
-                    <a href="#" id="adduser" class="btn add_btn text-decoration-none btn-danger border-2 py-2 px-3 w-100">
-                    <i class="fas fa-bolt"></i>  41-45 HP</a>
+                <div class="col-12 col-lg-4 col-md-4 col-sm-4 py-2">
+                    <a href="#" id="adduser"
+                        class="btn btn-outline-success text-decoration-none  border-2 py-2 px-3 w-100">
+                        <i class="fas fa-bolt"></i>41-45 HP</a>
                 </div>
-                <div class="col-12 col-lg-3 col-md-4 col-sm-3 py-2">
-                    <a href="#" id="adduser" class="btn add_btn text-decoration-none btn-danger border-2 py-2 px-3 w-100">
-                    <i class="fas fa-bolt"></i>  46-50 HP</a>
+                <div class="col-12 col-lg-4 col-md-4 col-sm-4 py-2">
+                    <a href="#" id="adduser"
+                        class="btn btn-outline-success text-decoration-none border-2 py-2 px-3 w-100">
+                        <i class="fas fa-bolt"></i>46-50 HP</a>
                 </div>
-                <div class="col-12 col-lg-3 col-md-4 col-sm-3 py-2">
-                    <a href="#" id="adduser" class="btn add_btn text-decoration-none btn-danger border-2 py-2 px-3 w-100">
-                    <i class="fas fa-bolt"></i>  51-60 HP</a>
-                </div>
-                <div class="col-12 col-lg-3 col-md-4 col-sm-3 py-2">
-                    <a href="#" id="adduser" class="btn add_btn text-decoration-none btn-danger border-2 py-2 px-3 w-100">
-                    <i class="fas fa-bolt"></i> 61-75 HP</a>
-                </div>
-                <div class="col-12 col-lg-3 col-md-4 col-sm-3 py-2">
-                    <a href="#" id="adduser" class="btn add_btn text-decoration-none btn-danger border-2 py-2 px-3 w-100">
-                    <i class="fas fa-bolt"></i>  ABOVE 75 HP</a>
+                <div class="col-12 col-lg-4 col-md-4 col-sm-4 py-2">
+                    <a href="#" id="adduser"
+                        class="btn btn-outline-success text-decoration-none border-2 py-2 px-3 w-100">
+                        <i class="fas fa-bolt"></i>51-60 HP</a>
                 </div>
             </div>
     </div>
     <div class="container"> 
         <h3 class="fw-bold assured px-3">Tractors By Price</h3>
             <div class="row my-4">
-                <div class="col-12 col-lg-3 col-md-4 col-sm-3 py-2">
-                    <a href="#" id="adduser" class="btn add_btn text-decoration-none btn-danger border-2 p-2 w-100">
-                    <i class="fas fa-rupee-sign"></i> Under 3 lakh</a>
+                <div class="col-12 col-lg-4 col-md-4 col-sm-4 py-2">
+                    <a href="#" id="adduser" class="btn btn-outline-success text-decoration-none border-2 p-2 w-100">
+                        <i class="fas fa-bolt"></i>UNDER 3 LAKH</a>
                 </div>
-                <div class="col-12 col-lg-3 col-md-4 col-sm-3 py-2">
-                    <a href="#" id="adduser" class=" btn add_btn text-decoration-none btn-danger border-2 py-2 px-3 w-100">
-                    <i class="fas fa-rupee-sign"></i> 3-5 Lakh</a>
+                <div class="col-12 col-lg-4 col-md-4 col-sm-4 py-2">
+                    <a href="#" id="adduser"
+                        class=" btn btn-outline-success text-decoration-none border-2 py-2 px-3 w-100">
+                        <i class="fas fa-bolt"></i>3-5 LAKH</a>
                 </div>
-                <div class="col-12 col-lg-3 col-md-4 col-sm-3 py-2">
-                    <a href="#" id="adduser" class=" btn add_btn text-decoration-none btn-danger border-2 py-2 px-3 w-100">
-                    <i class="fas fa-rupee-sign"></i> 5-7 Lakh</a>
+                <div class="col-12 col-lg-4 col-md-4 col-sm-4 py-2">
+                    <a href="#" id="adduser"
+                        class=" btn btn-outline-success text-decoration-none border-2 py-2 px-3 w-100">
+                        <i class="fas fa-bolt"></i>5-7 LAKH</a>
                 </div>
-                <div class="col-12 col-lg-3 col-md-4 col-sm-3 py-2">
-                    <a href="#" id="adduser" class="btn add_btn text-decoration-none btn-danger border-2 py-2 px-3 w-100">
-                    <i class="fas fa-rupee-sign"></i> Above 7 Lakh</a>
+                <div class="col-12 col-lg-4 col-md-4 col-sm-4 py-2">
+                    <a href="#" id="adduser"
+                        class="btn btn-outline-success text-decoration-none  border-2 py-2 px-3 w-100">
+                        <i class="fas fa-bolt"></i>7-10 LAKH</a>
                 </div>
+                <div class="col-12 col-lg-4 col-md-4 col-sm-4 py-2">
+                    <a href="#" id="adduser"
+                        class="btn btn-outline-success text-decoration-none border-2 py-2 px-3 w-100">
+                        <i class="fas fa-bolt"></i>ABOVE 10 LAKH</a>
+                </div>
+              
             </div>
     </div>
 </section>

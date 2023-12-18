@@ -486,7 +486,7 @@
         </div>
         <div class="owl-slider">
             <div id="carousel_related" class="owl-carousel owl-carousel_related">
-                 <div class="item">
+                <div class="item">
                     <div class="col-md-12 shadow d-flex flex-row">
                         <div class="">
                             <a href="#"><img class="img-fluid" src="assets/images/tractor-trolley-374.jpg"></a>
@@ -587,7 +587,7 @@
                             </div>
                         </div>
                     </div>
-                 </div>
+                </div>
                 <div class="item">
                     <div class="col-md-12 shadow d-flex flex-row">
                         <div class="">
@@ -602,7 +602,7 @@
                                     <span><a href="#" class="btn price-bnt btn-success w-100 ">Get On Road Price</a></span>
                             </div>  
                         </div>
-                     </div>
+                    </div>
                 </div>
             </div>
         </div>

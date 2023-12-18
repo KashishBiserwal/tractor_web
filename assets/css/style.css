@@ -446,7 +446,7 @@ form {
 
 label {
   color: #ea1818;
-  margin-bottom: 4px;
+  /* margin-bottom: 4px; */
 }
 
 input {
@@ -1344,7 +1344,8 @@ input[type="checkbox"]:checked + label:before {
   list-style-type: none;
   font-size: 8px;
   font-weight: 400;
-  margin-bottom: 36px
+  margin-bottom: 36px;
+  float: left;
 }
 
 #progressbar li:nth-child(3) {
@@ -1741,6 +1742,11 @@ input[type="checkbox"]:checked + label:before {
 }
 .marquee_tag{
  background: rgb(241, 239, 239);
+}
+
+/* in compare cards change colour to the green */
+.text-hover-green:hover{
+  color:green;
 }
 
 /* caraousel mahindra brand */

@@ -131,11 +131,11 @@
                                       <div class="upload__img-wrap"></div>
                                     </div>
                                 </div>
-                                <div class="col-12">
-                                    <div class="form-outline">
-                                    <label class="form-label text-dark">About</label>
-                                    <textarea name="about" rows="4" cols="70" minlength="1" maxlength="255"></textarea>
-                                    </div>
+                                  <div class="col-12">
+                                  <div class="form-outline">
+                                  <label class="form-label text-dark">About</label>
+                                  <textarea name="about" rows="4" cols="70" minlength="1" maxlength="255"></textarea>
+                                  </div>
                                </div>
                                   <h5 class="fw-bold mt-3 ">Personal Information</h5>
                                 <div class="col-12 col-sm-6 col-lg-6 col-md-6">
@@ -428,17 +428,21 @@ function ImgUpload() {
             required: true,
           },
           year:{
+
             required: true,
           },
           price:{
+
             required: true,
           },
           about:{
+
            required: true,
            minlength: 1, 
            maxlength: 1000 
           },
           image:{
+
             required: true,
           }
         },
@@ -474,15 +478,19 @@ function ImgUpload() {
             required: "This field is required",
           }, 
           year:{
+
             required: "This field is required",
           },
           price:{
+
             required: "This field is required",
           },
           about:{
+
             required: "This field is required",
           },
           image:{
+
             required: "This field is required",
           }
         },

@@ -17,7 +17,7 @@ include 'includes/headertag.php';
    ?>
 
 <section class=" mt-5 pt-5">
-    <div class="container">
+    <div class="container mt-4">
         <div class="mt-5">
             <span class="mt-5 text-white pt-4">
                 <a href="index.php" class="text-decoration-none header-link px-1">Home <i class="fa-solid fa-chevron-right px-1"></i></a>
@@ -28,7 +28,7 @@ include 'includes/headertag.php';
     </div>
 </section>
 <section>
-    <div class="container my-5">
+    <div class="container my-4">
         <div class="row">
             <div class="col-12 col-sm-9 col-lg-9 col-md-9">
                 <h3 class="pb-3">New <span class="text-success fw-bold">TRACTORS</span> </h3>
@@ -227,7 +227,7 @@ include 'includes/headertag.php';
                     <i class="fas fa-undo"></i>  Load More tractors</button>
                 </div>
             </div>
-            
+            <!-- RESET APPLY FILTERS -->
             <div class="col-12 col-sm-3 col-lg-3 col-md-3">
                 <div class=" row mb-3" id="">
                     <div class="col-12 col-sm-12 col-md-12 col-lg-12">
@@ -244,17 +244,17 @@ include 'includes/headertag.php';
                         </div>
                     </div>
                 </div>
-               
+                 <!-- Search By Budget -->
                 <div class=" mb-3" id="">
                     <div class="force-overflow">
                         <div class="price py-2 ">
                             <h5 class=" ps-3 text-dark fw-bold mb-3">Search By Budget</h5>
-                            <input type="checkbox" class="checkbox-round ms-3" value="0-3"/><span class="ps-2 fs-6"> 0 Lakh - 3 Lakh</span><br />
-                            <input type="checkbox" class="checkbox-round ms-3" value="3-6"/><span class="ps-2 fs-6"> 3 Lakh - 5 Lakh</span><br />
-                            <input type="checkbox" class="checkbox-round ms-3" value="6-9"/><span class="ps-2 fs-6"> 5 Lakh - 6 Lakh</span><br />
-                            <input type="checkbox" class="checkbox-round ms-3" value="6-9"/><span class="ps-2 fs-6"> 6 Lakh - 7 Lakh</span><br />
-                            <input type="checkbox" class="checkbox-round ms-3" value="6-9"/><span class="ps-2 fs-6"> 7 Lakh - 9 Lakh</span><br />
-                        </div>
+                            <input type="checkbox" class="checkbox-round mt-1 ms-3" value="0-3"/><span class="ps-2 mt-0 fs-6"> 0 Lakh - 3 Lakh</span><br />
+                            <input type="checkbox" class="checkbox-round mt-1 ms-3" value="3-6"/><span class="ps-2 mt-0 fs-6"> 3 Lakh - 5 Lakh</span><br />
+                            <input type="checkbox" class="checkbox-round mt-1 ms-3" value="6-9"/><span class="ps-2 mt-0 fs-6"> 5 Lakh - 6 Lakh</span><br />
+                            <input type="checkbox" class="checkbox-round mt-1 ms-3" value="6-9"/><span class="ps-2 mt-0 fs-6"> 6 Lakh - 7 Lakh</span><br />
+                            <input type="checkbox" class="checkbox-round mt-1 ms-3" value="6-9"/><span class="ps-2 mt-0 fs-6"> 7 Lakh - 9 Lakh</span><br />
+                        </div>  
                     </div>
                 </div>
                 <div class="scrollbar mb-3" id="">
@@ -263,13 +263,13 @@ include 'includes/headertag.php';
                         <div class="HP py-2">
                             
                             <!-- <input type="checkbox" class="text-align-center ms-3" value=""/><span> This is checkbox </span><br /> -->
-                            <input type="checkbox" class="checkbox-round ms-3" value="0-20"/><span class="ps-2 fs-6">0 HP - 20 HP</span><br />
-                            <input type="checkbox" class="checkbox-round ms-3" value="21-30"/><span class="ps-2 fs-6">21 HP - 30 HP</span><br />
-                            <input type="checkbox" class="checkbox-round ms-3" value="31-40"/><span class="ps-2 fs-6">31 HP - 40 HP</span><br />
-                            <input type="checkbox" class="checkbox-round ms-3" value="41-50"/><span class="ps-2 fs-6">41 HP - 50 HP</span><br />
-                            <input type="checkbox" class="checkbox-round ms-3" value="51-60"/><span class="ps-2 fs-6">51 HP - 60 HP</span><br />
-                            <input type="checkbox" class="checkbox-round ms-3" value="61-70"/><span class="ps-2 fs-6">61 HP - 75 HP</span><br />
-                            <input type="checkbox" class="checkbox-round ms-3" value="71-80"/><span class="ps-2 fs-6">Above 75 Hp </span><br />
+                            <input type="checkbox" class="checkbox-round mt-1 ms-3" value="0-20"/><span class="ps-2 mt-0 fs-6">0 HP - 20 HP</span><br />
+                            <input type="checkbox" class="checkbox-round mt-1 ms-3" value="21-30"/><span class="ps-2 mt-0 fs-6">21 HP - 30 HP</span><br />
+                            <input type="checkbox" class="checkbox-round mt-1 ms-3" value="31-40"/><span class="ps-2 mt-0 fs-6">31 HP - 40 HP</span><br />
+                            <input type="checkbox" class="checkbox-round mt-1 ms-3" value="41-50"/><span class="ps-2 mt-0 fs-6">41 HP - 50 HP</span><br />
+                            <input type="checkbox" class="checkbox-round mt-1 ms-3" value="51-60"/><span class="ps-2 mt-0  fs-6">51 HP - 60 HP</span><br />
+                            <input type="checkbox" class="checkbox-round mt-1 ms-3" value="61-70"/><span class="ps-2 mt-0 fs-6">61 HP - 75 HP</span><br />
+                            <input type="checkbox" class="checkbox-round mt-1 ms-3" value="71-80"/><span class="ps-2 mt-0 fs-6">Above 75 Hp </span><br />
                         </div>
                     </div>
                 </div>
@@ -278,16 +278,16 @@ include 'includes/headertag.php';
                     <h5 class=" ps-1 text-dark fw-bold  pt-2">Search By Brand</h5>
                         <div class="HP py-2">
                             <!-- <input type="checkbox" class="text-align-center ms-3" value=""/><span> This is checkbox </span><br /> -->
-                            <input type="checkbox" class="checkbox-round ms-3" value="Mahindra"/><span class="ps-2 fs-6">Mahindra (97)</span><br />
-                            <input type="checkbox" class="checkbox-round ms-3" value="Farmtrac"/><span class="ps-2 fs-6">Farmtrac (21)</span><br />
-                            <input type="checkbox" class="checkbox-round ms-3" value="Swaraj"/><span class="ps-2 fs-6">Swaraj (19)</span><br />
-                            <input type="checkbox" class="checkbox-round ms-3" value="Massey"/><span class="ps-2 fs-6">Massey Ferguson (16)</span><br />
-                            <input type="checkbox" class="checkbox-round ms-3" value="Powertrac"/><span class="ps-2 fs-6">Powertrac (15)</span><br />
-                            <input type="checkbox" class="checkbox-round ms-3" value="Sonalika"/><span class="ps-2 fs-6">Sonalika (15)</span><br />
-                            <input type="checkbox" class="checkbox-round ms-3" value="Eicher"/><span class="ps-2 fs-6">Eicher (12)</span><br />
-                            <input type="checkbox" class="checkbox-round ms-3" value="John"/><span class="ps-2 fs-6">John Deere (6)</span><br />
-                            <input type="checkbox" class="checkbox-round ms-3" value="Escorts"/><span class="ps-2 fs-6">Escorts (13)</span><br />
-                            <input type="checkbox" class="checkbox-round ms-3" value="Holland"/><span class="ps-2 fs-6">New Holland (2)</span><br />
+                            <input type="checkbox" class="checkbox-round mt-1 ms-3" value="Mahindra"/><span class="ps-2 fs-6">Mahindra (97)</span><br />
+                            <input type="checkbox" class="checkbox-round mt-1 ms-3" value="Farmtrac"/><span class="ps-2 fs-6">Farmtrac (21)</span><br />
+                            <input type="checkbox" class="checkbox-round mt-1 ms-3" value="Swaraj"/><span class="ps-2 fs-6">Swaraj (19)</span><br />
+                            <input type="checkbox" class="checkbox-round mt-1 ms-3" value="Massey"/><span class="ps-2 fs-6">Massey Ferguson (16)</span><br />
+                            <input type="checkbox" class="checkbox-round mt-1 ms-3" value="Powertrac"/><span class="ps-2 fs-6">Powertrac (15)</span><br />
+                            <input type="checkbox" class="checkbox-round mt-1 ms-3" value="Sonalika"/><span class="ps-2 fs-6">Sonalika (15)</span><br />
+                            <input type="checkbox" class="checkbox-round mt-1 ms-3" value="Eicher"/><span class="ps-2 fs-6">Eicher (12)</span><br />
+                            <input type="checkbox" class="checkbox-round mt-1 ms-3" value="John"/><span class="ps-2 fs-6">John Deere (6)</span><br />
+                            <input type="checkbox" class="checkbox-round mt-1 ms-3" value="Escorts"/><span class="ps-2 fs-6">Escorts (13)</span><br />
+                            <input type="checkbox" class="checkbox-round mt-1 ms-3" value="Holland"/><span class="ps-2 fs-6">New Holland (2)</span><br />
                         </div>
                     </div>
                 </div>
@@ -312,9 +312,9 @@ include 'includes/headertag.php';
             </thead>
             <tbody>
                 <tr class="">
-                    <td class="py-3">Swaraj 855 FE</td>
-                    <td class="py-3">55  HP</td>
-                    <td class="py-3">Rs. 7.90-8.40 lac*</td>
+                    <td class="col-12 col-lg-5 col-md-5 col-sm-5 py-3">Swaraj 855 FE</td>
+                    <td class="col-12 col-lg-3 col-md-3 col-sm-3 py-3">55  HP</td>
+                    <td class="col-12 col-lg-4 col-md-4 col-sm-4 py-3">Rs. 7.90-8.40 lac*</td>
                 </tr>
                 <tr  class="py-3">
                     <td class="py-3">Mahindra 575 DI XP Plus</td>
@@ -371,8 +371,8 @@ include 'includes/headertag.php';
             </thead>
             <tbody>
                 <tr class="">
-                    <td class="py-3">Sonalika MM 35 DI</td>
-                    <td class="py-3">Rs. 4.96-5.22 Lakh*</td>
+                    <td class="col-12 col-lg-6 col-md-6 col-sm-6 py-3">Sonalika MM 35 DI</td>
+                    <td class="col-12 col-lg-6 col-md-6 col-sm-6 py-3">Rs. 4.96-5.22 Lakh*</td>
                 </tr>
                 <tr  class="py-3">
                     <td class="py-3">Farmtrac CHAMPION 35</td>
@@ -402,8 +402,8 @@ include 'includes/headertag.php';
             </thead>
             <tbody>
                 <tr class="">
-                    <td class="py-3">Force SANMAN 5000</td>
-                    <td class="py-3">Rs. 7.16-7.43 Lakh*</td>
+                    <td class="col-12 col-lg-6 col-md-6 col-sm-6 py-3">Force SANMAN 5000</td>
+                    <td class="col-12 col-lg-6 col-md-6 col-sm-6 py-3">Rs. 7.16-7.43 Lakh*</td>
                 </tr>
                 <tr  class="py-3">
                     <td class="py-3">Eicher 485</td>

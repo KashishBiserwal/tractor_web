@@ -7,7 +7,7 @@
 			?>
 </head>
 <style>
-label.error {
+.error .form-label {
     color: red !important;
     margin-bottom:2px;
     font-size:13px;
@@ -90,7 +90,7 @@ label.error {
                                 <div class="form-outline">
 
                                     <label class="form-label" for="insurance_type">Insurance Type</label>
-                                    <select class="form-select py-2" aria-label="Default select example"
+                                    <select class="form-select error mb-2 pb-2" aria-label="Default select example"
                                         id="insurance_type" name="insurance_type">
                                         <option value=""></option>
                                         <option value="1">New Tractor Insurance</option>
@@ -103,7 +103,7 @@ label.error {
                                 <div class="form-outline">
                                     <label class="form-label " for="first_name">First Name</label>
                                     <input type="text" id="first_name" name="first_name"
-                                        class="data_search form-control input-group-sm py-2" />
+                                        class="data_search form-control input-group-sm" />
                                 </div>
                             </div>
 
@@ -111,7 +111,7 @@ label.error {
                                 <div class="form-outline">
                                     <label class="form-label" for="last_name">Last Name</label>
                                     <input type="text" id="last_name" name="last_name"
-                                        class=" data_search form-control input-group-sm py-2" />
+                                        class=" data_search form-control input-group-sm" />
                                 </div>
                             </div>
 
@@ -119,13 +119,13 @@ label.error {
                                 <div class="form-outline">
                                     <label class="form-label" for="mobile_number">Mobile Number</label>
                                     <input type="text" id="mobile_number" name="mobile_number"
-                                        class=" data_search form-control input-group-sm py-2" />
+                                        class=" data_search form-control input-group-sm"/>
                                 </div>
                             </div>
                             <div class="col-12 col-sm-6 col-md-6 col-lg-4 mt-4">
                                 <div class="form-outline">
-                                    <label class="form-label" for="brand">Brand</label>
-                                    <select class="form-select py-2" id="brand" name="brand"
+                                    <label class="form-label  " for="brand">Brand</label>
+                                    <select class="form-select error mb-2 pb-2" id="brand" name="brand"
                                         aria-label="Default select example">
                                         <option selected></option>
                                         <option value="1">name1</option>
@@ -137,7 +137,7 @@ label.error {
                             <div class="col-12 col-sm-6 col-md-6 col-lg-4 mt-4">
                                 <div class="form-outline">
                                     <label class="form-label" for="model">Model</label>
-                                    <select class="form-select py-2" id="model" name="model"
+                                    <select class="form-select   error mb-2 pb-2" id="model" name="model"
                                         aria-label="Default select example">
                                         <option selected></option>
                                         <option value="1">name1</option>
@@ -150,7 +150,7 @@ label.error {
                                 <div class="form-outline">
                                     <label class="form-label" for="enter_model">Enter Model</label>
                                     <input type="text" id="enter_model" name="enter_model"
-                                        class=" data_search form-control input-group-sm py-2" />
+                                        class="form-control input-group-sm " />
                                 </div>
                             </div>
                             <div class="col-12 col-sm-6 col-md-6 col-lg-4 mt-4">
@@ -158,14 +158,14 @@ label.error {
                                     <label class="form-label" for="vehicle_registered_number">Vehicle Registered
                                         Number</label>
                                     <input type="text" id="vehicle_registered_number" name="vehicle_registered_number"
-                                        class=" data_search form-control input-group-sm py-2" />
+                                        class=" data_search form-control input-group-sm " />
                                 </div>
                             </div>
 
                             <div class="col-12 col-sm-6 col-md-6 col-lg-4 mt-4">
                                 <div class="form-outline">
-                                    <label class="form-label" for="registered_year">Registered Year</label>
-                                    <select class="form-select py-2" id="registered_year" name="registered_year"
+                                    <label class="form-label  " for="registered_year">Registered Year</label>
+                                    <select class="form-select error mb-2 pb-2" id="registered_year" name="registered_year"
                                         aria-label="Default select example">
                                         <option selected></option>
                                         <option value="1">name1</option>
@@ -176,8 +176,8 @@ label.error {
                             </div>
                             <div class="col-12 col-sm-6 col-md-6 col-lg-4 mt-4">
                                 <div class="form-outline">
-                                    <label class="form-label" for="state">State</label>
-                                    <select class="form-select py-2" id="state" name="state"
+                                    <label class="form-label  " for="state">State</label>
+                                    <select class="form-select error mb-2 pb-2" id="state" name="state"
                                         aria-label="Default select example">
                                         <option selected></option>
                                         <option value="1">name1</option>
@@ -188,8 +188,8 @@ label.error {
                             </div>
                             <div class="col-12 col-sm-6 col-md-6 col-lg-4 mt-4">
                                 <div class="form-outline">
-                                    <label class="form-label" for="district">District</label>
-                                    <select class="form-select py-2" id="district" name="district"
+                                    <label class="form-label  " for="district">District</label>
+                                    <select class="form-select error mb-2 pb-2" id="district" name="district"
                                         aria-label="Default select example">
                                         <option selected></option>
                                         <option value="1">name1</option>
@@ -200,8 +200,8 @@ label.error {
                             </div>
                             <div class="col-12 col-sm-6 col-md-6 col-lg-4 mt-4">
                                 <div class="form-outline">
-                                    <label class="form-label" for="tehsil">Tehsil</label>
-                                    <select class="form-select py-2" id="tehsil" name="tehsil"
+                                    <label class="form-label " for="tehsil">Tehsil</label>
+                                    <select class="form-select  error mb-2 pb-2" id="tehsil" name="tehsil"
                                         aria-label="Default select example">
                                         <option selected></option>
                                         <option value="1">name1</option>
@@ -746,6 +746,10 @@ include 'includes/footertag.php';
 ?>
     <script>
     $(document).ready(function() {
+        $.validator.addMethod("indianMobile", function(value, element) {
+        return this.optional(element) || /^[789]\d{9}$/.test(value);
+      },"Please enter a valid Indian mobile number.");
+
         $("#myform").validate({
             rules: {
                 insurance_type: 'required',
@@ -755,22 +759,20 @@ include 'includes/footertag.php';
                 mobile_number: {
                     required: true,
                     digits: true, // Allow only digits
+                    indianMobile: true,
+                
+                   
                 },
                 brand: "required",
                 model: "required",
                 enter_model: "required",
-                vehicle_registered_number: "required",
+              
                 registered_year: "required",
                 state: "required",
                 district: "required",
-                tehsil: "required",
+                
             }
-            // messages: {
-            //        first_name: {
-            //             required: "Please enter first name",
-            //         }
-
-            //     }
+           
         });
 
 
@@ -780,6 +782,8 @@ include 'includes/footertag.php';
         });
     });
     </script>
+
+
 
 
 </body>
