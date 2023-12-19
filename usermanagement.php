@@ -205,12 +205,12 @@ include 'includes/headertag.php';
                                 </div>
                                 <div class="col- col-sm-6 col-lg-6 col-md-6">
                                   <label class="text-dark">Password<span class="text-danger">*</span></label>
-                                  <input type="text" class="form-control py-2" id="password"name="password1" for="password"   placeholder="Enter Password">
+                                  <input type="text" class="form-control py-2" id="password"name="password1" for="password1"   placeholder="Enter Password">
                                   <small></small>
                                 </div>
                               <div class="col- col-sm-6 col-lg-6 col-md-6">
                                 <label class="text-dark">Confirm Password<span class="text-danger">*</span></label>
-                                <input type="text" class="form-control py-2" id="password_confirmation1" name="password_confirmation" for="password_confirmation" placeholder="Enter Password">
+                                <input type="text" class="form-control py-2" id="password_confirmation1" name="password_confirmation1" for="password_confirmation" placeholder="Enter Password">
                                 <small></small>
                                 <div class="form-text confirm-message"></div>
                               </div>

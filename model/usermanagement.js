@@ -263,14 +263,16 @@ var url = apiBaseURL + "deleteUser/" + id;
 
 function fetch_edit_data(dell) {
   // alert(dell);
+  var apiBaseURL = APIBaseURL;
+    var url = apiBaseURL + 'getUsers';
   $.ajax({
-    type: "POST",
+    type: "GET",
     data: {
       data: "dataa",
       // edit_id: dell,
     },
-    url: "data_b.php",
-    dataType: "json",
+    url: url,
+    dataType: "GET",
     success: function(output) {
       // alert()
       $("#first_name1").val(output[0].first_name);

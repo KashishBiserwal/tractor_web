@@ -256,7 +256,6 @@ function store(event) {
   });
   
     event.preventDefault();
-    console.log("Tractor TYpe : ", JSON.stringify(selectedCheckboxValues));
     console.log("accessory select : ",selectedOptions);
     var brand_id = $('#brand_name').val();
     var model = $('#model').val();
@@ -270,7 +269,9 @@ function store(event) {
     var starting_price = $('#starting_price').val();
     var  ending_price= $('#ending_price').val();
     var  warranty= $('#warranty').val();
+
     var tractor_type_id = JSON.stringify(selectedCheckboxValues);
+    con
     console.log('tractor_type_id',tractor_type_id);
     // var image_name = $('#image_name').val();
     var image_name = document.getElementById('image_name').files[0];
@@ -305,9 +306,7 @@ function store(event) {
 
    
     var apiBaseURL =APIBaseURL;
-    // Now you can use the retrieved value in your JavaScript logic
     var url = apiBaseURL + 'storeProduct';
-    // console.log(url);
     var token = localStorage.getItem('token');
     var headers = {
       'Authorization': 'Bearer ' + token

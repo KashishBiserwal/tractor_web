@@ -41,32 +41,14 @@ var url = apiBaseURL + 'user_login';
             // window.location.href = baseUrl +"usermanagement.php"; 
             console.log(result, 'login success');
             localStorage.setItem('token', result.access_token);
+            // localStorage.setItem('expireIn', result.expires_in);
+         
+            window.location.href = baseUrl + "usermanagement.php"; 
+            const d = new Date();
+            d.setTime(d.getTime() + 5);
             localStorage.setItem('expireIn', result.expires_in);
             console.log(result.expires_in,'expiry timeeeeee');
-            window.location.href = baseUrl + "usermanagement.php";
-        //     const currentTimeInMilliseconds = new Date().getTime();
-        //     const currentTimeInSeconds = Math.floor(currentTimeInMilliseconds / 1000);
-        //     const expiredTimeInSecond = currentTimeInSeconds + 5;
-        //     function ct(){
-        //         const currentTimeInMilliseconds = new Date().getTime();
-        //         const currentTimeInSeconds = Math.floor(currentTimeInMilliseconds / 1000);
-        //         if(currentTimeInSeconds==expiredTimeInSecond){
-        //             return true;
-
-        //         }
-        //         else{
-        //             return false;
-        //         }
-        //     };
-        //     setInterval(() => {
-        //         // console.log(currentTimeInSeconds);
-        //         if(ct()){
-        //         window.location.href = 'www.google.com';
-        //         }
-        //         else{
-
-        //         }
-        //     }, 1000);
+       
 
         },
         error: function (xhr, textStatus, errorThrown) {
