@@ -34,7 +34,7 @@ function get_old_harvester() {
                     // }
                     var images = p.image_names;
                     var a = [];
-
+                    
                     if (images) {
                         if (images.indexOf(',') > -1) {
                             a = images.split(',');

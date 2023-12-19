@@ -75,16 +75,16 @@ include 'includes/headertag.php';
       <!-- Filter Card -->
       <div class="filter-card mb-2">
         <div class="card-body">
-            <form action="">
+            <form action="" id="myform">
                 <div class="row">
                     <div class="col-12 col-sm-12 col-md-4 col-lg-4">
                         <div class="form-outline">
                             <label class="form-label">Search by Any Field</label>
-                            <input type="text" id="namesearch"  name="search_name" class=" data_search form-control input-group-sm" />
+                            <input type="text" id="namesearch"  name="search_name" onkeyup="myFunction()" class=" data_search form-control input-group-sm" />
                         </div>
                     </div>
                     <div class="col-12 col-sm-12 col-md-8 col-lg-8">
-                        <input type="reset" class="bg-success text-white btn px-4 py-2" value="Reset">
+                        <input type="button" onclick="resetForm()" class="bg-success text-white btn px-4 py-2" value="Reset">
                     </div>
                 </div>
             </form>

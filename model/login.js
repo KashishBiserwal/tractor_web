@@ -42,12 +42,14 @@ var url = apiBaseURL + 'user_login';
             console.log(result, 'login success');
             localStorage.setItem('token', result.access_token);
             // localStorage.setItem('expireIn', result.expires_in);
-         
-            window.location.href = baseUrl + "usermanagement.php"; 
             const d = new Date();
-            d.setTime(d.getTime() + 5);
-            localStorage.setItem('expireIn', result.expires_in);
-            console.log(result.expires_in,'expiry timeeeeee');
+            d.setTime(d.getTime() + 60 * 60 * 1000);
+            var expires_in = d;
+            console.log(expires_in,"expires_in")
+            localStorage.setItem('expireIn', expires_in);
+            console.log(expires_in,'expiry timeeeeee');
+            window.location.href = baseUrl + "usermanagement.php"; 
+           
        
 
         },
@@ -73,7 +75,28 @@ var url = apiBaseURL + 'user_login';
 }
   
 
-
+$(function(){
+  
+    $('#eyeeye').click(function(){
+         
+          if($(this).hasClass('fa-eye-slash')){
+             
+            $(this).removeClass('fa-eye-slash');
+            
+            $(this).addClass('fa-eye');
+            
+            $('#password').attr('type','text');
+              
+          }else{
+           
+            $(this).removeClass('fa-eye');
+            
+            $(this).addClass('fa-eye-slash');  
+            
+            $('#password').attr('type','password');
+          }
+      });
+  });
   
    
   

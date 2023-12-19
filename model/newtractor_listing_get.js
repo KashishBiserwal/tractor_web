@@ -289,31 +289,35 @@ get();
 
 // delete data
 function destroy(id) {
-//   var url = "<?php echo $APIBaseURL; ?>deleteProduct/" + id;
-var apiBaseURL =APIBaseURL;
-var url = apiBaseURL + 'deleteProduct/'+ id;
+  var confirmed = confirm("Are you sure you want to delete this item?");
+  if (confirmed) {
+    var apiBaseURL = APIBaseURL;
+    var url = apiBaseURL + 'deleteProduct/' + id;
 
-  var token = localStorage.getItem('token');
-  
-  if (!token) {
-    console.error("Token is missing");
-    return;
-  }
+    var token = localStorage.getItem('token');
 
-  $.ajax({
-    url: url,
-    type: "DELETE",
-    headers: {
-      'Authorization': 'Bearer ' + token
-    },
-    success: function(result) {
-      window.location.reload();
-      console.log("Delete request successful");
-      alert("Delete operation successful");
-    },
-    error: function(error) {
-      console.error('Error fetching data:', error);
-      alert("Error during delete operation");
+    if (!token) {
+      console.error("Token is missing");
+      return;
     }
-  });
+
+    $.ajax({
+      url: url,
+      type: "DELETE",
+      headers: {
+        'Authorization': 'Bearer ' + token
+      },
+      success: function(result) {
+        window.location.reload();
+        console.log("Delete request successful");
+        alert("Delete operation successful");
+      },
+      error: function(error) {
+        console.error('Error fetching data:', error);
+        alert("Error during delete operation");
+      }
+    });
+  } else {
+    console.log("Delete operation canceled");
+  }
 }

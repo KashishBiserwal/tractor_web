@@ -85,15 +85,34 @@
 //         }
 //         ,1000);
 
-window.onload = function() {
-  if (localStorage.getItem('expireIn') === null) {
-           localStorage.removeItem("token");
-           window.location.href = "login.php";
-        } 
-            // alert('Page loaded!');
-        };
+// window.onload = function() {
+//   if (localStorage.getItem('expireIn') === null) {
+//            localStorage.removeItem("token");
+//            window.location.href = "login.php";
+//         } 
+//             // alert('Page loaded!');
+//         };
 
 
 </script>
+<script>
+window.setInterval(() => {
+    var expireTimeString = localStorage.getItem('expireIn');
+    var expiretime = new Date(expireTimeString); // Convert the string to a Date object
+    console.log(expiretime, "expiretime");
 
+    var currentdate = new Date();
+    console.log(currentdate, "currentdateUS");
+    console.log(currentdate >= expiretime, "currentdate >= expiretime");
+
+    if (currentdate >= expiretime) {
+        console.log("hello");
+        user_logout();
+        localStorage.removeItem("expireIn");
+        // window.location.href = baseUrl + "login.php";
+    }
+
+}, 5000);
+
+</script>
    

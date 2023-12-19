@@ -259,8 +259,7 @@ var url = apiBaseURL + "deleteUser/" + id;
   });
 }
 
-// edit 
-
+// edit
 function fetch_edit_data(dell) {
   // alert(dell);
   var apiBaseURL = APIBaseURL;
@@ -327,9 +326,9 @@ $("#dataedit").on("click", function() {
 })
 
 
-$(".data_search").on("keyup", function() {
-  var value = $(this).val().toLowerCase();
-  $("#data-table tr").filter(function() {
-    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-  });
-});  
+// $(".data_search").on("keyup", function() {
+//   var value = $(this).val().toLowerCase();
+//   $("#data-table tr").filter(function() {
+//     $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+//   });
+// });  
