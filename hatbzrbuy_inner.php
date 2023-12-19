@@ -31,10 +31,7 @@
             <div class="vegehead pt-3">
                 <div class="row">
                     <div class="col-12 col-lg-6 ">
-                        <h3 class="fw-bold text-danger text-center pt-3">Potato in District Name</h3>
-                    </div>
-                    <div class="col-12 col-lg-6 text-center">
-                        <p class="text-success h5 fw-bold"> Total Price:- <i class="fa fa-inr" aria-hidden="true"></i>
+                        <h3 class="fw-bold text-danger text-center pt-3">Potato in District Name</h3><p class="text-success fw-bold  text-center"> Total Price :- <i class="fa fa-inr" aria-hidden="true"></i>
                             222</p>
                     </div>
                 </div>
@@ -67,7 +64,7 @@
                 </div>
                 <div class="col-12 col-sm-6 col-lg-6 col-md-6">
                     <h3 class="text-danger text-center fw-bold">Are You Intrested in this Vegetable</h3>
-                    <form action="">
+                    <form action=""  id="nursery_form" method="post">
                         <div class="row my-3">
                             <div class="col-12 justify-content-center bg-light">
                                 <div class="d-flex flex-md-row px-3  flex-column-reverse">
@@ -76,21 +73,23 @@
                                             <div class="row px-3 ">
                                                 <div class="col-12 col-lg-6 col-md-6 col-sm-6 mt-3">
                                                     <div class="form-outline">
-                                                        <label for="fname" class="form-label ">First Name</label>
+                                                        <label for="fname" class="form-label "><i
+                                                                        class="fa-regular fa-user"></i> First Name</label>
                                                         <input type="text" class="form-control" id="fname" name="fname">
                                                     </div>
                                                 </div>
                                                 <div class="col-12 col-lg-6 col-md-6 col-sm-6 mt-3">
                                                     <div class="form-outline">
-                                                        <label for="lname" class="form-label ">Last Name</label>
+                                                        <label for="lname" class="form-label "><i
+                                                                        class="fa-regular fa-user"></i> Last Name</label>
                                                         <input type="text" class="form-control" id="lname" name="lname">
                                                     </div>
                                                 </div>
                                                 <div class="col-12 col-lg-6 col-md-6 col-sm-6 mt-2">
                                                     <div class="form-outline">
-                                                        <label for="phone" class="form-label ">Phone
+                                                        <label for="phone" class="form-label "><i class="fa fa-phone" aria-hidden="true"></i> Mobile
                                                             Number</label>
-                                                        <input type="password" class="form-control" id="phone"
+                                                        <input type="text" class="form-control" id="phone"
                                                             name="phone">
                                                     </div>
                                                 </div>
@@ -98,8 +97,8 @@
                                                 <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-2">
                                                     <div class="form-outline ">
                                                         <label for="state" class="form-label " id="state"
-                                                            name="state">State</label>
-                                                        <select class="form-select "
+                                                            name="state"> <i class="fas fa-location"></i> State</label>
+                                                        <select class="form-select mb-2 "
                                                             aria-label=".form-select-lg example" id="state"
                                                             name="state">
                                                             <option value="" selected disabled></option>
@@ -110,9 +109,9 @@
                                                 </div>
 
                                                 <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-2">
-                                                    <div class="form-outline">
-                                                        <label class="form-label ">District</label>
-                                                        <select class="form-select"
+                                                    <div for="district" class="form-outline">
+                                                        <label class="form-label "><i class="fa-solid fa-location-dot"></i> District</label>
+                                                        <select class="form-select mb-2"
                                                             aria-label=".form-select-lg example" name="district"
                                                             id="district">
                                                             <option value="" selected disabled></option>
@@ -124,10 +123,10 @@
                                                 </div>
                                                 <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-2">
                                                     <div class="form-outline">
-                                                        <label for="yr_tehsil" class="form-label">Tehsil</label>
+                                                        <label for="tehsil" class="form-label">Tehsil</label>
                                                         <select class="form-select"
-                                                            aria-label=".form-select-lg example" name="district"
-                                                            id="district">
+                                                            aria-label=".form-select-lg example" name="tehsil"
+                                                            id="tehsil">
                                                             <option value="" selected disabled></option>
                                                             <option value="1">Raipur</option>
                                                             <option value="2">Bilaspur</option>
@@ -137,15 +136,15 @@
                                                 </div>
                                                 <div class="col-12 col-lg-6 col-md-6 col-sm-6 mt-3">
                                                     <div class="form-outline">
-                                                        <label for="phone" class="form-label ">Price</label>
-                                                        <input type="password" class="form-control" id="phone"
-                                                            name="phone">
+                                                        <label for="price" class="form-label ">Price</label>
+                                                        <input type="text" class="form-control" id="price"
+                                                            name="price">
                                                     </div>
                                                 </div>
 
                                                 <div class="col-12 col-sm-12 col-md-6 col-lg-12 mt-2">
                                                     <button type="button" class="btn btn-success w-100"
-                                                        data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                                                        data-bs-toggle="modal" data-bs-target="#staticBackdrop"  id="button_nursery">
                                                         Contact Seller
                                                     </button>
                                                 </div>
@@ -702,5 +701,44 @@
     ?>
 
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script>
+    $(document).ready(function() {
+        $.validator.addMethod("indianMobile", function(value, element) {
+            return this.optional(element) || /^[789]\d{9}$/.test(value);
+        }, "Please enter a valid Indian mobile number.");
+
+        $("#nursery_form").validate({
+            rules: {
+                fname: 'required',
+
+                lname: 'required',
+                phone: {
+                    required: true,
+                    digits: true, // Allow only digits
+                    indianMobile: true,
+
+
+                },
+                state: "required",
+                district: "required",
+                price: "required",
+
+            },
+
+          
+
+
+        });
+
+
+        $('#button_nursery').on('click', function() {
+            $('#nursery_form').valid();
+        });
+
+        
+
+
+    });
+    </script>
 
 </html>

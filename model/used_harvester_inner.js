@@ -1,17 +1,19 @@
 $(document).ready(function() {
     console.log("ready!");
     $('#contact_seller').click(store);
-    getoldTractorList();
-    getOldTractorById();
+    // getoldTractorList();
+    get_old_harvester_byiD();
     getpopularTractorList();
     getupcomimgTractorList();
+    
 });
 
-function getOldTractorById() {
+function get_old_harvester_byiD() {
     console.log(window.location)
     var urlParams = new URLSearchParams(window.location.search);
     var productId = urlParams.get('product_id');
-    var url = "http://tractor-api.divyaltech.com/api/customer/get_old_tractor_by_id/" + productId;
+    console.log(productId);
+    var url = "http://tractor-api.divyaltech.com/api/customer/get_old_harvester_by_id/" + productId;
     console.log(url);
     $.ajax({
         url: url,
@@ -20,29 +22,28 @@ function getOldTractorById() {
         console.log(data, 'abc');
     
         document.getElementById('model_name').innerText=data.product[0].model;
+        document.getElementById('district').innerText=data.product[0].district;
+        document.getElementById('state').innerText=data.product[0].state;
+        document.getElementById('power_source').innerText=data.product[0].power_source;
+        document.getElementById('hour').innerText=data.product[0].hour;
+        document.getElementById('year').innerText=data.product[0].purchase_year;
         // console.log(data.product[0].brand_name);
-       
-        document.getElementById('hours_driven').innerText=data.product[0].hours_driven;
-        // document.getElementById('engine_powerhp').innerText=data.product[0].hp_category;
-        document.getElementById('tyre_condition').innerText=data.product[0].tyre_condition;
-        document.getElementById('engine_condition').innerText=data.product[0].engine_condition;
-        document.getElementById('noc').innerText=data.product[0].noc;
-        document.getElementById('rc_number').innerText=data.product[0].rc_number;
-        document.getElementById('model_name2').innerText=data.product[0].model;
-        document.getElementById('model_name4').innerText=data.product[0].model;
-        document.getElementById('brand_name').innerText=data.product[0].brand_name;
-         console.log(data.product[0].brand_name,"hasdgfasgdfj");
-        document.getElementById('model_name3').innerText=data.product[0].model;
-        document.getElementById('engine_powerhp2').innerText=data.product[0].hp_category;
-        document.getElementById('tyre2').innerText=data.product[0].tyre_condition;
-        document.getElementById('engine2').innerText=data.product[0].engine_condition;
-        document.getElementById('name').innerText=data.product[0].first_name;
+        document.getElementById('model2').innerText=data.product[0].model;
+        document.getElementById('brand').innerText=data.product[0].brand_name;
+        document.getElementById('cutting_width').innerText=data.product[0].cutting_width;
+        document.getElementById('crop_type').innerText=data.product[0].crop_type;
+        document.getElementById('power_source').innerText=data.product[0].power_source;
+        document.getElementById('hours').innerText=data.product[0].hours;
+        document.getElementById('year').innerText=data.product[0].year;
+        document.getElementById('price').innerText=data.product[0].price;
+        document.getElementById('first_name').innerText=data.product[0].first_name;
+        document.getElementById('last_name').innerText=data.product[0].last_name;
         document.getElementById('mobile').innerText=data.product[0].mobile;
         document.getElementById('email').innerText=data.product[0].email;
         document.getElementById('district').innerText=data.product[0].district;
-        document.getElementById('state_td').innerText=data.product[0].state;
-        document.getElementById('description').innerText=data.product[0].engine_condition;
-        document.getElementById('model4').innerText=data.product[0].model;
+        document.getElementById('state').innerText=data.product[0].state;
+        document.getElementById('model3').innerText=data.product[0].model;
+        document.getElementById('description').innerText=data.product[0].description;
         },
         error: function (error) {
             console.error('Error fetching data:', error);
@@ -245,69 +246,7 @@ function getpopularTractorList() {
     });
 }
 
-function getoldTractorList() {
-    var url = "http://tractor-api.divyaltech.com/api/customer/get_old_tractor";
-    // console.log(url);
 
-    $.ajax({
-        url: url,
-        type: "GET",
-        success: function(data){
-            console.log(data, 'abc');
-            var productContainer = $("#productContainersimilar");
 
-            if (data.product && data.product.length > 0) {
-                data.product.forEach(function (p) {
-                    console.log(p,"pp");
-                    var newCard = `
-                        <div class="col-12 col-lg-4 col-md-4 col-sm-4 mb-4">
-                            <div class="h-auto success__stry__item d-flex flex-column shadow ">
-                                <div class="thumb">
-                                    <a href="farmtrac_60.php?product_id=${p.product_id}">
-                                        <div class="ratio ratio-16x9">
-                                            <img src="${p.image_url}" class="object-fit-cover " alt="${p.description}">
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="content d-flex flex-column flex-grow-1 ">
-                                    <div class="caption text-center">
-                                        <a href="farmtrac_60.php?product_id=${p.product_id}" class="text-decoration-none text-dark">
-                                            <p class="pt-3"><strong class="series_tractor_strong text-center h4 fw-bold ">${p.model}</strong></p>
-                                        </a>      
-                                    </div>
-                                    <div class=" row">
-                                        <div class="col-12 ms-2 ">
-                                            <p class="" id="district"><span id="engine_powerhp2">${p.hp_category}</span> | <span id="year">${p.purchase_year}</span>| ${p.district}</p>
-                                        </div>
-                                    </div>
-                                    <div class="row text-center">
-                                        <div class="col-12 col-sm-6 col-md-6 col-lg-6">
-                                            <p class="fw-bold ">Price: ₹<span id="price">${p.price}</p>
-                                        </div>
-                                        <div class="col-12 col-sm-6 col-md-6 col-lg-6">
-                                            <p class="fw-bold pe-2">Great Deal  <i class="fa-regular fa-thumbs-up"></i></p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class=" row state_btn">
-                                    <div class="col-12 ">
-                                        <button  type ="button" class="btn-success w-100 p-2 rounded-3 text-decoration-none  text-center" data-bs-toggle="modal" data-bs-target="#used_tractor_callbnt"><i class="fa-solid fa-phone pe-2"></i>Call Now</button> 
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    `;
-                    // Append the new card to the container
-                    productContainer.append(newCard);
-                });
 
-              
-                
-            }
-        },
-        error: function (error) {
-            console.error('Error fetching data:', error);
-        }
-    });
-}
 

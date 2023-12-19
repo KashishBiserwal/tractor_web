@@ -8,7 +8,7 @@ function getProductById() {
     console.log(window.location)
     var urlParams = new URLSearchParams(window.location.search);
     var productId = urlParams.get('product_id');
-    var url = "http://127.0.0.1:8000/api/customer/get_new_tractor_by_id/" + productId;
+    var url = "http://tractor-api.divyaltech.com/api/customer/get_new_tractor_by_id/" + productId;
     // console.log(url);
     $.ajax({
         url: url,

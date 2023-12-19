@@ -479,7 +479,6 @@ $(current_fs).removeClass("show");
 $(previous_fs).addClass("show");
 
 $(".prev").css({ 'display' : 'block' });
-
 if($(".show").hasClass("first-screen")) {
 $(".prev").css({ 'display' : 'none' });
 }

@@ -1,10 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Used_Harvester_inner</title>
 <?php
-   include 'includes/headertag.php';
-   ?>
+    include 'includes/headertag.php';
+    $product_id=$_REQUEST['product_id'];
+    echo $product_id;
+    include 'includes/footertag.php';
+    ?>
+   
+   <script> var APIBaseURL = "<?php echo $APIBaseURL; ?>";</script>
+   <script> var baseUrl = "<?php echo $baseUrl; ?>";</script>
+   <script src="<?php $baseUrl; ?>model/used_harvester_inner.js"></script>
 </head>
 <body>
 <?php
@@ -26,7 +32,7 @@
         <div class="row my-3">
             <div class="col-12 col-sm-6 col-lg-6 col-md-6">
                 <div>
-                <h4>John Deere Green Gold</h4>
+                <h4 id="model_name"></h4>
                 </div>
                 <div>
                     <div class="swiper swiper_buy mySwiper2_buy">
@@ -121,13 +127,13 @@
             <div class="col-12 col-lg-9 col-md-9 col-sm-9">
                 <div class="row my-4">
                     <div class="col-3 col-md-3 col-lg-3 col-sm-3 ">
-                        <div class="Engine shadow p-3 "style="background-color:#fff">
+                        <div class="Engine shadow p-3 "style="backdistrictground-color:#fff">
                             <div class="col-12 text-center">
                                 <img src="assets/images/location.png" width="50" height="50" alt="">
                             </div>
                             <div class="col-12">
                                 <h6 class="engine_ text-center fw-bold fs-6 m-1 text-dark">Location</h6>
-                                <p class="engine_name text-center">Meerut , Uttar Pradesh</p>
+                                <p class="engine_name text-center"><span id=""></span>, <span id="state"></span></p>
                             </div>
                         </div>
                     </div>
@@ -138,18 +144,18 @@
                             </div>
                             <div class="col-12">
                                 <h6 class="total_hours text-center fw-bold fs-6 m-1 text-dark">Power Source</h6>
-                                <p class="total_time text-center">Tractor Mounted</p>
+                                <p class="total_time text-center" id="power_source"></p>
                             </div>
                         </div>
                     </div>
-                    <div class="col-3 col-md-3 col-lg-3 col-sm-3 ">
+                    <div class="col-3 col-md-3 col-lg-3 col-sm-3">
                         <div class=" RTO shadow p-3" style="background-color:#fff">
                             <div class="col-12 text-center">
                                 <img src="assets/images/total-hours.png" width="50" height="50" alt="">
                             </div>
                             <div class="col-12">
                                 <h6 class=" text-center fw-bold m-1 text-dark">Total Hours</h6>
-                                <p class=" text-center">8001 - 9000</p>
+                                <p class=" text-center" id="hour"></p>
                             </div>
                         </div>
                     </div>
@@ -160,45 +166,45 @@
                             </div>
                             <div class="col-12">
                                 <h6 class=" text-center fw-bold m-1 text-dark">purchase Year</h6>
-                                <p class=" text-center">2014</p>
+                                <p class=" text-center" id="year"></p>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="my-4">
                     <div class="text-editor-black my-4 " style="background-color:#fff">
-                        <h4><p class="mt-md mt-4 p-2 mb-3 my-4 assured">2011 John Deere MultiCrop Harvester Specifications</p></h4>
+                        <h4><p class="mt-md mt-4 p-2 mb-3 my-4 assured"><span id="model2"></span> Harvester Specifications</p></h4>
                     </div>
                 </div>
                 <table class="table w-100 table-hover table table-striped my-4">
                     <tbody>
                     <tr>
                         <td class="table-data">Brand</td>
-                        <td class="table-data">John Deere</td>
+                        <td class="table-data" id="brand"></td>
                         </tr>
                         <tr class="col-12">
                         <td class="table-data col-6">Cutting width</td>
-                        <td class="table-data col-6">8-14 Feets</td>
+                        <td class="table-data col-6"><span id="cutting_width"></span> Feets</td>
                         </tr>
                         <tr>
                         <td class="table-data">Crop Type</td>
-                        <td class="table-data">MultiCrop</td>
+                        <td class="table-data" id="crop_type"></td>
                         </tr>
                         <tr>
                         <td class="table-data">Power Source</td>
-                        <td class="table-data">Tractor Mounted</td>
+                        <td class="table-data" id="power_source"></td>
                         </tr>
                         <tr>
                         <td class="table-data">Hours</td>
-                        <td class="table-data">8001 - 9000</td>
+                        <td class="table-data" id="hours"></td>
                         </tr>
                         <tr>
                         <td class="table-data">Year</td>
-                        <td class="table-data">2014</td>
+                        <td class="table-data" id="year"></td>
                         </tr>
                         <tr>
                         <td class="table-data">Price</td>
-                        <td class="table-data">₹ 9,50,000</td>
+                        <td class="table-data">₹ <span id="price"></span></td>
                         </tr>
                         
                     </tbody>
@@ -212,34 +218,32 @@
                      <tbody>
                         <tr>
                         <td class="table-data">Name</td>
-                        <td class="table-data">Manohar</td>
+                        <td class="table-data"> <span id="first_name"></span> <span id="last_name"></span></td>
                         </tr>
                         <tr>
                         <td class="table-data">Mobile Number</td>
-                        <td class="table-data">+9199****5329</td>
+                        <td class="table-data" id="mobile"></td>
                         </tr>
                         <tr>
                         <td class="table-data">E-mail</td>
-                        <td class="table-data">___@gmail.com</td>
+                        <td class="table-data" id="email"></td>
                         </tr>
                         <tr>
                         <td class="table-data">District</td>
-                        <td class="table-data">Durg</td>
+                        <td class="table-data" id="district"></td>
                         </tr>
                         <tr>
                         <td class="table-data">State</td>
-                        <td class="table-data">Chhattisgarh</td>
+                        <td class="table-data" id="state"></td>
                         </tr>
                     </tbody>
                 </table>
 
                 <div class="text-editor-black  my-3" style="background-color:#fff">
-                <h4><p class="mt-md mt-3 p-2 mb-3 assured ps-3 my-4">2011 John Deere MultiCrop Harvester Description</p></h4>
+                <h4><p class="mt-md mt-3 p-2 mb-3 assured ps-3 my-4"><span id="model3"></span> Harvester Description</p></h4>
                 </div>
                 <div class="product_discription">
-                    <p>Buy a Used John Deere MultiCrop Harvester in Meerut, Uttar Pradesh. You can buy John Deere MultiCrop Harvester at Tractor Junction. This Harvester has a 8-14 Feets cutter bar width. John Deere Used Harvester has a Tractor Mounted power source.</p>
-                    <p>This old John Deere Harvester working hours are 8001 - 9000 and Purchasing Year is 2011. The price of this used John Deere Harvester is ₹ 9,50,000. If you are interested in this John Deere Second Hand Harvester then fill your details in the above form. You can get the contact details of this John Deere Used Harvester owner at our website. Visit Tractor Junction for more updates regarding John Deere Used Harvester.</p>
-                    <p>Listed On: 03-February-2023</p>
+                    <p id="description"></p>
                 </div>
             </div>
 

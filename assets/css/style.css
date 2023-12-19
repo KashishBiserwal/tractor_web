@@ -1572,7 +1572,7 @@ input[type="checkbox"]:checked + label:before {
   width: 100%;
 }
 .form-view-overlay {
-  margin-top: -126px;
+  margin-top:-196px;
 }
 /* @media (min-width: 1500px)
 .container-mid {
