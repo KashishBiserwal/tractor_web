@@ -4,9 +4,14 @@ include 'includes/headertag.php';
    include 'includes/footertag.php';
    
    ?> 
+ <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 <script> var APIBaseURL = "<?php echo $APIBaseURL; ?>";</script>
 <script> var baseUrl = "<?php echo $baseUrl; ?>";</script>
 <script src="<?php $baseUrl; ?>model/usermanagement.js"></script>
+
+<!-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script> -->
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
    <style>
     .error-message {
     color: red;
@@ -125,16 +130,16 @@ include 'includes/headertag.php';
       <!-- Filter Card -->
       <div class="filter-card ">
         <div class="card-body" >
-          <form action="">
+          <form action="" id="myform">
             <div class="row">
               <div class="col-12 col-sm-12 col-md-4 col-lg-4">
                   <div class="form-outline">
                     <label class="form-label">Search by Any Field</label>
-                    <input type="text" id="name"  name="search_name" class=" data_search form-control input-group-sm" />
+                    <input type="text" id="name"  name="search_name" onkeyup="myFunction()" class=" data_search form-control input-group-sm" />
                   </div>
               </div>
               <div class="col-12 col-sm-12 col-md-8 col-lg-8">
-                <input type="reset" class="bg-success text-white btn px-4 py-2" value="Reset">
+              <input type="button" onclick="resetForm()" class="bg-success text-white btn px-4 py-2" value="Reset">
               </div>
             </div>
           </form>
@@ -142,17 +147,18 @@ include 'includes/headertag.php';
         </div>
       </div>
       <!-- Table Card -->
-      <div class=" mb-5">
+          <div class=" mb-5">
             <div class="table-responsive shadow bg-white mt-2">
               <table id="example" class="table table-striped  table-hover table-bordered dataTable no-footer" width="100%; margin-bottom: 15px;">
                 <thead class="">
                   <tr>
                     <th class="d-none d-md-table-cell text-white py-2">S.No.</th>
+                    <th class="d-none d-md-table-cell text-white py-2">Date</th>
                     <th class="d-none d-md-table-cell text-white py-2">Name</th>
                     <th class="d-none d-md-table-cell text-white py-2">Mobile Number</th>
                     <th class="d-none d-md-table-cell text-white py-2">User Type</th>
                     <th class="d-none d-md-table-cell text-white py-2">Status</th>
-                    <th class="d-none d-md-table-cell text-white py-2">Date</th>
+                    
                     <th class="d-none d-md-table-cell text-white py-2">Action</th>
                   </tr>
                 </thead>
@@ -160,7 +166,82 @@ include 'includes/headertag.php';
                 </tbody>
               </table>
             </div>
-        </div>
+          </div>
+
+            <!-- model -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">All Info</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                  <form action="" method="POST"  class="" id="form_add">
+                          <div class="filter-card ">
+                            <div class="card-body">
+                              <div class="row">
+                                <div class="col- col-sm-6 col-lg-6 col-md-6">
+                                  <label class="text-dark"> First Name<span class="text-danger">*</span></label>
+                                          <input type="text" class="form-control py-2" for="first_name" prachi="" id="first_name1" name="first_name" placeholder="Enter First Name">
+                                  <small></small>
+                                </div>
+                                <div class="col- col-sm-6 col-lg-6 col-md-6">
+                                  <label class="text-dark" for="last_name"> Last Name<span class="text-danger">*</span></label>
+                                  <input type="text" class="form-control py-2"  name="last_name"   id="last_name1" placeholder="Enter Last Name">
+                                  <small></small>
+                                </div>
+                                <div class="col- col-sm-6 col-lg-6 col-md-6">
+                                  <label class="text-dark">Contact Number<span class="text-danger">*</span></label>
+                                  <input type="text" class="form-control py-2"  name="mobile" for="mobile" id="mobile1" placeholder="Enter contact number">
+                                  <small></small>
+                                </div>
+                                <div class="col- col-sm-6 col-lg-6 col-md-6">
+                                  <label class="text-dark">Email ID<span class="text-danger">*</span></label>
+                                  <input type="text" class="form-control py-2" id="email" name="email" for="email1"  placeholder="Enter email id">
+                                  <small></small>
+                                </div>
+                                <div class="col- col-sm-6 col-lg-6 col-md-6">
+                                  <label class="text-dark">Password<span class="text-danger">*</span></label>
+                                  <input type="text" class="form-control py-2" id="password"name="password1" for="password"   placeholder="Enter Password">
+                                  <small></small>
+                                </div>
+                              <div class="col- col-sm-6 col-lg-6 col-md-6">
+                                <label class="text-dark">Confirm Password<span class="text-danger">*</span></label>
+                                <input type="text" class="form-control py-2" id="password_confirmation1" name="password_confirmation" for="password_confirmation" placeholder="Enter Password">
+                                <small></small>
+                                <div class="form-text confirm-message"></div>
+                              </div>
+                              <div class="col- col-sm-6 col-lg-6 col-md-6">
+                                <label class="text-dark">User Type<span class="text-danger">*</span></label>
+                                <select class="form-select py-2" aria-label="Default select example" name="user_type" id="user_type1">
+                                  <option value>Select User</option>
+                                  <option value="1" >Admin</option>
+                                  <option value="2">User</option>
+                                </select>
+                              </div>
+                              <div class="col-12 col-sm-6 col-md-6 col-lg-6">
+                                <label class="text-dark"> State<span class="text-danger">*</span></label>
+                                <select class="form-select py-2" aria-label="Default select example"  name="status" id="status1">
+                                  <option value>Select Status</option>
+                                  <option value="1">Active</option>
+                                  <option value="2">In Active</option>
+                                </select>
+                              </div>
+                          
+                          </div>
+                        </div>
+                      </form>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" id="dataedit" data-dismiss="modal">Save changes</button>
+                  </div>
+                </div>
+              </div>
+            </div>
     </div>
    </section>
       
@@ -169,6 +250,40 @@ include 'includes/headertag.php';
 </div>
 
 </body>
+<script>
+function myFunction() {
+  var input, filter, table, tr, td, i, j, txtValue;
+  input = document.getElementById("name");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("example");
+  tr = table.getElementsByTagName("tr");
+
+  for (i = 0; i < tr.length; i++) {
+    // Loop through all td elements in the current row
+    td = tr[i].getElementsByTagName("td");
+    for (j = 0; j < td.length; j++) {
+      txtValue = td[j].textContent || td[j].innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+        break; // Break the inner loop if a match is found in any td
+      } else {
+        tr[i].style.display = "none";
+      }
+    }
+  }
+}
+function resetForm() {
+        document.getElementById("myform").reset();
+
+        // Show all rows in the table
+        var table = document.getElementById("example");
+        var rows = table.getElementsByTagName("tr");
+
+        for (var i = 0; i < rows.length; i++) {
+            rows[i].style.display = "";
+        }
+    }
+</script>
 
   
 

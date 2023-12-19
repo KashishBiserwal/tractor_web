@@ -4,6 +4,16 @@ include 'includes/headertagadmin.php';
 include 'includes/footertag.php';
 
 ?>
+<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+<script>
+  $(document).ready(function() {
+    console.log('dfsdwe');
+  $(".js-select2").select2({
+    closeOnSelect: false
+  });
+});
+</script>
 <body class="loaded">
   <div class="main-wrapper">
     <div class="app" id="app">
@@ -37,50 +47,32 @@ include 'includes/footertag.php';
           <!-- Filter Card -->
           <div class="filter-card mb-2">
             <div class="card-body">
-              <div class="row">
+              <div class="row" id="myForm">
                 <div class="col-12 col-sm-12 col-md-3 col-lg-3">
-                  <div class="form-outline">
-                    <label class="form-label">Search By Brand</label>
-                            <select class="form-select py-2" aria-label="Default select example">
-                                <option selected=""></option>
-                                <option value="1">name1</option>
-                                <option value="2">name2</option>
-                                <option value="3">name3</option>
-                            </select>
-                    </div>
+                    <label class="text-dark fw-bold mb-2">Search By Brand</label>
+                    <select class="js-select2 form-select" id="brand">
+                    </select>
                 </div>
                 <div class="col-12 col-sm-12 col-md-3 col-lg-3">
-                  <div class="form-outline">
-                    <label class="form-label">Search by Model</label>
-                            <select class="form-select py-2" aria-label="Default select example">
-                                <option selected=""></option>
-                                <option value="1">name1</option>
-                                <option value="2">name2</option>
-                                <option value="3">name3</option>
-                            </select>
-                    </div>
+                    <label class="text-dark fw-bold  mb-2">Search by Model</label>
+                    <select class="js-select2 form-select" id="model">
+                    </select>
                 </div>
                 <div class="col-12 col-sm-12 col-md-3 col-lg-3">
-                  <div class="form-outline">
-                    <label class="form-label">Search by HP</label>
-                            <select class="form-select py-2" aria-label="Default select example">
-                                <option selected=""></option>
-                                <option value="1">23 HP</option>
-                                <option value="2">33 HP</option>
-                                <option value="3">45 HP</option>
-                            </select>
-                    </div>
+                    <label class="text-dark fw-bold mb-2">Search by HP</label>
+                    <select class="js-select2 form-select" id="hp">
+                    </select>
                 </div>
                 <div class="col-12 col-sm-12 col-md-3 col-lg-3 text-center">
-                  <div class="">
-                    <button type="button" class="btn-success btn px-4 py-2" id="Search">Search</button>
-                    <button type="button" class="btn-success btn px-4 py-2" id="Reset">Reset</button>
+                  <div class="mt-3 pt-1">
+                    <button type="button" class="btn-success btn px-4 py-2"  id="Search">Search</button>
+                    <button type="reset" value = "Reset data"  class="btn-success btn px-4 py-2" id="Reset">Reset</button>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-          <div class=" mb-5">
+          <div class="mb-5">
             <div class="table-responsive shadow bg-white">
               <table id="example" class="table bg-white table-striped table-hover py-1" width="100%">
                 <thead>
@@ -99,6 +91,55 @@ include 'includes/footertag.php';
                 </tbody>
               </table>
             </div>
+
+            <!-- model -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <div class="col-lg-12">
+                      <div class="row">
+                        <div class="col-lg-4">
+                          <div class="form-group">
+                            <label for="">Enter Subject Name:</label>
+                            <input type="text" placeholder="Subject Name" class="form-control" id="subject_name1" prachii=""></input>
+                          </div>
+                        </div>
+                        <div class="col-lg-4">
+                          <div class="form-group">
+                            <label for="">Enter Subject Code:</label>
+                            <input type="text" placeholder="Subject Code" class="form-control" id="subject_code1" name="">
+                          </div>
+                        </div>
+                        <div class="col-lg-4">
+                          <div class="form-group">
+                            <label for="">Subject Type:</label>
+                            <select placeholder="Slect name" class="form-control" id="subject_type1" name="">
+                              <option value="Theory">Theory</option>
+                              <option value="Practical">Practical</option>
+                              <option value="NUE">Non-University Exam</option>
+                            </select>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" id="prachiedit" data-dismiss="modal">Save changes</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+
           </div>
         </div>
       </section>
@@ -114,4 +155,9 @@ include 'includes/footertag.php';
   var baseUrl = "<?php echo $baseUrl; ?>";
 </script>
 
+<script>
+//    function fun(){  
+//    document.getElementById("myForm").reset();  
+//  }   
+</script>
 <script src="<?php $baseUrl; ?>model/newtractor_listing_get.js"></script>

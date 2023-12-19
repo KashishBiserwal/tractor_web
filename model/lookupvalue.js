@@ -59,10 +59,8 @@ var url = apiBaseURL + 'lookup_type';
 
 
 function get() {
-//   var url = "<?php echo $APIBaseURL; ?>lookup_type";
-var apiBaseURL =APIBaseURL;
-// Now you can use the retrieved value in your JavaScript logic
-var url = apiBaseURL + 'lookup_type';
+  var apiBaseURL = APIBaseURL;
+  var url = apiBaseURL + 'lookup_type';
   $.ajax({
       url: url,
       type: "GET",
@@ -70,25 +68,31 @@ var url = apiBaseURL + 'lookup_type';
           'Authorization': 'Bearer ' + localStorage.getItem('token')
       },
       success: function (data) {
-        console.log(data);
           const tableBody = document.getElementById('data-table');
           tableBody.innerHTML = ''; // Clear previous data
 
-          
-
           if (data.lookup_type.length > 0) {
-        console.log(typeof data.lookup_type);
+              let serialNumber = 1; // Initialize serial number
 
               // Loop through the data and create table rows
               data.lookup_type.map(row => {
-                console.log(row);
                   const tableRow = document.createElement('tr');
                   tableRow.innerHTML = `
-                      <td>${row.id}</td>
+                      <td>${serialNumber}</td>
+                    
                       <td>${row.name}</td>
-                      <td><div class="d-flex"><button class="btn btn-danger btn-sm mx-1" id="delete_user" onclick="destroy(${row.id});"><i class="fa fa-trash" style="font-size: 11px;"></i></button></div></td>
+                      <td>
+                          <div class="d-flex">
+                              <button class="btn btn-danger btn-sm mx-1" id="delete_user" onclick="destroy(${row.id});">
+                                  <i class="fa fa-trash" style="font-size: 11px;"></i>
+                              </button>
+                          </div>
+                      </td>
                   `;
                   tableBody.appendChild(tableRow);
+                  
+                  // Increment serialNumber for the next row
+                  serialNumber++;
               });
           } else {
               // Display a message if there's no valid data
@@ -101,7 +105,9 @@ var url = apiBaseURL + 'lookup_type';
       }
   });
 }
+
 get();
+
 
 function destroy(id) {
 // var url = "<?php echo $APIBaseURL; ?>lookup_type/" + id;

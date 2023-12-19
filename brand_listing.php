@@ -1,14 +1,25 @@
 <?php
    include 'includes/headertagadmin.php';
-  
+   include 'includes/footertag.php';
    include 'includes/headertag.php';
    ?> 
+
+<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+<script>
+ $(document).ready(function() {
+  $(".js-select2").select2({
+    closeOnSelect: false
+  });
+});
+</script>
     <style>
     .error-message {
     color: red;
    
 }
 </style>
+
 <body class="loaded"> 
 <div class="main-wrapper">
     <div class="app" id="app">
@@ -100,19 +111,14 @@
       <div class="filter-card mb-2">
         <div class="card-body">
           <div class="row">
-            <div class="col-12 col-sm-12 col-md-4 col-lg-4">
-              <div class="form-outline">
-                <select class="form-select" aria-label="Default select example">
-                  <option selected> Brand Name</option>
-                  <option value="1">Mahindra</option>
-                  <option value="2">Swaraj</option>
-                  <option value="3">John Deere</option>
-                </select>
+            <div class="col-12 col-sm-12 col-md-3 col-lg-3">
+                    <label class="text-dark fw-bold mb-2">Search By Brand</label>
+                    <select class="js-select2 form-select" id="brand">
+                    </select>
               </div>
-            </div>
-            <div class="col-12 col-sm-12 col-md-4 col-lg-4 text-center">
-                <button type="button" class="btn-success px-3" id="Search">Search</button>
-                <button type="button" class="btn-success px-3  mx-2 " id="Reset">Reset</button>
+            <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-3 pt-1 text-center">
+                <button type="button" class="btn-success btn px-5" id="Search">Search</button>
+                <button type="button" class="btn-success btn px-5 mx-2 " id="Reset">Reset</button>
             </div>
           </div>
         </div>
@@ -143,7 +149,7 @@
 
 
 <?php
-   include 'includes/footertag.php';
+   
    ?> 
    <script>
      $(document).ready(function() {
@@ -188,11 +194,12 @@
       },
       error: function (error) {
         console.error('Error fetching data:', error);
+        // window.location.href = baseUrl + "login.php";
       }
     });
   }
 // fetch data
-  function get() {
+function get() {
     var url = "<?php echo $APIBaseURL; ?>getBrands";
     $.ajax({
         url: url,
@@ -201,26 +208,34 @@
             'Authorization': 'Bearer ' + localStorage.getItem('token')
         },
         success: function (data) {
-          // console.log(data);
             const tableBody = document.getElementById('data-table');
             tableBody.innerHTML = ''; // Clear previous data
+            var select_brand = $("#brand");
+            select_brand.empty(); // Clear existing options
+            select_brand.append('<option selected disabled="" value="">Please select Brand</option>');
+      console.log(data, 'ok');
+      for (var j = 0; j < data.brands.length; j++) {
+        var brand = data.brands.brand_name;
+        select_brand.append('<option value="' + brand + '">' + brand + '</option>');
+      }
 
-            
+            let serialNumber = 1; // Initialize serial number
 
             if (data.brands.length > 0) {
-          console.log(typeof data.brands);
-
                 // Loop through the data and create table rows
                 data.brands.map(row => {
-                  console.log(row);
                     const tableRow = document.createElement('tr');
                     tableRow.innerHTML = `
-                        <td>${row.id}</td>
+                        <td>${serialNumber}</td>
                         <td>${row.brand_name}</td>
                         <td>${row.brand_img}</td>
-                        <td><div class="d-flex"><button class="btn btn-danger btn-sm mx-1" id="delete_user" onclick="destroy(${row.id});"><i class="fa fa-trash" style="font-size: 11px;"></i></button></div></td>
+                        <td><div class="float-start"><button class="btn btn-danger btn-sm mx-1" id="delete_user" onclick="destroy(${row.id});"><i class="fa fa-trash" style="font-size: 11px;"></i></button>
+                        <button class="btn btn-primary btn-sm " id="" onclick="update(${row.id});"><i class="fas fa-edit" style="font-size: 11px;"></i></button></div></td>
                     `;
                     tableBody.appendChild(tableRow);
+
+                    // Increment serial number for the next row
+                    serialNumber++;
                 });
             } else {
                 // Display a message if there's no valid data
@@ -233,35 +248,47 @@
         }
     });
 }
+
 get();
+
+
+
 
 // delete
 function destroy(id) {
-  var url = "<?php echo $APIBaseURL; ?>deleteBrands/" + id;
-  var token = localStorage.getItem('token');
+  var userConfirmation = confirm("Are you sure you want to delete this Brand ?");
   
-  if (!token) {
-    console.error("Token is missing");
-    return;
-  }
-
-  $.ajax({
-    url: url,
-    type: "DELETE",
-    headers: {
-      'Authorization': 'Bearer ' + token
-    },
-    success: function(result) {
-      get();
-      console.log("Delete request successful");
-      alert("Delete operation successful");
-    },
-    error: function(error) {
-      console.error('Error fetching data:', error);
-      alert("Error during delete operation");
+  if (userConfirmation) {
+    var url = "<?php echo $APIBaseURL; ?>deleteBrands/" + id;
+    var token = localStorage.getItem('token');
+    
+    if (!token) {
+      console.error("Token is missing");
+      return;
     }
-  });
+
+    $.ajax({
+      url: url,
+      type: "DELETE",
+      headers: {
+        'Authorization': 'Bearer ' + token
+      },
+      success: function(result) {
+        get();
+        console.log("Delete request successful");
+        alert("Delete operation successful");
+      },
+      error: function(error) {
+        console.error('Error fetching data:', error);
+        alert("Error during delete operation");
+      }
+    });
+  } else {
+    // If the user cancels the operation
+    console.log("Delete operation canceled");
+  }
 }
+
 
 
   function BackgroundUpload() {

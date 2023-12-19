@@ -19,6 +19,7 @@ function getTractorList() {
             //     }
             // });
             var productContainer = $("#productContainer");
+            var tableData = $("#tableData");
 
             if (data.product.allProductData && data.product.allProductData.length > 0) {
                 data.product.allProductData.forEach(function (p) {
@@ -55,9 +56,17 @@ function getTractorList() {
                     </div>
                 </div>
                     `;
+                    var tableRow  = `
+                        <tr class="">
+                            <td class="py-3">${p.model}</td>
+                            <td class="py-3"><span>${p.hp_category}</span> HP</td>
+                            <td class="py-3">Rs. <span>${p.starting_price}</span> - <span>${p.ending_price}</span>*</td>
+                        </tr> 
+                    `;
 
                     // Append the new card to the container
                     productContainer.append(newCard);
+                    tableData.append(tableRow);
                 });
 
            
