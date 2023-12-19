@@ -4,7 +4,7 @@ $(document).ready(function() {
 });
 
 function getoldTractorList() {
-    var url = "http://192.168.1.41:8000/api/customer/get_old_tractor";
+    var url = "http://tractor-api.divyaltech.com/api/customer/get_old_tractor";
     // console.log(url);
 
     $.ajax({
@@ -18,10 +18,10 @@ function getoldTractorList() {
                 data.product.forEach(function (p) {
                     console.log(p,"pp");
                     var newCard = `
-                        <div class="col-12 col-lg-4 col-md-4 col-sm-4 ">
+                        <div class="col-12 col-lg-4 col-md-4 col-sm-4 mb-4">
                             <div class="h-auto success__stry__item d-flex flex-column shadow ">
                                 <div class="thumb">
-                                    <a href="farmtrac_60.php?id=${p.product_id}">
+                                    <a href="farmtrac_60.php?product_id=${p.product_id}">
                                         <div class="ratio ratio-16x9">
                                             <img src="${p.image_url}" class="object-fit-cover " alt="${p.description}">
                                         </div>
@@ -29,7 +29,7 @@ function getoldTractorList() {
                                 </div>
                                 <div class="content d-flex flex-column flex-grow-1 ">
                                     <div class="caption text-center">
-                                        <a href="farmtrac_60.php?id=${p.product_id}" class="text-decoration-none text-dark">
+                                        <a href="farmtrac_60.php?product_id=${p.product_id}" class="text-decoration-none text-dark">
                                             <p class="pt-3"><strong class="series_tractor_strong text-center h4 fw-bold ">${p.model}</strong></p>
                                         </a>      
                                     </div>
@@ -39,10 +39,10 @@ function getoldTractorList() {
                                         </div>
                                     </div>
                                     <div class="row text-center">
-                                        <div class="col-6">
-                                            <p class="fw-bold ms-1">Price: ₹ <span id="price">${p.price}</p>
+                                        <div class="col-12 col-sm-6 col-md-6 col-lg-6">
+                                            <p class="fw-bold ">Price: ₹<span id="price">${p.price}</p>
                                         </div>
-                                        <div class="col-6">
+                                        <div class="col-12 col-sm-6 col-md-6 col-lg-6">
                                             <p class="fw-bold pe-2">Great Deal  <i class="fa-regular fa-thumbs-up"></i></p>
                                         </div>
                                     </div>

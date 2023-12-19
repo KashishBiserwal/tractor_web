@@ -4,6 +4,7 @@ include 'includes/headertag.php';
    include 'includes/footertag.php';
    
    ?> 
+ 
 <script> var APIBaseURL = "<?php echo $APIBaseURL; ?>";</script>
 <script> var baseUrl = "<?php echo $baseUrl; ?>";</script>
 <script src="<?php $baseUrl; ?>model/usermanagement.js"></script>
@@ -125,16 +126,16 @@ include 'includes/headertag.php';
       <!-- Filter Card -->
       <div class="filter-card ">
         <div class="card-body" >
-          <form action="">
+          <form action="" id="myform">
             <div class="row">
               <div class="col-12 col-sm-12 col-md-4 col-lg-4">
                   <div class="form-outline">
                     <label class="form-label">Search by Any Field</label>
-                    <input type="text" id="name"  name="search_name" class=" data_search form-control input-group-sm" />
+                    <input type="text" id="name"  name="search_name" onkeyup="myFunction()" class=" data_search form-control input-group-sm" />
                   </div>
               </div>
               <div class="col-12 col-sm-12 col-md-8 col-lg-8">
-                <input type="reset" class="bg-success text-white btn px-4 py-2" value="Reset">
+              <input type="button" onclick="resetForm()" class="bg-success text-white btn px-4 py-2" value="Reset">
               </div>
             </div>
           </form>
@@ -148,11 +149,12 @@ include 'includes/headertag.php';
                 <thead class="">
                   <tr>
                     <th class="d-none d-md-table-cell text-white py-2">S.No.</th>
+                    <th class="d-none d-md-table-cell text-white py-2">Date</th>
                     <th class="d-none d-md-table-cell text-white py-2">Name</th>
                     <th class="d-none d-md-table-cell text-white py-2">Mobile Number</th>
                     <th class="d-none d-md-table-cell text-white py-2">User Type</th>
                     <th class="d-none d-md-table-cell text-white py-2">Status</th>
-                    <th class="d-none d-md-table-cell text-white py-2">Date</th>
+                    
                     <th class="d-none d-md-table-cell text-white py-2">Action</th>
                   </tr>
                 </thead>
@@ -168,7 +170,122 @@ include 'includes/headertag.php';
 </div>
 </div>
 
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+  Launch static backdrop modal
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="user_edit_form" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="staticBackdropLabel">Modal title</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+      <form action="" method="POST"  class="" id="form_add">
+                          <div class="filter-card ">
+                            <div class="card-body">
+                              <div class="row">
+                                <div class="col- col-sm-6 col-lg-6 col-md-6">
+                                  <label class="text-dark"> First Name<span class="text-danger">*</span></label>
+                                          <input type="text" class="form-control py-2" for="first_name"  id="first_name" name="first_name" placeholder="Enter First Name">
+                                  <small></small>
+                                </div>
+                                <div class="col- col-sm-6 col-lg-6 col-md-6">
+                                  <label class="text-dark" for="last_name"> Last Name<span class="text-danger">*</span></label>
+                                  <input type="text" class="form-control py-2"  name="last_name"   id="last_name" placeholder="Enter Last Name">
+                                  <small></small>
+                                </div>
+                                <div class="col- col-sm-6 col-lg-6 col-md-6">
+                                  <label class="text-dark">Contact Number<span class="text-danger">*</span></label>
+                                  <input type="text" class="form-control py-2"  name="mobile" for="mobile" id="mobile" placeholder="Enter contact number">
+                                  <small></small>
+                                </div>
+                                <div class="col- col-sm-6 col-lg-6 col-md-6">
+                                  <label class="text-dark">Email ID<span class="text-danger">*</span></label>
+                                  <input type="text" class="form-control py-2" id="email" name="email" for="email"  placeholder="Enter email id">
+                                  <small></small>
+                                </div>
+                                <div class="col- col-sm-6 col-lg-6 col-md-6">
+                                  <label class="text-dark">Password<span class="text-danger">*</span></label>
+                                  <input type="text" class="form-control py-2" id="password"name="password" for="password"   placeholder="Enter Password">
+                                  <small></small>
+                                </div>
+                              <div class="col- col-sm-6 col-lg-6 col-md-6">
+                                <label class="text-dark">Confirm Password<span class="text-danger">*</span></label>
+                                <input type="text" class="form-control py-2" id="password_confirmation" name="password_confirmation" for="password_confirmation" placeholder="Enter Password">
+                                <small></small>
+                                <div class="form-text confirm-message"></div>
+                              </div>
+                              <div class="col- col-sm-6 col-lg-6 col-md-6">
+                                <label class="text-dark">User Type<span class="text-danger">*</span></label>
+                                <select class="form-select py-2" aria-label="Default select example" name="user_type" id="user_type">
+                                  <option value>Select User</option>
+                                  <option value="1" >Admin</option>
+                                  <option value="2">User</option>
+                                </select>
+                              </div>
+                              <div class="col-12 col-sm-6 col-md-6 col-lg-6">
+                                <label class="text-dark"> State<span class="text-danger">*</span></label>
+                                <select class="form-select py-2" aria-label="Default select example"  name="status" id="status">
+                                  <option value>Select Status</option>
+                                  <option value="1">Active</option>
+                                  <option value="2">In Active</option>
+                                </select>
+                              </div>
+                              <div class="col-12 mt-4 ">
+                                <div class="text-center">
+                                  <button class="btn px-5 bg-success text-white" id="save">Submit</button>
+                                </div>
+                            </div>
+                          </div>
+                        </div>
+                      </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Understood</button>
+      </div>
+    </div>
+  </div>
+</div>
 </body>
+<script>
+function myFunction() {
+  var input, filter, table, tr, td, i, j, txtValue;
+  input = document.getElementById("name");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("example");
+  tr = table.getElementsByTagName("tr");
+
+  for (i = 0; i < tr.length; i++) {
+    // Loop through all td elements in the current row
+    td = tr[i].getElementsByTagName("td");
+    for (j = 0; j < td.length; j++) {
+      txtValue = td[j].textContent || td[j].innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+        break; // Break the inner loop if a match is found in any td
+      } else {
+        tr[i].style.display = "none";
+      }
+    }
+  }
+}
+function resetForm() {
+        document.getElementById("myform").reset();
+
+        // Show all rows in the table
+        var table = document.getElementById("example");
+        var rows = table.getElementsByTagName("tr");
+
+        for (var i = 0; i < rows.length; i++) {
+            rows[i].style.display = "";
+        }
+    }
+</script>
 
   
 

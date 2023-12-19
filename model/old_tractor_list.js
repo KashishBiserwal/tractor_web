@@ -211,42 +211,6 @@ function get() {
 }
 get();
 
-
-// get year
-// function get_year_and_hours() {
-//   // var url = "<?php echo $APIBaseURL; ?>getBrands";
-//   var apiBaseURL =APIBaseURL;
-//   // Now you can use the retrieved value in your JavaScript logic
-//   var url = apiBaseURL + 'get_year_and_hours';
-//   $.ajax({
-//       url: url,
-//       type: "GET",
-//       headers: {
-//           'Authorization': 'Bearer ' + localStorage.getItem('token')
-//       },
-//       success: function (data) {
-//           console.log(data);
-//           const select = document.getElementById('brand');
-//           select.innerHTML = '';
-
-//           if (data.brands.length > 0) {
-//               data.brands.forEach(row => {
-//                   const option = document.createElement('option');
-//                   option.value = row.id; // You might want to set a value for each option
-//                   option.textContent = row.brand_name;
-//                   select.appendChild(option);
-//               });
-//           } else {
-//               select.innerHTML ='<option>No valid data available</option>';
-//           }
-//       },
-//       error: function (error) {
-//           console.error('Error fetching data:', error);
-//       }
-//   });
-// }
-// get_year_and_hours();
-
 function get_year_and_hours() {
   console.log('initsfd')
     var apiBaseURL = APIBaseURL;
@@ -322,9 +286,6 @@ function store(event) {
     var image = $('#image_pic').val();
     var description = $('#description').val();
 
-    
-
-
     // Prepare data to send to the server
     var paraArr = {
       'form_type':form_type,
@@ -396,10 +357,8 @@ function store(event) {
     }
    // fetch data
    function get_tractor_list() {
-    console.log('kjhskdjf');
-    var apiBaseURL =APIBaseURL;
+    var apiBaseURL = APIBaseURL;
     var url = apiBaseURL + 'get_old_tractor';
-
     $.ajax({
         url: url,
         type: "GET",
@@ -407,7 +366,7 @@ function store(event) {
             'Authorization': 'Bearer ' + localStorage.getItem('token')
         },
         success: function (data) {
-            console.log(data);
+            // console.log(data);
 
             const tableBody = document.getElementById('data-table');
 
@@ -417,9 +376,8 @@ function store(event) {
                 data.product.forEach(row => {
                   
                   const tableRow = document.createElement('tr');
-                  console.log(tableRow, 'helloooo');
+                  // console.log(tableRow, 'helloooo');
                     tableRow.innerHTML = `
-                   
                         <td>${row.product_id}</td>
                         <td>${formatDateTime(row.created_at)}</td>
                         <td>${row.customer_id}</td>
@@ -451,7 +409,7 @@ get_tractor_list();
 // delete data
   function destroy(id) {
     var apiBaseURL = APIBaseURL;
-    var url = apiBaseURL + 'deleteProduct/' + customer_id;
+    var url = apiBaseURL + 'deleteProduct/' + id;
     var token = localStorage.getItem('token');
   
     if (!token) {

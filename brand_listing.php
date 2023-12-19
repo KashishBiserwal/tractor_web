@@ -188,6 +188,7 @@
       },
       error: function (error) {
         console.error('Error fetching data:', error);
+        // window.location.href = baseUrl + "login.php";
       }
     });
   }

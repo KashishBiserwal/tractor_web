@@ -9,7 +9,6 @@ include 'includes/footertag.php';
 <script>
   var baseUrl = "<?php echo $baseUrl; ?>";
 </script>
-
 <script src="<?php $baseUrl; ?>model/tractor_listing.js"></script>
 <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
@@ -17,7 +16,7 @@ include 'includes/footertag.php';
 <div class="container">
     <div class="row  my-4 shadow">
     <h4 class="text-center">Fill your Tractor Details</h4>
-                          <form id="add_tractor_form" method="post">
+                          <form id="add_tractor_form" method="post"enctype="multipart/form-data" onsubmit="return false">
                             <div class="row justify-content-center pt-4">
                               <h5 class="fw-bold">Listing</h5>
                               <div class="col-12 col-sm-6 col-lg-6 col-md-6 mt-2">
@@ -108,18 +107,19 @@ include 'includes/footertag.php';
                                  
                                 </div>
                               </div>
-                              <div class="col-12 col-sm-4 col-lg-4 col-md-4">
-                                          <div class="upload__box mt-2">
+                              <div class="col-12 col-sm-4 col-lg-4 col-md-4 ps-3">
+                             
+                                <div class="upload__box mt-2">
                                             <div class="upload__btn-box text-center">
                                               <label >
                                                 <p class="upload__btn ">Upload images</p>
-                                                <input type="file" multiple="" data-max_length="20" class="upload__inputfile" id="_image" name="_image">
+                                                <input type="file" name='files[]' multiple="" data-max_length="20" class="upload__inputfile" id="image_name">
                                               </label>
                                             </div>
                                             <div id="selectedImagesContainer" class="upload__img-wrap"></div>
                                           </div>
-                                        </div>
-                              <h5 class="fw-bold"> Brand Details</h5>
+                              </div>
+                              <h5 class="fw-bold"> Engine Details</h5>
                               <div  class="col-12 col-sm-4 col-lg-4 col-md-4">
                                 <div class="form-outline">
                                   <label class="form-label">Capacity CC</label>
@@ -155,7 +155,7 @@ include 'includes/footertag.php';
                               <div class="col-12 col-sm-4 col-lg-4 col-md-4">
                                 <div class="form-outline">
                                   <label class="form-label">Fuel pump</label>
-                                  <select class="form-select py-2" id="fuel_pump_id" aria-label="Default select example">
+                                  <select class="form-select py-2" id="FUEL_PUMP" aria-label="Default select example">
                                     <option value=""></option>
                                   </select>
                                 </div>
@@ -297,7 +297,6 @@ include 'includes/footertag.php';
                               <div class="col-12 mb-4">
                                 <label class="text-dark fw-bold" >Accessories</label>
                                     <select class="js-example-basic-multiple w-100" name="states[]" id="ass_list" multiple="multiple">
-                                        
                                     </select>
                               </div>
                               <div class="col-12 col-sm-6 col-lg-6 col-md-6">
@@ -317,5 +316,9 @@ include 'includes/footertag.php';
                             </div>
                             <button type="button" id="save" class="btn btn-success fw-bold px-3">Submit</button>
                           </form>
+
+
     </div>
 </div>
+
+

@@ -2,13 +2,15 @@ $(document).ready(function() {
     console.log("ready!");
 
     getProductById();
+    get_allbrand();
+    getpopularTractorList();
 });
 
 function getProductById() {
     console.log(window.location)
     var urlParams = new URLSearchParams(window.location.search);
     var productId = urlParams.get('product_id');
-    var url = "http://127.0.0.1:8000/api/customer/get_new_tractor_by_id/" + productId;
+    var url = "http://tractor-api.divyaltech.com/api/customer/get_new_tractor_by_id/" + productId;
     // console.log(url);
     $.ajax({
         url: url,
@@ -61,6 +63,121 @@ function getProductById() {
         document.getElementById('warranty_2').innerText=data.product.allProductData[0].warranty; 
         document.getElementById('transmission_forward').innerText=data.product.allProductData[0].transmission_forward;
         document.getElementById('transmission_reverse').innerText=data.product.allProductData[0].transmission_reverse;
+        },
+        error: function (error) {
+            console.error('Error fetching data:', error);
+        }
+    });
+}
+
+
+function get_allbrand() {
+    var url = "http://tractor-api.divyaltech.com/api/customer/get_brands";
+    // console.log(url);
+
+    $.ajax({
+        url: url,
+        type: "GET",
+        success: function(data) {
+            // console.log(data, 'abc');
+            // const new_data=data.product[0].filter((s)=>{ 
+            //     if(s.tractor_type_value=="Latest"){
+            //         return s;
+            //     }
+            // });
+            var productContainer = $("#related_brand");
+
+            if (data.brands && data.brands.length > 0) {
+                data.brands.forEach(function (b) {
+                    var newCard = `
+                    <div class=" col-6 col-lg-6 col-md-6 col-sm-6">
+                            <div class="brand-main box-shadow mt-2 text-center shadow">
+                                <a class="weblink text-decoration-none text-dark" href="#"
+                                    title="Old Tractors">
+                                    <img class="img-fluid w-50" src="${b.image_url}"
+                                        data-src="h" alt="Brand Logo">
+                                    <p class="mb-0 oneline">${b.brand_name}</p>
+                                </a>
+                            </div>
+                        </div>
+                    `;
+
+                    // Append the new card to the container
+                    productContainer.append(newCard);
+                });
+
+           
+            }
+        },
+        error: function (error) {
+            console.error('Error fetching data:', error);
+        }
+    });
+}
+
+
+function getpopularTractorList() {
+    var url = "http://tractor-api.divyaltech.com/api/customer/get_new_tractor";
+    console.log(url);
+
+    $.ajax({
+        url: url,
+        type: "GET",
+        success: function(data) {
+            console.log(data, 'abc');
+            console.log('prachi',data.product.accessory_and_tractor_type[0].tractor_type_name);
+            let new_arr=[];
+            const new_data=data.product.accessory_and_tractor_type.filter((s)=>{ 
+                const arr=s.tractor_type_name.split(',');
+                
+                console.log('arr',arr);
+                if(arr.includes('Popular')){
+                    new_arr.push(s.product_id);
+                    // jisme upcoming tha uska product_id ko new arr me push
+                    return s.product_id;
+                }
+            });
+            console.log('new_data',new_data);
+            console.log('new_arr',new_arr);
+            // if(new_data.product_id==)
+            var productContainer = $("#productContainerpopular");
+            if (data.product.allProductData && data.product.allProductData.length > 0) {
+                data.product.allProductData.forEach(function (p) {
+                    if(new_arr.includes(p.product_id)){
+                        // new aar me match aa rhi array 
+                        var newCard = `<div class="used-tractor mb-3 d-flex flex-row shadow p-2" style="background-color:#fff">
+                                    <div class="text-center">
+                                        <a href="detail_tractor.php?product_id=${p.product_id}" class="weblink">
+                                            <img src="${p.image_url}" width="100" height="100" alt=""
+                                                style=" border-radius: 10px;">
+                                        </a>
+                                    </div>
+                                    <div class="px-2 d-flex flex-column justify-cintent-center">
+                                        <a href="detail_tractor.php?product_id=${p.product_id}" class="text-decoration-none">
+                                            <p class="mb-1">${p.model}</p>
+                                        </a>
+                                        <p class="trac">
+                                            <span class="bg-light"> ${p.hp_category} HP</span>
+                                            <span class="bg-light">${p.wheel_drive_value}</span>
+                                        </p>
+                                        <div class="">
+                                            <a href="#"><img
+                                                    src="assets/images/index_trac_files/park-solid_phone-call.svg"
+                                                    width="15" height="15" alt="phone-call-icon">Call
+                                                Now</span></a>
+                                        </div>
+                                    </div>
+                                </div>
+                    `;
+
+                    // Append the new card to the container
+                    productContainer.append(newCard);
+                
+                    }
+                    });
+
+           
+            }
         },
         error: function (error) {
             console.error('Error fetching data:', error);
