@@ -132,7 +132,8 @@ function getTractorList() {
                       <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.id});">
                           <i class="fa fa-trash" style="font-size: 11px;"></i>
                       </button> 
-                      <button class="btn btn-primary btn-sm " id="" onclick="update(${row.id});"><i class="fas fa-edit" style="font-size: 11px;"></i></button>
+                     
+                      <button class="btn btn-primary btn-sm btn_edit" data-toggle="modal" onclick="fetch_edit_data(${row.id});" data-target="#exampleModal" id="'+ id +'"><i class="fas fa-edit" style="font-size: 11px;"></i></button>
                   </div>
               </td>
           `;
@@ -152,7 +153,15 @@ function getTractorList() {
 }
 
 $("#Search").click(function () {
-
+  var brand = $("#brand").val();
+  var model = $("#model").val();
+  var hp = $("#hp").val();
+  var table = $('#example');
+  var searchData = {
+    brand: brand,
+      model_name: model,
+      hp_category: hp,
+  };
 
   var apiBaseURL =APIBaseURL;
   var url = apiBaseURL + 'get_new_tractor';
@@ -166,13 +175,26 @@ $("#Search").click(function () {
       dataType: 'json',
       success: function (data) {
           console.log('data',data);    
-          // table.clear().rows.add(data.product.allProductData).draw(); 
+          table.clear().rows.add(data.product.allProductData).draw(); 
           console.log("Search records");
       },
       error: function (xhr, status, error) {
           console.log("Error: " + error);
       }
   });
+});
+$("#Reset").click(function () {
+    
+  $("#brand").val("");
+  $("#model").val("");
+  $("#hp").val("");
+
+  if (originalData) {
+      table.clear().rows.add(originalData).draw();
+  } else {
+      
+    getTractorList();
+  }
 });
 
 // function performSearch() {
