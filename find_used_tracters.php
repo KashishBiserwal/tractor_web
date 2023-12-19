@@ -63,23 +63,22 @@
                         <div class="row justify-content-center">
                             <div class="col-12 col-lg-6 col-sm-12 col-md-6 mt-4">
                                 <div class="form-outline">
-                                    <label class="form-label" for="firstName">First Name</label>
-                                    <input type="text" class="form-control" id="firstName" name="firstName" required />
+                                    <label class="form-label" for="fName">First Name</label>
+                                    <input type="text" class="form-control" onkeydown="return /[a-zA-Z]/i.test(event.key)" id="fName" name="fName" required />
                                 </div>
                             </div>
                             <div class="col-12 col-lg-6 col-sm-12 col-md-6 mt-4">
                                 <div class="form-outline">
-                                    <label class="form-label" for="lastName">Last Name</label>
-                                    <input type="text" class="form-control" id="lastName" name="lastName" required />
+                                    <label class="form-label" for="lName">Last Name</label>
+                                    <input type="text" class="form-control" onkeydown="return /[a-zA-Z]/i.test(event.key)" id="lName" name="lName" required />
                                 </div>
                             </div>
                             <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-4">
                                 <div class="form-outline">
-                                    <label class="form-label" for="mobileNo">Mobile Number</label>
-                                    <input type="tel" class="form-control" id="mobileNo" name="mobileNo" required />
+                                    <label class="form-label" for="phone">Mobile Number</label>
+                                    <input type="tel" class="form-control" id="phone" name="phone" required />
                                 </div>
                             </div>
-
                             <div class="col-12 col-sm-6 col-md-6 col-lg-6 mt-4">
                                 <div class="form-outline">
                                     <label class="form-label" for="state">State</label>
@@ -98,36 +97,6 @@
                                     </select>
                                 </div>
                             </div>
-                            <!-- <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-4">
-                                <div class="form-outline">
-                                    <label class="form-label" for="owner">Owners</label>
-                                    <select class="form-select" id="owner" name="owner" required>
-                                        <option value="" selected disabled>Select Owner</option>
-                                        <option value="first">First</option>
-                                        <option value="second">Second</option>
-                                        <option value="third">Third</option>
-                                        <option value="forth">Forth or Above</option>
-                                    </select>
-                                </div>
-                            </div>
-
-                            <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-4">
-                                <div class="form-outline">
-                                    <label for="tyre" class="form-label">Tyre Condition</label>
-                                    <select class="form-select" name="tyre" id="tyre" required>
-                                        <option value="" selected disabled>Select Tyre Condition</option>
-                                        <option value="10">10%</option>
-                                        <option value="20">20%</option>
-                                        <option value="30">30%</option>
-                                        <option value="40">40%</option>
-                                        <option value="50">50%</option>
-                                        <option value="60">60%</option>
-                                        <option value="70">70%</option>
-                                        <option value="80">80%</option>
-                                        <option value="100">100%</option>
-                                    </select>
-                                </div>
-                            </div> -->
                             <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-4">
                                 <div class="form-outline">
                                     <label for="budget" class="form-label">Budget</label>
@@ -193,7 +162,8 @@
                                     </div>
 
                                     <div class="col-12 mt-2">
-                                        <button type="button" class="btn btn-outline-primary btn-sm add-more-btn">Add More</button>
+                                        <button type="button" class="btn btn-outline-primary btn-sm add-more-btn">Add
+                                            More</button>
                                     </div>
                                 </div>
                             </div>
@@ -204,10 +174,10 @@
                             </div>
 
                             <p class="text-center mt-3">By proceeding ahead you expressly agree to the Bharat
-                                    Tractors
-                                    <a href="privacy_and_policy.php" class="text-decoration-none">Terms &
-                                        Conditions*</a>
-                                </p>
+                                Tractors
+                                <a href="privacy_and_policy.php" class="text-decoration-none">Terms &
+                                    Conditions*</a>
+                            </p>
                         </div>
                 </div>
                 </form>
@@ -517,63 +487,33 @@
     });
     </script>
 
-   
+
     <script>
     $(document).ready(function() {
-        console.log('testing');
+        $.validator.addMethod("indianMobile", function(value, element) {
+            return this.optional(element) || /^[789]\d{9}$/.test(value);
+        }, "Please enter a valid Indian mobile number.");
         $('#find-used-tractor-form').validate({
             rules: {
-                select_brand: {
+                fName: {
                     required: true,
+                    minlength: 2,
                 },
-                model: {
+                lName: {
                     required: true,
+                    minlength: 2,
                 },
-                select_state: {
+                phone: {
                     required: true,
+                    digits: true, // Allow only digits
+                    indianMobile: true,
                 },
-                Owners: {
-                    required: true,
-                },
-                Manufacture: {
-                    required: true,
-                },
-                Tyre: {
-                    required: true,
-                },
-                your_name: {
-                    required: true,
-                },
-                Mobile: {
-                    required: true,
-                }
+                state: "required",
+                district: "required",
+                brand: "required",
+                model: "required",
             },
-            messages: {
-                select_brand: {
-                    required: "This field is required",
-                },
-                model: {
-                    required: "This field is required",
-                },
-                select_state: {
-                    required: "This field is required",
-                },
-                Owners: {
-                    required: "This field is required",
-                },
-                Manufacture: {
-                    required: "This field is required",
-                },
-                Tyre: {
-                    required: "This field is required",
-                },
-                your_name: {
-                    required: "This field is required",
-                },
-                Mobile: {
-                    required: "This field is required",
-                }
-            },
+
             submitHandler: function(form) {
                 form.submit();
             }

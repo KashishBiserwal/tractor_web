@@ -81,14 +81,14 @@
                                                     <div class="form-outline">
                                                         <label for="fname" class="form-label "><i
                                                                 class="fa-regular fa-user"></i> First Name</label>
-                                                        <input type="text" class="form-control" id="fname" name="fname">
+                                                        <input type="text" class="form-control" onkeydown="return /[a-zA-Z]/i.test(event.key)" id="fname" name="fname">
                                                     </div>
                                                 </div>
                                                 <div class="col-12 col-lg-6 col-md-6 col-sm-12 mt-4">
                                                     <div class="form-outline">
                                                         <label for="lname" class="form-label "><i
                                                                 class="fa-regular fa-user"></i> Last Name</label>
-                                                        <input type="text" class="form-control" id="lname" name="lname">
+                                                        <input type="text" class="form-control" onkeydown="return /[a-zA-Z]/i.test(event.key)" id="lname" name="lname">
                                                     </div>
                                                 </div>
                                                 <div class="col-12 col-lg-6 col-md-6 col-sm-12 mt-4">
@@ -494,9 +494,15 @@
 
         $("#nursery_form").validate({
             rules: {
-                fname: 'required',
+                fname: {
+                    required: true,
+                    minlength: 2,
+                },
 
-                lname: 'required',
+                lname:{
+                    required: true,
+                    minlength: 2,
+                },
                 phone: {
                     required: true,
                     digits: true, // Allow only digits

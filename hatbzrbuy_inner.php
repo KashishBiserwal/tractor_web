@@ -28,43 +28,49 @@
     </section>
     <section>
         <div class="container">
-            <div class="vegehead pt-3">
+            <div class="vegehead">
                 <div class="row">
                     <div class="col-12 col-lg-6 ">
-                        <h3 class="fw-bold text-danger text-center pt-3">Potato in District Name</h3><p class="text-success fw-bold  text-center"> Total Price :- <i class="fa fa-inr" aria-hidden="true"></i>
+                        <h3 class="fw-bold text-danger">Potato in Durg</h3>
+                    </div>
+                    <div class="col-12 col-lg-6 ">
+                        <h4 class="fw-bold text-danger">Are You Intrested In This Vegetable ?</h4>
+                        <p class="text-success fw-bold "> Total Price :- <i class="fa fa-inr"
+                                aria-hidden="true"></i>
                             222</p>
                     </div>
                 </div>
             </div>
 
-            <div class="row mt-3">
+            <div class="row ">
                 <div class="col-12 col-sm-6 col-lg-6 col-md-6">
                     <div>
                         <div class="swiper swiper_buy mySwiper2_buy">
                             <div class="swiper-wrapper swiper-wrapper_buy">
+
                                 <div class=" swiper-slide swiper-slide_buy">
                                     <img class="img_buy" src="assets/images/potato.webp" />
                                 </div>
-                                <!-- <div class="swiper-slide swiper-slide_buy">
-                    <img class="img_buy " src="assets/images/brinjal.jpg" />
-                  </div> -->
                                 <div class="swiper-slide swiper-slide_buy">
                                     <img class="img_buy " src="assets/images/potatoes-lead_h.webp" />
                                 </div>
-                                <!-- <div class="swiper-slide swiper-slide_buy">
-                    <img class="img_buy " src="assets/images/brinjal.jpg" />
-                  </div> -->
-                                <!-- <div class="swiper-slide swiper-slide_buy  h-50">
-                    <img class="img_buy h-75" src="assets/images/papaya.jpg" />
-                  </div> -->
+                                <div class="swiper-slide swiper-slide_buy">
+                                    <img class="img_buy " src="assets/images/potato.webp" />
+                                </div>
                             </div>
+                            <div class="swiper-button-prev">
+
+                            </div>
+                            <div class="swiper-button-next">
+                            </div>
+
+
                         </div>
                         <div thumbsSlider="" class="swiper mySwiper_buy"></div>
                     </div>
                 </div>
                 <div class="col-12 col-sm-6 col-lg-6 col-md-6">
-                    <h3 class="text-danger text-center fw-bold">Are You Intrested in this Vegetable</h3>
-                    <form action=""  id="nursery_form" method="post">
+                    <form action="" id="nursery_form" method="post">
                         <div class="row my-3">
                             <div class="col-12 justify-content-center bg-light">
                                 <div class="d-flex flex-md-row px-3  flex-column-reverse">
@@ -74,30 +80,30 @@
                                                 <div class="col-12 col-lg-6 col-md-6 col-sm-6 mt-3">
                                                     <div class="form-outline">
                                                         <label for="fname" class="form-label "><i
-                                                                        class="fa-regular fa-user"></i> First Name</label>
-                                                        <input type="text" class="form-control" id="fname" name="fname">
+                                                                class="fa-regular fa-user"></i> First Name</label>
+                                                        <input type="text" class="form-control" id="fname" onkeydown="return /[a-zA-Z]/i.test(event.key)" name="fname">
                                                     </div>
                                                 </div>
                                                 <div class="col-12 col-lg-6 col-md-6 col-sm-6 mt-3">
                                                     <div class="form-outline">
                                                         <label for="lname" class="form-label "><i
-                                                                        class="fa-regular fa-user"></i> Last Name</label>
-                                                        <input type="text" class="form-control" id="lname" name="lname">
+                                                                class="fa-regular fa-user"></i> Last Name</label>
+                                                        <input type="text" class="form-control" onkeydown="return /[a-zA-Z]/i.test(event.key)" id="lname" name="lname">
                                                     </div>
                                                 </div>
                                                 <div class="col-12 col-lg-6 col-md-6 col-sm-6 mt-2">
                                                     <div class="form-outline">
-                                                        <label for="phone" class="form-label "><i class="fa fa-phone" aria-hidden="true"></i> Mobile
+                                                        <label for="phone" class="form-label "><i class="fa fa-phone"
+                                                                aria-hidden="true"></i> Mobile
                                                             Number</label>
-                                                        <input type="text" class="form-control" id="phone"
-                                                            name="phone">
+                                                        <input type="text" class="form-control" id="phone" name="phone">
                                                     </div>
                                                 </div>
 
                                                 <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-2">
                                                     <div class="form-outline ">
-                                                        <label for="state" class="form-label " id="state"
-                                                            name="state"> <i class="fas fa-location"></i> State</label>
+                                                        <label for="state" class="form-label " id="state" name="state">
+                                                            <i class="fas fa-location"></i> State</label>
                                                         <select class="form-select mb-2 "
                                                             aria-label=".form-select-lg example" id="state"
                                                             name="state">
@@ -110,7 +116,8 @@
 
                                                 <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-2">
                                                     <div for="district" class="form-outline">
-                                                        <label class="form-label "><i class="fa-solid fa-location-dot"></i> District</label>
+                                                        <label class="form-label "><i
+                                                                class="fa-solid fa-location-dot"></i> District</label>
                                                         <select class="form-select mb-2"
                                                             aria-label=".form-select-lg example" name="district"
                                                             id="district">
@@ -124,9 +131,8 @@
                                                 <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-2">
                                                     <div class="form-outline">
                                                         <label for="tehsil" class="form-label">Tehsil</label>
-                                                        <select class="form-select"
-                                                            aria-label=".form-select-lg example" name="tehsil"
-                                                            id="tehsil">
+                                                        <select class="form-select" aria-label=".form-select-lg example"
+                                                            name="tehsil" id="tehsil">
                                                             <option value="" selected disabled></option>
                                                             <option value="1">Raipur</option>
                                                             <option value="2">Bilaspur</option>
@@ -137,14 +143,14 @@
                                                 <div class="col-12 col-lg-6 col-md-6 col-sm-6 mt-3">
                                                     <div class="form-outline">
                                                         <label for="price" class="form-label ">Price</label>
-                                                        <input type="text" class="form-control" id="price"
-                                                            name="price">
+                                                        <input type="text" class="form-control" id="price" name="price">
                                                     </div>
                                                 </div>
 
                                                 <div class="col-12 col-sm-12 col-md-6 col-lg-12 mt-2">
                                                     <button type="button" class="btn btn-success w-100"
-                                                        data-bs-toggle="modal" data-bs-target="#staticBackdrop"  id="button_nursery">
+                                                        data-bs-toggle="modal" data-bs-target="#staticBackdrop"
+                                                        id="button_nursery">
                                                         Contact Seller
                                                     </button>
                                                 </div>
@@ -252,6 +258,10 @@
                         <td class="table-data">+91831******</td>
                     </tr>
                     <tr>
+                        <td class="table-data">State</td>
+                        <td class="table-data">Chhattisgarh</td>
+                    </tr>
+                    <tr>
                         <td class="table-data">District</td>
                         <td class="table-data">Ambikapur</td>
                     </tr>
@@ -259,7 +269,7 @@
                         <td class="table-data">Tehsil</td>
                         <td class="table-data">Ambikapur</td>
                     </tr>
-                    
+
                 </tbody>
             </table>
         </div>
@@ -279,28 +289,37 @@
                                 </div>
                             </div>
                             <div class="content d-flex flex-column flex-grow-1 ">
-
-                                <div class="power text-center mt-3">
+                                    <div class="power mt-3">
+                                        <div class="row ">
+                                            <div class="col-6 col-lg-6 col-md-6 col-sm-6">
+                                                <p class="text-success ps-2">
+                                                    Watermelon</p>
+                                            </div>
+                                            <div class="col-6 col-lg-6 col-md-6 col-sm-6">
+                                                <p id="adduser" type="" class="text-success float-end pe-2">Nadiya Rani
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
                                     <div class="row ">
-                                        <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                                            <p class="text-success ps-2"> <i class="fa-solid fa-bowl-food"></i>
-                                                Vegetable</p>
+                                        <div class="col-6 col-lg-6 col-md-6 col-sm-6">
+                                            <p class="ps-2 text-success"> <i class="fa fa-inr" aria-hidden="true"></i>
+                                                80.00/Kg</p>
                                         </div>
-                                        <div class="col-12 col-lg-6 col-md-6 col-sm-6" style="padding-right: 32px;">
-                                            <p id="adduser" type="" class="text-danger fw-bold"> Potato</p>
+                                        <div class="col-6 col-lg-6 col-md-6 col-sm-6">
+                                            <p class="text-success float-end pe-2">4 Kg</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+
+                                        <div class="col-12">
+                                            <p class=" text-center" id="district"><span
+                                                    id="engine_powerhp2"></span>Surajpur,<span
+                                                    id="year">Chhattisgarh</span></p>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="row text-center">
-                                    <div class="col-6">
-                                        <p class="ps-2"> <i class="fa fa-inr" aria-hidden="true"></i> Price: <strong
-                                                class="text-primary">230</strong></p>
-                                    </div>
-                                    <div class="col-6 text-center">
-                                        <p class="fw-bold pe-3">Ambikapur(C.G)</p>
-                                    </div>
-                                </div>
-                            </div>
                         </a>
                         <div class="col-12 btn-success">
                             <button type="button" class="btn btn-success py-2 w-100" data-bs-toggle="modal"
@@ -384,6 +403,38 @@
                                 </div>
                             </div>
                             <div class="content d-flex flex-column flex-grow-1 ">
+                                    <div class="power mt-3">
+                                        <div class="row ">
+                                            <div class="col-6 col-lg-6 col-md-6 col-sm-6">
+                                                <p class="text-success ps-2">
+                                                    Watermelon</p>
+                                            </div>
+                                            <div class="col-6 col-lg-6 col-md-6 col-sm-6">
+                                                <p id="adduser" type="" class="text-success float-end pe-2">Nadiya Rani
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row ">
+                                        <div class="col-6 col-lg-6 col-md-6 col-sm-6">
+                                            <p class="ps-2 text-success"> <i class="fa fa-inr" aria-hidden="true"></i>
+                                                80.00/Kg</p>
+                                        </div>
+                                        <div class="col-6 col-lg-6 col-md-6 col-sm-6">
+                                            <p class="text-success float-end pe-2">4 Kg</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+
+                                        <div class="col-12">
+                                            <p class=" text-center" id="district"><span
+                                                    id="engine_powerhp2"></span>Surajpur,<span
+                                                    id="year">Chhattisgarh</span></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            <!-- <div class="content d-flex flex-column flex-grow-1 ">
                                 <div class="power text-center mt-3">
                                     <div class="row ">
                                         <div class="col-12 col-lg-6 col-md-6 col-sm-6">
@@ -404,7 +455,7 @@
                                         <p class="fw-bold pe-3">Ambikapur(C.G)</p>
                                     </div>
                                 </div>
-                            </div>
+                            </div> -->
                         </a>
                         <div class="col-12 btn-success">
                             <button type="button" class="btn btn-success py-2 w-100" data-bs-toggle="modal"
@@ -489,6 +540,38 @@
                                 </div>
                             </div>
                             <div class="content d-flex flex-column flex-grow-1 ">
+                                    <div class="power mt-3">
+                                        <div class="row ">
+                                            <div class="col-6 col-lg-6 col-md-6 col-sm-6">
+                                                <p class="text-success ps-2">
+                                                    Watermelon</p>
+                                            </div>
+                                            <div class="col-6 col-lg-6 col-md-6 col-sm-6">
+                                                <p id="adduser" type="" class="text-success float-end pe-2">Nadiya Rani
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row ">
+                                        <div class="col-6 col-lg-6 col-md-6 col-sm-6">
+                                            <p class="ps-2 text-success"> <i class="fa fa-inr" aria-hidden="true"></i>
+                                                80.00/Kg</p>
+                                        </div>
+                                        <div class="col-6 col-lg-6 col-md-6 col-sm-6">
+                                            <p class="text-success float-end pe-2">4 Kg</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+
+                                        <div class="col-12">
+                                            <p class=" text-center" id="district"><span
+                                                    id="engine_powerhp2"></span>Surajpur,<span
+                                                    id="year">Chhattisgarh</span></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            <!-- <div class="content d-flex flex-column flex-grow-1 ">
                                 <div class="power text-center mt-3">
                                     <div class="row ">
                                         <div class="col-12 col-lg-6 col-md-6 col-sm-6">
@@ -509,7 +592,7 @@
                                         <p class="fw-bold pe-3">Surajpur(C.G)</p>
                                     </div>
                                 </div>
-                            </div>
+                            </div> -->
                         </a>
                         <div class="col-12 btn-success">
                             <button type="button" class="btn btn-success py-2 w-100" data-bs-toggle="modal"
@@ -593,28 +676,37 @@
                                 </div>
                             </div>
                             <div class="content d-flex flex-column flex-grow-1 ">
-                                <div class="power text-center mt-3">
+                                    <div class="power mt-3">
+                                        <div class="row ">
+                                            <div class="col-6 col-lg-6 col-md-6 col-sm-6">
+                                                <p class="text-success ps-2">
+                                                    Watermelon</p>
+                                            </div>
+                                            <div class="col-6 col-lg-6 col-md-6 col-sm-6">
+                                                <p id="adduser" type="" class="text-success float-end pe-2">Nadiya Rani
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
                                     <div class="row ">
-                                        <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                                            <p class="text-success ps-2"> <i class="fa-solid fa-bowl-food"></i> Pulses
-                                            </p>
+                                        <div class="col-6 col-lg-6 col-md-6 col-sm-6">
+                                            <p class="ps-2 text-success"> <i class="fa fa-inr" aria-hidden="true"></i>
+                                                80.00/Kg</p>
                                         </div>
-                                        <div class="col-12 col-lg-6 col-md-6 col-sm-6" style="padding-right: 32px;">
-                                            <p id="adduser" type="" class="text-danger fw-bold"> Pulses</p>
+                                        <div class="col-6 col-lg-6 col-md-6 col-sm-6">
+                                            <p class="text-success float-end pe-2">4 Kg</p>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="row text-center">
-                                    <div class="col-6">
-                                        <p class="ps-2"> <i class="fa fa-inr" aria-hidden="true"></i> Price: <strong
-                                                class="text-primary">330</strong></p>
-                                    </div>
-                                    <div class="col-6 text-center">
-                                        <p class="fw-bold pe-3">Raipur(C.G)</p>
-                                    </div>
-                                </div>
 
-                            </div>
+                                    <div class="row">
+
+                                        <div class="col-12">
+                                            <p class=" text-center" id="district"><span
+                                                    id="engine_powerhp2"></span>Surajpur,<span
+                                                    id="year">Chhattisgarh</span></p>
+                                        </div>
+                                    </div>
+                                </div>
                         </a>
                         <div class="col-12 btn-success">
                             <button type="button" class="btn btn-success py-2 w-100" data-bs-toggle="modal"
@@ -709,9 +801,15 @@
 
         $("#nursery_form").validate({
             rules: {
-                fname: 'required',
+                fname: {
+                    required: true,
+                    minlength: 2,
+                },
 
-                lname: 'required',
+                lname: {
+                    required: true,
+                    minlength: 2,
+                },
                 phone: {
                     required: true,
                     digits: true, // Allow only digits
@@ -725,7 +823,7 @@
 
             },
 
-          
+
 
 
         });
@@ -735,7 +833,7 @@
             $('#nursery_form').valid();
         });
 
-        
+
 
 
     });

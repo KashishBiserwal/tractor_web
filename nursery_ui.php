@@ -78,7 +78,7 @@
                                                                 <label class="form-label" for="first_name"><i
                                                                         class="fa-regular fa-user"></i> First
                                                                     Name</label>
-                                                                <input type="text" id="first_name" name="first_name"
+                                                                <input type="text" onkeydown="return /[a-zA-Z]/i.test(event.key)" id="first_name" name="first_name"
                                                                     class=" data_search form-control input-group-sm py-2" />
                                                             </div>
                                                         </div>
@@ -87,7 +87,7 @@
                                                                 <label class="form-label" for="last_name"><i
                                                                         class="fa-regular fa-user"></i> Last
                                                                     Name</label>
-                                                                <input type="text" id="last_name" name="last_name"
+                                                                <input type="text" onkeydown="return /[a-zA-Z]/i.test(event.key)" id="last_name" name="last_name"
                                                                     class=" data_search form-control input-group-sm py-2" />
                                                             </div>
                                                         </div>
@@ -587,11 +587,6 @@
     ?>
 
 
-    <!-- <script>
-    $(document).ready(function() {
-        $.validator.addMethod("indianMobile", function(value, element) {
-            return this.optional(element) || /^[789]\d{9}$/.test(value);
-        }, "Please enter a valid Indian mobile number."); -->
 
     <script>
     $(document).ready(function() {
@@ -600,9 +595,14 @@
         }, "Please enter a valid Indian mobile number.");
         $("#hire_inner").validate({
             rules: {
-                first_name: 'required',
-
-                last_name: 'required',
+                first_name: {
+                    required: true,
+                    minlength: 2, 
+                },
+                last_name:{
+                    required: true,
+                    minlength: 2,   
+                },
                 mobile_number: {
                     required: true,
                     digits: true, 
