@@ -47,12 +47,10 @@ function getProductById() {
         document.getElementById('brake_value2').innerText=data.product.allProductData[0].brake_value;
         document.getElementById('steering_details_value').innerText=data.product.allProductData[0].steering_details_value;
         document.getElementById('steering_column_value2').innerText=data.product.allProductData[0].steering_column_value;
-        document.getElementById('power_take_off_rpm').innerText=data.product.allProductData[0].power_take_off_rpm ;
         document.getElementById('total_weight').innerText=data.product.allProductData[0].total_weight;
         document.getElementById('wheel_base').innerText=data.product.allProductData[0].wheel_base;
         document.getElementById('lifting_capacity').innerText=data.product.allProductData[0].lifting_capacity;
-        document.getElementById('lifting').innerText=data.product.allProductData[0].lifting_capacity;
-        // document.getElementById('fuel_capacity').innerText=data.product.allProductData[0].lifting_capacity;
+        document.getElementById('liftingC').innerText =data.product.allProductData[0].lifting_capacity;
         document.getElementById('engine_rated_rpm2').innerText=data.product.allProductData[0].engine_rated_rpm;
         document.getElementById('linkage_point_value').innerText=data.product.allProductData[0].linkage_point_value;
         document.getElementById('wheel_drive_value').innerText=data.product.allProductData[0].wheel_drive_value;
@@ -62,6 +60,8 @@ function getProductById() {
         document.getElementById('status_value').innerText=data.product.allProductData[0].status_value;
         document.getElementById('warranty_2').innerText=data.product.allProductData[0].warranty; 
         document.getElementById('transmission_forward').innerText=data.product.allProductData[0].transmission_forward;
+        document.getElementById('power_take_off_type').innerText=data.product.allProductData[0].power_take_off_type;
+        document.getElementById('power_take_off_type_rpm').innerText=data.product.allProductData[0].power_take_off_rpm;
         document.getElementById('transmission_reverse').innerText=data.product.allProductData[0].transmission_reverse;
         },
         error: function (error) {

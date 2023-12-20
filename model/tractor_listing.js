@@ -265,7 +265,6 @@ function store(event) {
     var starting_price = $('#starting_price').val();
     var  ending_price= $('#ending_price').val();
     var  warranty= $('#warranty').val();
-
     var tractor_type_id = JSON.stringify(selectedCheckboxValues);
     console.log(selectedCheckboxValues);
     console.log('tractor_type_id',tractor_type_id);
@@ -335,15 +334,15 @@ function store(event) {
       data.append('torque', TORQUE);
       data.append('transmission_type_id', TRANSMISSION_TYPE);
       data.append('transmission_clutch_id', TRANSMISSION_CLUTCH);
-      data.append('min_forward_speed', min_forward_speed);
-      data.append('max_forward_speed', max_forward_speed);
+      data.append('transmission_reverse', min_forward_speed);
+      data.append('transmission_forward', max_forward_speed);
       data.append('min_reverse_speed', min_reverse_speed);
       data.append('max_reverse_speed', max_reverse_speed);
       data.append('steering_details_id', STEERING_DETAIL);
       data.append('steering_column_id', STEERING_COLUMN);
-      data.append('power_take_off_type', power_take_off_type);
+      data.append('power_take_off_type_id', power_take_off_type);
       data.append('power_take_off_rpm', power_take_off_rpm);
-      data.append('totat_weight', totat_weight);
+      data.append('total_weight', totat_weight);
       data.append('wheel_base', WHEEL_BASE);
       data.append('lifting_capacity', LIFTING_CAPACITY);
       data.append('linkage_point_id', LINKAGE_POINT);

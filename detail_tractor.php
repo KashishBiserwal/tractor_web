@@ -148,7 +148,7 @@
                         <div class=" text-center shadow bg-white ">
                             <img src="assets/images/wheel-drive.png" class="w-50 h-50" alt="">
                             <h6 class=" text-center fw-bold  text-dark">LIFTING CAPACITY</h6>
-                            <p class="engine_name text-center" id="lifting"></p>
+                            <p class="engine_name text-center" id="liftingC"></p>
                         </div>
 
                     </div>
@@ -296,11 +296,11 @@
                         <tbody>
                             <tr>
                                 <td class="table-data col-12 col-lg-6 col-md-6 col-sm-6">Type</td>
-                                <td class="table-data"></td>
+                                <td class="table-data" id="power_take_off_type"></td>
                             </tr>
                             <tr>
                                 <td class="table-data">RPM</td>
-                                <td class="table-data"><span id="power_take_off_rpm"></span></td>
+                                <td class="table-data"><span id="power_take_off_type_rpm"></span></td>
                             </tr>
                         </tbody>
                     </table>

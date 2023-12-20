@@ -140,6 +140,58 @@
               </table>
             </div>
         </div>
+
+        <div class="modal fade" id="staticBackdrop_model" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+          <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">Update Brand</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+              <h4 class="text-center">Fill your Brand Details</h4>
+                <form action="" method="POST"  class="" id="formmodel">
+                  <div class="">
+                                    <div class="">
+                                      <div class="row">
+                                        
+                                        <div class="col- col-sm-6 col-lg-6 col-md-6">
+                                          <label class="text-dark"> Brand Name<span class="text-danger">*</span></label>
+                                          <input type="text" class="form-control py-2" id="brand_name1" placeholder="Enter brand">
+                                          <small></small>
+                                        </div>
+                                        <div class="col-12 col-sm-4 col-lg-4 col-md-4 ps-3">
+                                          <div class="background__box mt-4 pt-1">
+                                                <div class="background__btn-box ">
+                                                    <label class="background__btn">
+                                                    <p class="text-white bg-success p-2 rounded">Upload images</p>
+                                                        <input type="file" id="brand_img1" data-max_length="20"name="brand_img"  ref="fileInput"
+                                                        style="display: none"
+                                                        @change="handleFileInput"
+                                                        accept="image/png, image/jpg, image/jpeg" class="background__inputfile" id="banner_image">
+                                                        <small></small>
+                                                    </label>
+                                                </div>
+                                                <div class="">
+                                                    <div class="background__img-wrap"></div>
+                                                </div>
+                                          </div>
+                                        </div>
+                        
+                                        
+                                      </div>
+                  </div>
+                </form>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="px-4 bg-success btn btn-primary" id="save_brand">Submit</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
     </div>
    </section>
       
@@ -155,6 +207,7 @@
      $(document).ready(function() {
       BackgroundUpload();
       $('#save').click(store);
+      $('#dataedit').click(edit_brand);
     });
     // store data
   function store(event) {
@@ -164,20 +217,14 @@
         var brand_img = document.getElementById('brand_img').files[0]; // Use files[0] to access the selected file
         var formData = new FormData(); // Create a FormData object to send the file
 
-        formData.append('brand_name', brand_name, );
+        formData.append('brand_name', brand_name);
         formData.append('brand_img', brand_img);
-
-    // Define the URL where you want to send the data
     var url = "<?php echo $APIBaseURL; ?>storeBrands";
     console.log(url);
-
-    // You may need to include headers, but you should ensure they are properly configured
     var token = localStorage.getItem('token');
     var headers = {
       'Authorization': 'Bearer ' + token
     };
-
-    // Make an AJAX request to the server
     $.ajax({
       url: url,
       type: "POST",
@@ -230,7 +277,9 @@ function get() {
                         <td>${row.brand_name}</td>
                         <td>${row.brand_img}</td>
                         <td><div class="float-start"><button class="btn btn-danger btn-sm mx-1" id="delete_user" onclick="destroy(${row.id});"><i class="fa fa-trash" style="font-size: 11px;"></i></button>
-                        <button class="btn btn-primary btn-sm " id="" onclick="update(${row.id});"><i class="fas fa-edit" style="font-size: 11px;"></i></button></div></td>
+                        <button class="btn btn-primary btn-sm btn_edit" onclick="fetch_edit_data(${row.id});" data-bs-toggle="modal" data-bs-target="#staticBackdrop_model" id="yourUniqueIdHere">
+                                    <i class="fas fa-edit" style="font-size: 11px;"></i>
+                                  </button></div></td>
                     `;
                     tableBody.appendChild(tableRow);
 
@@ -251,8 +300,65 @@ function get() {
 
 get();
 
+function fetch_edit_data(userId) {
+  var apiBaseURL = APIBaseURL;
+  var url = apiBaseURL + 'getBrands';
 
+  var headers = {
+    'Authorization': 'Bearer ' + localStorage.getItem('token')
+  };
 
+  $.ajax({
+    url: url,
+    type: 'GET',
+    headers: headers,
+    success: function(response) {
+      var userData = response.user[0];
+
+      $('#brand1').val(userData.brand_name);
+      $('#brand_img1').val(userData.brand_img);
+     
+
+      // $('#exampleModal').modal('show');
+    },
+    error: function(error) {
+      console.error('Error fetching user data:', error);
+    }
+  });
+}
+
+function edit_brand(){
+   alert('fherjlkferif');
+
+  var brand1 = $("#brand1").val();
+  var brand_img1 = $("#brand_img1").val();
+
+  var paraArr = {
+    'brand_name': brand1,
+    'image': brand_img1,
+  };
+  var apiBaseURL = APIBaseURL;
+  var url = apiBaseURL + 'updateBrands/' + 3;
+
+  var headers = {
+    'Authorization': 'Bearer ' + localStorage.getItem('token')
+  };
+  $.ajax({
+    url: url,
+      type: "PUT",
+      data: paraArr,
+      headers: headers,
+      success: function (result) {
+        console.log(result, "result");
+        get();
+        console.log("updated successfully");
+        alert('successfully updated..!')
+      },
+      error: function (error) {
+        console.error('Error fetching data:', error);
+      }
+  })
+}
 
 // delete
 function destroy(id) {

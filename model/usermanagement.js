@@ -104,6 +104,7 @@ $('#save').on('click', function() {
 
 
   $('#save').click(user_registration);
+  $('#dataedit').click(edit_user);
   });
 
   function user_registration(event) {
@@ -259,76 +260,82 @@ var url = apiBaseURL + "deleteUser/" + id;
   });
 }
 
-// edit
-function fetch_edit_data(dell) {
-  // alert(dell);
+
+function fetch_edit_data(userId) {
   var apiBaseURL = APIBaseURL;
-    var url = apiBaseURL + 'getUsers';
+  var url = apiBaseURL + 'getSelfData/' + userId;
+
+  var headers = {
+    'Authorization': 'Bearer ' + localStorage.getItem('token')
+  };
+
   $.ajax({
-    type: "GET",
-    data: {
-      data: "dataa",
-      // edit_id: dell,
-    },
     url: url,
-    dataType: "GET",
-    success: function(output) {
-      // alert()
-      $("#first_name1").val(output[0].first_name);
-      $("#last_name1").val(output[0].last_name);
-      $("#email1").val(output[0].mobile);
-      $("#mobile1").val(output[0].password);
-      $("#password1").val(output[0].subject_type);
-      $("#password_confirmation1").val(output[0].password_confirmation);
-      $("#user_type1").val(output[0].user_type);
-      $("#first_name1").attr("prachii", output[0].id);
+    type: 'GET',
+    headers: headers,
+    success: function(response) {
+      var userData = response.user[0];
 
-      get();
+      $('#first_name1').val(userData.first_name);
+      $('#last_name1').val(userData.last_name);
+      $('#mobile1').val(userData.mobile);
+      $('#email1').val(userData.email);
+      console.log(userData.email);
+      $('#user_type1').val(userData.user_type);
+      $('#status1').val(userData.status);
+      $('#editUserId').val(userData.id);
+
+
+      // $('#exampleModal').modal('show');
     },
-
-  })
+    error: function(error) {
+      console.error('Error fetching user data:', error);
+    }
+  });
 }
 
-$("#dataedit").on("click", function() {
 
+
+function edit_user(edit_id){
+   alert(edit_id);
 
   var first_name = $("#first_name1").val();
   var last_name = $("#last_name1").val();
   var email = $("#email1").val();
   var mobile = $("#mobile1").val();
   var email = $("#email1").val();
-  var password = $("#password1").val();
-  var password_confirmation = $("#password_confirmation1").val();
   var user_type1 = $("#user_type1").val();
-  var edit_id = $("#first_name1").attr("prachii");
+  // var edit_id = $("#first_name1").attr("prachii");
 
-  // alert(edit_id);
+  var paraArr = {
+    'first_name': first_name,
+    'last_name': last_name,
+    'email': email,
+    'mobile': mobile,
+    'user_type': user_type1,
+    'id': edit_id,
+  };
+  var apiBaseURL = APIBaseURL;
+  var url = apiBaseURL + 'updateUser/' + edit_id;
 
+  var headers = {
+    'Authorization': 'Bearer ' + localStorage.getItem('token')
+  };
   $.ajax({
-    type: "POST",
-    // dataType: "json",
-    data: {
-      subject_name1: subject_name1,
-      subject_code1: subject_code1,
-      subject_type1: subject_type1,
-      edit_id: edit_id,
-      y: "toedit",
-    },
-    url: "data_b.php",
-    success: function(popup) {
-      // alert("sdfg");
-      $("#msg_got").html(popup);
-      get_data();
-
-    }
+    url: url,
+      type: "PUT",
+      data: paraArr,
+      headers: headers,
+      success: function (result) {
+        console.log(result, "result");
+        get();
+        console.log("updated successfully");
+        alert('successfully updated..!')
+      },
+      error: function (error) {
+        console.error('Error fetching data:', error);
+      }
   })
+}
 
-})
 
-
-// $(".data_search").on("keyup", function() {
-//   var value = $(this).val().toLowerCase();
-//   $("#data-table tr").filter(function() {
-//     $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-//   });
-// });  

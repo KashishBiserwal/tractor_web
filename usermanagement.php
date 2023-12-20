@@ -169,18 +169,16 @@ include 'includes/headertag.php';
           </div>
 
             <!-- model -->
-            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-              <div class="modal-dialog modal-lg" role="document">
+            <div class="modal fade" id="exampleModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+              <div class="modal-dialog modal-lg modal-dialog-centered" data-bs-backdrop="static"  role="document">
                 <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">All Info</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                      <span aria-hidden="true">&times;</span>
-                    </button>
-                  </div>
+                <div class="modal-header modal_head">
+                  <h5 class="modal-title text-white fw-bold" id="staticBackdropLabel"> Add New User</h5>
+                  <!-- <button type="button" class="btn-close btn-success" data-bs-dismiss="modal" aria-label="Close"></button>-->
+                </div>
                   <div class="modal-body">
-                  <form action="" method="POST"  class="" id="form_add">
-                          <div class="filter-card ">
+                      <form action="" method="POST"  class="" id="">
+                          <div class="">
                             <div class="card-body">
                               <div class="row">
                                 <div class="col- col-sm-6 col-lg-6 col-md-6">
@@ -200,34 +198,23 @@ include 'includes/headertag.php';
                                 </div>
                                 <div class="col- col-sm-6 col-lg-6 col-md-6">
                                   <label class="text-dark">Email ID<span class="text-danger">*</span></label>
-                                  <input type="text" class="form-control py-2" id="email" name="email" for="email1"  placeholder="Enter email id">
+                                  <input type="text" class="form-control py-2" id="email1" name="email" for="email1"  placeholder="Enter email id">
                                   <small></small>
                                 </div>
-                                <div class="col- col-sm-6 col-lg-6 col-md-6">
-                                  <label class="text-dark">Password<span class="text-danger">*</span></label>
-                                  <input type="text" class="form-control py-2" id="password"name="password1" for="password1"   placeholder="Enter Password">
-                                  <small></small>
-                                </div>
-                              <div class="col- col-sm-6 col-lg-6 col-md-6">
-                                <label class="text-dark">Confirm Password<span class="text-danger">*</span></label>
-                                <input type="text" class="form-control py-2" id="password_confirmation1" name="password_confirmation1" for="password_confirmation" placeholder="Enter Password">
-                                <small></small>
-                                <div class="form-text confirm-message"></div>
-                              </div>
                               <div class="col- col-sm-6 col-lg-6 col-md-6">
                                 <label class="text-dark">User Type<span class="text-danger">*</span></label>
                                 <select class="form-select py-2" aria-label="Default select example" name="user_type" id="user_type1">
                                   <option value>Select User</option>
-                                  <option value="1" >Admin</option>
-                                  <option value="2">User</option>
+                                  <option value="0" >Admin</option>
+                                  <option value="1">User</option>
                                 </select>
                               </div>
                               <div class="col-12 col-sm-6 col-md-6 col-lg-6">
                                 <label class="text-dark"> State<span class="text-danger">*</span></label>
                                 <select class="form-select py-2" aria-label="Default select example"  name="status" id="status1">
                                   <option value>Select Status</option>
-                                  <option value="1">Active</option>
-                                  <option value="2">In Active</option>
+                                  <option value="0">Active</option>
+                                  <option value="1">In Active</option>
                                 </select>
                               </div>
                           
@@ -237,7 +224,7 @@ include 'includes/headertag.php';
                   </div>
                   <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary" id="dataedit" data-dismiss="modal">Save changes</button>
+                    <button type="button" class="btn btn-success" id="dataedit" data-dismiss="modal" >Save changes</button>
                   </div>
                 </div>
               </div>
@@ -251,6 +238,8 @@ include 'includes/headertag.php';
 
 </body>
 <script>
+
+
 function myFunction() {
   var input, filter, table, tr, td, i, j, txtValue;
   input = document.getElementById("name");

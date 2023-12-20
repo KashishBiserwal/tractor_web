@@ -36,7 +36,7 @@ include 'includes/headertag.php';
                     <div class="modal-body bg-light">
                       <div class="row justify-content-center">
                         <div class="col-lg-10">
-                          <form id="old_tract" name="old_tract" method="post">
+                          <form id="old_tract" name="old_tract" method="post" enctype="multipart/form-data" onsubmit="return false">
                             <div class="row">
                               <h5>Fill Your Detail</h5>
                               <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-2" hidden>
