@@ -179,26 +179,21 @@
                                 </div>
                             </div>
                             <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-4">
-                                <div class="input-group ">
-                                    <div class="form-outline">
-                                        <label class="form-label" for="price">Quantity</label>
-                                        <input type="number" name="quantity" id="quantity"
-                                            class="form-control text-black" placeholder="Quantity"
-                                            aria-label="Text input with dropdown button" required>
-                                        <select type="button"
-                                            class="btn border border-secondary-2 h-25  dropdown-toggle"
-                                            data-bs-toggle="dropdown" required>
-                                            <ul class="dropdown-menu">
-                                                <option class="dropdown-item" href="#">As per</option>
-                                                <option class="dropdown-item" href="#">gram</option>
-                                                <option class="dropdown-item" href="#">Kg</option>
-                                                <option class="dropdown-item" href="#">Quintal</option>
-                                                <option class="dropdown-item" href="#">Ton</option>
-                                                <option class="dropdown-item" href="#">Pack</option>
-                                                <option class="dropdown-item" href="#">Unit</option>
-                                            </ul>
-                                        </select>
-                                    </div>
+                                <div class="input-group">
+                                    <input type="number" name="quantity" id="quantity" class="form-control text-black"
+                                        placeholder="Quantity" aria-label="Text input with dropdown button" required>
+                                    <select type="button" class="btn border border-secondary-2 h-25  dropdown-toggle"
+                                        data-bs-toggle="dropdown" required>
+                                        <ul class="dropdown-menu">
+                                            <option class="dropdown-item" href="#">As per</option>
+                                            <option class="dropdown-item" href="#">gram</option>
+                                            <option class="dropdown-item" href="#">Kg</option>
+                                            <option class="dropdown-item" href="#">Quintal</option>
+                                            <option class="dropdown-item" href="#">Ton</option>
+                                            <option class="dropdown-item" href="#">Pack</option>
+                                            <option class="dropdown-item" href="#">Unit</option>
+                                        </ul>
+                                    </select>
                                 </div>
                             </div>
                             <div class="col-12 col-sm-6 col-md-6 col-lg-6 mt-4">

@@ -180,7 +180,7 @@
               HaatBazaar
               </a>
               <ul class="dropdown-menu">
-                <li><a class="dropdown-item fw-bold" href="hatbazr_sell.php">Sell Product</a></li>
+                <li><a class="dropdown-item fw-bold" href="dummy.php">Sell Product</a></li>
                 <hr class="dropdown-divider">
                 <li><a class="dropdown-item fw-bold " href="hatbazar_buy.php">Buy Product</a></li>
               </ul>
