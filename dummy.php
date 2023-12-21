@@ -84,6 +84,10 @@
         font-size: 14px;
         color: white;
     }
+
+    
+
+
     </style>
 </head>
 
@@ -110,8 +114,9 @@
         <div class="container-mid" style="position: relative;">
             <div class="row justify-content-center">
                 <div class="col-md-8 col-lg-7">
-                    <div id="container" class="container mt-5">
-                        <form id="form-step-1" class="bg-light shadow ps-4 pe-4 mul_stp_frm" style="" method="post">
+                    <div id="container" class="container mt-3 mb-3 bg-light shadow">
+                        <h3 class="text-center text-danger pt-2 mb-4">Sell Your Harvest</h3>
+                        <form id="form-step-1" class=" ps-4 pe-4 mul_stp_frm" style="" method="post">
                             <div class="d-flex justify-content-center mb-3">
                                 <div class="col-12 col-lg-5 col-md-5 col-sm-5">
                                     <div class="float-start">Harvest Info</div>
@@ -213,7 +218,7 @@
                             </div>
                         </form>
 
-                        <form id="form-step-2" class="bg-light mul_stp_frm  ps-4 pe-4 shadow" style="display:none;"
+                        <form id="form-step-2" class=" mul_stp_frm  ps-4 pe-4 " style="display:none;"
                             method="post" action="">
                             <div class="d-flex justify-content-center mb-3">
                                 <div class="col-12 col-lg-5 col-md-5 col-sm-5">
@@ -268,7 +273,7 @@
                             </div>
                         </form>
 
-                        <form id="form-step-3" class="bg-light mul_stp_frm ps-4 pe-4 shadow" action="" method="post"
+                        <form id="form-step-3" class=" mul_stp_frm ps-4 pe-4 " action="" method="post"
                             style="display:none;">
                             <div class="d-flex justify-content-center mb-3">
                                 <div class="col-12 col-lg-5 col-md-5 col-sm-5">
