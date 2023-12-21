@@ -132,10 +132,9 @@ function getTractorList() {
                       <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.id});">
                           <i class="fa fa-trash" style="font-size: 11px;"></i>
                       </button> 
-                      <button class="btn btn-primary btn-sm editbutton" id="editButton" data-toggle="modal" data-target="#editAdminbtn" onclick="edit(${row.id})">
-                      <i class="fas fa-edit" style="font-size: 11px;"></i>
-                    </button>
-                   </div>
+                      <a href="tractor_listing_edit.php?trac_edit_id=${row.product_id};"  class="btn btn-primary btn-sm btn_edit"><i class="fas fa-edit" style="font-size: 11px;"></i></a>
+
+                  </div>
               </td>
           `;
           tableBody.appendChild(tableRow);
@@ -179,7 +178,15 @@ function editbutton(idValue) {
 
 
 $("#Search").click(function () {
-
+  var brand = $("#brand").val();
+  var model = $("#model").val();
+  var hp = $("#hp").val();
+  var table = $('#example');
+  var searchData = {
+    brand: brand,
+      model_name: model,
+      hp_category: hp,
+  };
 
   var apiBaseURL =APIBaseURL;
   var url = apiBaseURL + 'get_new_tractor';
@@ -193,13 +200,26 @@ $("#Search").click(function () {
       dataType: 'json',
       success: function (data) {
           console.log('data',data);    
-          // table.clear().rows.add(data.product.allProductData).draw(); 
+          table.clear().rows.add(data.product.allProductData).draw(); 
           console.log("Search records");
       },
       error: function (xhr, status, error) {
           console.log("Error: " + error);
       }
   });
+});
+$("#Reset").click(function () {
+    
+  $("#brand").val("");
+  $("#model").val("");
+  $("#hp").val("");
+
+  if (originalData) {
+      table.clear().rows.add(originalData).draw();
+  } else {
+      
+    getTractorList();
+  }
 });
 
 // function performSearch() {
@@ -294,33 +314,18 @@ get();
 
 // delete data
 function destroy(id) {
-//   var url = "<?php echo $APIBaseURL; ?>deleteProduct/" + id;
-var apiBaseURL =APIBaseURL;
-var url = apiBaseURL + 'deleteProduct/'+ id;
+  var confirmed = confirm("Are you sure you want to delete this item?");
+  if (confirmed) {
+    var apiBaseURL = APIBaseURL;
+    var url = apiBaseURL + 'deleteProduct/' + id;
 
-  var token = localStorage.getItem('token');
-  
-  if (!token) {
-    console.error("Token is missing");
-    return;
-  }
+    var token = localStorage.getItem('token');
 
-  $.ajax({
-    url: url,
-    type: "DELETE",
-    headers: {
-      'Authorization': 'Bearer ' + token
-    },
-    success: function(result) {
-      window.location.reload();
-      console.log("Delete request successful");
-      alert("Delete operation successful");
-    },
-    error: function(error) {
-      console.error('Error fetching data:', error);
-      alert("Error during delete operation");
+    if (!token) {
+      console.error("Token is missing");
+      return;
     }
-  });
+  };
 }
 
 function edit(id) {

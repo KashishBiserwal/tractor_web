@@ -17,13 +17,24 @@ function getTractorList() {
             if (data.product.allProductData && data.product.allProductData.length > 0) {
                 data.product.allProductData.forEach(function (p) {
                     console.log(p,"pp");
+
+                    var images = p.image_names;
+                    var a = [];
+
+                    if (images) {
+                        if (images.indexOf(',') > -1) {
+                            a = images.split(',');
+                        } else {
+                            a = [images];
+                        }
+                    }
                     var newCard = `
                     <div class="item px-2 py-3 h-100 ">
                     <div class="h-auto success__stry__item shadow">
                         <div class="thumb">
                             <a href="detail_tractor.php?id=${p.product_id}">
                                 <div class="ratio ratio-16x9">
-                                    <img src="${p.uploads/product_img/file_name/image_names}" class="object-fit-cover" alt="${p.description}">
+                                    <img src="http://tractor-api.divyaltech.com/customer/uploads/product_img/${a[0]}" class="object-fit-cover" alt="${p.description}">
                                 </div>
                             </a>
                         </div>

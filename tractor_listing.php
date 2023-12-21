@@ -75,21 +75,67 @@ include 'includes/footertag.php';
           <div class="mb-5">
             <div class="table-responsive shadow bg-white">
               <table id="example" class="table bg-white table-striped table-hover py-1" width="100%">
-                <thead>
-                  <tr>
-                    <th class="d-none d-md-table-cell text-white">S.No.</th>
-                    <th class="d-none d-md-table-cell text-white">Date</th>
-                    <th class="d-none d-md-table-cell text-white">Brand</th>
-                    <th class="d-none d-md-table-cell text-white">Model</th>
-                    <th class="d-none d-md-table-cell text-white">Wheel Drive</th>
-                    <th class="d-none d-md-table-cell text-white"> HP Category</th>
-                    <th class="d-none d-md-table-cell text-white"> Price</th>
-                    <th class="d-none d-md-table-cell text-white">Action</th>
-                  </tr>
-                </thead>
+                  <thead>
+                    <tr>
+                      <th class="d-none d-md-table-cell text-white">S.No.</th>
+                      <th class="d-none d-md-table-cell text-white">Date</th>
+                      <th class="d-none d-md-table-cell text-white">Brand</th>
+                      <th class="d-none d-md-table-cell text-white">Model</th>
+                      <th class="d-none d-md-table-cell text-white">Wheel Drive</th>
+                      <th class="d-none d-md-table-cell text-white"> HP Category</th>
+                      <th class="d-none d-md-table-cell text-white"> Price</th>
+                      <th class="d-none d-md-table-cell text-white">Action</th>
+                    </tr>
+                  </thead>
                 <tbody id="data-table" class="">
                 </tbody>
               </table>
+            </div>
+
+            <!-- model -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <div class="col-lg-12">
+                      <div class="row">
+                        <div class="col-lg-4">
+                          <div class="form-group">
+                            <label for="">Enter Subject Name:</label>
+                            <input type="text" placeholder="Subject Name" class="form-control" id="subject_name1" prachii=""></input>
+                          </div>
+                        </div>
+                        <div class="col-lg-4">
+                          <div class="form-group">
+                            <label for="">Enter Subject Code:</label>
+                            <input type="text" placeholder="Subject Code" class="form-control" id="subject_code1" name="">
+                          </div>
+                        </div>
+                        <div class="col-lg-4">
+                          <div class="form-group">
+                            <label for="">Subject Type:</label>
+                            <select placeholder="Slect name" class="form-control" id="subject_type1" name="">
+                              <option value="Theory">Theory</option>
+                              <option value="Practical">Practical</option>
+                              <option value="NUE">Non-University Exam</option>
+                            </select>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" id="prachiedit" data-dismiss="modal">Save changes</button>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -407,7 +453,7 @@ include 'includes/footertag.php';
                             </div>
                             <button type="button" id="save" class="btn btn-success fw-bold px-3">Submit</button>
                           </form>
-      </div>
+                      </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
         <button type="button" class="btn btn-primary">Understood</button>

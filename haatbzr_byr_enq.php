@@ -65,9 +65,20 @@
               </div>
             </div>
             <div class="col-12 col-sm-12 col-md-3 col-lg-3">
-              <div class="text-center mt-4 pt-1">
-                <button type="button" class="btn-success btn px-3 py-2 " id="Search">Search</button>
-                <button type="button" class="btn-success btn mx-2 px-3 py-2  " id="Reset">Reset</button>
+              <div class="form-outline  ">
+                <label class="form-label fw-bold">Sub-Category</label>
+                <select class="form-select py-2" aria-label="Default select example">
+                    <option selected>Select Sub-Category</option>
+                    <option value="1">Potato</option>
+                    <option value="2">Papaya</option>
+                    <option value="3">Rice</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-12">
+              <div class="text-center mt-3">
+                <button type="button" class="btn-success btn px-4 pt-2 " id="Search">Search</button>
+                <button type="button" class="btn-success btn mx-2 px-4 pt-2" id="Reset">Reset</button>
               </div>
             </div>
           </div>
@@ -79,14 +90,14 @@
                                 <table id="example" class="table dataTable no-footer py-1" width="100%">
                                     <thead>
                                         <tr>
-                                            <th class="d-none d-md-table-cell text-white">S.No.</th>
-                                            <th class="d-none d-md-table-cell text-white">Name </th>
+                                        <th class="d-none d-md-table-cell text-white">S.No.</th>
+                                            <th class="d-none d-md-table-cell text-white">Category</th>
+                                            <th class="d-none d-md-table-cell text-white">Sub-Category</th>
+                                            <th class="d-none d-md-table-cell text-white">Name</th>
                                             <th class="d-none d-md-table-cell text-white">Phone Number</th>
-                                            <th class="d-none d-md-table-cell text-white">Price</th>
-                                            <th class="d-none d-md-table-cell text-white">State </th>
+                                            <th class="d-none d-md-table-cell text-white">State</th>
                                             <th class="d-none d-md-table-cell text-white">District</th>
-                                            <th class="d-none d-md-table-cell text-white">Tehsil</th>
-                                            <th class="d-none d-md-table-cell text-white"> Action</th>
+                                            <th class="d-none d-md-table-cell text-white">Action</th>
                                             
                                         </tr>
                                     </thead>

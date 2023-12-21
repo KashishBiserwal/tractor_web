@@ -159,8 +159,7 @@ $('#save').on('click', function() {
 
   // fetch data
   function get() {
-    // var url = "<?php echo $APIBaseURL; ?>getUsers";
-    var apiBaseURL =APIBaseURL;
+    var apiBaseURL = APIBaseURL;
     var url = apiBaseURL + 'getUsers';
     $.ajax({
         url: url,
@@ -169,29 +168,27 @@ $('#save').on('click', function() {
             'Authorization': 'Bearer ' + localStorage.getItem('token')
         },
         success: function (data) {
-          // console.log(data);
             const tableBody = document.getElementById('data-table');
             tableBody.innerHTML = ''; // Clear previous data
 
-            let users=data.user;
+            let users = data.user;
 
             if (users.length > 0) {
-          // console.log(typeof users);
+                // Initialize serialNumber outside the loop
+                let serialNumber = 1;
 
                 // Loop through the data and create table rows
                 users.map(row => {
-                  // console.log(row);
                     const tableRow = document.createElement('tr');
-                    let originalDate= new Date(row.created_at);
+                    let originalDate = new Date(row.created_at);
 
-                    let day=originalDate.getDate();
-                    let month=originalDate.getMonth()+1;
-                    let year=originalDate.getFullYear();
+                    let day = originalDate.getDate();
+                    let month = originalDate.getMonth() + 1;
+                    let year = originalDate.getFullYear();
 
-                    let formatDate=`${day}-${month}-${year}`;
+                    let formatDate = `${day}-${month}-${year}`;
                     let userTypeLabel = row.user_type == 0 ? 'Admin' : 'User';
                     let status = row.status == 0 ? 'Active' : 'InActive';
-                    let serialNumber = 1;
 
                     tableRow.innerHTML = `
                         <td>${serialNumber}</td>
@@ -200,11 +197,19 @@ $('#save').on('click', function() {
                         <td>${row.mobile}</td>
                         <td>${userTypeLabel}</td>
                         <td>${status}</td>
-                       
-                        <td><div class="float-start"><button class="btn btn-danger btn-sm " id="delete_user" onclick="destroy(${row.id});"><i class="fa fa-trash" style="font-size: 11px;"></i></button> 
-                        <button class="btn btn-primary btn-sm " data-toggle="modal" data-target="#user_edit_form" id="" onclick="update(${row.id});"><i class="fas fa-edit" style="font-size: 11px;"></i></button></div></td>
-                     
+                        <td>
+                            <div class="float-start">
+                                <button class="btn btn-danger btn-sm" id="delete_user" onclick="destroy(${row.id});">
+                                    <i class="fa fa-trash" style="font-size: 11px;"></i>
+                                </button>
+                                    <button class="btn btn-primary btn-sm btn_edit" data-toggle="modal"onclick="fetch_edit_data(${row.id});" data-target="#exampleModal" id="yourUniqueIdHere">
+                                    <i class="fas fa-edit" style="font-size: 11px;"></i>
+                                  </button>
+                            </div>
+                        </td>
                     `;
+
+                    // Increment serialNumber for the next row
                     serialNumber++;
                     tableBody.appendChild(tableRow);
                 });
@@ -219,7 +224,9 @@ $('#save').on('click', function() {
         }
     });
 }
+
 get();
+
 
 // delete data
 function destroy(id) {
@@ -252,9 +259,76 @@ var url = apiBaseURL + "deleteUser/" + id;
   });
 }
 
-$(".data_search").on("keyup", function() {
-  var value = $(this).val().toLowerCase();
-  $("#data-table tr").filter(function() {
-    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-  });
-});  
+// edit
+function fetch_edit_data(dell) {
+  // alert(dell);
+  var apiBaseURL = APIBaseURL;
+    var url = apiBaseURL + 'getUsers';
+  $.ajax({
+    type: "GET",
+    data: {
+      data: "dataa",
+      // edit_id: dell,
+    },
+    url: url,
+    dataType: "GET",
+    success: function(output) {
+      // alert()
+      $("#first_name1").val(output[0].first_name);
+      $("#last_name1").val(output[0].last_name);
+      $("#email1").val(output[0].mobile);
+      $("#mobile1").val(output[0].password);
+      $("#password1").val(output[0].subject_type);
+      $("#password_confirmation1").val(output[0].password_confirmation);
+      $("#user_type1").val(output[0].user_type);
+      $("#first_name1").attr("prachii", output[0].id);
+
+      get();
+    },
+
+  })
+}
+
+$("#dataedit").on("click", function() {
+
+
+  var first_name = $("#first_name1").val();
+  var last_name = $("#last_name1").val();
+  var email = $("#email1").val();
+  var mobile = $("#mobile1").val();
+  var email = $("#email1").val();
+  var password = $("#password1").val();
+  var password_confirmation = $("#password_confirmation1").val();
+  var user_type1 = $("#user_type1").val();
+  var edit_id = $("#first_name1").attr("prachii");
+
+  // alert(edit_id);
+
+  $.ajax({
+    type: "POST",
+    // dataType: "json",
+    data: {
+      subject_name1: subject_name1,
+      subject_code1: subject_code1,
+      subject_type1: subject_type1,
+      edit_id: edit_id,
+      y: "toedit",
+    }, 
+    url: "data_b.php",
+    success: function(popup) {
+      // alert("sdfg");
+      $("#msg_got").html(popup);
+      get_data();
+
+    }
+  })
+
+})
+
+
+// $(".data_search").on("keyup", function() {
+//   var value = $(this).val().toLowerCase();
+//   $("#data-table tr").filter(function() {
+//     $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+//   });
+// });  

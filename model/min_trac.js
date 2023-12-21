@@ -233,14 +233,23 @@ function getTractorList() {
                         var modalId = `staticBackdrop-${p.product_id}`;
                         var buttonId = `btn-${p.product_id}`;
                         console.log(buttonId);
-
+                        var images = p.image_names;
+                        var a = [];
+    
+                        if (images) {
+                            if (images.indexOf(',') > -1) {
+                                a = images.split(',');
+                            } else {
+                                a = [images];
+                            }
+                        }
                         var newCard = `
                         <div class="col-12 col-lg-4 col-md-4 col-sm-4 mb-3">
                             <div class="h-auto success__stry__item d-flex flex-column shadow">
                                 <div class="thumb">
                                     <a href="detail_tractor.php?id=${p.product_id}">
                                         <div class="ratio ratio-16x9">
-                                            <img src="${p.image_url}" class="object-fit-cover" alt="img">
+                                            <img src="http://tractor-api.divyaltech.com/customer/uploads/product_img/${a[0]}" class="object-fit-cover" alt="img">
                                         </div>
                                     </a>
                                 </div>

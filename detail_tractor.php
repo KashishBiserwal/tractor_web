@@ -148,7 +148,7 @@
                         <div class=" text-center shadow bg-white ">
                             <img src="assets/images/wheel-drive.png" class="w-50 h-50" alt="">
                             <h6 class=" text-center fw-bold  text-dark">LIFTING CAPACITY</h6>
-                            <p class="engine_name text-center"><span id="lifting"></span> </p>
+                            <p class="engine_name text-center" id="lifting"></p>
                         </div>
 
                     </div>

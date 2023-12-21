@@ -283,33 +283,34 @@ function store(event) {
     var finance = $('input[name="fav_language"]:checked').val();
     var nocAvailable = $('input[name="fav_language1"]:checked').val();
     var price= $('#price_old').val();
-    var image = $('#image_pic').val();
+    // var image = $('#image_pic').val();
+    var image_name = document.getElementById('image_pic').files[0];
     var description = $('#description').val();
 
     // Prepare data to send to the server
-    var paraArr = {
-      'form_type':form_type,
-      'enquiry_type_id':enquiry_type_id,
-      'first_name': first_name,
-      'last_name': last_name,
-      'mobile': mobile,
-      'brand_id': brand_name,
-      'product_type_id': product_type_id,
-      'model': Model_name,
-      'purchase_year': purchase_year,
-      'engine_condition': engine_condition,
-      'tyre_condition': tyre_condition,
-      'hours_driven': hours_driven,
-      'state':state,
-      'district':district,
-      'tehsil':tehsil,
-      'rc_number':rc,
-      'price':price,
-      'image': image,
-      'description': description,
-      'finance': finance,
-      'noc': nocAvailable,
-    };
+    // var paraArr = {
+    //   'form_type':form_type,
+    //   'enquiry_type_id':enquiry_type_id,
+    //   'first_name': first_name,
+    //   'last_name': last_name,
+    //   'mobile': mobile,
+    //   'brand_id': brand_name,
+    //   'product_type_id': product_type_id,
+    //   'model': Model_name,
+    //   'purchase_year': purchase_year,
+    //   'engine_condition': engine_condition,
+    //   'tyre_condition': tyre_condition,
+    //   'hours_driven': hours_driven,
+    //   'state':state,
+    //   'district':district,
+    //   'tehsil':tehsil,
+    //   'rc_number':rc,
+    //   'price':price,
+    //   'image': image,
+    //   'description': description,
+    //   'finance': finance,
+    //   'noc': nocAvailable,
+    // };
 
     var apiBaseURL =APIBaseURL;
     var url = apiBaseURL + 'customer_enquiries';
@@ -320,10 +321,36 @@ function store(event) {
     var headers = {
       'Authorization': 'Bearer ' + token
     };
+    var data = new FormData();
+    // var image_names = document.getElementById('image_name').files;
+  
+    for (var x = 0; x < image_names.length; x++) {
+      data.append("image_names[]", image_names[x]); // Use "image_names[]" for array of images
+    }
+    data.append('form_type',form_type);
+      data.append('enquiry_type_id',enquiry_type_id);
+      data.append('first_name', first_name);
+      data.append('last_name', last_name);
+      data.append('mobile', mobile);
+      data.append('brand_id', brand_name);
+      data.append('product_id', product_type_id);
+      data.append('model', Model_name);
+      data.append('purchase_year', purchase_year);
+      data.append('engine_condition', engine_condition);
+      data.append('tyre_condition', tyre_condition);
+      data.append('hours_driven', hours_driven);
+      data.append('state',state);
+      data.append('district',district);
+      data.append('tehsil',tehsil);
+      data.append('rc_number',rc);
+      data.append('price',price);
+      data.append('description', description);
+      data.append('finance', finance);
+      data.append('noc', nocAvailable);
     $.ajax({
       url: url,
-      type: "POST",
-      data: paraArr,
+      type: "data",
+      data: data,
       headers: headers,
       success: function (result) {
         // console.log(result, "result");

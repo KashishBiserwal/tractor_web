@@ -130,7 +130,7 @@
                                           </div>
                                         </div>
                                <div class="col-12 ">
-                                            <div class="form-outline ">
+                                            <div class="form-outline mt-2 ">
                                                 <label class="form-label text-dark">About</label>
                                                 <textarea rows="4" cols="70" class="w-100" minlength="1" maxlength="255" id="about" name="about"></textarea>
                                             </div>

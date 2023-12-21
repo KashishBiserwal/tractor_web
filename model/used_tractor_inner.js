@@ -193,6 +193,7 @@ function getpopularTractorList() {
             const new_data=data.product.accessory_and_tractor_type.filter((s)=>{ 
                 const arr=s.tractor_type_name.split(',');
                 
+                
                 console.log('arr',arr);
                 if(arr.includes('Upcoming')){
                     new_arr.push(s.product_id);

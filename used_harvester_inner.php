@@ -400,7 +400,13 @@
    ?>
    <script>
 $(document).ready(function(){
-    console.log('testing');
+ 
+    $.validator.addMethod("validPrice", function(value, element) {
+      
+      const cleanedValue = value.replace(/,/g, '');
+
+      return /^\d+$/.test(cleanedValue);
+    }, "Please enter a valid price (digits and commas only)");
     $('#interested-harvester-form').validate({
         rules:{
             fname:{
@@ -423,6 +429,7 @@ $(document).ready(function(){
             },
             price:{
                 required:true,
+                validPrice: true,
             }
         },
         messages:{
@@ -446,6 +453,7 @@ $(document).ready(function(){
             },
             price:{
                 required:"This field is required",
+                validPrice: "Please enter a valid price",
             }
         },
         submitHandler: function(form) {

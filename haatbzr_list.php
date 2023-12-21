@@ -22,8 +22,9 @@
         <div class="align-items-center justify-content-between page_title my-4">
           <div class="row">
             <div class="col-12 col-sm-5 col-lg-5 col-md-5">
-             <p> <span>Haatbazaar Item List</span></p>
+             <h5 class="fw-bold"> <span>Haatbazaar Item List</span></h5>
             </div>
+            
             <div class="col-12 col-sm-7 col-lg-7 col-md-7">
               <div class=" float-end">
                 <button type="button" id="add_trac" class="btn add_btn bg-success" data-bs-toggle="modal"  data-bs-target="#staticBackdrop1">

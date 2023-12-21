@@ -41,32 +41,16 @@ var url = apiBaseURL + 'user_login';
             // window.location.href = baseUrl +"usermanagement.php"; 
             console.log(result, 'login success');
             localStorage.setItem('token', result.access_token);
-            localStorage.setItem('expireIn', result.expires_in);
-            console.log(result.expires_in,'expiry timeeeeee');
-            window.location.href = baseUrl + "usermanagement.php";
-        //     const currentTimeInMilliseconds = new Date().getTime();
-        //     const currentTimeInSeconds = Math.floor(currentTimeInMilliseconds / 1000);
-        //     const expiredTimeInSecond = currentTimeInSeconds + 5;
-        //     function ct(){
-        //         const currentTimeInMilliseconds = new Date().getTime();
-        //         const currentTimeInSeconds = Math.floor(currentTimeInMilliseconds / 1000);
-        //         if(currentTimeInSeconds==expiredTimeInSecond){
-        //             return true;
-
-        //         }
-        //         else{
-        //             return false;
-        //         }
-        //     };
-        //     setInterval(() => {
-        //         // console.log(currentTimeInSeconds);
-        //         if(ct()){
-        //         window.location.href = 'www.google.com';
-        //         }
-        //         else{
-
-        //         }
-        //     }, 1000);
+            // localStorage.setItem('expireIn', result.expires_in);
+            const d = new Date();
+            d.setTime(d.getTime() + 60 * 60 * 1000);
+            var expires_in = d;
+            console.log(expires_in,"expires_in")
+            localStorage.setItem('expireIn', expires_in);
+            console.log(expires_in,'expiry timeeeeee');
+            window.location.href = baseUrl + "usermanagement.php"; 
+           
+       
 
         },
         error: function (xhr, textStatus, errorThrown) {
@@ -91,7 +75,28 @@ var url = apiBaseURL + 'user_login';
 }
   
 
-
+$(function(){
+  
+    $('#eyeeye').click(function(){
+         
+          if($(this).hasClass('fa-eye-slash')){
+             
+            $(this).removeClass('fa-eye-slash');
+            
+            $(this).addClass('fa-eye');
+            
+            $('#password').attr('type','text');
+              
+          }else{
+           
+            $(this).removeClass('fa-eye');
+            
+            $(this).addClass('fa-eye-slash');  
+            
+            $('#password').attr('type','password');
+          }
+      });
+  });
   
    
   
