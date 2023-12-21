@@ -58,6 +58,7 @@
         .upload__box {
         /* padding: 40px; */
         width: 20;
+        margin-left: 187px;
         }
 
         .upload__inputfile {
@@ -92,13 +93,14 @@
         transition: all .3s ease;
         }
 
-        /* .upload__btn-box {
+        .upload__btn-box {
         margin-bottom: 10px;
         margin-top:-25px;
         width: 150px;
+        margin-left: -240px;
         }
 
-        .upload__img-wrap {
+        /* .upload__img-wrap {
         display: flex;
         flex-wrap:nowrap;
         } */
@@ -395,7 +397,7 @@
                                         <div class="upload__btn-box">
                                             <label>
                                                 <p class="upload__btn w-100">Upload images</p>
-                                                <input type="file" multiple="" data-max_length="4" class="upload__inputfile" id="_file" name="_file">
+                                                <input type="file" multiple="" data-max_length="3" class="upload__inputfile" id="_file" name="_file">
                                             </label>
                                         </div>
                                         <div class="col-sm-6">
@@ -414,7 +416,7 @@
                                 </div>
                                 <div class="form-footer d-flex mt-4">
                                     <button type="button" class="btn w-50 btn-primary prev-step">Previous</button>
-                                    <button type="submit" class="btn w-50 ms-2 btn-success">Submit</button>
+                                    <button type="button" id="sell_used_trac_btn" class="btn w-50 ms-2 btn-success">Submit</button>
                                 </div>
                             </div>
                         </form>
@@ -846,6 +848,75 @@
             $(this).parent().parent().remove();
         });
         }
+    </script>
+
+    <script>
+
+
+$(document).ready(function () {
+    // Function to display a specific step
+    function displayStep(stepNumber) {
+        if (stepNumber >= 1 && stepNumber <= 3) {
+            $(".mul_stp_frm").hide();
+            $("#form-step-" + stepNumber).show();
+            updateProgressBar(stepNumber); // Update the progress bar for the given step
+        }
+    }
+
+    // Function to check if all three forms are valid
+    function areAllFormsValid() {
+        var formsValid = true;
+
+        $("form").each(function () {
+            if (!$(this).valid()) {
+                formsValid = false;
+                return false; // Break out of the loop if any form is invalid
+            }
+        });
+
+        return formsValid;
+    }
+
+    // Function to reset all forms
+    function resetForms() {
+        $("form").each(function () {
+            this.reset(); // Reset each form
+        });
+    }
+
+
+        // Function to reset all forms
+        function resetForms() {
+            $("form").each(function () {
+                this.reset(); // Reset each form
+            });
+            // Additional reset for specific fields in the third form (change #form-step-3 to the appropriate selector)
+            // $("#form-step-3 input, #form-step-3 select").val(''); // Reset input and select fields in form-step-3
+            var input = $("#form-step-3 input[type='file']");
+            input.replaceWith(input.val('').clone(true));
+        }
+
+
+    // Function to update the progress bar based on the current step
+    function updateProgressBar(stepNumber) {
+        var progressPercentage = ((stepNumber - 1) / 2) * 100; // Assuming 3 steps, calculating the progress percentage
+        $(".progress-bar").css("width", progressPercentage + "%");
+    }
+
+    // Function to show confirmation box and reset forms
+    $("#sell_used_trac_btn").click(function () {
+        if (areAllFormsValid()) {
+            // Check if all three forms are valid before showing the confirmation box
+            if (window.confirm("Are you sure you want to submit?")) {
+                resetForms(); // Reset forms if confirmed
+                displayStep(1); // Show the first form after resetting
+            }
+        }
+    });
+
+    // Existing code...
+});
+
     </script>
 </body>
 </html>

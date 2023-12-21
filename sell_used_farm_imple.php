@@ -125,6 +125,7 @@
                     <div id="container" class="container mt-5">
                      
                         <!-- <form id="signUpForm_sllused" class="bg-light"action=""> -->
+                            <!-- FORM 1 -->
                         <form id="form-step-1" class="bg-light mul_stp_frm" style="" method="post">
                             <div class="d-flex justify-content-center mb-3">
                                 <div class="col-12 col-lg-3 col-md-3 col-sm-3">
@@ -157,8 +158,8 @@
                                     <div class="row">
                                         <div class="col-12 col-lg-12 col-md-12 col-sm-12 mb-2 mt-3 ">
                                             <div class="form-outline">
-                                                <label for="b_name" class="form-label mb-0 text-dark fw-bold">Category</label>
-                                                <select class="form-select py-2 " aria-label=".form-select-lg example" name="b_name" id="b_name">
+                                                <label for="_category" class="form-label mb-0 text-dark fw-bold">Category</label>
+                                                <select class="form-select py-2 " aria-label=".form-select-lg example" name="_category" id="_category">
                                                     <option value="" Selected Disabled=""></option>
                                                     <option value="1">Raipur</option>
                                                     <option value="2">Bilaspur</option>
@@ -168,19 +169,19 @@
                                         </div>
                                         <div class="col-12 col-lg-6 col-md-6 col-sm-6 mb-2 mt-3 ">
                                             <div class="form-outline">
-                                                <label for="m_name" class="form-label mb-0 text-dark fw-bold">Brand</label>
+                                                <label for="_brand" class="form-label mb-0 text-dark fw-bold">Brand</label>
+                                                <select class="form-select py-2 " aria-label=".form-select-lg example" name="_brand" id="_brand">
+                                                    <option value="" Selected Disabled=""></option>
+                                                    <option value="1">Raipur</option>
+                                                    <option value="2">Bilaspur</option>
+                                                    <option value="2">Durg</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-lg-6 col-md-6 col-sm-6 mb-2 mt-3 ">
+                                            <div class="form-outline">
+                                                <label for="m_name" class="form-label mb-0 text-dark fw-bold">Model Name</label>
                                                 <select class="form-select py-2 " aria-label=".form-select-lg example" name="m_name" id="m_name">
-                                                    <option value="" Selected Disabled=""></option>
-                                                    <option value="1">Raipur</option>
-                                                    <option value="2">Bilaspur</option>
-                                                    <option value="2">Durg</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="col-12 col-lg-6 col-md-6 col-sm-6 mb-2 mt-3 ">
-                                            <div class="form-outline">
-                                                <label for="c_width" class="form-label mb-0 text-dark fw-bold">Model Name</label>
-                                                <select class="form-select py-2 " aria-label=".form-select-lg example" name="c_width" id="c_width">
                                                     <option value="" Selected Disabled=""></option>
                                                     <option value="1">Raipur</option>
                                                     <option value="2">Bilaspur</option>
@@ -190,24 +191,19 @@
                                         </div> 
                                         <div class="col-12 col-lg-6 col-md-6 col-sm-6 mb-2 mt-3 ">
                                             <div class="form-outline">
-                                                <label for="p_source" class="form-label mb-0 text-dark fw-bold">Purchase Year</label>
-                                                <select class="form-select py-2 " aria-label=".form-select-lg example" name="p_source" id="p_source">
+                                                <label for="p_year" class="form-label mb-0 text-dark fw-bold">Purchase Year</label>
+                                                <select class="form-select py-2 " aria-label=".form-select-lg example" name="p_year" id="p_year">
                                                     <option value="" Selected Disabled=""></option>
                                                     <option value="1">Raipur</option>
                                                     <option value="2">Bilaspur</option>
                                                     <option value="2">Durg</option>
                                                 </select>
                                             </div>
-                                        </div>                        
-                                        <div class="col-12 col-lg-6 col-md-6 col-sm-6 mb-2 mt-3 ">
+                                        </div>    
+                                        <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-3">
                                             <div class="form-outline">
-                                                <label for="c_type" class="form-label mb-0 text-dark fw-bold">Hours Driven</label>
-                                                <select class="form-select py-2 " aria-label=".form-select-lg example" name="c_type" id="c_type">
-                                                    <option value="" Selected Disabled=""></option>
-                                                    <option value="1">Raipur</option>
-                                                    <option value="2">Bilaspur</option>
-                                                    <option value="2">Durg</option>
-                                                </select>
+                                                <label for="_price" class="form-label mb-0 text-dark fw-bold"> Price</label>
+                                                <input type="text" class="form-control mb-0" placeholder="Enter Price" id="_price" name="_price"  oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');">
                                             </div>
                                         </div> 
                                     </div>
@@ -247,21 +243,22 @@
                                 <!-- Step 2 form fields here -->
                                 <div class="">
                                     <p class="text-center mb-4">Your Implement Condition</p>
-                                    <div class="row">
-                                        <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-3">
+                                    <div class="row">                                                           
+                                        <div class="col-12 col-lg-6 col-md-6 col-sm-6 mb-2 mt-3 ">
                                             <div class="form-outline">
-                                                <label for="b_name" class="form-label mb-0 text-dark fw-bold"> Price</label>
-                                                <select class="form-select py-2 " aria-label=".form-select-lg example" name="b_name" id="b_name">
+                                                <label for="h_driven" class="form-label mb-0 text-dark fw-bold">Hours Driven</label>
+                                                <select class="form-select py-2 " aria-label=".form-select-lg example" name="h_driven" id="h_driven">
                                                     <option value="" Selected Disabled=""></option>
-                                                    <option value="1">Raipur</option>
-                                                    <option value="2">Bilaspur</option>
-                                                    <option value="2">Durg</option>
+                                                    <option value="1">0000-1000</option>
+                                                    <option value="2">1001-2000</option>
+                                                    <option value="2">2001-3000</option>
+                                                    <option value="2">3001-4000</option>
                                                 </select>
                                             </div>
-                                        </div>
+                                        </div> 
                                         <div class="col-12 col-sm-12 col-md-12 col-lg-12 mt-3">
-                                                <label for="_e_con" class="form-label text-dark fw-bold">About Your Implement</label>
-                                                <textarea class="form-control" rows="3" placeholder="Leave a comment here" id="floatingTextarea"></textarea>
+                                                <label for="a_imple" class="form-label text-dark fw-bold">About Your Implement</label>
+                                                <textarea class="form-control" rows="3" placeholder="Leave a comment here (max 200 words)" name="a_imple" id="a_imple" onkeydown="return /[a-zA-Z\s]/i.test(event.key)"  oninput="limitWords(this, 200)"></textarea>
                                         </div>
 
                                     </div>
@@ -305,7 +302,7 @@
                                         <div class="upload__btn-box">
                                             <label>
                                                 <p class="upload__btn w-100">Upload images</p>
-                                                <input type="file" multiple="" data-max_length="4" class="upload__inputfile" id="_file" name="_file">
+                                                <input type="file" multiple="" data-max_length="3" class="upload__inputfile" id="_file" name="_file">
                                             </label>
                                         </div>
                                         <div class="col-sm-6">
@@ -466,6 +463,8 @@
     include 'includes/footertag.php';
 
 ?>
+
+    <!-- SCRIPT FOR THE DISPLAY & HIDE -->
     <script>
         $(document).ready(function () {
             var currentStep = 1;
@@ -518,5 +517,244 @@
 
             displayStep(1);
         });
+    </script>
+
+
+
+    <!-- SCRIPT FOR THE VALIDATION OF 1st FORM -->
+    <script>
+        $(document).ready(function(){
+            $("form[id='form-step-1']").validate({
+                rules: {
+                    _category: {
+                        required: true
+                    },
+                    _brand: {
+                        required: true
+                    },
+                    m_name: {
+                        required: true
+                    },
+                    p_year: {
+                        required: true
+                    },
+                    _price: {
+                        required: true,
+                        maxlength:7
+                    }
+                },
+                messages: {
+                    _category: {
+                        required: "Select Your Category"
+                    },
+                    _brand: {
+                        required: "Select Brand Name"
+                    },
+                    m_name: {
+                        required: "Select Model Name"
+                    },
+                    p_year: {
+                        required: "Select Purchase Year"
+                    },
+                    _price: {
+                        required: "Enter Price Of Harvester",
+                        maxlength: "Price can't be more than 99,99,999"
+                    }                   
+                },
+            });
+        });
+    </script>
+
+
+    <!-- SCRIPT FOR THE VALIDATION OF 2nd FORM -->
+    <script>
+        $(document).ready(function(){
+            $("form[id='form-step-2']").validate({
+                rules: {
+                    h_driven: {
+                        required: true
+                    },
+                    a_imple: {
+                        required: true
+                    }
+                },
+                messages: {
+                    h_driven: {
+                        required: "Select Hours Driven"
+                    },
+                    a_imple: {
+                        required: "Description About Your Harvester"
+                    }                     
+                },
+            });
+        });
+    </script>
+
+    <!-- SCRIPT FOR THE VALIDATION OF 3rd FORM -->
+    <script>
+        $(document).ready(function(){
+            $("form[id='form-step-3']").validate({
+                rules: {
+                    _file: {
+                        required: true,
+                    }
+                },
+                messages: {
+                    _file: {
+                        required: "Upload Image"
+                    }                   
+                },
+            });
+        });
+    </script>
+
+    
+
+    <!-- SCRIPT FOR THE VALIDATION OF 4th FORM -->
+    <script>
+        $(document).ready(function(){
+            jQuery.validator.addMethod("customPhoneNumber", function(value, element) {
+                return /^[6-9]\d{9}$/.test(value); 
+            }, "Phone number must start with 6 or above");
+            $("form[id='form-step-4']").validate({
+                rules: {
+                    f_name: {
+                        required: true,
+                        minlength: 3
+                    },
+                    eo_name: {
+                        required: true,
+                        minlength: 3
+                    },
+                    eo_number: {
+                        required: true,
+                        minlength: 10,
+                        maxlength: 10,
+                        digits: true,
+                        customPhoneNumber: true 
+                    },
+                    eo_state: {
+                        required: true
+                    },
+                    eo_dist: {
+                        required: true
+                    }
+                },
+                messages: {
+                    f_name: {
+                        required: "Enter Your First Name",
+                        minlength: "First Name must be atleast 3 characters long"
+                    },
+                    eo_name: {
+                        required: "Enter Your Last Name",
+                        minlength: "Last Name must be atleast 3 characters long"
+                    },
+                    eo_number: {
+                        required: "Enter Your Phone Number",
+                        minlength: "Phone Number must be of 10 Digit",
+                        maxlength: "Ensure exactly 10 digits of Mobile No.",
+                        digits: "Please enter only digits"
+                    },
+                    eo_state: {
+                        required: "Select Your State"
+                    },
+                    eo_dist: {
+                        required: "Select Your District"
+                    }                        
+                },
+            });
+        });
+    </script>
+
+
+    <!-- SCRIPT FOR LIMITING THE WORDS -->
+    <script>
+        function limitWords(textarea, maxWords) {
+            // Split the input value by spaces to count words
+            let words = textarea.value.trim().split(/\s+/);
+            
+            // Update the word count display (optional)
+            let wordCountDisplay = document.getElementById('wordCountDisplay'); // Assuming you have an element to display the word count
+            if (wordCountDisplay) {
+            wordCountDisplay.textContent = words.length;
+            }
+
+            // Restrict input if the word count exceeds the limit
+            if (words.length > maxWords) {
+            // Prevent further input
+            textarea.value = words.slice(0, maxWords).join(' ');
+            // Optionally, display a message or alert the user about the limit
+            // Example: alert("Maximum word limit reached");
+            }
+        }
+    </script>
+
+
+
+    <!-- SCRIPT FOR THE VALIDATION OF IAMGE UPLOAD -->
+    <script>
+        jQuery(document).ready(function () {
+            ImgUpload();
+        });
+
+        function ImgUpload() {
+            var imgWrap = "";
+            var imgArray = [];
+
+            $('.upload__inputfile').each(function () {
+                $(this).on('change', function (e) {
+                imgWrap = $(this).closest('.upload__box').find('.upload__img-wrap');
+                var maxLength = $(this).attr('data-max_length');
+
+                var files = e.target.files;
+                var filesArr = Array.prototype.slice.call(files);
+                var iterator = 0;
+                filesArr.forEach(function (f, index) {
+
+                    if (!f.type.match('image.*')) {
+                        return;
+                    }
+
+                    if (imgArray.length > maxLength) {
+                        return false
+                    }
+                    else
+                    {
+                        var len = 0;
+                        for (var i = 0; i < imgArray.length; i++) {
+                            if (imgArray[i] !== undefined) {
+                            len++;
+                            }
+                        }
+                        if (len > maxLength) {
+                            return false;
+                        }
+                        else {
+                            imgArray.push(f);
+
+                            var reader = new FileReader();
+                            reader.onload = function (e) {
+                            var html = "<div class='upload__img-box'><div style='background-image: url(" + e.target.result + ")' data-number='" + $(".upload__img-close").length + "' data-file='" + f.name + "' class='img-bg'><div class='upload__img-close'></div></div></div>";
+                            imgWrap.append(html);
+                            iterator++;
+                            }
+                            reader.readAsDataURL(f);
+                        }
+                    }
+                });
+            });
+        });
+
+        $('body').on('click', ".upload__img-close", function (e) {
+            var file = $(this).parent().data("file");
+            for (var i = 0; i < imgArray.length; i++) {
+            if (imgArray[i].name === file) {
+                imgArray.splice(i, 1);
+                break;
+            }
+            }
+            $(this).parent().parent().remove();
+        });
+        }
     </script>
 </html>
