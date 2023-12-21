@@ -181,6 +181,11 @@ include 'includes/headertag.php';
                           <div class="">
                             <div class="card-body">
                               <div class="row">
+                              <div class="col- col-sm-6 col-lg-6 col-md-6" hidden>
+                                  <label class="text-dark"> id Name<span class="text-danger">*</span></label>
+                                          <input type="text" class="form-control py-2" for="idUser"  id="idUser" name="first_name" placeholder="Enter First Name">
+                                  <small></small>
+                                </div>
                                 <div class="col- col-sm-6 col-lg-6 col-md-6">
                                   <label class="text-dark"> First Name<span class="text-danger">*</span></label>
                                           <input type="text" class="form-control py-2" for="first_name" prachi="" id="first_name1" name="first_name" placeholder="Enter First Name">

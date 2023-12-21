@@ -325,20 +325,26 @@ function store(event) {
     var data = new FormData();
     var image = document.getElementById('image').files;
 for (var x = 0; x < image.length; x++) {
-    data.append("image[]", image[x]);
+    data.append("images[]", image[x]);
 }
     // data.append('image', image);
     data.append('form_type', form_type);
     data.append('enquiry_type_id', enquiry_type_id);
     data.append('product_type_id', product_type_id);
-    data.append('brand', brand);
+    data.append('brand_id', brand);
     data.append('model', model);
-    data.append('crop_type', CROPS_TYPE);
-    data.append('power', POWER_SOURCE);
-    data.append('hours', hours);
-    data.append('year', year);
+    data.append('crops_type_id', CROPS_TYPE);
+    console.log(CROPS_TYPE);
+    data.append('power_source_id', POWER_SOURCE);
+    console.log("power_osurce",POWER_SOURCE);
+    data.append('hours_driven', hours);
+    console.log(hours);
+    data.append('purchase_year', year);
+    console.log(year);
     data.append('price', price);
-    data.append('about', about);
+    console.log(price);
+    data.append('description', about);
+    console.log(about);
     data.append('first_name', name);
     data.append('last_name', lname);
     data.append('mobile', Mobile);

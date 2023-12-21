@@ -48,6 +48,12 @@ include 'includes/headertag.php';
                               <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-2" hidden>
                                 <div class="form-outline">
                                 
+                                  <input type="text" id="image_type_id" name="" value="1" class=" data_search form-control input-group-sm py-2" />
+                                </div>
+                              </div>
+                              <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-2" hidden>
+                                <div class="form-outline">
+                                
                                   <input type="text" id="form_type" name="form_type" value="FOR_SELL_TRACTOR" class=" data_search form-control input-group-sm py-2" />
                                 </div>
                               </div>
@@ -196,7 +202,7 @@ include 'includes/headertag.php';
                                       <div class="upload__btn-box">
                                         <label class="upload__btn">
                                           <p>Upload images</p>
-                                          <input type="file" multiple="" data-max_length="20" class="upload__inputfile" id="image_pic" name="image_pic">
+                                          <input type="file" name='files[]' multiple="" data-max_length="20" class="upload__inputfile" id="image_pic" name="image_pic">
                                         </label>
                                       </div>
                                       <p>Upload minimum 2 images</p>

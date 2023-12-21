@@ -116,7 +116,7 @@
                     <select class="js-select2 form-select" id="brand">
                     </select>
               </div>
-            <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-3 pt-1 text-center">
+            <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-4 pt-1 text-center">
                 <button type="button" class="btn-success btn px-5" id="Search">Search</button>
                 <button type="button" class="btn-success btn px-5 mx-2 " id="Reset">Reset</button>
             </div>
@@ -189,12 +189,54 @@
               </div>
             </div>
           </div>
+
+
+
         </div>
+
+
+        
 
 
     </div>
    </section>
       
+   
+          <!-- model view -->
+          <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+            <!-- <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel"> Brand Information</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div> -->
+              <div class="modal-body">
+                <h4>Brand Information</h4>
+                <div class="container">
+                  <div class="row">
+                    <div class="col-12 col-lg-4 col-sm-4 col-md-4">
+                      <h5>Brand Name: </h5>
+                    </div>
+                    <div class="col-12 col-lg-8 col-sm-8 col-md-8">
+                      <p id="brand_name"></p>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-12 col-lg-4 col-sm-4 col-md-4">
+                      <h5>Image</h5>
+                    </div>
+                    <div class="col-12 col-lg-8 col-sm-8 col-md-8">
+                     <div id="related_brand"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
     
 </div>
 </div>
@@ -262,8 +304,9 @@ function get() {
             select_brand.append('<option selected disabled="" value="">Please select Brand</option>');
       console.log(data, 'ok');
       for (var j = 0; j < data.brands.length; j++) {
-        var brand = data.brands.brand_name;
-        select_brand.append('<option value="' + brand + '">' + brand + '</option>');
+        var brand_name = data.brands[j].brand_name;
+        console.log(brand_name);
+        select_brand.append('<option value="' + brand_name + '">' + brand_name + '</option>');
       }
 
             let serialNumber = 1; // Initialize serial number
@@ -278,8 +321,11 @@ function get() {
                         <td>${row.brand_img}</td>
                         <td><div class="float-start"><button class="btn btn-danger btn-sm mx-1" id="delete_user" onclick="destroy(${row.id});"><i class="fa fa-trash" style="font-size: 11px;"></i></button>
                         <button class="btn btn-primary btn-sm btn_edit" onclick="fetch_edit_data(${row.id});" data-bs-toggle="modal" data-bs-target="#staticBackdrop_model" id="yourUniqueIdHere">
-                                    <i class="fas fa-edit" style="font-size: 11px;"></i>
-                                  </button></div></td>
+                          <i class="fas fa-edit" style="font-size: 11px;"></i>
+                        </button>
+                        <button class="btn btn-warning btn-sm text-white" data-bs-toggle="modal" onclick="fetch_data(${row.id});" data-bs-target="#exampleModal">
+                        <i class="fa-solid fa-eye" style="font-size: 11px;"></i></button>
+                                  </div></td>
                     `;
                     tableBody.appendChild(tableRow);
 
@@ -360,6 +406,51 @@ function edit_brand(){
   })
 }
 
+
+function fetch_data(userId) {
+    console.log(window.location)
+    var urlParams = new URLSearchParams(window.location.search);
+    var productId = urlParams.get('id');
+    var url = "http://tractor-api.divyaltech.com/api/customer/getBrands/"
+    // console.log(url);
+    $.ajax({
+        url: url,
+        type: "GET",
+        success: function(data) {
+        console.log(data, 'abc');
+        // document.getElementById('image_id').innerText=data.product.allProductData[0].image_name;
+        document.getElementById('brand_name').innerText=data.product.allProductData[0].brand_name;
+
+        var productContainer = $("#related_brand");
+
+        if (data.brands && data.brands.length > 0) {
+            data.brands.forEach(function (b) {
+                var newCard = `
+                <div class=" col-6 col-lg-6 col-md-6 col-sm-6">
+                        <div class="brand-main box-shadow mt-2 text-center shadow">
+                            <a class="weblink text-decoration-none text-dark" href="#"
+                                title="Old Tractors">
+                                <img class="img-fluid w-50" src="http://tractor-api.divyaltech.com/uploads/product_img/${b.image_url}"
+                                    data-src="h" alt="Brand Logo">
+                                <p class="mb-0 oneline">${b.brand_name}</p>
+                            </a>
+                        </div>
+                    </div>
+                `;
+
+                // Append the new card to the container
+                productContainer.append(newCard);
+            });
+
+
+        }
+},
+error: function (error) {
+console.error('Error fetching data:', error);
+}
+    });
+}
+fetch_data();
 // delete
 function destroy(id) {
   var userConfirmation = confirm("Are you sure you want to delete this Brand ?");

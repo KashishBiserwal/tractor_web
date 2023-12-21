@@ -8,65 +8,7 @@ $(document).ready(function () {
     $('#save').click(store);
     console.log('fjfej');
 
-    $("#add_tractor_form").validate({
-      
-      rules: {
-        brand_name: "required",
-        model: "required",
-        product_type_id: "required",
-        hp_category: "required",
-        // TOTAL_CYCLINDER: "required",
-        // horse_power: "required",
-        // gear_box_forward: "required",
-        // gear_box_reverse: "required",
-        // BRAKE_TYPE: "required",
-        // starting_price: "required",
-        // ending_price: "required",
-        // warranty: "required",
-        // BRAKE_TYPE: "required",
-        // CAPACITY_CC: "required",
-        // engine_rated_rpm: "required",
-        // COOLING: "required",
-        // AIR_FILTER: "required",
-        // fuel_pump_id: "required",
-        // TORQUE: "required",
-        // TRANSMISSION_TYPE: "required",
-        // TRANSMISSION_CLUTCH: "required",
-        // min_forward_speed: "required",
-        // max_forward_speed: "required",
-        // min_reverse_speed: "required",
-        // max_reverse_speed: "required",
-        // STEERING_DETAIL: "required",
-        // STEERING_COLUMN: "required",
-        // POWER_TAKEOFF_TYPE: "required",
-        // power_take_off_rpm: "required",
-        // totat_weight: "required",
-        // WHEEL_BASE: "required",
-        // LIFTING_CAPACITY: "required",
-        // LINKAGE_POINT: "required",
-        // fuel_tank_cc: "required",
-        // WHEEL_DRIVE: "required",
-        // front_tyre: "required",
-        // rear_tyre: "required",
-        // accessory: "required",
-        // STATUS: "required",
-        // description: "required",
-      },
-      messages: {
-        brand_name: "Please enter the brand name",
-        model: "Please enter the model",
-        product_type_id: "Please select a product type",
-        hp_category: "Please enter the HP category",
-      },
-      errorElement: "div",
-      errorPlacement: function (error, element) {
-        error.addClass("text-danger");
-        error.insertAfter(element);
-      },
-      submitHandler: function (form) {
-        alert("Form submitted successfully!");
-      }
-    });
+   
   });
 
   function BackgroundUpload(){
@@ -254,8 +196,11 @@ function store(event) {
     event.preventDefault();
     console.log("accessory select : ",selectedOptions);
     var brand_id = $('#brand_name').val();
+    var image_names = document.getElementById('image_name').files;
+    console.log('imgds',image_name);
     var model = $('#model').val();
     var product_type_id = $('#product_type_id').val();
+    var image_type_id = $('#image_type_id').val();
     var hp_category = $('#hp_category').val();
     var TOTAL_CYCLINDER = $('#TOTAL_CYCLINDER').val();
     var horse_power = $('#horse_power').val();
@@ -269,8 +214,8 @@ function store(event) {
     console.log(selectedCheckboxValues);
     console.log('tractor_type_id',tractor_type_id);
     // var image_name = $('#image_name').val();
-    var image_name = document.getElementById('image_name').files[0];
-    console.log("imageselect : ",image_name);
+    // var image_name = document.getElementById('image_name').files[0];
+    // console.log("imageselect : ",image_name);
     var CAPACITY_CC = $('#CAPACITY_CC').val();
     var engine_rated_rpm = $('#engine_rated_rpm').val();
     var COOLING = $('#COOLING').val();
@@ -307,15 +252,16 @@ function store(event) {
       'Authorization': 'Bearer ' + token
     };
     var data = new FormData();
-    var image_name = document.getElementById('image_name').files[0];
-    console.log('imgds',image_name);
-    for (var x = 0; x < image_name.length; x++) {
-      console.log('safdas',image_name[x]);
-        data.append("image_names", image_name[x]);
+   
+    for (var x = 0; x < image_names.length; x++) {
+      data.append("image_names[]", image_names[x]);
+      console.log("multiple image", image_names[x]);
     }
+    
     data.append('brand_id', brand_id);
       data.append('model', model);
       data.append('product_type_id', product_type_id);
+      data.append('image_type_id', image_type_id);
       data.append('hp_category', hp_category);
       data.append('total_cyclinder_id', TOTAL_CYCLINDER);
       data.append('horse_power', horse_power);

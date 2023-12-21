@@ -210,12 +210,10 @@ $('#save').on('click', function() {
                         </td>
                     `;
 
-                    // Increment serialNumber for the next row
                     serialNumber++;
                     tableBody.appendChild(tableRow);
                 });
             } else {
-                // Display a message if there's no valid data
                 tableBody.innerHTML = '<tr><td colspan="7">No valid data available</td></tr>';
             }
         },
@@ -275,7 +273,7 @@ function fetch_edit_data(userId) {
     headers: headers,
     success: function(response) {
       var userData = response.user[0];
-
+      // $('#idUser').val(userData.id);
       $('#first_name1').val(userData.first_name);
       $('#last_name1').val(userData.last_name);
       $('#mobile1').val(userData.mobile);
@@ -283,7 +281,8 @@ function fetch_edit_data(userId) {
       console.log(userData.email);
       $('#user_type1').val(userData.user_type);
       $('#status1').val(userData.status);
-      $('#editUserId').val(userData.id);
+      $('#idUser').val(userData.id);
+      // editUserId=userData.id;
 
 
       // $('#exampleModal').modal('show');
@@ -296,17 +295,14 @@ function fetch_edit_data(userId) {
 
 
 
-function edit_user(edit_id){
-   alert(edit_id);
-
+function edit_user(){
+ var edit_id = $("#idUser").val();
   var first_name = $("#first_name1").val();
   var last_name = $("#last_name1").val();
   var email = $("#email1").val();
   var mobile = $("#mobile1").val();
   var email = $("#email1").val();
   var user_type1 = $("#user_type1").val();
-  // var edit_id = $("#first_name1").attr("prachii");
-
   var paraArr = {
     'first_name': first_name,
     'last_name': last_name,
@@ -314,6 +310,7 @@ function edit_user(edit_id){
     'mobile': mobile,
     'user_type': user_type1,
     'id': edit_id,
+
   };
   var apiBaseURL = APIBaseURL;
   var url = apiBaseURL + 'updateUser/' + edit_id;

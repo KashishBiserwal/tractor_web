@@ -19,7 +19,7 @@
    include 'includes/header.php';
    ?>
 
-    <section>
+    <!-- <section>
         <div class="container mt-5 pt-4">
             <div class="pt-5">
                 <span class="mt-4 pt-4 ">
@@ -27,11 +27,10 @@
                             class="fa-solid fa-chevron-right px-1"></i></a>
                     <span class=""><span class=" header-link  px-1">Brand <i class="fa-solid fa-chevron-right px-1"></i>
                         </span></span>
-                    <span class="text-dark"> Mahindra</span>
                 </span>
             </div>
         </div>
-    </section>
+    </section> -->
 
     <section id="Mahindra_575">
         <div class="container">

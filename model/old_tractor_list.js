@@ -339,6 +339,88 @@ get_year_and_hours();
 //       }
 //     });
 //   }
+function store(event) {
+  event.preventDefault();
+  console.log('jfhfhw');
+  var form_type = $('#form_type').val();
+     var enquiry_type_id = $('#enquiry_type_id').val();
+     console.log("enquiry type :",$('#enquiry_type_id').val());
+     var first_name = $('#first_name').val();
+     console.log(first_name);
+     var last_name = $('#last_name').val();
+     var mobile = $('#mobile_number').val();
+     var state = $('#state').val();
+     var district = $('#district').val();
+     var brand_name = $('#brand').val();
+     var Model_name = $('#model').val();
+     var purchase_year = $('#purchase_year').val();
+     var product_type_id = $('#product_type_id').val();
+     console.log("enquiry type :",$('#product_type_id').val());
+     var tehsil = $('#tehsil').val();
+     var engine_condition = $('#condition').val();
+     var tyre_condition = $('#tyrecondition').val();
+     var hours_driven = $('#hours_driven').val();
+     var rc = $('#rc_num').val();
+     var finance = $('input[name="fav_language"]:checked').val();
+     var nocAvailable = $('input[name="fav_language1"]:checked').val();
+     var price= $('#price_old').val();
+    var image = document.getElementById('image_pic').files[0];
+    var description = $('#description').val();
+
+    var apiBaseURL =APIBaseURL;
+       var url = apiBaseURL + 'customer_enquiries';
+       console.log(url);
+       var token = localStorage.getItem('token');
+       var headers = {
+         'Authorization': 'Bearer ' + token
+        };
+  var data = new FormData();
+  var image = document.getElementById('image').files;
+for (var x = 0; x < image.length; x++) {
+  data.append("image_names[]", image[x]);
+}
+  // data.append('image', image);
+  data.append('form_type',form_type);
+         data.append('enquiry_type_id',enquiry_type_id);
+         data.append('first_name', first_name);
+         data.append('last_name', last_name);
+         data.append('mobile', mobile);
+         data.append('brand_id', brand_name);
+         data.append('product_id', product_type_id);
+         data.append('model', Model_name);
+         data.append('purchase_year', purchase_year);
+         data.append('engine_condition', engine_condition);
+         data.append('tyre_condition', tyre_condition);
+         data.append('hours_driven', hours_driven);
+         data.append('state',state);
+         data.append('district',district);
+         data.append('tehsil',tehsil);
+         data.append('rc_number',rc);
+         data.append('price',price);
+         data.append('description', description);
+         data.append('finance', finance);
+         data.append('noc', nocAvailable);
+  $.ajax({
+    url: url,
+    type: "POST",
+    data: data,
+    headers: headers,
+    processData: false, 
+    contentType: false,
+    success: function (result) {
+      // console.log(result, "result");
+      if(result.length){
+      //   get_tractor_list();
+      }
+     
+      // console.log("Add successfully");
+    },
+    error: function (error) {
+      console.error('Error fetching data:', error);
+    }
+  });
+}
+
 
 
 
