@@ -5,6 +5,16 @@
     <?php
 				include 'includes/headertag.php';
 			?>
+    <style>
+    .container-mid {
+        max-width: 1280px;
+        margin: 0 auto;
+        width: 55%;
+        padding-left: 8px;
+        padding-right: 8px;
+        margin-top: -196px;
+    }
+    </style>
 </head>
 
 <body>
@@ -35,14 +45,14 @@
     <!--Banner-->
     <div class="container-fluid">
         <div class="row siv" id="">
-            <img src="assets/images/rent.jpg" alt="reload img" class="w-100" style="height: 420px;">
+            <img src="assets/images/rent.jpg" alt="reload img" class="w-100" style="height:358px;">
             <div class="container-mid">
                 <div class="row justify-content-center loan_form bg-light border border-dark">
                     <h2 class="text-dark text-center fw-bold mt-3">Rent Your Tractors and Implements</h2>
                     <h5 class="text-dark text-center  fw-bold mt-1">Popular Brands</h5>
 
 
-                    <div class="row mt-3 justify-content-center m-0">
+                    <!-- <div class="row mt-3 justify-content-center m-0">
                         <div class="col-12 col-md-3 col-lg-3 col-sm-3">
                             <div class="tjcol states-block">
                                 <div class="brand-main box-shadow mt-2 text-center">
@@ -140,7 +150,7 @@
                                 </div>
                             </div>
                         </div>
-                       
+
                         <div class="col-12 col-md-3 col-lg-3 col-sm-3">
                             <div class="tjcol states-block">
                                 <div class="brand-main box-shadow mt-2 text-center">
@@ -225,10 +235,10 @@
                                     </a>
                                 </div>
                             </div>
-                        </div> -->
+                        </div>
 
 
-                    </div>
+                    </div> -->
 
 
                     <div class="d-grid col-10 mb-3 mt-3">
