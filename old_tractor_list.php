@@ -36,13 +36,19 @@ include 'includes/headertag.php';
                     <div class="modal-body bg-light">
                       <div class="row justify-content-center">
                         <div class="col-lg-10">
-                          <form id="old_tract" name="old_tract" method="post">
+                          <form id="old_tract" name="old_tract" method="post" enctype="multipart/form-data" onsubmit="return false">
                             <div class="row">
                               <h5>Fill Your Detail</h5>
                               <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-2" hidden>
                                 <div class="form-outline">
                                 
                                   <input type="text" id="enquiry_type_id" name="enquiry_type_id" value="1" class=" data_search form-control input-group-sm py-2" />
+                                </div>
+                              </div>
+                              <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-2" hidden>
+                                <div class="form-outline">
+                                
+                                  <input type="text" id="image_type_id" name="" value="1" class=" data_search form-control input-group-sm py-2" />
                                 </div>
                               </div>
                               <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-2" hidden>
@@ -196,7 +202,7 @@ include 'includes/headertag.php';
                                       <div class="upload__btn-box">
                                         <label class="upload__btn">
                                           <p>Upload images</p>
-                                          <input type="file" multiple="" data-max_length="20" class="upload__inputfile" id="image_pic" name="image_pic">
+                                          <input type="file" name='files[]' multiple="" data-max_length="20" class="upload__inputfile" id="image_pic" name="image_pic">
                                         </label>
                                       </div>
                                       <p>Upload minimum 2 images</p>

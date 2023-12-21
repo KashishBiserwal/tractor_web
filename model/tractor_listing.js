@@ -1,72 +1,14 @@
 $(document).ready(function () {
   get_lookup();
-  $('.js-example-basic-multiple').select2();
+  // $('.js-example-basic-multiple').select2();
 
     // getTractorList();
-    BackgroundUpload();
+    // BackgroundUpload();
 
     $('#save').click(store);
     console.log('fjfej');
 
-    $("#add_tractor_form").validate({
-      
-      rules: {
-        brand_name: "required",
-        model: "required",
-        product_type_id: "required",
-        hp_category: "required",
-        // TOTAL_CYCLINDER: "required",
-        // horse_power: "required",
-        // gear_box_forward: "required",
-        // gear_box_reverse: "required",
-        // BRAKE_TYPE: "required",
-        // starting_price: "required",
-        // ending_price: "required",
-        // warranty: "required",
-        // BRAKE_TYPE: "required",
-        // CAPACITY_CC: "required",
-        // engine_rated_rpm: "required",
-        // COOLING: "required",
-        // AIR_FILTER: "required",
-        // fuel_pump_id: "required",
-        // TORQUE: "required",
-        // TRANSMISSION_TYPE: "required",
-        // TRANSMISSION_CLUTCH: "required",
-        // min_forward_speed: "required",
-        // max_forward_speed: "required",
-        // min_reverse_speed: "required",
-        // max_reverse_speed: "required",
-        // STEERING_DETAIL: "required",
-        // STEERING_COLUMN: "required",
-        // POWER_TAKEOFF_TYPE: "required",
-        // power_take_off_rpm: "required",
-        // totat_weight: "required",
-        // WHEEL_BASE: "required",
-        // LIFTING_CAPACITY: "required",
-        // LINKAGE_POINT: "required",
-        // fuel_tank_cc: "required",
-        // WHEEL_DRIVE: "required",
-        // front_tyre: "required",
-        // rear_tyre: "required",
-        // accessory: "required",
-        // STATUS: "required",
-        // description: "required",
-      },
-      messages: {
-        brand_name: "Please enter the brand name",
-        model: "Please enter the model",
-        product_type_id: "Please select a product type",
-        hp_category: "Please enter the HP category",
-      },
-      errorElement: "div",
-      errorPlacement: function (error, element) {
-        error.addClass("text-danger");
-        error.insertAfter(element);
-      },
-      submitHandler: function (form) {
-        alert("Form submitted successfully!");
-      }
-    });
+   
   });
 
   
@@ -194,8 +136,11 @@ function store(event) {
     event.preventDefault();
     console.log("accessory select : ",selectedOptions);
     var brand_id = $('#brand_name').val();
+    var image_names = document.getElementById('image_name').files;
+    console.log('imgds',image_name);
     var model = $('#model').val();
     var product_type_id = $('#product_type_id').val();
+    var image_type_id = $('#image_type_id').val();
     var hp_category = $('#hp_category').val();
     var TOTAL_CYCLINDER = $('#TOTAL_CYCLINDER').val();
     var horse_power = $('#horse_power').val();
@@ -205,13 +150,12 @@ function store(event) {
     var starting_price = $('#starting_price').val();
     var  ending_price= $('#ending_price').val();
     var  warranty= $('#warranty').val();
-
     var tractor_type_id = JSON.stringify(selectedCheckboxValues);
     console.log(selectedCheckboxValues);
     console.log('tractor_type_id',tractor_type_id);
     // var image_name = $('#image_name').val();
-    var image_name = document.getElementById('image_name').files[0];
-    console.log("imageselect : ",image_name);
+    // var image_name = document.getElementById('image_name').files[0];
+    // console.log("imageselect : ",image_name);
     var CAPACITY_CC = $('#CAPACITY_CC').val();
     var engine_rated_rpm = $('#engine_rated_rpm').val();
     var COOLING = $('#COOLING').val();
@@ -248,15 +192,16 @@ function store(event) {
       'Authorization': 'Bearer ' + token
     };
     var data = new FormData();
-    var image_name = document.getElementById('image_name').files[0];
-    console.log('imgds',image_name);
-    for (var x = 0; x < image_name.length; x++) {
-      console.log('safdas',image_name[x]);
-        data.append("image_names", image_name[x]);
+   
+    for (var x = 0; x < image_names.length; x++) {
+      data.append("image_names[]", image_names[x]);
+      console.log("multiple image", image_names[x]);
     }
+    
     data.append('brand_id', brand_id);
       data.append('model', model);
       data.append('product_type_id', product_type_id);
+      data.append('image_type_id', image_type_id);
       data.append('hp_category', hp_category);
       data.append('total_cyclinder_id', TOTAL_CYCLINDER);
       data.append('horse_power', horse_power);
@@ -275,15 +220,15 @@ function store(event) {
       data.append('torque', TORQUE);
       data.append('transmission_type_id', TRANSMISSION_TYPE);
       data.append('transmission_clutch_id', TRANSMISSION_CLUTCH);
-      data.append('min_forward_speed', min_forward_speed);
-      data.append('max_forward_speed', max_forward_speed);
+      data.append('transmission_reverse', min_forward_speed);
+      data.append('transmission_forward', max_forward_speed);
       data.append('min_reverse_speed', min_reverse_speed);
       data.append('max_reverse_speed', max_reverse_speed);
       data.append('steering_details_id', STEERING_DETAIL);
       data.append('steering_column_id', STEERING_COLUMN);
-      data.append('power_take_off_type', power_take_off_type);
+      data.append('power_take_off_type_id', power_take_off_type);
       data.append('power_take_off_rpm', power_take_off_rpm);
-      data.append('totat_weight', totat_weight);
+      data.append('total_weight', totat_weight);
       data.append('wheel_base', WHEEL_BASE);
       data.append('lifting_capacity', LIFTING_CAPACITY);
       data.append('linkage_point_id', LINKAGE_POINT);
@@ -294,6 +239,7 @@ function store(event) {
       data.append('accessory_id[]',accessory);
       data.append('status_id',STATUS);
       data.append('description',description);
+      data.append('id',idEditUser);
     $.ajax({
       url: url,
       type: "POST",

@@ -12,12 +12,7 @@ function getTractorList() {
         url: url,
         type: "GET",
         success: function(data) {
-            // console.log(data, 'abc');
-            // const new_data=data.product[0].filter((s)=>{ 
-            //     if(s.tractor_type_value=="Latest"){
-            //         return s;
-            //     }
-            // });
+            
             var productContainer = $("#productContainer");
             var tableData = $("#tableData");
 
@@ -26,13 +21,13 @@ function getTractorList() {
 
                     var images = p.image_names;
                     var a = [];
-
+                  
                     if (images) {
-                        if (images.indexOf(',') > -1) {
-                            a = images.split(',');
-                        } else {
-                            a = [images];
-                        }
+                      if (images.indexOf(',') > -1) {
+                        a = images.split(',');
+                      } else {
+                        a = [images];
+                      }
                     }
                     var newCard = `
                     <div class="col-12 col-lg-4 col-md-4 col-sm-4 mb-3">
@@ -40,7 +35,7 @@ function getTractorList() {
                         <div class="thumb">
                             <a href="detail_tractor.php?product_id=${p.product_id}">
                                 <div class="ratio ratio-16x9">
-                                    <img src="http://tractor-api.divyaltech.com/customer/uploads/product_img/${a[0]}"  class="object-fit-cover " alt="${p.description}">
+                                <img src="http://tractor-api.divyaltech.com/uploads/product_img/${a[0]}" class="object-fit-cover" alt="${p.description}">
                                 </div>
                             </a>
                         </div>
