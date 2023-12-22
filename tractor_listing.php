@@ -6,6 +6,9 @@ include 'includes/footertag.php';
 ?>
 <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+<script> var APIBaseURL = "<?php echo $APIBaseURL; ?>";</script>
+<script> var baseUrl = "<?php echo $baseUrl; ?>";</script>
+<script src="<?php $baseUrl; ?>model/newtractor_listing_get.js"></script>
 <script>
   $(document).ready(function() {
     console.log('dfsdwe');
@@ -476,7 +479,7 @@ include 'includes/footertag.php';
                       <div class="col-12 col-lg-6 col-md-6 col-sm-6">
                         <div class="row">
                           <div class="col-12 col-lg-6 col-md-6 col-sm-6 my-1">
-                            <p>Brand</p>
+                            <p>Brand-</p>
                           </div>
                           <div class="col-12 col-lg-6 col-md-6 col-sm-6 my-1">
                             <p id="brand_"></p>
@@ -487,7 +490,7 @@ include 'includes/footertag.php';
                       <div class="col-12 col-lg-6 col-md-6 col-sm-6 my-1">
                         <div class="row">
                           <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                            <p>Model Name</p>
+                            <p>Model Name-</p>
                           </div>
                           <div class="col-12 col-lg-6 col-md-6 col-sm-6">
                             <p id="model_"></p>
@@ -610,7 +613,9 @@ include 'includes/footertag.php';
                             <p>Upload images</p>
                           </div>
                           <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                           <div id="image_1"></div>
+                           <div class="row">
+                            <div class="col-12 col-sm-3 col-md-3 col-lg-3" id="image_1"></div>
+                           </div>
                           </div>
                         </div>
                       </div>
@@ -786,7 +791,7 @@ include 'includes/footertag.php';
                             <p>Total Weight</p>
                           </div>
                           <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                           <div id="Total Weight_1"></div>
+                           <div id="Total_Weight_1"></div>
                           </div>
                         </div>
                       </div>

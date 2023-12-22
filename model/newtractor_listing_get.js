@@ -216,7 +216,7 @@ function getTractorList() {
                           <i class="fa fa-trash" style="font-size: 11px;"></i>
                       </button> 
                       <a href="tractor_listing_edit.php?trac_edit=${row.product_id};"  onclick="trac_edit_id(${row.id});" class="btn btn-primary btn-sm btn_edit"><i class="fas fa-edit" style="font-size: 11px;"></i></a>
-                      <button class="btn btn-warning text-white btn-sm mx-1" onclick="openView(${row.id});" data-bs-toggle="modal" data-bs-target="#viewModal_btn" id="viewbtn">
+                      <button class="btn btn-warning text-white btn-sm mx-1" onclick="openView(${row.product_id});" data-bs-toggle="modal" data-bs-target="#viewModal_btn" id="viewbtn">
                       <i class="fa fa-eye" style="font-size: 11px;"></i>
                   </button>
                 </div>
@@ -414,13 +414,102 @@ function destroy(id) {
 
 // *********View data******
 
-function openView(viewID){
-  console.log('');
-  var apiBaseURL = APIBaseURL;
-  var url = apiBaseURL + 'getSelfData/' + editId;
-  console.log(url);
-}
+function openView(product_id){
+  // alert(product_id);
+    console.log(window.location)
+    var urlParams = new URLSearchParams(window.location.search);
+ 
+    var productId = product_id;
+    var apiBaseURL = APIBaseURL;
+  var url = apiBaseURL + 'get_new_tractor_by_id/' + productId;
+  
+    // var url = "http://127.0.0.1:8000/api/admin/getBrandsById/" + productId;
+    // console.log(url);
+    var headers = {
+    'Authorization': 'Bearer ' + localStorage.getItem('token')
+  };
+    $.ajax({
+        url: url,
+        type: "GET",
+        headers: headers,
+        success: function(data) {
+        console.log(data, 'abc');
+        document.getElementById('brand_').innerText=data.product.allProductData[0].brand_name;
+        
+        document.getElementById('model_').innerText=data.product.allProductData[0].model;
+        document.getElementById('hp_').innerText=data.product.allProductData[0].hp_category;
+        document.getElementById('cylinder_').innerText=data.product.allProductData[0].total_cyclinder_value;
+        document.getElementById('pto_hp_').innerText=data.product.allProductData[0].power_take_off_type;
+        document.getElementById('Gear_Box_Forward_1').innerText=data.product.allProductData[0].gear_box_forward;
+        document.getElementById('Gear_Box_Reverse_1').innerText=data.product.allProductData[0].gear_box_reverse;
+        document.getElementById('brakes_1').innerText=data.product.allProductData[0].brake_value;
+        document.getElementById('Starting_Price_1').innerText=data.product.allProductData[0].starting_price;
+        document.getElementById('Ending_Price_1').innerText=data.product.allProductData[0].ending_price;
+        document.getElementById('Warranty_1').innerText=data.product.allProductData[0].warranty;
+        document.getElementById('Select_Tractor_Type_1').innerText=data.product.allProductData[0].tractor_type_name;
+        document.getElementById('capacity_cc_1').innerText=data.product.allProductData[0].engine_capacity_cc;
+        document.getElementById('Engine_Rated_RPM_1').innerText=data.product.allProductData[0].engine_rated_rpm;
+        document.getElementById('Select_Cooling_1').innerText=data.product.allProductData[0].cooling_value;
+        document.getElementById('Air_Filter_1').innerText=data.product.allProductData[0].air_filter;
+        document.getElementById('Fuel_pump_1').innerText=data.product.allProductData[0].fuel_value;
+        document.getElementById('Torque_1').innerText=data.product.allProductData[0].torque;
+        document.getElementById('Type_1').innerText=data.product.allProductData[0].transmission_type_value;
+        document.getElementById('Clutch_1').innerText=data.product.allProductData[0].transmission_clutch_value;
+        document.getElementById('Min_Forward_Speed_1').innerText=data.product.allProductData[0].transmission_forward;
+        document.getElementById('Max_Forward_Speed_1').innerText=data.product.allProductData[0].transmission_forward;
+        document.getElementById('Min_Reverse_Speed_1').innerText=data.product.allProductData[0].transmission_reverse;
+        document.getElementById('Max_Reverse_Speed_1').innerText=data.product.allProductData[0].transmission_reverse;
+        document.getElementById('st_Type_1').innerText=data.product.allProductData[0].steering_details_value;
+        document.getElementById('Coloumn_1').innerText=data.product.allProductData[0].steering_column_value;
+        document.getElementById('Type2_1').innerText=data.product.allProductData[0].power_take_off_type;
+        document.getElementById('RPM_1').innerText=data.product.allProductData[0].power_take_off_rpm;
+        document.getElementById('Total_Weight_1').innerText=data.product.allProductData[0].total_weight;
+        document.getElementById('Wheel_Base_1').innerText=data.product.allProductData[0].wheel_base;
+        document.getElementById('Lifting_Capacity_1').innerText=data.product.allProductData[0].lifting_capacity;
+        document.getElementById('Point_Linkage_1').innerText=data.product.allProductData[0].linkage_point_value;
+        document.getElementById('Wheel_Drive_1').innerText=data.product.allProductData[0].wheel_drive_value;
+        document.getElementById('Front_1').innerText=data.product.allProductData[0].front_tyre;
+        document.getElementById('Rear_1').innerText=data.product.allProductData[0].rear_tyre;
+        document.getElementById('Accessories_1').innerText=data.product.allProductData[0].accessory;
+        document.getElementById('Status_1').innerText=data.product.allProductData[0].status_value;
+        document.getElementById('About_1').innerText=data.product.allProductData[0].description;
 
+
+
+
+        var productContainer = $("#image_1");
+
+        if (data.product.allProductData && data.product.allProductData.length > 0) {
+            data.product.allProductData.forEach(function (b) {
+                var newCard = `
+                <div class=" col-6 col-lg-6 col-md-6 col-sm-6">
+                <div class="row">
+                  <div class="col-sm-3 col-12 col-lg-3 col-md-3">
+                    <div class="brand-main box-shadow mt-2 text-center shadow">
+                      <a class="weblink text-decoration-none text-dark" 
+                          title="Old Tractors">
+                          <img class="img-fluid w-50" src="http://tractor-api.divyaltech.com/customer/uploads/product_img/"
+                              data-src="h" alt="Brand Logo">
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                       
+                    </div>
+                `;
+
+                // Append the new card to the container
+                productContainer.append(newCard);
+            });
+
+
+        }
+},
+error: function (error) {
+console.error('Error fetching data:', error);
+}
+    });
+}
 // ********for edit*******
 
 function trac_edit_id(editId) {
@@ -603,37 +692,4 @@ function edit_the_data(){
 }
 
 
-function openView(viewId) {
-  var apiBaseURL = APIBaseURL;
-  var url = apiBaseURL + 'getSelfData/' + viewId;
 
-  var headers = {
-    'Authorization': 'Bearer ' + localStorage.getItem('token')
-  };
-
-  $.ajax({
-    url: url,
-    type: 'GET',
-    headers: headers,
-    success: function(response) {
-      var userData = response.user[0];
-      // $('#idUser').val(userData.id);
-      // $('#first_name1').val(userData.first_name);
-      // $('#last_name1').val(userData.last_name);
-      // $('#mobile1').val(userData.mobile);
-      // $('#email1').val(userData.email);
-      // console.log(userData.email);
-      // $('#user_type1').val(userData.user_type);
-      // $('#status1').val(userData.status);
-      // $('#idUser').val(userData.id);
-      // editUserId=userData.id;
-
-
-      
-      
-    },
-    error: function(error) {
-      console.error('Error fetching user data:', error);
-    }
-  });
-}
