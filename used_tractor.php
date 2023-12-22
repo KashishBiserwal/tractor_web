@@ -332,8 +332,9 @@
                         </div> -->
                     </div>
                     <div class="col-12 text-center ">
-                        <button id="adduser" type="button" class="add_btn btn btn-success">
-                        <i class="fas fa-undo"></i>  Load More  </button>
+                    <button id="loadMoreBtn" type="button" class="btn btn-success">
+                        <i class="fas fa-undo"></i> Load More
+                    </button>
                     </div>
                 </div>
             </div>

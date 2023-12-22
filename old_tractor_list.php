@@ -42,13 +42,18 @@ include 'includes/headertag.php';
                               <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-2" hidden>
                                 <div class="form-outline">
                                 
-                                  <input type="text" id="enquiry_type_id" name="enquiry_type_id" value="1" class=" data_search form-control input-group-sm py-2" />
+                                  <input type="text" id="enquiry_type_id" name="" value="1" class=" data_search form-control input-group-sm py-2" />
                                 </div>
                               </div>
                               <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-2" hidden>
                                 <div class="form-outline">
                                 
                                   <input type="text" id="image_type_id" name="" value="1" class=" data_search form-control input-group-sm py-2" />
+                                </div>
+                              </div>
+                              <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-2" hidden>
+                                <div class="form-outline">
+                                  <input type="text" id="tractor_type_id" name="" value="1" class="data_search form-control input-group-sm py-2" />
                                 </div>
                               </div>
                               <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-2" hidden>
@@ -90,9 +95,9 @@ include 'includes/headertag.php';
                                   <label class="form-label" for="district">District</label>
                                   <select class="form-select py-2" aria-label="Default select example" name="district" id="district">
                                     <option selected disabled=""></option>
-                                    <option value="1">Raigarh</option>
-                                    <option value="2">Sarguja</option>
-                                    <option value="3">Surajpur</option>
+                                    <option value="">Raigarh</option>
+                                    <option value="">Sarguja</option>
+                                    <option value="">Surajpur</option>
                                   </select>
                                 </div>
                               </div>
@@ -101,9 +106,9 @@ include 'includes/headertag.php';
                                   <label class="form-label" for="district">Tehsil</label>
                                   <select class="form-select py-2" aria-label="Default select example" name="tehsil" id="tehsil">
                                     <option selected disabled=""></option>
-                                    <option value="1">Raigarh</option>
-                                    <option value="2">ambikapur</option>
-                                    <option value="3">chirmiri</option>
+                                    <option value="">Raigarh</option>
+                                    <option value="">ambikapur</option>
+                                    <option value="">chirmiri</option>
                                   </select>
                                 </div>
                               </div>
@@ -137,10 +142,10 @@ include 'includes/headertag.php';
                                   <label class="form-label" for="tehsil">Engine Condition</label>
                                   <select class="form-select py-2" aria-label="Default select example" name="condition" id="condition">
                                     <option selected disabled=""></option>
-                                    <option value="1">0-25%(Poor)</option>
-                                    <option value="2">26-50%(Average)</option>
-                                    <option value="3">51-75%(Good)</option>
-                                    <option value="3">76-100%(very Good)</option>
+                                    <option value="">0-25%(Poor)</option>
+                                    <option value="">26-50%(Average)</option>
+                                    <option value="">51-75%(Good)</option>
+                                    <option value="">76-100%(very Good)</option>
                                   </select>
                                 </div>
                               </div>
@@ -149,10 +154,10 @@ include 'includes/headertag.php';
                                   <label class="form-label" for="tehsil">Tyre Condition</label>
                                   <select class="form-select py-2" aria-label="Default select example" name="tyrecondition" id="tyrecondition">
                                     <option selected disabled=""></option>
-                                    <option value="1">0-25%(Poor)</option>
-                                    <option value="2">26-50%(Average)</option>
-                                    <option value="3">51-75%(Good)</option>
-                                    <option value="3">76-100%(very Good)</option>
+                                    <option value="">0-25%(Poor)</option>
+                                    <option value="">26-50%(Average)</option>
+                                    <option value="">51-75%(Good)</option>
+                                    <option value="">76-100%(very Good)</option>
                                   </select>
                                 </div>
                               </div>

@@ -218,7 +218,7 @@
                       <h5>Brand Name: </h5>
                     </div>
                     <div class="col-12 col-lg-8 col-sm-8 col-md-8">
-                      <p id="brand_name"></p>
+                      <p id="brand_name"><span id=""></span> HP</p>
                     </div>
                   </div>
                   <div class="row">
@@ -430,7 +430,7 @@ function fetch_data(userId) {
                         <div class="brand-main box-shadow mt-2 text-center shadow">
                             <a class="weblink text-decoration-none text-dark" href="#"
                                 title="Old Tractors">
-                                <img class="img-fluid w-50" src="http://tractor-api.divyaltech.com/uploads/product_img/${b.image_url}"
+                                <img class="img-fluid w-50" src="http://tractor-api.divyaltech.com/uploads/product_img/"
                                     data-src="h" alt="Brand Logo">
                                 <p class="mb-0 oneline">${b.brand_name}</p>
                             </a>
