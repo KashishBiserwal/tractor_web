@@ -494,8 +494,6 @@ function destroy(id) {
   }
 }
 
-
-
   function BackgroundUpload() {
     var imgWrap = "";
     var imgArray = [];

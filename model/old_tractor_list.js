@@ -395,7 +395,7 @@ function store(event) {
                         <td>${row.state}</td>
                         <td>
                             <div class="d-flex">
-                            <button class="btn btn-primary btn-sm btn_edit" onclick="fetch_edit_data(${row.id});" data-bs-toggle="modal" data-bs-target="#staticBackdrop_model" id="yourUniqueIdHere">
+                            <button class="btn btn-primary btn-sm btn_edit" onclick="fetch_edit_data(${row.product_id});" data-bs-toggle="modal" data-bs-target="#staticBackdrop_model" id="yourUniqueIdHere">
                             <i class="fas fa-edit" style="font-size: 11px;"></i></button>
                                 <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.id});">
                                     <i class="fa fa-trash" style="font-size: 11px;"></i>
@@ -419,9 +419,9 @@ get_tractor_list();
 
 // fetch edit data
 
-function fetch_edit_data(id) {
+function fetch_edit_data(product_id) {
   var apiBaseURL = APIBaseURL;
-  var url = apiBaseURL + 'get_old_tractor';
+  var url = apiBaseURL + 'get_old_tractor_by_id/'+ product_id;
 
   var headers = {
     'Authorization': 'Bearer ' + localStorage.getItem('token')
@@ -445,18 +445,26 @@ function fetch_edit_data(id) {
       $('#district1').val(userData.district);
       $('#tehsil1').val(userData.tehsil);
       $('#brand1').val(userData.brand_name);
-      $('#model1').val(userData.model);
+      $('#model').val(userData.model);  // Updated ID to match the form
       $('#purchase_year1').val(userData.purchase_year);
       $('#condition1').val(userData.engine_condition);
       $('#tyrecondition1').val(userData.tyre_condition);
-      $('#hours_driven').val(userData.hours_driven);
-      $('#rc_num1').val(userData.rc_number);
+      $('#hours_driven1').val(userData.hours_driven);  // Updated ID to match the form
+      $('#rc_num1').val(userData.vehicle_registered_num);  // Updated ID to match the form
       $('#price_old1').val(userData.price);
-      $('#image_pic1').val(userData.image_pic);
+      // Handle image upload separately, if needed
+      // $('#image_pic1').val(userData.image_names);
       $('#description1').val(userData.description);
-      $('#product_type_id1').val(userData.product_type);
-      $('#finance1').val(userData.finance);
-      $('#noc1').val(userData.noc);
+      // $('#product_type_id1').val(userData.product_type); // This field is hidden, check if you need to update it
+      $('input[name="fav_language"]').filter('[value="' + userData.finance + '"]').prop('checked', true);
+      $('input[name="fav_language1"]').filter('[value="' + userData.noc + '"]').prop('checked', true);
+
+      // Show/hide the NOC div based on the finance value
+      if (userData.finance == 1) {
+        $('#nocDiv').show();
+      } else {
+        $('#nocDiv').hide();
+      }
 
       // $('#exampleModal').modal('show');
     },
@@ -465,6 +473,7 @@ function fetch_edit_data(id) {
     }
   });
 }
+
 
 // delete data
   function destroy(id) {
