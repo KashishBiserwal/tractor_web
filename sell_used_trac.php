@@ -404,7 +404,7 @@
                                             <div class="upload__img-wrap"></div>
                                         </div>
                                     </div>
-                                    <!-- <input type="file" id="_file" class="w-100 pb-0 mb-auto" name="_file" required> -->
+                                    <!-- <input type="file" id="_file" multiple="" class="w-100 pb-0 mb-auto" name="_file" required> -->
                                 </div>
                                 <div class="col-12 col-sm-12 col-md-12 col-lg-12">
                                     <label for="_td_duration" class="form-label text-dark mt-2 mb-0">How early do you want to sell?</label>
@@ -773,7 +773,7 @@
                 },
                 messages: {
                     _file: {
-                        required: "Upload Image"
+                        required: "Upload minimum 1 or maximum 4 image"
                     },
                     _td_duration: {
                         required: "Select your time duration"
