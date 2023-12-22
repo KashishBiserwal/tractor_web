@@ -17,7 +17,7 @@
         width: 55%;
         padding-left: 8px;
         padding-right: 8px;
-        margin-top: -214px;
+        margin-top: -284px;
     }
 
     .step-container {
@@ -124,7 +124,7 @@
     <!--Banner-->
     <div class="container-fluid">
         <div class="row siv" id="">
-            <img src="assets/images/rent.jpg" alt="reload img" class="w-100" style="height:358px;">
+            <img src="assets/images/rent.jpg" alt="reload img" class="w-100" style="height:489px;">
             <div class="container-mid">
                 <div class="row justify-content-center loan_form bg-light">
                     <h2 class="text-dark text-center fw-bold mt-3">Rent Your Tractors and Implements</h2>
@@ -282,6 +282,7 @@
                                                 <div class="upload__img-wrap"></div>
                                             </div>
                                         </div>
+                                        <button type="button" class="btn btn-danger delete-row ms-2 mb-4 w-25" style="display: none;">Delete</button>
                                     </div>
                                 </div>
 
@@ -290,7 +291,7 @@
                                         id="">Previous</button>
                                     <button type="button" class="btn btn-success ms-2 mb-4 w-50 next-step"
                                         id="">Next</button>
-                                    <button type="button" class="btn btn-info ms-2 mb-4 w-25" id="addMore">Add
+                                    <button type="button" class="btn btn-info ms-2 mb-4 w-25" id="addMore" disabled>Add
                                         More</button>
                                 </div>
 
@@ -514,15 +515,40 @@
     include 'includes/footer.php';
     include 'includes/footertag.php';
 
-?>
-    <script>
-    document.addEventListener("DOMContentLoaded", function() {
+// ?>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
         const addMoreButton = document.getElementById('addMore');
         const formContainer = document.getElementById('formContainer');
 
-        addMoreButton.addEventListener('click', function() {
+        function areFieldsFilled(row) {
+            const implement = row.querySelector('#implement');
+            const rate = row.querySelector('#rate');
+            const ratePer = row.querySelector('#ratePer');
+            const imageInput = row.querySelector('#imageInput');
+
+            return implement.value && rate.value && ratePer.value && imageInput.value;
+        }
+
+        function toggleAddMoreButton() {
+            const lastRow = formContainer.lastElementChild;
+            addMoreButton.disabled = !areFieldsFilled(lastRow);
+        }
+
+        function addDeleteButton(row) {
+            const deleteButton = row.querySelector('.delete-row');
+            deleteButton.style.display = 'block';
+            deleteButton.addEventListener('click', function () {
+                formContainer.removeChild(row);
+                toggleAddMoreButton();
+            });
+        }
+
+        addMoreButton.addEventListener('click', function () {
             // Clone the entire row and append it to the container
             const lastRow = formContainer.lastElementChild.cloneNode(true);
+
             // Clear values of the cloned fields
             const inputFields = lastRow.querySelectorAll('input, select');
             inputFields.forEach(field => {
@@ -530,9 +556,37 @@
             });
 
             formContainer.appendChild(lastRow);
+            addDeleteButton(lastRow);
+            toggleAddMoreButton();
+        });
+
+        // Initially disable "Add More" button
+        toggleAddMoreButton();
+
+        // Add an event listener to each input field to toggle the button when the user fills in the data
+        formContainer.addEventListener('input', function () {
+            toggleAddMoreButton();
         });
     });
-    </script>
+</script>
+//     <script>
+//     document.addEventListener("DOMContentLoaded", function() {
+//         const addMoreButton = document.getElementById('addMore');
+//         const formContainer = document.getElementById('formContainer');
+
+//         addMoreButton.addEventListener('click', function() {
+//             // Clone the entire row and append it to the container
+//             const lastRow = formContainer.lastElementChild.cloneNode(true);
+//             // Clear values of the cloned fields
+//             const inputFields = lastRow.querySelectorAll('input, select');
+//             inputFields.forEach(field => {
+//                 field.value = '';
+//             });
+
+//             formContainer.appendChild(lastRow);
+//         });
+//     });
+//     </script>
     <script>
     $(document).ready(function() {
         // Sample data (replace with your actual data)
