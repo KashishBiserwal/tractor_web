@@ -99,11 +99,9 @@
 window.setInterval(() => {
     var expireTimeString = localStorage.getItem('expireIn');
     var expiretime = new Date(expireTimeString); // Convert the string to a Date object
-    console.log(expiretime, "expiretime");
+
 
     var currentdate = new Date();
-    console.log(currentdate, "currentdateUS");
-    console.log(currentdate >= expiretime, "currentdate >= expiretime");
 
     if (currentdate >= expiretime) {
         console.log("hello");

@@ -173,7 +173,7 @@ include 'includes/headertag.php';
               <div class="modal-dialog modal-lg modal-dialog-centered" data-bs-backdrop="static"  role="document">
                 <div class="modal-content">
                 <div class="modal-header modal_head">
-                  <h5 class="modal-title text-white fw-bold" id="staticBackdropLabel"> Add New User</h5>
+                  <h5 class="modal-title text-white fw-bold" id="staticBackdropLabel">Edit User</h5>
                   <!-- <button type="button" class="btn-close btn-success" data-bs-dismiss="modal" aria-label="Close"></button>-->
                 </div>
                   <div class="modal-body">

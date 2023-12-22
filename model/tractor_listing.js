@@ -194,10 +194,10 @@ function store(event) {
     var data = new FormData();
    
     for (var x = 0; x < image_names.length; x++) {
-      data.append("image_names[]", image_names[x]);
+      data.append("images[]", image_names[x]);
       console.log("multiple image", image_names[x]);
     }
-    
+
     data.append('brand_id', brand_id);
       data.append('model', model);
       data.append('product_type_id', product_type_id);
