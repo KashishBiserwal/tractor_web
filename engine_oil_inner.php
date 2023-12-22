@@ -30,19 +30,19 @@
             </div>
        
             <div class="row mt-3">
-                <div class="col-12 col-sm-6 col-lg-6 col-md-6">
+                <div class="col-12 col-sm-6 col-lg-6 col-md-6" style="border-top: 2px dashed #333;">
                     <div>
                     <h1 class="fw-bold text-danger pt-3">Engine Oil</h1>
                         <div class="swiper swiper_buy mySwiper2_buy">
-                            <div class="swiper-wrapper swiper-wrapper_buy">
+                            <div class="swiper-wrapper swiper-wrapper_buy"style="border-top: 2px dashed #333;">
                                 <div class=" swiper-slide swiper-slide_buy" style="height: 129px;">
-                                    <img class="img_buy" src="assets/images/engineoiltotal.webp" style="height: 100%; object-fit:contain;"/>
+                                    <img class="img_buy" src="assets/images/engine_oil.jpeg" style="height: 100%; object-fit:contain;"/>
                                 </div>
                                 <div class="swiper-slide swiper-slide_buy  "style="height: 129px;">
-                                    <img class="img_buy" src="assets/images/engineoiltotal.webp" style="height: 100%; object-fit:contain;"/>
+                                    <img class="img_buy" src="assets/images/insurancee.png" style="height: 100%; object-fit:contain;"/>
                                 </div>
                                 <div class="swiper-slide swiper-slide_buy"style="height: 129px;">
-                                    <img class="img_buy" src="assets/images/engineoiltotal.webp" style="height: 100%; object-fit:contain;"/>
+                                    <img class="img_buy" src="assets/images/fill_form.avif" style="height: 100%; object-fit:contain;"/>
                                 </div>
                             </div>
                         </div>
@@ -58,49 +58,57 @@
                                     <div class="col-md-12 col-12 col-lg-12 col-lg-12">
                                         <!-- <div class=" ml-2"> -->
                                         <div class="row px-3 ">
-                                            <div class="col-12 col-lg-3 col-md-3 col-sm-3 ">
-                                                <p class="fw-bold text-dark">Name</p>                                
-                                            </div>
-                                            <div class="col-12 col-lg-9 col-md-9 col-sm-9 ">
-                                                <p>M-Star Mahindra Genuine Engine Oil</p>                                
-                                            </div>
-                                            <div class="col-12 col-lg-3 col-md-3 col-sm-3 ">
-                                                <p class="fw-bold text-dark">Grade</p>                                
-                                            </div>
-                                            <div class="col-12 col-lg-9 col-md-9 col-sm-9 ">
-                                                <p>20W</p>                                
-                                            </div>
-                                            <div class="col-12 col-lg-3 col-md-3 col-sm-3 ">
-                                                <p class="fw-bold text-dark">Quantity</p>                                
-                                            </div>
-                                            <div class="col-12 col-lg-9 col-md-9 col-sm-9 ">
-                                                <p>7.0 L</p>                                
-                                            </div>
-                                            <div class="col-12 col-lg-3 col-md-3 col-sm-3 ">
-                                                <p class="fw-bold text-dark">Price</p>                                
-                                            </div>
-                                            <div class="col-12 col-lg-9 col-md-9 col-sm-9 ">
-                                                <p>₹4099/-</p>                                
-                                            </div>
-                                            <div class="col-12 col-lg-3 col-md-3 col-sm-3 ">
-                                                <p class="fw-bold text-dark">Compatible Tractors</p>                                
-                                            </div>
-                                            <div class="col-12 col-lg-2 col-md-2 col-sm-2">
-                                                <p>475 DI </p>                                
-                                            </div>
-                                            <div class="col-12 col-lg-2 col-md-2 col-sm-2">
-                                                <p>475 DI </p>                                
-                                            </div>
-                                            <div class="col-12 col-lg-2 col-md-2 col-sm-2">
-                                                <p>475 DI </p>                                
-                                            </div>                                            
+                                            <table class="table table-border">
+                                                <tr>
+                                                    <div class="col-12 col-lg-3 col-md-3 col-sm-3 ">
+                                                        <td><p class="fw-bold text-dark">Name</p></td>
+                                                    </div>
+                                                    <div class="col-12 col-lg-9 col-md-9 col-sm-9 ">
+                                                        <td><p>M-Star Mahindra Genuine Engine Oil</p> </td>
+                                                    </div>
+                                                </tr>
+                                                <tr>
+                                                    <div class="col-12 col-lg-3 col-md-3 col-sm-3 ">
+                                                        <td><p class="fw-bold text-dark">Grade</p></td>
+                                                    </div>
+                                                    <div class="col-12 col-lg-9 col-md-9 col-sm-9 ">
+                                                        <td><p>20W</p></td>
+                                                    </div>
+                                                </tr>
+                                                <tr>
+                                                    <div class="col-12 col-lg-3 col-md-3 col-sm-3 ">
+                                                        <td><p class="fw-bold text-dark">Quantity</p></td>
+                                                    </div>
+                                                    <div class="col-12 col-lg-9 col-md-9 col-sm-9 ">
+                                                        <td><p>7.0 L</p></td>
+                                                    </div>
+                                                </tr>
+                                                <tr>
+                                                    <div class="col-12 col-lg-3 col-md-3 col-sm-3 ">
+                                                        <td><p class="fw-bold text-dark">Price</p></td>
+                                                    </div>
+                                                    
+                                                    <div class="col-12 col-lg-9 col-md-9 col-sm-9 ">
+                                                        <td><p>₹4099/-</p></td>
+                                                    </div>
+                                                </tr>
+                                                <tr>
+                                                    <div class="col-12 col-lg-3 col-md-3 col-sm-3 ">
+                                                        <td><p class="fw-bold text-dark">Compatible Tractors</p></td>
+                                                    </div>
+                                                    <div class="col-12 col-lg-2 col-md-2 col-sm-2">
+                                                        <td colspan="3" class="margin-left:10px;"> 475 DI, M-25, SW-23</td>
+                                                    </div>   
+                                               </tr>     
+                                            </table> 
+
                                             <div class="row mt-1">
                                                 <div class="col-12 col-lg-12 col-md-12 col-sm-12">
-                                                    <button type="button" class="btn btn-success text-center ms-1 w-100" data-bs-toggle="modal" data-bs-target="#staticBackdrop3">
+                                                    <button type="button" class="btn btn-success text-center w-100" data-bs-toggle="modal" data-bs-target="#staticBackdrop3">
                                                         Request Call Back
                                                     </button>
                                                 </div>
-                                            </div> 
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -123,62 +131,62 @@
                     </div>
                     <!-- MODAL BODY -->
                     <div class="modal-body bg-light">
-                    <form id="engine_oil_form" class=""action="">
-                <div class="row">
-                  <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
-                    <div class="form-outline">
-                        <label for="f_name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i> First Name</label>
-                        <input type="text" class="form-control mb-0" placeholder="Enter Your Name" id="f_name" name="f_name">
-                    </div>
-                  </div>
-                  <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                    <div class="form-outline">
-                        <label for="last_name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i> Last Name</label>
-                        <input type="text" class="form-control mb-0" placeholder="Enter Your Name" id="eo_name" name="eo_name">
-                    </div>
-                  </div>
-                  <div class="col-12 col-sm-6 col-md-6 col-lg-6 mt-4">
-                    <div class="form-outline">
-                        <label for="eo_number" class="form-label text-dark fw-bold"> <i class="fa fa-phone" aria-hidden="true"></i> Phone Number</label>
-                        <input type="text" class="form-control mb-0" placeholder="Enter Number" id="eo_number" name="eo_number" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');">
-                    </div>
-                  </div>
-                  <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-4">
-                    <div class="form-outline">
-                        <label for="eo_state" class="form-label text-dark fw-bold"> <i class="fas fa-location"></i> State</label>
-                        <select class="form-select py-2 " aria-label=".form-select-lg example" id="eo_state" name="eo_state">
-                        <option value="" selected disabled=""></option>  
-                        <option value="1">Chhattisgarh</option>
-                        <option value="2">Other</option>
-                        </select>
-                    </div>
-                  </div>
-                  <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-4">
-                    <div class="form-outline">
-                        <label for="eo_dist" class="form-label fw-bold  text-dark"><i class="fa-solid fa-location-dot"></i> District</label>
-                        <select class="form-select py-2 " aria-label=".form-select-lg example" id="eo_dist" name="eo_dist">
-                        <option value="" selected disabled=""></option>
-                        <option value="1">Raipur</option>
-                        <option value="2">Bilaspur</option>
-                        <option value="2">Durg</option>
-                        </select>
-                    </div>                    
-                  </div>       
-                  <div class="col-12 col-sm-6 col-md-6 col-lg-6 mt-4">
-                    <div class="form-outline">
-                        <label for="eo_tehsil" class="form-label fw-bold text-dark"> Tehsil</label>
-                        <select class="form-select py-2 " aria-label=".form-select-lg example" id="eo_tehsil" name="eo_tehsil">
-                        <option value="" selected disabled=""></option>
-                        <option value="2">Durg</option>
-                        </select>
-                    </div>
-                  </div>
+                        <form id="engine_oil_form" class=""action="">
+                            <div class="row">
+                            <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
+                                <div class="form-outline">
+                                    <label for="f_name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i> First Name</label>
+                                    <input type="text" class="form-control mb-0" placeholder="Enter Your Name" id="f_name" name="f_name">
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-6 col-md-6 col-sm-6">
+                                <div class="form-outline">
+                                    <label for="last_name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i> Last Name</label>
+                                    <input type="text" class="form-control mb-0" placeholder="Enter Your Name" id="eo_name" name="eo_name">
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm-6 col-md-6 col-lg-6 mt-4">
+                                <div class="form-outline">
+                                    <label for="eo_number" class="form-label text-dark fw-bold"> <i class="fa fa-phone" aria-hidden="true"></i> Phone Number</label>
+                                    <input type="text" class="form-control mb-0" placeholder="Enter Number" id="eo_number" name="eo_number" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');">
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-4">
+                                <div class="form-outline">
+                                    <label for="eo_state" class="form-label text-dark fw-bold"> <i class="fas fa-location"></i> State</label>
+                                    <select class="form-select py-2 " aria-label=".form-select-lg example" id="eo_state" name="eo_state">
+                                    <option value="" selected disabled=""></option>  
+                                    <option value="1">Chhattisgarh</option>
+                                    <option value="2">Other</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-4">
+                                <div class="form-outline">
+                                    <label for="eo_dist" class="form-label fw-bold  text-dark"><i class="fa-solid fa-location-dot"></i> District</label>
+                                    <select class="form-select py-2 " aria-label=".form-select-lg example" id="eo_dist" name="eo_dist">
+                                    <option value="" selected disabled=""></option>
+                                    <option value="1">Raipur</option>
+                                    <option value="2">Bilaspur</option>
+                                    <option value="2">Durg</option>
+                                    </select>
+                                </div>                    
+                            </div>       
+                            <div class="col-12 col-sm-6 col-md-6 col-lg-6 mt-4">
+                                <div class="form-outline">
+                                    <label for="eo_tehsil" class="form-label fw-bold text-dark"> Tehsil</label>
+                                    <select class="form-select py-2 " aria-label=".form-select-lg example" id="eo_tehsil" name="eo_tehsil">
+                                    <option value="" selected disabled=""></option>
+                                    <option value="2">Durg</option>
+                                    </select>
+                                </div>
+                            </div>
 
-                </div> 
-                <div class="text-center my-3">
-                  <button type="submit" id="engine_oil_btn" class="btn btn-success px-5 w-40">Submit</button>         
-                </div>        
-              </form>         
+                            </div> 
+                            <div class="text-center my-3">
+                            <button type="submit" id="engine_oil_btn" class="btn btn-success px-5 w-40">Submit</button>         
+                            </div>        
+                        </form>         
                     </div>
                 </div>
             </div>

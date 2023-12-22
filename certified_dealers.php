@@ -18,73 +18,82 @@
     </div>
   </section>
   <!--TEXT Find Tractor Dealer -->
-  <section>
-    <div class="row">
-      <img src="assets/images/tractor dealerimg.png" class="position-relative" alt="dealership-image">
-    </div>
-  </section>
-
-  <!-- FORM -->
-  <section class="form-view bg-white pb-4">
-    <div class="container-sm float-start mt-n4">
-      <div class="row">
-        <div class="col-md-8 col-lg-7">
-          <form id="dealership_enq_from" style="margin-top: -340px; margin-left: 55px;" class="form-view-inner w-50  position-absolute form-view-overlay bg-light box-shadow p-3" action="" method="" >
-            <div class="row justify-content-center">                 
-              <div class="col-12 col-sm-4 col-md-4 col-lg-4">
-                <div class="form-outline">
-                  <label for="yr_dist" class="form-label fw-bold text-dark">Brand</label>
-                  <select class="form-select form-select-sm py-2 " id="_brand" name="_brand"aria-label=".form-select-sm example">
-                    <option value="" selected disabled=""></option>
-                    <option value="1">Mahindra</option>
-                    <option value="2">Swaraj</option>
-                    <option value="2">Powertrac</option>
-                  </select>
-                </div>                
-              </div>
-              <div class="col-12 col-sm-4 col-md-4 col-lg-4">
-                <div class="form-outline">
-                  <label for="yr_state" class="form-label text-dark fw-bold"> <i class="fas fa-location"></i> State</label>
-                  <select class="form-select form-select-sm py-2" id="_state" name="_state"aria-label=".form-select-sm example">
-                    <option value="" selected disabled=""></option>
-                    <option value="1">Chhattisgarh</option>
-                    <option value="2">Other</option>
-                  </select>
-                </div>
-              </div>
-              <div class="col-12 col-sm-4 col-md-4 col-lg-4">
-                <div class="form-outline">
-                  <label for="yr_dist" class="form-label fw-bold  text-dark"><i class="fa-solid fa-location-dot"></i> District</label>
-                  <select class="form-select form-select-sm py-2" id="_district" name="_district" aria-label=".form-select-sm example">
-                    <option value="" selected disabled=""></option>
-                    <option value="1">Raipur</option>
-                    <option value="2">Bilaspur</option>
-                    <option value="2">Durg</option>
-                  </select>
-                </div>
-              </div>
-              <div class="row mt-1 mb-0">
-                <div class="text-center col-12 col-lg-6 col-md-6 col-sm-6 my-3">
-                  <button type="submit" id="delership_enq_btn" class="btn btn-success px-5 w-100 ">Search Dealer</button>         
-                </div>                    
-                <div class="text-center col-12 col-lg-6 col-md-6 col-sm-6 my-3">
-                  <a href="become_certified_dealer.php" >
-                    <p type="submit" id="" class="btn btn-success px-5 w-100 fs-6">Become Certified Dealer</p>         
-                  </a>         
-                </div>                   
-              </div>              
+  <!-- <section>
+        <div class="d-sm-flex align-items-center justify-content-between w-100">
+            <div class="col-12 h-100 " style="min-height: 420px; background-image: url(assets/images/tractor-dealerimg.png); background-position: center; background-size: cover;" alt="img">
             </div>
-          </form>
+        </div>
+    </section> -->
+    <section>
+        <div class="d-sm-flex align-items-center justify-content-between w-100">
+            <div class="col-12 h-100 " style="min-height: 420px; background-image: url(assets/images/tractordealerqqqqq.webp); background-position: center; background-size: cover;" alt="img">
+            </div>
+        </div>
+    </section>
+
+    <!-- FORM --> 
+    <section class="form-view bg-white pb-4">
+      <div class="container ms-5" style="position: relative;margin-top:-145px;">
+        <div class="row">
+          <div class="col-md-8 col-lg-8 col-sm-8">
+            <form id="certified_dealer_from" class="form-view-inner bg-light box-shadow p-3" action="" method="">
+              <div class="row justify-content-center g-3">
+                <div class="col-12 col-md-4 col-sm-4 col-lg-4 mt-4">
+                  <div class="form-outline">
+                    <label for="_brand" class="form-label fw-bold text-dark">Brand</label>
+                    <select class="form-select form-select-sm" id="_brand" name="_brand">
+                      <option value="" selected="" disabled=""></option>
+                      <option value="1">Mahindra</option>
+                      <option value="2">Swaraj</option>
+                      <option value="3">Powertrac</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="col-12 col-lg-4 col-md-4 col-sm-4 mt-4">
+                  <div class="form-outline">
+                    <label for="_state" class="form-label text-dark fw-bold">State</label>
+                    <select class="form-select form-select-sm" id="_state" name="_state">
+                      <option value="" selected="" disabled=""></option>
+                      <option value="1">Chhattisgarh</option>
+                      <option value="2">Other</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="col-12 col-lg-4 col-md-4 col-sm-4 mt-4">
+                  <div class="form-outline">
+                    <label for="_district" class="form-label fw-bold text-dark">District</label>
+                    <select class="form-select form-select-sm" id="_district" name="_district">
+                      <option value="" selected="" disabled=""></option>
+                      <option value="1">Raipur</option>
+                      <option value="2">Bilaspur</option>
+                      <option value="3">Durg</option>
+                    </select>
+                  </div>
+                </div>
+                <div class=" mt-3">
+                  <div class="row g-3">
+                    <div class="col-12 col-lg-6 col-md-6 col-sm-6">
+                      <button type="submit" id="dealership_enq_btn" class="btn btn-success w-100">Search Dealer</button>
+                    </div>
+                    <div class="col-12 col-lg-6 col-md-6 col-sm-6">
+                      <a href="become_certified_dealer.php" class="btn btn-success w-100">Become Certified Dealer</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
         </div>
       </div>
-    </div>    
-</section>
+    </section>
+
+
 
   <!-- CERTIFIED DEALER CARDS -->
   <section>
-    <div class="container">
+    <div class="container mt-5" style="float:start;">
       <div class="row">
-        <h3 class=" mt-1">Recent Certified Dealers</h3>
+        <h3 class="">Recent Certified Dealers</h3>
         <div class="col-12 col-sm-3 col-md-3 col-lg-3 px-2 py-3 h-100">
           <div class="h-auto success__stry__item d-flex flex-column shadow ">
             <div class="thumb" style="positon:relative;">
@@ -137,6 +146,7 @@
             </div>
           </div>
         </div>
+        
         <div class="col-12 col-sm-3 col-md-3 col-lg-3 px-2 py-3 h-100">
           <div class="h-auto success__stry__item d-flex flex-column shadow ">
             <div class="thumb" style="positon:relative;">
@@ -194,7 +204,6 @@
       </div>
     </div>
   </section>
-
 
   <!-- Find tractor dealers near you -->
   <section>

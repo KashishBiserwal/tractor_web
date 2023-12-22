@@ -58,6 +58,10 @@
                         <div class="col-md-12 col-12 col-lg-12 col-lg-12">
                             <div class=" ml-2">
                                 <div class="row px-3 ">
+                                    <div class="col-12 col-lg-6 col-md-6 col-sm-6 " hidden>
+                                        <label for="name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i> enquiryName</label>
+                                        <input type="text" class="form-control" placeholder="Enter Your Name" id="enquiry_type_id" value="1" name="fname">
+                                    </div>
                                     <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
                                         <label for="name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i> First Name</label>
                                         <input type="text" class="form-control" placeholder="Enter Your Name" id="fname" name="fname">

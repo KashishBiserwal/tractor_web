@@ -412,21 +412,21 @@
                     </div>
 
                     <div class="col-12 col-sm-3 col-lg-3 col-md-3">
-                        <div class=" row mb-3" id="">
-                            <div class="col-12 col-sm-12 col-md-12 col-lg-12">
-                                <div class=" row text-center">
-                                    <div class="col-12 col-sm-6 col-lg-6 col-md-6">
-                                        <button id="adduser" type="button" class=" btn add_btn btn-success px-4">
-                                            <i class="fas fa-undo"></i> Reset </button>
-                                    </div>
-                                    <div class="col-12 col-sm-6 col-lg-6 col-md-6 pe-2">
-                                        <button id="adduser" type="button" class=" btn add_btn btn-success">
-                                            <i class="fas fa-filter"></i> Apply Filter </button>
-                                    </div>
-
+                    <div class=" row mb-3" id="">
+                        <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+                            <div class=" row text-center">
+                                <div class="col-12 col-sm-6 col-lg-6 col-md-6 g-1">
+                                    <button id="adduser" type="button" class="add_btn btn btn-success">
+                                        <i class="fas fa-undo"></i> Reset </button>
                                 </div>
+                                <div class="col-12 col-sm-6 col-lg-6 col-md-6 g-1">
+                                    <button id="adduser" type="button" class="add_btn btn btn-success">
+                                        <i class="fas fa-filter"></i> Apply Filter </button>
+                                </div>
+
                             </div>
                         </div>
+                    </div>
 
                         <div class="scrollbar mb-3" id=" my-2">
                             <div class="force-overflow">

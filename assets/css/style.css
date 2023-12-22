@@ -655,11 +655,10 @@ div.swiper-5 {
   /* padding-inline: 1.25rem; */
 }
 
-.swiper-button-next::after, .swiper-button-prev::after {
+/* .swiper-button-next::after, .swiper-button-prev::after {
   display: flex;
   align-items: center;
   justify-content: center;
-  /* font-size: 8px; */
   font-weight: 600;
   margin-top: -88px;
   padding: 1rem;
@@ -668,7 +667,22 @@ div.swiper-5 {
   opacity: 0.75;
   border-radius: 50%;
   color: rgb(35, 34, 34);
-  /* background: rgb(185, 180, 180); */
+} */
+
+.swiper-button-next::after, .swiper-button-prev::after {
+  /* display: flex; */
+  align-items: center;
+  justify-content: center;
+  font-size: 6px;
+  /* font-weight: 600; */
+  /* margin-top: -88px; */
+  /* padding: 0rem; */
+  width: 29px;
+  /* height: 20rem; */
+  opacity: 0.75;
+  /* border-radius: 50%; */
+  color: rgb(35, 34, 34);
+  background: rgb(185, 180, 180);
 }
 
 button {
@@ -1003,12 +1017,11 @@ border-radius: 50%;
   background-size: cover;
   position: relative;
   padding-bottom: 100%;
-}
-
-.img-bg {
   width: 200px;
   height: 200px;
 }
+
+
 .frame__img-close, .background__img-close, .politician__img-close, .self__img-close {
   width: 24px;
   height: 24px;
@@ -1034,7 +1047,7 @@ border-radius: 50%;
   position: absolute;
   /* padding: 0px 10px; */
   margin-top: -11px;
-  background: #fff;
+  background: #fcfcfc54;
   margin-left: 20px;
 }
 .admin_btn{
@@ -1484,7 +1497,7 @@ input[type="checkbox"]:checked + label:before {
 }
 .swiper-slide_buy .img_buy {
   display: block;
-  width: 102%;
+  width: 104%;
   height: 40%;
   -o-object-fit: cover;
      object-fit: cover;
@@ -1558,7 +1571,7 @@ input[type="checkbox"]:checked + label:before {
   width: 100%;
 }
 .form-view-overlay {
-  margin-top: -126px;
+  margin-top:-196px;
 }
 /* @media (min-width: 1500px)
 .container-mid {
@@ -1744,9 +1757,15 @@ input[type="checkbox"]:checked + label:before {
  background: rgb(241, 239, 239);
 }
 
-/* in compare cards change colour to the green */
+/* in compare trac model cards change colour to the green */
 .text-hover-green:hover{
   color:green;
+}
+/* in compare trac model for small screen size */
+@media (max-width: 767.98px) {
+  .navbarrr {
+    display: none !important;
+  }
 }
 
 /* caraousel mahindra brand */
@@ -1775,94 +1794,11 @@ input[type="checkbox"]:checked + label:before {
 .container-fullwidth{width:100%;margin:0 auto;}
 }
 
-
-/* old harvester admin panel */
-
-.error-message {
-  color: red;
- 
-}
-p {
-margin: 0;
-}
-
-.upload__box {
-padding: 40px;
-}
-
-.upload__inputfile {
-width: .1px;
-height: .1px;
-opacity: 0;
-overflow: hidden;
-position: absolute;
-z-index: -1;
-}
-
-.upload__btn {
-display: inline-block;
-font-weight: 600;
-color: #fff;
-text-align: center;
-min-width: 262px;
-padding: 5px;
-transition: all .3s ease;
-cursor: pointer;
-border: 2px solid;
-background-color:  #198754;
-border-color:  #198754;
-border-radius: 10px;
-line-height: 26px;
-font-size: 14px;
-}
-
-.upload__btn:hover {
-background-color: unset;
-color:  #198754;
-transition: all .3s ease;
-}
-
-.upload__btn-box {
-margin-bottom: 10px;
-}
-
-.upload__img-wrap {
-display: flex;
-flex-wrap: wrap;
-margin: 0 -10px;
-}
-
-.upload__img-box {
-flex: 0 0 calc(33.333% - 20px); 
-margin: 0 10px 20px; 
-position: relative;
-}
-
-.upload__img-close {
-width: 24px;
-height: 24px;
-border-radius: 50%;
-background-color: rgba(0, 0, 0, 0.5);
-position: absolute;
-top: 10px;
-right: 10px;
-text-align: center;
-line-height: 24px;
-z-index: 1;
-cursor: pointer;
-}
-
-.upload__img-close:after {
-content: '\2716';
-font-size: 14px;
-color: white;
-}
-
-.img-bg {
-background-repeat: no-repeat;
-background-position: center;
-background-size: cover;
-position: relative;
-width: 160px;
-height: 125px;
+/* MULTISTEP FORM IN SELL USED TRACTOR */
+.mul_stp_frm {
+  margin: 40px auto;
+  padding: 40px;
+  box-shadow: 0px 6px 18px rgb(0 0 0 / 9%);
+  border-radius: 12px;
+  margin-top: -170px;
 }

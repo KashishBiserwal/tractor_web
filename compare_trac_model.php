@@ -9,148 +9,161 @@
     <style>
       .table-data {
         white-space: nowrap;
-      }
+      } 
       .jumbo {
         padding-top: 5px;
         /* min-height: 20vh; */
       }
 
-      .shrink .navbarrr {
+      /* .shrink .navbarrr {
         color: #fafafa;
         background: white;
+        display:none;
         background: linear-gradient(35deg, white 1%, white 90%);
-        height:170px;
-      }
+        height:140px;
+      } */
     </style>
   </head>
  
   <body>
     <!-- links Nav -->
-    <section>
-      <div class="container mt-5 pt-4">
-        <div class=" mt-4 pt-5">
-          <span class="mt-4 pt-4 ">
+    <section class="">
+      <div class="container mt-5 pt-5 ">
+        <div class=" mt-5 py-3 ">
+          <span class="my-4 ">
             <a href="index.php" class="text-decoration-none header-link px-1">Home <i class="fa-solid fa-chevron-right px-1"></i></a>
-            <a href=""></a> <span class=""><span class=" header-link  px-1">Enquiry<i class="fa-solid fa-chevron-right px-1"></i> </span></span>
+            <!-- <a href=""></a> <span class=""><span class=" header-link  px-1">Enquiry<i class="fa-solid fa-chevron-right px-1"></i> </span></span> -->
             <span class="text-dark"> Compare</span>
           </span> 
         </div>
       </div>
     </section>
 
+
+
+
     <!-- yaha se codepen -->
     <!-- Fixed navbar -->
-    <!-- <section class="ms-5"> -->
-      <nav class="navbarrr navbar-expand-lg shadow navbar-dark bg-light">
-        <div class="row ms-5"> 
-
-          <div class="col-12 col-lg-3 col-md-3 col-sm-3">
-            <div class="row ">
-              <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                <div class="success__stry__item h-75">
-                  <div class="thumb mt-2">
-                    <a href="#">
-                      <div class="">
-                      <img src="assets\images\farmtrac60 (1).jpg" class="object-fit-cover mt-2 p-3 w-100" width="100px" height="120px" alt="img">
-                      </div>
-                    </a>
-                  </div>
-                </div>
+    <section class="">
+      <div class="">
+        <nav class="navbarrr navbar-expand-lg navbar-dark bg-white d-none mb-1" id="myNavbar">
+          <div class="row mt-1 mb-0"> 
+            <div class="row mb-2">
+              <div class="col-12 col-lg-3 col-md-3 col-sm-3 pe-0">
               </div>
-              <div class="col-12 col-lg-6 col-md-6 col-sm-6 mt-1 text-dark">
-                <div class="row">
-                  <p class="mb-0">ACE</p>
-                  <p class="mb-0 fw-bold text-hover-green">DI-550 NG</p>
-                  <p class="mb-1 fs-6"><a href="new_tractor_loan.php" class="text-decoration-none">EMI Starts From ₹14,024*</p></a>
-                  <p class="mb-0">₹ 6.55 Lac - 6.95 Lac*</p>
-                  <button type="button" class="fs-6 fw-bold text-start" data-bs-toggle="modal" data-bs-target="#staticBackdrop3">Check Tractor Price</button>
-                </div>
+              <div class="col-12 col-lg-8 col-md-8 col-sm-8 pe-0"> 
+                <div class="row mb-3">
+
+                  <div class="col-12 col-lg-3 col-md-3 col-sm-3 mb-0">
+                    <div class="row">
+                      <div class="col-12 col-lg-6 col-md-6 col-sm-6 p-0">
+                        <div class="success__stry__item h-75">
+                          <div class="thumb mt-2">
+                            <div class="">
+                              <img src="assets\images\farmtrac60 (1).jpg" class="object-fit-cover mt-2 pe-0" width="120px;" height="90px;" alt="img">
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-12 col-lg-6 col-md-6 col-sm-6 mt-2 text-dark">
+                        <div class="row mt-1" style="font-size:14px;">
+                          <p class="mb-1 text-danger fw-bold">ACE</p>
+                          <p class="mb-1 fw-bold text-hover-green">DI-550 NG</p>  
+                          <!-- <p class="mb-0">₹ 6.55 Lac - 6.95 Lac*</p> -->
+                          <a href="#" class="text-decoration-none"><p class="fw-bold text-start text-success mt-0" data-bs-toggle="modal" data-bs-target="#staticBackdrop3">Check Price</p></a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- 2nd card -->
+                  <div class="col-12 col-lg-3 col-md-3 col-sm-3 mb-0">
+                    <div class="row">
+                      <div class="col-12 col-lg-6 col-md-6 col-sm-6 p-0">
+                        <div class="success__stry__item h-75">
+                          <div class="thumb mt-2">
+                            <div class="">
+                              <img src="assets\images\farmtrac60 (1).jpg" class="object-fit-cover mt-2 pe-0" width="120px;" height="90px;" alt="img">
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-12 col-lg-6 col-md-6 col-sm-6 mt-2 text-dark">
+                        <div class="row mt-1" style="font-size:14px;">
+                          <p class="mb-1 text-danger fw-bold">ACE</p>
+                          <p class="mb-1 fw-bold text-hover-green">DI-550 NG</p>  
+                          <!-- <p class="mb-0">₹ 6.55 Lac - 6.95 Lac*</p> -->
+                          <a href="#" class="text-decoration-none"><p class="fw-bold text-start text-success mt-0" data-bs-toggle="modal" data-bs-target="#staticBackdrop3">Check Price</p></a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- 3rd card -->
+                  <div class="col-12 col-lg-3 col-md-3 col-sm-3 mb-0">
+                    <div class="row">
+                      <div class="col-12 col-lg-6 col-md-6 col-sm-6 p-0">
+                        <div class="success__stry__item h-75">
+                          <div class="thumb mt-2">
+                            <div class="">
+                              <img src="assets\images\farmtrac60 (1).jpg" class="object-fit-cover mt-2 pe-0" width="120px;" height="90px;" alt="img">
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-12 col-lg-6 col-md-6 col-sm-6 mt-2 text-dark">
+                        <div class="row mt-1" style="font-size:14px;">
+                          <p class="mb-1 text-danger fw-bold">ACE</p>
+                          <p class="mb-1 fw-bold text-hover-green">DI-550 NG</p>  
+                          <!-- <p class="mb-0">₹ 6.55 Lac - 6.95 Lac*</p> -->
+                          <a href="#" class="text-decoration-none"><p class="fw-bold text-start text-success mt-0" data-bs-toggle="modal" data-bs-target="#staticBackdrop3">Check Price</p></a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-12 col-lg-3 col-md-3 col-sm-3 mb-0">
+                    <div class="row">
+                      <div class="col-12 col-lg-6 col-md-6 col-sm-6 p-0">
+                        <div class="success__stry__item h-75">
+                          <div class="thumb mt-2">
+                            <div class="">
+                              <img src="assets\images\farmtrac60 (1).jpg" class="object-fit-cover mt-2 pe-0" width="120px;" height="90px;" alt="img">
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-12 col-lg-6 col-md-6 col-sm-6 mt-2 text-dark">
+                        <div class="row mt-1" style="font-size:14px;">
+                          <p class="mb-1 text-danger fw-bold">ACE</p>
+                          <p class="mb-1 fw-bold text-hover-green">DI-550 NG</p>  
+                          <!-- <p class="mb-0">₹ 6.55 Lac - 6.95 Lac*</p> -->
+                          <a href="#" class="text-decoration-none"><p class="fw-bold text-start text-success mt-0" data-bs-toggle="modal" data-bs-target="#staticBackdrop3">Check Price</p></a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  
+                </div>                      
+              </div>
+              <div class="col-12 col-lg-1 col-md-1 col-sm-1">
               </div>
             </div>
-          </div>
+          </div>                
+        </nav>
+      </div>
+    </section>
 
-          <div class="col-12 col-lg-3 col-md-3 col-sm-3">
-            <div class="row">
-              <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                <div class="success__stry__item  h-75">
-                  <div class="thumb mt-2">
-                    <a href="#">
-                      <div class="">
-                      <img src="assets\images\farmtrac60 (1).jpg" class="object-fit-cover mt-2 p-3 w-100" width="100px" height="120px" alt="img">
-                      </div>
-                    </a>
-                  </div>
-                </div>
-              </div>
-              <div class="col-12 col-lg-6 col-md-6 col-sm-6 mt-1 text-dark">
-                <div class="row">
-                  <p class="mb-0">ACE</p>
-                  <p class="mb-0 fw-bold text-hover-green">DI-550 NG</p>
-                  <p class="mb-1 fs-6"><a href="new_tractor_loan.php" class="text-decoration-none">EMI Starts From ₹14,024*</p></a>
-                  <p class="mb-0">₹ 6.55 Lac - 6.95 Lac*</p>
-                  <button type="button" class="fs-6 fw-bold text-start" data-bs-toggle="modal" data-bs-target="#staticBackdrop3">Check Tractor Price</button>
-                </div>
-              </div>
-            </div>
-          </div>
 
-          <div class="col-12 col-lg-3 col-md-3 col-sm-3">
-            <div class="row">
-              <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                <div class="success__stry__item  h-75">
-                  <div class="thumb mt-2">
-                    <a href="#">
-                      <div class="">
-                        <img src="assets\images\farmtrac60 (1).jpg" class="object-fit-cover mt-2 p-3 w-100" width="100px" height="120px" alt="img">
-                      </div>
-                    </a>
-                  </div>
-                </div>
-              </div>
-              <div class="col-12 col-lg-6 col-md-6 col-sm-6 mt-1 text-dark">
-                <div class="row">
-                  <p class="mb-0">ACE</p>
-                  <p class="mb-0 fw-bold text-hover-green">DI-550 NG</p>
-                  <p class="mb-1 fs-6"><a href="new_tractor_loan.php" class="text-decoration-none">EMI Starts From ₹14,024*</p></a>
-                  <p class="mb-0">₹ 6.55 Lac - 6.95 Lac*</p>
-                  <button type="button" class="fs-6 fw-bold text-start" data-bs-toggle="modal" data-bs-target="#staticBackdrop3">Check Tractor Price</button>
-                </div>
-              </div>
-            </div>
-          </div>
 
-          <div class="col-12 col-lg-3 col-md-3 col-sm-3">
-            <div class="row">
-              <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                <div class="success__stry__item  h-75">
-                  <div class="thumb mt-2">
-                    <a href="#">
-                      <div class="">
-                      <img src="assets\images\farmtrac60 (1).jpg" class="object-fit-cover mt-2 p-3 w-100" width="100px" height="120px" alt="img">
-                      </div>
-                    </a>
-                  </div>
-                </div>
-              </div>
-              <div class="col-12 col-lg-6 col-md-6 col-sm-6 mt-1 text-dark">
-                <div class="row">
-                  <p class="mb-0">ACE</p>
-                  <p class="mb-0 fw-bold text-hover-green">DI-550 NG</p>
-                  <p class="mb-1 fs-6"><a href="new_tractor_loan.php" class="text-decoration-none">EMI Starts From ₹14,024*</p></a>
-                  <p class="mb-0">₹ 6.55 Lac - 6.95 Lac*</p>
-                  <button type="button" class="fs-6 fw-bold text-start" data-bs-toggle="modal" data-bs-target="#staticBackdrop3">Check Tractor Price</button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>                
-      </nav>
-    <!-- </section>
-    <section> -->
-      <div class="container jumbo">      
+
+
+
+
+      <div class="container jumbo mt-2">      
         <div class="row py-1">
           
-          <div class="col-12 col-lg-3 col-sm-3 col-md-3 mt-1 mb-2">
+          <div class="col-12 col-lg-3 col-sm-3 col-md-3 mb-2 mt-1">
             <div class="success__stry__item shadow h-100">
               <div class="thumb">
                 <a href="#">
@@ -160,16 +173,15 @@
                 </a>
               </div>
               <div class="row ms-3">
-                <p class="mb-0">ACE</p>
+                <p class="mb-1 fw-bold text-danger">ACE</p>
                 <p class="mb-0 fw-bold text-hover-green">DI-550 NG</p>
-                <p class="mb-1"><a href="new_tractor_loan.php" class="text-decoration-none">EMI Starts From ₹14,024*</p></a>
-                <p class="mb-0">₹ 6.55 Lac - 6.95 Lac*</p>
-                <button type="button" class="fs-6 fw-bold text-start" data-bs-toggle="modal" data-bs-target="#staticBackdrop3">Check Tractor Price</button>
+                <!-- <p class="mb-0">₹ 6.55 Lac - 6.95 Lac*</p> -->
+                <button type="button" class="fs-6 fw-bold text-success text-start" data-bs-toggle="modal" data-bs-target="#staticBackdrop3">Check Tractor Price</button>
               </div>
             </div>
           </div>   
 
-          <div class="col-12 col-lg-3 col-sm-3 col-md-3 mt-1 mb-2">
+          <div class="col-12 col-lg-3 col-sm-3 col-md-3 mb-2 mt-1">
             <div class="success__stry__item shadow h-100">
               <div class="thumb">
                 <a href="#">
@@ -179,55 +191,50 @@
                 </a>
               </div>
               <div class="row ms-3">
-                <p class="mb-0">ACE</p>
+                <p class="mb-1 fw-bold text-danger">ACE</p>
                 <p class="mb-0 fw-bold text-hover-green">DI-550 NG</p>
-                <p class="mb-1"><a href="new_tractor_loan.php" class="text-decoration-none">EMI Starts From ₹14,024*</p></a>
-                <p class="mb-0">₹ 6.55 Lac - 6.95 Lac*</p>
-                <button type="button" class="fs-6 fw-bold text-start" data-bs-toggle="modal" data-bs-target="#staticBackdrop3">Check Tractor Price</button>
+                <!-- <p class="mb-0">₹ 6.55 Lac - 6.95 Lac*</p> -->
+                <button type="button" class="fs-6 fw-bold text-success text-start" data-bs-toggle="modal" data-bs-target="#staticBackdrop3">Check Tractor Price</button>
               </div>
             </div>
           </div>   
 
-          <div class="col-12 col-lg-3 col-sm-3 col-md-3 mt-1 mb-2">
+          <div class="col-12 col-lg-3 col-sm-3 col-md-3 mb-2 mt-1">
             <div class="success__stry__item shadow h-100">
               <div class="thumb">
                 <a href="#">
                   <div class="">
-                    <img src="assets\images\bharattractor2.png" class="object-fit-cover mt-4 p-3 w-100" width="100px" height="200px" alt="img">
+                  <img src="assets\images\bharattractor2.png" class="object-fit-cover mt-4 p-3 w-100" width="100px" height="200px" alt="img">
                   </div>
                 </a>
               </div>
               <div class="row ms-3">
-                <p class="mb-0">ACE</p>
+                <p class="mb-1 fw-bold text-danger">ACE</p>
                 <p class="mb-0 fw-bold text-hover-green">DI-550 NG</p>
-                <p class="mb-1"><a href="new_tractor_loan.php" class="text-decoration-none">EMI Starts From ₹14,024*</p></a>
-                <p class="mb-0">₹ 6.55 Lac - 6.95 Lac*</p>
-                <button type="button" class="fs-6 fw-bold text-start" data-bs-toggle="modal" data-bs-target="#staticBackdrop3">Check Tractor Price</button>
+                <!-- <p class="mb-0">₹ 6.55 Lac - 6.95 Lac*</p> -->
+                <button type="button" class="fs-6 fw-bold text-success text-start" data-bs-toggle="modal" data-bs-target="#staticBackdrop3">Check Tractor Price</button>
               </div>
             </div>
           </div>   
 
-          <div class="col-12 col-lg-3 col-sm-3 col-md-3 mt-1 mb-2">
+          <div class="col-12 col-lg-3 col-sm-3 col-md-3 mb-2 mt-1">
             <div class="success__stry__item shadow h-100">
               <div class="thumb">
                 <a href="#">
                   <div class="">
-                    <img src="assets\images\bharattractor2.png" class="object-fit-cover mt-4 p-3 w-100" width="100px" height="200px" alt="img">
+                  <img src="assets\images\bharattractor2.png" class="object-fit-cover mt-4 p-3 w-100" width="100px" height="200px" alt="img">
                   </div>
                 </a>
               </div>
               <div class="row ms-3">
-                <p class="mb-0">ACE</p>
+                <p class="mb-1 mt-2 fw-bold text-danger">ACE</p>
                 <p class="mb-0 fw-bold text-hover-green">DI-550 NG</p>
-                <p class="mb-1"><a href="new_tractor_loan.php" class="text-decoration-none">EMI Starts From ₹14,024*</p></a>
-                <p class="mb-0">₹ 6.55 Lac - 6.95 Lac*</p>
-                <button type="button" class="fs-6 fw-bold text-start" data-bs-toggle="modal" data-bs-target="#staticBackdrop3">Check Tractor Price</button>
+                <!-- <p class="mb-0">₹ 6.55 Lac - 6.95 Lac*</p> -->
+                <button type="button" class="fs-6 fw-bold text-success text-start" data-bs-toggle="modal" data-bs-target="#staticBackdrop3">Check Tractor Price</button>
               </div>
             </div>
-          </div>
-        </div>      
-        <div class="row">
-          <p class="text-success" >hello world</p>
+          </div>   
+          
         </div>
       </div>
     <!-- </section> -->
@@ -235,8 +242,8 @@
 
 
       <!-- ENGINE -->
-      <section class="mt-4 ms-5 me-5">
-        <div class="container-fluid">
+      <section class="mt-5">
+        <div class="container">
           <div class="about border-success  border-4 text-dark border-start">
             <h3 class="text-dark fw-bold text-start ps-2">Engine</h3>
           </div>
@@ -1246,7 +1253,33 @@
       </div>
     </section>
 
-   <script>
+    <!-- MODAL FOR THE PRICE -->
+    <!-- MODAL -->
+    <section>
+      <div class="modal fade" id="staticBackdrop3" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="staticBackdropLabel"> Request Call Back</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <!-- MODAL BODY -->
+            <div class="modal-body bg-light">
+              <form id="engine_oil_form" class=""action="">
+                <div class="row">
+                  <p>Price of the <span class="" id="">Brand </span><span class="" id="">Model </span><span>is ₹ </span><span class="" id="">6.5-7.6 Lakh</span></p>
+                </div> 
+                <div class="text-center my-3">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>button>         
+                </div>        
+              </form>         
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  <script>
     (function($) {
       $( window ).scroll( function () {
         if ( $(document).scrollTop() > 100 ) {
@@ -1278,6 +1311,21 @@
     })(jQuery);
   </script>
 
+  <!-- <script>
+    window.addEventListener('scroll', function() {
+      var blockDiv = document.getElementById('blockOnScroll');
+      var scrollPosition = window.scrollY;
+
+      if (scrollPosition > 500) {
+        blockDiv.style.display = 'block'; // Change 'block' to 'none' if you want to hide it initially
+      } else {
+        blockDiv.style.display = 'none';
+      }
+    });
+  </script> -->
+
+
+  <!-- VALIDATION -->
   <script>
     $(document).ready(function(){
       jQuery.validator.addMethod("customPhoneNumber", function(value, element) {
@@ -1350,6 +1398,18 @@
       })
     });
   </script>
+
+<script>
+  window.addEventListener('scroll', function() {
+    const navbar = document.getElementById('myNavbar');
+    if (window.scrollY > 320) {
+      navbar.classList.remove('d-none');
+    } else {
+      navbar.classList.add('d-none');
+    }
+  });
+</script>
+
 
   </body>
 </html>
