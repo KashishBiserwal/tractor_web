@@ -1,3 +1,4 @@
+
 $(document).ready(function () {
       getTractorList();
 
@@ -158,6 +159,8 @@ function formatDateTime(originalDateTimeStr) {
 
 
 
+
+
 function getTractorList() {
   console.log('kjhskdjf');
   var apiBaseURL = APIBaseURL;
@@ -213,7 +216,12 @@ function getTractorList() {
                           <i class="fa fa-trash" style="font-size: 11px;"></i>
                       </button> 
                       <a href="tractor_listing_edit.php?trac_edit=${row.product_id};"  onclick="trac_edit_id(${row.id});" class="btn btn-primary btn-sm btn_edit"><i class="fas fa-edit" style="font-size: 11px;"></i></a>
-                  </div>
+                      <button class="btn btn-warning text-white btn-sm mx-1" onclick="openView(${row.id});" data-bs-toggle="modal" data-bs-target="#viewModal_btn" id="viewbtn">
+                      <i class="fa fa-eye" style="font-size: 11px;"></i>
+                  </button>
+                  
+                  
+                </div>
               </td>
           `;
           tableBody.appendChild(tableRow);
@@ -589,6 +597,44 @@ function edit_the_data(){
 }
 
 
+function openView(viewId) {
+  var apiBaseURL = APIBaseURL;
+  var url = apiBaseURL + 'getSelfData/' + viewId;
+
+  var headers = {
+    'Authorization': 'Bearer ' + localStorage.getItem('token')
+  };
+
+  $.ajax({
+    url: url,
+    type: 'GET',
+    headers: headers,
+    success: function(response) {
+      var userData = response.user[0];
+      // $('#idUser').val(userData.id);
+      // $('#first_name1').val(userData.first_name);
+      // $('#last_name1').val(userData.last_name);
+      // $('#mobile1').val(userData.mobile);
+      // $('#email1').val(userData.email);
+      // console.log(userData.email);
+      // $('#user_type1').val(userData.user_type);
+      // $('#status1').val(userData.status);
+      // $('#idUser').val(userData.id);
+      // editUserId=userData.id;
 
 
- 
+      
+      
+    },
+    error: function(error) {
+      console.error('Error fetching user data:', error);
+    }
+  });
+}
+//$('#viewModal_btn').modal('show');
+var myModal = new bootstrap.Modal(document.getElementById('viewModal_btn'));
+//  $('#viewbtn').click(function(){
+//   console.log('dfghjkl');
+
+//   $('#viewModal_btn').modal('show');
+//  });

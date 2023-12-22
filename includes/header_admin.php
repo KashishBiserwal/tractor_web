@@ -1,6 +1,4 @@
-<?php
-   include 'headertag.php';
-   ?> 
+
    <header>
     <nav class="admin-header navbar navbar-expand-sm py-1">
             <div class="container">
