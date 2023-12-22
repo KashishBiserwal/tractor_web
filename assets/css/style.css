@@ -1048,7 +1048,7 @@ border-radius: 50%;
   position: absolute;
   /* padding: 0px 10px; */
   margin-top: -11px;
-  background: #fff;
+  background: #fcfcfc54;
   margin-left: 20px;
 }
 .admin_btn{
@@ -1758,9 +1758,15 @@ input[type="checkbox"]:checked + label:before {
  background: rgb(241, 239, 239);
 }
 
-/* in compare cards change colour to the green */
+/* in compare trac model cards change colour to the green */
 .text-hover-green:hover{
   color:green;
+}
+/* in compare trac model for small screen size */
+@media (max-width: 767.98px) {
+  .navbarrr {
+    display: none !important;
+  }
 }
 
 /* caraousel mahindra brand */
