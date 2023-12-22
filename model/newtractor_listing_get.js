@@ -219,8 +219,6 @@ function getTractorList() {
                       <button class="btn btn-warning text-white btn-sm mx-1" onclick="openView(${row.id});" data-bs-toggle="modal" data-bs-target="#viewModal_btn" id="viewbtn">
                       <i class="fa fa-eye" style="font-size: 11px;"></i>
                   </button>
-                  
-                  
                 </div>
               </td>
           `;
@@ -414,8 +412,16 @@ function destroy(id) {
   };
 }
 
+// *********View data******
 
-// for edit****************
+function openView(viewID){
+  console.log('');
+  var apiBaseURL = APIBaseURL;
+  var url = apiBaseURL + 'getSelfData/' + editId;
+  console.log(url);
+}
+
+// ********for edit*******
 
 function trac_edit_id(editId) {
   console.log('ggcghcgfgk');
@@ -631,10 +637,3 @@ function openView(viewId) {
     }
   });
 }
-//$('#viewModal_btn').modal('show');
-var myModal = new bootstrap.Modal(document.getElementById('viewModal_btn'));
-//  $('#viewbtn').click(function(){
-//   console.log('dfghjkl');
-
-//   $('#viewModal_btn').modal('show');
-//  });
