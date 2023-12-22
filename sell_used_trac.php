@@ -76,6 +76,7 @@
         color: #fff;
         text-align: center;
         min-width: 150px;
+        width:300px;
         padding: 5px;
         transition: all .3s ease;
         cursor: pointer;
@@ -96,14 +97,15 @@
         .upload__btn-box {
         margin-bottom: 10px;
         margin-top:-25px;
-        width: 150px;
+        width: 300px;
         margin-left: -240px;
         }
 
-        /* .upload__img-wrap {
+        .upload__img-wrap {
         display: flex;
         flex-wrap:nowrap;
-        } */
+        margin-top:20px;
+        }
 
         /* .upload__img-box {
         flex: 0 0 calc(33.333% - 20px); 
@@ -185,6 +187,7 @@
                     <div id="container" class="container mt-5">
                      
                         <!-- <form id="signUpForm_sllused" class="bg-light"action=""> -->
+                        <!-- FORM 1 -->
                         <form id="form-step-1" class="bg-light mul_stp_frm" style="" method="post">
                             <div class="d-flex justify-content-center mb-3">
                                 <div class="col-12 col-lg-5 col-md-5 col-sm-5">
@@ -214,25 +217,25 @@
                                         <div class="col-12 col-lg-6 col-md-6 col-sm-6 mb-2 mt-3 ">
                                             <div class="form-outline">
                                                 <label for="f_name" class="form-label mb-0 text-dark"> <i class="fa-regular fa-user"></i> First Name</label>
-                                                <input type="text" class="form-control mb-0" placeholder="Enter Your Name" id="f_name" name="f_name" required>
+                                                <input type="text" class="form-control mb-0" placeholder="Enter Your Name" id="f_name" name="f_name">
                                             </div>
                                         </div>
                                         <div class="col-12 col-lg-6 col-md-6 col-sm-6 mb-2 mt-3">
                                             <div class="form-outline">
                                                 <label for="eo_name" class="form-label text-dark"> <i class="fa-regular fa-user"></i> Last Name</label>
-                                                <input type="text" class="form-control mb-0" placeholder="Enter Your Name" id="eo_name" name="eo_name" required>
+                                                <input type="text" class="form-control mb-0" placeholder="Enter Your Name" id="eo_name" name="eo_name">
                                             </div>
                                         </div>
                                         <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
                                             <div class="form-outline mt-3">
                                                 <label for="eo_number" class="form-label text-dark"> <i class="fa fa-phone" aria-hidden="true"></i> Phone Number</label>
-                                                <input type="text" class="form-control mb-0" placeholder="Enter Number" id="eo_number" name="eo_number" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" required>
+                                                <input type="text" class="form-control mb-0" placeholder="Enter Number" id="eo_number" name="eo_number" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');">
                                             </div>
                                         </div>
                                         <div class="col-12 col-sm-12 col-md-6 col-lg-6">
                                         <div class="form-outline mt-3">
                                                 <label for="eo_state" class="form-label text-dark" id="state" name="state"> <i class="fas fa-location"></i> State</label>
-                                                <select class="form-select py-2 " aria-label=".form-select-lg example"id="eo_state" name="eo_state" required>
+                                                <select class="form-select py-2 " aria-label=".form-select-lg example"id="eo_state" name="eo_state">
                                                     <option  value="" Selected Disabled=""></option>
                                                     <option value="1">Chhattisgarh</option>
                                                     <option value="2">Other</option>
@@ -242,7 +245,7 @@
                                         <div class="col-12 col-sm-12 col-md-6 col-lg-6">
                                             <div class="form-outline mt-4">
                                                 <label for="eo_dist" class="form-label text-dark"><i class="fa-solid fa-location-dot"></i> District</label>
-                                                <select class="form-select py-2 " aria-label=".form-select-lg example" name="eo_dist" id="eo_dist" required>
+                                                <select class="form-select py-2 " aria-label=".form-select-lg example" name="eo_dist" id="eo_dist">
                                                     <option value="" Selected Disabled=""></option>
                                                     <option value="1">Raipur</option>
                                                     <option value="2">Bilaspur</option>
@@ -267,6 +270,7 @@
                             </div>
                         </form>
 
+                        <!-- FORM 2  -->
                         <form id="form-step-2" class="bg-light mul_stp_frm" style="display:none;" method="post" action="">
                             <div class="d-flex justify-content-center mb-3">
                                 <div class="col-12 col-lg-5 col-md-5 col-sm-5">
@@ -295,7 +299,7 @@
                                         <div class="col-12 col-sm-12 col-md-6 col-lg-6">
                                             <div class="form-outline">
                                                 <label  for="_brand"class="form-label text-dark">Brand</label>
-                                                <select class="form-select py-2 " aria-label=".form-select-lg example" name="_brand" id="_brand" required>
+                                                <select class="form-select py-2 " aria-label=".form-select-lg example" name="_brand" id="_brand">
                                                     <option value="" selected-disabled=""></option>
                                                     <option value="1">Mahindra</option>
                                                     <option value="2">svaraj</option>
@@ -306,7 +310,7 @@
                                         <div class="col-12 col-sm-12 col-md-6 col-lg-6">
                                             <div class="form-outline">
                                                 <label for="_model"class="form-label text-dark">Model</label>
-                                                <select class="form-select py-2 " aria-label=".form-select-lg example" name="_model" id="_model" required>
+                                                <select class="form-select py-2 " aria-label=".form-select-lg example" name="_model" id="_model">
                                                     <option value="" selected-disabled=""></option>
                                                     <option value="1">MU4501 2WD</option>
                                                     <option value="2">MU5501</option>
@@ -317,7 +321,7 @@
                                         <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-3">
                                             <div class="form-outline my-2">
                                                 <label for="_year"class="form-label text-dark">Year</label>
-                                                <select class="form-select py-2 " aria-label=".form-select-lg example" name="_year" id="_year" required>
+                                                <select class="form-select py-2 " aria-label=".form-select-lg example" name="_year" id="_year">
                                                     <option value="" selected-disabled=""></option>
                                                     <option value="1">2007</option>
                                                     <option value="2">2008</option>
@@ -328,7 +332,7 @@
                                         <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-3">
                                             <div class="form-outline my-2">
                                                 <label for="_e_con" class="form-label text-dark">Engine Condition</label>
-                                                <select class="form-select py-2 " aria-label=".form-select-lg example" name="_e_con" id="_e_con" required>
+                                                <select class="form-select py-2 " aria-label=".form-select-lg example" name="_e_con" id="_e_con">
                                                     <option value="" selected-disabled=""></option>
                                                     <option value="1">0-25%(poor)</option>
                                                     <option value="2">25-50%(Average)</option>
@@ -340,7 +344,7 @@
                                         <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-2">
                                             <div class="form-outline my-2">
                                                 <label for="_t_con"class="form-label text-dark">Tyre Condition</label>
-                                                <select class="form-select py-2 " aria-label=".form-select-lg example" name="_t_con" id="_t_con" required>
+                                                <select class="form-select py-2 " aria-label=".form-select-lg example" name="_t_con" id="_t_con">
                                                     <option value="" selected-disabled=""></option>
                                                     <option value="1">0-25%(poor)</option>
                                                     <option value="2">25-50%(Average)</option>
@@ -352,7 +356,7 @@
                                         <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-2">
                                             <div class="form-outline my-2">
                                                 <label for="_h_driven"class="form-label text-dark">Hours driven</label>
-                                                <select class="form-select py-2 " aria-label=".form-select-lg example" name="_h_driven" id="_h_driven" required>
+                                                <select class="form-select py-2 " aria-label=".form-select-lg example" name="_h_driven" id="_h_driven">
                                                     <option value="" selected-disabled=""></option>
                                                     <option value="1">Less then 1000</option>
                                                     <option value="2">1001-2000</option>
@@ -369,6 +373,7 @@
                             </div>
                         </form>
 
+                        <!-- FORM 3 -->
                         <form id="form-step-3" class="bg-light mul_stp_frm" action="" method="post" style="display:none;">
                             <div class="d-flex justify-content-center mb-3">
                                 <div class="col-12 col-lg-5 col-md-5 col-sm-5">
@@ -394,9 +399,9 @@
                                 <p class="text-center mb-4">Upload Tractor Images</p>
                                 <div class="col-12 col-sm-12 col-md-12 col-lg-12 mb-0 m-0 p-1">
                                     <div class="upload__box">
-                                        <div class="upload__btn-box">
+                                        <div class="upload__btn-box mb-2">
                                             <label>
-                                                <p class="upload__btn w-100">Upload images</p>
+                                                <p class="upload__btn">Upload Images</p>
                                                 <input type="file" multiple="" data-max_length="3" class="upload__inputfile" id="_file" name="_file">
                                             </label>
                                         </div>
@@ -408,7 +413,7 @@
                                 </div>
                                 <div class="col-12 col-sm-12 col-md-12 col-lg-12">
                                     <label for="_td_duration" class="form-label text-dark mt-2 mb-0">How early do you want to sell?</label>
-                                    <select class="form-select" aria-label=".form-select-lg example" name="_td_duration" id="_td_duration" required>
+                                    <select class="form-select" aria-label=".form-select-lg example" name="_td_duration" id="_td_duration" >
                                         <option value="" selected-disabled=""></option>
                                         <option value="1">15-30 days</option>
                                         <option value="2">More then 30 days</option>
@@ -851,8 +856,6 @@
     </script>
 
     <script>
-
-
 $(document).ready(function () {
     // Function to display a specific step
     function displayStep(stepNumber) {
@@ -882,20 +885,25 @@ $(document).ready(function () {
         $("form").each(function () {
             this.reset(); // Reset each form
         });
-    }
 
+        // Additional reset for specific fields in the third form
+    //     $("#form-step-3 input[type='file']").val(''); // Reset file inputs in form-step-3
+    //     document.getElementById("form-step-3").reset();
+    //     $("#form-step-3").trigger("reset");
+    // }
 
-        // Function to reset all forms
-        function resetForms() {
-            $("form").each(function () {
-                this.reset(); // Reset each form
-            });
-            // Additional reset for specific fields in the third form (change #form-step-3 to the appropriate selector)
-            // $("#form-step-3 input, #form-step-3 select").val(''); // Reset input and select fields in form-step-3
-            var input = $("#form-step-3 input[type='file']");
-            input.replaceWith(input.val('').clone(true));
+    // ... (other functions)
+
+    // Function to show confirmation box, reset forms, and display success message
+    $("#sell_used_trac_btn").click(function () {
+        if (areAllFormsValid()) {
+            if (window.confirm("Are you sure you want to submit?")) {
+                resetForms(); // Reset forms if confirmed
+                displayStep(1); // Show the first form after resetting
+                showSuccessMessage(); // Show success message after form submission
+            }
         }
-
+    });
 
     // Function to update the progress bar based on the current step
     function updateProgressBar(stepNumber) {
@@ -903,19 +911,26 @@ $(document).ready(function () {
         $(".progress-bar").css("width", progressPercentage + "%");
     }
 
-    // Function to show confirmation box and reset forms
-    $("#sell_used_trac_btn").click(function () {
-        if (areAllFormsValid()) {
-            // Check if all three forms are valid before showing the confirmation box
-            if (window.confirm("Are you sure you want to submit?")) {
-                resetForms(); // Reset forms if confirmed
-                displayStep(1); // Show the first form after resetting
-            }
-        }
-    });
+    // // Function to show confirmation box, reset forms, and display success message
+    // $("#sell_used_trac_btn").click(function () {
+    //     if (areAllFormsValid()) {
+    //         if (window.confirm("Are you sure you want to submit?")) {
+    //             resetForms(); // Reset forms if confirmed
+    //             displayStep(1); // Show the first form after resetting
+    //             showSuccessMessage(); // Show success message after form submission
+    //         }
+    //     }
+    // });
 
-    // Existing code...
+    // Function to show success message after form submission
+    function showSuccessMessage() {
+        $('#successModal').modal('show'); // Show a Bootstrap modal with ID 'successModal'
+        // You can include additional actions or modifications after displaying the success message if needed
+    }
 });
+
+
+
 
     </script>
 </body>
