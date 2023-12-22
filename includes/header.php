@@ -198,7 +198,7 @@
           <ul class="dropdown-menu">
             <li><a class="dropdown-item fw-bold" href="onload.php"> On-Road Price</a></li>
             <hr class="dropdown-divider">
-            <li><a class="dropdown-item fw-bold" href="compare_trac_model.php">Compare</a></li>
+            <li><a class="dropdown-item fw-bold" href="compare_trac.php">Compare</a></li>
           </ul>
         </li>
         <li class="nav-item dropdown dropdown-toggle">

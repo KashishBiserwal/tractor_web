@@ -36,7 +36,7 @@
 
     <!-- FORM -->
     <section class="form-view bg-white pb-4">
-        <div class="container-mid" style="position: relative;">
+        <div class="container" style="position: relative;">
             <div class="row justify-content-center">
                 <div class="col-md-8 col-lg-7">
                     <form id="dealership_enq_from" class="form-view-inner form-view-overlay bg-light box-shadow p-3" action="" method="" >
@@ -44,7 +44,7 @@
                             <div class="col-12 col-sm-12 col-md-6 col-lg-6">
                                 <div class="mt-2">
                                     <div class="form-outline">
-                                        <label class="form-label text-dark"><i class="fa-regular fa-user"></i> First Name</label>
+                                        <label class="form-label text-dark" style="background:#fcfcfc54;"><i class="fa-regular fa-user"></i> First Name</label>
                                         <input type="text" class="form-control mb-0" id="f_name" name="f_name">
                                     </div>
                                 </div>
@@ -52,7 +52,7 @@
                             <div class="col-12 col-sm-12 col-md-6 col-lg-6">
                                 <div class="mt-2">
                                     <div class="form-outline">
-                                        <label class="form-label text-dark"><i class="fa-regular fa-user"></i> Last Name</label>
+                                        <label class="form-label text-dark" style="background:transparent;"><i class="fa-regular fa-user"></i> Last Name</label>
                                         <input type="text" class="form-control mb-0" id="l_name" name="l_name">                                
                                     </div>
                                 </div>
@@ -60,14 +60,14 @@
                             <div class="col-12 col-lg-12 col-md-12 col-sm-12 mt-3">
                             <div class="form-outline">    
                                 <div class="mt-2">
-                                        <label class="form-label text-dark"> <i class="fa fa-phone" aria-hidden="true"></i> Mobile Number</label>
+                                        <label class="form-label text-dark"style="background:transparent;"> <i class="fa fa-phone" aria-hidden="true"></i> Mobile Number</label>
                                         <input type="text" class="form-control mb-0" id="mob_num" name="mob_num" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');">
                                     </div>
                                 </div>
                             </div>
                             <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-4">
                                 <div class="form-outline">
-                                    <label for="yr_state" class="form-label text-dark fw-bold"> <i class="fas fa-location"></i> State</label>
+                                    <label for="yr_state" class="form-label text-dark fw-bold "> <i class="fas fa-location"></i> State</label>
                                     <select class="form-select py-2" id="_state" name="_state"aria-label=".form-select-lg example">
                                         <option value="" selected disabled=""></option>
                                         <option value="1">Chhattisgarh</option>
