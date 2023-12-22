@@ -255,92 +255,6 @@ function get_year_and_hours() {
 get_year_and_hours();
 
 
-
-// store
-
-// function store(event) {
-//     event.preventDefault();
-//     console.log('jfhfhw');
-//     var form_type = $('#form_type').val();
-//     var enquiry_type_id = $('#enquiry_type_id').val();
-//     console.log("enquiry type :",$('#enquiry_type_id').val());
-//     var first_name = $('#first_name').val();
-//     console.log(first_name);
-//     var last_name = $('#last_name').val();
-//     var mobile = $('#mobile_number').val();
-//     var state = $('#state').val();
-//     var district = $('#district').val();
-//     var brand_name = $('#brand').val();
-//     var Model_name = $('#model').val();
-//     var purchase_year = $('#purchase_year').val();
-//     var product_type_id = $('#product_type_id').val();
-//     console.log("enquiry type :",$('#product_type_id').val());
-//     var tehsil = $('#tehsil').val();
-//     var engine_condition = $('#condition').val();
-//     var tyre_condition = $('#tyrecondition').val();
-//     var hours_driven = $('#hours_driven').val();
-//     var rc = $('#rc_num').val();
-//     var finance = $('input[name="fav_language"]:checked').val();
-//     var nocAvailable = $('input[name="fav_language1"]:checked').val();
-//     var price= $('#price_old').val();
-//     // var image = $('#image_pic').val();
-//     var image_name = document.getElementById('image_pic').files[0];
-//     var description = $('#description').val();
-
-//     var apiBaseURL =APIBaseURL;
-//     var url = apiBaseURL + 'customer_enquiries';
-//     console.log(url);
-//     var token = localStorage.getItem('token');
-//     var headers = {
-//       'Authorization': 'Bearer ' + token
-//     };
-//     var data = new FormData();
-//     var image_name = document.getElementById('image_name').val();
-//     console.log('imgds',image_name);
-//     for (var x = 0; x < image_name.length; x++) {
-//       console.log('safdas',image_name[x]);
-//         data.append("image_names", image_name[x]);
-//     }
-//     data.append('form_type',form_type);
-//       data.append('enquiry_type_id',enquiry_type_id);
-//       data.append('first_name', first_name);
-//       data.append('last_name', last_name);
-//       data.append('mobile', mobile);
-//       data.append('brand_id', brand_name);
-//       data.append('product_id', product_type_id);
-//       data.append('model', Model_name);
-//       data.append('purchase_year', purchase_year);
-//       data.append('engine_condition', engine_condition);
-//       data.append('tyre_condition', tyre_condition);
-//       data.append('hours_driven', hours_driven);
-//       data.append('state',state);
-//       data.append('district',district);
-//       data.append('tehsil',tehsil);
-//       data.append('rc_number',rc);
-//       data.append('price',price);
-//       data.append('description', description);
-//       data.append('finance', finance);
-//       data.append('noc', nocAvailable);
-//     $.ajax({
-//       url: url,
-//       // type: "data",
-//       data: data,
-//       headers: headers,
-//       success: function (result) {
-//         // console.log(result, "result");
-//         if(result.length){
-//           get_tractor_list();
-//         }
-       
-//         // console.log("Add successfully");
-//       },
-//       error: function (error) {
-//         console.error('Error fetching data:', error);
-//       }
-//     });
-//   }
-
-
 function store(event) {
   console.log('run store function');
   //  var typeDiv = document.getElementById('type_name');
@@ -352,7 +266,7 @@ function store(event) {
      var product_type_id = $('#product_type_id').val();
      var image_type_id = $('#image_type_id').val();
      var enquiry_type_id = $('#enquiry_type_id').val();
-     var tractor_type_id = $('#tractor_type_id').val();enquiry_type_id
+     var tractor_type_id = $('#tractor_type_id').val();
      console.log('tractor_type_id',tractor_type_id);
      var first_name = $('#first_name').val();
      console.log(first_name);
@@ -475,13 +389,14 @@ function store(event) {
                     tableRow.innerHTML = `
                         <td>${row.product_id}</td>
                         <td>${formatDateTime(row.created_at)}</td>
-                        <td>${row.customer_id}</td>
                         <td>${row.brand_name}</td>
                         <td>${row.model}</td>
                         <td>${row.purchase_year}</td>
                         <td>${row.state}</td>
                         <td>
                             <div class="d-flex">
+                            <button class="btn btn-primary btn-sm btn_edit" onclick="fetch_edit_data(${row.id});" data-bs-toggle="modal" data-bs-target="#staticBackdrop_model" id="yourUniqueIdHere">
+                            <i class="fas fa-edit" style="font-size: 11px;"></i></button>
                                 <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.id});">
                                     <i class="fa fa-trash" style="font-size: 11px;"></i>
                                 </button>
@@ -500,6 +415,56 @@ function store(event) {
     });
 }
 get_tractor_list();
+
+
+// fetch edit data
+
+function fetch_edit_data(id) {
+  var apiBaseURL = APIBaseURL;
+  var url = apiBaseURL + 'get_old_tractor';
+
+  var headers = {
+    'Authorization': 'Bearer ' + localStorage.getItem('token')
+  };
+
+  $.ajax({
+    url: url,
+    type: 'GET',
+    headers: headers,
+    success: function(response) {
+      var userData = response.product[0];
+
+      $('#enquiry_type_id1').val(userData.enquiry_type_id);
+      $('#image_type_id1').val(userData.image_type_id);
+      $('#tractor_type_id1').val(userData.tractor_type_id);
+      $('#form_type1').val(userData.form_type);
+      $('#first_name1').val(userData.first_name);
+      $('#last_name1').val(userData.last_name);
+      $('#mobile_number1').val(userData.mobile);
+      $('#state1').val(userData.state);
+      $('#district1').val(userData.district);
+      $('#tehsil1').val(userData.tehsil);
+      $('#brand1').val(userData.brand_name);
+      $('#model1').val(userData.model);
+      $('#purchase_year1').val(userData.purchase_year);
+      $('#condition1').val(userData.engine_condition);
+      $('#tyrecondition1').val(userData.tyre_condition);
+      $('#hours_driven').val(userData.hours_driven);
+      $('#rc_num1').val(userData.rc_number);
+      $('#price_old1').val(userData.price);
+      $('#image_pic1').val(userData.image_pic);
+      $('#description1').val(userData.description);
+      $('#product_type_id1').val(userData.product_type);
+      $('#finance1').val(userData.finance);
+      $('#noc1').val(userData.noc);
+
+      // $('#exampleModal').modal('show');
+    },
+    error: function(error) {
+      console.error('Error fetching user data:', error);
+    }
+  });
+}
 
 // delete data
   function destroy(id) {

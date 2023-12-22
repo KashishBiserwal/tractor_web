@@ -85,8 +85,8 @@ include 'includes/headertag.php';
                                   <label class="form-label" for="state">State</label>
                                   <select class="form-select py-2" aria-label="Default select example" id="state" name="state">
                                     <option selected disabled="" ></option>
-                                    <option value="1">Chhattisgarh</option>
-                                    <option value="2">Other </option>
+                                    <option value="">Chhattisgarh</option>
+                                    <option value="">Other </option>
                                   </select>
                                 </div>
                               </div>
@@ -169,12 +169,6 @@ include 'includes/headertag.php';
                                   </select>
                                 </div>
                               </div>
-                              <!-- <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-3">
-                                <div class="form-outline">
-                                  <label class="form-label" for="rc">RC Number</label>
-                                  <input type="text" id="rc" name="rc"class=" data_search form-control input-group-sm py-2" />
-                                </div>
-                              </div> -->
                               <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-3">
                                 <div class="form-outline">
                                   <label class="form-label" for="">RC Number</label>
@@ -249,12 +243,6 @@ include 'includes/headertag.php';
           <div class="filter-card mb-2">
             <div class="card-body">
               <div class="row">
-                <!-- <div class="col-12 col-sm-12 col-md-3 col-lg-3">
-                  <div class="form-outline">
-                    <label class="form-label"> Search by UID </label>
-                    <input type="text" id="uid" name="search_email" class="form-control" />
-                  </div>
-                </div> -->
                 <div class="col-12 col-sm-12 col-md-3 col-lg-3">
                   <div class="form-outline">
                     <label class="form-label">Search by Brand</label>
@@ -263,7 +251,7 @@ include 'includes/headertag.php';
                 </div>
                 <div class="col-12 col-sm-12 col-md-3 col-lg-3">
                   <div class="form-outline">
-                    <label class="form-label">Search by Model Number</label>
+                    <label class="form-label">Search by Model</label>
                     <input type="text"  name="search_email" class="form-control" />
                   </div>
                 </div>
@@ -283,18 +271,227 @@ include 'includes/headertag.php';
                   <tr>
                     <th class="d-none d-md-table-cell text-white">S.No.</th>
                     <th class="d-none d-md-table-cell text-white">Date</th>
-                    <th class="d-none d-md-table-cell text-white">UID</th>
+                    <!-- <th class="d-none d-md-table-cell text-white">UID</th> -->
                     <th class="d-none d-md-table-cell text-white">Brand</th>
                     <th class="d-none d-md-table-cell text-white"> Model </th>
                     <th class="d-none d-md-table-cell text-white"> Purchase Year </th>
                     <th class="d-none d-md-table-cell text-white"> State </th>
-                    <th class="d-none d-md-table-cell text-white"> Model </th>
+                    <th class="d-none d-md-table-cell text-white"> Action </th>
                   </tr>
                 </thead>
                 <tbody id="data-table"></tbody>
               </table>
             </div>
           </div>
+
+          <div class="modal fade" id="staticBackdrop_model" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+          <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">Update Old tractor</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+
+              <h4 class="text-center">Fill Old Tractor Details</h4>
+              <form id="old_tract" name="old_tract px-5" method="post" enctype="multipart/form-data" onsubmit="return false">
+                            <div class="row">
+                              <h5>Fill Your Detail</h5>
+                              <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-2" hidden>
+                                <div class="form-outline">
+                                
+                                  <input type="text" id="enquiry_type_id1" name="" value="1" class=" data_search form-control input-group-sm py-2" />
+                                </div>
+                              </div>
+                              <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-2" hidden>
+                                <div class="form-outline">
+                                
+                                  <input type="text" id="image_type_id1" name="" value="1" class=" data_search form-control input-group-sm py-2" />
+                                </div>
+                              </div>
+                              <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-2" hidden>
+                                <div class="form-outline">
+                                  <input type="text" id="tractor_type_id1" name="" value="1" class="data_search form-control input-group-sm py-2" />
+                                </div>
+                              </div>
+                              <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-2" hidden>
+                                <div class="form-outline">
+                                
+                                  <input type="text" id="form_type1" name="form_type" value="FOR_SELL_TRACTOR" class=" data_search form-control input-group-sm py-2" />
+                                </div>
+                              </div>
+                              <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-2">
+                                <div class="form-outline">
+                                  <label class="form-label" for="first_name">First Name</label>
+                                  <input type="text" id="first_name1" name="first_name" class=" data_search form-control input-group-sm py-2" />
+                                </div>
+                              </div>
+                              <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-2">
+                                <div class="form-outline">
+                                  <label class="form-label" for="last_name">Last Name</label>
+                                  <input type="text" id="last_name1" name="last_name" class=" data_search form-control input-group-sm py-2" />
+                                </div>
+                              </div>
+                              <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-2">
+                                <div class="form-outline">
+                                  <label class="form-label" for="mobile_number">Mobile Number</label>
+                                  <input type="text" id="mobile_number1" name="mobile_number" class=" data_search form-control input-group-sm py-2" />
+                                </div>
+                              </div>
+                              <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-2">
+                                <div class="form-outline">
+                                  <label class="form-label" for="state">State</label>
+                                  <select class="form-select py-2" aria-label="Default select example" id="state1" name="state">
+                                    <option selected disabled="" ></option>
+                                    <option value="">Chhattisgarh</option>
+                                    <option value="">Other </option>
+                                  </select>
+                                </div>
+                              </div>
+                              <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-2">
+                                <div class="form-outline">
+                                  <label class="form-label" for="district">District</label>
+                                  <select class="form-select py-2" aria-label="Default select example" name="district" id="district1">
+                                    <option selected disabled=""></option>
+                                    <option value="">Raigarh</option>
+                                    <option value="">Sarguja</option>
+                                    <option value="">Surajpur</option>
+                                  </select>
+                                </div>
+                              </div>
+                              <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-2">
+                                <div class="form-outline">
+                                  <label class="form-label" for="district">Tehsil</label>
+                                  <select class="form-select py-2" aria-label="Default select example" name="tehsil" id="tehsil1">
+                                    <option selected disabled=""></option>
+                                    <option value="">Raigarh</option>
+                                    <option value="">ambikapur</option>
+                                    <option value="">chirmiri</option>
+                                  </select>
+                                </div>
+                              </div>
+                              <h5 class="mt-2">Which Tractor do you Own ?</h5>
+                              <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-2">
+                                <div class="form-outline">
+                                  <label class="form-label" for="district">Brand</label>
+                                  <select class="form-select py-2" aria-label="Default select example" name="brand" id="brand1">
+                                    <option selected disabled=""></option>
+                                  
+                                  </select>
+                                </div>
+                              </div>
+                              <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-2">
+                                <div class="form-outline">
+                                  <label class="form-label" for="district">Model</label>
+                                  <input type="text" id="model" name="model" class=" data_search form-control input-group-sm py-2" />
+                                </div>
+                              </div>
+                              <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-2">
+                                <div class="form-outline">
+                                  <label class="form-label" for="district">Purchase Year</label>
+                                  <select class="form-select py-2" aria-label="Default select example" name="purchase_year" id="purchase_year1">
+                                    <option selected disabled=""></option>
+                                  </select>
+                                </div>
+                              </div>
+                              <h5 class="mt-2">Share Tractor Condition with Buyers</h5>
+                              <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-2">
+                                <div class="form-outline">
+                                  <label class="form-label" for="tehsil">Engine Condition</label>
+                                  <select class="form-select py-2" aria-label="Default select example" name="condition" id="condition1">
+                                    <option selected disabled=""></option>
+                                    <option value="">0-25%(Poor)</option>
+                                    <option value="">26-50%(Average)</option>
+                                    <option value="">51-75%(Good)</option>
+                                    <option value="">76-100%(very Good)</option>
+                                  </select>
+                                </div>
+                              </div>
+                              <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-2">
+                                <div class="form-outline">
+                                  <label class="form-label" for="tehsil">Tyre Condition</label>
+                                  <select class="form-select py-2" aria-label="Default select example" name="tyrecondition" id="tyrecondition1">
+                                    <option selected disabled=""></option>
+                                    <option value="">0-25%(Poor)</option>
+                                    <option value="">26-50%(Average)</option>
+                                    <option value="">51-75%(Good)</option>
+                                    <option value="">76-100%(very Good)</option>
+                                  </select>
+                                </div>
+                              </div>
+                              <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-2">
+                                <div class="form-outline">
+                                  <label class="form-label" for="tehsil">Hours Driven</label>
+                                  <select class="form-select py-2"  name="hours_driven" id="hours_driven1" aria-label="Default select example">
+                                    <option selected disabled="" value="">Please select an option</option>
+                                  </select>
+                                </div>
+                              </div>
+                              <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-3">
+                                <div class="form-outline">
+                                  <label class="form-label" for="">RC Number</label>
+                                  <input type="text" id="rc_num1" name="rc_num" class=" data_search form-control input-group-sm py-2" />
+                                </div>
+                              </div>
+                              <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-3">
+                                <label class="pe-3 fs-5 text-dark">Financed</label>
+                                <input type="radio" id="yes1" name="fav_language" value="1">
+                                <label for="html" class="text-dark">Yes</label> 
+                                <input type="radio" id="no1" name="fav_language" value="0">
+                                <label for="css" class="text-dark">No</label>
+                              </div>
+                              <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-3" id="nocDiv" style="display: none;">
+                                <label class="pe-3 fs-5 text-dark">NOC Available:</label>
+                                <input type="radio" id="nocyes" name="fav_language1" value="1">
+                                <label for="nocyes1" class="text-dark">Yes</label> 
+                                <input type="radio" id="nocno" name="fav_language1" value="0">
+                                <label for="nocno1" class="text-dark">No</label>
+                              </div>
+                              <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-3">
+                                <div class="form-outline">
+                                  <label class="form-label" for="">Price</label>
+                                  <input type="text" id="price_old1" name="price_old" class=" data_search form-control input-group-sm py-2" />
+                                </div>
+                              </div>
+                              <!-- <h5 class="mt-2">Upload Image</h5> -->
+                              <div class="col-12 col-sm-4 col-lg-4 col-md-4 mt-4">
+                                <div class="">
+                                      <div class="upload__btn-box">
+                                        <label class="upload__btn">
+                                          <p>Upload Image</p>
+                                          <input type="file" name='files[]' multiple="" data-max_length="20" class="upload__inputfile" id="image_pic1" name="image_pic">
+                                        </label>
+                                      </div>
+                                      <p>Upload minimum 2 images</p>
+                                      <div class="upload__img-wrap"></div>
+                                    </div>
+                              </div>
+                              <div class="col-12 col-sm-8 col-lg-8 col-md-8 ">
+                                <div class="form-outline">
+                                  <label class="form-label" for="mobile_number">Description</label>
+                                  <textarea type="text" id="description1" name="description" class=" data_search form-control input-group-sm py-2"></textarea>
+                                </div>
+                              </div>
+                              <div class="col-12 col-sm-6 col-lg-6 col-md-6 my-2" hidden>
+                                <div class="form-outline">
+                                  <label class="form-label">Product Type</label>
+                                  <input type="text" class="" placeholder=" " value="1" id="product_type_id1">
+                                </div>
+                              </div>
+                        
+                            </div>
+                          </form>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="px-4 bg-success btn btn-primary" id="save_brand1">Submit</button>
+              </div>
+            </div>
+          </div>
+
+
+
+        </div>
       </section>
     </div>
   </div>

@@ -204,21 +204,21 @@
    
           <!-- model view -->
           <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog modal-dialog-centered modal-lg">
+          <div class="modal-dialog modal-dialog-centered modal-md">
             <div class="modal-content">
             <!-- <div class="modal-header">
                 <h5 class="modal-title" id="staticBackdropLabel"> Brand Information</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div> -->
               <div class="modal-body">
-                <h4>Brand Information</h4>
+                <h4 class="fw-bold mb-2">Brand Information</h4>
                 <div class="container">
                   <div class="row">
-                    <div class="col-12 col-lg-4 col-sm-4 col-md-4">
+                    <div class="col-12 col-lg-6 col-sm-6 col-md-6">
                       <h5>Brand Name: </h5>
                     </div>
-                    <div class="col-12 col-lg-8 col-sm-8 col-md-8">
-                      <p id="brand_name"><span id=""></span> HP</p>
+                    <div class="col-12 col-lg-6 col-sm-6 col-md-6">
+                      <p id="brand_name2" class="fw-bold"></p>
                     </div>
                   </div>
                   <div class="row">
@@ -319,13 +319,13 @@ function get() {
                         <td>${serialNumber}</td>
                         <td>${row.brand_name}</td>
                         <td>${row.brand_img}</td>
-                        <td><div class="float-start"><button class="btn btn-danger btn-sm mx-1" id="delete_user" onclick="destroy(${row.id});"><i class="fa fa-trash" style="font-size: 11px;"></i></button>
-                        <button class="btn btn-primary btn-sm btn_edit" onclick="fetch_edit_data(${row.id});" data-bs-toggle="modal" data-bs-target="#staticBackdrop_model" id="yourUniqueIdHere">
-                          <i class="fas fa-edit" style="font-size: 11px;"></i>
-                        </button>
-                        <button class="btn btn-warning btn-sm text-white" data-bs-toggle="modal" onclick="fetch_data(${row.id});" data-bs-target="#exampleModal">
+                        <td><div class="float-start"><button class="btn btn-warning btn-sm text-white mx-1" data-bs-toggle="modal" onclick="fetch_data(${row.id});" data-bs-target="#exampleModal">
                         <i class="fa-solid fa-eye" style="font-size: 11px;"></i></button>
-                                  </div></td>
+                        <button class="btn btn-primary btn-sm btn_edit" onclick="fetch_edit_data(${row.id});" data-bs-toggle="modal" data-bs-target="#staticBackdrop_model" id="yourUniqueIdHere">
+                          <i class="fas fa-edit" style="font-size: 11px;"></i></button>
+                        </button> <button class="btn btn-danger btn-sm mx-1" id="delete_user" onclick="destroy(${row.id});"><i class="fa fa-trash" style="font-size: 11px;"></i></button></div>
+                        
+                        </td>
                     `;
                     tableBody.appendChild(tableRow);
 
@@ -407,19 +407,27 @@ function edit_brand(){
 }
 
 
-function fetch_data(userId) {
+function fetch_data(id) {
+  console.log(id,"id")
     console.log(window.location)
     var urlParams = new URLSearchParams(window.location.search);
-    var productId = urlParams.get('id');
-    var url = "http://tractor-api.divyaltech.com/api/customer/getBrands/"
+ 
+    var productId = id;
+    var url = "<?php echo $APIBaseURL; ?>getBrandsById/" + id;
+  
+    // var url = "http://127.0.0.1:8000/api/admin/getBrandsById/" + productId;
     // console.log(url);
+    var headers = {
+    'Authorization': 'Bearer ' + localStorage.getItem('token')
+  };
     $.ajax({
         url: url,
         type: "GET",
+        headers: headers,
         success: function(data) {
         console.log(data, 'abc');
-        // document.getElementById('image_id').innerText=data.product.allProductData[0].image_name;
-        document.getElementById('brand_name').innerText=data.product.allProductData[0].brand_name;
+        document.getElementById('brand_name2').innerText=data.brands[0].brand_name;
+        console.log(data.brands[0].brand_name);
 
         var productContainer = $("#related_brand");
 
@@ -428,9 +436,9 @@ function fetch_data(userId) {
                 var newCard = `
                 <div class=" col-6 col-lg-6 col-md-6 col-sm-6">
                         <div class="brand-main box-shadow mt-2 text-center shadow">
-                            <a class="weblink text-decoration-none text-dark" href="#"
+                            <a class="weblink text-decoration-none text-dark" 
                                 title="Old Tractors">
-                                <img class="img-fluid w-50" src="http://tractor-api.divyaltech.com/uploads/product_img/"
+                                <img class="img-fluid w-50" src="http://tractor-api.divyaltech.com/customer/uploads/product_img/"
                                     data-src="h" alt="Brand Logo">
                                 <p class="mb-0 oneline">${b.brand_name}</p>
                             </a>
@@ -450,7 +458,7 @@ console.error('Error fetching data:', error);
 }
     });
 }
-fetch_data();
+// fetch_data();
 // delete
 function destroy(id) {
   var userConfirmation = confirm("Are you sure you want to delete this Brand ?");

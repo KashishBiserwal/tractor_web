@@ -80,6 +80,7 @@ function getOldTractorById() {
 function store(event) {
     event.preventDefault();
     console.log('jfhfhw');
+    var enquiry_type_id = $('#enquiry_type_id').val();
     var first_name = $('#fname').val();
     var last_name = $('#lname').val();
     var mobile = $('#number').val();
@@ -90,6 +91,7 @@ function store(event) {
   
     // Prepare data to send to the server
     var paraArr = {
+      'enquiry_type_id':enquiry_type_id,
       'first_name': first_name,
       'last_name':last_name,
       'mobile':mobile,
@@ -97,8 +99,6 @@ function store(event) {
       'district':district,
       'tehsil':tehsil,
       'price':price,
-
-
     };
   
   var apiBaseURL =APIBaseURL;
@@ -114,6 +114,8 @@ var url = "http://tractor-api.divyaltech.com/api/customer/customer_enquiries";
       data: paraArr,
       success: function (result) {
         console.log(result, "result");
+        alert('successfully inserted..!');
+        getOldTractorById();
         console.log('prachi',data.product);
         const new_data=data.product.filter((s)=>{ 
             if(s.product_type=="FOR_SELL_TRACTOR"){
@@ -123,7 +125,7 @@ var url = "http://tractor-api.divyaltech.com/api/customer/customer_enquiries";
         console.log('form_type',new_data);
         getOldTractorById();
         console.log("Add successfully");
-        alert('successfully inserted..!');
+      
       },
       error: function (error) {
         console.error('Error fetching data:', error);
@@ -202,12 +204,7 @@ function displayPopularTractors(tractors, new_arr) {
                                     <span class="bg-light"> ${p.hp_category} HP</span>
                                     <span class="bg-light">${p.wheel_drive_value}</span>
                                 </p>
-                                <div class="">
-                                    <a href="#"><img
-                                            src="assets/images/index_trac_files/park-solid_phone-call.svg"
-                                            width="15" height="15" alt="phone-call-icon">Call
-                                        Now</span></a>
-                                </div>
+                                
                             </div>
                         </div>`;
 
@@ -291,12 +288,7 @@ function displayupcomingTractors(tractors, new_arr) {
                                     <span class="bg-light"> ${p.hp_category} HP</span>
                                     <span class="bg-light">${p.wheel_drive_value}</span>
                                 </p>
-                                <div class="">
-                                    <a href="#"><img
-                                            src="assets/images/index_trac_files/park-solid_phone-call.svg"
-                                            width="15" height="15" alt="phone-call-icon">Call
-                                        Now</span></a>
-                                </div>
+                               
                             </div>
                         </div>`;
 
