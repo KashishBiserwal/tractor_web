@@ -13,7 +13,7 @@
    ?>
 
     <section class="mt-5 pt-5">
-        <div class="container pt-4">
+        <div class="container-fullwidth pt-4">
             <div class="">
                 <span class="mt-5 text-white pt-5 ">
                     <a href="index.php" class="text-decoration-none header-link px-1">Home <i
@@ -26,7 +26,7 @@
         </div>
     </section>
     <section>
-        <div class="container mt-4">
+        <div class="container-fullwidth mt-4">
             <div class="row">
                 <div class="col-12 col-sm-9 col-lg-9 col-md-9">
                     <h3 class="py-2">Buy Your Item From <span class="text-success fw-bold">Haatbazar</span> </h3>
@@ -79,68 +79,107 @@
                                 </button>
                             </div>
 
-                            <!-- Modal -->
-                            <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static"
+                             <!-- Modal -->
+                             <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static"
                                 data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel"
                                 aria-hidden="true">
                                 <div class="modal-dialog modal-lg modal-dialog-centered">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h5 class="modal-title text-danger" id="staticBackdropLabel">Contact Seller
-                                            </h5>
+                                            <h4 class="modal-title text-dark fw-bold" id="staticBackdropLabel">Contact Seller</h4>
                                             <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                 aria-label="Close"></button>
                                         </div>
                                         <div class="modal-body">
                                             <div class="model-cont">
-                                                <h4 class="text-center text-danger">Contact with Seller</h3>
-                                                    <div class="row px-3 py-2">
-                                                        <div class="col-12  col-sm-12 col-md-6 col-lg-6 ">
-                                                            <label for="slr_name" class="form-label fw-bold text-dark">
-                                                                <i class="fa-regular fa-user"></i>Name</label>
-                                                            <input type="text" class="form-control" id="slr_name">
+                                                <form id="hire_inner" name="hire_inner" method="post">
+                                                    <div class="row">
+                                                        <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-4">
+                                                            <div class="form-outline">
+                                                                <label class="form-label" for="first_name"><i
+                                                                        class="fa-regular fa-user"></i> First
+                                                                    Name</label>
+                                                                <input type="text" id="first_name" name="first_name"
+                                                                    class=" data_search form-control input-group-sm py-2" />
+                                                            </div>
                                                         </div>
-                                                        <div class="col-12 col-sm-12 col-md-6 col-lg-6">
-                                                            <label for="number" class="form-label text-dark fw-bold"> <i
-                                                                    class="fa fa-phone" aria-hidden="true"></i> Phone
-                                                                Number</label>
-                                                            <input type="text" class="form-control" id="number">
+                                                        <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-4">
+                                                            <div class="form-outline">
+                                                                <label class="form-label" for="last_name"><i
+                                                                        class="fa-regular fa-user"></i> Last
+                                                                    Name</label>
+                                                                <input type="text" id="last_name" name="last_name"
+                                                                    class=" data_search form-control input-group-sm py-2" />
+                                                            </div>
                                                         </div>
-                                                        <div class="col-12 col-sm-12 col-md-6 col-lg-6  ">
-                                                            <label for="number" class="form-label text-dark fw-bold">
-                                                                State</label>
-                                                            <select class="form-select py-2 "
-                                                                aria-label=".form-select-lg example">
-                                                                <option selected>Select State</option>
-                                                                <option value="1">Chhattisgarh</option>
-                                                                <option value="2">Other</option>
-                                                            </select>
+                                                        <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-4">
+                                                            <div class="form-outline">
+                                                                <label class="form-label" for="mobile_number"> <i
+                                                                        class="fa fa-phone" aria-hidden="true"></i>
+                                                                    Mobile
+                                                                    Number</label>
+                                                                <input type="text" id="mobile_number"
+                                                                    name="mobile_number"
+                                                                    class=" data_search form-control input-group-sm py-2" />
+                                                            </div>
                                                         </div>
-                                                        <div class="col-12 col-sm-12 col-md-6 col-lg-6  ">
-                                                            <label for="number" class="form-label text-dark fw-bold">
-                                                                District</label>
-                                                            <select class="form-select py-2 "
-                                                                aria-label=".form-select-lg example">
-                                                                <option selected>Select District</option>
-                                                                <option value="1">Mungeli</option>
-                                                                <option value="2">Durg</option>
-                                                            </select>
+                                                        <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-4">
+                                                            <div class="form-outline">
+                                                                <label class="form-label" for="state"> <i
+                                                                        class="fas fa-location"></i>
+
+                                                                    State</label>
+                                                                <select class="form-select py-2"
+                                                                    aria-label="Default select example" id="state"
+                                                                    name="state">
+                                                                    <option selected></option>
+                                                                    <option value="1">New Tractor Loan</option>
+                                                                    <option value="2">Used Tractor Loan,</option>
+                                                                    <option value="3">Loan Against Tractor</option>
+                                                                    <option value="4">Harvester Loan</option>
+                                                                    <option value="5">Used Harvester Loan</option>
+                                                                    <option value="6">Implement Loan</option>
+                                                                    <option value="7">Personal Loan</option>
+                                                                </select>
+                                                            </div>
                                                         </div>
-                                                        <div class="col-12  col-sm-12 col-md-6 col-lg-6 ">
-                                                            <label for="slr_name"
-                                                                class="form-label fw-bold text-dark mt-2"> Price</label>
-                                                            <input type="text" class="form-control"
-                                                                placeholder="Enter price" id="price">
+                                                        <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-4">
+                                                            <div class="form-outline">
+                                                                <label class="form-label" for="district"> <i
+                                                                        class="fa-solid fa-location-dot"></i>
+                                                                    District</label>
+                                                                <select class="form-select py-2"
+                                                                    aria-label="Default select example" name="district"
+                                                                    id="district">
+                                                                    <option selected></option>
+                                                                    <option value="1">name1</option>
+                                                                    <option value="2">name2</option>
+                                                                    <option value="3">name3</option>
+                                                                </select>
+                                                            </div>
                                                         </div>
-                                                        <div class="col-12  col-sm-12 col-md-6 col-lg-6 mt-4 pt-3">
-                                                            <button type="button"
-                                                                class="btn btn-success px-3">Request</button>
+                                                        <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-4">
+                                                            <div class="form-outline">
+                                                                <label class="form-label" for="taluka">Tehsil</label>
+                                                                <select class="form-select py-2"
+                                                                    aria-label="Default select example" name="taluka"
+                                                                    id="taluka">
+                                                                    <option selected></option>
+                                                                    <option value="1">name1</option>
+                                                                    <option value="2">name2</option>
+                                                                    <option value="3">name3</option>
+                                                                </select>
+                                                            </div>
                                                         </div>
                                                     </div>
+                                                </form>
                                             </div>
                                         </div>
-                                        <div class="modal-footer py-4">
-                                            <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> -->
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary"
+                                                data-bs-dismiss="modal">Close</button>
+                                            <button type="button" id="button_hire"
+                                                class="btn btn-danger">Request</button>
                                         </div>
                                     </div>
                                 </div>
@@ -863,7 +902,7 @@
 
                     <div class=" mb-3" id="">
                         <div class="force-overflow">
-                            <h5 class=" ps-3 text-dark fw-bold mb-3">Harvest</h5>
+                            <h5 class=" text-center text-dark fw-bold mb-3">Harvest</h5>
                             <div class="price py-2 " style="margin: 0 auto;">
                                 <div class=" d-flex">
                                     <input type="checkbox" class="checkbox-round ms-3 mt-1" value="vege" /><span
@@ -898,5 +937,31 @@
     include 'includes/footertag.php';
 
     ?>
+
+<script>
+    $(document).ready(function() {
+        $.validator.addMethod("indianMobile", function(value, element) {
+            return this.optional(element) || /^[789]\d{9}$/.test(value);
+        }, "Please enter a valid Indian mobile number.");
+        $("#hire_inner").validate({
+            rules: {
+                first_name: 'required',
+
+                last_name: 'required',
+                mobile_number: {
+                    required: true,
+                    digits: true, 
+                    indianMobile: true, // Allow only digits
+                },
+                state: "required",
+                district: "required",
+            }
+        });
+        $('#button_hire').on('click', function() {
+            $('#hire_inner').valid();
+            console.log($('#hire_inner').valid());
+        });
+    });
+    </script>
 
 </html>

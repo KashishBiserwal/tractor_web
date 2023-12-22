@@ -3,23 +3,10 @@
 
 <head>
     <?php
-				include 'includes/headertag.php';
-			?>
-
-    <?php
-   include 'includes/header.php';
+   include 'includes/headertag.php';
    ?>
 
     <style>
-    .container-mid {
-        max-width: 1280px;
-        margin: 0 auto;
-        width: 55%;
-        padding-left: 8px;
-        padding-right: 8px;
-        margin-top: -214px;
-    }
-
     .step-container {
         position: relative;
         text-align: center;
@@ -97,38 +84,38 @@
         font-size: 14px;
         color: white;
     }
+
+    
+
+
     </style>
 </head>
 
 <body>
+    <?php
+   include 'includes/header.php';
+   ?>
 
-
-    <section class=" mt-5 pt-5 bg-light">
-        <div class="container pt-3">
+    <section class="bg-light mt-5 pt-5">
+        <div class="container pt-5">
             <div class="py-2">
-                <span class="text-white ">
+                <span class="my-4 text-white pt-4 ">
                     <a href="index.php" class="text-decoration-none header-link px-1">Home <i
-                            class="fa-solid fa-chevron-right px-1"></i>
-                    </a>
-                    <span class="">
-                        <span class="text-dark header-link  px-1">Enquiries <i
-                                class="fa-solid fa-chevron-right px-1"></i>
-                        </span>
-                    </span>
-                    <span class="text-dark">All Loan</span>
+                            class="fa-solid fa-chevron-right px-1"></i></a>
+                    <span class=""><a href="#" class="text-decoration-none header-link  px-1">Haat Bazar<i
+                                class="fa-solid fa-chevron-right px-1"></i> </a></span>
+                    <span class="text-dark">Sell Product</span>
                 </span>
             </div>
         </div>
     </section>
 
-    <!--Banner-->
-    <div class="container-fluid">
-        <div class="row siv" id="">
-            <img src="assets/images/rent.jpg" alt="reload img" class="w-100" style="height:358px;">
-            <div class="container-mid">
-                <div class="row justify-content-center loan_form bg-light">
-                    <h2 class="text-dark text-center fw-bold mt-3">Rent Your Tractors and Implements</h2>
+    <section class="form-view bg-white ">
+        <div class="container-mid" style="position: relative;">
+            <div class="row justify-content-center">
+                <div class="col-md-8 col-lg-7">
                     <div id="container" class="container mt-3 mb-3 bg-light shadow">
+                        <h3 class="text-center text-danger pt-2 mb-4">Sell Your Harvest</h3>
                         <form id="form-step-1" class=" ps-4 pe-4 mul_stp_frm" style="" method="post">
                             <div class="d-flex justify-content-center mb-3">
                                 <div class="col-12 col-lg-5 col-md-5 col-sm-5">
@@ -155,12 +142,13 @@
                             <div class="step step-1">
                                 <!-- Step 1 form fields here -->
                                 <div class="step_sellused">
+                                    <p class="text-center h5 mb-4 pb-2">Fill Your Harvest Details Below</p>
                                     <div class="row">
                                         <div class="col-12 col-sm-6 col-md-6 col-lg-6">
                                             <div class="form-outline">
-                                                <label class="form-label" for="brand">Brand</label>
-                                                <select class="form-select" id="brand" name="brand" required>
-                                                    <option value="" selected disabled>Select Brand</option>
+                                                <label class="form-label" for="category">Category</label>
+                                                <select class="form-select" id="category" name="category" required>
+                                                    <option value="" selected disabled>Select Category</option>
                                                     <option value="1">Vegetable</option>
                                                     <option value="2">Fruits</option>
                                                     <option value="3">Grain</option>
@@ -170,9 +158,10 @@
                                         </div>
                                         <div class="col-12 col-sm-6 col-md-6 col-lg-6">
                                             <div class="form-outline">
-                                                <label class="form-label" for="model">Model</label>
-                                                <select class="form-select" id="model" name="model" required>
-                                                    <option value="" selected disabled>Select Model</option>
+                                                <label class="form-label" for="subcategory">Sub-Category</label>
+                                                <select class="form-select" id="subcategory" name="subcategory"
+                                                    required>
+                                                    <option value="" selected disabled>Select Sub-Category</option>
                                                     <option value="1">Vegetable</option>
                                                     <option value="2">Fruits</option>
                                                     <option value="3">Grain</option>
@@ -182,27 +171,43 @@
                                         </div>
                                         <div class="col-12 col-sm-6 col-md-6 col-lg-6 mt-4">
                                             <div class="form-outline">
-                                                <label class="form-label" for="year">Year</label>
-                                                <select class="form-select" id="year" name="year" required>
-                                                    <option value="" selected disabled>Select Year</option>
-                                                    <option value="1">Vegetable</option>
-                                                    <option value="2">Fruits</option>
-                                                    <option value="3">Grain</option>
-                                                    <option value="3">Pulses</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="col-12 col-sm-6 col-md-6 col-lg-6 mt-4">
-                                            <div class="form-outline">
-                                                <label class="form-label" for="workingRadius">Working Radius</label>
-                                                <input type="text" id="workingRadius" name="workingRadius"
+                                                <label class="form-label" for="quantity">Quantity</label>
+                                                <input type="text" id="quantity" name="quantity"
                                                     class="form-control input-group-sm " required />
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-sm-6 col-md-6 col-lg-6 mt-4">
+                                            <div class="form-outline">
+                                                <label class="form-label" for="asPer">As Per</label>
+                                                <select class="form-select" id="asPer" name="asPer" required>
+                                                    <option value="" selected disabled></option>
+                                                    <option value="1">Kg</option>
+                                                    <option value="2">Quintal</option>
+                                                    <option value="3">Gram</option>
+                                                    <option value="3">Ton</option>
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-12 col-sm-6 col-md-6 col-lg-6 mt-4">
+                                            <div class="form-outline">
+                                                <label class="form-label" for="price">Price</label>
+                                                <input type="text" id="price" name="price"
+                                                    class="form-control input-group-sm " required />
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-sm-6 col-md-6 col-lg-6 mt-4">
+                                            <div class="form-outline">
+                                                <label class="form-label" for="totalprice">Total Price</label>
+                                                <input type="text" id="totalprice" name="totalprice"
+                                                    class="form-control input-group-sm " readonly />
                                             </div>
                                         </div>
 
                                         <div class="form-outline mt-4">
-                                            <label class="form-label" for="note">Note (if any)</label>
-                                            <textarea class="form-control" id="note" name="note" rows="3"></textarea>
+                                            <label class="form-label" for="aboutharvest">About Your Harvest</label>
+                                            <textarea class="form-control" id="aboutharvest" name="aboutharvest"
+                                                rows="3"></textarea>
                                         </div>
                                     </div>
                                     <div class="form-footer d-flex my-3">
@@ -213,8 +218,8 @@
                             </div>
                         </form>
 
-                        <form id="form-step-2" class=" mul_stp_frm  ps-4 pe-4 " style="display:none;" method="post"
-                            action="">
+                        <form id="form-step-2" class=" mul_stp_frm  ps-4 pe-4 " style="display:none;"
+                            method="post" action="">
                             <div class="d-flex justify-content-center mb-3">
                                 <div class="col-12 col-lg-5 col-md-5 col-sm-5">
                                     <div class="float-start">Harvest Info</div>
@@ -238,62 +243,33 @@
                             </div>
                             <div class="step step-2">
                                 <!-- Step 2 form fields here -->
-                                <div id="formContainer">
-                                    <div class="row">
-                                        <div class="col-12 col-sm-6 col-md-6 col-lg-4 mt-4">
-                                            <div class="form-outline">
-                                                <label class="form-label" for="implement">Implement Type</label>
-                                                <select class="form-select" id="implement" name="implement" required>
-                                                    <option value="" selected disabled>Select Implement Type</option>
-                                                    <option value="1">Vegetable</option>
-                                                    <option value="2">Fruits</option>
-                                                    <option value="3">Grain</option>
-                                                    <option value="3">Pulses</option>
-                                                </select>
-                                            </div>
+                                <div class="">
+                                    <p class="text-center h5 mb-4 pb-2">Upload File</p>
+
+
+                                    <div class="upload__box text-center">
+                                        <div class="upload__btn-box">
+                                            <label>
+                                                <p class="upload__btn w-100">Upload Images</p>
+                                                <input type="file" data-max_length="4"
+                                                    class="upload__inputfile" id="imageInput" name="images[]" accept="image/*" multiple required>
+                                            </label>
                                         </div>
-                                        <div class="col-12 col-sm-6 col-md-6 col-lg-4 mt-4">
-                                            <div class="form-outline">
-                                                <label class="form-label" for="rate">Rate</label>
-                                                <input type="text" id="rate" name="rate"
-                                                    class="form-control input-group-sm " required />
-                                            </div>
-                                        </div>
-                                        <div class="col-12 col-sm-6 col-md-6 col-lg-4 mt-4">
-                                            <div class="form-outline">
-                                                <label class="form-label" for="ratePer">Rate Per</label>
-                                                <select class="form-select" id="ratePer" name="ratePer" required>
-                                                    <option value="" selected disabled>Select Rate</option>
-                                                    <option value="1">Acre</option>
-                                                    <option value="2">Hour</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="upload__box text-center">
-                                            <div class="upload__btn-box">
-                                                <label>
-                                                    <p class="upload__btn w-100">Upload Images</p>
-                                                    <input type="file" data-max_length="4" class="upload__inputfile"
-                                                        id="imageInput" name="images[]" accept="image/*" multiple
-                                                        required>
-                                                </label>
-                                            </div>
-                                            <div class="col-sm-6">
-                                                <div class="upload__img-wrap"></div>
-                                            </div>
+                                        <div class="col-sm-6">
+                                            <div class="upload__img-wrap"></div>
                                         </div>
                                     </div>
-                                </div>
+                                    <!-- <input type="file" id="_file" class="w-100 pb-0 mb-auto" name="_file" required> -->
 
-                                <div class="form-footer d-flex mt-3">
-                                    <button type="button" class="btn btn-success w-50 mb-4 prev-step"
-                                        id="">Previous</button>
-                                    <button type="button" class="btn btn-success ms-2 mb-4 w-50 next-step"
-                                        id="">Next</button>
-                                    <button type="button" class="btn btn-info ms-2 mb-4 w-25" id="addMore">Add
-                                        More</button>
-                                </div>
 
+
+                                    <div class="form-footer d-flex mt-3">
+                                        <button type="button" class="btn btn-success w-50 mb-4 prev-step"
+                                            id="">Previous</button>
+                                        <button type="button" class="btn btn-success ms-2 mb-4 w-50 next-step"
+                                            id="">Next</button>
+                                    </div>
+                                </div>
                             </div>
                         </form>
 
@@ -322,37 +298,33 @@
                             </div>
                             <div class="step step-3">
                                 <!-- Step 3 form fields here -->
+                                <p class="text-center mb-4 h5 ps-2 pe-2 pb-2">Fill Your Information</p>
                                 <div class="row ">
                                     <div class="col-12 col-sm-6 col-md-6 col-lg-6 mt-4">
                                         <div class="form-outline">
-                                            <label class="form-label " for="fname"><i class="fa-regular fa-user"></i>
-                                                First Name</label>
+                                            <label class="form-label " for="fname"><i class="fa-regular fa-user"></i> First Name</label>
                                             <input type="text" id="fname" name="fname"
-                                                class="data_search form-control input-group-sm"
-                                                onkeydown="return /[a-zA-Z]/i.test(event.key)" />
+                                                class="data_search form-control input-group-sm" onkeydown="return /[a-zA-Z]/i.test(event.key)" />
                                         </div>
                                     </div>
                                     <div class="col-12 col-sm-6 col-md-6 col-lg-6 mt-4">
                                         <div class="form-outline">
-                                            <label class="form-label " for="lname"><i class="fa-regular fa-user"></i>
-                                                Last Name</label>
+                                            <label class="form-label " for="lname"><i class="fa-regular fa-user"></i> Last Name</label>
                                             <input type="text" id="lname" name="lname"
-                                                class="data_search form-control input-group-sm"
-                                                onkeydown="return /[a-zA-Z]/i.test(event.key)" />
+                                                class="data_search form-control input-group-sm" onkeydown="return /[a-zA-Z]/i.test(event.key)" />
                                         </div>
                                     </div>
                                     <div class="col-12 col-sm-6 col-md-6 col-lg-6 mt-4">
                                         <div class="form-outline">
                                             <label class="form-label" for="phone">
-                                                <i class="fa fa-phone" aria-hidden="true"></i> Phone Number</label>
+                                            <i class="fa fa-phone" aria-hidden="true"></i> Phone Number</label>
                                             <input type="text" id="phone" name="phone"
                                                 class=" data_search form-control input-group-sm" />
                                         </div>
                                     </div>
                                     <div class="col-12 col-sm-6 col-md-6 col-lg-6 mt-4">
                                         <div class="form-outline">
-                                            <label class="form-label" for="state"> <i class="fas fa-location"></i>
-                                                State</label>
+                                            <label class="form-label" for="state"> <i class="fas fa-location"></i> State</label>
                                             <select class="form-select error mb-2 pb-2" id="state" name="state"
                                                 aria-label="Default select example">
                                                 <option selected></option>
@@ -364,7 +336,7 @@
                                     <div class="col-12 col-sm-6 col-md-6 col-lg-6 mt-4">
                                         <div class="form-outline">
                                             <label class="form-label" for="district">
-                                                <i class="fa-solid fa-location-dot"></i> District</label>
+                                            <i class="fa-solid fa-location-dot"></i> District</label>
                                             <!-- <select class="form-select error mb-2 pb-2" id="district" name="district"
                                                 aria-label="Default select example">
                                                 <option selected></option>
@@ -393,148 +365,26 @@
                                 </div>
                             </div>
                         </form>
-
+                        
                     </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="container mt-5">
-        <h3 class="text-center mb-4 fw-bold ">EASY RENTAL FOR TRACTOR AND IMPLEMENT</h3>
-
-        <div class="row">
-
-            <!-- Card 1 with shadow -->
-            <div class="col-12 col-md-4 col-lg-4 col-sm-4 ">
-                <div class="card shadow ">
-                    <img src="assets\images\phone.png" class="card-img-top images" alt="Tractor Insurance 1"
-                        style="height: 250px;">
-                    <div class="card-body">
-                        <h5 class="card-title text-center  fw-bold ">Tractor & Implement</h5>
-                        <p class="card-text text-center">List your tractors and implements for additional income</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Card 2 with shadow -->
-            <div class="col-12 col-md-4 col-lg-4 col-sm-4 ">
-                <div class="card shadow ">
-                    <img src="assets\images\quick.png" class="card-img-top images " alt="Tractor Insurance 2"
-                        style="height: 250px;">
-                    <div class="card-body">
-                        <h5 class="card-title text-center  fw-bold ">Quick Information</h5>
-                        <p class="card-text text-center">List your or implement with minimun information and earning
-                            additional income
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Card 3 with shadow -->
-            <div class="col-12 col-md-4 col-lg-4 col-sm-4 ">
-                <div class="card shadow">
-                    <img src="assets\images\rent_tractor.jpg" class="card-img-top images" alt="Tractor Insurance 3"
-                        style="height: 250px;">
-                    <div class="card-body">
-                        <h5 class="card-title text-center  fw-bold ">Rent Tractor</h5>
-                        <p class="card-text text-center">Start renting your tractors and implement easy near by you</p>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </div>
-
-    <div class="container">
-        <h4 class="mt-5 mb-4 assured px-2 fw-bold">Popular Tractor Insurance Companies</h4>
-        <p> Rent tractors are also the best options for some farmers who are looking to purchase on a minimum budget.
-            Renting tractors with a few years of work can be the best way to work in the fields for a long time. Though,
-            it requires a little maintenance but maintaining it with a proper interval of time reduces time and money.
-        </p>
-
-        <p>KhetiGaadi Rent page helps farmers to get tractors on a rent basis. Also, if they wish to sell their products
-            on
-            a rental basis for various brands then KhetiGaadi is the best option.</p>
-
-        <p>Tractor Rental in India is additional income for farmers. Many farmers buy tractors for both personal and
-            commercial use. For such Farmers, KhetiGaadi provides a platform where a Farmer can list his tractor on
-            KhetiGaadi and rent out Tractors to needy farmers. There are many tractors available on KhetiGaadi for
-            rental
-            purpose in India. Farmers can rent their tractors of all brands like Mahindra tractor on rent, Mahindra 575
-            tractor on rent, John Deere tractor on rent, Kubota tractor on rent, New Holland tractor on rent, Swaraj
-            tractor
-            on rent at mutually agreed tractor rent priceTractor Rental in India is additional income for farmers. Many
-            farmers buy tractors for both personal and commercial use. For such Farmers KhetiGaadi provides a platform
-            where
-            a Farmer can list his tractor on KhetiGaadi and rent out Tractors to needy farmers. There are many tractors
-            available on KhetiGaadi for rental purpose in India. Farmers can rent their tractors of all brands like
-            Mahindra
-            tractor on rent, Mahindra 575 tractor on rent, John Deere tractor on rent, Kubota tractor on rent, New
-            Holland
-            tractor on rent, Swaraj tractor on rent at mutually agreed tractor rent price.</p>
-    </div>
-
-    <section>
-        <div class="container">
-            <h4 class="fw-bold assured px-2">Quick Links</h4>
-            <div class="row my-4">
-                <div class="col-12 col-lg-4 col-md-4 col-sm-4 py-2">
-                    <a href="#" id="adduser" class="btn btn-outline-success text-decoration-none border-2 p-2 w-100">
-                        <i class="fas fa-bolt"></i>TRACTOR PRICE</a>
-                </div>
-                <div class="col-12 col-lg-4 col-md-4 col-sm-4 py-2">
-                    <a href="#" id="adduser"
-                        class=" btn btn-outline-success text-decoration-none border-2 py-2 px-3 w-100">
-                        <i class="fas fa-bolt"></i>TRACTOR</a>
-                </div>
-                <div class="col-12 col-lg-4 col-md-4 col-sm-4 py-2">
-                    <a href="#" id="adduser"
-                        class=" btn btn-outline-success text-decoration-none border-2 py-2 px-3 w-100">
-                        <i class="fas fa-bolt"></i>HARVESTERS</a>
-                </div>
-                <div class="col-12 col-lg-4 col-md-4 col-sm-4 py-2">
-                    <a href="#" id="adduser"
-                        class="btn btn-outline-success text-decoration-none  border-2 py-2 px-3 w-100">
-                        <i class="fas fa-bolt"></i>SECOND HAND TRACTOR</a>
-                </div>
-                <div class="col-12 col-lg-4 col-md-4 col-sm-4 py-2">
-                    <a href="#" id="adduser"
-                        class="btn btn-outline-success text-decoration-none border-2 py-2 px-3 w-100">
-                        <i class="fas fa-bolt"></i>EASY FINANCE</a>
-                </div>
-                <div class="col-12 col-lg-4 col-md-4 col-sm-4 py-2">
-                    <a href="#" id="adduser"
-                        class="btn btn-outline-success text-decoration-none border-2 py-2 px-3 w-100">
-                        <i class="fas fa-bolt"></i>DEALERSHIP</a>
+                    <!-- </form> -->
                 </div>
             </div>
         </div>
     </section>
+
+
+
+
+
     <?php
     include 'includes/footer.php';
     include 'includes/footertag.php';
 
 ?>
-    <script>
-    document.addEventListener("DOMContentLoaded", function() {
-        const addMoreButton = document.getElementById('addMore');
-        const formContainer = document.getElementById('formContainer');
 
-        addMoreButton.addEventListener('click', function() {
-            // Clone the entire row and append it to the container
-            const lastRow = formContainer.lastElementChild.cloneNode(true);
-            // Clear values of the cloned fields
-            const inputFields = lastRow.querySelectorAll('input, select');
-            inputFields.forEach(field => {
-                field.value = '';
-            });
-
-            formContainer.appendChild(lastRow);
-        });
-    });
-    </script>
-    <script>
-    $(document).ready(function() {
+<script>
+    $(document).ready(function () {
         // Sample data (replace with your actual data)
         var stateData = {
             "state1": {
@@ -550,13 +400,13 @@
         // Function to populate dropdown based on data
         function populateDropdown(dropdown, data) {
             dropdown.empty();
-            $.each(data, function(index, value) {
+            $.each(data, function (index, value) {
                 dropdown.append($("<option>").val(value).text(value));
             });
         }
 
         // Event listener for state selection change
-        $("#state").change(function() {
+        $("#state").change(function () {
             var selectedState = $(this).val();
             var districtsDropdown = $("#district");
             var tehsilsDropdown = $("#tehsil");
@@ -575,7 +425,7 @@
             }
         });
     });
-    </script>
+</script>
 
     <!-- SCRIPT FOR THE DISPLAY & HIDE -->
 
@@ -642,32 +492,45 @@
     $(document).ready(function() {
         $("form[id='form-step-1']").validate({
             rules: {
-                brand: {
+                category: {
                     required: true,
                 },
-                model: {
+                subcategory: {
                     required: true,
                 },
-                year: {
-                    required: true,
-                    digits: true,
-
-                },
-                workingRadius: {
+                quantity: {
                     required: true,
                     digits: true,
 
                 },
-                note: {
+                price: {
+                    required: true,
+                    digits: true,
+
+                },
+                aboutharvest: {
                     letterswithspaces: true // Custom rule for alphabets with spaces
                 },
             },
-
+           
         });
+        
 
+        function calculateTotalPrice() {
+            var quantity = parseFloat($("#quantity").val());
+            var price = parseFloat($("#price").val());
+            var totalprice = quantity * price;
+            
+            // Update the "Total Price" field
+            $("#totalprice").val(totalprice.toFixed(2)); // Adjust decimal places as needed
+        }
 
+        // Trigger calculation when quantity or price changes
+        $("#quantity, #price").on("input", calculateTotalPrice);
+    
+   
 
-        $.validator.addMethod("letterswithspaces", function(value, element) {
+    $.validator.addMethod("letterswithspaces", function (value, element) {
             return this.optional(element) || /^[a-zA-Z\s]*$/.test(value);
         }, "Only alphabets and spaces are allowed");
     });
@@ -679,32 +542,22 @@
         $("form[id='form-step-2']").validate({
             rules: {
                 imageInput: {
-                    required: true,
+                    required: true
                 },
-                implement: {
-                    required: true,
-                },
-                rate: {
-                    required: true,
-                    digits: true,
-                },
-                ratePer: {
-                    required: true,
-                },
-
+               
             },
-
+           
         });
     });
     </script>
 
-    <script>
-    $(document).ready(function() {
+<script>
+    $(document).ready(function () {
         // Event listener for file input change
-        $("#imageInput").change(function() {
+        $("#imageInput").change(function () {
             var selectedFiles = $(this)[0].files;
             var maxAllowedFiles = 4;
-
+            
             // Check if the number of selected files is within the allowed range
             if (selectedFiles.length < 1 || selectedFiles.length > maxAllowedFiles) {
                 alert("Please select between 1 and " + maxAllowedFiles + " images.");
@@ -716,7 +569,7 @@
             }
         });
     });
-    </script>
+</script>
 
     <!-- SCRIPT FOR THE VALIDATION OF 3rd FORM -->
     <script>
@@ -728,11 +581,11 @@
             rules: {
                 fname: {
                     required: true,
-                    minlength: 2,
+                    minlength: 2, 
                 },
                 lname: {
                     required: true,
-                    minlength: 2,
+                    minlength: 2, 
                 },
                 phone: {
                     required: true,
@@ -746,7 +599,7 @@
                     required: true,
                 },
             },
-
+          
         });
     });
     </script>
