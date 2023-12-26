@@ -5,6 +5,9 @@
    <?php
    include 'includes/headertag.php';
    ?>
+    <!-- SweetAlert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.1/dist/sweetalert2.all.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.1/dist/sweetalert2.min.css" rel="stylesheet">
 
 <style>
         /* #container {
@@ -133,7 +136,9 @@
         color: white;
         }
 
-      
+        body {
+            font-family: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", Helvetica, Arial, sans-serif; 
+        }
     </style>
 </head>
 
@@ -141,6 +146,7 @@
    <?php
    include 'includes/header.php';
    ?>
+
 
 <section class="bg-light mt-5 pt-5">
     <div class="container pt-5">
@@ -212,7 +218,7 @@
                             <div class="step step-1">
                             <!-- Step 1 form fields here -->
                                 <div class="step_sellused">
-                                    <p class="text-center mb-4">Sell Your Used Tractor</p>
+                                    <p class="text-center mb-4 fw-bold">Sell Your Used Tractor</p>
                                     <div class="row">
                                         <div class="col-12 col-lg-6 col-md-6 col-sm-6 mb-2 mt-3 ">
                                             <div class="form-outline">
@@ -264,7 +270,7 @@
                                         </div>
                                     </div>
                                     <div class="form-footer d-flex my-3">
-                                        <button type="submit" id="  " class="btn btn-success w-100 next-step">Next</button>
+                                        <button type="button" id="  " class="btn btn-success w-100 next-step">Next</button>
                                     </div>
                                 </div>
                             </div>
@@ -294,7 +300,7 @@
                             <div class="step step-2">
                                 <!-- Step 2 form fields here -->
                                 <div class="">
-                                    <p class="text-center mb-4">Which tractor do you Own?</p>
+                                    <p class="text-center mb-4  fw-bold">Which tractor do you own?</p>
                                     <div class="row">
                                         <div class="col-12 col-sm-12 col-md-6 col-lg-6">
                                             <div class="form-outline">
@@ -396,8 +402,9 @@
                             </div>
                             <div class="step step-3">
                                 <!-- Step 3 form fields here -->
-                                <p class="text-center mb-4">Upload Tractor Images</p>
-                                <div class="col-12 col-sm-12 col-md-12 col-lg-12 mb-0 m-0 p-1">
+                                <p class="text-center mb-4 fw-bold">Upload Tractor Images</p>
+                                <p class="mb-0">Upload minimun 1 or maximum 4 images</p>                                
+                                <div class="col-12 col-sm-12 col-md-12 col-lg-12 mt-0 mb-0 m-0 p-1">
                                     <div class="upload__box">
                                         <div class="upload__btn-box mb-2">
                                             <label>
@@ -820,7 +827,7 @@
                         var len = 0;
                         for (var i = 0; i < imgArray.length; i++) {
                             if (imgArray[i] !== undefined) {
-                            len++;
+                                len++;
                             }
                         }
                         if (len > maxLength) {
@@ -845,93 +852,78 @@
         $('body').on('click', ".upload__img-close", function (e) {
             var file = $(this).parent().data("file");
             for (var i = 0; i < imgArray.length; i++) {
-            if (imgArray[i].name === file) {
-                imgArray.splice(i, 1);
-                break;
-            }
-            }
-            $(this).parent().parent().remove();
-        });
+                if (imgArray[i].name === file) {
+                        imgArray.splice(i, 1);
+                        break;
+                    }
+                }
+                $(this).parent().parent().remove();
+            });
         }
+        
     </script>
 
     <script>
-$(document).ready(function () {
-    // Function to display a specific step
-    function displayStep(stepNumber) {
-        if (stepNumber >= 1 && stepNumber <= 3) {
-            $(".mul_stp_frm").hide();
-            $("#form-step-" + stepNumber).show();
-            updateProgressBar(stepNumber); // Update the progress bar for the given step
-        }
-    }
-
-    // Function to check if all three forms are valid
-    function areAllFormsValid() {
-        var formsValid = true;
-
-        $("form").each(function () {
-            if (!$(this).valid()) {
-                formsValid = false;
-                return false; // Break out of the loop if any form is invalid
+        $(document).ready(function () {
+        // Function to display a specific step
+            function displayStep(stepNumber) {
+            if (stepNumber >= 1 && stepNumber <= 3) {
+                $(".mul_stp_frm").hide();
+                $("#form-step-" + stepNumber).show();
+                updateProgressBar(stepNumber); // Update the progress bar for the given step
             }
-        });
+        }
 
-        return formsValid;
-    }
+        // Function to check if all three forms are valid
+        function areAllFormsValid() {
+            var formsValid = true;
 
-    // Function to reset all forms
-    function resetForms() {
-        $("form").each(function () {
-            this.reset(); // Reset each form
-        });
+            $("form").each(function () {
+                if (!$(this).valid()) {
+                    formsValid = false;
+                    return false; // Break out of the loop if any form is invalid
+                }
+            });
 
-        // Additional reset for specific fields in the third form
-    //     $("#form-step-3 input[type='file']").val(''); // Reset file inputs in form-step-3
-    //     document.getElementById("form-step-3").reset();
-    //     $("#form-step-3").trigger("reset");
-    // }
+            return formsValid;
+        }
 
-    // ... (other functions)
+        // Function to reset all forms
+        function resetForms() {
+            $("form").each(function () {
+                this.reset(); // Reset each form
+            });
 
-    // Function to show confirmation box, reset forms, and display success message
-    $("#sell_used_trac_btn").click(function () {
-        if (areAllFormsValid()) {
-            if (window.confirm("Are you sure you want to submit?")) {
-                resetForms(); // Reset forms if confirmed
+            // Additional reset for specific fields in the third form
+            $("#form-step-3 input[type='file']").val(''); // Reset file inputs in form-step-3
+        }
+
+        // Function to update the progress bar based on the current step
+        function updateProgressBar(stepNumber) {
+            var progressPercentage = ((stepNumber - 1) / 2) * 100; // Assuming 3 steps, calculating the progress percentage
+            $(".progress-bar").css("width", progressPercentage + "%");
+        }
+
+        // Function to reset forms, display step, and show success message
+        $("#sell_used_trac_btn").click(function () {
+            if (areAllFormsValid()) {
+                resetForms(); // Reset forms if valid
                 displayStep(1); // Show the first form after resetting
                 showSuccessMessage(); // Show success message after form submission
             }
+        });
+
+        // Function to show success message after form submission using SweetAlert
+        function showSuccessMessage() {
+            Swal.fire({
+                title: "Good job!",
+                text: "Your form is submitted successfully!",
+                icon: "success"
+            });
         }
-    });
-
-    // Function to update the progress bar based on the current step
-    function updateProgressBar(stepNumber) {
-        var progressPercentage = ((stepNumber - 1) / 2) * 100; // Assuming 3 steps, calculating the progress percentage
-        $(".progress-bar").css("width", progressPercentage + "%");
-    }
-
-    // // Function to show confirmation box, reset forms, and display success message
-    // $("#sell_used_trac_btn").click(function () {
-    //     if (areAllFormsValid()) {
-    //         if (window.confirm("Are you sure you want to submit?")) {
-    //             resetForms(); // Reset forms if confirmed
-    //             displayStep(1); // Show the first form after resetting
-    //             showSuccessMessage(); // Show success message after form submission
-    //         }
-    //     }
-    // });
-
-    // Function to show success message after form submission
-    function showSuccessMessage() {
-        $('#successModal').modal('show'); // Show a Bootstrap modal with ID 'successModal'
-        // You can include additional actions or modifications after displaying the success message if needed
-    }
-});
-
-
-
-
+      });
     </script>
+
+    
 </body>
 </html>
