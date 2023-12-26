@@ -255,89 +255,98 @@ function get_year_and_hours() {
 get_year_and_hours();
 
 
-
-// store
-
 function store(event) {
-    event.preventDefault();
-    console.log('jfhfhw');
-    var form_type = $('#form_type').val();
-    var enquiry_type_id = $('#enquiry_type_id').val();
-    console.log("enquiry type :",$('#enquiry_type_id').val());
-    var first_name = $('#first_name').val();
-    console.log(first_name);
-    var last_name = $('#last_name').val();
-    var mobile = $('#mobile_number').val();
-    var state = $('#state').val();
-    var district = $('#district').val();
-    var brand_name = $('#brand').val();
-    var Model_name = $('#model').val();
-    var purchase_year = $('#purchase_year').val();
-    var product_type_id = $('#product_type_id').val();
-    console.log("enquiry type :",$('#product_type_id').val());
-    var tehsil = $('#tehsil').val();
-    var engine_condition = $('#condition').val();
-    var tyre_condition = $('#tyrecondition').val();
-    var hours_driven = $('#hours_driven').val();
-    var rc = $('#rc_num').val();
-    var finance = $('input[name="fav_language"]:checked').val();
-    var nocAvailable = $('input[name="fav_language1"]:checked').val();
-    var price= $('#price_old').val();
-    var image = $('#image_pic').val();
-    var description = $('#description').val();
+  console.log('run store function');
+  //  var typeDiv = document.getElementById('type_name');
+     event.preventDefault();
+    
+     var image_names = document.getElementById('image_pic').files;
+     console.log('imgds',image_names);
+     var form_type = $('#form_type').val();
+     var product_type_id = $('#product_type_id').val();
+     var image_type_id = $('#image_type_id').val();
+     var enquiry_type_id = $('#enquiry_type_id').val();
+     var tractor_type_id = $('#tractor_type_id').val();
+     console.log('tractor_type_id',tractor_type_id);
+     var first_name = $('#first_name').val();
+     console.log(first_name);
+     var last_name = $('#last_name').val();
+     var mobile = $('#mobile_number').val();
+     var state = $('#state').val();
+     var district = $('#district').val();
+     var brand_name = $('#brand').val();
+     var Model_name = $('#model').val();
+     var purchase_year = $('#purchase_year').val();;
+     var tehsil = $('#tehsil').val();
+     var engine_condition = $('#condition').val();
+     var tyre_condition = $('#tyrecondition').val();
+     var hours_driven = $('#hours_driven').val();
+     var rc = $('#rc_num').val();
+     var finance = $('input[name="fav_language"]:checked').val();
+     var nocAvailable = $('input[name="fav_language1"]:checked').val();
+     var price= $('#price_old').val();
+     var description = $('#description').val();
+ 
+    
+     var apiBaseURL =APIBaseURL;
+     var url = apiBaseURL + 'customer_enquiries';
+     var token = localStorage.getItem('token');
+     var headers = {
+       'Authorization': 'Bearer ' + token
+     };
+     var data = new FormData();
+    
+     for (var x = 0; x < image_names.length; x++) {
+       data.append("images[]", image_names[x]);
+       console.log("multiple image", image_names[x]);
+     }
+       data.append('form_type',form_type);
+       data.append('product_type_id', product_type_id);
+       data.append('enquiry_type_id', enquiry_type_id);
+       data.append('image_type_id', image_type_id);
+       data.append('tractor_type_id', tractor_type_id);
+       data.append('first_name', first_name);
+       data.append('last_name', last_name);
+       data.append('mobile', mobile);
+       data.append('brand_id', brand_name);
+      //  data.append('product_id', product_type_id);
+       data.append('model', Model_name);
+       data.append('purchase_year', purchase_year);
+       data.append('engine_condition', engine_condition);
+       data.append('tyre_condition', tyre_condition);
+       data.append('hours_driven', hours_driven);
+       data.append('state',state);
+       data.append('district',district);
+       data.append('tehsil',tehsil);
+       data.append('rc_number',rc);
+       data.append('price',price);
+       data.append('description', description);
+       data.append('finance', finance);
+       data.append('noc', nocAvailable);
+      
+       data.append('description',description);
+     $.ajax({
+       url: url,
+       type: "POST",
+       data: data,
+       headers: headers,
+       processData: false, 
+       contentType: false,
+       success: function (result) {
+         console.log(result, "result");
+         // getTractorList();
+         console.log("Add successfully");
+          if(result.length){
+         //   get_tractor_list();
+         }
+         // alert('successfully inserted..!')
+       },
+       error: function (error) {
+         console.error('Error fetching data:', error);
+       }
+     });
+   }
 
-    // Prepare data to send to the server
-    var paraArr = {
-      'form_type':form_type,
-      'enquiry_type_id':enquiry_type_id,
-      'first_name': first_name,
-      'last_name': last_name,
-      'mobile': mobile,
-      'brand_id': brand_name,
-      'product_type_id': product_type_id,
-      'model': Model_name,
-      'purchase_year': purchase_year,
-      'engine_condition': engine_condition,
-      'tyre_condition': tyre_condition,
-      'hours_driven': hours_driven,
-      'state':state,
-      'district':district,
-      'tehsil':tehsil,
-      'rc_number':rc,
-      'price':price,
-      'image': image,
-      'description': description,
-      'finance': finance,
-      'noc': nocAvailable,
-    };
-
-    var apiBaseURL =APIBaseURL;
-    var url = apiBaseURL + 'customer_enquiries';
-    console.log(url);
-   // var url = "<?php echo $APIBaseURL; ?>user_login";
-    // console.log(url);
-    var token = localStorage.getItem('token');
-    var headers = {
-      'Authorization': 'Bearer ' + token
-    };
-    $.ajax({
-      url: url,
-      type: "POST",
-      data: paraArr,
-      headers: headers,
-      success: function (result) {
-        // console.log(result, "result");
-        if(result.length){
-          get_tractor_list();
-        }
-       
-        // console.log("Add successfully");
-      },
-      error: function (error) {
-        console.error('Error fetching data:', error);
-      }
-    });
-  }
 
 
 
@@ -380,13 +389,14 @@ function store(event) {
                     tableRow.innerHTML = `
                         <td>${row.product_id}</td>
                         <td>${formatDateTime(row.created_at)}</td>
-                        <td>${row.customer_id}</td>
                         <td>${row.brand_name}</td>
                         <td>${row.model}</td>
                         <td>${row.purchase_year}</td>
                         <td>${row.state}</td>
                         <td>
                             <div class="d-flex">
+                            <button class="btn btn-primary btn-sm btn_edit" onclick="fetch_edit_data(${row.product_id});" data-bs-toggle="modal" data-bs-target="#staticBackdrop_model" id="yourUniqueIdHere">
+                            <i class="fas fa-edit" style="font-size: 11px;"></i></button>
                                 <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.id});">
                                     <i class="fa fa-trash" style="font-size: 11px;"></i>
                                 </button>
@@ -405,6 +415,65 @@ function store(event) {
     });
 }
 get_tractor_list();
+
+
+// fetch edit data
+
+function fetch_edit_data(product_id) {
+  var apiBaseURL = APIBaseURL;
+  var url = apiBaseURL + 'get_old_tractor_by_id/'+ product_id;
+
+  var headers = {
+    'Authorization': 'Bearer ' + localStorage.getItem('token')
+  };
+
+  $.ajax({
+    url: url,
+    type: 'GET',
+    headers: headers,
+    success: function(response) {
+      var userData = response.product[0];
+
+      $('#enquiry_type_id1').val(userData.enquiry_type_id);
+      $('#image_type_id1').val(userData.image_type_id);
+      $('#tractor_type_id1').val(userData.tractor_type_id);
+      $('#form_type1').val(userData.form_type);
+      $('#first_name1').val(userData.first_name);
+      $('#last_name1').val(userData.last_name);
+      $('#mobile_number1').val(userData.mobile);
+      $('#state1').val(userData.state);
+      $('#district1').val(userData.district);
+      $('#tehsil1').val(userData.tehsil);
+      $('#brand1').val(userData.brand_name);
+      $('#model').val(userData.model);  // Updated ID to match the form
+      $('#purchase_year1').val(userData.purchase_year);
+      $('#condition1').val(userData.engine_condition);
+      $('#tyrecondition1').val(userData.tyre_condition);
+      $('#hours_driven1').val(userData.hours_driven);  // Updated ID to match the form
+      $('#rc_num1').val(userData.vehicle_registered_num);  // Updated ID to match the form
+      $('#price_old1').val(userData.price);
+      // Handle image upload separately, if needed
+      // $('#image_pic1').val(userData.image_names);
+      $('#description1').val(userData.description);
+      // $('#product_type_id1').val(userData.product_type); // This field is hidden, check if you need to update it
+      $('input[name="fav_language"]').filter('[value="' + userData.finance + '"]').prop('checked', true);
+      $('input[name="fav_language1"]').filter('[value="' + userData.noc + '"]').prop('checked', true);
+
+      // Show/hide the NOC div based on the finance value
+      if (userData.finance == 1) {
+        $('#nocDiv').show();
+      } else {
+        $('#nocDiv').hide();
+      }
+
+      // $('#exampleModal').modal('show');
+    },
+    error: function(error) {
+      console.error('Error fetching user data:', error);
+    }
+  });
+}
+
 
 // delete data
   function destroy(id) {

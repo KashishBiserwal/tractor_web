@@ -39,6 +39,12 @@ include 'includes/footertag.php';
                                   <input type="text" class="" placeholder=" " value="2" id="product_type_id">
                                 </div>
                               </div>
+                              <div class="col-12 col-sm-6 col-lg-6 col-md-6 my-2" hidden>
+                                <div class="form-outline">
+                                  <label class="form-label">Image Type</label>
+                                  <input type="text" class="" placeholder=" " value="1" id="image_type_id">
+                                </div>
+                              </div>
                               <div class="col-12 col-sm-4 col-lg-4 col-md-4 my-2">
                                 <div class="form-group">
                                   <input type="text" class="" placeholder=" " id="hp_category">
@@ -268,13 +274,13 @@ include 'includes/footertag.php';
                                   </select>
                                 </div>
                               </div>
-                              <h5 class="fw-bold mt-3">Fuel Tank</h5>
+                              <!-- <h5 class="fw-bold mt-3">Fuel Tank</h5>
                               <div class="col-12 col-sm-6 col-lg-6 col-md-6">
                                 <div class="form-group">
                                   <input type="text" class="" placeholder=" " id="fuel_tank_cc">
                                   <label for="name" class="text-dark ">Capacity(Ltr)</label>
                                 </div>
-                              </div>
+                              </div> -->
                               <h5 class="fw-bold"> Wheels And Tyres Details</h5>
                               <div class="col-12 col-sm-4 col-lg-4 col-md-4">
                                 <div class="form-outline">

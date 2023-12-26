@@ -41,19 +41,14 @@
                     <div class="swiper swiper_buy mySwiper2_buy">
                         <div class="swiper-wrapper swiper-wrapper_buy">
                             <div class=" swiper-slide swiper-slide_buy">
-                            <img class="img_buy" src="assets/images/437-1632718440.webp" />
-                            </div>
-                            <div class="swiper-slide swiper-slide_buy">
-                            <img class="img_buy " src="assets/images/450-1630737775.webp" />
-                            </div>
-                            <div class="swiper-slide swiper-slide_buy">
-                            <img class="img_buy " src="assets/images/arjun-novo-605-di-i-1632207718.webp" />
+                            <!-- <img class="img_buy" src="assets/images/437-1632718440.webp" /> -->
                             </div>
                         </div>
                     </div>
-                    <div thumbsSlider="" class="swiper mySwiper_buy"></div>
+                    <div thumbsSlider="" class="swiper mySwiper_buy" style="height:74px; width: 43%;" id="swip_img"></div>
                 </div>
             </div>
+            
             <div class="col-12 col-sm-6 col-lg-6 col-md-6">
             <h5 class="text-black fw-bold text-center ">Are You Intrested in this Tractor?</h5>
                 <form action="" id="used_farm_inner_from" class="outline-solid bg-light">
@@ -63,6 +58,10 @@
                         <div class="col-md-12 col-12 col-lg-12 col-lg-12">
                             <div class=" ml-2">
                                 <div class="row px-3 ">
+                                    <div class="col-12 col-lg-6 col-md-6 col-sm-6 " hidden>
+                                        <label for="name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i> enquiryName</label>
+                                        <input type="text" class="form-control" placeholder="Enter Your Name" id="enquiry_type_id" value="1" name="fname">
+                                    </div>
                                     <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
                                         <label for="name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i> First Name</label>
                                         <input type="text" class="form-control" placeholder="Enter Your Name" id="fname" name="fname">
@@ -206,10 +205,10 @@
                         <td class="table-data">Model</td>
                         <td class="table-data" id="model_name3"></td>
                         </tr>
-                        <tr>
+                        <!-- <tr>
                         <td class="table-data">Power</td>
                         <td class="table-data"> <span  id="engine_powerhp2"></span> HP</td>
-                        </tr>
+                        </tr> -->
                         <tr>
                         <td class="table-data">Tyre Condition</td>
                         <td class="table-data" id="tyre2"></td>
@@ -235,10 +234,10 @@
                         <td class="table-data">Mobile Number</td>
                         <td class="table-data" id="mobile"></td>
                         </tr>
-                        <tr>
+                        <!-- <tr>
                         <td class="table-data">E-mail</td>
                         <td class="table-data"id="email"></td>
-                        </tr>
+                        </tr> -->
                         <tr>
                         <td class="table-data">District</td>
                         <td class="table-data" id="district">Durg</td>
@@ -264,6 +263,7 @@
                         <h1 class="h4  my-4">New Popular Tractor</h1>
                     </div>
                     <div id="productContainerpopular" class="row"></div>
+                    <div class="text-center"><button id="load_more" class="btn btn-success">Load More</button></div>
                     <!-- <div class="tractor-list mb-3 box-shadow grey-bg d-flex flex-row shadow p-1">
                         <div class="tractor-list-left text-center">
                             <a href="#" class="weblink">
@@ -327,6 +327,11 @@
                 <div class="popular-used-tractor">
                     <div class="row">
                     <div id="productContainerupcoming" class="row"></div>
+                    <div class="col-12 text-center ">
+                    <button id="load_btn" type="button" class="btn btn-success">
+                        <i class="fas fa-undo"></i> Load More
+                    </button>
+                    </div>
                         <!-- <div class="used-tractor mb-3 d-flex flex-row shadow p-2" style="background-color:#fff">
                             <div class="text-center">
                                 <a href="#" class="weblink">
@@ -401,65 +406,18 @@
         </div>
     </div>
 </section>
-<section>
+<!-- <section>
     <div class="container">
     <div class="text-editor-black  my-4">
              <h4><p class="mt-md mt-3 p-1 mb-3 my-3 assured">Similar Used Tractor</p></h4>
         </div>
         <div id="productContainersimilar" class="row"></div>
-        <!-- <div class="row">
-            <div class="col-12  d-flex flex-row">
-                <div class="col-3 m-2 shadow">
-                    <a href="#"><img class="img-fluid" src="assets/images/265-di-xp-plus-1632206429.webp"></a>
-                    <div class="text-center my-1">
-                        <a href="#.php" class="weblink"><h5>Mahindra_575</h5></a>
-                        <p>Price: <b>₹</b> 5,00,000</p>
-                        <p class=""><span class="text-center">Hours:N/A</span></p>
-                    </div>
-                    <div class="phone-call demanMost-wrap">
-                        <a href="#" class="btn btn-success  w-100">Ganganagar,Rajasthan</a>
-                    </div>   
-                </div>
-                <div class="col-3 m-2 shadow">
-                    <a href="Mahindra_575.php"><img class="img-fluid" src="assets/images/265-di-xp-plus-1632206429.webp"></a>
-                    <div class="text-center my-1">
-                        <a href="Mahindra_575.php" class="weblink"><h5>Mahindra_575</h5></a>
-                        <p>Price: <b>₹</b> 4,30,000</p>
-                        <p class=""><span class="text-center">Hours:N/A</span></p>
-                    </div>
-                    <div class="phone-call demanMost-wrap">
-                        <a href="#" class="btn btn-success  w-100">Moga,Panjab</a>
-                    </div>   
-                </div>
-                <div class="col-3 m-2 shadow">
-                    <a href="Mahindra_575.php"><img class="img-fluid" src="assets/images/265-di-xp-plus-1632206429.webp"></a>
-                    <div class=" text-center my-1">
-                        <a href="Mahindra_575.php" class="weblink"><h5>Mahindra_575</h5></a>
-                        <p>Price: <b>₹</b> 5,50,000</p>
-                        <p class=""><span class="text-center">Hours:N/A</span></p>
-                    </div>
-                    <div class="phone-call demanMost-wrap">
-                        <a href="#" class="btn btn-success  w-100">Etah,Uttar Pradesh</a>
-                    </div>   
-                </div>
-                <div class="col-3 m-2 shadow">
-                    <a href="Mahindra_575.php"><img class="img-fluid" src="assets/images/265-di-xp-plus-1632206429.webp"></a>
-                    <div class=" text-center my-1">
-                        <a href="Mahindra_575.php" class="weblink"><h5>Mahindra_575</h5></a>
-                        <p>Price: <b>₹</b> 4,56,000</p>
-                        <p class=""><span class="text-center">Hours:N/A</span></p>
-                    </div>
-                    <div class="phone-call demanMost-wrap">
-                        <a href="#" class="btn btn-success  w-100">Ganganagar,Rajasthan</a>
-                    </div>   
-                </div>
-            </div>
-        </div> -->
+       
         <div class="galleryBtn text-center mt-md mt-2 pt-1 mb-3">
-            <span class="ViewBtn  my-3" data-toggle="modal" data-target="#">View All</span>
+            <span class="ViewBtn  my-3" data-target="#">View All</span>
         </div>
     </div>
-</section>
+</section> -->
 <!-- <section class="bg-light">
     <div class="container">
         <div class="text-editor-black  my-4">

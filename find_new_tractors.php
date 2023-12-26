@@ -223,7 +223,7 @@ include 'includes/headertag.php';
                     
                 </div>
                 <div class="col-12 text-center mt-3 pt-2 ">
-                    <button id="adduser" type="button" class=" btn add_btn btn-success">
+                    <button id="load_moretract" type="button" class=" btn add_btn btn-success">
                     <i class="fas fa-undo"></i>  Load More tractors</button>
                 </div>
             </div>

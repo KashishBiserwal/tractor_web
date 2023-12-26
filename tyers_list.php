@@ -43,12 +43,16 @@
                         <div class="row justify-content-center">
                             <div class="col-lg-10">
                               <h4 class="text-center">Fill your Details</h4>
-                              <form id="form_tyre_list">
+                              <form id="form_tyre_list" method="post" enctype="multipart/form-data" onsubmit="return false">
                                 <div class="row justify-content-center pt-4">
                                     <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
                                       <div class="form-outline mt-3">
                                         <label for="name" class="form-label text-dark">Brand</label>
-                                        <input type="text" class="form-control" placeholder="" id="brand" name="brand">
+                                        <select class="form-select form-control" aria-label=".form-select-lg example"id="category" name="category">
+                                          <option value>Select Categoey</option>
+                                          <option value="1">tyre</option>
+                                          <option value="2">....</option>
+                                      </select>
                                       </div>
                                     </div>
                                     <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
@@ -96,7 +100,7 @@
                                         <div class="upload__btn-box text-center">
                                           <label >
                                             <p class="upload__btn ">Upload images</p>
-                                            <input type="file" multiple="" data-max_length="20" class="upload__inputfile" id="_image" name="_image">
+                                            <input type="file" name='files[]' multiple=""  data-max_length="20" class="upload__inputfile" id="_image" name="_image">
                                           </label>
                                           <!-- <p></p> -->
                                         </div>

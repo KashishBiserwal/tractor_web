@@ -2,6 +2,9 @@
  $APIBaseURL = 'http://tractor-api.divyaltech.com/api/admin/';
 $baseUrl = '/tractor_project/';
 //   $APIBaseURL = "http://192.168.1.41:8000/api/admin/";
+
+   
+ 
 ?>
 <meta charset="UTF-8">
 	<title>Tractor Junction</title>
@@ -32,7 +35,5 @@ $baseUrl = '/tractor_project/';
 	<link rel="stylesheet" type="text/css" href="assets/css/datatables.min.css"/>
 	<link rel="stylesheet" type="text/css" href="assets/css/datatables.css"/>
 	<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
-
-
-
 	
+

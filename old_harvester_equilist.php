@@ -159,8 +159,8 @@
                                     <label class="form-label text-dark">State</label>
                                     <select class="form-select" aria-label=".form-select-lg example" id="state" name="state">
                                         <option value="">Select State</option>
-                                        <option value="1">Chhattisgarh</option>
-                                        <option value="2">Others</option>
+                                        <option value="">Chhattisgarh</option>
+                                        <option value="">Others</option>
                                       </select>
                                   </div>
                                 </div>
@@ -169,8 +169,8 @@
                                     <label class="form-label text-dark">District</label>
                                     <select class="form-select" aria-label=".form-select-lg example" id="district" name="district">
                                         <option value="">Select Districte</option>
-                                        <option value="1">Jagdalpur</option>
-                                        <option value="2">Sarguja</option>
+                                        <option value="">Jagdalpur</option>
+                                        <option value="">Sarguja</option>
                                       </select>
                                   </div>
                                 </div>
@@ -179,8 +179,8 @@
                                     <label class="form-label text-dark">Tehsil</label>
                                     <select class="form-select" aria-label=".form-select-lg example" id="tehsil" name="tehsil">
                                         <option value="">Select Tehsil</option>
-                                        <option value="1">Jagdalpur</option>
-                                          <option value="2">Sarguja</option>
+                                        <option value="">Jagdalpur</option>
+                                          <option value="">Sarguja</option>
                                       </select>
                                   </div>
                                 </div>
@@ -211,9 +211,9 @@
                 <label class="form-label"> Brand Name</label>
                 <select class="form-select py-2" aria-label="Default select example">
                     <option selected>Select Brand</option>
-                    <option value="1">Mahindra</option>
-                    <option value="2">Swaraj</option>
-                    <option value="3">John Deere</option>
+                    <option value="">Mahindra</option>
+                    <option value="">Swaraj</option>
+                    <option value="">John Deere</option>
                 </select>
               </div>
             </div>
@@ -222,9 +222,9 @@
                 <label class="form-label">Model</label>
                     <select class="form-select py-2" aria-label="Default select example">
                         <option selected>Select Model</option>
-                        <option value="1">3032 NX</option>
-                        <option value="2">3030 NX</option>
-                        <option value="3">3230 NX</option>
+                        <option value="">3032 NX</option>
+                        <option value="">3030 NX</option>
+                        <option value="">3230 NX</option>
                     </select>
               </div>
             </div>
@@ -233,8 +233,8 @@
                 <label class="form-label">State</label>
                 <select class="form-select py-2" aria-label="Default select example">
                     <option value>Select State</option>
-                    <option value="1">Chattisgarh</option>
-                    <option value="2">Other</option>
+                    <option value="">Chattisgarh</option>
+                    <option value="">Other</option>
                 </select>
               </div>
             </div>
@@ -243,9 +243,9 @@
                 <label class="form-label">District</label>
                 <select class="form-select py-2" aria-label="Default select example">
                     <option value>Select District</option>
-                    <option value="1">Raipur</option>
-                    <option value="2">Bilaspur</option>
-                    <option value="3">Surajpur</option>
+                    <option value="">Raipur</option>
+                    <option value="">Bilaspur</option>
+                    <option value="">Surajpur</option>
                 </select>
               </div>
             </div>
@@ -261,10 +261,11 @@
       </div>
       <!-- Table Card -->
       <div class=" mb-5">
-                            <div class="table-responsive">
-                                <table  id="example" class="table dataTable no-footer py-1" width="100%">
+                            <div class="table-responsive shadow bg-white">
+                                <table  id="example" class="table bg-white table-striped table-hover py-1" width="100%">
                                     <thead>
                                         <tr>
+                                        <th class="d-none d-md-table-cell text-white">S.No</th>
                                             <th class="d-none d-md-table-cell text-white">Date</th>
                                             <th class="d-none d-md-table-cell text-white">Brand</th>
                                             <th class="d-none d-md-table-cell text-white"> Model </th>
@@ -281,6 +282,128 @@
                             </div>
     </div>
    </section>
+   <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered modal-md">
+            <div class="modal-content">
+            <!-- <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel"> Brand Information</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div> -->
+              <div class="modal-body">
+                <h4 class="fw-bold mb-2">Brand Information</h4>
+                <div class="container">
+                  <div class="row">
+                    <div class="col-12 col-lg-6 col-sm-6 col-md-6">
+                      <h5>Brand Name: </h5>
+                    </div>
+                    <div class="col-12 col-lg-6 col-sm-6 col-md-6">
+                      <p id="brand_name2" class="fw-bold"></p>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-12 col-lg-6 col-sm-6 col-md-6">
+                      <h5>Model Name: </h5>
+                    </div>
+                    <div class="col-12 col-lg-6 col-sm-6 col-md-6">
+                      <p id="model_name2" class="fw-bold"></p>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-12 col-lg-6 col-sm-6 col-md-6">
+                      <h5>Crop Type: </h5>
+                    </div>
+                    <div class="col-12 col-lg-6 col-sm-6 col-md-6">
+                      <p id="crop_type" class="fw-bold"></p>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-12 col-lg-6 col-sm-6 col-md-6">
+                      <h5>Power Source: </h5>
+                    </div>
+                    <div class="col-12 col-lg-6 col-sm-6 col-md-6">
+                      <p id="crop_type" class="fw-bold"></p>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-12 col-lg-4 col-sm-4 col-md-4">
+                      <h5>Hours:</h5>
+                    </div>
+                    <div class="col-12 col-lg-8 col-sm-8 col-md-8">
+                     <div id="hours"></div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-12 col-lg-4 col-sm-4 col-md-4">
+                      <h5>Purchase Year:</h5>
+                    </div>
+                    <div class="col-12 col-lg-8 col-sm-8 col-md-8">
+                     <div id="year"></div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-12 col-lg-4 col-sm-4 col-md-4">
+                      <h5>Price:</h5>
+                    </div>
+                    <div class="col-12 col-lg-8 col-sm-8 col-md-8">
+                     <div id="year"></div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-12 col-lg-4 col-sm-4 col-md-4">
+                      <h5>Image:</h5>
+                    </div>
+                    <div class="col-12 col-lg-8 col-sm-8 col-md-8">
+                     <div id="image"></div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-12 col-lg-4 col-sm-4 col-md-4">
+                      <h5>About:</h5>
+                    </div>
+                    <div class="col-12 col-lg-8 col-sm-8 col-md-8">
+                     <div id="about"></div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-12 col-lg-4 col-sm-4 col-md-4">
+                      <h5>name:</h5>
+                    </div>
+                    <div class="col-12 col-lg-8 col-sm-8 col-md-8">
+                     <div id="name"></div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-12 col-lg-4 col-sm-4 col-md-4">
+                      <h5>Mobile Number:</h5>
+                    </div>
+                    <div class="col-12 col-lg-8 col-sm-8 col-md-8">
+                     <div id="mobile"></div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-12 col-lg-4 col-sm-4 col-md-4">
+                      <h5>State</h5>
+                    </div>
+                    <div class="col-12 col-lg-8 col-sm-8 col-md-8">
+                     <div id="state"></div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-12 col-lg-4 col-sm-4 col-md-4">
+                      <h5>District</h5>
+                    </div>
+                    <div class="col-12 col-lg-8 col-sm-8 col-md-8">
+                     <div id="district"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
       
     
 </div>
