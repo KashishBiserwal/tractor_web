@@ -17,6 +17,7 @@ include 'includes/footertag.php';
   });
 });
 </script>
+
 <body class="loaded">
   <div class="main-wrapper">
     <div class="app" id="app">
@@ -466,438 +467,162 @@ include 'includes/footertag.php';
 </div>
 
 <div class="modal fade" id="viewModal_btn" tabindex="-1" role="dialog" aria-labelledby="viewModalLabel" aria-hidden="true">
-              <div class="modal-dialog modal-lg" role="document">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h4 class="modal-title">New Tractor Information</h4>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                  </div>
-                  <div class="modal-body">
-                  <div class="container">
-                    <div class="row">
-                      <div class="col-12 bg-light"><h6 class="fw-bold text-center py-1">Listing</h6></div>
-                      <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                        <div class="row">
-                          <div class="col-12 col-lg-6 col-md-6 col-sm-6 my-1">
-                            <p>Brand-</p>
-                          </div>
-                          <div class="col-12 col-lg-6 col-md-6 col-sm-6 my-1">
-                            <p id="brand_"></p>
-                          </div>
-                        </div>
-                       </div>
-
-                      <div class="col-12 col-lg-6 col-md-6 col-sm-6 my-1">
-                        <div class="row">
-                          <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                            <p>Model Name-</p>
-                          </div>
-                          <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                            <p id="model_"></p>
-                          </div>
-                        </div>
-                      </div>
-                      <!-- <div class="col-12 col-lg-6 col-md-6 col-sm-6 my-1">
-                        <div class="row">
-                          <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                            <p>Product Type</p>
-                          </div>
-                          <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                            <p id="P_type_val"></p>
-                          </div>
-                        </div>
-                      </div> -->
-                      <div class="col-12 col-lg-6 col-md-6 col-sm-6 my-1">
-                        <div class="row">
-                          <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                            <p>HP Category</p>
-                          </div>
-                          <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                            <p id="hp_"></p>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-12 col-lg-6 col-md-6 col-sm-6 my-1">
-                        <div class="row">
-                          <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                            <p>No. of Cylinder</p>
-                          </div>
-                          <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                            <p id="cylinder_"></p>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-12 col-lg-6 col-md-6 col-sm-6 my-1">
-                        <div class="row">
-                          <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                            <p>PTO HP</p>
-                          </div>
-                          <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                            <p id="pto_hp_"></p>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-12 col-lg-6 col-md-6 col-sm-6 my-1">
-                        <div class="row">
-                          <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                            <p>Gear Box Forward</p>
-                          </div>
-                          <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                            <p id="Gear_Box_Forward_1"></p>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-12 col-lg-6 col-md-6 col-sm-6 my-1">
-                        <div class="row">
-                          <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                            <p>Gear Box Reverse</p>
-                          </div>
-                          <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                            <p id="Gear_Box_Reverse_1"></p>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-12 col-lg-6 col-md-6 col-sm-6 my-1">
-                        <div class="row">
-                          <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                            <p>Brakes</p>
-                          </div>
-                          <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                            <p id="brakes_1"></p>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-12 col-lg-6 col-md-6 col-sm-6 my-1">
-                        <div class="row">
-                          <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                            <p>Starting Price</p>
-                          </div>
-                          <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                            <p id="Starting_Price_1"></p>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-12 col-lg-6 col-md-6 col-sm-6 my-1">
-                        <div class="row">
-                          <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                            <p>Ending Price</p>
-                          </div>
-                          <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                            <p id="Ending_Price_1"></p>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-12 col-lg-6 col-md-6 col-sm-6 my-1">
-                        <div class="row">
-                          <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                            <p>Warranty</p>
-                          </div>
-                          <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                            <p id="Warranty_1"></p>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-12 col-lg-6 col-md-6 col-sm-6 my-1">
-                        <div class="row">
-                          <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                            <p>Select Tractor Type</p>
-                          </div>
-                          <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                            <p id="Select_Tractor_Type_1"></p>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-12 col-lg-6 col-md-6 col-sm-6 my-1">
-                        <div class="row">
-                          <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                            <p>Upload images</p>
-                          </div>
-                          <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                           <div class="row">
-                            <div class="col-12 col-sm-3 col-md-3 col-lg-3" id="image_1"></div>
-                           </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-12 bg-light"><h6 class="fw-bold text-center py-1">Engine Details</h6></div>
-                      <div class="col-12 col-lg-6 col-md-6 col-sm-6 my-1">
-                      
-                        <div class="row">
-                          <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                            <p>Capacity CC</p>
-                          </div>
-                          <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                           <div id="capacity_cc_1"></div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-12 col-lg-6 col-md-6 col-sm-6 my-1">
-                        <div class="row">
-                          <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                            <p>Engine Rated RPM</p>
-                          </div>
-                          <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                           <div id="Engine_Rated_RPM_1"></div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-12 col-lg-6 col-md-6 col-sm-6 my-1">
-                        <div class="row">
-                          <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                            <p>Select Cooling</p>
-                          </div>
-                          <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                           <div id="Select_Cooling_1"></div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-12 col-lg-6 col-md-6 col-sm-6 my-1">
-                        <div class="row">
-                          <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                            <p>Air Filter</p>
-                          </div>
-                          <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                           <div id="Air_Filter_1"></div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-12 col-lg-6 col-md-6 col-sm-6 my-1">
-                        <div class="row">
-                          <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                            <p>Fuel pump</p>
-                          </div>
-                          <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                           <div id="Fuel_pump_1"></div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-12 col-lg-6 col-md-6 col-sm-6 my-1">
-                        <div class="row">
-                          <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                            <p>Torque</p>
-                          </div>
-                          <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                           <div id="Torque_1"></div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-12 bg-light"><h6 class="fw-bold text-center py-1">Transmission Details</h6></div>
-                      <div class="col-12 col-lg-6 col-md-6 col-sm-6 my-1">
-                        <div class="row">
-                          <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                            <p>Type</p>
-                          </div>
-                          <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                           <div id="Type_1"></div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-12 col-lg-6 col-md-6 col-sm-6 my-1">
-                        <div class="row">
-                          <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                            <p>Clutch</p>
-                          </div>
-                          <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                           <div id="Clutch_1"></div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-12 col-lg-6 col-md-6 col-sm-6 my-1">
-                        <div class="row">
-                          <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                            <p>Min Forward Speed</p>
-                          </div>
-                          <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                           <div id="Min_Forward_Speed_1"></div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-12 col-lg-6 col-md-6 col-sm-6 my-1">
-                        <div class="row">
-                          <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                            <p>Max Forward Speed</p>
-                          </div>
-                          <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                           <div id="Max_Forward_Speed_1"></div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-12 col-lg-6 col-md-6 col-sm-6 my-1">
-                        <div class="row">
-                          <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                            <p>Min Reverse Speed</p>
-                          </div>
-                          <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                           <div id="Min_Reverse_Speed_1"></div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-12 col-lg-6 col-md-6 col-sm-6 my-1">
-                        <div class="row">
-                          <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                            <p>Max Reverse Speed</p>
-                          </div>
-                          <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                           <div id="Max_Reverse_Speed_1"></div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="clo-12 bg-light"><h6 class="fw-bold text-center py-1"> Steering Details</h6></div>
-                      <div class="col-12 col-lg-6 col-md-6 col-sm-6 my-1">
-                        <div class="row">
-                          <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                            <p>Type</p>
-                          </div>
-                          <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                           <div id="st_Type_1"></div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-12 col-lg-6 col-md-6 col-sm-6 my-1">
-                        <div class="row">
-                          <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                            <p>Coloumn</p>
-                          </div>
-                          <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                           <div id="Coloumn_1"></div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="clo-12 bg-light"><h6 class="fw-bold text-center py-1">Power Take Off Details</h6></div>
-                      <div class="col-12 col-lg-6 col-md-6 col-sm-6 my-1">
-                        <div class="row">
-                          <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                            <p>Type</p>
-                          </div>
-                          <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                           <div id="Type2_1"></div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-12 col-lg-6 col-md-6 col-sm-6 my-1">
-                        <div class="row">
-                          <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                            <p>RPM</p>
-                          </div>
-                          <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                           <div id="RPM_1"></div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="clo-12 bg-light"><h6 class="fw-bold text-center py-1">Dimensions And Weight Details</h6></div>
-                      <div class="col-12 col-lg-6 col-md-6 col-sm-6 my-1">
-                        <div class="row">
-                          <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                            <p>Total Weight</p>
-                          </div>
-                          <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                           <div id="Total_Weight_1"></div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-12 col-lg-6 col-md-6 col-sm-6 my-1">
-                        <div class="row">
-                          <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                            <p>Wheel Base</p>
-                          </div>
-                          <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                           <div id="Wheel_Base_1"></div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="clo-12 bg-light"><h6 class="fw-bold text-center py-1">Hydraulics Details</h6></div>
-                      <div class="col-12 col-lg-6 col-md-6 col-sm-6 my-1">
-                        <div class="row">
-                          <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                            <p>Lifting Capacity</p>
-                          </div>
-                          <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                           <div id="Lifting_Capacity_1"></div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-12 col-lg-6 col-md-6 col-sm-6 my-1">
-                        <div class="row">
-                          <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                            <p>3 Point Linkage</p>
-                          </div>
-                          <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                           <div id="Point_Linkage_1"></div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="clo-12 bg-light"><h6 class="fw-bold text-center py-1"> Wheels And Tyres Details</h6></div>
-                      <div class="col-12 col-lg-6 col-md-6 col-sm-6 my-1">
-                        <div class="row">
-                          <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                            <p>Wheel Drive</p>
-                          </div>
-                          <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                           <div id="Wheel_Drive_1"></div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-12 col-lg-6 col-md-6 col-sm-6 my-1">
-                        <div class="row">
-                          <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                            <p>Front</p>
-                          </div>
-                          <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                           <div id="Front_1"></div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-12 col-lg-6 col-md-6 col-sm-6 my-1">
-                        <div class="row">
-                          <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                            <p>Rear</p>
-                          </div>
-                          <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                           <div id="Rear_1"></div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="clo-12 bg-light"><h6 class="fw-bold text-center py-1">Other Information Details</h6></div>
-                      <div class="col-12 col-lg-6 col-md-6 col-sm-6 my-1">
-                        <div class="row">
-                          <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                            <p>Accessories</p>
-                          </div>
-                          <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                           <div id="Accessories_1"></div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-12 col-lg-6 col-md-6 col-sm-6 my-1">
-                        <div class="row">
-                          <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                            <p>Status</p>
-                          </div>
-                          <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                           <div id="Status_1"></div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-12 col-lg-6 col-md-6 col-sm-6 my-1">
-                        <div class="row">
-                          <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                            <p>About</p>
-                          </div>
-                          <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                           <div id="About_1"></div>
-                          </div>
-                        </div>
-                      </div>
-
-                    </div>
-                  </div>
-                  </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                  </div>
-                </div>
-              </div>
-            </div>
+  <div class="modal-dialog modal-xl" role="document">
+    <div class="modal-content">
+      <div class="modal-header bg-success text-white">
+        <h4 class="modal-title">New Tractor Information</h4>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <div class="container">
+          <table class="table">
+                        <tbody>
+                          <tr>
+                            <td colspan="4" class="fw-bold text-center py-3">Listing</td>
+                          </tr>
+                          <tr>
+                            <td class="bg-light">Brand-</td>
+                            <td class="bg-light" id="brand_"></td>
+                            <td>Model Name-</td>
+                            <td id="model_"></td>
+                          </tr>
+                          <tr>
+                            <td>HP Category-</td>
+                            <td id="hp_"></td>
+                            <td class="bg-light">No. of Cylinder-</td>
+                            <td id="cylinder_" class="bg-light"></td>
+                          </tr>
+                          <tr>
+                            <td class="bg-light">PTO HP-</td>
+                            <td id="pto_hp_" class="bg-light"></td>
+                            <td>Gear Box Forward-</td>
+                            <td id="Gear_Box_Forward_1"></td>
+                          </tr>
+                          <tr>
+                            <td>Gear Box Reverse-</td>
+                            <td id="Gear_Box_Reverse_1"></td>
+                            <td class="bg-light">Brakes-</td>
+                            <td id="brakes_1" class="bg-light"></td>
+                          </tr>
+                          <tr>
+                            <td class="bg-light">Starting Price-</td>
+                            <td id="Starting_Price_1" class="bg-light"></td>
+                            <td>Ending Price-</td>
+                            <td id="Ending_Price_1"></td>
+                          </tr>
+                          <tr>
+                            <td>Warranty-</td>
+                            <td id="Warranty_1"></td>
+                            <td class="bg-light">Select Tractor Type-</td>
+                            <td id="Select_Tractor_Type_1" class="bg-light"></td>
+                          </tr>
+                          <tr>
+                            <td class="bg-light">Upload images-</td>
+                            <td colspan="3">
+                              <div class="row" id="image_1">
+                                  <div class="col-12" ></div>
+                               </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td colspan="4" class="fw-bold text-center py-3">Engine Details</td>
+                          </tr>
+                          <tr>
+                            <td class="bg-light">Capacity CC-</td>
+                            <td id="capacity_cc_1"class="bg-light"></td>
+                            <td>Engine Rated RPM-</td>
+                            <td id="Engine_Rated_RPM_1"></td>
+                          </tr>
+                          <tr>
+                            <td>Select Cooling-</td>
+                            <td id="Select_Cooling_1"></td>
+                            <td class="bg-light">Air Filter-</td>
+                            <td id="Air_Filter_1"class="bg-light"></td>
+                          </tr>
+                          <tr>
+                            <td class="bg-light">Fuel pump-</td>
+                            <td id="Fuel_pump_1" class="bg-light"></td>
+                            <td>Torque-</td>
+                            <td id="Torque_1"></td>
+                          </tr>
+                          <td colspan="4" class="fw-bold text-center py-3">Transmission Details</td>
+                          <tr>
+                            <td class="bg-light">Type-</td>
+                            <td id="Type_1" class="bg-light"></td>
+                            <td>Clutch-</td>
+                            <td id="Clutch_1"></td>
+                          </tr>
+                          <tr>
+                            <td>Min Forward Speed-</td>
+                            <td id="Min_Forward_Speed_1"></td>
+                            <td class="bg-light">Max Forward Speed-</td>
+                            <td id="Max_Forward_Speed_1" class="bg-light"></td>
+                          </tr> <tr>
+                            <td class="bg-light">Min Reverse Speed-</td>
+                            <td id="Min_Reverse_Speed_1" class="bg-light"></td>
+                            <td>Max Reverse Speed-</td>
+                            <td id="Max_Reverse_Speed_1"></td>
+                          </tr>
+                          <td colspan="4" class="fw-bold text-center py-3">Steering Details</td>
+                          <tr>
+                            <td class="bg-light">Type-</td>
+                            <td id="st_Type_1" class="bg-light"></td>
+                            <td>Coloumn-</td>
+                            <td id="Coloumn_1"></td>
+                          </tr>
+                          <td colspan="4" class="fw-bold text-center py-3">Power Take Off Details</td>
+                          <tr>
+                            <td class="bg-light">Type-</td>
+                            <td id="Type2_1" class="bg-light"></td>
+                            <td>RPM-</td>
+                            <td id="RPM_1"></td>
+                          </tr>
+                          <td colspan="4" class="fw-bold text-center py-3">Dimensions And Weight Details</td>
+                          <tr>
+                            <td class="bg-light">Total Weight-</td>
+                            <td id="Total_Weight_1" class="bg-light"></td>
+                            <td>Wheel Base-</td>
+                            <td id="Wheel_Base_1"></td>
+                          </tr>
+                          <td colspan="4" class="fw-bold text-center py-3">Hydraulics Details</td>
+                          <tr>
+                            <td class="bg-light">Lifting Capacity-</td>
+                            <td id="Lifting_Capacity_1" class="bg-light"></td>
+                            <td>3 Point Linkage-</td>
+                            <td id="Point_Linkage_1"></td>
+                          </tr>
+                          <td colspan="4" class="fw-bold text-center py-3">Wheels And Tyres Details</td>
+                          <tr>
+                            <td class="bg-light">Wheel Drive-</td>
+                            <td id="Wheel_Drive_1" class="bg-light"></td>
+                            <td>Front-</td>
+                            <td id="Front_1"></td>
+                          </tr>
+                          <tr>
+                            <td>Rear-</td>
+                            <td id="Rear_1"></td>
+                          </tr>
+                          <td colspan="4" class="fw-bold text-center py-3">Other Information Details</td>
+                          <tr>
+                            <td class="bg-light">Accessories-</td>
+                            <td id="Accessories_1" class="bg-light"></td>
+                            <td>Status-</td>
+                            <td id="Status_1"></td>
+                          </tr>
+                          <tr>
+                            <td>About-</td>
+                            <td id="About_1"></td>
+                          </tr>
+                        </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
 
 <script>
   var APIBaseURL = "<?php echo $APIBaseURL; ?>";

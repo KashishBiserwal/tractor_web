@@ -212,13 +212,14 @@ function getTractorList() {
               <td>${row.ending_price}</td>
               <td>
                   <div class="d-flex">
-                      <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.id});">
-                          <i class="fa fa-trash" style="font-size: 11px;"></i>
-                      </button> 
-                      <a href="tractor_listing_edit.php?trac_edit=${row.product_id};"  onclick="trac_edit_id(${row.id});" class="btn btn-primary btn-sm btn_edit"><i class="fas fa-edit" style="font-size: 11px;"></i></a>
-                      <button class="btn btn-warning text-white btn-sm mx-1" onclick="openView(${row.product_id});" data-bs-toggle="modal" data-bs-target="#viewModal_btn" id="viewbtn">
-                      <i class="fa fa-eye" style="font-size: 11px;"></i>
+                  <button class="btn btn-warning text-white btn-sm mx-1" onclick="openView(${row.product_id});" data-bs-toggle="modal" data-bs-target="#viewModal_btn" id="viewbtn">
+                  <i class="fa fa-eye" style="font-size: 11px;"></i>
                   </button>
+                  <a href="tractor_listing_edit.php?trac_edit=${row.product_id};"  onclick="trac_edit_id(${row.id});" class="btn btn-primary btn-sm btn_edit"><i class="fas fa-edit" style="font-size: 11px;"></i></a>
+                  <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.id});">
+                  <i class="fa fa-trash" style="font-size: 11px;"></i>
+                  </button> 
+                    
                 </div>
               </td>
           `;
@@ -482,24 +483,23 @@ function openView(product_id){
         if (data.product.allProductData && data.product.allProductData.length > 0) {
             data.product.allProductData.forEach(function (b) {
                 var newCard = `
-                <div class=" col-6 col-lg-6 col-md-6 col-sm-6">
+              <div class=" col-12 col-lg-3 col-md-3 col-sm-3">
                 <div class="row">
-                  <div class="col-sm-3 col-12 col-lg-3 col-md-3">
+                  <div>
                     <div class="brand-main box-shadow mt-2 text-center shadow">
                       <a class="weblink text-decoration-none text-dark" 
-                          title="Old Tractors">
-                          <img class="img-fluid w-50" src="http://tractor-api.divyaltech.com/customer/uploads/product_img/"
-                              data-src="h" alt="Brand Logo">
+                        title="Old Tractors">
+                        <img class="img-fluid w-50" src="http://tractor-api.divyaltech.com/customer/uploads/product_img/"
+                        data-src="h" alt="Brand Logo">
                       </a>
                     </div>
                   </div>
                 </div>
-                       
-                    </div>
-                `;
+              </div>
+              `;
 
                 // Append the new card to the container
-                productContainer.append(newCard);
+               productContainer.append(newCard);
             });
 
 
