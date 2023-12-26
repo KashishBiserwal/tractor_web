@@ -143,8 +143,7 @@
                                 <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-4">
                                     <div class="form-outline">
                                         <label class="form-label" for="registeredYear">Registered Year</label>
-                                        <select class="form-select" id="registeredYear" name="registeredYear"
-                                            required>
+                                        <select class="form-select" id="registeredYear" name="registeredYear" required>
                                             <option value="" selected disabled>Select Year</option>
                                             <!-- Assuming the range is from 2008 to 2023 -->
                                             <script>
@@ -160,7 +159,7 @@
                                         <label class="form-label" for="state">State</label>
                                         <select class="form-select" id="state" name="state" required>
                                             <option value="" selected disabled>Select State</option>
-                                            
+
                                             <option value="Chhattisgarh">Chhattisgarh</option>
                                         </select>
                                     </div>
@@ -178,7 +177,7 @@
                                         <label class="form-label " for="tehsil">Tehsil</label>
                                         <select class="form-control" id="tehsil" name="tehsil">
                                             <option value="" selected>Select Tehsil</option>
-                                           
+
                                         </select>
                                     </div>
                                 </div>

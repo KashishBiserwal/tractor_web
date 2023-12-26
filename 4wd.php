@@ -310,7 +310,7 @@
 
     <section>
         <div class="container">
-            <h3 class="fw-bold assured px-2">Find 4WD Tractors</h3>
+            <h3 class="fw-bold assured px-2"> About 4WD Tractors</h3>
             <div class="" role="alert">
                 <p class="text-dark" id="4wd_descrip"></p>
             </div>

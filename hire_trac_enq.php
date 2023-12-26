@@ -53,7 +53,7 @@
               </div>
             </div>
             <div class="col-12 col-sm-12 col-md-4 col-lg-4">
-              <div class=" mt-4 pt-1">
+              <div class="">
                 <button type="button" class="btn-success btn px-3 py-2" id="Search">Search</button>
                 <button type="button" class="btn-success btn  mx-2 px-3 py-2" id="Reset">Reset</button>
               </div>

@@ -2,9 +2,16 @@
 <html lang="en">
 
 <head>
-   <?php
-   include 'includes/headertag.php';
-   ?>
+<?php
+    include 'includes/headertag.php';
+    // $product_id=$_REQUEST['product_id'];
+    // echo $product_id;
+    include 'includes/footertag.php';
+    ?>
+   
+   <script> var APIBaseURL = "<?php echo $APIBaseURL; ?>";</script>
+   <script> var baseUrl = "<?php echo $baseUrl; ?>";</script>
+   <script src="<?php $baseUrl; ?>model/used_harvester.js"></script>
 </head>
 
 <body>
@@ -12,8 +19,8 @@
    include 'includes/header.php';
    ?>
 
-<section class="mt-5 pt-5">
-    <div class="container pt-3">
+<section class="mt-5 pt-5 bg-light">
+    <div class="container py-3">
         <div class="mt-5">
             <span class="mt-4 text-white pt-3 ">
                 <a href="index.php" class="text-decoration-none header-link px-1">Home <i class="fa-solid fa-chevron-right px-1"></i></a>
@@ -31,15 +38,15 @@
                 <div class=" row mb-3" id="">
                     <div class="col-12 col-sm-12 col-md-12 col-lg-12 mt-3">
                         <!-- <div class=" col-12 mt-3"> -->
-                             <button id="adduser" type="button" class="add_btn btn-success px-3">
+                             <button id="adduser" type="button" class="add_btn btn btn-success px-3">
                              <i class="fa-solid fa-cart-shopping"></i> Sell Harvester</button>  &nbsp;
-                                <button id="adduser" type="button" class="add_btn btn-success">
+                                <button id="adduser" type="button" class="add_btn btn btn-success">
                                 <i class="fa-sharp fa-solid fa-handshake"></i> Sell Implements </button>
                           
                     </div>
                 </div>
-                <div class="row my-3">
-                    <div class="col-12 col-lg-4 col-md-4 col-sm-4 mt-3 ">
+                <div class="row my-3" id="productContainerharvester">
+                    <!-- <div class="col-12 col-lg-4 col-md-4 col-sm-4 mt-3 ">
                         <div class="h-auto success__stry__item d-flex flex-column shadow ">
                             <div class="thumb">
                                 <a href="used_harvester_inner.php">
@@ -54,16 +61,15 @@
                                         <p class="pt-1"><strong class="series_tractor_strong text-center h4 fw-bold ">John Deere Green Gold</strong></p>
                                     </a>      
                                 </div>
-                                <div class="power text-center mt-1">
+                                <div class="power text-center">
                                     <div class="row ">
                                         <div class="col-12 col-lg-6 col-md-6 col-sm-6"><p class="text-success ps-2">Price : ₹ 950000</p></div>
                                         <div class="col-12 col-lg-6 col-md-6 col-sm-6" style="padding-right: 32px;">
-                                             <p id="adduser" type="" class="btn-success rounded-3">
-                                             <i class="fa-solid fa-clock"></i> Year : 2011</p>
+                                             <p id="adduser" type="" class=" rounded-3"> Year : 2011</p>
                                         </div>
                                     </div>  
                                     <div class="col-12 text-center">
-                                        <p class="text-dark">Hours : 8001 - 9000</p>
+                                        <p class="text-dark fw-bold">Hours : 8001 - 9000</p>
                                     </div>  
                                 </div>
                             </div>
@@ -71,8 +77,8 @@
                                     <button type="button" id="adduser"class="btn-state btn-success w-100 text-decoration-none px-2 w-100">Raipur, Chhattisgarh</a>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-12 col-lg-4 col-md-4 col-sm-4 mt-3 ">
+                    </div> -->
+                    <!-- <div class="col-12 col-lg-4 col-md-4 col-sm-4 mt-3 ">
                         <div class="h-auto success__stry__item d-flex flex-column shadow ">
                             <div class="thumb">
                                 <a href="#">
@@ -335,10 +341,7 @@
                                     <button type="button" id="adduser"class="btn-state btn-success text-decoration-none px-2 w-100">Raipur, Chhattisgarh</a>
                             </div>
                         </div>
-                    </div>
-
-
-                    
+                    </div> -->
                 </div>
                 <div class="col-12 text-center mt-5">
                     <button id="adduser" type="button" class="add_btn btn-success">
@@ -351,11 +354,11 @@
                     <div class="col-12 col-sm-12 col-md-12 col-lg-12">
                         <div class=" row">
                             <div class="col-12 col-sm-6 col-lg-6 col-md-6">
-                                <button id="adduser" type="button" class="add_btn btn-success px-4">
+                                <button id="adduser" type="button" class="add_btn btn btn-success px-4">
                                 <i class="fas fa-undo"></i>  Reset </button>
                             </div>
                            <div class="col-12 col-sm-6 col-lg-6 col-md-6 pe-2">
-                                <button id="adduser" type="button" class="add_btn btn-success ">
+                                <button id="adduser" type="button" class="add_btn btn btn-success ">
                                 <i class="fas fa-filter"></i>  Apply Filter </button>
                            </div>
                             

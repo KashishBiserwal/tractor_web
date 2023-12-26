@@ -1,7 +1,13 @@
 <?php
-   include 'includes/headertagadmin.php';
-   ?> 
-
+    include 'includes/headertag.php';
+    // $product_id=$_REQUEST['product_id'];
+    // echo $product_id;
+    include 'includes/footertag.php';
+    ?>
+   
+   <script> var APIBaseURL = "<?php echo $APIBaseURL; ?>";</script>
+   <script> var baseUrl = "<?php echo $baseUrl; ?>";</script>
+   <script src="<?php $baseUrl; ?>model/old_harvesteradmin.js"></script>
 
 <body class="loaded"> 
 <div class="main-wrapper">
@@ -23,7 +29,7 @@
             </ol>
           </nav>
           <button type="button" id="add_trac" class="btn add_btn btn-success float-right" data-bs-toggle="modal"  data-bs-target="#staticBackdrop">
-            <i class="fa fa-plus" aria-hidden="true"></i>Add Old Harvester
+            <i class="fa fa-plus" aria-hidden="true"></i> Add Old Harvester
           </button>
 
           <!-- Modal -->
@@ -38,17 +44,32 @@
                         <div class="row justify-content-center">
                             <div class="col-lg-10">
                               <!-- <h4 class="text-center">Fill your Tractor Details</h4> -->
-                              <form id="old_form">
+                              <form id="old_form" enctype="multipart/form-data" onsubmit="return false">
                             <div class="row justify-content-center pt-4">
                                 <h5 class="fw-bold">Your Harvester Information</h5>
+                                <div class="col-12 col-lg-6 col-md-6 col-sm-6" hidden>
+                                  <div class="form-outline mt-3">
+                                    <label for="name" class="form-label text-dark">Enquiry id</label>
+                                    <input type="text" class="form-control" placeholder="Enter Your Model Name" id="enquiry_type_id" name="enquiry_type_id" value="3">
+                                  </div>
+                               </div>
+                               <div class="col-12 col-lg-6 col-md-6 col-sm-6"hidden>
+                                  <div class="form-outline mt-3">
+                                    <label for="name" class="form-label text-dark">Product id</label>
+                                    <input type="text" class="form-control" placeholder="Enter Your Model Name" value="3" id="product_type_id" name="product_type_id">
+                                  </div>
+                               </div>
+                               <div class="col-12 col-lg-6 col-md-6 col-sm-6" hidden>
+                                  <div class="form-outline mt-3">
+                                    <label for="name" class="form-label text-dark">Form type</label>
+                                    <input type="text" class="form-control" placeholder="Enter Your Model Name" value="FOR_SELL_HARVESTER" id="form_type" name="form_type">
+                                  </div>
+                               </div>
                                 <div class="col-12 col-sm-12 col-md-6 col-lg-6">
                                   <div class="form-outline mt-3">
                                     <label class="form-label text-dark">Brand</label>
                                     <select class="form-select " aria-label=".form-select-lg example" id="brand"name="brand">
-                                      <option value>Select Brand</option>
-                                      <option value="1">Mahindra</option>
-                                      <option value="2">svaraj</option>
-                                      <option value="2">sonakila</option>
+                                      
                                       </select>
                                   </div>
                                 </div>
@@ -61,22 +82,16 @@
                                <div class="col-12 col-sm-12 col-md-6 col-lg-6">
                                   <div class="form-outline mt-3">
                                     <label class="form-label text-dark">Crop Type</label>
-                                    <select class="form-select py-2 " aria-label=".form-select-lg example" id="crop_type" name="crop_type">
-                                        <option value="">Select Crop Type</option>
-                                        <option value="1">MultiCrop</option>
-                                        <option value="2">Paddy</option>
-                                        <option value="3">Maize</option>
-                                        <option value="3">Sugarcane</option>
+                                    <select class="form-select py-2 " aria-label=".form-select-lg example" id="CROPS_TYPE" name="CROPS_TYPE">
+                                       
                                     </select>
                                   </div>
                                 </div>
                                 <div class="col-12 col-sm-12 col-md-6 col-lg-6">
                                   <div class="form-outline mt-3">
                                     <label class="form-label text-dark"> Power Source</label>
-                                    <select class="form-select py-2 " aria-label=".form-select-lg example" id="power" name="power">
-                                      <option value="">Select Power Source</option>
-                                      <option value="1">Self</option>
-                                      <option value="2">Tractor Mounted</option>
+                                    <select class="form-select py-2 " aria-label=".form-select-lg example" id="POWER_SOURCE" name="POWER_SOURCE">
+                                      
                                     </select>
                                   </div>
                                 </div>
@@ -84,19 +99,7 @@
                                   <div class="form-outline pt-3 mt-3">
                                     <label class="form-label text-dark">Hours</label>
                                     <select class="form-select py-2 " aria-label=".form-select-lg example" id="hours" name="hours">
-                                          <option value>Select Hours</option>
-                                          <option value="1">Less than 1000 </option>
-                                          <option value="2">1001 - 2000</option>
-                                          <option value="3">2001 - 3000</option>
-                                          <option value="3">3001 - 4000</option>
-                                          <option value="3">4001 - 5000</option>
-                                          <option value="3">5001 - 6000</option>
-                                          <option value="3">6001 - 7000</option>
-                                          <option value="3">7001 - 8000</option>
-                                          <option value="3">8001 - 9000</option>
-                                          <option value="3">9001 - 10000</option>
-                                          <option value="3">above 10000</option>
-                                          <option value="3">Not Available</option>
+                                          
                                       </select>
                                     </select>
                                   </div>
@@ -105,11 +108,7 @@
                                   <div class="form-outline pt-3 mt-3">
                                     <label class="form-label text-dark">Purchase Year</label>
                                     <select class="form-select py-2 " aria-label=".form-select-lg example" id="year" name="year">
-                                          <option value="">Enter Purchase Year</option>
-                                          <option value="1">2023</option>
-                                          <option value="2">2022</option>
-                                          <option value="3">2021</option>
-                                          <option value="3">2020</option>
+                                          
                                     </select>
                                   </div>
                                 </div>
@@ -119,29 +118,34 @@
                                     <input type="text" class="form-control" placeholder="Enter Price" id="price" name="price">
                                   </div>
                                </div>
-                                <div class="col-12 col-sm-6 col-lg-6 col-md-6 ">
-                                  <div class="upload__box pt-3 mt-3">
-                                      <div class="upload__btn-box">
-                                        <label class="upload__btn">
-                                          <p>Upload images</p>
-                                          <input type="file" multiple="" data-max_length="20" class="upload__inputfile" id="image" name="image">
-                                        </label>
-                                      </div>
-                                      <p>Upload minimum 2 images</p>
-                                      <div class="upload__img-wrap"></div>
-                                    </div>
-                                </div>
-                                  <div class="col-12">
-                                  <div class="form-outline">
-                                  <label class="form-label text-dark">About</label>
-                                  <textarea name="about" rows="4" cols="70" minlength="1" maxlength="255"></textarea>
-                                  </div>
-                               </div>
-                                  <h5 class="fw-bold mt-3 ">Personal Information</h5>
+                               <div class="col-12 col-lg-6 col-md-6 col-sm-6">
+                                          <div class="upload__box mt-2">
+                                            <div class="upload__btn-box text-center">
+                                              <label >
+                                                <p class="upload__btn ">Upload images</p>
+                                                <input type="file" name='files[]' multiple="" data-max_length="20" class="upload__inputfile" id="image">
+                                              </label>
+                                            </div>
+                                            <div id="selectedImagesContainer" class="upload__img-wrap"></div>
+                                          </div>
+                                        </div>
+                               <div class="col-12 ">
+                                            <div class="form-outline ">
+                                                <label class="form-label text-dark">About</label>
+                                                <textarea rows="4" cols="70" class="w-100" minlength="1" maxlength="255" id="about" name="about"></textarea>
+                                            </div>
+                                        </div>
+                                  <h5 class="fw-bold mt-4 ">Personal Information</h5>
                                 <div class="col-12 col-sm-6 col-lg-6 col-md-6">
                                   <div class="form-outline mt-3">
-                                    <label for="name" class="form-label text-dark">Name</label>
+                                    <label for="name" class="form-label text-dark"> First Name</label>
                                     <input type="text" class="form-control" id="name" name="name" placeholder="Enter Your Name">
+                                  </div>
+                               </div>
+                               <div class="col-12 col-sm-6 col-lg-6 col-md-6">
+                                  <div class="form-outline mt-3">
+                                    <label for="name" class="form-label text-dark"> Last Name</label>
+                                    <input type="text" class="form-control" id="lname" name="lname" placeholder="Enter Your Name">
                                   </div>
                                </div>
                                 <div class="col-12 col-sm-6 col-lg-6 col-md-6">
@@ -150,38 +154,38 @@
                                     <input type="text" class="form-control"  id="Mobile" name="Mobile" placeholder="Enter Your Number">
                                   </div>
                                 </div>
-                                    <div class="col-12 col-sm-4 col-lg-4 col-md-4">
+                                    <div class="col-12 col-sm-6 col-lg-6 col-md-6">
                                   <div class="form-outline mt-3">
                                     <label class="form-label text-dark">State</label>
                                     <select class="form-select" aria-label=".form-select-lg example" id="state" name="state">
                                         <option value="">Select State</option>
-                                        <option value="1">Chhattisgarh</option>
-                                        <option value="2">Others</option>
+                                        <option value="">Chhattisgarh</option>
+                                        <option value="">Others</option>
                                       </select>
                                   </div>
                                 </div>
-                                    <div class="col-12 col-sm-4 col-lg-4 col-md-4">
+                                    <div class="col-12 col-sm-6 col-lg-6 col-md-6">
                                   <div class="form-outline mt-3">
-                                    <label class="form-label text-dark">Districte</label>
+                                    <label class="form-label text-dark">District</label>
                                     <select class="form-select" aria-label=".form-select-lg example" id="district" name="district">
                                         <option value="">Select Districte</option>
-                                        <option value="1">Jagdalpur</option>
-                                          <option value="2">Sarguja</option>
+                                        <option value="">Jagdalpur</option>
+                                        <option value="">Sarguja</option>
                                       </select>
                                   </div>
                                 </div>
-                                    <div class="col-12 col-sm-4 col-lg-4 col-md-4">
+                                    <div class="col-12 col-sm-6 col-lg-6 col-md-6">
                                   <div class="form-outline mt-3">
                                     <label class="form-label text-dark">Tehsil</label>
                                     <select class="form-select" aria-label=".form-select-lg example" id="tehsil" name="tehsil">
                                         <option value="">Select Tehsil</option>
-                                        <option value="1">Jagdalpur</option>
-                                          <option value="2">Sarguja</option>
+                                        <option value="">Jagdalpur</option>
+                                          <option value="">Sarguja</option>
                                       </select>
                                   </div>
                                 </div>
                                 <div class="col-12 text-center mt-4"> 
-                                  <button type="submit" class="btn btn-success fw-bold px-3 ">Submit</button>
+                                 
                                 </div>
                             </form>
                             </div>
@@ -189,6 +193,7 @@
                     </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-secondary px-3" data-bs-dismiss="modal">Close</button>
+                  <button type="submit" id="submitbtn" class="btn btn-success fw-bold px-3 ">Submit</button>
                 </div>
               </div>
             </div>
@@ -201,303 +206,210 @@
       <div class="filter-card mb-2">
         <div class="card-body">
           <div class="row">
-          <div class="col-12 col-sm-12 col-md-3 col-lg-3">
+            <div class="col-12 col-sm-12 col-md-3 col-lg-3">
               <div class="form-outline">
-                <label class="form-label"> Search by UID </label>
-                <input type="text" id="uid" name="search_email" class="form-control" />
+                <label class="form-label"> Brand Name</label>
+                <select class="form-select py-2" aria-label="Default select example">
+                    <option selected>Select Brand</option>
+                    <option value="">Mahindra</option>
+                    <option value="">Swaraj</option>
+                    <option value="">John Deere</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-12 col-sm-12 col-md-3 col-lg-3">
+              <div class="form-outline ">
+                <label class="form-label">Model</label>
+                    <select class="form-select py-2" aria-label="Default select example">
+                        <option selected>Select Model</option>
+                        <option value="">3032 NX</option>
+                        <option value="">3030 NX</option>
+                        <option value="">3230 NX</option>
+                    </select>
               </div>
             </div>
             <div class="col-12 col-sm-12 col-md-3 col-lg-3">
               <div class="form-outline">
-                <label class="form-label">Search by Brand</label>
-                <input type="email" id="brand" name="search_name" class="form-control" />
+                <label class="form-label">State</label>
+                <select class="form-select py-2" aria-label="Default select example">
+                    <option value>Select State</option>
+                    <option value="">Chattisgarh</option>
+                    <option value="">Other</option>
+                </select>
               </div>
             </div>
             <div class="col-12 col-sm-12 col-md-3 col-lg-3">
               <div class="form-outline">
-                <label class="form-label">Search by Model Number</label>
-                <input type="text" id="modal_no" name="search_email" class="form-control" />
+                <label class="form-label">District</label>
+                <select class="form-select py-2" aria-label="Default select example">
+                    <option value>Select District</option>
+                    <option value="">Raipur</option>
+                    <option value="">Bilaspur</option>
+                    <option value="">Surajpur</option>
+                </select>
               </div>
             </div>
-            <div class="col-12 col-sm-12 col-md-3 col-lg-3">
-              <div class="">
-                <button type="button" class="btn-success px-4 py-2 btn" id="Reset">Reset</button>
+            <div class="col-12 mt-3">
+              <div class="text-center">
+                <button type="button" class="btn-success btn px-5 pt-2" id="Search">Search</button>
+                <button type="button" class="btn-success btn mx-2 px-5 pt-2" id="Reset">Reset</button>
               </div>
             </div>
+          
           </div>
         </div>
       </div>
       <!-- Table Card -->
       <div class=" mb-5">
-                            <div class="table-responsive">
-                                <table  id="example" class="table dataTable no-footer py-1" width="100%">
+                            <div class="table-responsive shadow bg-white">
+                                <table  id="example" class="table bg-white table-striped table-hover py-1" width="100%">
                                     <thead>
                                         <tr>
-                                            <th class="d-none d-md-table-cell text-white">S.No.</th>
+                                        <th class="d-none d-md-table-cell text-white">S.No</th>
                                             <th class="d-none d-md-table-cell text-white">Date</th>
-                                            <th class="d-none d-md-table-cell text-white">UID</th>
                                             <th class="d-none d-md-table-cell text-white">Brand</th>
                                             <th class="d-none d-md-table-cell text-white"> Model </th>
                                             <th class="d-none d-md-table-cell text-white"> Year </th>
-                                            <th class="d-none d-md-table-cell text-white"> Status </th>
-                                            <th class="d-none d-md-table-cell text-white"> Model </th>
+                                            <th class="d-none d-md-table-cell text-white"> State </th>
+                                            <th class="d-none d-md-table-cell text-white"> district </th>
+                                            <th class="d-none d-md-table-cell text-white"> Phone Numner </th>
+                                            <th class="d-none d-md-table-cell text-white"> Action </th>
                                         </tr>
                                     </thead>
-                                    <tbody>
+                                    <tbody id="data-table">
                                     </tbody>
                                 </table>
                             </div>
     </div>
    </section>
+   <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered modal-md">
+            <div class="modal-content">
+            <!-- <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel"> Brand Information</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div> -->
+              <div class="modal-body">
+                <h4 class="fw-bold mb-2">Brand Information</h4>
+                <div class="container">
+                  <div class="row">
+                    <div class="col-12 col-lg-6 col-sm-6 col-md-6">
+                      <h5>Brand Name: </h5>
+                    </div>
+                    <div class="col-12 col-lg-6 col-sm-6 col-md-6">
+                      <p id="brand_name2" class="fw-bold"></p>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-12 col-lg-6 col-sm-6 col-md-6">
+                      <h5>Model Name: </h5>
+                    </div>
+                    <div class="col-12 col-lg-6 col-sm-6 col-md-6">
+                      <p id="model_name2" class="fw-bold"></p>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-12 col-lg-6 col-sm-6 col-md-6">
+                      <h5>Crop Type: </h5>
+                    </div>
+                    <div class="col-12 col-lg-6 col-sm-6 col-md-6">
+                      <p id="crop_type" class="fw-bold"></p>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-12 col-lg-6 col-sm-6 col-md-6">
+                      <h5>Power Source: </h5>
+                    </div>
+                    <div class="col-12 col-lg-6 col-sm-6 col-md-6">
+                      <p id="crop_type" class="fw-bold"></p>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-12 col-lg-4 col-sm-4 col-md-4">
+                      <h5>Hours:</h5>
+                    </div>
+                    <div class="col-12 col-lg-8 col-sm-8 col-md-8">
+                     <div id="hours"></div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-12 col-lg-4 col-sm-4 col-md-4">
+                      <h5>Purchase Year:</h5>
+                    </div>
+                    <div class="col-12 col-lg-8 col-sm-8 col-md-8">
+                     <div id="year"></div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-12 col-lg-4 col-sm-4 col-md-4">
+                      <h5>Price:</h5>
+                    </div>
+                    <div class="col-12 col-lg-8 col-sm-8 col-md-8">
+                     <div id="year"></div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-12 col-lg-4 col-sm-4 col-md-4">
+                      <h5>Image:</h5>
+                    </div>
+                    <div class="col-12 col-lg-8 col-sm-8 col-md-8">
+                     <div id="image"></div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-12 col-lg-4 col-sm-4 col-md-4">
+                      <h5>About:</h5>
+                    </div>
+                    <div class="col-12 col-lg-8 col-sm-8 col-md-8">
+                     <div id="about"></div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-12 col-lg-4 col-sm-4 col-md-4">
+                      <h5>name:</h5>
+                    </div>
+                    <div class="col-12 col-lg-8 col-sm-8 col-md-8">
+                     <div id="name"></div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-12 col-lg-4 col-sm-4 col-md-4">
+                      <h5>Mobile Number:</h5>
+                    </div>
+                    <div class="col-12 col-lg-8 col-sm-8 col-md-8">
+                     <div id="mobile"></div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-12 col-lg-4 col-sm-4 col-md-4">
+                      <h5>State</h5>
+                    </div>
+                    <div class="col-12 col-lg-8 col-sm-8 col-md-8">
+                     <div id="state"></div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-12 col-lg-4 col-sm-4 col-md-4">
+                      <h5>District</h5>
+                    </div>
+                    <div class="col-12 col-lg-8 col-sm-8 col-md-8">
+                     <div id="district"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
       
     
 </div>
 </div>
 </body>
-<?php
-   include 'includes/footertag.php';
-   ?> 
-<script>
-     jQuery(document).ready(function () {
-    
-    BackgroundUpload();
-  });
 
-  function BackgroundUpload() {
-    var imgWrap = "";
-    var imgArray = [];
 
-    function generateUniqueClassName(index) {
-      return "background-image-" + index;
-    }
-
-    $('.background__inputfile').each(function () {
-      $(this).on('change', function (e) {
-        imgWrap = $(this).closest('.background__box').find('.background__img-wrap');
-        var maxLength = $(this).attr('data-max_length');
-
-        var files = e.target.files;
-        var filesArr = Array.prototype.slice.call(files);
-        var iterator = 0;
-        filesArr.forEach(function (f, index) {
-
-          if (!f.type.match('image.*')) {
-            return;
-          }
-
-          if (imgArray.length > maxLength) {
-            return false;
-          } else {
-            var len = 0;
-            for (var i = 0; i < imgArray.length; i++) {
-              if (imgArray[i] !== undefined) {
-                len++;
-              }
-            }
-            if (len > maxLength) {
-              return false;
-            } else {
-              imgArray.push(f);
-
-              var reader = new FileReader();
-              reader.onload = function (e) {
-                var className = generateUniqueClassName(iterator);
-                var html = "<div class='background__img-box'><div onclick='BackgroundImage(\"" + className + "\")' style='background-image: url(" + e.target.result + ")' data-number='" + $(".background__img-close").length + "' data-file='" + f.name + "' class='img-bg " + className + "'><div class='background__img-close'></div></div></div>";
-                imgWrap.append(html);
-                iterator++;
-              }
-              reader.readAsDataURL(f);
-            }
-          }
-        });
-      });
-    });
-
-    $('body').on('click', ".background__img-close", function (e) {
-      var file = $(this).parent().data("file");
-      for (var i = 0; i < imgArray.length; i++) {
-        if (imgArray[i].name === file) {
-          imgArray.splice(i, 1);
-          break;
-        }
-      }
-      $(this).parent().parent().remove();
-    });
-  }
-</script>
-
-<script>
-    jQuery(document).ready(function () {
-  ImgUpload();
-   });
-
-function ImgUpload() {
-  var imgWrap = "";
-  var imgArray = [];
-
-  $('.upload__inputfile').each(function () {
-    $(this).on('change', function (e) {
-      imgWrap = $(this).closest('.upload__box').find('.upload__img-wrap');
-      var maxLength = $(this).attr('data-max_length');
-
-      var files = e.target.files;
-      var filesArr = Array.prototype.slice.call(files);
-      var iterator = 0;
-      filesArr.forEach(function (f, index) {
-
-        if (!f.type.match('image.*')) {
-          return;
-        }
-
-        if (imgArray.length > maxLength) {
-          return false
-        } else {
-          var len = 0;
-          for (var i = 0; i < imgArray.length; i++) {
-            if (imgArray[i] !== undefined) {
-              len++;
-            }
-          }
-          if (len > maxLength) {
-            return false;
-          } else {
-            imgArray.push(f);
-
-            var reader = new FileReader();
-            reader.onload = function (e) {
-              var html = "<div class='upload__img-box'><div style='background-image: url(" + e.target.result + ")' data-number='" + $(".upload__img-close").length + "' data-file='" + f.name + "' class='img-bg'><div class='upload__img-close'></div></div></div>";
-              imgWrap.append(html);
-              iterator++;
-            }
-            reader.readAsDataURL(f);
-          }
-        }
-      });
-    });
-  });
-
-  $('body').on('click', ".upload__img-close", function (e) {
-    var file = $(this).parent().data("file");
-    for (var i = 0; i < imgArray.length; i++) {
-      if (imgArray[i].name === file) {
-        imgArray.splice(i, 1);
-        break;
-      }
-    }
-    $(this).parent().parent().remove();
-  });
-}
-</script>
-<script>
-    $(document).ready(function () {
-      jQuery.validator.addMethod("customPhoneNumber", function(value, element) {
-    return /^[6-9]\d{9}$/.test(value); 
-  }, "Phone number must start with 6 or above");
-
-      $('#old_form').validate({
-        rules: {
-          brand: {
-            required: true,
-          },
-          model: {
-            required: true,
-          },
-          crop_type: {
-            required: true,
-          },
-          power: {
-            required: true,
-          },
-          hours: {
-            required: true,
-          },
-          name: {
-            required: true,
-          },
-          Mobile: {
-            required:true,
-          minlength: 10,
-          maxlength:10,
-           digits: true,
-          customPhoneNumber: true
-          },
-          state: {
-            required: true,
-          },
-          district: {
-            required: true,
-          },
-          year:{
-
-            required: true,
-          },
-          price:{
-
-            required: true,
-          },
-          about:{
-
-           required: true,
-           minlength: 1, 
-           maxlength: 1000 
-          },
-          image:{
-
-            required: true,
-          }
-        },
-        messages: {
-          brand: {
-            required:"This field is required",
-          },
-          model: {
-            required: "This field is required",
-          },
-          crop_type: {
-            required: "This field is required",
-          },
-          power: {
-            required: "This field is required",
-          },
-          hours: {
-            required: "This field is required",
-          },
-          name: {
-            required: "This field is required",
-          },
-          Mobile: {
-            required:"Please Enter Your Contact Number",
-            minlength: "Phone Number must be of 10 Digit long",
-            maxlength:"Enter only 10 digits",
-            digits: "Please enter only digits"
-          },
-          state: {
-            required: "This field is required",
-          },
-          district: {
-            required: "This field is required",
-          }, 
-          year:{
-
-            required: "This field is required",
-          },
-          price:{
-
-            required: "This field is required",
-          },
-          about:{
-
-            required: "This field is required",
-          },
-          image:{
-
-            required: "This field is required",
-          }
-        },
-        submitHandler: function (form) {
-          form.submit();
-        }
-      });
-    });
-  </script>
+  
                        

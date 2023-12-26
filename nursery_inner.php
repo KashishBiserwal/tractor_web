@@ -26,16 +26,16 @@
             </div>
         </div>
     </section>
-
+    <!-- next section start -->
     <section>
         <div class="container">
             <div class="vegehead pt-3">
                 <div class="row">
                     <div class="col-12 col-lg-6 ">
-                        <h3 class="fw-bold text-danger pt-3 ">Nursery in District Name</h3>
+                        <h4 class="fw-bold text-danger pt-4 ">Nursery in District Name</h4>
                     </div>
                     <div class="col-12 col-lg-6 ">
-                        <h3 class="fw-bold text-danger pt-3">Are You Intrested in this Nursery</h3>
+                        <h4 class="fw-bold text-center text-danger pt-4">Are You Intrested In This Nursery ?</h4>
                     </div>
                 </div>
             </div>
@@ -45,6 +45,7 @@
                     <div>
                         <div class="swiper swiper_buy mySwiper2_buy">
                             <div class="swiper-wrapper swiper-wrapper_buy">
+
                                 <div class=" swiper-slide swiper-slide_buy">
                                     <img class="img_buy" src="assets/images/nursury.jpg" />
                                 </div>
@@ -56,79 +57,84 @@
                                     <img class="img_buy " src="assets/images/nursry.jpg" />
                                 </div>
                             </div>
+                            <div class="swiper-button-prev">
+
+                            </div>
+                            <div class="swiper-button-next">
+
+                            </div>
+
+
                         </div>
                         <div thumbsSlider="" class="swiper mySwiper_buy"></div>
                     </div>
                 </div>
                 <div class="col-12 col-sm-6 col-lg-6 col-md-6">
-                    <form action="" id="nursery_form">
+                    <form action="" id="nursery_form" class="bg-light shadow " method="post">
                         <div class="row">
                             <div class="col-12 justify-content-center">
                                 <div class="d-flex flex-md-row px-3  flex-column-reverse">
                                     <div class="col-md-12 col-12 col-lg-12 col-lg-12">
                                         <div class=" ml-2">
                                             <div class="row">
-                                                <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
+                                                <div class="col-12 col-lg-6 col-md-6 col-sm-12 mt-4">
                                                     <div class="form-outline">
-                                                        <label for="fname" class="form-label text-dark"> <i
+                                                        <label for="fname" class="form-label "><i
                                                                 class="fa-regular fa-user"></i> First Name</label>
-                                                        <input type="text" class="form-control"
-                                                            placeholder="Enter Your Name" id="fname" name="fname">
+                                                        <input type="text" class="form-control" onkeydown="return /[a-zA-Z]/i.test(event.key)" id="fname" name="fname">
                                                     </div>
                                                 </div>
-                                                <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
+                                                <div class="col-12 col-lg-6 col-md-6 col-sm-12 mt-4">
                                                     <div class="form-outline">
-                                                        <label for="lname" class="form-label text-dark"> <i
+                                                        <label for="lname" class="form-label "><i
                                                                 class="fa-regular fa-user"></i> Last Name</label>
-                                                        <input type="text" class="form-control"
-                                                            placeholder="Enter Your Name" id="lname" name="lname">
+                                                        <input type="text" class="form-control" onkeydown="return /[a-zA-Z]/i.test(event.key)" id="lname" name="lname">
                                                     </div>
                                                 </div>
-                                                <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
-                                                    <div class="form-outline mt-3">
-                                                        <label for="phone" class="form-label text-dark"> <i
-                                                                class="fa fa-phone" aria-hidden="true"></i> Phone
+                                                <div class="col-12 col-lg-6 col-md-6 col-sm-12 mt-4">
+                                                    <div class="form-outline ">
+                                                        <label for="phone" class="form-label "><i class="fa fa-phone"
+                                                                aria-hidden="true"></i> Phone
                                                             Number</label>
-                                                        <input type="password" class="form-control"
-                                                            placeholder="Enter Number" id="phone" name="phone">
+                                                        <input type="tel" class="form-control" id="phone" name="phone">
                                                     </div>
                                                 </div>
 
-                                                <div class="col-12 col-sm-12 col-md-6 col-lg-6">
-                                                    <div class="form-outline my-3">
-                                                        <label for="state" class="form-label text-dark" id="state"
-                                                            name="state"> <i class="fas fa-location"></i> State</label>
+                                                <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-4">
+                                                    <div class="form-outline ">
+                                                        <label for="state" class="form-label "><i
+                                                                class="fas fa-location"></i> State</label>
                                                         <select class="form-select py-2 "
                                                             aria-label=".form-select-lg example" id="state"
                                                             name="state">
-                                                            <option value>Select State</option>
+                                                            <option value="" selected disabled></option>
                                                             <option value="1">Chhattisgarh</option>
                                                             <option value="2">Other</option>
                                                         </select>
                                                     </div>
                                                 </div>
-                                                <div class="col-12 col-sm-12 col-md-6 col-lg-6">
-                                                    <div class="form-outline my-3">
-                                                        <label class="form-label text-dark"><i
+
+                                                <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-4">
+                                                    <div class="form-outline ">
+                                                        <label for="district" class="form-label "><i
                                                                 class="fa-solid fa-location-dot"></i> District</label>
                                                         <select class="form-select py-2 "
                                                             aria-label=".form-select-lg example" name="district"
                                                             id="district">
-                                                            <option value>Select District</option>
+                                                            <option value="" selected disabled></option>
                                                             <option value="1">Raipur</option>
                                                             <option value="2">Bilaspur</option>
                                                             <option value="2">Durg</option>
                                                         </select>
                                                     </div>
                                                 </div>
-                                                <div class="col-12 col-sm-12 col-md-6 col-lg-6">
-                                                    <div class="form-outline my-3">
-                                                        <label for="yr_tehsil"
-                                                            class="form-label text-dark">Tehsil</label>
+                                                <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-4">
+                                                    <div class="form-outline ">
+                                                        <label for="tehsil" class="form-label">Tehsil</label>
                                                         <select class="form-select py-2 "
-                                                            aria-label=".form-select-lg example" name="district"
-                                                            id="district">
-                                                            <option value>Select District</option>
+                                                            aria-label=".form-select-lg example" name="tehsil"
+                                                            id="tehsil">
+                                                            <option value="" selected disabled></option>
                                                             <option value="1">Raipur</option>
                                                             <option value="2">Bilaspur</option>
                                                             <option value="2">Durg</option>
@@ -138,60 +144,55 @@
                                             </div>
 
                                             <!-- Button trigger modal -->
-                                            <div class="col-12 col-sm-12 col-md-6 col-lg-12 ">
-                                                <button type="button" class="btn btn-success w-100"
-                                                    data-bs-toggle="modal" id="button_nursery"
-                                                    data-bs-target="#staticBackdrop3">
+                                            <div class="col-12 col-sm-12 col-md-6 col-lg-12 mb-4 mt-4">
+                                                <button type="button" class="btn btn-success w-100" id="button_nursery">
                                                     Request
                                                 </button>
                                             </div>
-                                            <div class="modal fade" id="staticBackdrop3" data-bs-backdrop="static"
-                                                data-bs-keyboard="false" tabindex="-1"
-                                                aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                                                <div class="modal-dialog modal-dialog-centered">
-                                                    <div class="modal-content">
-                                                        <div class="modal-header">
-                                                            <h5 class="modal-title" id="staticBackdropLabel"></h5>
-                                                            <button type="button" class="btn-close"
-                                                                data-bs-dismiss="modal" aria-label="Close"></button>
-                                                        </div>
-                                                        <div class="modal-body">
-                                                            <div class="row px-3  mb-4 text-center">
-                                                                <h2 class="col-12 text-danger"><strong>ThankYou For
-                                                                        Contacting Us..!</strong></h2>
-                                                                <div class="col-12 text-center"><img class="tick w-100"
-                                                                        alt="dfd" src="assets/images/dribbble_yamm.gif">
-                                                                </div>
-                                                                <h6 class="col-12 mt-3"><i>We will Connect You Soon</i>
-                                                                </h6>
-                                                                <h6 class="col-12 mt-2"><i>Enjoy Your Day..!</i></h6>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
+
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-12">
-                            <div class="row px-3 float-end mt-4">
-                                <img class="pic  mr-3 " src="assets/images/vege.png">
+                    </form>
+                    <div id="thankyouModal">
+                        <div class="modal fade" id="staticBackdrop3" data-bs-backdrop="static" data-bs-keyboard="false"
+                            tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="staticBackdropLabel"></h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="row px-3  mb-4 text-center">
+                                            <h2 class="col-12 text-danger"><strong>ThankYou For
+                                                    Contacting Us..!</strong></h2>
+                                            <div class="col-12 text-center"><img class="tick w-100" alt="dfd"
+                                                    src="assets/images/dribbble_yamm.gif">
+                                            </div>
+                                            <h6 class="col-12 mt-3"><i>We will Connect You Soon</i>
+                                            </h6>
+                                            <h6 class="col-12 mt-2"><i>Enjoy Your Day..!</i></h6>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-
-                    </form>
+                    </div>
                 </div>
 
             </div>
         </div>
-        </div>
+
     </section>
 
     <section>
         <div class="container">
             <h3 class="text-danger assured ps-3">About Nursery</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto quasi nesciunt provident aliquid accusamus est reprehenderit repellat inventore quidem officia, porro, non similique rem ipsum quam a, quia unde? Ea laborum tenetur aut dicta veniam, perspiciatis esse natus molestias? Facere commodi distinctio temporibus quia excepturi asperiores aperiam, rem vitae laudantium nostrum porro ratione corrupti reprehenderit ut totam aliquid ipsa provident eveniet ab debitis esse quae deserunt quam nobis. Ullam officiis minus cum vero velit nulla voluptates amet provident praesentium asperiores nam, voluptate molestiae atque sunt accusamus cumque itaque eius commodi consequuntur quidem voluptatem ducimus error libero! Excepturi, blanditiis quisquam eum necessitatibus laudantium eos sequi voluptates cumque! Ab porro cumque repellendus ratione, id dignissimos reprehenderit harum. Harum maiores quia deserunt dicta obcaecati! Ab, architecto voluptatum, neque aliquid doloremque fugit fuga voluptate praesentium quidem, quae vel consectetur labore molestiae error nulla ad minus adipisci in atque eos minima sequi cupiditate itaque. Totam consectetur excepturi laborum ab exercitationem. Dolorum error quo blanditiis quos praesentium, ex quia quasi, minus voluptate quis odit laborum dignissimos vel laboriosam nesciunt accusantium corporis? Ab quos autem optio facilis tempore rem? Odio consequuntur modi numquam odit neque recusandae animi, alias ipsum at unde facilis dolor sunt, quia necessitatibus dolorum.</p>
             <table class="table w-100 table-hover table table-striped my-4  ">
                 <tbody>
                     <tr>
@@ -211,34 +212,14 @@
                         <td class="table-data">Ambikapur</td>
                     </tr>
                     <tr>
-                        <td class="table-data">About</td>
-                        <td class="table-data">about Nursery </td>
+                        <td class="table-data">Phone Number</td>
+                        <td class="table-data">+9183*******</td>
                     </tr>
+                   
 
 
                 </tbody>
             </table>
-            <!-- <h3 class="text-danger assured ps-3">Personal Information</h3>
-        <table class="table w-75 table-hover table table-striped my-4">
-            <tbody>
-                <tr>
-                <td class="table-data">Name</td>
-                <td class="table-data">	Ram Singh</td>
-                </tr>
-                <tr>
-                <td class="table-data">District</td>
-                <td class="table-data">Ambikapur</td>
-                </tr>
-                <tr>
-                <td class="table-data">Tehsil</td>
-                <td class="table-data">Ambikapur</td>
-                </tr>
-                <tr>
-                <td class="table-data">Pincode</td>
-                <td class="table-data">496773</td>
-                </tr>
-            </tbody>
-        </table> -->
         </div>
     </section>
     <section class="mt-3">
@@ -257,19 +238,13 @@
                             </div>
                             <div class="content d-flex flex-column flex-grow-1 ">
                                 <div class="power text-center mt-3">
-                                    <!-- <div class="row ">
-                                        <div class="col-12 col-lg-6 col-md-6 col-sm-6"><p class="text-success ps-2"> <i class="fa fa-leaf" aria-hidden="true"></i> plant</p></div>
-                                        <a href="#" class="col-12 col-lg-6 col-md-6 col-sm-6 text-decoration-none" style="padding-right: 32px;">
-                                             <p id="adduser" type="" class="text-danger fw-bold"> plant</p>
-                                        </a>
-                                    </div>     -->
                                     <div class="col-12">
                                         <p class="text-success fw-bold">Nursery Name</p>
                                     </div>
                                 </div>
                                 <div class="row text-center">
                                     <div class="col-12 text-center">
-                                        <p class="fw-bold pe-3 text-primary">Raipur, Chhattisgarh</p>
+                                        <p class="fw-bold pe-3 text-primary">Raipur,Chhattisgarh</p>
                                     </div>
                                 </div>
                                 <div class="col-12 btn-success">
@@ -352,6 +327,8 @@
                                     </div>
                                 </div>
                             </div>
+
+
                             <div class="content d-flex flex-column flex-grow-1 ">
                                 <div class="power text-center mt-3">
                                     <div class="col-12">
@@ -456,8 +433,10 @@
                                     </div>
                                 </div>
                                 <div class="col-12 btn-success">
-                                    <p class="call text-center pt-2"> <i class="fa-solid fa-phone"></i> Contact Nursery
-                                    </p>
+                                    <button type="button" class="btn btn-success py-2 w-100"><i
+                                            class="fa-solid fa-phone"></i>
+                                        Contact Nursery
+                                    </button>
                                 </div>
                             </div>
                         </a>
@@ -484,8 +463,10 @@
                                     </div>
                                 </div>
                                 <div class="col-12 btn-success">
-                                    <p class="call text-center pt-2"> <i class="fa-solid fa-phone"></i> Contact Nursery
-                                    </p>
+                                    <button type="button" class="btn btn-success py-2 w-100"><i
+                                            class="fa-solid fa-phone"></i>
+                                        Contact Nursery
+                                    </button>
                                 </div>
                             </div>
                         </a>
@@ -503,41 +484,50 @@
     ?>
 
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+
     <script>
     $(document).ready(function() {
+        $.validator.addMethod("indianMobile", function(value, element) {
+            return this.optional(element) || /^[789]\d{9}$/.test(value);
+        }, "Please enter a valid Indian mobile number.");
+
         $("#nursery_form").validate({
-            errorElement: "div",
-            errorPlacement: function(error, element) {
-                error.addClass("text-danger");
-                error.insertAfter(element);
-            },
             rules: {
                 fname: {
                     required: true,
-                    // Add other rules as needed
+                    minlength: 2,
                 },
-                lname_: {
+
+                lname:{
                     required: true,
-                    // Add other rules as needed
+                    minlength: 2,
                 },
                 phone: {
                     required: true,
-                    // Add other rules as needed
+                    digits: true, // Allow only digits
+                    indianMobile: true,
+
+
                 },
-                // Add rules for other form elements
+                state: "required",
+                district: "required",
+
             },
-            $('#button_nursery').on('click', function() {
-                $('#nursery_form').valid();
-                console.log($('#nursery_form').valid());
-            });
-            submitHandler: function(form) {
-                // Handle the form submission here (e.g., AJAX request)
-                // This function will be called if the form is valid
-                // You can trigger the modal or any other action you need
-                $('#staticBackdrop3').modal('show');
-                console.log('Form submission');
-            }
+
+          
+
+
         });
+
+
+        $('#button_nursery').on('click', function() {
+            $('#nursery_form').valid();
+        });
+
+        
+
+
     });
     </script>
 

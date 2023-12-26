@@ -23,11 +23,10 @@
         <div class="container mt-5 pt-4">
             <div class="pt-5">
                 <span class="mt-4 pt-4 ">
-                    <a href="index.php" class="text-decoration-none header-link px-1">Home <i
+                    <!-- <a href="index.php" class="text-decoration-none header-link px-1">Home <i
                             class="fa-solid fa-chevron-right px-1"></i></a>
                     <span class=""><span class=" header-link  px-1">Brand <i class="fa-solid fa-chevron-right px-1"></i>
-                        </span></span>
-                    <span class="text-dark"> Mahindra</span>
+                        </span></span> -->
                 </span>
             </div>
         </div>
@@ -35,11 +34,20 @@
 
     <section id="Mahindra_575">
         <div class="container">
-            <h1 class="mt-4" id="model_name"></h1>
+            <h1 class="mt-4 pb-2" id="model_name"></h1>
             <div class="row">
-                <div class="col-12 col-lg-6 col-md-6 col-sm-6 mt-5 pt-3">
-                    <img src="assets/images/mahindra-575-di-sp-plus-836976961.avif" alt="mahindra-575-DI-XP-Plus">
-                    <!-- <img src="" alt="mahindra-575-DI-XP-Plus" id="image_id"> -->
+                <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
+               
+                <div>
+                    <div class="swiper swiper_buy mySwiper2_buy">
+                        <div class="swiper-wrapper swiper-wrapper_buy">
+                            <div class=" swiper-slide swiper-slide_buy">
+                            <!-- <img class="img_buy" src="assets/images/437-1632718440.webp" /> -->
+                            </div>
+                        </div>
+                    </div>
+                    <div thumbsSlider="" class="swiper mySwiper_buy" style="height:74px;" id="swip_img"></div>
+                </div>
                 </div>
                 <div class="col-12 col-lg-6 col-md-6 col-sm-6">
                     <table class="table border bg-light ">
@@ -128,7 +136,7 @@
                 <h3 class="text-dark fw-bold assured mt-2 ps-3" ><span class="text-success"  class="model_name"></span> Other Features</h3>
                 </div>
                 <div class="row mt-2">
-                    <div class="col-12 col-lg-3 col-md-3 col-sm-3">
+                    <div class="col-12 col-lg-2 col-md-2 col-sm-2">
 
                         <div class=" text-center shadow bg-white ">
                             <img src="assets/images/clutch.png" class="w-50 h-50" alt="">
@@ -137,22 +145,28 @@
                         </div>
 
                     </div>
-                    <div class="col-12 col-lg-3 col-md-3 col-sm-3">
+                    <div class="col-12 col-lg-2 col-md-2 col-sm-2">
                         <div class=" text-center shadow bg-white ">
                             <img src="assets/images/steering.png" class="w-50 h-50" alt="">
                             <h6 class=" text-center fw-bold  text-dark">STEERING</h6>
                             <p class="engine_name text-center" id="steering_column_value2"></p>
                         </div>
                     </div>
-                    <div class="col-12 col-lg-3 col-md-3 col-sm-3">
+                    <div class="col-12 col-lg-2 col-md-2 col-sm-2">
                         <div class=" text-center shadow bg-white ">
                             <img src="assets/images/wheel-drive.png" class="w-50 h-50" alt="">
-                            <h6 class=" text-center fw-bold  text-dark">LIFTING CAPACITY</h6>
-                            <p class="engine_name text-center"><span id="lifting"></span> </p>
+                            <h6 class="text-center fw-bold  text-dark">Wheel Drive</h6>
+                            <p class="engine_name text-center" id="wheel_drive"></p>
                         </div>
-
                     </div>
-                    <div class="col-12 col-lg-3 col-md-3 col-sm-3">
+                    <div class="col-12 col-lg-2 col-md-2 col-sm-2">
+                        <div class=" text-center shadow bg-white ">
+                            <img src="assets/images/lifting.webp" class="w-50 h-50" alt="">
+                            <h6 class=" text-center fw-bold  text-dark">LIFTING CAPACITY</h6>
+                            <p class="engine_name text-center" id="liftingC"></p>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-2 col-md-2 col-sm-2">
                         <div class=" text-center shadow bg-white ">
                             <img src="assets/images/rpm.png" class="w-50 h-50" alt="">
                             <h6 class=" text-center fw-bold  text-dark">ENGINE RATED RPM</h6>
@@ -296,11 +310,11 @@
                         <tbody>
                             <tr>
                                 <td class="table-data col-12 col-lg-6 col-md-6 col-sm-6">Type</td>
-                                <td class="table-data"></td>
+                                <td class="table-data"><span  id="power_take_off_type"></span> Spline</td>
                             </tr>
                             <tr>
                                 <td class="table-data">RPM</td>
-                                <td class="table-data"><span id="power_take_off_rpm"></span></td>
+                                <td class="table-data"><span id="power_take_off_type_rpm"></span></td>
                             </tr>
                         </tbody>
                     </table>
@@ -314,213 +328,21 @@
 
                 </div>
                 <div class="col-12 col-lg-4 col-md-4 col-sm-4">
-
-                    <div class="row">
-                        <h3 class="text-center fw-bold mt-2">Related Brands</h3>
-                        <div class=" col-6 col-lg-6 col-md-6 col-sm-6">
-                            <div class="brand-main box-shadow mt-2 text-center shadow">
-                                <a class="weblink text-decoration-none text-dark" href="#"
-                                    title="Sonalika Old Tractors">
-                                    <img class="img-fluid w-50" src="assets/images/mahindra-1673872647.webp"
-                                        data-src="h" alt="Sonalika Brand Logo">
-                                    <p class="mb-0 oneline">Mahindra</p>
-                                </a>
-                            </div>
-                        </div>
-                        <div class=" col-6 col-lg-6 col-md-6 col-sm-6">
-                            <div class="brand-main box-shadow mt-2 text-center  shadow">
-                                <a class="weblink text-decoration-none text-dark" href="#"
-                                    title="Sonalika Old Tractors">
-                                    <img class="img-fluid w-50" src="assets/images/swaraj-1608095532.webp" data-src=""
-                                        alt="Sonalika Brand Logo">
-                                    <p class="mb-2 oneline">Swaraj</p>
-                                </a>
-                            </div>
-                        </div>
-                        <div class=" col-6 col-lg-6 col-md-6 col-sm-6">
-                            <div class="brand-main  box-shadow mt-2 text-center  shadow">
-                                <a class="weblink text-decoration-none text-dark" href="#"
-                                    title="Sonalika Old Tractors">
-                                    <img class="img-fluid w-50" src="assets/images/sonalika.png" data-src=""
-                                        alt="Sonalika Brand Logo">
-                                    <p class="mb-2 oneline">Sonalika</p>
-                                </a>
-                            </div>
-                        </div>
-                        <div class=" col-6 col-lg-6 col-md-6 col-sm-6">
-                            <div class="brand-main  box-shadow mt-2 text-center shadow ">
-                                <a class="weblink text-decoration-none text-dark" href="#"
-                                    title="Sonalika Old Tractors">
-                                    <img class="img-fluid w-50" src="assets/images/massey-ferguson-1579512590.webp"
-                                        data-src="" alt="Sonalika Brand Logo">
-                                    <p class="mb-2 oneline">massey ferguson</p>
-                                </a>
-                            </div>
-                        </div>
-                        <div class=" col-6 col-lg-6 col-md-6 col-sm-6">
-                            <div class="brand-main  box-shadow mt-2 text-center shadow ">
-                                <a class="weblink text-decoration-none text-dark" href="#"
-                                    title="Sonalika Old Tractors">
-                                    <img class="img-fluid w-50" src="assets/images/eicher-1608095225.webp" data-src=""
-                                        alt="Sonalika Brand Logo">
-                                    <p class="mb-2  oneline">Eicher</p>
-                                </a>
-                            </div>
-                        </div>
-                        <div class=" col-6 col-lg-6 col-md-6 col-sm-6">
-                            <div class="brand-main  box-shadow mt-2 text-center shadow">
-                                <a class="weblink text-decoration-none text-dark" href="#"
-                                    title="Sonalika Old Tractors">
-                                    <img class="img-fluid w-50" src="assets/images/farmtrac-1579511831.webp" data-src=""
-                                        alt="Sonalika Brand Logo">
-                                    <p class="mb-2  oneline">Farmtrac</p>
-                                </a>
-                            </div>
-                        </div>
-                        <div class=" col-6 col-lg-6 col-md-6 col-sm-6">
-                            <div class="brand-main  box-shadow mt-2 text-center  shadow">
-                                <a class="weblink text-decoration-none text-dark" href="#"
-                                    title="Sonalika Old Tractors">
-                                    <img class="img-fluid w-50" src="assets/images/john-deere-1579511882.webp"
-                                        data-src="" alt="Sonalika Brand Logo">
-                                    <p class="mb-2  oneline">john-deere</p>
-                                </a>
-                            </div>
-                        </div>
-                        <div class=" col-6 col-lg-6 col-md-6 col-sm-6">
-                            <div class="brand-main  box-shadow mt-2 text-center  shadow">
-                                <a class="weblink text-decoration-none text-dark" href="#"
-                                    title="Sonalika Old Tractors">
-                                    <img class="img-fluid w-50" src="assets/images/powertrac-1579511958-2.webp"
-                                        data-src="" alt="Sonalika Brand Logo">
-                                    <p class="mb-2  oneline">Powertrac</p>
-                                </a>
-                            </div>
-                        </div>
+                    <h3 class="text-center fw-bold mt-2">Related Brands</h3>
+                    <div class="row" id="related_brand">
                     </div>
+                    <div class=" text-center"><button class="btn btn-success" id="loadMoreButton">Load More</button></div>
 
                     <div class="sticky my-3">
                         <div class="popular_used_tractor mb-3">
                             <h3 class="text-center  fw-bold mt-3">Popular Used Tractors</h3>
                         </div>
                         <div class="popular-used-tractor">
-                            <div class="row">
-                                <div class="used-tractor mb-3 d-flex flex-row shadow p-2" style="background-color:#fff">
-                                    <div class="text-center">
-                                        <a href="#" class="weblink">
-                                            <img src="assets/images/450-1630737775.webp" width="100" height="100" alt=""
-                                                style=" border-radius: 10px;">
-                                        </a>
-                                    </div>
-                                    <div class="px-2 d-flex flex-column justify-cintent-center">
-                                        <a href="#" class="text-decoration-none">
-                                            <p class="mb-1">farmtrac 242 DI </p>
-                                        </a>
-                                        <p class="trac">
-                                            <span class="bg-light">40 HP</span>
-                                            <span class="bg-light">WD</span>
-                                        </p>
-                                        <div class="">
-                                            <a href="#"><img
-                                                    src="assets/images/index_trac_files/park-solid_phone-call.svg"
-                                                    width="15" height="15" alt="phone-call-icon">Call
-                                                Now</span></a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="used-tractor mb-3 d-flex flex-row shadow p-2" style="background-color:#fff">
-                                    <div class="text-center">
-                                        <a href="#" class="weblink">
-                                            <img src="assets/images/450-1630737775.webp" width="100" height="100" alt=""
-                                                style=" border-radius: 10px;">
-                                        </a>
-                                    </div>
-                                    <div class="px-2 d-flex flex-column justify-cintent-center">
-                                        <a href="#" class="text-decoration-none">
-                                            <p class="mb-1">farmtrac 242 DI </p>
-                                        </a>
-                                        <p class="trac">
-                                            <span class="bg-light m-1" style=" font-size: 0.9rem;">40 HP</span>
-                                            <span class="bg-light m-1" style=" font-size: 0.9rem;">WD</span>
-                                        </p>
-                                        <div class="">
-                                            <a href="#"><img
-                                                    src="assets/images/index_trac_files/park-solid_phone-call.svg"
-                                                    width="15" height="15" alt="phone-call-icon">Call
-                                                Now</span></a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="used-tractor mb-3 d-flex flex-row shadow p-2" style="background-color:#fff">
-                                    <div class="text-center">
-                                        <a href="#" class="weblink">
-                                            <img src="assets/images/450-1630737775.webp" width="100" height="100" alt=""
-                                                style=" border-radius: 10px;">
-                                        </a>
-                                    </div>
-                                    <div class="px-2 d-flex flex-column justify-cintent-center">
-                                        <a href="#" class="text-decoration-none">
-                                            <p class="mb-1">farmtrac 242 DI </p>
-                                        </a>
-                                        <p class="trac">
-                                            <span class="bg-light" style=" font-size: 0.9rem;">40 HP</span>
-                                            <span class="bg-light" style=" font-size: 0.9rem;">WD</span>
-                                        </p>
-                                        <div class="">
-                                            <a href="#"><img
-                                                    src="assets/images/index_trac_files/park-solid_phone-call.svg"
-                                                    width="15" height="15" alt="phone-call-icon">Call
-                                                Now</span></a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="used-tractor mb-3 d-flex flex-row shadow p-2" style="background-color:#fff">
-                                    <div class="text-center">
-                                        <a href="#" class="weblink">
-                                            <img src="assets/images/450-1630737775.webp" width="100" height="100" alt=""
-                                                style=" border-radius: 10px;">
-                                        </a>
-                                    </div>
-                                    <div class="px-2 d-flex flex-column justify-cintent-center">
-                                        <a href="#" class="text-decoration-none">
-                                            <p class="mb-1">farmtrac 242 DI </p>
-                                        </a>
-                                        <p class="trac">
-                                            <span class="bg-light" style=" font-size: 0.9rem;">40 HP</span>
-                                            <span class="bg-light" style=" font-size: 0.9rem;">WD</span>
-                                        </p>
-                                        <div class="">
-                                            <a href="#"><img
-                                                    src="assets/images/index_trac_files/park-solid_phone-call.svg"
-                                                    width="15" height="15" alt="phone-call-icon">Call
-                                                Now</span></a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="used-tractor mb-3 d-flex flex-row shadow p-2" style="background-color:#fff">
-                                    <div class="text-center">
-                                        <a href="#" class="weblink">
-                                            <img src="assets/images/450-1630737775.webp" width="100" height="100" alt=""
-                                                style=" border-radius: 10px;">
-                                        </a>
-                                    </div>
-                                    <div class="px-2 d-flex flex-column justify-cintent-center">
-                                        <a href="#" class="text-decoration-none">
-                                            <p class="mb-1">farmtrac 242 DI </p>
-                                        </a>
-                                        <p class="trac">
-                                            <span class="bg-light" style=" font-size: 0.9rem;">40 HP</span>
-                                            <span class="bg-light" style=" font-size: 0.9rem;">WD</span>
-                                        </p>
-                                        <div class="">
-                                            <a href="#"><img
-                                                    src="assets/images/index_trac_files/park-solid_phone-call.svg"
-                                                    width="15" height="15" alt="phone-call-icon">Call
-                                                Now</span></a>
-                                        </div>
-                                    </div>
-                                </div>
+                            <div class="row" id="productContainerpopular">
+                               
                             </div>
+                            <div class=" text-center"><button class="btn btn-success" id="loadMoretract">Load More</button></div>
+
                         </div>
                     </div>
                 </div>
@@ -534,33 +356,32 @@
 
 
 
-
-
-
-
-
-
-
     <section class="mt-3">
         <div class="container">
             <div class="about border-success  border-4 text-dark border-start">
                 <h3 class="text-dark fw-bold text-start ps-2"><span class="model_name"></span> Dimensions And Weight Of Tractor
                 </h3>
             </div>
+            <div class="row">
+                <div class="col-12 col-lg-8 col-md-8 col-sm-8">
+                    <table class="table table-hover table table-striped my-4">
 
-            <table class="table table-hover table table-striped my-4">
-
-                <tbody>
-                    <tr>
-                        <td class="table-data col-12 col-lg-6 col-md-6 col-sm-6">Total Weight</td>
-                        <td class="table-data col-12 col-lg-6 col-md-6 col-sm-6 table-data"><span id="total_weight"></span> KG</td>
-                    </tr>
-                    <tr>
-                        <td class="table-data">Wheel Base</td>
-                        <td class="table-data"><span id="wheel_base"></span>  MM</td>
-                    </tr>
-                </tbody>
-            </table>
+                    <tbody>
+                        <tr>
+                            <td class="table-data col-12 col-lg-6 col-md-6 col-sm-6 ">Total Weight</td>
+                            <td class="table-data col-12 col-lg-6 col-md-6 col-sm-6"><span id="total_weight"></span> KG</td>
+                        </tr>
+                        <tr>
+                            <td class="table-data">Wheel Base</td>
+                            <td class="table-data"><span id="wheel_base"></span>  MM</td>
+                        </tr>
+                    </tbody>
+                    </table>
+                </div>
+                <div class="col-12 col-12-4 col-lg-4"></div>
+            </div>
+          
+           
 
         </div>
     </section>
@@ -570,65 +391,55 @@
             <div class="about border-success  border-4 text-dark border-start">
                 <h3 class="text-dark fw-bold text-start ps-2"><span class="model_name"></span> Hydraulics</h3>
             </div>
+            <div class="row">
+                <div class="col-12 col-lg-8 col-md-8 col-sm-8">
+                    <table class="table table-hover table table-striped my-4">
 
-            <table class="table  table-hover table table-striped my-4">
-
-                <tbody>
-                    <tr>
+                    <tbody>
+                        <tr>
                         <td class="table-data col-12 col-lg-6 col-md-6 col-sm-6">Lifting Capacity</td>
                         <td class="table-data col-12 col-lg-6 col-md-6 col-sm-6"><span id="lifting_capacity"></span> Kg</td>
-                    </tr>
-                    <tr>
+                        </tr>
+                        <tr>
                         <td class="table-data">3 point Linkage</td>
                         <td class="table-data"> <span id="linkage_point_value"></span></td>
-                    </tr>
-
-                </tbody>
-            </table>
+                        </tr>
+                    </tbody>
+                    </table>
+                </div>
+                <div class="col-12 col-12-4 col-lg-4"></div>
+            </div>
 
         </div>
     </section>
-    <!-- <section class="mt-3">
-        <div class="container">
-            <div class="about border-success  border-4 text-dark border-start">
-                <h3 class="text-dark fw-bold text-start ps-2"><span class="model_name"></span> Fuel Tank</h3>
-            </div>
-
-            <table class="table table-hover table table-striped my-4">
-                <tbody>
-                    <tr>
-                        <td class="table-data col-12 col-lg-6 col-md-6 col-sm-6">Capacity</td>
-                        <td class="table-data col-12 col-lg-6 col-md-6 col-sm-6"><span id="fuel_capacity"></span> L</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </section> -->
 
     <section class="mt-3">
         <div class="container">
             <div class="about border-success  border-4 text-dark border-start">
                 <h3 class="text-dark fw-bold text-start ps-2"><span class="model_name"></span> Wheels And Tyres</h3>
             </div>
+            <div class="row">
+                <div class="col-12 col-lg-8 col-md-8 col-sm-8">
+                    <table class="table table-hover table table-striped my-4">
 
-            <table class="table table-hover table table-striped my-4">
-
-                <tbody>
-                    <tr>
+                    <tbody>
+                        <tr>
                         <td class="table-data col-12 col-lg-6 col-md-6 col-sm-6">Wheel drive</td>
                         <td class="table-data col-12 col-lg-6 col-md-6 col-sm-6"><span id="wheel_drive_value"></span></td>
-                    </tr>
-                    <tr>
+                        </tr>
+                        <tr>
                         <td class="table-data">Front</td>
                         <td class="table-data"><span id="front_tyre"></span></td>
-                    </tr>
-                    <tr>
+                        </tr>
+                        <tr>
                         <td class="table-data">Rear</td>
                         <td class="table-data"><span id="rear_tyre"></span></td>
-                    </tr>
-
-                </tbody>
-            </table>
+                        </tr>
+                    </tbody>
+                    </table>
+                </div>
+                <div class="col-12 col-12-4 col-lg-4"></div>
+            </div>
 
         </div>
     </section>
@@ -639,7 +450,11 @@
                         Information</span></h3>
             </div>
 
-            <table class="table table-hover table table-striped my-4">
+            <div class="row">
+                <div class="col-12 col-lg-8 col-md-8 col-sm-8">
+                    <table class="table table-hover table table-striped my-4">
+
+                    <table class="table table-hover table table-striped my-4">
 
                 <tbody>
                     <tr>
@@ -657,6 +472,9 @@
 
                 </tbody>
             </table>
+                </div>
+                <div class="col-12 col-12-4 col-lg-4"></div>
+            </div>
 
         </div>
     </section>

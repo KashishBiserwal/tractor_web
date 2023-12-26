@@ -5,17 +5,14 @@
     <?php
    include 'includes/headertag.php';
    include 'includes/header.php';
+   include 'includes/footertag.php';
    ?>
 </head>
 
 <body>
-    <!DOCTYPE html>
-    <html lang="en">
 
     <head>
-        <?php
-   include 'includes/headertag.php';
-   ?>
+    
         <style>
         .form-outline .form-label {
             color: #454444;
@@ -57,7 +54,7 @@
             <div class="container my-4">
                 <div class="row">
                     <div class="col-12 col-sm-9 col-lg-9 col-md-9">
-                        <h3 class="pb-3 fw-bold">Popular<span class="text-success fw-bold"> Tractor Tyres In
+                        <h3 class="pb-3 fw-bold"> Tractor Tyres <span class="text-success fw-bold">In
                                 INDIA</span>
                         </h3>
                         <div class="row">
@@ -415,21 +412,21 @@
                     </div>
 
                     <div class="col-12 col-sm-3 col-lg-3 col-md-3">
-                        <div class=" row mb-3" id="">
-                            <div class="col-12 col-sm-12 col-md-12 col-lg-12">
-                                <div class=" row text-center">
-                                    <div class="col-12 col-sm-6 col-lg-6 col-md-6">
-                                        <button id="adduser" type="button" class=" btn add_btn btn-success px-4">
-                                            <i class="fas fa-undo"></i> Reset </button>
-                                    </div>
-                                    <div class="col-12 col-sm-6 col-lg-6 col-md-6 pe-2">
-                                        <button id="adduser" type="button" class=" btn add_btn btn-success">
-                                            <i class="fas fa-filter"></i> Apply Filter </button>
-                                    </div>
-
+                    <div class=" row mb-3" id="">
+                        <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+                            <div class=" row text-center">
+                                <div class="col-12 col-sm-6 col-lg-6 col-md-6 g-1">
+                                    <button id="adduser" type="button" class="add_btn btn btn-success">
+                                        <i class="fas fa-undo"></i> Reset </button>
                                 </div>
+                                <div class="col-12 col-sm-6 col-lg-6 col-md-6 g-1">
+                                    <button id="adduser" type="button" class="add_btn btn btn-success">
+                                        <i class="fas fa-filter"></i> Apply Filter </button>
+                                </div>
+
                             </div>
                         </div>
+                    </div>
 
                         <div class="scrollbar mb-3" id=" my-2">
                             <div class="force-overflow">
@@ -494,55 +491,17 @@
 
         <section class="my-4">
             <div class="container my-5">
-                <h3 class="fw-bold assured px-2 py-2">Tyres In INDIA</h3>
+                <h3 class="fw-bold assured px-2 py-2">About Tyre</h3>
                 <div class="" role="alert">
                     <p class="text-dark">Well, if you are thinking of purchasing a tyre and if you are confused
                         which tyre fits into your tractor, then we are here to solve your problems and provide you with
                         the right information about the tyres. There are so many tyres available in the market but the
                         point is which range of tyres are suitable for your tractors. It depends on your tractor weight
                         and other specifications of the tractors.</p>
-
-                    <p class="text-dark">In the tyres page of KhetiGaadi you can search for tractor tyres online.
-                        Here, you can see
-                        popular tyres like MRF Shakti, JK Tyres, Apollo Tyres, BKT Tyres, etc.</p>
-
-                    <p class="text-dark">Next comes, Various brands of tyres where you can easily choose and
-                        select the tyres through
-                        brand names. Some of the popular brand tyres are MRF tyres, JK Tyres, BKT Tyres, CEAT Tyres,
-                        Good Year, and Birla tyres. Tyres with these brand names are popular and function smoothly on
-                        the road. Though, it varies from prices, features, specifications, etc.</p>
-
-                    <p class="text-dark">The next option comes from the comparison of the tyres. It will be easier
-                        for you to choose the
-                        right tyre at the right time.</p>
-
-                    <p class="text-dark">In the next option comes the Front tyres and the Rear tyres that are best
-                        categorized and
-                        available in different options. This information helps you in choosing which tyre is perfect for
-                        the tractors. It is also suitable for road performance. </p>
-
-
                 </div>
             </div>
         </section>
-        <section class="my-4">
-            <div class="container my-5">
-                <h3 class="fw-bold assured px-2 py-2">Tractor Tyres Price</h3>
-                <div class="" role="alert">
-                    <p class="text-dark">Tyres come at different prices that are economical and easy to purchase. Some
-                        of the heavy loaded tractors require heavy tyres on the front and rear. Thus, some brands tyres
-                        are cost effective. For the enquiry of the tyres contact KhetiGaadi executives.</p>
-
-                    <p class="text-dark">Hence, KhetiGaadi provides you with all the details related to tyres, brand
-                        tyres, comparison tyres and tyres main benefits working on the roads.</p>
-
-
-
-
-                </div>
-            </div>
-        </section>
-
+      
 
         <section>
             <div class="container">
@@ -616,7 +575,6 @@
 
     <?php
     include 'includes/footer.php';
-    include 'includes/footertag.php';
 
     ?>
 </body>

@@ -1,14 +1,25 @@
 <?php
    include 'includes/headertagadmin.php';
-  
+   include 'includes/footertag.php';
    include 'includes/headertag.php';
    ?> 
+
+<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+<script>
+ $(document).ready(function() {
+  $(".js-select2").select2({
+    closeOnSelect: false
+  });
+});
+</script>
     <style>
     .error-message {
     color: red;
    
 }
 </style>
+
 <body class="loaded"> 
 <div class="main-wrapper">
     <div class="app" id="app">
@@ -100,19 +111,14 @@
       <div class="filter-card mb-2">
         <div class="card-body">
           <div class="row">
-            <div class="col-12 col-sm-12 col-md-4 col-lg-4">
-              <div class="form-outline">
-                <select class="form-select" aria-label="Default select example">
-                  <option selected> Brand Name</option>
-                  <option value="1">Mahindra</option>
-                  <option value="2">Swaraj</option>
-                  <option value="3">John Deere</option>
-                </select>
+            <div class="col-12 col-sm-12 col-md-3 col-lg-3">
+                    <label class="text-dark fw-bold mb-2">Search By Brand</label>
+                    <select class="js-select2 form-select" id="brand">
+                    </select>
               </div>
-            </div>
-            <div class="col-12 col-sm-12 col-md-4 col-lg-4 text-center">
-                <button type="button" class="btn-success px-3" id="Search">Search</button>
-                <button type="button" class="btn-success px-3  mx-2 " id="Reset">Reset</button>
+            <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-4 pt-1 text-center">
+                <button type="button" class="btn-success btn px-5" id="Search">Search</button>
+                <button type="button" class="btn-success btn px-5 mx-2 " id="Reset">Reset</button>
             </div>
           </div>
         </div>
@@ -134,21 +140,116 @@
               </table>
             </div>
         </div>
+
+        <div class="modal fade" id="staticBackdrop_model" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+          <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">Update Brand</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+              <h4 class="text-center">Fill your Brand Details</h4>
+                <form action="" method="POST"  class="" id="formmodel">
+                  <div class="">
+                                    <div class="">
+                                      <div class="row">
+                                        
+                                        <div class="col- col-sm-6 col-lg-6 col-md-6">
+                                          <label class="text-dark"> Brand Name<span class="text-danger">*</span></label>
+                                          <input type="text" class="form-control py-2" id="brand_name1" placeholder="Enter brand">
+                                          <small></small>
+                                        </div>
+                                        <div class="col-12 col-sm-4 col-lg-4 col-md-4 ps-3">
+                                          <div class="background__box mt-4 pt-1">
+                                                <div class="background__btn-box ">
+                                                    <label class="background__btn">
+                                                    <p class="text-white bg-success p-2 rounded">Upload images</p>
+                                                        <input type="file" id="brand_img1" data-max_length="20"name="brand_img"  ref="fileInput"
+                                                        style="display: none"
+                                                        @change="handleFileInput"
+                                                        accept="image/png, image/jpg, image/jpeg" class="background__inputfile" id="banner_image">
+                                                        <small></small>
+                                                    </label>
+                                                </div>
+                                                <div class="">
+                                                    <div class="background__img-wrap"></div>
+                                                </div>
+                                          </div>
+                                        </div>
+                        
+                                        
+                                      </div>
+                  </div>
+                </form>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="px-4 bg-success btn btn-primary" id="save_brand">Submit</button>
+              </div>
+            </div>
+          </div>
+
+
+
+        </div>
+
+
+        
+
+
     </div>
    </section>
       
+   
+          <!-- model view -->
+          <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered modal-md">
+            <div class="modal-content">
+            <!-- <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel"> Brand Information</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div> -->
+              <div class="modal-body">
+                <h4 class="fw-bold mb-2">Brand Information</h4>
+                <div class="container">
+                  <div class="row">
+                    <div class="col-12 col-lg-6 col-sm-6 col-md-6">
+                      <h5>Brand Name: </h5>
+                    </div>
+                    <div class="col-12 col-lg-6 col-sm-6 col-md-6">
+                      <p id="brand_name2" class="fw-bold"></p>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-12 col-lg-4 col-sm-4 col-md-4">
+                      <h5>Image</h5>
+                    </div>
+                    <div class="col-12 col-lg-8 col-sm-8 col-md-8">
+                     <div id="related_brand"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
     
 </div>
 </div>
 
 
 <?php
-   include 'includes/footertag.php';
+   
    ?> 
    <script>
      $(document).ready(function() {
       BackgroundUpload();
       $('#save').click(store);
+      $('#dataedit').click(edit_brand);
     });
     // store data
   function store(event) {
@@ -158,20 +259,14 @@
         var brand_img = document.getElementById('brand_img').files[0]; // Use files[0] to access the selected file
         var formData = new FormData(); // Create a FormData object to send the file
 
-        formData.append('brand_name', brand_name, );
+        formData.append('brand_name', brand_name);
         formData.append('brand_img', brand_img);
-
-    // Define the URL where you want to send the data
     var url = "<?php echo $APIBaseURL; ?>storeBrands";
     console.log(url);
-
-    // You may need to include headers, but you should ensure they are properly configured
     var token = localStorage.getItem('token');
     var headers = {
       'Authorization': 'Bearer ' + token
     };
-
-    // Make an AJAX request to the server
     $.ajax({
       url: url,
       type: "POST",
@@ -188,11 +283,12 @@
       },
       error: function (error) {
         console.error('Error fetching data:', error);
+        // window.location.href = baseUrl + "login.php";
       }
     });
   }
 // fetch data
-  function get() {
+function get() {
     var url = "<?php echo $APIBaseURL; ?>getBrands";
     $.ajax({
         url: url,
@@ -201,26 +297,40 @@
             'Authorization': 'Bearer ' + localStorage.getItem('token')
         },
         success: function (data) {
-          // console.log(data);
             const tableBody = document.getElementById('data-table');
             tableBody.innerHTML = ''; // Clear previous data
+            var select_brand = $("#brand");
+            select_brand.empty(); // Clear existing options
+            select_brand.append('<option selected disabled="" value="">Please select Brand</option>');
+      console.log(data, 'ok');
+      for (var j = 0; j < data.brands.length; j++) {
+        var brand_name = data.brands[j].brand_name;
+        console.log(brand_name);
+        select_brand.append('<option value="' + brand_name + '">' + brand_name + '</option>');
+      }
 
-            
+            let serialNumber = 1; // Initialize serial number
 
             if (data.brands.length > 0) {
-          console.log(typeof data.brands);
-
                 // Loop through the data and create table rows
                 data.brands.map(row => {
-                  console.log(row);
                     const tableRow = document.createElement('tr');
                     tableRow.innerHTML = `
-                        <td>${row.id}</td>
+                        <td>${serialNumber}</td>
                         <td>${row.brand_name}</td>
                         <td>${row.brand_img}</td>
-                        <td><div class="d-flex"><button class="btn btn-danger btn-sm mx-1" id="delete_user" onclick="destroy(${row.id});"><i class="fa fa-trash" style="font-size: 11px;"></i></button></div></td>
+                        <td><div class="float-start"><button class="btn btn-warning btn-sm text-white mx-1" data-bs-toggle="modal" onclick="fetch_data(${row.id});" data-bs-target="#exampleModal">
+                        <i class="fa-solid fa-eye" style="font-size: 11px;"></i></button>
+                        <button class="btn btn-primary btn-sm btn_edit" onclick="fetch_edit_data(${row.id});" data-bs-toggle="modal" data-bs-target="#staticBackdrop_model" id="yourUniqueIdHere">
+                          <i class="fas fa-edit" style="font-size: 11px;"></i></button>
+                        </button> <button class="btn btn-danger btn-sm mx-1" id="delete_user" onclick="destroy(${row.id});"><i class="fa fa-trash" style="font-size: 11px;"></i></button></div>
+                        
+                        </td>
                     `;
                     tableBody.appendChild(tableRow);
+
+                    // Increment serial number for the next row
+                    serialNumber++;
                 });
             } else {
                 // Display a message if there's no valid data
@@ -233,36 +343,156 @@
         }
     });
 }
+
 get();
 
-// delete
-function destroy(id) {
-  var url = "<?php echo $APIBaseURL; ?>deleteBrands/" + id;
-  var token = localStorage.getItem('token');
-  
-  if (!token) {
-    console.error("Token is missing");
-    return;
-  }
+function fetch_edit_data(userId) {
+  var apiBaseURL = APIBaseURL;
+  var url = apiBaseURL + 'getBrands';
+
+  var headers = {
+    'Authorization': 'Bearer ' + localStorage.getItem('token')
+  };
 
   $.ajax({
     url: url,
-    type: "DELETE",
-    headers: {
-      'Authorization': 'Bearer ' + token
-    },
-    success: function(result) {
-      get();
-      console.log("Delete request successful");
-      alert("Delete operation successful");
+    type: 'GET',
+    headers: headers,
+    success: function(response) {
+      var userData = response.user[0];
+
+      $('#brand1').val(userData.brand_name);
+      $('#brand_img1').val(userData.brand_img);
+     
+
+      // $('#exampleModal').modal('show');
     },
     error: function(error) {
-      console.error('Error fetching data:', error);
-      alert("Error during delete operation");
+      console.error('Error fetching user data:', error);
     }
   });
 }
 
+function edit_brand(){
+   alert('fherjlkferif');
+
+  var brand1 = $("#brand1").val();
+  var brand_img1 = $("#brand_img1").val();
+
+  var paraArr = {
+    'brand_name': brand1,
+    'image': brand_img1,
+  };
+  var apiBaseURL = APIBaseURL;
+  var url = apiBaseURL + 'updateBrands/' + 3;
+
+  var headers = {
+    'Authorization': 'Bearer ' + localStorage.getItem('token')
+  };
+  $.ajax({
+    url: url,
+      type: "PUT",
+      data: paraArr,
+      headers: headers,
+      success: function (result) {
+        console.log(result, "result");
+        get();
+        console.log("updated successfully");
+        alert('successfully updated..!')
+      },
+      error: function (error) {
+        console.error('Error fetching data:', error);
+      }
+  })
+}
+
+
+function fetch_data(id) {
+  console.log(id,"id")
+    console.log(window.location)
+    var urlParams = new URLSearchParams(window.location.search);
+ 
+    var productId = id;
+    var url = "<?php echo $APIBaseURL; ?>getBrandsById/" + id;
+  
+    // var url = "http://127.0.0.1:8000/api/admin/getBrandsById/" + productId;
+    // console.log(url);
+    var headers = {
+    'Authorization': 'Bearer ' + localStorage.getItem('token')
+  };
+    $.ajax({
+        url: url,
+        type: "GET",
+        headers: headers,
+        success: function(data) {
+        console.log(data, 'abc');
+        document.getElementById('brand_name2').innerText=data.brands[0].brand_name;
+        console.log(data.brands[0].brand_name);
+
+        var productContainer = $("#related_brand");
+
+        if (data.brands && data.brands.length > 0) {
+            data.brands.forEach(function (b) {
+                var newCard = `
+                <div class=" col-6 col-lg-6 col-md-6 col-sm-6">
+                        <div class="brand-main box-shadow mt-2 text-center shadow">
+                            <a class="weblink text-decoration-none text-dark" 
+                                title="Old Tractors">
+                                <img class="img-fluid w-50" src="http://tractor-api.divyaltech.com/customer/uploads/product_img/"
+                                    data-src="h" alt="Brand Logo">
+                                <p class="mb-0 oneline">${b.brand_name}</p>
+                            </a>
+                        </div>
+                    </div>
+                `;
+
+                // Append the new card to the container
+                productContainer.append(newCard);
+            });
+
+
+        }
+},
+error: function (error) {
+console.error('Error fetching data:', error);
+}
+    });
+}
+// fetch_data();
+// delete
+function destroy(id) {
+  var userConfirmation = confirm("Are you sure you want to delete this Brand ?");
+  
+  if (userConfirmation) {
+    var url = "<?php echo $APIBaseURL; ?>deleteBrands/" + id;
+    var token = localStorage.getItem('token');
+    
+    if (!token) {
+      console.error("Token is missing");
+      return;
+    }
+
+    $.ajax({
+      url: url,
+      type: "DELETE",
+      headers: {
+        'Authorization': 'Bearer ' + token
+      },
+      success: function(result) {
+        get();
+        console.log("Delete request successful");
+        alert("Delete operation successful");
+      },
+      error: function(error) {
+        console.error('Error fetching data:', error);
+        alert("Error during delete operation");
+      }
+    });
+  } else {
+    // If the user cancels the operation
+    console.log("Delete operation canceled");
+  }
+}
 
   function BackgroundUpload() {
     var imgWrap = "";

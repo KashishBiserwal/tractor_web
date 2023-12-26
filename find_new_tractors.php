@@ -223,7 +223,7 @@ include 'includes/headertag.php';
                     
                 </div>
                 <div class="col-12 text-center mt-3 pt-2 ">
-                    <button id="adduser" type="button" class=" btn add_btn btn-success">
+                    <button id="load_moretract" type="button" class=" btn add_btn btn-success">
                     <i class="fas fa-undo"></i>  Load More tractors</button>
                 </div>
             </div>
@@ -232,12 +232,12 @@ include 'includes/headertag.php';
                 <div class=" row mb-3" id="">
                     <div class="col-12 col-sm-12 col-md-12 col-lg-12">
                         <div class=" row text-center">
-                            <div class="col-12 col-sm-6 col-lg-6 col-md-6">
-                                <button id="adduser" type="button" class="add_btn btn-success px-4">
+                            <div class="col-12 col-sm-5 col-lg-5 col-md-5">
+                                <button id="adduser" type="button" class="add_btn btn btn-success">
                                 <i class="fas fa-undo"></i>  Reset </button>
                             </div>
-                           <div class="col-12 col-sm-6 col-lg-6 col-md-6 pe-2">
-                                <button id="adduser" type="button" class="add_btn btn-success">
+                           <div class="col-12 col-sm-7 col-lg-7 col-md-7 ">
+                                <button id="adduser" type="button" class="add_btn btn btn-success">
                                 <i class="fas fa-filter"></i>  Apply Filter </button>
                            </div>
                             
@@ -298,10 +298,10 @@ include 'includes/headertag.php';
 
 <section class="my-4">
     <div class="container my-5">
-        <h3 class="fw-bold assured px-3 py-2">Tractor Price List 2023</h3>
-        <div class="" role="alert">
+        <h3 class="fw-bold assured px-3 py-2">Tractor Price List</h3>
+        <!-- <div class="" role="alert">
             <p class="text-dark py-3">New Tractor prices in India vary from Rs. 2.45 lakh to Rs. 33.90 lakh. For a budget-friendly option, consider the Swaraj Code tractor, priced between Rs. 2.45 lakh and Rs. 2.50 lakh.</p>
-        </div>
+        </div> -->
         <table class="table table-striped my-3">
             <thead class="">
                 <tr class="py-3">
@@ -310,47 +310,12 @@ include 'includes/headertag.php';
                 <th scope="col">New Tractors Price in India</th>
                 </tr>
             </thead>
-            <tbody>
-                <tr class="">
+            <tbody id="tableData">
+                <!-- <tr class="py-3">
                     <td class="col-12 col-lg-5 col-md-5 col-sm-5 py-3">Swaraj 855 FE</td>
                     <td class="col-12 col-lg-3 col-md-3 col-sm-3 py-3">55  HP</td>
                     <td class="col-12 col-lg-4 col-md-4 col-sm-4 py-3">Rs. 7.90-8.40 lac*</td>
-                </tr>
-                <tr  class="py-3">
-                    <td class="py-3">Mahindra 575 DI XP Plus</td>
-                    <td class="py-3">47  HP</td>
-                    <td class="py-3">Rs. 6.90-7.27 lac*</td>
-                </tr>
-                <tr class="py-3">
-                    <td class="py-3">Massey Ferguson 241 DI MAHA SHAKTI</td>
-                    <td class="py-3">42  HP</td>
-                    <td class="py-3">Rs. 6.47-6.99 lac*</td>
-                </tr>
-                <tr class="py-3">
-                    <td class="py-3">Swaraj 744 XT</td>
-                    <td class="py-3">50 HP</td>
-                    <td class="py-3">Rs. 6.98-7.50 lac*</td>
-                </tr>
-                <tr>
-                    <td class="py-3">Mahindra OJA 2121 4WD</td>
-                    <td class="py-3">21 HP</td>
-                    <td class="py-3">Rs. 4.78 lac*</td>
-                </tr>
-                <tr>
-                    <td  class="py-3">Mahindra 275 DI XP Plus</td>
-                    <td class="py-3">37 HP</td>
-                    <td class="py-3">	Rs. 5.65-5.90 lac*</td>
-                </tr>
-                <tr>
-                    <td  class="py-3">Mahindra Yuvo 575 DI 4WD</td>
-                    <td class="py-3">52 HP</td>
-                    <td class="py-3">Rs. 7.59-7.90 lac*</td>
-                </tr>
-                <tr>
-                    <td class="py-3" >Mahindra Arjun Novo 605 Di-i 2WD</td>
-                    <td class="py-3">57 HP</td>
-                    <td class="py-3">Rs. 8.75-8.95 lac*</td>
-                </tr>
+                </tr> -->
             </tbody>
         </table>
     </div>
@@ -359,9 +324,9 @@ include 'includes/headertag.php';
 <section class="my-3">
     <div class="container my-5">
         <h3 class="fw-bold assured px-3 py-2">Best 35 HP Tractor in India</h3>
-        <div class="" role="alert">
+        <!-- <div class="" role="alert">
             <p class="text-dark py-3">A 35 HP tractor, considered semi-medium, is great for orchards, small-scale farming, or tasks that require moving stationary objects. Many small-scale Indian farmers choose cost-effective 35 HP tractors such as Mahindra Yuvo 275 DI, Swaraj 834 XM, New Holland 3032 Nx, etc. Check out the price list for these 35 HP new tractors in India below.</p>
-        </div>
+        </div> -->
         <table class="table table-striped my-3">
             <thead class="">
                 <tr class="py-3">
@@ -547,60 +512,61 @@ include 'includes/headertag.php';
     <div class="container"> 
         <h3 class="fw-bold assured px-3 ">Tractors By HP</h3>
             <div class="row my-4">
-                <div class="col-12 col-lg-3 col-md-4 col-sm-3 py-2">
-                    <a href="#" id="adduser" class="btn add_btn text-decoration-none btn-danger border-2 p-2 w-100">
-                    <i class="fas fa-bolt"></i> Under 20 HP</a>
+                <div class="col-12 col-lg-4 col-md-4 col-sm-4 py-2">
+                    <a href="#" id="adduser" class="btn btn-outline-success text-decoration-none border-2 p-2 w-100">
+                        <i class="fas fa-bolt"></i>UNDER 20 HP</a>
                 </div>
-                <div class="col-12 col-lg-3 col-md-4 col-sm-3 py-2">
-                    <a href="#" id="adduser" class=" btn add_btn text-decoration-none btn-danger border-2 py-2 px-3 w-100">
-                    <i class="fas fa-bolt"></i> 21-30 HP</a>
+                <div class="col-12 col-lg-4 col-md-4 col-sm-4 py-2">
+                    <a href="#" id="adduser"
+                        class=" btn btn-outline-success text-decoration-none border-2 py-2 px-3 w-100">
+                        <i class="fas fa-bolt"></i>21-30 HP</a>
                 </div>
-                <div class="col-12 col-lg-3 col-md-4 col-sm-3 py-2">
-                    <a href="#" id="adduser" class=" btn add_btn text-decoration-none btn-danger border-2 py-2 px-3 w-100">
-                    <i class="fas fa-bolt"></i> 31-40 HP</a>
+                <div class="col-12 col-lg-4 col-md-4 col-sm-4 py-2">
+                    <a href="#" id="adduser"
+                        class=" btn btn-outline-success text-decoration-none border-2 py-2 px-3 w-100">
+                        <i class="fas fa-bolt"></i>31-40 HP</a>
                 </div>
-                <div class="col-12 col-lg-3 col-md-4 col-sm-3 py-2">
-                    <a href="#" id="adduser" class="btn add_btn text-decoration-none btn-danger border-2 py-2 px-3 w-100">
-                    <i class="fas fa-bolt"></i>  41-45 HP</a>
+                <div class="col-12 col-lg-4 col-md-4 col-sm-4 py-2">
+                    <a href="#" id="adduser"
+                        class="btn btn-outline-success text-decoration-none  border-2 py-2 px-3 w-100">
+                        <i class="fas fa-bolt"></i>41-45 HP</a>
                 </div>
-                <div class="col-12 col-lg-3 col-md-4 col-sm-3 py-2">
-                    <a href="#" id="adduser" class="btn add_btn text-decoration-none btn-danger border-2 py-2 px-3 w-100">
-                    <i class="fas fa-bolt"></i>  46-50 HP</a>
+                <div class="col-12 col-lg-4 col-md-4 col-sm-4 py-2">
+                    <a href="#" id="adduser"
+                        class="btn btn-outline-success text-decoration-none border-2 py-2 px-3 w-100">
+                        <i class="fas fa-bolt"></i>46-50 HP</a>
                 </div>
-                <div class="col-12 col-lg-3 col-md-4 col-sm-3 py-2">
-                    <a href="#" id="adduser" class="btn add_btn text-decoration-none btn-danger border-2 py-2 px-3 w-100">
-                    <i class="fas fa-bolt"></i>  51-60 HP</a>
-                </div>
-                <div class="col-12 col-lg-3 col-md-4 col-sm-3 py-2">
-                    <a href="#" id="adduser" class="btn add_btn text-decoration-none btn-danger border-2 py-2 px-3 w-100">
-                    <i class="fas fa-bolt"></i> 61-75 HP</a>
-                </div>
-                <div class="col-12 col-lg-3 col-md-4 col-sm-3 py-2">
-                    <a href="#" id="adduser" class="btn add_btn text-decoration-none btn-danger border-2 py-2 px-3 w-100">
-                    <i class="fas fa-bolt"></i>  ABOVE 75 HP</a>
+                <div class="col-12 col-lg-4 col-md-4 col-sm-4 py-2">
+                    <a href="#" id="adduser"
+                        class="btn btn-outline-success text-decoration-none border-2 py-2 px-3 w-100">
+                        <i class="fas fa-bolt"></i>51-60 HP</a>
                 </div>
             </div>
     </div>
     <div class="container"> 
         <h3 class="fw-bold assured px-3">Tractors By Price</h3>
-            <div class="row my-4">
-                <div class="col-12 col-lg-3 col-md-4 col-sm-3 py-2">
-                    <a href="#" id="adduser" class="btn add_btn text-decoration-none btn-danger border-2 p-2 w-100">
-                    <i class="fas fa-rupee-sign"></i> Under 3 lakh</a>
-                </div>
-                <div class="col-12 col-lg-3 col-md-4 col-sm-3 py-2">
-                    <a href="#" id="adduser" class=" btn add_btn text-decoration-none btn-danger border-2 py-2 px-3 w-100">
-                    <i class="fas fa-rupee-sign"></i> 3-5 Lakh</a>
-                </div>
-                <div class="col-12 col-lg-3 col-md-4 col-sm-3 py-2">
-                    <a href="#" id="adduser" class=" btn add_btn text-decoration-none btn-danger border-2 py-2 px-3 w-100">
-                    <i class="fas fa-rupee-sign"></i> 5-7 Lakh</a>
-                </div>
-                <div class="col-12 col-lg-3 col-md-4 col-sm-3 py-2">
-                    <a href="#" id="adduser" class="btn add_btn text-decoration-none btn-danger border-2 py-2 px-3 w-100">
-                    <i class="fas fa-rupee-sign"></i> Above 7 Lakh</a>
-                </div>
+        <div class="row my-4">
+            <div class="col-12 col-lg-4 col-md-4 col-sm-4 py-2">
+                <a href="#" id="adduser" class="btn btn-outline-success text-decoration-none border-2 p-2 w-100">
+                <i class="fas fa-bolt"></i>UNDER 3 LAKH</a>
             </div>
+            <div class="col-12 col-lg-4 col-md-4 col-sm-4 py-2">
+                <a href="#" id="adduser" class=" btn btn-outline-success text-decoration-none border-2 py-2 px-3 w-100">
+                <i class="fas fa-bolt"></i>3-5 LAKH</a>
+            </div>
+            <div class="col-12 col-lg-4 col-md-4 col-sm-4 py-2">
+                <a href="#" id="adduser"class=" btn btn-outline-success text-decoration-none border-2 py-2 px-3 w-100">
+                <i class="fas fa-bolt"></i>5-7 LAKH</a>
+            </div>
+            <div class="col-12 col-lg-4 col-md-4 col-sm-4 py-2">
+                <a href="#" id="adduser"class="btn btn-outline-success text-decoration-none  border-2 py-2 px-3 w-100">
+                <i class="fas fa-bolt"></i>7-10 LAKH</a>
+            </div>
+            <div class="col-12 col-lg-4 col-md-4 col-sm-4 py-2">
+                <a href="#" id="adduser" class="btn btn-outline-success text-decoration-none border-2 py-2 px-3 w-100">
+                <i class="fas fa-bolt"></i>ABOVE 10 LAKH</a>
+            </div>   
+        </div>
     </div>
 </section>
 

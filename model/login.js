@@ -6,6 +6,8 @@ $(document).ready(function() {
             login();
         });
     }
+
+
 });
 
 function showOverlay() {
@@ -33,14 +35,26 @@ var url = apiBaseURL + 'user_login';
         contentType: "application/json", 
         data: JSON.stringify(paraArr), 
         success: function (result) {
+            // console.log(result, 'login success');
+            // localStorage.setItem('token', result.access_token);
+            // localStorage.setItem('expireIn', result.expires_in);
+            // window.location.href = baseUrl +"usermanagement.php"; 
             console.log(result, 'login success');
             localStorage.setItem('token', result.access_token);
-            localStorage.setItem('expireIn', result.expires_in);
-            window.location.href = baseUrl +"usermanagement.php"; 
+            // localStorage.setItem('expireIn', result.expires_in);
+            const d = new Date();
+            d.setTime(d.getTime() + 60 * 60 * 1000);
+            var expires_in = d;
+            console.log(expires_in,"expires_in")
+            localStorage.setItem('expireIn', expires_in);
+            console.log(expires_in,'expiry timeeeeee');
+            window.location.href = baseUrl + "usermanagement.php"; 
+           
+       
+
         },
         error: function (xhr, textStatus, errorThrown) {
             console.log(xhr.status, 'error');
-
             if (xhr.status === 401) {
                 console.log('Invalid credentials');
                 alert('Please enter valid credentials..!');
@@ -56,11 +70,33 @@ var url = apiBaseURL + 'user_login';
             // Hide the spinner after the API call is complete
             hideOverlay();
         },
+        
     });
 }
   
 
-
+$(function(){
+  
+    $('#eyeeye').click(function(){
+         
+          if($(this).hasClass('fa-eye-slash')){
+             
+            $(this).removeClass('fa-eye-slash');
+            
+            $(this).addClass('fa-eye');
+            
+            $('#password').attr('type','text');
+              
+          }else{
+           
+            $(this).removeClass('fa-eye');
+            
+            $(this).addClass('fa-eye-slash');  
+            
+            $('#password').attr('type','password');
+          }
+      });
+  });
   
    
   

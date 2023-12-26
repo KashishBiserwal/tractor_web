@@ -655,11 +655,10 @@ div.swiper-5 {
   /* padding-inline: 1.25rem; */
 }
 
-.swiper-button-next::after, .swiper-button-prev::after {
+/* .swiper-button-next::after, .swiper-button-prev::after {
   display: flex;
   align-items: center;
   justify-content: center;
-  /* font-size: 8px; */
   font-weight: 600;
   margin-top: -88px;
   padding: 1rem;
@@ -668,7 +667,22 @@ div.swiper-5 {
   opacity: 0.75;
   border-radius: 50%;
   color: rgb(35, 34, 34);
-  /* background: rgb(185, 180, 180); */
+} */
+
+.swiper-button-next::after, .swiper-button-prev::after {
+  /* display: flex; */
+  align-items: center;
+  justify-content: center;
+  font-size: 6px;
+  /* font-weight: 600; */
+  /* margin-top: -88px; */
+  /* padding: 0rem; */
+  width: 29px;
+  /* height: 20rem; */
+  opacity: 0.75;
+  /* border-radius: 50%; */
+  color: rgb(35, 34, 34);
+  background: rgb(185, 180, 180);
 }
 
 button {
@@ -1483,7 +1497,7 @@ input[type="checkbox"]:checked + label:before {
 }
 .swiper-slide_buy .img_buy {
   display: block;
-  width: 102%;
+  width: 104%;
   height: 40%;
   -o-object-fit: cover;
      object-fit: cover;
@@ -1557,7 +1571,7 @@ input[type="checkbox"]:checked + label:before {
   width: 100%;
 }
 .form-view-overlay {
-  margin-top: -126px;
+  margin-top:-196px;
 }
 /* @media (min-width: 1500px)
 .container-mid {

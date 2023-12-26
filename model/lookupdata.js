@@ -13,53 +13,57 @@ $(document).ready(function() {
 $('#login').click(store);
 });
 function get_data() {
-console.log('hhsdfshdfch');
-// var url = "<?php echo $APIBaseURL; ?>lookup_data";
-var apiBaseURL =APIBaseURL;
-// Now you can use the retrieved value in your JavaScript logic
-var url = apiBaseURL + 'lookup_data';
+  console.log('hhsdfshdfch');
+  var apiBaseURL = APIBaseURL;
+  var url = apiBaseURL + 'lookup_data';
 
-// console.log(url);
-$.ajax({
-    url: url,
-    type: "GET",
-    headers: {
-        'Authorization': 'Bearer ' + localStorage.getItem('token')
-    },
-    success: function (data) {
-    //   console.log(data);
-        const tableBody = document.getElementById('data-table');
-        tableBody.innerHTML = ''; // Clear previous data
+  $.ajax({
+      url: url,
+      type: 'GET',
+      headers: {
+          'Authorization': 'Bearer ' + localStorage.getItem('token')
+      },
+      success: function (data) {
+          const tableBody = document.getElementById('data-table');
+          tableBody.innerHTML = ''; // Clear previous data
 
-        
+          if (data.lookup_data.length > 0) {
+              let serialNumber = 1; // Initialize serial number
 
-        if (data.lookup_data.length > 0) {
-    //   console.log(typeof data.lookup_data);
+              // Loop through the data and create table rows
+              data.lookup_data.map(row => {
+                  const tableRow = document.createElement('tr');
+                  tableRow.innerHTML = `
+                      <td>${serialNumber}</td>
+                      <td>${row.lookup_type_id}</td>
+                      <td>${row.lookup_data_value}</td>
+                      <td>
+                          <div class="d-flex">
+                              <button class="btn btn-danger btn-sm mx-1" id="delete_user" onclick="destroy(${row.id});">
+                                  <i class="fa fa-trash" style="font-size: 11px;"></i>
+                              </button>
+                          </div>
+                      </td>
+                  `;
+                  tableBody.appendChild(tableRow);
 
-            // Loop through the data and create table rows 
-            data.lookup_data.map(row => {
-              console.log(row);
-                const tableRow = document.createElement('tr');
-                tableRow.innerHTML = `
-                    <td>${row.id}</td>
-                    <td>${row.lookup_type_id}</td>
-                    <td>${row.lookup_data_value}</td>
-                    <td><div class="d-flex"><button class="btn btn-danger btn-sm mx-1" id="delete_user" onclick="destroy(${row.id});"><i class="fa fa-trash" style="font-size: 11px;"></i></button></div></td>
-                `;
-                tableBody.appendChild(tableRow);
-            });
-        } else {
-            // Display a message if there's no valid data
-            tableBody.innerHTML = '<tr><td colspan="7">No valid data available</td></tr>';
-        }
-    },
-    error: function (error) {
-        console.error('Error fetching data:', error);
-        // Display an error message or handle the error as needed
-    }
-});
+                  // Increment serialNumber for the next row
+                  serialNumber++;
+              });
+          } else {
+              // Display a message if there's no valid data
+              tableBody.innerHTML = '<tr><td colspan="7">No valid data available</td></tr>';
+          }
+      },
+      error: function (error) {
+          console.error('Error fetching data:', error);
+          // Display an error message or handle the error as needed
+      }
+  });
 }
+
 get_data();
+
 
 function store(event) {
 event.preventDefault();
@@ -171,3 +175,37 @@ error: function(error) {
 }
 });
 }
+
+
+function myFunction() {
+    var input, filter, table, tr, td, i, j, txtValue;
+    input = document.getElementById("name");
+    filter = input.value.toUpperCase();
+    table = document.getElementById("example");
+    tr = table.getElementsByTagName("tr");
+  
+    for (i = 0; i < tr.length; i++) {
+      // Loop through all td elements in the current row
+      td = tr[i].getElementsByTagName("td");
+      for (j = 0; j < td.length; j++) {
+        txtValue = td[j].textContent || td[j].innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+          tr[i].style.display = "";
+          break; // Break the inner loop if a match is found in any td
+        } else {
+          tr[i].style.display = "none";
+        }
+      }
+    }
+  }
+  function resetForm() {
+          document.getElementById("myform").reset();
+  
+          // Show all rows in the table
+          var table = document.getElementById("example");
+          var rows = table.getElementsByTagName("tr");
+  
+          for (var i = 0; i < rows.length; i++) {
+              rows[i].style.display = "";
+          }
+      }

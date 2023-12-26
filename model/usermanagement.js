@@ -1,5 +1,6 @@
 $(document).ready(function() {
 console.log("ready");
+
   jQuery.validator.addMethod("customPhoneNumber", function(value, element) {
     return /^[6-9]\d{9}$/.test(value); 
   }, "Phone number must start with 6 or above");
@@ -103,6 +104,7 @@ $('#save').on('click', function() {
 
 
   $('#save').click(user_registration);
+  $('#dataedit').click(edit_user);
   });
 
   function user_registration(event) {
@@ -158,8 +160,7 @@ $('#save').on('click', function() {
 
   // fetch data
   function get() {
-    // var url = "<?php echo $APIBaseURL; ?>getUsers";
-    var apiBaseURL =APIBaseURL;
+    var apiBaseURL = APIBaseURL;
     var url = apiBaseURL + 'getUsers';
     $.ajax({
         url: url,
@@ -168,39 +169,51 @@ $('#save').on('click', function() {
             'Authorization': 'Bearer ' + localStorage.getItem('token')
         },
         success: function (data) {
-          // console.log(data);
             const tableBody = document.getElementById('data-table');
             tableBody.innerHTML = ''; // Clear previous data
 
-            let users=data.user;
+            let users = data.user;
 
             if (users.length > 0) {
-          // console.log(typeof users);
+                // Initialize serialNumber outside the loop
+                let serialNumber = 1;
 
                 // Loop through the data and create table rows
                 users.map(row => {
-                  // console.log(row);
                     const tableRow = document.createElement('tr');
-                    let originalDate= new Date(row.created_at);
+                    let originalDate = new Date(row.created_at);
 
-                    let day=originalDate.getDate();
-                    let month=originalDate.getMonth()+1;
-                    let year=originalDate.getFullYear();
+                    let day = originalDate.getDate();
+                    let month = originalDate.getMonth() + 1;
+                    let year = originalDate.getFullYear();
 
-                    let formatDate=`${day}-${month}-${year}`;
+                    let formatDate = `${day}-${month}-${year}`;
+                    let userTypeLabel = row.user_type == 0 ? 'Admin' : 'User';
+                    let status = row.status == 0 ? 'Active' : 'InActive';
+
                     tableRow.innerHTML = `
-                        <td>${row.id}</td>
+                        <td>${serialNumber}</td>
+                        <td>${formatDate}</td>
                         <td>${row.first_name}</td>
                         <td>${row.mobile}</td>
-                        <td>${row.user_type}</td>
-                        <td>${row.status}</td>
-                        <td>${formatDate}</td>
-                        <td><div class="d-flex"><button class="btn btn-danger btn-sm mx-1" id="delete_user" onclick="destroy(${row.id});"><i class="fa fa-trash" style="font-size: 11px;"></i></button></div></td>
+                        <td>${userTypeLabel}</td>
+                        <td>${status}</td>
+                        <td>
+                            <div class="float-start">
+                                <button class="btn btn-danger btn-sm" id="delete_user" onclick="destroy(${row.id});">
+                                    <i class="fa fa-trash" style="font-size: 11px;"></i>
+                                </button>
+                                    <button class="btn btn-primary btn-sm btn_edit" data-toggle="modal"onclick="fetch_edit_data(${row.id});" data-target="#exampleModal" id="yourUniqueIdHere">
+                                    <i class="fas fa-edit" style="font-size: 11px;"></i>
+                                  </button>
+                            </div>
+                        </td>
                     `;
+
+                    serialNumber++;
                     tableBody.appendChild(tableRow);
                 });
             } else {
-                // Display a message if there's no valid data
                 tableBody.innerHTML = '<tr><td colspan="7">No valid data available</td></tr>';
             }
         },
@@ -210,7 +223,9 @@ $('#save').on('click', function() {
         }
     });
 }
+
 get();
+
 
 // delete data
 function destroy(id) {
@@ -243,9 +258,81 @@ var url = apiBaseURL + "deleteUser/" + id;
   });
 }
 
-$(".data_search").on("keyup", function() {
-  var value = $(this).val().toLowerCase();
-  $("#data-table tr").filter(function() {
-    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+
+function fetch_edit_data(userId) {
+  var apiBaseURL = APIBaseURL;
+  var url = apiBaseURL + 'getSelfData/' + userId;
+
+  var headers = {
+    'Authorization': 'Bearer ' + localStorage.getItem('token')
+  };
+
+  $.ajax({
+    url: url,
+    type: 'GET',
+    headers: headers,
+    success: function(response) {
+      var userData = response.user[0];
+      // $('#idUser').val(userData.id);
+      $('#first_name1').val(userData.first_name);
+      $('#last_name1').val(userData.last_name);
+      $('#mobile1').val(userData.mobile);
+      $('#email1').val(userData.email);
+      console.log(userData.email);
+      $('#user_type1').val(userData.user_type);
+      $('#status1').val(userData.status);
+      $('#idUser').val(userData.id);
+      // editUserId=userData.id;
+
+
+      // $('#exampleModal').modal('show');
+    },
+    error: function(error) {
+      console.error('Error fetching user data:', error);
+    }
   });
-});  
+}
+
+
+
+function edit_user(){
+ var edit_id = $("#idUser").val();
+  var first_name = $("#first_name1").val();
+  var last_name = $("#last_name1").val();
+  var email = $("#email1").val();
+  var mobile = $("#mobile1").val();
+  var email = $("#email1").val();
+  var user_type1 = $("#user_type1").val();
+  var paraArr = {
+    'first_name': first_name,
+    'last_name': last_name,
+    'email': email,
+    'mobile': mobile,
+    'user_type': user_type1,
+    'id': edit_id,
+
+  };
+  var apiBaseURL = APIBaseURL;
+  var url = apiBaseURL + 'updateUser/' + edit_id;
+
+  var headers = {
+    'Authorization': 'Bearer ' + localStorage.getItem('token')
+  };
+  $.ajax({
+    url: url,
+      type: "PUT",
+      data: paraArr,
+      headers: headers,
+      success: function (result) {
+        console.log(result, "result");
+        get();
+        console.log("updated successfully");
+        alert('successfully updated..!')
+      },
+      error: function (error) {
+        console.error('Error fetching data:', error);
+      }
+  })
+}
+
+
