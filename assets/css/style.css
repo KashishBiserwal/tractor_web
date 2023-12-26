@@ -1020,8 +1020,8 @@ border-radius: 50%;
 }
 
 .img-bg {
-  width: 200px;
-  height: 200px;
+  width: 100px;
+  height: 100px;
 }
 .frame__img-close, .background__img-close, .politician__img-close, .self__img-close {
   width: 24px;

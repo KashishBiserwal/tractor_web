@@ -85,6 +85,10 @@
         color: white;
     }
 
+    .img-bg {
+  width: 100px;
+  height: 100px;
+}
     
 
 
@@ -110,12 +114,12 @@
         </div>
     </section>
 
-    <section class="form-view bg-white ">
-        <div class="container-mid" style="position: relative;">
+    <section class="form-view  ">
+        <div class="container-mid w-100" style="position: relative;  background-image: url('assets/images/vegetable.webp');  background-position: center; ">
             <div class="row justify-content-center">
                 <div class="col-md-8 col-lg-7">
-                    <div id="container" class="container mt-3 mb-3 bg-light shadow">
-                        <h3 class="text-center text-danger pt-2 mb-4">Sell Your Harvest</h3>
+                    <div id="container" class="container mt-3 mb-3 shadow" style=" border: 5px solid green;   border-radius: 25px; background-image: url('assets/images/lightgreen.avif');">
+                        <h3 class="text-center text-danger pt-2 mb-4 " style="font-size: 38px;">Sell Your Harvest<img src="assets/images/seller.webp" width="100"></h3>
                         <form id="form-step-1" class=" ps-4 pe-4 mul_stp_frm" style="" method="post">
                             <div class="d-flex justify-content-center mb-3">
                                 <div class="col-12 col-lg-5 col-md-5 col-sm-5">
@@ -142,9 +146,9 @@
                             <div class="step step-1">
                                 <!-- Step 1 form fields here -->
                                 <div class="step_sellused">
-                                    <p class="text-center h5 mb-4 pb-2">Fill Your Harvest Details Below</p>
+                                    <p class="text-center h4 mb-4 pb-2">Fill Your Harvest Details Below</p>
                                     <div class="row">
-                                        <div class="col-12 col-sm-6 col-md-6 col-lg-6">
+                                        <div class="col-12 col-sm-6 col-md-6 col-lg-6 mt-3">
                                             <div class="form-outline">
                                                 <label class="form-label" for="category">Category</label>
                                                 <select class="form-select" id="category" name="category" required>
@@ -156,7 +160,7 @@
                                                 </select>
                                             </div>
                                         </div>
-                                        <div class="col-12 col-sm-6 col-md-6 col-lg-6">
+                                        <div class="col-12 col-sm-6 col-md-6 col-lg-6 mt-3">
                                             <div class="form-outline">
                                                 <label class="form-label" for="subcategory">Sub-Category</label>
                                                 <select class="form-select" id="subcategory" name="subcategory"
@@ -244,7 +248,7 @@
                             <div class="step step-2">
                                 <!-- Step 2 form fields here -->
                                 <div class="">
-                                    <p class="text-center h5 mb-4 pb-2">Upload File</p>
+                                    <p class="text-center h4 mb-4 pb-2">Upload File</p>
 
 
                                     <div class="upload__box text-center">
@@ -298,7 +302,7 @@
                             </div>
                             <div class="step step-3">
                                 <!-- Step 3 form fields here -->
-                                <p class="text-center mb-4 h5 ps-2 pe-2 pb-2">Fill Your Information</p>
+                                <p class="text-center mb-4 h4 ps-2 pe-2 pb-2">Fill Your Information</p>
                                 <div class="row ">
                                     <div class="col-12 col-sm-6 col-md-6 col-lg-6 mt-4">
                                         <div class="form-outline">
