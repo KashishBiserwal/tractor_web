@@ -438,7 +438,7 @@ function fetch_data(id) {
                         <div class="brand-main box-shadow mt-2 text-center shadow">
                             <a class="weblink text-decoration-none text-dark" 
                                 title="Old Tractors">
-                                <img class="img-fluid w-50" src="http://tractor-api.divyaltech.com/customer/uploads/brand_img/"
+                                <img class="img-fluid w-50" src="http://tractor-api.divyaltech.com/uploads/brand_img/"
                                     data-src="h" alt="Brand Logo">
                                 <p class="mb-0 oneline">${b.brand_name}</p>
                             </a>

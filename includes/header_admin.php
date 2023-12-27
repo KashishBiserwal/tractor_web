@@ -100,17 +100,16 @@ window.setInterval(() => {
     var expireTimeString = localStorage.getItem('expireIn');
     var expiretime = new Date(expireTimeString); // Convert the string to a Date object
 
-
     var currentdate = new Date();
 
     if (currentdate >= expiretime) {
         console.log("hello");
         user_logout();
         localStorage.removeItem("expireIn");
-        // window.location.href = baseUrl + "login.php";
+        window.location.href = baseUrl + "login.php"; 
     }
-
 }, 5000);
+
 
 </script>
    

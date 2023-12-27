@@ -75,9 +75,6 @@
               <li class="py-1 ps-3"><a href="old_harvester_enqu.php" class="d-inline-flex align-items-center text-white text-decoration-none rounded"> Old Harvester Enquiries</a></li>
               <li class="py-1 ps-3"><a href="tyers_list.php" class="d-inline-flex align-items-center text-white text-decoration-none rounded">Tyres Enquiry</a></li>
               <li class="py-1 ps-3"><a href="nursery_enquiry.php" class="d-inline-flex align-items-center text-white text-decoration-none rounded">Nursery Enquiry</a></li>
-              
-              <li class="py-1 ps-3"><a href="rent_trsc_enq.php" class="d-inline-flex align-items-center text-white text-decoration-none rounded">Rent Tractor enquiry</a></li>
-              <li class="py-1 ps-3"><a href="hire_trac_enq.php" class="d-inline-flex align-items-center text-white text-decoration-none rounded">Hire Tractor Enquiry</a></li>
           </ul>
         </div>
        

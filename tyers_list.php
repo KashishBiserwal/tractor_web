@@ -27,13 +27,13 @@
               </li>
             </ol>
           </nav>
-          <button type="button" id="add_trac" class="btn add_btn btn-success float-right" data-bs-toggle="modal"  data-bs-target="#staticBackdrop">
+          <button type="button" id="add_trac" class="btn add_btn btn-success float-right" onclick="resetFormFields();" data-bs-toggle="modal"  data-bs-target="#staticBackdrop">
               <i class="fa fa-plus" aria-hidden="true"></i> Add New Tyres
           </button>
 
           <!-- Modal -->
           <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-            <div class="modal-dialog modal-xl modal-dialog-centered">
+            <div class="modal-dialog modal-lg modal-dialog-centered">
               <div class="modal-content modal_box">
                 <div class="modal-header modal_head">
                   <h5 class="modal-title text-white fw-bold" id="staticBackdropLabel"> Add Tyres </h5>
@@ -71,18 +71,6 @@
                                         <input type="text" class="form-control" placeholder="" id="tyre_size" name="tyre_size">
                                       </div>
                                     </div>
-                                    <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
-                                      <div class="form-outline mt-3">
-                                        <label for="name" class="form-label text-dark">Tyre Diameter</label>
-                                        <input type="text" class="form-control" placeholder="" id="tyre_diameter" name="tyre_diameter">
-                                      </div>
-                                    </div>
-                                    <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
-                                      <div class="form-outline mt-3">
-                                        <label for="name" class="form-label text-dark">Tyre Width</label>
-                                        <input type="text" class="form-control" placeholder="" id="tyre_width" name="tyre_width">
-                                      </div>
-                                    </div>
                                     <div class="col-12 col-sm-12 col-md-6 col-lg-6">
                                      <div class="form-outline my-3">
                                       <label for="yr_state" class="form-label text-dark">Category</label>
@@ -100,7 +88,7 @@
                                           </label>
                                           <!-- <p></p> -->
                                         </div>
-                                        <div id="selectedImagesContainer" class="upload__img-wrap"></div>
+                                        <div id="selectedImagesContainer" class="upload__img-wrap row"></div>
                                       </div>
                                     </div>
                                    
@@ -111,7 +99,7 @@
                     </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-secondary px-3" data-bs-dismiss="modal">Close</button>
-                  <button type="button" id="subbnt" class="btn btn-success fw-bold px-3">Submit</button>
+                  <button type="button" id="subbnt"  class="btn btn-success fw-bold px-3">Submit</button>
                 </div>
               </div>
             </div>
@@ -177,78 +165,64 @@
       </div>
     </div>
   </div>
-  <div class="modal fade" id="staticBackdrop_model" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-          <div class="modal-dialog modal-xl">
+    <!-- <div class="modal fade" id="staticBackdrop_model" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+          <div class="modal-dialog modal-lg">
             <div class="modal-content">
               <div class="modal-header modal_head">
-                <h5 class="modal-title text-white" id="staticBackdropLabel">Update Old tractor</h5>
+                <h5 class="modal-title text-white" id="staticBackdropLabel">Update Tyre Details</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
               <div class="modal-body">
 
-              <h4 class="text-center">Fill Old Tractor Details</h4>
+              <h4 class="text-center">Update Tyre Details</h4>
               <form id="old_tract" name="old_tract px-5" method="post" enctype="multipart/form-data" onsubmit="return false">
                 <div class="row justify-content-center pt-4">
                   <div class="col-12 col-lg-6 col-md-6 col-sm-6">
                     <div class="form-outline mt-3">
                       <label for="name" class="form-label text-dark">Brand</label>
-                      <select class="form-select form-control" aria-label=".form-select-lg example" id="brand" name="brand">
+                      <select class="form-select form-control" aria-label=".form-select-lg example" id="brand1" name="brand">
                         <option value=""  disabled>Select Brand</option>
                       </select>
                     </div>
                   </div>
-                                    <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
-                                      <div class="form-outline mt-3">
-                                        <label for="name" class="form-label text-dark">Tyre Model</label>
-                                        <input type="text" class="form-control" placeholder="" id="tyre_model1" name="tyre">
-                                      </div>
-                                    </div>
-                                    <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
-                                      <div class="form-outline mt-3">
-                                        <label for="name" class="form-label text-dark">Tyre Position</label>
-                                        <input type="text" class="form-control" placeholder="" id="tyre_position1" name="tyre_position">
-                                      </div>
-                                    </div>
-                                    <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
-                                      <div class="form-outline mt-3">
-                                        <label for="name" class="form-label text-dark">Size of the tyre</label>
-                                        <input type="text" class="form-control" placeholder="" id="tyre_size1" name="tyre_size">
-                                      </div>
-                                    </div>
-                                    <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
-                                      <div class="form-outline mt-3">
-                                        <label for="name" class="form-label text-dark">Tyre Diameter</label>
-                                        <input type="text" class="form-control" placeholder="" id="tyre_diameter1" name="tyre_diameter">
-                                      </div>
-                                    </div>
-                                    <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
-                                      <div class="form-outline mt-3">
-                                        <label for="name" class="form-label text-dark">Tyre Width</label>
-                                        <input type="text" class="form-control" placeholder="" id="tyre_width1" name="tyre_width">
-                                      </div>
-                                    </div>
-                                    <div class="col-12 col-sm-12 col-md-6 col-lg-6">
-                                     <div class="form-outline my-3">
-                                      <label for="yr_state" class="form-label text-dark">Category</label>
-                                      <select class="form-select form-control" aria-label=".form-select-lg example"id="category1" name="category">
-                                          <option value="" selected disabled>Select Categoey</option>
-                                      </select>
-                                     </div>
-                                    </div>
-                                    <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                                      <div class="upload__box">
-                                        <div class="upload__btn-box text-center">
-                                          <label>
-                                            <p class="upload__btn ">Upload images</p>
-                                            <input type="file" name='files[]' multiple=""  data-max_length="20" class="upload__inputfile" id="_image1" name="_image">
-                                          </label>
-                                          <!-- <p></p> -->
-                                        </div>
-                                        <div id="selectedImagesContainer" class="upload__img-wrap"></div>
-                                      </div>
-                                    </div>
-                                   
-                                </div>
+                  <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
+                    <div class="form-outline mt-3">
+                      <label for="name" class="form-label text-dark">Tyre Model</label>
+                      <input type="text" class="form-control" placeholder="" id="tyre_model1" name="tyre">
+                    </div>
+                  </div>
+                  <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
+                    <div class="form-outline mt-3">
+                      <label for="name" class="form-label text-dark">Tyre Position</label>
+                      <input type="text" class="form-control" placeholder="" id="tyre_position1" name="tyre_position">
+                    </div>
+                  </div>
+                  <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
+                    <div class="form-outline mt-3">
+                      <label for="name" class="form-label text-dark">Size of the tyre</label>
+                      <input type="text" class="form-control" placeholder="" id="tyre_size1" name="tyre_size">
+                    </div>
+                  </div>
+                  <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+                    <div class="form-outline my-3">
+                      <label for="yr_state" class="form-label text-dark">Category</label>
+                      <select class="form-select form-control" aria-label=".form-select-lg example"id="category1" name="category">
+                        <option value="" selected disabled>Select Categoey</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="col-12 col-lg-6 col-md-6 col-sm-6">
+                    <div class="upload__box">
+                      <div class="upload__btn-box text-center">
+                        <label>
+                        <p class="upload__btn ">Upload images</p>
+                        <input type="file" name='files[]' multiple=""  data-max_length="20" class="upload__inputfile" id="_image1" name="_image">
+                        </label>
+                      </div>
+                      <div id="selectedImagesContainer" class="upload__img-wrap"></div>
+                    </div>
+                  </div>             
+                </div>
               </form>
               </div>
               <div class="modal-footer">
@@ -257,7 +231,7 @@
               </div>
             </div>
           </div>
-    </div>
+    </div> -->
 </section>
       
     

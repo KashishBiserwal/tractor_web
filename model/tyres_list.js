@@ -1,6 +1,10 @@
 
   $(document).ready(function () {
-    $('#subbnt').click(tyre_add);
+    //$('#subbnt').click(tyre_add);
+    $('.btn_edit').click(function() {
+      var rowId = $(this).data('row-id');
+      fetch_edit_data(rowId);
+  });
     ImgUpload();
     // Initialize form validation on the form_news_updates form
     $("#form_tyre_list").validate({
@@ -17,7 +21,7 @@
           },
           tyre_size: {
             required: true,
-            digits: true,
+            // digits: true,
           },
           _image: {
             required: true,
@@ -47,7 +51,7 @@
           },
           tyre_size: {
             required: "This field is required",
-            digits: "Please enter only digits"
+            // digits: "Please enter only digits"
           },
           _image: {
             required:"This field is required",
@@ -77,8 +81,9 @@
      
         $("#form_tyre_list").valid();
         if ($("#form_tyre_list").valid()) {
-          
-          alert("Form is valid. Ready to submit!");
+          tyre_add();
+          // alert("Form is valid. Ready to submit!");
+        
         }
       });
      
@@ -210,63 +215,138 @@ get_category();
 
 
 
-  function tyre_add(event){
-    event.preventDefault();
-    console.log('run store function');
-       var image_names = document.getElementById('_image').files;
-       console.log('imgds',image_names);
-       var brand = $('#brand').val();
-       console.log(brand);
-      var tyre_model = $('#tyre_model').val();
-      var tyre_position = $('#tyre_position').val();
-      var tyre_size = $('#tyre_size').val();
-      var tyre_diameter = $('#tyre_diameter').val();
-      var tyre_width = $('#tyre_width').val();
-      var category = $('#category').val();
+  // function tyre_add(event){
+  //   event.preventDefault();
+  //   console.log('run store function');
+  //      var image_names = document.getElementById('_image').files;
+  //      console.log('imgds',image_names);
+  //      var brand = $('#brand').val();
+  //      console.log(brand);
+  //     var tyre_model = $('#tyre_model').val();
+  //     var tyre_position = $('#tyre_position').val();
+  //     var tyre_size = $('#tyre_size').val();
+  //     var tyre_diameter = $('#tyre_diameter').val();
+  //     var tyre_width = $('#tyre_width').val();
+  //     var category = $('#category').val();
       
-      console.log("brand_id",brand);
-      console.log("tyre category id",category);
+  //     console.log("brand_id",brand);
+  //     console.log("tyre category id",category);
       
-       var apiBaseURL =APIBaseURL;
-       var url = apiBaseURL + 'tyre_data';
-       var token = localStorage.getItem('token');
-       var headers = {
-         'Authorization': 'Bearer ' + token
-       };
-       var data = new FormData();
+  //      var apiBaseURL =APIBaseURL;
+  //      var url = apiBaseURL + 'tyre_data';
+  //      var token = localStorage.getItem('token');
+  //      var headers = {
+  //        'Authorization': 'Bearer ' + token
+  //      };
+  //      var data = new FormData();
       
-       for (var x = 0; x < image_names.length; x++) {
-         data.append("images[]", image_names[x]);
-         console.log("multiple image", image_names[x]);
-       }
-         data.append('brand_id',brand);
-         data.append('tyre_model', tyre_model);
-         data.append('tyre_position', tyre_position);
-         data.append('tyre_size', tyre_size);
-         data.append('tyre_diameter', tyre_diameter);
-         data.append('tyre_width', tyre_width);
-         data.append('tyre_category_id', category);
+  //      for (var x = 0; x < image_names.length; x++) {
+  //        data.append("images[]", image_names[x]);
+  //        console.log("multiple image", image_names[x]);
+  //      }
+  //        data.append('brand_id',brand);
+  //        data.append('tyre_model', tyre_model);
+  //        data.append('tyre_position', tyre_position);
+  //        data.append('tyre_size', tyre_size);
+  //        data.append('tyre_diameter', tyre_diameter);
+  //        data.append('tyre_width', tyre_width);
+  //        data.append('tyre_category_id', category);
         
-       $.ajax({
-         url: url,
-         type: "POST",
-         data: data,
-         headers: headers,
-         processData: false, 
-         contentType: false,
-         success: function (result) {
-           console.log(result, "result");
-           // getTractorList();
-           console.log("Add successfully");
-            if(result.length){
-           }
-           // alert('successfully inserted..!')
-         },
-         error: function (error) {
-           console.error('Error fetching data:', error);
-         }
-       });
-  }
+  //      $.ajax({
+  //        url: url,
+  //        type: "POST",
+  //        data: data,
+  //        headers: headers,
+  //        processData: false, 
+  //        contentType: false,
+  //        success: function (result) {
+  //          console.log(result, "result");
+  //          // getTractorList();
+  //          console.log("Add successfully");
+  //           if(result.length){
+  //          }
+  //          // alert('successfully inserted..!')
+  //        },
+  //        error: function (error) {
+  //          console.error('Error fetching data:', error);
+  //        }
+  //      });
+  // }
+
+
+  function tyre_add(event) {
+    // event.preventDefault();
+
+    var image_names = document.getElementById('_image').files;
+    var brand = $('#brand').val();
+    var tyre_model = $('#tyre_model').val();
+    var tyre_position = $('#tyre_position').val();
+    var tyre_size = $('#tyre_size').val();
+    var tyre_diameter = $('#tyre_diameter').val();
+    var tyre_width = $('#tyre_width').val();
+    var category = $('#category').val();
+
+    var apiBaseURL = APIBaseURL;
+    var token = localStorage.getItem('token');
+    var headers = {
+        'Authorization': 'Bearer ' + token
+    };
+
+    // Check if an ID is present in the URL, indicating edit mode
+    var urlParams = new URLSearchParams(window.location.search);
+    var editId = urlParams.get('id');
+
+    var url, method;
+
+    if (editId) {
+        console.log(editId);
+        // Update mode
+        url = apiBaseURL + 'tyre_data/' + editId; 
+        console.log(url);
+        method = 'PUT';
+    } else {
+        // Add mode
+        url = apiBaseURL + 'tyre_data';
+        console.log('prachi');
+        method = 'POST';
+    }
+
+    var data = new FormData();
+
+    for (var x = 0; x < image_names.length; x++) {
+        data.append("images[]", image_names[x]);
+    }
+
+    data.append('brand_id', brand);
+    data.append('tyre_model', tyre_model);
+    data.append('tyre_position', tyre_position);
+    data.append('tyre_size', tyre_size);
+    data.append('tyre_diameter', tyre_diameter);
+    data.append('tyre_width', tyre_width);
+    data.append('tyre_category_id', category);
+
+    $.ajax({
+        url: url,
+        type: method,
+        data: data,
+        headers: headers,
+        processData: false,
+        contentType: false,
+        success: function (result) {
+            console.log(result, "result");
+            console.log("Operation successfully");
+            window.location.reload();
+        },
+        error: function (error) {
+            console.error('Error:', error);
+        }
+    });
+
+}
+
+
+
+
 
 //****get data***
 function get_tyre_list() {
@@ -293,7 +373,7 @@ function get_tyre_list() {
                       <td>${row.tyre_size}</td>
                       <td>
                           <div class="d-flex">
-                              <button class="btn btn-primary btn-sm btn_edit" onclick="fetch_edit_data(${row.id});" data-bs-toggle="modal" data-bs-target="#staticBackdrop_model" id="yourUniqueIdHere">
+                              <button class="btn btn-primary btn-sm btn_edit" onclick="fetch_edit_data(${row.id});" data-bs-toggle="modal" data-bs-target="#staticBackdrop" id="yourUniqueIdHere">
                                   <i class="fas fa-edit" style="font-size: 11px;"></i>
                               </button>
                               <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.id});">
@@ -339,7 +419,8 @@ function destroy(id) {
       'Authorization': 'Bearer ' + token
     },
     success: function(result) {
-      get_tyre_list();
+      // get_tyre_list();
+      window.location.reload();
       console.log("Delete request successful");
       alert("Delete operation successful");
     },
@@ -352,33 +433,69 @@ function destroy(id) {
 
 function fetch_edit_data(id) {
   var apiBaseURL = APIBaseURL;
-  var url = apiBaseURL + 'tyre_data/' + 2;
+  var url = apiBaseURL + 'tyre_data/' + id;
 
   var headers = {
-    'Authorization': 'Bearer ' + localStorage.getItem('token')
+      'Authorization': 'Bearer ' + localStorage.getItem('token')
   };
 
   $.ajax({
-    url: url,
-    type: 'GET',
-    headers: headers,
-    success: function(response) {
-      var Data = response.tyre_details[0];
+      url: url,
+      type: 'GET',
+      headers: headers,
+      success: function (response) {
+          var Data = response.tyre_details[0];
 
-      // Populate form fields
-      $('#_image1').val(Data.images);
-      $('#brand1').val(Data.brand_name);
-      $('#tyre_model1').val(Data.tyre_model);
-      $('#tyre_size1').val(Data.tyre_size);
-      $('#tyre_diameter1').val(Data.tyre_diameter);
-      $('#tyre_width').val(Data.tyre_width);
+          $('#brand').val(Data.brand_name);
+          $('#tyre_model').val(Data.tyre_model);
+          $('#tyre_size').val(Data.tyre_size);
+          $('#tyre_position').val(Data.tyre_position);
+          var selectedCategoryId = Data.tyre_category_id;
+          $('#category').val(selectedCategoryId).prop('selected', true);
 
-      var selectedCategoryId = Data.tyre_category_id;
-      $('#tyre_category_id').val(selectedCategoryId).prop('selected', true);
-      // $('#exampleModal').modal('show');
-    },
-    error: function(error) {
-      console.error('Error fetching user data:', error);
-    }
+          // Clear existing images
+          $("#selectedImagesContainer").empty();
+
+          if (Data.image_names) {
+              // Check if Data.image_names is an array
+              var imageNamesArray = Array.isArray(Data.image_names) ? Data.image_names : Data.image_names.split(',');
+
+              imageNamesArray.forEach(function (imageName) {
+                  var imageUrl = 'http://tractor-api.divyaltech.com/uploads/tyre_img/' + imageName.trim();
+
+                  var newCard = `
+                      <div class="col-6 col-lg-6 col-md-6 col-sm-6">
+                          <div class="brand-main d-flex box-shadow mt-2 text-center shadow">
+                              <a class="weblink text-decoration-none text-dark" title="Tyre Image">
+                                  <img class="img-fluid w-100 h-100" src="${imageUrl}" alt="Tyre Image">
+                              </a>
+                          </div>
+                      </div>
+                  `;
+
+                  // Append the new image element to the container
+                  $("#selectedImagesContainer").append(newCard);
+              });
+          }
+      },
+      error: function (error) {
+          console.error('Error fetching user data:', error);
+      }
   });
+}
+
+
+
+
+
+
+function resetFormFields() {
+  $('#_image').val('');
+  $('#brand').val('');
+  $('#tyre_model').val('');
+  $('#tyre_position').val('');
+  $('#tyre_size').val('');
+  $('#tyre_diameter').val('');
+  $('#tyre_width').val('');
+  $('#category').val('');
 }
