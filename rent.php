@@ -17,7 +17,7 @@
         width: 55%;
         padding-left: 8px;
         padding-right: 8px;
-        margin-top: -214px;
+        margin-top: -284px;
     }
 
     .step-container {
@@ -124,20 +124,20 @@
     <!--Banner-->
     <div class="container-fluid">
         <div class="row siv" id="">
-            <img src="assets/images/rent.jpg" alt="reload img" class="w-100" style="height:358px;">
+            <img src="assets/images/rent.jpg" alt="reload img" class="w-100" style="height:489px;">
             <div class="container-mid">
                 <div class="row justify-content-center loan_form bg-light">
                     <h2 class="text-dark text-center fw-bold mt-3">Rent Your Tractors and Implements</h2>
                     <div id="container" class="container mt-3 mb-3 bg-light shadow">
                         <form id="form-step-1" class=" ps-4 pe-4 mul_stp_frm" style="" method="post">
                             <div class="d-flex justify-content-center mb-3">
-                                <div class="col-12 col-lg-5 col-md-5 col-sm-5">
+                                <div class="col-4 col-lg-5 col-md-5 col-sm-5">
                                     <div class="float-start">Harvest Info</div>
                                 </div>
-                                <div class="col-12 col-lg-3 col-md-3 col-sm-3">
+                                <div class="col-4 col-lg-3 col-md-3 col-sm-3">
                                     Upload Image
                                 </div>
-                                <div class="col-12 col-lg-4 col-md-4 col-sm-4">
+                                <div class="col-4 col-lg-4 col-md-4 col-sm-4">
                                     <div class="float-end">Personal Info</div>
                                 </div>
                             </div>
@@ -216,13 +216,13 @@
                         <form id="form-step-2" class=" mul_stp_frm  ps-4 pe-4 " style="display:none;" method="post"
                             action="">
                             <div class="d-flex justify-content-center mb-3">
-                                <div class="col-12 col-lg-5 col-md-5 col-sm-5">
+                                <div class="col-4 col-lg-5 col-md-5 col-sm-5">
                                     <div class="float-start">Harvest Info</div>
                                 </div>
-                                <div class="col-12 col-lg-3 col-md-3 col-sm-3">
+                                <div class="col-4 col-lg-3 col-md-3 col-sm-3">
                                     Upload Image
                                 </div>
-                                <div class="col-12 col-lg-4 col-md-4 col-sm-4">
+                                <div class="col-4 col-lg-4 col-md-4 col-sm-4">
                                     <div class="float-end">Personal Info</div>
                                 </div>
                             </div>
@@ -240,7 +240,7 @@
                                 <!-- Step 2 form fields here -->
                                 <div id="formContainer">
                                     <div class="row">
-                                        <div class="col-12 col-sm-6 col-md-6 col-lg-4 mt-4">
+                                        <div class="col-12 col-sm-6 col-md-6 col-lg-6 mt-4">
                                             <div class="form-outline">
                                                 <label class="form-label" for="implement">Implement Type</label>
                                                 <select class="form-select" id="implement" name="implement" required>
@@ -252,14 +252,14 @@
                                                 </select>
                                             </div>
                                         </div>
-                                        <div class="col-12 col-sm-6 col-md-6 col-lg-4 mt-4">
+                                        <div class="col-12 col-sm-6 col-md-6 col-lg-6 mt-4">
                                             <div class="form-outline">
                                                 <label class="form-label" for="rate">Rate</label>
                                                 <input type="text" id="rate" name="rate"
                                                     class="form-control input-group-sm " required />
                                             </div>
                                         </div>
-                                        <div class="col-12 col-sm-6 col-md-6 col-lg-4 mt-4">
+                                        <div class="col-12 col-sm-6 col-md-6 col-lg-6 mt-4">
                                             <div class="form-outline">
                                                 <label class="form-label" for="ratePer">Rate Per</label>
                                                 <select class="form-select" id="ratePer" name="ratePer" required>
@@ -269,19 +269,14 @@
                                                 </select>
                                             </div>
                                         </div>
-                                        <div class="upload__box text-center">
-                                            <div class="upload__btn-box">
-                                                <label>
-                                                    <p class="upload__btn w-100">Upload Images</p>
-                                                    <input type="file" data-max_length="4" class="upload__inputfile"
-                                                        id="imageInput" name="images[]" accept="image/*" multiple
-                                                        required>
-                                                </label>
-                                            </div>
-                                            <div class="col-sm-6">
-                                                <div class="upload__img-wrap"></div>
+                                        <div class="col-12 col-sm-6 col-md-6 col-lg-6 mt-4">
+                                            <div class="form-outline">
+                                                <label class="form-label" for="image">Image</label>
+                                                <input type="file" id="image" name="image"
+                                                    class="form-control input-group-sm " required />
                                             </div>
                                         </div>
+                                        <button type="button" class="btn btn-danger delete-row ms-2 mb-4 mt-2 col-2 col-sm-2 col-md-2 col-lg-2" style="display: none; width: 37px;"><i class="fa fa-trash" aria-hidden="true"></i></button>
                                     </div>
                                 </div>
 
@@ -290,8 +285,7 @@
                                         id="">Previous</button>
                                     <button type="button" class="btn btn-success ms-2 mb-4 w-50 next-step"
                                         id="">Next</button>
-                                    <button type="button" class="btn btn-info ms-2 mb-4 w-25" id="addMore">Add
-                                        More</button>
+                                    <button type="button" class="btn btn-success ms-2 mb-4" id="addMore" disabled>+</button>
                                 </div>
 
                             </div>
@@ -300,13 +294,13 @@
                         <form id="form-step-3" class=" mul_stp_frm ps-4 pe-4 " action="" method="post"
                             style="display:none;">
                             <div class="d-flex justify-content-center mb-3">
-                                <div class="col-12 col-lg-5 col-md-5 col-sm-5">
+                                <div class="col-4 col-lg-5 col-md-5 col-sm-5">
                                     <div class="float-start">Harvest Info</div>
                                 </div>
-                                <div class="col-12 col-lg-3 col-md-3 col-sm-3">
+                                <div class="col-4 col-lg-3 col-md-3 col-sm-3">
                                     Upload Image
                                 </div>
-                                <div class="col-12 col-lg-4 col-md-4 col-sm-4">
+                                <div class="col-4 col-lg-4 col-md-4 col-sm-4">
                                     <div class="float-end">Personal Info</div>
                                 </div>
                             </div>
@@ -514,15 +508,41 @@
     include 'includes/footer.php';
     include 'includes/footertag.php';
 
-?>
-    <script>
-    document.addEventListener("DOMContentLoaded", function() {
+// ?>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
         const addMoreButton = document.getElementById('addMore');
         const formContainer = document.getElementById('formContainer');
 
-        addMoreButton.addEventListener('click', function() {
+        function areFieldsFilled(row) {
+            const implement = row.querySelector('#implement');
+            const rate = row.querySelector('#rate');
+            const ratePer = row.querySelector('#ratePer');
+            const image = row.querySelector('#image');
+            const imageInput = row.querySelector('#imageInput');
+
+            return implement.value && rate.value && ratePer.value && image.value;
+        }
+
+        function toggleAddMoreButton() {
+            const lastRow = formContainer.lastElementChild;
+            addMoreButton.disabled = !areFieldsFilled(lastRow);
+        }
+
+        function addDeleteButton(row) {
+            const deleteButton = row.querySelector('.delete-row');
+            deleteButton.style.display = 'block';
+            deleteButton.addEventListener('click', function () {
+                formContainer.removeChild(row);
+                toggleAddMoreButton();
+            });
+        }
+
+        addMoreButton.addEventListener('click', function () {
             // Clone the entire row and append it to the container
             const lastRow = formContainer.lastElementChild.cloneNode(true);
+
             // Clear values of the cloned fields
             const inputFields = lastRow.querySelectorAll('input, select');
             inputFields.forEach(field => {
@@ -530,9 +550,37 @@
             });
 
             formContainer.appendChild(lastRow);
+            addDeleteButton(lastRow);
+            toggleAddMoreButton();
+        });
+
+        // Initially disable "Add More" button
+        toggleAddMoreButton();
+
+        // Add an event listener to each input field to toggle the button when the user fills in the data
+        formContainer.addEventListener('input', function () {
+            toggleAddMoreButton();
         });
     });
-    </script>
+</script>
+//     <script>
+//     document.addEventListener("DOMContentLoaded", function() {
+//         const addMoreButton = document.getElementById('addMore');
+//         const formContainer = document.getElementById('formContainer');
+
+//         addMoreButton.addEventListener('click', function() {
+//             // Clone the entire row and append it to the container
+//             const lastRow = formContainer.lastElementChild.cloneNode(true);
+//             // Clear values of the cloned fields
+//             const inputFields = lastRow.querySelectorAll('input, select');
+//             inputFields.forEach(field => {
+//                 field.value = '';
+//             });
+
+//             formContainer.appendChild(lastRow);
+//         });
+//     });
+//     </script>
     <script>
     $(document).ready(function() {
         // Sample data (replace with your actual data)
@@ -678,7 +726,7 @@
     $(document).ready(function() {
         $("form[id='form-step-2']").validate({
             rules: {
-                imageInput: {
+                image: {
                     required: true,
                 },
                 implement: {
@@ -697,7 +745,7 @@
         });
     });
     </script>
-
+<!-- 
     <script>
     $(document).ready(function() {
         // Event listener for file input change
@@ -716,7 +764,7 @@
             }
         });
     });
-    </script>
+    </script> -->
 
     <!-- SCRIPT FOR THE VALIDATION OF 3rd FORM -->
     <script>
