@@ -33,7 +33,7 @@
                 <div class="col-12 col-sm-6 col-lg-6 col-md-6">
                     <div>
                     <h1 class="fw-bold text-danger pt-3">Engine Oil</h1>
-                        <div class="swiper swiper_buy mySwiper2_buy">
+                        <div class="swiper swiper_buy mySwiper2_buy"> 
                             <div class="swiper-wrapper swiper-wrapper_buy">
                                 <div class=" swiper-slide swiper-slide_buy" style="height: 129px;">
                                     <img class="img_buy" src="assets/images/engine_oil.jpeg" style="height: 100%; object-fit:contain;"/>
@@ -45,7 +45,10 @@
                                     <img class="img_buy" src="assets/images/fill_form.avif" style="height: 100%; object-fit:contain;"/>
                                 </div>
                             </div>
+                            <div class="swiper-button-prev"></div>
+                            <div class="swiper-button-next"></div>
                         </div>
+                        
                         <div thumbsSlider="" class="swiper mySwiper_buy"></div>
                     </div>
                 </div>
