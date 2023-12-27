@@ -48,17 +48,15 @@
                                     <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
                                       <div class="form-outline mt-3">
                                         <label for="name" class="form-label text-dark">Brand</label>
-                                        <select class="form-select form-control" aria-label=".form-select-lg example"id="category" name="category">
-                                          <option value>Select Categoey</option>
-                                          <option value="1">tyre</option>
-                                          <option value="2">....</option>
-                                      </select>
+                                        <select class="form-select form-control" aria-label=".form-select-lg example" id="brand" name="brand">
+                                        <option value=""  disabled>Select Brand</option>
+                                        </select>
                                       </div>
                                     </div>
                                     <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
                                       <div class="form-outline mt-3">
                                         <label for="name" class="form-label text-dark">Tyre Model</label>
-                                        <input type="text" class="form-control" placeholder="" id="tyre" name="tyre">
+                                        <input type="text" class="form-control" placeholder="" id="tyre_model" name="tyre">
                                       </div>
                                     </div>
                                     <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
@@ -89,16 +87,14 @@
                                      <div class="form-outline my-3">
                                       <label for="yr_state" class="form-label text-dark">Category</label>
                                       <select class="form-select form-control" aria-label=".form-select-lg example"id="category" name="category">
-                                          <option value>Select Categoey</option>
-                                          <option value="1">tyre</option>
-                                          <option value="2">....</option>
+                                          <option value="" selected disabled>Select Categoey</option>
                                       </select>
                                     </div>
                                   </div>
                                     <div class="col-12 col-lg-6 col-md-6 col-sm-6">
                                       <div class="upload__box">
                                         <div class="upload__btn-box text-center">
-                                          <label >
+                                          <label>
                                             <p class="upload__btn ">Upload images</p>
                                             <input type="file" name='files[]' multiple=""  data-max_length="20" class="upload__inputfile" id="_image" name="_image">
                                           </label>
@@ -161,26 +157,107 @@
         </div>
       </div>
       <!-- Table Card -->
-      <div class=" mb-5">
+      <div class="mb-5">
         <div class="table-responsive">
-          <table id="example" class="table dataTable no-footer py-1" width="100%">
+          <table id="example" class="table table-striped  table-hover table-bordered dataTable no-footer bg-white" width="100%; margin-bottom: 15px;">
             <thead>
               <tr>
                 <th class="d-none d-md-table-cell text-white">S.No.</th>
                 <th class="d-none d-md-table-cell text-white">Brand</th>
                 <th class="d-none d-md-table-cell text-white">Model</th>
-                <th class="d-none d-md-table-cell text-white">Tyre Name</th>
+                <!-- <th class="d-none d-md-table-cell text-white">Tyre Name</th> -->
                 <th class="d-none d-md-table-cell text-white">Tyre Position</th>
-                <th class="d-none d-md-table-cell text-white">Size</th>
+                <th class="d-none d-md-table-cell text-white">Size(mm)</th>
                 <th class="d-none d-md-table-cell text-white">Action</th>
               </tr>
             </thead>
-          <tbody>
+          <tbody id="data-table">
           </tbody>
         </table>
       </div>
     </div>
   </div>
+  <div class="modal fade" id="staticBackdrop_model" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+          <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+              <div class="modal-header modal_head">
+                <h5 class="modal-title text-white" id="staticBackdropLabel">Update Old tractor</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+
+              <h4 class="text-center">Fill Old Tractor Details</h4>
+              <form id="old_tract" name="old_tract px-5" method="post" enctype="multipart/form-data" onsubmit="return false">
+                <div class="row justify-content-center pt-4">
+                  <div class="col-12 col-lg-6 col-md-6 col-sm-6">
+                    <div class="form-outline mt-3">
+                      <label for="name" class="form-label text-dark">Brand</label>
+                      <select class="form-select form-control" aria-label=".form-select-lg example" id="brand" name="brand">
+                        <option value=""  disabled>Select Brand</option>
+                      </select>
+                    </div>
+                  </div>
+                                    <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
+                                      <div class="form-outline mt-3">
+                                        <label for="name" class="form-label text-dark">Tyre Model</label>
+                                        <input type="text" class="form-control" placeholder="" id="tyre_model1" name="tyre">
+                                      </div>
+                                    </div>
+                                    <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
+                                      <div class="form-outline mt-3">
+                                        <label for="name" class="form-label text-dark">Tyre Position</label>
+                                        <input type="text" class="form-control" placeholder="" id="tyre_position1" name="tyre_position">
+                                      </div>
+                                    </div>
+                                    <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
+                                      <div class="form-outline mt-3">
+                                        <label for="name" class="form-label text-dark">Size of the tyre</label>
+                                        <input type="text" class="form-control" placeholder="" id="tyre_size1" name="tyre_size">
+                                      </div>
+                                    </div>
+                                    <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
+                                      <div class="form-outline mt-3">
+                                        <label for="name" class="form-label text-dark">Tyre Diameter</label>
+                                        <input type="text" class="form-control" placeholder="" id="tyre_diameter1" name="tyre_diameter">
+                                      </div>
+                                    </div>
+                                    <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
+                                      <div class="form-outline mt-3">
+                                        <label for="name" class="form-label text-dark">Tyre Width</label>
+                                        <input type="text" class="form-control" placeholder="" id="tyre_width1" name="tyre_width">
+                                      </div>
+                                    </div>
+                                    <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+                                     <div class="form-outline my-3">
+                                      <label for="yr_state" class="form-label text-dark">Category</label>
+                                      <select class="form-select form-control" aria-label=".form-select-lg example"id="category1" name="category">
+                                          <option value="" selected disabled>Select Categoey</option>
+                                      </select>
+                                     </div>
+                                    </div>
+                                    <div class="col-12 col-lg-6 col-md-6 col-sm-6">
+                                      <div class="upload__box">
+                                        <div class="upload__btn-box text-center">
+                                          <label>
+                                            <p class="upload__btn ">Upload images</p>
+                                            <input type="file" name='files[]' multiple=""  data-max_length="20" class="upload__inputfile" id="_image1" name="_image">
+                                          </label>
+                                          <!-- <p></p> -->
+                                        </div>
+                                        <div id="selectedImagesContainer" class="upload__img-wrap"></div>
+                                      </div>
+                                    </div>
+                                   
+                                </div>
+              </form>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="px-4 bg-success btn btn-primary" id="save_brand1">Submit</button>
+              </div>
+            </div>
+          </div>
+    </div>
 </section>
       
     

@@ -20,35 +20,35 @@ function formatDateTime(originalDateTimeStr) {
     return `${day}-${month}-${year} / ${hours}:${minutes}:${seconds}`;
     }
 
-  function displayData(data) {
-    const tableBody = document.getElementById('data-table');
-    tableBody.innerHTML = '';
+  // function displayData(data) {
+  //   const tableBody = document.getElementById('data-table');
+  //   tableBody.innerHTML = '';
   
-    if (data.length > 0) {
-      data.forEach(row => {
-        const tableRow = document.createElement('tr');
-        tableRow.innerHTML = `
-          <td>${row.product_id}</td>
-          <td>${formatDateTime(row.created_at)}</td>
-          <td>${row.brand_name}</td>
-          <td>${row.model}</td>
-          <td>${row.wheel_drive_value}</td>
-          <td>${row.hp_category}</td>
-          <td>${row.ending_price}</td>
-          <td>
-            <div class="d-flex">
-              <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.id});">
-                <i class="fa fa-trash" style="font-size: 11px;"></i>
-              </button> 
-            </div>
-          </td>
-        `;
-        tableBody.appendChild(tableRow);
-      });
-    } else {
-      tableBody.innerHTML = '<tr><td colspan="9">No matching data available</td></tr>';
-    }
-  }
+  //   if (data.length > 0) {
+  //     data.forEach(row => {
+  //       const tableRow = document.createElement('tr');
+  //       tableRow.innerHTML = `
+  //         <td>${row.product_id}</td>
+  //         <td>${formatDateTime(row.created_at)}</td>
+  //         <td>${row.brand_name}</td>
+  //         <td>${row.model}</td>
+  //         <td>${row.wheel_drive_value}</td>
+  //         <td>${row.hp_category}</td>
+  //         <td>${row.ending_price}</td>
+  //         <td>
+  //           <div class="d-flex">
+  //             <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.id});">
+  //               <i class="fa fa-trash" style="font-size: 11px;"></i>
+  //             </button> 
+  //           </div>
+  //         </td>
+  //       `;
+  //       tableBody.appendChild(tableRow);
+  //     });
+  //   } else {
+  //     tableBody.innerHTML = '<tr><td colspan="9">No matching data available</td></tr>';
+  //   }
+  // }
   var originalData = [];
   
 
@@ -104,7 +104,7 @@ function getTractorList() {
               <td>${row.ending_price}</td>
               <td>
                   <div class="d-flex">
-                      <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.id});">
+                      <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.product_id});">
                           <i class="fa fa-trash" style="font-size: 11px;"></i>
                       </button> 
                       <a href="tractor_listing_edit.php?trac_edit=${row.product_id};"  onclick="trac_edit_id(${row.id});" class="btn btn-primary btn-sm btn_edit"><i class="fas fa-edit" style="font-size: 11px;"></i></a>
@@ -235,19 +235,40 @@ function get() {
 get();
 
 // delete data
-function destroy(id) {
-  var confirmed = confirm("Are you sure you want to delete this item?");
-  if (confirmed) {
-    var apiBaseURL = APIBaseURL;
-    var url = apiBaseURL + 'deleteProduct/' + id;
 
+function destroy(product_id) {
+  var userConfirmation = confirm("Are you sure you want to delete this Brand ?");
+  var apiBaseURL =APIBaseURL;
+  if (userConfirmation) {
+    var url = apiBaseURL + 'deleteProduct/' + product_id;
     var token = localStorage.getItem('token');
-
+    
     if (!token) {
       console.error("Token is missing");
       return;
     }
-  };
+
+    $.ajax({
+      url: url,
+      type: "DELETE",
+      headers: {
+        'Authorization': 'Bearer ' + token
+      },
+      success: function(result) {
+        
+        console.log("Delete request successful");
+        alert("Delete operation successful");
+        getTractorList();
+      },
+      error: function(error) {
+        console.error('Error fetching data:', error);
+        alert("Error during delete operation");
+      }
+    });
+  } else {
+    // If the user cancels the operation
+    console.log("Delete operation canceled");
+  }
 }
 
 // *********View data******
@@ -320,24 +341,23 @@ function openView(product_id){
         if (data.product.allProductData && data.product.allProductData.length > 0) {
             data.product.allProductData.forEach(function (b) {
                 var newCard = `
-                <div class=" col-6 col-lg-6 col-md-6 col-sm-6">
+              <div class=" col-12 col-lg-3 col-md-3 col-sm-3">
                 <div class="row">
-                  <div class="col-sm-3 col-12 col-lg-3 col-md-3">
+                  <div>
                     <div class="brand-main box-shadow mt-2 text-center shadow">
                       <a class="weblink text-decoration-none text-dark" 
-                          title="Old Tractors">
-                          <img class="img-fluid w-50" src="http://tractor-api.divyaltech.com/customer/uploads/product_img/"
-                              data-src="h" alt="Brand Logo">
+                        title="Old Tractors">
+                        <img class="img-fluid w-50" src="http://tractor-api.divyaltech.com/customer/uploads/product_img/"
+                        data-src="h" alt="Brand Logo">
                       </a>
                     </div>
                   </div>
                 </div>
-                       
-                    </div>
-                `;
+              </div>
+              `;
 
                 // Append the new card to the container
-                productContainer.append(newCard);
+               productContainer.append(newCard);
             });
 
 

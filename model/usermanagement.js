@@ -223,10 +223,7 @@ $('#save').on('click', function() {
         }
     });
 }
-
 get();
-
-
 // delete data
 function destroy(id) {
 //   var url = "<?php echo $APIBaseURL; ?>deleteUser/" + id;

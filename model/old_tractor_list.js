@@ -348,8 +348,6 @@ function store(event) {
    }
 
 
-
-
   function formatDateTime(originalDateTimeStr) {
     const originalDateTime = new Date(originalDateTimeStr);
 
@@ -375,19 +373,14 @@ function store(event) {
             'Authorization': 'Bearer ' + localStorage.getItem('token')
         },
         success: function (data) {
-            // console.log(data);
-
             const tableBody = document.getElementById('data-table');
+            let serialNumber = 1;
 
             if (data.product && data.product.length > 0) {
-                // console.log(typeof product);
-
                 data.product.forEach(row => {
-                  
-                  const tableRow = document.createElement('tr');
-                  // console.log(tableRow, 'helloooo');
+                    const tableRow = document.createElement('tr');
                     tableRow.innerHTML = `
-                        <td>${row.product_id}</td>
+                        <td>${serialNumber}</td>
                         <td>${formatDateTime(row.created_at)}</td>
                         <td>${row.brand_name}</td>
                         <td>${row.model}</td>
@@ -395,15 +388,17 @@ function store(event) {
                         <td>${row.state}</td>
                         <td>
                             <div class="d-flex">
-                            <button class="btn btn-primary btn-sm btn_edit" onclick="fetch_edit_data(${row.product_id});" data-bs-toggle="modal" data-bs-target="#staticBackdrop_model" id="yourUniqueIdHere">
-                            <i class="fas fa-edit" style="font-size: 11px;"></i></button>
-                                <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.id});">
+                                <button class="btn btn-primary btn-sm btn_edit" onclick="fetch_edit_data(${row.product_id});" data-bs-toggle="modal" data-bs-target="#staticBackdrop_model" id="yourUniqueIdHere">
+                                    <i class="fas fa-edit" style="font-size: 11px;"></i>
+                                </button>
+                                <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.product_id});">
                                     <i class="fa fa-trash" style="font-size: 11px;"></i>
                                 </button>
                             </div>
                         </td>
                     `;
                     tableBody.appendChild(tableRow);
+                    serialNumber++;
                 });
             } else {
                 tableBody.innerHTML = '<tr><td colspan="9">No valid data available</td></tr>';
@@ -414,7 +409,9 @@ function store(event) {
         }
     });
 }
+
 get_tractor_list();
+
 
 
 // fetch edit data
@@ -478,18 +475,16 @@ function fetch_edit_data(product_id) {
 // delete data
   function destroy(id) {
     var apiBaseURL = APIBaseURL;
-    var url = apiBaseURL + 'deleteProduct/' + id;
+    var url = apiBaseURL + 'deleteProduct/' + product_id;
+    console.log(url);
     var token = localStorage.getItem('token');
   
     if (!token) {
       console.error("Token is missing");
       return;
     }
-  
-    // Show a confirmation popup
     var isConfirmed = confirm("Are you sure you want to delete this data?");
     if (!isConfirmed) {
-      // User clicked 'Cancel' in the confirmation popup
       return;
     }
   
