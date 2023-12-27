@@ -239,7 +239,6 @@ function store(event) {
       data.append('accessory_id[]',accessory);
       data.append('status_id',STATUS);
       data.append('description',description);
-      data.append('id',idEditUser);
     $.ajax({
       url: url,
       type: "POST",

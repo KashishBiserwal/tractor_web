@@ -194,6 +194,21 @@ include 'includes/footertag.php';
             background-color: #198754;
             color: white;
         }
+        .backbutton {
+         position: absolute;
+        left: 158px;
+        bottom: -80;
+        padding: 6px;
+        width: 80px;
+        display: inline-block;
+        text-decoration: none;
+        background-color: #198754; 
+        color: #fff; 
+        border: 1px solid black;
+       }
+        .text-center {
+        text-align: center;
+        }
 </style>
 <style>
         body {
@@ -817,7 +832,9 @@ include 'includes/footertag.php';
                                             </form>
                                         </div>
                                     </div>
+                                    
                                 </section>
+                                <a href="tractor_listing.php" class="backbutton text-center backbtn">Back</a>
                             </div>
                         </div>
                     </div>

@@ -215,7 +215,7 @@ function getTractorList() {
                   <button class="btn btn-warning text-white btn-sm mx-1" onclick="openView(${row.product_id});" data-bs-toggle="modal" data-bs-target="#viewModal_btn" id="viewbtn">
                   <i class="fa fa-eye" style="font-size: 11px;"></i>
                   </button>
-                  <a href="tractor_listing_edit.php?trac_edit=${row.product_id};"  onclick="trac_edit_id(${row.id});" class="btn btn-primary btn-sm btn_edit"><i class="fas fa-edit" style="font-size: 11px;"></i></a>
+                <a href="tractor_form_list.php" onclick="edit_values_id(${row.id});" class="btn btn-primary btn-sm btn_edit" ><i class="fas fa-edit" style="font-size: 11px;"></i></a>
                   <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.id});">
                   <i class="fa fa-trash" style="font-size: 11px;"></i>
                   </button> 
@@ -235,30 +235,6 @@ function getTractorList() {
     }
   });
 }
-function editbutton(idValue) {
-  any = idValue;
-  console.log("Edit the value of id of the row  " + idValue);
-  var apiBaseURL =APIBaseURL;
-  var url = apiBaseURL + 'get_new_tractor';
-
-  $.ajax({
-      url: url,
-      type: 'post',
-      data: {
-          id: idValue,
-      },
-      success: function (data) {
-          var json = JSON.parse(data);
-
-          // Show modal
-          $('#edit_user').modal('show');
-      },
-      error: function (xhr, status, error) {
-          console.log("Error: " + error);
-      }
-  });
-}
-
 
 
 
@@ -436,7 +412,6 @@ function openView(product_id){
         success: function(data) {
         console.log(data, 'abc');
         document.getElementById('brand_').innerText=data.product.allProductData[0].brand_name;
-        
         document.getElementById('model_').innerText=data.product.allProductData[0].model;
         document.getElementById('hp_').innerText=data.product.allProductData[0].hp_category;
         document.getElementById('cylinder_').innerText=data.product.allProductData[0].total_cyclinder_value;
@@ -512,11 +487,13 @@ console.error('Error fetching data:', error);
 }
 // ********for edit*******
 
-function trac_edit_id(editId) {
-  console.log('ggcghcgfgk');
+
+
+function edit_values_id(editId) {
+  console.log('sumannn',editId);
   var apiBaseURL = APIBaseURL;
-  var url = apiBaseURL + 'getSelfData/' + editId;
-  console.log(url);
+  var url = apiBaseURL + 'get_new_tractor_by_id/' + id;
+  console.log('prachi');
 
   var headers = {
     'Authorization': 'Bearer ' + localStorage.getItem('token')
@@ -529,48 +506,47 @@ function trac_edit_id(editId) {
     success: function(response) {
       var editData = response.user[0];
       // $('#idUser').val(userData.id);
-      $('#brand_name1').val(editData.brand_name);
-      $('#model1').val(editData.model);
-      $('#product_type_id1').val(editData.product_type_id);
-      $('#hp_category1').val(editData.hp_category);
-      $('#TOTAL_CYCLINDER1').val(editData.TOTAL_CYCLINDER);
-      $('#horse_power1').val(editData.horse_power);
-      $('#gear_box_forward1').val(editData.gear_box_forward);
-      $('#gear_box_reverse1').val(editData.gear_box_reverse);
-      $('#BRAKE_TYPE1').val(editData.BRAKE_TYPE);
-      $('#starting_price1').val(editData.starting_price);
-      $('#ending_price1').val(editData.ending_price);
-      $('#warranty1').val(editData.warranty);
-      $('#type_name1').val(editData.type_name);
-      $('#_image1').val(editData._image);
-      $('#CAPACITY_CC1').val(editData.CAPACITY_CC);
-      $('#engine_rated_rpm1').val(editData.engine_rated_rpm);
-      $('#COOLING1').val(editData.COOLING);
-      $('#AIR_FILTER1').val(editData.AIR_FILTER);
-      $('#FUEL_PUMP1').val(editData.fuel_pump_id);
-      $('#TORQUE1').val(editData.TORQUE);
-      $('#TRANSMISSION_TYPE1').val(editData.TRANSMISSION_TYPE);
-      $('#TRANSMISSION_CLUTCH1').val(editData.TRANSMISSION_CLUTCH);
-      $('#min_forward_speed1').val(editData.min_forward_speed);
-      $('#max_forward_speed1').val(editData.max_forward_speed);
-      $('#min_reverse_speed1').val(editData.min_reverse_speed);
-      $('#max_reverse_speed1').val(editData.max_reverse_speed);
-      $('#STEERING_DETAIL1').val(editData.STEERING_DETAIL);
-      $('#STEERING_COLUMN1').val(editData.STEERING_COLUMN);
-      $('#POWER_TAKEOFF_TYPE1').val(editData.POWER_TAKEOFF_TYPE);
-      $('#power_take_off_rpm1').val(editData.power_take_off_rpm);
-      $('#totat_weight1').val(editData.totat_weight);
-      $('#WHEEL_BASE1').val(editData.WHEEL_BASE);
-      $('#LIFTING_CAPACITY1').val(editData.LIFTING_CAPACITY);
-      $('#LINKAGE_POINT1').val(editData.LINKAGE_POINT);
-      $('#WHEEL_DRIVE1').val(editData.WHEEL_DRIVE);
-      $('#front_tyre1').val(editData.front_tyre);
-      $('#rear_tyre1').val(editData.rear_tyre);
-      $('#ass_list1').val(editData.ass_list);
-      $('#STATUS1').val(editData.STATUS);
-      $('#description1').val(editData.description);
-      $('#idEditUser1').val(editData.idEditUser);
-    
+      $('#brand_name').val(editData.brand_id);
+      $('#model').val(editData.model);
+      $('#product_type_id').val(editData.product_type_id);
+      $('#hp_category').val(editData.hp_category);
+      $('#TOTAL_CYCLINDER').val(editData.total_cyclinder_id);
+      $('#horse_power').val(editData.horse_power);
+      $('#gear_box_forward').val(editData.gear_box_forward);
+      $('#gear_box_reverse').val(editData.gear_box_reverse);
+      $('#BRAKE_TYPE').val(editData.brake_type_id);
+      $('#starting_price').val(editData.starting_price);
+      $('#ending_price').val(editData.ending_price);
+      $('#warranty').val(editData.warranty);
+      $('#type_name').val(editData.tractor_type_id);
+      $('#_image').val(editData.image_type_id);
+      $('#CAPACITY_CC').val(editData.engine_capacity_cc);
+      $('#engine_rated_rpm').val(editData.engine_rated_rpm);
+      $('#COOLING').val(editData.cooling_id);
+      $('#AIR_FILTER').val(editData.air_filter);
+      $('#FUEL_PUMP').val(editData.fuel_pump_id);
+      $('#TORQUE').val(editData.torque);
+      $('#TRANSMISSION_TYPE').val(editData.transmission_type_id);
+      $('#TRANSMISSION_CLUTCH').val(editData.transmission_clutch_id);
+      $('#min_forward_speed').val(editData.transmission_reverse);
+      $('#max_forward_speed').val(editData.transmission_forward);
+      $('#min_reverse_speed').val(editData.min_reverse_speed);
+      $('#max_reverse_speed').val(editData.max_reverse_speed);
+      $('#STEERING_DETAIL').val(editData.steering_details_id);
+      $('#STEERING_COLUMN').val(editData.steering_column_id);
+      $('#POWER_TAKEOFF_TYPE').val(editData.power_take_off_type_id);
+      $('#power_take_off_rpm').val(editData.power_take_off_rpm);
+      $('#totat_weight').val(editData.total_weight);
+      $('#WHEEL_BASE').val(editData.wheel_base);
+      $('#LIFTING_CAPACITY').val(editData.lifting_capacity);
+      $('#LINKAGE_POINT').val(editData.linkage_point_id);
+      $('#WHEEL_DRIVE').val(editData.wheel_drive_id);
+      $('#front_tyre').val(editData.front_tyre);
+      $('#rear_tyre').val(editData.rear_tyre);
+      $('#ass_list').val(editData.accessory_id);
+      $('#STATUS').val(editData.status_id);
+      $('#description').val(editData.description);
+      
     },
     error: function(error) {
       console.error('Error fetching user data:', error);
@@ -578,50 +554,47 @@ function trac_edit_id(editId) {
   });
 }
 
-
-
-function edit_the_data(){
-  var idEditUser = $("#idEditUser1").val();
- var brand_name = $("#brand_name1").val();
-  var model = $("#model1").val();
-  var product_type_id = $("#product_type_id1").val();
-  var hp_category = $("#hp_category1").val();
-  var TOTAL_CYCLINDER = $("#TOTAL_CYCLINDER1").val();
-  var horse_power = $("#horse_power1").val();
-  var gear_box_forward = $("#gear_box_forward1").val();
-  var gear_box_reverse = $("#gear_box_reverse1").val();
-  var BRAKE_TYPE = $("#BRAKE_TYPE1").val();
-  var starting_price = $("#starting_price1").val();
-  var ending_price = $("#ending_price1").val();
-  var warranty = $("#warranty1").val();
-  var type_name = $("#type_name1").val();
-  var _image = $("#_image1").val();
-  var CAPACITY_CC = $("#CAPACITY_CC1").val();
-  var engine_rated_rpm = $("#engine_rated_rpm1").val();
-  var COOLING = $("#COOLING1").val();
-  var AIR_FILTER = $("#AIR_FILTER1").val();
-  var fuel_pump_id = $("#FUEL_PUMP1").val();
-  var TORQUE = $("#TORQUE1").val();
-  var TRANSMISSION_TYPE = $("#TRANSMISSION_TYPE1").val();
-  var TRANSMISSION_CLUTCH = $("#TRANSMISSION_CLUTCH1").val();
-  var min_forward_speed = $("#min_forward_speed1").val();
-  var max_forward_speed = $("#max_forward_speed1").val();
-  var min_reverse_speed = $("#min_reverse_speed1").val();
-  var max_reverse_speed = $("#max_reverse_speed1").val();
-  var STEERING_DETAIL = $("#STEERING_DETAIL1").val();
-  var STEERING_COLUMN = $("#STEERING_COLUMN1").val();
-  var POWER_TAKEOFF_TYPE = $("#POWER_TAKEOFF_TYPE1").val();
-  var power_take_off_rpm = $("#power_take_off_rpm1").val();
-  var totat_weight = $("#totat_weight1").val();
-  var WHEEL_BASE = $("#WHEEL_BASE1").val();
-  var LIFTING_CAPACITY = $("#LIFTING_CAPACITY1").val();
-  var LINKAGE_POINT = $("#LINKAGE_POINT1").val();
-  var WHEEL_DRIVE = $("#WHEEL_DRIVE1").val();
-  var front_tyre = $("#front_tyre1").val();
-  var rear_tyre = $("#rear_tyre1").val();
-  var ass_list = $("#ass_list1").val();
-  var STATUS = $("#STATUS1").val();
-  var description = $("#description1").val();
+  function edit_the_data(){
+  var brand_name = $("#brand_name").val();
+  var model = $("#model").val();
+  var product_type_id = $("#product_type_id").val();
+  var hp_category = $("#hp_category").val();
+  var TOTAL_CYCLINDER = $("#TOTAL_CYCLINDER").val();
+  var horse_power = $("#horse_power").val();
+  var gear_box_forward = $("#gear_box_forward").val();
+  var gear_box_reverse = $("#gear_box_reverse").val();
+  var BRAKE_TYPE = $("#BRAKE_TYPE").val();
+  var starting_price = $("#starting_price").val();
+  var ending_price = $("#ending_price").val();
+  var warranty = $("#warranty").val();
+  var type_name = $("#type_name").val();
+  var _image = $("#_image").val();
+  var CAPACITY_CC = $("#CAPACITY_CC").val();
+  var engine_rated_rpm = $("#engine_rated_rpm").val();
+  var COOLING = $("#COOLING").val();
+  var AIR_FILTER = $("#AIR_FILTER").val();
+  var fuel_pump_id = $("#FUEL_PUMP").val();
+  var TORQUE = $("#TORQUE").val();
+  var TRANSMISSION_TYPE = $("#TRANSMISSION_TYPE").val();
+  var TRANSMISSION_CLUTCH = $("#TRANSMISSION_CLUTCH").val();
+  var min_forward_speed = $("#min_forward_speed").val();
+  var max_forward_speed = $("#max_forward_speed").val();
+  var min_reverse_speed = $("#min_reverse_speed").val();
+  var max_reverse_speed = $("#max_reverse_speed").val();
+  var STEERING_DETAIL = $("#STEERING_DETAIL").val();
+  var STEERING_COLUMN = $("#STEERING_COLUMN").val();
+  var POWER_TAKEOFF_TYPE = $("#POWER_TAKEOFF_TYPE").val();
+  var power_take_off_rpm = $("#power_take_off_rpm").val();
+  var totat_weight = $("#totat_weight").val();
+  var WHEEL_BASE = $("#WHEEL_BASE").val();
+  var LIFTING_CAPACITY = $("#LIFTING_CAPACITY").val();
+  var LINKAGE_POINT = $("#LINKAGE_POINT").val();
+  var WHEEL_DRIVE = $("#WHEEL_DRIVE").val();
+  var front_tyre = $("#front_tyre").val();
+  var rear_tyre = $("#rear_tyre").val();
+  var ass_list = $("#ass_list").val();
+  var STATUS = $("#STATUS").val();
+  var description = $("#description").val();
 
   var paraArr1 = {
     'brand_id': brand_name,
@@ -665,8 +638,7 @@ function edit_the_data(){
     'status_id': STATUS,
     'description': description,
     'id': idEditUser,
-
-
+  
   };
   var apiBaseURL = APIBaseURL;
   var url = apiBaseURL + 'updateUser/' + idEditUser;
