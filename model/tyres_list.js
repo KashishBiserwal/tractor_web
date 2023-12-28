@@ -1,6 +1,6 @@
 
   $(document).ready(function () {
-    //$('#subbnt').click(tyre_add);
+    $('#subbnt').click(tyre_add);
     $('.btn_edit').click(function() {
       var rowId = $(this).data('row-id');
       fetch_edit_data(rowId);

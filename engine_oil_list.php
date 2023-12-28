@@ -151,13 +151,13 @@
                                         <tr>
                                             <th class="d-none d-md-table-cell text-white">S.No.</th>
                                             <th class="d-none d-md-table-cell text-white">Brand</th>
-                                            <th class="d-none d-md-table-cell text-white">Model/Name</th>
+                                            <th class="d-none d-md-table-cell text-white">Model Name</th>
                                             <th class="d-none d-md-table-cell text-white">Quantity</th>
                                             <th class="d-none d-md-table-cell text-white">Action</th>
                                            
                                         </tr>
                                     </thead>
-                                    <tbody>
+                                    <tbody id="data-table">
                                     </tbody>
                                 </table>
                             </div>
@@ -165,6 +165,88 @@
       </div>
     </div>
   </section>
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered modal-md">
+            <div class="modal-content">
+            <!-- <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel"> Brand Information</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div> -->
+              <div class="modal-body">
+                <h4 class="fw-bold mb-2">Brand Information</h4>
+                <div class="container">
+                  <div class="row">
+                    <div class="col-12 col-lg-6 col-sm-6 col-md-6">
+                      <h5>Brand Name: </h5>
+                    </div>
+                    <div class="col-12 col-lg-6 col-sm-6 col-md-6">
+                      <p id="brand_name2" class="fw-bold"></p>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-12 col-lg-4 col-sm-4 col-md-4">
+                      <h5>Model:</h5>
+                    </div>
+                    <div class="col-12 col-lg-8 col-sm-8 col-md-8">
+                     <div id="model2"></div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-12 col-lg-4 col-sm-4 col-md-4">
+                      <h5>Quantity:</h5>
+                    </div>
+                    <div class="col-12 col-lg-8 col-sm-8 col-md-8">
+                     <div id="quantity"></div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-12 col-lg-4 col-sm-4 col-md-4">
+                      <h5>Grade:</h5>
+                    </div>
+                    <div class="col-12 col-lg-8 col-sm-8 col-md-8">
+                     <div id="grade"></div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-12 col-lg-4 col-sm-4 col-md-4">
+                      <h5>Price:</h5>
+                    </div>
+                    <div class="col-12 col-lg-8 col-sm-8 col-md-8">
+                     <div id="price"></div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-12 col-lg-4 col-sm-4 col-md-4">
+                      <h5>Compatitble Tractors:</h5>
+                    </div>
+                    <div class="col-12 col-lg-8 col-sm-8 col-md-8">
+                     <div id="compatible"></div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-12 col-lg-4 col-sm-4 col-md-4">
+                      <h5>Description:</h5>
+                    </div>
+                    <div class="col-12 col-lg-8 col-sm-8 col-md-8">
+                     <div id="descrption"></div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-12 col-lg-4 col-sm-4 col-md-4">
+                      <h5>Image:</h5>
+                    </div>
+                    <div class="col-12 col-lg-8 col-sm-8 col-md-8">
+                     <div id="image_2"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
       
     
 </div>

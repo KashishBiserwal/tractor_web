@@ -1,4 +1,9 @@
 $(document).ready(function () {
+  $('#subbnt').click(engineOil_add);
+  $('.btn_edit').click(function() {
+    var rowId = $(this).data('row-id');
+    fetch_edit_data(rowId);
+});
     ImgUpload();
     $.validator.addMethod("validPrice", function(value, element) {
       
@@ -83,7 +88,7 @@ $(document).ready(function () {
     $("#submit_btn").on("click", function () {
       $("#engine_oil_form").valid();
       if ($("#engine_oil_form").valid()) {
-        alert("Form is valid. Ready to submit!");
+        // alert("Form is valid. Ready to submit!");
       }
     });
   });
@@ -144,3 +149,178 @@ $(document).ready(function () {
       $(this).parent().parent().remove();
     });
   }
+
+function engineOil_add() {
+  var apiBaseURL = APIBaseURL;
+  var url = apiBaseURL + 'engine_oil';
+  $.ajax({
+      url: url,
+      type: "GET",
+      headers: {
+          'Authorization': 'Bearer ' + localStorage.getItem('token')
+      },
+      success: function (data) {
+          const tableBody = document.getElementById('data-table');
+          let serialNumber = 1;
+
+          if (data.engine_oil_details && data.engine_oil_details.length > 0) {
+              data.engine_oil_details.forEach(row => {
+                  const tableRow = document.createElement('tr');
+                  tableRow.innerHTML = `
+                      <td>${serialNumber}</td>
+                      <td>${row.brand_name}</td>
+                      <td>${row.oil_model}</td>
+                      <td>${row.quantity}</td>
+                      <td>
+                          <div class="d-flex">
+                          <button class="btn btn-warning btn-sm text-white mx-1" data-bs-toggle="modal" onclick="fetch_data(${row.id});" data-bs-target="#exampleModal">
+                        <i class="fa-solid fa-eye" style="font-size: 11px;"></i></button>
+                              <button class="btn btn-primary btn-sm btn_edit" onclick="fetch_edit_data(${row.id});" data-bs-toggle="modal" data-bs-target="#staticBackdrop_model" id="yourUniqueIdHere">
+                                  <i class="fas fa-edit" style="font-size: 11px;"></i>
+                              </button>
+                              <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.id});">
+                                  <i class="fa fa-trash" style="font-size: 11px;"></i>
+                              </button>
+                          </div>
+                      </td>
+                  `;
+                  tableBody.appendChild(tableRow);
+                  serialNumber++;
+              });
+          } else {
+              tableBody.innerHTML = '<tr><td colspan="9">No valid data available</td></tr>';
+          }
+      },
+      error: function (error) {
+          console.error('Error fetching data:', error);
+      }
+  });
+}
+engineOil_add();
+
+// **delete***
+function destroy(id) {
+  var apiBaseURL = APIBaseURL;
+  var url = apiBaseURL + 'engine_oil/' + id;
+  console.log(url);
+  var token = localStorage.getItem('token');
+
+  if (!token) {
+    console.error("Token is missing");
+    return;
+  }
+  var isConfirmed = confirm("Are you sure you want to delete this data?");
+  if (!isConfirmed) {
+    return;
+  }
+
+  $.ajax({
+    url: url,
+    type: "DELETE",
+    headers: {
+      'Authorization': 'Bearer ' + token
+    },
+    success: function(result) {
+      get_tractor_list();
+      console.log("Delete request successful");
+      alert("Delete operation successful");
+    },
+    error: function(error) {
+      console.error('Error fetching data:', error);
+      alert("Error during delete operation");
+    }
+  });
+}
+
+//*** edit ***//
+// fetch edit data
+
+// function fetch_edit_data(product_id) {
+//   var apiBaseURL = APIBaseURL;
+//   var url = apiBaseURL + 'get_old_tractor_by_id/'+ product_id;
+
+//   var headers = {
+//     'Authorization': 'Bearer ' + localStorage.getItem('token')
+//   };
+
+//   $.ajax({
+//     url: url,
+//     type: 'GET',
+//     headers: headers,
+//     success: function(response) {
+//       var userData = response.product[0];
+
+//       $('#enquiry_type_id1').val(userData.brand_name);
+//       $('#image_type_id1').val(userData.image_type_id);
+//       $('#tractor_type_id1').val(userData.tractor_type_id);
+//       $('#form_type1').val(userData.form_type);
+//       $('#first_name1').val(userData.first_name);
+//       $('#last_name1').val(userData.last_name);
+
+      
+
+//       // $('#exampleModal').modal('show');
+//     },
+//     error: function(error) {
+//       console.error('Error fetching user data:', error);
+//     }
+//   });
+// }
+//***view ***/
+function fetch_data(id) {
+  console.log(id,"id")
+    console.log(window.location)
+    var urlParams = new URLSearchParams(window.location.search);
+ 
+    var productId = id;
+    var url = "<?php echo $APIBaseURL; ?>engine_oil/" + productId;
+  
+    // var url = "http://127.0.0.1:8000/api/admin/getBrandsById/" + productId;
+    // console.log(url);
+    var headers = {
+    'Authorization': 'Bearer ' + localStorage.getItem('token')
+  };
+    $.ajax({
+        url: url,
+        type: "GET",
+        headers: headers,
+        success: function(data) {
+        console.log(data, 'abc');
+        document.getElementById('brand_name2').innerText=data.brands[0].brand_name;
+        document.getElementById('model2').innerText=data.brands[0].oil_model;
+        document.getElementById('quantity').innerText=data.brands[0].quantity;
+        document.getElementById('grade').innerText=data.brands[0].grade;
+        document.getElementById('price').innerText=data.brands[0].price;
+        document.getElementById('compatible').innerText=data.brands[0].compatible_model;
+        document.getElementById('descrption').innerText=data.brands[0].description;
+        // document.getElementById('image_2').innerText=data.brands[0].brand_name;
+        console.log(data.brands[0].brand_name);
+
+        var productContainer = $("#related_brand");
+
+        if (data.engine_oil_details && data.engine_oil_details.length > 0) {
+            data.engine_oil_details.forEach(function (b) {
+                var newCard = `
+                <div class=" col-6 col-lg-6 col-md-6 col-sm-6">
+                        <div class="brand-main box-shadow mt-2 text-center shadow">
+                            <a class="weblink text-decoration-none text-dark" 
+                                title="Old Tractors">
+                                <img class="img-fluid w-50" src="http://tractor-api.divyaltech.com/uploads/brand_img/${b.image_names}"
+                                    data-src="h" alt="Brand Logo">
+                            </a>
+                        </div>
+                    </div>
+                `;
+
+                // Append the new card to the container
+                productContainer.append(newCard);
+            });
+
+
+        }
+},
+error: function (error) {
+console.error('Error fetching data:', error);
+}
+    });
+}
