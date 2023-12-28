@@ -835,7 +835,7 @@
             // Function to show success message after form submission using SweetAlert
             function showSuccessMessage() {
                 Swal.fire({
-                    title: "Good job!",
+                    title: "Congratulations!",
                     text: "Your form is submitted successfully!",
                     icon: "success"
                 });
