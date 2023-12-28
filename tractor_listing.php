@@ -39,7 +39,7 @@ include 'includes/footertag.php';
               </nav>
 
               <!-- Add new tractor -->
-              <a href="tractor_form_list.php" type="button"  class="btn add_btn btn-success float-right" >
+              <a href="tractor_form_list.php" type="button"  class="btn add_btn btn-success float-right" onclick="resetFormFields();" >
                 <i class="fa fa-plus" aria-hidden="true"></i>Add New tractor
               </a>
 

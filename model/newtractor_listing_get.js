@@ -2,7 +2,12 @@
 $(document).ready(function () {
       getTractorList();
 
-      $('#submitbtn').click(edit_the_data);
+      // $('#submitbtn').click(edit_the_data);
+
+      $('.edit_btn').click(function() {
+        var productId = $(this).data('row-productid');
+        fetch_edit_data(productId);
+    });
 });
 
 function formatDateTime(originalDateTimeStr) {
@@ -195,7 +200,7 @@ function getTractorList() {
       }
 
       const tableBody = document.getElementById('data-table');
-      tableBody.innerHTML = '';
+      tableBody.innerHTML= '';
       
       let serialNumber = 1;
 
@@ -215,7 +220,7 @@ function getTractorList() {
                   <button class="btn btn-warning text-white btn-sm mx-1" onclick="openView(${row.product_id});" data-bs-toggle="modal" data-bs-target="#viewModal_btn" id="viewbtn">
                   <i class="fa fa-eye" style="font-size: 11px;"></i>
                   </button>
-                <a href="tractor_form_list.php" onclick="edit_values_id(${row.id});" class="btn btn-primary btn-sm btn_edit" ><i class="fas fa-edit" style="font-size: 11px;"></i></a>
+                <a href="tractor_form_list.php?trac_edit=${row.product_id};" onclick="fetch_edit_data(${row.product_id});" class="btn btn-primary btn-sm edit_btn" ><i class="fas fa-edit" style="font-size: 11px;"></i></a>
                   <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.id});">
                   <i class="fa fa-trash" style="font-size: 11px;"></i>
                   </button> 
@@ -223,6 +228,7 @@ function getTractorList() {
                 </div>
               </td>
           `;
+          console.log(tableRow);
           tableBody.appendChild(tableRow);
           serialNumber++;
         });
@@ -487,13 +493,12 @@ console.error('Error fetching data:', error);
 }
 // ********for edit*******
 
-
-
-function edit_values_id(editId) {
-  console.log('sumannn',editId);
+function fetch_edit_data(product_id) {
+  console.log('Fetching data for product_id:', product_id);
+  var productId = product_id;
   var apiBaseURL = APIBaseURL;
-  var url = apiBaseURL + 'get_new_tractor_by_id/' + id;
-  console.log('prachi');
+  var url = apiBaseURL + 'get_new_tractor_by_id/' + productId;
+  console.log('API URL:', url);
 
   var headers = {
     'Authorization': 'Bearer ' + localStorage.getItem('token')
@@ -504,57 +509,95 @@ function edit_values_id(editId) {
     type: 'GET',
     headers: headers,
     success: function(response) {
-      var editData = response.user[0];
-      // $('#idUser').val(userData.id);
-      $('#brand_name').val(editData.brand_id);
-      $('#model').val(editData.model);
-      $('#product_type_id').val(editData.product_type_id);
-      $('#hp_category').val(editData.hp_category);
-      $('#TOTAL_CYCLINDER').val(editData.total_cyclinder_id);
-      $('#horse_power').val(editData.horse_power);
-      $('#gear_box_forward').val(editData.gear_box_forward);
-      $('#gear_box_reverse').val(editData.gear_box_reverse);
-      $('#BRAKE_TYPE').val(editData.brake_type_id);
-      $('#starting_price').val(editData.starting_price);
-      $('#ending_price').val(editData.ending_price);
-      $('#warranty').val(editData.warranty);
-      $('#type_name').val(editData.tractor_type_id);
-      $('#_image').val(editData.image_type_id);
-      $('#CAPACITY_CC').val(editData.engine_capacity_cc);
-      $('#engine_rated_rpm').val(editData.engine_rated_rpm);
-      $('#COOLING').val(editData.cooling_id);
-      $('#AIR_FILTER').val(editData.air_filter);
-      $('#FUEL_PUMP').val(editData.fuel_pump_id);
-      $('#TORQUE').val(editData.torque);
-      $('#TRANSMISSION_TYPE').val(editData.transmission_type_id);
-      $('#TRANSMISSION_CLUTCH').val(editData.transmission_clutch_id);
-      $('#min_forward_speed').val(editData.transmission_reverse);
-      $('#max_forward_speed').val(editData.transmission_forward);
-      $('#min_reverse_speed').val(editData.min_reverse_speed);
-      $('#max_reverse_speed').val(editData.max_reverse_speed);
-      $('#STEERING_DETAIL').val(editData.steering_details_id);
-      $('#STEERING_COLUMN').val(editData.steering_column_id);
-      $('#POWER_TAKEOFF_TYPE').val(editData.power_take_off_type_id);
-      $('#power_take_off_rpm').val(editData.power_take_off_rpm);
-      $('#totat_weight').val(editData.total_weight);
-      $('#WHEEL_BASE').val(editData.wheel_base);
-      $('#LIFTING_CAPACITY').val(editData.lifting_capacity);
-      $('#LINKAGE_POINT').val(editData.linkage_point_id);
-      $('#WHEEL_DRIVE').val(editData.wheel_drive_id);
-      $('#front_tyre').val(editData.front_tyre);
-      $('#rear_tyre').val(editData.rear_tyre);
-      $('#ass_list').val(editData.accessory_id);
-      $('#STATUS').val(editData.status_id);
-      $('#description').val(editData.description);
-      
+      console.log('Response:', response);
+
+      if (response && response.product && response.product.allProductData && response.product.allProductData.length > 0) {
+        var editData = response.product.allProductData[0];
+        console.log('Edit Data:', editData);
+
+        // Rest of your code to populate the modal with data
+        $('#brand_name').val(editData.brand_id);
+        $('#model').val(editData.model);
+        $('#product_type_id').val(editData.product_type_id);
+        // ... (populate other fields)
+
+      } else {
+        console.error('Invalid or empty response data.');
+      }
     },
     error: function(error) {
-      console.error('Error fetching user data:', error);
+      console.error('Error fetching data:', error);
     }
   });
 }
 
-  function edit_the_data(){
+
+// function fetch_edit_data(product_id) {
+//   console.log('sumannn');
+//   var productId = product_id;
+//   var apiBaseURL = APIBaseURL;
+//   var url = apiBaseURL + 'get_new_tractor_by_id/' + productId;
+//   console.log('prachi');
+
+//   var headers = {
+//     'Authorization': 'Bearer ' + localStorage.getItem('token')
+//   };
+
+//   $.ajax({
+//     url: url,
+//     type: 'GET',
+//     headers: headers,
+//     success: function(response) {
+//       var editData = response.product.allProductData[0];
+//       $('#brand_name').val(editData.brand_id);
+//       $('#model').val(editData.model);
+//       $('#product_type_id').val(editData.product_type_id);
+//       $('#hp_category').val(editData.hp_category);
+//       $('#TOTAL_CYCLINDER').val(editData.total_cyclinder_id);
+//       $('#horse_power').val(editData.horse_power);
+//       $('#gear_box_forward').val(editData.gear_box_forward);
+//       $('#gear_box_reverse').val(editData.gear_box_reverse);
+//       $('#BRAKE_TYPE').val(editData.brake_type_id);
+//       $('#starting_price').val(editData.starting_price);
+//       $('#ending_price').val(editData.ending_price);
+//       $('#warranty').val(editData.warranty);
+//       $('#type_name').val(editData.tractor_type_id);
+//       $('#_image').val(editData.image_type_id);
+//       $('#CAPACITY_CC').val(editData.engine_capacity_cc);
+//       $('#engine_rated_rpm').val(editData.engine_rated_rpm);
+//       $('#COOLING').val(editData.cooling_id);
+//       $('#AIR_FILTER').val(editData.air_filter);
+//       $('#FUEL_PUMP').val(editData.fuel_pump_id);
+//       $('#TORQUE').val(editData.torque);
+//       $('#TRANSMISSION_TYPE').val(editData.transmission_type_id);
+//       $('#TRANSMISSION_CLUTCH').val(editData.transmission_clutch_id);
+//       $('#min_forward_speed').val(editData.transmission_reverse);
+//       $('#max_forward_speed').val(editData.transmission_forward);
+//       $('#min_reverse_speed').val(editData.min_reverse_speed);
+//       $('#max_reverse_speed').val(editData.max_reverse_speed);
+//       $('#STEERING_DETAIL').val(editData.steering_details_id);
+//       $('#STEERING_COLUMN').val(editData.steering_column_id);
+//       $('#POWER_TAKEOFF_TYPE').val(editData.power_take_off_type_id);
+//       $('#power_take_off_rpm').val(editData.power_take_off_rpm);
+//       $('#totat_weight').val(editData.total_weight);
+//       $('#WHEEL_BASE').val(editData.wheel_base);
+//       $('#LIFTING_CAPACITY').val(editData.lifting_capacity);
+//       $('#LINKAGE_POINT').val(editData.linkage_point_id);
+//       $('#WHEEL_DRIVE').val(editData.wheel_drive_id);
+//       $('#front_tyre').val(editData.front_tyre);
+//       $('#rear_tyre').val(editData.rear_tyre);
+//       $('#ass_list').val(editData.accessory_id);
+//       $('#STATUS').val(editData.status_id);
+//       $('#description').val(editData.description);
+      
+//     },
+//     error: function(error) {
+//       console.error('Error fetching user data:', error);
+//     }
+//   });
+// }
+
+  function fetch_edit_data(){
   var brand_name = $("#brand_name").val();
   var model = $("#model").val();
   var product_type_id = $("#product_type_id").val();
