@@ -9,7 +9,7 @@ include 'includes/footertag.php';
   <script> var APIBaseURL = "<?php echo $APIBaseURL; ?>";</script>
 <script> var baseUrl = "<?php echo $baseUrl; ?>";</script>
 <script src="<?php $baseUrl; ?>model/tractor_listing.js"></script>
-<script src="<?php $baseUrl; ?>model/newtractor_listing_get.js"></script>
+<!-- <script src="<?php $baseUrl; ?>model/newtractor_listing_get.js"></script> -->
 
 
 
@@ -120,7 +120,7 @@ include 'includes/footertag.php';
         .container #multistep_nav .progress_holder {
         padding: 20px;
         text-align: center;
-        width: ;
+      
         }
         #multistep_nav .activated_step {
         background-color:LightGray;
@@ -506,7 +506,7 @@ include 'includes/footertag.php';
                                                     <div class="col-12 col-sm-6 col-lg-6 col-md-6 mt-3">
                                                         <div class="form-outline">
                                                             <label class="form-label">Brand</label>
-                                                            <select class="form-select py-2" id="brand_name" name="brand_name" aria-label="Default select example" required>
+                                                            <select class="form-select py-2" id="brand" name="brand_name" aria-label="Default select example" required>
                                                                 <option value="">Select Brand</option>
                                                             </select>
                                                         </div>

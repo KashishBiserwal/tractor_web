@@ -636,4 +636,4 @@ include 'includes/footertag.php';
 //    document.getElementById("myForm").reset();  
 //  }   
 </script>
-<script src="<?php $baseUrl; ?>model/newtractor_listing_get.js"></script>
+<!-- <script src="<?php $baseUrl; ?>model/newtractor_listing_get.js"></script> -->

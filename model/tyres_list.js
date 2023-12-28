@@ -1,5 +1,10 @@
 
   $(document).ready(function () {
+    $('#subbnt').click(tyre_add);
+    $('.btn_edit').click(function() {
+      var rowId = $(this).data('row-id');
+      fetch_edit_data(rowId);
+  });
     ImgUpload();
     // Initialize form validation on the form_news_updates form
     $("#form_tyre_list").validate({
