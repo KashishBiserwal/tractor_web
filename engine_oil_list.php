@@ -135,9 +135,9 @@
               </div>
             </div>
             <div class="col-12 col-sm-12 col-md-4 col-lg-4">
-              <div class="text-center">
-                <button type="button" class="btn-success btn btn_search" id="Search">Search</button>
-                <button type="button" class="btn-success btn  mx-2 btn_search" id="Reset">Reset</button>
+              <div class="text-center mt-1">
+                <button type="button" class="btn-success btn px-4 py-2" id="Search">Search</button>
+                <button type="button" class="btn-success btn px-4 py-2" id="Reset">Reset</button>
               </div>
             </div>
           </div>
