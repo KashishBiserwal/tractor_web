@@ -1,6 +1,7 @@
 
  $(document).ready(function(){
   $('#btn_sb').click(store);
+  $('#undate_btn').click(edit_data_id);
   nursery_data();
         jQuery.validator.addMethod("customPhoneNumber", function(value, element) {
         return /^[6-9]\d{9}$/.test(value); 
@@ -209,8 +210,8 @@ function store(event) {
           // Clear form values
           $('#name, #fname, #lname, #number, #state_, #dist, #tehsil, #loc, #textarea_d, #_image').val('');
 
-          // Reload the page
-          window.location.reload(true);
+          // Reload the page (try without forcing a full reload)
+          window.location.reload();
 
           alert('Successfully inserted!');
       },
@@ -221,6 +222,7 @@ function store(event) {
       }
   });
 }
+
 
         // fetch data
   function nursery_data() {
@@ -255,8 +257,9 @@ function store(event) {
                             <button class="btn btn-warning text-white btn-sm mx-1" onclick="openViewdata(${row.product_id});" data-bs-toggle="modal" data-bs-target="#view_model_nursery" id="viewbtn">
                             <i class="fa fa-eye" style="font-size: 11px;"></i>
                             </button>
-                            <button class="btn btn-primary btn-sm btn_edit" onclick="fetch_edit_data_nursery(${row.id});" data-bs-toggle="modal" data-bs-target="#staticBackdrop" id="your_UniqueId">
-                            <i class="fas fa-edit" style="font-size: 11px;"></i></button>
+                            <button class="btn btn-primary btn-sm btn_edit" onclick=" fetch_edit_data_nursery(${row.id});" data-bs-toggle="modal" data-bs-target="#editmodel" id="your_UniqueId">
+                            <i class="fas fa-edit" style="font-size: 11px;"></i>
+                         </button>
                             <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.id});">
                             <i class="fa fa-trash" style="font-size: 11px;"></i>
                           </button>
@@ -340,32 +343,28 @@ function openViewdata(userId) {
       $("#selectedImagesContainer1").empty();
 
       if (userData.image_names) {
-          // Check if Data.image_names is an array
           var imageNamesArray = Array.isArray(userData.image_names) ? userData.image_names : userData.image_names.split(',');
-
+      
           imageNamesArray.forEach(function (image_names) {
               var imageUrl = 'http://tractor-api.divyaltech.com/uploads/tyre_img/' + image_names.trim();
-
+      
               var newCard = `
                   <div class="col-12 col-lg-4 col-md-4 col-sm-4">
-                      <div class="brand-main d-flex box-shadow mt-2 text-center shadow">
+                      <div class="brand-main d-flex box-shadow mt-1 py-2 text-center shadow">
                           <a class="weblink text-decoration-none text-dark" title="Tyre Image">
                               <img class="img-fluid w-100 h-100" src="${imageUrl}" alt="Tyre Image">
                           </a>
                       </div>
                   </div>
               `;
-
+      
               // Append the new image element to the container
               $("#selectedImagesContainer1").append(newCard);
           });
       }
-
-
-
-     
-
-      // $('#exampleModal').modal('show');
+      
+      
+        // $('#exampleModal').modal('show');
     },
     error: function(error) {
       console.error('Error fetching user data:', error);
@@ -378,7 +377,8 @@ function openViewdata(userId) {
 
 function fetch_edit_data_nursery(id) {
   var apiBaseURL = APIBaseURL;
-  var url = apiBaseURL + 'nursery_data/' + id; // Assuming you have an endpoint to get data for a specific nursery by ID
+  var nursery_id= id;
+  var url = apiBaseURL + 'nursery_data/' + nursery_id; 
 
   var headers = {
     'Authorization': 'Bearer ' + localStorage.getItem('token')
@@ -391,41 +391,41 @@ function fetch_edit_data_nursery(id) {
     success: function(response) {
       var userData = response.nursery_data[0];
 
-      $('#name').val(userData.nursery_name);
-      $('#fname').val(userData.first_name);
-      $('#lname').val(userData.last_name);
-      $('#number').val(userData.mobile);
-      $('#state_').val(userData.state);
-      $('#dist').val(userData.district);
-      $('#tehsil').val(userData.tehsil);
-      $('#loc').val(userData.address);
-      $('#textarea_d').val(userData.description);
-
-      $("#selectedImagesContainer1").empty();
+      $('#nursery_name2').val(userData.nursery_name);
+      $('#fname2').val(userData.first_name);
+      console.log(userData.first_name);
+      $('#lname2').val(userData.last_name);
+      $('#number2').val(userData.mobile);
+      $('#state2').val(userData.state);
+      $('#dist2').val(userData.district);
+      $('#tehsil2').val(userData.tehsil);
+      $('#loc2').val(userData.address);
+      $('#textarea_d2').val(userData.description);
+      $('#userId').val(userData.id);
+      $("#selectedImagesContainer2").empty();
 
       if (userData.image_names) {
-          // Check if Data.image_names is an array
           var imageNamesArray = Array.isArray(userData.image_names) ? userData.image_names : userData.image_names.split(',');
-
+      
           imageNamesArray.forEach(function (image_names) {
               var imageUrl = 'http://tractor-api.divyaltech.com/uploads/tyre_img/' + image_names.trim();
-
+      
               var newCard = `
-                  <div class="col-12 col-lg-4 col-md-4 col-sm-4">
-                      <div class="brand-main d-flex box-shadow mt-2 text-center shadow">
+                  <div class="col-12 col-md-6 col-lg-4">
+                      <div class="brand-main d-flex box-shadow mt-1 py-2 text-center shadow">
                           <a class="weblink text-decoration-none text-dark" title="Tyre Image">
                               <img class="img-fluid w-100 h-100" src="${imageUrl}" alt="Tyre Image">
                           </a>
                       </div>
                   </div>
               `;
-
+      
               // Append the new image element to the container
-              $("#selectedImagesContainer1").append(newCard);
+              $("#selectedImagesContainer2").append(newCard);
           });
       }
-
-console.log('sdfghjkoiuytrewssxcvghjkmnbvcxzsdfghj');
+      
+    console.log('Fetched data successfully');
       // $('#exampleModal').modal('show'); 
     },
     error: function(error) {
@@ -434,26 +434,62 @@ console.log('sdfghjkoiuytrewssxcvghjkmnbvcxzsdfghj');
   });
 }
 
-$('#enquiry_type_id1').val(userData.enquiry_type_id);
-$('#image_type_id1').val(userData.image_type_id);
-$('#tractor_type_id1').val(userData.tractor_type_id);
-$('#form_type1').val(userData.form_type);
-$('#first_name1').val(userData.first_name);
-$('#last_name1').val(userData.last_name);
-$('#mobile_number1').val(userData.mobile);
-$('#state1').val(userData.state);
-$('#district1').val(userData.district);
-$('#tehsil1').val(userData.tehsil);
-$('#brand1').val(userData.brand_name);
-$('#model1').val(userData.model);
-$('#purchase_year1').val(userData.purchase_year);
-$('#condition1').val(userData.engine_condition);
-$('#tyrecondition1').val(userData.tyre_condition);
-$('#hours_driven').val(userData.hours_driven);
-$('#rc_num1').val(userData.rc_number);
-$('#price_old1').val(userData.price);
-$('#image_pic1').val(userData.image_pic);
-$('#description1').val(userData.description);
-$('#product_type_id1').val(userData.product_type);
-$('#finance1').val(userData.finance);
-$('#noc1').val(userData.noc);
+function edit_data_id(id){
+  console.log(id);
+  console.log('suman sahu');
+  var edit_id = $("#userId").val();
+
+   var nursery_name = $("#nursery_name2").val();
+   console.log(nursery_name);
+   var first_name = $("#fname2").val();
+   var last_name = $("#lname2").val();
+   var mobile = $("#number2").val();
+   var state = $("#state2").val();
+   var district = $("#dist2").val();
+   var tehsil = $("#tehsil2").val();
+   var address = $("#loc2").val();
+   var description = $("#textarea_d2").val();
+   var image_names = document.getElementById('_image2').files;
+
+   var paraArr = {
+    'nursery_name': nursery_name,
+     'first_name': first_name,
+     'last_name': last_name,
+     'mobile': mobile,
+     'state': state,
+     'district': district,
+     'tehsil': tehsil,
+     'address': address,
+     'description': description,
+     'id': edit_id,
+     'image_names': image_names,
+
+     
+ 
+   };
+  
+   var apiBaseURL = APIBaseURL;
+   var url = apiBaseURL + 'nursery_data/'+ edit_id; 
+
+   console.log(url); 
+   var headers = {
+     'Authorization': 'Bearer ' + localStorage.getItem('token')
+   };
+   $.ajax({
+     url: url,
+       type: "PUT",
+       data: paraArr,
+       headers: headers,
+       success: function (result) {
+         console.log(result, "result");
+        //  get();
+        // nursery_data();
+        window.location.reload();
+         console.log("updated successfully");
+         alert('successfully updated..!')
+       },
+       error: function (error) {
+         console.error('Error fetching data:', error);
+       }
+   })
+ }

@@ -114,7 +114,7 @@ include 'includes/headertag.php';
                                         <div class="col-12  ">
                                           <div class="form-outline mt-3">
                                             <label class="form-label text-dark">Description</label>
-                                            <textarea rows="3" cols="70" class="w-100" minlength="1" maxlength="255" id="textarea_d" name="textarea_d"></textarea>
+                                            <textarea rows="3" cols="70" class="w-100 py-1" minlength="1" maxlength="" id="textarea_d" name="textarea_d"></textarea>
                                           </div>
                                         </div>
                                         <div class="col-12 col-lg-6 col-md-6 col-sm-6">
@@ -219,95 +219,12 @@ include 'includes/headertag.php';
             <div class="modal-dialog modal-lg modal-dialog-centered">
               <div class="modal-content modal_box">
                 <div class="modal-header modal_head">
-                  <h5 class="modal-title text-white fw-bold" id="staticBackdropLabel"> Add New Nursery Item</h5>
+                  <h5 class="modal-title text-white fw-bold" id="staticBackdropLabel"> Nursery Information </h5>
                   <button type="button" class="btn-close btn-success" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="modal-body bg-light">
-                    <div class="row justify-content-center">
-                        <!-- <div class="col-lg-10">
-                            <form id="narsary_list_form"method="post"enctype="multipart/form-data" onsubmit="return false">
-                                <div class="row justify-content-center pt-4">
-                                        <div class="col-12 col-lg-6 col-sm-5 col-md-6 my-1">
-                                          <div class="form-outline ">
-                                            <label for="name" class="form-label text-dark">Nursery Name</label>
-                                            <input type="text" class="form-control" placeholder="" id="name" name="name">
-                                          </div>
-                                        </div>
-                                        <div class="col-12 col-lg-6 col-sm-5 col-md-6 ">
-                                          <div class="form-outline">
-                                            <label for="name" class="form-label text-dark">First Name</label>
-                                            <input type="text" class="form-control" placeholder="" id="fname" name="fname">
-                                          </div>
-                                        </div>
-                                        <div class="col-12 col-lg-6 col-sm-5 col-md-6 my-1">
-                                          <div class="form-outline mt-2">
-                                            <label for="name" class="form-label text-dark">Last Name</label>
-                                            <input type="text" class="form-control" placeholder="" id="lname" name="lname">
-                                          </div>
-                                        </div>
-                                        <div class="col-12 col-lg-6 col-sm-5 col-md-6 my-1">
-                                          <div class="form-outline mt-2">
-                                              <label for="name" class="form-label text-dark">Mobile Number</label>
-                                              <input type="text" class="form-control" placeholder="" id="number" name="number">
-                                          </div>
-                                        </div>
-                                        <div class="col-12 col-sm-4 col-md-4 col-lg-4">
-                                          <div class="form-outline mt-3">
-                                             <label class="form-label">State</label>
-                                              <select class="form-select py-2" aria-label="Default select example" id="state_" name="state_">
-                                                <option value>Select State</option>
-                                                <option value="1">Chattisgarh</option>
-                                                <option value="2">Other</option>
-                                              </select>
-                                          </div>
-                                        </div>
-                                        <div class="col-12 col-sm-4 col-md-4 col-lg-4">
-                                          <div class="form-outline mt-3">
-                                            <label class="form-label">District</label>
-                                            <select class="form-select py-2" aria-label="Default select example" id="dist" name="dist">
-                                              <option value>Select District</option>
-                                              <option value="1">Raipur</option>
-                                              <option value="2">Bilaspur</option>
-                                              <option value="3">Surajpur</option>
-                                            </select>
-                                          </div>
-                                        </div>
-                                        <div class="col-12 col-sm-4 col-md-4 col-lg-4">
-                                          <div class="form-outline mt-3">
-                                            <label class="form-label">Tehsil</label>
-                                            <select class="form-select py-2" aria-label="Default select example" id="tehsil">
-                                              <option value>Select Tehsil</option>
-                                              <option value="1">Raipur</option>
-                                              <option value="2">Bilaspur</option>
-                                              <option value="3">Surajpur</option>
-                                            </select>
-                                          </div>
-                                        </div>
-                                        <div class="col-12">
-                                          <div class="form-outline mt-4">
-                                            <label for="name" class="form-label text-dark">Location</label>
-                                            <input type="text" class="form-control" placeholder="" id="loc" name="loc">
-                                          </div>
-                                        </div>
-                                        <div class="col-12  ">
-                                          <div class="form-outline mt-3">
-                                            <label class="form-label text-dark">Description</label>
-                                            <textarea rows="3" cols="70" class="w-100" minlength="1" maxlength="255" id="textarea_d" name="textarea_d"></textarea>
-                                          </div>
-                                        </div>
-                                        <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                                          <div class="upload__box mt-3">
-                                            <div class="upload__btn-box text-center">
-                                              <label >
-                                                <p class="upload__btn ">Upload images</p>
-                                                <input type="file" name='files[]' multiple="" data-max_length="20" class="upload__inputfile" id="_image">
-                                              </label>
-                                            </div>
-                                            <div id="selectedImagesContainer" class="upload__img-wrap"></div>
-                                          </div>
-                                        </div>
-                                </div> -->
-                         <div class="col-12">
+                  <div class="modal-body bg-light">
+                    <div class="row ">
+                       <div class="col-12">
                         <table class="table table-striped">
                         <tbody>
                          <tr>
@@ -335,24 +252,23 @@ include 'includes/headertag.php';
                             <td id="loc1"></td>
                           </tr>
                           <tr>
-                            <div class="col-12">
-                            <td>Description-</td>
-                            
-                             <td id="textarea"></td>
-                            </div>
+                              <td>Description-</td>
+                              <td colspan="3">
+                                  <div class="col-12" id="textarea"></div>
+                              </td>
                           </tr>
                           <tr>
-                            <td>Upload images-</td>
-                            <td>
-                              <div class="col-12">
-                              <div id="selectedImagesContainer1" class="upload__img-wrap row"></div>
-                              </div>
-                            </td>
+                              <td>Upload images-</td>
+                              <td colspan="3">
+                                  <div class="col-12">
+                                      <div id="selectedImagesContainer1" class="upload__img-wrap row"></div>
+                                  </div>
+                              </td>
                           </tr>
                         </tbody>
                       </table>
-
-                    </div>  
+                    </div>
+                  </div>  
                 <div class="modal-footer">
                   <button type="button" class="btn btn-secondary px-3" data-bs-dismiss="modal">Close</button>
                   <!-- <button type="submit" id="btn_sb" class="btn btn-success fw-bold px-3">Submit</button> -->
@@ -363,6 +279,117 @@ include 'includes/headertag.php';
     </div>
 </div>
 </div>
+
+          <div class="modal fade" id="editmodel" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg modal-dialog-centered">
+              <div class="modal-content modal_box">
+                <div class="modal-header modal_head">
+                  <h5 class="modal-title text-white fw-bold" id="staticBackdropLabel"> Add New Nursery Item</h5>
+                  <button type="button" class="btn-close btn-success" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body bg-light">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-10">
+                            <h4 class="text-center">Fill your Details</h4>
+                            <form id="narsary_list_form"method="post"enctype="multipart/form-data" onsubmit="return false">
+                                <div class="row justify-content-center pt-4">
+                                <div class="col-12 col-lg-6 col-sm-5 col-md-6 my-1" hidden>
+                                          <div class="form-outline ">
+                                            <label for="name" class="form-label text-dark">Nursery</label>
+                                            <input type="text" class="form-control" placeholder="" id="userId" name="name">
+                                          </div>
+                                        </div>
+                                        <div class="col-12 col-lg-6 col-sm-5 col-md-6 my-1">
+                                          <div class="form-outline ">
+                                            <label for="name" class="form-label text-dark">Nursery Name</label>
+                                            <input type="text" class="form-control" placeholder="" id="nursery_name2" name="name">
+                                          </div>
+                                        </div>
+                                        <div class="col-12 col-lg-6 col-sm-5 col-md-6 ">
+                                          <div class="form-outline">
+                                            <label for="name" class="form-label text-dark">First Name</label>
+                                            <input type="text" class="form-control" placeholder="" id="fname2" name="fname">
+                                          </div>
+                                        </div>
+                                        <div class="col-12 col-lg-6 col-sm-5 col-md-6 my-1">
+                                          <div class="form-outline mt-2">
+                                            <label for="name" class="form-label text-dark">Last Name</label>
+                                            <input type="text" class="form-control" placeholder="" id="lname2" name="lname">
+                                          </div>
+                                        </div>
+                                        <div class="col-12 col-lg-6 col-sm-5 col-md-6 my-1">
+                                          <div class="form-outline mt-2">
+                                              <label for="name" class="form-label text-dark">Mobile Number</label>
+                                              <input type="text" class="form-control" placeholder="" id="number2" name="number">
+                                          </div>
+                                        </div>
+                                        <div class="col-12 col-sm-4 col-md-4 col-lg-4">
+                                          <div class="form-outline mt-3">
+                                             <label class="form-label">State</label>
+                                              <select class="form-select py-2" aria-label="Default select example" id="state2" name="state_">
+                                                <option value>Select State</option>
+                                                <option value="1">Chattisgarh</option>
+                                                <option value="2">Other</option>
+                                              </select>
+                                          </div>
+                                        </div>
+                                        <div class="col-12 col-sm-4 col-md-4 col-lg-4">
+                                          <div class="form-outline mt-3">
+                                            <label class="form-label">District</label>
+                                            <select class="form-select py-2" aria-label="Default select example" id="dist2" name="dist">
+                                              <option value>Select District</option>
+                                              <option value="1">Raipur</option>
+                                              <option value="2">Bilaspur</option>
+                                              <option value="3">Surajpur</option>
+                                            </select>
+                                          </div>
+                                        </div>
+                                        <div class="col-12 col-sm-4 col-md-4 col-lg-4">
+                                          <div class="form-outline mt-3">
+                                            <label class="form-label">Tehsil</label>
+                                            <select class="form-select py-2" aria-label="Default select example" id="tehsil2">
+                                              <option value>Select Tehsil</option>
+                                              <option value="1">Raipur</option>
+                                              <option value="2">Bilaspur</option>
+                                              <option value="3">Surajpur</option>
+                                            </select>
+                                          </div>
+                                        </div>
+                                        <div class="col-12">
+                                          <div class="form-outline mt-4">
+                                            <label for="name" class="form-label text-dark">Location</label>
+                                            <input type="text" class="form-control" placeholder="" id="loc2" name="loc">
+                                          </div>
+                                        </div>
+                                        <div class="col-12  ">
+                                          <div class="form-outline mt-3">
+                                            <label class="form-label text-dark">Description</label>
+                                            <textarea rows="3" cols="70" class="w-100 py-1" minlength="1" maxlength="" id="textarea_d2" name="textarea_d"></textarea>
+                                          </div>
+                                        </div>
+                                        <div class="col-12 col-lg-6 col-md-6 col-sm-6">
+                                          <div class="upload__box mt-3">
+                                            <div class="upload__btn-box text-center">
+                                              <label >
+                                                <p class="upload__btn ">Upload images</p>
+                                                <input type="file" name='files[]' multiple="" data-max_length="20" class="upload__inputfile" id="_image2">
+                                              </label>
+                                            </div>
+                                            <div id="selectedImagesContainer2" class="upload__img-wrap"></div>
+                                          </div>
+                                        </div>
+                                </div>
+                            </form>
+                       </div>
+                   </div>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary px-3" data-bs-dismiss="modal">Close</button>
+                  <button type="submit" id="undate_btn" class="btn btn-success fw-bold px-3" >Save Change</button>
+                </div>
+              </div>
+            </div>
+        </div>
 </body>
 <script src="<?php $baseUrl; ?>model/nursery.js"></script>
 <?php
