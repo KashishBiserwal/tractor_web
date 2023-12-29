@@ -2,10 +2,16 @@
 <html lang="en">
 
 <head>
-   <?php
-   include 'includes/headertag.php';
-   ?>
-   <style>
+    <?php
+        include 'includes/headertag.php';
+    ?>
+
+    <!-- SweetAlert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.1/dist/sweetalert2.all.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.1/dist/sweetalert2.min.css" rel="stylesheet">
+
+
+    <style>
         .step-container {
             position: relative;
             text-align: center;
@@ -98,7 +104,9 @@
         color: white;
         }
 
-      
+        body {
+            font-family: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", Helvetica, Arial, sans-serif; 
+        }      
     </style>
 </head>
 
@@ -414,7 +422,7 @@
                                 
                                 <div class="form-footer d-flex mt-4">
                                     <button type="button" class="btn w-50 btn-primary prev-step">Previous</button>
-                                    <button type="submit" class="btn w-50 ms-2 btn-success">Submit</button>
+                                    <button type="button" class="btn w-50 ms-2 btn-success" id="sell_used_trac_btn">Submit</button>
                                 </div>
                             </div>
                         </form>
@@ -616,7 +624,7 @@
                 },
                 messages: {
                     _file: {
-                        required: "Upload Image"
+                        required: "Upload minimum 1 or maximum 4 image"
                     }                   
                 },
             });
@@ -677,7 +685,7 @@
                         required: "Select Your District"
                     }                        
                 },
-            });
+            });            
         });
     </script>
 
@@ -772,4 +780,67 @@
         });
         }
     </script>
+
+    <!-- SCRIPT FOR SHOWING MESSAGE OF SUCCESSFULL SUBMISSION -->
+    <script>
+        $(document).ready(function () {
+            // Function to display a specific step
+            function displayStep(stepNumber) {
+                if (stepNumber >= 1 && stepNumber <= 4) {
+                    $(".mul_stp_frm").hide();
+                    $("#form-step-" + stepNumber).show();
+                    updateProgressBar(stepNumber); // Update the progress bar for the given step
+                }
+            }
+
+            // Function to check if all three forms are valid
+            function areAllFormsValid() {
+                var formsValid = true;
+
+                $("form").each(function () {
+                    if (!$(this).valid()) {
+                        formsValid = false;
+                        return false; // Break out of the loop if any form is invalid
+                    }
+                });
+
+                return formsValid;
+            }
+
+            // Function to reset all forms
+            function resetForms() {
+                $("form").each(function () {
+                    this.reset(); // Reset each form
+                });
+
+                // Additional reset for specific fields in the third form
+                $("#form-step-3 input[type='file']").val(''); // Reset file inputs in form-step-3
+            }
+
+            // Function to update the progress bar based on the current step
+            function updateProgressBar(stepNumber) {
+                var progressPercentage = ((stepNumber - 1) / 3) * 100; // Assuming 3 steps, calculating the progress percentage
+                $(".progress-bar").css("width", progressPercentage + "%");
+            }
+
+            // Function to reset forms, display step, and show success message
+            $("#sell_used_trac_btn").click(function () {
+                if (areAllFormsValid()) {
+                    resetForms(); // Reset forms if valid
+                    displayStep(1); // Show the first form after resetting
+                    showSuccessMessage(); // Show success message after form submission
+                }
+            });
+
+            // Function to show success message after form submission using SweetAlert
+            function showSuccessMessage() {
+                Swal.fire({
+                    title: "Congratulations!",
+                    text: "Your form is submitted successfully!",
+                    icon: "success"
+                });
+            }
+        });
+    </script> 
+
 </html>

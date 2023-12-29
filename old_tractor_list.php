@@ -501,9 +501,6 @@ include 'includes/headertag.php';
               </div>
             </div>
           </div>
-
-
-
         </div>
       </section>
     </div>

@@ -373,6 +373,7 @@ function get_tyre_list() {
                       <td>${row.tyre_size}</td>
                       <td>
                           <div class="d-flex">
+                              <button class="btn btn-warning btn-sm text-white mx-1" data-bs-toggle="modal" onclick="fetch_data(${row.id});" data-bs-target="#exampleModal"><i class="fas fa-eye" style="font-size: 11px;"></i></button>
                               <button class="btn btn-primary btn-sm btn_edit" onclick="fetch_edit_data(${row.id});" data-bs-toggle="modal" data-bs-target="#staticBackdrop" id="yourUniqueIdHere">
                                   <i class="fas fa-edit" style="font-size: 11px;"></i>
                               </button>
@@ -484,7 +485,58 @@ function fetch_edit_data(id) {
   });
 }
 
+function fetch_data(id) {
+  console.log(id, "id");
+  console.log(window.location);
+  var urlParams = new URLSearchParams(window.location.search);
 
+  var productId = id;
+  var apiBaseURL = APIBaseURL;
+  var url = apiBaseURL + 'tyre_data/' + productId;
+
+  var headers = {
+      'Authorization': 'Bearer ' + localStorage.getItem('token')
+  };
+
+  $.ajax({
+      url: url,
+      type: "GET",
+      headers: headers,
+      success: function (data) {
+        console.log(data, 'abc');
+        document.getElementById('brand_name2').innerText = data.tyre_details[0].brand_name;
+        document.getElementById('model2').innerText = data.tyre_details[0].tyre_model;
+        document.getElementById('quantity').innerText = data.tyre_details[0].tyre_position;
+        document.getElementById('grade').innerText = data.tyre_details[0].tyre_size;
+        document.getElementById('price').innerText = data.tyre_details[0].category;
+    
+        $("#selectedImagesContainer").empty();
+    
+        if (data.tyre_details[0].image_names) {
+            var imageNamesArray = Array.isArray(data.tyre_details[0].image_names) ? data.tyre_details[0].image_names : data.tyre_details[0].image_names.split(',');
+    
+            imageNamesArray.forEach(function (imageName) {
+                var imageUrl = 'http://tractor-api.divyaltech.com/uploads/engine_oil_img/' + imageName.trim();
+    
+                var newCard = `
+                    <div class="col-6 col-lg-6 col-md-6 col-sm-6">
+                        <div class="brand-main d-flex box-shadow   mt-2 text-center shadow">
+                            <a class="weblink text-decoration-none text-dark" title="Tyre Image">
+                                <img class="img-fluid w-100 h-100 " src="${imageUrl}" alt="Tyre Image">
+                            </a>
+                        </div>
+                    </div>
+                `;
+    
+                $("#selectedImagesContainer").append(newCard);
+            });
+        }
+    },
+      error: function (error) {
+          console.error('Error fetching data:', error);
+      }
+  });
+} 
 
 
 
