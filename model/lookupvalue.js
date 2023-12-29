@@ -79,7 +79,7 @@ function get() {
                       <td>${row.name}</td>
                       <td>
                           <div class="d-flex">
-                              <button class="btn btn-danger btn-sm mx-1" id="delete_user" onclick="destroy(${row.id});">
+                              <button class="btn btn-danger btn-sm mx-1" id="delete_user" onclick="destroy(${row.id});" style="padding:5px;">
                                   <i class="fa fa-trash" style="font-size: 11px;"></i>
                               </button>
                           </div>
