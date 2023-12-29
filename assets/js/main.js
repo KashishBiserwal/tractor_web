@@ -566,9 +566,9 @@ document.addEventListener("DOMContentLoaded", function () {
   spaceBetween: 10,
   speed: 800,
   navigation: {
-      nextEl: ".swiper-button-next",
-      prevEl: ".swiper-button-prev"
-  },
+    nextButton: '.swiper-button-next',
+       prevButton: '.swiper-button-prev',
+   },
   thumbs: {
       swiper: swiper
   }

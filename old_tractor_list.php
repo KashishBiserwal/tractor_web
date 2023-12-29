@@ -256,7 +256,20 @@ include 'includes/headertag.php';
                   </div>
                 </div>
                 <div class="col-12 col-sm-12 col-md-3 col-lg-3">
-                  <div class="">
+                  <div class="form-outline">
+                    <label class="form-label">Search by State</label>
+                    <input type="text" name="state" class="form-control" />
+                  </div>
+                </div>
+                <div class="col-12 col-sm-12 col-md-3 col-lg-3">
+                  <div class="form-outline">
+                    <label class="form-label">Search by District</label>
+                    <input type="text" name="state" class="form-control" />
+                  </div>
+                </div>
+                <div class="col-12 ">
+                  <div class="mt-2 text-center">
+                    <button type="button" class="btn-success px-4 py-2 btn" id="search">Search</button>
                     <button type="button" class="btn-success px-4 py-2 btn" id="Reset">Reset</button>
                   </div>
                 </div>
@@ -488,9 +501,6 @@ include 'includes/headertag.php';
               </div>
             </div>
           </div>
-
-
-
         </div>
       </section>
     </div>

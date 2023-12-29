@@ -24,14 +24,11 @@ function store(event) {
     'lookup_type': lookup_type
   };
 
-  // Define the URL where you want to send the data
-//   var url = "<?php echo $APIBaseURL; ?>lookup_type";
 var apiBaseURL =APIBaseURL;
 // Now you can use the retrieved value in your JavaScript logic
 var url = apiBaseURL + 'lookup_type';
   console.log(url);
 
-  // You may need to include headers, but you should ensure they are properly configured
   var token = localStorage.getItem('token');
   var headers = {
     'Authorization': 'Bearer ' + token
@@ -79,7 +76,6 @@ function get() {
                   const tableRow = document.createElement('tr');
                   tableRow.innerHTML = `
                       <td>${serialNumber}</td>
-                    
                       <td>${row.name}</td>
                       <td>
                           <div class="d-flex">
@@ -95,13 +91,11 @@ function get() {
                   serialNumber++;
               });
           } else {
-              // Display a message if there's no valid data
               tableBody.innerHTML = '<tr><td colspan="7">No valid data available</td></tr>';
           }
       },
       error: function (error) {
           console.error('Error fetching data:', error);
-          // Display an error message or handle the error as needed
       }
   });
 }
@@ -110,9 +104,7 @@ get();
 
 
 function destroy(id) {
-// var url = "<?php echo $APIBaseURL; ?>lookup_type/" + id;
 var apiBaseURL =APIBaseURL;
-// Now you can use the retrieved value in your JavaScript logic
 var url = apiBaseURL + 'lookup_type/' + id;
 var token = localStorage.getItem('token');
 

@@ -7,6 +7,15 @@
   <script> var APIBaseURL = "<?php echo $APIBaseURL; ?>";</script>
   <script> var baseUrl = "<?php echo $baseUrl; ?>";</script>
   <script src="<?php $baseUrl; ?>model/engineoil_list.js"></script>
+
+  <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+<style>
+  .select2{
+    width: 100%;
+  }
+</style>
+ 
 <body class="loaded"> 
 <div class="main-wrapper">
     <div class="app" id="app">
@@ -47,13 +56,15 @@
                                    
                                    <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
                                       <div class="form-outline mt-3">
-                                        <label for="name" class="form-label text-dark">Brand</label>
-                                        <input type="text" class="form-control" placeholder="" id="brand" name="brand">
+                                      <label for="name" class="form-label text-dark">Brand</label>
+                                      <select class="form-select form-control" aria-label=".form-select-lg example" id="brand" name="brand">
+                                        <option value=""disabled>Select Brand</option>
+                                        </select>
                                       </div>
                                     </div>
                                     <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
                                       <div class="form-outline mt-3">
-                                        <label for="name" class="form-label text-dark">Model/Name</label>
+                                        <label for="name" class="form-label text-dark">Model Name</label>
                                         <input type="text" class="form-control" placeholder="" id="model" name="model">
                                       </div>
                                     </div>
@@ -76,12 +87,11 @@
                                       </div>
                                     </div>
                                     <div class="col-12 col-sm-12 col-md-6 col-lg-6">
-                                     <div class="form-outline my-3">
+                                     <div class="form-outline my-3"  id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
                                       <label for="yr_state" class="form-label text-dark">Compatible Tractors</label>
-                                      <select class="form-select form-control" aria-label=".form-select-lg example"id="compatible_tractor" name="compatible_tractor">
-                                          <option value>Select Compatible Tractors</option>
-                                          <option value="1">....</option>
-                                          <option value="2">....</option>
+                                      <select class="js-example-basic-multiple w-100" name="states[]" id="ass_list" multiple="multiple">
+                                        <option value="" selected>hello</option>
+                                        <option value="" >hyy</option>
                                       </select>
                                     </div>
                                   </div>
@@ -135,9 +145,9 @@
               </div>
             </div>
             <div class="col-12 col-sm-12 col-md-4 col-lg-4">
-              <div class="text-center">
-                <button type="button" class="btn-success btn btn_search" id="Search">Search</button>
-                <button type="button" class="btn-success btn  mx-2 btn_search" id="Reset">Reset</button>
+              <div class="text-center mt-1">
+                <button type="button" class="btn-success btn px-4 py-2" id="Search">Search</button>
+                <button type="button" class="btn-success btn px-4 py-2" id="Reset">Reset</button>
               </div>
             </div>
           </div>
@@ -165,7 +175,7 @@
       </div>
     </div>
   </section>
-  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
           <div class="modal-dialog modal-dialog-centered modal-md">
             <div class="modal-content">
             <!-- <div class="modal-header">
@@ -177,66 +187,66 @@
                 <div class="container">
                   <div class="row">
                     <div class="col-12 col-lg-6 col-sm-6 col-md-6">
-                      <h5>Brand Name: </h5>
+                      <h6 class="fw-bold">Brand Name: </h6>
                     </div>
                     <div class="col-12 col-lg-6 col-sm-6 col-md-6">
-                      <p id="brand_name2" class="fw-bold"></p>
+                      <p id="brand_name2" ></p>
                     </div>
                   </div>
                   <div class="row">
-                    <div class="col-12 col-lg-4 col-sm-4 col-md-4">
-                      <h5>Model:</h5>
+                    <div class="col-12 col-lg-6 col-sm-6 col-md-6">
+                      <h6 class="fw-bold">Model:</h6>
                     </div>
-                    <div class="col-12 col-lg-8 col-sm-8 col-md-8">
+                    <div class="col-12  col-lg-6 col-sm-6 col-md-6">
                      <div id="model2"></div>
                     </div>
                   </div>
                   <div class="row">
-                    <div class="col-12 col-lg-4 col-sm-4 col-md-4">
-                      <h5>Quantity:</h5>
+                    <div class="col-12 col-lg-6 col-sm-6 col-md-6">
+                      <h6 class="fw-bold">Quantity:</h6>
                     </div>
-                    <div class="col-12 col-lg-8 col-sm-8 col-md-8">
+                    <div class="col-12 col-lg-6 col-sm-6 col-md-6">
                      <div id="quantity"></div>
                     </div>
                   </div>
                   <div class="row">
-                    <div class="col-12 col-lg-4 col-sm-4 col-md-4">
-                      <h5>Grade:</h5>
+                    <div class="col-12 col-lg-6 col-sm-6 col-md-6">
+                      <h6 class="fw-bold">Grade:</h6>
                     </div>
-                    <div class="col-12 col-lg-8 col-sm-8 col-md-8">
+                    <div class="col-12  col-lg-6 col-sm-6 col-md-6">
                      <div id="grade"></div>
                     </div>
                   </div>
                   <div class="row">
-                    <div class="col-12 col-lg-4 col-sm-4 col-md-4">
-                      <h5>Price:</h5>
+                    <div class="col-12 col-lg-6 col-sm-6 col-md-6">
+                      <h6 class="fw-bold">Price:</h6>
                     </div>
-                    <div class="col-12 col-lg-8 col-sm-8 col-md-8">
+                    <div class="col-12 col-lg-6 col-sm-6 col-md-6">
                      <div id="price"></div>
                     </div>
                   </div>
                   <div class="row">
-                    <div class="col-12 col-lg-4 col-sm-4 col-md-4">
-                      <h5>Compatitble Tractors:</h5>
+                    <div class="col-12 col-lg-6 col-sm-6 col-md-6">
+                      <h6 class="fw-bold">Compatitble Tractors:</h6>
                     </div>
-                    <div class="col-12 col-lg-8 col-sm-8 col-md-8">
+                    <div class="col-12 col-lg-6 col-sm-6 col-md-6">
                      <div id="compatible"></div>
                     </div>
                   </div>
                   <div class="row">
-                    <div class="col-12 col-lg-4 col-sm-4 col-md-4">
-                      <h5>Description:</h5>
+                    <div class="col-12 col-lg-6 col-sm-6 col-md-6">
+                      <h6 class="fw-bold">Description:</h6>
                     </div>
-                    <div class="col-12 col-lg-8 col-sm-8 col-md-8">
+                    <div class="col-12 col-lg-6 col-sm-6 col-md-6">
                      <div id="descrption"></div>
                     </div>
                   </div>
                   <div class="row">
-                    <div class="col-12 col-lg-4 col-sm-4 col-md-4">
-                      <h5>Image:</h5>
+                    <div class="col-12 col-lg-6 col-sm-6 col-md-6">
+                      <!-- <h6 class="fw-bold">Image:</h6> -->
                     </div>
-                    <div class="col-12 col-lg-8 col-sm-8 col-md-8">
-                     <div id="image_2"></div>
+                    <div class="col-12 col-lg-6 col-sm-6 col-md-6">
+                    <div id="selectedImagesContainer" class="upload__img-wrap row"></div>
                     </div>
                   </div>
                 </div>

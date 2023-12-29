@@ -1,4 +1,8 @@
 $(document).ready(function () {
+  $('.js-example-basic-multiple').select2({
+    dropdownParent: $('#myModal')
+    
+  });
   $('#subbnt').click(engineOil_add);
   $('.btn_edit').click(function() {
     var rowId = $(this).data('row-id');
@@ -198,6 +202,39 @@ function engineOil_add() {
 }
 engineOil_add();
 
+function get_brand() {
+  // var url = "<?php echo $APIBaseURL; ?>getBrands";
+  var apiBaseURL =APIBaseURL;
+  var url = apiBaseURL + 'getBrands';
+  $.ajax({
+      url: url,
+      type: "GET",
+      headers: {
+          'Authorization': 'Bearer ' + localStorage.getItem('token')
+      },
+      success: function (data) {
+          console.log(data);
+          const select = document.getElementById('brand');
+          // select.innerHTML = '';
+
+          if (data.brands.length > 0) {
+              data.brands.forEach(row => {
+                  const option = document.createElement('option');
+                  option.value = row.id; // You might want to set a value for each option
+                  option.textContent = row.brand_name;
+                  select.appendChild(option);
+              });
+          } else {
+              select.innerHTML ='<option>No valid data available</option>';
+          }
+      },
+      error: function (error) {
+          console.error('Error fetching data:', error);
+      }
+  });
+}
+get_brand();
+
 // **delete***
 function destroy(id) {
   var apiBaseURL = APIBaseURL;
@@ -268,59 +305,57 @@ function destroy(id) {
 // }
 //***view ***/
 function fetch_data(id) {
-  console.log(id,"id")
-    console.log(window.location)
-    var urlParams = new URLSearchParams(window.location.search);
- 
-    var productId = id;
-    var url = "<?php echo $APIBaseURL; ?>engine_oil/" + productId;
-  
-    // var url = "http://127.0.0.1:8000/api/admin/getBrandsById/" + productId;
-    // console.log(url);
-    var headers = {
-    'Authorization': 'Bearer ' + localStorage.getItem('token')
+  console.log(id, "id");
+  console.log(window.location);
+  var urlParams = new URLSearchParams(window.location.search);
+
+  var productId = id;
+  var apiBaseURL = APIBaseURL;
+  var url = apiBaseURL + 'engine_oil/' + productId;
+
+  var headers = {
+      'Authorization': 'Bearer ' + localStorage.getItem('token')
   };
-    $.ajax({
-        url: url,
-        type: "GET",
-        headers: headers,
-        success: function(data) {
+
+  $.ajax({
+      url: url,
+      type: "GET",
+      headers: headers,
+      success: function (data) {
         console.log(data, 'abc');
-        document.getElementById('brand_name2').innerText=data.brands[0].brand_name;
-        document.getElementById('model2').innerText=data.brands[0].oil_model;
-        document.getElementById('quantity').innerText=data.brands[0].quantity;
-        document.getElementById('grade').innerText=data.brands[0].grade;
-        document.getElementById('price').innerText=data.brands[0].price;
-        document.getElementById('compatible').innerText=data.brands[0].compatible_model;
-        document.getElementById('descrption').innerText=data.brands[0].description;
-        // document.getElementById('image_2').innerText=data.brands[0].brand_name;
-        console.log(data.brands[0].brand_name);
-
-        var productContainer = $("#related_brand");
-
-        if (data.engine_oil_details && data.engine_oil_details.length > 0) {
-            data.engine_oil_details.forEach(function (b) {
+        document.getElementById('brand_name2').innerText = data.engine_oil_details[0].brand_name;
+        document.getElementById('model2').innerText = data.engine_oil_details[0].oil_model;
+        document.getElementById('quantity').innerText = data.engine_oil_details[0].quantity;
+        document.getElementById('grade').innerText = data.engine_oil_details[0].grade;
+        document.getElementById('price').innerText = data.engine_oil_details[0].price;
+        document.getElementById('compatible').innerText = data.engine_oil_details[0].compatible_model;
+        document.getElementById('descrption').innerText = data.engine_oil_details[0].description;
+    
+        $("#selectedImagesContainer").empty();
+    
+        if (data.engine_oil_details[0].image_names) {
+            var imageNamesArray = Array.isArray(data.engine_oil_details[0].image_names) ? data.engine_oil_details[0].image_names : data.engine_oil_details[0].image_names.split(',');
+    
+            imageNamesArray.forEach(function (imageName) {
+                var imageUrl = 'http://tractor-api.divyaltech.com/uploads/engine_oil_img/' + imageName.trim();
+    
                 var newCard = `
-                <div class=" col-6 col-lg-6 col-md-6 col-sm-6">
-                        <div class="brand-main box-shadow mt-2 text-center shadow">
-                            <a class="weblink text-decoration-none text-dark" 
-                                title="Old Tractors">
-                                <img class="img-fluid w-50" src="http://tractor-api.divyaltech.com/uploads/brand_img/${b.image_names}"
-                                    data-src="h" alt="Brand Logo">
+                    <div class="col-6 col-lg-6 col-md-6 col-sm-6">
+                        <div class="brand-main d-flex box-shadow mt-2 text-center shadow">
+                            <a class="weblink text-decoration-none text-dark" title="Tyre Image">
+                                <img class="img-fluid w-100 h-100" src="${imageUrl}" alt="Tyre Image">
                             </a>
                         </div>
                     </div>
                 `;
-
-                // Append the new card to the container
-                productContainer.append(newCard);
+    
+                $("#selectedImagesContainer").append(newCard);
             });
-
-
         }
-},
-error: function (error) {
-console.error('Error fetching data:', error);
+    },
+      error: function (error) {
+          console.error('Error fetching data:', error);
+      }
+  });
 }
-    });
-}
+
