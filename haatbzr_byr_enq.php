@@ -1,8 +1,13 @@
 <?php
+   include 'includes/headertag.php';
    include 'includes/headertagadmin.php';
-  
-   
+   include 'includes/footertag.php';
    ?> 
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<script> var APIBaseURL = "<?php echo $APIBaseURL; ?>";</script>
+<script> var baseUrl = "<?php echo $baseUrl; ?>";</script>
+<script src="<?php $baseUrl; ?>model/haatbzr_byr_enq.js"></script>
+
 <body class="loaded"> 
 <div class="main-wrapper">
     <div class="app" id="app">
@@ -101,16 +106,177 @@
                                             
                                         </tr>
                                     </thead>
-                                    <tbody>
+                                    <tbody id="data-table">
                                     </tbody>
                                 </table>
                             </div>
       </div>
     </div>
    </section>
-      
-    
+
+   <!-- Modal -->
+<div class="modal fade" id="viewdatamodel" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header bg-success">
+        <h1 class="modal-title fs-5 text-white" id="staticBackdropLabel">Haatbazar Buyer Enquiry Information</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+      <div class="modal-body bg-light">
+                    <div class="row ">
+                       <div class="col-12">
+                        <table class="table table-striped">
+                        <tbody>
+                         <tr>
+                            <td>Dealer Name-</td>
+                            <td id="dealer"></td>
+                            <td>Brand Name-</td>
+                            <td id="brand"></td>
+                          </tr>
+                          <tr>
+                            <td>Mobile-</td>
+                            <td id="mob"></td>
+                            <td>Email-</td>
+                            <td id="email"></td>
+                          </tr>
+                          <tr>
+                            <td>State-</td>
+                            <td id="state"></td>
+                            <td>District-</td>
+                            <td id="dist"></td>
+                          </tr>
+                          <tr>
+                            <td>Tehsil-</td>
+                            <td id="tehsil"></td>
+                            <td>Location-</td>
+                            <td id="loc"></td>
+                          </tr>
+                          <tr>
+                              <td>Upload images-</td>
+                              <td colspan="3">
+                                  <div class="col-12">
+                                      <div id="selectedImagesContainer1" class="upload__img-wrap row"></div>
+                                  </div>
+                              </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div> 
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>  
+
+
+       
+       
 </div>
+</div>
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="data_for_edit" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header bg-success">
+        <h1 class="modal-title fs-5 text-white" id="staticBackdropLabel">Update Haatbazar Buyer Enquiry</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form id="old_tract" name="old_tract" method="post" class="p-3">
+          <div class="row">
+            <div class="col-12 col-sm-6 col-md-6 col-lg-6 mt-2">
+              <div class="form-outline">
+                <label class="form-label" for="first_name">Dealer Name</label>
+                <input type="text" id="dealer_name1" name="dealer_name" class=" data_search form-control input-group-sm py-2" />
+              </div>
+            </div>
+            <div class="col-12 col-sm-6 col-md-6 col-lg-6 mt-2">
+              <div class="form-outline">
+                <label class="form-label" for="state">Brand Name</label>
+                <select class="form-select py-2" aria-label="Default select example" id="brand_name1" name="brand_name">
+                  <option selected disabled="" >Select Brand Name</option>
+                  <option value="">brand1</option>
+                  <option value="">Other</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-12 col-sm-6 col-md-6 col-lg-6 mt-2">
+              <div class="form-outline">
+                <label class="form-label" for="mobile_number">Mobile Number</label>
+                <input type="text" id="mobile_number" name="mobile_number" class=" data_search form-control input-group-sm py-2" />
+              </div>
+            </div>
+            <div class="col-12 col-sm-6 col-md-6 col-lg-6 mt-2">
+              <div class="form-outline">
+                <label class="form-label" for="mobile_number">Email</label>
+                <input type="text" id="email1" name="email" class=" data_search form-control input-group-sm py-2" />
+              </div>
+            </div>
+            <div class="col-12 col-sm-6 col-md-6 col-lg-6 mt-2">
+              <div class="form-outline">
+                <label class="form-label" for="state">State</label>
+                <select class="form-select py-2" aria-label="Default select example" id="state" name="state">
+                  <option selected disabled="" ></option>
+                  <option value="">Chhattisgarh</option>
+                  <option value="">Other </option>
+                </select>
+              </div>
+            </div>
+            <div class="col-12 col-sm-6 col-md-6 col-lg-6 mt-2">
+              <div class="form-outline">
+                <label class="form-label" for="district">District</label>
+                <select class="form-select py-2" aria-label="Default select example" name="district" id="district">
+                  <option selected disabled=""></option>
+                  <option value="">Raigarh</option>
+                  <option value="">Sarguja</option>
+                  <option value="">Surajpur</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-12 col-sm-6 col-md-6 col-lg-6 mt-3">
+              <div class="form-outline">
+                <label class="form-label" for="district">Tehsil</label>
+                <select class="form-select py-2" aria-label="Default select example" name="tehsil" id="tehsil">
+                  <option selected disabled=""></option>
+                  <option value="">Raigarh</option>
+                  <option value="">ambikapur</option>
+                  <option value="">chirmiri</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
+              <div class="form-outline mt-3">
+                <label for="name" class="form-label text-dark">Location</label>
+                <input type="text" class="form-control" placeholder="" id="location" name="location">
+              </div>
+            </div>
+            <div class="col-12  mt-5">
+              <div class=" text-center">
+                <div class="upload__btn-box text-center">
+                  <label>
+                    <p class="upload__btn">Upload images</p>
+                      <input type="file" name='files[]' multiple="" data-max_length="20" class="upload__inputfile" id="image_pic" name="image_pic">
+                  </label>
+                </div>
+                <div class="upload__img-wrap"></div>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer mt-n4">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-success" id="update_button">Save Change</button>
+      </div>
+    </div>
+  </div>
 </div>
 </body>
 

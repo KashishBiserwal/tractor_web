@@ -7,6 +7,7 @@ include 'includes/headertag.php';
  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 <script> var APIBaseURL = "<?php echo $APIBaseURL; ?>";</script>
 <script> var baseUrl = "<?php echo $baseUrl; ?>";</script>
+<script src="<?php $baseUrl; ?>model/nursery.js"></script>
 <style>
   .upload__img-wrap{
 
@@ -284,7 +285,7 @@ include 'includes/headertag.php';
             <div class="modal-dialog modal-lg modal-dialog-centered">
               <div class="modal-content modal_box">
                 <div class="modal-header modal_head">
-                  <h5 class="modal-title text-white fw-bold" id="staticBackdropLabel"> Add New Nursery Item</h5>
+                  <h5 class="modal-title text-white fw-bold" id="staticBackdropLabel">Update Nursery</h5>
                   <button type="button" class="btn-close btn-success" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body bg-light">

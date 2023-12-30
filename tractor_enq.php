@@ -1,8 +1,14 @@
 <?php
+   include 'includes/headertag.php';
    include 'includes/headertagadmin.php';
-  
-   
+   include 'includes/footertag.php';;
    ?> 
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<script> var APIBaseURL = "<?php echo $APIBaseURL; ?>";</script>
+<script> var baseUrl = "<?php echo $baseUrl; ?>";</script>
+ <script src="<?php $baseUrl; ?>model/tractor_enq.js"></script>
+
+
 <body class="loaded"> 
 <div class="main-wrapper">
     <div class="app" id="app">
@@ -10,7 +16,7 @@
     include 'includes/left_nav.php';
     include 'includes/header_admin.php';
     ?>
-   <section style="padding: 0 15px;">
+  <section style="padding: 0 15px;">
     <div class="">
       <div class="container">
         <div class="card-body d-flex align-items-center justify-content-between page_title">
@@ -18,7 +24,7 @@
             <ol class="breadcrumb my-0 ms-2">
               
               <li class="breadcrumb-item">
-                <span>Tractor Enquiries</span>
+                <span>New Tractor Enquiries</span>
               </li>
             </ol>
           </nav>
@@ -32,36 +38,53 @@
       <div class="filter-card mb-2">
         <div class="card-body">
           <div class="row">
-            <div class="col-12 col-sm-12 col-md-4 col-lg-4">
+            <div class="col-12 col-sm-12 col-md-3 col-lg-3">
               <div class="form-outline">
-                <label class="form-label">UserName</label>
-                <input type="email" id="search_name" name="search_name" class="form-control" />
+                <label class="form-label"> Brand Name</label>
+                <select class="form-select py-2" aria-label="Default select example">
+                    <option selected>Select Brand</option>
+                    <option value="1">Mahindra</option>
+                    <option value="2">Swaraj</option>
+                    <option value="3">John Deere</option>
+                </select>
               </div>
             </div>
-            <div class="col-12 col-sm-12 col-md-4 col-lg-4">
-              <div class="form-outline">
-                <label class="form-label">Brand</label>
-                <input type="text" id="Brand" name="Brand" class="form-control" />
-              </div>
-            </div>
-            <div class="col-12 col-sm-12 col-md-4 col-lg-4">
-              <div class="form-outline">
+            <div class="col-12 col-sm-12 col-md-3 col-lg-3">
+              <div class="form-outline ">
                 <label class="form-label">Model</label>
-                <input type="text" id="Model" name="Model" class="form-control" />
+                    <select class="form-select py-2" aria-label="Default select example">
+                        <option selected>Select Model</option>
+                        <option value="1">3032 NX</option>
+                        <option value="2">3030 NX</option>
+                        <option value="3">3230 NX</option>
+                    </select>
               </div>
             </div>
-            <div class="col-12 col-sm-12 col-md-4 col-lg-4">
+            <div class="col-12 col-sm-12 col-md-3 col-lg-3">
               <div class="form-outline">
                 <label class="form-label">State</label>
-                <input type="text" id="State" name="State" class="form-control" />
+                <select class="form-select py-2" aria-label="Default select example">
+                    <option value>Select State</option>
+                    <option value="1">Chattisgarh</option>
+                    <option value="2">Other</option>
+                </select>
               </div>
             </div>
-           
-            
-            <div class="col-12 col-sm-12 col-md-8 col-lg-8">
-              <div class="float-end text-center">
-                <button type="button" class="btn-success btn_search" id="Search">Search</button>
-                <button type="button" class="btn-success  mx-2 btn_search" id="Reset">Reset</button>
+            <div class="col-12 col-sm-12 col-md-3 col-lg-3">
+              <div class="form-outline">
+                <label class="form-label">District</label>
+                <select class="form-select py-2" aria-label="Default select example">
+                    <option value>Select District</option>
+                    <option value="1">Raipur</option>
+                    <option value="2">Bilaspur</option>
+                    <option value="3">Surajpur</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-12 my-4">
+              <div class="text-center">
+                <button type="button" class="btn-success btn px-3 pt-2" id="Search">Search</button>
+                <button type="button" class="btn-success btn mx-2 px-3 pt-2" id="Reset">Reset</button>
               </div>
             </div>
           </div>
@@ -78,13 +101,13 @@
                     <th class="d-none d-md-table-cell text-white">Brand</th>
                     <th class="d-none d-md-table-cell text-white">Model</th>
                     <th class="d-none d-md-table-cell text-white">Name </th>
-                    <th class="d-none d-md-table-cell text-white"> Phone no</th>
+                    <th class="d-none d-md-table-cell text-white">Phone number</th>
                     <th class="d-none d-md-table-cell text-white">State</th>
                     <th class="d-none d-md-table-cell text-white">District</th>
-                    <th class="d-none d-md-table-cell text-white">Tehsil</th>
+                    <th class="d-none d-md-table-cell text-white">Action</th>
                   </tr>
                 </thead>
-              <tbody>
+              <tbody id="data-table">
               </tbody>
             </table>
           </div>
@@ -92,6 +115,9 @@
     </div>
    </section>
       
+
+
+
     
 </div>
 </div>
