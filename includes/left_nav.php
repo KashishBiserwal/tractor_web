@@ -57,7 +57,6 @@
         <div class="collapse px-2 " id="about-collapsebazar">
           <ul class="list-unstyled fw-normal small">
           <li class="py-1 ps-3"><a href="haatbzr_list.php" class="d-inline-flex align-items-center text-white  text-decoration-none rounded">HaatBazaar List Items</a></li>
-          <li class="py-1 ps-3"><a href="haatbzr_item_enq.php" class="d-inline-flex align-items-center text-white text-decoration-none rounded">HaatBazar item Enquiry</a></li>
               <li class="py-1 ps-3"><a href="haatbzr_byr_enq.php" class="d-inline-flex align-items-center text-white text-decoration-none rounded">HaatBazar Buyer Enquiry List</a></li>
           </ul>
         </div>

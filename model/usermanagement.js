@@ -243,7 +243,7 @@ var url = apiBaseURL + "deleteUser/" + id;
       'Authorization': 'Bearer ' + token
     },
     success: function(result) {
-      // window.location.reload();
+      window.location.reload();
       get();
       console.log("Delete request successful");
       alert("Delete operation successful");
@@ -298,7 +298,7 @@ function edit_user(){
   var last_name = $("#last_name1").val();
   var email = $("#email1").val();
   var mobile = $("#mobile1").val();
-  var email = $("#email1").val();
+  var status = $("#status1").val();
   var user_type1 = $("#user_type1").val();
   var paraArr = {
     'first_name': first_name,
@@ -307,6 +307,7 @@ function edit_user(){
     'mobile': mobile,
     'user_type': user_type1,
     'id': edit_id,
+    'status':status,
 
   };
   var apiBaseURL = APIBaseURL;

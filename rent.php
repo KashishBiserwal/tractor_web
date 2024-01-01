@@ -129,7 +129,7 @@
                 <div class="row justify-content-center loan_form bg-light">
                     <h2 class="text-dark text-center fw-bold mt-3">Rent Your Tractors and Implements</h2>
                     <div id="container" class="container mt-3 mb-3 bg-light shadow">
-                        <form id="form-step-1" class=" ps-4 pe-4 mul_stp_frm" style="" method="post">
+                        <form id="form-step-1" class=" ps-4 pe-4 mul_stp_frm" method="post">
                             <div class="d-flex justify-content-center mb-3">
                                 <div class="col-4 col-lg-5 col-md-5 col-sm-5">
                                     <div class="float-start">Harvest Info</div>
@@ -143,7 +143,7 @@
                             </div>
                             <div class="progress px-1" style="height: 4px;">
                                 <div class="progress-bar" role="progressbar"
-                                    style="width: 0%; background-color: ##6f98c2;" aria-valuenow="0" aria-valuemin="0"
+                                    style="width: 0%; background-color: #6f98c2;" aria-valuenow="0" aria-valuemin="0"
                                     aria-valuemax="100"></div>
                             </div>
 
