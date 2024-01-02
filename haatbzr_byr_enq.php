@@ -189,15 +189,27 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <form id="old_tract" name="old_tract" method="post" class="p-3">
+        <form id="haatbazar_buyer" name="haatbazar_buyer" method="post" class="p-3">
           <div class="row">
-            <div class="col-12 col-sm-6 col-md-6 col-lg-6 mt-2">
+          <div class="col-12 col-sm-6 col-md-6 col-lg-6 mt-2" hidden>
               <div class="form-outline">
-                <label class="form-label" for="first_name">Dealer Name</label>
-                <input type="text" id="dealer_name1" name="dealer_name" class=" data_search form-control input-group-sm py-2" />
+                <label class="form-label" for="first_name">User Name</label>
+                <input type="text" id="username" name="user_name" class=" data_search form-control input-group-sm py-2" />
               </div>
             </div>
             <div class="col-12 col-sm-6 col-md-6 col-lg-6 mt-2">
+              <div class="form-outline">
+                <label class="form-label" for="first_name">First Name</label>
+                <input type="text" id="first_name1" name="first_name" class=" data_search form-control input-group-sm py-2" />
+              </div>
+            </div>
+            <div class="col-12 col-sm-6 col-md-6 col-lg-6 mt-2">
+              <div class="form-outline">
+                <label class="form-label" for="first_name">Last Name</label>
+                <input type="text" id="last_name1" name="last_name" class=" data_search form-control input-group-sm py-2" />
+              </div>
+            </div>
+            <!-- <div class="col-12 col-sm-6 col-md-6 col-lg-6 mt-2">
               <div class="form-outline">
                 <label class="form-label" for="state">Brand Name</label>
                 <select class="form-select py-2" aria-label="Default select example" id="brand_name1" name="brand_name">
@@ -206,17 +218,11 @@
                   <option value="">Other</option>
                 </select>
               </div>
-            </div>
+            </div> -->
             <div class="col-12 col-sm-6 col-md-6 col-lg-6 mt-2">
               <div class="form-outline">
                 <label class="form-label" for="mobile_number">Mobile Number</label>
-                <input type="text" id="mobile_number" name="mobile_number" class=" data_search form-control input-group-sm py-2" />
-              </div>
-            </div>
-            <div class="col-12 col-sm-6 col-md-6 col-lg-6 mt-2">
-              <div class="form-outline">
-                <label class="form-label" for="mobile_number">Email</label>
-                <input type="text" id="email1" name="email" class=" data_search form-control input-group-sm py-2" />
+                <input type="text" id="mobile_number" name="mobile" class=" data_search form-control input-group-sm py-2" />
               </div>
             </div>
             <div class="col-12 col-sm-6 col-md-6 col-lg-6 mt-2">
@@ -242,7 +248,7 @@
             </div>
             <div class="col-12 col-sm-6 col-md-6 col-lg-6 mt-3">
               <div class="form-outline">
-                <label class="form-label" for="district">Tehsil</label>
+                <label class="form-label" for="tehsil">Tehsil</label>
                 <select class="form-select py-2" aria-label="Default select example" name="tehsil" id="tehsil">
                   <option selected disabled=""></option>
                   <option value="">Raigarh</option>
@@ -262,7 +268,7 @@
                 <div class="upload__btn-box text-center">
                   <label>
                     <p class="upload__btn">Upload images</p>
-                      <input type="file" name='files[]' multiple="" data-max_length="20" class="upload__inputfile" id="image_pic" name="image_pic">
+                      <input type="file" name='files[]' multiple="" data-max_length="20" class="upload__inputfile" id="image_pic">
                   </label>
                 </div>
                 <div class="upload__img-wrap"></div>

@@ -6,69 +6,63 @@ $(document).ready(function(){
           }, "Phone number must start with 6 or above");
     
             
-      $("#narsary_list_form").validate({
+      $("#haatbazar_buyer").validate({
       
       rules: {
-          name: {
+        dealer_name: {
           required: true,
         },
-        fname:{
+        brand_name:{
           required: true,
         },
-        lname:{
+        email1:{
           required: true,
         },
-        textarea_d:{
+        image_pic:{
           required: true,
         },
-        _image:{
-          required: true,
-        },
-        number:{
+        mobile:{
           required:true, 
             maxlength:10,
             digits: true,
             customPhoneNumber: true
         },
-        state_:{
+        state:{
           required: true,
         },
-        dist:{
+        district:{
           required: true,
         },
-        loc: {
+        location: {
           required: true
         }
       },
   
       messages:{
-          name: {
+        dealer_name: {
           required: "This field is required",
         },
-        fname:{
+        brand_name:{
           required: "This field is required",
         },
-        lname: {
+        email1: {
           required: "This field is required",
         },
-        textarea_d: {
+        image_pic: {
           required: "This field is required",
         },
-        _image: {
-          required: "This field is required",
-        },
-        number: {
+        mobile: {
           required:"This field is required",
           maxlength:"Enter only 10 digits",
           digits: "Please enter only digits"
         },
-        state_: {
+        state: {
           required: "This field is required",
         },
-        dist: {
+        district: {
           required: "This field is required",
         },
-        loc: {
+        location: {
           required:"This field is required",
           }
       },
@@ -79,9 +73,9 @@ $(document).ready(function(){
       });
   
     
-      $("#btn_sb").on("click", function () {
+      $("#update_button").on("click", function () {
     
-        $("#narsary_list_form").valid();
+        $("#haatbazar_buyer").valid();
       
       });
       
@@ -301,7 +295,7 @@ function openView(userId) {
         var location = $("#location").val();
         var paraArr = {
           'dealer_name': dealer_name,
-          'brand_name': brand_name,
+          'brand_id': brand_name,
           'mobile': mobile,
           'email': email,
           'state': state,
