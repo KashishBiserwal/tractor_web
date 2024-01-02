@@ -136,7 +136,7 @@ include 'includes/headertag.php';
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-secondary px-3" data-bs-dismiss="modal">Close</button>
-                  <button type="submit" id="btn_sb" class="btn btn-success fw-bold px-3">Submit</button>
+                  <button type="button" id="btn_sb" class="btn btn-success fw-bold px-3">Submit</button>
                 </div>
               </div>
             </div>
