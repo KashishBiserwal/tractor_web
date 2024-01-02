@@ -221,7 +221,7 @@ success: function (data) {
               <i class="fa fa-eye" style="font-size: 11px;"></i>
               </button>
             <a href="tractor_form_list.php?trac_edit=${row.product_id};" onclick="fetch_edit_data(${row.product_id});" class="btn btn-primary btn-sm edit_btn" ><i class="fas fa-edit" style="font-size: 11px;"></i></a>
-              <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.id});">
+              <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.product_id});">
               <i class="fa fa-trash" style="font-size: 11px;"></i>
               </button> 
                 
@@ -381,18 +381,38 @@ get();
 
 // delete data
 function destroy(id) {
-var confirmed = confirm("Are you sure you want to delete this item?");
-if (confirmed) {
-var apiBaseURL = APIBaseURL;
-var url = apiBaseURL + 'deleteProduct/' + id;
+  var apiBaseURL = APIBaseURL;
+  var url = apiBaseURL + 'deleteProduct/' + id;
+  var token = localStorage.getItem('token');
 
-var token = localStorage.getItem('token');
+  if (!token) {
+    console.error("Token is missing");
+    return;
+  }
 
-if (!token) {
-  console.error("Token is missing");
-  return;
-}
-};
+  // Show a confirmation popup
+  var isConfirmed = confirm("Are you sure you want to delete this data?");
+  if (!isConfirmed) {
+    return;
+  }
+
+  $.ajax({
+    url: url,
+    type: "DELETE",
+    headers: {
+      'Authorization': 'Bearer ' + token
+    },
+    success: function(result) {
+      getTractorList();
+      // window.location.reload();
+      console.log("Delete request successful");
+      // alert("Delete operation successful");
+    },
+    error: function(error) {
+      console.error('Error fetching data:', error);
+      alert("Error during delete operation");
+    }
+  });
 }
 
 // *********View data******
@@ -421,7 +441,7 @@ $.ajax({
     document.getElementById('model_').innerText=data.product.allProductData[0].model;
     document.getElementById('hp_').innerText=data.product.allProductData[0].hp_category;
     document.getElementById('cylinder_').innerText=data.product.allProductData[0].total_cyclinder_value;
-    document.getElementById('pto_hp_').innerText=data.product.allProductData[0].power_take_off_type;
+    document.getElementById('POWER_TAKEOFF_TYPE').innerText=data.product.allProductData[0].power_take_off_type;
     document.getElementById('Gear_Box_Forward_1').innerText=data.product.allProductData[0].gear_box_forward;
     document.getElementById('Gear_Box_Reverse_1').innerText=data.product.allProductData[0].gear_box_reverse;
     document.getElementById('brakes_1').innerText=data.product.allProductData[0].brake_value;

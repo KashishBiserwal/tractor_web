@@ -211,7 +211,7 @@
    
           <!-- model view -->
           <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog modal-dialog-centered modal-md">
+          <div class="modal-dialog modal-dialog-centered modal-lg">
             <div class="modal-content">
             <!-- <div class="modal-header">
                 <h5 class="modal-title" id="staticBackdropLabel"> Brand Information</h5>
@@ -233,14 +233,14 @@
                       <h5>Image</h5>
                     </div>
                     <div class="col-12 col-lg-8 col-sm-8 col-md-8">
-                     <div id="related_brand"></div>
+                     <div id="related_brand" class="row"></div>
                     </div>
                   </div>
                 </div>
               </div>
-              <div class="modal-footer">
+              <!-- <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-              </div>
+              </div> -->
             </div>
           </div>
         </div>
@@ -354,8 +354,8 @@ function get() {
 get();
 
 function fetch_edit_data(userId) {
-  var apiBaseURL = APIBaseURL;
-  var url = apiBaseURL + 'getBrands';
+  // var apiBaseURL = APIBaseURL;
+  var url = '<?php echo $APIBaseURL; ?>getBrandsById/'+ userId;
 
   var headers = {
     'Authorization': 'Bearer ' + localStorage.getItem('token')
@@ -366,10 +366,10 @@ function fetch_edit_data(userId) {
     type: 'GET',
     headers: headers,
     success: function(response) {
-      var userData = response.user[0];
+      // var userData = response.brands[0];
 
-      $('#brand1').val(userData.brand_name);
-      $('#brand_img1').val(userData.brand_img);
+      $('#brand_name1').val(response.brands[0].brand_name);
+      $('#brand_img1').val(response.brands[0].brand_img);
      
 
       // $('#exampleModal').modal('show');
@@ -383,7 +383,7 @@ function fetch_edit_data(userId) {
 function edit_brand(){
    alert('fherjlkferif');
 
-  var brand1 = $("#brand1").val();
+  var brand1 = $("#brand_name1").val();
   var brand_img1 = $("#brand_img1").val();
 
   var paraArr = {
@@ -420,7 +420,7 @@ function fetch_data(id) {
     var urlParams = new URLSearchParams(window.location.search);
  
     var productId = id;
-    var url = "<?php echo $APIBaseURL; ?>getBrandsById/" + id;
+    var url = "<?php echo $APIBaseURL; ?>getBrandsById/" + productId;
   
     // var url = "http://127.0.0.1:8000/api/admin/getBrandsById/" + productId;
     // console.log(url);
@@ -445,7 +445,7 @@ function fetch_data(id) {
                         <div class="brand-main box-shadow mt-2 text-center shadow">
                             <a class="weblink text-decoration-none text-dark" 
                                 title="Old Tractors">
-                                <img class="img-fluid w-50" src="http://tractor-api.divyaltech.com/customer/uploads/product_img/"
+                                <img class="img-fluid w-50" src="http://tractor-api.divyaltech.com/uploads/product_img/${b.brand_img}"
                                     data-src="h" alt="Brand Logo">
                                 <p class="mb-0 oneline">${b.brand_name}</p>
                             </a>

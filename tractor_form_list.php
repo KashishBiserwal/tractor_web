@@ -506,7 +506,7 @@ include 'includes/footertag.php';
                                                     <div class="col-12 col-sm-6 col-lg-6 col-md-6 mt-3">
                                                         <div class="form-outline">
                                                             <label class="form-label">Brand</label>
-                                                            <select class="form-select py-2" id="brand" name="brand_name" aria-label="Default select example" required>
+                                                            <select class="form-select py-2" id="brand_name" name="brand_name" aria-label="Default select example" required>
                                                                 <option value="">Select Brand</option>
                                                             </select>
                                                         </div>
@@ -522,6 +522,12 @@ include 'includes/footertag.php';
                                                             </select>
                                                         </div>
                                                     </div> -->
+                                                    <div class="col-12 col-sm-6 col-lg-6 col-md-6 mt-3"hidden>
+                                                        <div class="form-outline">
+                                                            <label class="form-label">Model Name</label>
+                                                            <input type="text" placeholder=" " id="image_type_id" value="1" name="" class="form-control" required>
+                                                        </div>
+                                                    </div>
                                                     <div class="col-12 col-sm-6 col-lg-6 col-md-6 mt-3">
                                                         <div class="form-outline">
                                                             <label class="form-label">Model Name</label>
@@ -601,7 +607,7 @@ include 'includes/footertag.php';
                                                             <div class="upload__btn-box text-center">
                                                                 <label >
                                                                     <p class="upload__btn">Upload images</p>
-                                                                    <input type="file" multiple="" data-max_length="20" class="upload__inputfile" id="_image" name="_image"required>
+                                                                    <input type="file" multiple="" data-max_length="20" class="upload__inputfile" id="image_name" name="_image"required>
                                                                 </label>
                                                             </div>
                                                             <div id="selectedImagesContainer" class="upload__img-wrap"></div>
@@ -1207,9 +1213,9 @@ jQuery.validator.setDefaults({
                 LINKAGE_POINT:{
                     required: true,
                 },
-                fuel_tank_cc:{
-                    required: true,
-                },
+                // fuel_tank_cc:{
+                //     required: true,
+                // },
                 WHEEL_DRIVE:{
                     required: true,
                 },
@@ -1230,9 +1236,9 @@ jQuery.validator.setDefaults({
                 LINKAGE_POINT:{
                     required:"This field is required",
                 },
-                fuel_tank_cc:{
-                    required:"This field is required",
-                },
+                // fuel_tank_cc:{
+                //     required:"This field is required",
+                // },
                 WHEEL_DRIVE:{
                     required:"This field is required",
                 },

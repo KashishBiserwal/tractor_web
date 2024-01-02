@@ -295,13 +295,13 @@ get_category();
     // Check if an ID is present in the URL, indicating edit mode
     var urlParams = new URLSearchParams(window.location.search);
     var editId = urlParams.get('id');
-
+    console.log("editId from URL:", editId);
     var url, method;
     console.log('edit state',editId_state);
-    console.log('edit id', EditIdmain_);
+    console.log('edit id', editId);
 
     if (editId_state) {
-        console.log(editId);
+      console.log(editId);
         // Update mode
         url = apiBaseURL + 'tyre_data?id=' + EditIdmain_; 
         console.log(url);
@@ -449,7 +449,7 @@ function fetch_edit_data(id) {
           var Data = response.tyre_details[0];
 
           $('#brand').val(Data.brand_name);
-          $('#tyre_model').val(Data.tyre_model);
+          $('#tyre').val(Data.tyre_model);
           $('#tyre_size').val(Data.tyre_size);
           $('#tyre_position').val(Data.tyre_position);
           var selectedCategoryId = Data.tyre_category_id;

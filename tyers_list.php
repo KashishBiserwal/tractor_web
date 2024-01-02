@@ -69,7 +69,7 @@
                                         <input type="text" class="form-control" placeholder="" id="tyre_size" name="tyre_size">
                                       </div>
                                     </div>
-                                    <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
+                                    <!-- <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
                                       <div class="form-outline mt-3">
                                         <label for="name" class="form-label text-dark">Tyre Diameter</label>
                                         <input type="text" class="form-control" placeholder="" id="tyre_diameter" name="tyre_diameter">
@@ -80,14 +80,12 @@
                                         <label for="name" class="form-label text-dark">Tyre Width</label>
                                         <input type="text" class="form-control" placeholder="" id="tyre_width" name="tyre_width">
                                       </div>
-                                    </div>
+                                    </div> -->
                                     <div class="col-12 col-sm-12 col-md-6 col-lg-6">
                                      <div class="form-outline my-3">
                                       <label for="yr_state" class="form-label text-dark">Category</label>
                                       <select class="form-select form-control" aria-label=".form-select-lg example"id="category" name="category">
-                                          <option value>Select Categoey</option>
-                                          <option value="1">tyre</option>
-                                          <option value="2">....</option>
+                                         
                                       </select>
                                     </div>
                                   </div>
@@ -158,20 +156,19 @@
       </div>
       <!-- Table Card -->
       <div class=" mb-5">
-        <div class="table-responsive">
-          <table id="example" class="table dataTable no-footer py-1" width="100%">
+        <div class="table-responsive shadow bg-white">
+          <table id="example" class="table bg-white table-striped table-hover py-1" width="100%">
             <thead>
               <tr>
                 <th class="d-none d-md-table-cell text-white">S.No.</th>
                 <th class="d-none d-md-table-cell text-white">Brand</th>
                 <th class="d-none d-md-table-cell text-white">Model</th>
-                <th class="d-none d-md-table-cell text-white">Tyre Name</th>
                 <th class="d-none d-md-table-cell text-white">Tyre Position</th>
                 <th class="d-none d-md-table-cell text-white">Size</th>
                 <th class="d-none d-md-table-cell text-white">Action</th>
               </tr>
             </thead>
-          <tbody>
+          <tbody id="data-table">
           </tbody>
         </table>
       </div>

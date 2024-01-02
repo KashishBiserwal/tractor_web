@@ -493,14 +493,15 @@ include 'includes/footertag.php';
                             <td id="cylinder_" class="bg-light"></td>
                           </tr>
                           <tr>
-                            <td class="bg-light">PTO HP-</td>
-                            <td id="pto_hp_" class="bg-light"></td>
+                          <td>Gear Box Reverse-</td>
+                            <td id="Gear_Box_Reverse_1"></td>
+                            <!-- <td class="bg-light">PTO HP-</td>
+                            <td id="pto_hp_" class="bg-light"></td> -->
                             <td>Gear Box Forward-</td>
                             <td id="Gear_Box_Forward_1"></td>
                           </tr>
                           <tr>
-                            <td>Gear Box Reverse-</td>
-                            <td id="Gear_Box_Reverse_1"></td>
+                          
                             <td class="bg-light">Brakes-</td>
                             <td id="brakes_1" class="bg-light"></td>
                           </tr>
