@@ -437,7 +437,7 @@ function fetch_data(id) {
         console.log(data.brands[0].brand_name);
 
         var productContainer = $("#related_brand");
-
+        $("#related_brand").empty();
         if (data.brands && data.brands.length > 0) {
             data.brands.forEach(function (b) {
                 var newCard = `
