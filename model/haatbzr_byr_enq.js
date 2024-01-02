@@ -6,69 +6,57 @@ $(document).ready(function(){
           }, "Phone number must start with 6 or above");
     
             
-      $("#narsary_list_form").validate({
+      $("#haatbazar_buyer").validate({
       
       rules: {
-          name: {
+        first_name: {
           required: true,
         },
-        fname:{
+        last_name:{
           required: true,
         },
-        lname:{
+        'files[]':{
           required: true,
         },
-        textarea_d:{
-          required: true,
-        },
-        _image:{
-          required: true,
-        },
-        number:{
+        mobile:{
           required:true, 
             maxlength:10,
             digits: true,
             customPhoneNumber: true
         },
-        state_:{
+        state:{
           required: true,
         },
-        dist:{
+        district:{
           required: true,
         },
-        loc: {
+        price_name: {
           required: true
         }
       },
   
       messages:{
-          name: {
+        first_name: {
           required: "This field is required",
         },
-        fname:{
+        last_name:{
           required: "This field is required",
         },
-        lname: {
+        'files[]': {
           required: "This field is required",
         },
-        textarea_d: {
-          required: "This field is required",
-        },
-        _image: {
-          required: "This field is required",
-        },
-        number: {
+        mobile: {
           required:"This field is required",
           maxlength:"Enter only 10 digits",
           digits: "Please enter only digits"
         },
-        state_: {
+        state: {
           required: "This field is required",
         },
-        dist: {
+        district: {
           required: "This field is required",
         },
-        loc: {
+        price_name: {
           required:"This field is required",
           }
       },
@@ -79,9 +67,9 @@ $(document).ready(function(){
       });
   
     
-      $("#btn_sb").on("click", function () {
+      $("#update_button").on("click", function () {
     
-        $("#narsary_list_form").valid();
+        $("#haatbazar_buyer").valid();
       
       });
       
@@ -93,7 +81,7 @@ $(document).ready(function(){
       function get_haatbzr() {
         console.log('iuytrewsdfgb');
         var apiBaseURL = APIBaseURL;
-        var url = apiBaseURL + 'dealer_data';
+        var url = apiBaseURL + 'haat_bazar';
         $.ajax({
             url: url,
             type: "GET",
@@ -105,33 +93,32 @@ $(document).ready(function(){
     
                 const tableBody = document.getElementById('data-table');
     
-                if (data.dealer_details && data.dealer_details.length > 0) {
+                if (data.allData.haat_bazar_data && data.allData.haat_bazar_data.length > 0) {
                     // console.log(typeof product);
     
-                    data.dealer_details.forEach(row => {
+                    data.allData.haat_bazar_data.forEach(row => {
                       
                     
                       const tableRow = document.createElement('tr');
                       console.log(tableRow, 'helloooo');
 
                         tableRow.innerHTML = `
-                            <td>${row.id}</td>
-                            <td>${row.name}</td>
-                            <td>${row.dealer}</td>
-                            <td>${row.dealer_name}</td>
-                          
+                            <td>${row.haat_bazar_id}</td>
+                            <td>${row.category_name}</td>
+                            <td>${row.sub_category_name}</td>
+                            <td>${row.first_name}</td>
                             <td>${row.mobile}</td>
                             <td>${row.state}</td>
                             <td>${row.district}</td>
                             <td>
                                 <div class="d-flex">
-                                <button class="btn btn-warning text-white btn-sm mx-1" onclick="openView(${row.id});" data-bs-toggle="modal" data-bs-target="#viewdatamodel" id="viewbtn">
+                                <button class="btn btn-warning text-white btn-sm mx-1" onclick="openView(${row.haat_bazar_id});" data-bs-toggle="modal" data-bs-target="#viewdatamodel" id="viewbtn">
                                 <i class="fa fa-eye" style="font-size: 11px;"></i>
                                 </button>
-                                <button class="btn btn-primary btn-sm btn_edit" onclick=" fetch_edit_data(${row.id});" data-bs-toggle="modal" data-bs-target="#data_for_edit" id="your_UniqueId">
+                                <button class="btn btn-primary btn-sm btn_edit" onclick=" fetch_edit_data(${row.haat_bazar_id});" data-bs-toggle="modal" data-bs-target="#data_for_edit" id="your_UniqueId">
                                 <i class="fas fa-edit" style="font-size: 11px;"></i>
                              </button>
-                                <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.id});">
+                                <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.haat_bazar_id});">
                                 <i class="fa fa-trash" style="font-size: 11px;"></i>
                               </button>
                                 </div>
@@ -155,7 +142,7 @@ $(document).ready(function(){
     // Delete data
     function destroy(id) {
         var apiBaseURL = APIBaseURL;
-        var url = apiBaseURL + 'dealer_data/' + id; // Change product_id to id
+        var url = apiBaseURL + 'haat_bazar/' + id; 
         var token = localStorage.getItem('token');
       
         if (!token) {
@@ -192,7 +179,7 @@ $(document).ready(function(){
       // View data
 function openView(userId) {
     var apiBaseURL = APIBaseURL;
-    var url = apiBaseURL + 'dealer_data/' + userId;
+    var url = apiBaseURL + 'haat_bazar/' + userId;
   
     var headers = {
       'Authorization': 'Bearer ' + localStorage.getItem('token')
@@ -204,16 +191,14 @@ function openView(userId) {
       headers: headers,
     
       success: function(response) {
-        var userData = response.dealer_details[0];
-        // console.log('ffdtydtrd',$('#dealer'),userData.nursery_name);
-        document.getElementById('dealer').innerText=userData.dealer_name;
-        document.getElementById('brand').innerText=userData.brand_name;
+        var userData = response.allData.haat_bazar_data[0];
+        document.getElementById('fname').innerText=userData.first_name;
+        document.getElementById('lname').innerText=userData.last_name;
         document.getElementById('mob').innerText=userData.mobile;
-        document.getElementById('email').innerText=userData.email;
         document.getElementById('state').innerText=userData.state;
         document.getElementById('dist').innerText=userData.district;
         document.getElementById('tehsil').innerText=userData.tehsil;
-        document.getElementById('loc').innerText=userData.address;
+        document.getElementById('price1').innerText=userData.price;
        
         
         $("#selectedImagesContainer1").empty();
@@ -222,7 +207,7 @@ function openView(userId) {
             var imageNamesArray = Array.isArray(userData.image_names) ? userData.image_names : userData.image_names.split(',');
         
             imageNamesArray.forEach(function (image_names) {
-                var imageUrl = 'http://tractor-api.divyaltech.com/uploads/tyre_img/' + image_names.trim();
+                var imageUrl = 'http://tractor-api.divyaltech.com/uploads/haat_bazar_img/' + image_names.trim();
         
                 var newCard = `
                     <div class="col-12 col-lg-3 col-md-3 col-sm-3">
@@ -233,8 +218,7 @@ function openView(userId) {
                         </div>
                     </div>
                 `;
-        
-                // Append the new image element to the container
+                
                 $("#selectedImagesContainer1").append(newCard);
             });
         }
@@ -248,12 +232,13 @@ function openView(userId) {
     });
   }
 
-  
+
+
 
     //   Edit data
     function fetch_edit_data(userId) {
         var apiBaseURL = APIBaseURL;
-        var url = apiBaseURL + 'dealer_data/' + userId;
+        var url = apiBaseURL + 'haat_bazar/' + userId;
       
         var headers = {
           'Authorization': 'Bearer ' + localStorage.getItem('token')
@@ -264,22 +249,38 @@ function openView(userId) {
           type: 'GET',
           headers: headers,
           success: function(response) {
-            var userData = response.dealer_details[0];
-            // $('#idUser').val(userData.id);
-            $('#dealer_name1').val(userData.dealer_name);
-            $('#brand_name1').val(userData.brand_name);
-            $('#mobile_number').val(userData.mobile);
-            $('#email1').val(userData.email);
-            console.log(userData.email);
-            $('#state').val(userData.state);
+            var userData = response.allData.haat_bazar_data[0];
+            $('#username').val(userData.haat_bazar_id);
+            $('#first_name1').val(userData.first_name);
+            $('#last_name1').val(userData.last_name);
+            $('#mobile_no').val(userData.mobile);
+            $('#state_').val(userData.state);
             $('#district').val(userData.district);
             $('#tehsil').val(userData.tehsil);
-            $('#location').val(userData.address);
+            $('#price').val(userData.price);
             
-            // editUserId=userData.id;
-      
-      
-            // $('#exampleModal').modal('show');
+            $("#selectedImagesContainer2").empty();
+            if (userData.image_names) {
+              var imageNamesArray = Array.isArray(userData.image_names) ? userData.image_names : userData.image_names.split(',');
+          
+              imageNamesArray.forEach(function (image_names) {
+                  var imageUrl = 'http://tractor-api.divyaltech.com/uploads/haat_bazar_img/' + image_names.trim();
+                  console.log(imageUrl);
+          
+                  var newCard = `
+                      <div class="col-12 col-md-6 col-lg-4 mb-3">
+                          <div class="brand-main d-flex box-shadow mt-1 py-2 text-center shadow">
+                              <a class="weblink text-decoration-none text-dark" title="Tyre Image">
+                                  <img class="row img-fluid w-100 h-100" src="${imageUrl}" alt="Tyre Image">
+                              </a>
+                          </div>
+                      </div>
+                  `;
+          
+                  // Append the new image element to the container
+                  $("#selectedImagesContainer2").append(newCard);
+              });
+          }
           },
           error: function(error) {
             console.error('Error fetching user data:', error);
@@ -290,28 +291,29 @@ function openView(userId) {
       
       
       function edit_data_id(){
-    //    var edit_id = $("#idUser").val();
-        var dealer_name = $("#dealer_name1").val();
-        var brand_name = $("#brand_name1").val();
-        var mobile = $("#mobile_number").val();
-        var email = $("#email1").val();
-        var state = $("#state").val();
+       var edit_id = $("#idUser").val();
+       var enquiry_type_id = $('#enquiry_type_id').val();
+        var first_name = $("#first_name1").val();
+        var last_name = $("#last_name1").val();
+        var mobile = $("#mobile_no").val();
+        var state = $("#state_").val();
         var district = $("#district").val();
         var tehsil = $("#tehsil").val();
-        var location = $("#location").val();
+        var price = $("#price").val();
         var paraArr = {
-          'dealer_name': dealer_name,
-          'brand_name': brand_name,
+          'enquiry_type_id':enquiry_type_id,
+          'first_name': first_name,
+          'last_name': last_name,
           'mobile': mobile,
-          'email': email,
           'state': state,
           'district': district,
           'tehsil': tehsil,
-          'address': location,
+          'price': price,
+          'id': edit_id,
       
         };
         var apiBaseURL = APIBaseURL;
-        var url = apiBaseURL + 'dealer_data/' + 3;
+        var url = apiBaseURL + 'haat_bazar/'+ edit_id;
       
         var headers = {
           'Authorization': 'Bearer ' + localStorage.getItem('token')

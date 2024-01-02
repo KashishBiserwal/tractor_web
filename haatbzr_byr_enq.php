@@ -129,28 +129,26 @@
                         <table class="table table-striped">
                         <tbody>
                          <tr>
-                            <td>Dealer Name-</td>
-                            <td id="dealer"></td>
-                            <td>Brand Name-</td>
-                            <td id="brand"></td>
+                            <td>First Name-</td>
+                            <td id="fname"></td>
+                            <td>Last Name-</td>
+                            <td id="lname"></td>
                           </tr>
                           <tr>
                             <td>Mobile-</td>
                             <td id="mob"></td>
-                            <td>Email-</td>
-                            <td id="email"></td>
-                          </tr>
-                          <tr>
                             <td>State-</td>
                             <td id="state"></td>
-                            <td>District-</td>
-                            <td id="dist"></td>
                           </tr>
                           <tr>
+                            <td>District-</td>
+                            <td id="dist"></td>
                             <td>Tehsil-</td>
                             <td id="tehsil"></td>
-                            <td>Location-</td>
-                            <td id="loc"></td>
+                          </tr>
+                          <tr>
+                            <td>Price-</td>
+                            <td id="price1"></td>
                           </tr>
                           <tr>
                               <td>Upload images-</td>
@@ -189,43 +187,45 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <form id="old_tract" name="old_tract" method="post" class="p-3">
+        <form id="haatbazar_buyer" name="haatbazar_buyer" method="post" class="p-3">
           <div class="row">
-            <div class="col-12 col-sm-6 col-md-6 col-lg-6 mt-2">
+          <div class="col-12 col-sm-6 col-md-6 col-lg-6 mt-2" hidden>
               <div class="form-outline">
-                <label class="form-label" for="first_name">Dealer Name</label>
-                <input type="text" id="dealer_name1" name="dealer_name" class=" data_search form-control input-group-sm py-2" />
+                <label class="form-label" for="first_name">User Name</label>
+                <input type="text" id="enquiry_type_id" name="user_name" value="8" class=" data_search form-control input-group-sm py-2" />
+              </div>
+            </div>
+            <div class="col-12 col-sm-6 col-md-6 col-lg-6 mt-2" hidden>
+              <div class="form-outline">
+                <label class="form-label" for="first_name">User Name</label>
+                <input type="text" id="username" name="user_name" class=" data_search form-control input-group-sm py-2" />
               </div>
             </div>
             <div class="col-12 col-sm-6 col-md-6 col-lg-6 mt-2">
               <div class="form-outline">
-                <label class="form-label" for="state">Brand Name</label>
-                <select class="form-select py-2" aria-label="Default select example" id="brand_name1" name="brand_name">
-                  <option selected disabled="" >Select Brand Name</option>
-                  <option value="">brand1</option>
-                  <option value="">Other</option>
-                </select>
+                <label class="form-label" for="first_name">First Name</label>
+                <input type="text" id="first_name1" name="first_name" class=" data_search form-control input-group-sm py-2" />
+              </div>
+            </div>
+            <div class="col-12 col-sm-6 col-md-6 col-lg-6 mt-2">
+              <div class="form-outline">
+                <label class="form-label" for="first_name">Last Name</label>
+                <input type="text" id="last_name1" name="last_name" class=" data_search form-control input-group-sm py-2" />
               </div>
             </div>
             <div class="col-12 col-sm-6 col-md-6 col-lg-6 mt-2">
               <div class="form-outline">
                 <label class="form-label" for="mobile_number">Mobile Number</label>
-                <input type="text" id="mobile_number" name="mobile_number" class=" data_search form-control input-group-sm py-2" />
-              </div>
-            </div>
-            <div class="col-12 col-sm-6 col-md-6 col-lg-6 mt-2">
-              <div class="form-outline">
-                <label class="form-label" for="mobile_number">Email</label>
-                <input type="text" id="email1" name="email" class=" data_search form-control input-group-sm py-2" />
+                <input type="text" id="mobile_no" name="mobile" class=" data_search form-control input-group-sm py-2" />
               </div>
             </div>
             <div class="col-12 col-sm-6 col-md-6 col-lg-6 mt-2">
               <div class="form-outline">
                 <label class="form-label" for="state">State</label>
-                <select class="form-select py-2" aria-label="Default select example" id="state" name="state">
+                <select class="form-select py-2" aria-label="Default select example" id="state_" name="state">
                   <option selected disabled="" ></option>
-                  <option value="">Chhattisgarh</option>
-                  <option value="">Other </option>
+                  <option value="1">Chhattisgarh</option>
+                  <option value="2">Other </option>
                 </select>
               </div>
             </div>
@@ -234,46 +234,57 @@
                 <label class="form-label" for="district">District</label>
                 <select class="form-select py-2" aria-label="Default select example" name="district" id="district">
                   <option selected disabled=""></option>
-                  <option value="">Raigarh</option>
-                  <option value="">Sarguja</option>
-                  <option value="">Surajpur</option>
+                  <option value="1">Raigarh</option>
+                  <option value="2">Sarguja</option>
+                  <option value="3">Surajpur</option>
                 </select>
               </div>
             </div>
             <div class="col-12 col-sm-6 col-md-6 col-lg-6 mt-3">
               <div class="form-outline">
-                <label class="form-label" for="district">Tehsil</label>
+                <label class="form-label" for="tehsil">Tehsil</label>
                 <select class="form-select py-2" aria-label="Default select example" name="tehsil" id="tehsil">
                   <option selected disabled=""></option>
-                  <option value="">Raigarh</option>
-                  <option value="">ambikapur</option>
-                  <option value="">chirmiri</option>
+                  <option value="1">Raigarh</option>
+                  <option value="2">ambikapur</option>
+                  <option value="3">chirmiri</option>
                 </select>
               </div>
             </div>
-            <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
-              <div class="form-outline mt-3">
-                <label for="name" class="form-label text-dark">Location</label>
-                <input type="text" class="form-control" placeholder="" id="location" name="location">
+            <div class="col-12 col-sm-6 col-md-6 col-lg-6 mt-3">
+              <div class="form-outline">
+                <label class="form-label" for="mobile_number">Price</label>
+                <input type="text" id="price" name="price_name" class=" data_search form-control input-group-sm py-2" />
               </div>
             </div>
-            <div class="col-12  mt-5">
-              <div class=" text-center">
+            <!-- <div class="col-12 col-lg-6 col-md-6 col-sm-6">
+              <div class="upload__box mt-3">
                 <div class="upload__btn-box text-center">
-                  <label>
-                    <p class="upload__btn">Upload images</p>
-                      <input type="file" name='files[]' multiple="" data-max_length="20" class="upload__inputfile" id="image_pic" name="image_pic">
+                  <label >
+                  <p class="upload__btn ">Upload images</p>
+                    <input type="file" name='files[]' multiple="" data-max_length="20" class="upload__inputfile" id="image_pic">
                   </label>
                 </div>
-                <div class="upload__img-wrap"></div>
+                <div id="selectedImagesContainer2" class="upload__img-wrap"></div>
               </div>
-            </div>
+            </div> -->
+            <div class="col-12 col-lg-6 col-md-6 col-sm-6">
+    <div class="upload__box mt-3">
+        <div class="upload__btn-box text-center">
+            <label>
+                <p class="upload__btn">Upload images</p>
+                <input type="file" name='files[]' multiple="" data-max_length="20" class="upload__inputfile" id="image_pic">
+            </label>
+        </div>
+        <div id="selectedImagesContainer2" class="upload__img-wrap"></div>
+    </div>
+</div>
           </div>
         </form>
       </div>
-      <div class="modal-footer mt-n4">
+      <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-success" id="update_button">Save Change</button>
+        <button type="submit" class="btn btn-success" id="update_button">Save Change</button>
       </div>
     </div>
   </div>
