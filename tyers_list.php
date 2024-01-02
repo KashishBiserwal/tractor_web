@@ -88,7 +88,7 @@
                                           </label>
                                           <!-- <p></p> -->
                                         </div>
-                                        <div id="selectedImagesContainer" class="upload__img-wrap row"></div>
+                                        <div id="selectedImagesContainer1" class="upload__img-wrap row"></div>
                                       </div>
                                     </div>
                                    

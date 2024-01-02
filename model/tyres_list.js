@@ -1,4 +1,5 @@
-
+var EditIdmain_ = "";
+var editId_state= false;
   $(document).ready(function () {
     $('#subbnt').click(tyre_add);
     $('.btn_edit').click(function() {
@@ -297,11 +298,13 @@ get_category();
     var editId = urlParams.get('id');
 
     var url, method;
+    console.log('edit state',editId_state);
+    console.log('edit id', EditIdmain_);
 
-    if (editId) {
+    if (editId_state) {
         console.log(editId);
         // Update mode
-        url = apiBaseURL + 'tyre_data/' + editId; 
+        url = apiBaseURL + 'tyre_data?id=' + EditIdmain_; 
         console.log(url);
         method = 'PUT';
     } else {
@@ -335,7 +338,7 @@ get_category();
         success: function (result) {
             console.log(result, "result");
             console.log("Operation successfully");
-            window.location.reload();
+            // window.location.reload();
         },
         error: function (error) {
             console.error('Error:', error);
@@ -343,9 +346,6 @@ get_category();
     });
 
 }
-
-
-
 
 
 //****get data***
@@ -435,6 +435,8 @@ function destroy(id) {
 function fetch_edit_data(id) {
   var apiBaseURL = APIBaseURL;
   var url = apiBaseURL + 'tyre_data/' + id;
+  editId_state= true;
+  EditIdmain_= id;
 
   var headers = {
       'Authorization': 'Bearer ' + localStorage.getItem('token')
@@ -468,10 +470,12 @@ function fetch_edit_data(id) {
                       <div class="col-6 col-lg-6 col-md-6 col-sm-6">
                           <div class="brand-main d-flex box-shadow mt-2 text-center shadow">
                               <a class="weblink text-decoration-none text-dark" title="Tyre Image">
-                                  <img class="img-fluid w-100 h-100" src="${imageUrl}" alt="Tyre Image">
+                                  <img class="img-fluid w-100 h-100 upload__inputfile" src="${imageUrl}" alt="Tyre Image">
                               </a>
                           </div>
                       </div>
+                    
+                      
                   `;
 
                   // Append the new image element to the container
@@ -510,7 +514,7 @@ function fetch_data(id) {
         document.getElementById('grade').innerText = data.tyre_details[0].tyre_size;
         document.getElementById('price').innerText = data.tyre_details[0].category;
     
-        $("#selectedImagesContainer").empty();
+        $("#selectedImagesContainer1").empty();
     
         if (data.tyre_details[0].image_names) {
             var imageNamesArray = Array.isArray(data.tyre_details[0].image_names) ? data.tyre_details[0].image_names : data.tyre_details[0].image_names.split(',');
@@ -528,7 +532,7 @@ function fetch_data(id) {
                     </div>
                 `;
     
-                $("#selectedImagesContainer").append(newCard);
+                $("#selectedImagesContainer1").append(newCard);
             });
         }
     },

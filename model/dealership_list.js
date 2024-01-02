@@ -1,4 +1,7 @@
+var EditIdmain_ = "";
+var editId_state= false;
 $(document).ready(function () {
+
     $('#subbtn_').click(add_dealership);
     ImgUpload();
     $("#dealer_list_form").validate({
@@ -189,11 +192,12 @@ function add_dealership(event) {
     var editId = urlParams.get('id');
 
     var url, method;
-
-    if (editId) {
+    console.log('edit state',editId_state);
+    console.log('edit id', EditIdmain_);
+    if (editId_state) {
         // Update mode
         console.log(editId);
-        url = apiBaseURL + 'dealer_data?id=' + editId; 
+        url = apiBaseURL + 'dealer_data?id=' + EditIdmain_; 
         console.log(url);
         method = 'PUT';
     } else {
@@ -227,7 +231,7 @@ function add_dealership(event) {
         success: function (result) {
             console.log(result, "result");
             console.log("Operation successfully");
-            window.location.reload();
+            // window.location.reload();
         },
         error: function (error) {
             console.error('Error:', error);
@@ -384,7 +388,8 @@ function destroy(id) {
   function fetch_edit_data(id) {
     var apiBaseURL = APIBaseURL;
     var url = apiBaseURL + 'dealer_data/' + id;
-    console.log(url);
+    editId_state= true;
+    EditIdmain_= id;
   
     var headers = {
         'Authorization': 'Bearer ' + localStorage.getItem('token')

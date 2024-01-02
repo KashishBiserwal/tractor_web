@@ -2,11 +2,16 @@
 <html lang="en">
 
 <head>
-    <?php
-   include 'includes/headertag.php';
-   include 'includes/header.php';
+ 
+<?php
+include 'includes/headertag.php';
+   include 'includes/headertagadmin.php';
    include 'includes/footertag.php';
-   ?>
+   
+   ?> 
+<script> var APIBaseURL = "<?php echo $APIBaseURL; ?>";</script>
+<script> var baseUrl = "<?php echo $baseUrl; ?>";</script>
+    <script src="<?php $baseUrl; ?>model/tyre.js"></script>
 </head>
 
 <body>
@@ -38,14 +43,14 @@
    include 'includes/header.php';
    ?>
 
-        <section class="mt-5 pt-4">
+        <section class="mt-5 pt-4 bg-light">
             <div class="container ">
-                <div class="mt-5 pt-3">
+                <div class="mt-5 pt-4">
                     <span class="mt-5 text-white">
                         <a href="index.php" class="text-decoration-none header-link px-1">Home <i
                                 class="fa-solid fa-chevron-right px-1"></i></a>
 
-                        <span class="text-dark"> Popular Tractor</span>
+                        <span class="text-dark p"> Popular Tractor</span>
                     </span>
                 </div>
             </div>
@@ -57,8 +62,8 @@
                         <h3 class="pb-3 fw-bold"> Tractor Tyres <span class="text-success fw-bold">In
                                 INDIA</span>
                         </h3>
-                        <div class="row">
-                            <div class="col-12 col-lg-4 col-md-4 col-sm-4 mb-3">
+                        <div id="productContainer" class="row">
+                            <!-- <div class="col-12 col-lg-4 col-md-4 col-sm-4 mb-3">
                                 <div class="h-auto success__stry__item d-flex flex-column shadow ">
                                     <div class="thumb">
                                         <a href="tyre_inner.php">
@@ -103,8 +108,6 @@
                                         </div>
                                     </div>
                                 </div>
-
-                                <!-- Modal -->
                                 <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static"
                                     data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel"
                                     aria-hidden="true">
@@ -201,212 +204,12 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="col-12 col-lg-4 col-md-4 col-sm-4 mb-3">
-                                <div class="h-auto success__stry__item d-flex flex-column shadow ">
-                                    <div class="thumb">
-                                        <a href="#">
-                                            <div class="ratio ratio-16x9">
-                                                <img src="assets/images/jk_tyre.png" class="" alt="img">
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div class="content d-flex flex-column flex-grow-1 ">
-                                        <div class="caption text-center">
-                                            <a href="#" class="text-decoration-none text-dark">
-                                                <p class="pt-3"><strong
-                                                        class="series_tractor_strong text-center h6 fw-bold ">JK Tyre
-                                                        SONA H/F 14.9 - 28</strong></p>
-                                            </a>
-                                        </div>
-                                        <div class="power">
-                                            <div class="row text-center">
-                                                <div class="col-4 col-lg-4 col-md-4 col-sm-4">
-                                                    <p class="text-dark">Tractor</p>
-                                                </div>
-                                                <div class="col-4 col-lg-4 col-md-4 col-sm-4">
-                                                    <p class="text-dark">Rear</p>
-                                                </div>
-                                                <div class="col-4 col-lg-4 col-md-4 col-sm-4">
-                                                    <p id="adduser" type="" class="text-dark">
-                                                        18.4-30
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-12">
-                                            <button id="adduser" type="button" class="add_btn btn-success w-100">
-                                                Get Price</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-12 col-lg-4 col-md-4 col-sm-4 mb-3">
-                                <div class="h-auto success__stry__item d-flex flex-column shadow ">
-                                    <div class="thumb">
-                                        <a href="#">
-                                            <div class="ratio ratio-16x9">
-                                                <img src="assets/images/apollo_tyre.png" class="" alt="img">
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div class="content d-flex flex-column flex-grow-1 ">
-                                        <div class="caption text-center">
-                                            <a href="#" class="text-decoration-none text-dark">
-                                                <p class="pt-3"><strong
-                                                        class="series_tractor_strong text-center h6 fw-bold ">Apollo
-                                                        Tyre FARMKING 340/85 - 28</strong></p>
-                                            </a>
-                                        </div>
-                                        <div class="power">
-                                            <div class="row text-center ">
-                                                <div class="col-4 col-lg-4 col-md-4 col-sm-4">
-                                                    <p class="text-dark">Tractor</p>
-                                                </div>
-                                                <div class="col-4 col-lg-4 col-md-4 col-sm-4">
-                                                    <p class="text-dark">Rear</p>
-                                                </div>
-                                                <div class="col-4 col-lg-4 col-md-4 col-sm-4">
-                                                    <p id="adduser" type="" class="text-dark">
-                                                        16.9-28
-                                                    </p>
-                                                </div>
-
-
-                                            </div>
-                                        </div>
-                                        <div class="col-12">
-                                            <button id="adduser" type="button" class="add_btn btn-success w-100">
-                                                Get Price</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-12 col-lg-4 col-md-4 col-sm-4 mb-3">
-                                <div class="h-auto success__stry__item d-flex flex-column shadow ">
-                                    <div class="thumb">
-                                        <a href="#">
-                                            <div class="ratio ratio-16x9">
-                                                <img src="assets/images/bkt_tyre.jpg" class="" alt="img">
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div class="content d-flex flex-column flex-grow-1 ">
-                                        <div class="caption text-center">
-                                            <a href="#" class="text-decoration-none text-dark">
-                                                <p class="pt-3"><strong
-                                                        class="series_tractor_strong text-center h6 fw-bold ">BKT Tyre
-                                                        C0MMANDER(F) 6.50 - 16</strong></p>
-                                            </a>
-                                        </div>
-                                        <div class="power">
-                                            <div class="row text-center">
-                                                <div class="col-4 col-lg-4 col-md-4 col-sm-4">
-                                                    <p class="text-dark">Tractor</p>
-                                                </div>
-                                                <div class="col-4 col-lg-4 col-md-4 col-sm-4">
-                                                    <p class="text-dark">Rear</p>
-                                                </div>
-                                                <div class="col-4 col-lg-4 col-md-4 col-sm-4">
-                                                    <p id="adduser" type="" class="text-dark">
-                                                        18.4-30
-                                                    </p>
-                                                </div>
-
-
-                                            </div>
-                                        </div>
-                                        <div class="col-12">
-                                            <button id="adduser" type="button" class="add_btn btn-success w-100">
-                                                Get Price</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-12 col-lg-4 col-md-4 col-sm-4 mb-3">
-                                <div class="h-auto success__stry__item d-flex flex-column shadow ">
-                                    <div class="thumb">
-                                        <a href="#">
-                                            <div class="ratio ratio-16x9">
-                                                <img src="assets/images/ceat_tyre.png" class="" alt="img">
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div class="content d-flex flex-column flex-grow-1 ">
-                                        <div class="caption text-center">
-                                            <a href="#" class="text-decoration-none text-dark">
-                                                <p class="pt-3"><strong
-                                                        class="series_tractor_strong text-center h6 fw-bold ">CEAT Tyre
-                                                        AAYUSHAMAAN PLUS 13</strong></p>
-                                            </a>
-                                        </div>
-                                        <div class="power">
-                                            <div class="row text-center">
-                                                <div class="col-4 col-lg-4 col-md-4 col-sm-4">
-                                                    <p class="text-dark">Tractor</p>
-                                                </div>
-                                                <div class="col-4 col-lg-4 col-md-4 col-sm-4">
-                                                    <p class="text-dark">Rear</p>
-                                                </div>
-                                                <div class="col-4 col-lg-4 col-md-4 col-sm-4">
-                                                    <p id="adduser" type="" class="text-dark">
-                                                        16.4-30
-                                                    </p>
-                                                </div>
-
-
-                                            </div>
-                                        </div>
-                                        <div class="col-12">
-                                            <button id="adduser" type="button" class="add_btn btn-success w-100">
-                                                Get Price</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-12 col-lg-4 col-md-4 col-sm-4 mb-3">
-                                <div class="h-auto success__stry__item d-flex flex-column shadow ">
-                                    <div class="thumb">
-                                        <a href="#">
-                                            <div class="ratio ratio-16x9">
-                                                <img src="assets/images/birla_tyre.jpg" class="" alt="img">
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div class="content d-flex flex-column flex-grow-1 ">
-                                        <div class="caption text-center">
-                                            <a href="#" class="text-decoration-none text-dark">
-                                                <p class="pt-3"><strong
-                                                        class="series_tractor_strong text-center h6 fw-bold ">Birla
-                                                        Tyres FRAM HAUL PLATINA 6</strong></p>
-                                            </a>
-                                        </div>
-                                        <div class="power">
-                                            <div class="row text-center">
-                                                <div class="col-4 col-lg-4 col-md-4 col-sm-4">
-                                                    <p class="text-dark">Tractor</p>
-                                                </div>
-                                                <div class="col-4 col-lg-4 col-md-4 col-sm-4">
-                                                    <p class="text-dark">Rear</p>
-                                                </div>
-                                                <div class="col-4 col-lg-4 col-md-4 col-sm-4">
-                                                    <p id="adduser" type="" class="text-dark">
-                                                        18.4-30
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-12">
-                                            <button id="adduser" type="button" class="add_btn btn-success w-100">
-                                                Get Price</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            </div> -->
+                           
 
                         </div>
                         <div class="col-12 text-center mt-3 pt-2 ">
-                            <button id="adduser" type="button" class="add_btn btn btn-success">
+                            <button id="load_moretract" type="button" class="add_btn btn btn-success">
                                 <i class="fas fa-undo"></i> Load More Tyres</button>
                         </div>
                     </div>
@@ -489,7 +292,7 @@
 
 
 
-        <section class="my-4">
+        <!-- <section class="my-4">
             <div class="container my-5">
                 <h3 class="fw-bold assured px-2 py-2">About Tyre</h3>
                 <div class="" role="alert">
@@ -500,7 +303,7 @@
                         and other specifications of the tractors.</p>
                 </div>
             </div>
-        </section>
+        </section> -->
       
 
         <section>

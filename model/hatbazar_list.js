@@ -1,4 +1,5 @@
-
+var EditIdmain_ = "";
+var editId_state= false;
   $(document).ready(function () {
     ImgUpload();
     $('#btn_submit').click(store);
@@ -562,10 +563,10 @@
     
         var url, method;
     
-        if (editId) {
+        if (editId_state) {
             console.log(editId);
             // Update mode
-            url = apiBaseURL + 'haat_bazar/' + editId; 
+            url = apiBaseURL + 'haat_bazar?id=' + EditIdmain_; 
             console.log(url);
             method = 'PUT';
         } else {
@@ -774,6 +775,8 @@ function destroy(id) {
   function fetch_edit_data(id) {
     var apiBaseURL = APIBaseURL;
     var url = apiBaseURL + 'haat_bazar/' + id;
+    editId_state= true;
+    EditIdmain_= id;
     console.log(url);
   
     var headers = {
