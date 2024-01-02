@@ -206,6 +206,8 @@
                            </div>
                            <div class="col-12">
                               <div class="row px-3 float-end">
+                                 <!-- <h2 class="text-muted get-bonus mt-4 mb-5">Get Bonus <span class="text-danger">666</span> cookies</h2>  -->
+                                 
                                  <img class="pic  mr-3 " src="assets/images/vege.png">
                               </div>
                            </div>

@@ -170,7 +170,7 @@
                                     <tbody id="data-table">
                                     </tbody>
                                 </table>
-                            </div>
+                    </div>
                        </div>
       </div>
     </div>

@@ -105,6 +105,7 @@ expireTime.setSeconds(expireTime.getSeconds() +parseInt(expireTimeString));
 
 window.setInterval(() => {
   
+
     var currentdate = new Date();
     console.log("hello");
     console.log('currentdate',currentdate);
@@ -113,10 +114,10 @@ window.setInterval(() => {
         
         user_logout();
         localStorage.removeItem("expireIn");
-        window.location.href = baseUrl + "login.php"; 
+        // window.location.href = baseUrl + "login.php";
     }
-}, 5000);
 
+}, 5000);
 
 </script>
    

@@ -22,7 +22,7 @@ var editId_state= false;
           },
           tyre_size: {
             required: true,
-            // digits: true,
+            digits: true,
           },
           _image: {
             required: true,
@@ -52,7 +52,7 @@ var editId_state= false;
           },
           tyre_size: {
             required: "This field is required",
-            // digits: "Please enter only digits"
+            digits: "Please enter only digits"
           },
           _image: {
             required:"This field is required",
@@ -82,9 +82,8 @@ var editId_state= false;
      
         $("#form_tyre_list").valid();
         if ($("#form_tyre_list").valid()) {
-          tyre_add();
-          // alert("Form is valid. Ready to submit!");
-        
+          
+          alert("Form is valid. Ready to submit!");
         }
       });
      

@@ -263,7 +263,80 @@ include 'includes/headertag.php';
                   </div>
                 </div>
               </div>
-            </div>
+            </div>  
+            <!-- <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">All Info</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                  <form action="" method="POST"  class="" id="form_add">
+                          <div class="filter-card ">
+                            <div class="card-body">
+                              <div class="row">
+                                <div class="col- col-sm-6 col-lg-6 col-md-6">
+                                  <label class="text-dark"> First Name<span class="text-danger">*</span></label>
+                                          <input type="text" class="form-control py-2" for="first_name" prachi="" id="first_name1" name="first_name" placeholder="Enter First Name">
+                                  <small></small>
+                                </div>
+                                <div class="col- col-sm-6 col-lg-6 col-md-6">
+                                  <label class="text-dark" for="last_name"> Last Name<span class="text-danger">*</span></label>
+                                  <input type="text" class="form-control py-2"  name="last_name"   id="last_name1" placeholder="Enter Last Name">
+                                  <small></small>
+                                </div>
+                                <div class="col- col-sm-6 col-lg-6 col-md-6">
+                                  <label class="text-dark">Contact Number<span class="text-danger">*</span></label>
+                                  <input type="text" class="form-control py-2"  name="mobile" for="mobile" id="mobile1" placeholder="Enter contact number">
+                                  <small></small>
+                                </div>
+                                <div class="col- col-sm-6 col-lg-6 col-md-6">
+                                  <label class="text-dark">Email ID<span class="text-danger">*</span></label>
+                                  <input type="text" class="form-control py-2" id="email" name="email" for="email1"  placeholder="Enter email id">
+                                  <small></small>
+                                </div>
+                                <div class="col- col-sm-6 col-lg-6 col-md-6">
+                                  <label class="text-dark">Password<span class="text-danger">*</span></label>
+                                  <input type="text" class="form-control py-2" id="password"name="password1" for="password1"   placeholder="Enter Password">
+                                  <small></small>
+                                </div>
+                              <div class="col- col-sm-6 col-lg-6 col-md-6">
+                                <label class="text-dark">Confirm Password<span class="text-danger">*</span></label>
+                                <input type="text" class="form-control py-2" id="password_confirmation1" name="password_confirmation1" for="password_confirmation" placeholder="Enter Password">
+                                <small></small>
+                                <div class="form-text confirm-message"></div>
+                              </div>
+                              <div class="col- col-sm-6 col-lg-6 col-md-6">
+                                <label class="text-dark">User Type<span class="text-danger">*</span></label>
+                                <select class="form-select py-2" aria-label="Default select example" name="user_type" id="user_type1">
+                                  <option value>Select User</option>
+                                  <option value="1" >Admin</option>
+                                  <option value="2">User</option>
+                                </select>
+                              </div>
+                              <div class="col-12 col-sm-6 col-md-6 col-lg-6">
+                                <label class="text-dark"> State<span class="text-danger">*</span></label>
+                                <select class="form-select py-2" aria-label="Default select example"  name="status" id="status1">
+                                  <option value>Select Status</option>
+                                  <option value="1">Active</option>
+                                  <option value="2">In Active</option>
+                                </select>
+                              </div>
+                          
+                          </div>
+                        </div>
+                      </form>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" id="dataedit" data-dismiss="modal">Save changes</button>
+                  </div>
+                </div>
+              </div>
+            </div> -->
     </div>
    </section>
       
@@ -271,6 +344,87 @@ include 'includes/headertag.php';
 </div>
 </div>
 
+<!-- Button trigger modal -->
+<!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+  Launch static backdrop modal
+</button> -->
+
+<!-- Modal -->
+<!-- <div class="modal fade" id="user_edit_form" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="staticBackdropLabel">Modal title</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+      <form action="" method="POST"  class="" id="form_add">
+                          <div class="filter-card ">
+                            <div class="card-body">
+                              <div class="row">
+                                <div class="col- col-sm-6 col-lg-6 col-md-6">
+                                  <label class="text-dark"> First Name<span class="text-danger">*</span></label>
+                                          <input type="text" class="form-control py-2" for="first_name"  id="first_name" name="first_name" placeholder="Enter First Name">
+                                  <small></small>
+                                </div>
+                                <div class="col- col-sm-6 col-lg-6 col-md-6">
+                                  <label class="text-dark" for="last_name"> Last Name<span class="text-danger">*</span></label>
+                                  <input type="text" class="form-control py-2"  name="last_name"   id="last_name" placeholder="Enter Last Name">
+                                  <small></small>
+                                </div>
+                                <div class="col- col-sm-6 col-lg-6 col-md-6">
+                                  <label class="text-dark">Contact Number<span class="text-danger">*</span></label>
+                                  <input type="text" class="form-control py-2"  name="mobile" for="mobile" id="mobile" placeholder="Enter contact number">
+                                  <small></small>
+                                </div>
+                                <div class="col- col-sm-6 col-lg-6 col-md-6">
+                                  <label class="text-dark">Email ID<span class="text-danger">*</span></label>
+                                  <input type="text" class="form-control py-2" id="email" name="email" for="email"  placeholder="Enter email id">
+                                  <small></small>
+                                </div>
+                                <div class="col- col-sm-6 col-lg-6 col-md-6">
+                                  <label class="text-dark">Password<span class="text-danger">*</span></label>
+                                  <input type="text" class="form-control py-2" id="password"name="password" for="password"   placeholder="Enter Password">
+                                  <small></small>
+                                </div>
+                              <div class="col- col-sm-6 col-lg-6 col-md-6">
+                                <label class="text-dark">Confirm Password<span class="text-danger">*</span></label>
+                                <input type="text" class="form-control py-2" id="password_confirmation" name="password_confirmation" for="password_confirmation" placeholder="Enter Password">
+                                <small></small>
+                                <div class="form-text confirm-message"></div>
+                              </div>
+                              <div class="col- col-sm-6 col-lg-6 col-md-6">
+                                <label class="text-dark">User Type<span class="text-danger">*</span></label>
+                                <select class="form-select py-2" aria-label="Default select example" name="user_type" id="user_type">
+                                  <option value>Select User</option>
+                                  <option value="1" >Admin</option>
+                                  <option value="2">User</option>
+                                </select>
+                              </div>
+                              <div class="col-12 col-sm-6 col-md-6 col-lg-6">
+                                <label class="text-dark"> State<span class="text-danger">*</span></label>
+                                <select class="form-select py-2" aria-label="Default select example"  name="status" id="status">
+                                  <option value>Select Status</option>
+                                  <option value="1">Active</option>
+                                  <option value="2">In Active</option>
+                                </select>
+                              </div>
+                              <div class="col-12 mt-4 ">
+                                <div class="text-center">
+                                  <button class="btn px-5 bg-success text-white" id="save">Submit</button>
+                                </div>
+                            </div>
+                          </div>
+                        </div>
+                      </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Understood</button>
+      </div>
+    </div>
+  </div>
+</div> -->
 </body>
 <script>
 

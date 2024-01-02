@@ -49,7 +49,6 @@
         .upload__box {
         /* padding: 40px; */
         width: 20;
-        margin-left: 187px;
         }
 
         .upload__inputfile {
@@ -67,7 +66,6 @@
         color: #fff;
         text-align: center;
         min-width: 150px;
-        width:300px;
         padding: 5px;
         transition: all .3s ease;
         cursor: pointer;
@@ -84,19 +82,6 @@
         color:  #198754;
         transition: all .3s ease;
         }
-
-        .upload__btn-box {
-        margin-bottom: 10px;
-        margin-top:-25px;
-        width: 300px;
-        margin-left: -240px;
-        }
-
-        .upload__img-wrap {
-        display: flex;
-        flex-wrap:nowrap;
-        margin-top:20px;
-      }
 
         .upload__img-close:after {
         content: '\2716';
@@ -322,9 +307,9 @@
                                 <p class="text-center mb-4">Implement Images</p>
                                 <div class="col-12 col-sm-12 col-md-12 col-lg-12 mb-0 m-0 p-1">
                                     <div class="upload__box">
-                                        <div class="upload__btn-box mb-2">
+                                        <div class="upload__btn-box">
                                             <label>
-                                                <p class="upload__btn">Upload images</p>
+                                                <p class="upload__btn w-100">Upload images</p>
                                                 <input type="file" multiple="" data-max_length="3" class="upload__inputfile" id="_file" name="_file">
                                             </label>
                                         </div>
@@ -332,7 +317,7 @@
                                             <div class="upload__img-wrap"></div>
                                         </div>
                                     </div>
-                                    <!-- <input type="file" id="_file" multiple="" class="w-100 pb-0 mb-auto" name="_file" required> -->
+                                    <!-- <input type="file" id="_file" class="w-100 pb-0 mb-auto" name="_file" required> -->
                                 </div>
                                     <div class="form-footer d-flex mt-3">
                                         <button type="button" class="btn btn-success w-50 prev-step" id="">Previous</button>
@@ -431,7 +416,7 @@
             </div>
         </div>
     </div>
-</section> 
+</section>
 
 <section>
     <div class="container">

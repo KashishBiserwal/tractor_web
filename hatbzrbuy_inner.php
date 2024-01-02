@@ -35,6 +35,9 @@
                     </div>
                     <div class="col-12 col-lg-6 ">
                         <h4 class="fw-bold text-danger">Are You Intrested In This Vegetable ?</h4>
+                        <p class="text-success fw-bold "> Total Price :- <i class="fa fa-inr"
+                                aria-hidden="true"></i>
+                            222</p>
                     </div>
                 </div>
             </div>
@@ -68,8 +71,8 @@
                 </div>
                 <div class="col-12 col-sm-6 col-lg-6 col-md-6">
                     <form action="" id="nursery_form" method="post">
-                        <div class="row">
-                            <div class="col-12 justify-content-center bg-light shadow">
+                        <div class="row my-3">
+                            <div class="col-12 justify-content-center bg-light">
                                 <div class="d-flex flex-md-row px-3  flex-column-reverse">
                                     <div class="col-md-12 col-12 col-lg-12 col-lg-12">
                                         <div class=" ml-2">
@@ -144,7 +147,7 @@
                                                     </div>
                                                 </div>
 
-                                                <div class="col-12 col-sm-12 col-md-6 col-lg-12 mt-2 mb-2">
+                                                <div class="col-12 col-sm-12 col-md-6 col-lg-12 mt-2">
                                                     <button type="button" class="btn btn-success w-100"
                                                         data-bs-toggle="modal" data-bs-target="#staticBackdrop"
                                                         id="button_nursery">
@@ -203,6 +206,11 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="col-12">
+                                <div class="row px-3 mt-4 float-end">
+                                    <img class="pic  mr-3 " src="assets/images/vege.png">
+                                </div>
+                            </div>
                         </div>
                     </form>
                 </div>
@@ -231,16 +239,9 @@
                         <td class="table-data">222/-</td>
                     </tr>
                     <tr>
-                        <td class="table-data">Total Price</td>
-                        <td class="table-data"><i class="fa fa-inr"
-                                aria-hidden="true"></i> 222/-</td>
-                    </tr>
-                    <tr>
                         <td class="table-data">About</td>
                         <td class="table-data">about harvest </td>
                     </tr>
-
-                  
 
 
                 </tbody>

@@ -388,55 +388,54 @@ for (var x = 0; x < image.length; x++) {
     return `${day}-${month}-${year} / ${hours}:${minutes}:${seconds}`;
     }
 
-    function get_old_harvester() {
-      var apiBaseURL = APIBaseURL;
-      var url = apiBaseURL + 'get_old_harvester';
-      $.ajax({
-          url: url,
-          type: "GET",
-          headers: {
-              'Authorization': 'Bearer ' + localStorage.getItem('token')
-          },
-          success: function (data) {
-              const tableBody = document.getElementById('data-table');
-  
-              if (data.product && data.product.length > 0) {
-                  let serialNumber = 1; // Counter for serial number
-  
-                  data.product.forEach(row => {
-                      const tableRow = document.createElement('tr');
-                      tableRow.innerHTML = `
-                          <td>${serialNumber}</td>
-                          <td>${formatDateTime(row.created_at)}</td>
-                          <td>${row.brand_name}</td>
-                          <td>${row.model}</td>
-                          <td>${row.purchase_year}</td>
-                          <td>${row.state}</td>
-                          <td>${row.district}</td>
-                          <td>${row.mobile}</td>
-                          <td>
-                              <div class="float-start"><button class="btn btn-warning btn-sm text-white mx-1" data-bs-toggle="modal" onclick="fetch_data(${row.id});" data-bs-target="#exampleModal">
-                              <i class="fa-solid fa-eye" style="font-size: 11px;"></i></button>
-                                  <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.id});">
-                                      <i class="fa fa-trash" style="font-size: 11px;"></i>
-                                  </button>
-                              </div>
-                          </td>
-                      `;
-                      tableBody.appendChild(tableRow);
-  
-                      serialNumber++; // Increment the serial number for the next row
-                  });
-              } else {
-                  tableBody.innerHTML = '<tr><td colspan="9">No valid data available</td></tr>';
-              }
-          },
-          error: function (error) {
-              console.error('Error fetching data:', error);
-          }
-      });
-  }
-  
+  function get_old_harvester() {
+    var apiBaseURL = APIBaseURL;
+    var url = apiBaseURL + 'get_old_harvester';
+    $.ajax({
+        url: url,
+        type: "GET",
+        headers: {
+            'Authorization': 'Bearer ' + localStorage.getItem('token')
+        },
+        success: function (data) {
+            // console.log(data);
+
+            const tableBody = document.getElementById('data-table');
+
+            if (data.product && data.product.length > 0) {
+                // console.log(typeof product);
+
+                data.product.forEach(row => {
+                  
+                  const tableRow = document.createElement('tr');
+                  // console.log(tableRow, 'helloooo');
+                    tableRow.innerHTML = `
+                        <td>${formatDateTime(row.created_at)}</td>
+                        <td>${row.brand_name}</td>
+                        <td>${row.model}</td>
+                        <td>${row.purchase_year}</td>
+                        <td>${row.state}</td>
+                        <td>${row.district}</td>
+                        <td>${row.mobile}</td>
+                        <td>
+                            <div class="d-flex">
+                                <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.id});">
+                                    <i class="fa fa-trash" style="font-size: 11px;"></i>
+                                </button>
+                            </div>
+                        </td>
+                    `;
+                    tableBody.appendChild(tableRow);
+                });
+            } else {
+                tableBody.innerHTML = '<tr><td colspan="9">No valid data available</td></tr>';
+            }
+        },
+        error: function (error) {
+            console.error('Error fetching data:', error);
+        }
+    });
+}
 
 
 // delete data
@@ -474,61 +473,3 @@ function destroy(id) {
       }
     });
   }
-
-
-function fetch_data(id) {
-  var urlParams = new URLSearchParams(window.location.search);
-  var productId = id;
-    var apiBaseURL = APIBaseURL;
-    var url = apiBaseURL + 'get_new_harvester_by_id/' + productId;
-  var headers = {
-      'Authorization': 'Bearer ' + localStorage.getItem('token')
-  };
-
-  $.ajax({
-      url: url,
-      type: "GET",
-      headers: headers,
-      success: function(data) {
-          console.log(data, 'abc');
-
-          // Update modal content with fetched data
-          var productData = data.product[0];
-
-          document.getElementById('brand_name2').innerText = productData.brand_name;
-          document.getElementById('model_name2').innerText = productData.model;
-          document.getElementById('crop_type').innerText = productData.crops_type_value;
-          document.getElementById('power_source').innerText = productData.total_cyclinder_value;
-          document.getElementById('hours').innerText = productData.hours_driven; // Assuming you have hours_driven in your response
-          document.getElementById('year').innerText = productData.purchase_year; // Assuming you have purchase_year in your response
-          document.getElementById('price').innerText = productData.price; // Assuming you have price in your response
-          document.getElementById('image').innerHTML = '<img src="' + productData.brand_img + '" alt="Product Image" class="img-fluid">';
-          document.getElementById('about').innerText = productData.description;
-          document.getElementById('name').innerText = productData.first_name + ' ' + productData.last_name;
-          document.getElementById('mobile').innerText = productData.mobile;
-          document.getElementById('state').innerText = productData.state;
-          document.getElementById('district').innerText = productData.district;
-
-          // Additional fields specific to the new response structure
-          document.getElementById('engine_rated_rpm').innerText = productData.engine_rated_rpm;
-          document.getElementById('fuel_tank_capacity').innerText = productData.fuel_tank_capacity;
-          // Add more fields as needed
-
-          // Logic to handle multiple images
-          var imageNames = productData.image_names ? productData.image_names.split(',') : [];
-          var imageContainer = document.getElementById('image');
-          imageContainer.innerHTML = '';
-
-          imageNames.forEach(function(imageName) {
-              var imgElement = document.createElement('img');
-              imgElement.src = 'http://tractor-api.divyaltech.com/customer/uploads/product_img/' + imageName;
-              imgElement.alt = 'Product Image';
-              imgElement.className = 'img-fluid';
-              imageContainer.appendChild(imgElement);
-          });
-      },
-      error: function(error) {
-          console.error('Error fetching data:', error);
-      }
-  });
-}

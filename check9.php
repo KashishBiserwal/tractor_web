@@ -1,30 +1,21 @@
 <?php
-   include 'includes/headertag.php';
-   include 'includes/headertagadmin.php';
-   include 'includes/footertag.php';;
-   ?> 
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-<script> var APIBaseURL = "<?php echo $APIBaseURL; ?>";</script>
-<script> var baseUrl = "<?php echo $baseUrl; ?>";</script>
- <script src="<?php $baseUrl; ?>model/tractor_enq.js"></script>
+include 'includes/headertag.php';
+   include 'includes/footertag.php';
+   
+   ?>
+   <head>
 
+   </head>
 
-<body class="loaded"> 
-<div class="main-wrapper">
-    <div class="app" id="app">
-    <?php
-    include 'includes/left_nav.php';
-    include 'includes/header_admin.php';
-    ?>
-  <section style="padding: 0 15px;">
+   <body>
+   <section style="padding: 0 15px;">
     <div class="">
       <div class="container">
         <div class="card-body d-flex align-items-center justify-content-between page_title">
           <nav aria-label="breadcrumb">
             <ol class="breadcrumb my-0 ms-2">
-              
               <li class="breadcrumb-item">
-                <span>New Tractor Enquiries</span>
+                <span> Used Tractor Enquiries</span>
               </li>
             </ol>
           </nav>
@@ -81,12 +72,13 @@
                 </select>
               </div>
             </div>
-            <div class="col-12 my-4">
+            <div class="col-12 my-5">
               <div class="text-center">
                 <button type="button" class="btn-success btn px-3 pt-2" id="Search">Search</button>
                 <button type="button" class="btn-success btn mx-2 px-3 pt-2" id="Reset">Reset</button>
               </div>
             </div>
+            
           </div>
         </div>
       </div>
@@ -100,30 +92,22 @@
                     <th class="d-none d-md-table-cell text-white">Date</th>
                     <th class="d-none d-md-table-cell text-white">Brand</th>
                     <th class="d-none d-md-table-cell text-white">Model</th>
-                    <th class="d-none d-md-table-cell text-white">Name </th>
+                    <th class="d-none d-md-table-cell text-white">Name</th>
                     <th class="d-none d-md-table-cell text-white">Phone number</th>
                     <th class="d-none d-md-table-cell text-white">State</th>
                     <th class="d-none d-md-table-cell text-white">District</th>
                     <th class="d-none d-md-table-cell text-white">Action</th>
                   </tr>
                 </thead>
-              <tbody id="data-table">
+              <tbody>
               </tbody>
             </table>
           </div>
         </div>
     </div>
    </section>
-      
 
-
-
-    
-</div>
-</div>
-</body>
-
-
-<?php
+   <?php
    include 'includes/footertag.php';
-   ?> 
+   ?>
+   </body>

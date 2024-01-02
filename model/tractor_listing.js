@@ -1,78 +1,83 @@
 $(document).ready(function () {
   get_lookup();
-  $('.js-example-basic-multiple').select2();
+  // $('.js-example-basic-multiple').select2();
 
     // getTractorList();
-    BackgroundUpload();
-
+    // BackgroundUpload();
+   
     $('#save').click(store);
     console.log('fjfej');
-
-   
+    fetch_edit_data();
+  
   });
 
-  function BackgroundUpload(){
-    var imgWrap = "";
-    var imgArray = [];
-
-    function generateUniqueClassName(index) {
-      return "background-image-" + index;
-    }
-
-    $('.background__inputfile').each(function () {
-      $(this).on('change', function (e) {
-        imgWrap = $(this).closest('.background__box').find('.background__img-wrap');
-        var maxLength = $(this).attr('data-max_length');
-
-        var files = e.target.files;
-        var filesArr = Array.prototype.slice.call(files);
-        var iterator = 0;
-        filesArr.forEach(function (f, index) {
-
-          if (!f.type.match('image.*')) {
-            return;
-          }
-
-          if (imgArray.length > maxLength) {
-            return false;
-          } else {
-            var len = 0;
-            for (var i = 0; i < imgArray.length; i++) {
-              if (imgArray[i] !== undefined) {
-                len++;
-              }
-            }
-            if (len > maxLength) {
-              return false;
-            } else {
-              imgArray.push(f);
-
-              var reader = new FileReader();
-              reader.onload = function (e) {
-                var className = generateUniqueClassName(iterator);
-                var html = "<div class='background__img-box'><div onclick='BackgroundImage(\"" + className + "\")' style='background-image: url(" + e.target.result + ")' data-number='" + $(".background__img-close").length + "' data-file='" + f.name + "' class='img-bg " + className + "'><div class='background__img-close'></div></div></div>";
-                imgWrap.append(html);
-                iterator++;
-              }
-              reader.readAsDataURL(f);
-            }
-          }
-        });
-      });
-    });
-
-    $('body').on('click', ".background__img-close", function (e){
-      var file = $(this).parent().data("file");
-      for (var i = 0; i < imgArray.length; i++) {
-        if (imgArray[i].name === file) {
-          imgArray.splice(i, 1);
-          break;
-        }
+  
+  function fetch_edit_data() {
+    console.log(window.location)
+    var urlParams = new URLSearchParams(window.location.search);
+    var productId = urlParams.get('trac_edit');
+    console.log('sumannn');
+    var apiBaseURL = APIBaseURL;
+    var url = apiBaseURL + 'get_new_tractor_by_id/' + productId;
+    console.log('prachi');
+  
+    var headers = {
+      'Authorization': 'Bearer ' + localStorage.getItem('token')
+    };
+  
+    $.ajax({
+      url: url,
+      type: 'GET',
+      headers: headers,
+      success: function(response) {
+        var editData = response.product.allProductData[0];
+        $('#brand').val(editData.brand_name);
+        $('#model').val(editData.model);
+        $('#product_type_id').val(editData.product_type_id);
+        $('#hp_category').val(editData.hp_category);
+        $('#TOTAL_CYCLINDER').val(editData.total_cyclinder_id);
+        $('#horse_power').val(editData.horse_power);
+        $('#gear_box_forward').val(editData.gear_box_forward);
+        $('#gear_box_reverse').val(editData.gear_box_reverse);
+        $('#BRAKE_TYPE').val(editData.brake_type_id);
+        $('#starting_price').val(editData.starting_price);
+        $('#ending_price').val(editData.ending_price);
+        $('#warranty').val(editData.warranty);
+        $('#type_name').val(editData.tractor_type_id);
+        $('#_image').val(editData.image_type_id);
+        $('#CAPACITY_CC').val(editData.engine_capacity_cc);
+        $('#engine_rated_rpm').val(editData.engine_rated_rpm);
+        $('#COOLING').val(editData.cooling_id);
+        $('#AIR_FILTER').val(editData.air_filter);
+        $('#FUEL_PUMP').val(editData.fuel_pump_id);
+        $('#TORQUE').val(editData.torque);
+        $('#TRANSMISSION_TYPE').val(editData.transmission_type_id);
+        $('#TRANSMISSION_CLUTCH').val(editData.transmission_clutch_id);
+        $('#min_forward_speed').val(editData.transmission_reverse);
+        $('#max_forward_speed').val(editData.transmission_forward);
+        $('#min_reverse_speed').val(editData.min_reverse_speed);
+        $('#max_reverse_speed').val(editData.max_reverse_speed);
+        $('#STEERING_DETAIL').val(editData.steering_details_id);
+        $('#STEERING_COLUMN').val(editData.steering_column_id);
+        $('#POWER_TAKEOFF_TYPE').val(editData.power_take_off_type_id);
+        $('#power_take_off_rpm').val(editData.power_take_off_rpm);
+        $('#totat_weight').val(editData.total_weight);
+        $('#WHEEL_BASE').val(editData.wheel_base);
+        $('#LIFTING_CAPACITY').val(editData.lifting_capacity);
+        $('#LINKAGE_POINT').val(editData.linkage_point_id);
+        $('#WHEEL_DRIVE').val(editData.wheel_drive_id);
+        $('#front_tyre').val(editData.front_tyre);
+        $('#rear_tyre').val(editData.rear_tyre);
+        $('#ass_list').val(editData.accessory_id);
+        $('#STATUS').val(editData.status_id);
+        $('#description').val(editData.description);
+        
+      },
+      error: function(error) {
+        console.error('Error fetching user data:', error);
       }
-      $(this).parent().parent().remove();
     });
-}
-
+  }
     function get() {
         // var url = "<?php echo $APIBaseURL; ?>getBrands";
         var apiBaseURL =APIBaseURL;
@@ -85,13 +90,13 @@ $(document).ready(function () {
             },
             success: function (data) {
                 console.log(data);
-                const select = document.getElementById('brand_name');
+                const select = document.getElementById('brand');
                 // select.innerHTML = '';
 
                 if (data.brands.length > 0) {
                     data.brands.forEach(row => {
                         const option = document.createElement('option');
-                        option.value = row.id; // You might want to set a value for each option
+                        option.value = row.id; 
                         option.textContent = row.brand_name;
                         select.appendChild(option);
                     });
@@ -322,3 +327,4 @@ function store(event) {
   }
 
  
+

@@ -348,6 +348,8 @@ function store(event) {
    }
 
 
+
+
   function formatDateTime(originalDateTimeStr) {
     const originalDateTime = new Date(originalDateTimeStr);
 
@@ -373,14 +375,19 @@ function store(event) {
             'Authorization': 'Bearer ' + localStorage.getItem('token')
         },
         success: function (data) {
+            // console.log(data);
+
             const tableBody = document.getElementById('data-table');
-            let serialNumber = 1;
 
             if (data.product && data.product.length > 0) {
+                // console.log(typeof product);
+
                 data.product.forEach(row => {
-                    const tableRow = document.createElement('tr');
+                  
+                  const tableRow = document.createElement('tr');
+                  // console.log(tableRow, 'helloooo');
                     tableRow.innerHTML = `
-                        <td>${serialNumber}</td>
+                        <td>${row.product_id}</td>
                         <td>${formatDateTime(row.created_at)}</td>
                         <td>${row.brand_name}</td>
                         <td>${row.model}</td>
@@ -388,17 +395,15 @@ function store(event) {
                         <td>${row.state}</td>
                         <td>
                             <div class="d-flex">
-                                <button class="btn btn-primary btn-sm btn_edit" onclick="fetch_edit_data(${row.product_id});" data-bs-toggle="modal" data-bs-target="#staticBackdrop_model" id="yourUniqueIdHere">
-                                    <i class="fas fa-edit" style="font-size: 11px;"></i>
-                                </button>
-                                <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.product_id});">
+                            <button class="btn btn-primary btn-sm btn_edit" onclick="fetch_edit_data(${row.id});" data-bs-toggle="modal" data-bs-target="#staticBackdrop_model" id="yourUniqueIdHere">
+                            <i class="fas fa-edit" style="font-size: 11px;"></i></button>
+                                <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.id});">
                                     <i class="fa fa-trash" style="font-size: 11px;"></i>
                                 </button>
                             </div>
                         </td>
                     `;
                     tableBody.appendChild(tableRow);
-                    serialNumber++;
                 });
             } else {
                 tableBody.innerHTML = '<tr><td colspan="9">No valid data available</td></tr>';
@@ -409,16 +414,14 @@ function store(event) {
         }
     });
 }
-
 get_tractor_list();
-
 
 
 // fetch edit data
 
-function fetch_edit_data(product_id) {
+function fetch_edit_data(id) {
   var apiBaseURL = APIBaseURL;
-  var url = apiBaseURL + 'get_old_tractor_by_id/'+ product_id;
+  var url = apiBaseURL + 'get_old_tractor';
 
   var headers = {
     'Authorization': 'Bearer ' + localStorage.getItem('token')
@@ -442,26 +445,18 @@ function fetch_edit_data(product_id) {
       $('#district1').val(userData.district);
       $('#tehsil1').val(userData.tehsil);
       $('#brand1').val(userData.brand_name);
-      $('#model').val(userData.model);  // Updated ID to match the form
+      $('#model1').val(userData.model);
       $('#purchase_year1').val(userData.purchase_year);
       $('#condition1').val(userData.engine_condition);
       $('#tyrecondition1').val(userData.tyre_condition);
-      $('#hours_driven1').val(userData.hours_driven);  // Updated ID to match the form
-      $('#rc_num1').val(userData.vehicle_registered_num);  // Updated ID to match the form
+      $('#hours_driven').val(userData.hours_driven);
+      $('#rc_num1').val(userData.rc_number);
       $('#price_old1').val(userData.price);
-      // Handle image upload separately, if needed
-      // $('#image_pic1').val(userData.image_names);
+      $('#image_pic1').val(userData.image_pic);
       $('#description1').val(userData.description);
-      // $('#product_type_id1').val(userData.product_type); // This field is hidden, check if you need to update it
-      $('input[name="fav_language"]').filter('[value="' + userData.finance + '"]').prop('checked', true);
-      $('input[name="fav_language1"]').filter('[value="' + userData.noc + '"]').prop('checked', true);
-
-      // Show/hide the NOC div based on the finance value
-      if (userData.finance == 1) {
-        $('#nocDiv').show();
-      } else {
-        $('#nocDiv').hide();
-      }
+      $('#product_type_id1').val(userData.product_type);
+      $('#finance1').val(userData.finance);
+      $('#noc1').val(userData.noc);
 
       // $('#exampleModal').modal('show');
     },
@@ -471,20 +466,21 @@ function fetch_edit_data(product_id) {
   });
 }
 
-
 // delete data
   function destroy(id) {
     var apiBaseURL = APIBaseURL;
-    var url = apiBaseURL + 'deleteProduct/' + product_id;
-    console.log(url);
+    var url = apiBaseURL + 'deleteProduct/' + id;
     var token = localStorage.getItem('token');
   
     if (!token) {
       console.error("Token is missing");
       return;
     }
+  
+    // Show a confirmation popup
     var isConfirmed = confirm("Are you sure you want to delete this data?");
     if (!isConfirmed) {
+      // User clicked 'Cancel' in the confirmation popup
       return;
     }
   

@@ -1,6 +1,6 @@
 <?php
  $APIBaseURL = 'http://tractor-api.divyaltech.com/api/admin/';
-$baseUrl = '/tractor-project/tractor_project/';
+$baseUrl = '/tractor_project/';
 // $baseUrl = '/tractor_house/';
 //   $APIBaseURL = "http://192.168.1.41:8000/api/admin/";
 
@@ -27,9 +27,9 @@ $baseUrl = '/tractor-project/tractor_project/';
 	<!-- <link rel="stylesheet" type="text/css" href="assets/css/main.css"/> -->
 	<link rel="stylesheet" type="text/css" href="assets/css/custom.css"/>
 	<link rel="stylesheet" type="text/css" href="assets/css/swiper.css" />
-	<link rel="stylesheet" type="text/css" href="assets/fontawesome/css/all.css" />
-	<link rel="stylesheet" type="text/css" href="assets/fontawesome/css/all.min.css" />
-	<link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+	<link rel="stylesheet" type="text/css" href="assets/fontawesome/css/all.css"/>
+	<link rel="stylesheet" type="text/css" href="assets/fontawesome/css/all.min.css"/>
+	<link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
 	<!-- <link rel="stylesheet"href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css" /> -->
 	<link rel="stylesheet" type="text/css" href="assets/css/datatables.min.css"/>
 	<link rel="stylesheet" type="text/css" href="assets/css/datatables.css"/>
