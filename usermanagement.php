@@ -25,12 +25,12 @@ include 'includes/headertag.php';
     include 'includes/left_nav.php';
     include 'includes/header_admin.php';
     ?>
-   <section style="padding: 0 15px;">
+   <section style="padding: 0 15px 0 60px;">
     <div class="">
-      <div class="container">
+      <div class="">
         <div class="card-body d-flex align-items-center justify-content-between page_title">
           <nav aria-label="breadcrumb">
-            <ol class="breadcrumb ms-2">
+            <ol class="breadcrumb mb-0">
               
               <li class="breadcrumb-item">
                 <span>User Overview</span>
@@ -38,7 +38,7 @@ include 'includes/headertag.php';
             </ol>
           </nav>
           <!-- Button trigger modal -->
-          <button type="button" id="add_trac" class="btn add_btn btn-success float-right" data-bs-toggle="modal"  data-bs-target="#staticBackdrop">
+          <button type="button" id="add_trac" class="btn add_btn btn-success float-right btn_all" data-bs-toggle="modal"  data-bs-target="#staticBackdrop">
               <i class="fa fa-plus" aria-hidden="true"></i> Add New User
           </button>
 
@@ -53,61 +53,77 @@ include 'includes/headertag.php';
                 <div class="modal-body">
                   <div class="row justify-content-center">
                     <div class="col-lg-12">
-                      <h5 class="fw-bold text-center">Fill your Details</h5>
+                      <!-- <h5 class="fw-bold text-center">Fill your Details</h5> -->
                       <form action="" method="POST"  class="" id="form_add">
                           <div class="filter-card ">
                             <div class="card-body">
                               <div class="row">
-                                <div class="col- col-sm-6 col-lg-6 col-md-6">
-                                  <label class="text-dark"> First Name<span class="text-danger">*</span></label>
-                                          <input type="text" class="form-control py-2" for="first_name"  id="first_name" name="first_name" placeholder="Enter First Name">
+                                <div class="col- col-sm-6 col-lg-6 col-md-6 mt-3">
+                                  <div class="form-outline">
+                                    <label class="form-label"> First Name<span class="text-danger">*</span></label>
+                                    <input type="text" class="form-control" for="first_name"  id="first_name" name="first_name" >
+                                    <small></small>
+                                  </div>
+                                </div>
+                                <div class="col- col-sm-6 col-lg-6 col-md-6 mt-3">
+                                  <div class="form-outline">
+                                    <label class="form-label" for="last_name"> Last Name<span class="text-danger">*</span></label>
+                                    <input type="text" class="form-control"  name="last_name"   id="last_name">
+                                    <small></small>
+                                  </div>
+                                </div>
+                                <div class="col- col-sm-6 col-lg-6 col-md-6 mt-3">
+                                <div class="form-outline">
+                                  <label class="form-label">Contact Number<span class="text-danger">*</span></label>
+                                  <input type="text" class="form-control"  name="mobile" for="mobile" id="mobile" >
                                   <small></small>
                                 </div>
-                                <div class="col- col-sm-6 col-lg-6 col-md-6">
-                                  <label class="text-dark" for="last_name"> Last Name<span class="text-danger">*</span></label>
-                                  <input type="text" class="form-control py-2"  name="last_name"   id="last_name" placeholder="Enter Last Name">
+                                </div>
+                                <div class="col- col-sm-6 col-lg-6 col-md-6 mt-3">
+                                <div class="form-outline">
+                                  <label class="form-label">Email ID<span class="text-danger">*</span></label>
+                                  <input type="text" class="form-control" id="email" name="email" for="email" >
                                   <small></small>
                                 </div>
-                                <div class="col- col-sm-6 col-lg-6 col-md-6">
-                                  <label class="text-dark">Contact Number<span class="text-danger">*</span></label>
-                                  <input type="text" class="form-control py-2"  name="mobile" for="mobile" id="mobile" placeholder="Enter contact number">
+                                </div>
+                                <div class="col- col-sm-6 col-lg-6 col-md-6 mt-3">
+                                <div class="form-outline">
+                                  <label class="form-label">Password<span class="text-danger">*</span></label>
+                                  <input type="text" class="form-control" id="password"name="password" for="password"  >
                                   <small></small>
                                 </div>
-                                <div class="col- col-sm-6 col-lg-6 col-md-6">
-                                  <label class="text-dark">Email ID<span class="text-danger">*</span></label>
-                                  <input type="text" class="form-control py-2" id="email" name="email" for="email"  placeholder="Enter email id">
-                                  <small></small>
                                 </div>
-                                <div class="col- col-sm-6 col-lg-6 col-md-6">
-                                  <label class="text-dark">Password<span class="text-danger">*</span></label>
-                                  <input type="text" class="form-control py-2" id="password"name="password" for="password"   placeholder="Enter Password">
-                                  <small></small>
-                                </div>
-                              <div class="col- col-sm-6 col-lg-6 col-md-6">
-                                <label class="text-dark">Confirm Password<span class="text-danger">*</span></label>
-                                <input type="text" class="form-control py-2" id="password_confirmation" name="password_confirmation" for="password_confirmation" placeholder="Enter Password">
+                              <div class="col- col-sm-6 col-lg-6 col-md-6 mt-3">
+                              <div class="form-outline">
+                                <label class="form-label">Confirm Password<span class="text-danger">*</span></label>
+                                <input type="text" class="form-control py-2" id="password_confirmation" name="password_confirmation" for="password_confirmation" >
                                 <small></small>
                                 <div class="form-text confirm-message"></div>
                               </div>
-                              <div class="col- col-sm-6 col-lg-6 col-md-6">
-                                <label class="text-dark">User Type<span class="text-danger">*</span></label>
+                              </div>
+                              <div class="col- col-sm-6 col-lg-6 col-md-6 mt-3">
+                              <div class="form-outline">
+                                <label class="form-label">User Type<span class="text-danger">*</span></label>
                                 <select class="form-select py-2" aria-label="Default select example" name="user_type" id="user_type">
                                   <option value>Select User</option>
                                   <option value="1" >Admin</option>
                                   <option value="2">User</option>
                                 </select>
                               </div>
-                              <div class="col-12 col-sm-6 col-md-6 col-lg-6">
-                                <label class="text-dark"> State<span class="text-danger">*</span></label>
+                              </div>
+                              <div class="col-12 col-sm-6 col-md-6 col-lg-6 mt-3">
+                              <div class="form-outline">
+                                <label class="form-label"> State<span class="text-danger">*</span></label>
                                 <select class="form-select py-2" aria-label="Default select example"  name="status" id="status">
                                   <option value>Select Status</option>
                                   <option value="1">Active</option>
                                   <option value="2">In Active</option>
                                 </select>
                               </div>
+                              </div>
                               <div class="col-12 mt-4 ">
                                 <div class="text-center">
-                                  <button class="btn px-5 bg-success text-white" id="save">Submit</button>
+                                  <button class="bg-success text-white btn mb-0 btn_all" id="save">Submit</button>
                                 </div>
                             </div>
                           </div>
@@ -126,20 +142,20 @@ include 'includes/headertag.php';
         </div>
       </div>
     </div>
-    <div class="container">
+    <div class="">
       <!-- Filter Card -->
       <div class="filter-card ">
         <div class="card-body" >
-          <form action="" id="myform">
+          <form action="" id="myform" class="mb-0">
             <div class="row">
               <div class="col-12 col-sm-12 col-md-4 col-lg-4">
                   <div class="form-outline">
                     <label class="form-label">Search by Any Field</label>
-                    <input type="text" id="name"  name="search_name" onkeyup="myFunction()" class=" data_search form-control input-group-sm" />
+                    <input type="text" id="name"  name="search_name" onkeyup="myFunction()" class="mb-0 data_search form-control input-group-sm" />
                   </div>
               </div>
               <div class="col-12 col-sm-12 col-md-8 col-lg-8">
-              <input type="button" onclick="resetForm()" class="bg-success text-white btn px-4 py-2" value="Reset">
+              <input type="button" onclick="resetForm()" class="bg-success text-white btn mb-0 btn_all" value="Reset">
               </div>
             </div>
           </form>
@@ -148,7 +164,7 @@ include 'includes/headertag.php';
       </div>
       <!-- Table Card -->
           <div class=" mb-5">
-            <div class="table-responsive shadow bg-white mt-2">
+            <div class="table-responsive shadow bg-white mt-3">
               <table id="example" class="table table-striped  table-hover table-bordered dataTable no-footer" width="100%; margin-bottom: 15px;">
                 <thead class="">
                   <tr>
@@ -181,46 +197,60 @@ include 'includes/headertag.php';
                           <div class="">
                             <div class="card-body">
                               <div class="row">
-                              <div class="col- col-sm-6 col-lg-6 col-md-6" hidden>
-                                  <label class="text-dark"> id Name<span class="text-danger">*</span></label>
+                              <div class="col- col-sm-6 col-lg-6 col-md-6 mt-3" hidden>
+                              <div class="form-outline">
+                                  <label class="form-label"> id Name<span class="text-danger">*</span></label>
                                           <input type="text" class="form-control py-2" for="idUser"  id="idUser" name="first_name" placeholder="Enter First Name">
                                   <small></small>
                                 </div>
-                                <div class="col- col-sm-6 col-lg-6 col-md-6">
-                                  <label class="text-dark"> First Name<span class="text-danger">*</span></label>
-                                          <input type="text" class="form-control py-2" for="first_name" prachi="" id="first_name1" name="first_name" placeholder="Enter First Name">
+                              </div>
+                                <div class="col- col-sm-6 col-lg-6 col-md-6 mt-3">
+                                <div class="form-outline">
+                                  <label class="form-label"> First Name<span class="text-danger">*</span></label>
+                                          <input type="text" class="form-control" for="first_name" prachi="" id="first_name1" name="first_name" >
                                   <small></small>
                                 </div>
-                                <div class="col- col-sm-6 col-lg-6 col-md-6">
-                                  <label class="text-dark" for="last_name"> Last Name<span class="text-danger">*</span></label>
-                                  <input type="text" class="form-control py-2"  name="last_name"   id="last_name1" placeholder="Enter Last Name">
+                                </div>
+                                <div class="col- col-sm-6 col-lg-6 col-md-6 mt-3">
+                                <div class="form-outline">
+                                  <label class="form-label" for="last_name"> Last Name<span class="text-danger">*</span></label>
+                                  <input type="text" class="form-control"  name="last_name"   id="last_name1" >
                                   <small></small>
                                 </div>
-                                <div class="col- col-sm-6 col-lg-6 col-md-6">
-                                  <label class="text-dark">Contact Number<span class="text-danger">*</span></label>
-                                  <input type="text" class="form-control py-2"  name="mobile" for="mobile" id="mobile1" placeholder="Enter contact number">
+                                </div>
+                                <div class="col- col-sm-6 col-lg-6 col-md-6 mt-3">
+                                <div class="form-outline">
+                                  <label class="form-label">Contact Number<span class="text-danger">*</span></label>
+                                  <input type="text" class="form-control"  name="mobile" for="mobile" id="mobile1">
                                   <small></small>
                                 </div>
-                                <div class="col- col-sm-6 col-lg-6 col-md-6">
-                                  <label class="text-dark">Email ID<span class="text-danger">*</span></label>
-                                  <input type="text" class="form-control py-2" id="email1" name="email" for="email1"  placeholder="Enter email id">
+                                </div>
+                                <div class="col- col-sm-6 col-lg-6 col-md-6 mt-3">
+                                <div class="form-outline">
+                                  <label class="form-label">Email ID<span class="text-danger">*</span></label>
+                                  <input type="text" class="form-control" id="email1" name="email" for="email1">
                                   <small></small>
                                 </div>
-                              <div class="col- col-sm-6 col-lg-6 col-md-6">
-                                <label class="text-dark">User Type<span class="text-danger">*</span></label>
-                                <select class="form-select py-2" aria-label="Default select example" name="user_type" id="user_type1">
+                                </div>
+                              <div class="col- col-sm-6 col-lg-6 col-md-6 mt-3">
+                              <div class="form-outline">
+                                <label class="form-label">User Type<span class="text-danger">*</span></label>
+                                <select class="form-select" aria-label="Default select example" name="user_type" id="user_type1">
                                   <option value>Select User</option>
                                   <option value="0" >Admin</option>
                                   <option value="1">User</option>
                                 </select>
                               </div>
-                              <div class="col-12 col-sm-6 col-md-6 col-lg-6">
-                                <label class="text-dark"> State<span class="text-danger">*</span></label>
-                                <select class="form-select py-2" aria-label="Default select example"  name="status" id="status1">
+                              </div>
+                              <div class="col-12 col-sm-6 col-md-6 col-lg-6 mt-3">
+                              <div class="form-outline">
+                                <label class="form-label"> State<span class="text-danger">*</span></label>
+                                <select class="form-select" aria-label="Default select example"  name="status" id="status1">
                                   <option value>Select Status</option>
                                   <option value="0">Active</option>
                                   <option value="1">In Active</option>
                                 </select>
+                              </div>
                               </div>
                           
                           </div>
@@ -228,8 +258,8 @@ include 'includes/headertag.php';
                       </form>
                   </div>
                   <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-success" id="dataedit" data-dismiss="modal" >Save changes</button>
+                    <button type="button" class="btn btn-secondary  mb-0 btn_all" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-success  mb-0 btn_all" id="dataedit" data-dismiss="modal" >Save changes</button>
                   </div>
                 </div>
               </div>

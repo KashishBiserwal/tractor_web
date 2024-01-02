@@ -200,10 +200,10 @@ $('#save').on('click', function() {
                         <td>${status}</td>
                         <td>
                             <div class="float-start">
-                                <button class="btn btn-danger btn-sm" id="delete_user" onclick="destroy(${row.id});">
+                                <button class="btn btn-danger btn-sm" id="delete_user" onclick="destroy(${row.id});" style="padding:5px">
                                     <i class="fa fa-trash" style="font-size: 11px;"></i>
                                 </button>
-                                    <button class="btn btn-primary btn-sm btn_edit" data-toggle="modal"onclick="fetch_edit_data(${row.id});" data-target="#exampleModal" id="yourUniqueIdHere">
+                                    <button class="btn btn-primary btn-sm btn_edit" data-toggle="modal"onclick="fetch_edit_data(${row.id});" data-target="#exampleModal" id="yourUniqueIdHere" style="padding:5px">
                                     <i class="fas fa-edit" style="font-size: 11px;"></i>
                                   </button>
                             </div>

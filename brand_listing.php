@@ -27,9 +27,9 @@
     include 'includes/left_nav.php';
     include 'includes/header_admin.php';
     ?>
-   <section style="padding: 0 15px;">
+   <section style="padding: 0 15px 0 60px;">
     <div class="">
-      <div class="container">
+      <div class="">
         <div class="card-body d-flex align-items-center justify-content-between page_title">
           <nav aria-label="breadcrumb">
             <ol class="breadcrumb my-0 ms-2">
@@ -41,7 +41,7 @@
           </nav>
           
 
-          <button type="button" id="add_trac" class="btn add_btn btn-success float-right" data-bs-toggle="modal"  data-bs-target="#staticBackdrop">
+          <button type="button" id="add_trac" class="btn add_btn btn-success float-right btn_all" data-bs-toggle="modal"  data-bs-target="#staticBackdrop">
             <i class="fa fa-plus" aria-hidden="true"></i>Add New Brand
           </button>
 
@@ -106,27 +106,34 @@
         </div>
       </div>
     </div>
-    <div class="container">
+    <div class="">
       <!-- Filter Card -->
-      <div class="filter-card mb-2">
+      <div class="filter-card">
         <div class="card-body">
+        <form action="" id="myform" class="mb-0">
           <div class="row">
-            <div class="col-12 col-sm-12 col-md-3 col-lg-3">
-                    <label class="text-dark fw-bold mb-2">Search By Brand</label>
-                    <select class="js-select2 form-select" id="brand">
+            <div class="col-12 col-sm-12 col-md-4 col-lg-4">
+            <div class="form-outline">
+                    <label class="form-label">Search By Brand</label>
+                    <select class="js-select2 form-select form-control mb-0" id="brand">
                     </select>
               </div>
-            <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-4 pt-1 text-center">
-                <button type="button" class="btn-success btn px-5" id="Search">Search</button>
-                <button type="button" class="btn-success btn px-5 mx-2 " id="Reset">Reset</button>
+            </div>
+            <div class="col-12 col-sm-12 col-md-8 col-lg-8  text-center">
+              <div class="d-flex float-end">
+                <button type="button" class="btn-success btn px-5 btn_all" id="Search">Search</button>
+                <button type="button" class="btn-success btn px-5 mx-2 btn_all" id="Reset">Reset</button>
+              </div>
+                
             </div>
           </div>
+        </form>
         </div>
       </div>
       <!-- Table Card -->
       <div class=" mb-5">
-            <div class="table-responsive shadow bg-white">
-              <table id="example" class="table bg-white table-striped table-hover py-1" width="100%">
+            <div class="table-responsive shadow bg-white mt-3">
+              <table id="example" class="table table-striped  table-hover table-bordered  no-footer" width="100%; margin-bottom: 15px;">
                 <thead class="">
                   <tr>
                     <th class="d-none d-md-table-cell text-white py-2">S.No.</th>
@@ -319,11 +326,11 @@ function get() {
                         <td>${serialNumber}</td>
                         <td>${row.brand_name}</td>
                         <td>${row.brand_img}</td>
-                        <td><div class="float-start"><button class="btn btn-warning btn-sm text-white mx-1" data-bs-toggle="modal" onclick="fetch_data(${row.id});" data-bs-target="#exampleModal">
+                        <td><div class="float-start"><button class="btn btn-warning btn-sm text-white mx-1" data-bs-toggle="modal" onclick="fetch_data(${row.id});" data-bs-target="#exampleModal" style="padding:5px">
                         <i class="fa-solid fa-eye" style="font-size: 11px;"></i></button>
-                        <button class="btn btn-primary btn-sm btn_edit" onclick="fetch_edit_data(${row.id});" data-bs-toggle="modal" data-bs-target="#staticBackdrop_model" id="yourUniqueIdHere">
+                        <button class="btn btn-primary btn-sm btn_edit" onclick="fetch_edit_data(${row.id});" data-bs-toggle="modal" data-bs-target="#staticBackdrop_model" id="yourUniqueIdHere" style="padding:5px">
                           <i class="fas fa-edit" style="font-size: 11px;"></i></button>
-                        </button> <button class="btn btn-danger btn-sm mx-1" id="delete_user" onclick="destroy(${row.id});"><i class="fa fa-trash" style="font-size: 11px;"></i></button></div>
+                        </button> <button class="btn btn-danger btn-sm mx-1" id="delete_user" onclick="destroy(${row.id});" style="padding:5px"><i class="fa fa-trash" style="font-size: 11px;"></i></button></div>
                         
                         </td>
                     `;
