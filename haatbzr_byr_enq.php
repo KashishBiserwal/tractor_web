@@ -198,7 +198,7 @@
             <div class="col-12 col-sm-6 col-md-6 col-lg-6 mt-2" hidden>
               <div class="form-outline">
                 <label class="form-label" for="first_name">User Name</label>
-                <input type="text" id="username" name="user_name" class=" data_search form-control input-group-sm py-2" />
+                <input type="text" id="username" name="name" class=" data_search form-control input-group-sm py-2" />
               </div>
             </div>
             <div class="col-12 col-sm-6 col-md-6 col-lg-6 mt-2">
@@ -257,28 +257,17 @@
                 <input type="text" id="price" name="price_name" class=" data_search form-control input-group-sm py-2" />
               </div>
             </div>
-            <!-- <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-              <div class="upload__box mt-3">
-                <div class="upload__btn-box text-center">
-                  <label >
-                  <p class="upload__btn ">Upload images</p>
-                    <input type="file" name='files[]' multiple="" data-max_length="20" class="upload__inputfile" id="image_pic">
-                  </label>
-                </div>
-                <div id="selectedImagesContainer2" class="upload__img-wrap"></div>
-              </div>
-            </div> -->
             <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-    <div class="upload__box mt-3">
-        <div class="upload__btn-box text-center">
-            <label>
-                <p class="upload__btn">Upload images</p>
-                <input type="file" name='files[]' multiple="" data-max_length="20" class="upload__inputfile" id="image_pic">
-            </label>
-        </div>
-        <div id="selectedImagesContainer2" class="upload__img-wrap"></div>
-    </div>
-</div>
+                <div class="upload__box mt-3">
+                    <div class="upload__btn-box text-center">
+                        <label>
+                            <p class="upload__btn">Upload images</p>
+                            <input type="file" name='files[]' multiple="" data-max_length="20" class="upload__inputfile" id="image_pic">
+                        </label>
+                    </div>
+                    <div id="selectedImagesContainer2" class="upload__img-wrap row"></div>
+                </div>
+            </div>
           </div>
         </form>
       </div>

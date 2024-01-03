@@ -1,4 +1,6 @@
 $(document).ready(function(){
+
+  ImgUpload();
     $('#update_button').click(edit_data_id);
     
           jQuery.validator.addMethod("customPhoneNumber", function(value, element) {
@@ -73,8 +75,7 @@ $(document).ready(function(){
       
       });
       
-  
-      });
+    });
       
       
       // fetch data
@@ -100,7 +101,7 @@ $(document).ready(function(){
                       
                     
                       const tableRow = document.createElement('tr');
-                      console.log(tableRow, 'helloooo');
+                      // console.log(tableRow, 'helloooo');
 
                         tableRow.innerHTML = `
                             <td>${row.haat_bazar_id}</td>
@@ -125,7 +126,7 @@ $(document).ready(function(){
                             </td>
                         `;
                         tableBody.appendChild(tableRow);
-                        console.log('suman sahu ');
+                        
                     });
                 } else {
                     tableBody.innerHTML = '<tr><td colspan="9">No valid data available</td></tr>';
@@ -233,8 +234,6 @@ function openView(userId) {
   }
 
 
-
-
     //   Edit data
     function fetch_edit_data(userId) {
         var apiBaseURL = APIBaseURL;
@@ -258,7 +257,7 @@ function openView(userId) {
             $('#district').val(userData.district);
             $('#tehsil').val(userData.tehsil);
             $('#price').val(userData.price);
-            
+
             $("#selectedImagesContainer2").empty();
             if (userData.image_names) {
               var imageNamesArray = Array.isArray(userData.image_names) ? userData.image_names : userData.image_names.split(',');
@@ -268,16 +267,16 @@ function openView(userId) {
                   console.log(imageUrl);
           
                   var newCard = `
-                      <div class="col-12 col-md-6 col-lg-4 mb-3">
+                      <div class="col-12 col-md-6 col-lg-4 mb-3 position-relative">
+                      <div class='upload__img-close'></div>
                           <div class="brand-main d-flex box-shadow mt-1 py-2 text-center shadow">
                               <a class="weblink text-decoration-none text-dark" title="Tyre Image">
-                                  <img class="row img-fluid w-100 h-100" src="${imageUrl}" alt="Tyre Image">
+                                  <img class=" img-fluid w-100 h-100" src="${imageUrl}" alt="Tyre Image">
                               </a>
                           </div>
                       </div>
                   `;
           
-                  // Append the new image element to the container
                   $("#selectedImagesContainer2").append(newCard);
               });
           }
@@ -288,11 +287,9 @@ function openView(userId) {
         });
       }
       
-      
-      
-      function edit_data_id(){
-       var edit_id = $("#idUser").val();
-       var enquiry_type_id = $('#enquiry_type_id').val();
+      function edit_data_id() {
+        var edit_id = $("#username").val();
+        var enquiry_type_id = $('#enquiry_type_id').val();
         var first_name = $("#first_name1").val();
         var last_name = $("#last_name1").val();
         var mobile = $("#mobile_no").val();
@@ -300,37 +297,85 @@ function openView(userId) {
         var district = $("#district").val();
         var tehsil = $("#tehsil").val();
         var price = $("#price").val();
+    
         var paraArr = {
-          'enquiry_type_id':enquiry_type_id,
-          'first_name': first_name,
-          'last_name': last_name,
-          'mobile': mobile,
-          'state': state,
-          'district': district,
-          'tehsil': tehsil,
-          'price': price,
-          'id': edit_id,
-      
+            'enquiry_type_id': enquiry_type_id,
+            'first_name': first_name,
+            'last_name': last_name,
+            'mobile': mobile,
+            'state': state,
+            'district': district,
+            'tehsil': tehsil,
+            'price': price,
+            'id': edit_id
         };
+    
         var apiBaseURL = APIBaseURL;
-        var url = apiBaseURL + 'haat_bazar/'+ edit_id;
-      
+        var url = apiBaseURL + 'haat_bazar/' + edit_id;
         var headers = {
-          'Authorization': 'Bearer ' + localStorage.getItem('token')
+            'Authorization': 'Bearer ' + localStorage.getItem('token')
         };
+    
         $.ajax({
-          url: url,
-            type: "PUT",
+            url: url,
+            type: 'PUT',
             data: paraArr,
             headers: headers,
             success: function (result) {
-              console.log(result, "result");
-              get();
-              console.log("updated successfully");
-              alert('successfully updated..!')
+                console.log(result, "result");
+                console.log("updated successfully");
+               window.location.reload();
+                // alert('Successfully updated..!');
+                // $('#data_for_edit').modal('hide'); 
             },
             error: function (error) {
-              console.error('Error fetching data:', error);
+                console.error('Error updating data:', error);
             }
-        })
-      }
+        });
+    }
+  
+  // image script 
+  function ImgUpload() {
+    var imgWrap = "";
+    var imgArray = [];
+
+    $('.upload__inputfile').on('change', function (e) {
+        imgWrap = $(this).closest('.upload__box').find('.upload__img-wrap');
+        var maxLength = $(this).attr('data-max_length');
+
+        var files = e.target.files;
+        var filesArr = Array.prototype.slice.call(files);
+        var iterator = 0;
+
+        filesArr.forEach(function (f, index) {
+            if (!f.type.match('image.*')) {
+                return;
+            }
+
+            if (imgArray.length >= maxLength) {
+                return false;
+            } else {
+                imgArray.push(f);
+
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    var html = "<div class='upload__img-box'><div style='background-image: url(" + e.target.result + ")' data-number='" + $(".upload__img-close").length + "' data-file='" + f.name + "' class='img-bg'><div class='upload__img-close'></div></div></div>";
+                    imgWrap.append(html);
+                    iterator++;
+                }
+                reader.readAsDataURL(f);
+            }
+        });
+    });
+
+    $('.upload__img-wrap').on('click', ".upload__img-close", function (e) {
+        var file = $(this).parent().data("file");
+        for (var i = 0; i < imgArray.length; i++) {
+            if (imgArray[i].name === file) {
+                imgArray.splice(i, 1);
+                break;
+            }
+        }
+        $(this).parent().parent().remove();
+    });
+}
