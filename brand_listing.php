@@ -394,26 +394,26 @@ function fetch_edit_data(userId) {
                 $("#selectedImagesContainer2").empty();
 
                 if (response.brands[0].brand_img) {
-          var imageNamesArray = Array.isArray(response.brands[0].brand_img) ? response.brands[0].brand_img : response.brands[0].brand_img.split(',');
-          var countclass=0;
-          imageNamesArray.forEach(function (brand_img) {
-              var imageUrl = 'http://tractor-api.divyaltech.com/uploads/brand_img/' + brand_img.trim();
-              countclass++;
-              var newCard = `
-                  <div class="col-12 col-md-6 col-lg-4 position-relative" style="left:6px;">
-                  <div class="upload__img-close_button " id="closeId${countclass}" onclick="removeImage(this);""></div>
-                      <div class="brand-main d-flex box-shadow mt-1 py-2 text-center shadow upload__img-closeDy${countclass}"">
-                          <a class="weblink text-decoration-none text-dark" title=" Image">
-                              <img class="img-fluid w-100 h-100" src="${imageUrl}" alt=" Image">
-                          </a>
-                      </div>
-                  </div>
-              `;
-      
-              // Append the new image element to the container
-              $("#selectedImagesContainer2").append(newCard);
-          });
-      }
+                  var imageNamesArray = Array.isArray(response.brands[0].brand_img) ? response.brands[0].brand_img : response.brands[0].brand_img.split(',');
+                  var countclass=0;
+                  imageNamesArray.forEach(function (brand_img) {
+                      var imageUrl = 'http://tractor-api.divyaltech.com/uploads/brand_img/' + brand_img.trim();
+                      countclass++;
+                      var newCard = `
+                          <div class="col-12 col-md-6 col-lg-4 position-relative" style="left:6px;">
+                          <div class="upload__img-close_button " id="closeId${countclass}" onclick="removeImage(this);""></div>
+                              <div class="brand-main d-flex box-shadow mt-1 py-2 text-center shadow upload__img-closeDy${countclass}"">
+                                  <a class="weblink text-decoration-none text-dark" title=" Image">
+                                      <img class="img-fluid w-100 h-100" src="${imageUrl}" alt=" Image">
+                                  </a>
+                              </div>
+                          </div>
+                      `;
+              
+                    // Append the new image element to the container
+                    $("#selectedImagesContainer2").append(newCard);
+                 });
+                }
     },
     error: function(error) {
       console.error('Error fetching user data:', error);

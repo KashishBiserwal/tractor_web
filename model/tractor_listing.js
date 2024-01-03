@@ -3,13 +3,12 @@ var editId_state= false;
 $(document).ready(function () {
   get_lookup();
   // $('.js-example-basic-multiple').select2();
-
+  fetch_edit_data();
     // getTractorList();
     // BackgroundUpload();
    
     $('#submitbtn').click(store);
     console.log('fjfej');
-    fetch_edit_data();
   
   });
 
@@ -17,7 +16,16 @@ $(document).ready(function () {
  
 
 
-
+  function removeImage(ele){
+    console.log("print ele");
+      console.log(ele);
+      let thisId=ele.id;
+      thisId=thisId.split('closeId');
+      thisId=thisId[1];
+      $("#"+ele.id).remove();
+      $(".upload__img-closeDy"+thisId).remove();
+  
+    }
 // fetch lookup data in select box
 function get_lookup() {
   console.log('initsfd')
@@ -134,10 +142,10 @@ function store(event) {
     var TORQUE = $('#TORQUE').val();
     var TRANSMISSION_TYPE = $('#TRANSMISSION_TYPE').val();
     var TRANSMISSION_CLUTCH = $('#TRANSMISSION_CLUTCH').val();
-    var min_forward_speed = $('#min_forward_speed').val();
-    var max_forward_speed = $('#max_forward_speed').val();
+     var min_forward_speed = $('#min_forward_speed').val();
+    // var max_forward_speed = $('#max_forward_speed').val();
     var min_reverse_speed = $('#min_reverse_speed').val();
-    var max_reverse_speed = $('#max_reverse_speed').val();
+    // var max_reverse_speed = $('#max_reverse_speed').val();
     var STEERING_DETAIL = $('#STEERING_DETAIL').val();
     var STEERING_COLUMN = $('#STEERING_COLUMN').val();
     var power_take_off_type = $('#POWER_TAKEOFF_TYPE').val();
@@ -153,6 +161,7 @@ function store(event) {
     var accessory =  JSON.stringify(selectedOptions);
     var STATUS = $('#STATUS').val();
     var description = $('#description').val();
+    
 
    
     // var apiBaseURL =APIBaseURL;
@@ -170,22 +179,25 @@ function store(event) {
 
     // Check if an ID is present in the URL, indicating edit mode
     var urlParams = new URLSearchParams(window.location.search);
-    var editId_state = urlParams.get('product_id');
+    editId_state = urlParams.get('trac_edit');
     console.log("editId from URL:", editId_state);
 
     var url, method;
+    console.log('edit state', editId_state);
+    //console.log('edit id', EditIdmain_);
+    var _method = 'post'; // Default value for _method
 
-    if (editId_state != '' && editId_state != null ) {
-        console.log(editId);
-        // Update mode
-        url = apiBaseURL + 'storeProduct?id=' + EditIdmain_; 
-        console.log(url);
-        method = 'PUT';
+    if (editId_state !== '' && editId_state !== null) {
+      // Update mode
+      _method = 'put';
+      url = apiBaseURL + 'updateProduct/' + editId_state ;
+      console.log(url);
+      method = 'POST'; 
     } else {
-        // Add mode
-        url =  apiBaseURL + 'storeProduct';
-        console.log('prachi');
-        method = 'POST';
+      // Add mode
+      url = apiBaseURL + 'storeProduct';
+      console.log('prachi');
+      method = 'POST';
     }
     var data = new FormData();
    
@@ -193,8 +205,8 @@ function store(event) {
       data.append("images[]", image_names[x]);
       console.log("multiple image", image_names[x]);
     }
-
-    data.append('brand_id', brand_id);
+    data.append('_method', _method);
+      data.append('brand_id', brand_id);
       data.append('model', model);
       data.append('product_type_id', product_type_id);
       data.append('image_type_id', image_type_id);
@@ -216,13 +228,13 @@ function store(event) {
       data.append('torque', TORQUE);
       data.append('transmission_type_id', TRANSMISSION_TYPE);
       data.append('transmission_clutch_id', TRANSMISSION_CLUTCH);
-      data.append('transmission_reverse', min_forward_speed);
-      data.append('transmission_forward', max_forward_speed);
-      data.append('min_reverse_speed', min_reverse_speed);
-      data.append('max_reverse_speed', max_reverse_speed);
+      data.append('transmission_forward', min_forward_speed);
+      // data.append('max_forward_speed', max_forward_speed);
+      data.append('transmission_reverse', min_reverse_speed);
+      // data.append('max_reverse_speed', max_reverse_speed);
       data.append('steering_details_id', STEERING_DETAIL);
       data.append('steering_column_id', STEERING_COLUMN);
-      data.append('power_take_off_type_id', power_take_off_type);
+      data.append('power_take_off_type', power_take_off_type);
       data.append('power_take_off_rpm', power_take_off_rpm);
       data.append('total_weight', totat_weight);
       data.append('wheel_base', WHEEL_BASE);
@@ -256,7 +268,10 @@ function store(event) {
       }
     });
   }
+
+  
   function fetch_edit_data() {
+    alert("ding dong");
     console.log(window.location)
     var urlParams = new URLSearchParams(window.location.search);
     var productId = urlParams.get('trac_edit');
@@ -300,10 +315,10 @@ function store(event) {
         $('#TORQUE').val(editData.torque);
         $('#TRANSMISSION_TYPE').val(editData.transmission_type_id);
         $('#TRANSMISSION_CLUTCH').val(editData.transmission_clutch_id);
-        $('#min_forward_speed').val(editData.transmission_reverse);
-        $('#max_forward_speed').val(editData.transmission_forward);
-        $('#min_reverse_speed').val(editData.min_reverse_speed);
-        $('#max_reverse_speed').val(editData.max_reverse_speed);
+        $('#transmission_forward').val(editData.min_forward_speed);
+        // $('#max_forward_speed').val(editData.transmission_forward);
+        $('#transmission_reverse').val(editData.min_reverse_speed);
+        // $('#max_reverse_speed').val(editData.max_reverse_speed);
         $('#STEERING_DETAIL').val(editData.steering_details_id);
         $('#STEERING_COLUMN').val(editData.steering_column_id);
         $('#POWER_TAKEOFF_TYPE').val(editData.power_take_off_type_id);
@@ -318,6 +333,31 @@ function store(event) {
         $('#ass_list').val(editData.accessory_id);
         $('#STATUS').val(editData.status_id);
         $('#description').val(editData.description);
+
+        $("#selectedImagesContainer2").empty();
+
+           if (editData.image_names) {
+             var imageNamesArray = Array.isArray(editData.image_names) ? editData.image_names : editData.image_names.split(',');
+             console.log('imageNamesArray',imageNamesArray);  
+             var countclass = 0;
+             imageNamesArray.forEach(function (image_names) {
+                 var imageUrl = 'http://tractor-api.divyaltech.com/uploads/product_img/' + image_names.trim();
+            
+                 countclass++;
+                 var newCard = `
+                     <div class="col-12 col-md-6 col-lg-4 position-relative" style="left:6px;">
+                         <div class="upload__img-close_button " id="closeId${countclass}" onclick="removeImage(this);"></div>
+                         <div class="brand-main d-flex box-shadow mt-1 py-2 text-center shadow upload__img-closeDy${countclass}">
+                             <a class="weblink text-decoration-none text-dark" title="Image">
+                                 <img class="img-fluid w-100 h-100" src="${imageUrl}" alt="Image">
+                              </a>
+                          </div>
+                      </div>
+       `;
+       $("#selectedImagesContainer2").append(newCard);
+});
+  
+  }
         
       },
       error: function(error) {

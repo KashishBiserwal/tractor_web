@@ -363,7 +363,7 @@ include 'includes/headertag.php';
                                         <div class="col-12  ">
                                           <div class="form-outline mt-3">
                                             <label class="form-label text-dark">Description</label>
-                                            <textarea rows="3" cols="70" class="w-100 py-1" minlength="1" maxlength="" id="textarea_d2" name="textarea_d"></textarea>
+                                            <textarea rows="3" cols="70" class="w-100 py-1" minlength="1" maxlength="" id="textarea_d2" name="textarea_d2"></textarea>
                                           </div>
                                         </div>
                                         <div class="col-12 col-lg-6 col-md-6 col-sm-6">

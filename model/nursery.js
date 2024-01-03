@@ -1,9 +1,8 @@
 
  $(document).ready(function(){
-   ImgUpload();
   $('#btn_sb').click(store);
   $('#undate_btn').click(edit_data_id);
-  nursery_data();
+  
         jQuery.validator.addMethod("customPhoneNumber", function(value, element) {
         return /^[6-9]\d{9}$/.test(value); 
         }, "Phone number must start with 6 or above");
@@ -21,9 +20,9 @@
       lname:{
         required: true,
       },
-      textarea_d:{
-        required: true,
-      },
+      // textarea_d:{
+      //   required: true,
+      // },
       _image:{
         required: true,
       },
@@ -54,9 +53,9 @@
       lname: {
         required: "This field is required",
       },
-      textarea_d: {
-        required: "This field is required",
-      },
+      // textarea_d: {
+      //   required: "This field is required",
+      // },
       _image: {
         required: "This field is required",
       },
@@ -92,7 +91,9 @@
     });
   
 // for image
-
+jQuery(document).ready(function () {
+  ImgUpload();
+});
 
   function ImgUpload() {
     var imgWrap = "";
@@ -156,6 +157,7 @@
 
   
   }
+
 
   function removeImage(ele){
     console.log(ele);
@@ -224,7 +226,7 @@ function store(event) {
           $('#name, #fname, #lname, #number, #state_, #dist, #tehsil, #loc, #textarea_d, #_image').val('');
 
           // Reload the page (try without forcing a full reload)
-          window.location.reload();
+          // window.location.reload();
 
           alert('Successfully inserted!');
       },
@@ -238,58 +240,57 @@ function store(event) {
 
 
         // fetch data
-  function nursery_data() {
-    var apiBaseURL = APIBaseURL;
-    var url = apiBaseURL + 'nursery_data';
-    $.ajax({
-        url: url,
-        type: "GET",
-        headers: {
-            'Authorization': 'Bearer ' + localStorage.getItem('token')
-        },
-        success: function (data) {
-            // console.log(data);
-
-            const tableBody = document.getElementById('data-table');
-
-            if (data.nursery_data && data.nursery_data.length > 0) {
-                // console.log(typeof product);
-
-                data.nursery_data.forEach(row => {
-                  
-                  const tableRow = document.createElement('tr');
-                  // console.log(tableRow, 'helloooo');
-                    tableRow.innerHTML = `
-                        <td>${row.id}</td>
-                        <td>${row.nursery_name}</td>
-                        <td>${row.mobile}</td>
-                        <td>${row.state}</td>
-                        <td>${row.district}</td>
-                        <td>
-                            <div class="d-flex">
-                            <button class="btn btn-warning text-white btn-sm mx-1" onclick="openViewdata(${row.product_id});" data-bs-toggle="modal" data-bs-target="#view_model_nursery" id="viewbtn">
-                            <i class="fa fa-eye" style="font-size: 11px;"></i>
-                            </button>
-                            <button class="btn btn-primary btn-sm btn_edit" onclick=" fetch_edit_data_nursery(${row.id});" data-bs-toggle="modal" data-bs-target="#editmodel" id="your_UniqueId">
-                            <i class="fas fa-edit" style="font-size: 11px;"></i>
-                         </button>
-                            <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.id});">
-                            <i class="fa fa-trash" style="font-size: 11px;"></i>
-                          </button>
-                            </div>
-                        </td>
-                    `;
-                    tableBody.appendChild(tableRow);
-                });
-            } else {
-                tableBody.innerHTML = '<tr><td colspan="9">No valid data available</td></tr>';
-            }
-        },
-        error: function (error) {
-            console.error('Error fetching data:', error);
-        }
-    });
-}
+        function nursery_data() {
+          var apiBaseURL = APIBaseURL;
+          var url = apiBaseURL + 'nursery_data';
+          $.ajax({
+              url: url,
+              type: "GET",
+              headers: {
+                  'Authorization': 'Bearer ' + localStorage.getItem('token')
+              },
+              success: function (data) {
+                  const tableBody = document.getElementById('data-table');
+                  let serialNumber = 1;
+      
+                  if (data.nursery_data && data.nursery_data.length > 0) {
+                      data.nursery_data.forEach(row => {
+                          const tableRow = document.createElement('tr');
+                          tableRow.innerHTML = `
+                              <td>${serialNumber}</td>
+                              <td>${row.nursery_name}</td>
+                              <td>${row.mobile}</td>
+                              <td>${row.state}</td>
+                              <td>${row.district}</td>
+                              <td>
+                                  <div class="d-flex">
+                                      <button class="btn btn-warning text-white btn-sm mx-1" onclick="openViewdata(${row.product_id});" data-bs-toggle="modal" data-bs-target="#view_model_nursery" id="viewbtn">
+                                          <i class="fa fa-eye" style="font-size: 11px;"></i>
+                                      </button>
+                                      <button class="btn btn-primary btn-sm btn_edit" onclick=" fetch_edit_data_nursery(${row.id});" data-bs-toggle="modal" data-bs-target="#editmodel" id="your_UniqueId">
+                                          <i class="fas fa-edit" style="font-size: 11px;"></i>
+                                      </button>
+                                      <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.id});">
+                                          <i class="fa fa-trash" style="font-size: 11px;"></i>
+                                      </button>
+                                  </div>
+                              </td>
+                          `;
+                          tableBody.appendChild(tableRow);
+                          serialNumber++;
+                      });
+                  } else {
+                      tableBody.innerHTML = '<tr><td colspan="9">No valid data available</td></tr>';
+                  }
+              },
+              error: function (error) {
+                  console.error('Error fetching data:', error);
+              }
+          });
+      }
+      
+      nursery_data();
+      
 // delete
 function destroy(id) {
   var apiBaseURL = APIBaseURL;
@@ -403,7 +404,7 @@ function fetch_edit_data_nursery(id) {
     headers: headers,
     success: function(response) {
       var userData = response.nursery_data[0];
-
+      $('#userId').val(userData.id);
       $('#nursery_name2').val(userData.nursery_name);
       $('#fname2').val(userData.first_name);
       console.log(userData.first_name);
@@ -451,55 +452,57 @@ function fetch_edit_data_nursery(id) {
 
 function edit_data_id(id){
   console.log(id);
-  console.log('suman sahu');
   var edit_id = $("#userId").val();
+  console.log(edit_id);
+  var image_names = document.getElementById('_image2').files;
+  var nursery_name = $("#nursery_name2").val();
+  console.log(nursery_name);
+  var first_name = $('#fname2').val();
+  var last_name = $('#lname2').val();
+  var mobile = $('#number2').val();
+  var state = $('#state2').val();
+  var district = $('#dist2').val();
+  var tehsil = $('#tehsil2').val();
+  var address = $('#loc2').val();
+  var description = $('#textarea_d2').val();
 
-   var nursery_name = $("#nursery_name2").val();
-   console.log(nursery_name);
-   var first_name = $("#fname2").val();
-   var last_name = $("#lname2").val();
-   var mobile = $("#number2").val();
-   var state = $("#state2").val();
-   var district = $("#dist2").val();
-   var tehsil = $("#tehsil2").val();
-   var address = $("#loc2").val();
-   var description = $("#textarea_d2").val();
-   var image_names = document.getElementById('_image2').files;
+  var apiBaseURL = APIBaseURL;
+  var url = apiBaseURL + 'nursery_data/' + edit_id;
+  var token = localStorage.getItem('token');
+  var _method = 'put';
+  var headers = {
+      'Authorization': 'Bearer ' + token
+  };
 
-   var paraArr = {
-    'nursery_name': nursery_name,
-     'first_name': first_name,
-     'last_name': last_name,
-     'mobile': mobile,
-     'state': state,
-     'district': district,
-     'tehsil': tehsil,
-     'address': address,
-     'description': description,
-     'id': edit_id,
-     'image_names': image_names,
+  var data = new FormData();
 
-     
- 
-   };
-  
-   var apiBaseURL = APIBaseURL;
-   var url = apiBaseURL + 'nursery_data/'+ edit_id; 
+  for (var x = 0; x < image_names.length; x++) {
+      data.append('images[]', image_names[x]);
+  }
+  data.append('_method', _method);
+  data.append('id',edit_id)
+  data.append('nursery_name', nursery_name);
+  data.append('first_name', first_name);
+  data.append('last_name', last_name);
+  data.append('mobile', mobile);
+  data.append('state', state);
+  data.append('district', district);
+  data.append('tehsil', tehsil);
+  data.append('address', address);
+  data.append('description', description);
 
-   console.log(url); 
-   var headers = {
-     'Authorization': 'Bearer ' + localStorage.getItem('token')
-   };
-   $.ajax({
-     url: url,
-       type: "PUT",
-       data: paraArr,
-       headers: headers,
+  $.ajax({
+      url: url,
+      type: "POST",
+      data: data,
+      headers: headers,
+      processData: false,
+      contentType: false,
        success: function (result) {
          console.log(result, "result");
         //  get();
         // nursery_data();
-        window.location.reload();
+        // window.location.reload();
          console.log("updated successfully");
          alert('successfully updated..!')
        },
