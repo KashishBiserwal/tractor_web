@@ -36,7 +36,7 @@
             <div class="modal-dialog modal-xl modal-dialog-centered">
               <div class="modal-content modal_box">
                 <div class="modal-header modal_head">
-                  <h5 class="modal-title text-white fw-bold" id="staticBackdropLabel"> Add Tyres </h5>
+                  <h5 class="modal-title text-white fw-bold" id="staticBackdropLabel"> Edit Tyres </h5>
                   <button type="button" class="btn-close btn-success" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body bg-light">
@@ -183,7 +183,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div> -->
               <div class="modal-body">
-                <h4 class="fw-bold mb-2">Brand Information</h4>
+                <h4 class="fw-bold mb-2">Tyre Information</h4>
                 <div class="container">
                   <div class="row">
                     <div class="col-12 col-lg-6 col-sm-6 col-md-6">

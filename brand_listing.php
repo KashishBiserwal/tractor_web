@@ -161,18 +161,24 @@
                   <div class="">
                                     <div class="">
                                       <div class="row">
-                                        
+                                      <div class="col- col-sm-6 col-lg-6 col-md-6 mt-3" hidden>
+                              <div class="form-outline">
+                                  <label class="form-label"> id Name<span class="text-danger">*</span></label>
+                                          <input type="text" class="form-control py-2" for="idUser"  id="idUser" name="first_name" placeholder="Enter First Name">
+                                  <small></small>
+                                </div>
+                              </div>
                                         <div class="col- col-sm-6 col-lg-6 col-md-6">
                                           <label class="text-dark"> Brand Name<span class="text-danger">*</span></label>
                                           <input type="text" class="form-control py-2" id="brand_name1" placeholder="Enter brand">
                                           <small></small>
                                         </div>
                                         <div class="col-12 col-sm-4 col-lg-4 col-md-4 ps-3">
-                                          <div class="background__box mt-4 pt-1">
+                                        <div class="background__box mt-4 pt-1">
                                                 <div class="background__btn-box ">
                                                     <label class="background__btn">
                                                     <p class="text-white bg-success p-2 rounded">Upload images</p>
-                                                        <input type="file" id="brand_img1" data-max_length="20"name="brand_img"  ref="fileInput"
+                                                        <input type="file" id="brand_img" data-max_length="20"name="brand_img"  ref="fileInput"
                                                         style="display: none"
                                                         @change="handleFileInput"
                                                         accept="image/png, image/jpg, image/jpeg" class="background__inputfile" id="banner_image">
@@ -180,7 +186,7 @@
                                                     </label>
                                                 </div>
                                                 <div class="">
-                                                    <div class="background__img-wrap"></div>
+                                                    <div class="background__img-wrap"  id="selectedImagesContainer2"></div>
                                                 </div>
                                           </div>
                                         </div>
@@ -256,7 +262,18 @@
      $(document).ready(function() {
       BackgroundUpload();
       $('#save').click(store);
-      $('#dataedit').click(edit_brand);
+      $('#save_brand').click(edit_brand);
+
+      function removeImage(ele){
+  console.log("print ele");
+    console.log(ele);
+    let thisId=ele.id;
+    thisId=thisId.split('closeId');
+    thisId=thisId[1];
+    $("#"+ele.id).remove();
+    $(".upload__img-closeDy"+thisId).remove();
+
+  }
     });
     // store data
   function store(event) {
@@ -369,10 +386,32 @@ function fetch_edit_data(userId) {
       // var userData = response.brands[0];
 
       $('#brand_name1').val(response.brands[0].brand_name);
-      $('#brand_img1').val(response.brands[0].brand_img);
-     
+      // $('#brand_img1').val(response.brands[0].brand_img);
+                // Append the new card to the container
+                // productContainer.append(newCard);
+                $("#selectedImagesContainer2").empty();
 
-      // $('#exampleModal').modal('show');
+                if (response.brands[0].brand_img) {
+          var imageNamesArray = Array.isArray(response.brands[0].brand_img) ? response.brands[0].brand_img : response.brands[0].brand_img.split(',');
+      
+          imageNamesArray.forEach(function (brand_img) {
+              var imageUrl = 'http://tractor-api.divyaltech.com/uploads/brand_img/' + brand_img.trim();
+      
+              var newCard = `
+                  <div class="col-12 col-md-6 col-lg-4 position-relative" style="left:6px;">
+                  <div class="background__img-close"></div>
+                      <div class="brand-main d-flex box-shadow mt-1 py-2 text-center shadow">
+                          <a class="weblink text-decoration-none text-dark" title=" Image">
+                              <img class="img-fluid w-100 h-100" src="${imageUrl}" alt=" Image">
+                          </a>
+                      </div>
+                  </div>
+              `;
+      
+              // Append the new image element to the container
+              $("#selectedImagesContainer2").append(newCard);
+          });
+      }
     },
     error: function(error) {
       console.error('Error fetching user data:', error);
@@ -382,35 +421,43 @@ function fetch_edit_data(userId) {
 
 function edit_brand(){
    alert('fherjlkferif');
+  var edit_id = $("#idUser").val();
+  console.log(edit_id);
+  var brand_name = document.getElementById('brand_name1').value;
+  console.log(brand_name);
+  var _method = 'put';
+        var brand_img1 = document.getElementById('brand_img1').files[0];
 
-  var brand1 = $("#brand_name1").val();
-  var brand_img1 = $("#brand_img1").val();
-
-  var paraArr = {
-    'brand_name': brand1,
-    'image': brand_img1,
-  };
-  var apiBaseURL = APIBaseURL;
-  var url = apiBaseURL + 'updateBrands/' + 3;
-
-  var headers = {
-    'Authorization': 'Bearer ' + localStorage.getItem('token')
-  };
-  $.ajax({
-    url: url,
-      type: "PUT",
-      data: paraArr,
+        var formData = new FormData();
+        formData.append('brand_name', brand_name);
+        formData.append('brand_img', brand_img1);
+        formData.append('_method', _method);
+        formData.append('id', edit_id,);
+   var url = '<?php echo $APIBaseURL; ?>updateBrands/' + 17;
+    console.log(url);
+    var token = localStorage.getItem('token');
+    var headers = {
+      'Authorization': 'Bearer ' + token
+    };
+    $.ajax({
+      url: url,
+      type: "POST",
+      data:formData,
+      processData: false, // Don't process the data
+      contentType: false,
       headers: headers,
       success: function (result) {
         console.log(result, "result");
-        get();
-        console.log("updated successfully");
-        alert('successfully updated..!')
+        // Redirect to a success page or perform other actions
+       
+        console.log("Add successfully");
+        alert('successfully inserted..!')
       },
       error: function (error) {
         console.error('Error fetching data:', error);
+        // window.location.href = baseUrl + "login.php";
       }
-  })
+    });
 }
 
 
@@ -435,14 +482,17 @@ function fetch_data(id) {
         console.log(data, 'abc');
         document.getElementById('brand_name2').innerText=data.brands[0].brand_name;
         console.log(data.brands[0].brand_name);
-
+       
         var productContainer = $("#related_brand");
         $("#related_brand").empty();
+        var countclass=0;
         if (data.brands && data.brands.length > 0) {
             data.brands.forEach(function (b) {
+              countclass++;
                 var newCard = `
                 <div class=" col-6 col-lg-6 col-md-6 col-sm-6">
-                        <div class="brand-main box-shadow mt-2 text-center shadow">
+                <div class="upload__img-close_button " id="closeId${countclass}" onclick="removeImage(this);""></div>
+                        <div class="brand-main box-shadow mt-2 text-center shadow upload__img-closeDy${countclass}"">
                             <a class="weblink text-decoration-none text-dark" 
                                 title="Old Tractors">
                                 <img class="img-fluid w-50" src="http://tractor-api.divyaltech.com/uploads/brand_img/${b.brand_img}"
@@ -564,6 +614,8 @@ function destroy(id) {
       $(this).parent().parent().remove();
     });
 }
+
+
 
   </script>
 </body>

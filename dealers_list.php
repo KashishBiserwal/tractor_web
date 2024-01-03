@@ -221,11 +221,11 @@
             <div class="modal-dialog modal-lg modal-dialog-centered">
               <div class="modal-content modal_box">
                 <div class="modal-header modal_head">
-                  <h5 class="modal-title text-white fw-bold" id="staticBackdropLabel"> HaatBazar Details</h5>
+                  <h5 class="modal-title text-white fw-bold" id="staticBackdropLabel"> Dealers Details</h5>
                   <button type="button" class="btn-close btn-success" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                   <div class="modal-body bg-light">
-                    <div class="row ">
+                    <div class="row">
                        <div class="col-12">
                         <table class="table table-striped">
                         <tbody>

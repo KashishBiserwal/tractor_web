@@ -207,7 +207,7 @@ include 'includes/headertag.php';
                                 <div class="col- col-sm-6 col-lg-6 col-md-6 mt-3">
                                 <div class="form-outline">
                                   <label class="form-label"> First Name<span class="text-danger">*</span></label>
-                                          <input type="text" class="form-control" for="first_name" prachi="" id="first_name1" name="first_name" >
+                                  <input type="text" class="form-control" for="first_name" prachi="" id="first_name1" name="first_name" >
                                   <small></small>
                                 </div>
                                 </div>

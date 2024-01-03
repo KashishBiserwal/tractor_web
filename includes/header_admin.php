@@ -107,14 +107,14 @@ window.setInterval(() => {
   
 
     var currentdate = new Date();
-    console.log("hello");
-    console.log('currentdate',currentdate);
-    console.log('expiretime',expireTime);
+    // console.log("hello");
+    // console.log('currentdate',currentdate);
+    // console.log('expiretime',expireTime);
     if (currentdate >= expireTime) {
         
         user_logout();
         localStorage.removeItem("expireIn");
-        // window.location.href = baseUrl + "login.php";
+        window.location.href = baseUrl + "login.php";
     }
 
 }, 5000);

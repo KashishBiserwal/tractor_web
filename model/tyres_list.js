@@ -456,17 +456,25 @@ function fetch_edit_data(id) {
           $('#category').val(selectedCategoryId).prop('selected', true);
 
           // Clear existing images
-          $("#selectedImagesContainer").empty();
+          // $("#selectedImagesContainer").empty();
+
+          // if (Data.image_names) {
+          //     // Check if Data.image_names is an array
+          //     var imageNamesArray = Array.isArray(Data.image_names) ? Data.image_names : Data.image_names.split(',');
+
+          //     imageNamesArray.forEach(function (imageName) {
+          //         var imageUrl = 'http://tractor-api.divyaltech.com/uploads/tyre_img/' + imageName.trim();
+          $("#selectedImagesContainer1").empty();
 
           if (Data.image_names) {
-              // Check if Data.image_names is an array
-              var imageNamesArray = Array.isArray(Data.image_names) ? Data.image_names : Data.image_names.split(',');
+    var imageNamesArray = Array.isArray(Data.image_names) ? Data.image_names : Data.image_names.split(',');
 
-              imageNamesArray.forEach(function (imageName) {
-                  var imageUrl = 'http://tractor-api.divyaltech.com/uploads/tyre_img/' + imageName.trim();
+    imageNamesArray.forEach(function (image_names) {
+        var imageUrl = 'http://tractor-api.divyaltech.com/uploads/tyre_img/' + image_names.trim();
 
                   var newCard = `
-                      <div class="col-6 col-lg-6 col-md-6 col-sm-6">
+                      <div class="col-6 col-lg-6 col-md-6 col-sm-6 position-relative">
+                      <div class="background__img-close"></div>
                           <div class="brand-main d-flex box-shadow mt-2 text-center shadow">
                               <a class="weblink text-decoration-none text-dark" title="Tyre Image">
                                   <img class="img-fluid w-100 h-100 upload__inputfile" src="${imageUrl}" alt="Tyre Image">
@@ -478,7 +486,7 @@ function fetch_edit_data(id) {
                   `;
 
                   // Append the new image element to the container
-                  $("#selectedImagesContainer").append(newCard);
+                  $("#selectedImagesContainer1").append(newCard);
               });
           }
       },
@@ -513,25 +521,45 @@ function fetch_data(id) {
         document.getElementById('grade').innerText = data.tyre_details[0].tyre_size;
         document.getElementById('price').innerText = data.tyre_details[0].category;
     
-        $("#selectedImagesContainer1").empty();
+        // $("#selectedImagesContainer1").empty();
     
+        // if (data.tyre_details[0].image_names) {
+        //     var imageNamesArray = Array.isArray(data.tyre_details[0].image_names) ? data.tyre_details[0].image_names : data.tyre_details[0].image_names.split(',');
+    
+        //     imageNamesArray.forEach(function (imageName) {
+        //         var imageUrl = 'http://tractor-api.divyaltech.com/uploads/tyre_img/' + imageName.trim();
+    
+        //         var newCard = `
+        //             <div class="col-6 col-lg-6 col-md-6 col-sm-6">
+        //                 <div class="brand-main d-flex box-shadow   mt-2 text-center shadow">
+        //                     <a class="weblink text-decoration-none text-dark" title="Tyre Image">
+        //                         <img class="img-fluid w-100 h-100 " src="${imageUrl}" alt="Tyre Image">
+        //                     </a>
+        //                 </div>
+        //             </div>
+        //         `;
+        $("#selectedImagesContainer").empty();
+
         if (data.tyre_details[0].image_names) {
-            var imageNamesArray = Array.isArray(data.tyre_details[0].image_names) ? data.tyre_details[0].image_names : data.tyre_details[0].image_names.split(',');
-    
-            imageNamesArray.forEach(function (imageName) {
-                var imageUrl = 'http://tractor-api.divyaltech.com/uploads/engine_oil_img/' + imageName.trim();
-    
+  var imageNamesArray = Array.isArray(data.tyre_details[0].image_names) ? data.tyre_details[0].image_names : data.tyre_details[0].image_names.split(',');
+
+  imageNamesArray.forEach(function (imageName) {
+      var imageUrl = 'http://tractor-api.divyaltech.com/uploads/tyre_img/' + imageName.trim();
+
                 var newCard = `
-                    <div class="col-6 col-lg-6 col-md-6 col-sm-6">
-                        <div class="brand-main d-flex box-shadow   mt-2 text-center shadow">
+                    <div class="col-6 col-lg-6 col-md-6 col-sm-6 position-relative">
+                    <div class="background__img-close"></div>
+                        <div class="brand-main d-flex box-shadow mt-2 text-center shadow">
                             <a class="weblink text-decoration-none text-dark" title="Tyre Image">
-                                <img class="img-fluid w-100 h-100 " src="${imageUrl}" alt="Tyre Image">
+                                <img class="img-fluid w-100 h-100 upload__inputfile" src="${imageUrl}" alt="Tyre Image">
                             </a>
                         </div>
                     </div>
+                  
+                    
                 `;
     
-                $("#selectedImagesContainer1").append(newCard);
+                $("#selectedImagesContainer").append(newCard);
             });
         }
     },

@@ -1,5 +1,6 @@
 
  $(document).ready(function(){
+   ImgUpload();
   $('#btn_sb').click(store);
   $('#undate_btn').click(edit_data_id);
   nursery_data();
@@ -91,15 +92,14 @@
     });
   
 // for image
-jQuery(document).ready(function () {
-    ImgUpload();
-  });
+
 
   function ImgUpload() {
     var imgWrap = "";
     var imgArray = [];
 
     $('.upload__inputfile').each(function () {
+      console.log("ding dong")
       $(this).on('change', function (e) {
         imgWrap = $(this).closest('.upload__box').find('.upload__img-wrap');
         var maxLength = $(this).attr('data-max_length');
@@ -139,6 +139,8 @@ jQuery(document).ready(function () {
         });
       });
     });
+   
+   
 
     $('body').on('click', ".upload__img-close", function (e) {
       var file = $(this).parent().data("file");
@@ -150,9 +152,20 @@ jQuery(document).ready(function () {
       }
       $(this).parent().parent().remove();
     });
+
+
+  
   }
 
+  function removeImage(ele){
+    console.log(ele);
+    let thisId=ele.id;
+    thisId=thisId.split('closeId');
+    thisId=thisId[1];
+    $("#"+ele.id).remove();
+    $(".upload__img-closeDy"+thisId).remove();
 
+  }
 
 
 //  **********data add**********
@@ -406,13 +419,15 @@ function fetch_edit_data_nursery(id) {
 
       if (userData.image_names) {
           var imageNamesArray = Array.isArray(userData.image_names) ? userData.image_names : userData.image_names.split(',');
-      
+           
+          var countclass=0;
           imageNamesArray.forEach(function (image_names) {
               var imageUrl = 'http://tractor-api.divyaltech.com/uploads/nursery_img/' + image_names.trim();
-      
+              countclass++;
               var newCard = `
-                  <div class="col-12 col-md-6 col-lg-4">
-                      <div class="brand-main d-flex box-shadow mt-1 py-2 text-center shadow">
+                  <div class="col-12 col-md-6 col-lg-4 ">
+                  <div class="upload__img-close_button " id="closeId${countclass}" onclick="removeImage(this);"></div>
+                      <div class="brand-main d-flex box-shadow mt-1 py-2 text-center shadow upload__img-closeDy${countclass}">
                           <a class="weblink text-decoration-none text-dark" title="Tyre Image">
                               <img class="img-fluid w-100 h-100" src="${imageUrl}" alt="Tyre Image">
                           </a>
@@ -493,3 +508,5 @@ function edit_data_id(id){
        }
    })
  }
+
+ 

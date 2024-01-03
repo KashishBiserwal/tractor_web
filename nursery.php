@@ -9,9 +9,7 @@ include 'includes/headertag.php';
 <script> var baseUrl = "<?php echo $baseUrl; ?>";</script>
 <script src="<?php $baseUrl; ?>model/nursery.js"></script>
 <style>
-  .upload__img-wrap{
-
-  }
+ 
 </style>
 <body class="loaded"> 
 <div class="main-wrapper">
@@ -123,7 +121,7 @@ include 'includes/headertag.php';
                                             <div class="upload__btn-box text-center">
                                               <label >
                                                 <p class="upload__btn ">Upload images</p>
-                                                <input type="file" name='files[]' multiple="" data-max_length="20" class="upload__inputfile" id="_image">
+                                                <input type="file" name='files[]'  multiple="" data-max_length="20" class="upload__inputfile" id="_image">
                                               </label>
                                             </div>
                                             <div id="selectedImagesContainer" class="upload__img-wrap"></div>
@@ -136,7 +134,7 @@ include 'includes/headertag.php';
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-secondary px-3" data-bs-dismiss="modal">Close</button>
-                  <button type="button" id="btn_sb" class="btn btn-success fw-bold px-3">Submit</button>
+                  <button type="submit" id="btn_sb" class="btn btn-success fw-bold px-3">Submit</button>
                 </div>
               </div>
             </div>

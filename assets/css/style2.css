@@ -292,7 +292,7 @@ opacity: 0.8;
   position: relative;
   }
 
-  .upload__img-close {
+  .upload__img-close,.upload__img-close_button {
   width: 24px;
   height: 24px;
   border-radius: 50%;
@@ -306,11 +306,12 @@ opacity: 0.8;
   cursor: pointer;
   }
 
-  .upload__img-close:after {
+  .upload__img-close:after,.upload__img-close_button:after {
   content: '\2716';
   font-size: 14px;
   color: white;
   }
+  
 
   .img-bg {
   background-repeat: no-repeat;
