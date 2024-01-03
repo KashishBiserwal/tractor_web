@@ -161,10 +161,10 @@
                   <div class="">
                                     <div class="">
                                       <div class="row">
-                                      <div class="col- col-sm-6 col-lg-6 col-md-6 mt-3" hidden>
+                                      <div class="col- col-sm-6 col-lg-6 col-md-6 mt-3" hidden >
                               <div class="form-outline">
                                   <label class="form-label"> id Name<span class="text-danger">*</span></label>
-                                          <input type="text" class="form-control py-2" for="idUser"  id="idUser" name="first_name" placeholder="Enter First Name">
+                                          <input type="text" class="form-control py-2" for="idUser"  id="idUser">
                                   <small></small>
                                 </div>
                               </div>
@@ -178,7 +178,7 @@
                                                 <div class="background__btn-box ">
                                                     <label class="background__btn">
                                                     <p class="text-white bg-success p-2 rounded">Upload images</p>
-                                                        <input type="file" id="brand_img" data-max_length="20"name="brand_img"  ref="fileInput"
+                                                        <input type="file" id="brand_img1" data-max_length="20"name="brand_img"  ref="fileInput"
                                                         style="display: none"
                                                         @change="handleFileInput"
                                                         accept="image/png, image/jpg, image/jpeg" class="background__inputfile" id="banner_image">
@@ -198,7 +198,7 @@
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="px-4 bg-success btn btn-primary" id="save_brand">Submit</button>
+                <button type="button" class="px-4 bg-success btn btn-primary" data-bs-dismiss="modal" id="save_brand">Submit</button>
               </div>
             </div>
           </div>
@@ -264,7 +264,10 @@
       $('#save').click(store);
       $('#save_brand').click(edit_brand);
 
-      function removeImage(ele){
+  
+    });
+
+    function removeImage(ele){
   console.log("print ele");
     console.log(ele);
     let thisId=ele.id;
@@ -274,7 +277,6 @@
     $(".upload__img-closeDy"+thisId).remove();
 
   }
-    });
     // store data
   function store(event) {
     event.preventDefault();
@@ -384,7 +386,7 @@ function fetch_edit_data(userId) {
     headers: headers,
     success: function(response) {
       // var userData = response.brands[0];
-
+      $('#idUser').val(response.brands[0].id);
       $('#brand_name1').val(response.brands[0].brand_name);
       // $('#brand_img1').val(response.brands[0].brand_img);
                 // Append the new card to the container
@@ -393,14 +395,14 @@ function fetch_edit_data(userId) {
 
                 if (response.brands[0].brand_img) {
           var imageNamesArray = Array.isArray(response.brands[0].brand_img) ? response.brands[0].brand_img : response.brands[0].brand_img.split(',');
-      
+          var countclass=0;
           imageNamesArray.forEach(function (brand_img) {
               var imageUrl = 'http://tractor-api.divyaltech.com/uploads/brand_img/' + brand_img.trim();
-      
+              countclass++;
               var newCard = `
                   <div class="col-12 col-md-6 col-lg-4 position-relative" style="left:6px;">
-                  <div class="background__img-close"></div>
-                      <div class="brand-main d-flex box-shadow mt-1 py-2 text-center shadow">
+                  <div class="upload__img-close_button " id="closeId${countclass}" onclick="removeImage(this);""></div>
+                      <div class="brand-main d-flex box-shadow mt-1 py-2 text-center shadow upload__img-closeDy${countclass}"">
                           <a class="weblink text-decoration-none text-dark" title=" Image">
                               <img class="img-fluid w-100 h-100" src="${imageUrl}" alt=" Image">
                           </a>
@@ -420,8 +422,8 @@ function fetch_edit_data(userId) {
 }
 
 function edit_brand(){
-   alert('fherjlkferif');
-  var edit_id = $("#idUser").val();
+  //  alert('fherjlkferif');
+  var edit_id = document.getElementById('idUser').value;
   console.log(edit_id);
   var brand_name = document.getElementById('brand_name1').value;
   console.log(brand_name);
@@ -433,7 +435,7 @@ function edit_brand(){
         formData.append('brand_img', brand_img1);
         formData.append('_method', _method);
         formData.append('id', edit_id,);
-   var url = '<?php echo $APIBaseURL; ?>updateBrands/' + 17;
+   var url = '<?php echo $APIBaseURL; ?>updateBrands/' + edit_id;
     console.log(url);
     var token = localStorage.getItem('token');
     var headers = {
@@ -451,7 +453,8 @@ function edit_brand(){
         // Redirect to a success page or perform other actions
        
         console.log("Add successfully");
-        alert('successfully inserted..!')
+        alert('successfully Updated..!');
+        get();
       },
       error: function (error) {
         console.error('Error fetching data:', error);
@@ -485,14 +488,14 @@ function fetch_data(id) {
        
         var productContainer = $("#related_brand");
         $("#related_brand").empty();
-        var countclass=0;
+      
         if (data.brands && data.brands.length > 0) {
             data.brands.forEach(function (b) {
-              countclass++;
+              
                 var newCard = `
                 <div class=" col-6 col-lg-6 col-md-6 col-sm-6">
-                <div class="upload__img-close_button " id="closeId${countclass}" onclick="removeImage(this);""></div>
-                        <div class="brand-main box-shadow mt-2 text-center shadow upload__img-closeDy${countclass}"">
+               
+                        <div class="brand-main box-shadow mt-2 text-center shadow ">
                             <a class="weblink text-decoration-none text-dark" 
                                 title="Old Tractors">
                                 <img class="img-fluid w-50" src="http://tractor-api.divyaltech.com/uploads/brand_img/${b.brand_img}"
