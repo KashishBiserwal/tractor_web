@@ -29,27 +29,40 @@ function get_data() {
 
           if (data.lookup_data.length > 0) {
               let serialNumber = 1; // Initialize serial number
-
+              let tableData = [];
               // Loop through the data and create table rows
-              data.lookup_data.map(row => {
-                  const tableRow = document.createElement('tr');
-                  tableRow.innerHTML = `
-                      <td>${serialNumber}</td>
-                      <td>${row.lookup_type_id}</td>
-                      <td>${row.lookup_data_value}</td>
-                      <td>
-                          <div class="d-flex">
-                              <button class="btn btn-danger btn-sm mx-1" id="delete_user" onclick="destroy(${row.id});" style="padding:5px;">
-                                  <i class="fa fa-trash" style="font-size: 11px;"></i>
-                              </button>
-                          </div>
-                      </td>
-                  `;
-                  tableBody.appendChild(tableRow);
+              data.lookup_data.forEach(row => {
+                 // const tableRow = document.createElement('tr');
+                 let action = `<div class="d-flex">
+                 <button class="btn btn-danger btn-sm mx-1" id="delete_user" onclick="destroy(${row.id});" style="padding:5px;">
+                     <i class="fa fa-trash" style="font-size: 11px;"></i>
+                 </button>
+             </div>`;
+               
+                  tableData.push([
+                    serialNumber,
+                    row.lookup_type_id,
+                    row.lookup_data_value,
+                    action
+                ]);
 
                   // Increment serialNumber for the next row
                   serialNumber++;
+                  
               });
+              $('#example').DataTable().destroy();
+              $('#example').DataTable({
+                      data: tableData,
+                      columns: [
+                        { title: 'ID' },
+                        { title: 'Lookup Type' },
+                        { title: 'Lookup Data' },
+                        { title: 'Action', orderable: false } // Disable ordering for Action column
+                    ],
+                      paging: true,
+                      searching: true,
+                      // ... other options ...
+                  });
           } else {
               // Display a message if there's no valid data
               tableBody.innerHTML = '<tr><td colspan="7">No valid data available</td></tr>';

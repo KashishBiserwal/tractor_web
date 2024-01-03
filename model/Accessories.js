@@ -70,17 +70,33 @@ function get_data() {
             tableBody.innerHTML = ''; // Clear previous data
     
             if (data.product.length > 0) {
+              let tableData = [];
           console.log(typeof data.product);
-                data.product.map(row => {
+                data.product.forEach(row => {
                 //   console.log(row);
-                    const tableRow = document.createElement('tr');
-                    tableRow.innerHTML = `
-                        <td>${row.id}</td>
-                        <td>${row.accessory}</td>
-                        <td><div class="d-flex"><button class="btn btn-danger btn-sm mx-1" id="delete_user" onclick="destroy(${row.id});"><i class="fa fa-trash" style="font-size: 11px;"></i></button></div></td>
-                    `;
-                    tableBody.appendChild(tableRow);
+                   // const tableRow = document.createElement('tr');
+                   let action = ` <div class="d-flex"><button class="btn btn-danger btn-sm mx-1" id="delete_user" onclick="destroy(${row.id});" style="padding:5px"><i class="fa fa-trash" style="font-size: 11px;"></i></button></div>`;
+
+                    tableData.push([
+                      row.id,
+                      row.accessory,
+                      action
+                  ]);
+   
+                  
                 });
+                $('#example').DataTable().destroy();
+                $('#example').DataTable({
+                        data: tableData,
+                        columns: [
+                          { title: 'S.No.' },
+                          { title: 'Accessories Name' },
+                          { title: 'Action', orderable: false } // Disable ordering for Action column
+                      ],
+                        paging: true,
+                        searching: true,
+                        // ... other options ...
+                    });
             } else {
                 tableBody.innerHTML = '<tr><td colspan="7">No valid data available</td></tr>';
             }

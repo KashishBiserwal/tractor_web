@@ -131,8 +131,8 @@
         </div>
       </div>
       <!-- Table Card -->
-      <div class=" mb-5">
-            <div class="table-responsive shadow bg-white mt-3">
+      <div class=" mb-5 shadow bg-white mt-3 p-3">
+            <div class="table-responsive">
               <table id="example" class="table table-striped  table-hover table-bordered  no-footer" width="100%; margin-bottom: 15px;">
                 <thead class="">
                   <tr>
@@ -338,26 +338,42 @@ function get() {
             let serialNumber = 1; // Initialize serial number
 
             if (data.brands.length > 0) {
+              let tableData = [];
                 // Loop through the data and create table rows
-                data.brands.map(row => {
-                    const tableRow = document.createElement('tr');
-                    tableRow.innerHTML = `
-                        <td>${serialNumber}</td>
-                        <td>${row.brand_name}</td>
-                        <td>${row.brand_img}</td>
-                        <td><div class="float-start"><button class="btn btn-warning btn-sm text-white mx-1" data-bs-toggle="modal" onclick="fetch_data(${row.id});" data-bs-target="#exampleModal" style="padding:5px">
+                data.brands.forEach(row => {
+                    //const tableRow = document.createElement('tr');
+                    let action = `<div class="float-start"><button class="btn btn-warning btn-sm text-white mx-1" data-bs-toggle="modal" onclick="fetch_data(${row.id});" data-bs-target="#exampleModal" style="padding:5px">
                         <i class="fa-solid fa-eye" style="font-size: 11px;"></i></button>
                         <button class="btn btn-primary btn-sm btn_edit" onclick="fetch_edit_data(${row.id});" data-bs-toggle="modal" data-bs-target="#staticBackdrop_model" id="yourUniqueIdHere" style="padding:5px">
                           <i class="fas fa-edit" style="font-size: 11px;"></i></button>
                         </button> <button class="btn btn-danger btn-sm mx-1" id="delete_user" onclick="destroy(${row.id});" style="padding:5px"><i class="fa fa-trash" style="font-size: 11px;"></i></button></div>
                         
-                        </td>
-                    `;
-                    tableBody.appendChild(tableRow);
+                        `;
+              
+                  tableData.push([
+                    serialNumber,
+                    row.brand_name,
+                    row.brand_img,
+                    action
+                ]);
+                
 
                     // Increment serial number for the next row
                     serialNumber++;
                 });
+                $('#example').DataTable().destroy();
+              $('#example').DataTable({
+                      data: tableData,
+                      columns: [
+                        { title: 'S.No.' },
+                        { title: 'Brand Name' },
+                        { title: 'Brand Image' },
+                        { title: 'Action', orderable: false } // Disable ordering for Action column
+                    ],
+                      paging: true,
+                      searching: true,
+                      // ... other options ...
+                  });
             } else {
                 // Display a message if there's no valid data
                 tableBody.innerHTML = '<tr><td colspan="7">No valid data available</td></tr>';
@@ -401,8 +417,8 @@ function fetch_edit_data(userId) {
                       countclass++;
                       var newCard = `
                           <div class="col-12 col-md-6 col-lg-4 position-relative" style="left:6px;">
-                          <div class="upload__img-close_button " id="closeId${countclass}" onclick="removeImage(this);""></div>
-                              <div class="brand-main d-flex box-shadow mt-1 py-2 text-center shadow upload__img-closeDy${countclass}"">
+                          <div class="upload__img-close_button " id="closeId${countclass}" onclick="removeImage(this);"></div>
+                              <div class="brand-main d-flex box-shadow mt-1 py-2 text-center shadow upload__img-closeDy${countclass}">
                                   <a class="weblink text-decoration-none text-dark" title=" Image">
                                       <img class="img-fluid w-100 h-100" src="${imageUrl}" alt=" Image">
                                   </a>

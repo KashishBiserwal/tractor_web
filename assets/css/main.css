@@ -234,7 +234,7 @@ body{
 #example_wrapper .dataTables_length{
     display: none;
 }
-#example thead tr th, #category-table thead tr th{
+#example thead tr th, #category-table thead tr th {
     /* background-color: rgb(93, 190, 108); */
     background-color: rgb(74 166 90);
     color: #fff;
@@ -267,7 +267,22 @@ body{
 .admin-collapse{
     border: none;
 }
-
+.select2 {
+    width:100% !important;
+}
+.select2-selection{
+    border: 1px solid #ced4da;
+}
+.select2-container--default .select2-selection--multiple .select2-selection__choice {
+    background-color: #198754 !important;
+    border: 1px solid #198754 !important;
+}
+.select2-container--default .select2-selection--multiple .select2-selection__choice__remove {
+    color:#fff;
+}
+.select2-selection__choice__display{
+    color:#fff;
+}
 .table_edit_btn{
     background: #673ab7;
     border: 0;

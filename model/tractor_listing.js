@@ -12,9 +12,6 @@ $(document).ready(function () {
   
   });
 
-  
- 
-
 
   function removeImage(ele){
     console.log("print ele");
@@ -131,9 +128,6 @@ function store(event) {
     var tractor_type_id = JSON.stringify(selectedCheckboxValues);
     console.log(selectedCheckboxValues);
     console.log('tractor_type_id',tractor_type_id);
-    // var image_name = $('#image_name').val();
-    // var image_name = document.getElementById('image_name').files[0];
-    // console.log("imageselect : ",image_name);
     var CAPACITY_CC = $('#CAPACITY_CC').val();
     var engine_rated_rpm = $('#engine_rated_rpm').val();
     var COOLING = $('#COOLING').val();
@@ -219,7 +213,7 @@ function store(event) {
       data.append('starting_price', starting_price);
       data.append('ending_price', ending_price);
       data.append('warranty', warranty);
-      data.append('tractor_type_id[]', tractor_type_id);
+      data.append('tractor_type_id', tractor_type_id);
       data.append('engine_capacity_cc', CAPACITY_CC);
       data.append('engine_rated_rpm', engine_rated_rpm);
       data.append('cooling_id', COOLING);
@@ -244,7 +238,7 @@ function store(event) {
       data.append('wheel_drive_id', WHEEL_DRIVE);
       data.append('front_tyre',front_tyre);
       data.append('rear_tyre',rear_tyre);
-      data.append('accessory_id[]',accessory);
+      data.append('accessory_id',accessory);
       data.append('status_id',STATUS);
       data.append('description',description);
     $.ajax({
@@ -261,7 +255,6 @@ function store(event) {
          if(result.length){
         //   get_tractor_list();
         }
-        // alert('successfully inserted..!')
       },
       error: function (error) {
         console.error('Error fetching data:', error);
