@@ -381,30 +381,44 @@ function store(event) {
 
             if (data.product && data.product.length > 0) {
                 // console.log(typeof product);
-
+                let tableData = [];
                 data.product.forEach(row => {
                   
-                  const tableRow = document.createElement('tr');
-                  // console.log(tableRow, 'helloooo');
-                    tableRow.innerHTML = `
-                        <td>${row.product_id}</td>
-                        <td>${formatDateTime(row.created_at)}</td>
-                        <td>${row.brand_name}</td>
-                        <td>${row.model}</td>
-                        <td>${row.purchase_year}</td>
-                        <td>${row.state}</td>
-                        <td>
-                            <div class="d-flex">
-                            <button class="btn btn-primary btn-sm btn_edit" onclick="fetch_edit_data(${row.id});" data-bs-toggle="modal" data-bs-target="#staticBackdrop_model" id="yourUniqueIdHere">
-                            <i class="fas fa-edit" style="font-size: 11px;"></i></button>
-                                <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.id});">
-                                    <i class="fa fa-trash" style="font-size: 11px;"></i>
-                                </button>
-                            </div>
-                        </td>
-                    `;
-                    tableBody.appendChild(tableRow);
+                  let action = `  <div class="d-flex">
+                  <button class="btn btn-primary btn-sm btn_edit" onclick="fetch_edit_data(${row.id});" data-bs-toggle="modal" data-bs-target="#staticBackdrop_model" id="yourUniqueIdHere" style="padding:5px">
+                  <i class="fas fa-edit" style="font-size: 11px;"></i></button>
+                      <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.id});" style="padding:5px">
+                          <i class="fa fa-trash" style="font-size: 11px;"></i>
+                      </button>
+                  </div>`;
+
+                  tableData.push([
+                    row.product_id,
+                    formatDateTime(row.created_at),
+                    row.brand_name,
+                    row.model,
+                    row.purchase_year,
+                    row.state,
+                    action
+                ]); // const tableRow = document.createElement('tr');
+                 
                 });
+                $('#example').DataTable().destroy();
+                $('#example').DataTable({
+                        data: tableData,
+                        columns: [
+                          { title: 'S.No.' },
+                          { title: 'Date' },
+                          { title: 'Brand' },
+                          { title: 'Model' },
+                          { title: 'Purchase Year' },
+                          { title: 'State' },
+                          { title: 'Action', orderable: false } // Disable ordering for Action column
+                      ],
+                        paging: true,
+                        searching: true,
+                        // ... other options ...
+                    });
             } else {
                 tableBody.innerHTML = '<tr><td colspan="9">No valid data available</td></tr>';
             }

@@ -234,7 +234,7 @@ body{
 #example_wrapper .dataTables_length{
     display: none;
 }
-#example thead tr th, #category-table thead tr th{
+#example thead tr th, #category-table thead tr th {
     /* background-color: rgb(93, 190, 108); */
     background-color: rgb(74 166 90);
     color: #fff;

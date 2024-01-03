@@ -96,8 +96,8 @@ include 'includes/headertag.php';
         </div>
       </div>
       <!-- Table Card -->
-      <div class=" mb-5">
-      <div class="table-responsive shadow bg-white mt-3">
+      <div class=" mb-5  shadow bg-white mt-3 p-3">
+      <div class="table-responsive">
             <table id="example" class="table table-striped  table-hover table-bordered  no-footer" width="100%;">
                  <thead>
                                         <tr>
