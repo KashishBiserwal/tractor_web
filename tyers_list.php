@@ -15,19 +15,19 @@
     include 'includes/left_nav.php';
     include 'includes/header_admin.php';
     ?>
-   <section style="padding: 0 15px;">
+   <section style="padding: 0 15px 0 60px;">
     <div class="">
-      <div class="container">
-        <div class="card-body d-flex align-items-center justify-content-between page_title">
+      <div class="">
+      <div class="card-body d-flex align-items-center justify-content-between page_title">
           <nav aria-label="breadcrumb">
-            <ol class="breadcrumb my-0 ms-2">
+            <ol class="breadcrumb mb-0">
               
               <li class="breadcrumb-item">
                 <span>Tyres Listings</span>
               </li>
             </ol>
           </nav>
-          <button type="button" id="add_trac" class="btn add_btn btn-success float-right" data-bs-toggle="modal"  data-bs-target="#staticBackdrop">
+          <button type="button" id="add_trac" class="btn add_btn btn-success float-right btn_all" data-bs-toggle="modal"  data-bs-target="#staticBackdrop">
               <i class="fa fa-plus" aria-hidden="true"></i> Add New Tyres
           </button>
 
@@ -39,50 +39,50 @@
                   <h5 class="modal-title text-white fw-bold" id="staticBackdropLabel"> Add Tyres </h5>
                   <button type="button" class="btn-close btn-success" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="modal-body bg-light">
+                <div class="modal-body bg-white">
                         <div class="row justify-content-center">
                             <div class="col-lg-10">
-                              <h4 class="text-center">Fill your Details</h4>
+                              <h4 class="text-center" style="font-weight:600;">Fill your Details</h4>
                               <form id="form_tyre_list">
-                                <div class="row justify-content-center pt-4">
-                                    <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
-                                      <div class="form-outline mt-3">
+                                <div class="row justify-content-center">
+                                    <div class="col-12 col-lg-6 col-md-6 col-sm-6 mt-3 ">
+                                      <div class="form-outline">
                                         <label for="name" class="form-label text-dark">Brand</label>
                                         <input type="text" class="form-control" placeholder="" id="brand" name="brand">
                                       </div>
                                     </div>
-                                    <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
-                                      <div class="form-outline mt-3">
+                                    <div class="col-12 col-lg-6 col-md-6 col-sm-6 mt-3">
+                                      <div class="form-outline ">
                                         <label for="name" class="form-label text-dark">Tyre Model</label>
                                         <input type="text" class="form-control" placeholder="" id="tyre" name="tyre">
                                       </div>
                                     </div>
-                                    <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
-                                      <div class="form-outline mt-3">
+                                    <div class="col-12 col-lg-6 col-md-6 col-sm-6 mt-3">
+                                      <div class="form-outline ">
                                         <label for="name" class="form-label text-dark">Tyre Position</label>
                                         <input type="text" class="form-control" placeholder="" id="tyre_position" name="tyre_position">
                                       </div>
                                     </div>
-                                    <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
-                                      <div class="form-outline mt-3">
+                                    <div class="col-12 col-lg-6 col-md-6 col-sm-6 mt-3">
+                                      <div class="form-outline ">
                                         <label for="name" class="form-label text-dark">Size of the tyre</label>
                                         <input type="text" class="form-control" placeholder="" id="tyre_size" name="tyre_size">
                                       </div>
                                     </div>
-                                    <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
-                                      <div class="form-outline mt-3">
+                                    <div class="col-12 col-lg-6 col-md-6 col-sm-6 mt-3">
+                                      <div class="form-outline ">
                                         <label for="name" class="form-label text-dark">Tyre Diameter</label>
                                         <input type="text" class="form-control" placeholder="" id="tyre_diameter" name="tyre_diameter">
                                       </div>
                                     </div>
-                                    <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
-                                      <div class="form-outline mt-3">
+                                    <div class="col-12 col-lg-6 col-md-6 col-sm-6 mt-3">
+                                      <div class="form-outline ">
                                         <label for="name" class="form-label text-dark">Tyre Width</label>
                                         <input type="text" class="form-control" placeholder="" id="tyre_width" name="tyre_width">
                                       </div>
                                     </div>
-                                    <div class="col-12 col-sm-12 col-md-6 col-lg-6">
-                                     <div class="form-outline my-3">
+                                    <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-3">
+                                     <div class="form-outline ">
                                       <label for="yr_state" class="form-label text-dark">Category</label>
                                       <select class="form-select form-control" aria-label=".form-select-lg example"id="category" name="category">
                                           <option value>Select Categoey</option>
@@ -110,8 +110,8 @@
                         </div>
                     </div>
                 <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary px-3" data-bs-dismiss="modal">Close</button>
-                  <button type="button" id="subbnt" class="btn btn-success fw-bold px-3">Submit</button>
+                  <button type="button" class="btn btn-secondary btn_all" data-bs-dismiss="modal">Close</button>
+                  <button type="button" id="subbnt" class="btn btn-success btn_all">Submit</button>
                 </div>
               </div>
             </div>
@@ -119,15 +119,16 @@
         </div>
       </div>
     </div>
-    <div class="container">
+    <div class="">
       <!-- Filter Card -->
-      <div class="filter-card mb-2">
+      <div class="filter-card">
         <div class="card-body">
+        <form action="" id="myform" class="mb-0">
           <div class="row">
-            <div class="col-12 col-sm-12 col-md-4 col-lg-4">
+            <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-3">
               <div class="form-outline">
                 <label class="form-label">Brand</label>
-                <select class="form-select" aria-label="Default select example">
+                <select class="form-select form-control" aria-label="Default select example">
                   <option selected>Select Brand</option>
                   <option value="1">Mahindra</option>
                   <option value="2">Swaraj</option>
@@ -135,10 +136,10 @@
                 </select>
               </div>
             </div>
-            <div class="col-12 col-sm-12 col-md-4 col-lg-4">
+            <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-3">
               <div class="form-outline">
                 <label class="form-label">Tyre Position</label>
-                <select class="form-select" aria-label="Default select example">
+                <select class="form-select form-control" aria-label="Default select example">
                   <option selected disabled>Select Position</option>
                   <option value="1">Front-Left</option>
                   <option value="2">Front-right</option>
@@ -147,21 +148,22 @@
                 </select>
               </div>
             </div>
-            <div class="col-12 col-sm-12 col-md-4 col-lg-4">
+            <div class="col-12 col-sm-12 col-md-4 col-lg-4  mt-3">
               <div class="text-center">
-                <button type="button" class="btn-success btn px-4 py-2" id="Search">Search</button>
-                <button type="button" class="btn-success btn  mx-2 px-4 py-2" id="Reset">Reset</button>
+                <button type="button" class="btn-success btn btn_all" id="Search">Search</button>
+                <button type="button" class="btn-success btn  btn_all" id="Reset">Reset</button>
               </div>
             </div>
           </div>
+        </form>
         </div>
       </div>
       <!-- Table Card -->
       <div class=" mb-5">
-        <div class="table-responsive">
-          <table id="example" class="table dataTable no-footer py-1" width="100%">
-            <thead>
-              <tr>
+            <div class="table-responsive shadow bg-white mt-3">
+              <table id="example" class="table table-striped  table-hover table-bordered dataTable no-footer" width="100%; margin-bottom: 15px;">
+                <thead class="">
+                  <tr>
                 <th class="d-none d-md-table-cell text-white">S.No.</th>
                 <th class="d-none d-md-table-cell text-white">Brand</th>
                 <th class="d-none d-md-table-cell text-white">Model</th>

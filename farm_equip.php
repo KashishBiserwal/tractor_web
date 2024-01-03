@@ -10,19 +10,18 @@
     include 'includes/left_nav.php';
     include 'includes/header_admin.php';
     ?>
-   <section style="padding: 0 15px;">
-    <div class="">
-      <div class="container">
-        <div class="card-body d-flex align-items-center justify-content-between page_title">
+    <section style="padding: 0 15px 0 60px;">
+   <div class="">
+      <div class="">
+      <div class="card-body d-flex align-items-center justify-content-between page_title">
           <nav aria-label="breadcrumb">
-            <ol class="breadcrumb my-0 ms-2">
-              
+            <ol class="breadcrumb mb-0">
               <li class="breadcrumb-item">
                 <span>Farm Equipment Listings</span>
               </li>
             </ol>
           </nav>
-          <button type="button" id="add_trac" class="btn add_btn btn-success float-right" data-bs-toggle="modal"  data-bs-target="#staticBackdrop">
+          <button type="button" id="add_trac" class="btn add_btn btn-success float-right btn_all" data-bs-toggle="modal"  data-bs-target="#staticBackdrop">
             <i class="fa fa-plus" aria-hidden="true"></i>Add Farm Equipments
           </button>
 
@@ -34,40 +33,45 @@
                   <h5 class="modal-title text-white fw-bold" id="staticBackdropLabel">Add Farm Equipments</h5>
                   <button type="button" class="btn-close btn-success" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="modal-body bg-light">
+                <div class="modal-body bg-white">
                         <div class="row justify-content-center">
                             <div class="col-lg-10">
-                              <h4 class="text-center">Fill your Details</h4>
+                              <h4 class="text-center" style="font-weight:600;">Fill your Details</h4>
                             <form>
-                                <div class="row justify-content-center pt-4">
-                                    <div class="col-12 col-lg-6 col-sm-5 col-md-6">
-                                      <div class="form-group">
-                                        <input type="text" class="" placeholder=" " id="brand">
-                                        <label for="name" class="text-dark"> Brand</label>
+                                <div class="row justify-content-center">
+                                    <div class="col-12 col-lg-6 col-sm-5 col-md-6 mt-3">
+                                      <div class="form-outline">
+                                        <label for="name" class="form-label"> Brand</label>
+                                        <input type="text" class="form-control" placeholder=" " id="brand">
+                                       
                                       </div>
                                     </div>
-                                    <div class="col-12 col-lg-6 col-sm-5 col-md-6 ">
-                                      <div class="form-group">
-                                        <input type="text" class="" placeholder=" " id="name">
-                                        <label for="name" class="text-dark">Name</label>
+                                    <div class="col-12 col-lg-6 col-sm-5 col-md-6 mt-3">
+                                      <div class="form-outline">
+                                        
+                                        <label for="name" class="form-label">Name</label>
+                                        <input type="text" class="form-control" placeholder=" " id="name">
                                       </div>
                                     </div>
-                                    <div class="col-12 col-lg-6 col-sm-5 col-md-6">
-                                      <div class="form-group">
-                                        <input type="text" class="" placeholder=" " id="type">
-                                        <label for="name" class="text-dark ">Implement Type</label>
+                                    <div class="col-12 col-lg-6 col-sm-5 col-md-6 mt-3">
+                                      <div class="form-outline">
+                                      <label for="name" class="form-label">Implement Type</label>
+                                        <input type="text" class="form-control" placeholder=" " id="type">
+                                        
                                       </div>
                                     </div>
-                                    <div class="col-12 col-lg-6 col-sm-5 col-md-6">
-                                      <div class="form-group">
-                                        <input type="text" class="" placeholder=" " id="power">
-                                        <label for="name" class="text-dark">Implement Power</label>
+                                    <div class="col-12 col-lg-6 col-sm-5 col-md-6 mt-3">
+                                      <div class="form-outline">
+                                      <label for="name" class="form-label">Implement Power</label>
+                                        <input type="text" class="form-control" placeholder=" " id="power">
+                                        
                                       </div>
                                     </div>
-                                    <div class="col-12 col-lg-7 col-sm-7 col-md-7">
-                                      <div class="form-group">
-                                        <input type="text" class="" placeholder=" " id="category">
-                                        <label for="name" class="text-dark ">Categories</label>
+                                    <div class="col-12 col-lg-7 col-sm-7 col-md-7 mt-3">
+                                      <div class="form-outline">
+                                      <label for="name" class="form-label">Categories</label>
+                                        <input type="text" class="form-control" placeholder=" " id="category">
+                                        
                                       </div>
                                     </div>
                                     <!-- <div class="col-12 col-lg-6 col-sm-5 col-md-6">
@@ -75,7 +79,7 @@
                                       <input type="file" name="files[]" class="" multiple >
                                       </div>
                                     </div> -->
-                                    <div class="col-12 col-sm-5 col-lg-5 col-md-5 ps-3">
+                                    <div class="col-12 col-sm-5 col-lg-5 col-md-5 ps-3 mt-3">
                                       <div class="background__box">
                                             <div class="background__btn-box ">
                                                 <label class="background__btn">
@@ -92,24 +96,23 @@
                                             </div>
                                       </div>
                                     </div>
-                                    <div class="col-12 ">
-                                      <div class="form-group">
-                                        <input type="text" class="py-5" placeholder=" " id="description">
-                                        <label for="name" class="text-dark">Description</label>
+                                    <div class="col-12 mt-3">
+                                      <div class="form-outline">
+                                      <label for="name" class="form-label">Description</label>
+                                        <input type="text" class="py-5 w-100" placeholder=" " id="description">
+                                        
                                       </div>
                                     </div>
-                                    <div class="col-12 ">
-                                            <div class="text-center ">
-                                                <button class="btn px-5 bg-success text-white" id="save">Submit</button>
-                                            </div>
-                                        </div>
+                                  
                                 </div>
                             </form>
                             </div>
                         </div>
                     </div>
                 <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary px-3" data-bs-dismiss="modal">Close</button>
+                <button class="btn bg-success text-white btn_all" id="save">Submit</button>
+                                          
+                  <button type="button" class="btn btn-secondary btn_all" data-bs-dismiss="modal">Close</button>
                   <!-- <button type="button" class="btn btn-success fw-bold px-3">Submit</button> -->
                 </div>
               </div>
@@ -118,23 +121,26 @@
         </div>
       </div>
     </div>
-    <div class="container">
+    <div class="">
       <!-- Filter Card -->
       <div class="filter-card mb-2">
         <div class="card-body">
+        <form action="" id="myform" class="mb-0">
           <div class="row">
-            <div class="col-12 col-sm-12 col-md-4 col-lg-4">
+            <div class="col-12 col-sm-12 col-md-3 col-lg-3">
               <div class="form-outline">
-                <select class="form-select py-2" aria-label="Default select example">
+              <label class="form-label">Category</label> 
+                <select class="form-select form-control" aria-label="Default select example">
                     <option selected>Select Category</option>
                     <option value="1">Threser</option>
                     <option value="2">other</option>
                 </select>
               </div>
             </div>
-            <div class="col-12 col-sm-12 col-md-4 col-lg-4">
+            <div class="col-12 col-sm-12 col-md-3 col-lg-3">
               <div class="form-outline">
-                <select class="form-select py-2" aria-label="Default select example">
+              <label class="form-label">Name</label> 
+                <select class="form-select form-control" aria-label="Default select example">
                     <option selected>Select Name</option>
                     <option value="1">name1</option>
                     <option value="2">name2</option>
@@ -142,9 +148,10 @@
                 </select>
               </div>
             </div>
-            <div class="col-12 col-sm-12 col-md-4 col-lg-4">
+            <div class="col-12 col-sm-12 col-md-3 col-lg-3">
               <div class="form-outline">
-                <select class="form-select py-2" aria-label="Default select example">
+              <label class="form-label">Brand</label>
+                <select class="form-select form-control" aria-label="Default select example">
                     <option selected>Select Brand</option>
                     <option value="1">Mahindra</option>
                     <option value="2">Swaraj</option>
@@ -152,9 +159,10 @@
                 </select>
               </div>
             </div>
-            <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-3">
+            <div class="col-12 col-sm-12 col-md-3 col-lg-3">
               <div class="form-outline">
-                <select class="form-select py-2" aria-label="Default select example">
+              <label class="form-label">Implement Type</label>
+                <select class="form-select form-control" aria-label="Default select example">
                     <option selected>Select Implement Type</option>
                     <option value="1">Type1</option>
                     <option value="2">Type2</option>
@@ -164,21 +172,22 @@
             </div>
            
             
-            <div class="col-12 col-sm-12 col-md-8 col-lg-8">
-              <div class="text-center float-end">
-                <button type="button" class="btn-success btn btn_search" id="Search">Search</button>
-                <button type="button" class="btn-success btn mx-2 btn_search" id="Reset">Reset</button>
+            <div class="col-12 col-sm-12 col-md-12 col-lg-12 mt-3">
+              <div class="text-center">
+                <button type="button" class="btn-success btn btn_all" id="Search">Search</button>
+                <button type="button" class="btn-success btn  btn_all" id="Reset">Reset</button>
               </div>
             </div>
           </div>
+        </form>
         </div>
       </div>
       <!-- Table Card -->
       <div class=" mb-5">
-                            <div class="table-responsive">
-                                <table id="example" class="table dataTable no-footer py-1" width="100%">
-                                    <thead>
-                                        <tr>
+            <div class="table-responsive shadow bg-white mt-3">
+              <table id="example" class="table table-striped  table-hover table-bordered dataTable no-footer" width="100%; margin-bottom: 15px;">
+                <thead class="">
+                  <tr>
                                             <th class="d-none d-md-table-cell text-white">S.No.</th>
                                             <th class="d-none d-md-table-cell text-white">Category </th>
                                             <th class="d-none d-md-table-cell text-white">Photos</th>
