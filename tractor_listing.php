@@ -520,9 +520,8 @@ include 'includes/footertag.php';
                           <tr>
                             <td class="bg-light">Upload images-</td>
                             <td colspan="3">
-                              <div class="row" id="image_1">
-                                  <div class="col-12" ></div>
-                               </div>
+                              <div id="selectedImagesContainer1" class="upload__img-wrap row"></div>
+                                 
                             </td>
                           </tr>
                           <tr>

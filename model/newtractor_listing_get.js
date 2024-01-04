@@ -476,18 +476,18 @@ $.ajax({
     document.getElementById('Accessories_1').innerText=data.product.allProductData[0].accessory;
     document.getElementById('Status_1').innerText=data.product.allProductData[0].status_value;
     document.getElementById('About_1').innerText=data.product.allProductData[0].description;
-    $("#selectedImagesContainer2").empty();
+    $("#selectedImagesContainer1").empty();
 
-    if (userData.image_names) {
-        var imageNamesArray = Array.isArray(userData.image_names) ? userData.image_names : userData.image_names.split(',');
+    if (data.product.allProductData[0].image_names) {
+        var imageNamesArray = Array.isArray(data.product.allProductData[0].image_names) ? data.product.allProductData[0].image_names : data.product.allProductData[0].image_names.split(',');
          
         var countclass=0;
         imageNamesArray.forEach(function (image_names) {
-            var imageUrl = 'http://tractor-api.divyaltech.com/uploads/nursery_img/' + image_names.trim();
+            var imageUrl = 'http://tractor-api.divyaltech.com/uploads/product_img/' + image_names.trim();
             countclass++;
             var newCard = `
                 <div class="col-12 col-md-6 col-lg-4 ">
-                <div class="upload__img-close_button " id="closeId${countclass}" onclick="removeImage(this);"></div>
+                <div class="upload__img-close_button " id="closeId${countclass}"></div>
                     <div class="brand-main d-flex box-shadow mt-1 py-2 text-center shadow upload__img-closeDy${countclass}">
                         <a class="weblink text-decoration-none text-dark" title="Tyre Image">
                             <img class="img-fluid w-100 h-100" src="${imageUrl}" alt="Tyre Image">
@@ -497,7 +497,7 @@ $.ajax({
             `;
     
             // Append the new image element to the container
-            $("#selectedImagesContainer2").append(newCard);
+            $("#selectedImagesContainer1").append(newCard);
         });
 
 

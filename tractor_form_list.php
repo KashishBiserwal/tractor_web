@@ -841,7 +841,7 @@ include 'includes/footertag.php';
                                     </div>
                                     
                                 </section>
-                                <a href="tractor_listing.php" class="backbutton text-center backbtn">Back</a>
+                                <a href="tractor_listing.php" class=" mt-4  btn text-center btn-secondary backbtn">Back To Tractor details</a>
                             </div>
                         </div>
                     </div>
