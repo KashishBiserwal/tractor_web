@@ -1,7 +1,7 @@
 $(document).ready(function() {
-  $('#old_btn').click(store);
   ImgUpload();
-    BackgroundUpload();
+  $('#old_btn').click(store);
+   
     jQuery.validator.addMethod("customPhoneNumber", function(value, element) {
       return /^[6-9]\d{9}$/.test(value); 
     }, "Phone number must start with 6 or above");
@@ -56,86 +56,24 @@ $(document).ready(function() {
       });
   });
 
-  function BackgroundUpload() {
-    var imgWrap = "";
-    var imgArray = [];
-
-    function generateUniqueClassName(index) {
-      return "background-image-" + index;
-    }
-
-    $('.background__inputfile').each(function () {
-      $(this).on('change', function (e) {
-        imgWrap = $(this).closest('.background__box').find('.background__img-wrap');
-        var maxLength = $(this).attr('data-max_length');
-
-        var files = e.target.files;
-        var filesArr = Array.prototype.slice.call(files);
-        var iterator = 0;
-        filesArr.forEach(function (f, index) {
-
-          if (!f.type.match('image.*')) {
-            return;
-          }
-
-          if (imgArray.length > maxLength) {
-            return false;
-          } else {
-            var len = 0;
-            for (var i = 0; i < imgArray.length; i++) {
-              if (imgArray[i] !== undefined) {
-                len++;
-              }
-            }
-            if (len > maxLength) {
-              return false;
-            } else {
-              imgArray.push(f);
-
-              var reader = new FileReader();
-              reader.onload = function (e) {
-                var className = generateUniqueClassName(iterator);
-                var html = "<div class='background__img-box'><div onclick='BackgroundImage(\"" + className + "\")' style='background-image: url(" + e.target.result + ")' data-number='" + $(".background__img-close").length + "' data-file='" + f.name + "' class='img-bg " + className + "'><div class='background__img-close'></div></div></div>";
-                imgWrap.append(html);
-                iterator++;
-              }
-              reader.readAsDataURL(f);
-            }
-          }
-        });
-      });
-    });
-
-    $('body').on('click', ".background__img-close", function (e) {
-      var file = $(this).parent().data("file");
-      for (var i = 0; i < imgArray.length; i++) {
-        if (imgArray[i].name === file) {
-          imgArray.splice(i, 1);
-          break;
-        }
-      }
-      $(this).parent().parent().remove();
-    });
-  }
-
   function ImgUpload() {
     var imgWrap = "";
     var imgArray = [];
-  
+
     $('.upload__inputfile').each(function () {
       $(this).on('change', function (e) {
         imgWrap = $(this).closest('.upload__box').find('.upload__img-wrap');
         var maxLength = $(this).attr('data-max_length');
-  
+
         var files = e.target.files;
         var filesArr = Array.prototype.slice.call(files);
         var iterator = 0;
         filesArr.forEach(function (f, index) {
-  
+
           if (!f.type.match('image.*')) {
             return;
           }
-  
+
           if (imgArray.length > maxLength) {
             return false
           } else {
@@ -149,7 +87,7 @@ $(document).ready(function() {
               return false;
             } else {
               imgArray.push(f);
-  
+
               var reader = new FileReader();
               reader.onload = function (e) {
                 var html = "<div class='upload__img-box'><div style='background-image: url(" + e.target.result + ")' data-number='" + $(".upload__img-close").length + "' data-file='" + f.name + "' class='img-bg'><div class='upload__img-close'></div></div></div>";
@@ -162,7 +100,7 @@ $(document).ready(function() {
         });
       });
     });
-  
+
     $('body').on('click', ".upload__img-close", function (e) {
       var file = $(this).parent().data("file");
       for (var i = 0; i < imgArray.length; i++) {
@@ -174,6 +112,20 @@ $(document).ready(function() {
       $(this).parent().parent().remove();
     });
   }
+
+
+  function removeImage(ele){
+    console.log("print ele");
+      console.log(ele);
+      let thisId=ele.id;
+      thisId=thisId.split('closeId');
+      thisId=thisId[1];
+      $("#"+ele.id).remove();
+      $(".upload__img-closeDy"+thisId).remove();
+  
+    }
+
+
 
 
 // get brand
@@ -365,7 +317,7 @@ function store(event) {
     return `${day}-${month}-${year} / ${hours}:${minutes}:${seconds}`;
     }
    // fetch data
-   function get_tractor_list() {
+ function get_tractor_list() {
     var apiBaseURL = APIBaseURL;
     var url = apiBaseURL + 'get_old_tractor';
     $.ajax({
@@ -375,50 +327,52 @@ function store(event) {
             'Authorization': 'Bearer ' + localStorage.getItem('token')
         },
         success: function (data) {
-            // console.log(data);
-
             const tableBody = document.getElementById('data-table');
 
             if (data.product && data.product.length > 0) {
-                // console.log(typeof product);
                 let tableData = [];
-                data.product.forEach(row => {
-                  
-                  let action = `  <div class="d-flex">
-                  <button class="btn btn-primary btn-sm btn_edit" onclick="fetch_edit_data(${row.id});" data-bs-toggle="modal" data-bs-target="#staticBackdrop_model" id="yourUniqueIdHere" style="padding:5px">
-                  <i class="fas fa-edit" style="font-size: 11px;"></i></button>
-                      <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.id});" style="padding:5px">
-                          <i class="fa fa-trash" style="font-size: 11px;"></i>
-                      </button>
-                  </div>`;
+                let counter = 1;
 
-                  tableData.push([
-                    row.product_id,
-                    formatDateTime(row.created_at),
-                    row.brand_name,
-                    row.model,
-                    row.purchase_year,
-                    row.state,
-                    action
-                ]); // const tableRow = document.createElement('tr');
-                 
+                data.product.forEach(row => {
+                    let action = `
+                        <div class="d-flex">
+                            <button class="btn btn-primary btn-sm btn_edit" onclick="fetch_edit_data(${row.id});" data-bs-toggle="modal" data-bs-target="#staticBackdrop_model" id="yourUniqueIdHere" style="padding:5px">
+                                <i class="fas fa-edit" style="font-size: 11px;"></i>
+                            </button>
+                            <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.product_id});" style="padding:5px">
+                                <i class="fa fa-trash" style="font-size: 11px;"></i>
+                            </button>
+                        </div>`;
+
+                    tableData.push([
+                        counter,
+                        formatDateTime(row.date),
+                        row.brand_name,
+                        row.model,
+                        row.purchase_year,
+                        row.state,
+                        action
+                    ]);
+
+                    counter++;
                 });
+
                 $('#example').DataTable().destroy();
                 $('#example').DataTable({
-                        data: tableData,
-                        columns: [
-                          { title: 'S.No.' },
-                          { title: 'Date' },
-                          { title: 'Brand' },
-                          { title: 'Model' },
-                          { title: 'Purchase Year' },
-                          { title: 'State' },
-                          { title: 'Action', orderable: false } // Disable ordering for Action column
-                      ],
-                        paging: true,
-                        searching: true,
-                        // ... other options ...
-                    });
+                    data: tableData,
+                    columns: [
+                        { title: 'S.No.' },
+                        { title: 'Date' },
+                        { title: 'Brand' },
+                        { title: 'Model' },
+                        { title: 'Purchase Year' },
+                        { title: 'State' },
+                        { title: 'Action', orderable: false }
+                    ],
+                    paging: true,
+                    searching: true,
+                    // ... other options ...
+                });
             } else {
                 tableBody.innerHTML = '<tr><td colspan="9">No valid data available</td></tr>';
             }
@@ -428,7 +382,9 @@ function store(event) {
         }
     });
 }
+
 get_tractor_list();
+
 
 
 // fetch edit data

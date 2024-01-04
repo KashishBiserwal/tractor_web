@@ -110,16 +110,16 @@
                                             </div>
                                         </div>
                                         <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                                        <div class="upload__box">
-                                          <div class="upload__btn-box text-center">
-                                            <label >
-                                              <p class="upload__btn ">Upload images</p>
-                                              <input type="file" multiple="" data-max_length="20" class="upload__inputfile" id="_image" name="_image">
-                                            </label>
+                                          <div class="upload__box">
+                                            <div class="upload__btn-box text-center">
+                                              <label >
+                                                <p class="upload__btn ">Upload images</p>
+                                                <input type="file" multiple="" data-max_length="20" class="upload__inputfile" id="_image" name="_image">
+                                              </label>
+                                            </div>
+                                            <div id="selectedImagesContainer" class="upload__img-wrap"></div>
                                           </div>
-                                          <div id="selectedImagesContainer" class="upload__img-wrap"></div>
                                         </div>
-                                      </div>
                                 </div>
                             </form>
                             </div>
