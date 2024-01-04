@@ -98,7 +98,7 @@
                                   <div class="col-12 ">
                                     <div class="form-outline my-3">
                                       <label class="form-label text-dark">Description</label>
-                                      <textarea rows="4" cols="70" class="w-100" minlength="1" maxlength="255" id="textarea_" name="textarea_" style="border: 1px solid #ced4da;"></textarea>
+                                      <textarea rows="4" cols="70" class="w-100" minlength="1" id="textarea_" name="textarea_" style="border: 1px solid #ced4da;"></textarea>
                                     </div>
                                   </div>
                                     <div class="col-12 col-lg-12 col-md-12 col-sm-12">

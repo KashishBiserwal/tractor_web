@@ -830,7 +830,7 @@ include 'includes/footertag.php';
                                                     <div class="col-12 mt-4 ">
                                                         <div class="form-outline ">
                                                             <label class="form-label text-dark">About</label>
-                                                            <textarea rows="4" cols="70" class="w-100  pt-2" minlength="1" maxlength="255" id="description" name="description" required></textarea>
+                                                            <textarea rows="4" cols="70" class="w-100  pt-2" minlength="1" id="description" name="description" required></textarea>
                                                         </div>
                                                     </div>
                                                 </div>

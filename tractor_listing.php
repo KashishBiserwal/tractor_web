@@ -451,7 +451,7 @@ include 'includes/footertag.php';
                               <div  class="col-12 col-sm-6 col-lg-6 col-md-6">
                                 <div class="form-outline">
                                   <label class="form-label">About</label>
-                                  <textarea rows="4" cols="70" class="w-100" minlength="1" maxlength="255" id="description" name="description"></textarea>
+                                  <textarea rows="4" cols="70" class="w-100" minlength="1"  id="description" name="description"></textarea>
                                 </div>
                               </div>
                             </div>

@@ -265,7 +265,7 @@ function store(event) {
 
   
   function fetch_edit_data() {
-    alert("ding dong");
+    // alert("ding dong");
     console.log(window.location)
     var urlParams = new URLSearchParams(window.location.search);
     var productId = urlParams.get('trac_edit');

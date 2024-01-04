@@ -173,7 +173,11 @@ include 'includes/headertag.php';
                               <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-3">
                                 <div class="form-outline">
                                   <label class="form-label" for="">RC Number</label>
-                                  <input type="text" id="rc_num" name="rc_num" class=" data_search form-control input-group-sm py-2" />
+                                  <!-- <input type="text" id="rc_num" name="rc_num" class=" data_search form-control input-group-sm py-2" /> -->
+                                <input type="radio" id="rc_yes" name="fav_rc" value="1">
+                                <label for="" class="text-dark">Yes</label> 
+                                <input type="radio" id="rc_no" name="fav_rc" value="0">
+                                <label for="" class="text-dark">No</label>
                                 </div>
                               </div>
                               <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-3">
@@ -221,14 +225,11 @@ include 'includes/headertag.php';
                               </div>
                             </div>
                           </form>
-                          <div class="text-center">
-                            
-                          </div>
                         </div>
                       </div>
                     </div>
                     <div class="modal-footer ">
-                    <button type="button" id="old_btn" class="btn btn-success fw-bold px-3">Submit</button>
+                    <button type="button" id="old_btn" class="btn btn-success fw-bold px-3"  data-bs-dismiss="modal">Submit</button>
                       <button type="button" class="btn btn-secondary px-3" data-bs-dismiss="modal">Close</button>
                     </div>
                   </div>

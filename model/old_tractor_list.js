@@ -212,7 +212,7 @@ function store(event) {
   //  var typeDiv = document.getElementById('type_name');
      event.preventDefault();
     
-     var image_names = document.getElementById('image_pic').files;
+     var image_names = document.getElementById('_image').files;
      console.log('imgds',image_names);
      var form_type = $('#form_type').val();
      var product_type_id = $('#product_type_id').val();
@@ -288,6 +288,7 @@ function store(event) {
          console.log(result, "result");
          // getTractorList();
          console.log("Add successfully");
+         get_tractor_list();
           if(result.length){
          //   get_tractor_list();
          }
@@ -336,11 +337,13 @@ function store(event) {
                 data.product.forEach(row => {
                     let action = `
                         <div class="d-flex">
+                            <button class="btn btn-warning btn-sm text-white mx-1" data-bs-toggle="modal" onclick="fetch_data(${row.id});" data-bs-target="#view_model_dealers">
+                            <i class="fa-solid fa-eye" style="font-size: 11px;"></i></button>
                             <button class="btn btn-primary btn-sm btn_edit" onclick="fetch_edit_data(${row.id});" data-bs-toggle="modal" data-bs-target="#staticBackdrop_model" id="yourUniqueIdHere" style="padding:5px">
-                                <i class="fas fa-edit" style="font-size: 11px;"></i>
+                              <i class="fas fa-edit" style="font-size: 11px;"></i>
                             </button>
                             <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.product_id});" style="padding:5px">
-                                <i class="fa fa-trash" style="font-size: 11px;"></i>
+                              <i class="fa fa-trash" style="font-size: 11px;"></i>
                             </button>
                         </div>`;
 
