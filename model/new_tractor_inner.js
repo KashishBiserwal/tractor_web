@@ -152,7 +152,7 @@ function displayBrands(brands) {
             <div class="col-6 col-lg-6 col-md-6 col-sm-6">
                 <div class="brand-main box-shadow mt-2 text-center shadow">
                     <a class="weblink text-decoration-none text-dark" href="#" title="Old Tractors">
-                        <img class="img-fluid w-50" src="http://tractor-api.divyaltech.com/uploads/product_img/${b.brand_img}"
+                        <img class="img-fluid w-50" src="http://tractor-api.divyaltech.com/uploads/brand_img/${b.brand_img}"
                             data-src="h" alt="Brand Logo">
                         <p class="mb-0 oneline">${b.brand_name}</p>
                     </a>

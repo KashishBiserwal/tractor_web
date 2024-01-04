@@ -78,7 +78,7 @@ function displayTractors(tractors) {
                                 </a>      
                             </div>
                             <div class="power text-center mt-2">
-                                <div class="row ">
+                                <div class="row">
                                     <div class="col-12 col-lg-6 col-md-6 col-sm-6"><p class="text-dark ps-2"><i class="fas fa-bolt"></i>  ${p.hp_category}HP</p></div>
                                     <div class="col-12 col-lg-6 col-md-6 col-sm-6" style="padding-right: 32px;">
                                          <p id="adduser" type="" class="text-dark">
