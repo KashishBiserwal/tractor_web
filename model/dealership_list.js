@@ -224,7 +224,7 @@ function add_dealership(event) {
     for (var x = 0; x < image_names.length; x++) {
         data.append("images[]", image_names[x]);
     }
-    
+
     data.append('_method', _method);
     data.append('dealer_name', dealer_name);
     data.append('brand_id', brand);
@@ -377,7 +377,7 @@ function destroy(id) {
               var imageNamesArray = Array.isArray(data.dealer_details[0].image_names) ? data.dealer_details[0].image_names : data.dealer_details[0].image_names.split(',');
       
               imageNamesArray.forEach(function (imageName) {
-                  var imageUrl = 'http://tractor-api.divyaltech.com/uploads/dealers_img/' + imageName.trim();
+                  var imageUrl = 'http://tractor-api.divyaltech.com/uploads/dealer_img/' + imageName.trim();
       
                   var newCard = `
                       <div class="col-6 col-lg-6 col-md-6 col-sm-6">
@@ -432,7 +432,7 @@ function destroy(id) {
                 var imageNamesArray = Array.isArray(Data.image_names) ? Data.image_names : Data.image_names.split(',');
                 var countclass=0;
                 imageNamesArray.forEach(function (imageName) {
-                    var imageUrl = 'http://tractor-api.divyaltech.com/uploads/dealers_img/' + imageName.trim();
+                    var imageUrl = 'http://tractor-api.divyaltech.com/uploads/dealer_img/' + imageName.trim();
                     countclass++;
                     var newCard = `
                         <div class="col-6 col-lg-6 col-md-6 col-sm-6 position-relative">

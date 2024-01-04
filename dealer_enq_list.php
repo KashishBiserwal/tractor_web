@@ -133,21 +133,19 @@
                           <tr>
                             <td>Tehsil-</td>
                             <td id="tehsil_"></td>
-                          </tr>
-                          <tr>
-                              <td>Address-</td>
+                            <td>Address-</td>
                               <td colspan="3">
                                   <div class="col-12" id="addrss"></div>
                               </td>
                           </tr>
-                          <tr>
+                          <!-- <tr>
                               <td>Upload images-</td>
                               <td colspan="3">
                                   <div class="col-12">
                                       <div id="selectedImagesContainer1" class="upload__img-wrap row"></div>
                                   </div>
                               </td>
-                          </tr>
+                          </tr> -->
                         </tbody>
                       </table>
                     </div>

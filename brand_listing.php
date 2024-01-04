@@ -217,7 +217,7 @@
    
           <!-- model view -->
           <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog modal-dialog-centered modal-lg">
+          <div class="modal-dialog modal-dialog-centered modal-md">
             <div class="modal-content">
             <!-- <div class="modal-header">
                 <h5 class="modal-title" id="staticBackdropLabel"> Brand Information</h5>
@@ -244,9 +244,9 @@
                   </div>
                 </div>
               </div>
-              <!-- <div class="modal-footer">
+              <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-              </div> -->
+              </div>
             </div>
           </div>
         </div>

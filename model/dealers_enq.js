@@ -1,7 +1,8 @@
 $('#dataedit').click(edit_data_id);
 function get_dealers() {
     var apiBaseURL = APIBaseURL;
-    var url = apiBaseURL + 'dealer_data';
+    var url = apiBaseURL + 'get_dealer_enquiry_data';
+
     $.ajax({
         url: url,
         type: "GET",
@@ -12,13 +13,15 @@ function get_dealers() {
             const tableBody = document.getElementById('data-table');
             let serialNumber = 1;
   
-            if (data.dealer_details && data.dealer_details.length > 0) {
-                data.dealer_details.forEach(row => {
+            if (data.dealer_enquiry_details && data.dealer_enquiry_details.length > 0) {
+                data.dealer_enquiry_details.forEach(row => {
+
+                    const fullName = row.first_name + ' ' + row.last_name;
                     const tableRow = document.createElement('tr');
                     tableRow.innerHTML = `
                         <td>${serialNumber}</td>
-                        <td>${row.created_at}</td>
-                        <td>${row.dealer_name}</td>
+                        <td>${row.date}</td>
+                        <td>${fullName}</td>
                         <td>${row.brand_name}</td>
                         <td>${row.mobile}</td>
                         <td>${row.district}</td>
@@ -26,10 +29,10 @@ function get_dealers() {
                             <div class="d-flex">
                             <button class="btn btn-warning btn-sm text-white mx-1" data-bs-toggle="modal" onclick="fetch_data(${row.id});" data-bs-target="#view_model_dealers">
                             <i class="fa-solid fa-eye" style="font-size: 11px;"></i></button>
-                                <button class="btn btn-primary btn-sm btn_edit" onclick="fetch_edit_data(${row.id});" data-bs-toggle="modal" data-bs-target="#staticBackdrop" id="yourUniqueIdHere">
+                                <button class="btn btn-primary btn-sm btn_edit" onclick="fetch_edit_data(${row.id})" data-bs-toggle="modal" data-bs-target="#staticBackdrop" id="yourUniqueIdHere">
                                     <i class="fas fa-edit" style="font-size: 11px;"></i>
                                 </button>
-                                <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.id});">
+                                <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.id})">
                                     <i class="fa fa-trash" style="font-size: 11px;"></i>
                                 </button>
                             </div>
@@ -56,8 +59,7 @@ function get_dealers() {
   
     var productId = id;
     var apiBaseURL = APIBaseURL;
-    var url = apiBaseURL + 'dealer_data/' + productId;
-  
+    var url = apiBaseURL + 'get_dealer_enquiry_data_by_id/' + productId;
     var headers = { 
         'Authorization': 'Bearer ' + localStorage.getItem('token')
     };
@@ -68,22 +70,22 @@ function get_dealers() {
         headers: headers,
         success: function (data) {
           console.log(data, 'abc');
-          document.getElementById('dealer_name').innerText = data.dealer_details[0].dealer_name;
-          document.getElementById('brand_nmae').innerText = data.dealer_details[0].brand_name;
-          document.getElementById('email_id').innerText = data.dealer_details[0].email;
-          document.getElementById('contact').innerText = data.dealer_details[0].mobile;
-          document.getElementById('state').innerText =data.dealer_details[0].state;
-          document.getElementById('district').innerText = data.dealer_details[0].district;
-          document.getElementById('tehsil_').innerText = data.dealer_details[0].tehsil;
-          document.getElementById('addrss').innerText = data.dealer_details[0].address;
+          document.getElementById('dealer_name').innerText = data.dealer_enquiry_details[0].dealer_name;
+          document.getElementById('brand_nmae').innerText = data.dealer_enquiry_details[0].brand_name;
+          document.getElementById('email_id').innerText = data.dealer_enquiry_details[0].email;
+          document.getElementById('contact').innerText = data.dealer_enquiry_details[0].mobile;
+          document.getElementById('state').innerText =data.dealer_enquiry_details[0].state;
+          document.getElementById('district').innerText = data.dealer_enquiry_details[0].district;
+          document.getElementById('tehsil_').innerText = data.dealer_enquiry_details[0].tehsil;
+          document.getElementById('addrss').innerText = data.dealer_enquiry_details[0].address;
       
           $("#selectedImagesContainer").empty();
       
-          if (data.dealer_details[0].image_names) {
-              var imageNamesArray = Array.isArray(data.dealer_details[0].image_names) ? data.dealer_details[0].image_names : data.dealer_details[0].image_names.split(',');
+          if (data.dealer_enquiry_details[0].image_names) {
+              var imageNamesArray = Array.isArray(data.dealer_enquiry_details[0].image_names) ? data.dealer_enquiry_details[0].image_names : data.dealer_details[0].image_names.split(',');
       
               imageNamesArray.forEach(function (imageName) {
-                  var imageUrl = 'http://tractor-api.divyaltech.com/uploads/dealers_img/' + imageName.trim();
+                  var imageUrl = 'http://tractor-api.divyaltech.com/uploads/dealer_img/' + imageName.trim();
       
                   var newCard = `
                       <div class="col-6 col-lg-6 col-md-6 col-sm-6">
@@ -108,7 +110,7 @@ function get_dealers() {
 
   function fetch_edit_data(id) {
     var apiBaseURL = APIBaseURL;
-    var url = apiBaseURL + 'dealer_data/' + id;
+    var url = apiBaseURL + 'get_dealer_enquiry_data_by_id/' + id ;
     console.log(url);
   
     var headers = {
@@ -120,7 +122,7 @@ function get_dealers() {
         type: 'GET',
         headers: headers,
         success: function (response) {
-            var Data = response.dealer_details[0];
+            var Data = response.dealer_enquiry_details[0];
             $('#dname').val(Data.dealer_name);
             $('#brand').val(Data.brand_name);
             $('#email').val(Data.email);
@@ -139,7 +141,7 @@ function get_dealers() {
                 var imageNamesArray = Array.isArray(Data.image_names) ? Data.image_names : Data.image_names.split(',');
   
                 imageNamesArray.forEach(function (imageName) {
-                    var imageUrl = 'http://tractor-api.divyaltech.com/uploads/dealers_img/' + imageName.trim();
+                    var imageUrl = 'http://tractor-api.divyaltech.com/uploads/dealer_img/' + imageName.trim();
   
                     var newCard = `
                         <div class="col-6 col-lg-6 col-md-6 col-sm-6">
@@ -207,7 +209,7 @@ get();
     var tehsil = $('#tehsil').val();
 
     var apiBaseURL = APIBaseURL;
-    var url = apiBaseURL + 'haat_bazar/' + edit_id ;
+    var url = apiBaseURL + 'customer_enquiries/' + edit_id ;
     var token = localStorage.getItem('token');
     var _method = 'put';
     var headers = {
@@ -252,7 +254,7 @@ get();
  // **delete***
  function destroy(id) {
     var apiBaseURL = APIBaseURL;
-    var url = apiBaseURL + 'dealer_data/' + id;
+    var url = apiBaseURL + 'customer_enquiries/' + id;
     console.log(url);
     var token = localStorage.getItem('token');
   
