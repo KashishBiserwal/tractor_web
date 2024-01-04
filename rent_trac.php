@@ -299,8 +299,7 @@
                 <button type="button" class="btn-success btn mx-2 px-3 pt-2" id="Reset">Reset</button>
               </div>
             </div>
-          
-          </div>
+           </div>
         </div>
       </div>
       <!-- Table Card -->
@@ -338,7 +337,7 @@
    ?> 
    </body>
 
-   <script>
+<script>
   function triggerFileInput(inputId) {
     console.log('triggerFileInput called with inputId:', inputId);
     $('#' + inputId).trigger('click');
@@ -594,7 +593,4 @@
         return isValidRow;
     }
     });
-</script>
-<script>
-  
 </script>
