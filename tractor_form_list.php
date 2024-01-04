@@ -613,7 +613,7 @@ include 'includes/footertag.php';
                                                             
                                                             <div id="selectedImagesContainer2" class="upload__img-wrap"></div>
                                                         </div>
-                                                        <p class="text-danger">Note*- Image Must be JPEG, PNG & JPG Formate</p>
+                                                        <p class="text-danger">Note*- Image Must be JPEG, PNG & JPG format</p>
                                                     </div>
                                                 </div>
                                                <button type="button" class="nextStep text-center" id="nextbtn1">Next</button>

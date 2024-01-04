@@ -273,7 +273,7 @@ function get_dealers() {
                     const tableRow = document.createElement('tr');
                     tableRow.innerHTML = `
                         <td>${serialNumber}</td>
-                        <td>${row.created_at}</td>
+                        <td>${row.date}</td>
                         <td>${row.brand_name}</td>
                         <td>${row.mobile}</td>
                         <td>${row.state}</td>

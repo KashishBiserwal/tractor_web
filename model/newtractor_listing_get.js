@@ -61,7 +61,7 @@ if (data.length > 0) {
     const tableRow = document.createElement('tr');
     tableRow.innerHTML = `
       <td>${row.product_id}</td>
-      <td>${formatDateTime(row.created_at)}</td>
+      <td>${formatDateTime(row.date)}</td>
       <td>${row.brand_name}</td>
       <td>${row.model}</td>
       <td>${row.wheel_drive_value}</td>
@@ -210,7 +210,7 @@ success: function (data) {
       const tableRow = document.createElement('tr');
       tableRow.innerHTML = `
           <td>${serialNumber}</td>
-          <td>${formatDateTime(row.created_at)}</td>
+          <td>${formatDateTime(row.date)}</td>
           <td>${row.brand_name}</td>
           <td>${row.model}</td>
           <td>${row.wheel_drive_value}</td>

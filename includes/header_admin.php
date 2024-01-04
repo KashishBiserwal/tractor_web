@@ -98,7 +98,8 @@
 <script>
       const expireTimeString = localStorage.getItem('expireIn');
     // var expiretime = new Date(expireTimeString); 
-    const expireTime = new Date();
+    const expireTime = new date();
+    console.log(expireTime);
     
 expireTime.setSeconds(expireTime.getSeconds() +parseInt(expireTimeString));
 // expireTime.setSeconds(expireTime.getSeconds() +parseInt(10));
