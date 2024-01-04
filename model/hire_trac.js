@@ -109,7 +109,7 @@ function get_hire_tract() {
   function destroy(id) {
     console.log(id);
     var apiBaseURL = APIBaseURL;
-    var url = apiBaseURL + 'hire_data/' + id;
+    var url = apiBaseURL + 'customer_enquiries/' + id;
     console.log(url);
     var token = localStorage.getItem('token');
   

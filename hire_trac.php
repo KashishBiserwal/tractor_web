@@ -76,7 +76,7 @@ include 'includes/footertag.php';
                 </select>
               </div>
             </div>
-            <div class="col-12 mt-5">
+            <div class="col-12 mt-4">
               <div class="text-center">
                 <button type="button" class="btn-success btn px-3 pt-2" id="Search">Search</button>
                 <button type="button" class="btn-success btn mx-2 px-3 pt-2" id="Reset">Reset</button>
@@ -88,8 +88,8 @@ include 'includes/footertag.php';
       </div>
       <!-- Table Card -->
       <div class=" mb-5">
-                            <div class="table-responsive">
-                                <table id="example" class="table dataTable no-footer py-1" width="100%">
+                            <div class="table-responsive bg-white shadow">
+                                <table id="example" class="table table-striped  table-hover table-bordered dataTable no-footer" width="100%; margin-bottom: 15px;">
                                     <thead>
                                         <tr>
                                             <th class="d-none d-md-table-cell text-white">S.No.</th>
