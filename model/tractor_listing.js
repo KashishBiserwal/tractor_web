@@ -217,7 +217,7 @@ function store(event) {
       data.append('engine_capacity_cc', CAPACITY_CC);
       data.append('engine_rated_rpm', engine_rated_rpm);
       data.append('cooling_id', COOLING);
-      data.append('air_filter', AIR_FILTER);
+      data.append('air_filter_id', AIR_FILTER);
       data.append('fuel_pump_id', fuel_pump_id);
       data.append('torque', TORQUE);
       data.append('transmission_type_id', TRANSMISSION_TYPE);

@@ -449,7 +449,7 @@ $.ajax({
     document.getElementById('Starting_Price_1').innerText=data.product.allProductData[0].starting_price;
     document.getElementById('Ending_Price_1').innerText=data.product.allProductData[0].ending_price;
     document.getElementById('Warranty_1').innerText=data.product.allProductData[0].warranty;
-    document.getElementById('Select_Tractor_Type_1').innerText=data.product.allProductData[0].tractor_type_name;
+    document.getElementById('Select_Tractor_Type_1').innerText=data.product.accessory_and_tractor_type[0].tractor_type_name;
     document.getElementById('capacity_cc_1').innerText=data.product.allProductData[0].engine_capacity_cc;
     document.getElementById('Engine_Rated_RPM_1').innerText=data.product.allProductData[0].engine_rated_rpm;
     document.getElementById('Select_Cooling_1').innerText=data.product.allProductData[0].cooling_value;
@@ -473,7 +473,7 @@ $.ajax({
     document.getElementById('Wheel_Drive_1').innerText=data.product.allProductData[0].wheel_drive_value;
     document.getElementById('Front_1').innerText=data.product.allProductData[0].front_tyre;
     document.getElementById('Rear_1').innerText=data.product.allProductData[0].rear_tyre;
-    document.getElementById('Accessories_1').innerText=data.product.allProductData[0].accessory;
+    document.getElementById('Accessories_1').innerText=data.product.accessory_and_tractor_type[0].accessory;
     document.getElementById('Status_1').innerText=data.product.allProductData[0].status_value;
     document.getElementById('About_1').innerText=data.product.allProductData[0].description;
     $("#selectedImagesContainer1").empty();
@@ -487,7 +487,7 @@ $.ajax({
             countclass++;
             var newCard = `
                 <div class="col-12 col-md-6 col-lg-4 ">
-                <div class="upload__img-close_button " id="closeId${countclass}"></div>
+                <div class="" id="closeId${countclass}"></div>
                     <div class="brand-main d-flex box-shadow mt-1 py-2 text-center shadow upload__img-closeDy${countclass}">
                         <a class="weblink text-decoration-none text-dark" title="Tyre Image">
                             <img class="img-fluid w-100 h-100" src="${imageUrl}" alt="Tyre Image">
