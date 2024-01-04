@@ -76,7 +76,16 @@ $(document).ready(function(){
       });
       
     });
-      
+    function removeImage(ele){
+      console.log("print ele");
+        console.log(ele);
+        let thisId=ele.id;
+        thisId=thisId.split('closeId');
+        thisId=thisId[1];
+        $("#"+ele.id).remove();
+        $(".upload__img-closeDy"+thisId).remove();
+    
+      }
       
       // fetch data
       function get_haatbzr() {
@@ -249,6 +258,7 @@ function openView(userId) {
           headers: headers,
           success: function(response) {
             var userData = response.allData.haat_bazar_data[0];
+            $('#userId').val(userData.haat_bazar_id);
             $('#username').val(userData.haat_bazar_id);
             $('#first_name1').val(userData.first_name);
             $('#last_name1').val(userData.last_name);
@@ -261,15 +271,15 @@ function openView(userId) {
             $("#selectedImagesContainer2").empty();
             if (userData.image_names) {
               var imageNamesArray = Array.isArray(userData.image_names) ? userData.image_names : userData.image_names.split(',');
-          
+              var countclass=0;
               imageNamesArray.forEach(function (image_names) {
                   var imageUrl = 'http://tractor-api.divyaltech.com/uploads/haat_bazar_img/' + image_names.trim();
                   console.log(imageUrl);
-          
+                  countclass++;
                   var newCard = `
                       <div class="col-12 col-md-6 col-lg-4 mb-3 position-relative">
-                      <div class='upload__img-close'></div>
-                          <div class="brand-main d-flex box-shadow mt-1 py-2 text-center shadow">
+                      <div class="upload__img-close_button " id="closeId${countclass}" onclick="removeImage(this);"></div>
+                          <div class="brand-main d-flex box-shadow mt-1 py-2 text-center shadow upload__img-closeDy${countclass}">
                               <a class="weblink text-decoration-none text-dark" title="Tyre Image">
                                   <img class=" img-fluid w-100 h-100" src="${imageUrl}" alt="Tyre Image">
                               </a>
@@ -287,50 +297,63 @@ function openView(userId) {
         });
       }
       
-      function edit_data_id() {
-        var edit_id = $("#username").val();
-        var enquiry_type_id = $('#enquiry_type_id').val();
-        var first_name = $("#first_name1").val();
-        var last_name = $("#last_name1").val();
-        var mobile = $("#mobile_no").val();
-        var state = $("#state_").val();
-        var district = $("#district").val();
-        var tehsil = $("#tehsil").val();
-        var price = $("#price").val();
-    
-        var paraArr = {
-            'enquiry_type_id': enquiry_type_id,
-            'first_name': first_name,
-            'last_name': last_name,
-            'mobile': mobile,
-            'state': state,
-            'district': district,
-            'tehsil': tehsil,
-            'price': price,
-            'id': edit_id
-        };
-    
+      function edit_data_id(edit_id) {
+        console.log(edit_id);
+        var edit_id = $("#userId").val();
+        console.log(edit_id);
+        var image_names = document.getElementById('image_pic').files;
+        var enquiry_type_id = $("#enquiry_type_id").val();
+        console.log(enquiry_type_id);
+        var first_name = $('#first_name1').val();
+        var last_name = $('#last_name1').val();
+        var mobile = $('#mobile_no').val();
+        var state = $('#state_').val();
+        var district = $('#district').val();
+        var tehsil = $('#tehsil').val();
+        var price = $('#price').val();
+
         var apiBaseURL = APIBaseURL;
-        var url = apiBaseURL + 'haat_bazar/' + edit_id;
+        var url = apiBaseURL + 'haat_bazar/' + edit_id ;
+        var token = localStorage.getItem('token');
+        var _method = 'put';
         var headers = {
-            'Authorization': 'Bearer ' + localStorage.getItem('token')
+            'Authorization': 'Bearer ' + token
         };
-    
+      
+        var data = new FormData();
+      
+        for (var x = 0; x < image_names.length; x++) {
+            data.append('images[]', image_names[x]);
+        }
+        data.append('_method', _method);
+        data.append('id',edit_id)
+        data.append('enquiry_type_id', enquiry_type_id);
+        data.append('first_name', first_name);
+        data.append('last_name', last_name);
+        data.append('mobile', mobile);
+        data.append('state', state);
+        data.append('district', district);
+        data.append('tehsil', tehsil);
+        data.append('price', price);
+        data.append('id', edit_id);
         $.ajax({
-            url: url,
-            type: 'PUT',
-            data: paraArr,
-            headers: headers,
-            success: function (result) {
-                console.log(result, "result");
-                console.log("updated successfully");
-               window.location.reload();
-                // alert('Successfully updated..!');
-                // $('#data_for_edit').modal('hide'); 
-            },
-            error: function (error) {
-                console.error('Error updating data:', error);
-            }
+          url: url,
+          type: "POST",
+          data: data,
+          headers: headers,
+          processData: false,
+          contentType: false,
+           success: function (result) {
+             console.log(result, "result");
+             get_haatbzr();
+            // nursery_data();
+            // window.location.reload();
+             console.log("updated successfully");
+             alert('successfully updated..!')
+           },
+           error: function (error) {
+             console.error('Error fetching data:', error);
+           }
         });
     }
   

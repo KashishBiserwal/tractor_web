@@ -91,8 +91,8 @@
       </div>
       <!-- Table Card -->
       <div class=" mb-5">
-                            <div class="table-responsive">
-                                <table id="example" class="table dataTable no-footer py-1" width="100%">
+                            <div class="table-responsive bg-white shadow">
+                                <table id="example" class="table table-striped  table-hover table-bordered dataTable no-footer" width="100%">
                                     <thead>
                                         <tr>
                                         <th class="d-none d-md-table-cell text-white">S.No.</th>
@@ -192,6 +192,12 @@
           <div class="col-12 col-sm-6 col-md-6 col-lg-6 mt-2" hidden>
               <div class="form-outline">
                 <label class="form-label" for="first_name">User Name</label>
+                <input type="text" id="userId" name="" value="" class=" data_search form-control input-group-sm py-2" />
+              </div>
+            </div>
+          <div class="col-12 col-sm-6 col-md-6 col-lg-6 mt-2" hidden>
+              <div class="form-outline">
+                <label class="form-label" for="first_name">User Name</label>
                 <input type="text" id="enquiry_type_id" name="user_name" value="8" class=" data_search form-control input-group-sm py-2" />
               </div>
             </div>
@@ -273,7 +279,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="submit" class="btn btn-success" id="update_button">Save Change</button>
+        <button type="submit" class="btn btn-success" data-bs-dismiss="modal" id="update_button">Save Change</button>
       </div>
     </div>
   </div>

@@ -115,7 +115,7 @@ include 'includes/footertag.php';
             <div class="modal-dialog modal-lg modal-dialog-centered">
               <div class="modal-content modal_box">
                 <div class="modal-header modal_head">
-                  <h5 class="modal-title text-white fw-bold" id="staticBackdropLabel"> Edit Dealers Enquiry</h5>
+                  <h5 class="modal-title text-white fw-bold" id="staticBackdropLabel"> Hire Tractor Enquiry</h5>
                   <button type="button" class="btn-close btn-success" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body bg-light">
@@ -124,45 +124,32 @@ include 'includes/footertag.php';
                               <h4 class="text-center">Fill your Details</h4>
                             <form id="dealer_list_form">
                                 <div class="row justify-content-center pt-4">
-                                <div class="col- col-sm-6 col-lg-6 col-md-6" hidden>
+                                <div class="col- col-sm-6 col-lg-6 col-md-6" >
                                   <label class="text-dark"> id Name<span class="text-danger">*</span></label>
                                           <input type="text" class="form-control py-2" for="idUser"  id="idUser" name="first_name" placeholder="Enter First Name">
                                   <small></small>
                                 </div>
                                  <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
                                       <div class="form-outline">
-                                        <label for="name" class="form-label text-dark">Dealer Name</label>
-                                        <input type="text" class="form-control" placeholder="" id="dname" name="dname">
+                                        <label for="name" class="form-label text-dark">First Name</label>
+                                        <input type="text" class="form-control" placeholder="" id="first_name" name="dname">
                                       </div>
                                     </div>
                                     <div class="ol-12 col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-outline">
-                                            <label class="form-label"> Brand</label>
-                                            <select class="form-select py-2" aria-label="Default select example" id="brand" name="brand">
+                                            <label class="form-label"> Last Name</label>
+                                            <select class="form-select py-2" aria-label="Default select example" id="last_name" name="brand">
                                                 
                                             </select>
                                         </div>
                                     </div>
                                     <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
                                       <div class="form-outline mt-3">
-                                        <label for="name" class="form-label text-dark">Email Id</label>
-                                        <input type="text" class="form-control" placeholder="" id="email" name="email">
+                                        <label for="name" class="form-label text-dark">Phone Number</label>
+                                        <input type="text" class="form-control" placeholder="" id="mobile" name="email">
                                       </div>
                                     </div>
-                                    <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
-                                      <div class="form-outline mt-3">
-                                        <label for="name" class="form-label text-dark">Contact Number</label>
-                                        <input type="text" class="form-control" placeholder="" id="cno" name="cno">
-                                      </div>
-                                    </div>
-                                    <div class="col-12  mb-2">
-                                      <div class="form-outline mt-3">
-                                        <label for="name" class="form-label text-dark">Address</label>
-                                        <!-- <input type="email" class="form-control" placeholder="" id="" name=""> -->
-                                        <textarea rows="3" cols="70" class="w-100 pt-2" minlength="1" maxlength="255" id="address" name="address"></textarea>
-                                      </div>
-                                    </div>
-                                    <div class="col-12 col-sm-4 col-md-4 col-lg-4">
+                                    <div class="col-12 col-sm-6 col-md-6 col-lg-6">
                                             <div class="form-outline mt-3">
                                                 <label class="form-label">State</label>
                                                 <select class="form-select py-2" aria-label="Default select example" id="state_" name="state_">
@@ -172,7 +159,7 @@ include 'includes/footertag.php';
                                                 </select>
                                             </div>
                                         </div>
-                                        <div class="col-12  col-sm-4 col-md-4 col-lg-4">
+                                        <div class="col-12  col-sm-6 col-md-6 col-lg-6">
                                             <div class="form-outline mt-3">
                                                 <label class="form-label">District</label>
                                                 <select class="form-select py-2" aria-label="Default select example" id="dist" name="dist">
@@ -183,7 +170,7 @@ include 'includes/footertag.php';
                                                 </select>
                                             </div>
                                         </div>
-                                        <div class="col-12 col-sm-4 col-md-4 col-lg-4">
+                                        <div class="col-12 col-sm-6 col-md-6 col-lg-6">
                                             <div class="form-outline mt-3">
                                                 <label class="form-label">Tehsil</label>
                                                 <select class="form-select py-2" id="tehsil" aria-label="Default select example">

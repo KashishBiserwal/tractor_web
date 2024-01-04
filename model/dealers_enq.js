@@ -1,4 +1,4 @@
-$('#dataedit').click(edit_user);
+$('#dataedit').click(edit_data_id);
 function get_dealers() {
     var apiBaseURL = APIBaseURL;
     var url = apiBaseURL + 'dealer_data';
@@ -193,50 +193,61 @@ function get_dealers() {
 get();
 
 
-function edit_user(){
-    var edit_id = $("#idUser").val();
-     var dname = $("#dname").val();
-     var brand = $("#brand").val();
-     var email = $("#email").val();
-     var cno = $("#cno").val();
-     var address = $("#address").val();
-     var state_ = $("#state_").val();
-     var dist = $("#dist").val();
-     var tehsil = $("#tehsil").val();
-     var paraArr = {
-        'id': edit_id,
-       'dealer_name': dname,
-       'brand_name': brand,
-       'email': email,
-       'mobile': cno,
-       'user_type': address,
-       'state': state_,
-       'district':dist,
-       'tehsil':tehsil,
-   
-     };
-     var apiBaseURL = APIBaseURL;
-     var url = apiBaseURL + 'updateUser/' + edit_id;
-   
-     var headers = {
-       'Authorization': 'Bearer ' + localStorage.getItem('token')
-     };
-     $.ajax({
-       url: url,
-         type: "PUT",
-         data: paraArr,
-         headers: headers,
-         success: function (result) {
-           console.log(result, "result");
-           get();
-           console.log("updated successfully");
-           alert('successfully updated..!')
-         },
-         error: function (error) {
-           console.error('Error fetching data:', error);
-         }
-     })
-   }
+   function edit_data_id(edit_id) {
+    console.log(edit_id);
+    var edit_id = $("#userId").val();
+    console.log(edit_id);
+    var image_names = document.getElementById('_image').files;
+    var dname = $("#dname").val();
+    var brand = $('#brand').val();
+    var email = $('#email').val();
+    var cno = $('#cno').val();
+    var state_ = $('#state_').val();
+    var dist = $('#dist').val();
+    var tehsil = $('#tehsil').val();
+
+    var apiBaseURL = APIBaseURL;
+    var url = apiBaseURL + 'haat_bazar/' + edit_id ;
+    var token = localStorage.getItem('token');
+    var _method = 'put';
+    var headers = {
+        'Authorization': 'Bearer ' + token
+    };
+  
+    var data = new FormData();
+  
+    for (var x = 0; x < image_names.length; x++) {
+        data.append('images[]', image_names[x]);
+    }
+    data.append('_method', _method);
+    data.append('id',edit_id)
+    data.append('dealer_name', dname);
+    data.append('brand_name', brand);
+    data.append('email', email);
+    data.append('mobile', cno);
+    data.append('state', state_);
+    data.append('district', dist);
+    data.append('tehsil', tehsil);
+    $.ajax({
+      url: url,
+      type: "POST",
+      data: data,
+      headers: headers,
+      processData: false,
+      contentType: false,
+       success: function (result) {
+         console.log(result, "result");
+         get_dealers();
+        // nursery_data();
+        // window.location.reload();
+         console.log("updated successfully");
+         alert('successfully updated..!')
+       },
+       error: function (error) {
+         console.error('Error fetching data:', error);
+       }
+    });
+}
 
  // **delete***
  function destroy(id) {

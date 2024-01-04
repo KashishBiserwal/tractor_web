@@ -136,6 +136,17 @@ $(document).ready(function () {
   }
 
 
+  function removeImage(ele){
+    console.log("print ele");
+      console.log(ele);
+      let thisId=ele.id;
+      thisId=thisId.split('closeId');
+      thisId=thisId[1];
+      $("#"+ele.id).remove();
+      $(".upload__img-closeDy"+thisId).remove();
+  
+    }
+
   function get() {
     var apiBaseURL =APIBaseURL;
     var url = apiBaseURL + 'getBrands';
@@ -190,16 +201,18 @@ function add_dealership(event) {
     // Check if an ID is present in the URL, indicating edit mode
     var urlParams = new URLSearchParams(window.location.search);
     var editId = urlParams.get('id');
-
+    var _method = 'post'; 
     var url, method;
+    
     console.log('edit state',editId_state);
     console.log('edit id', EditIdmain_);
     if (editId_state) {
         // Update mode
-        console.log(editId);
-        url = apiBaseURL + 'dealer_data?id=' + EditIdmain_; 
+        console.log(editId_state);
+        _method = 'put';
+        url = apiBaseURL + 'dealer_data/' + EditIdmain_ ;
         console.log(url);
-        method = 'PUT';
+        method = 'POST'; 
     } else {
         // Add mode
         url = apiBaseURL + 'dealer_data';
@@ -211,7 +224,8 @@ function add_dealership(event) {
     for (var x = 0; x < image_names.length; x++) {
         data.append("images[]", image_names[x]);
     }
-
+    
+    data.append('_method', _method);
     data.append('dealer_name', dealer_name);
     data.append('brand_id', brand);
     data.append('email', email);
@@ -357,7 +371,7 @@ function destroy(id) {
           document.getElementById('tehsil_').innerText = data.dealer_details[0].tehsil;
           document.getElementById('addrss').innerText = data.dealer_details[0].address;
       
-          $("#selectedImagesContainer").empty();
+          $("#selectedImagesContainer1").empty();
       
           if (data.dealer_details[0].image_names) {
               var imageNamesArray = Array.isArray(data.dealer_details[0].image_names) ? data.dealer_details[0].image_names : data.dealer_details[0].image_names.split(',');
@@ -368,14 +382,14 @@ function destroy(id) {
                   var newCard = `
                       <div class="col-6 col-lg-6 col-md-6 col-sm-6">
                           <div class="brand-main d-flex box-shadow   mt-2 text-center shadow">
-                              <a class="weblink text-decoration-none text-dark" title="Tyre Image">
-                                  <img class="img-fluid w-100 h-100 " src="${imageUrl}" alt="Tyre Image">
+                              <a class="weblink text-decoration-none text-dark" title="Image">
+                                  <img class="img-fluid w-100 h-100 " src="${imageUrl}" alt="Image">
                               </a>
                           </div>
                       </div>
                   `;
       
-                  $("#selectedImagesContainer").append(newCard);
+                  $("#selectedImagesContainer1").append(newCard);
               });
           }
       },
@@ -416,13 +430,14 @@ function destroy(id) {
             if (Data.image_names) {
                 // Check if Data.image_names is an array
                 var imageNamesArray = Array.isArray(Data.image_names) ? Data.image_names : Data.image_names.split(',');
-  
+                var countclass=0;
                 imageNamesArray.forEach(function (imageName) {
                     var imageUrl = 'http://tractor-api.divyaltech.com/uploads/dealers_img/' + imageName.trim();
-  
+                    countclass++;
                     var newCard = `
-                        <div class="col-6 col-lg-6 col-md-6 col-sm-6">
-                            <div class="brand-main d-flex box-shadow mt-2 text-center shadow">
+                        <div class="col-6 col-lg-6 col-md-6 col-sm-6 position-relative">
+                        <div class="upload__img-close_button" id="closeId${countclass}" onclick="removeImage(this);"></div>
+                            <div class="brand-main d-flex box-shadow mt-2 text-center shadow upload__img-closeDy${countclass}">
                                 <a class="weblink text-decoration-none text-dark" title="Image">
                                     <img class="img-fluid w-100 h-100" src="${imageUrl}" alt=" Image">
                                 </a>

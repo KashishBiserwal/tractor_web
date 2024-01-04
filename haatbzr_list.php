@@ -197,7 +197,7 @@
                                                 <input type="file" multiple="" data-max_length="20" class="upload__inputfile" id="_image" name="_image">
                                               </label>
                                             </div>
-                                            <div id="selectedImagesContainer" class="upload__img-wrap"></div>
+                                            <div id="selectedImagesContainer" class="upload__img-wrap row"></div>
                                           </div>
                                         </div>
                                         
@@ -237,8 +237,8 @@
                                               <option value="1">Chattisgarh</option>
                                               <option value="2">Other</option>
                                           </select>
-                                        </div>
                                       </div>
+                                    </div>
                                       <div class="col-12 col-lg-6 col-sm-5 col-md-6 my-1">
                                         <div class="form-outline mt-3">
                                           <label class="form-label ">District</label>
