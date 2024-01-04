@@ -443,9 +443,16 @@ include 'includes/headertag.php';
                                 </div>
                               </div>
                               <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-3">
+                                <label class="pe-3 fs-5 text-dark">RC Number</label>
+                                <input type="radio" id="rc_yes" name="fav_rc" value="1">
+                                <label for="html" class="text-dark">Yes</label> 
+                                <input type="radio" id="rc_no" name="fav_rc" value="0">
+                                <label for="css" class="text-dark">No</label>
+                              </div>
+                              <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-3">
                                 <div class="form-outline">
-                                  <label class="form-label" for="">RC Number</label>
-                                  <input type="text" id="rc_num1" name="rc_num" class=" data_search form-control input-group-sm py-2" />
+                                  <label class="form-label" for="">Vehicle Registered Number</label>
+                                  <input type="text" id="rc_num1" name="rc_num" class=" data_search form-control input-group-sm py-2"/>
                                 </div>
                               </div>
                               <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-3">

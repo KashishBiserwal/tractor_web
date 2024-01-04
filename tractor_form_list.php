@@ -598,21 +598,22 @@ include 'includes/footertag.php';
                                                             <input type="text" placeholder=" " id="warranty"  name="warranty" class="form-control"required>
                                                         </div>
                                                     </div>
-                                                    <div class="col-12 col-sm-8 col-lg-8 col-md-8 mt-4">
+                                                    <div class="col-12 col-sm-6 col-lg-6 col-md-6 mt-4">
                                                         <label for="name" class="text-dark fw-bold">Select Tractor Type</label>
                                                         <div id="type_name" name="type_name"></div>
                                                     </div>
-                                                    <div class="col-12 col-sm-4 col-lg-4 col-md-4">
-                                                        <div class="upload__box mt-2 text-center">
+                                                    <div class="col-12 col-sm-6 col-lg-6 col-md-6">
+                                                        <div class="upload__box text-center">
                                                             <div class="upload__btn-box text-center">
                                                                 <label >
                                                                     <p class="upload__btn">Upload images</p>
                                                                     <input type="file" multiple="" data-max_length="20" class="upload__inputfile" id="image_name" name="_image"required>
                                                                 </label>
                                                             </div>
-                                                            <!-- <div id="selectedImagesContainer" class="upload__img-wrap"></div> -->
+                                                            
                                                             <div id="selectedImagesContainer2" class="upload__img-wrap"></div>
                                                         </div>
+                                                        <p class="text-danger">Note*- Image Must be JPEG, PNG & JPG Formate</p>
                                                     </div>
                                                 </div>
                                                <button type="button" class="nextStep text-center" id="nextbtn1">Next</button>

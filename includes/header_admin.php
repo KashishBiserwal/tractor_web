@@ -107,9 +107,9 @@ window.setInterval(() => {
   
 
     var currentdate = new Date();
-    // console.log("hello");
-    // console.log('currentdate',currentdate);
-    // console.log('expiretime',expireTime);
+    console.log("hello");
+    console.log('currentdate',currentdate);
+    console.log('expiretime',expireTime);
     if (currentdate >= expireTime) {
         
         user_logout();
