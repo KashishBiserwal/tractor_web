@@ -26,7 +26,7 @@ function store(event) {
       'accessory': accessories
     };
     var url, method;
-    
+    var apiBaseURL =APIBaseURL;
     console.log('edit state',editId_state);
     console.log('edit id', EditIdmain_);
     if (editId_state) {
@@ -49,7 +49,7 @@ function store(event) {
     // Make an AJAX request to the server
     $.ajax({
       url: url,
-      type: "POST",
+      type: method,
       data: paraArr,
       headers: headers,
       success: function (result) {
@@ -90,7 +90,7 @@ function get_data() {
                 //   console.log(row);
                    // const tableRow = document.createElement('tr');
                    let action = ` <div class="d-flex"></button>
-                   <button class="btn btn-warning text-white btn-sm mx-1"  onclick="fetch_edit_data(${row.id});" data-bs-toggle="modal" data-bs-target="#staticBackdrop_1" id="yourUniqueIdHere" style="padding:5px">
+                   <button class="btn btn-primary text-white btn-sm mx-1"  onclick="fetch_edit_data(${row.id});" data-bs-toggle="modal" data-bs-target="#staticBackdrop_1" id="yourUniqueIdHere" style="padding:5px">
                    <i class="fas fa-edit" style="font-size: 11px;"></i></button><button class="btn btn-danger btn-sm mx-1" id="delete_user" onclick="destroy(${row.id});" style="padding:5px"><i class="fa fa-trash" style="font-size: 11px;"></i></div>`;
 
                     tableData.push([

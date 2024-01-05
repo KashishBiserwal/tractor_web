@@ -178,7 +178,7 @@ function appendCard(container, p) {
 }
 
 // Function to load more cards when the "Load More" button is clicked
-$(document).on("click", "#loadMoreBtn", function () {
+$(document).on('click', '#loadMoreBtn', function(){
     var productContainer = $("#productContainer");
 
     allCards.slice(cardsDisplayed).forEach(function (p) {
@@ -191,5 +191,4 @@ $(document).on("click", "#loadMoreBtn", function () {
         $("#loadMoreBtn").hide();
     }
 });
-// Initial call to load the first set of cards
 getoldTractorList();

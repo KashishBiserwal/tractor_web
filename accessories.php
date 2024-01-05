@@ -66,7 +66,7 @@ include 'includes/footertag.php';
                                     </div>
                                 </div>
                               </div>
-                              <button type="button" id="add_ass" class="btn btn-success fw-bold px-3 mt-3">Submit</button>
+                              <button type="button" id="add_ass" class="btn btn-success  fw-bold px-3 mt-4" data-bs-dismiss="modal">Submit</button>
                             </form>
                           </div>
                         </div>
