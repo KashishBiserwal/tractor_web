@@ -32,40 +32,33 @@ include 'includes/headertag.php';
        
                 <!-- modal -->
                 <div class="modal fade" id="staticBackdrop1" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                  <div class="modal-dialog  modal-dialog-centered">
+                  <div class="modal-dialog modal-dialog-centered">
                     <div class="modal-content modal_box">
                       <div class="modal-header modal_head">
                         <h5 class="modal-title text-white fw-bold" id="staticBackdropLabel">Add Lookup Type</h5>
                         <button type="button" class="btn-close btn-success" data-bs-dismiss="modal" aria-label="Close"></button>
                       </div>
                       <div class="modal-body bg-white">
+                        <div class="row justify-content-center">
+                          <div class="col-12">
+                            <form id="look_up_form" method="POST">
                               <div class="row justify-content-center">
-                                  <div class="col-12">
-                                    <!-- <h5 class="text-center">Fill Details</h5> -->
-                                    <form id="form">
-                                      <div class="row justify-content-center">
-                                          <div class="col-12 mt-4">
-                                            <div class="form-outline">
-                                                <label class="form-label">Lookup Type Name<span class="text-danger">*</span></label>
-                                                <input type="text" class="form-control " id="name" for="name" name="name" placeholder="">
-                                            </div>
-                                          </div>
-                                      </div>
-                                      <!-- <button type="button" id="" class="btn btn-success fw-bold px-3">Submit</button> -->
-                                      <button type="submit" class="btn btn-success  mt-3 mb-0 btn_all" id="login">Submit</button>
-                                    </form>
+                                <div class="col-12 mt-4">
+                                  <div class="form-outline">
+                                    <label class="form-label text-dark">Lookup Type Name<span class="text-danger">*</span></label>
+                                    <input type="text" class="form-control " for="name" name="lookup_name" placeholder="">
                                   </div>
+                                </div>
                               </div>
+                              <button type="button" class="btn btn-success  mt-3 mb-0 btn_all" id="submit_button">Submit</button>
+                            </form>
                           </div>
-                        <!-- <div class="modal-footer">
-                          <button type="button" class="btn btn-secondary px-3" data-bs-dismiss="modal">Close</button>
-                        
-                      </div> -->
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
-            
             </div>
           </div>
          
@@ -122,8 +115,45 @@ include 'includes/headertag.php';
       </div>
     </div>
    </section>
-      
-    
+
+   <!-- Modal -->
+      <div class="modal fade" id="staticBackdrop2" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content modal_box">
+            <div class="modal-header modal_head ">
+              <h5 class="modal-title text-white fw-bold" id="staticBackdropLabel">Update Lookup Type</h5>
+              <button type="button" class="btn-close btn-success" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body bg-white">
+              <div class="row justify-content-center">
+                <div class="col-12">
+                  <form id="look_up_form1" method="POST">
+                    <div class="row justify-content-center">
+                      <div class="col- col-sm-6 col-lg-6 col-md-6" hidden>
+                        <label class="text-dark"> id Name<span class="text-danger">*</span></label>
+                        <input type="text" class="form-control py-2" for="idUser"  id="idUser" name="first_name" placeholder="Enter First Name">
+                        <small></small>
+                      </div> 
+                      
+                      <div class="col-12 mt-4">
+                        <div class="form-outline">
+                          <label class="form-label text-dark">Lookup Type Name<span class="text-danger">*</span></label>
+                          <input type="text" class="form-control " for="name" name="lookup_name1" id="look_up_name" placeholder="">
+                        </div>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary px-3" data-bs-dismiss="modal">Close</button>
+              <button type="button" id="savechangebtn" class="btn btn-success fw-bold px-3">Save Change</button>
+            </div>
+          </div>
+        </div>
+      </div>
+   
 </div>
 </div>
 </body>
