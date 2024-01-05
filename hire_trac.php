@@ -124,7 +124,7 @@ include 'includes/footertag.php';
                               <h4 class="text-center">Fill your Details</h4>
                             <form id="dealer_list_form">
                                 <div class="row justify-content-center pt-4">
-                                <div class="col- col-sm-6 col-lg-6 col-md-6" >
+                                <div class="col- col-sm-6 col-lg-6 col-md-6" hidden >
                                   <label class="text-dark"> id Name<span class="text-danger">*</span></label>
                                           <input type="text" class="form-control py-2" for="idUser"  id="idUser" name="first_name" placeholder="Enter First Name">
                                   <small></small>

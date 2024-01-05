@@ -1,3 +1,5 @@
+var EditIdmain_ = "";
+var editId_state= false;
 $(document).ready(function() {
   ImgUpload();
   $('#old_btn').click(store);
@@ -234,6 +236,7 @@ function store(event) {
      var tyre_condition = $('#tyrecondition').val();
      var hours_driven = $('#hours_driven').val();
      var rc = $('#rc_num').val();
+     var rc_number = $('input[name="fav_rc"]:checked').val();
      var finance = $('input[name="fav_language"]:checked').val();
      var nocAvailable = $('input[name="fav_language1"]:checked').val();
      var price= $('#price_old').val();
@@ -241,11 +244,30 @@ function store(event) {
  
     
      var apiBaseURL =APIBaseURL;
-     var url = apiBaseURL + 'customer_enquiries';
+    //  var url = apiBaseURL + 'customer_enquiries';
      var token = localStorage.getItem('token');
      var headers = {
        'Authorization': 'Bearer ' + token
      };
+
+     var _method = 'post'; 
+    var url, method;
+    
+    console.log('edit state',editId_state);
+    console.log('edit id', EditIdmain_);
+    if (EditIdmain_) {
+        // Update mode
+        console.log(editId_state, "state");
+        console.log(EditIdmain_, "id edit");
+        _method = 'put';
+        url = apiBaseURL + 'customer_enquiries/' + EditIdmain_ ;
+        console.log(url);
+        method = 'POST'; 
+    } else {
+        // Add mode
+        url = apiBaseURL + 'customer_enquiries';
+        method = 'POST';
+    }
      var data = new FormData();
     
      for (var x = 0; x < image_names.length; x++) {
@@ -253,6 +275,7 @@ function store(event) {
        console.log("multiple image", image_names[x]);
      }
        data.append('form_type',form_type);
+       data.append('_method',_method);
        data.append('product_type_id', product_type_id);
        data.append('enquiry_type_id', enquiry_type_id);
        data.append('image_type_id', image_type_id);
@@ -261,7 +284,7 @@ function store(event) {
        data.append('last_name', last_name);
        data.append('mobile', mobile);
        data.append('brand_id', brand_name);
-      //  data.append('product_id', product_type_id);
+       data.append('vehicle_registered_num', rc);
        data.append('model', Model_name);
        data.append('purchase_year', purchase_year);
        data.append('engine_condition', engine_condition);
@@ -270,20 +293,22 @@ function store(event) {
        data.append('state',state);
        data.append('district',district);
        data.append('tehsil',tehsil);
-       data.append('rc_number',rc);
+       data.append('rc_number',rc_number);
        data.append('price',price);
        data.append('description', description);
        data.append('finance', finance);
        data.append('noc', nocAvailable);
       
        data.append('description',description);
+       console.log(data, "okk");
+
      $.ajax({
-       url: url,
-       type: "POST",
-       data: data,
-       headers: headers,
-       processData: false, 
-       contentType: false,
+      url: url,
+        type: method,
+        data: data,
+        headers: headers,
+        processData: false,
+        contentType: false,
        success: function (result) {
          console.log(result, "result");
          // getTractorList();
@@ -337,9 +362,9 @@ function store(event) {
                 data.product.forEach(row => {
                     let action = `
                         <div class="d-flex">
-                            <button class="btn btn-warning btn-sm text-white mx-1" data-bs-toggle="modal" onclick="fetch_data(${row.id});" data-bs-target="#view_model_dealers">
+                            <button class="btn btn-warning btn-sm text-white mx-1" data-bs-toggle="modal" onclick="fetch_data(${row.product_id});" data-bs-target="#view_model_dealers">
                             <i class="fa-solid fa-eye" style="font-size: 11px;"></i></button>
-                            <button class="btn btn-primary btn-sm btn_edit" onclick="fetch_edit_data(${row.id});" data-bs-toggle="modal" data-bs-target="#staticBackdrop_model" id="yourUniqueIdHere" style="padding:5px">
+                            <button class="btn btn-primary btn-sm btn_edit" onclick="fetch_edit_data(${row.product_id});" data-bs-toggle="modal" data-bs-target="#staticBackdrop" id="yourUniqueIdHere" style="padding:5px">
                               <i class="fas fa-edit" style="font-size: 11px;"></i>
                             </button>
                             <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.product_id});" style="padding:5px">
@@ -388,14 +413,24 @@ function store(event) {
 
 get_tractor_list();
 
+function removeImage(ele){
+  console.log("print ele");
+    console.log(ele);
+    let thisId=ele.id;
+    thisId=thisId.split('closeId');
+    thisId=thisId[1];
+    $("#"+ele.id).remove();
+    $(".upload__img-closeDy"+thisId).remove();
 
+  }
 
 // fetch edit data
 
 function fetch_edit_data(id) {
   var apiBaseURL = APIBaseURL;
-  var url = apiBaseURL + 'get_old_tractor';
-
+  var url = apiBaseURL + 'get_old_tractor_by_id/' + id ;
+  editId_state= true;
+  // EditIdmain_= product_id;
   var headers = {
     'Authorization': 'Bearer ' + localStorage.getItem('token')
   };
@@ -407,31 +442,60 @@ function fetch_edit_data(id) {
     success: function(response) {
       var userData = response.product[0];
 
-      $('#enquiry_type_id1').val(userData.enquiry_type_id);
-      $('#image_type_id1').val(userData.image_type_id);
-      $('#tractor_type_id1').val(userData.tractor_type_id);
-      $('#form_type1').val(userData.form_type);
-      $('#first_name1').val(userData.first_name);
-      $('#last_name1').val(userData.last_name);
-      $('#mobile_number1').val(userData.mobile);
-      $('#state1').val(userData.state);
-      $('#district1').val(userData.district);
-      $('#tehsil1').val(userData.tehsil);
-      $('#brand1').val(userData.brand_name);
-      $('#model1').val(userData.model);
-      $('#purchase_year1').val(userData.purchase_year);
-      $('#condition1').val(userData.engine_condition);
-      $('#tyrecondition1').val(userData.tyre_condition);
+      $('#enquiry_type_id').val(userData.enquiry_type_id);
+      $('#image_type_id').val(userData.image_type_id);
+      $('#tractor_type_id').val(userData.tractor_type_id);
+      $('#form_type').val(userData.form_type);
+      $('#first_name').val(userData.first_name);
+      $('#last_name').val(userData.last_name);
+      $('#mobile_number').val(userData.mobile);
+      $('#state').val(userData.state);
+      $('#district').val(userData.district);
+      $('#tehsil').val(userData.tehsil);
+      $('#brand').val(userData.brand_name);
+      $('#model').val(userData.model);
+      $('#purchase_year').val(userData.purchase_year);
+      $('#condition').val(userData.engine_condition);
+      $('#tyrecondition').val(userData.tyre_condition);
       $('#hours_driven').val(userData.hours_driven);
-      $('#rc_num1').val(userData.rc_number);
-      $('#price_old1').val(userData.price);
-      $('#image_pic1').val(userData.image_pic);
-      $('#description1').val(userData.description);
-      $('#product_type_id1').val(userData.product_type);
-      $('#finance1').val(userData.finance);
-      $('#noc1').val(userData.noc);
+      $('#price_old').val(userData.price);
+      // $('#image_pic').val(userData.image_pic);
+      $('#description').val(userData.description);
+      $('#product_type_id').val(userData.product_type);
+      // $('#finance').val(userData.finance);
+      $('#rc_num').val(userData.vehicle_registered_num);
+      $('input[name="fav_rc"]').filter('[value="' + userData.rc_number + '"]').prop('checked', true);
+      $('input[name="fav_language1"]').filter('[value="' + userData.noc + '"]').prop('checked', true);
+      $('input[name="fav_language"]').filter('[value="' + userData.finance + '"]').prop('checked', true);
+
+
+      // var financeValue = userData.finance;
+      // $('input[name="fav_language"]').filter('[value="' + financeValue + '"]').prop('checked', true);
 
       // $('#exampleModal').modal('show');
+      $("#selectedImagesContainer").empty();
+  
+      if (userData.image_names) {
+          // Check if Data.image_names is an array
+          var imageNamesArray = Array.isArray(userData.image_names) ? userData.image_names : userData.image_names.split(',');
+          var countclass=0;
+          imageNamesArray.forEach(function (imageName) {
+              var imageUrl = 'http://tractor-api.divyaltech.com/uploads/product_img/' + imageName.trim();
+              countclass++;
+              var newCard = `
+                  <div class="col-6 col-lg-6 col-md-6 col-sm-6 position-relative">
+                  <div class="upload__img-close_button" id="closeId${countclass}" onclick="removeImage(this);"></div>
+                      <div class="brand-main d-flex box-shadow mt-2 text-center shadow upload__img-closeDy${countclass}">
+                          <a class="weblink text-decoration-none text-dark" title="Image">
+                              <img class="img-fluid w-100 h-100" src="${imageUrl}" alt=" Image">
+                          </a>
+                      </div>
+                  </div>
+              `;
+              // Append the new image element to the container
+              $("#selectedImagesContainer").append(newCard);
+          });
+      }
     },
     error: function(error) {
       console.error('Error fetching user data:', error);
@@ -474,3 +538,26 @@ function fetch_edit_data(id) {
       }
     });
   }
+
+
+  function resetFormFields() {
+    $('#first_name').val('');
+    $('#last_name').val('');
+    $('#mobile_number').val('');
+    $('#state').val('');
+    $('#district').val('');
+    $('#tehsil').val('');
+    $('#brand').val('');
+    $('#model').val('');
+    $('#purchase_year').val('');
+    $('#condition').val('');
+    $('#tyrecondition').val('');
+    $('#hours_driven').val('');
+    $('input[name="fav_rc"]:checked').val('');
+    $('#rc_num').val('');
+    $('#price_old').val('');
+    $('input[name="fav_language"]:checked').val('');
+    $('input[name="fav_language1"]:checked').val('');
+    $('#_image').val('');
+    $('#_descriptionimage').val('');
+  } 

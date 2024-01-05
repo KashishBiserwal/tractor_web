@@ -252,7 +252,7 @@ function store(event) {
         console.log(result, "result");
         // getTractorList();
         console.log("Add successfully");
-        window.location.href="tractor_listing.php";
+        // window.location.href="tractor_listing.php";
          if(result.length){
         //   get_tractor_list();
         }
