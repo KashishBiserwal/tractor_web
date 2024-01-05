@@ -1,17 +1,52 @@
 $(document).ready(function() {
 
-    $("#form").validate({
-      rules:{
-        name:"required"
+  $("#look_up_form").validate({
+    rules: {
+      lookup_name: {
+            required: true,
+        }
     },
-    messages:{
-        name:"Field is required"
-    }
+    messages: {
+      lookup_name: {
+            required: "This field is required",
+        }
+     },
+    submitHandler: function (form) {
+        alert("Form submitted successfully!");
+    },
+  });
+
+  $("#submit_button").on("click", function () {
+      $("#look_up_form").valid();
+  });
+
+// for edit model
+  $("#look_up_form1").validate({
+    rules: {
+      lookup_name1: {
+            required: true,
+        }
+    },
+    messages: {
+      lookup_name1: {
+            required: "This field is required",
+        }
+     },
+    submitHandler: function (form) {
+        alert("Form submitted successfully!");
+    },
+  });
+  
+  $("#savechangebtn").on("click", function () {
+      $("#look_up_form1").valid();
+  });
+
 
 });
 
-$('#login').click(store);
-});
+
+
+
 
 function store(event) {
   // Get values from form fields
@@ -78,6 +113,9 @@ function get() {
                                   <button class="btn btn-danger btn-sm mx-1" id="delete_user" onclick="destroy(${row.id});" style="padding:5px;">
                                     <i class="fa fa-trash" style="font-size: 11px;"></i>
                                   </button>
+                                  <button class="btn btn-primary btn-sm btn_edit" onclick="fetch_edit_data(${row.id});" data-bs-toggle="modal" data-bs-target="#staticBackdrop2" id="yourUniqueIdHere">
+                                    <i class="fas fa-edit" style="font-size: 11px;"></i>
+                                </button>
                                 </div>`;
               
                   tableData.push([
@@ -176,3 +214,66 @@ function resetForm() {
             rows[i].style.display = "";
         }
     }
+
+    // edit and update 
+    function fetch_edit_data(id) {
+      var apiBaseURL = APIBaseURL;
+      var url = apiBaseURL + 'lookup_type/' + id;
+      console.log(url);
+    
+      var headers = {
+          'Authorization': 'Bearer ' + localStorage.getItem('token')
+      };
+    
+      $.ajax({
+          url: url,
+          type: 'GET',
+          headers: headers,
+          success: function (response) {
+              var Data = response.lookup_type[0];
+              $('#idUser').val(Data.id);
+              $('#look_up_name').val(Data.name);
+              console.log(Data.name);
+             
+          },
+          error: function (error) {
+              console.error('Error fetching user data:', error);
+          }
+      });
+    }
+  
+  // function edit_user() {
+  //   var enquiry_type_id = $("#enquiry_type_id").val();
+  //   var edit_id = $("#idUser").val();
+  //   var first_name = $("#first_name1").val();
+  
+  //   var paraArr = {
+  //       'first_name': first_name,
+  //       'id': edit_id,
+  //       'enquiry_type_id': enquiry_type_id,
+  //   };
+  
+  //   var apiBaseURL = APIBaseURL;
+  //   var url = apiBaseURL + 'customer_enquiries/' + edit_id;
+  
+  //   var headers = {
+  //       'Authorization': 'Bearer ' + localStorage.getItem('token')
+  //   };
+  
+  //   $.ajax({
+  //       url: url,
+  //       type: "PUT",
+  //       data: paraArr,
+  //       headers: headers,
+  //       success: function (result) {
+  //           console.log(result, "result");
+  //           get_hire_tract();
+  //           window.location.reload();
+  //           console.log("updated successfully");
+  //           alert('successfully updated..!')
+  //       },
+  //       error: function (error) {
+  //           console.error('Error fetching data:', error);
+  //       }
+  //   });
+  // }

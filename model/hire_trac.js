@@ -1,3 +1,69 @@
+
+$(document).ready(function(){
+  $('#dataeditbtn').click(edit_user);
+  
+  jQuery.validator.addMethod("customPhoneNumber", function(value, element) {
+    return /^[6-9]\d{9}$/.test(value);
+}, "Phone number must start with 6 or above and should be 10 digits");
+
+$("#hire_trac_form").validate({
+    rules: {
+        fname: {
+            required: true,
+        },
+        last_name: {
+            required: true,
+        },
+        lname: {
+            required: true,
+        },
+        mobile: {
+            required: true,
+            minlength: 10,
+            maxlength: 10,
+            digits: true,
+            customPhoneNumber: true
+        },
+        state_: {
+            required: true,
+        },
+        dist: {
+            required: true,
+        }
+    },
+    messages: {
+        fname: {
+            required: "This field is required",
+        },
+        last_name: {
+            required: "This field is required",
+        },
+        lname: {
+            required: "This field is required",
+        },
+        mobile: {
+            required: "This field is required",
+            minlength: "Enter exactly 10 digits",
+            maxlength: "Enter exactly 10 digits",
+            digits: "Please enter only digits"
+        },
+        state_: {
+            required: "This field is required",
+        },
+        dist: {
+            required: "This field is required",
+        }
+    },
+    submitHandler: function (form) {
+        alert("Form submitted successfully!");
+    },
+});
+
+$("#dataeditbtn").on("click", function () {
+    $("#hire_trac_form").valid();
+});
+});
+
 function get_hire_tract() {
     var apiBaseURL = APIBaseURL;
     var url = apiBaseURL + 'hire_data';
@@ -25,12 +91,16 @@ function get_hire_tract() {
                         <td>${row.district}</td>
                         <td>
                             <div class="d-flex">
+                            <button class="btn btn-warning text-white btn-sm mx-1" onclick="openViewdata(${row.id})" data-bs-toggle="modal" data-bs-target="#hire_trac_model" id="viewbtn">
+                            <i class="fa fa-eye" style="font-size: 11px;"></i>
+                        </button>
                                 <button class="btn btn-primary btn-sm btn_edit" onclick="fetch_edit_data(${row.id});" data-bs-toggle="modal" data-bs-target="#staticBackdrop" id="yourUniqueIdHere">
                                     <i class="fas fa-edit" style="font-size: 11px;"></i>
                                 </button>
-                                <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.id});">
-                                    <i class="fa fa-trash" style="font-size: 11px;"></i>
-                                </button>
+                                <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.id})">
+                                          <i class="fa fa-trash" style="font-size: 11px;"></i>
+                                      </button>
+                               
                             </div>
                         </td>
                     `;
@@ -46,6 +116,7 @@ function get_hire_tract() {
         }
     });
   }
+  get_hire_tract();
 
   function fetch_edit_data(id) {
     var apiBaseURL = APIBaseURL;
@@ -63,37 +134,13 @@ function get_hire_tract() {
         success: function (response) {
             var Data = response.hire_details[0];
             $('#idUser').val(Data.id);
-            $('#first_name').val(Data.first_name);
-            $('#last_name').val(Data.last_name);
+            $('#first_name1').val(Data.first_name);
+            $('#last_name1').val(Data.last_name);
             $('#mobile').val(Data.mobile);
             $('#state_').val(Data.state);
-            $('#dist').val(Data.district);
-            $('#tehsil').val(Data.tehsil);
-            $('#idUser').val(Data.id);
-  
-            // Clear existing images
-            // $("#selectedImagesContainer").empty();
-  
-            // if (Data.image_names) {
-            //     // Check if Data.image_names is an array
-            //     var imageNamesArray = Array.isArray(Data.image_names) ? Data.image_names : Data.image_names.split(',');
-  
-            //     imageNamesArray.forEach(function (imageName) {
-            //         var imageUrl = 'http://tractor-api.divyaltech.com/uploads/dealers_img/' + imageName.trim();
-  
-            //         var newCard = `
-            //             <div class="col-6 col-lg-6 col-md-6 col-sm-6">
-            //                 <div class="brand-main d-flex box-shadow mt-2 text-center shadow">
-            //                     <a class="weblink text-decoration-none text-dark" title="Image">
-            //                         <img class="img-fluid w-100 h-100" src="${imageUrl}" alt=" Image">
-            //                     </a>
-            //                 </div>
-            //             </div>
-            //         `;
-            //         // Append the new image element to the container
-            //         $("#selectedImagesContainer").append(newCard);
-            //     });
-            // }
+            console.log(Data.state);
+            $('#dist_').val(Data.district);
+            $('#tehsil_').val(Data.tehsil);
         },
         error: function (error) {
             console.error('Error fetching user data:', error);
@@ -101,9 +148,60 @@ function get_hire_tract() {
     });
   }
 
+// get_hire_tract();
 
+function edit_user() {
+  var enquiry_type_id = $("#enquiry_type_id").val();
+  var edit_id = $("#idUser").val();
+  var first_name = $("#first_name1").val();
+  var last_name = $("#last_name1").val();
+  var mobile = $("#mobile").val();
+  console.log(mobile);
+  var state = $("#state_").val();
+  var district = $("#dist_").val();
+  var tehsil = $("#tehsil_").val();
 
-  get_hire_tract();
+  // Validate mobile number
+  if (!/^[6-9]\d{9}$/.test(mobile)) {
+      alert("Mobile number must start with 6 or above and should be 10 digits");
+      return; // Exit the function if validation fails
+  }
+
+  var paraArr = {
+      'first_name': first_name,
+      'last_name': last_name,
+      'mobile': mobile,
+      'state': state,
+      'district': district,
+      'tehsil': tehsil,
+      'id': edit_id,
+      'enquiry_type_id': enquiry_type_id,
+  };
+
+  var apiBaseURL = APIBaseURL;
+  var url = apiBaseURL + 'customer_enquiries/' + edit_id;
+
+  var headers = {
+      'Authorization': 'Bearer ' + localStorage.getItem('token')
+  };
+
+  $.ajax({
+      url: url,
+      type: "PUT",
+      data: paraArr,
+      headers: headers,
+      success: function (result) {
+          console.log(result, "result");
+          get_hire_tract();
+          window.location.reload();
+          console.log("updated successfully");
+          alert('successfully updated..!')
+      },
+      error: function (error) {
+          console.error('Error fetching data:', error);
+      }
+  });
+}
 
 // **delete data**//
   function destroy(id) {
@@ -140,3 +238,35 @@ function get_hire_tract() {
       }
     });
   }
+
+
+  // View data
+function openViewdata(userId) {
+  var apiBaseURL = APIBaseURL;
+  var url = apiBaseURL + 'hire_data/' + userId;
+
+  var headers = {
+    'Authorization': 'Bearer ' + localStorage.getItem('token')
+  };
+
+  $.ajax({
+    url: url,
+    type: 'GET',
+    headers: headers,
+  
+    success: function(response) {
+      var userData = response.hire_details[0];
+      document.getElementById('f_name').innerText=userData.first_name;
+      document.getElementById('l_name').innerText=userData.last_name;
+      document.getElementById('mo_number').innerText=userData.mobile;
+      document.getElementById('state_1').innerText=userData.state;
+      document.getElementById('dist_1').innerText=userData.district;
+      document.getElementById('tehsil_1').innerText=userData.tehsil;
+      
+        // $('#exampleModal').modal('show');
+    },
+    error: function(error) {
+      console.error('Error fetching user data:', error);
+    }
+  });
+}
