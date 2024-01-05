@@ -947,7 +947,6 @@ border-radius: 50%;
 .add_btn{
   /* background-color: #0c517a; */
   color: #fff;
-  height: 45px;
   /* width: 140px; */
 }
 .add_btn i{
@@ -1007,6 +1006,10 @@ border-radius: 50%;
 } */
 .modal_head{
   background: rgb(74 166 90);
+  padding: 10px 20px;
+}
+.modal_head h5{
+  font-size: 16px;
 }
 
 /* form admin */
@@ -1041,15 +1044,19 @@ border-radius: 50%;
   color: white;
 }
 .form-outline .form-label {
-  color: #454444;
-  font-weight: 500;
-  margin-bottom: 5px;
-  position: absolute;
-  /* padding: 0px 10px; */
-  margin-top: -11px;
-  background: #fcfcfc54;
-  margin-left: 20px;
+  color: #a8abaf;
+    font-weight: 500;
+    margin-bottom: 5px;
+    position: absolute;
+    /* padding: 0px 10px; */
+    margin-top: -8px;
+    background: #fff;
+    margin-left: 20px;
+    padding: 0 4px;
+    font-size: 13px;
+    z-index: 9;
 }
+
 .admin_btn{
   box-shadow: none;
   background: transparent;

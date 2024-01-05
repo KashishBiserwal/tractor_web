@@ -3,7 +3,14 @@
 
 <head> <?php
    include 'includes/headertag.php';
+   $product_id=$_REQUEST['product_id'];
+   echo $product_id;
+   include 'includes/footertag.php';
    ?>
+  
+  <script> var APIBaseURL = "<?php echo $APIBaseURL; ?>";</script>
+  <script> var baseUrl = "<?php echo $baseUrl; ?>";</script>
+  <script src="<?php $baseUrl; ?>model/tyre_inner.js"></script>
     <style>
     .form-outline .form-label {
         color: #454444;
@@ -53,18 +60,17 @@
         <div class="container">
             <div class="row">
                 <div class="col-12 col-sm-6 col-lg-6 col-md-6">
-                    <!-- Swiper -->
                     <div class="swiper swiper_buy mySwiper2_buy pt-3 ">
                         <div class="swiper-wrapper swiper-wrapper_buy">
                             <div class="swiper-slide swiper-slide_buy">
-                                <img class="img_buy_hire w-100" src="assets/images/birla_tyre.jpg" />
+                                <!-- <img class="img_buy_hire w-100" src="assets/images/birla_tyre.jpg" /> -->
                             </div>
                         </div>
                     </div>
-                    <div thumbsSlider="" class="swiper mySwiper_buy"></div>
+                    <div thumbsSlider="" class="swiper mySwiper_buy" style="height:74px; width: 43%;" id="swip_img"></div>
                 </div>
                 <div class="col-12 col-sm-4 col-lg-4 col-md-4">
-                    <h3 class="text-dark fw-bold">MRF SHAKTI LIFE 13.6 - 28</h3>
+                    <h3 class="text-dark fw-bold" id="model_no"></h3>
                     <div class="row my-3">
                         <div class="col-12 justify-content-center">
                             <div class="d-flex flex-md-row px-3  flex-column-reverse">
@@ -74,15 +80,15 @@
                                             <div class="power">
                                                 <div class="row ">
                                                     <div class="col-12 col-lg-12 col-md-12 col-sm-12">
-                                                        <p class="text-dark fw-bold">Tyre	: Rear
+                                                        <p class="text-dark fw-bold">Tyre	: <span id="tyre"></span>
                                                         </p>
                                                     </div>
                                                     <div class="col-12 col-lg-12 col-md-12 col-sm-12">
-                                                        <p class="text-dark fw-bold">Type	: TT
+                                                        <p class="text-dark fw-bold">Type	: <span id="tyre_type"></span>
                                                         </p>
                                                     </div>
                                                     <div class="col-12 col-lg-12 col-md-12 col-sm-12">
-                                                        <p class="text-dark fw-bold">Size	: 13.6 - 28</p>
+                                                        <p class="text-dark fw-bold">Size	: <span id="tyre_size"></span></p>
                                                     </div>
 
                                                    

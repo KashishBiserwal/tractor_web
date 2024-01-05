@@ -27,9 +27,9 @@
     include 'includes/left_nav.php';
     include 'includes/header_admin.php';
     ?>
-   <section style="padding: 0 15px;">
+   <section style="padding: 0 15px 0 60px;">
     <div class="">
-      <div class="container">
+      <div class="">
         <div class="card-body d-flex align-items-center justify-content-between page_title">
           <nav aria-label="breadcrumb">
             <ol class="breadcrumb my-0 ms-2">
@@ -41,7 +41,7 @@
           </nav>
           
 
-          <button type="button" id="add_trac" class="btn add_btn btn-success float-right" data-bs-toggle="modal"  data-bs-target="#staticBackdrop">
+          <button type="button" id="add_trac" class="btn add_btn btn-success float-right btn_all" data-bs-toggle="modal"  data-bs-target="#staticBackdrop">
             <i class="fa fa-plus" aria-hidden="true"></i>Add New Brand
           </button>
 
@@ -106,27 +106,34 @@
         </div>
       </div>
     </div>
-    <div class="container">
+    <div class="">
       <!-- Filter Card -->
-      <div class="filter-card mb-2">
+      <div class="filter-card">
         <div class="card-body">
+        <form action="" id="myform" class="mb-0">
           <div class="row">
-            <div class="col-12 col-sm-12 col-md-3 col-lg-3">
-                    <label class="text-dark fw-bold mb-2">Search By Brand</label>
-                    <select class="js-select2 form-select" id="brand">
+            <div class="col-12 col-sm-12 col-md-4 col-lg-4">
+            <div class="form-outline">
+                    <label class="form-label">Search By Brand</label>
+                    <select class="js-select2 form-select form-control mb-0" id="brand">
                     </select>
               </div>
-            <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-4 pt-1 text-center">
-                <button type="button" class="btn-success btn px-5" id="Search">Search</button>
-                <button type="button" class="btn-success btn px-5 mx-2 " id="Reset">Reset</button>
+            </div>
+            <div class="col-12 col-sm-12 col-md-8 col-lg-8  text-center">
+              <div class="d-flex float-end">
+                <button type="button" class="btn-success btn px-5 btn_all" id="Search">Search</button>
+                <button type="button" class="btn-success btn px-5 mx-2 btn_all" id="Reset">Reset</button>
+              </div>
+                
             </div>
           </div>
+        </form>
         </div>
       </div>
       <!-- Table Card -->
-      <div class=" mb-5">
-            <div class="table-responsive shadow bg-white">
-              <table id="example" class="table bg-white table-striped table-hover py-1" width="100%">
+      <div class=" mb-5 shadow bg-white mt-3 p-3">
+            <div class="table-responsive">
+              <table id="example" class="table table-striped  table-hover table-bordered  no-footer" width="100%; margin-bottom: 15px;">
                 <thead class="">
                   <tr>
                     <th class="d-none d-md-table-cell text-white py-2">S.No.</th>
@@ -154,14 +161,20 @@
                   <div class="">
                                     <div class="">
                                       <div class="row">
-                                        
+                                      <div class="col- col-sm-6 col-lg-6 col-md-6 mt-3" hidden >
+                              <div class="form-outline">
+                                  <label class="form-label"> id Name<span class="text-danger">*</span></label>
+                                          <input type="text" class="form-control py-2" for="idUser"  id="idUser">
+                                  <small></small>
+                                </div>
+                              </div>
                                         <div class="col- col-sm-6 col-lg-6 col-md-6">
                                           <label class="text-dark"> Brand Name<span class="text-danger">*</span></label>
                                           <input type="text" class="form-control py-2" id="brand_name1" placeholder="Enter brand">
                                           <small></small>
                                         </div>
                                         <div class="col-12 col-sm-4 col-lg-4 col-md-4 ps-3">
-                                          <div class="background__box mt-4 pt-1">
+                                        <div class="background__box mt-4 pt-1">
                                                 <div class="background__btn-box ">
                                                     <label class="background__btn">
                                                     <p class="text-white bg-success p-2 rounded">Upload images</p>
@@ -173,7 +186,7 @@
                                                     </label>
                                                 </div>
                                                 <div class="">
-                                                    <div class="background__img-wrap"></div>
+                                                    <div class="background__img-wrap"  id="selectedImagesContainer2"></div>
                                                 </div>
                                           </div>
                                         </div>
@@ -185,7 +198,7 @@
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="px-4 bg-success btn btn-primary" id="save_brand">Submit</button>
+                <button type="button" class="px-4 bg-success btn btn-primary" data-bs-dismiss="modal" id="save_brand">Submit</button>
               </div>
             </div>
           </div>
@@ -226,7 +239,7 @@
                       <h5>Image</h5>
                     </div>
                     <div class="col-12 col-lg-8 col-sm-8 col-md-8">
-                     <div id="related_brand"></div>
+                     <div id="related_brand" class="row"></div>
                     </div>
                   </div>
                 </div>
@@ -249,8 +262,21 @@
      $(document).ready(function() {
       BackgroundUpload();
       $('#save').click(store);
-      $('#dataedit').click(edit_brand);
+      $('#save_brand').click(edit_brand);
+
+  
     });
+
+    function removeImage(ele){
+  console.log("print ele");
+    console.log(ele);
+    let thisId=ele.id;
+    thisId=thisId.split('closeId');
+    thisId=thisId[1];
+    $("#"+ele.id).remove();
+    $(".upload__img-closeDy"+thisId).remove();
+
+  }
     // store data
   function store(event) {
     event.preventDefault();
@@ -312,26 +338,42 @@ function get() {
             let serialNumber = 1; // Initialize serial number
 
             if (data.brands.length > 0) {
+              let tableData = [];
                 // Loop through the data and create table rows
-                data.brands.map(row => {
-                    const tableRow = document.createElement('tr');
-                    tableRow.innerHTML = `
-                        <td>${serialNumber}</td>
-                        <td>${row.brand_name}</td>
-                        <td>${row.brand_img}</td>
-                        <td><div class="float-start"><button class="btn btn-warning btn-sm text-white mx-1" data-bs-toggle="modal" onclick="fetch_data(${row.id});" data-bs-target="#exampleModal">
+                data.brands.forEach(row => {
+                    //const tableRow = document.createElement('tr');
+                    let action = `<div class="float-start"><button class="btn btn-warning btn-sm text-white mx-1" data-bs-toggle="modal" onclick="fetch_data(${row.id});" data-bs-target="#exampleModal" style="padding:5px">
                         <i class="fa-solid fa-eye" style="font-size: 11px;"></i></button>
-                        <button class="btn btn-primary btn-sm btn_edit" onclick="fetch_edit_data(${row.id});" data-bs-toggle="modal" data-bs-target="#staticBackdrop_model" id="yourUniqueIdHere">
+                        <button class="btn btn-primary btn-sm btn_edit" onclick="fetch_edit_data(${row.id});" data-bs-toggle="modal" data-bs-target="#staticBackdrop_model" id="yourUniqueIdHere" style="padding:5px">
                           <i class="fas fa-edit" style="font-size: 11px;"></i></button>
-                        </button> <button class="btn btn-danger btn-sm mx-1" id="delete_user" onclick="destroy(${row.id});"><i class="fa fa-trash" style="font-size: 11px;"></i></button></div>
+                        </button> <button class="btn btn-danger btn-sm mx-1" id="delete_user" onclick="destroy(${row.id});" style="padding:5px"><i class="fa fa-trash" style="font-size: 11px;"></i></button></div>
                         
-                        </td>
-                    `;
-                    tableBody.appendChild(tableRow);
+                        `;
+              
+                  tableData.push([
+                    serialNumber,
+                    row.brand_name,
+                    row.brand_img,
+                    action
+                ]);
+                
 
                     // Increment serial number for the next row
                     serialNumber++;
                 });
+                $('#example').DataTable().destroy();
+              $('#example').DataTable({
+                      data: tableData,
+                      columns: [
+                        { title: 'S.No.' },
+                        { title: 'Brand Name' },
+                        { title: 'Brand Image' },
+                        { title: 'Action', orderable: false } // Disable ordering for Action column
+                    ],
+                      paging: true,
+                      searching: true,
+                      // ... other options ...
+                  });
             } else {
                 // Display a message if there's no valid data
                 tableBody.innerHTML = '<tr><td colspan="7">No valid data available</td></tr>';
@@ -347,8 +389,8 @@ function get() {
 get();
 
 function fetch_edit_data(userId) {
-  var apiBaseURL = APIBaseURL;
-  var url = apiBaseURL + 'getBrands';
+  // var apiBaseURL = APIBaseURL;
+  var url = '<?php echo $APIBaseURL; ?>getBrandsById/'+ userId;
 
   var headers = {
     'Authorization': 'Bearer ' + localStorage.getItem('token')
@@ -359,13 +401,35 @@ function fetch_edit_data(userId) {
     type: 'GET',
     headers: headers,
     success: function(response) {
-      var userData = response.user[0];
+      // var userData = response.brands[0];
+      $('#idUser').val(response.brands[0].id);
+      $('#brand_name1').val(response.brands[0].brand_name);
+      // $('#brand_img1').val(response.brands[0].brand_img);
+                // Append the new card to the container
+                // productContainer.append(newCard);
+                $("#selectedImagesContainer2").empty();
 
-      $('#brand1').val(userData.brand_name);
-      $('#brand_img1').val(userData.brand_img);
-     
-
-      // $('#exampleModal').modal('show');
+                if (response.brands[0].brand_img) {
+                  var imageNamesArray = Array.isArray(response.brands[0].brand_img) ? response.brands[0].brand_img : response.brands[0].brand_img.split(',');
+                  var countclass=0;
+                  imageNamesArray.forEach(function (brand_img) {
+                      var imageUrl = 'http://tractor-api.divyaltech.com/uploads/brand_img/' + brand_img.trim();
+                      countclass++;
+                      var newCard = `
+                          <div class="col-12 col-md-6 col-lg-4 position-relative" style="left:6px;">
+                          <div class="upload__img-close_button " id="closeId${countclass}" onclick="removeImage(this);"></div>
+                              <div class="brand-main d-flex box-shadow mt-1 py-2 text-center shadow upload__img-closeDy${countclass}">
+                                  <a class="weblink text-decoration-none text-dark" title=" Image">
+                                      <img class="img-fluid w-100 h-100" src="${imageUrl}" alt=" Image">
+                                  </a>
+                              </div>
+                          </div>
+                      `;
+              
+                    // Append the new image element to the container
+                    $("#selectedImagesContainer2").append(newCard);
+                 });
+                }
     },
     error: function(error) {
       console.error('Error fetching user data:', error);
@@ -374,36 +438,45 @@ function fetch_edit_data(userId) {
 }
 
 function edit_brand(){
-   alert('fherjlkferif');
+  //  alert('fherjlkferif');
+  var edit_id = document.getElementById('idUser').value;
+  console.log(edit_id);
+  var brand_name = document.getElementById('brand_name1').value;
+  console.log(brand_name);
+  var _method = 'put';
+        var brand_img1 = document.getElementById('brand_img1').files[0];
 
-  var brand1 = $("#brand1").val();
-  var brand_img1 = $("#brand_img1").val();
-
-  var paraArr = {
-    'brand_name': brand1,
-    'image': brand_img1,
-  };
-  var apiBaseURL = APIBaseURL;
-  var url = apiBaseURL + 'updateBrands/' + 3;
-
-  var headers = {
-    'Authorization': 'Bearer ' + localStorage.getItem('token')
-  };
-  $.ajax({
-    url: url,
-      type: "PUT",
-      data: paraArr,
+        var formData = new FormData();
+        formData.append('brand_name', brand_name);
+        formData.append('brand_img', brand_img1);
+        formData.append('_method', _method);
+        formData.append('id', edit_id,);
+   var url = '<?php echo $APIBaseURL; ?>updateBrands/' + edit_id;
+    console.log(url);
+    var token = localStorage.getItem('token');
+    var headers = {
+      'Authorization': 'Bearer ' + token
+    };
+    $.ajax({
+      url: url,
+      type: "POST",
+      data:formData,
+      processData: false, // Don't process the data
+      contentType: false,
       headers: headers,
       success: function (result) {
         console.log(result, "result");
+        // Redirect to a success page or perform other actions
+       
+        console.log("Add successfully");
+        alert('successfully Updated..!');
         get();
-        console.log("updated successfully");
-        alert('successfully updated..!')
       },
       error: function (error) {
         console.error('Error fetching data:', error);
+        // window.location.href = baseUrl + "login.php";
       }
-  })
+    });
 }
 
 
@@ -413,7 +486,7 @@ function fetch_data(id) {
     var urlParams = new URLSearchParams(window.location.search);
  
     var productId = id;
-    var url = "<?php echo $APIBaseURL; ?>getBrandsById/" + id;
+    var url = "<?php echo $APIBaseURL; ?>getBrandsById/" + productId;
   
     // var url = "http://127.0.0.1:8000/api/admin/getBrandsById/" + productId;
     // console.log(url);
@@ -428,17 +501,20 @@ function fetch_data(id) {
         console.log(data, 'abc');
         document.getElementById('brand_name2').innerText=data.brands[0].brand_name;
         console.log(data.brands[0].brand_name);
-
+       
         var productContainer = $("#related_brand");
-
+        $("#related_brand").empty();
+      
         if (data.brands && data.brands.length > 0) {
             data.brands.forEach(function (b) {
+              
                 var newCard = `
                 <div class=" col-6 col-lg-6 col-md-6 col-sm-6">
-                        <div class="brand-main box-shadow mt-2 text-center shadow">
+               
+                        <div class="brand-main box-shadow mt-2 text-center shadow ">
                             <a class="weblink text-decoration-none text-dark" 
                                 title="Old Tractors">
-                                <img class="img-fluid w-50" src="http://tractor-api.divyaltech.com/customer/uploads/product_img/"
+                                <img class="img-fluid w-50" src="http://tractor-api.divyaltech.com/uploads/brand_img/${b.brand_img}"
                                     data-src="h" alt="Brand Logo">
                                 <p class="mb-0 oneline">${b.brand_name}</p>
                             </a>
@@ -557,6 +633,8 @@ function destroy(id) {
       $(this).parent().parent().remove();
     });
 }
+
+
 
   </script>
 </body>

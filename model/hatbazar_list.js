@@ -1,4 +1,5 @@
-
+var EditIdmain_ = "";
+var editId_state= false;
   $(document).ready(function () {
     ImgUpload();
     $('#btn_submit').click(store);
@@ -281,6 +282,17 @@
         });
       }
 
+       function removeImage(ele){
+  console.log("print ele");
+    console.log(ele);
+    let thisId=ele.id;
+    thisId=thisId.split('closeId');
+    thisId=thisId[1];
+    $("#"+ele.id).remove();
+    $(".upload__img-closeDy"+thisId).remove();
+
+  }
+
     //   add category
       function store(event) {
         event.preventDefault();
@@ -326,7 +338,6 @@
                 'Authorization': 'Bearer ' + localStorage.getItem('token')
             },
             success: function (data) {
-                console.log(data);
                 const select = document.getElementById('_category');
                 select.innerHTML = '<option selected disabled value="">Please select an option</option>';
 
@@ -452,76 +463,174 @@
           }
         });
       }
-      // add hatbazar list
-      function hatbazar_add(event) {
-        console.log('run store function');
-        var image_names = document.getElementById('_image').files;
-        var enquiry_type_id = $('#enquiry_type_id').val();
-        var sub_category_id = $('#sub_category_id').val();
-        var _category = $('#_category').val();
-        var sub_cate = $('#sub_cate').val();
-        var unitSelect = $('#unitSelect').val();
-        var quantityInput = $('#quantityInput').val();
-        var price = $('#price').val();
-        var tprice = $('#tprice').val();
-        var textarea_ = $('#textarea_').val();
-        var fname = $('#fname').val();
-        var lname = $('#lname').val();
-        var number = $('#number').val();
-        var state_ = $('#state_').val();;
-        var dist = $('#dist').val();
-        var tehsil = $('#tehsil').val();
-        var image_type_id = $('#image_type_id').val();
 
-        var apiBaseURL = APIBaseURL; 
-        var url = apiBaseURL + 'haat_bazar';
-        var token = localStorage.getItem('token');
-        var headers = {
-          'Authorization': 'Bearer ' + token
-        };
-        var data = new FormData();
+      // add hatbazar list
+    //   function hatbazar_add(event) {
+    //     console.log('run store function');
+    //     var image_names = document.getElementById('_image').files;
+    //     var enquiry_type_id = $('#enquiry_type_id').val();
+    //     var sub_category_id = $('#sub_category_id').val();
+    //     var _category = $('#_category').val();
+    //     var sub_cate = $('#sub_cate').val();
+    //     var unitSelect = $('#unitSelect').val();
+    //     var quantityInput = $('#quantityInput').val();
+    //     var price = $('#price').val();
+    //     var tprice = $('#tprice').val();
+    //     var textarea_ = $('#textarea_').val();
+    //     var fname = $('#fname').val();
+    //     var lname = $('#lname').val();
+    //     var number = $('#number').val();
+    //     var state_ = $('#state_').val();
+    //     var dist = $('#dist').val();
+    //     var tehsil = $('#tehsil').val();
+    //     var image_type_id = $('#image_type_id').val();
+    //     console.log(state_,"state");
+    //     console.log(dist,"district");
+
+    //     var apiBaseURL = APIBaseURL; 
+    //     var url = apiBaseURL + 'haat_bazar';
+    //     var token = localStorage.getItem('token');
+    //     var headers = {
+    //       'Authorization': 'Bearer ' + token
+    //     };
+    //     var data = new FormData();
           
-           for (var x = 0; x < image_names.length; x++) {
-             data.append("images[]", image_names[x]);
-             console.log("multiple image", image_names[x]);
-           }
-             data.append('sub_category_id', sub_category_id);
-             data.append('enquiry_type_id', enquiry_type_id);
-             data.append('_category', _category);
-             data.append('tractor_type_id', sub_cate);
-             data.append('quantity', quantityInput);
-             data.append('as_per', unitSelect);
-             data.append('price', tprice);
-             data.append('about', textarea_);
-             data.append('first_name', fname);
-             data.append('last_name', lname);
-             data.append('mobile', number);
-             data.append('state', state_);
-             data.append('district', dist);
-             data.append('tehsil',tehsil);
-             data.append('price',price);
-             data.append('image_type_id',image_type_id);
-           $.ajax({
-             url: url,
-             type: "POST",
-             data: data,
-             headers: headers,
-             processData: false, 
-             contentType: false,
-             success: function (result) {
-               console.log(result, "result");
-               // getTractorList();
-               console.log("Add successfully");
-                if(result.length){
-               //   get_tractor_list();
-               }
-               // alert('successfully inserted..!')
-             },
-             error: function (error) {
-               console.error('Error fetching data:', error);
-             }
-           });
-         }
+    //        for (var x = 0; x < image_names.length; x++) {
+    //          data.append("images[]", image_names[x]);
+    //          console.log("multiple image", image_names[x]);
+    //        }
+    //          data.append('sub_category_id', sub_category_id);
+    //          data.append('enquiry_type_id', enquiry_type_id);
+    //          data.append('_category', _category);
+    //          data.append('tractor_type_id', sub_cate);
+    //          data.append('quantity', quantityInput);
+    //          data.append('as_per', unitSelect);
+    //          data.append('price', tprice);
+    //          data.append('about', textarea_);
+    //          data.append('first_name', fname);
+    //          data.append('last_name', lname);
+    //          data.append('mobile', number);
+    //          data.append('state', state_);
+    //          data.append('district', dist);
+    //          data.append('tehsil',tehsil);
+    //          data.append('price',price);
+    //          data.append('image_type_id',image_type_id);
+    //        $.ajax({
+    //          url: url,
+    //          type: "POST",
+    //          data: data,
+    //          headers: headers,
+    //          processData: false, 
+    //          contentType: false,
+    //          success: function (result) {
+    //         //    console.log(result, "result");
+    //            // getTractorList();
+    //            console.log("Add successfully");
+    //             if(result.length){
+    //            //   get_tractor_list();
+    //            }
+    //            // alert('successfully inserted..!')
+    //          },
+    //          error: function (error) {
+    //            console.error('Error fetching data:', error);
+    //          }
+    //        });
+    //      }
+    function hatbazar_add(event) {
+        // event.preventDefault();
+    
+        var image_names = document.getElementById('_image').files;
+         var enquiry_type_id = $('#enquiry_type_id').val();
+         var sub_category_id = $('#sub_category_id').val();
+         var _category = $('#_category').val();
+         var sub_cate = $('#sub_cate').val();
+         var unitSelect = $('#unitSelect').val();
+         var quantityInput = $('#quantityInput').val();
+         var price = $('#price').val();
+         var tprice = $('#tprice').val();
+         var textarea_ = $('#textarea_').val();
+         var fname = $('#fname').val();
+         var lname = $('#lname').val();
+         var number = $('#number').val();
+         var state_ = $('#state_').val();
+         var dist = $('#dist').val();
+         var tehsil = $('#tehsil').val();
+         var image_type_id = $('#image_type_id').val();
+         console.log(state_,"state");
+         console.log(dist,"district");
+    
+         var apiBaseURL = APIBaseURL; 
+        //      var url = apiBaseURL + 'haat_bazar';
+             var token = localStorage.getItem('token');
+             var headers = {
+               'Authorization': 'Bearer ' + token
+             };
+    
+        // Check if an ID is present in the URL, indicating edit mode
+        var urlParams = new URLSearchParams(window.location.search);                            
+        var editId = urlParams.get('id');
+        // console.log("editId from URL:", editId);
+        console.log('edit state', editId_state);
+        console.log('edit id', EditIdmain_);
+        var _method = 'post'; 
+        var url, method;
+    
+        if (editId_state) {
+          alert("fhjfg");
+          console.log(editId_state);
+          _method = 'put';
+          url = apiBaseURL + 'haat_bazar/' + EditIdmain_ ;
+          console.log(url);
+          method = 'POST';  
+      } else {
+          // Add modeeditId from URL
+          url = apiBaseURL + 'haat_bazar';
+          console.log('prachi');
+      method = 'POST';
+      }
+    
+        var data = new FormData();
+    
+        for (var x = 0; x < image_names.length; x++) {
+                     data.append("images[]", image_names[x]);
+                     console.log("multiple image", image_names[x]);
+                   }
+                   data.append('_method', _method);
+                  data.append('sub_category_id', sub_category_id);
+                  data.append('enquiry_type_id', enquiry_type_id);
+                  data.append('_category', _category);
+                  data.append('tractor_type_id', sub_cate);
+                  data.append('quantity', quantityInput);
+                  data.append('as_per', unitSelect);
+                  data.append('price', tprice);
+                  data.append('about', textarea_);
+                  data.append('first_name', fname);
+                  data.append('last_name', lname);
+                  data.append('mobile', number);
+                  data.append('state', state_);
+                  data.append('district', dist);
+                  data.append('tehsil',tehsil);
+                  data.append('price',price);
+                  data.append('image_type_id',image_type_id);
+    
+        $.ajax({
+            url: url,
+            type: method,
+            data: data,
+            headers: headers,
+            processData: false,
+            contentType: false,
+            success: function (result) {
+                console.log(result, "result");
+                console.log("Operation successfully");
+                window.location.reload();
+            },
+            error: function (error) {
+                console.error('Error:', error);
+            }
+        });
+    
+    }
 
          function get_haatbazar_list() {
             var apiBaseURL = APIBaseURL;
@@ -536,21 +645,27 @@
                     const tableBody = document.getElementById('data-table');
                     let serialNumber = 1;
         
-                    if (data.product && data.product.length > 0) {
-                        data.product.forEach(row => {
+                    if (data.allData.haat_bazar_data && data.allData.haat_bazar_data.length > 0) {
+                        data.allData.haat_bazar_data.forEach(row => {
+                            const fullName = row.first_name + ' ' + row.last_name;
+        
                             const tableRow = document.createElement('tr');
                             tableRow.innerHTML = `
                                 <td>${serialNumber}</td>
-                                <td>${row.brand_name}</td>
-                                <td>${row.model}</td>
-                                <td>${row.purchase_year}</td>
+                                <td>${row.haat_bazar_category_name}</td>
+                                <td>${row.sub_category_name}</td>
+                                <td>${fullName}</td>
+                                <td>${row.mobile}</td>
                                 <td>${row.state}</td>
+                                <td>${row.district}</td>
                                 <td>
                                     <div class="d-flex">
-                                        <button class="btn btn-primary btn-sm btn_edit" onclick="fetch_edit_data(${row.product_id});" data-bs-toggle="modal" data-bs-target="#staticBackdrop_model" id="yourUniqueIdHere">
+                                        <button class="btn btn-warning btn-sm text-white mx-1" data-bs-toggle="modal" onclick="fetch_data(${row.haat_bazar_id})" data-bs-target="#view_model_hatbazar"><i class="fas fa-eye" style="font-size: 11px;"></i></button>
+        
+                                        <button class="btn btn-primary btn-sm btn_edit" onclick="fetch_edit_data(${row.haat_bazar_id})" data-bs-toggle="modal" data-bs-target="#staticBackdrop" id="yourUniqueIdHere">
                                             <i class="fas fa-edit" style="font-size: 11px;"></i>
                                         </button>
-                                        <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.product_id});">
+                                        <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.haat_bazar_id})">
                                             <i class="fa fa-trash" style="font-size: 11px;"></i>
                                         </button>
                                     </div>
@@ -568,5 +683,171 @@
                 }
             });
         }
+        get_haatbazar_list();
         
-        get_tractor_list();
+
+        //****delete data***
+function destroy(id) {
+    console.log(id);
+    var apiBaseURL = APIBaseURL;
+    var url = apiBaseURL + 'haat_bazar/' + id;
+    console.log(url);
+    var token = localStorage.getItem('token');
+  
+    if (!token) {
+      console.error("Token is missing");
+      return;
+    }
+    var isConfirmed = confirm("Are you sure you want to delete this data?");
+    if (!isConfirmed) {
+      return;
+    }
+  
+    $.ajax({
+      url: url,
+      type: "DELETE",
+      headers: {
+        'Authorization': 'Bearer ' + token
+      },
+      success: function(result) {
+        // get_tyre_list();
+        window.location.reload();
+        console.log("Delete request successful");
+        alert("Delete operation successful");
+      },
+      error: function(error) {
+        console.error('Error fetching data:', error);
+        alert("Error during delete operation");
+      }
+    });
+  }
+
+//   for View
+  function fetch_data(id) {
+    console.log(id, "id");
+    console.log(window.location);
+    var urlParams = new URLSearchParams(window.location.search);
+  
+    var productId = id;
+    var apiBaseURL = APIBaseURL;
+    var url = apiBaseURL + 'haat_bazar/' + productId;
+  
+    var headers = { 
+        'Authorization': 'Bearer ' + localStorage.getItem('token')
+    };
+  
+    $.ajax({
+        url: url,
+        type: "GET",
+        headers: headers,
+        success: function (data) {
+          console.log(data, 'abc');
+          document.getElementById('category').innerText = data.allData.category_name[0].haat_bazar_category_name;
+          document.getElementById('subcategory').innerText = data.allData.haat_bazar_data[0].sub_category_name;
+          document.getElementById('quantity').innerText = data.allData.haat_bazar_data[0].quantity;
+          document.getElementById('as_per').innerText = data.allData.haat_bazar_data[0].as_per;
+          document.getElementById('Total_price').innerText =data.allData.haat_bazar_data[0].price;
+          document.getElementById('dist1').innerText =data.allData.haat_bazar_data[0].district;
+          document.getElementById('textarea').innerText = data.allData.haat_bazar_data[0].about;
+          document.getElementById('first_name').innerText = data.allData.haat_bazar_data[0].first_name;
+          document.getElementById('last_name').innerText = data.allData.haat_bazar_data[0].last_name;
+          document.getElementById('number2').innerText = data.allData.haat_bazar_data[0].mobile;
+          document.getElementById('state').innerText = data.allData.haat_bazar_data[0].state;
+          document.getElementById('district').innerText = data.allData.haat_bazar_data[0].district;
+          document.getElementById('tehsil1').innerText = data.allData.haat_bazar_data[0].tehsil;
+      
+          $("#selectedImagesContainer1").empty();
+      
+          if (data.allData.haat_bazar_data[0].image_names) {
+              var imageNamesArray = Array.isArray(data.allData.haat_bazar_data[0].image_names) ? data.allData.haat_bazar_data[0].image_names : data.allData.haat_bazar_data[0].image_names.split(',');
+      
+              imageNamesArray.forEach(function (imageName) {
+                  var imageUrl = 'http://tractor-api.divyaltech.com/uploads/haat_bazar_img/' + imageName.trim();
+      
+                  var newCard = `
+                      <div class="col-6 col-lg-6 col-md-6 col-sm-6 row">
+                     
+                          <div class="brand-main d-flex box-shadow   mt-2 text-center shadow ">
+                              <a class="weblink text-decoration-none text-dark" title="Tyre Image">
+                                  <img class="img-fluid w-100 h-100 " src="${imageUrl}" alt="Tyre Image">
+                              </a>
+                          </div>
+                      </div>
+                  `;
+      
+                  $("#selectedImagesContainer1").append(newCard);
+              });
+          }
+      },
+        error: function (error) {
+            console.error('Error fetching data:', error);
+        }
+    });
+  } 
+
+
+  function fetch_edit_data(id) {
+    var apiBaseURL = APIBaseURL;
+    var url = apiBaseURL + 'haat_bazar/' + id;
+    editId_state= true;
+    EditIdmain_= id;
+    console.log(url);
+  
+    var headers = {
+        'Authorization': 'Bearer ' + localStorage.getItem('token')
+    };
+  
+    $.ajax({
+        url: url,
+        type: 'GET',
+        headers: headers,
+        success: function (response) {
+            var Data = response.allData.haat_bazar_data[0];
+            var dta= response.allData.category_name[0];
+            
+            $('#_category').val(dta.haat_bazar_category_name);
+            $('#sub_cate').val(Data.sub_category_name);
+            $('#quantityInput').val(Data.quantity);
+            $('#unitSelect').val(Data.as_per);
+            $('#price').val(Data.price);
+            $('#tprice').val(Data.total_price);
+            $('#textarea_').val(Data.about);
+            $('#fname').val(Data.first_name);
+            $('#number').val(Data.mobile);
+            $('#lname').val(Data.last_name);
+            // var selectedCategoryId = Data.tyre_category_id;
+            // $('#category').val(selectedCategoryId).prop('selected', true);
+  
+            // Clear existing images
+            $("#selectedImagesContainer").empty();
+  
+            if (Data.image_names) {
+              // Check if Data.image_names is an array
+              var imageNamesArray = Array.isArray(Data.image_names) ? Data.image_names : Data.image_names.split(',');
+          
+              // Iterate through all image names
+              imageNamesArray.forEach(function (imageName, index) {
+                  var imageUrl = 'http://tractor-api.divyaltech.com/uploads/haat_bazar_img/' + imageName.trim();
+                  var countclass = index + 1;
+          
+                  var newCard = `
+                      <div class="col-6 col-lg-6 col-md-6 col-sm-6 position-relative ">
+                          <div class="upload__img-close_button " id="closeId${countclass}" onclick="removeImage(this);"></div>
+                          <div class="brand-main d-flex box-shadow mt-2 text-center shadow upload__img-closeDy${countclass}">
+                              <a class="weblink text-decoration-none text-dark" title="Tyre Image">
+                                  <img class="img-fluid w-100 h-100" src="${imageUrl}" alt="Tyre Image">
+                              </a>
+                          </div>
+                      </div>
+                  `;
+          
+                  // Append the new image element to the container
+                  $("#selectedImagesContainer").append(newCard);
+                });
+            }
+        },
+        error: function (error) {
+            console.error('Error fetching user data:', error);
+        }
+    });
+  }

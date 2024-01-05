@@ -272,37 +272,37 @@ function destroy(id) {
 //*** edit ***//
 // fetch edit data
 
-// function fetch_edit_data(product_id) {
-//   var apiBaseURL = APIBaseURL;
-//   var url = apiBaseURL + 'get_old_tractor_by_id/'+ product_id;
+function fetch_edit_data(product_id) {
+  var apiBaseURL = APIBaseURL;
+  var url = apiBaseURL + 'get_old_tractor_by_id/'+ product_id;
 
-//   var headers = {
-//     'Authorization': 'Bearer ' + localStorage.getItem('token')
-//   };
+  var headers = {
+    'Authorization': 'Bearer ' + localStorage.getItem('token')
+  };
 
-//   $.ajax({
-//     url: url,
-//     type: 'GET',
-//     headers: headers,
-//     success: function(response) {
-//       var userData = response.product[0];
+  $.ajax({
+    url: url,
+    type: 'GET',
+    headers: headers,
+    success: function(response) {
+      var userData = response.product[0];
 
-//       $('#enquiry_type_id1').val(userData.brand_name);
-//       $('#image_type_id1').val(userData.image_type_id);
-//       $('#tractor_type_id1').val(userData.tractor_type_id);
-//       $('#form_type1').val(userData.form_type);
-//       $('#first_name1').val(userData.first_name);
-//       $('#last_name1').val(userData.last_name);
+      // $('#enquiry_type_id1').val(userData.brand_name);
+      $('#image_type_id1').val(userData.image_type_id);
+      $('#tractor_type_id1').val(userData.tractor_type_id);
+      $('#form_type1').val(userData.form_type);
+      $('#first_name1').val(userData.first_name);
+      $('#last_name1').val(userData.last_name);
 
       
 
-//       // $('#exampleModal').modal('show');
-//     },
-//     error: function(error) {
-//       console.error('Error fetching user data:', error);
-//     }
-//   });
-// }
+      // $('#exampleModal').modal('show');
+    },
+    error: function(error) {
+      console.error('Error fetching user data:', error);
+    }
+  });
+}
 //***view ***/
 function fetch_data(id) {
   console.log(id, "id");

@@ -9,9 +9,7 @@ include 'includes/headertag.php';
 <script> var baseUrl = "<?php echo $baseUrl; ?>";</script>
 <script src="<?php $baseUrl; ?>model/nursery.js"></script>
 <style>
-  .upload__img-wrap{
-
-  }
+ 
 </style>
 <body class="loaded"> 
 <div class="main-wrapper">
@@ -123,7 +121,7 @@ include 'includes/headertag.php';
                                             <div class="upload__btn-box text-center">
                                               <label >
                                                 <p class="upload__btn ">Upload images</p>
-                                                <input type="file" name='files[]' multiple="" data-max_length="20" class="upload__inputfile" id="_image">
+                                                <input type="file" name='files[]'  multiple="" data-max_length="20" class="upload__inputfile" id="_image">
                                               </label>
                                             </div>
                                             <div id="selectedImagesContainer" class="upload__img-wrap"></div>
@@ -136,7 +134,7 @@ include 'includes/headertag.php';
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-secondary px-3" data-bs-dismiss="modal">Close</button>
-                  <button type="button" id="btn_sb" class="btn btn-success fw-bold px-3">Submit</button>
+                  <button type="submit" id="btn_sb" class="btn btn-success fw-bold px-3">Submit</button>
                 </div>
               </div>
             </div>
@@ -193,8 +191,8 @@ include 'includes/headertag.php';
       </div>
       <!-- Table Card -->
       <div class=" mb-5">
-        <div class="table-responsive">
-          <table id="example" class="table dataTable no-footer py-1" width="100%">
+        <div class="table-responsive bg-white shadow">
+          <table id="example" class="table table-striped  table-hover table-bordered dataTable no-footer" width="100%">
             <thead>
               <tr>
                 <th class="d-none d-md-table-cell text-white">S.No.</th>
@@ -365,7 +363,7 @@ include 'includes/headertag.php';
                                         <div class="col-12  ">
                                           <div class="form-outline mt-3">
                                             <label class="form-label text-dark">Description</label>
-                                            <textarea rows="3" cols="70" class="w-100 py-1" minlength="1" maxlength="" id="textarea_d2" name="textarea_d"></textarea>
+                                            <textarea rows="3" cols="70" class="w-100 py-1" minlength="1" maxlength="" id="textarea_d2" name="textarea_d2"></textarea>
                                           </div>
                                         </div>
                                         <div class="col-12 col-lg-6 col-md-6 col-sm-6">

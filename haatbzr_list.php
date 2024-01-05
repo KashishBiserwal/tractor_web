@@ -197,7 +197,7 @@
                                                 <input type="file" multiple="" data-max_length="20" class="upload__inputfile" id="_image" name="_image">
                                               </label>
                                             </div>
-                                            <div id="selectedImagesContainer" class="upload__img-wrap"></div>
+                                            <div id="selectedImagesContainer" class="upload__img-wrap row"></div>
                                           </div>
                                         </div>
                                         
@@ -233,19 +233,19 @@
                                       <div class="form-outline mt-2">
                                           <label class="form-label ">State</label>
                                           <select class="form-select py-2" aria-label="Default select example" id="state_" name="state_">
-                                              <option value>Select State</option>
-                                              <option value="">Chattisgarh</option>
-                                              <option value="">Other</option>
+                                              <option value="">Select State</option>
+                                              <option value="1">Chattisgarh</option>
+                                              <option value="2">Other</option>
                                           </select>
-                                        </div>
                                       </div>
+                                    </div>
                                       <div class="col-12 col-lg-6 col-sm-5 col-md-6 my-1">
                                         <div class="form-outline mt-3">
                                           <label class="form-label ">District</label>
                                           <select class="form-select py-2" aria-label="Default select example" id="dist" name="dist">
-                                            <option value>Select District</option>
-                                            <option value="">Raipur</option>
-                                            <option value="">Bilaspur</option>
+                                            <option value="">Select District</option>
+                                            <option value="1">Raipur</option>
+                                            <option value="2">Bilaspur</option>
                                           </select>
                                         </div>
                                       </div>
@@ -254,8 +254,8 @@
                                           <label class="form-label">Tehsil</label>
                                           <select class="form-select py-2" id="tehsil" aria-label="Default select example">
                                               <option value>Select Tehsil</option>
-                                              <option value="">Raipur</option>
-                                              <option value="">Bilaspur</option>
+                                              <option value="1">Raipur</option>
+                                              <option value="2">Bilaspur</option>
                                           </select>
                                         </div>
                                       </div>
@@ -300,9 +300,9 @@
                 <label class="form-label">Sub-Category</label>
                 <select class="form-select py-2" aria-label="Default select example">
                     <option value>Select Sub-Category</option>
-                    <option value="1">Potato</option>
-                    <option value="2">Rice</option>
-                    <option value="3">Papaya</option>
+                    <option value="">Potato</option>
+                    <option value="">Rice</option>
+                    <option value="">Papaya</option>
                 </select>
               </div>
             </div>
@@ -311,9 +311,9 @@
                 <label class="form-label">State</label>
                 <select class="form-select py-2" aria-label="Default select example">
                     <option value>Select State</option>
-                    <option value="1"></option>
-                    <option value="2">Chattisgarh</option>
-                    <option value="3">Other</option>
+                    <option value=""></option>
+                    <option value="">Chattisgarh</option>
+                    <option value="">Other</option>
                 </select>
               </div>
             </div>
@@ -322,9 +322,9 @@
                 <label class="form-label">District</label>
                 <select class="form-select py-2" aria-label="Default select example">
                     <option value>Select District</option>
-                    <option value="1">Raipur</option>
-                    <option value="2">Bilaspur</option>
-                    <option value="3">Surajpur</option>
+                    <option value="">Raipur</option>
+                    <option value="">Bilaspur</option>
+                    <option value="">Surajpur</option>
                 </select>
               </div>
             </div>
@@ -341,8 +341,8 @@
       </div>
       <!-- Table Card -->
       <div class=" mb-5">
-            <div class="table-responsive">
-                                <table id="example" class="table dataTable no-footer py-1" width="100%">
+            <div class="table-responsive shadow bg-white mt-2">
+                                <table id="example" class="table table-striped table-hover table-bordered dataTable no-footer" width="100%" >
                                     <thead>
                                         <tr>
                                             <th class="d-none d-md-table-cell text-white">S.No.</th>
@@ -356,13 +356,85 @@
                                            
                                         </tr>
                                     </thead>
-                                    <tbody>
+                                    <tbody id="data-table">
                                     </tbody>
                                 </table>
                             </div>
       </div>
     </div>
 </section>
+          <div class="modal fade" id="view_model_hatbazar" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg modal-dialog-centered">
+              <div class="modal-content modal_box">
+                <div class="modal-header modal_head">
+                  <h5 class="modal-title text-white fw-bold" id="staticBackdropLabel"> HaatBazar Details</h5>
+                  <button type="button" class="btn-close btn-success" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                  <div class="modal-body bg-light">
+                    <div class="row ">
+                       <div class="col-12">
+                        <table class="table table-striped">
+                        <tbody>
+                         <tr>
+                            <td>Category-</td>
+                            <td id="category"></td>
+                            <td>Sub-Category-</td>
+                            <td id="subcategory"></td>
+                          </tr>
+                          <tr>
+                            <td>Quantity</td>
+                            <td> <span id="quantity"></span> <span id="as_per"></span></td>
+                            <td>Price As Per-</td>
+                            <td id="price"></td>
+                          </tr>
+                          <tr>
+                            <td>Total Price-</td>
+                            <td id="Total_price"></td>
+                            <td>District-</td>
+                            <td id="dist1"></td>
+                          </tr>
+                          <tr>
+                              <td>Description-</td>
+                              <td colspan="3">
+                                  <div class="col-12" id="textarea"></div>
+                              </td>
+                          </tr>
+                          <tr>
+                            <td>Name-</td>
+                            <td> <span id="first_name"></span> <span id="last_name"></span></td>
+                            <td>Mobile Number-</td>
+                            <td id="number2"></td>
+                          </tr>
+                          <tr>
+                            <td>State-</td>
+                            <td id="state"></td>
+                            <td>District-</td>
+                            <td id="district"></td>
+                          </tr>
+                          <tr>
+                            <td>Tehsil-</td>
+                            <td id="tehsil1"></td>
+                          </tr>
+                          <tr>
+                              <td>Upload images-</td>
+                              <td colspan="3">
+                                  <div class="col-12">
+                                      <div id="selectedImagesContainer1" class="upload__img-wrap row"></div>
+                                  </div>
+                              </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>  
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary px-3" data-bs-dismiss="modal">Close</button>
+                  <!-- <button type="submit" id="btn_sb" class="btn btn-success fw-bold px-3">Submit</button> -->
+                </div>
+              </div>
+            </div>
+          </div>
+    </div>
 </body>
 
 

@@ -205,6 +205,7 @@ success: function (data) {
   let serialNumber = 1;
 
   if (data.product.allProductData && data.product.allProductData.length > 0) {
+
     data.product.allProductData.forEach(row => {
       const tableRow = document.createElement('tr');
       tableRow.innerHTML = `
@@ -217,11 +218,11 @@ success: function (data) {
           <td>${row.ending_price}</td>
           <td>
               <div class="d-flex">
-              <button class="btn btn-warning text-white btn-sm mx-1" onclick="openView(${row.product_id});" data-bs-toggle="modal" data-bs-target="#viewModal_btn" id="viewbtn">
+              <button class="btn btn-warning text-white btn-sm mx-1" onclick="openView(${row.product_id})" data-bs-toggle="modal" data-bs-target="#viewModal_btn" id="viewbtn">
               <i class="fa fa-eye" style="font-size: 11px;"></i>
               </button>
-            <a href="tractor_form_list.php?trac_edit=${row.product_id};" onclick="fetch_edit_data(${row.product_id});" class="btn btn-primary btn-sm edit_btn" ><i class="fas fa-edit" style="font-size: 11px;"></i></a>
-              <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.id});">
+            <a href="tractor_form_list.php?trac_edit=${row.product_id}" onclick="fetch_edit_data(${row.product_id})" class="btn btn-primary btn-sm edit_btn" ><i class="fas fa-edit" style="font-size: 11px;"></i></a>
+              <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.product_id})">
               <i class="fa fa-trash" style="font-size: 11px;"></i>
               </button> 
                 
@@ -381,18 +382,38 @@ get();
 
 // delete data
 function destroy(id) {
-var confirmed = confirm("Are you sure you want to delete this item?");
-if (confirmed) {
-var apiBaseURL = APIBaseURL;
-var url = apiBaseURL + 'deleteProduct/' + id;
+  var apiBaseURL = APIBaseURL;
+  var url = apiBaseURL + 'deleteProduct/' + id;
+  var token = localStorage.getItem('token');
 
-var token = localStorage.getItem('token');
+  if (!token) {
+    console.error("Token is missing");
+    return;
+  }
 
-if (!token) {
-  console.error("Token is missing");
-  return;
-}
-};
+  // Show a confirmation popup
+  var isConfirmed = confirm("Are you sure you want to delete this data?");
+  if (!isConfirmed) {
+    return;
+  }
+
+  $.ajax({
+    url: url,
+    type: "DELETE",
+    headers: {
+      'Authorization': 'Bearer ' + token
+    },
+    success: function(result) {
+      getTractorList();
+      // window.location.reload();
+      console.log("Delete request successful");
+      // alert("Delete operation successful");
+    },
+    error: function(error) {
+      console.error('Error fetching data:', error);
+      alert("Error during delete operation");
+    }
+  });
 }
 
 // *********View data******
@@ -421,7 +442,7 @@ $.ajax({
     document.getElementById('model_').innerText=data.product.allProductData[0].model;
     document.getElementById('hp_').innerText=data.product.allProductData[0].hp_category;
     document.getElementById('cylinder_').innerText=data.product.allProductData[0].total_cyclinder_value;
-    document.getElementById('pto_hp_').innerText=data.product.allProductData[0].power_take_off_type;
+    document.getElementById('POWER_TAKEOFF_TYPE').innerText=data.product.allProductData[0].power_take_off_type;
     document.getElementById('Gear_Box_Forward_1').innerText=data.product.allProductData[0].gear_box_forward;
     document.getElementById('Gear_Box_Reverse_1').innerText=data.product.allProductData[0].gear_box_reverse;
     document.getElementById('brakes_1').innerText=data.product.allProductData[0].brake_value;
@@ -455,32 +476,28 @@ $.ajax({
     document.getElementById('Accessories_1').innerText=data.product.allProductData[0].accessory;
     document.getElementById('Status_1').innerText=data.product.allProductData[0].status_value;
     document.getElementById('About_1').innerText=data.product.allProductData[0].description;
+    $("#selectedImagesContainer2").empty();
 
-
-
-
-    var productContainer = $("#image_1");
-
-    if (data.product.allProductData && data.product.allProductData.length > 0) {
-        data.product.allProductData.forEach(function (b) {
+    if (userData.image_names) {
+        var imageNamesArray = Array.isArray(userData.image_names) ? userData.image_names : userData.image_names.split(',');
+         
+        var countclass=0;
+        imageNamesArray.forEach(function (image_names) {
+            var imageUrl = 'http://tractor-api.divyaltech.com/uploads/nursery_img/' + image_names.trim();
+            countclass++;
             var newCard = `
-          <div class=" col-12 col-lg-3 col-md-3 col-sm-3">
-            <div class="row">
-              <div>
-                <div class="brand-main box-shadow mt-2 text-center shadow">
-                  <a class="weblink text-decoration-none text-dark" 
-                    title="Old Tractors">
-                    <img class="img-fluid w-50" src="http://tractor-api.divyaltech.com/customer/uploads/product_img/"
-                    data-src="h" alt="Brand Logo">
-                  </a>
+                <div class="col-12 col-md-6 col-lg-4 ">
+                <div class="upload__img-close_button " id="closeId${countclass}" onclick="removeImage(this);"></div>
+                    <div class="brand-main d-flex box-shadow mt-1 py-2 text-center shadow upload__img-closeDy${countclass}">
+                        <a class="weblink text-decoration-none text-dark" title="Tyre Image">
+                            <img class="img-fluid w-100 h-100" src="${imageUrl}" alt="Tyre Image">
+                        </a>
+                    </div>
                 </div>
-              </div>
-            </div>
-          </div>
-          `;
-
-            // Append the new card to the container
-           productContainer.append(newCard);
+            `;
+    
+            // Append the new image element to the container
+            $("#selectedImagesContainer2").append(newCard);
         });
 
 
@@ -532,114 +549,125 @@ console.error('Error fetching data:', error);
 // }
 
 
-function fetch_edit_data(){
-var brand_name = $("#brand_name").val();
-var model = $("#model").val();
-var product_type_id = $("#product_type_id").val();
-var hp_category = $("#hp_category").val();
-var TOTAL_CYCLINDER = $("#TOTAL_CYCLINDER").val();
-var horse_power = $("#horse_power").val();
-var gear_box_forward = $("#gear_box_forward").val();
-var gear_box_reverse = $("#gear_box_reverse").val();
-var BRAKE_TYPE = $("#BRAKE_TYPE").val();
-var starting_price = $("#starting_price").val();
-var ending_price = $("#ending_price").val();
-var warranty = $("#warranty").val();
-var type_name = $("#type_name").val();
-var _image = $("#_image").val();
-var CAPACITY_CC = $("#CAPACITY_CC").val();
-var engine_rated_rpm = $("#engine_rated_rpm").val();
-var COOLING = $("#COOLING").val();
-var AIR_FILTER = $("#AIR_FILTER").val();
-var fuel_pump_id = $("#FUEL_PUMP").val();
-var TORQUE = $("#TORQUE").val();
-var TRANSMISSION_TYPE = $("#TRANSMISSION_TYPE").val();
-var TRANSMISSION_CLUTCH = $("#TRANSMISSION_CLUTCH").val();
-var min_forward_speed = $("#min_forward_speed").val();
-var max_forward_speed = $("#max_forward_speed").val();
-var min_reverse_speed = $("#min_reverse_speed").val();
-var max_reverse_speed = $("#max_reverse_speed").val();
-var STEERING_DETAIL = $("#STEERING_DETAIL").val();
-var STEERING_COLUMN = $("#STEERING_COLUMN").val();
-var POWER_TAKEOFF_TYPE = $("#POWER_TAKEOFF_TYPE").val();
-var power_take_off_rpm = $("#power_take_off_rpm").val();
-var totat_weight = $("#totat_weight").val();
-var WHEEL_BASE = $("#WHEEL_BASE").val();
-var LIFTING_CAPACITY = $("#LIFTING_CAPACITY").val();
-var LINKAGE_POINT = $("#LINKAGE_POINT").val();
-var WHEEL_DRIVE = $("#WHEEL_DRIVE").val();
-var front_tyre = $("#front_tyre").val();
-var rear_tyre = $("#rear_tyre").val();
-var ass_list = $("#ass_list").val();
-var STATUS = $("#STATUS").val();
-var description = $("#description").val();
+// function fetch_edit_data(){
+// alert("ding dong");
+//   var apiBaseURL = APIBaseURL;
+//   // var nursery_id= id;
+//   var url = apiBaseURL + 'updateUser/' + idEditUser;
+//   console.log(url);
 
-var paraArr1 = {
-'brand_id': brand_name,
-'model': model,
-'product_type_id': product_type_id,
-'hp_category': hp_category,
-'total_cyclinder_id': TOTAL_CYCLINDER,
-'horse_power': horse_power,
-'gear_box_forward': gear_box_forward,
-'gear_box_reverse': gear_box_reverse,
-'brake_type_id': BRAKE_TYPE,
-'starting_price': starting_price,
-'ending_price': ending_price,
-'warranty': warranty,
-'tractor_type_id[]': type_name,
-'image_type_id': _image,
-'engine_capacity_cc': CAPACITY_CC,
-'engine_rated_rpm': engine_rated_rpm,
-'cooling_id': COOLING,
-'air_filter': AIR_FILTER,
-'fuel_pump_id': fuel_pump_id,
-'torque': TORQUE,
-'transmission_type_id': TRANSMISSION_TYPE,
-'transmission_clutch_id': TRANSMISSION_CLUTCH,
-'transmission_reverse': min_forward_speed,
-'transmission_forward': max_forward_speed,
-'min_reverse_speed': min_reverse_speed,
-'max_reverse_speed': max_reverse_speed,
-'steering_details_id': STEERING_DETAIL,
-'steering_column_id': STEERING_COLUMN,
-'power_take_off_type_id': POWER_TAKEOFF_TYPE,
-'power_take_off_rpm': power_take_off_rpm,
-'total_weight': totat_weight,
-'wheel_base': WHEEL_BASE,
-'lifting_capacity': LIFTING_CAPACITY,
-'linkage_point_id': LINKAGE_POINT,
-'wheel_drive_id': WHEEL_DRIVE,
-'front_tyre': front_tyre,
-'rear_tyre': rear_tyre,
-'accessory_id[]': ass_list,
-'status_id': STATUS,
-'description': description,
-'id': idEditUser,
+//   var headers = {
+//     'Authorization': 'Bearer ' + localStorage.getItem('token')
+//   };
 
-};
-var apiBaseURL = APIBaseURL;
-var url = apiBaseURL + 'updateUser/' + idEditUser;
+//   $.ajax({
+//     url: url,
+//     type: 'GET',
+//     headers: headers,
+//     success: function(response) {
+//       var userData = response.product.allProductData[0];
+//       $('#product_id').val(userData.product_id);
+//       $('#brand_name').val(userData.brand_name);
+//       $('#model').val(userData.model);
+//       $('#product_type_id').val(userData.product_type_id);
+//       $('#hp_category').val(userData.hp_category);
+//       $('#TOTAL_CYCLINDER').val(userData.total_cyclinder_value);
+//       $('#horse_power').val(userData.horse_power);
+//       $('#gear_box_forward').val(userData.gear_box_forward);
+//       $('#gear_box_reverse').val(userData.gear_box_reverse);
+//       $('#BRAKE_TYPE').val(userData.brake_value);
+//       $('#starting_price').val(userData.starting_price);
+//       $('#ending_price').val(userData.ending_price);
+//       $('#warranty').val(userData.warranty);
+//       $('#type_name').val(userData.transmission_type_value);
+//       // $('#_image').val(userData._image);
+//       $('#CAPACITY_CC').val(userData.engine_capacity_cc);
+//       $('#engine_rated_rpm').val(userData.engine_rated_rpm);
+//       $('#COOLING').val(userData.cooling_value);
+//       $('#AIR_FILTER').val(userData.air_filter);
+//       $('#FUEL_PUMP').val(userData.fuel_value);
+//       $('#TORQUE').val(userData.torque);
+//       $('#TRANSMISSION_TYPE').val(userData.transmission_type_value);
+//       $('#TRANSMISSION_CLUTCH').val(userData.transmission_clutch_value);
+//       $('#min_forward_speed').val(userData.min_forward_speed);
+//       $('#max_forward_speed').val(userData.max_forward_speed);
+//       $('#min_reverse_speed').val(userData.min_reverse_speed);
+//       $('#max_reverse_speed').val(userData.max_reverse_speed);
+//       $('#STEERING_DETAIL').val(userData.steering_details_value);
+//       $('#STEERING_COLUMN').val(userData.steering_column_value);
+//       $('#POWER_TAKEOFF_TYPE').val(userData.power_take_off_type);
+//       $('#power_take_off_rpm').val(userData.power_take_off_rpm);
+//       $('#totat_weight').val(userData.totat_weight);
+//       $('#WHEEL_BASE').val(userData.wheel_base);
+//       $('#LIFTING_CAPACITY').val(userData.lifting_capacity);
+//       $('#LINKAGE_POINT').val(userData.linkage_point_value);
+//       $('#WHEEL_DRIVE').val(userData.wheel_drive_value);
+//       $('#front_tyre').val(userData.front_tyre);
+//       $('#rear_tyre').val(userData.rear_tyre);
+//       $('#ass_list').val(product.accessory_and_tractor_type[0].accessory);
+//       $('#STATUS').val(userData.status_value);
+//       $('#description').val(userData.description);
 
-var headers = {
-'Authorization': 'Bearer ' + localStorage.getItem('token')
-};
-$.ajax({
-url: url,
-  type: "PUT",
-  data: paraArr1,
-  headers: headers,
-  success: function (result) {
-    console.log(result, "result");
-    get();
-    console.log("updated successfully");
-    alert('successfully updated..!')
-  },
-  error: function (error) {
-    console.error('Error fetching data:', error);
-  }
-})
-}
+//       // $("#selectedImagesContainer").empty();
+
+//       // if (userData.image_names) {
+//       //   var imageNamesArray = Array.isArray(userData.image_names) ? userData.image_names : userData.image_names.split(',');
+//       //   console.log('imageNamesArray',imageNamesArray);  
+//       //   var countclass = 0;
+//       //   imageNamesArray.forEach(function (image_names) {
+//       //       var imageUrl = 'http://tractor-api.divyaltech.com/uploads/product_img/' + image_names.trim();
+            
+//       //       countclass++;
+//       //       var newCard = `
+//       //           <div class="col-12 col-md-6 col-lg-4 position-relative" style="left:6px;">
+//       //               <div class="upload__img-close_button " id="closeId${countclass}" onclick="removeImage(this);"></div>
+//       //               <div class="brand-main d-flex box-shadow mt-1 py-2 text-center shadow upload__img-closeDy${countclass}">
+//       //                   <a class="weblink text-decoration-none text-dark" title="Image">
+//       //                       <img class="img-fluid w-100 h-100" src="${imageUrl}" alt="Image">
+//       //                   </a>
+//       //               </div>
+//       //           </div>
+//       //       `;
+//       var productContainer = $("#image_1");
+
+//       if (data.product.allProductData && data.product.allProductData.length > 0) {
+//           data.product.allProductData.forEach(function (b) {
+//               var newCard = `
+//             <div class=" col-12 col-lg-3 col-md-3 col-sm-3">
+//               <div class="row">
+//                 <div>
+//                   <div class="brand-main box-shadow mt-2 text-center shadow">
+//                     <a class="weblink text-decoration-none text-dark" 
+//                       title="Old Tractors">
+//                       <img class="img-fluid w-50" src="http://tractor-api.divyaltech.com/customer/uploads/product_img/"
+//                       data-src="h" alt="Brand Logo">
+//                     </a>
+//                   </div>
+//                 </div>
+//               </div>
+//             </div>
+//             `;
+  
+//               // Append the new card to the container
+//              productContainer.append(newCard);
+//           });
+  
+//       }
+      
+//     console.log('Fetched data successfully');
+//       // $('#exampleModal').modal('show'); 
+//     },
+//     error: function(error) {
+//       console.error('Error fetching user data:', error);
+//     }
+//   });
+
+
+
+
+
+
+// }
 
 
 

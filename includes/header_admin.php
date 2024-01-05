@@ -96,18 +96,25 @@
 
 </script>
 <script>
-window.setInterval(() => {
-    var expireTimeString = localStorage.getItem('expireIn');
-    var expiretime = new Date(expireTimeString); // Convert the string to a Date object
+      const expireTimeString = localStorage.getItem('expireIn');
+    // var expiretime = new Date(expireTimeString); 
+    const expireTime = new Date();
+    
+expireTime.setSeconds(expireTime.getSeconds() +parseInt(expireTimeString));
+// expireTime.setSeconds(expireTime.getSeconds() +parseInt(10));
 
+window.setInterval(() => {
+  
 
     var currentdate = new Date();
-
-    if (currentdate >= expiretime) {
-        console.log("hello");
+    // console.log("hello");
+    // console.log('currentdate',currentdate);
+    // console.log('expiretime',expireTime);
+    if (currentdate >= expireTime) {
+        
         user_logout();
         localStorage.removeItem("expireIn");
-        // window.location.href = baseUrl + "login.php";
+        window.location.href = baseUrl + "login.php";
     }
 
 }, 5000);

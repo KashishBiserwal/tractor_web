@@ -70,26 +70,38 @@ function get() {
 
           if (data.lookup_type.length > 0) {
               let serialNumber = 1; // Initialize serial number
-
+              let tableData = [];
               // Loop through the data and create table rows
-              data.lookup_type.map(row => {
-                  const tableRow = document.createElement('tr');
-                  tableRow.innerHTML = `
-                      <td>${serialNumber}</td>
-                      <td>${row.name}</td>
-                      <td>
-                          <div class="d-flex">
-                              <button class="btn btn-danger btn-sm mx-1" id="delete_user" onclick="destroy(${row.id});">
-                                  <i class="fa fa-trash" style="font-size: 11px;"></i>
-                              </button>
-                          </div>
-                      </td>
-                  `;
-                  tableBody.appendChild(tableRow);
+              data.lookup_type.forEach(row => {
+                 // const tableRow = document.createElement('tr');
+                 let action = ` <div class="d-flex">
+                                  <button class="btn btn-danger btn-sm mx-1" id="delete_user" onclick="destroy(${row.id});" style="padding:5px;">
+                                    <i class="fa fa-trash" style="font-size: 11px;"></i>
+                                  </button>
+                                </div>`;
+              
+                  tableData.push([
+                    serialNumber,
+                    row.name,
+                    action
+                ]);
                   
                   // Increment serialNumber for the next row
                   serialNumber++;
+                  
               });
+              $('#example').DataTable().destroy();
+              $('#example').DataTable({
+                      data: tableData,
+                      columns: [
+                        { title: 'ID' },
+                        { title: 'Lookup Type' },
+                        { title: 'Action', orderable: false } // Disable ordering for Action column
+                    ],
+                      paging: true,
+                      searching: true,
+                      // ... other options ...
+                  });
           } else {
               tableBody.innerHTML = '<tr><td colspan="7">No valid data available</td></tr>';
           }

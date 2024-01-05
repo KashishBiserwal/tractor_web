@@ -177,10 +177,11 @@ $('#save').on('click', function() {
             if (users.length > 0) {
                 // Initialize serialNumber outside the loop
                 let serialNumber = 1;
+                let tableData = [];
 
                 // Loop through the data and create table rows
-                users.map(row => {
-                    const tableRow = document.createElement('tr');
+                users.forEach(row => {
+                    //const tableRow = document.createElement('tr');
                     let originalDate = new Date(row.created_at);
 
                     let day = originalDate.getDate();
@@ -190,29 +191,48 @@ $('#save').on('click', function() {
                     let formatDate = `${day}-${month}-${year}`;
                     let userTypeLabel = row.user_type == 0 ? 'Admin' : 'User';
                     let status = row.status == 0 ? 'Active' : 'InActive';
+                    // Create the action buttons HTML
+                    let action = `<div class="float-start">
+                                    <button class="btn btn-danger btn-sm" id="delete_user" onclick="destroy(${row.id});" style="padding:5px">
+                                        <i class="fa fa-trash" style="font-size: 11px;"></i>
+                                    </button>
+                                    <button class="btn btn-primary btn-sm btn_edit" data-toggle="modal" onclick="fetch_edit_data(${row.id});" data-target="#exampleModal" id="yourUniqueIdHere" style="padding:5px">
+                                        <i class="fas fa-edit" style="font-size: 11px;"></i>
+                                    </button>
+                                </div>`;
 
-                    tableRow.innerHTML = `
-                        <td>${serialNumber}</td>
-                        <td>${formatDate}</td>
-                        <td>${row.first_name}</td>
-                        <td>${row.mobile}</td>
-                        <td>${userTypeLabel}</td>
-                        <td>${status}</td>
-                        <td>
-                            <div class="float-start">
-                                <button class="btn btn-danger btn-sm" id="delete_user" onclick="destroy(${row.id});">
-                                    <i class="fa fa-trash" style="font-size: 11px;"></i>
-                                </button>
-                                    <button class="btn btn-primary btn-sm btn_edit" data-toggle="modal"onclick="fetch_edit_data(${row.id});" data-target="#exampleModal" id="yourUniqueIdHere">
-                                    <i class="fas fa-edit" style="font-size: 11px;"></i>
-                                  </button>
-                            </div>
-                        </td>
-                    `;
+                    // Push row data as an array into the tableData
+                    tableData.push([
+                        serialNumber,
+                        formatDate,
+                        row.first_name,
+                        row.mobile,
+                        userTypeLabel,
+                        status,
+                        action
+                    ]);
 
                     serialNumber++;
-                    tableBody.appendChild(tableRow);
                 });
+
+                // Initialize DataTable after preparing the tableData
+                $('#example').DataTable().destroy();
+                $('#example').DataTable({
+                        data: tableData,
+                        columns: [
+                          { title: 'S.No.' },
+                          { title: 'Date' },
+                          { title: 'Name' },
+                          { title: 'Mobile Number' },
+                          { title: 'User Type' },
+                          { title: 'Status' },
+                          { title: 'Action', orderable: false } // Disable ordering for Action column
+                      ],
+                        paging: true,
+                        searching: true,
+                        // ... other options ...
+                    });
+              
             } else {
                 tableBody.innerHTML = '<tr><td colspan="7">No valid data available</td></tr>';
             }
@@ -246,7 +266,7 @@ var url = apiBaseURL + "deleteUser/" + id;
       'Authorization': 'Bearer ' + token
     },
     success: function(result) {
-      // window.location.reload();
+      window.location.reload();
       get();
       console.log("Delete request successful");
       alert("Delete operation successful");
@@ -301,7 +321,7 @@ function edit_user(){
   var last_name = $("#last_name1").val();
   var email = $("#email1").val();
   var mobile = $("#mobile1").val();
-  var email = $("#email1").val();
+  var status = $("#status1").val();
   var user_type1 = $("#user_type1").val();
   var paraArr = {
     'first_name': first_name,
@@ -310,6 +330,7 @@ function edit_user(){
     'mobile': mobile,
     'user_type': user_type1,
     'id': edit_id,
+    'status':status,
 
   };
   var apiBaseURL = APIBaseURL;
