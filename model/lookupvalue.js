@@ -1,5 +1,7 @@
 $(document).ready(function() {
 
+  $('#savechangebtn').click(edit_user);
+
   $("#look_up_form").validate({
     rules: {
       lookup_name: {
@@ -20,7 +22,7 @@ $(document).ready(function() {
       $("#look_up_form").valid();
   });
 
-// for edit model
+  // for edit model
   $("#look_up_form1").validate({
     rules: {
       lookup_name1: {
@@ -231,6 +233,7 @@ function resetForm() {
           headers: headers,
           success: function (response) {
               var Data = response.lookup_type[0];
+             
               $('#idUser').val(Data.id);
               $('#look_up_name').val(Data.name);
               console.log(Data.name);
@@ -242,38 +245,38 @@ function resetForm() {
       });
     }
   
-  // function edit_user() {
-  //   var enquiry_type_id = $("#enquiry_type_id").val();
-  //   var edit_id = $("#idUser").val();
-  //   var first_name = $("#first_name1").val();
+  function edit_user() {
+    // var enquiry_type_id = $("#enquiry_type_id").val();
+    var edit_id = $("#idUser").val();
+    var lookup_name = $("#look_up_name").val();
   
-  //   var paraArr = {
-  //       'first_name': first_name,
-  //       'id': edit_id,
-  //       'enquiry_type_id': enquiry_type_id,
-  //   };
+    var paraArr = {
+        'lookup_type': lookup_name,
+        'id': edit_id,
+        // 'enquiry_type_id': enquiry_type_id,
+    };
   
-  //   var apiBaseURL = APIBaseURL;
-  //   var url = apiBaseURL + 'customer_enquiries/' + edit_id;
+    var apiBaseURL = APIBaseURL;
+    var url = apiBaseURL + 'lookup_type/' + edit_id;
   
-  //   var headers = {
-  //       'Authorization': 'Bearer ' + localStorage.getItem('token')
-  //   };
+    var headers = {
+        'Authorization': 'Bearer ' + localStorage.getItem('token')
+    };
   
-  //   $.ajax({
-  //       url: url,
-  //       type: "PUT",
-  //       data: paraArr,
-  //       headers: headers,
-  //       success: function (result) {
-  //           console.log(result, "result");
-  //           get_hire_tract();
-  //           window.location.reload();
-  //           console.log("updated successfully");
-  //           alert('successfully updated..!')
-  //       },
-  //       error: function (error) {
-  //           console.error('Error fetching data:', error);
-  //       }
-  //   });
-  // }
+    $.ajax({
+        url: url,
+        type: "PUT",
+        data: paraArr,
+        headers: headers,
+        success: function (result) {
+            console.log(result, "result");
+            get();
+            window.location.reload();
+            console.log("updated successfully");
+            alert('successfully updated..!')
+        },
+        error: function (error) {
+            console.error('Error fetching data:', error);
+        }
+    });
+  }
