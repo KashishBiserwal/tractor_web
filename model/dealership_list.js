@@ -245,7 +245,8 @@ function add_dealership(event) {
         success: function (result) {
             console.log(result, "result");
             console.log("Operation successfully");
-            // window.location.reload();
+            alert("successfully Inserted..!")
+            window.location.reload();
         },
         error: function (error) {
             console.error('Error:', error);
