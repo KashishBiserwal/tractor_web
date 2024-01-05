@@ -59,8 +59,14 @@ include 'includes/footertag.php';
                                         <input type="text" id="accessories" name="accessories" class="form-control" />
                                     </div>
                                 </div>
+                                <div class="col-12 mt-3"hidden>
+                                    <div class="form-outline">
+                                        <label class="form-label"> Accessories Name </label>
+                                        <input type="text" id="idUse_1" name="" class="form-control" />
+                                    </div>
+                                </div>
                               </div>
-                              <button type="button" id="add_ass" class="btn btn-success fw-bold px-3">Submit</button>
+                              <button type="button" id="add_ass" class="btn btn-success fw-bold px-3 mt-3">Submit</button>
                             </form>
                           </div>
                         </div>
@@ -80,17 +86,19 @@ include 'includes/footertag.php';
         <div class="">
           <div class="filter-card">
             <div class="card-body">
+              <form action="" id="myform">
               <div class="row">
                 <div class="col-12 col-sm-12 col-md-4 col-lg-4">
                     <div class="form-outline">
                     <label class="form-label"> Search by Field Name </label>
-                    <input type="text" id="uid" name="search_email" class=" data_search form-control" />
+                    <input type="text" id="name" name="search_email" onkeyup="myFunction()" class=" data_search form-control" />
                   </div>
                 </div>
                 <div class="col-12 col-sm-12 col-md-3 col-lg-3">
-                    <button type="button" class="btn-success  btn btn_all" id="Reset">Reset</button>
+                    <button type="button"onclick="resetForm()" class="btn-success  btn btn_all" value="reset" id="Reset">Reset</button>
                 </div>
               </div>
+              </form>
             </div>
           </div>
           <div class=" mb-5 shadow bg-white mt-3 p-3">
@@ -110,7 +118,40 @@ include 'includes/footertag.php';
           </div>
         </div>
       </section>
-
+      <!-- model edit -->
+      <div class="modal fade" id="staticBackdrop_1" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header modal_head">
+        <h5 class="modal-title text-white fw-bold" id="staticBackdropLabel">Update Accessories</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+      <form id="acc_form" name="acc_form">
+                              <div class="row justify-content-center">
+                                <div class="col-12 mt-3">
+                                    <div class="form-outline">
+                                        <label class="form-label"> Accessories Name </label>
+                                        <input type="text" id="accessories_1" name="accessories" class="form-control" />
+                                    </div>
+                                </div>
+                                <div class="col-12 mt-3"hidden>
+                                    <div class="form-outline">
+                                        <label class="form-label"> Accessories Name </label>
+                                        <input type="text" id="idUser" name="" class="form-control" />
+                                    </div>
+                                </div>
+                              </div>
+                              
+                            </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" id="update_ass" class="btn btn-success fw-bold px-3" data-bs-dismiss="modal">Update</button>
+      </div>
+    </div>
+  </div>
+</div>
 
     </div>
   </div>
