@@ -216,7 +216,7 @@ include 'includes/headertag.php';
                                                 <input type="file" multiple="" data-max_length="20" class="upload__inputfile" id="_image" name="_image">
                                               </label>
                                             </div>
-                                            <div id="selectedImagesContainer" class="upload__img-wrap"></div>
+                                            <div id="selectedImagesContainer" class="upload__img-wrap float-start"></div>
                                           </div>
                               </div>
                               <div class="col-12 col-sm-8 col-lg-8 col-md-8 mt-4">
