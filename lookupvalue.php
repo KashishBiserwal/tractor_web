@@ -46,11 +46,11 @@ include 'includes/headertag.php';
                                 <div class="col-12 mt-4">
                                   <div class="form-outline">
                                     <label class="form-label text-dark">Lookup Type Name<span class="text-danger">*</span></label>
-                                    <input type="text" class="form-control " for="name" name="lookup_name" placeholder="">
+                                    <input type="text" class="form-control " for="name" name="lookup_name" placeholder="" id="name">
                                   </div>
                                 </div>
                               </div>
-                              <button type="button" class="btn btn-success  mt-3 mb-0 btn_all" id="submit_button">Submit</button>
+                              <button type="submit" class="btn btn-success  mt-3 mb-0 btn_all" id="submit_button">Submit</button>
                             </form>
                           </div>
                         </div>

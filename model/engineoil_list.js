@@ -42,13 +42,13 @@ $(document).ready(function () {
         },
         textarea_: {
           required: true,
-        },
-        _image:{
-          required:true,
-          minlength: 2,
-          maxlength: 5,
-       
         }
+        // _image:{
+        //   required:true,
+        //   minlength: 2,
+        //   maxlength: 5,
+       
+        // }
        
       },
       messages: {
@@ -77,12 +77,12 @@ $(document).ready(function () {
         },
         textarea_: {
           required: "This field is required",
-        },
-        _image:{
-          required:"This field is required",
-          minlength: "Please upload at least 2 images",
-          maxlength: "Maximum 5 images allowed",
         }
+        // _image:{
+        //   required:"This field is required",
+        //   minlength: "Please upload at least 2 images",
+        //   maxlength: "Maximum 5 images allowed",
+        // }
       },
       submitHandler: function (form) {
         alert("Form submitted successfully!");
@@ -91,11 +91,9 @@ $(document).ready(function () {
 
     $("#submit_btn").on("click", function () {
       $("#engine_oil_form").valid();
-      if ($("#engine_oil_form").valid()) {
-        // alert("Form is valid. Ready to submit!");
-      }
     });
   });
+  $('#submit_btn').click(store);
 
   function ImgUpload() {
     var imgWrap = "";
@@ -153,6 +151,83 @@ $(document).ready(function () {
       $(this).parent().parent().remove();
     });
   }
+
+  function store(event) {
+    event.preventDefault();
+
+    var image_names = document.getElementById('_image').files;
+    var dealer_name = $('#dname').val();
+    var brand = $('#brand').val();
+    var email = $('#email').val();
+    var cno = $('#cno').val();
+    var address = $('#address').val();
+    var state = $('#state_').val();
+    var district = $('#dist').val();
+    var tehsil = $('#tehsil').val();
+
+    var apiBaseURL = APIBaseURL;
+    var token = localStorage.getItem('token');
+    var headers = {
+        'Authorization': 'Bearer ' + token
+    };
+
+    // Check if an ID is present in the URL, indicating edit mode
+    var urlParams = new URLSearchParams(window.location.search);
+    var editId = urlParams.get('id');
+    var _method = 'post'; 
+    var url, method;
+    
+    console.log('edit state',editId_state);
+    console.log('edit id', EditIdmain_);
+    if (editId_state) {
+        // Update mode
+        console.log(editId_state);
+        _method = 'put';
+        url = apiBaseURL + 'dealer_data/' + EditIdmain_ ;
+        console.log(url);
+        method = 'POST'; 
+    } else {
+        // Add mode
+        url = apiBaseURL + 'dealer_data';
+        method = 'POST';
+    }
+
+    var data = new FormData();
+
+    for (var x = 0; x < image_names.length; x++) {
+        data.append("images[]", image_names[x]);
+    }
+
+    data.append('_method', _method);
+    data.append('dealer_name', dealer_name);
+    data.append('brand_id', brand);
+    data.append('email', email);
+    data.append('mobile', cno);
+    data.append('address', address);
+    data.append('state', state);
+    data.append('district', district);
+    data.append('tehsil', tehsil);
+
+    $.ajax({
+        url: url,
+        type: method,
+        data: data,
+        headers: headers,
+        processData: false,
+        contentType: false,
+        success: function (result) {
+            console.log(result, "result");
+            console.log("Operation successfully");
+            // window.location.reload();
+        },
+        error: function (error) {
+            console.error('Error:', error);
+        }
+    });
+
+}
+
+
 
 function engineOil_add() {
   var apiBaseURL = APIBaseURL;
