@@ -22,7 +22,7 @@ function get_old_harvester() {
 
             if (data.product && data.product.length > 0) {
                 data.product.forEach(function (p) {
-                    console.log('tdfds',p);
+                    console.log('tdfds',p.id);
                     // var images= p.image_names;
                     // if(images && images.indexOf(',')>-1){
                     //     var a = images.split(',')
@@ -38,8 +38,10 @@ function get_old_harvester() {
                     if (images) {
                         if (images.indexOf(',') > -1) {
                             a = images.split(',');
+                            console.log(a,"aa")
                         } else {
                             a = [images];
+                            console.log(a,"bb")
                         }
                     }
                     var newCard = `
@@ -47,15 +49,15 @@ function get_old_harvester() {
 
                         <div class="h-auto success__stry__item d-flex flex-column shadow">
                             <div class="thumb">
-                                <a href="used_harvester_inner.php?id=${p.product_id}">
+                                <a href="used_harvester_inner.php?id=${p.id}">
                                     <div class="ratio ratio-16x9">
-                                        <img src="http://tractor-api.divyaltech.com/customer/uploads/product_img/${a[0]}" class="object-fit-cover " alt="img">
+                                        <img src="http://tractor-api.divyaltech.com/uploads/product_img/${a[0]}" class="object-fit-cover " alt="img">
                                     </div>
                                 </a>
                             </div>
                             <div class="content d-flex flex-column flex-grow-1 ">
                                 <div class="caption text-center">
-                                    <a href="used_harvester_inner.php?id=${p.product_id}" class="text-decoration-none text-dark">
+                                    <a href="used_harvester_inner.php?id=${p.id}" class="text-decoration-none text-dark">
                                         <p class="pt-1"><strong class="series_tractor_strong text-center h4 fw-bold ">${p.model}</strong></p>
                                     </a>      
                                 </div>
