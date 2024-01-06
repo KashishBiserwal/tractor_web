@@ -440,6 +440,7 @@ for (var x = 0; x < image.length; x++) {
 
 // delete data
 function destroy(id) {
+  console.log(id);
     var apiBaseURL = APIBaseURL;
     var url = apiBaseURL + 'deleteProduct/' + id;
     var token = localStorage.getItem('token');
@@ -463,7 +464,8 @@ function destroy(id) {
         'Authorization': 'Bearer ' + token
       },
       success: function(result) {
-        get_old_harvester();
+        // get_old_harvester();
+        window.location.reload();
         console.log("Delete request successful");
         alert("Delete operation successful");
       },

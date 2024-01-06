@@ -59,25 +59,23 @@ include 'includes/footertag.php';
                 </div>
                 <div class="col-12 col-sm-12 col-md-3 col-lg-3">
                     <label class="text-dark fw-bold  mb-2">Search by Model</label>
-                    <select class="js-select2 form-select" id="model">
-                    </select>
+                    <input type="text" name="model" id="model" class="form-control">
                 </div>
                 <div class="col-12 col-sm-12 col-md-3 col-lg-3">
                     <label class="text-dark fw-bold mb-2">Search by HP</label>
-                    <select class="js-select2 form-select" id="hp">
-                    </select>
+                    <input type="text" name="hp" id="hp" class="form-control">
                 </div>
                 <div class="col-12 col-sm-12 col-md-3 col-lg-3 text-center">
                   <div class="mt-3 pt-1">
                     <button type="button" class="btn-success btn px-4 py-2"  id="Search">Search</button>
-                    <button type="reset" value = "Reset data"  class="btn-success btn px-4 py-2" id="Reset">Reset</button>
+                    <!-- <button type="reset" value = "Reset data"  class="btn-success btn px-4 py-2" id="Reset">Reset</button> -->
                   </div>
                 </div>
               </div>
             </div>
           </div>
           <div class="mb-5">
-            <div class="table-responsive shadow bg-white">
+            <div class="table-responsive shadow bg-white mt-3 py-2">
               <table id="example" class="table bg-white table-striped table-hover py-1" width="100%">
                   <thead>
                     <tr>
