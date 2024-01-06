@@ -245,37 +245,7 @@ error: function (error) {
 
 
 
-$("#Search").click(function () {
-var brand = $("#brand").val();
-var model = $("#model").val();
-var hp = $("#hp").val();
-var table = $('#example');
-var searchData = {
-brand: brand,
-  model_name: model,
-  hp_category: hp,
-};
 
-var apiBaseURL =APIBaseURL;
-var url = apiBaseURL + 'get_new_tractor';
-$.ajax({
-  url: url, 
-  type: 'GET',
-  data: searchData,
-  headers: {
-    'Authorization': 'Bearer ' + localStorage.getItem('token')
-  },
-  dataType: 'json',
-  success: function (data) {
-      console.log('data',data);    
-      table.clear().rows.add(data.product.allProductData).draw(); 
-      console.log("Search records");
-  },
-  error: function (xhr, status, error) {
-      console.log("Error: " + error);
-  }
-});
-});
 $("#Reset").click(function () {
 
 $("#brand").val("");

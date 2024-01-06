@@ -507,7 +507,7 @@ include 'includes/footertag.php';
                                                         <div class="form-outline">
                                                             <label class="form-label">Brand</label>
                                                             <select class="form-select py-2" id="brand_name" name="brand_name" aria-label="Default select example" required>
-                                                                <option value="">Select Brand</option>
+                                                                <!-- <option value="">Select Brand</option> -->
                                                             </select>
                                                         </div>
                                                     </div>

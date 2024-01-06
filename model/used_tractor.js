@@ -77,7 +77,7 @@ function appendCard(container, p) {
             </div>
             <div class=" row">
                 <div class="col-12 ms-2 ">
-                    <p class="" id="district"><span id="engine_powerhp2">${p.hp_category}</span> | <span id="year">${p.purchase_year}</span>| ${p.district}</p>
+                    <p class="" id="district"><span id="engine_powerhp2">${p.brand_name}</span> | <span id="year">${p.purchase_year}</span>| ${p.district}</p>
                 </div>
             </div>
             <div class="row text-center">

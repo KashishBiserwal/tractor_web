@@ -127,9 +127,6 @@ $(document).ready(function() {
   
     }
 
-
-
-
 // get brand
 function get() {
     // var url = "<?php echo $APIBaseURL; ?>getBrands";
@@ -229,6 +226,7 @@ function store(event) {
      var state = $('#state').val();
      var district = $('#district').val();
      var brand_name = $('#brand').val();
+     console.log(brand_name,'brand name');
      var Model_name = $('#model').val();
      var purchase_year = $('#purchase_year').val();;
      var tehsil = $('#tehsil').val();
@@ -250,21 +248,22 @@ function store(event) {
        'Authorization': 'Bearer ' + token
      };
 
-     var _method = 'post'; 
+    //  var _method = 'PUT'; 
     var url, method;
     
     console.log('edit state',editId_state);
     console.log('edit id', EditIdmain_);
-    if (EditIdmain_) {
+    if (editId_state) {
         // Update mode
-        console.log(editId_state, "state");
+        console.log(editId_state, "state"); 
         console.log(EditIdmain_, "id edit");
-        _method = 'put';
+       var method1 = 'put';
         url = apiBaseURL + 'customer_enquiries/' + EditIdmain_ ;
         console.log(url);
         method = 'POST'; 
     } else {
         // Add mode
+        method1 = 'xse';
         url = apiBaseURL + 'customer_enquiries';
         method = 'POST';
     }
@@ -275,7 +274,7 @@ function store(event) {
        console.log("multiple image", image_names[x]);
      }
        data.append('form_type',form_type);
-       data.append('_method',_method);
+       data.append('_method',method1);
        data.append('product_type_id', product_type_id);
        data.append('enquiry_type_id', enquiry_type_id);
        data.append('image_type_id', image_type_id);
@@ -324,8 +323,6 @@ function store(event) {
        }
      });
    }
-
-
 
 
   function formatDateTime(originalDateTimeStr) {

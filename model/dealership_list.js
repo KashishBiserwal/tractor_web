@@ -417,7 +417,10 @@ function destroy(id) {
         success: function (response) {
             var Data = response.dealer_details[0];
             $('#dname').val(Data.dealer_name);
-            $('#brand').val(Data.brand_name);
+            // $('#brand').val(Data.brand_name);
+            $("#brand option").prop("selected", false);
+            $("#brand option[value='" + Data.brand_name + "']").prop("selected", true);
+
             $('#email').val(Data.email);
             $('#cno').val(Data.mobile);
             $('#address').val(Data.address);
