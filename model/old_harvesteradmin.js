@@ -273,7 +273,7 @@ function get_lookup() {
           },
           success: function (data) {
             // lookup select
-            console.log(data,'ok');
+            // console.log(data,'ok');
               for (var i = 0; i < data.data.length; i++) {
                   $("select#" + data.data[i].name).append('<option value="' + data.data[i].id + '">' + data.data[i].lookup_data_value + '</option>');
               }
@@ -419,9 +419,15 @@ for (var x = 0; x < image.length; x++) {
                         <td>${row.mobile}</td>
                         <td>
                             <div class="d-flex">
-                                <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.id});">
-                                    <i class="fa fa-trash" style="font-size: 11px;"></i>
-                                </button>
+                              <button class="btn btn-warning text-white btn-sm mx-1" onclick="openViewdata(${row.id})" data-bs-toggle="modal" data-bs-target="#view_old_harvester" id="viewbtn">
+                                <i class="fa fa-eye" style="font-size: 11px;"></i>
+                              </button>
+                              <button class="btn btn-primary btn-sm btn_edit" onclick=" fetch_edit_data(${row.id})" data-bs-toggle="modal" data-bs-target="#staticBackdrop1" id="your_UniqueId">
+                                <i class="fas fa-edit" style="font-size: 11px;"></i>
+                              </button>
+                              <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.id});">
+                                <i class="fa fa-trash" style="font-size: 11px;"></i>
+                              </button>
                             </div>
                         </td>
                     `;
@@ -473,3 +479,60 @@ function destroy(id) {
       }
     });
   }
+
+   //   for View
+  function fetch_data(id) {
+    console.log(id, "id");
+    console.log(window.location);
+    var urlParams = new URLSearchParams(window.location.search);
+  
+    var productId = id;
+    var apiBaseURL = APIBaseURL;
+    var url = apiBaseURL + 'dealer_data/' + productId;
+  
+    var headers = { 
+        'Authorization': 'Bearer ' + localStorage.getItem('token')
+    };
+  
+    $.ajax({
+        url: url,
+        type: "GET",
+        headers: headers,
+        success: function (data) {
+          console.log(data, 'abc');
+          document.getElementById('dealer_name').innerText = data.dealer_details[0].dealer_name;
+          document.getElementById('brand_nmae').innerText = data.dealer_details[0].brand_name;
+          document.getElementById('email_id').innerText = data.dealer_details[0].email;
+          document.getElementById('contact').innerText = data.dealer_details[0].mobile;
+          document.getElementById('state').innerText =data.dealer_details[0].state;
+          document.getElementById('district').innerText = data.dealer_details[0].district;
+          document.getElementById('tehsil_').innerText = data.dealer_details[0].tehsil;
+          document.getElementById('addrss').innerText = data.dealer_details[0].address;
+      
+          $("#selectedImagesContainer1").empty();
+      
+          if (data.dealer_details[0].image_names) {
+              var imageNamesArray = Array.isArray(data.dealer_details[0].image_names) ? data.dealer_details[0].image_names : data.dealer_details[0].image_names.split(',');
+      
+              imageNamesArray.forEach(function (imageName) {
+                  var imageUrl = 'http://tractor-api.divyaltech.com/uploads/dealer_img/' + imageName.trim();
+      
+                  var newCard = `
+                      <div class="col-6 col-lg-6 col-md-6 col-sm-6">
+                          <div class="brand-main d-flex box-shadow   mt-2 text-center shadow">
+                              <a class="weblink text-decoration-none text-dark" title="Image">
+                                  <img class="img-fluid w-100 h-100 " src="${imageUrl}" alt="Image">
+                              </a>
+                          </div>
+                      </div>
+                  `;
+      
+                  $("#selectedImagesContainer1").append(newCard);
+              });
+          }
+      },
+        error: function (error) {
+            console.error('Error fetching data:', error);
+        }
+    });
+  } 
