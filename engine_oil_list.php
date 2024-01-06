@@ -58,7 +58,9 @@
                                       <div class="form-outline ">
                                       <label for="name" class="form-label text-dark">Brand</label>
                                       <select class="form-select form-control" aria-label=".form-select-lg example" id="brand" name="brand">
-                                        <option value=""disabled>Select Brand</option>
+                                        <option value="1"disabled>Select Brand</option>
+                                        <option value="sonalika">sonalika</option>
+                                        <option value="mahindra">mahindra</option>
                                         </select>
                                       </div>
                                     </div>
@@ -98,7 +100,7 @@
                                   <div class="col-12 ">
                                     <div class="form-outline my-3">
                                       <label class="form-label text-dark">Description</label>
-                                      <textarea rows="4" cols="70" class="w-100" minlength="1" maxlength="255" id="textarea_" name="textarea_" style="border: 1px solid #ced4da;"></textarea>
+                                      <textarea rows="4" cols="70" class="w-100 p-2" minlength="1" maxlength="255" id="textarea_" name="textarea_" style="border: 1px solid #ced4da;"></textarea>
                                     </div>
                                   </div>
                                     <div class="col-12 col-lg-12 col-md-12 col-sm-12">
@@ -119,7 +121,7 @@
                     </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-secondary btn_all" data-bs-dismiss="modal">Close</button>
-                  <button type="submit" id="submit_btn"class="btn btn-success  btn_all">Submit</button>
+                  <button type="button" id="submit_btn"class="btn btn-success  btn_all">Submit</button>
                 </div>
               </div>
             </div>
@@ -175,90 +177,150 @@
       </div>
     </div>
   </section>
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog modal-dialog-centered modal-md">
-            <div class="modal-content">
-            <!-- <div class="modal-header">
-                <h5 class="modal-title" id="staticBackdropLabel"> Brand Information</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div> -->
-              <div class="modal-body">
-                <h4 class="fw-bold mb-2">Brand Information</h4>
-                <div class="container">
-                  <div class="row">
-                    <div class="col-12 col-lg-6 col-sm-6 col-md-6">
-                      <h6 class="fw-bold">Brand Name: </h6>
-                    </div>
-                    <div class="col-12 col-lg-6 col-sm-6 col-md-6">
-                      <p id="brand_name2" ></p>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-12 col-lg-6 col-sm-6 col-md-6">
-                      <h6 class="fw-bold">Model:</h6>
-                    </div>
-                    <div class="col-12  col-lg-6 col-sm-6 col-md-6">
-                     <div id="model2"></div>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-12 col-lg-6 col-sm-6 col-md-6">
-                      <h6 class="fw-bold">Quantity:</h6>
-                    </div>
-                    <div class="col-12 col-lg-6 col-sm-6 col-md-6">
-                     <div id="quantity"></div>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-12 col-lg-6 col-sm-6 col-md-6">
-                      <h6 class="fw-bold">Grade:</h6>
-                    </div>
-                    <div class="col-12  col-lg-6 col-sm-6 col-md-6">
-                     <div id="grade"></div>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-12 col-lg-6 col-sm-6 col-md-6">
-                      <h6 class="fw-bold">Price:</h6>
-                    </div>
-                    <div class="col-12 col-lg-6 col-sm-6 col-md-6">
-                     <div id="price"></div>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-12 col-lg-6 col-sm-6 col-md-6">
-                      <h6 class="fw-bold">Compatitble Tractors:</h6>
-                    </div>
-                    <div class="col-12 col-lg-6 col-sm-6 col-md-6">
-                     <div id="compatible"></div>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-12 col-lg-6 col-sm-6 col-md-6">
-                      <h6 class="fw-bold">Description:</h6>
-                    </div>
-                    <div class="col-12 col-lg-6 col-sm-6 col-md-6">
-                     <div id="descrption"></div>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-12 col-lg-6 col-sm-6 col-md-6">
-                      <!-- <h6 class="fw-bold">Image:</h6> -->
-                    </div>
-                    <div class="col-12 col-lg-6 col-sm-6 col-md-6">
-                    <div id="selectedImagesContainer" class="upload__img-wrap row"></div>
-                    </div>
-                  </div>
+  <div class="modal fade" id="staticBackdrop_1" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog modal-xl modal-dialog-centered">
+              <div class="modal-content modal_box">
+                <div class="modal-header modal_head">
+                  <h5 class="modal-title text-white fw-bold" id="staticBackdropLabel">Update Engine Oil </h5>
+                  <button type="button" class="btn-close btn-success" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <div class="modal-body bg-white">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-10">
+                              <form id="engine_oil_form_1" method="POST">
+                                <div class="row justify-content-center pt-4">
+                                <div class="col- col-sm-6 col-lg-6 col-md-6" hidden>
+                                          <label class="text-dark"> id Name<span class="text-danger">*</span></label>
+                                          <input type="text" class="form-control py-2" for="idUser"  id="idUser" name="first_name" placeholder="Enter First Name">
+                                          <small></small>
+                                        </div>
+                                  <div class="col-12 col-lg-6 col-md-6 col-sm-6 mt-3">
+                                      <div class="form-outline ">
+                                      <label for="name" class="form-label text-dark">Brand</label>
+                                      <select class="form-select form-control" aria-label=".form-select-lg example" id="brand_1" name="brand">
+                                        <option value=""disabled>Select Brand</option>
+                                        <option value="sonalika">sonalika</option>
+                                        <option value="mahindra">mahindra</option>
+                                        </select>
+                                      </div>
+                                    </div>
+                                    <div class="col-12 col-lg-6 col-md-6 col-sm-6  mt-3">
+                                      <div class="form-outline">
+                                        <label for="name" class="form-label text-dark">Model Name</label>
+                                        <input type="text" class="form-control" placeholder="" id="model_1" name="model">
+                                      </div>
+                                    </div>
+                                    <div class="col-12 col-lg-6 col-md-6 col-sm-6  mt-3">
+                                      <div class="form-outline">
+                                        <label for="name" class="form-label text-dark">Grade</label>
+                                        <input type="text" class="form-control" placeholder="" id="grade_1" name="grade">
+                                      </div>
+                                    </div>
+                                    <div class="col-12 col-lg-6 col-md-6 col-sm-6 mt-3">
+                                      <div class="form-outline ">
+                                        <label for="name" class="form-label text-dark">Quantity</label>
+                                        <input type="text" class="form-control" placeholder="" id="qualtity_1" name="qualtity">
+                                      </div>
+                                    </div>
+                                    <div class="col-12 col-lg-6 col-md-6 col-sm-6 mt-3">
+                                      <div class="form-outline ">
+                                        <label for="name" class="form-label text-dark">Price</label>
+                                        <input type="text" class="form-control" placeholder="" id="price_1" name="price">
+                                      </div>
+                                    </div>
+                                    <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-3">
+                                     <div class="form-outline "  id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+                                      <label for="yr_state" class="form-label text-dark">Compatible Tractors</label>
+                                      <select class="js-example-basic-multiple w-100 form-control" name="states[]" id="ass_list_1" multiple="multiple">
+                                        <option value="" selected>hello</option>
+                                        <option value="" >hyy</option>
+                                      </select>
+                                    </div>
+                                  </div>
+                                  <div class="col-12 ">
+                                    <div class="form-outline my-3">
+                                      <label class="form-label text-dark">Description</label>
+                                      <textarea rows="4" cols="70" class="w-100 p-2" minlength="1" maxlength="255" id="textarea_1" name="textarea_" style="border: 1px solid #ced4da;"></textarea>
+                                    </div>
+                                  </div>
+                                    <div class="col-12 col-lg-12 col-md-12 col-sm-12">
+                                      <div class="upload__box">
+                                        <div class="upload__btn-box text-center">
+                                          <label >
+                                            <p class="upload__btn ">Upload images</p>
+                                            <input type="file" multiple="" data-max_length="20" class="upload__inputfile" id="_image1" name="_image">
+                                          </label>
+                                        </div>
+                                        <div id="selectedImagesContainer2" class="upload__img-wrap"></div>
+                                      </div>
+                                    </div>
+                                </div>
+                            </form>
+                            </div>
+                        </div>
+                    </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary btn_all" data-bs-dismiss="modal">Close</button>
+                  <button type="button" id="engine_oil_btn"class="btn btn-success  btn_all">Save Change</button>
+                </div>
               </div>
             </div>
           </div>
-        </div>
       
-    
+        <div class="modal fade" id="exampleModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg modal-dialog-centered">
+              <div class="modal-content modal_box">
+                <div class="modal-header modal_head">
+                  <h5 class="modal-title text-white fw-bold" id="staticBackdropLabel">Engine Oil Information </h5>
+                  <button type="button" class="btn-close btn-success" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                  <div class="modal-body bg-light">
+                    <div class="row ">
+                       <div class="col-12">
+                        <table class="table table-striped">
+                        <tbody>
+                         <tr>
+                            <td>Brand Name:-</td>
+                            <td id="brand_name2"></td>
+                            <td>Model-</td>
+                            <td id="model2"></td>
+                          </tr>
+                          <tr>
+                            <td>Quantity-</td>
+                            <td id="quantity"></td>
+                            <td>Grade-</td>
+                            <td id="grade"></td>
+                          </tr>
+                          <tr>
+                            <td>Price-</td>
+                            <td id="price"></td>
+                            <td>Compatitble Tractors-</td>
+                            <td id="compatible"></td>
+                          </tr>
+                          <tr>
+                            <td>Description-</td>
+                            <td id="descrption"></td> 
+                          </tr>
+                          <tr>
+                            <td>Upload images-</td>
+                              <td colspan="3">
+                                  <div class="col-12">
+                                      <div id="selectedImagesContainer1" class="upload__img-wrap row"></div>
+                                  </div>
+                              </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>  
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary px-3" data-bs-dismiss="modal">Close</button>
+                  <!-- <button type="submit" id="btn_sb" class="btn btn-success fw-bold px-3">Submit</button> -->
+                </div>
+              </div>
+            </div>
+          </div>
+    </div>
 </div>
 </div>
 </body>
