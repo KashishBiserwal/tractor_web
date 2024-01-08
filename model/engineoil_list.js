@@ -1,4 +1,11 @@
 $(document).ready(function () {
+ 
+  $('#engine_oil_btn').click(edit_user);
+  
+  $('#submit_btn').on('click', function(event) {
+    store(event);
+});
+
   $('.js-example-basic-multiple').select2({
     dropdownParent: $('#myModal')
     
@@ -45,9 +52,6 @@ $(document).ready(function () {
         },
         _image:{
           required:true,
-          minlength: 2,
-          maxlength: 5,
-       
         }
        
       },
@@ -80,8 +84,6 @@ $(document).ready(function () {
         },
         _image:{
           required:"This field is required",
-          minlength: "Please upload at least 2 images",
-          maxlength: "Maximum 5 images allowed",
         }
       },
       submitHandler: function (form) {
@@ -91,11 +93,83 @@ $(document).ready(function () {
 
     $("#submit_btn").on("click", function () {
       $("#engine_oil_form").valid();
-      if ($("#engine_oil_form").valid()) {
-        // alert("Form is valid. Ready to submit!");
-      }
+    });
+
+    $("#engine_oil_form_1").validate({
+      rules: {
+        brand: {
+          required: true,
+        },
+        model: {
+          required: true,
+        },
+      
+        grade:{
+          required:true,
+        },
+        qualtity:{
+          required:true,
+          digits: true,
+
+        },
+        price: {
+          required: true,
+          validPrice: true, 
+        },
+        compatible_tractor:{
+          required: true,
+        },
+        textarea_: {
+          required: true,
+        },
+        _image:{
+          required:true,
+        }
+       
+      },
+      messages: {
+        brand: {
+          required: "This field is required",
+        },
+        model: {
+          required: "This field is required",
+        },
+      
+        grade:{
+          required:"This field is required",
+        },
+        
+        qualtity:{
+          required:"This field is required",
+          digits: "Please enter only digits"
+
+        },
+        price: {
+          required: "This field is required",
+          validPrice: "Please enter a valid price",
+        },
+        compatible_tractor:{
+          required: "This field is required",
+        },
+        textarea_: {
+          required: "This field is required",
+        },
+        _image:{
+          required:"This field is required",
+        }
+      },
+      submitHandler: function (form) {
+        alert("Form submitted successfully!");
+      },
+    });
+
+    $("#engine_oil_btn").on("click", function () {
+      $("#engine_oil_form_1").valid();
     });
   });
+ 
+  
+ 
 
   function ImgUpload() {
     var imgWrap = "";
@@ -154,6 +228,7 @@ $(document).ready(function () {
     });
   }
 
+
 function engineOil_add() {
   var apiBaseURL = APIBaseURL;
   var url = apiBaseURL + 'engine_oil';
@@ -179,7 +254,7 @@ function engineOil_add() {
                           <div class="d-flex">
                           <button class="btn btn-warning btn-sm text-white mx-1" data-bs-toggle="modal" onclick="fetch_data(${row.id});" data-bs-target="#exampleModal">
                         <i class="fa-solid fa-eye" style="font-size: 11px;"></i></button>
-                              <button class="btn btn-primary btn-sm btn_edit" onclick="fetch_edit_data(${row.id});" data-bs-toggle="modal" data-bs-target="#staticBackdrop_model" id="yourUniqueIdHere">
+                              <button class="btn btn-primary btn-sm btn_edit" onclick="fetch_edit_data(${row.id});" data-bs-toggle="modal" data-bs-target="#staticBackdrop_1" id="yourUniqueIdHere">
                                   <i class="fas fa-edit" style="font-size: 11px;"></i>
                               </button>
                               <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.id});">
@@ -202,8 +277,43 @@ function engineOil_add() {
 }
 engineOil_add();
 
-function get_brand() {
-  // var url = "<?php echo $APIBaseURL; ?>getBrands";
+// function get_engine_oil() {
+//   // var url = "<?php echo $APIBaseURL; ?>getBrands";
+//   var apiBaseURL =APIBaseURL;
+//   var url = apiBaseURL + 'engine_oil';
+//   console.log(url);
+
+//   $.ajax({
+//       url: url,
+
+//       type: "GET",
+//       headers: {
+//           'Authorization': 'Bearer ' + localStorage.getItem('token')
+
+//       },
+//       success: function (data) {
+//           console.log(data);
+//           const select = document.getElementById('brand');
+//           // select.innerHTML = '';
+
+//           if (data.engine_oil_details.length > 0) {
+//               data.engine_oil_details.forEach(row => {
+//                   const option = document.createElement('option');
+//                   option.value = row.id; // You might want to set a value for each option
+//                   option.textContent = row.brand_name;
+//                   select.appendChild(option);
+//               });
+//           } else {
+//               select.innerHTML ='<option>No valid data available</option>';
+//           }
+//       },
+//       error: function (error) {
+//           console.error('Error fetching data:', error);
+//       }
+//   });
+// }
+// get_engine_oil();
+function get() {
   var apiBaseURL =APIBaseURL;
   var url = apiBaseURL + 'getBrands';
   $.ajax({
@@ -215,13 +325,13 @@ function get_brand() {
       success: function (data) {
           console.log(data);
           const select = document.getElementById('brand');
-          // select.innerHTML = '';
+          select.innerHTML = '<option selected disabled value="">Please select an option</option>';
 
           if (data.brands.length > 0) {
               data.brands.forEach(row => {
                   const option = document.createElement('option');
-                  option.value = row.id; // You might want to set a value for each option
                   option.textContent = row.brand_name;
+                  option.value = row.id;
                   select.appendChild(option);
               });
           } else {
@@ -233,7 +343,74 @@ function get_brand() {
       }
   });
 }
-get_brand();
+get();
+
+// add data
+function store(event) {
+  event.preventDefault();
+
+ var compatibleModel =[];
+ $("#ass_list option:selected").each(function(){
+  var value = $(this).val();
+  if($.trim(value)){
+    compatibleModel.push(value);
+  }
+});
+
+  var image_names = document.getElementById('_image').files;
+  var brand_name = $('#brand').val();
+  var model_name = $('#model').val();
+  var grade = $('#grade').val();
+  var qualtity = $('#qualtity').val();
+  var price = $('#price').val();
+  var ass =  JSON.stringify(compatibleModel);
+  console.log("model select : ",compatibleModel);
+  var description = $('#textarea_').val();
+
+
+  var apiBaseURL = APIBaseURL;
+  var url = apiBaseURL + 'engine_oil';
+  var token = localStorage.getItem('token');
+
+  var headers = {
+      'Authorization': 'Bearer ' + token
+  };
+
+  var data = new FormData();
+
+  for (var x = 0; x < image_names.length; x++) {
+      data.append('images[]', image_names[x]);
+  }
+
+  data.append('brand_id', brand_name);
+  data.append('oil_model', model_name);
+  data.append('grade', grade);
+  data.append('quantity', qualtity);
+  data.append('price', price);
+  data.append('compatible_model', ass);
+  data.append('description', description);
+
+  $.ajax({
+    url: url,
+    type: "POST",
+    data: data,
+    headers: headers,
+    processData: false,
+    contentType: false,
+    success: function (result) {
+      console.log('Success:', result);
+      // Clear form values
+      $('#brand, #model, #grade, #qualtity, #price, #textarea_, #_image, #ass_list').val('');
+      // window.location.reload();
+  
+      alert('Successfully inserted!');
+    },
+    error: function (error) {
+      console.error('Error:', error);
+      alert('Error inserting data. See console for details.');
+    }
+  });
+}
 
 // **delete***
 function destroy(id) {
@@ -258,7 +435,7 @@ function destroy(id) {
       'Authorization': 'Bearer ' + token
     },
     success: function(result) {
-      get_tractor_list();
+      // get_tractor_list();
       console.log("Delete request successful");
       alert("Delete operation successful");
     },
@@ -269,40 +446,6 @@ function destroy(id) {
   });
 }
 
-//*** edit ***//
-// fetch edit data
-
-function fetch_edit_data(product_id) {
-  var apiBaseURL = APIBaseURL;
-  var url = apiBaseURL + 'get_old_tractor_by_id/'+ product_id;
-
-  var headers = {
-    'Authorization': 'Bearer ' + localStorage.getItem('token')
-  };
-
-  $.ajax({
-    url: url,
-    type: 'GET',
-    headers: headers,
-    success: function(response) {
-      var userData = response.product[0];
-
-      // $('#enquiry_type_id1').val(userData.brand_name);
-      $('#image_type_id1').val(userData.image_type_id);
-      $('#tractor_type_id1').val(userData.tractor_type_id);
-      $('#form_type1').val(userData.form_type);
-      $('#first_name1').val(userData.first_name);
-      $('#last_name1').val(userData.last_name);
-
-      
-
-      // $('#exampleModal').modal('show');
-    },
-    error: function(error) {
-      console.error('Error fetching user data:', error);
-    }
-  });
-}
 //***view ***/
 function fetch_data(id) {
   console.log(id, "id");
@@ -328,10 +471,11 @@ function fetch_data(id) {
         document.getElementById('quantity').innerText = data.engine_oil_details[0].quantity;
         document.getElementById('grade').innerText = data.engine_oil_details[0].grade;
         document.getElementById('price').innerText = data.engine_oil_details[0].price;
-        document.getElementById('compatible').innerText = data.engine_oil_details[0].compatible_model;
+        var compatibleModel = data.engine_oil_details[0].compatible_model;
+        document.getElementById('compatible').innerText = Array.isArray(compatibleModel) ? compatibleModel.join(', ') : compatibleModel || 'N/A';
         document.getElementById('descrption').innerText = data.engine_oil_details[0].description;
     
-        $("#selectedImagesContainer").empty();
+        $("#selectedImagesContainer1").empty();
     
         if (data.engine_oil_details[0].image_names) {
             var imageNamesArray = Array.isArray(data.engine_oil_details[0].image_names) ? data.engine_oil_details[0].image_names : data.engine_oil_details[0].image_names.split(',');
@@ -340,7 +484,7 @@ function fetch_data(id) {
                 var imageUrl = 'http://tractor-api.divyaltech.com/uploads/engine_oil_img/' + imageName.trim();
     
                 var newCard = `
-                    <div class="col-6 col-lg-6 col-md-6 col-sm-6">
+                    <div class="col-6 col-lg-4 col-md-4 col-sm-4">
                         <div class="brand-main d-flex box-shadow mt-2 text-center shadow">
                             <a class="weblink text-decoration-none text-dark" title="Tyre Image">
                                 <img class="img-fluid w-100 h-100" src="${imageUrl}" alt="Tyre Image">
@@ -349,7 +493,7 @@ function fetch_data(id) {
                     </div>
                 `;
     
-                $("#selectedImagesContainer").append(newCard);
+                $("#selectedImagesContainer1").append(newCard);
             });
         }
     },
@@ -359,3 +503,193 @@ function fetch_data(id) {
   });
 }
 
+
+// for image
+jQuery(document).ready(function () {
+  ImgUpload();
+});
+
+  function ImgUpload() {
+    var imgWrap = "";
+    var imgArray = [];
+
+    $('.upload__inputfile').each(function () {
+      $(this).on('change', function (e) {
+        imgWrap = $(this).closest('.upload__box').find('.upload__img-wrap');
+        var maxLength = $(this).attr('data-max_length');
+
+        var files = e.target.files;
+        var filesArr = Array.prototype.slice.call(files);
+        var iterator = 0;
+        filesArr.forEach(function (f, index) {
+
+          if (!f.type.match('image.*')) {
+            return;
+          }
+
+          if (imgArray.length > maxLength) {
+            return false
+          } else {
+            var len = 0;
+            for (var i = 0; i < imgArray.length; i++) {
+              if (imgArray[i] !== undefined) {
+                len++;
+              }
+            }
+            if (len > maxLength) {
+              return false;
+            } else {
+              imgArray.push(f);
+
+              var reader = new FileReader();
+              reader.onload = function (e) {
+                var html = "<div class='upload__img-box'><div style='background-image: url(" + e.target.result + ")' data-number='" + $(".upload__img-close").length + "' data-file='" + f.name + "' class='img-bg'><div class='upload__img-close'></div></div></div>";
+                imgWrap.append(html);
+                iterator++;
+              }
+              reader.readAsDataURL(f);
+            }
+          }
+        });
+      });
+    });
+   
+   
+
+    $('body').on('click', ".upload__img-close", function (e) {
+      var file = $(this).parent().data("file");
+      for (var i = 0; i < imgArray.length; i++) {
+        if (imgArray[i].name === file) {
+          imgArray.splice(i, 1);
+          break;
+        }
+      }
+      $(this).parent().parent().remove();
+    });
+
+
+  
+  }
+
+
+  function removeImage(ele){
+    console.log(ele);
+    let thisId=ele.id;
+    thisId=thisId.split('closeId');
+    thisId=thisId[1];
+    $("#"+ele.id).remove();
+    $(".upload__img-closeDy"+thisId).remove();
+
+  }
+
+function fetch_edit_data(id) {
+  var apiBaseURL = APIBaseURL;
+  var url = apiBaseURL + 'engine_oil/' + id;
+  console.log(url);
+
+  var headers = {
+      'Authorization': 'Bearer ' + localStorage.getItem('token')
+  };
+
+  $.ajax({
+      url: url,
+      type: 'GET',
+      headers: headers,
+      success: function (response) {
+          var Data = response.engine_oil_details [0];
+         
+          $('#idUser').val(Data.id);
+          $('#brand_1').val(Data.brand_name);
+          $('#model_1').val(Data.oil_model);
+          $('#grade_1').val(Data.grade);
+          $('#qualtity_1').val(Data.quantity);
+          $('#price').val(Data.price);
+          $('#ass_list_1').val(Data.compatible_model);
+          $('#textarea_1').val(Data.description);
+
+          $("#selectedImagesContainer2").empty();
+  
+          if (Data.image_names) {
+              // Check if Data.image_names is an array
+              var imageNamesArray = Array.isArray(Data.image_names) ? Data.image_names : Data.image_names.split(',');
+              var countclass=0;
+              imageNamesArray.forEach(function (imageName) {
+                  var imageUrl = 'http://tractor-api.divyaltech.com/uploads/engine_oil_img/' + imageName.trim();
+                  countclass++;
+                  var newCard = `
+                      <div class="col-6 col-lg-6 col-md-6 col-sm-6 position-relative">
+                      <div class="upload__img-close_button" id="closeId${countclass}" onclick="removeImage(this);"></div>
+                          <div class="brand-main d-flex box-shadow mt-2 text-center shadow upload__img-closeDy${countclass}">
+                              <a class="weblink text-decoration-none text-dark" title="Image">
+                                  <img class="img-fluid w-100 h-100" src="${imageUrl}" alt=" Image">
+                              </a>
+                          </div>
+                      </div>
+                  `;
+                  // Append the new image element to the container
+                  $("#selectedImagesContainer2").append(newCard);
+              });
+          }
+      },
+      error: function (error) {
+          console.error('Error fetching user data:', error);
+      }
+  });
+}
+
+
+function edit_user(id){
+  console.log(id);
+  var edit_id = $("#idUser").val();
+  var image_names = document.getElementById('_image1').files;
+  var brand = $('#brand_1').val();
+  var model = $('#model_1').val();
+  var grade = $('#grade_1').val();
+  var qualtity = $('#qualtity_1').val();
+  var price = $('#price_1').val();
+  var ass = $('#ass_list_1').val();
+  var description = $('#textarea_1').val();
+ 
+
+  var apiBaseURL = APIBaseURL;
+  var url = apiBaseURL + 'engine_oil/' + edit_id;
+  var token = localStorage.getItem('token');
+  var _method = 'put';
+  var headers = {
+      'Authorization': 'Bearer ' + token
+  };
+
+  var data = new FormData();
+
+  for (var x = 0; x < image_names.length; x++) {
+      data.append('images[]', image_names[x]);
+  }
+  data.append('_method', _method);
+  data.append('id',edit_id)
+  data.append('brand_id', brand);
+  data.append('oil_model', model);
+  data.append('grade', grade);
+  data.append('quantity', qualtity);
+  data.append('price', price);
+  data.append('compatible_model',ass);
+  data.append('description', description);
+
+  $.ajax({
+      url: url,
+      type: "POST",
+      data: data,
+      headers: headers,
+      processData: false,
+      contentType: false,
+       success: function (result) {
+         console.log(result, "result");
+        //  get();
+        window.location.reload();
+         console.log("updated successfully");
+         alert('successfully updated..!')
+       },
+       error: function (error) {
+         console.error('Error fetching data:', error);
+       }
+   })
+ }

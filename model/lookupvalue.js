@@ -48,7 +48,7 @@ $(document).ready(function() {
 
 
 
-
+$('#submit_button').click(store);
 
 function store(event) {
   // Get values from form fields
@@ -186,7 +186,7 @@ $.ajax({
 
 function myFunction() {
   var input, filter, table, tr, td, i, j, txtValue;
-  input = document.getElementById("search_name");
+  input = document.getElementById("namesearch");
   filter = input.value.toUpperCase();
   table = document.getElementById("example");
   tr = table.getElementsByTagName("tr");
@@ -246,14 +246,12 @@ function resetForm() {
     }
   
   function edit_user() {
-    // var enquiry_type_id = $("#enquiry_type_id").val();
     var edit_id = $("#idUser").val();
     var lookup_name = $("#look_up_name").val();
   
     var paraArr = {
         'lookup_type': lookup_name,
-        'id': edit_id,
-        // 'enquiry_type_id': enquiry_type_id,
+        'id': edit_id, 
     };
   
     var apiBaseURL = APIBaseURL;
@@ -280,3 +278,5 @@ function resetForm() {
         }
     });
   }
+
+     

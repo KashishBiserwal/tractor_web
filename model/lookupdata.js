@@ -1,17 +1,65 @@
 $(document).ready(function() {
-    $("#form").validate({
-    rules:{
-        lookupSelectbox:"required",
-        lookup_data_value:"required"
+
+  $('#dataeditbtn').click(edit_user);
+
+  $("#lookup_data_form").validate({
+    rules: {
+      lookup_Selectbox: {
+            required: true,
+        },
+        lookup_datavalue: {
+          required: true,
+      }
     },
-    messages:{
-        lookupSelectbox:"Select field",
-        lookup_data_value:"Field is required"
-    }
+    messages: {
+      lookup_Selectbox: {
+            required: "This field is required",
+        },
+        lookup_datavalue: {
+          required: "This field is required",
+      }
+     },
+    submitHandler: function (form) {
+        alert("Form submitted successfully!");
+    },
+  });
+
+  $("#lookup_data_submit").on("click", function () {
+      $("#lookup_data_form").valid();
+  });
+$('#lookup_data_submit').click(store);
+  // for edit model
+
+   // for edit model
+   $("#lookup_data_form_1").validate({
+    rules: {
+      lookup_Selectbox1: {
+            required: true,
+        },
+        lookup_datavalue1: {
+          required: true,
+      }
+    },
+    messages: {
+      lookup_Selectbox1: {
+            required: "This field is required",
+        },
+        lookup_datavalue1: {
+          required: "This field is required",
+      }
+     },
+    submitHandler: function (form) {
+        alert("Form submitted successfully!");
+    },
+  });
+  
+  $("#dataeditbtn").on("click", function () {
+      $("#lookup_data_form_1").valid();
+  });
 
 });
-$('#login').click(store);
-});
+
+
 function get_data() {
   console.log('hhsdfshdfch');
   var apiBaseURL = APIBaseURL;
@@ -28,7 +76,7 @@ function get_data() {
           tableBody.innerHTML = ''; // Clear previous data
 
           if (data.lookup_data.length > 0) {
-              let serialNumber = 1; // Initialize serial number
+              let serialNumber = 1; 
               let tableData = [];
               // Loop through the data and create table rows
               data.lookup_data.forEach(row => {
@@ -36,6 +84,9 @@ function get_data() {
                  let action = `<div class="d-flex">
                  <button class="btn btn-danger btn-sm mx-1" id="delete_user" onclick="destroy(${row.id});" style="padding:5px;">
                      <i class="fa fa-trash" style="font-size: 11px;"></i>
+                 </button>
+                 <button class="btn btn-primary btn-sm btn_edit" onclick="fetch_edit_data(${row.id});" data-bs-toggle="modal" data-bs-target="#staticBackdrop_2" id="yourUniqueIdHere">
+                    <i class="fas fa-edit" style="font-size: 11px;"></i>
                  </button>
              </div>`;
                
@@ -46,7 +97,7 @@ function get_data() {
                     action
                 ]);
 
-                  // Increment serialNumber for the next row
+                  // Increment serialNumber fo  r the next row
                   serialNumber++;
                   
               });
@@ -121,39 +172,74 @@ $.ajax({
 
 //   get data in select box
 function get() {
-// var url = "<?php echo $APIBaseURL; ?>lookup_type";
-var apiBaseURL =APIBaseURL;
-// Now you can use the retrieved value in your JavaScript logic
-var url = apiBaseURL + 'lookup_type';
-$.ajax({
-    url: url,
-    type: "GET",
-    headers: {
-        'Authorization':'Bearer' + localStorage.getItem('token')
-    },
-    success: function (data) {
-        // console.log(data);
-        const select = document.getElementById('lookupSelectbox');
-        select.innerHTML = ''; // Clear previous data
+  // var url = "<?php echo $APIBaseURL; ?>lookup_type";
+  var apiBaseURL =APIBaseURL;
+  // Now you can use the retrieved value in your JavaScript logic
+  var url = apiBaseURL + 'lookup_type';
+  $.ajax({
+      url: url,
+      type: "GET",
+      headers: {
+          'Authorization':'Bearer' + localStorage.getItem('token')
+      },
+      success: function (data) {
+          // console.log(data);
+          const select = document.getElementById('lookupSelectbox');
+          select.innerHTML = ''; // Clear previous data
+  
+          if (data.lookup_type.length > 0) {
+              data.lookup_type.forEach(row => {
+                  const option = document.createElement('option');
+                  option.textContent = row.name;
+                
+                  option.value = row.id;
+                  select.appendChild(option);
+              });
+          } else {
+              select.innerHTML = '<option> No valid data available</option>';
+          }
+      },
+      error: function (error) {
+          console.error('Error fetching data:', error);
+      }
+  });
+  }
+  get();
 
-        if (data.lookup_type.length > 0) {
-            data.lookup_type.forEach(row => {
-                const option = document.createElement('option');
-                option.textContent = row.name;
-              
-                option.value = row.id;
-                select.appendChild(option);
-            });
-        } else {
-            select.innerHTML = '<option> No valid data available</option>';
+  function get_lookup() {
+    // var url = "<?php echo $APIBaseURL; ?>lookup_type";
+    var apiBaseURL =APIBaseURL;
+    // Now you can use the retrieved value in your JavaScript logic
+    var url = apiBaseURL + 'lookup_type';
+    $.ajax({
+        url: url,
+        type: "GET",
+        headers: {
+            'Authorization':'Bearer' + localStorage.getItem('token')
+        },
+        success: function (data) {
+            // console.log(data);
+            const select = document.getElementById('lookupSelectbox1');
+            select.innerHTML = ''; // Clear previous data
+    
+            if (data.lookup_type.length > 0) {
+                data.lookup_type.forEach(row => {
+                    const option = document.createElement('option');
+                    option.textContent = row.name;
+                  
+                    option.value = row.id;
+                    select.appendChild(option);
+                });
+            } else {
+                select.innerHTML = '<option> No valid data available</option>';
+            }
+        },
+        error: function (error) {
+            console.error('Error fetching data:', error);
         }
-    },
-    error: function (error) {
-        console.error('Error fetching data:', error);
+    });
     }
-});
-}
-get();
+    get_lookup();
 
 
 // get data in table
@@ -222,3 +308,69 @@ function myFunction() {
               rows[i].style.display = "";
           }
       }
+
+
+      // edit and update 
+    function fetch_edit_data(id) {
+      var apiBaseURL = APIBaseURL;
+      var url = apiBaseURL + 'lookup_data/' + id; 
+      console.log(url);
+    
+      var headers = {
+          'Authorization': 'Bearer ' + localStorage.getItem('token')
+      };
+    
+      $.ajax({
+          url: url,
+          type: 'GET',
+          headers: headers,
+          success: function (response) {
+            // console.log('sdfgh'); 
+              var Data = response.lookup_data[0];
+              $('#idUser').val(Data.id);
+              $('#lookupSelectbox1').val(Data.lookup_type_id);
+              $('#lookup_data_value1').val(Data.lookup_data_value);
+              // console.log(Data.name);
+              
+          },
+          error: function (error) {
+              console.error('Error fetching user data:', error);
+          }
+      });
+    }
+  
+  function edit_user() {
+    var edit_id = $("#idUser").val();
+    var lookup_type = $("#lookupSelectbox1").val();
+    var lookup_value = $("#lookup_data_value1").val();
+
+    var paraArr = {
+        'lookup_type_id': lookup_type,
+        'lookup_data_value': lookup_value,
+        'id': edit_id, 
+    };
+  
+    var apiBaseURL = APIBaseURL;
+    var url = apiBaseURL + 'lookup_data/' + edit_id;
+  
+    var headers = {
+        'Authorization': 'Bearer ' + localStorage.getItem('token')
+    };
+  
+    $.ajax({
+        url: url,
+        type: "PUT",
+        data: paraArr,
+        headers: headers,
+        success: function (result) {
+            console.log(result, "result");
+            // get();
+            window.location.reload();
+            console.log("updated successfully");
+            alert('successfully updated..!')
+        },
+        error: function (error) {
+            console.error('Error fetching data:', error);
+        }
+    });
+  }
