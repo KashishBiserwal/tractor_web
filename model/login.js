@@ -57,13 +57,19 @@ var url = apiBaseURL + 'user_login';
             console.log(xhr.status, 'error');
             if (xhr.status === 401) {
                 console.log('Invalid credentials');
-                alert('Please enter valid credentials..!');
+                var htmlcontent = `<p>Invalid credentials!</p>`;
+            document.getElementById("error_message").innerHTML = htmlcontent;
+               
             } else if (xhr.status === 403) {
                 console.log('Forbidden: You don\'t have permission to access this resource.');
-                alert('Forbidden: You don\'t have permission to access this resource.');
+                var htmlcontent = ` <p> You don't have permission to access this resource.</p>`;
+                document.getElementById("error_message").innerHTML = htmlcontent;
+               
             } else {
                 console.log('An error occurred:', textStatus, errorThrown);
-                alert('An error occurred while processing your request.');
+                var htmlcontent = `<p>An error occurred while processing your request.</p>`;
+            document.getElementById("error_message").innerHTML = htmlcontent;
+                
             }
         },
         complete: function () {
