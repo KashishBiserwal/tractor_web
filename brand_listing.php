@@ -9,7 +9,7 @@
 <script>
  $(document).ready(function() {
   $(".js-select2").select2({
-    closeOnSelect: false
+    closeOnSelect: true
   });
 });
 </script>
@@ -112,15 +112,15 @@
         <div class="card-body">
         <form action="" id="myform" class="mb-0">
           <div class="row">
-          <div class="col-12 col-sm-12 col-md-4 col-lg-4"hidden>
-            <div class="form-outline">
-                    <label class="form-label">Search By id</label>
-                    <select class="js-select2 form-select form-control mb-0" id="brand_id">
-                    </select>
+            <div class="col-12 col-sm-12 col-md-4 col-lg-4"hidden>
+              <div class="form-outline">
+                <label class="form-label">Search By id</label>
+                  <select class="js-select2 form-select form-control mb-0" id="brand_id">
+                  </select>
               </div>
             </div>
             <div class="col-12 col-sm-12 col-md-4 col-lg-4">
-            <div class="form-outline">
+              <div class="form-outline">
                     <label class="form-label">Search By Brand</label>
                     <select class="js-select2 form-select form-control mb-0" id="brand">
                     </select>

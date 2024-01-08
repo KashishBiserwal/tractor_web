@@ -4,16 +4,30 @@ include 'includes/headertag.php';
    include 'includes/footertag.php';
    
    ?> 
+   <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 <script> var APIBaseURL = "<?php echo $APIBaseURL; ?>";</script>
 <script> var baseUrl = "<?php echo $baseUrl; ?>";</script>
     <script src="<?php $baseUrl; ?>model/old_tractor_list.js"></script>
+
+    <script>
+  $(document).ready(function() {
+    console.log('dfsdwe');
+  $(".js-select2").select2({
+    closeOnSelect: true
+  });
+});
+</script>
     <body class="loaded">
   <div class="main-wrapper">
     <div class="app" id="app"> <?php
     include 'includes/left_nav.php';
     include 'includes/header_admin.php';
     ?> 
+
+</script>
     <style>
+      
       .hidden {
       display: none;
     }
@@ -252,28 +266,36 @@ include 'includes/headertag.php';
             <div class="card-body">
             <form action="" id="myform" class="mb-0">
               <div class="row">
-                <div class="col-12 col-sm-12 col-md-3 col-lg-3">
-                  <div class="form-outline">
-                    <label class="form-label">Search by Brand</label>
-                    <input type="email"  name="search_name" class="form-control" />
-                  </div>
+              <div class="col-12 col-sm-12 col-md-3 col-lg-3"hidden>
+                <div class="form-outline">
+                  <label class="form-label">Search By id</label>
+                    <select class=" form-select form-control mb-0" id="brand_id">
+                    </select>
                 </div>
+              </div>
+              <div class="col-12 col-sm-12 col-md-3 col-lg-3">
+                <div class="form-outline">
+                      <label class="form-label">Search By Brand</label>
+                      <select class="js-select2 form-select form-control mb-0" id="brand_name">
+                      </select>
+                </div>
+              </div>
                 <div class="col-12 col-sm-12 col-md-3 col-lg-3">
                   <div class="form-outline">
                     <label class="form-label">Search by Model</label>
-                    <input type="text"  name="search_email" class="form-control" />
+                    <input type="text" id="model" name="model" class="form-control" />
                   </div>
                 </div>
                 <div class="col-12 col-sm-12 col-md-3 col-lg-3">
                   <div class="form-outline">
                     <label class="form-label">Search by State</label>
-                    <input type="text" name="state" class="form-control" />
+                    <input type="text" id="state" name="state" class="form-control" />
                   </div>
                 </div>
                 <div class="col-12 col-sm-12 col-md-3 col-lg-3">
                   <div class="form-outline">
                     <label class="form-label">Search by District</label>
-                    <input type="text" name="state" class="form-control" />
+                    <input type="text"id="district"  name="state" class="form-control" />
                   </div>
                 </div>
                 <div class="col-12 mt-3">
@@ -311,7 +333,7 @@ include 'includes/headertag.php';
   </div>
 </body>
 <?php
-   include 'includes/footertag.php';
+ 
    ?> 
  <script>
         $(document).ready(function() {

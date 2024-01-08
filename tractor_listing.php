@@ -13,7 +13,7 @@ include 'includes/footertag.php';
   $(document).ready(function() {
     console.log('dfsdwe');
   $(".js-select2").select2({
-    closeOnSelect: false
+    closeOnSelect: true
   });
 });
 </script>

@@ -3,6 +3,7 @@ var editId_state= false;
 $(document).ready(function() {
   ImgUpload();
   $('#old_btn').click(store);
+  $('#search').click(search_data);
    
     jQuery.validator.addMethod("customPhoneNumber", function(value, element) {
       return /^[6-9]\d{9}$/.test(value); 
@@ -127,6 +128,97 @@ $(document).ready(function() {
   
     }
 
+
+    function search_data() {
+console.log("dfghsfg,sdfgdfg");
+      var selectedBrand = $('#brand').val();
+      var brand_id = $('#brand_id').val();
+      var model = $('#model').val();
+      var district = $('#district').val();
+      var state = $('#state').val();
+      console.log(brand_id);
+      var paraArr = {
+        'brand_id': selectedBrand,
+        'id':brand_id,
+        'model':model,
+        'state':state,
+        'district':district,
+      };
+  
+      var apiBaseURL = APIBaseURL;
+      var url = apiBaseURL + 'search_for_old_tractor';
+      $.ajax({
+          url:url, 
+          type: 'POST',
+          data: paraArr,
+        
+          headers: {
+              'Authorization': 'Bearer ' + localStorage.getItem('token')
+          },
+          success: function (searchData) {
+            console.log(searchData,"hello brand");
+            updateTable(searchData);
+          },
+          error: function (error) {
+              console.error('Error searching for brands:', error);
+          }
+      });
+    };
+    function updateTable(data) {
+      const tableBody = document.getElementById('data-table');
+      tableBody.innerHTML = '';
+      let serialNumber = 1; 
+  
+      if(data.oldTractor.product && data.oldTractor.product.length > 0) {
+          let tableData = []; 
+          data.oldTractor.product.forEach(row => {
+              let action = `<div class="float-start">
+              <button class="btn btn-warning text-white btn-sm mx-1" onclick="openView(${row.product_id})" data-bs-toggle="modal" data-bs-target="#viewModal_btn" id="viewbtn">
+              <i class="fa fa-eye" style="font-size: 11px;"></i>
+              </button>
+            <a href="tractor_form_list.php?trac_edit=${row.product_id}" onclick="fetch_edit_data(${row.product_id})" class="btn btn-primary btn-sm edit_btn" ><i class="fas fa-edit" style="font-size: 11px;"></i></a>
+              <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.product_id})">
+              <i class="fa fa-trash" style="font-size: 11px;"></i>
+              </button> 
+              </div>`;
+  
+              tableData.push([
+                serialNumber,
+                  formatDateTime(row.date),
+                  row.model,
+                  row.brand_name,
+                  row.wheel_drive_value,
+                  row.hp_category,
+                  row.ending_price,
+                  action
+              ]);
+  
+              serialNumber++;
+          });
+  
+          $('#example').DataTable().destroy();
+          $('#example').DataTable({
+              data: tableData,
+              columns: [
+                  { title: 'S.No.' },
+                  { title: 'Date' },
+                  { title: 'Brand Name' },
+                  { title: 'Wheel Drive' },
+                  { title: 'HP Category' },
+                  { title: 'Price' },
+                  { title: 'Action', orderable: false } // Disable ordering for Action column
+              ],
+              paging: true,
+              searching: true,
+              // ... other options ...
+          });
+      } else {
+          // Display a message if there's no valid data
+          tableBody.innerHTML = '<tr><td colspan="4">No valid data available</td></tr>';
+      }
+    }
+
+
 // get brand
 function get() {
     // var url = "<?php echo $APIBaseURL; ?>getBrands";
@@ -161,6 +253,48 @@ function get() {
     });
 }
 get();
+function get_brand_search() {
+  // var url = "<?php echo $APIBaseURL; ?>getBrands";
+  var apiBaseURL =APIBaseURL;
+  // Now you can use the retrieved value in your JavaScript logic
+  var url = apiBaseURL + 'getBrands';
+  $.ajax({
+      url: url,
+      type: "GET",
+      headers: {
+          'Authorization': 'Bearer ' + localStorage.getItem('token')
+      },
+     // ...
+      success: function (data) {
+        console.log(data);
+        const select = document.getElementById('brand_name');
+        select.innerHTML = '';
+        const defaultOption = document.createElement('option');
+        defaultOption.value = ''; // Set a value for the default option if needed
+        defaultOption.text = 'Please select Brand';
+        defaultOption.disabled = true;
+        defaultOption.selected = true;
+        select.appendChild(defaultOption);
+
+        if (data.brands.length > 0) {
+            data.brands.forEach(row => {
+                const option = document.createElement('option');
+                option.value = row.id; // You might want to set a value for each option
+                option.textContent = row.brand_name;
+                select.appendChild(option);
+            });
+        } else {
+            const noDataOption = document.createElement('option');
+            noDataOption.textContent = 'No valid data available';
+            select.appendChild(noDataOption);
+        }
+      },
+      error: function (error) {
+          console.error('Error fetching data:', error);
+      }
+  });
+}
+get_brand_search();
 
 function get_year_and_hours() {
   console.log('initsfd')
@@ -359,14 +493,13 @@ function store(event) {
                 data.product.forEach(row => {
                     let action = `
                         <div class="d-flex">
-                            <button class="btn btn-warning btn-sm text-white mx-1" data-bs-toggle="modal" onclick="fetch_data(${row.product_id});" data-bs-target="#view_model_dealers">
-                            <i class="fa-solid fa-eye" style="font-size: 11px;"></i></button>
-                            <button class="btn btn-primary btn-sm btn_edit" onclick="fetch_edit_data(${row.product_id});" data-bs-toggle="modal" data-bs-target="#staticBackdrop" id="yourUniqueIdHere" style="padding:5px">
-                              <i class="fas fa-edit" style="font-size: 11px;"></i>
-                            </button>
-                            <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.product_id});" style="padding:5px">
-                              <i class="fa fa-trash" style="font-size: 11px;"></i>
-                            </button>
+                        <button class="btn btn-warning text-white btn-sm mx-1" onclick="openView(${row.product_id})" data-bs-toggle="modal" data-bs-target="#viewModal_btn" id="viewbtn">
+                        <i class="fa fa-eye" style="font-size: 11px;"></i>
+                        </button>
+                      <a href="tractor_form_list.php?trac_edit=${row.product_id}" onclick="fetch_edit_data(${row.product_id})" class="btn btn-primary btn-sm edit_btn" ><i class="fas fa-edit" style="font-size: 11px;"></i></a>
+                        <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.product_id})">
+                        <i class="fa fa-trash" style="font-size: 11px;"></i>
+                        </button> 
                         </div>`;
 
                     tableData.push([

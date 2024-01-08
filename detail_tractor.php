@@ -5,7 +5,7 @@
 <?php
    include 'includes/headertag.php';
    $product_id=$_REQUEST['product_id'];
-   echo $product_id;
+//    echo $product_id;
    include 'includes/footertag.php';
    ?>
   
@@ -35,19 +35,22 @@
     <section id="Mahindra_575">
         <div class="container">
             <h1 class="mt-4 pb-2" id="model_name"></h1>
+            <!-- <h1 class="mt-4 pb-2"></h1> -->
             <div class="row">
-                <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
+                <div class="col-12 col-lg-6 col-md-6 col-sm-6">
                
                 <div>
                     <div class="swiper swiper_buy mySwiper2_buy">
                         <div class="swiper-wrapper swiper-wrapper_buy">
                             <div class=" swiper-slide swiper-slide_buy">
-                            <!-- <img class="img_buy" src="assets/images/437-1632718440.webp" /> -->
+                            <!-- <img class="img_buy" src="assets/images/437-1632718440.webp" />-->
                             </div>
                         </div>
                     </div>
                     <div thumbsSlider="" class="swiper mySwiper_buy" style="height:74px;" id="swip_img"></div>
+                    
                 </div>
+              
                 </div>
                 <div class="col-12 col-lg-6 col-md-6 col-sm-6">
                     <table class="table border bg-light ">
@@ -133,7 +136,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-12 col-lg-12 col-md-12 col-sm-12 mt-3">
-                <h3 class="text-dark fw-bold assured mt-2 ps-3" ><span class="text-success"  class="model_name"></span> Other Features</h3>
+                <h4 class="text-dark fw-bold assured mt-2 ps-3" ><span class="text-success brand_model "></span> Other Features</h4>
                 </div>
                 <div class="row mt-2">
                     <div class="col-12 col-lg-2 col-md-2 col-sm-2">
@@ -188,14 +191,14 @@
             <div class="row ">
                 <div class="col-12 col-lg-8 col-md-8 col-sm-8 mt-3">
                     <div class="about border-success  border-4 text-dark border-start">
-                    <h3 class="text-dark fw-bold  ps-4"> About <span id="brand_name"></span></h2>
+                    <h4 class="text-dark fw-bold  ps-4"> About <span class="text-success brand_model"></span></h4>
 
                     </div>
                     <p class="text-dark justify-content-center" id="description"></p>
 
 
                     <div class="about border-success  border-4 text-dark border-start">
-                        <h3 class="text-dark fw-bold text-start ps-2"> <span class="model_name"></span> Engine</h3>
+                        <h4 class="text-dark fw-bold text-start ps-2"> <span class="text-success brand_model"></span> Engine</h4>
                     </div>
 
                     <table class="table  table-hover table table-striped my-4">
@@ -242,7 +245,7 @@
                     </table>
 
                     <div class="about border-success  border-4 text-dark border-start">
-                        <h3 class="text-dark fw-bold text-start ps-2"> <span class="model_name"></span> Transmission</h3>
+                        <h4 class="text-dark fw-bold text-start ps-2"> <span class="text-success brand_model"></span> Transmission</h4>
                     </div>
 
                     <table class="table table-hover table table-striped my-4">
@@ -271,7 +274,7 @@
                     </table>
 
                     <div class="about border-success  border-4 text-dark border-start">
-                        <h3 class="text-dark fw-bold text-start ps-2"><span class="model_name"></span>  Brakes</h3>
+                        <h4 class="text-dark fw-bold text-start ps-2"><span class="text-success brand_model"></span>  Brakes</h4>
                     </div>
 
                     <table class="table table-hover table table-striped my-4">
@@ -284,7 +287,7 @@
                     </table>
 
                     <div class="about border-success  border-4 text-dark border-start">
-                        <h3 class="text-dark fw-bold text-start ps-2"><span class="model_name"></span>  Steering</h3>
+                        <h3 class="text-dark fw-bold text-start ps-2"><span class="text-success brand_model"></span>  Steering</h3>
                     </div>
 
                     <table class="table  table-hover table table-striped my-4">
@@ -302,7 +305,7 @@
                     </table>
 
                     <div class="about border-success  border-4 text-dark border-start">
-                        <h3 class="text-dark fw-bold text-start ps-2"><span class="model_name"></span> Power Take Off</h3>
+                        <h4 class="text-dark fw-bold text-start ps-2"><span class="text-success brand_model"></span> Power Take Off</h4>
                     </div>
 
                     <table class="table table-hover table table-striped my-4">
@@ -310,7 +313,7 @@
                         <tbody>
                             <tr>
                                 <td class="table-data col-12 col-lg-6 col-md-6 col-sm-6">Type</td>
-                                <td class="table-data"><span  id="power_take_off_type"></span> Spline</td>
+                                <td class="table-data"><span  id="power_take_off_type"></span> </td>
                             </tr>
                             <tr>
                                 <td class="table-data">RPM</td>
@@ -328,14 +331,14 @@
 
                 </div>
                 <div class="col-12 col-lg-4 col-md-4 col-sm-4">
-                    <h3 class="text-center fw-bold mt-2">Related Brands</h3>
+                    <h4 class="text-center fw-bold mt-2">Related Brands</h4>
                     <div class="row" id="related_brand">
                     </div>
                     <div class=" text-center"><button class="btn btn-success" id="loadMoreButton">Load More</button></div>
 
                     <div class="sticky my-3">
                         <div class="popular_used_tractor mb-3">
-                            <h3 class="text-center  fw-bold mt-3">Popular Used Tractors</h3>
+                            <h4 class="text-center  fw-bold mt-3">Popular Used Tractors</h4>
                         </div>
                         <div class="popular-used-tractor">
                             <div class="row" id="productContainerpopular">
@@ -359,8 +362,8 @@
     <section class="mt-3">
         <div class="container">
             <div class="about border-success  border-4 text-dark border-start">
-                <h3 class="text-dark fw-bold text-start ps-2"><span class="model_name"></span> Dimensions And Weight Of Tractor
-                </h3>
+                <h4 class="text-dark fw-bold text-start ps-2"><span class="brand_model text-success"></span> Dimensions And Weight Of Tractor
+                </h4>
             </div>
             <div class="row">
                 <div class="col-12 col-lg-8 col-md-8 col-sm-8">
@@ -389,7 +392,7 @@
     <section class="mt-3">
         <div class="container">
             <div class="about border-success  border-4 text-dark border-start">
-                <h3 class="text-dark fw-bold text-start ps-2"><span class="model_name"></span> Hydraulics</h3>
+                <h4 class="text-dark fw-bold text-start ps-2"><span class="brand_model text-success"></span> Hydraulics</h4>
             </div>
             <div class="row">
                 <div class="col-12 col-lg-8 col-md-8 col-sm-8">
@@ -416,7 +419,7 @@
     <section class="mt-3">
         <div class="container">
             <div class="about border-success  border-4 text-dark border-start">
-                <h3 class="text-dark fw-bold text-start ps-2"><span class="model_name"></span> Wheels And Tyres</h3>
+                <h4 class="text-dark fw-bold text-start ps-2"><span class="text-success brand_model"></span> Wheels And Tyres</h4>
             </div>
             <div class="row">
                 <div class="col-12 col-lg-8 col-md-8 col-sm-8">
@@ -446,8 +449,8 @@
     <section class="mt-3">
         <div class="container">
             <div class="about border-success  border-4 text-dark border-start">
-                <h3 class="text-dark fw-bold text-start ps-2"><span id="brand_name"></span> Other
-                        Information</span></h3>
+                <h4 class="text-dark fw-bold text-start ps-2"><span class=" text-success brand_model"></span> Other
+                        Information</span></h4>
             </div>
 
             <div class="row">
@@ -484,7 +487,7 @@
     <section class="about bg-light">
         <div class="container">
             <div class="lecture_heading text-center">
-                <h3 class="fw-bold mt-4 pt-4">Recently Asked Questions on Mahindra 575 DI XP Plus</h3>
+                <h4 class="fw-bold mt-4 pt-4">Recently Asked Questions on Mahindra 575 DI XP Plus</h4>
             </div>
             <div class="mt-4 pb-5">
                 <div class="accordion " id="accordionFlushExample">
@@ -547,7 +550,7 @@
     <section class="section slider-section">
 
         <div class="container slider-column">
-            <h3 class="assured px-2 fw-bold mt-4">Similar Tyres</h3>
+            <h4 class="assured px-2 fw-bold mt-4">Similar Tyres</h4>
             <div class="carousel-wrap">
                 <div class="owl-carousel" id="usedtractorforsell">
                     <div class="item">
@@ -703,145 +706,6 @@
 
 
     </section>
-    <!-- <section>
-        <div class="container">
-            <div class="text-editor-black  my-3" style="background-color:#fff">
-                <h4>
-                    <p class="mt-md mt-3 p-2 mb-3 my-3 assured">Related Tractor Trailer </p>
-                </h4>
-            </div>
-            <div class="owl-slider">
-                <div id="carousel_related" class="owl-carousel owl-carousel_related">
-                    <div class="item">
-                        <div class="col-md-12 shadow d-flex flex-row">
-                            <div class="">
-                                <a href="#"><img class="img-fluid" src="assets/images/tractor-trolley-374.jpg"></a>
-                                <div class="text-center">
-                                    <a href="#" title="Mahendra Yuvo 265 DI" class="weblink" tabindex="0">
-                                        <p class="para h5 pt-2">Mourya 265 DI</p>
-                                    </a>
-                                    <p class="mt-2 nb-0"> Price <b>₹</b> 5,00,000</p>
-                                    <p class=""><span class="text-center">Hours:N/A</span></p>
-                                </div>
-                                <div class="col-12">
-                                    <span><a href="#" class="btn price-bnt btn-success w-100 ">Get On Road
-                                            Price</a></span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="col-md-12 shadow d-flex flex-row">
-                            <div class="">
-                                <a href="#"><img class="img-fluid" src="assets/images/tractor-trolley-374.jpg"></a>
-                                <div class="text-center">
-                                    <a href="#" title="Mahendra Yuvo 265 DI" class="weblink" tabindex="0">
-                                        <p class="para h5 pt-2">Mourya 2013</p>
-                                    </a>
-                                    <p class="mt-2 nb-0"> Price <b>₹</b> 5,00,000</p>
-                                    <p class=""><span class="text-center">Hours:N/A</span></p>
-                                </div>
-                                <div class="col-12">
-                                    <span><a href="#" class="btn price-bnt btn-success w-100 ">Get On Road
-                                            Price</a></span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="col-md-12 shadow d-flex flex-row">
-                            <div class="">
-                                <a href="#"><img class="img-fluid" src="assets/images/tractor-trolley-374.jpg"></a>
-                                <div class="text-center">
-                                    <a href="#" title="Mahendra Yuvo 265 DI" class="weblink" tabindex="0">
-                                        <p class="para h5 pt-2">Mahendra Yuvo 265 DI</p>
-                                    </a>
-                                    <p class="mt-2 nb-0"> Price <b>₹</b> 5,00,000</p>
-                                    <p class=""><span class="text-center">Hours:N/A</span></p>
-                                </div>
-                                <div class="col-12">
-                                    <span><a href="#" class="btn price-bnt btn-success w-100 ">Get On Road
-                                            Price</a></span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="col-md-12 shadow d-flex flex-row">
-                            <div class="">
-                                <a href="#"><img class="img-fluid" src="assets/images/tractor-trolley-374.jpg"></a>
-                                <div class="text-center">
-                                    <a href="#" title="Mahendra Yuvo 265 DI" class="weblink" tabindex="0">
-                                        <p class="para h5 pt-2">Mahendra Yuvo 265 DI</p>
-                                    </a>
-                                    <p class="mt-2 nb-0">Price <b>₹</b> 5,00,000</p>
-                                    <p class=""><span class="text-center">Hours:N/A</span></p>
-                                </div>
-                                <div class="col-12">
-                                    <span><a href="#" class="btn price-bnt btn-success w-100 ">Get On Road
-                                            Price</a></span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="col-md-12 shadow d-flex flex-row">
-                            <div class="">
-                                <a href="#"><img class="img-fluid" src="assets/images/tractor-trolley-374.jpg"></a>
-                                <div class="text-center">
-                                    <a href="#" title="Mahendra Yuvo 265 DI" class="weblink" tabindex="0">
-                                        <p class="para h5 pt-2">Mahendra Yuvo 265 DI</p>
-                                    </a>
-                                    <p class="mt-2 nb-0"> Price <b>₹</b> 5,00,000</p>
-                                    <p class=""><span class="text-center">Hours:N/A</span></p>
-                                </div>
-                                <div class="col-12">
-                                    <span><a href="#" class="btn price-bnt btn-success w-100 ">Get On Road
-                                            Price</a></span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="col-md-12 shadow d-flex flex-row">
-                            <div class="">
-                                <a href="#"><img class="img-fluid" src="assets/images/tractor-trolley-374.jpg"></a>
-                                <div class="text-center">
-                                    <a href="#" title="Mahendra Yuvo 265 DI" class="weblink" tabindex="0">
-                                        <p class="para h5 pt-2">Sonalika</p>
-                                    </a>
-                                    <p class="mt-2 nb-0"> Price <b>₹</b> 5,00,000</p>
-                                    <p class=""><span class="text-center">Hours:N/A</span></p>
-                                </div>
-                                <div class="">
-                                    <span><a href="#" class="btn price-bnt btn-success w-100 ">Get On Road
-                                            Price</a></span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="col-md-12 shadow d-flex flex-row">
-                            <div class="">
-                                <a href="#"><img class="img-fluid" src="assets/images/tractor-trolley-374.jpg"></a>
-                                <div class="text-center">
-                                    <a href="#" title="Mahendra Yuvo 265 DI" class="weblink" tabindex="0">
-                                        <p class="para h5 pt-2">Mourya 2013</p>
-                                    </a>
-                                    <p class="mt-2 nb-0">Price <b>₹</b> 5,00,000</p>
-                                    <p class=""><span class="text-center">Hours:N/A</span></p>
-                                </div>
-                                <div class="">
-                                    <span><a href="#" class="btn price-bnt btn-success w-100 ">Get On Road
-                                            Price</a></span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section> -->
 
     <h2 id="productName"></h2>
 
