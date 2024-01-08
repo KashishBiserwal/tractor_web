@@ -1,7 +1,12 @@
+var EditIdmain_ = "";
+var editId_state= false;
+
+
 jQuery(document).ready(function () {
     get_old_harvester();
     ImgUpload();
     $('#submitbtn').click(store);
+    // $('#old_harvester_submitbtn').click(edit_data_id);
     // $('#old_form').on('submit',function(event){
     //   store();
     // });
@@ -40,7 +45,7 @@ jQuery(document).ready(function () {
         required: true,
           validPrice: true,
       },
-       image:{
+      'files[]':{
        required: true,
        },
        about: {
@@ -89,7 +94,7 @@ jQuery(document).ready(function () {
         required: "This field is required",
           validPrice: "Please enter a valid price",
       },
-       image:{
+      'files[]':{
            required: "This field is required",
        },
        about: {
@@ -126,6 +131,118 @@ jQuery(document).ready(function () {
      $("#old_form").valid();
    
    });
+
+  //  $("#old_harvester_form").validate({
+   
+  //   rules: {
+  //       brand:{
+  //           required: true,
+  //       },
+  //       model:{
+  //           required: true,
+  //       },
+  //       CROPS_TYPE:{
+  //           required: true,
+  //       },
+  //       POWER_SOURCE:{
+  //           required: true,
+  //       },
+  //       hours:{
+  //           required: true,
+  //       },
+  //       year:{
+  //           required: true,
+  //       },
+  //       price:{
+  //        required: true,
+  //          validPrice: true,
+  //      },
+  //      'files[]':{
+  //       required: true,
+  //       },
+  //       about: {
+  //           required: true,
+  //       },
+  //       name:{
+  //           required: true,
+  //       },
+  //       lname:{
+  //        required: true,
+  //       },
+  //       Mobile:{
+  //           required:true, 
+  //           maxlength:10,
+  //           digits: true,
+  //           customPhoneNumber: true
+  //       },
+  //       state:{
+  //           required: true,
+  //       },
+  //       district:{
+  //           required: true,
+  //       }
+  //   },
+ 
+  //   messages:{
+  //       brand:{
+  //           required: "This field is required", 
+  //       },
+  //       model:{
+  //           required: "This field is required",
+  //       },
+  //       CROPS_TYPE:{
+  //           required: "This field is required",
+  //       },
+  //       POWER_SOURCE:{
+  //           required: "This field is required",
+  //       },
+  //       hours:{
+  //           required: "This field is required",
+  //       },
+  //       year:{
+  //           required: "This field is required",
+  //       },
+  //       price: {
+  //        required: "This field is required",
+  //          validPrice: "Please enter a valid price",
+  //      },
+  //      'files[]':{
+  //           required: "This field is required",
+  //       },
+  //       about: {
+  //            required: "This field is required",
+       
+  //     },
+  //     name:{
+  //       required: "This field is required",
+  //     },
+  //     lname:{
+  //        required: "This field is required",
+  //     },
+  //     Mobile: {
+  //       required:"This field is required",
+  //       maxlength:"Enter only 10 digits",
+  //       digits: "Please enter only digits"
+  //     },
+  //     state: {
+  //       required: "This field is required",
+  //     },
+  //     district: {
+  //       required: "This field is required",
+  //     }
+  //   },
+    
+  //   submitHandler: function (form) {
+  //     alert("Form submitted successfully!");
+  //   },
+  //   });
+ 
+  
+  //   $("#old_harvester_submitbtn").on("click", function () {
+  
+  //     $("#old_harvester_form").valid();
+    
+  //   });
   });
 
   function ImgUpload() {
@@ -259,8 +376,7 @@ get();
   get_year_and_hours();
 
 
-
-  // fetch lookup data in select box
+ // fetch lookup data in select box
 function get_lookup() {
     console.log('initsfd')
       var apiBaseURL = APIBaseURL;
@@ -292,6 +408,7 @@ function get_lookup() {
 // store
 function store(event) {
     event.preventDefault();
+
     console.log('jfhfhw');
     var form_type = $('#form_type').val();
     var enquiry_type_id = $('#enquiry_type_id').val();
@@ -303,7 +420,6 @@ function store(event) {
     var hours = $('#hours').val();
     var year = $('#year').val();
     var price = $('#price').val();
-    // var image = $('#image').val();
     var image = document.getElementById('image').files[0];
     var about = $('#about').val();
     var name = $('#name').val();
@@ -314,19 +430,37 @@ function store(event) {
     var tehsil = $('#tehsil').val();
     var apiBaseURL =APIBaseURL;
     // var url = apiBaseURL + 'harvester';
-    var url="http://tractor-api.divyaltech.com/api/customer/customer_enquiries";
-    console.log(url);
-   // var url = "<?php echo $APIBaseURL; ?>user_login";
-    // console.log(url);
+    
     var token = localStorage.getItem('token');
     var headers = {
       'Authorization': 'Bearer ' + token
     };
+
+    var urlParams = new URLSearchParams(window.location.search);
+    var editId = urlParams.get('id');
+    var _method = 'post'; 
+    var url, method;
+    
+    console.log('edit state',editId_state);
+    console.log('edit id', EditIdmain_);
+    if (editId_state) {
+        // Update mode
+        console.log(editId_state);
+        _method = 'put';
+        url = apiBaseURL + 'customer_enquiries/' + EditIdmain_ ;
+        console.log(url);
+        method = 'POST'; 
+    } else {
+        // Add mode
+        url = apiBaseURL + 'customer_enquiries';
+        method = 'POST';
+    }
+    
     var data = new FormData();
     var image = document.getElementById('image').files;
-for (var x = 0; x < image.length; x++) {
+    for (var x = 0; x < image.length; x++) {
     data.append("images[]", image[x]);
-}
+    }
     // data.append('image', image);
     data.append('form_type', form_type);
     data.append('enquiry_type_id', enquiry_type_id);
@@ -351,26 +485,173 @@ for (var x = 0; x < image.length; x++) {
     data.append('state', state);
     data.append('district', district);
     data.append('tehsil', tehsil);
+
     $.ajax({
       url: url,
-      type: "POST",
+      type: method,
       data: data,
       headers: headers,
-      processData: false, 
+      processData: false,
       contentType: false,
       success: function (result) {
-        // console.log(result, "result");
-        if(result.length){
-        //   get_tractor_list();
-        }
-       
-        // console.log("Add successfully");
+          console.log(result, "result");
+          console.log("Operation successfully");
+          // window.location.reload();
       },
       error: function (error) {
-        console.error('Error fetching data:', error);
+          console.error('Error:', error);
       }
-    });
+  });
   }
+// edit data 
+
+function fetch_edit_data(id) {
+  var apiBaseURL = APIBaseURL;
+  var id = id;
+  var url = apiBaseURL + 'get_old_harvester_by_id/' + id;
+
+
+  var headers = {
+    'Authorization': 'Bearer ' + localStorage.getItem('token')
+  };
+
+  $.ajax({
+    url: url,
+    type: 'GET',
+    headers: headers,
+    success: function(response) {
+      var userData = response.product[0];
+      $('#userId').val(userData.id);
+       $('#product_type_id').val(userData.id);
+      // $('#brand').val(userData.brand_name);
+      $("#brand option").prop("selected", false);
+      $("#mySelect option[value='" + userData.brand_name + "']").prop("selected", true);
+      $('#model').val(userData.model);
+      // $('#CROPS_TYPE').val(userData.crops_type_value);
+      $("#CROPS_TYPE option").prop("selected", false);
+       $("#mySelect option[value='" + userData.crops_type_value + "']").prop("selected", true);
+      console.log(userData.crops_type_value);
+      // $('#POWER_SOURCE').val(userData.power_source_value);
+      $("#POWER_SOURCE option").prop("selected", false);
+      $("#mySelect option[value='" + userData.power_source_value + "']").prop("selected", true);
+      console.log(userData.power_source_value );
+      $('#hours').val(userData.hours_driven);
+      $('#year').val(userData.purchase_year);
+      $('#price').val(userData.price);
+      $('#about').val(userData.description);
+      $('#name').val(userData.first_name);
+      $('#lname').val(userData.last_name);
+      $('#Mobile').val(userData.mobile);
+      $('#state').val(userData.state);
+      console.log(userData.state);
+      $('#district').val(userData.district);
+      $('#tehsil').val(userData.tehsil);
+
+      $("#selectedImagesContainer").empty();
+
+      if (userData.image_names) {
+          var imageNamesArray = Array.isArray(userData.image_names) ? userData.image_names : userData.image_names.split(',');
+           
+          var countclass=0;
+          imageNamesArray.forEach(function (image_names) {
+              var imageUrl = 'http://tractor-api.divyaltech.com/uploads/product_img/' + image_names.trim();
+              countclass++;
+              var newCard = `
+                  <div class="col-12 col-md-6 col-lg-4 position-relative">
+                  <div class="upload__img-close_button " id="closeId${countclass}" onclick="removeImage(this);"></div>
+                      <div class="brand-main d-flex box-shadow mt-1 py-2 text-center shadow upload__img-closeDy${countclass}">
+                          <a class="weblink text-decoration-none text-dark" title="Tyre Image">
+                              <img class="img-fluid w-100 h-100" src="${imageUrl}" alt="Tyre Image">
+                          </a>
+                      </div>
+                  </div>
+              `;
+      
+              // Append the new image element to the container
+              $("#selectedImagesContainer").append(newCard);
+          });
+      }
+      
+    console.log('Fetched data successfully');
+      // $('#exampleModal').modal('show'); 
+    },
+    error: function(error) {
+      console.error('Error fetching user data:', error);
+    }
+  });
+}
+
+// function store(id){
+//   console.log(id);
+//   var edit_id = $("#userId").val();
+//   var product_type_id=(userData.id);
+//   console.log(edit_id);
+//   var image_names = document.getElementById('_image1').files;
+//   var brand_name = $('#brand').val();
+//   var model_name = $('#model').val();
+//   var crop = $('#CROPS_TYPE').val();
+//   var power = $('#POWER_SOURCE').val();
+//   var hours = $('#hours').val();
+//   var year = $('#year').val();
+//   var price = $('#price').val();
+//   var description = $('#bout').val();
+//   var first_name = $('#name').val();
+//   var last_name = $('#l_name').val();
+//   var mobile = $('#Mobile_no').val();
+//   var state = $('#state').val();
+//   var district = $('#district').val();
+//   var tehsil = $('#tehsil').val();
+
+//   var apiBaseURL = APIBaseURL;
+//   var url = apiBaseURL + 'customer_enquiries/' + edit_id;  
+//   var token = localStorage.getItem('token');
+//   var _method = 'put';
+//   var headers = {
+//       'Authorization': 'Bearer ' + token
+//   };
+
+//   var data = new FormData();
+
+//   for (var x = 0; x < image_names.length; x++) {
+//       data.append('images[]', image_names[x]);
+//   }
+//   data.append('_method', _method);
+//   data.append('id',edit_id),
+//   data.append('id',product_type_id) ,
+//   data.append('brand_name', brand_name);
+//   data.append('model', model_name);
+//   data.append('crops_type_value', crop);
+//   data.append('power_source_value', power);
+//   data.append('hours_driven', hours);
+//   data.append('purchase_year', year);
+//   data.append('price', price);
+//   data.append('description', description);
+//   data.append('first_name', first_name);
+//   data.append('last_name', last_name);
+//   data.append('mobile', mobile);
+//   data.append('state', state);
+//   data.append('district', district);
+//   data.append('tehsil', tehsil);
+
+//   $.ajax({
+//       url: url,
+//       type: "POST",
+//       data: data,
+//       headers: headers,
+//       processData: false,
+//       contentType: false,
+//        success: function (result) {
+//          console.log(result, "result");
+//         //  get();
+//         window.location.reload();
+//          console.log("updated successfully");
+//          alert('successfully updated..!')
+//        },
+//        error: function (error) {
+//          console.error('Error fetching data:', error);
+//        }
+//    })
+//  }
 
   
   function formatDateTime(originalDateTimeStr) {
@@ -422,7 +703,7 @@ for (var x = 0; x < image.length; x++) {
                               <button class="btn btn-warning text-white btn-sm mx-1" onclick="openViewdata(${row.id})" data-bs-toggle="modal" data-bs-target="#view_old_harvester" id="viewbtn">
                                 <i class="fa fa-eye" style="font-size: 11px;"></i>
                               </button>
-                              <button class="btn btn-primary btn-sm btn_edit" onclick=" fetch_edit_data(${row.id})" data-bs-toggle="modal" data-bs-target="#staticBackdrop1" id="your_UniqueId">
+                              <button class="btn btn-primary btn-sm btn_edit" onclick=" fetch_edit_data(${row.id})" data-bs-toggle="modal" data-bs-target="#staticBackdrop" id="your_UniqueId">
                                 <i class="fas fa-edit" style="font-size: 11px;"></i>
                               </button>
                               <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.id});">
@@ -442,6 +723,40 @@ for (var x = 0; x < image.length; x++) {
         }
     });
 }
+
+// Seach data
+function myFunction() {
+  var input, filter, table, tr, td, i, j, txtValue;
+  input = document.getElementById("namesearch");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("example");
+  tr = table.getElementsByTagName("tr");
+
+  for (i = 0; i < tr.length; i++) {
+    // Loop through all td elements in the current row
+    td = tr[i].getElementsByTagName("td");
+    for (j = 0; j < td.length; j++) {
+      txtValue = td[j].textContent || td[j].innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+        break; // Break the inner loop if a match is found in any td
+      } else {
+        tr[i].style.display = "none";
+      }
+    }
+  }
+}
+function resetForm() {
+        document.getElementById("myform").reset();
+
+        // Show all rows in the table
+        var table = document.getElementById("example");
+        var rows = table.getElementsByTagName("tr");
+
+        for (var i = 0; i < rows.length; i++) {
+            rows[i].style.display = "";
+        }
+    }
 
 
 // delete data
@@ -469,7 +784,7 @@ function destroy(id) {
         'Authorization': 'Bearer ' + token
       },
       success: function(result) {
-        get_old_harvester();
+        // get_old_harvester();
         console.log("Delete request successful");
         alert("Delete operation successful");
       },
@@ -480,16 +795,16 @@ function destroy(id) {
     });
   }
 
-   //   for View
-  function fetch_data(id) {
+   //  for View
+  function openViewdata(id) {
     console.log(id, "id");
     console.log(window.location);
     var urlParams = new URLSearchParams(window.location.search);
   
     var productId = id;
     var apiBaseURL = APIBaseURL;
-    var url = apiBaseURL + 'dealer_data/' + productId;
-  
+    var url = apiBaseURL + 'get_old_harvester_by_id/' + productId; 
+  console.log(url);
     var headers = { 
         'Authorization': 'Bearer ' + localStorage.getItem('token')
     };
@@ -500,22 +815,29 @@ function destroy(id) {
         headers: headers,
         success: function (data) {
           console.log(data, 'abc');
-          document.getElementById('dealer_name').innerText = data.dealer_details[0].dealer_name;
-          document.getElementById('brand_nmae').innerText = data.dealer_details[0].brand_name;
-          document.getElementById('email_id').innerText = data.dealer_details[0].email;
-          document.getElementById('contact').innerText = data.dealer_details[0].mobile;
-          document.getElementById('state').innerText =data.dealer_details[0].state;
-          document.getElementById('district').innerText = data.dealer_details[0].district;
-          document.getElementById('tehsil_').innerText = data.dealer_details[0].tehsil;
-          document.getElementById('addrss').innerText = data.dealer_details[0].address;
+          document.getElementById('brand_name').innerText = data.product[0].brand_name;
+          document.getElementById('model_name_1').innerText = data.product[0].model;
+          document.getElementById('CROPS_TYPE_1').innerText = data.product[0].crops_type_value;
+          document.getElementById('POWER_SOURCE_1').innerText = data.product[0].power_source_value;
+          document.getElementById('hours_1').innerText =data.product[0].hours_driven;
+          document.getElementById('year_1').innerText = data.product[0].purchase_year;
+          document.getElementById('Price_1').innerText = data.product[0].price;
+          console.log(data.product[0].price);
+          document.getElementById('About_1').innerText = data.product[0].description;
+          document.getElementById('First_Name').innerText = data.product[0].first_name;
+          document.getElementById('Last_Name').innerText = data.product[0].last_name;
+          document.getElementById('Mobile_1').innerText = data.product[0].mobile;
+          document.getElementById('State_1').innerText = data.product[0].state;
+          document.getElementById('District_1').innerText = data.product[0].district;
+          document.getElementById('Tehsil_1').innerText = data.product[0].tehsil;
       
           $("#selectedImagesContainer1").empty();
       
-          if (data.dealer_details[0].image_names) {
-              var imageNamesArray = Array.isArray(data.dealer_details[0].image_names) ? data.dealer_details[0].image_names : data.dealer_details[0].image_names.split(',');
+          if (data.product[0].image_names) {
+              var imageNamesArray = Array.isArray(data.product[0].image_names) ? data.product[0].image_names : data.product[0].image_names.split(',');
       
               imageNamesArray.forEach(function (imageName) {
-                  var imageUrl = 'http://tractor-api.divyaltech.com/uploads/dealer_img/' + imageName.trim();
+                  var imageUrl = 'http://tractor-api.divyaltech.com/uploads/product_img/' + imageName.trim();
       
                   var newCard = `
                       <div class="col-6 col-lg-6 col-md-6 col-sm-6">
@@ -536,3 +858,5 @@ function destroy(id) {
         }
     });
   } 
+
+

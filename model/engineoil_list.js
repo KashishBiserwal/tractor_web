@@ -560,9 +560,7 @@ jQuery(document).ready(function () {
       });
     });
    
-   
-
-    $('body').on('click', ".upload__img-close", function (e) {
+  $('body').on('click', ".upload__img-close", function (e) {
       var file = $(this).parent().data("file");
       for (var i = 0; i < imgArray.length; i++) {
         if (imgArray[i].name === file) {
@@ -572,11 +570,7 @@ jQuery(document).ready(function () {
       }
       $(this).parent().parent().remove();
     });
-
-
-  
   }
-
 
   function removeImage(ele){
     console.log(ele);
@@ -588,16 +582,16 @@ jQuery(document).ready(function () {
 
   }
 
-function fetch_edit_data(id) {
-  var apiBaseURL = APIBaseURL;
-  var url = apiBaseURL + 'engine_oil/' + id;
-  console.log(url);
+  function fetch_edit_data(id) {
+    var apiBaseURL = APIBaseURL;
+    var url = apiBaseURL + 'engine_oil/' + id;
+    console.log(url);
 
-  var headers = {
-      'Authorization': 'Bearer ' + localStorage.getItem('token')
-  };
+    var headers = {
+        'Authorization': 'Bearer ' + localStorage.getItem('token')
+    };
 
-  $.ajax({
+    $.ajax({
       url: url,
       type: 'GET',
       headers: headers,
@@ -643,60 +637,6 @@ function fetch_edit_data(id) {
   });
 }
 
-// function edit_user() {
-// var edit_id = $("#idUser").val();
-// var brand_name = $("#brand_1").val();
-// var oil_model = $("#model_1").val();
-// var grade = $("#grade_1").val();
-// var quantity = $("#qualtity_1").val();
-// var price = $("#price_1").val();
-// var compatible_model = $("#ass_list_1").val();
-// var description = $("#textarea_1").val();
-// var image_names = document.getElementById('_image1').files;
-
-// var paraArr = {
-//     'brand_name': brand_name,
-//     'oil_model': oil_model,
-//     'grade': grade,
-//     'quantity': quantity,
-//     'price': price,
-//     'compatible_model': compatible_model,
-//     'description': description,
-//     'image_names': image_names,
-//     'id': edit_id, 
-// };
-
-// var apiBaseURL = APIBaseURL;
-// var url = apiBaseURL + 'engine_oil/' + edit_id;
-
-// var headers = {
-//     'Authorization': 'Bearer ' + localStorage.getItem('token')
-// };
-
-// var data = new FormData();
-
-//   for (var x = 0; x < image_names.length; x++) {
-//       data.append('images[]', image_names[x]);
-//   }
-
-// $.ajax({
-//     url: url,
-//     type: "PUT",
-//     data: paraArr,
-//     headers: headers,
-//     success: function (result) {
-//         console.log(result, "result");
-//         // get();
-//         window.location.reload();
-//         console.log("updated successfully");
-//         alert('successfully updated..!')
-//     },
-//     error: function (error) {
-//         console.error('Error fetching data:', error);
-//     }
-// });
-// }
-
 function edit_user(id){
   console.log(id);
   var edit_id = $("#idUser").val();
@@ -732,6 +672,8 @@ function edit_user(id){
   data.append('price', price);
   data.append('compatible_model',ass);
   data.append('description', description);
+  var compatibleModel =[];
+
 
   $.ajax({
       url: url,
