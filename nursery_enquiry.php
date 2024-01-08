@@ -1,8 +1,13 @@
 <?php
-   include 'includes/headertagadmin.php';
-  
+    include 'includes/headertag.php';
+    include 'includes/headertagadmin.php';
+   include 'includes/footertag.php';
    
    ?> 
+     <script> var APIBaseURL = "<?php echo $APIBaseURL; ?>";</script>
+  <script> var baseUrl = "<?php echo $baseUrl; ?>";</script>
+  <script src="<?php $baseUrl; ?>model/nursery_enquiry.js"></script>
+
 <body class="loaded"> 
 <div class="main-wrapper">
     <div class="app" id="app">
@@ -64,7 +69,7 @@
             </div>
            
             <div class="col-12 col-sm-12 col-md-3 col-lg-3">
-              <div class="text-center mt-4 pt-1">
+              <div class="text-center">
                 <button type="button" class="btn-success btn px-3 py-2 " id="Search">Search</button>
                 <button type="button" class="btn-success btn mx-2 px-3 py-2  " id="Reset">Reset</button>
               </div>
@@ -87,14 +92,62 @@
                                             
                                         </tr>
                                     </thead>
-                                    <tbody>
+                                    <tbody id="data-table">
                                     </tbody>
                                 </table>
                             </div>
       </div>
     </div>
    </section>
-      
+   <div class="modal fade" id="view_model_nursery_enq" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg modal-dialog-centered">
+              <div class="modal-content modal_box">
+                <div class="modal-header modal_head">
+                  <h5 class="modal-title text-white fw-bold" id="staticBackdropLabel"> Nursery Enquiry Information </h5>
+                  <button type="button" class="btn-close btn-success" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                  <div class="modal-body bg-light">
+                    <div class="row ">
+                       <div class="col-12">
+                        <table class="table table-striped">
+                        <tbody>
+                         <tr> 
+                            <td>First Name-</td>
+                            <td id="fname1"></td>
+                            <td>Last Name-</td>
+                            <td id="lname1"></td>
+                          </tr>
+                          <tr>
+                           
+                            <td>Mobile Number-</td>
+                            <td id="number1"></td>
+                            <td>Email-</td>
+                            <td id="email_1"></td>
+                          </tr>
+                          <tr>
+                          <td>Date-</td>
+                            <td id="date_1"></td>
+                            <td>State-</td>
+                            <td id="state1"></td>
+                          </tr>
+                          <tr>
+                          <td>District-</td>
+                            <td id="dist1"></td>
+                            <td>Tehsil-</td>
+                            <td id="tehsil1"></td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>  
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary px-3" data-bs-dismiss="modal">Close</button>
+                  <!-- <button type="submit" id="btn_sb" class="btn btn-success fw-bold px-3">Submit</button> -->
+                </div>
+              </div>
+            </div>
+          </div>
+    </div>
     
 </div>
 </div>

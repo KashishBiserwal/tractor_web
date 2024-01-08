@@ -98,8 +98,7 @@
                                   <div class="form-outline">
                                     <label class="form-label text-dark">Hours</label>
                                     <select class="form-select form-control " aria-label=".form-select-lg example" id="hours" name="hours">
-                                          
-                                      </select>
+                                    </select>
                                     </select>
                                   </div>
                                 </div>
@@ -267,20 +266,20 @@
               <table id="example" class="table table-striped  table-hover table-bordered dataTable no-footer" width="100%; margin-bottom: 15px;">
                 <thead class="">
                   <tr>
-                                            <th class="d-none d-md-table-cell text-white">Date</th>
-                                            <th class="d-none d-md-table-cell text-white">Brand</th>
-                                            <th class="d-none d-md-table-cell text-white"> Model </th>
-                                            <th class="d-none d-md-table-cell text-white"> Year </th>
-                                            <th class="d-none d-md-table-cell text-white"> State </th>
-                                            <th class="d-none d-md-table-cell text-white"> district </th>
-                                            <th class="d-none d-md-table-cell text-white"> Phone Number </th>
-                                            <th class="d-none d-md-table-cell text-white"> Action </th>
-                                        </tr>
-                                    </thead>
-                                    <tbody id="data-table">
-                                    </tbody>
-                                </table>
-                            </div>
+                    <th class="d-none d-md-table-cell text-white">Date</th>
+                    <th class="d-none d-md-table-cell text-white">Brand</th>
+                    <th class="d-none d-md-table-cell text-white"> Model </th>
+                    <th class="d-none d-md-table-cell text-white"> Year </th>
+                    <th class="d-none d-md-table-cell text-white"> State </th>
+                    <th class="d-none d-md-table-cell text-white"> district </th>
+                    <th class="d-none d-md-table-cell text-white"> Phone Number </th>
+                    <th class="d-none d-md-table-cell text-white"> Action </th>
+                  </tr>
+                </thead>
+              <tbody id="data-table">
+              </tbody>
+            </table>
+          </div>
     </div>
    </section>
       
@@ -359,166 +358,6 @@
     </div>
 </div>
 </div>
-
-          <!-- <div class="modal fade" id="staticBackdrop1" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-            <div class="modal-dialog modal-xl modal-dialog-centered">
-              <div class="modal-content modal_box">
-                <div class="modal-header modal_head">
-                  <h5 class="modal-title text-white fw-bold" id="staticBackdropLabel">Update Old Harvester</h5>
-                  <button type="button" class="btn-close btn-success" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                     <div class="modal-body bg-white">
-                        <div class="row justify-content-center">
-                          <div class="col-lg-10">  
-                              <form id="old_harvester_form" enctype="multipart/form-data" onsubmit="return false">
-                            <div class="row justify-content-center pt-3">
-                            <div class="col-12 col-lg-6 col-sm-5 col-md-6 my-1" hidden>
-                                          <div class="form-outline ">
-                                            <label for="name" class="form-label text-dark">old_ Harvester</label>
-                                            <input type="text" class="form-control"  id="userId" name="name">
-                                          </div>
-                                        </div>
-                               <div class="col-12 col-lg-6 col-md-6 col-sm-6 mt-3" hidden>
-                                <div class="form-outline ">
-                                   <label for="name" class="form-label text-dark">Enquiry id</label>
-                                  <input type="text" class="form-control"  id="enquiry_type_id" name="enquiry_type_id" value="3">
-                                </div>
-                               </div>
-                               <div class="col-12 col-lg-6 col-md-6 col-sm-6 mt-3" hidden>
-                                  <div class="form-outline ">
-                                    <label for="name" class="form-label text-dark">Product id</label>
-                                    <input type="text" class="form-control"  value="3" id="product_type_id" name="product_type_id">
-                                  </div>
-                               </div>
-                                <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-3">
-                                  <div class="form-outline ">
-                                    <label class="form-label text-dark">Brand</label>
-                                    <select class="form-select form-control" aria-label=".form-select-lg example" id="_brand"name="brand">
-                                      
-                                      </select>
-                                  </div>
-                                </div>
-                                <div class="col-12 col-lg-6 col-md-6 col-sm-6 mt-3">
-                                  <div class="form-outline ">
-                                    <label for="name" class="form-label text-dark">Model Name</label>
-                                    <input type="text" class="form-control"  id="_model" name="model">
-                                  </div>
-                               </div>
-                               <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-3">
-                                  <div class="form-outline">
-                                    <label class="form-label text-dark">Crop Type</label>
-                                    <select class="form-select form-control " aria-label=".form-select-lg example" id="_CROPS_TYPE" name="CROPS_TYPE">
-                                       
-                                    </select>
-                                  </div>
-                                </div>
-                                <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-3">
-                                  <div class="form-outline ">
-                                    <label class="form-label text-dark"> Power Source</label>
-                                    <select class="form-select form-control " aria-label=".form-select-lg example" id="_POWER_SOURCE" name="POWER_SOURCE">
-                                      
-                                    </select>
-                                  </div>
-                                </div>
-                                <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-3">
-                                  <div class="form-outline">
-                                    <label class="form-label text-dark">Hours</label>
-                                    <select class="form-select form-control " aria-label=".form-select-lg example" id="_hours" name="hours">
-                                          
-                                      </select>
-                                    </select>
-                                  </div>
-                                </div>
-                                <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-3">
-                                  <div class="form-outline">
-                                    <label class="form-label text-dark">Purchase Year</label>
-                                    <select class="form-select form-control" aria-label=".form-select-lg example" id="_year" name="year">
-                                          
-                                    </select>
-                                  </div>
-                                </div>
-                                <div class="col-12 col-lg-6 col-md-6 col-sm-6 mt-3">
-                                  <div class="form-outline">
-                                    <label for="name" class="form-label text-dark">Price</label>
-                                    <input type="text" class="form-control"  id="_price" name="price">
-                                  </div>
-                               </div>
-                               <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
-                                    <div class="upload__box ">
-                                      <div class="upload__btn-box text-center">
-                                        <label >
-                                          <p class="upload__btn ">Upload images</p>
-                                          <input type="file" name='files[]' multiple="" data-max_length="20" class="upload__inputfile" id="_image1">
-                                        </label>
-                                      </div>
-                                      <div id="selectedImagesContainer2" class="upload__img-wrap"></div>
-                                    </div>
-                                </div>
-                                <div class="col-12 mt-3">
-                                  <div class="form-outline">
-                                    <label class="form-label text-dark">About</label>
-                                      <textarea rows="4" cols="70" class="w-100 p-2" minlength="1" maxlength="255" id="_about" name="about"></textarea>
-                                    </div>
-                                </div>
-                                  <h5 class="fw-bold mt-4 ">Personal Information</h5>
-                                <div class="col-12 col-sm-6 col-lg-6 col-md-6  mt-3">
-                                  <div class="form-outline">
-                                    <label for="name" class="form-label text-dark"> First Name</label>
-                                    <input type="text" class="form-control" id="f_name" name="name">
-                                  </div>
-                               </div>
-                               <div class="col-12 col-sm-6 col-lg-6 col-md-6 mt-3">
-                                  <div class="form-outline ">
-                                    <label for="name" class="form-label text-dark"> Last Name</label>
-                                    <input type="text" class="form-control" id="l_name" name="lname">
-                                  </div>
-                               </div>
-                                <div class="col-12 col-sm-6 col-lg-6 col-md-6 mt-3">
-                                  <div class="form-outline ">
-                                    <label for="name" class="form-label text-dark">Mobile</label>
-                                    <input type="text" class="form-control"  id="Mobile_no" name="Mobile">
-                                  </div>
-                                </div>
-                                    <div class="col-12 col-sm-6 col-lg-6 col-md-6 mt-3">
-                                  <div class="form-outline ">
-                                    <label class="form-label text-dark">State</label>
-                                    <select class="form-select form-control" aria-label=".form-select-lg example" class="" id="_state" name="state">
-                                        <option value="">Select State</option>
-                                        <option value="Chhattisgarh">Chhattisgarh</option>
-                                        <option value="Others">Others</option>
-                                      </select>
-                                  </div>
-                                </div>
-                                    <div class="col-12 col-sm-6 col-lg-6 col-md-6 mt-3">
-                                  <div class="form-outline ">
-                                    <label class="form-label text-dark">District</label>
-                                    <select class="form-select form-control" aria-label=".form-select-lg example" id="_district" name="district">
-                                        <option value="">Select Districte</option>
-                                        <option value="Jagdalpur">Jagdalpur</option>
-                                        <option value="Sarguja">Sarguja</option>
-                                      </select>
-                                  </div>
-                                </div>
-                                <div class="col-12 col-sm-6 col-lg-6 col-md-6 mt-3">
-                                  <div class="form-outline ">
-                                    <label class="form-label text-dark">Tehsil</label>
-                                    <select class="form-select form-control" aria-label=".form-select-lg example" id="_tehsil" name="tehsil">
-                                      <option value="Jagdalpur">Jagdalpur</option>
-                                      <option value="Sarguja">Sarguja</option>
-                                    </select>
-                                  </div>
-                                </div>
-                              </form>
-                            </div>
-                          </div>
-                        </div>
-                      <div class="modal-footer mt-3">
-                        <button type="button" class="btn btn-secondary btn_all" data-bs-dismiss="modal">Close</button>
-                        <button type="submit" id="old_harvester_submitbtn" class="btn btn-success btn_all">Save Change<button>
-                      </div>
-              </div>
-            </div>
-          </div> -->
 
 </body>
 
