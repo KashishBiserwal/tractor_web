@@ -59,25 +59,23 @@ include 'includes/footertag.php';
                 </div>
                 <div class="col-12 col-sm-12 col-md-3 col-lg-3">
                     <label class="text-dark fw-bold  mb-2">Search by Model</label>
-                    <select class="js-select2 form-select" id="model">
-                    </select>
+                    <input type="text" name="model" id="model" class="form-control">
                 </div>
                 <div class="col-12 col-sm-12 col-md-3 col-lg-3">
                     <label class="text-dark fw-bold mb-2">Search by HP</label>
-                    <select class="js-select2 form-select" id="hp">
-                    </select>
+                    <input type="text" name="hp" id="hp" class="form-control">
                 </div>
                 <div class="col-12 col-sm-12 col-md-3 col-lg-3 text-center">
                   <div class="mt-3 pt-1">
                     <button type="button" class="btn-success btn px-4 py-2"  id="Search">Search</button>
-                    <button type="reset" value = "Reset data"  class="btn-success btn px-4 py-2" id="Reset">Reset</button>
+                    <!-- <button type="reset" value = "Reset data"  class="btn-success btn px-4 py-2" id="Reset">Reset</button> -->
                   </div>
                 </div>
               </div>
             </div>
           </div>
           <div class="mb-5">
-            <div class="table-responsive shadow bg-white">
+            <div class="table-responsive shadow bg-white mt-3 py-2">
               <table id="example" class="table bg-white table-striped table-hover py-1" width="100%">
                   <thead>
                     <tr>
@@ -451,7 +449,7 @@ include 'includes/footertag.php';
                               <div  class="col-12 col-sm-6 col-lg-6 col-md-6">
                                 <div class="form-outline">
                                   <label class="form-label">About</label>
-                                  <textarea rows="4" cols="70" class="w-100" minlength="1" maxlength="255" id="description" name="description"></textarea>
+                                  <textarea rows="4" cols="70" class="w-100" minlength="1"  id="description" name="description"></textarea>
                                 </div>
                               </div>
                             </div>
@@ -493,14 +491,15 @@ include 'includes/footertag.php';
                             <td id="cylinder_" class="bg-light"></td>
                           </tr>
                           <tr>
-                            <td class="bg-light">PTO HP-</td>
-                            <td id="pto_hp_" class="bg-light"></td>
+                          <td>Gear Box Reverse-</td>
+                            <td id="Gear_Box_Reverse_1"></td>
+                            <!-- <td class="bg-light">PTO HP-</td>
+                            <td id="pto_hp_" class="bg-light"></td> -->
                             <td>Gear Box Forward-</td>
                             <td id="Gear_Box_Forward_1"></td>
                           </tr>
                           <tr>
-                            <td>Gear Box Reverse-</td>
-                            <td id="Gear_Box_Reverse_1"></td>
+                          
                             <td class="bg-light">Brakes-</td>
                             <td id="brakes_1" class="bg-light"></td>
                           </tr>
@@ -519,9 +518,8 @@ include 'includes/footertag.php';
                           <tr>
                             <td class="bg-light">Upload images-</td>
                             <td colspan="3">
-                              <div class="row" id="image_1">
-                                  <div class="col-12" ></div>
-                               </div>
+                              <div id="selectedImagesContainer1" class="upload__img-wrap row"></div>
+                                 
                             </td>
                           </tr>
                           <tr>

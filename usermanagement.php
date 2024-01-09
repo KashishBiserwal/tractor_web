@@ -168,14 +168,14 @@ include 'includes/headertag.php';
               <table id="example" class="table table-striped  table-hover table-bordered dataTable no-footer" width="100%; margin-bottom: 15px;">
                 <thead class="">
                   <tr>
-                    <th class="d-none d-md-table-cell text-white py-2">S.No.</th>
-                    <th class="d-none d-md-table-cell text-white py-2">Date</th>
-                    <th class="d-none d-md-table-cell text-white py-2">Name</th>
-                    <th class="d-none d-md-table-cell text-white py-2">Mobile Number</th>
-                    <th class="d-none d-md-table-cell text-white py-2">User Type</th>
-                    <th class="d-none d-md-table-cell text-white py-2">Status</th>
+                    <th class="d-none d-md-table-cell text-white ">S.No.</th>
+                    <th class="d-none d-md-table-cell text-white">Date</th>
+                    <th class="d-none d-md-table-cell text-white">Name</th>
+                    <th class="d-none d-md-table-cell text-white">Mobile Number</th>
+                    <th class="d-none d-md-table-cell text-white">User Type</th>
+                    <th class="d-none d-md-table-cell text-white">Status</th>
                     
-                    <th class="d-none d-md-table-cell text-white py-2">Action</th>
+                    <th class="d-none d-md-table-cell text-white">Action</th>
                   </tr>
                 </thead>
                 <tbody id="data-table">
@@ -207,7 +207,7 @@ include 'includes/headertag.php';
                                 <div class="col- col-sm-6 col-lg-6 col-md-6 mt-3">
                                 <div class="form-outline">
                                   <label class="form-label"> First Name<span class="text-danger">*</span></label>
-                                          <input type="text" class="form-control" for="first_name" prachi="" id="first_name1" name="first_name" >
+                                  <input type="text" class="form-control" for="first_name" prachi="" id="first_name1" name="first_name" >
                                   <small></small>
                                 </div>
                                 </div>

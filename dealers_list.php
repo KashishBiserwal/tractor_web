@@ -82,8 +82,8 @@
                                                 <label class="form-label">State</label>
                                                 <select class="form-select py-2" aria-label="Default select example" id="state_" name="state_">
                                                     <option value>Select State</option>
-                                                    <option value="1">Chattisgarh</option>
-                                                    <option value="2">Other</option>
+                                                    <option value="Chattisgarh">Chattisgarh</option>
+                                                    <option value="Other">Other</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -92,9 +92,9 @@
                                                 <label class="form-label">District</label>
                                                 <select class="form-select py-2" aria-label="Default select example" id="dist" name="dist">
                                                     <option value>Select District</option>
-                                                    <option value="1">Raipur</option>
-                                                    <option value="2">Bilaspur</option>
-                                                    <option value="3">Surajpur</option>
+                                                    <option value="Raipur">Raipur</option>
+                                                    <option value="Bilaspur">Bilaspur</option>
+                                                    <option value="Surajpur">Surajpur</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -103,23 +103,23 @@
                                                 <label class="form-label">Tehsil</label>
                                                 <select class="form-select py-2" id="tehsil" aria-label="Default select example">
                                                     <option value>Select Tehsil</option>
-                                                    <option value="1">Raipur</option>
-                                                    <option value="2">Bilaspur</option>
-                                                    <option value="3">Surajpur</option>
+                                                    <option value="Raipur">Raipur</option>
+                                                    <option value="Bilaspur">Bilaspur</option>
+                                                    <option value="Surajpur">Surajpur</option>
                                                 </select>
                                             </div>
                                         </div>
                                         <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                                        <div class="upload__box">
-                                          <div class="upload__btn-box text-center">
-                                            <label >
-                                              <p class="upload__btn ">Upload images</p>
-                                              <input type="file" multiple="" data-max_length="20" class="upload__inputfile" id="_image" name="_image">
-                                            </label>
+                                          <div class="upload__box">
+                                            <div class="upload__btn-box text-center">
+                                              <label >
+                                                <p class="upload__btn ">Upload images</p>
+                                                <input type="file" multiple="" data-max_length="20" class="upload__inputfile" id="_image" name="_image">
+                                              </label>
+                                            </div>
+                                            <div id="selectedImagesContainer" class="upload__img-wrap"></div>
                                           </div>
-                                          <div id="selectedImagesContainer" class="upload__img-wrap"></div>
                                         </div>
-                                      </div>
                                 </div>
                             </form>
                             </div>
@@ -221,11 +221,11 @@
             <div class="modal-dialog modal-lg modal-dialog-centered">
               <div class="modal-content modal_box">
                 <div class="modal-header modal_head">
-                  <h5 class="modal-title text-white fw-bold" id="staticBackdropLabel"> HaatBazar Details</h5>
+                  <h5 class="modal-title text-white fw-bold" id="staticBackdropLabel"> Dealers Details</h5>
                   <button type="button" class="btn-close btn-success" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                   <div class="modal-body bg-light">
-                    <div class="row ">
+                    <div class="row">
                        <div class="col-12">
                         <table class="table table-striped">
                         <tbody>

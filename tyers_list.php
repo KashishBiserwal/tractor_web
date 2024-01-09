@@ -36,7 +36,7 @@
             <div class="modal-dialog modal-xl modal-dialog-centered">
               <div class="modal-content modal_box">
                 <div class="modal-header modal_head">
-                  <h5 class="modal-title text-white fw-bold" id="staticBackdropLabel"> Add Tyres </h5>
+                  <h5 class="modal-title text-white fw-bold" id="staticBackdropLabel"> Edit Tyres </h5>
                   <button type="button" class="btn-close btn-success" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body bg-white">
@@ -80,14 +80,12 @@
                                         <label for="name" class="form-label text-dark">Tyre Width</label>
                                         <input type="text" class="form-control" placeholder="" id="tyre_width" name="tyre_width">
                                       </div>
-                                    </div>
+                                    </div> -->
                                     <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-3">
                                      <div class="form-outline ">
                                       <label for="yr_state" class="form-label text-dark">Category</label>
                                       <select class="form-select form-control" aria-label=".form-select-lg example"id="category" name="category">
-                                          <option value>Select Categoey</option>
-                                          <option value="1">tyre</option>
-                                          <option value="2">....</option>
+                                         
                                       </select>
                                     </div>
                                   </div>
@@ -167,13 +165,12 @@
                 <th class="d-none d-md-table-cell text-white">S.No.</th>
                 <th class="d-none d-md-table-cell text-white">Brand</th>
                 <th class="d-none d-md-table-cell text-white">Model</th>
-                <th class="d-none d-md-table-cell text-white">Tyre Name</th>
                 <th class="d-none d-md-table-cell text-white">Tyre Position</th>
                 <th class="d-none d-md-table-cell text-white">Size</th>
                 <th class="d-none d-md-table-cell text-white">Action</th>
               </tr>
             </thead>
-          <tbody>
+          <tbody id="data-table">
           </tbody>
         </table>
       </div>
@@ -188,7 +185,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div> -->
               <div class="modal-body">
-                <h4 class="fw-bold mb-2">Brand Information</h4>
+                <h4 class="fw-bold mb-2">Tyre Information</h4>
                 <div class="container">
                   <div class="row">
                     <div class="col-12 col-lg-6 col-sm-6 col-md-6">

@@ -133,21 +133,19 @@
                           <tr>
                             <td>Tehsil-</td>
                             <td id="tehsil_"></td>
-                          </tr>
-                          <tr>
-                              <td>Address-</td>
+                            <td>Address-</td>
                               <td colspan="3">
                                   <div class="col-12" id="addrss"></div>
                               </td>
                           </tr>
-                          <tr>
+                          <!-- <tr>
                               <td>Upload images-</td>
                               <td colspan="3">
                                   <div class="col-12">
                                       <div id="selectedImagesContainer1" class="upload__img-wrap row"></div>
                                   </div>
                               </td>
-                          </tr>
+                          </tr> -->
                         </tbody>
                       </table>
                     </div>
@@ -164,7 +162,7 @@
       
     
 </div>
-<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+          <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
             <div class="modal-dialog modal-lg modal-dialog-centered">
               <div class="modal-content modal_box">
                 <div class="modal-header modal_head">

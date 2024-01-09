@@ -506,8 +506,8 @@ include 'includes/footertag.php';
                                                     <div class="col-12 col-sm-6 col-lg-6 col-md-6 mt-3">
                                                         <div class="form-outline">
                                                             <label class="form-label">Brand</label>
-                                                            <select class="form-select py-2" id="brand" name="brand_name" aria-label="Default select example" required>
-                                                                <option value="">Select Brand</option>
+                                                            <select class="form-select py-2" id="brand_name" name="brand_name" aria-label="Default select example" required>
+                                                                <!-- <option value="">Select Brand</option> -->
                                                             </select>
                                                         </div>
                                                     </div>
@@ -522,6 +522,12 @@ include 'includes/footertag.php';
                                                             </select>
                                                         </div>
                                                     </div> -->
+                                                    <div class="col-12 col-sm-6 col-lg-6 col-md-6 mt-3"hidden>
+                                                        <div class="form-outline">
+                                                            <label class="form-label">Model Name</label>
+                                                            <input type="text" placeholder=" " id="image_type_id" value="1" name="" class="form-control" required>
+                                                        </div>
+                                                    </div>
                                                     <div class="col-12 col-sm-6 col-lg-6 col-md-6 mt-3">
                                                         <div class="form-outline">
                                                             <label class="form-label">Model Name</label>
@@ -592,20 +598,22 @@ include 'includes/footertag.php';
                                                             <input type="text" placeholder=" " id="warranty"  name="warranty" class="form-control"required>
                                                         </div>
                                                     </div>
-                                                    <div class="col-12 col-sm-8 col-lg-8 col-md-8 mt-4">
+                                                    <div class="col-12 col-sm-6 col-lg-6 col-md-6 mt-4">
                                                         <label for="name" class="text-dark fw-bold">Select Tractor Type</label>
                                                         <div id="type_name" name="type_name"></div>
                                                     </div>
-                                                    <div class="col-12 col-sm-4 col-lg-4 col-md-4">
-                                                        <div class="upload__box mt-2 text-center">
+                                                    <div class="col-12 col-sm-6 col-lg-6 col-md-6">
+                                                        <div class="upload__box text-center">
                                                             <div class="upload__btn-box text-center">
                                                                 <label >
                                                                     <p class="upload__btn">Upload images</p>
-                                                                    <input type="file" multiple="" data-max_length="20" class="upload__inputfile" id="_image" name="_image"required>
+                                                                    <input type="file" multiple="" data-max_length="20" class="upload__inputfile" id="image_name" name="_image"required>
                                                                 </label>
                                                             </div>
-                                                            <div id="selectedImagesContainer" class="upload__img-wrap"></div>
+                                                            
+                                                            <div id="selectedImagesContainer2" class="upload__img-wrap"></div>
                                                         </div>
+                                                        <p class="text-danger">Note*- Image Must be JPEG, PNG & JPG format</p>
                                                     </div>
                                                 </div>
                                                <button type="button" class="nextStep text-center" id="nextbtn1">Next</button>
@@ -675,28 +683,28 @@ include 'includes/footertag.php';
                                                     </div>
                                                     <div  class="col-12 col-sm-6 col-lg-6 col-md-6 mt-2">
                                                         <div class="form-outline">
-                                                            <label class="form-label">Min Forward Speed(kmph)</label>
+                                                            <label class="form-label">Min-Max Forward Speed(kmph)</label>
                                                             <input type="text" placeholder=" " id="min_forward_speed"  name="min_forward_speed" class="form-control"required>
                                                         </div>
                                                     </div>
-                                                    <div  class="col-12 col-sm-6 col-lg-6 col-md-6 mt-2">
+                                                    <!-- <div  class="col-12 col-sm-6 col-lg-6 col-md-6 mt-2">
                                                         <div class="form-outline">
                                                             <label class="form-label">Max Forward Speed(kmph)</label>
                                                             <input type="text" placeholder=" " id="max_forward_speed"  name="max_forward_speed" class="form-control"required>
                                                         </div>
-                                                    </div>
+                                                    </div> -->
                                                     <div  class="col-12 col-sm-6 col-lg-6 col-md-6 mt-3">
                                                         <div class="form-outline">
-                                                            <label class="form-label">Min Reverse Speed(kmph)</label>
+                                                            <label class="form-label">Min-Max Reverse Speed(kmph)</label>
                                                             <input type="text" placeholder=" " id="min_reverse_speed"  name="min_reverse_speed" class="form-control"required>
                                                         </div>
                                                     </div>
-                                                    <div  class="col-12 col-sm-6 col-lg-6 col-md-6 mt-3">
+                                                    <!-- <div  class="col-12 col-sm-6 col-lg-6 col-md-6 mt-3">
                                                         <div class="form-outline">
                                                             <label class="form-label">Max Reverse Speed(kmph)</label>
                                                             <input type="text" placeholder=" " id="max_reverse_speed"  name="max_reverse_speed" class="form-control"required>
                                                         </div>
-                                                    </div>
+                                                    </div> -->
                                                 </div>
                                                 <button type="button" class="prevStep text-center mt-5" id="prevbtn2">Prev</button>
                                                 <button type="button" class="nextStep text-center" id="nextbtn2">Next</button>
@@ -823,7 +831,7 @@ include 'includes/footertag.php';
                                                     <div class="col-12 mt-4 ">
                                                         <div class="form-outline ">
                                                             <label class="form-label text-dark">About</label>
-                                                            <textarea rows="4" cols="70" class="w-100  pt-2" minlength="1" maxlength="255" id="description" name="description" required></textarea>
+                                                            <textarea rows="4" cols="70" class="w-100  pt-2" minlength="1" id="description" name="description" required></textarea>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -834,7 +842,7 @@ include 'includes/footertag.php';
                                     </div>
                                     
                                 </section>
-                                <a href="tractor_listing.php" class="backbutton text-center backbtn">Back</a>
+                                <a href="tractor_listing.php" class=" mt-4  btn text-center btn-secondary backbtn">Back To Tractor details</a>
                             </div>
                         </div>
                     </div>
@@ -1207,9 +1215,9 @@ jQuery.validator.setDefaults({
                 LINKAGE_POINT:{
                     required: true,
                 },
-                fuel_tank_cc:{
-                    required: true,
-                },
+                // fuel_tank_cc:{
+                //     required: true,
+                // },
                 WHEEL_DRIVE:{
                     required: true,
                 },
@@ -1230,9 +1238,9 @@ jQuery.validator.setDefaults({
                 LINKAGE_POINT:{
                     required:"This field is required",
                 },
-                fuel_tank_cc:{
-                    required:"This field is required",
-                },
+                // fuel_tank_cc:{
+                //     required:"This field is required",
+                // },
                 WHEEL_DRIVE:{
                     required:"This field is required",
                 },

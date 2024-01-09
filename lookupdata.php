@@ -42,25 +42,28 @@ include 'includes/headertag.php';
                               <div class="row justify-content-center">
                                   <div class="col-12">
                                     <!-- <h5 class="text-center">Fill Details</h5> -->
-                                    <form id="form">
+                                    <form id="lookup_data_form" method="POST">
                                       <div class="row justify-content-center">
                                         <div class="col-12 col-sm-12 col-md-12 col-lg-12  mt-4">
-                                            <div class="form-outline">
-                                                <label for="lookupSelectbox" class="form-label">Type</label>
+                                          <div class="form-outline">
+                                            <!-- <label for="lookupSelectbox" class="form-label">Type</label>
+                                              <select class="form-select form-control py-2" value="lookupSelectbox" for="lookup" id="lookupSelectbox" name="lookup_Selectbox" aria-label="Default select example">
+                                                <option value="" id="" >Select Type Name</option>
+                                              </select> -->
+                                              <label for="lookupSelectbox" class="form-label">Type</label>
                                                 <select class="form-select form-control py-2" value="lookupSelectbox" for="lookupSelectbox" id="lookupSelectbox" aria-label="Default select example">
                                                   <option value="" id="lookupSelect">Select Type Name</option>
                                                 </select>
-                                            </div>
+                                          </div>
                                         </div>
                                         <div class="col-12 mt-4">
-                                            <div class="form-outline">
-                                            <label for="lookup_data_value" class="form-label"> Lookup Data Name</label>
-                                              <input type="text" class="form-control" placeholder=" " id="lookup_data_value"  for="lookup_data_value" >
-                                             
-                                            </div>
+                                          <div class="form-outline">
+                                            <label for="lookup_data_value" class="form-label text-dark"> Lookup Data Name</label>
+                                              <input type="text" class="form-control" placeholder=" " id="lookup_data_value"  for="lookup_data" name="lookup_datavalue">
+                                          </div>
                                         </div>
                                       </div>
-                                      <button type="button" class="btn btn-success  mt-3 mb-0 btn_all" id="login">Submit</button>
+                                      <button type="button" class="btn btn-success  mt-3 mb-0 btn_all" id="lookup_data_submit">Submit</button>
                                     </form>
                                   </div>
                               </div>
@@ -115,6 +118,52 @@ include 'includes/headertag.php';
     </div>
    </section>
       
+
+   <div class="modal fade" id="staticBackdrop_2" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                  <div class="modal-dialog  modal-dialog-centered">
+                    <div class="modal-content modal_box">
+                      <div class="modal-header modal_head">
+                        <h5 class="modal-title text-white fw-bold" id="staticBackdropLabel">Update Lookup Data</h5>
+                        <button type="button" class="btn-close btn-success" data-bs-dismiss="modal" aria-label="Close"></button>
+                      </div>
+                      <div class="modal-body bg-white">
+                              <div class="row justify-content-center">
+                                  <div class="col-12">
+                                    <!-- <h5 class="text-center">Fill Details</h5> -->
+                                    <form id="lookup_data_form_1" method="POST">
+                                      <div class="row justify-content-center">
+                                        <div class="col- col-sm-6 col-lg-6 col-md-6" hidden>
+                                          <label class="text-dark"> id Name<span class="text-danger">*</span></label>
+                                          <input type="text" class="form-control py-2" for="idUser"  id="idUser" name="first_name" placeholder="Enter First Name">
+                                          <small></small>
+                                        </div> 
+                                        <div class="col-12 col-sm-12 col-md-12 col-lg-12  mt-4">
+                                          <div class="form-outline">
+                                            <label for="lookupSelectbox" class="form-label">Type</label>
+                                              <select class="form-select form-control py-2" value="lookupSelectbox" for="lookup" id="lookupSelectbox1" name="lookup_Selectbox1" aria-label="Default select example">
+                                                <option value="" >Select Type Name</option>
+                                              </select>
+                                          </div>
+                                        </div>
+                                        <div class="col-12 mt-4">
+                                          <div class="form-outline">
+                                            <label for="lookup_data_value" class="form-label text-dark"> Lookup Data Name</label>
+                                              <input type="text" class="form-control" placeholder=" " id="lookup_data_value1"  for="lookup_data" name="lookup_datavalue1">
+                                          </div>
+                                        </div>
+                                      </div>
+                                      
+                                    </form>
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary px-3" data-bs-dismiss="modal">Close</button>
+                            <button type="button" id="dataeditbtn" class="btn btn-success fw-bold px-3">Save Chnage</button>
+                          </div>
+                    </div>
+                  </div>
+                </div>
     
 </div>
 </div>

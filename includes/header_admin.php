@@ -104,9 +104,10 @@ window.setInterval(() => {
   
 
     var currentdate = new Date();
-    console.log("hello");
-    console.log('currentdate',currentdate);
-    console.log('expiretime',expireTime);
+    // console.log("hello");
+    // console.log('currentdate',currentdate);
+    // console.log('expiretime',expireTime);
+    console.log(currentdate >= expireTime)
     console.log(currentdate >= expireTime)
     if (currentdate >= expireTime) {
         
