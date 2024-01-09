@@ -426,6 +426,12 @@ function get_news() {
         tableBody.innerHTML = '<tr><td colspan="4">No valid data available</td></tr>';
     }
   }
+
+  function resetForm() {
+    $('#category_name').val('');
+      $('#head_search').val('');
+              }
+
   // **delete***
 function destroy(id) {
     var apiBaseURL = APIBaseURL;

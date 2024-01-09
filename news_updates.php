@@ -129,7 +129,7 @@
             <div class="col-12 col-sm-12 col-md-4 col-lg-4">
               <div class="text-center float-end">
               <button type="button" class="btn-success btn btn_all" id="Search_data">Search</button>
-                <button type="button" class="btn-success btn btn_all" id="Reset">Reset</button>
+                <button type="button" class="btn-success btn btn_all" onclick="resetForm()" id="Reset">Reset</button>
               </div>
             </div>
           </div>
