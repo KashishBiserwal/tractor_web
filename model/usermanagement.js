@@ -229,7 +229,7 @@ $('#save').on('click', function() {
                           { title: 'Action', orderable: false } // Disable ordering for Action column
                       ],
                         paging: true,
-                        searching: true,
+                        searching: false,
                         // ... other options ...
                     });
               

@@ -42,12 +42,20 @@ include 'includes/footertag.php';
                             <div class="col-lg-10">
                               <h4 class="text-center" style="font-weight:600">Fill your Details</h4>
                             <form>
+                            <div class="col-12 col-lg-6 col-md-6 col-sm-6 mt-3" hidden>
+                                  <div class="form-outline ">
+                                    <label for="name" class="form-label text-dark">Product id</label>
+                                    <input type="text" class="form-control" placeholder="Enter Your Model Name" value="4" id="product_type_id" name="product_type_id">
+                                  </div>
+                               </div>
                                 <div class="row justify-content-center py-3">
                                   <h5 class="fw-bold mb-3">Specification</h5>
                                     <div class="col-12 col-sm-6 col-lg-6 col-md-6 mt-3">
                                       <div class="form-outline">
                                         <label class="form-label">Brand</label>
-                                        <input type="email" name="brand" id="brand" class="form-control">
+                                        <select class="form-select form-control" aria-label=".form-select-lg example" id="brand" name="brand">
+                                      
+                                      </select>
                                       </div>
                                     </div>
                                     <div class="col-12 col-sm-6 col-lg-6 col-md-6 mt-3">
@@ -71,11 +79,8 @@ include 'includes/footertag.php';
                                     <div class="col-12 col-sm-4 col-lg-4 col-md-4 mt-3">
                                       <div class="form-outline">
                                         <label class="form-label">Air Filter</label>
-                                        <select class="form-select form-control" id="air_filter" name="air_filter" aria-label="Default select example">
-                                            <option selected disabled></option>
-                                            <option value="1">Mahindra</option>
-                                            <option value="2">Swaraj</option>
-                                            <option value="3">John Deere</option>
+                                        <select class="form-select form-control" id="AIR_FILTER" name="AIR_FILTER" aria-label="Default select example">
+                                            <option selected disabled>Please select an option</option>
                                         </select>
                                       </div>
                                     </div>
@@ -88,11 +93,8 @@ include 'includes/footertag.php';
                                     <div class="col-12 col-sm-6 col-lg-6 col-md-6 mt-3">
                                       <div class="form-outline">
                                         <label class="form-label">Cylinder</label>
-                                        <select class="form-select form-control" id="cylinder" name="cylinder" aria-label="Default select example">
-                                            <option selected disabled></option>
-                                            <option value="1">1</option>
-                                            <option value="2">2</option>
-                                            <option value="3"> 3</option>
+                                        <select class="form-select form-control" id="TOTAL_CYCLINDER" name="cylinder" aria-label="Default select example">
+                                            <option selected disabled>Please select an option</option>
                                         </select>
                                       </div>
                                     </div>
@@ -118,26 +120,37 @@ include 'includes/footertag.php';
                                     <div class="col-12 col-sm-6 col-lg-6 col-md-6 mt-3">
                                       <div class="form-outline">
                                         <label class="form-label">Height Adjustment</label>
-                                        <input type="email" name="height_adjust" id="height_adjust" class="form-control">
+                                        <!-- <input type="email" name="height_adjust" id="height_adjust" class="form-control"> -->
+                                        <select class="form-select form-control" id="CUTTER_BAR_HEIGHT_ADJUSTMENT" name="CUTTER_BAR_HEIGHT_ADJUSTMENT" aria-label="Default select example">
+                                            <option selected disabled>Please select an option</option>
+                                        </select>
                                       </div>
                                     </div>
                                     <h5 class="fw-bold my-3">Reel</h5>
                                     <div class="col-12 col-lg-4 col-sm-4 col-md-4 mt-3">
                                       <div class="form-outline">
                                         <label class="form-label">Type</label>
-                                        <input type="email" name="type" id="type" class="form-control">
+                                        <!-- <input type="email" name="type" id="type" class="form-control"> -->
+                                        <select class="form-select form-control" id="REEL_TYPE" name="REEL_TYPE" aria-label="Default select example">
+                                            <option selected disabled>Please select an option</option>
+                                        </select>
                                       </div>
                                     </div>
                                     <div class="col-12 col-lg-4 col-sm-4 col-md-4 mt-3">
                                       <div class="form-outline">
                                         <label class="form-label">Reel Diameter</label>
                                         <input type="email" name="reel_dia" id="reel_dia" class="form-control">
+
+
                                       </div>
                                     </div>
                                     <div class="col-12 col-lg-4 col-sm-4 col-md-4 mt-3">
                                       <div class="form-outline">
                                         <label class="form-label">Speed Adjustment</label>
-                                        <input type="email" name="speed_adj" id="speed_adj" class="form-control">
+                                        <!-- <input type="email" name="speed_adj" id="speed_adj" class="form-control"> -->
+                                        <select class="form-select form-control" id="REEL_SPEED_CONTROL" name="REEL_SPEED_CONTROL" aria-label="Default select example">
+                                            <option selected disabled>Please select an option</option>
+                                        </select>
                                       </div>
                                     </div>
                                     <div class="col-12 col-lg-4 col-sm-4 col-md-4 mt-3">
@@ -155,7 +168,10 @@ include 'includes/footertag.php';
                                     <div class="col-12 col-lg-4 col-sm-4 col-md-4 mt-3">
                                       <div class="form-outline">
                                         <label class="form-label">Height Adjustment</label>
-                                        <input type="email" name="height_adj" id="height_adj" class="form-control">
+                                        <!-- <input type="email" name="REEL_HEIGHT_ADJUSTMENT" id="height_adj" class="form-control"> -->
+                                        <select class="form-select form-control" id="REEL_HEIGHT_ADJUSTMENT" name="REEL_HEIGHT_ADJUSTMENT" aria-label="Default select example">
+                                            <option selected disabled>Please select an option</option>
+                                        </select>
                                       </div>
                                     </div>
 
@@ -163,7 +179,10 @@ include 'includes/footertag.php';
                                     <div class="col-sm-6 col-lg-6 col-md-6 mt-3">
                                       <div class="form-outline">
                                         <label class="form-label">Cooling System</label>
-                                        <input type="email" name="min_revol" id="cool_system" class="form-control">
+                                        <!-- <input type="email" name="min_revol" id="cool_system" class="form-control"> -->
+                                        <select class="form-select form-control" id="COOLING" name="cylinder" aria-label="Default select example">
+                                            <option selected disabled>Please select an option</option>
+                                        </select>
                                       </div>
                                     </div>
                                     <div class="col-sm-6 col-lg-6 col-md-6 mt-3">
@@ -173,22 +192,32 @@ include 'includes/footertag.php';
                                       </div>
                                     </div>
                                     <h5 class="fw-bold my-3">Threshing & Cleaning System</h5>
-                                    <div class="col-12 col-sm-6 col-lg-6 col-md-6 mt-3">
+                                    <div class="col-12 col-sm-6 col-lg-4 col-md-4 mt-3">
                                       <div class="form-outline">
                                         <label class="form-label">Thresing Drump Width</label>
                                         <input type="email" name="drump_width" id="drump_width" class="form-control">
                                       </div>
                                     </div>
-                                    <div class="col-12 col-sm-6 col-lg-6 col-md-6 mt-3">
+                                    <div class="col-12 col-sm-6 col-lg-4 col-md-4 mt-3">
                                       <div class="form-outline">
                                         <label class="form-label">Thresing Drump Length</label>
                                         <input type="email" name="drump_length" id="drump_length" class="form-control">
                                       </div>
                                     </div>
+                                    <div class="col-12 col-sm-6 col-lg-4 col-md-4 mt-3">
+                                      <div class="form-outline">
+                                        <label class="form-label">Thresing Drump Diameter</label>
+                                        <input type="email" name="drump_diameter" id="drump_diameter" class="form-control">
+
+                                      </div>
+                                    </div>
                                     <div class="col-12 col-sm-6 col-lg-6 col-md-6 mt-3">
                                       <div class="form-outline">
                                         <label class="form-label">Thresing Drum Speed Adjustment</label>
-                                        <input type="email" name="drump_adjust" id="drump_adjust" class="form-control">
+                                        <!-- <input type="email" name="drump_adjust" id="drump_adjust" class="form-control"> -->
+                                        <select class="form-select form-control" id="THRESHING_DRUM_SPEED_ADJUSTMENT" name="THRESHING_DRUM_SPEED_ADJUSTMENT" aria-label="Default select example">
+                                            <option selected disabled>Please select an option</option>
+                                        </select>
                                       </div>
                                     </div>
                                     <div class="col-12 col-sm-6 col-lg-6 col-md-6 mt-3">
@@ -197,6 +226,7 @@ include 'includes/footertag.php';
                                         <input type="email" name="clear_concave" id="clear_concave" class="form-control">
                                       </div>
                                     </div>
+                                    
                                     <h5 class="fw-bold my-3">Grain Handling</h5>
                                     <div class="col-12  col-sm-6 col-lg-6 col-md-6 mt-3">
                                       <div class="form-outline">
@@ -204,10 +234,21 @@ include 'includes/footertag.php';
                                         <input type="email" name="tank_capa" id="tank_capa" class="form-control">
                                       </div>
                                     </div>
+                                    <div class="col-12 col-sm-6 col-lg-6 col-md-6 mt-3"></div>
+
+                                    <h5 class="fw-bold my-3">Transmission and Clutch</h5>
+                                    <div class="col-12  col-sm-6 col-lg-6 col-md-6 mt-3">
+                                      <div class="form-outline">
+                                        <label class="form-label">Transmission (No. Of Gears)</label>
+                                        <input type="email" name="transmission_gears" id="transmission_gears" class="form-control">
+                                      </div>
+                                    </div>
                                     <div class="col-12  col-sm-6 col-lg-6 col-md-6 mt-3">
                                       <div class="form-outline">
                                         <label class="form-label">Clutch Type</label>
-                                        <input type="email" name="clutch_type" id="clutch_type" class="form-control">
+                                        <select class="form-select form-control" id="TRANSMISSION_CLUTCH" name="TRANSMISSION_CLUTCH" aria-label="Default select example">
+                                            <option selected disabled>Please select an option</option>
+                                        </select>
                                       </div>
                                     </div>
                                     <h5 class="fw-bold my-3">Tyre Specification</h5>
@@ -265,7 +306,10 @@ include 'includes/footertag.php';
                                     <div class="col-12 col-lg-6 col-md-6 col-sm-6 mt-3">
                                       <div class="form-outline">
                                         <label class="form-label">Crops</label>
-                                        <input type="email" name="crops" id="crops" class="form-control">
+                                        <!-- <input type="email" name="crops" id="crops" class="form-control"> -->
+                                        <select class="form-select form-control" id="CROPS_TYPE" name="cylinder" aria-label="Default select example">
+                                            <option selected disabled>Please select an option</option>
+                                        </select>
                                       </div>
                                     </div>
                                     <div class="col-12 col-lg-6 col-md-6 col-sm-6">
@@ -323,17 +367,7 @@ include 'includes/footertag.php';
                 </select>
               </div>
             </div>
-            <div class="col-12 col-sm-12 col-md-3 col-lg-3">
-              <div class="form-outline">
-                <label class="form-label">category</label>
-                <select class="form-select form-control" aria-label="Default select example">
-                    <option selected>Select Category</option>
-                    <option value="1">name1</option>
-                    <option value="2">name2</option>
-                    <option value="3">name3</option>
-                </select>
-              </div>
-            </div>
+          
             <div class="col-12 col-sm-12 col-md-3 col-lg-3">
                 <div class="text-center">
                     <button type="button" class="btn-success btn btn_all" id="Search">Search</button>
@@ -348,15 +382,17 @@ include 'includes/footertag.php';
         </div>
       </div>
       <!-- Table Card -->
-      <div class=" mb-5">
-            <div class="table-responsive shadow bg-white mt-3">
+      <div class=" mb-5 shadow bg-white mt-3 p-3">
+            <div class="table-responsive">
               <table id="example" class="table table-striped  table-hover table-bordered dataTable no-footer" width="100%; margin-bottom: 15px;">
                 <thead class="">
                   <tr>
                 <th class="d-none d-md-table-cell text-white">S.No.</th>
-                <th class="d-none d-md-table-cell text-white">Category </th>
                 <th class="d-none d-md-table-cell text-white">Brand</th>
                 <th class="d-none d-md-table-cell text-white">Model Name </th>
+                <th class="d-none d-md-table-cell text-white">HP Power</th>
+                <th class="d-none d-md-table-cell text-white">Air Filter</th>
+                <th class="d-none d-md-table-cell text-white">Crops</th>
                 <th class="d-none d-md-table-cell text-white">Action</th>
               </tr>
             </thead>
@@ -366,6 +402,170 @@ include 'includes/footertag.php';
         </div>
       </div>
     </div>
+
+    <div class="modal fade" id="view_model_harvester" tabindex="-1" role="dialog" aria-labelledby="viewModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-xl" role="document">
+    <div class="modal-content">
+      <div class="modal-header bg-success text-white">
+        <h4 class="modal-title">New Tractor Information</h4>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <div class="container">
+          <table class="table">
+                        <tbody>
+                          <tr>
+                            <td colspan="4" class="fw-bold text-center py-3">Listing</td>
+                          </tr>
+                          <tr>
+                            <td class="bg-light">Brand</td>
+                            <td class="bg-light" id="brand_name"></td>
+                            <td>Model Name</td>
+                            <td id="model_name"></td>
+                          </tr>
+                          <tr>
+                            <td>Engine Rated RPM</td>
+                            <td id="engine_rpm"></td>
+                            <td class="bg-light">HP Power</td>
+                            <td id="hp_power" class="bg-light"></td>
+                          </tr>
+                          <tr>
+                          <td>Air Filter</td>
+                            <td id="air_filter"></td>
+                            <td>Engine</td>
+                            <td id="engine"></td>
+                          </tr>
+                          <tr>
+                          
+                            <td class="bg-light">Cylinder</td>
+                            <td id="cylinder" class="bg-light"></td>
+                          </tr>
+                          <tr>
+                            <td colspan="4" class="fw-bold text-center py-3">Cutter Bar & Cutting Mechanism</td>
+                          </tr>
+                          <tr>
+                            <td class="bg-light">Cutter Bar Width (ft.)</td>
+                            <td id="cutter_bar_width" class="bg-light"></td>
+                            <td>Maximum Cutting Height</td>
+                            <td id="max_cutting_height"></td>
+                          </tr>
+                          <tr>
+                            <td>Minimum Cutting Height</td>
+                            <td id="min_cutting_height"></td>
+                            <td class="bg-light">Height Adjustment</td>
+                            <td id="height_adjust" class="bg-light"></td>
+                          </tr>
+                          <tr>
+                            <td colspan="4" class="fw-bold text-center py-3">Reel</td>
+                          </tr>
+                          <tr>
+                            <td class="bg-light">Type</td>
+                            <td id="reel_type"class="bg-light"></td>
+                            <td>Reel Diameter</td>
+                            <td id="reel_diameter"></td>
+                          </tr>
+                          <tr>
+                            <td>Speed Adjustment</td>
+                            <td id="speed_adjust"></td>
+                            <td class="bg-light">Minimum Revolution</td>
+                            <td id="min_revo"class="bg-light"></td>
+                          </tr>
+                          <tr>
+                            <td class="bg-light">Maximum Revolution</td>
+                            <td id="max_revo" class="bg-light"></td>
+                            <td>Height Adjustment</td>
+                            <td id="reel_height_adjust"></td>
+                          </tr>
+                          <tr>
+                          <td colspan="4" class="fw-bold text-center py-3">Cooling System</td>
+                          </tr>
+                          <tr>
+                            <td class="bg-light">Cooling System</td>
+                            <td id="cooling_sys" class="bg-light"></td>
+                            <td>Coolent Capacity</td>
+                            <td id="coolent_capacity"></td>
+                          </tr>
+                          <tr>
+                          <td colspan="4" class="fw-bold text-center py-3">Threshing & Cleaning System</td>
+                          </tr>
+                          <tr>
+                            <td>Thresing Drump Width</td>
+                            <td id="thresing_duump_width"></td>
+                            <td class="bg-light">Thresing Drump Length</td>
+                            <td id="drump_length" class="bg-light"></td>
+                          </tr> <tr>
+                            <td class="bg-light">Thresing Drump Diameter</td>
+                            <td id="drump_diameter" class="bg-light"></td>
+                            <td>Thresing Drum Speed Adjustment</td>
+                            <td id="drump_speed_adjust"></td>
+                            
+                          </tr>
+                          <tr>
+                          <td>Clearance Concave</td>
+                            <td id="clearance_concave"></td>
+                          </tr>
+                          <td colspan="4" class="fw-bold text-center py-3">Grain Handling</td>
+                          <tr>
+                            <td class="bg-light">Grain Trank Capacity (m3)</td>
+                            <td id="grain_tank_capacity" class="bg-light"></td>
+                          </tr>
+                          <td colspan="4" class="fw-bold text-center py-3">Transmission and Clutch</td>
+                          <tr>
+                            <td class="bg-light">Transmission (No. Of Gears)</td>
+                            <td id="transmission" class="bg-light"></td>
+                            <td>Clutch Type</td>
+                            <td id="clutch_type"></td>
+                          </tr>
+                          <td colspan="4" class="fw-bold text-center py-3">Tyre Specification</td>
+                          <tr>
+                            <td class="bg-light">Tyre Size(Front)</td>
+                            <td id="front_tyre" class="bg-light"></td>
+                            <td>Tyre Size(Rear)</td>
+                            <td id="rear_tyre"></td>
+                          </tr>
+                          <td colspan="4" class="fw-bold text-center py-3">Fuel & Capacity</td>
+                          <tr>
+                            <td class="bg-light">Fuel Tank Capacity(L)</td>
+                            <td id="fuel_capacity" class="bg-light"></td>
+                            <td>Total weight Without Grain(kg)</td>
+                            <td id="weight_grain"></td>
+                          </tr>
+                          <td colspan="4" class="fw-bold text-center py-3">Dimensions & Clearance</td>
+                          <tr>
+                            <td class="bg-light">Length(mm)</td>
+                            <td id="length" class="bg-light"></td>
+                            <td>Height(mm)</td>
+                            <td id="height"></td>
+                          </tr>
+                          <tr>
+                            <td>Width(mm)</td>
+                            <td id="width"></td>
+                            <td>Ground Clearance</td>
+                            <td id="ground_clearance"></td>
+                          </tr>
+                          <td colspan="4" class="fw-bold text-center py-3">Crops & Additional Features</td>
+                          <tr>
+                            <td class="bg-light">Crops</td>
+                            <td id="crops" class="bg-light"></td>
+                          </tr>
+                          
+                          <tr>
+                            <td class="bg-light">Upload images</td>
+                            <td colspan="3">
+                              <div id="selectedImagesContainer1" class="upload__img-wrap row"></div>
+                                 
+                            </td>
+                          </tr>
+                        </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
   </section>
       
     

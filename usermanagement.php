@@ -168,14 +168,14 @@ include 'includes/headertag.php';
               <table id="example" class="table table-striped  table-hover table-bordered dataTable no-footer" width="100%; margin-bottom: 15px;">
                 <thead class="">
                   <tr>
-                    <th class="d-none d-md-table-cell text-white py-2">S.No.</th>
-                    <th class="d-none d-md-table-cell text-white py-2">Date</th>
-                    <th class="d-none d-md-table-cell text-white py-2">Name</th>
-                    <th class="d-none d-md-table-cell text-white py-2">Mobile Number</th>
-                    <th class="d-none d-md-table-cell text-white py-2">User Type</th>
-                    <th class="d-none d-md-table-cell text-white py-2">Status</th>
+                    <th class="d-none d-md-table-cell text-white ">S.No.</th>
+                    <th class="d-none d-md-table-cell text-white">Date</th>
+                    <th class="d-none d-md-table-cell text-white">Name</th>
+                    <th class="d-none d-md-table-cell text-white">Mobile Number</th>
+                    <th class="d-none d-md-table-cell text-white">User Type</th>
+                    <th class="d-none d-md-table-cell text-white">Status</th>
                     
-                    <th class="d-none d-md-table-cell text-white py-2">Action</th>
+                    <th class="d-none d-md-table-cell text-white">Action</th>
                   </tr>
                 </thead>
                 <tbody id="data-table">
