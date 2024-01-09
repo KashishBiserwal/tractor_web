@@ -90,16 +90,16 @@ include 'includes/headertag.php';
               <table id="example" class="table dataTable no-footer py-1" width="100%">
                 <thead>
                   <tr>
-                    <th class="d-none d-md-table-cell text-dark">S.No.</th>
-                    <th class="d-none d-md-table-cell text-dark">Date</th>
-                    <th class="d-none d-md-table-cell text-dark">Brand</th>
-                    <th class="d-none d-md-table-cell text-dark">Category</th>
-                    <th class="d-none d-md-table-cell text-dark">Implement Type</th>
-                    <th class="d-none d-md-table-cell text-dark">Name</th>
-                    <th class="d-none d-md-table-cell text-dark">Phone Number</th>
-                    <th class="d-none d-md-table-cell text-dark">State</th>
-                    <th class="d-none d-md-table-cell text-dark">District</th>
-                    <th class="d-none d-md-table-cell text-dark">Action</th>
+                    <th class="d-none d-md-table-cell text-white">S.No.</th>
+                    <th class="d-none d-md-table-cell text-white">Date</th>
+                    <th class="d-none d-md-table-cell text-white">Brand</th>
+                    <th class="d-none d-md-table-cell text-white">Category</th>
+                    <th class="d-none d-md-table-cell text-white">Implement Type</th>
+                    <th class="d-none d-md-table-cell text-white">Name</th>
+                    <th class="d-none d-md-table-cell text-white">Phone Number</th>
+                    <th class="d-none d-md-table-cell text-white">State</th>
+                    <th class="d-none d-md-table-cell text-white">District</th>
+                    <th class="d-none d-md-table-cell text-white">Action</th>
                   </tr>
                 </thead>
               <tbody>
@@ -108,7 +108,7 @@ include 'includes/headertag.php';
           </div>
         </div>
     </div>
-   </section>
+</section>
    
    <?php
    include 'includes/footertag.php';
