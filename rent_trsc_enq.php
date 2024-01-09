@@ -1,8 +1,13 @@
 <?php
-   include 'includes/headertagadmin.php';
-  
+    include 'includes/headertag.php';
+    include 'includes/headertagadmin.php';
+   include 'includes/footertag.php';
    
    ?> 
+     <script> var APIBaseURL = "<?php echo $APIBaseURL; ?>";</script>
+  <script> var baseUrl = "<?php echo $baseUrl; ?>";</script>
+  <script src="<?php $baseUrl; ?>model/rent_trsc_enq.js"></script>
+
 <body class="loaded"> 
 <div class="main-wrapper">
     <div class="app" id="app">
@@ -142,7 +147,7 @@
               </div>
             </div>
             <div class="col-12 col-sm-12 col-md-3 col-lg-3">
-              <div class=" mt-4 pt-1">
+              <div class="">
                 <button type="button" class="btn-success btn px-3 py-2" id="Search">Search</button>
                 <button type="button" class="btn-success btn  mx-2 px-3 py-2" id="Reset">Reset</button>
               </div>

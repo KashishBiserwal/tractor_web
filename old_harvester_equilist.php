@@ -98,8 +98,7 @@
                                   <div class="form-outline">
                                     <label class="form-label text-dark">Hours</label>
                                     <select class="form-select form-control " aria-label=".form-select-lg example" id="hours" name="hours">
-                                          
-                                      </select>
+                                    </select>
                                     </select>
                                   </div>
                                 </div>
@@ -128,12 +127,12 @@
                                             <div id="selectedImagesContainer" class="upload__img-wrap"></div>
                                           </div>
                                         </div>
-                               <div class="col-12 mt-3">
-                                            <div class="form-outline">
-                                                <label class="form-label text-dark">About</label>
-                                                <textarea rows="4" cols="70" class="w-100" minlength="1" maxlength="255" id="about" name="about"></textarea>
-                                            </div>
-                                        </div>
+                                <div class="col-12 mt-3">
+                                  <div class="form-outline">
+                                    <label class="form-label text-dark">About</label>
+                                      <textarea rows="4" cols="70" class="w-100 p-2" minlength="1" maxlength="255" id="about" name="about"></textarea>
+                                    </div>
+                                </div>
                                   <h5 class="fw-bold mt-4 ">Personal Information</h5>
                                 <div class="col-12 col-sm-6 col-lg-6 col-md-6  mt-3">
                                   <div class="form-outline">
@@ -218,33 +217,36 @@
             <div class="col-12 col-sm-12 col-md-3 col-lg-3">
               <div class="form-outline ">
                 <label class="form-label">Model</label>
-                    <select class="form-select form-control" aria-label="Default select example">
+                <input type="text" class="form-control"aria-label="Default select example">
+                    <!-- <select class="form-select form-control" aria-label="Default select example">
                         <option selected>Select Model</option>
                         <option value="1">3032 NX</option>
                         <option value="2">3030 NX</option>
                         <option value="3">3230 NX</option>
-                    </select>
+                    </select> -->
               </div>
             </div>
             <div class="col-12 col-sm-12 col-md-3 col-lg-3">
               <div class="form-outline">
                 <label class="form-label">State</label>
-                <select class="form-select form-control" aria-label="Default select example">
+                <input type="text" class="form-control"aria-label="Default select example">
+                <!-- <select class="form-select form-control" aria-label="Default select example">
                     <option value>Select State</option>
                     <option value="1">Chattisgarh</option>
                     <option value="2">Other</option>
-                </select>
+                </select> -->
               </div>
             </div>
             <div class="col-12 col-sm-12 col-md-3 col-lg-3">
               <div class="form-outline">
                 <label class="form-label">District</label>
-                <select class="form-select form-control" aria-label="Default select example">
+                <input type="text" class="form-control"aria-label="Default select example">
+                <!-- <select class="form-select form-control" aria-label="Default select example">
                     <option value>Select District</option>
                     <option value="1">Raipur</option>
                     <option value="2">Bilaspur</option>
                     <option value="3">Surajpur</option>
-                </select>
+                </select> -->
               </div>
             </div>
             <div class="col-12 mt-4">
@@ -264,26 +266,99 @@
               <table id="example" class="table table-striped  table-hover table-bordered dataTable no-footer" width="100%; margin-bottom: 15px;">
                 <thead class="">
                   <tr>
-                                            <th class="d-none d-md-table-cell text-white">Date</th>
-                                            <th class="d-none d-md-table-cell text-white">Brand</th>
-                                            <th class="d-none d-md-table-cell text-white"> Model </th>
-                                            <th class="d-none d-md-table-cell text-white"> Year </th>
-                                            <th class="d-none d-md-table-cell text-white"> State </th>
-                                            <th class="d-none d-md-table-cell text-white"> district </th>
-                                            <th class="d-none d-md-table-cell text-white"> Phone Numner </th>
-                                            <th class="d-none d-md-table-cell text-white"> Action </th>
-                                        </tr>
-                                    </thead>
-                                    <tbody id="data-table">
-                                    </tbody>
-                                </table>
-                            </div>
+                    <th class="d-none d-md-table-cell text-white">Date</th>
+                    <th class="d-none d-md-table-cell text-white">Brand</th>
+                    <th class="d-none d-md-table-cell text-white"> Model </th>
+                    <th class="d-none d-md-table-cell text-white"> Year </th>
+                    <th class="d-none d-md-table-cell text-white"> State </th>
+                    <th class="d-none d-md-table-cell text-white"> district </th>
+                    <th class="d-none d-md-table-cell text-white"> Phone Number </th>
+                    <th class="d-none d-md-table-cell text-white"> Action </th>
+                  </tr>
+                </thead>
+              <tbody id="data-table">
+              </tbody>
+            </table>
+          </div>
     </div>
    </section>
       
-    
+   <div class="modal fade" id="view_old_harvester" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg modal-dialog-centered">
+              <div class="modal-content modal_box">
+                <div class="modal-header modal_head">
+                  <h5 class="modal-title text-white fw-bold" id="staticBackdropLabel">Old Harvester Information </h5>
+                  <button type="button" class="btn-close btn-success" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                  <div class="modal-body bg-light">
+                    <div class="row ">
+                       <div class="col-12">
+                        <table class="table table-striped">
+                        <tbody>
+                         <tr>
+                            <td>Brand-</td>
+                            <td id="brand_name"></td>
+                            <td>Model Name-</td>
+                            <td id="model_name_1"></td>
+                          </tr>
+                          <tr>
+                            <td>Crop Type-</td>
+                            <td id="CROPS_TYPE_1"></td>
+                            <td>Power Sourcer-</td>
+                            <td id="POWER_SOURCE_1"></td>
+                          </tr>
+                          <tr>
+                            <td>Hours-</td>
+                            <td id="hours_1"></td>
+                            <td>Purchase Year-</td>
+                            <td id="year_1"></td>
+                          </tr>
+                          <tr>
+                            <td>Price-</td>
+                            <td id="Price_1"></td>
+                            <tr>
+                              <td>Upload images-</td>
+                              <td colspan="3">
+                                  <div class="col-12">
+                                      <div id="selectedImagesContainer1" class="upload__img-wrap row"></div>
+                                  </div>
+                              </td>
+                          </tr>
+                            <td>About-</td>
+                            <td id="About_1"></td>
+                          <tr>
+                            <td>First Name-</td>
+                            <td id="First_Name"></td>
+                            <td>Last Name-</td>
+                            <td id="Last_Name"></td>
+                          </tr>
+                          <tr>
+                            <td>Mobile-</td>
+                            <td id="Mobile_1"></td>
+                            <td>State-</td>
+                            <td id="State_1"></td>
+                          </tr>
+                          <tr>
+                            <td>District-</td>
+                            <td id="District_1"></td>
+                            <td>Tehsil-</td>
+                            <td id="Tehsil_1"></td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>  
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary px-3" data-bs-dismiss="modal">Close</button>
+                  <!-- <button type="submit" id="btn_sb" class="btn btn-success fw-bold px-3">Submit</button> -->
+                </div>
+              </div>
+            </div>
+          </div>
+    </div>
 </div>
 </div>
+
 </body>
 
 

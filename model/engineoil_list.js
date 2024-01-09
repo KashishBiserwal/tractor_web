@@ -554,9 +554,7 @@ jQuery(document).ready(function () {
       });
     });
    
-   
-
-    $('body').on('click', ".upload__img-close", function (e) {
+  $('body').on('click', ".upload__img-close", function (e) {
       var file = $(this).parent().data("file");
       for (var i = 0; i < imgArray.length; i++) {
         if (imgArray[i].name === file) {
@@ -566,11 +564,7 @@ jQuery(document).ready(function () {
       }
       $(this).parent().parent().remove();
     });
-
-
-  
   }
-
 
   function removeImage(ele){
     console.log(ele);
@@ -582,16 +576,16 @@ jQuery(document).ready(function () {
 
   }
 
-function fetch_edit_data(id) {
-  var apiBaseURL = APIBaseURL;
-  var url = apiBaseURL + 'engine_oil/' + id;
-  console.log(url);
+  function fetch_edit_data(id) {
+    var apiBaseURL = APIBaseURL;
+    var url = apiBaseURL + 'engine_oil/' + id;
+    console.log(url);
 
-  var headers = {
-      'Authorization': 'Bearer ' + localStorage.getItem('token')
-  };
+    var headers = {
+        'Authorization': 'Bearer ' + localStorage.getItem('token')
+    };
 
-  $.ajax({
+    $.ajax({
       url: url,
       type: 'GET',
       headers: headers,
@@ -637,7 +631,6 @@ function fetch_edit_data(id) {
   });
 }
 
-
 function edit_user(id){
   console.log(id);
   var edit_id = $("#idUser").val();
@@ -673,6 +666,8 @@ function edit_user(id){
   data.append('price', price);
   data.append('compatible_model',ass);
   data.append('description', description);
+  var compatibleModel =[];
+
 
   $.ajax({
       url: url,

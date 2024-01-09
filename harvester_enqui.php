@@ -1,6 +1,12 @@
 <?php
-   include 'includes/headertagadmin.php';
+    include 'includes/headertag.php';
+    include 'includes/headertagadmin.php';
+   include 'includes/footertag.php';
+   
    ?> 
+     <script> var APIBaseURL = "<?php echo $APIBaseURL; ?>";</script>
+  <script> var baseUrl = "<?php echo $baseUrl; ?>";</script>
+  <script src="<?php $baseUrl; ?>model/harvester_enqui.js"></script>
 <body class="loaded"> 
  <div class="main-wrapper">
     <div class="app" id="app">
@@ -16,7 +22,7 @@
             <ol class="breadcrumb my-0 ms-2">
               
               <li class="breadcrumb-item">
-                <span> Used Tractor Enquiries</span>
+                <span>New Harvester Enquiries</span>
               </li>
             </ol>
           </nav>
@@ -51,7 +57,7 @@
            
             
             <div class="col-12 col-sm-12 col-md-3 col-lg-3">
-              <div class="float-end text-center pt-4 mt-1">
+              <div class="float-end text-center ">
                 <button type="button" class="btn-success btn px-4 py-2" id="Search">Search</button>
                 <button type="button" class="btn-success mx-2 btn px-4 py-2" id="Reset">Reset</button>
               </div>
@@ -66,12 +72,13 @@
                 <thead>
                   <tr>
                     <th class="d-none d-md-table-cell text-white">S.No.</th>
-                    <th class="d-none d-md-table-cell text-white">Model Name </th>
                     <th class="d-none d-md-table-cell text-white">Date</th>
-                    <th class="d-none d-md-table-cell text-white">Power</th>
-                    <th class="d-none d-md-table-cell text-white">Cutter bar</th>
-                    <th class="d-none d-md-table-cell text-white">No. of Cylinder</th>
+                    <th class="d-none d-md-table-cell text-white">Brand</th>
                     <th class="d-none d-md-table-cell text-white">Power Source</th>
+                    <th class="d-none d-md-table-cell text-white">Name</th>
+                    <th class="d-none d-md-table-cell text-white">Mobile</th>
+                    <th class="d-none d-md-table-cell text-white">State</th>
+                    <th class="d-none d-md-table-cell text-white">District</th>
                     <th class="d-none d-md-table-cell text-white">Action</th>
                   </tr>
                 </thead>
