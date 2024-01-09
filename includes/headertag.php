@@ -2,6 +2,8 @@
  $APIBaseURL = 'http://tractor-api.divyaltech.com/api/admin/';
 // $baseUrl = '/tractor-project/tractor_project/';
 $baseUrl = '/tractor_house/'; 
+
+
 //   $APIBaseURL = "http://192.168.1.41:8000/api/admin/";
 
 ?>
