@@ -38,6 +38,24 @@ body{
     transition: left 0.3s ease, padding-left 0.3s ease;
     overflow: hidden;
 }
+#errorStatusLoading .modal-content{
+    height: 30%;
+}
+#errorStatusLoading  .modal-footer{
+    border: 0;
+    padding-top: 0;
+}
+#errorStatusLoading  .modal-body{
+    padding-top: 0;
+    padding-bottom: 0;
+}
+#errorStatusLoading  .modal-title{
+    font-weight: 600;
+    color: green;
+}
+#errorStatusLoading  .modal-header{
+    border: 0;
+}
 /* header */
 .header {
     background-color: #d7dde4;
