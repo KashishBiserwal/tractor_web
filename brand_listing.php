@@ -334,7 +334,7 @@ function get() {
         console.log(brand_name);
         select_brand.append('<option value="' + brand_name + '">' + brand_name + '</option>');
       }
-
+ 
             let serialNumber = 1; // Initialize serial number
 
             if (data.brands.length > 0) {
@@ -349,16 +349,14 @@ function get() {
                         </button> <button class="btn btn-danger btn-sm mx-1" id="delete_user" onclick="destroy(${row.id});" style="padding:5px"><i class="fa fa-trash" style="font-size: 11px;"></i></button></div>
                         
                         `;
-              
-                  tableData.push([
+                    tableData.push([
                     serialNumber,
                     row.brand_name,
                     row.brand_img,
                     action
                 ]);
                 
-
-                    // Increment serial number for the next row
+               // Increment serial number for the next row
                     serialNumber++;
                 });
                 $('#example').DataTable().destroy();
