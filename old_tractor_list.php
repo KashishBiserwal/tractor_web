@@ -283,19 +283,19 @@ include 'includes/headertag.php';
                 <div class="col-12 col-sm-12 col-md-3 col-lg-3">
                   <div class="form-outline">
                     <label class="form-label">Search by Model</label>
-                    <input type="text" id="model" name="model" class="form-control" />
+                    <input type="text" id="model_name" name="model" class="form-control" />
                   </div>
                 </div>
                 <div class="col-12 col-sm-12 col-md-3 col-lg-3">
                   <div class="form-outline">
                     <label class="form-label">Search by State</label>
-                    <input type="text" id="state" name="state" class="form-control" />
+                    <input type="text" id="state_name" name="state" class="form-control" />
                   </div>
                 </div>
                 <div class="col-12 col-sm-12 col-md-3 col-lg-3">
                   <div class="form-outline">
                     <label class="form-label">Search by District</label>
-                    <input type="text"id="district"  name="state" class="form-control" />
+                    <input type="text"id="district_name"  name="state" class="form-control" />
                   </div>
                 </div>
                 <div class="col-12 mt-3">
@@ -326,6 +326,87 @@ include 'includes/headertag.php';
                 </thead>
                 <tbody id="data-table"></tbody>
               </table>
+            </div>
+          </div>
+
+
+          <!-- view -->
+          <div class="modal fade" id="exampleModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg modal-dialog-centered">
+              <div class="modal-content modal_box">
+                <div class="modal-header modal_head">
+                  <h5 class="modal-title text-white fw-bold" id="staticBackdropLabel">Old Tractor Information </h5>
+                  <button type="button" class="btn-close btn-success" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                  <div class="modal-body bg-light">
+                    <div class="row ">
+                       <div class="col-12">
+                        <table class="table table-striped">
+                        <tbody>
+                         <tr>
+                            <td>First Name:-</td>
+                            <td id="first_name2"></td>
+                            <td>Last Name-</td>
+                            <td id="last_name2"></td>
+                          </tr>
+                          <tr>
+                            <td>Mobile Number-</td>
+                            <td id="monile"></td>
+                            <td>State-</td>
+                            <td id="state2"></td>
+                          </tr>
+                          <tr>
+                            <td>District-</td>
+                            <td id="district2"></td>
+                            <td>Tehsil-</td>
+                            <td id="tehsil2"></td>
+                          </tr>
+                          <tr>
+                            <td>Brand-</td>
+                            <td id="brand1"></td> 
+                            <td>Model-</td>
+                            <td id="model1"></td> 
+                          </tr>
+                          <tr>
+                            <td>Purchase Year-</td>
+                            <td id="purchase_year1"></td> 
+                            <td>Engine Condition-</td>
+                            <td id="eng_condition"></td> 
+                          </tr>
+                          <tr>
+                            <td>Tyre Condition-</td>
+                            <td id="tyre_con"></td> 
+                            <td>Hours Driven-</td>
+                            <td id="hr_driven"></td> 
+                          </tr>
+                          <tr>
+                            <td>RC Number-</td>
+                            <td id="rcNumber"></td> 
+                            <td>Vehicle Number-</td>
+                            <td id="Finance_veh"></td> 
+                          </tr>
+                          <tr>
+                            <td>NOC Available-</td>
+                            <td id="noc_available"></td> 
+                            <td>Price-</td>
+                            <td id="price12"></td> 
+                          </tr>
+                          <tr>
+                            <td>Upload images-</td>
+                              <td colspan="3">
+                                  <div class="col-12">
+                                      <div id="selectedImagesContainer-old" class="upload__img-wrap row"></div>
+                                  </div>
+                              </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>  
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary px-3" data-bs-dismiss="modal">Close</button>
+                </div>
+              </div>
             </div>
           </div>
       </section>

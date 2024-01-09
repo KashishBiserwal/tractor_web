@@ -128,97 +128,6 @@ $(document).ready(function() {
   
     }
 
-
-    function search_data() {
-console.log("dfghsfg,sdfgdfg");
-      var selectedBrand = $('#brand').val();
-      var brand_id = $('#brand_id').val();
-      var model = $('#model').val();
-      var district = $('#district').val();
-      var state = $('#state').val();
-      console.log(brand_id);
-      var paraArr = {
-        'brand_id': selectedBrand,
-        'id':brand_id,
-        'model':model,
-        'state':state,
-        'district':district,
-      };
-  
-      var apiBaseURL = APIBaseURL;
-      var url = apiBaseURL + 'search_for_old_tractor';
-      $.ajax({
-          url:url, 
-          type: 'POST',
-          data: paraArr,
-        
-          headers: {
-              'Authorization': 'Bearer ' + localStorage.getItem('token')
-          },
-          success: function (searchData) {
-            console.log(searchData,"hello brand");
-            updateTable(searchData);
-          },
-          error: function (error) {
-              console.error('Error searching for brands:', error);
-          }
-      });
-    };
-    function updateTable(data) {
-      const tableBody = document.getElementById('data-table');
-      tableBody.innerHTML = '';
-      let serialNumber = 1; 
-  
-      if(data.oldTractor.product && data.oldTractor.product.length > 0) {
-          let tableData = []; 
-          data.oldTractor.product.forEach(row => {
-              let action = `<div class="float-start">
-              <button class="btn btn-warning text-white btn-sm mx-1" onclick="openView(${row.product_id})" data-bs-toggle="modal" data-bs-target="#viewModal_btn" id="viewbtn">
-              <i class="fa fa-eye" style="font-size: 11px;"></i>
-              </button>
-            <a href="tractor_form_list.php?trac_edit=${row.product_id}" onclick="fetch_edit_data(${row.product_id})" class="btn btn-primary btn-sm edit_btn" ><i class="fas fa-edit" style="font-size: 11px;"></i></a>
-              <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.product_id})">
-              <i class="fa fa-trash" style="font-size: 11px;"></i>
-              </button> 
-              </div>`;
-  
-              tableData.push([
-                serialNumber,
-                  formatDateTime(row.date),
-                  row.model,
-                  row.brand_name,
-                  row.wheel_drive_value,
-                  row.hp_category,
-                  row.ending_price,
-                  action
-              ]);
-  
-              serialNumber++;
-          });
-  
-          $('#example').DataTable().destroy();
-          $('#example').DataTable({
-              data: tableData,
-              columns: [
-                  { title: 'S.No.' },
-                  { title: 'Date' },
-                  { title: 'Brand Name' },
-                  { title: 'Wheel Drive' },
-                  { title: 'HP Category' },
-                  { title: 'Price' },
-                  { title: 'Action', orderable: false } // Disable ordering for Action column
-              ],
-              paging: true,
-              searching: true,
-              // ... other options ...
-          });
-      } else {
-          // Display a message if there's no valid data
-          tableBody.innerHTML = '<tr><td colspan="4">No valid data available</td></tr>';
-      }
-    }
-
-
 // get brand
 function get() {
     // var url = "<?php echo $APIBaseURL; ?>getBrands";
@@ -253,7 +162,8 @@ function get() {
     });
 }
 get();
-function get_brand_search() {
+
+function get_search_brand() {
   // var url = "<?php echo $APIBaseURL; ?>getBrands";
   var apiBaseURL =APIBaseURL;
   // Now you can use the retrieved value in your JavaScript logic
@@ -264,37 +174,28 @@ function get_brand_search() {
       headers: {
           'Authorization': 'Bearer ' + localStorage.getItem('token')
       },
-     // ...
       success: function (data) {
-        console.log(data);
-        const select = document.getElementById('brand_name');
-        select.innerHTML = '';
-        const defaultOption = document.createElement('option');
-        defaultOption.value = ''; // Set a value for the default option if needed
-        defaultOption.text = 'Please select Brand';
-        defaultOption.disabled = true;
-        defaultOption.selected = true;
-        select.appendChild(defaultOption);
+          console.log(data);
+          const select = document.getElementById('brand_name');
+          select.innerHTML = '';
 
-        if (data.brands.length > 0) {
-            data.brands.forEach(row => {
-                const option = document.createElement('option');
-                option.value = row.id; // You might want to set a value for each option
-                option.textContent = row.brand_name;
-                select.appendChild(option);
-            });
-        } else {
-            const noDataOption = document.createElement('option');
-            noDataOption.textContent = 'No valid data available';
-            select.appendChild(noDataOption);
-        }
+          if (data.brands.length > 0) {
+              data.brands.forEach(row => {
+                  const option = document.createElement('option');
+                  option.value = row.id; // You might want to set a value for each option
+                  option.textContent = row.brand_name;
+                  select.appendChild(option);
+              });
+          } else {
+              select.innerHTML ='<option>No valid data available</option>';
+          }
       },
       error: function (error) {
           console.error('Error fetching data:', error);
       }
   });
 }
-get_brand_search();
+get_search_brand();
 
 function get_year_and_hours() {
   console.log('initsfd')
@@ -360,7 +261,6 @@ function store(event) {
      var state = $('#state').val();
      var district = $('#district').val();
      var brand_name = $('#brand').val();
-     console.log(brand_name,'brand name');
      var Model_name = $('#model').val();
      var purchase_year = $('#purchase_year').val();;
      var tehsil = $('#tehsil').val();
@@ -382,22 +282,21 @@ function store(event) {
        'Authorization': 'Bearer ' + token
      };
 
-    //  var _method = 'PUT'; 
+     var _method = 'PUT'; 
     var url, method;
     
     console.log('edit state',editId_state);
     console.log('edit id', EditIdmain_);
-    if (editId_state) {
+    if (EditIdmain_) {
         // Update mode
-        console.log(editId_state, "state"); 
+        console.log(editId_state, "state");
         console.log(EditIdmain_, "id edit");
-       var method1 = 'put';
+        _method = 'put';
         url = apiBaseURL + 'customer_enquiries/' + EditIdmain_ ;
         console.log(url);
         method = 'POST'; 
     } else {
         // Add mode
-        method1 = 'xse';
         url = apiBaseURL + 'customer_enquiries';
         method = 'POST';
     }
@@ -408,7 +307,7 @@ function store(event) {
        console.log("multiple image", image_names[x]);
      }
        data.append('form_type',form_type);
-       data.append('_method',method1);
+       data.append('_method',_method);
        data.append('product_type_id', product_type_id);
        data.append('enquiry_type_id', enquiry_type_id);
        data.append('image_type_id', image_type_id);
@@ -459,6 +358,8 @@ function store(event) {
    }
 
 
+
+
   function formatDateTime(originalDateTimeStr) {
     const originalDateTime = new Date(originalDateTimeStr);
 
@@ -493,13 +394,14 @@ function store(event) {
                 data.product.forEach(row => {
                     let action = `
                         <div class="d-flex">
-                        <button class="btn btn-warning text-white btn-sm mx-1" onclick="openView(${row.product_id})" data-bs-toggle="modal" data-bs-target="#viewModal_btn" id="viewbtn">
-                        <i class="fa fa-eye" style="font-size: 11px;"></i>
-                        </button>
-                      <a href="tractor_form_list.php?trac_edit=${row.product_id}" onclick="fetch_edit_data(${row.product_id})" class="btn btn-primary btn-sm edit_btn" ><i class="fas fa-edit" style="font-size: 11px;"></i></a>
-                        <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.product_id})">
-                        <i class="fa fa-trash" style="font-size: 11px;"></i>
-                        </button> 
+                            <button class="btn btn-warning btn-sm text-white mx-1" data-bs-toggle="modal" onclick="fetch_data(${row.product_id});" data-bs-target="#exampleModal">
+                            <i class="fa-solid fa-eye" style="font-size: 11px;"></i></button>
+                            <button class="btn btn-primary btn-sm btn_edit" onclick="fetch_edit_data(${row.product_id});" data-bs-toggle="modal" data-bs-target="#staticBackdrop" id="yourUniqueIdHere" style="padding:5px">
+                              <i class="fas fa-edit" style="font-size: 11px;"></i>
+                            </button>
+                            <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.product_id});" style="padding:5px">
+                              <i class="fa fa-trash" style="font-size: 11px;"></i>
+                            </button>
                         </div>`;
 
                     tableData.push([
@@ -542,6 +444,95 @@ function store(event) {
 }
 
 get_tractor_list();
+
+
+function search_data() {
+  console.log("dfghsfg,sdfgdfg");
+  var selectedBrand = $('#brand_name').val();
+  var brand_id = $('#brand_id').val();
+  var model = $('#model_name').val();
+  var district = $('#district_name').val();
+  var state = $('#state_name').val();
+  console.log(selectedBrand,"brand named");
+  console.log('model name',model);
+  var paraArr = {
+    'brand_id': selectedBrand,
+    'id':brand_id,
+    'model':model,
+    'state':state,
+    'district':district,
+  };
+
+  var apiBaseURL = APIBaseURL;
+  var url = apiBaseURL + 'search_for_old_tractor';
+  $.ajax({
+      url:url, 
+      type: 'POST',
+      data: paraArr,
+    
+      headers: {
+          'Authorization': 'Bearer ' + localStorage.getItem('token')
+      },
+      success: function (searchData) {
+        console.log(searchData,"hello brand");
+        updateTable(searchData);
+      },
+      error: function (error) {
+          console.error('Error searching for brands:', error);
+      }
+  });
+};
+function updateTable(data) {
+  const tableBody = document.getElementById('data-table');
+  tableBody.innerHTML = '';
+  let serialNumber = 1; 
+
+  if(data.oldTractor && data.oldTractor.length > 0) {
+      let tableData = []; 
+      data.oldTractor.forEach(row => {
+          let action = `<div class="float-start">
+          <button class="btn btn-warning btn-sm text-white mx-1" data-bs-toggle="modal" onclick="fetch_data(${row.product_id});" data-bs-target="#exampleModal">
+        <a href="tractor_form_list.php?trac_edit=${row.product_id}" onclick="fetch_edit_data(${row.product_id})" class="btn btn-primary btn-sm edit_btn" ><i class="fas fa-edit" style="font-size: 11px;"></i></a>
+          <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.product_id})">
+          <i class="fa fa-trash" style="font-size: 11px;"></i>
+          </button> 
+          </div>`;
+
+          tableData.push([
+            serialNumber,
+            formatDateTime(row.date),
+            row.brand_name,
+            row.model,
+            row.purchase_year,
+            row.state,
+            action
+        ]);
+
+        serialNumber++;
+    });
+
+    $('#example').DataTable().destroy();
+    $('#example').DataTable({
+        data: tableData,
+        columns: [
+            { title: 'S.No.' },
+            { title: 'Date' },
+            { title: 'Brand' },
+            { title: 'Model' },
+            { title: 'Purchase Year' },
+            { title: 'State' },
+            { title: 'Action', orderable: false }
+        ],
+        paging: true,
+        searching: true,
+        // ... other options ...
+    });
+  } else {
+      // Display a message if there's no valid data
+      tableBody.innerHTML = '<tr><td colspan="4">No valid data available</td></tr>';
+  }
+}
+
 
 function removeImage(ele){
   console.log("print ele");
@@ -632,6 +623,75 @@ function fetch_edit_data(id) {
     }
   });
 }
+
+
+// view data
+function fetch_data(product_id){
+  // alert(product_id);
+  console.log(window.location)
+  var urlParams = new URLSearchParams(window.location.search);
+  
+  var productId = product_id;
+  var apiBaseURL = APIBaseURL;
+  var url = apiBaseURL + 'get_old_tractor_by_id/' + productId;
+  var headers = {
+  'Authorization': 'Bearer ' + localStorage.getItem('token')
+  };
+  $.ajax({
+      url: url,
+      type: "GET",
+      headers: headers,
+      success: function(data) {
+      console.log(data, 'abc');
+      document.getElementById('first_name2').innerText=data.product[0].first_name;
+      document.getElementById('last_name2').innerText=data.product[0].last_name;
+      document.getElementById('monile').innerText=data.product[0].mobile;
+      document.getElementById('state2').innerText=data.product[0].state;
+      document.getElementById('district2').innerText=data.product[0].district;
+      document.getElementById('tehsil2').innerText=data.product[0].tehsil;
+      document.getElementById('brand1').innerText=data.product[0].brand_name;
+      document.getElementById('purchase_year1').innerText=data.product[0].purchase_year;
+      document.getElementById('eng_condition').innerText=data.product[0].engine_condition;
+      document.getElementById('tyre_con').innerText=data.product[0].tyre_condition;
+      document.getElementById('hr_driven').innerText=data.product[0].hours_driven;
+      document.getElementById('rcNumber').innerText=data.product[0].rc_number;
+      document.getElementById('model1').innerText=data.product[0].model;
+      document.getElementById('noc_available').innerText=data.product[0].noc;
+      document.getElementById('Finance_veh').innerText=data.product[0].vehicle_registered_num;
+      document.getElementById('price12').innerText=data.product[0].price;
+      
+      $("#selectedImagesContainer-old").empty();
+  
+      if (data.product[0].image_names) {
+          var imageNamesArray = Array.isArray(data.product[0].image_names) ? data.product[0].image_names : data.product[0].image_names.split(',');
+           
+          var countclass=0;
+          imageNamesArray.forEach(function (image_names) {
+              var imageUrl = 'http://tractor-api.divyaltech.com/uploads/product_img/' + image_names.trim();
+              countclass++;
+              var newCard = `
+                  <div class="col-12 col-md-3 col-lg-3 col-sm-3">
+                  <div class="" id="closeId${countclass}"></div>
+                      <div class="brand-main d-flex box-shadow mt-1 py-2 w-75 text-center shadow upload__img-closeDy${countclass}">
+                          <a class="weblink text-decoration-none text-dark" title="Tyre Image">
+                              <img class="img-fluid w-100 h-100" src="${imageUrl}" alt="Tyre Image">
+                          </a>
+                      </div>
+                  </div>
+              `;
+      
+              // Append the new image element to the container
+              $("#selectedImagesContainer1").append(newCard);
+          });
+  
+  
+      }
+  },
+  error: function (error) {
+  console.error('Error fetching data:', error);
+  }
+  });
+  }
 
 // delete data
   function destroy(id) {

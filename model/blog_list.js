@@ -2,7 +2,6 @@ var EditIdmain_ = "";
 var editId_state= false;
 $(document).ready(function () {
   $('#submitBtn').click(add_news);
-  $('#Search_data').click(search_data);
     ImgUpload();
     $("#form_news_updates").validate({
     
@@ -17,6 +16,9 @@ $(document).ready(function () {
         },
         contant: {
           required: true,
+        },
+        publisher:{
+            required: true,
         },
         image_:{
 
@@ -40,6 +42,9 @@ $(document).ready(function () {
         contant: {
           required: "This field is required",
         },
+        publisher: {
+            required: "This field is required",
+          },
         image_:{
 
           required:"This field is required",
@@ -205,6 +210,7 @@ function add_news(event) {
     var category = $('#brand').val();
     var headline = $('#headline').val();
     var content = $('#contant').val();
+    var publisher = $('#publisher').val();
 
     var apiBaseURL = APIBaseURL;
     console.log(apiBaseURL);
@@ -225,12 +231,12 @@ function add_news(event) {
         // Update mode
         console.log(editId_state);
         _method = 'put';
-        url = apiBaseURL + 'news_details/' + EditIdmain_ ;
+        url = apiBaseURL + 'blog_details/' + EditIdmain_ ;
         console.log(url);
         method = 'POST'; 
     } else {
         // Add mode
-        url = apiBaseURL + 'news_details';
+        url = apiBaseURL + 'blog_details';
         method = 'POST';
     }
 
@@ -242,8 +248,10 @@ function add_news(event) {
 
     data.append('_method', _method);
     data.append('category_id', category);
-    data.append('news_headline', headline);
-    data.append('news_content', content);
+    data.append('heading', headline);
+    data.append('content', content);
+    data.append('publisher', publisher);
+
 
     $.ajax({
         url: url,
@@ -257,6 +265,7 @@ function add_news(event) {
             console.log("Operation successfully");
             alert("successfully Inserted..!");
             $('#staticBackdrop').modal('hide');
+            get_news();
         },
         error: function (error) {
             console.error('Error:', error);
@@ -265,10 +274,10 @@ function add_news(event) {
 
 }
 
-// get dealers
+
 function get_news() {
     var apiBaseURL = APIBaseURL;
-    var url = apiBaseURL + 'news_details';
+    var url = apiBaseURL + 'blog_details';
     $.ajax({
         url: url,
         type: "GET",
@@ -278,11 +287,11 @@ function get_news() {
         success: function (data) {
             const tableBody = document.getElementById('data-table');
 
-            if (data.news_details && data.news_details.length > 0) {
+            if (data.blog_details && data.blog_details.length > 0) {
                 let tableData = [];
                 let counter = 1;
 
-                data.news_details.forEach(row => {
+                data.blog_details.forEach(row => {
                     let action = `
                         <div class="d-flex">
                           <button class="btn btn-warning btn-sm text-white mx-1" data-bs-toggle="modal" onclick="fetch_data(${row.id});" data-bs-target="#exampleModal">
@@ -299,8 +308,8 @@ function get_news() {
                         counter,
                         // formatDateTime(row.date),
                         row.date,
-                        row.news_category,
-                        row.news_headline,
+                        row.blog_category,
+                        row.heading,
                         action
                     ]);
 
@@ -313,8 +322,8 @@ function get_news() {
                     columns: [
                         { title: 'S.No.' },
                         { title: 'Date' },
-                        { title: 'News Category' },
-                        { title: 'News Headline' },
+                        { title: 'Blog Category' },
+                        { title: 'Blog Headline' },
                         { title: 'Action', orderable: false }
                     ],
                     paging: true,
@@ -332,104 +341,11 @@ function get_news() {
   }
   get_news();
 
-  function search_data() {
-    console.log("dfghsfg,sdfgdfg");
-    var news_category_id = $('#news_category_id').val();
-    // var category_name = $('#category_name').val();
-    var head_search = $('#head_search').val();
-    var paraArr = {
-      'news_category_id': news_category_id,
-      // 'category_name':category_name,
-      'news_headline':head_search,
-    };
-  
-    var apiBaseURL = APIBaseURL;
-    var url = apiBaseURL + 'search_for_news';
-    $.ajax({
-        url:url, 
-        type: 'POST',
-        data: paraArr,
-      
-        headers: {
-            'Authorization': 'Bearer ' + localStorage.getItem('token')
-        },
-        success: function (searchData) {
-          console.log(searchData,"hello brand");
-          updateTable(searchData);
-        },
-        error: function (error) {
-            console.error('Error searching for brands:', error);
-        }
-    });
-  };
-  
-  function formatDateTime(originalDateTimeStr) {
-    const originalDateTime = new Date(originalDateTimeStr);
 
-    const pad = (num) => (num < 10 ? '0' : '') + num;
-
-    const day = pad(originalDateTime.getDate());
-    const month = pad(originalDateTime.getMonth() + 1);
-    const year = originalDateTime.getFullYear();
-    const hours = pad(originalDateTime.getHours());
-    const minutes = pad(originalDateTime.getMinutes());
-    const seconds = pad(originalDateTime.getSeconds());
-
-    return `${day}-${month}-${year} / ${hours}:${minutes}:${seconds}`;
-    }
-  function updateTable(data) {
-    const tableBody = document.getElementById('data-table');
-    tableBody.innerHTML = '';
-    let counter = 1; 
-  
-    if(data.newsDetails && data.newsDetails.length > 0) {
-        let tableData = []; 
-        data.newsDetails.forEach(row => {
-            let action = ` <div class="d-flex">
-            <button class="btn btn-warning btn-sm text-white mx-1" data-bs-toggle="modal" onclick="fetch_data(${row.id});" data-bs-target="#exampleModal">
-                         <i class="fa-solid fa-eye" style="font-size: 11px;"></i></button>
-                         <button class="btn btn-primary btn-sm btn_edit" onclick="fetch_edit_data(${row.id});" data-bs-toggle="modal" data-bs-target="#staticBackdrop" id="yourUniqueIdHere">
-                                                <i class="fas fa-edit" style="font-size: 11px;"></i>
-                                             </button>
-                                             <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.id});">
-                                                               <i class="fa fa-trash" style="font-size: 11px;"></i>
-                                                </button>
-          </div>`;
-          tableData.push([
-            counter,
-            // formatDateTime(row.date),
-            formatDateTime(row.created_at),
-            row.news_content,
-            row.news_headline,
-            action
-        ]);
-
-        counter++;
-    });
-
-    $('#example').DataTable().destroy();
-    $('#example').DataTable({
-        data: tableData,
-        columns: [
-            { title: 'S.No.' },
-            { title: 'Date' },
-            { title: 'News Category' },
-            { title: 'News Headline' },
-            { title: 'Action', orderable: false }
-        ],
-        paging: true,
-        searching: true,
-        // ... other options ...
-    });
-    } else {
-        // Display a message if there's no valid data
-        tableBody.innerHTML = '<tr><td colspan="4">No valid data available</td></tr>';
-    }
-  }
   // **delete***
 function destroy(id) {
     var apiBaseURL = APIBaseURL;
-    var url = apiBaseURL + 'news_details/' + id;
+    var url = apiBaseURL + 'blog_details/' + id;
     console.log(url);
     var token = localStorage.getItem('token');
   
@@ -470,7 +386,7 @@ function destroy(id) {
   
     var productId = id;
     var apiBaseURL = APIBaseURL;
-    var url = apiBaseURL + 'news_details/' + productId;
+    var url = apiBaseURL + 'blog_details/' + productId;
   
     var headers = { 
         'Authorization': 'Bearer ' + localStorage.getItem('token')
@@ -482,17 +398,18 @@ function destroy(id) {
         headers: headers,
         success: function (data) {
           console.log(data, 'abc');
-          document.getElementById('news_cate').innerText = data.news_details[0].news_category;
-          document.getElementById('headline_news').innerText = data.news_details[0].news_headline;
-          document.getElementById('content_news').innerText = data.news_details[0].news_content;
+          document.getElementById('news_cate').innerText = data.blog_details[0].blog_category;
+          document.getElementById('headline_news').innerText = data.blog_details[0].heading;
+          document.getElementById('content_news').innerText = data.blog_details[0].content;
+          document.getElementById('publi').innerText = data.blog_details[0].publisher;
       
           $("#selectedImagesContainer1").empty();
       
-          if (data.news_details[0].image_names) {
-              var imageNamesArray = Array.isArray(data.news_details[0].image_names) ? data.news_details[0].image_names : data.news_details[0].image_names.split(',');
+          if (data.blog_details[0].image_names) {
+              var imageNamesArray = Array.isArray(data.blog_details[0].image_names) ? data.blog_details[0].image_names : data.blog_details[0].image_names.split(',');
       
               imageNamesArray.forEach(function (imageName) {
-                  var imageUrl = 'http://tractor-api.divyaltech.com/uploads/news_img/' + imageName.trim();
+                  var imageUrl = 'http://tractor-api.divyaltech.com/uploads/blog_img/' + imageName.trim();
       
                   var newCard = `
                       <div class="col-6 col-lg-6 col-md-6 col-sm-6">
@@ -516,7 +433,7 @@ function destroy(id) {
 
   function fetch_edit_data(id) {
     var apiBaseURL = APIBaseURL;
-    var url = apiBaseURL + 'news_details/' + id;
+    var url = apiBaseURL + 'blog_details/' + id;
     editId_state= true;
     EditIdmain_= id;
   
@@ -529,13 +446,14 @@ function destroy(id) {
         type: 'GET',
         headers: headers,
         success: function (response) {
-            var Data = response.news_details[0];
+            var Data = response.blog_details[0];
             // $('#brand').val(Data.brand_name);
             $("#brand option").prop("selected", false);
-            $("#brand option[value='" + Data.news_category + "']").prop("selected", true);
+            $("#brand option[value='" + Data.blog_category + "']").prop("selected", true);
 
-            $('#headline').val(Data.news_headline);
-            $('#contant').val(Data.news_content);
+            $('#headline').val(Data.heading);
+            $('#contant').val(Data.content);
+            $('#publisher').val(Data.publisher);
   
             // Clear existing images
             $("#selectedImagesContainer2").empty();
@@ -552,7 +470,7 @@ function destroy(id) {
                         <div class="upload__img-close_button" id="closeId${countclass}" onclick="removeImage(this);"></div>
                             <div class="brand-main d-flex box-shadow mt-2 text-center shadow upload__img-closeDy${countclass}">
                                 <a class="weblink text-decoration-none text-dark" title="Image">
-                                    <img class="img-fluid w-100 h-100" src="${imageUrl}" alt=" Image">
+                                    <img class="img-fluid w-100 h-100" src="${imageUrl}" alt="Image">
                                 </a>
                             </div>
                         </div>
