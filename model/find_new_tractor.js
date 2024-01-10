@@ -88,7 +88,7 @@ function get() {
                     select.appendChild(option);
                 });
             } else {
-                $('#brandName').html('<option>No valid data available</option>');
+                select.innerHTML = '<option>No valid data available</option>';
             }
         },
         error: function (error) {
@@ -239,17 +239,17 @@ function displayTractors(tractors) {
                                             <label for="yr_state" class="form-label text-dark fw-bold"> <i class="fa-solid fa-location-dot"></i>  Select State</label>
                                             <select class="form-select py-2 " aria-label=".form-select-lg example" id="state" name="state">
                                                 <option value>Select State</option>
-                                                <option value="1">Chhattisgarh</option>
-                                                <option value="2">Other</option>
+                                                <option value="Chhattisgarh">Chhattisgarh</option>
+                                                <option value="Other">Other</option>
                                             </select>
                                         </div>
                                     <div class="col-12 col-sm-12 col-md-6 col-lg-6">
                                         <label for="yr_dist" class="form-label text-dark"><i class="fa-solid fa-location-dot"></i> District</label>
                                         <select class="form-select py-2 " aria-label=".form-select-lg example" id="district" name="district">
                                             <option value>Select District</option>
-                                            <option value="1">Raipur</option>
-                                            <option value="2">Bilaspur</option>
-                                            <option value="2">Durg</option>
+                                            <option value="Raipur">Raipur</option>
+                                            <option value="Bilaspur">Bilaspur</option>
+                                            <option value="Durg">Durg</option>
                                         </select>
                                     </div>
                                     <div class="col-12 col-sm-6 col-md-6 col-lg-6">
