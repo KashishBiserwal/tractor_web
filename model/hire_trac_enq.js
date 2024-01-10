@@ -1,7 +1,7 @@
  
   $(document).ready(function(){
     $('#dataeditbtn').click(edit_id);
-       
+    $('#Search_data').click(search);
           jQuery.validator.addMethod("customPhoneNumber", function(value, element) {
           return /^[6-9]\d{9}$/.test(value); 
           }, "Phone number must start with 6 or above");
@@ -77,6 +77,8 @@
   
       });
  
+
+      
  //****get data***
  function get_hire() {
     var apiBaseURL = APIBaseURL;
@@ -147,10 +149,58 @@
   }
   get_hire();
 
+  // Searching
+
+//   function search() {
+
+//     var selectedBrand = $('#brand_name').val();
+//     var selectdistrict = $('#districtSelect').val();
+//     // console.log(brand_id);
+//     var paraArr = {
+//       'brand_id': selectedBrand,
+//       'id':selectdistrict,
+//     };
+
+//     var url = '<?php echo $APIBaseURL; ?>search_for_hire_enquiry' ;
+//     $.ajax({
+//         url:url, 
+//         type: 'POST',
+//         data: paraArr,
+       
+//         headers: {
+//             'Authorization': 'Bearer ' + localStorage.getItem('token')
+//         },
+//         success: function (searchData) {
+//           console.log(searchData,"hello brand");
+//           updateTable(searchData);
+//         },
+//         error: function (error) {
+//             console.error('Error searching for brands:', error);
+//         }
+//     });
+// };
+// function formatDateTime(originalDateTimeStr) {
+//   const originalDateTime = new Date(originalDateTimeStr);
+
+//   const pad = (num) => (num < 10 ? '0' : '') + num;
+
+//   const day = pad(originalDateTime.getDate());
+//   const month = pad(originalDateTime.getMonth() + 1);
+//   const year = originalDateTime.getFullYear();
+//   const hours = pad(originalDateTime.getHours());
+//   const minutes = pad(originalDateTime.getMinutes());
+//   const seconds = pad(originalDateTime.getSeconds());
+
+//   return `${day}-${month}-${year} / ${hours}:${minutes}:${seconds}`;
+//   }
+  
+  // JavaScript
+
+ 
   //****delete data***
 function destroy(id) {
     var apiBaseURL = APIBaseURL;
-    var url = apiBaseURL + 'hire_data/' + id;
+    var url = apiBaseURL + 'customer_enquiries/' + id;
     console.log(url);
     var token = localStorage.getItem('token');
   
@@ -303,4 +353,107 @@ function edit_id() {
   });
 }
   
-   
+
+// For Search Data
+
+function search() {
+ 
+  var name = $('#name').val();
+  console.log(name);
+  var district = $('#districtSelect').val();
+  var paraArr = {
+    'first_name': name,
+    // 'category_name':category_name,
+    'district':district,
+  };
+
+  var apiBaseURL = APIBaseURL;
+  var url = apiBaseURL + 'search_for_hire_enquiry';
+  $.ajax({
+      url:url, 
+      type: 'POST',
+      data: paraArr,
+    
+      headers: {
+          'Authorization': 'Bearer ' + localStorage.getItem('token')
+      },
+      success: function (searchData) {
+        console.log(searchData,"hello brand");
+        updateTable(searchData);
+      },
+      error: function (error) {
+          console.error('Error searching for brands:', error);
+      }
+  });
+};
+
+function formatDateTime(originalDateTimeStr) {
+  const originalDateTime = new Date(originalDateTimeStr);
+
+  const pad = (num) => (num < 10 ? '0' : '') + num;
+
+  const day = pad(originalDateTime.getDate());
+  const month = pad(originalDateTime.getMonth() + 1);
+  const year = originalDateTime.getFullYear();
+  const hours = pad(originalDateTime.getHours());
+  const minutes = pad(originalDateTime.getMinutes());
+  const seconds = pad(originalDateTime.getSeconds());
+
+  return `${day}-${month}-${year} / ${hours}:${minutes}:${seconds}`;
+  }
+
+  function updateTable(data) {
+    const tableBody = document.getElementById('data-table');
+    tableBody.innerHTML = '';
+    let counter = 1; 
+  
+    if(data.hire_details && data.hire_details.length > 0) {
+        let tableData = []; 
+        data.hire_details.forEach(row => {
+            let action = ` 
+            <div class="d-flex">
+            <button class="btn btn-warning btn-sm text-white mx-1" data-bs-toggle="modal" onclick="fetch_data(${row.id});" data-bs-target="#exampleModal">
+              <i class="fa-solid fa-eye" style="font-size: 11px;"></i></button>
+            <button class="btn btn-primary btn-sm btn_edit" onclick="fetch_edit_data(${row.id});" data-bs-toggle="modal" data-bs-target="#staticBackdrop" id="yourUniqueIdHere">
+              <i class="fas fa-edit" style="font-size: 11px;"></i>
+            </button>
+            <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.id});">
+              <i class="fa fa-trash" style="font-size: 11px;"></i>
+            </button>
+          </div>`;
+          tableData.push([
+            counter,
+            // formatDateTime(row.date),
+            formatDateTime(row.created_at),
+            serialNumber,
+            row.date,
+            fullName,
+            row.mobile,
+            row.state,
+            row.district,
+        ]);
+
+        counter++;
+    });
+
+    $('#example').DataTable().destroy();
+    $('#example').DataTable({
+        data: tableData,
+        columns: [
+          { title: 'S.No.' },
+          { title: 'Date' },
+          { title: 'Full Name' },
+          { title: 'Mobile' },
+          { title: 'State' },
+          { title: 'District' },
+          { title: 'Action', orderable: false }
+        ],
+        paging: true,
+        searching: true,
+        // ... other options ...
+    });
+    } else {
+        // Display a message if there's no valid data
+        tableBody.innerHTML = '<tr><td colspan="4">No valid data available</td></tr>';
+    }
+  }

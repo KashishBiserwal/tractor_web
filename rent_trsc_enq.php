@@ -115,7 +115,7 @@
             <div class="col-12 col-sm-12 col-md-3 col-lg-3">
               <div class="form-outline">
                 <label class="form-label"> Brand Name</label>
-                <!-- <input type="text" id="search_email" name="search_email" class="form-control" /> -->
+                <input type="text" id="search_email" name="search_email" class="form-control" />
                 <select class="form-select py-2" aria-label="Default select example">
                     <option selected>Select Brand</option>
                     <option value="1">Mahindra</option>

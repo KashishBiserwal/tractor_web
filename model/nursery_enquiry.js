@@ -1,5 +1,5 @@
 $(document).ready(function(){
-  
+  $('#Search').click(search_data);
   $('#undate_btn_nursery_enq').click(edit_data_id);
   
         jQuery.validator.addMethod("customPhoneNumber", function(value, element) {
@@ -160,6 +160,45 @@ function get_nursery() {
 }
 get_nursery();
 
+// Search data
+
+$(document).ready(function() {
+  BackgroundUpload();
+  $('#save').click(store);
+  $('#save_brand').click(edit_brand);
+  $('#Search').click(search_data);
+
+
+}); 
+
+function search_data() {
+
+  var selectedBrand = $('#brand').val();
+  var brand_id = $('#brand_id').val();
+  console.log(brand_id);
+  var paraArr = {
+    'brand_id': selectedBrand,
+    'id':brand_id,
+  };
+
+  var url = '<?php echo $APIBaseURL; ?>search_for_brand' ;
+  $.ajax({
+      url:url, 
+      type: 'POST',
+      data: paraArr,
+     
+      headers: {
+          'Authorization': 'Bearer ' + localStorage.getItem('token')
+      },
+      success: function (searchData) {
+        console.log(searchData,"hello brand");
+        updateTable(searchData);
+      },
+      error: function (error) {
+          console.error('Error searching for brands:', error);
+      }
+  });
+};
 
 //****delete data***
 function destroy(id) {
@@ -319,3 +358,93 @@ $.ajax({
     }
 });
 }
+
+
+// For Search Data
+
+function search_data() {
+ 
+  var name = $('#nameselect').val();
+  console.log(name);
+  var state = $('#stateselect').val();
+  var district = $('#distselect').val();
+  var paraArr = {
+    'nursery_name': name,
+    'state':state,
+    'district':district,
+  };
+
+  var apiBaseURL = APIBaseURL;
+  var url = apiBaseURL + 'search_for_nursery_enquiry';
+  console.log(url);
+  $.ajax({
+      url:url, 
+      type: 'POST',
+      data: paraArr,
+    
+      headers: {
+          'Authorization': 'Bearer ' + localStorage.getItem('token')
+      },
+     
+      success: function (searchData) {
+        updateTable(searchData);
+      },
+      error: function (error) {
+          console.error('Error searching for brands:', error);
+      }
+  });
+};
+
+  function updateTable(data) {
+    const tableBody = document.getElementById('data-table');
+    tableBody.innerHTML = '';
+    let counter = 1; 
+  
+    if(data.hire_details && data.hire_details.length > 0) {
+        let tableData = []; 
+        data.hire_details.forEach(row => {
+            let action = ` 
+            <div class="d-flex">
+            <button class="btn btn-warning btn-sm text-white mx-1" data-bs-toggle="modal" onclick="fetch_data(${row.id});" data-bs-target="#exampleModal">
+              <i class="fa-solid fa-eye" style="font-size: 11px;"></i></button>
+            <button class="btn btn-primary btn-sm btn_edit" onclick="fetch_edit_data(${row.id});" data-bs-toggle="modal" data-bs-target="#staticBackdrop" id="yourUniqueIdHere">
+              <i class="fas fa-edit" style="font-size: 11px;"></i>
+            </button>
+            <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.id});">
+              <i class="fa fa-trash" style="font-size: 11px;"></i>
+            </button>
+          </div>`;
+          tableData.push([
+            counter,
+            // formatDateTime(row.date),
+            formatDateTime(row.created_at),
+            serialNumber,
+            fullName,
+            row.mobile,
+            row.state,
+            row.district,
+        ]);
+
+        counter++;
+    });
+
+    $('#example').DataTable().destroy();
+    $('#example').DataTable({
+        data: tableData,
+        columns: [
+          { title: 'S.No.' },
+          { title: 'Full Name' },
+          { title: 'Mobile' },
+          { title: 'State' },
+          { title: 'District' },
+          { title: 'Action', orderable: false }
+        ],
+        paging: true,
+        searching: true,
+        // ... other options ...
+    });
+    } else {
+        // Display a message if there's no valid data
+        tableBody.innerHTML = '<tr><td colspan="4">No valid data available</td></tr>';
+    }
+  }

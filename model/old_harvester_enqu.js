@@ -1,3 +1,98 @@
+$(document).ready(function(){
+  // $('#Search').click(search_data);
+  $('#undate_btn_oldharvester_enq').click(edit_data_id);
+  
+        jQuery.validator.addMethod("customPhoneNumber", function(value, element) {
+        return /^[6-9]\d{9}$/.test(value); 
+        }, "Phone number must start with 6 or above");
+  
+          
+    $("#old_harvester_form").validate({
+    
+    rules: {
+        name: {
+        required: true,
+      },
+      fname:{
+        required: true,
+      },
+      lname:{
+        required: true,
+      },
+      number:{
+        required:true, 
+          maxlength:10,
+          digits: true,
+          customPhoneNumber: true
+      },
+      email:{
+
+        required:true,
+       email:true
+      },
+      date:{
+        required: true,
+      },
+      state_:{
+        required: true,
+      },
+      dist:{
+        required: true,
+      },
+      loc: {
+        required: true
+      }
+    },
+
+    messages:{
+        name: {
+        required: "This field is required",
+      },
+      fname:{
+        required: "This field is required",
+      },
+      lname: {
+        required: "This field is required",
+      },
+      number: {
+        required:"This field is required",
+        maxlength:"Enter only 10 digits",
+        digits: "Please enter only digits"
+      },
+      email:{
+
+        required:"This field is required",
+        email:"Please Enter vaild Email",
+      },
+      date: {
+        required: "This field is required",
+      },
+      state_: {
+        required: "This field is required",
+      },
+      dist: {
+        required: "This field is required",
+      },
+      loc: {
+        required:"This field is required",
+        }
+    },
+    
+    submitHandler: function (form) {
+      alert("Form submitted successfully!");
+    },
+    });
+
+  
+    $("#undate_btn_oldharvester_enq").on("click", function () {
+  
+      $("#old_harvester_form").valid();
+    
+    });
+    
+
+    });
+
 
 function BackgroundUpload() {
     var imgWrap = "";
@@ -61,65 +156,10 @@ function BackgroundUpload() {
     });
 }
 
-
-
-//****get data***
-//  function get_old_harvester_enqu() {
-//     var apiBaseURL = APIBaseURL;
-//     var url = apiBaseURL + 'get_old_harvester';
-//     console.log('dfghjkiuytgf');
-//     $.ajax({
-//         url: url,
-//         type: "GET",
-//         headers: {
-//             'Authorization': 'Bearer ' + localStorage.getItem('token')
-//         },
-//         success: function (data) {
-//             const tableBody = document.getElementById('data-table');
-//             let serialNumber = 1;
-
-//             if (data.product
-//                 && data.product.length > 0) {
-//                 data.product.forEach(row => {
-//                     const fullName = row.first_name + ' ' + row.last_name;
-//                     const tableRow = document.createElement('tr');
-//                     tableRow.innerHTML = `
-//                         <td>${serialNumber}</td>
-//                         <td>${fullName} </td>
-//                         <td>${row.mobile}</td>
-//                         <td>${row.state}</td>
-//                         <td>${row.district}</td>
-//                         <td>${row.price}</td>
-//                         <td>
-//                             <div class="d-flex">
-//                                 <button class="btn btn-warning btn-sm text-white mx-1" data-bs-toggle="modal" onclick="openViewdata(${row.id});" data-bs-target="#view_old_harvester_enqu"><i class="fas fa-eye" style="font-size: 11px;"></i></button>
-//                                <button class="btn btn-primary btn-sm btn_edit" onclick="fetch_edit_data(${row.id});" data-bs-toggle="modal" data-bs-target="#staticBackdrop" id="yourUniqueIdHere">
-//                                 <i class="fas fa-edit" style="font-size: 11px;"></i>
-//                             </button>
-//                             <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.id});">
-//                             <i class="fa fa-trash" style="font-size: 11px;"></i>
-//                         </button>
-//                             </div>
-//                         </td>
-//                     `;
-//                     tableBody.appendChild(tableRow);
-//                     serialNumber++;
-//                 });
-//             } else {
-//                 tableBody.innerHTML = '<tr><td colspan="6">No valid data available</td></tr>';
-//             }
-//         },
-//         error: function (error) {
-//             console.error('Error fetching data:', error);
-//         }
-//     });
-//   }
-//   get_old_harvester_enqu();
-
 //****get data***
 function get_old_harvester_enqu() {
     var apiBaseURL = APIBaseURL;
-    var url = apiBaseURL + 'get_old_harvester';
+    var url = apiBaseURL + 'get_enquiry_for_old_harvester';
     console.log('dfghjkiuytgf');
     
     $.ajax({
@@ -134,38 +174,38 @@ function get_old_harvester_enqu() {
 
             let serialNumber = 1;
 
-            if (data.product && data.product.length > 0) {
+            if (data.enquiry_data && data.enquiry_data.length > 0) {
                 // Initialize DataTable
                 var table = $('#example').DataTable({
                     paging: true,
                     searching: true,
                     columns: [
                         { title: 'S.No.' },
+                        { title: 'Date'},
                         { title: 'Full Name' },
                         { title: 'Mobile' },
                         { title: 'State' },
-                        { title: 'District' },
-                        { title: 'Price' },
+                        { title: 'District' }, 
                         { title: 'Action', orderable: false }
                     ]
                 });
 
-                data.product.forEach(row => {
+                data.enquiry_data.forEach(row => {
                     const fullName = row.first_name + ' ' + row.last_name;
 
                     // Add row to DataTable
                     table.row.add([
                         serialNumber,
+                        row.date,
                         fullName,
                         row.mobile,
                         row.state,
                         row.district,
-                        row.price,
                         `<div class="d-flex">
                             <button class="btn btn-warning btn-sm text-white mx-1" data-bs-toggle="modal" onclick="openViewdata(${row.id});" data-bs-target="#view_old_harvester_enqu">
                                 <i class="fas fa-eye" style="font-size: 11px;"></i>
                             </button>
-                            <button class="btn btn-primary btn-sm btn_edit" onclick="fetch_edit_data(${row.id});" data-bs-toggle="modal" data-bs-target="#staticBackdrop" id="yourUniqueIdHere">
+                            <button class="btn btn-primary btn-sm btn_edit" onclick="fetch_edit_data(${row.id});" data-bs-toggle="modal" data-bs-target="#editmodel_old_harvester" id="yourUniqueIdHere">
                                 <i class="fas fa-edit" style="font-size: 11px;"></i>
                             </button>
                             <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.id});">
@@ -229,8 +269,9 @@ get_old_harvester_enqu();
   // View data
 function openViewdata(userId) {
     var apiBaseURL = APIBaseURL;
-    var url = apiBaseURL + 'get_old_harvester_by_id/' + userId;
-  
+    var url = apiBaseURL + 'get_enquiry_for_old_harvester_by_id/' + userId;
+  console.log(url);
+  console.log('sumansahu');
     var headers = {
       'Authorization': 'Bearer ' + localStorage.getItem('token')
     };
@@ -241,46 +282,15 @@ function openViewdata(userId) {
       headers: headers,
     
       success: function(response) {
-        var userData = response.product[0];
-        document.getElementById('brand_name').innerText=userData.brand_name;
-        document.getElementById('model_name_1').innerText=userData.model;
-        document.getElementById('CROPS_TYPE_1').innerText=userData.crops_type_value;
-        document.getElementById('POWER_SOURCE_1').innerText=userData.power_source_value;
-        document.getElementById('hours_1').innerText=userData.hours_driven;
-        document.getElementById('year_1').innerText=userData.purchase_year;
-        document.getElementById('Price_1').innerText=userData.price;
-        document.getElementById('About_1').innerText=userData.description;
-        document.getElementById('First_Name').innerText=userData.first_name;
-        document.getElementById('Last_Name').innerText=userData.last_name;
+        var userData = response.enquiry_data[0];
+        document.getElementById('First_Name1').innerText=userData.first_name;
+        document.getElementById('Last_Name1').innerText=userData.last_name;
         document.getElementById('Mobile_1').innerText=userData.mobile;
+        document.getElementById('email_1').innerText=userData.email;
+        document.getElementById('date_1').innerText=userData.date;
         document.getElementById('State_1').innerText=userData.state;
         document.getElementById('District_1').innerText=userData.district;
         document.getElementById('Tehsil_1').innerText=userData.tehsil;
-
-        $("#selectedImagesContainer1").empty();
-
-        if (response.product[0].image_names) {
-          var imageNamesArray = Array.isArray(response.product[0].image_names) ? response.product[0].image_names : response.product[0].image_names.split(',');
-          var countclass=0;
-          imageNamesArray.forEach(function (image_names) {
-              var imageUrl = 'http://tractor-api.divyaltech.com/uploads/image_names/' + image_names.trim();
-              countclass++;
-              var newCard = `
-                  <div class="col-12 col-md-6 col-lg-4 position-relative" style="left:6px;">
-                  <div class="upload__img-close_button " id="closeId${countclass}" onclick="removeImage(this);"></div>
-                      <div class="brand-main d-flex box-shadow mt-1 py-2 text-center shadow upload__img-closeDy${countclass}">
-                          <a class="weblink text-decoration-none text-dark" title=" Image">
-                              <img class="img-fluid w-100 h-100" src="${imageUrl}" alt=" Image">
-                          </a>
-                      </div>
-                  </div>
-              `;
-      
-            // Append the new image element to the container
-            $("#selectedImagesContainer1").append(newCard);
-         });
-        }
-
       },
       error: function(error) {
         console.error('Error fetching user data:', error);
@@ -289,12 +299,12 @@ function openViewdata(userId) {
   }
 
 
-  // edit data 
+   // edit data 
 
 function fetch_edit_data(id) {
   var apiBaseURL = APIBaseURL;
-  var url = apiBaseURL + 'get_nursery_enquiry_data_by_id/' + id;
-  // console.log(url);
+  var url = apiBaseURL + 'get_enquiry_for_old_harvester_by_id/' + id;
+  console.log(url);
 
   var headers = {
       'Authorization': 'Bearer ' + localStorage.getItem('token')
@@ -305,16 +315,16 @@ function fetch_edit_data(id) {
       type: 'GET',
       headers: headers,
       success: function (response) {
-          var Data = response.nursery_enquiry_data[0];
+          var Data = response.enquiry_data [0];
           $('#userId').val(Data.id);
-          $('#fname_2').val(Data.first_name);
-          $('#lname_2').val(Data.last_name);
-          $('#number_2').val(Data.mobile);
-          $('#email_2').val(Data.email);
-          $('#date_2').val(Data.date);
-          $('#state_2').val(Data.state);
-          $('#dist_2').val(Data.district);
-          $('#tehsil_2').val(Data.tehsil);
+          $('#fnam_e').val(Data.first_name);
+          $('#lnam_e').val(Data.last_name);
+          $('#numbe_r').val(Data.mobile);
+          $('#emai_l').val(Data.email);
+          $('#dat_e').val(Data.date);
+          $('#stat_e').val(Data.state);
+          $('#dis_t').val(Data.district);
+          $('#tehsi_l').val(Data.tehsil);
       },
       error: function (error) {
           console.error('Error fetching user data:', error);
@@ -322,21 +332,19 @@ function fetch_edit_data(id) {
   });
 }
 
-// get_hire_tract();
 
 function edit_data_id() {
 var enquiry_type_id = $("#enquiry_type_id").val();
 var edit_id = $("#userId").val();
-console.log(edit_id);
-var first_name = $("#fname_2").val();
+var first_name = $("#fnam_e").val();
 console.log(first_name);
-var last_name = $("#lname_2").val();
-var mobile = $("#number_2").val();
-var email = $("#email_2").val();
-var date = $("#date_2").val();
-var state = $("#state_2").val();
-var district = $("#dist_2").val();
-var tehsil = $("#tehsil_2").val();
+var last_name = $("#lnam_e").val();
+var mobile = $("#numbe_r").val();
+var email = $("#emai_l").val();
+var date = $("#dat_e").val();
+var state = $("#stat_e").val();
+var district = $("#dis_t").val();
+var tehsil = $("#tehsi_l").val();
 
 // Validate mobile number
 if (!/^[6-9]\d{9}$/.test(mobile)) {

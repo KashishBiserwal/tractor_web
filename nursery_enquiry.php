@@ -38,32 +38,33 @@
           <div class="col-12 col-sm-12 col-md-3 col-lg-3">
               <div class="form-outline">
                 <label class="form-label fw-bold"> Name</label>
-                <select class="form-select py-2" aria-label="Default select example">
+                <input type="text" class="form-control" id="nameselect" >
+                <!-- <select class="form-select py-2" aria-label="Default select example">
                     <option selected>Select Name</option>
                     <option value="1">name1</option>
                     <option value="2">name2</option>
                     <option value="3">name3</option>
-                </select>
+                </select> -->
               </div>
             </div>
             <div class="col-12 col-sm-12 col-md-3 col-lg-3">
               <div class="form-outline">
                 <label class="form-label fw-bold">State</label>
-                <select class="form-select py-2" aria-label="Default select example">
+                <select class="form-select py-2" aria-label="Default select example" id="stateselect">
                     <option selected>Select State</option>
-                    <option value="1">Chattisgarh</option>
-                    <option value="2">Other</option>
+                    <option value="Chattisgarh">Chattisgarh</option>
+                    <option value="Other">Other</option>
                 </select>
               </div>
             </div>
             <div class="col-12 col-sm-12 col-md-3 col-lg-3">
               <div class="form-outline ">
                 <label class="form-label fw-bold">District</label>
-                <select class="form-select py-2" aria-label="Default select example">
+                <select class="form-select py-2" aria-label="Default select example" id="distselect">
                     <option selected>Select District</option>
-                    <option value="1">Raipur</option>
-                    <option value="2">Bilaspur</option>
-                    <option value="3">Surajpur</option>
+                    <option value="Raipur">Raipur</option>
+                    <option value="Bilaspur">Bilaspur</option>
+                    <option value="Surajpur">Surajpur</option>
                 </select>
               </div>
             </div>
@@ -79,7 +80,7 @@
       </div>
       <!-- Table Card -->
       <div class=" mb-5">
-                            <div class="table-responsive">
+                            <div class="table-responsive shadow bg-white">
                                 <table id="example" class="table dataTable no-footer py-1" width="100%">
                                     <thead>
                                         <tr>

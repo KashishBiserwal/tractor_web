@@ -335,7 +335,6 @@ function get_news() {
   function search_data() {
     console.log("dfghsfg,sdfgdfg");
     var news_category_id = $('#news_category_id').val();
-    // var category_name = $('#category_name').val();
     var head_search = $('#head_search').val();
     var paraArr = {
       'news_category_id': news_category_id,
