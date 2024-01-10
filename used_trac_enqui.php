@@ -38,12 +38,13 @@
             <div class="col-12 col-sm-12 col-md-3 col-lg-3">
               <div class="form-outline">
                 <label class="form-label"> Brand Name</label>
-                <select class="form-select py-2" aria-label="Default select example">
+                <input type="text" class="form-control" placeholder="" id="first_name">
+                <!-- <select class="form-select py-2" aria-label="Default select example">
                     <option selected>Select Brand</option>
                     <option value="1">Mahindra</option>
                     <option value="2">Swaraj</option>
                     <option value="3">John Deere</option>
-                </select>
+                </select> -->
               </div>
             </div>
             <div class="col-12 col-sm-12 col-md-3 col-lg-3">
