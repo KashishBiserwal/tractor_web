@@ -92,8 +92,9 @@
                                      <div class="form-outline "  id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
                                       <label for="yr_state" class="form-label text-dark">Compatible Tractors</label>
                                       <select class="js-example-basic-multiple w-100 form-control" name="states[]" id="ass_list" multiple="multiple">
-                                        <option value="" selected>hello</option>
-                                        <option value="" >hyy</option>
+                                        <option value="hello" selected>hello</option>
+                                        <option value="hyy" >hyy</option>
+                                        <option value="WY">Wyoming</option>
                                       </select>
                                     </div>
                                   </div>
@@ -267,7 +268,7 @@
             </div>
           </div>
       
-        <div class="modal fade" id="exampleModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+          <div class="modal fade" id="exampleModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
             <div class="modal-dialog modal-lg modal-dialog-centered">
               <div class="modal-content modal_box">
                 <div class="modal-header modal_head">

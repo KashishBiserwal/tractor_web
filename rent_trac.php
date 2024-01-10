@@ -166,13 +166,13 @@
                                 <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
                                   <div class="form-outline mt-2">
                                     <label class="form-label text-dark">Working Area</label>
-                                    <textarea rows="3" cols="70" class="w-100" minlength="1" maxlength="255" id="textarea_" name="textarea_"></textarea>
+                                    <textarea rows="3" cols="70" class="w-100" minlength="1"  id="textarea_" name="textarea_"></textarea>
                                   </div>
                                 </div>
                                 <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
                                   <div class="form-outline mt-2">
                                     <label class="form-label text-dark">Description</label>
-                                    <textarea rows="3" cols="70" class="w-100" minlength="1" maxlength="255" id="textarea_d" name="textarea_d"></textarea>
+                                    <textarea rows="3" cols="70" class="w-100" minlength="1" id="textarea_d" name="textarea_d"></textarea>
                                   </div>
                                 </div>
                                 <div class="text-center">

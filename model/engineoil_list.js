@@ -391,31 +391,24 @@ function store(event) {
   data.append('description', description);
 
   $.ajax({
-      url: url,
-      type: "POST",
-      data: data,
-      headers: headers,
-      processData: false,
-      contentType: false,
-      success: function (result) {
-          console.log('Success:', result);
-
-          // Close the modal
-          // $('#staticBackdrop').modal('hide');
-
-          // Clear form values
-          $('#brand, #model, #grade, #qualtity, #price, #textarea_, #_image', '#ass_list').val('');
-
-          // Reload the page (try without forcing a full reload)
-          window.location.reload();
-
-          alert('Successfully inserted!');
-      },
-      error: function (error) {
-          console.error('Error:', error);
-
-          alert('Error inserting data. See console for details.');
-      }
+    url: url,
+    type: "POST",
+    data: data,
+    headers: headers,
+    processData: false,
+    contentType: false,
+    success: function (result) {
+      console.log('Success:', result);
+      // Clear form values
+      $('#brand, #model, #grade, #qualtity, #price, #textarea_, #_image, #ass_list').val('');
+      // window.location.reload();
+  
+      alert('Successfully inserted!');
+    },
+    error: function (error) {
+      console.error('Error:', error);
+      alert('Error inserting data. See console for details.');
+    }
   });
 }
 
@@ -442,7 +435,7 @@ function destroy(id) {
       'Authorization': 'Bearer ' + token
     },
     success: function(result) {
-      get_tractor_list();
+      // get_tractor_list();
       console.log("Delete request successful");
       alert("Delete operation successful");
     },
@@ -478,7 +471,8 @@ function fetch_data(id) {
         document.getElementById('quantity').innerText = data.engine_oil_details[0].quantity;
         document.getElementById('grade').innerText = data.engine_oil_details[0].grade;
         document.getElementById('price').innerText = data.engine_oil_details[0].price;
-        document.getElementById('compatible').innerText = data.engine_oil_details[0].compatible_model;
+        var compatibleModel = data.engine_oil_details[0].compatible_model;
+        document.getElementById('compatible').innerText = Array.isArray(compatibleModel) ? compatibleModel.join(', ') : compatibleModel || 'N/A';
         document.getElementById('descrption').innerText = data.engine_oil_details[0].description;
     
         $("#selectedImagesContainer1").empty();
@@ -603,7 +597,7 @@ jQuery(document).ready(function () {
           $('#model_1').val(Data.oil_model);
           $('#grade_1').val(Data.grade);
           $('#qualtity_1').val(Data.quantity);
-          $('#price_1').val(Data.price);
+          $('#price').val(Data.price);
           $('#ass_list_1').val(Data.compatible_model);
           $('#textarea_1').val(Data.description);
 
@@ -685,7 +679,6 @@ function edit_user(id){
        success: function (result) {
          console.log(result, "result");
         //  get();
-        // nursery_data();
         window.location.reload();
          console.log("updated successfully");
          alert('successfully updated..!')

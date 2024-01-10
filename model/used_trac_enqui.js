@@ -1,13 +1,13 @@
-
-$(document).ready(function(){
-    $('#subbtn').click(edit_id_data);
+ 
+  $(document).ready(function(){
+    $('#dataeditbtn').click(edit_id);
     // $('#Search_data').click(search);
           jQuery.validator.addMethod("customPhoneNumber", function(value, element) {
           return /^[6-9]\d{9}$/.test(value); 
           }, "Phone number must start with 6 or above");
     
             
-      $("#dealers_form").validate({
+      $("#old_tractor_form").validate({
       
       rules: {
         fname: {
@@ -26,18 +26,17 @@ $(document).ready(function(){
             customPhoneNumber: true
         },
         email:{
-        required:true,
-        email:true
+            required:true,
+            email:true
           },
         state_:{
           required: true,
         },
         dist:{
           required: true,
-        },
-      },
-  
-      messages:{
+        }
+    },
+        messages:{
         fname: {
           required: "This field is required",
         },
@@ -53,16 +52,17 @@ $(document).ready(function(){
           digits: "Please enter only digits"
         },
         email:{
+
             required:"This field is required",
             email:"Please Enter vaild Email",
           },
-        
         state_: {
           required: "This field is required",
         },
         dist: {
           required: "This field is required",
         },
+      
       },
       
       submitHandler: function (form) {
@@ -71,22 +71,20 @@ $(document).ready(function(){
       });
   
     
-      $("#subbtn").on("click", function () {
+      $("#dataeditbtn").on("click", function () {
     
-        $("#dealers_form").valid();
+        $("#old_tractor_form").valid();
       
       });
       
   
-      });
-
-
-
-//****get data***
-
-function get_dealers() {
+    });
+ 
+ 
+ //****get data***
+ function get_old_tractor() {
     var apiBaseURL = APIBaseURL;
-    var url = apiBaseURL + 'get_dealer_enquiry_data';
+    var url = apiBaseURL + 'get_enquiry_for_old_tractor';
     console.log('dfghjkiuytgf');
     
     $.ajax({
@@ -101,13 +99,13 @@ function get_dealers() {
   
             let serialNumber = 1;
   
-            if (data.dealer_enquiry_details && data.dealer_enquiry_details.length > 0) {
+            if (data.enquiry_data && data.enquiry_data.length > 0) {
                 var table = $('#example').DataTable({
                     paging: true,
                     searching: true,
                     columns: [
                         { title: 'S.No.' },
-                        { title: 'Date' },
+                        { title: 'Date.' },
                         { title: 'Full Name' },
                         { title: 'Mobile' },
                         { title: 'State' },
@@ -116,7 +114,7 @@ function get_dealers() {
                     ]
                 });
   
-                data.dealer_enquiry_details.forEach(row => {
+                data.enquiry_data.forEach(row => {
                     const fullName = row.first_name + ' ' + row.last_name;
   
                     // Add row to DataTable
@@ -128,12 +126,12 @@ function get_dealers() {
                         row.state,
                         row.district,
                         `<div class="d-flex">
-                            <button class="btn btn-warning btn-sm text-white mx-1" data-bs-toggle="modal" onclick="openViewdata(${row.id});" data-bs-target="#view_model_dealer">
+                            <button class="btn btn-warning btn-sm text-white mx-1" data-bs-toggle="modal" onclick="openViewdata(${row.id});" data-bs-target="#view_model_tractor_enq">
                                 <i class="fas fa-eye" style="font-size: 11px;"></i>
-                            </button> 
-                            <button class="btn btn-primary btn-sm btn_edit" onclick="fetch_edit_data(${row.id});" data-bs-toggle="modal" data-bs-target="#edit_dealers" id="yourUniqueIdHere">
-                            <i class="fas fa-edit" style="font-size: 11px;"></i>
-                        </button>
+                            </button>
+                            <button class="btn btn-primary btn-sm btn_edit" onclick="fetch_edit_data(${row.id});" data-bs-toggle="modal" data-bs-target="#editmodel_oldtractor_enq" id="yourUniqueIdHere">
+                                <i class="fas fa-edit" style="font-size: 11px;"></i>
+                            </button>
                             <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.id});">
                                 <i class="fa fa-trash" style="font-size: 11px;"></i>
                             </button>
@@ -151,12 +149,13 @@ function get_dealers() {
         }
     });
   }
-  get_dealers();
+  get_old_tractor();
+
 
   // View data
 function openViewdata(userId) {
     var apiBaseURL = APIBaseURL;
-    var url = apiBaseURL + 'get_dealer_enquiry_data_by_id/' + userId;
+    var url = apiBaseURL + 'get_enquiry_for_old_tractor_by_id/' + userId;
   
     var headers = {
       'Authorization': 'Bearer ' + localStorage.getItem('token')
@@ -168,7 +167,7 @@ function openViewdata(userId) {
       headers: headers,
     
       success: function(response) {
-        var userData = response.dealer_enquiry_details[0];
+        var userData = response.enquiry_data[0];
         document.getElementById('fname1').innerText=userData.first_name;
         document.getElementById('lname1').innerText=userData.last_name;
         document.getElementById('number1').innerText=userData.mobile;
@@ -184,50 +183,47 @@ function openViewdata(userId) {
     });
   }
 
- 
-
- // **delete***
-//  function destroy(id) {
-//     var apiBaseURL = APIBaseURL;
-//     var url = apiBaseURL + 'customer_enquiries/' + id;
-//     console.log(url);
-//     var token = localStorage.getItem('token');
+  //****delete data***
+function destroy(id) {
+    var apiBaseURL = APIBaseURL;
+    var url = apiBaseURL + 'customer_enquiries/' + id;
+    console.log(url);
+    var token = localStorage.getItem('token');
   
-//     if (!token) {
-//       console.error("Token is missing");
-//       return;
-//     }
-//     var isConfirmed = confirm("Are you sure you want to delete this data?");
-//     if (!isConfirmed) {
-//       return;
-//     }
+    if (!token) {
+      console.error("Token is missing");
+      return;
+    }
+    var isConfirmed = confirm("Are you sure you want to delete this data?");
+    if (!isConfirmed) {
+      return;
+    }
   
-//     $.ajax({
-//       url: url,
-//       type: "DELETE",
-//       headers: {
-//         'Authorization': 'Bearer ' + token
-//       },
-//       success: function(result) {
-//         window.location.reload();
-//         get_dealers();
+    $.ajax({
+      url: url,
+      type: "DELETE",
+      headers: {
+        'Authorization': 'Bearer ' + token
+      },
+      success: function(result) {
+        // get_tyre_list();
+        window.location.reload();
+        console.log("Delete request successful");
+        alert("Delete operation successful");
+      },
+      error: function(error) {
+        console.error('Error fetching data:', error);
+        alert("Error during delete operation");
+      }
+    });
+  }
 
-//         console.log("Delete request successful");
-//         alert("Delete operation successful");
-//       },
-//       error: function(error) {
-//         console.error('Error fetching data:', error);
-//         alert("Error during delete operation");
-//       }
-//     });
-//   }
-
-
+    
 // edit data 
 
 function fetch_edit_data(id) {
     var apiBaseURL = APIBaseURL;
-    var url = apiBaseURL + 'get_dealer_enquiry_data_by_id/' + id;
+    var url = apiBaseURL + 'get_enquiry_for_old_tractor_by_id/' + id;
     console.log(url);
   
     var headers = {
@@ -239,7 +235,7 @@ function fetch_edit_data(id) {
         type: 'GET',
         headers: headers,
         success: function (response) {
-            var Data = response.dealer_enquiry_details[0];
+            var Data = response.enquiry_data[0];
             $('#idUser').val(Data.id);
             $('#first_name').val(Data.first_name);
             $('#last_name').val(Data.last_name);
@@ -257,7 +253,9 @@ function fetch_edit_data(id) {
     });
   }
 
-function edit_id_data() {
+// get_hire_tract();
+
+function edit_id() {
   var enquiry_type_id = $("#enquiry_type_id").val();
   var edit_id = $("#idUser").val();
   var first_name = $("#first_name").val();
@@ -290,63 +288,25 @@ function edit_id_data() {
 
   var apiBaseURL = APIBaseURL;
   var url = apiBaseURL + 'customer_enquiries/' + edit_id;
-console.log(url);
+
   var headers = {
       'Authorization': 'Bearer ' + localStorage.getItem('token')
   };
 
   $.ajax({
-    url: url,
-    type: "PUT",
-    data: paraArr,
-    headers: headers,
-    success: function (result) {
-        console.log(result, "result");
-        window.location.reload();
-        console.log("updated successfully");
-        alert('successfully updated..!')
-    },
-    error: function (error) {
-        console.error('Error fetching data:', error);
-    }
-});
+      url: url,
+      type: "PUT",
+      data: paraArr,
+      headers: headers,
+      success: function (result) {
+          console.log(result, "result");
+          window.location.reload();
+          console.log("updated successfully");
+          alert('successfully updated..!')
+      },
+      error: function (error) {
+          console.error('Error fetching data:', error);
+      }
+  });
 }
   
-$(document).ready(function () {
-    // Initialize the DataTable
-    var table = $('#example').DataTable({
-        paging: true,
-        searching: true,
-        columns: [
-            { title: 'S.No.' },
-            { title: 'Date' },
-            { title: 'Full Name' },
-            { title: 'Mobile' },
-            { title: 'State' },
-            { title: 'District' },
-            { title: 'Action', orderable: false }
-        ]
-    });
-
-    // Search Button Click Event
-    $('#Search').click(function () {
-        // Get selected values from dropdowns
-        var dealerName = $('#dealerNameSelect').val();
-        var brandDealer = $('#brandDealerSelect').val();
-        var district = $('#districtSelect').val();
-
-        // Filter the DataTable based on selected values
-        table.columns(2).search(dealerName).draw();
-        table.columns(4).search(brandDealer).draw();
-        table.columns(5).search(district).draw();
-    });
-
-    // Reset Button Click Event
-    $('#Reset').click(function () {
-        // Reset selected values in dropdowns
-        $('#dealerNameSelect, #brandDealerSelect, #districtSelect').val('Select').trigger('change');
-
-        // Clear the DataTable search
-        table.search('').columns().search('').draw();
-    });
-});

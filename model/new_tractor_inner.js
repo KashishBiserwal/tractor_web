@@ -17,9 +17,17 @@ function getProductById() {
         type: "GET",
         success: function(data) {
         console.log(data, 'abc');
-    
-        document.getElementById('model_name').innerText=data.product.allProductData[0].model;
-        // document.getElementById('image_id').innerText=data.product.allProductData[0].image_name;
+        document.getElementById('model_name').innerText = data.product.allProductData[0].brand_name + " " + data.product.allProductData[0].model;
+        document.getElementsByClassName('brand_model')[0].innerText = data.product.allProductData[0].brand_name + " " + data.product.allProductData[0].model;
+
+        var brandModelElements = document.getElementsByClassName('brand_model');
+        var brandName = data.product.allProductData[0].brand_name;
+        var model = data.product.allProductData[0].model;
+
+            for (var i = 0; i < brandModelElements.length; i++) {
+            brandModelElements[i].innerText = brandName + " " + model;
+            }
+
         document.getElementById('brand_name').innerText=data.product.allProductData[0].brand_name;
         document.getElementById('total_cyclinder_value').innerText=data.product.allProductData[0].total_cyclinder_value;
         document.getElementById('total_cyclinder_value2').innerText=data.product.allProductData[0].total_cyclinder_value;
@@ -152,7 +160,7 @@ function displayBrands(brands) {
             <div class="col-6 col-lg-6 col-md-6 col-sm-6">
                 <div class="brand-main box-shadow mt-2 text-center shadow">
                     <a class="weblink text-decoration-none text-dark" href="#" title="Old Tractors">
-                        <img class="img-fluid w-50" src="http://tractor-api.divyaltech.com/uploads/product_img/${b.brand_img}"
+                        <img class="img-fluid w-50" src="http://tractor-api.divyaltech.com/uploads/brand_img/${b.brand_img}"
                             data-src="h" alt="Brand Logo">
                         <p class="mb-0 oneline">${b.brand_name}</p>
                     </a>

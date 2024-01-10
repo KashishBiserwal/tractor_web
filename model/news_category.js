@@ -19,11 +19,11 @@ $( document ).ready(function() {
 function store(event) {
     event.preventDefault();
     console.log('jfhfhw');
-    var accessories = $('#accessories').val();
+    var category = $('#accessories').val();
   
     // Prepare data to send to the server
     var paraArr = {
-      'accessory': accessories
+      'category_name': category
     };
     var url, method;
     var apiBaseURL =APIBaseURL;
@@ -33,12 +33,12 @@ function store(event) {
         // Update mode
         console.log(editId_state);
         _method = 'put';
-        url = apiBaseURL + 'accessory/' + EditIdmain_ ;
+        url = apiBaseURL + 'news_category/' + EditIdmain_ ;
         console.log(url);
         method = 'PUT'; 
     } else {
         // Add mode
-        url = apiBaseURL + 'accessory';
+        url = apiBaseURL + 'news_category';
         method = 'POST';
     }
     var token = localStorage.getItem('token');
@@ -56,7 +56,8 @@ function store(event) {
         console.log(result, "result");
         get_data();
         console.log("Add successfully");
-        alert('successfully inserted..!')
+        alert('successfully inserted..!');
+        $('#staticBackdrop1').modal('hide');
       },
       error: function (error) {
         console.error('Error fetching data:', error);
@@ -69,7 +70,7 @@ function store(event) {
 function get_data() {
     console.log('get data on table');
     var apiBaseURL =APIBaseURL;
-    var url = apiBaseURL + 'accessory';
+    var url = apiBaseURL + 'news_category';
     
     // console.log(url);
     $.ajax({
@@ -83,19 +84,19 @@ function get_data() {
             const tableBody = document.getElementById('data-table');
             tableBody.innerHTML = ''; // Clear previous data
     
-            if (data.product.length > 0) {
+            if (data.news_category.length > 0) {
               let tableData = [];
-          console.log(typeof data.product);
-                data.product.forEach(row => {
+          console.log(typeof data.news_category);
+                data.news_category.forEach(row => {
                 //   console.log(row);
                    // const tableRow = document.createElement('tr');
                    let action = ` <div class="d-flex"></button>
-                   <button class="btn btn-primary text-white btn-sm mx-1"  onclick="fetch_edit_data(${row.id});" data-bs-toggle="modal" data-bs-target="#staticBackdrop_1" id="yourUniqueIdHere" style="padding:5px">
+                   <button class="btn btn-primary text-white btn-sm mx-1" onclick="fetch_edit_data(${row.id});" data-bs-toggle="modal" data-bs-target="#staticBackdrop_1" id="yourUniqueIdHere" style="padding:5px">
                    <i class="fas fa-edit" style="font-size: 11px;"></i></button><button class="btn btn-danger btn-sm mx-1" id="delete_user" onclick="destroy(${row.id});" style="padding:5px"><i class="fa fa-trash" style="font-size: 11px;"></i></div>`;
 
                     tableData.push([
                       row.id,
-                      row.accessory,
+                      row.category_name,
                       action
                   ]);
    
@@ -106,7 +107,7 @@ function get_data() {
                         data: tableData,
                         columns: [
                           { title: 'S.No.' },
-                          { title: 'Accessories Name' },
+                          { title: 'Category Name' },
                           { title: 'Action', orderable: false } // Disable ordering for Action column
                       ],
                         paging: true,
@@ -129,7 +130,7 @@ function get_data() {
       // editId_state= true;
       // EditIdmain_= product_id;
       var apiBaseURL = APIBaseURL;
-      var url = apiBaseURL + 'accessory/' + userId;
+      var url = apiBaseURL + 'news_category/' + userId;
       console.log("dhbcjkf");
     
       var headers = {
@@ -141,13 +142,13 @@ function get_data() {
         type: 'GET',
         headers: headers,
         success: function(response) {
-          var userData = response.product[0];
+          var userData = response.news_category[0];
           // $('#idUser').val(userData.id);
-          $('#accessories_1').val(userData.accessory);
+          $('#accessories_1').val(userData.category_name);
           $('#idUser').val(userData.id);
     
     
-          // $('#exampleModal').modal('show');
+         
         },
         error: function(error) {
           console.error('Error fetching user data:', error);
@@ -157,15 +158,15 @@ function get_data() {
 
     function update_data(){
       var edit_id = $("#idUser").val();
-      var accessories_1 = $("#accessories_1").val();
+      var category_name = $("#accessories_1").val();
       
       var paraArr = {
-        'accessory': accessories_1,
+        'category_name': category_name,
         'id': edit_id,
     
       };
       var apiBaseURL = APIBaseURL;
-      var url = apiBaseURL + 'accessory/' + edit_id;
+      var url = apiBaseURL + 'news_category/' + edit_id;
       var headers = {
         'Authorization': 'Bearer ' + localStorage.getItem('token')
       };
@@ -178,7 +179,8 @@ function get_data() {
             console.log(result, "result");
             get_data();
             console.log("updated successfully");
-            alert('successfully updated..!')
+            alert('successfully updated..!');
+            $('#staticBackdrop_1').modal('hide');
           },
           error: function (error) {
             console.error('Error fetching data:', error);
@@ -189,7 +191,7 @@ function get_data() {
         // delete data
 function destroy(id) {
   var apiBaseURL = APIBaseURL;
-  var url = apiBaseURL + 'accessory/' + id;
+  var url = apiBaseURL + 'news_category/' + id;
   var token = localStorage.getItem('token');
 
   if (!token) {

@@ -8,7 +8,7 @@
 <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
   <script> var APIBaseURL = "<?php echo $APIBaseURL; ?>";</script>
   <script> var baseUrl = "<?php echo $baseUrl; ?>";</script>
-  <script src="<?php $baseUrl; ?>model/new_updates.js"></script>
+  <script src="<?php $baseUrl; ?>model/blog_list.js"></script>
   <script>
   $(document).ready(function() {
     console.log('dfsdwe');
@@ -31,18 +31,18 @@
           <nav aria-label="breadcrumb">
             <ol class="breadcrumb mb-0">
               <li class="breadcrumb-item">
-                <span>News & Updates</span>
+                <span>Blog List</span>
               </li>
             </ol>
           </nav>
            <button type="button" id="add_trac" class="btn add_btn btn-success float-right btn_all" data-bs-toggle="modal"  data-bs-target="#staticBackdrop">
-              <i class="fa fa-plus" aria-hidden="true"></i>News & Update
+              <i class="fa fa-plus" aria-hidden="true"></i>Add Blog
             </button>
           <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
             <div class="modal-dialog modal-lg modal-dialog-centered">
               <div class="modal-content modal_box">
                 <div class="modal-header modal_head">
-                  <h5 class="modal-title text-white fw-bold" id="staticBackdropLabel">Add New & Updates</h5>
+                  <h5 class="modal-title text-white fw-bold" id="staticBackdropLabel">Add Blog</h5>
                   <button type="button" class="btn-close btn-success" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body bg-white">
@@ -53,7 +53,7 @@
                                 <div class="row justify-content-center">
                                     <div class="col-12 col-lg-6 col-md-6 col-sm-6  mt-3">
                                       <div class="form-outline">
-                                        <label for="name" class="form-label text-dark">News Category</label>
+                                        <label for="name" class="form-label text-dark">Blog Category</label>
                                         <!-- <input type="text" class="form-control" placeholder="" id="brand" name="brand"> -->
                                         <select class="form-select form-control py-2" name="brand" for="lookupSelectbox" id="brand" aria-label="Default select example">
                                           <option value="" id="">Select Type Name</option>
@@ -62,17 +62,23 @@
                                     </div>
                                     <div class="col-12 col-lg-6 col-md-6 col-sm-6 mt-3">
                                       <div class="form-outline ">
-                                        <label for="name" class="form-label text-dark">News Headline</label>
+                                        <label for="name" class="form-label text-dark">Blog Headline</label>
                                         <input type="text" class="form-control" placeholder="" id="headline" name="headline">
                                       </div>
                                     </div>
                                     <div class="col-12 mt-3">
-                                  <div class="form-outline">
-                                  <label class="form-label text-dark">Body/ News Content</label>
-                                  <textarea class="w-100" name="contant" id="contant" rows="4" cols="70" minlength="1" maxlength="255"></textarea>
-                                  </div>
-                               </div>
-                                    <div class="col-12">
+                                        <div class="form-outline">
+                                        <label class="form-label text-dark">Body/ Blog Content</label>
+                                        <textarea class="w-100" name="contant" id="contant" rows="4" cols="70" minlength="1" maxlength=""></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-lg-8 col-md-8 col-sm-8 mt-3">
+                                        <div class="form-outline">
+                                        <label class="form-label text-dark">Publisher Name</label>
+                                        <input type="text" class="form-control" placeholder="" id="publisher" name="publisher">
+                                        </div>
+                                    </div>
+                                    <div class="col-12  col-lg-4 col-md-4 col-sm-4">
                                         <div class="upload__box">
                                           <div class="upload__btn-box">
                                             <label >
@@ -106,13 +112,6 @@
         <div class="card-body">
         <form action="" id="myform" class="mb-0">
           <div class="row">
-          <div class="col-12 col-sm-12 col-md-4 col-lg-4"hidden>
-            <div class="form-outline">
-                      <label class="form-label">Search By Category</label>
-                      <select class="js-select2 form-select form-control mb-0" id="news_category_id">
-                      </select>
-                </div>
-            </div>
             <div class="col-12 col-sm-12 col-md-4 col-lg-4 ">
             <div class="form-outline">
                       <label class="form-label">Search By Category</label>
@@ -123,12 +122,12 @@
             <div class="col-12 col-sm-12 col-md-4 col-lg-4">
               <div class="form-outline">
                 <label class="form-label">Headline</label>
-                <input type="text" id="head_search" name="head_search" class="form-control" />
+                <input type="text" id="search_email" name="search_email" class="form-control" />
               </div>
             </div>
             <div class="col-12 col-sm-12 col-md-4 col-lg-4">
               <div class="text-center float-end">
-              <button type="button" class="btn-success btn btn_all" id="Search_data">Search</button>
+              <button type="button" class="btn-success btn btn_all" id="Search">Search</button>
                 <button type="button" class="btn-success btn btn_all" id="Reset">Reset</button>
               </div>
             </div>
@@ -168,14 +167,16 @@
                         <table class="table table-striped">
                         <tbody>
                          <tr>
-                            <td >News Category-</td>
+                            <td >Blog Category-</td>
                             <td id="news_cate" class="col-6"></td>
-                            <td>News headline-</td>
+                            <td>Blog headline-</td>
                             <td id="headline_news"class="col-6"></td>
                           </tr>
                           <tr>
-                            <td>News Content-</td>
+                            <td>Blog Content-</td>
                             <td id="content_news"class=""></td>
+                            <td>Publisher-</td>
+                            <td id="publi"class=""></td>
                           <tr>
                             <td>Upload images-</td>
                               <td colspan="3">

@@ -9,7 +9,7 @@
 <script>
  $(document).ready(function() {
   $(".js-select2").select2({
-    closeOnSelect: false
+    closeOnSelect: true
   });
 });
 </script>
@@ -65,7 +65,7 @@
                                         <div class="col- col-sm-6 col-lg-6 col-md-6">
                                           <label class="text-dark"> Brand Name<span class="text-danger">*</span></label>
                                           <input type="text" class="form-control py-2" id="brand_name" placeholder="Enter brand">
-                                          <small></small>
+                                       
                                         </div>
                                         <div class="col-12 col-sm-4 col-lg-4 col-md-4 ps-3">
                                           <div class="background__box mt-4 pt-1">
@@ -112,8 +112,15 @@
         <div class="card-body">
         <form action="" id="myform" class="mb-0">
           <div class="row">
+            <div class="col-12 col-sm-12 col-md-4 col-lg-4"hidden>
+              <div class="form-outline">
+                <label class="form-label">Search By id</label>
+                  <select class="js-select2 form-select form-control mb-0" id="brand_id">
+                  </select>
+              </div>
+            </div>
             <div class="col-12 col-sm-12 col-md-4 col-lg-4">
-            <div class="form-outline">
+              <div class="form-outline">
                     <label class="form-label">Search By Brand</label>
                     <select class="js-select2 form-select form-control mb-0" id="brand">
                     </select>
@@ -122,7 +129,7 @@
             <div class="col-12 col-sm-12 col-md-8 col-lg-8  text-center">
               <div class="d-flex float-end">
                 <button type="button" class="btn-success btn px-5 btn_all" id="Search">Search</button>
-                <button type="button" class="btn-success btn px-5 mx-2 btn_all" id="Reset">Reset</button>
+                <button type="button" class="btn-success btn px-5 mx-2 btn_all"onclick="resetForm()" id="Reset">Reset</button>
               </div>
                 
             </div>
@@ -263,6 +270,7 @@
       BackgroundUpload();
       $('#save').click(store);
       $('#save_brand').click(edit_brand);
+      $('#Search').click(search_data);
 
   
     });
@@ -326,13 +334,16 @@ function get() {
             const tableBody = document.getElementById('data-table');
             tableBody.innerHTML = ''; // Clear previous data
             var select_brand = $("#brand");
+            
             select_brand.empty(); // Clear existing options
             select_brand.append('<option selected disabled="" value="">Please select Brand</option>');
       console.log(data, 'ok');
       for (var j = 0; j < data.brands.length; j++) {
-        var brand_name = data.brands[j].brand_name;
+                var brand_id = data.brands[j].id;
+                var brand_name = data.brands[j].brand_name;
+                
         console.log(brand_name);
-        select_brand.append('<option value="' + brand_name + '">' + brand_name + '</option>');
+        select_brand.append('<option value="' + brand_id + '">' + brand_name + '</option>');
       }
  
             let serialNumber = 1; // Initialize serial number
@@ -568,7 +579,86 @@ function destroy(id) {
   }
 }
 
+function search_data() {
 
+    var selectedBrand = $('#brand').val();
+    var brand_id = $('#brand_id').val();
+    console.log(brand_id);
+    var paraArr = {
+      'brand_id': selectedBrand,
+      'id':brand_id,
+    };
+
+    var url = '<?php echo $APIBaseURL; ?>search_for_brand' ;
+    $.ajax({
+        url:url, 
+        type: 'POST',
+        data: paraArr,
+       
+        headers: {
+            'Authorization': 'Bearer ' + localStorage.getItem('token')
+        },
+        success: function (searchData) {
+          console.log(searchData,"hello brand");
+          updateTable(searchData);
+        },
+        error: function (error) {
+            console.error('Error searching for brands:', error);
+        }
+    });
+};
+function updateTable(data) {
+    const tableBody = document.getElementById('data-table');
+    tableBody.innerHTML = '';
+    let serialNumber = 1; 
+
+    if (data.brand && data.brand.length > 0) {
+        let tableData = []; 
+        data.brand.forEach(row => {
+            let action = `<div class="float-start">
+                <button class="btn btn-warning btn-sm text-white mx-1" data-bs-toggle="modal" onclick="fetch_data(${row.id});" data-bs-target="#exampleModal" style="padding:5px">
+                    <i class="fa-solid fa-eye" style="font-size: 11px;"></i>
+                </button>
+                <button class="btn btn-primary btn-sm btn_edit" onclick="fetch_edit_data(${row.id});" data-bs-toggle="modal" data-bs-target="#staticBackdrop_model" id="yourUniqueIdHere" style="padding:5px">
+                    <i class="fas fa-edit" style="font-size: 11px;"></i>
+                </button>
+                <button class="btn btn-danger btn-sm mx-1" id="delete_user" onclick="destroy(${row.id});" style="padding:5px">
+                    <i class="fa fa-trash" style="font-size: 11px;"></i>
+                </button>
+            </div>`;
+
+            tableData.push([
+                serialNumber,
+                row.brand_name,
+                row.brand_img,
+                action
+            ]);
+
+            serialNumber++;
+        });
+
+        $('#example').DataTable().destroy();
+        $('#example').DataTable({
+            data: tableData,
+            columns: [
+                { title: 'S.No.' },
+                { title: 'Brand Name' },
+                { title: 'Brand Image' },
+                { title: 'Action', orderable: false } // Disable ordering for Action column
+            ],
+            paging: true,
+            searching: true,
+            // ... other options ...
+        });
+    } else {
+        // Display a message if there's no valid data
+        tableBody.innerHTML = '<tr><td colspan="4">No valid data available</td></tr>';
+    }
+}
+function resetForm() {
+  $('#brand').val('');
+    $('#brand_id').val('');
+            }
 
   function BackgroundUpload() {
     var imgWrap = "";

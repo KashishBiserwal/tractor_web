@@ -192,10 +192,11 @@ function edit_user() {
       headers: headers,
       success: function (result) {
           console.log(result, "result");
+          alert('successfully updated..!')
           get_hire_tract();
           window.location.reload();
           console.log("updated successfully");
-          alert('successfully updated..!')
+          
       },
       error: function (error) {
           console.error('Error fetching data:', error);
@@ -207,7 +208,7 @@ function edit_user() {
   function destroy(id) {
     console.log(id);
     var apiBaseURL = APIBaseURL;
-    var url = apiBaseURL + 'hire_data/' + id;
+    var url = apiBaseURL + 'customer_enquiries/' + id;
     console.log(url);
     var token = localStorage.getItem('token');
   

@@ -507,7 +507,7 @@ include 'includes/footertag.php';
                                                         <div class="form-outline">
                                                             <label class="form-label">Brand</label>
                                                             <select class="form-select py-2" id="brand_name" name="brand_name" aria-label="Default select example" required>
-                                                                <option value="">Select Brand</option>
+                                                                <!-- <option value="">Select Brand</option> -->
                                                             </select>
                                                         </div>
                                                     </div>
@@ -598,21 +598,22 @@ include 'includes/footertag.php';
                                                             <input type="text" placeholder=" " id="warranty"  name="warranty" class="form-control"required>
                                                         </div>
                                                     </div>
-                                                    <div class="col-12 col-sm-8 col-lg-8 col-md-8 mt-4">
+                                                    <div class="col-12 col-sm-6 col-lg-6 col-md-6 mt-4">
                                                         <label for="name" class="text-dark fw-bold">Select Tractor Type</label>
                                                         <div id="type_name" name="type_name"></div>
                                                     </div>
-                                                    <div class="col-12 col-sm-4 col-lg-4 col-md-4">
-                                                        <div class="upload__box mt-2 text-center">
+                                                    <div class="col-12 col-sm-6 col-lg-6 col-md-6">
+                                                        <div class="upload__box text-center">
                                                             <div class="upload__btn-box text-center">
                                                                 <label >
                                                                     <p class="upload__btn">Upload images</p>
                                                                     <input type="file" multiple="" data-max_length="20" class="upload__inputfile" id="image_name" name="_image"required>
                                                                 </label>
                                                             </div>
-                                                            <!-- <div id="selectedImagesContainer" class="upload__img-wrap"></div> -->
+                                                            
                                                             <div id="selectedImagesContainer2" class="upload__img-wrap"></div>
                                                         </div>
+                                                        <p class="text-danger">Note*- Image Must be JPEG, PNG & JPG format</p>
                                                     </div>
                                                 </div>
                                                <button type="button" class="nextStep text-center" id="nextbtn1">Next</button>
@@ -830,7 +831,7 @@ include 'includes/footertag.php';
                                                     <div class="col-12 mt-4 ">
                                                         <div class="form-outline ">
                                                             <label class="form-label text-dark">About</label>
-                                                            <textarea rows="4" cols="70" class="w-100  pt-2" minlength="1" maxlength="255" id="description" name="description" required></textarea>
+                                                            <textarea rows="4" cols="70" class="w-100  pt-2" minlength="1" id="description" name="description" required></textarea>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -841,7 +842,7 @@ include 'includes/footertag.php';
                                     </div>
                                     
                                 </section>
-                                <a href="tractor_listing.php" class="backbutton text-center backbtn">Back</a>
+                                <a href="tractor_listing.php" class=" mt-4  btn text-center btn-secondary backbtn">Back To Tractor details</a>
                             </div>
                         </div>
                     </div>

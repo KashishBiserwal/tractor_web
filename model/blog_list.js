@@ -1,68 +1,58 @@
 var EditIdmain_ = "";
 var editId_state= false;
 $(document).ready(function () {
-
-    $('#subbtn_').click(add_dealership);
+  $('#submitBtn').click(add_news);
     ImgUpload();
-    $("#dealer_list_form").validate({
+    $("#form_news_updates").validate({
     
       rules: {
-        dname: {
-          required: true,
-        },
-        brand: {
-          required: true,
-        },
-        email:{
-          required:true,
-         email:true
-        },
-        cno:{
-            required:true,
-            maxlength:10,
-            digits: true,
-            customPhoneNumber: true
-        },
-        address:{
-          required:true,
-        //   digits: true,
+        brand:{
 
-        },
-        state_:{
           required: true,
         },
-        dist: {
+        headline:{
+
           required: true,
+        },
+        contant: {
+          required: true,
+        },
+        publisher:{
+            required: true,
+        },
+        image_:{
+
+          required:true,
+          minlength: 2,
+          maxlength: 5,
+       
         }
       },
   
       messages: {
-        dname: {
-          required: "This field is required",
-        },
-        brand: {
-          required: "This field is required",
-        },
-      
-        email:{
+       
+        brand:{
+
           required:"This field is required",
-          email:"Please Enter vaild Email",
         },
-         cno:{
-          required:"This field is required",
-          maxlength:"Enter only 10 digits",
-          digits: "Please enter only  digits"
-        },
-        address:{
-          required:"This field is required",
-        //   digits: "Please enter only digits"
-        },
-        state_:{
+        headline:{
+
           required: "This field is required",
         },
-        dist: {
+        contant: {
           required: "This field is required",
+        },
+        publisher: {
+            required: "This field is required",
+          },
+        image_:{
+
+          required:"This field is required",
+          minlength: 2,
+          maxlength: 5,
+       
         }
+       
       },
       
       submitHandler: function (form) {
@@ -71,13 +61,17 @@ $(document).ready(function () {
     });
 
    
-    $("#subbtn_").on("click", function () {
+    $("#submitBtn").on("click", function () {
    
-      $("#dealer_list_form").valid();
-  
+      $("#form_news_updates").valid();
+      if ($("#form_news_updates").valid()) {
+        
+        alert("Form is valid. Ready to submit!");
+      }
     });
    
   });
+
   function ImgUpload() {
     var imgWrap = "";
     var imgArray = [];
@@ -134,8 +128,6 @@ $(document).ready(function () {
       $(this).parent().parent().remove();
     });
   }
-
-
   function removeImage(ele){
     console.log("print ele");
       console.log(ele);
@@ -149,7 +141,7 @@ $(document).ready(function () {
 
   function get() {
     var apiBaseURL =APIBaseURL;
-    var url = apiBaseURL + 'getBrands';
+    var url = apiBaseURL + 'news_category';
     $.ajax({
         url: url,
         type: "GET",
@@ -161,10 +153,10 @@ $(document).ready(function () {
             const select = document.getElementById('brand');
             select.innerHTML = '<option selected disabled value="">Please select an option</option>';
 
-            if (data.brands.length > 0) {
-                data.brands.forEach(row => {
+            if (data.news_category.length > 0) {
+                data.news_category.forEach(row => {
                     const option = document.createElement('option');
-                    option.textContent = row.brand_name;
+                    option.textContent = row.category_name;
                     option.value = row.id;
                     select.appendChild(option);
                 });
@@ -179,20 +171,49 @@ $(document).ready(function () {
 }
 get();
 
-function add_dealership(event) {
+function get_search() {
+  var apiBaseURL =APIBaseURL;
+  var url = apiBaseURL + 'news_category';
+  $.ajax({
+      url: url,
+      type: "GET",
+      headers: {
+          'Authorization': 'Bearer ' + localStorage.getItem('token')
+      },
+      success: function (data) {
+          console.log(data);
+          const select = document.getElementById('category_name');
+          select.innerHTML = '<option selected disabled value="">Please select an option</option>';
+
+          if (data.news_category.length > 0) {
+              data.news_category.forEach(row => {
+                  const option = document.createElement('option');
+                  option.textContent = row.category_name;
+                  option.value = row.id;
+                  select.appendChild(option);
+              });
+          } else {
+              select.innerHTML ='<option>No valid data available</option>';
+          }
+      },
+      error: function (error) {
+          console.error('Error fetching data:', error);
+      }
+  });
+}
+get_search();
+
+function add_news(event) {
     event.preventDefault();
 
-    var image_names = document.getElementById('_image').files;
-    var dealer_name = $('#dname').val();
-    var brand = $('#brand').val();
-    var email = $('#email').val();
-    var cno = $('#cno').val();
-    var address = $('#address').val();
-    var state = $('#state_').val();
-    var district = $('#dist').val();
-    var tehsil = $('#tehsil').val();
+    var image_names = document.getElementById('image_').files;
+    var category = $('#brand').val();
+    var headline = $('#headline').val();
+    var content = $('#contant').val();
+    var publisher = $('#publisher').val();
 
     var apiBaseURL = APIBaseURL;
+    console.log(apiBaseURL);
     var token = localStorage.getItem('token');
     var headers = {
         'Authorization': 'Bearer ' + token
@@ -210,12 +231,12 @@ function add_dealership(event) {
         // Update mode
         console.log(editId_state);
         _method = 'put';
-        url = apiBaseURL + 'dealer_data/' + EditIdmain_ ;
+        url = apiBaseURL + 'blog_details/' + EditIdmain_ ;
         console.log(url);
         method = 'POST'; 
     } else {
         // Add mode
-        url = apiBaseURL + 'dealer_data';
+        url = apiBaseURL + 'blog_details';
         method = 'POST';
     }
 
@@ -226,14 +247,11 @@ function add_dealership(event) {
     }
 
     data.append('_method', _method);
-    data.append('dealer_name', dealer_name);
-    data.append('brand_id', brand);
-    data.append('email', email);
-    data.append('mobile', cno);
-    data.append('address', address);
-    data.append('state', state);
-    data.append('district', district);
-    data.append('tehsil', tehsil);
+    data.append('category_id', category);
+    data.append('heading', headline);
+    data.append('content', content);
+    data.append('publisher', publisher);
+
 
     $.ajax({
         url: url,
@@ -245,8 +263,9 @@ function add_dealership(event) {
         success: function (result) {
             console.log(result, "result");
             console.log("Operation successfully");
-            alert("successfully Inserted..!")
-            window.location.reload();
+            alert("successfully Inserted..!");
+            $('#staticBackdrop').modal('hide');
+            get_news();
         },
         error: function (error) {
             console.error('Error:', error);
@@ -255,10 +274,10 @@ function add_dealership(event) {
 
 }
 
-// get dealers
-function get_dealers() {
+
+function get_news() {
     var apiBaseURL = APIBaseURL;
-    var url = apiBaseURL + 'dealer_data';
+    var url = apiBaseURL + 'blog_details';
     $.ajax({
         url: url,
         type: "GET",
@@ -267,33 +286,49 @@ function get_dealers() {
         },
         success: function (data) {
             const tableBody = document.getElementById('data-table');
-            let serialNumber = 1;
-  
-            if (data.dealer_details && data.dealer_details.length > 0) {
-                data.dealer_details.forEach(row => {
-                    const tableRow = document.createElement('tr');
-                    tableRow.innerHTML = `
-                        <td>${serialNumber}</td>
-                        <td>${row.date}</td>
-                        <td>${row.brand_name}</td>
-                        <td>${row.mobile}</td>
-                        <td>${row.state}</td>
-                        <td>${row.district}</td>
-                        <td>
-                            <div class="d-flex">
-                            <button class="btn btn-warning btn-sm text-white mx-1" data-bs-toggle="modal" onclick="fetch_data(${row.id});" data-bs-target="#view_model_dealers">
-                            <i class="fa-solid fa-eye" style="font-size: 11px;"></i></button>
-                                <button class="btn btn-primary btn-sm btn_edit" onclick="fetch_edit_data(${row.id});" data-bs-toggle="modal" data-bs-target="#staticBackdrop" id="yourUniqueIdHere">
-                                    <i class="fas fa-edit" style="font-size: 11px;"></i>
-                                </button>
-                                <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.id});">
-                                    <i class="fa fa-trash" style="font-size: 11px;"></i>
-                                </button>
-                            </div>
-                        </td>
-                    `;
-                    tableBody.appendChild(tableRow);
-                    serialNumber++;
+
+            if (data.blog_details && data.blog_details.length > 0) {
+                let tableData = [];
+                let counter = 1;
+
+                data.blog_details.forEach(row => {
+                    let action = `
+                        <div class="d-flex">
+                          <button class="btn btn-warning btn-sm text-white mx-1" data-bs-toggle="modal" onclick="fetch_data(${row.id});" data-bs-target="#exampleModal">
+                                       <i class="fa-solid fa-eye" style="font-size: 11px;"></i></button>
+                                       <button class="btn btn-primary btn-sm btn_edit" onclick="fetch_edit_data(${row.id});" data-bs-toggle="modal" data-bs-target="#staticBackdrop" id="yourUniqueIdHere">
+                                                              <i class="fas fa-edit" style="font-size: 11px;"></i>
+                                                           </button>
+                                                           <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.id});">
+                                                                             <i class="fa fa-trash" style="font-size: 11px;"></i>
+                                                              </button>
+                        </div>`;
+
+                    tableData.push([
+                        counter,
+                        // formatDateTime(row.date),
+                        row.date,
+                        row.blog_category,
+                        row.heading,
+                        action
+                    ]);
+
+                    counter++;
+                });
+
+                $('#example').DataTable().destroy();
+                $('#example').DataTable({
+                    data: tableData,
+                    columns: [
+                        { title: 'S.No.' },
+                        { title: 'Date' },
+                        { title: 'Blog Category' },
+                        { title: 'Blog Headline' },
+                        { title: 'Action', orderable: false }
+                    ],
+                    paging: true,
+                    searching: true,
+                    // ... other options ...
                 });
             } else {
                 tableBody.innerHTML = '<tr><td colspan="9">No valid data available</td></tr>';
@@ -304,13 +339,13 @@ function get_dealers() {
         }
     });
   }
-  get_dealers();
+  get_news();
 
 
   // **delete***
 function destroy(id) {
     var apiBaseURL = APIBaseURL;
-    var url = apiBaseURL + 'dealer_data/' + id;
+    var url = apiBaseURL + 'blog_details/' + id;
     console.log(url);
     var token = localStorage.getItem('token');
   
@@ -351,7 +386,7 @@ function destroy(id) {
   
     var productId = id;
     var apiBaseURL = APIBaseURL;
-    var url = apiBaseURL + 'dealer_data/' + productId;
+    var url = apiBaseURL + 'blog_details/' + productId;
   
     var headers = { 
         'Authorization': 'Bearer ' + localStorage.getItem('token')
@@ -363,22 +398,18 @@ function destroy(id) {
         headers: headers,
         success: function (data) {
           console.log(data, 'abc');
-          document.getElementById('dealer_name').innerText = data.dealer_details[0].dealer_name;
-          document.getElementById('brand_nmae').innerText = data.dealer_details[0].brand_name;
-          document.getElementById('email_id').innerText = data.dealer_details[0].email;
-          document.getElementById('contact').innerText = data.dealer_details[0].mobile;
-          document.getElementById('state').innerText =data.dealer_details[0].state;
-          document.getElementById('district').innerText = data.dealer_details[0].district;
-          document.getElementById('tehsil_').innerText = data.dealer_details[0].tehsil;
-          document.getElementById('addrss').innerText = data.dealer_details[0].address;
+          document.getElementById('news_cate').innerText = data.blog_details[0].blog_category;
+          document.getElementById('headline_news').innerText = data.blog_details[0].heading;
+          document.getElementById('content_news').innerText = data.blog_details[0].content;
+          document.getElementById('publi').innerText = data.blog_details[0].publisher;
       
           $("#selectedImagesContainer1").empty();
       
-          if (data.dealer_details[0].image_names) {
-              var imageNamesArray = Array.isArray(data.dealer_details[0].image_names) ? data.dealer_details[0].image_names : data.dealer_details[0].image_names.split(',');
+          if (data.blog_details[0].image_names) {
+              var imageNamesArray = Array.isArray(data.blog_details[0].image_names) ? data.blog_details[0].image_names : data.blog_details[0].image_names.split(',');
       
               imageNamesArray.forEach(function (imageName) {
-                  var imageUrl = 'http://tractor-api.divyaltech.com/uploads/dealer_img/' + imageName.trim();
+                  var imageUrl = 'http://tractor-api.divyaltech.com/uploads/blog_img/' + imageName.trim();
       
                   var newCard = `
                       <div class="col-6 col-lg-6 col-md-6 col-sm-6">
@@ -402,7 +433,7 @@ function destroy(id) {
 
   function fetch_edit_data(id) {
     var apiBaseURL = APIBaseURL;
-    var url = apiBaseURL + 'dealer_data/' + id;
+    var url = apiBaseURL + 'blog_details/' + id;
     editId_state= true;
     EditIdmain_= id;
   
@@ -415,41 +446,37 @@ function destroy(id) {
         type: 'GET',
         headers: headers,
         success: function (response) {
-            var Data = response.dealer_details[0];
-            $('#dname').val(Data.dealer_name);
+            var Data = response.blog_details[0];
             // $('#brand').val(Data.brand_name);
             $("#brand option").prop("selected", false);
-            $("#brand option[value='" + Data.brand_name + "']").prop("selected", true);
+            $("#brand option[value='" + Data.blog_category + "']").prop("selected", true);
 
-            $('#email').val(Data.email);
-            $('#cno').val(Data.mobile);
-            $('#address').val(Data.address);
-            $('#state_').val(Data.state);
-            $('#dist').val(Data.district);
-            $('#tehsil').val(Data.tehsil);
+            $('#headline').val(Data.heading);
+            $('#contant').val(Data.content);
+            $('#publisher').val(Data.publisher);
   
             // Clear existing images
-            $("#selectedImagesContainer").empty();
+            $("#selectedImagesContainer2").empty();
   
             if (Data.image_names) {
                 // Check if Data.image_names is an array
                 var imageNamesArray = Array.isArray(Data.image_names) ? Data.image_names : Data.image_names.split(',');
                 var countclass=0;
                 imageNamesArray.forEach(function (imageName) {
-                    var imageUrl = 'http://tractor-api.divyaltech.com/uploads/dealer_img/' + imageName.trim();
+                    var imageUrl = 'http://tractor-api.divyaltech.com/uploads/news_img/' + imageName.trim();
                     countclass++;
                     var newCard = `
                         <div class="col-6 col-lg-6 col-md-6 col-sm-6 position-relative">
                         <div class="upload__img-close_button" id="closeId${countclass}" onclick="removeImage(this);"></div>
                             <div class="brand-main d-flex box-shadow mt-2 text-center shadow upload__img-closeDy${countclass}">
                                 <a class="weblink text-decoration-none text-dark" title="Image">
-                                    <img class="img-fluid w-100 h-100" src="${imageUrl}" alt=" Image">
+                                    <img class="img-fluid w-100 h-100" src="${imageUrl}" alt="Image">
                                 </a>
                             </div>
                         </div>
                     `;
                     // Append the new image element to the container
-                    $("#selectedImagesContainer").append(newCard);
+                    $("#selectedImagesContainer2").append(newCard);
                 });
             }
         },
