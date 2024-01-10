@@ -117,11 +117,11 @@ include 'includes/headertag.php';
                                             <tr>
                                                 <td>1</td> 
                                                 <td>
-                                                    <div class="card upload-img-wrap">
+                                                    <div class="card upload-img-wrap" onclick="triggerFileInput('impImage_0')">
                                                         <i class="fas fa-image m-auto" style="cursor: pointer;" onclick="triggerFileInput('impImage_0')"></i>
                                                         <img id="impImagePreview_0" src="" alt="Image Preview" style="max-width: 100%; max-height: 100%; display: none;" class="images">
                                                     </div>
-                                                    <input type="file" name="imp_image[]" id="impImage_0" class="image-file-input" accept="image/*" style="display: none;" required="" onchange="displayImagePreview(this, 'impImagePreview_0')">
+                                                    <input type="file" name="imp_0" id="impImage_0" class="image-file-input" accept="image/*" style="display: none;" onclick="displayImagePreview(this, 'impImagePreview_0')" required="" onchange="displayImagePreview(this, 'impImagePreview_0')">
                                                 </td>
                                                 <td>
                                                     <div class="select-wrap">
@@ -333,8 +333,12 @@ include 'includes/headertag.php';
 <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
 
 
+
+
+<!-- main code  -->
+
 <script>
-  $(document).ready(function () {
+     $(document).ready(function () {
     jQuery.validator.addMethod("customPhoneNumber", function(value, element) {
             return /^[6-9]\d{9}$/.test(value); 
           }, "Phone number must start with 6 or above");
@@ -425,458 +429,6 @@ include 'includes/headertag.php';
     });
    
   });
-</script>
-
-
-<!-- main code  -->
-<!-- <script>
-  function triggerFileInput(inputId) {
-      $('#' + inputId).trigger('click');
-    }
-
-    function displayImagePreview(input, previewId) {
-        var preview = $('#' + previewId);
-        var file = input.files[0];
-        var reader = new FileReader();
-
-        reader.onloadend = function () {
-            preview.attr('src', reader.result);
-            preview.show();
-            hideImageIcon(input);
-        };
-
-        if (file) {
-            reader.readAsDataURL(file);
-        } else {
-            preview.attr('src', '').hide();
-            showImageIcon(input);
-        }
-    }
-
-    function hideImageIcon(input) {
-        $(input).siblings('.upload-img-wrap').find('.fas.fa-image').hide();
-    }
-
-    function showImageIcon(input) {
-        $(input).siblings('.upload-img-wrap').find('.fas.fa-image').show();
-    }
-
-    function removeRow(button) {
-        $(button).closest('tr').remove();
-        updateSerialNumbers();
-    }
-
-    function updateSerialNumbers() {
-        $('#rentTractorTable tbody tr').each(function (index) {
-            var rowNumber = index + 1;
-            $(this).find('td:first').text(rowNumber);
-
-            // Update other IDs as needed
-            var newImageId = 'impImage_' + rowNumber;
-            var newPreviewId = 'impImagePreview_' + rowNumber;
-            $(this).find('.image-file-input').attr('id', newImageId);
-            $(this).find('img').attr('id', newPreviewId);
-            $(this).find('.upload-img-wrap').attr('onclick', 'triggerFileInput(\'' + newImageId + '\')');
-        });
-    }
-
-    $(document).ready(function () {
-        $('#addRentTractorRowBtn').click(function () {
-            var newRow = $('#rentTractorTable tbody tr:last').clone();
-            var newRowNumber = $('#rentTractorTable tbody tr').length +1;
-
-            newRow.find('td:first').text(newRowNumber);
-
-            var newImageId = 'impImage_' + newRowNumber;
-            var newPreviewId = 'impImagePreview_' + newRowNumber;
-
-            // Update IDs and content for the new row
-            newRow.find('.image-file-input').attr('id', newImageId);
-            newRow.find('img').attr('id', newPreviewId).hide();
-            newRow.find('.upload-img-wrap').attr('onclick', 'triggerFileInput(\'' + newImageId + '\')');
-
-            newRow.find('td:last').html('<button type="button" class="btn btn-danger" title="Remove Row" onclick="removeRow(this)"><i class="fas fa-minus"></i></button>');
-
-            $('#rentTractorTable tbody').append(newRow);
-            updateSerialNumbers();
-        });
-    });
-        function displayImagePreview(input, previewId) {
-        var preview = $('#' + previewId);
-        var file = input.files[0];
-        var reader = new FileReader();
-
-        reader.onloadend = function () {
-            preview.attr('src', reader.result);
-            preview.show();
-            hideImageIcon(input);
-        };
-
-        if (file) {
-            reader.readAsDataURL(file);
-        } else {
-            preview.attr('src', '').hide();
-            showImageIcon(input);
-        }
-    }
-
-    function hideImageIcon(input) {
-        $(input).siblings('.upload-img-wrap').find('.fas.fa-image').hide();
-    }
-
-    function showImageIcon(input) {
-        $(input).siblings('.upload-img-wrap').find('.fas.fa-image').show();
-    }
-    $(document).ready(function () {
-    $("#addRentTractorRowBtn").click(function () {
-        // Validate all fields in the first row (index 0)
-        var isValidFirstRow = validateRow($("#rentTractorTable tbody tr").length - 2);
-
-        if (isValidFirstRow) {
-            var newIndex = $("#rentTractorTable tbody tr").length;
-
-            var newRow = $("#rentTractorTable tbody tr:last").clone();
-            newRow.find("input, select").each(function () {
-                var originalId = $(this).attr("id");
-                var originalName = $(this).attr("name");
-
-                var index = parseInt(originalId.split("_")[1]);
-                var newId = originalId.split("_")[0] + "_" + newIndex;
-                var newName = originalName.split("_")[0] + "_" + newIndex;
-                $(this).attr("id", newId);
-                $(this).attr("name", newName);
-
-                if ($(this).is("input")) {
-                    $(this).val("");
-                } else if ($(this).is("select")) {
-                    $(this).val($(this).find("option:first").val());
-                }
-                $(this).removeClass("is-invalid");
-                $(this).next(".invalid-feedback").remove();
-            });
-
-            // Generate unique IDs for the image elements
-            var imageIndex = newIndex - 1;
-            var newImageId = 'impImage_' + newIndex;
-            var newPreviewId = 'impImagePreview_' + newIndex;
-
-            newRow.find('.fas.fa-image').attr('onclick', "triggerFileInput('" + newImageId + "')");
-            newRow.find('.image-file-input').attr('id', newImageId);
-            newRow.find('img').attr('id', newPreviewId).hide();
-            newRow.find('.upload-img-wrap').attr('onclick', 'triggerFileInput(\'' + newImageId + '\')');
-
-            newRow.find('td:last').html('<button type="button" class="btn btn-danger" title="Remove Row" onclick="removeRow(this)"><i class="fas fa-minus"></i></button>');
-
-            $('#rentTractorTable tbody').append(newRow);
-            updateSerialNumbers();
-        }
-    });
-
-        $(document).on("click", ".btn-danger", function () {
-            $(this).closest("tr").remove();
-        });
-
-        // Form Validation
-        $("#rentTractorTable").on("submit", function (e) {
-            var isValidForm = true;
-
-            // Iterate through each row and validate
-            $("#rentTractorTable tbody tr").each(function (index) {
-                if (!validateRow(index)) {
-                    isValidForm = false;
-                    // Stop iteration if any row is invalid
-                    return false;
-                }
-            });
-
-            if (!isValidForm) {
-                e.preventDefault();
-            }
-        });
-
-        // Add event handlers for immediate validation on input or change
-        $("#rentTractorTable").on("input change", ".image-file-input, .implement-type-input, .implement-rate-input, .implement-unit-input", function () {
-            validateRow($(this).closest("tr").index());
-        });
-
-        function displayImagePreview(input, imagePreviewId) {
-            var fileInput = $(input);
-            var preview = $("#" + imagePreviewId);
-
-            if (fileInput.get(0).files.length > 0) {
-                var reader = new FileReader();
-
-                reader.onload = function (e) {
-                    preview.attr('src', e.target.result);
-                    preview.show(); // Show the image preview
-                    fileInput.siblings('.fas.fa-image').hide(); // Hide the upload icon
-                };
-
-                reader.readAsDataURL(fileInput.get(0).files[0]);
-            } else {
-                // No file selected, hide the image preview and show the upload icon
-                preview.hide();
-                fileInput.siblings('.fas.fa-image').show();
-            }
-        }
-
-        function validateRow(rowIndex) {
-            var isValidRow = true;
-            var row = $("#rentTractorTable tbody tr:eq(" + rowIndex + ")");
-            row.find('.is-invalid').removeClass('is-invalid');
-            row.find('.invalid-feedback').remove();
-
-            var imageInput = row.find(".image-file-input");
-            var currentRowIndex = row.index(); 
-
-            displayImagePreview(imageInput.get(0), 'impImagePreview_' + currentRowIndex);
-
-            if (imageInput.prop("required") && !imageInput.get(0).files.length) {
-                isValidRow = false;
-                imageInput.addClass("is-invalid");
-                imageInput.after("<div class='invalid-feedback'>This field is required.</div>");
-            } else {
-                imageInput.removeClass("is-invalid");
-                imageInput.next(".invalid-feedback").remove();
-            }
-
-            var implementTypeField = row.find(".implement-type-input");
-            if (implementTypeField.val() === "Select" || implementTypeField.val() === "") {
-                isValidRow = false;
-                implementTypeField.addClass("is-invalid");
-                implementTypeField.after("<div class='invalid-feedback'>This field is required.</div>");
-            } else {
-                implementTypeField.removeClass("is-invalid");
-            }
-
-            row.find(".implement-rate-input").each(function (index) {
-                var rate = parseFloat($(this).val());
-                if (isNaN(rate) || rate <= 0) {
-                    isValidRow = false;
-                    $(this).addClass("is-invalid");
-                    $(this).after("<div class='invalid-feedback'>This field is required.</div>");
-                } else {
-                    $(this).removeClass("is-invalid");
-                }
-            });
-
-            row.find(".implement-unit-input").each(function (index) {
-                if ($(this).val() === "") {
-                    isValidRow = false;
-                    $(this).addClass("is-invalid");
-                    $(this).after("<div class='invalid-feedback'>This field is required.</div>");
-                } else {
-                    $(this).removeClass("is-invalid");
-                }
-            });
-
-            return isValidRow;
-             }
-    });
-</script> -->
-
-<!-- <script>
-  function triggerFileInput(inputId) {
-      $('#' + inputId).trigger('click');
-    }
-
-    function displayImagePreview(input, previewId) {
-        var preview = $('#' + previewId);
-        var file = input.files[0];
-        var reader = new FileReader();
-
-        reader.onloadend = function () {
-            preview.attr('src', reader.result);
-            preview.show();
-            hideImageIcon(input);
-        };
-
-        if (file) {
-            reader.readAsDataURL(file);
-        } else {
-            preview.attr('src', '').hide();
-            showImageIcon(input);
-        }
-    }
-
-    function hideImageIcon(input) {
-        $(input).siblings('.upload-img-wrap').find('.fas.fa-image').hide();
-    }
-
-    function showImageIcon(input) {
-        $(input).siblings('.upload-img-wrap').find('.fas.fa-image').show();
-    }
-
-    function removeRow(button) {
-        $(button).closest('tr').remove();
-        updateSerialNumbers();
-    }
-
-    function updateSerialNumbers() {
-        $('#rentTractorTable tbody tr').each(function (index) {
-            var rowNumber = index + 1;
-            $(this).find('td:first').text(rowNumber);
-
-            // Update other IDs as needed
-            var newImageId = 'impImage_' + rowNumber;
-            var newPreviewId = 'impImagePreview_' + rowNumber;
-            $(this).find('.image-file-input').attr('id', newImageId);
-            $(this).find('img').attr('id', newPreviewId);
-            $(this).find('.upload-img-wrap').attr('onclick', 'triggerFileInput(\'' + newImageId + '\')');
-        });
-    }
-
-    $(document).ready(function () {
-    $("#addRentTractorRowBtn").click(function () {
-        // Validate all fields in the first row (index 0)
-        var isValidFirstRow = validateRow($("#rentTractorTable tbody tr").length - 1);
-
-        if (isValidFirstRow) {
-            var newIndex = $("#rentTractorTable tbody tr").length;
-
-            var newRow = $("#rentTractorTable tbody tr:last").clone();
-            newRow.find("input, select").each(function () {
-                var originalId = $(this).attr("id");
-                var originalName = $(this).attr("name");
-
-                var index = parseInt(originalId.split("_")[1]);
-                var newId = originalId.split("_")[0] + "_" + newIndex;
-                var newName = originalName.split("_")[0] + "_" + newIndex;
-                $(this).attr("id", newId);
-                $(this).attr("name", newName);
-
-                if ($(this).is("input")) {
-                    $(this).val("");
-                } else if ($(this).is("select")) {
-                    $(this).val($(this).find("option:first").val());
-                }
-                $(this).removeClass("is-invalid");
-                $(this).next(".invalid-feedback").remove();
-            });
-
-            // Generate unique IDs for the image elements
-            var imageIndex = newIndex - 1;
-            var newImageId = 'impImage_' + newIndex;
-            var newPreviewId = 'impImagePreview_' + newIndex;
-
-            newRow.find('.fas.fa-image').attr('onclick', "triggerFileInput('" + newImageId + "')");
-            newRow.find('.image-file-input').attr('id', newImageId);
-            newRow.find('img').attr('id', newPreviewId).hide();
-            newRow.find('.upload-img-wrap').attr('onclick', 'triggerFileInput(\'' + newImageId + '\')');
-
-            newRow.find('td:first').text(newIndex + 1); // Update the serial number
-
-            newRow.find('td:last').html('<button type="button" class="btn btn-danger" title="Remove Row" onclick="removeRow(this)"><i class="fas fa-minus"></i></button>');
-
-            $('#rentTractorTable tbody').append(newRow);
-            updateSerialNumbers();
-        }
-    });
-        $(document).on("click", ".btn-danger", function () {
-            $(this).closest("tr").remove();
-        });
-
-        // Form Validation
-        $("#rentTractorTable").on("submit", function (e) {
-            var isValidForm = true;
-
-            // Iterate through each row and validate
-            $("#rentTractorTable tbody tr").each(function (index) {
-                if (!validateRow(index)) {
-                    isValidForm = false;
-                    // Stop iteration if any row is invalid
-                    return false;
-                }
-            });
-
-            if (!isValidForm) {
-                e.preventDefault();
-            }
-        });
-
-        // Add event handlers for immediate validation on input or change
-        $("#rentTractorTable").on("input change", ".image-file-input, .implement-type-input, .implement-rate-input, .implement-unit-input", function () {
-            validateRow($(this).closest("tr").index());
-        });
-
-        function displayImagePreview(input, imagePreviewId) {
-            var fileInput = $(input);
-            var preview = $("#" + imagePreviewId);
-
-            if (fileInput.get(0).files.length > 0) {
-                var reader = new FileReader();
-
-                reader.onload = function (e) {
-                    preview.attr('src', e.target.result);
-                    preview.show(); // Show the image preview
-                    fileInput.siblings('.fas.fa-image').hide(); // Hide the upload icon
-                };
-
-                reader.readAsDataURL(fileInput.get(0).files[0]);
-            } else {
-                // No file selected, hide the image preview and show the upload icon
-                preview.hide();
-                fileInput.siblings('.fas.fa-image').show();
-            }
-        }
-
-        function validateRow(rowIndex) {
-            var isValidRow = true;
-            var row = $("#rentTractorTable tbody tr:eq(" + rowIndex + ")");
-            row.find('.is-invalid').removeClass('is-invalid');
-            row.find('.invalid-feedback').remove();
-
-            var imageInput = row.find(".image-file-input");
-            var currentRowIndex = row.index(); 
-
-            displayImagePreview(imageInput.get(0), 'impImagePreview_' + currentRowIndex);
-
-            if (imageInput.prop("required") && !imageInput.get(0).files.length) {
-                isValidRow = false;
-                imageInput.addClass("is-invalid");
-                imageInput.after("<div class='invalid-feedback'>This field is required.</div>");
-            } else {
-                imageInput.removeClass("is-invalid");
-                imageInput.next(".invalid-feedback").remove();
-            }
-
-            var implementTypeField = row.find(".implement-type-input");
-            if (implementTypeField.val() === "Select" || implementTypeField.val() === "") {
-                isValidRow = false;
-                implementTypeField.addClass("is-invalid");
-                implementTypeField.after("<div class='invalid-feedback'>This field is required.</div>");
-            } else {
-                implementTypeField.removeClass("is-invalid");
-            }
-
-            row.find(".implement-rate-input").each(function (index) {
-                var rate = parseFloat($(this).val());
-                if (isNaN(rate) || rate <= 0) {
-                    isValidRow = false;
-                    $(this).addClass("is-invalid");
-                    $(this).after("<div class='invalid-feedback'>This field is required.</div>");
-                } else {
-                    $(this).removeClass("is-invalid");
-                }
-            });
-
-            row.find(".implement-unit-input").each(function (index) {
-                if ($(this).val() === "") {
-                    isValidRow = false;
-                    $(this).addClass("is-invalid");
-                    $(this).after("<div class='invalid-feedback'>This field is required.</div>");
-                } else {
-                    $(this).removeClass("is-invalid");
-                }
-            });
-
-            return isValidRow;
-        }
-    });
-</script> -->
-
-
-<script>
     function triggerFileInput(inputId) {
         $('#' + inputId).trigger('click');
     }
@@ -902,17 +454,11 @@ include 'includes/headertag.php';
     }
     }
 
-    function hideImageIcon(input) {
-        $(input).closest('td').find('.fas.fa-image').hide();
-    }
-
-    function showImageIcon(input) {
-        $(input).closest('td').find('.fas.fa-image').show();
-    }
+ 
 
     function removeRow(button) {
         $(button).closest('tr').remove();
-        updateSerialNumbers();
+       // updateSerialNumbers();
     }
 
     function updateSerialNumbers() {
@@ -930,8 +476,8 @@ include 'includes/headertag.php';
     });
     }
 
-    $(document).ready(function () {
-        $("#addRentTractorRowBtn").click(function () {
+   
+      $("#addRentTractorRowBtn").click(function () {
             var isValidFirstRow = validateRow($("#rentTractorTable tbody tr").length - 1);
 
             if (isValidFirstRow) {
@@ -959,24 +505,27 @@ include 'includes/headertag.php';
 
                 var newImageId = 'impImage_' + newIndex;
                 var newPreviewId = 'impImagePreview_' + newIndex;
-
+               // $('.fas.fa-image').show();
                 newRow.find('.fas.fa-image').attr('onclick', "triggerFileInput('" + newImageId + "')");
                 newRow.find('.image-file-input').attr('id', newImageId);
                 newRow.find('img').attr('id', newPreviewId).hide();
+                newRow.find('.image-file-input').attr('onclick', "displayImagePreview(this, '" + newPreviewId + "')");
+                newRow.find('.image-file-input').attr('onchange', "displayImagePreview(this, '" + newPreviewId + "')");
                 newRow.find('.upload-img-wrap').attr('onclick', 'triggerFileInput(\'' + newImageId + '\')');
 
                 newRow.find('td:first').text(newIndex + 1);
                 newRow.find('td:last').html('<button type="button" class="btn btn-danger" title="Remove Row" onclick="removeRow(this)"><i class="fas fa-minus"></i></button>');
 
                 $('#rentTractorTable tbody').append(newRow);
-                updateSerialNumbers();
+               // updateSerialNumbers();
             }
         });
 
         $(document).on("click", ".btn-danger", function () {
             $(this).closest("tr").remove();
-            updateSerialNumbers();
+            //updateSerialNumbers();
         });
+
 
         $("#rentTractorTable").on("submit", function (e) {
             var isValidForm = true;
@@ -1071,7 +620,7 @@ include 'includes/headertag.php';
 
           return isValidRow;
         }
-    });
+   
 </script>
 
 
