@@ -150,10 +150,19 @@ $('#save').on('click', function() {
         console.log(result, "result");
         get();
         console.log("Add successfully");
-        alert('successfully inserted..!')
+       // alert('successfully inserted..!')
+       $("#staticBackdrop").modal("hide");
+       var msg = "User Inserted successfully !"
+        $("#errorStatusLoading").modal('show');
+        $("#errorStatusLoading").find('.modal-title').html('Success');
+        $("#errorStatusLoading").find('.modal-body').html(msg);
       },
       error: function (error) {
         console.error('Error fetching data:', error);
+        var msg = error;
+        $("#errorStatusLoading").modal('show');
+        $("#errorStatusLoading").find('.modal-title').html('Error');
+        $("#errorStatusLoading").find('.modal-body').html(msg);
       }
     });
   }
@@ -266,14 +275,20 @@ var url = apiBaseURL + "deleteUser/" + id;
       'Authorization': 'Bearer ' + token
     },
     success: function(result) {
-      window.location.reload();
+     // window.location.reload();
       get();
       console.log("Delete request successful");
-      alert("Delete operation successful");
+      var msg = "User Deleted successfully !"
+        $("#errorStatusLoading").modal('show');
+        $("#errorStatusLoading").find('.modal-title').html('Success');
+        $("#errorStatusLoading").find('.modal-body').html(msg);
     },
     error: function(error) {
       console.error('Error fetching data:', error);
-      alert("Error during delete operation");
+      var msg = error;
+        $("#errorStatusLoading").modal('show');
+        $("#errorStatusLoading").find('.modal-title').html('Error');
+        $("#errorStatusLoading").find('.modal-body').html(msg);
     }
   });
 }
@@ -348,10 +363,17 @@ function edit_user(){
         console.log(result, "result");
         get();
         console.log("updated successfully");
-        alert('successfully updated..!')
+        var msg = "User Updated successfully !"
+        $("#errorStatusLoading").modal('show');
+        $("#errorStatusLoading").find('.modal-title').html('Success');
+        $("#errorStatusLoading").find('.modal-body').html(msg);
       },
       error: function (error) {
         console.error('Error fetching data:', error);
+        var msg = error;
+        $("#errorStatusLoading").modal('show');
+        $("#errorStatusLoading").find('.modal-title').html('Error');
+        $("#errorStatusLoading").find('.modal-body').html(msg);
       }
   })
 }

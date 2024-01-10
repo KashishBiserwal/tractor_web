@@ -46,6 +46,24 @@
             </div>
         </nav>
    </header>
+
+   <div class="modal fade" id="errorStatusLoading" tabindex="-1" role="dialog" aria-labelledby="errorStatusLoadingTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="errorStatusLoadingTitle">Loading Status</h5>
+      </div>
+      <div class="modal-body">
+        <p>Sorry, there was an issue with the Data Loading , please try again.</p>
+         <!-- <img src="../assets/images/success.gif">  -->
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn add_btn btn-success btn_all" data-bs-dismiss="modal">OK</button>
+        <!-- <a class="btn  text-primary" data-dismiss="modal">Ok</a> -->
+      </div>
+    </div>
+  </div>
+</div>
    <script>
     function user_logout() {
     var url = "<?php echo $APIBaseURL; ?>user_logout";
@@ -96,27 +114,24 @@
 
 </script>
 <script>
-      const expireTimeString = localStorage.getItem('expireIn');
-    // var expiretime = new Date(expireTimeString); 
-    const expireTime = new Date(expireTimeString);
+//       const expireTimeString = localStorage.getItem('expireIn');
 
-window.setInterval(() => {
+//     const expireTime = new Date(expireTimeString);
+
+// window.setInterval(() => {
   
 
-    var currentdate = new Date();
-    // console.log("hello");
-    // console.log('currentdate',currentdate);
-    // console.log('expiretime',expireTime);
-    console.log(currentdate >= expireTime)
-    console.log(currentdate >= expireTime)
-    if (currentdate >= expireTime) {
+//     var currentdate = new Date();
+//     console.log(currentdate >= expireTime)
+//     console.log(currentdate >= expireTime)
+//     if (currentdate >= expireTime) {
         
-        user_logout();
-        localStorage.removeItem("expireIn");
-         window.location.href = baseUrl + "login.php";
-    }
+//         user_logout();
+//         localStorage.removeItem("expireIn");
+//          window.location.href = baseUrl + "login.php";
+//     }
 
-}, 5000);
+// }, 5000);
 
 </script>
    

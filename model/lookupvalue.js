@@ -14,9 +14,9 @@ $(document).ready(function() {
             required: "This field is required",
         }
      },
-    submitHandler: function (form) {
+   submitHandler: function (form) {
         alert("Form submitted successfully!");
-    },
+    }, 
   });
 
   $("#submit_button").on("click", function () {
@@ -35,9 +35,9 @@ $(document).ready(function() {
             required: "This field is required",
         }
      },
-    submitHandler: function (form) {
+  submitHandler: function (form) {
         alert("Form submitted successfully!");
-    },
+    }, 
   });
   
   $("#savechangebtn").on("click", function () {
@@ -84,10 +84,18 @@ var url = apiBaseURL + 'lookup_type';
     //   window.location.href = "<?php echo $baseUrl; ?>lookupvalue.php"; 
     get();
       console.log("Add successfully");
-      alert('successfully inserted..!')
+      $("#staticBackdrop1").modal('hide');
+      var msg = "Added successfully !"
+      $("#errorStatusLoading").modal('show');
+      $("#errorStatusLoading").find('.modal-title').html('Success');
+      $("#errorStatusLoading").find('.modal-body').html(msg);
     },
     error: function (error) {
       console.error('Error fetching data:', error);
+      var msg = error;
+      $("#errorStatusLoading").modal('show');
+      $("#errorStatusLoading").find('.modal-title').html('Error');
+      $("#errorStatusLoading").find('.modal-body').html(msg);
     }
   });
 }
@@ -176,11 +184,18 @@ $.ajax({
     // window.location.reload();
     get();
     console.log("Delete request successful");
-    alert("Delete operation successful");
+    var msg = "Deleted successfully !"
+    $("#errorStatusLoading").modal('show');
+    $("#errorStatusLoading").find('.modal-title').html('Success');
+    $("#errorStatusLoading").find('.modal-body').html(msg);
   },
   error: function(error) {
     console.error('Error fetching data:', error);
-    alert("Error during delete operation");
+    //alert("Error during delete operation");
+    var msg = error;
+    $("#errorStatusLoading").modal('show');
+    $("#errorStatusLoading").find('.modal-title').html('Error');
+    $("#errorStatusLoading").find('.modal-body').html(msg);
   }
 });
 }
@@ -270,12 +285,21 @@ function resetForm() {
         success: function (result) {
             console.log(result, "result");
             get();
-            window.location.reload();
+           // window.location.reload();
             console.log("updated successfully");
-            alert('successfully updated..!')
+            //alert('successfully updated..!')
+            $("#staticBackdrop2").modal('hide');
+            var msg = "Updated successfully !"
+            $("#errorStatusLoading").modal('show');
+            $("#errorStatusLoading").find('.modal-title').html('Success');
+            $("#errorStatusLoading").find('.modal-body').html(msg);
         },
         error: function (error) {
             console.error('Error fetching data:', error);
+            var msg = error;
+            $("#errorStatusLoading").modal('show');
+            $("#errorStatusLoading").find('.modal-title').html('Error');
+            $("#errorStatusLoading").find('.modal-body').html(msg);
         }
     });
   }
