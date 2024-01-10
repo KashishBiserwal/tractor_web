@@ -75,14 +75,12 @@ function getProductById() {
 
             var product = data.product.allProductData[0];
 
-            // Split the image names into an array
             var imageNames = product.image_names.split(',');
 
             var carouselContainer = $('.swiper-wrapper_buy');
 
             carouselContainer.empty();
 
-            // Iterate through the image names and create carousel slides
             imageNames.forEach(function(imageName) {
                 var imageUrl = "http://tractor-api.divyaltech.com/uploads/product_img/" + imageName.trim(); // Update the path
                 var slide = $('<div class="swiper-slide swiper-slide_buy"><img class="img_buy" src="' + imageUrl + '" /></div>');
@@ -90,7 +88,6 @@ function getProductById() {
             });
 
             var mySwiper = new Swiper('.swiper_buy', {
-                // Your Swiper configuration options
             });
             console.log(data, 'abc');
         },

@@ -40,14 +40,19 @@
                 <div class="col-12 col-lg-6 col-md-6 col-sm-6">
                
                 <div>
-                    <div class="swiper swiper_buy mySwiper2_buy">
+                    <!-- <div class="swiper swiper_buy mySwiper2_buy">
                         <div class="swiper-wrapper swiper-wrapper_buy">
                             <div class=" swiper-slide swiper-slide_buy">
-                            <!-- <img class="img_buy" src="assets/images/437-1632718440.webp" />-->
                             </div>
                         </div>
                     </div>
-                    <div thumbsSlider="" class="swiper mySwiper_buy" style="height:74px;" id="swip_img"></div>
+                    <div thumbsSlider="" class="swiper mySwiper_buy" style="height:74px;" id="swip_img"></div> -->
+                    <div class="swiper swiper_buy mySwiper2_buy">
+                    <div class="swiper-wrapper swiper-wrapper_buy"></div>
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-button-next"></div>
+                    </div>
+                    <div thumbsSlider="" class="swiper mySwiper_buy"  style="height:74px;" id="swip_img"></div>
                     
                 </div>
               
@@ -115,7 +120,7 @@
                     </table>
                     <div class="row my-3 text-center">
                         <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                            <a href="4wd.php"><button type="submit" class="btn btn-success w-100 fw-bold ">GET ON ROAD
+                            <a href="onload.php"><button type="submit" class="btn btn-success w-100 fw-bold ">GET ON ROAD
                                     PRICE</button></a>
                         </div>
                         <div class="col-12 col-lg-6 col-md-6 col-sm-6">

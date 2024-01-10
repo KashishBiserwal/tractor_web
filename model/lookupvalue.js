@@ -1,6 +1,7 @@
 $(document).ready(function() {
 
   $('#savechangebtn').click(edit_user);
+  $('#submit_button').click(store);
 
   $("#look_up_form").validate({
     rules: {
