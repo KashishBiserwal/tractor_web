@@ -2,6 +2,7 @@
 $(document).ready(function() {
     console.log("ready!");
     getTractorList();
+    
     // $('#submit_enquiry').click(tractor_enquiry);
     // $('#submit_enquiry').on('click',function(){
     //     alert('sdfsadf');
@@ -12,61 +13,66 @@ $(document).ready(function() {
     // });
     $('#contact-seller-call').submit(tractor_enquiry);
 
-    $('#contact-seller-call').validate({
+    $("#contact-seller-call").validate({
         rules: {
-            fname: {
-                required: true,
+            brandName: {
+                required: true
             },
-            lname: {
-                required: true,
+            modeName: {
+                required: true
             },
-            number: {
+            firstName: {
+                required: true
+            },
+            lastName: {
+                required: true
+            },
+            mobile_number: {
                 required: true,
+                digits: true,
+                minlength: 10
             },
             state: {
                 required: true,
+                notEqual: "Select State"
             },
             district: {
                 required: true,
-            },
-            badget: {
-                required: true,
+                notEqual: "Select District"
             },
             Tehsil: {
-                required: true,
+                required: true
             }
         },
-        
-        messages:{
-            fname:{
-                required:"This field is required",
+        messages: {
+            state: {
+                notEqual: "Please select a state."
             },
-            lname:{
-                required:"This field is required",
-            },
-            number:{
-                required:"This field is required",
-            },
-            state:{
-                required:"This field is required",
-            },
-            district:{
-                required:"This field is required",
-            },
-            badget:{
-                required:"This field is required",
-            },
-            Tehsil:{
-                required:"This field is required",
+            district: {
+                notEqual: "Please select a district."
             }
         },
-        submitHandler: function(form) {
-        form.submit();
+        submitHandler: function (form) {
+            savedata();
+            tractor_enquiry();
         }
     });
-});
 
-function get() {
+    // Custom validation method for notEqual rule
+    $.validator.addMethod("notEqual", function (value, element, param) {
+        return value !== param;
+    }, "Value must not equal {0}");
+
+    });
+
+
+
+function model_click(){
+    get();
+    console.log("confirm")
+  }
+
+  function get() {
     var url = 'http://tractor-api.divyaltech.com/api/customer/get_all_brands';
     $.ajax({
         url: url,
@@ -76,20 +82,23 @@ function get() {
         },
         success: function (data) {
             console.log(data);
-            const select = document.getElementById('brandName');
-            // select.innerHTML = '<option selected disabled value="">Please select an option</option>';
-            $('#brandName').html('<option selected disabled value="">Please select an option</option>')
+            const selects = document.querySelectorAll('#brandName');
 
-            if (data.brands.length > 0) {
-                data.brands.forEach(row => {
-                    const option = document.createElement('option');
-                    option.textContent = row.brand_name;
-                    option.value = row.id;
-                    select.appendChild(option);
-                });
-            } else {
-                select.innerHTML = '<option>No valid data available</option>';
-            }
+            selects.forEach(select => {
+                select.innerHTML = '<option selected disabled value="">Please select an option</option>';
+
+                if (data.brands.length > 0) {
+                    data.brands.forEach(row => {
+                        const option = document.createElement('option');
+                        option.textContent = row.brand_name;
+                        option.value = row.id;
+                        console.log(option);
+                        select.appendChild(option);
+                    });
+                } else {
+                    select.innerHTML = '<option>No valid data available</option>';
+                }
+            });
         },
         error: function (error) {
             console.error('Error fetching data:', error);
@@ -97,7 +106,7 @@ function get() {
     });
 }
 
-get();
+
 
 
 function getTractorList() {
@@ -147,13 +156,12 @@ function getTractorList() {
 function displayTractors(tractors) {
     var productContainer = $("#productContainer");
     var tableData = $("#tableData");
-
     // Clear existing content
     productContainer.html('');
     tableData.html('');
 
     
-    tractors.forEach(function(p) {
+    tractors.forEach(function (p) {
         var images = p.image_names;
         var a = [];
 
@@ -191,13 +199,13 @@ function displayTractors(tractors) {
                                 </div>    
                             </div>
                             <div class="col-12">
-                                <button type="button" class="add_btn btn-success w-100" data-bs-toggle="modal" data-bs-target="#used_tractor_callbnt_${p.product_id}">
+                                <button type="button" class="add_btn btn-success w-100" onclick="model_click()" data-bs-toggle="modal" data-bs-target="#used_tractor_callbnt_${p.product_id}">
 
                                 <i class="fa-regular fa-handshake"></i> Get on Road Price
                                 </button>
                             </div>
 
-                            <div class="modal fade" id="used_tractor_callbnt_${p.product_id}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                            <div class="modal fade" id="used_tractor_callbnt_${p.product_id}" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                             <div class="modal-dialog modal-lg modal-dialog-centered">
                               <div class="modal-content">
                                 <div class="modal-header  modal_head">
@@ -257,9 +265,12 @@ function displayTractors(tractors) {
                                         <input type="text" class="form-control" placeholder="Enter Your Tehsil" id="Tehsil" name="Tehsil">
                                     </div>                          
                                 </div> 
-                                    <div class="text-center my-3">
-                                    <button type="button" id="submit_enquiry" onclick="savedata()" class="btn btn-success px-5 w-100">Submit</button>       
-                                    </div>        
+                                
+                     
+                                    <div class="modal-footer">
+                                    <button type="submit" id="submit_enquiry" class="btn add_btn btn-success w-100 btn_all"onclick="savedata()" data-bs-dismiss="modal">Submit</button>
+                                    <!-- <a class="btn  text-primary" data-dismiss="modal">Ok</a> -->
+                                </div>      
                                   </form>                             
                                 </div>
                               </div>
@@ -276,6 +287,12 @@ function displayTractors(tractors) {
                         <td class="py-3">Rs. <span>${p.starting_price}</span> - <span>${p.ending_price}</span>*</td>
                     </tr> 
                 `;
+                var tablerow_hp = `
+                    <tr class="">
+                        <td class="py-3">${p.model}</td>
+                        <td class="py-3">Rs. <span>${p.starting_price}</span> - <span>${p.ending_price}</span>*</td>
+                    </tr>
+`;
 
                 // Add event listener for modal opening
     $(".add_btn").on("click", function () {
@@ -284,16 +301,18 @@ function displayTractors(tractors) {
     });
         // Append the new card to the container
         productContainer.append(newCard);
+        console.log(tableData,"dfghj")
         tableData.append(tableRow);
+        console.log(hp_wise)
+        hp_wise.append(tablerow_hp);
+       
     });
 }
 
 // enquiry form
 
 function tractor_enquiry() {
-    console.log('jfhfhw');
     var brandName = $('#brandName').val();
-    alert(brandName)
     var modeName = $('#modeName').val();
     var firstName = $('#firstName').val();
     var lastName = $('#lastName').val();
@@ -313,7 +332,7 @@ function tractor_enquiry() {
       'tehsil': Tehsil,
       'enquiry_type_id':enquiry_type_id,
     };
-    console.log(paraArr)
+    // console.log(paraArr);
   
 //   var apiBaseURL =APIBaseURL;
 //   var url = apiBaseURL + 'customer_enquiries';
@@ -331,17 +350,32 @@ var url ='http://tractor-api.divyaltech.com/api/customer/customer_enquiries';
       headers: headers,
       success: function (result) {
         console.log(result, "result");
-     
-        console.log("Add successfully");
-        alert('successfully inserted..!')
+        savedata();
+    console.log("Add successfully");
+    $("#used_tractor_callbnt_").modal('hide'); 
+    var msg = "Added successfully !"
+    $("#errorStatusLoading").modal('show');    
+    $("#errorStatusLoading").find('.modal-title').html('<p class="text-center">Congratulation..! Requested Successful</p>');
+ 
+    $("#errorStatusLoading").find('.modal-body').html(msg);
+    $("#errorStatusLoading").find('.modal-body').html('<img src="assets/images/successfull.gif" style="display:block; margin:0 auto;" class="w-50 text-center" alt="Successfull Request"></img>');
+  
       },
       error: function (error) {
         console.error('Error fetching data:', error);
+        var msg = error;
+        $("#errorStatusLoading").modal('show');
+        $("#errorStatusLoading").find('.modal-title').html('<p class="text-center">Process Failed..! Enter Valid Detail</p>');
+        $("#errorStatusLoading").find('.modal-body').html(msg);
+        $("#errorStatusLoading").find('.modal-body').html('<img src="assets/images/comp_3.gif" style="display:block; margin:0 auto;" class="w-50 text-center" alt="Successfull Request"></img>');
+        // 
       }
     });
   }
+ 
 
   function savedata(){
     tractor_enquiry();
-    console.log("confirm")
+    console.log("confirm");
+    console.log("Form submitted successfully");
   }

@@ -267,4 +267,23 @@
 </nav>
 </div>
 
+<!-- model popup -->
+<div class="modal fade" id="errorStatusLoading" tabindex="-1" role="dialog" aria-labelledby="errorStatusLoadingTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="errorStatusLoadingTitle">Loading Status</h5>
+      </div>
+      <div class="modal-body">
+        <p>Sorry, there was an issue with the Data Loading , please try again.</p>
+         <!-- <img src="../assets/images/success.gif">  -->
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn add_btn btn-success btn_all" data-bs-dismiss="modal">OK</button>
+        <!-- <a class="btn  text-primary" data-dismiss="modal">Ok</a> -->
+      </div>
+    </div>
+  </div>
+</div>
+
 

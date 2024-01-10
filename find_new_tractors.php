@@ -7,9 +7,19 @@ include 'includes/headertag.php';
    include 'includes/footertag.php';
    
    ?> 
+   <style>
+     label.error {
+      color: red;
+      font-size: 12px;
+      display: block;
+      margin-top: 5px;
+   }
+   </style>
 <script> var APIBaseURL = "<?php echo $APIBaseURL; ?>";</script>
 <script> var baseUrl = "<?php echo $baseUrl; ?>";</script>
     <script src="<?php $baseUrl; ?>model/find_new_tractor.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
 
 <body>
    <?php
@@ -33,193 +43,6 @@ include 'includes/headertag.php';
             <div class="col-12 col-sm-9 col-lg-9 col-md-9">
                 <h3 class="pb-3">New <span class="text-success fw-bold">TRACTORS</span> </h3>
                 <div id="productContainer" class="row">
-               
-                    <!-- <div class="col-12 col-lg-4 col-md-4 col-sm-4 mb-3">
-                        <div class="h-auto success__stry__item d-flex flex-column shadow ">
-                            <div class="thumb">
-                                <a href="#">
-                                    <div class="ratio ratio-16x9">
-                                        <img src="assets/images/swaraj-855-fe-1694259363.webp" class="object-fit-cover " alt="img">
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="content d-flex flex-column flex-grow-1 ">
-                                <div class="caption text-center">
-                                    <a href="#" class="text-decoration-none text-dark">
-                                        <p class="pt-3"><strong class="series_tractor_strong text-center h4 fw-bold ">Swaraj 855 FE</strong></p>
-                                    </a>      
-                                </div>
-                                <div class="power text-center mt-2">
-                                    <div class="row ">
-                                        <div class="col-12 col-lg-6 col-md-6 col-sm-6"><p class="text-dark ps-2"><i class="fas fa-bolt"></i> 55 HP</p></div>
-                                        <div class="col-12 col-lg-6 col-md-6 col-sm-6" style="padding-right: 32px;">
-                                             <p id="adduser" type="" class="text-dark">
-                                              <i class="fa-solid fa-gear"></i>  3487 CC </p>
-                                        </div>
-                                    </div>    
-                                </div>
-                                <div class="col-12">
-                                    <button id="adduser" type="button" class="add_btn btn-success w-100">
-                                    <i class="fa-regular fa-handshake"></i> Get on Road Price </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div> -->
-                    <!-- <div class="col-12 col-lg-4 col-md-4 col-sm-4 mb-3">
-                        <div class="h-auto success__stry__item d-flex flex-column shadow ">
-                            <div class="thumb">
-                                <a href="#">
-                                    <div class="ratio ratio-16x9">
-                                        <img src="assets/images/575-di-xp-plus-1632207330.webp" class="object-fit-cover " alt="img">
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="content d-flex flex-column flex-grow-1 ">
-                                <div class="caption text-center">
-                                    <a href="#" class="text-decoration-none text-dark">
-                                        <p class="pt-3"><strong class="series_tractor_strong text-center h4 fw-bold ">Mahindra 575 DI XP Plus</strong></p>
-                                    </a>      
-                                </div>
-                                <div class="power text-center mt-2">
-                                    <div class="row ">
-                                        <div class="col-12 col-lg-6 col-md-6 col-sm-6"><p class="text-dark ps-2"><i class="fas fa-bolt"></i> 47 HP</p></div>
-                                        <div class="col-12 col-lg-6 col-md-6 col-sm-6" style="padding-right: 32px;">
-                                             <p id="adduser" type="" class="text-dark">
-                                              <i class="fa-solid fa-gear"></i>  2979 CC </p>
-                                        </div>
-                                    </div>    
-                                </div>
-                                <div class="col-12">
-                                    <button id="adduser" type="button" class="add_btn btn-success w-100">
-                                    <i class="fa-regular fa-handshake"></i> Get on Road Price </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-lg-4 col-md-4 col-sm-4 mb-3">
-                        <div class="h-auto success__stry__item d-flex flex-column shadow ">
-                            <div class="thumb">
-                                <a href="#">
-                                    <div class="ratio ratio-16x9">
-                                        <img src="assets/images/yuvo-tech-plus-415-di-1633952706.webp" class="object-fit-cover " alt="img">
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="content d-flex flex-column flex-grow-1 ">
-                                <div class="caption text-center">
-                                    <a href="#" class="text-decoration-none text-dark">
-                                        <p class="pt-3"><strong class="series_tractor_strong text-center h4 fw-bold ">YUVO TECH Plus</strong></p>
-                                    </a>      
-                                </div>
-                                <div class="power text-center mt-2">
-                                    <div class="row ">
-                                        <div class="col-12 col-lg-6 col-md-6 col-sm-6"><p class="text-dark ps-2"><i class="fas fa-bolt"></i> 55 HP</p></div>
-                                        <div class="col-12 col-lg-6 col-md-6 col-sm-6" style="padding-right: 32px;">
-                                             <p id="adduser" type="" class="text-dark">
-                                              <i class="fa-solid fa-gear"></i>  3487 CC </p>
-                                        </div>
-                                    </div>    
-                                </div>
-                                <div class="col-12">
-                                    <button id="adduser" type="button" class="add_btn btn-success w-100">
-                                    <i class="fa-regular fa-handshake"></i> Get on Road Price </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-lg-4 col-md-4 col-sm-4 mb-3">
-                        <div class="h-auto success__stry__item d-flex flex-column shadow ">
-                            <div class="thumb">
-                                <a href="#">
-                                    <div class="ratio ratio-16x9">
-                                        <img src="assets/images/swaraj-744-xt-1694260212.webp" class="object-fit-cover " alt="img">
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="content d-flex flex-column flex-grow-1 ">
-                                <div class="caption text-center">
-                                    <a href="#" class="text-decoration-none text-dark">
-                                        <p class="pt-3"><strong class="series_tractor_strong text-center h4 fw-bold ">Swaraj 744 XT</strong></p>
-                                    </a>      
-                                </div>
-                                <div class="power text-center mt-2">
-                                    <div class="row ">
-                                        <div class="col-12 col-lg-6 col-md-6 col-sm-6"><p class="text-dark ps-2"><i class="fas fa-bolt"></i> 48 HP</p></div>
-                                        <div class="col-12 col-lg-6 col-md-6 col-sm-6" style="padding-right: 32px;">
-                                             <p id="adduser" type="" class="text-dark">
-                                              <i class="fa-solid fa-gear"></i>  3136 CC </p>
-                                        </div>
-                                    </div>    
-                                </div>
-                                <div class="col-12">
-                                    <button id="adduser" type="button" class="add_btn btn-success w-100">
-                                    <i class="fa-regular fa-handshake"></i> Get on Road Price </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-lg-4 col-md-4 col-sm-4 mb-3">
-                        <div class="h-auto success__stry__item d-flex flex-column shadow ">
-                            <div class="thumb">
-                                <a href="#">
-                                    <div class="ratio ratio-16x9">
-                                        <img src="assets/images/5050-d-1632220934.webp" class="object-fit-cover " alt="img">
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="content d-flex flex-column flex-grow-1 ">
-                                <div class="caption text-center">
-                                    <a href="#" class="text-decoration-none text-dark">
-                                        <p class="pt-3"><strong class="series_tractor_strong text-center h4 fw-bold ">John Deere 5050 D</strong></p>
-                                    </a>      
-                                </div>
-                                <div class="power text-center mt-2">
-                                    <div class="row ">
-                                        <div class="col-12 col-lg-6 col-md-6 col-sm-6"><p class="text-dark ps-2"><i class="fas fa-bolt"></i> 50 HP</p></div>
-                                        <div class="col-12 col-lg-6 col-md-6 col-sm-6" style="padding-right: 32px;">
-                                             <p id="adduser" type="" class="text-dark">
-                                              <i class="fa-solid fa-gear"></i> 2900 CC </p>
-                                        </div>
-                                    </div>    
-                                </div>
-                                <div class="col-12">
-                                    <button id="adduser" type="button" class="add_btn btn-success w-100">
-                                    <i class="fa-regular fa-handshake"></i> Get on Road Price </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-lg-4 col-md-4 col-sm-4 mb-3">
-                        <div class="h-auto success__stry__item d-flex flex-column shadow ">
-                            <div class="thumb">
-                                <a href="#">
-                                    <div class="ratio ratio-16x9">
-                                        <img src="assets/images/735-fe-1631013770.webp" class="object-fit-cover " alt="img">
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="content d-flex flex-column flex-grow-1 ">
-                                <div class="caption text-center">
-                                    <a href="#" class="text-decoration-none text-dark">
-                                        <p class="pt-3"><strong class="series_tractor_strong text-center h4 fw-bold ">Swaraj 735 FE</strong></p>
-                                    </a>      
-                                </div>
-                                <div class="power text-center mt-2">
-                                    <div class="row ">
-                                        <div class="col-12 col-lg-6 col-md-6 col-sm-6"><p class="text-dark ps-2"><i class="fas fa-bolt"></i> 40 HP</p></div>
-                                        <div class="col-12 col-lg-6 col-md-6 col-sm-6" style="padding-right: 32px;">
-                                             <p id="adduser" type="" class="text-dark">
-                                              <i class="fa-solid fa-gear"></i> 2734 CC </p>
-                                        </div>
-                                    </div>    
-                                </div>
-                                <div class="col-12">
-                                    <button id="adduser" type="button" class="add_btn btn-success w-100">
-                                    <i class="fa-regular fa-handshake"></i> Get on Road Price </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div> -->
                     
                 </div>
                 <div class="col-12 text-center mt-3 pt-2 ">
@@ -234,7 +57,7 @@ include 'includes/headertag.php';
                         <div class=" row text-center">
                             <div class="col-12 col-sm-5 col-lg-5 col-md-5">
                                 <button id="adduser" type="button" class="add_btn btn btn-success">
-                                <i class="fas fa-undo"></i>  Reset </button>
+                                <i class="fas fa-undo"></i>Reset</button>
                             </div>
                            <div class="col-12 col-sm-7 col-lg-7 col-md-7 ">
                                 <button id="adduser" type="button" class="add_btn btn btn-success">
@@ -299,9 +122,7 @@ include 'includes/headertag.php';
 <section class="my-4">
     <div class="container my-5">
         <h3 class="fw-bold assured px-3 py-2">Tractor Price List</h3>
-        <!-- <div class="" role="alert">
-            <p class="text-dark py-3">New Tractor prices in India vary from Rs. 2.45 lakh to Rs. 33.90 lakh. For a budget-friendly option, consider the Swaraj Code tractor, priced between Rs. 2.45 lakh and Rs. 2.50 lakh.</p>
-        </div> -->
+        
         <table class="table table-striped my-3">
             <thead class="">
                 <tr class="py-3">
@@ -311,11 +132,7 @@ include 'includes/headertag.php';
                 </tr>
             </thead>
             <tbody id="tableData">
-                <!-- <tr class="py-3">
-                    <td class="col-12 col-lg-5 col-md-5 col-sm-5 py-3">Swaraj 855 FE</td>
-                    <td class="col-12 col-lg-3 col-md-3 col-sm-3 py-3">55  HP</td>
-                    <td class="col-12 col-lg-4 col-md-4 col-sm-4 py-3">Rs. 7.90-8.40 lac*</td>
-                </tr> -->
+               
             </tbody>
         </table>
     </div>
@@ -324,9 +141,6 @@ include 'includes/headertag.php';
 <section class="my-3">
     <div class="container my-5">
         <h3 class="fw-bold assured px-3 py-2">Best 35 HP Tractor in India</h3>
-        <!-- <div class="" role="alert">
-            <p class="text-dark py-3">A 35 HP tractor, considered semi-medium, is great for orchards, small-scale farming, or tasks that require moving stationary objects. Many small-scale Indian farmers choose cost-effective 35 HP tractors such as Mahindra Yuvo 275 DI, Swaraj 834 XM, New Holland 3032 Nx, etc. Check out the price list for these 35 HP new tractors in India below.</p>
-        </div> -->
         <table class="table table-striped my-3">
             <thead class="">
                 <tr class="py-3">
@@ -334,19 +148,7 @@ include 'includes/headertag.php';
                 <th scope="col">Price Range (Rs. Lac)*</th>
                 </tr>
             </thead>
-            <tbody>
-                <tr class="">
-                    <td class="col-12 col-lg-6 col-md-6 col-sm-6 py-3">Sonalika MM 35 DI</td>
-                    <td class="col-12 col-lg-6 col-md-6 col-sm-6 py-3">Rs. 4.96-5.22 Lakh*</td>
-                </tr>
-                <tr  class="py-3">
-                    <td class="py-3">Farmtrac CHAMPION 35</td>
-                    <td class="py-3">Rs. 5.67-5.99 Lakh*</td>
-                </tr>
-                <tr class="py-3">
-                    <td class="py-3">Standard DI 335</td>
-                    <td class="py-3">Rs. 4.90-5.10 Lakh</td>
-                </tr>
+            <tbody id="hp_wise">
             </tbody>
         </table>
     </div>
@@ -576,4 +378,7 @@ include 'includes/headertag.php';
     include 'includes/footertag.php';
 
     ?>
+    <script>
+        
+    </script>
     </html>
