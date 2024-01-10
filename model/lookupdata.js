@@ -20,7 +20,10 @@ $(document).ready(function() {
       }
      },
     submitHandler: function (form) {
-        alert("Form submitted successfully!");
+        var msg = "Form submitted successfully !"
+        $("#errorStatusLoading").modal('show');
+        $("#errorStatusLoading").find('.modal-title').html('Success');
+        $("#errorStatusLoading").find('.modal-body').html(msg);
     },
   });
 
@@ -49,7 +52,10 @@ $('#lookup_data_submit').click(store);
       }
      },
     submitHandler: function (form) {
-        alert("Form submitted successfully!");
+        var msg = "Form submitted successfully !";
+        $("#errorStatusLoading").modal('show');
+        $("#errorStatusLoading").find('.modal-title').html('Success');
+        $("#errorStatusLoading").find('.modal-body').html(msg);
     },
   });
   
@@ -111,7 +117,7 @@ function get_data() {
                         { title: 'Action', orderable: false } // Disable ordering for Action column
                     ],
                       paging: true,
-                      searching: true,
+                      searching: false,
                       // ... other options ...
                   });
           } else {
@@ -121,6 +127,10 @@ function get_data() {
       },
       error: function (error) {
           console.error('Error fetching data:', error);
+          var msg = error;
+          $("#errorStatusLoading").modal('show');
+          $("#errorStatusLoading").find('.modal-title').html('Error');
+          $("#errorStatusLoading").find('.modal-body').html(msg);
           // Display an error message or handle the error as needed
       }
   });
@@ -162,10 +172,17 @@ $.ajax({
     console.log(result, "result");
     // window.location.href = "<?php echo $baseUrl; ?>lookup_data.php"; 
     console.log("Add successfully");
-    alert('successfully inserted..!')
+    var msg = "Added successfully !"
+        $("#errorStatusLoading").modal('show');
+        $("#errorStatusLoading").find('.modal-title').html('Success');
+        $("#errorStatusLoading").find('.modal-body').html(msg);
   },
   error: function (error) {
     console.error('Error fetching data:', error);
+    var msg = error;
+    $("#errorStatusLoading").modal('show');
+    $("#errorStatusLoading").find('.modal-title').html('Error');
+    $("#errorStatusLoading").find('.modal-body').html(msg);
   }
 });
 }
@@ -201,6 +218,10 @@ function get() {
       },
       error: function (error) {
           console.error('Error fetching data:', error);
+          var msg = error;
+          $("#errorStatusLoading").modal('show');
+          $("#errorStatusLoading").find('.modal-title').html('Error');
+          $("#errorStatusLoading").find('.modal-body').html(msg);
       }
   });
   }
@@ -236,6 +257,10 @@ function get() {
         },
         error: function (error) {
             console.error('Error fetching data:', error);
+            var msg = error;
+            $("#errorStatusLoading").modal('show');
+            $("#errorStatusLoading").find('.modal-title').html('Error');
+            $("#errorStatusLoading").find('.modal-body').html(msg);
         }
     });
     }
@@ -266,11 +291,17 @@ success: function(result) {
   // window.location.reload();
   get_data();
   console.log("Delete request successful");
-  alert("Delete operation successful");
+  var msg = "Deleted successfully !"
+        $("#errorStatusLoading").modal('show');
+        $("#errorStatusLoading").find('.modal-title').html('Success');
+        $("#errorStatusLoading").find('.modal-body').html(msg);
 },
 error: function(error) {
   console.error('Error fetching data:', error);
-  alert("Error during delete operation");
+  var msg = error;
+  $("#errorStatusLoading").modal('show');
+  $("#errorStatusLoading").find('.modal-title').html('Error');
+  $("#errorStatusLoading").find('.modal-body').html(msg);
 }
 });
 }
@@ -335,6 +366,10 @@ function myFunction() {
           },
           error: function (error) {
               console.error('Error fetching user data:', error);
+              var msg = error;
+              $("#errorStatusLoading").modal('show');
+              $("#errorStatusLoading").find('.modal-title').html('Error');
+              $("#errorStatusLoading").find('.modal-body').html(msg);
           }
       });
     }
@@ -367,10 +402,17 @@ function myFunction() {
             // get();
             window.location.reload();
             console.log("updated successfully");
-            alert('successfully updated..!')
+            var msg = "Updated successfully !"
+        $("#errorStatusLoading").modal('show');
+        $("#errorStatusLoading").find('.modal-title').html('Success');
+        $("#errorStatusLoading").find('.modal-body').html(msg);
         },
         error: function (error) {
             console.error('Error fetching data:', error);
+            var msg = error;
+            $("#errorStatusLoading").modal('show');
+            $("#errorStatusLoading").find('.modal-title').html('Error');
+            $("#errorStatusLoading").find('.modal-body').html(msg);
         }
     });
   }
