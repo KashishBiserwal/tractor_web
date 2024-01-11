@@ -1,13 +1,19 @@
 $(document).ready(function () {
- 
+  get('brand1');
   $('#engine_oil_btn').click(edit_user);
   
   $('#submit_btn').on('click', function(event) {
     store(event);
 });
-
+$('#add_trac').on('click', function() {
+  get('brand');
+});
   $('.js-example-basic-multiple').select2({
     dropdownParent: $('#myModal')
+    
+  });
+  $('.js-example-basic-multiple2').select2({
+    dropdownParent: $('#myModal2')
     
   });
   $('#subbnt').click(engineOil_add);
@@ -15,7 +21,7 @@ $(document).ready(function () {
     var rowId = $(this).data('row-id');
     fetch_edit_data(rowId);
 });
-    ImgUpload();
+    //ImgUpload();
     $.validator.addMethod("validPrice", function(value, element) {
       
       const cleanedValue = value.replace(/,/g, '');
@@ -87,7 +93,10 @@ $(document).ready(function () {
         }
       },
       submitHandler: function (form) {
-        alert("Form submitted successfully!");
+        var msg = "Form submitted successfully!"
+        $("#errorStatusLoading").modal('show');
+        $("#errorStatusLoading").find('.modal-title').html('Success');
+        $("#errorStatusLoading").find('.modal-body').html(msg);
       },
     });
 
@@ -159,7 +168,10 @@ $(document).ready(function () {
         }
       },
       submitHandler: function (form) {
-        alert("Form submitted successfully!");
+        var msg = "Form submitted successfully!"
+        $("#errorStatusLoading").modal('show');
+        $("#errorStatusLoading").find('.modal-title').html('Success');
+        $("#errorStatusLoading").find('.modal-body').html(msg);
       },
     });
 
@@ -171,62 +183,7 @@ $(document).ready(function () {
   
  
 
-  function ImgUpload() {
-    var imgWrap = "";
-    var imgArray = [];
 
-    $('.upload__inputfile').each(function () {
-      $(this).on('change', function (e) {
-        imgWrap = $(this).closest('.upload__box').find('.upload__img-wrap');
-        var maxLength = $(this).attr('data-max_length');
-
-        var files = e.target.files;
-        var filesArr = Array.prototype.slice.call(files);
-        var iterator = 0;
-        filesArr.forEach(function (f, index) {
-
-          if (!f.type.match('image.*')) {
-            return;
-          }
-
-          if (imgArray.length > maxLength) {
-            return false
-          } else {
-            var len = 0;
-            for (var i = 0; i < imgArray.length; i++) {
-              if (imgArray[i] !== undefined) {
-                len++;
-              }
-            }
-            if (len > maxLength) {
-              return false;
-            } else {
-              imgArray.push(f);
-
-              var reader = new FileReader();
-              reader.onload = function (e) {
-                var html = "<div class='upload__img-box'><div style='background-image: url(" + e.target.result + ")' data-number='" + $(".upload__img-close").length + "' data-file='" + f.name + "' class='img-bg'><div class='upload__img-close'></div></div></div>";
-                imgWrap.append(html);
-                iterator++;
-              }
-              reader.readAsDataURL(f);
-            }
-          }
-        });
-      });
-    });
-
-    $('body').on('click', ".upload__img-close", function (e) {
-      var file = $(this).parent().data("file");
-      for (var i = 0; i < imgArray.length; i++) {
-        if (imgArray[i].name === file) {
-          imgArray.splice(i, 1);
-          break;
-        }
-      }
-      $(this).parent().parent().remove();
-    });
-  }
 
 
 function engineOil_add() {
@@ -241,37 +198,60 @@ function engineOil_add() {
       success: function (data) {
           const tableBody = document.getElementById('data-table');
           let serialNumber = 1;
+          let tableData = [];
 
           if (data.engine_oil_details && data.engine_oil_details.length > 0) {
               data.engine_oil_details.forEach(row => {
-                  const tableRow = document.createElement('tr');
-                  tableRow.innerHTML = `
-                      <td>${serialNumber}</td>
-                      <td>${row.brand_name}</td>
-                      <td>${row.oil_model}</td>
-                      <td>${row.quantity}</td>
-                      <td>
-                          <div class="d-flex">
-                          <button class="btn btn-warning btn-sm text-white mx-1" data-bs-toggle="modal" onclick="fetch_data(${row.id});" data-bs-target="#exampleModal">
-                        <i class="fa-solid fa-eye" style="font-size: 11px;"></i></button>
-                              <button class="btn btn-primary btn-sm btn_edit" onclick="fetch_edit_data(${row.id});" data-bs-toggle="modal" data-bs-target="#staticBackdrop_1" id="yourUniqueIdHere">
-                                  <i class="fas fa-edit" style="font-size: 11px;"></i>
-                              </button>
-                              <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.id});">
-                                  <i class="fa fa-trash" style="font-size: 11px;"></i>
-                              </button>
-                          </div>
-                      </td>
-                  `;
-                  tableBody.appendChild(tableRow);
-                  serialNumber++;
+                //  const tableRow = document.createElement('tr');
+                let action = `   <div class="d-flex">
+                <button class="btn btn-warning btn-sm text-white mx-1" data-bs-toggle="modal" onclick="fetch_data(${row.id});" data-bs-target="#exampleModal" style="padding:5px">
+              <i class="fa-solid fa-eye" style="font-size: 11px;"></i></button>
+                    <button class="btn btn-primary btn-sm btn_edit" onclick="fetch_edit_data(${row.id});" data-bs-toggle="modal" data-bs-target="#staticBackdrop_1" id="yourUniqueIdHere" style="padding:5px">
+                        <i class="fas fa-edit" style="font-size: 11px;"></i>
+                    </button>
+                    <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.id});" style="padding:5px">
+                        <i class="fa fa-trash" style="font-size: 11px;"></i>
+                    </button>
+                </div>`;
+
+                // Push row data as an array into the tableData
+                tableData.push([
+                  serialNumber,
+                  row.brand_name,
+                  row.oil_model,
+                  row.quantity,
+                  action
+              ]);
+
+              serialNumber++;
+          });
+
+          // Initialize DataTable after preparing the tableData
+          $('#example').DataTable().destroy();
+          $('#example').DataTable({
+                  data: tableData,
+                  columns: [
+                    { title: 'S.No.' },
+                    { title: 'Brand' },
+                    { title: 'Model Name' },
+                    { title: 'Quantity' },
+                    { title: 'Action', orderable: false } // Disable ordering for Action column
+                ],
+                  paging: true,
+                  searching: false,
+                  // ... other options ...
               });
+         
           } else {
               tableBody.innerHTML = '<tr><td colspan="9">No valid data available</td></tr>';
           }
       },
       error: function (error) {
           console.error('Error fetching data:', error);
+          var msg = error;
+          $("#errorStatusLoading").modal('show');
+          $("#errorStatusLoading").find('.modal-title').html('Error');
+          $("#errorStatusLoading").find('.modal-body').html(msg);
       }
   });
 }
@@ -313,7 +293,7 @@ engineOil_add();
 //   });
 // }
 // get_engine_oil();
-function get() {
+function get(selectId) {
   var apiBaseURL =APIBaseURL;
   var url = apiBaseURL + 'getBrands';
   $.ajax({
@@ -324,7 +304,8 @@ function get() {
       },
       success: function (data) {
           console.log(data);
-          const select = document.getElementById('brand');
+          const select = document.getElementById(selectId);
+        
           select.innerHTML = '<option selected disabled value="">Please select an option</option>';
 
           if (data.brands.length > 0) {
@@ -337,13 +318,18 @@ function get() {
           } else {
               select.innerHTML ='<option>No valid data available</option>';
           }
+    
       },
       error: function (error) {
           console.error('Error fetching data:', error);
+          var msg = error;
+          $("#errorStatusLoading").modal('show');
+          $("#errorStatusLoading").find('.modal-title').html('Error');
+          $("#errorStatusLoading").find('.modal-body').html(msg);
       }
   });
 }
-get();
+
 
 // add data
 function store(event) {
@@ -402,12 +388,18 @@ function store(event) {
       // Clear form values
       $('#brand, #model, #grade, #qualtity, #price, #textarea_, #_image, #ass_list').val('');
       // window.location.reload();
-  
-      alert('Successfully inserted!');
+      $("#staticBackdrop").modal('hide');
+      var msg = "Added successfully !"
+        $("#errorStatusLoading").modal('show');
+        $("#errorStatusLoading").find('.modal-title').html('Success');
+        $("#errorStatusLoading").find('.modal-body').html(msg);
     },
     error: function (error) {
       console.error('Error:', error);
-      alert('Error inserting data. See console for details.');
+      var msg = error;
+      $("#errorStatusLoading").modal('show');
+      $("#errorStatusLoading").find('.modal-title').html('Error');
+      $("#errorStatusLoading").find('.modal-body').html(msg);
     }
   });
 }
@@ -423,6 +415,7 @@ function destroy(id) {
     console.error("Token is missing");
     return;
   }
+  
   var isConfirmed = confirm("Are you sure you want to delete this data?");
   if (!isConfirmed) {
     return;
@@ -437,11 +430,17 @@ function destroy(id) {
     success: function(result) {
       // get_tractor_list();
       console.log("Delete request successful");
-      alert("Delete operation successful");
+      var msg = "Deleted successfully !"
+        $("#errorStatusLoading").modal('show');
+        $("#errorStatusLoading").find('.modal-title').html('Success');
+        $("#errorStatusLoading").find('.modal-body').html(msg);
     },
     error: function(error) {
       console.error('Error fetching data:', error);
-      alert("Error during delete operation");
+      var msg = error;
+      $("#errorStatusLoading").modal('show');
+      $("#errorStatusLoading").find('.modal-title').html('Error');
+      $("#errorStatusLoading").find('.modal-body').html(msg);
     }
   });
 }
@@ -499,7 +498,12 @@ function fetch_data(id) {
     },
       error: function (error) {
           console.error('Error fetching data:', error);
+          var msg = error;
+          $("#errorStatusLoading").modal('show');
+          $("#errorStatusLoading").find('.modal-title').html('Error');
+          $("#errorStatusLoading").find('.modal-body').html(msg);
       }
+      
   });
 }
 
@@ -583,6 +587,7 @@ jQuery(document).ready(function () {
   }
 
 function fetch_edit_data(id) {
+  get('brand_1');
   var apiBaseURL = APIBaseURL;
   var url = apiBaseURL + 'engine_oil/' + id;
   console.log(url);
@@ -597,14 +602,42 @@ function fetch_edit_data(id) {
       headers: headers,
       success: function (response) {
           var Data = response.engine_oil_details [0];
-         
           $('#idUser').val(Data.id);
-          $('#brand_1').val(Data.brand_name);
+          console.log(Data.brand_name,"Data.brand_name");
+          var brandName = Data.brand_name.trim(); // Remove leading/trailing spaces if any
+
+          // Loop through the options to find and select the matching one
+          $('#brand_1 option').each(function() {
+            var optionText = $(this).text().trim();
+        
+            if (optionText === brandName) {
+                $(this).prop('selected', true);
+                return false;
+            }
+        });
           $('#model_1').val(Data.oil_model);
           $('#grade_1').val(Data.grade);
           $('#qualtity_1').val(Data.quantity);
-          $('#price').val(Data.price);
-          $('#ass_list_1').val(Data.compatible_model);
+          $('#price_1').val(Data.price);
+          var compatibleModels = JSON.parse(Data.compatible_model);
+
+          // Loop through each value in the compatible_model array
+          if (Array.isArray(compatibleModels)) {
+              compatibleModels.forEach(function(model) {
+                  // Loop through each option in the multiselect field
+                  $('#ass_list_1 option').each(function() {
+                      var optionValue = $(this).val();
+                      // If the option value matches the model value, mark it as selected
+                      if (optionValue === model) {
+                          $(this).prop('selected', true);
+                      }
+                  });
+              });
+          }
+          
+          // Trigger change event to update the multiselect field display
+          $('#ass_list_1').trigger('change');
+          // $('#ass_list_1').val(Data.compatible_model);
           $('#textarea_1').val(Data.description);
 
           $("#selectedImagesContainer2").empty();
@@ -633,6 +666,10 @@ function fetch_edit_data(id) {
       },
       error: function (error) {
           console.error('Error fetching user data:', error);
+          var msg = error;
+          $("#errorStatusLoading").modal('show');
+          $("#errorStatusLoading").find('.modal-title').html('Error');
+          $("#errorStatusLoading").find('.modal-body').html(msg);
       }
   });
 }
@@ -647,7 +684,7 @@ function edit_user(id){
   var grade = $('#grade_1').val();
   var qualtity = $('#qualtity_1').val();
   var price = $('#price_1').val();
-  var ass = $('#ass_list_1').val();
+  var ass = JSON.stringify($('#ass_list_1').val());
   var description = $('#textarea_1').val();
  
 
@@ -684,12 +721,117 @@ function edit_user(id){
        success: function (result) {
          console.log(result, "result");
         //  get();
-        window.location.reload();
+       // window.location.reload();
          console.log("updated successfully");
-         alert('successfully updated..!')
+         $("#staticBackdrop_1").modal('hide');
+         var msg = "Updated successfully !"
+        $("#errorStatusLoading").modal('show');
+        $("#errorStatusLoading").find('.modal-title').html('Success');
+        $("#errorStatusLoading").find('.modal-body').html(msg);
        },
        error: function (error) {
          console.error('Error fetching data:', error);
+         $("#staticBackdrop_1").modal('hide');
+         var msg = error;
+         $("#errorStatusLoading").modal('show');
+         $("#errorStatusLoading").find('.modal-title').html('Error');
+         $("#errorStatusLoading").find('.modal-body').html(msg);
        }
    })
  }
+function searchdata(){
+  var brand_name = $('#brand1').val();
+  var model_name = $('#model1').val();
+  
+  var apiBaseURL = APIBaseURL;
+  var url = apiBaseURL + 'search_for_engine_oil';
+  var token = localStorage.getItem('token');
+
+  var headers = {
+      'Authorization': 'Bearer ' + token
+  };
+
+  var data = new FormData();
+  if(brand_name == null){
+    data.append('brand_id', '');
+  }else{
+    data.append('brand_id', brand_name);
+  }
+ 
+  data.append('oil_model', model_name);
+
+  $.ajax({
+    url: url,
+    type: "POST",
+    data: data,
+    headers: headers,
+    processData: false,
+    contentType: false,
+    success: function (data) {
+      console.log('Success:', data.engineOilData);
+      const tableBody = document.getElementById('data-table');
+      let serialNumber = 1;
+      let tableData = [];
+
+      if (data.engineOilData && data.engineOilData.length > 0) {
+          data.engineOilData.forEach(row => {
+             // const tableRow = document.createElement('tr');
+            let action = `   <div class="d-flex">
+            <button class="btn btn-warning btn-sm text-white mx-1" data-bs-toggle="modal" onclick="fetch_data(${row.id});" data-bs-target="#exampleModal" style="padding:5px">
+          <i class="fa-solid fa-eye" style="font-size: 11px;"></i></button>
+                <button class="btn btn-primary btn-sm btn_edit" onclick="fetch_edit_data(${row.id});" data-bs-toggle="modal" data-bs-target="#staticBackdrop_1" id="yourUniqueIdHere" style="padding:5px">
+                    <i class="fas fa-edit" style="font-size: 11px;"></i>
+                </button>
+                <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.id});" style="padding:5px">
+                    <i class="fa fa-trash" style="font-size: 11px;"></i>
+                </button>
+            </div>`;
+
+            // Push row data as an array into the tableData
+            tableData.push([
+              serialNumber,
+              row.brand_name,
+              row.oil_model,
+              row.quantity,
+              action
+          ]);
+
+          serialNumber++;
+      });
+
+      // Initialize DataTable after preparing the tableData
+      $('#example').DataTable().destroy();
+      $('#example').DataTable({
+              data: tableData,
+              columns: [
+                { title: 'S.No.' },
+                { title: 'Brand' },
+                { title: 'Model Name' },
+                { title: 'Quantity' },
+                { title: 'Action', orderable: false } // Disable ordering for Action column
+            ],
+              paging: true,
+              searching: false,
+              // ... other options ...
+          });
+     
+      } else {
+          tableBody.innerHTML = '<tr><td colspan="9">No valid data available</td></tr>';
+      }
+  },
+  error: function (error) {
+    const tableBody = document.getElementById('data-table');
+    if(error.status == 400){
+      tableBody.innerHTML = '<tr><td colspan="9">No valid data available</td></tr>';
+    }
+      console.error('Error fetching data:', error);
+  
+  }
+});
+}
+
+function resetform(){
+  $('#brand1').val('');
+  $('#model1').val('');
+  
+}

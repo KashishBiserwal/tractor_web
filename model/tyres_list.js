@@ -358,33 +358,54 @@ function get_tyre_list() {
           'Authorization': 'Bearer' + localStorage.getItem('token')
       },
       success: function (data) {
-          const tableBody = document.getElementById('data-table');
-          let serialNumber = 1;
+        const tableBody = document.getElementById('data-table');
+        let serialNumber = 1;
+        let tableData = [];
+
 
           if (data.tyre_details && data.tyre_details.length > 0){
               data.tyre_details.forEach(row => {
-                  const tableRow = document.createElement('tr');
-                  tableRow.innerHTML = `
-                      <td>${serialNumber}</td>
-                      <td>${row.brand_name}</td>
-                      <td>${row.tyre_model}</td>
-                      <td>${row.tyre_position}</td>
-                      <td>${row.tyre_size}</td>
-                      <td>
-                          <div class="d-flex">
-                              <button class="btn btn-warning btn-sm text-white mx-1" data-bs-toggle="modal" onclick="fetch_data(${row.id});" data-bs-target="#exampleModal"><i class="fas fa-eye" style="font-size: 11px;"></i></button>
-                              <button class="btn btn-primary btn-sm btn_edit" onclick="fetch_edit_data(${row.id});" data-bs-toggle="modal" data-bs-target="#staticBackdrop" id="yourUniqueIdHere">
-                                  <i class="fas fa-edit" style="font-size: 11px;"></i>
-                              </button>
-                              <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.id});">
-                                  <i class="fa fa-trash" style="font-size: 11px;"></i>
-                              </button>
-                          </div>
-                      </td>
-                  `;
-                  tableBody.appendChild(tableRow);
-                  serialNumber++;
-              });
+                 // const tableRow = document.createElement('tr');
+                  let action = `  <div class="d-flex">
+                  <button class="btn btn-warning btn-sm text-white mx-1" data-bs-toggle="modal" onclick="fetch_data(${row.id});" data-bs-target="#exampleModal" style="padding: 5px;"><i class="fas fa-eye" style="font-size: 11px;"></i></button>
+                  <button class="btn btn-primary btn-sm btn_edit" onclick="fetch_edit_data(${row.id});" data-bs-toggle="modal" data-bs-target="#staticBackdrop" id="yourUniqueIdHere" style="padding: 5px;">
+                      <i class="fas fa-edit" style="font-size: 11px;"></i>
+                  </button>
+                  <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.id});" style="padding: 5px;">
+                      <i class="fa fa-trash" style="font-size: 11px;"></i>
+                  </button>
+              </div>`;
+  
+                  // Push row data as an array into the tableData
+                  tableData.push([
+                    serialNumber,
+                    row.brand_name,
+                    row.tyre_model,
+                    row.tyre_position,
+                    row.tyre_size,
+                    action
+                ]);
+  
+                serialNumber++;
+            });
+  
+            // Initialize DataTable after preparing the tableData
+            $('#example').DataTable().destroy();
+            $('#example').DataTable({
+                    data: tableData,
+                    columns: [
+                      { title: 'S.No.' },
+                      { title: 'Brand' },
+                      { title: 'Model Name' },
+                      { title: 'Tyre Position' },
+                      { title: 'Size' },
+                      { title: 'Action', orderable: false } // Disable ordering for Action column
+                  ],
+                    paging: true,
+                    searching: false,
+                    // ... other options ...
+                })
+                
           } else {
               tableBody.innerHTML = '<tr><td colspan="7">No valid data available</td></tr>';
           }

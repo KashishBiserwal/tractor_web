@@ -28,15 +28,15 @@
             </ol>
           </nav>
           <button type="button" id="add_trac" class="btn add_btn btn-success float-right btn_all" data-bs-toggle="modal"  data-bs-target="#staticBackdrop">
-              <i class="fa fa-plus" aria-hidden="true"></i> Add New Tyres
+              <i class="fa fa-plus" aria-hidden="true"></i> Add New Tyre
           </button>
 
           <!-- Modal -->
           <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-            <div class="modal-dialog modal-xl modal-dialog-centered">
+            <div class="modal-dialog modal-lg modal-dialog-centered">
               <div class="modal-content modal_box">
                 <div class="modal-header modal_head">
-                  <h5 class="modal-title text-white fw-bold" id="staticBackdropLabel"> Edit Tyres </h5>
+                  <h5 class="modal-title text-white fw-bold" id="staticBackdropLabel">Add Tyre </h5>
                   <button type="button" class="btn-close btn-success" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body bg-white">
@@ -80,7 +80,7 @@
                                         <label for="name" class="form-label text-dark">Tyre Width</label>
                                         <input type="text" class="form-control" placeholder="" id="tyre_width" name="tyre_width">
                                       </div>
-                                    </div> -->
+                                    </div> 
                                     <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-3">
                                      <div class="form-outline ">
                                       <label for="yr_state" class="form-label text-dark">Category</label>
@@ -157,8 +157,8 @@
         </div>
       </div>
       <!-- Table Card -->
-      <div class=" mb-5">
-            <div class="table-responsive shadow bg-white mt-3">
+      <div class=" mb-5 shadow bg-white mt-3 p-3">
+            <div class="table-responsive">
               <table id="example" class="table table-striped  table-hover table-bordered dataTable no-footer" width="100%; margin-bottom: 15px;">
                 <thead class="">
                   <tr>
@@ -177,17 +177,16 @@
     </div>
   </div>
 </section>
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog modal-dialog-centered modal-md">
-            <div class="modal-content">
-            <!-- <div class="modal-header">
-                <h5 class="modal-title" id="staticBackdropLabel"> Brand Information</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div> -->
-              <div class="modal-body">
-                <h4 class="fw-bold mb-2">Tyre Information</h4>
-                <div class="container">
-                  <div class="row">
+
+<div class="modal fade" data-bs-backdrop="static" data-bs-keyboard="false" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-md modal-dialog-centered">
+              <div class="modal-content modal_box">
+                <div class="modal-header modal_head">
+                  <h5 class="modal-title text-white fw-bold" id="staticBackdropLabel">Tyre Information</h5>
+                  <button type="button" class="btn-close btn-success" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body bg-white">
+                <div class="row">
                     <div class="col-12 col-lg-6 col-sm-6 col-md-6">
                       <h6 class="fw-bold">Brand Name: </h6>
                     </div>
@@ -236,14 +235,13 @@
                     <div id="selectedImagesContainer" class="upload__img-wrap row"></div>
                     </div>
                   </div>
-                </div>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary btn_all" data-bs-dismiss="modal">Close</button>
+                  </div>
               </div>
             </div>
           </div>
-        </div>
     
 </div>
 </div>

@@ -283,7 +283,6 @@ opacity: 0.8;
     flex-wrap: nowrap;
     /* margin: -21px -50px; */
     margin: 0 auto;
-    justify-content: center;
   }
 
   .upload__img-box {
@@ -316,7 +315,7 @@ opacity: 0.8;
   .img-bg {
   background-repeat: no-repeat;
   background-position: center;
-  background-size: cover;
+  background-size: contain;
   position: relative;
   width: 160px;
   height: 125px;

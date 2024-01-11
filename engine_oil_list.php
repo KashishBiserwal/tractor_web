@@ -41,7 +41,7 @@
 
           <!-- Modal -->
           <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-            <div class="modal-dialog modal-xl modal-dialog-centered">
+          <div class="modal-dialog modal-lg modal-dialog-centered">
               <div class="modal-content modal_box">
                 <div class="modal-header modal_head">
                   <h5 class="modal-title text-white fw-bold" id="staticBackdropLabel"> Add Engine Oil </h5>
@@ -58,9 +58,7 @@
                                       <div class="form-outline ">
                                       <label for="name" class="form-label text-dark">Brand</label>
                                       <select class="form-select form-control" aria-label=".form-select-lg example" id="brand" name="brand">
-                                        <option value="1"disabled>Select Brand</option>
-                                        <option value="sonalika">sonalika</option>
-                                        <option value="mahindra">mahindra</option>
+                                    
                                         </select>
                                       </div>
                                     </div>
@@ -134,31 +132,39 @@
       <!-- Filter Card -->
       <div class="filter-card">
         <div class="card-body">
+          <form id="search_form">
+
+      
           <div class="row">
             <div class="col-12 col-sm-12 col-md-4 col-lg-4">
               <div class="form-outline">
                 <label class="form-label">Brand</label>
-                <input type="email" id="search_name" name="search_name" class="form-control" />
+                <!-- <input type="email" id="search_name" name="search_name" class="form-control" /> -->
+                <select class="form-select form-control" aria-label=".form-select-lg example" id="brand1" name="brand">
+                  <!-- <option value="" disabled>Select Brand</option> -->
+                </select>
               </div>
             </div>
             <div class="col-12 col-sm-12 col-md-4 col-lg-4">
               <div class="form-outline">
                 <label class="form-label">Model Name</label>
-                <input type="text" id="search_email" name="search_email" class="form-control" />
+                <input type="text" id="model1" name="model" class="form-control" />
               </div>
             </div>
             <div class="col-12 col-sm-12 col-md-4 col-lg-4">
               <div class="text-center">
-                <button type="button" class="btn-success btn btn_all" id="Search">Search</button>
-                <button type="button" class="btn-success btn btn_all" id="Reset">Reset</button>
+                <button type="button" class="btn-success btn btn_all" id="Search" onclick="searchdata()">Search</button>
+                <button type="button" class="btn-success btn btn_all" id="Reset" onclick="resetform()">Reset</button>
               </div>
             </div>
+     
           </div>
+          </form>
         </div>
       </div>
       <!-- Table Card -->
-      <div class=" mb-5">
-            <div class="table-responsive shadow bg-white mt-3">
+      <div class=" mb-5 shadow bg-white mt-3 p-3">
+            <div class="table-responsive">
               <table id="example" class="table table-striped  table-hover table-bordered dataTable no-footer" width="100%; margin-bottom: 15px;">
                 <thead class="">
                   <tr>
@@ -179,7 +185,7 @@
     </div>
   </section>
   <div class="modal fade" id="staticBackdrop_1" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-            <div class="modal-dialog modal-xl modal-dialog-centered">
+            <div class="modal-dialog modal-lg modal-dialog-centered">
               <div class="modal-content modal_box">
                 <div class="modal-header modal_head">
                   <h5 class="modal-title text-white fw-bold" id="staticBackdropLabel">Update Engine Oil </h5>
@@ -199,9 +205,7 @@
                                       <div class="form-outline ">
                                       <label for="name" class="form-label text-dark">Brand</label>
                                       <select class="form-select form-control" aria-label=".form-select-lg example" id="brand_1" name="brand">
-                                        <option value=""disabled>Select Brand</option>
-                                        <option value="sonalika">sonalika</option>
-                                        <option value="mahindra">mahindra</option>
+                                        
                                         </select>
                                       </div>
                                     </div>
@@ -230,18 +234,20 @@
                                       </div>
                                     </div>
                                     <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-3">
-                                     <div class="form-outline "  id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+                                     <div class="form-outline "  id="myModal2" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
                                       <label for="yr_state" class="form-label text-dark">Compatible Tractors</label>
-                                      <select class="js-example-basic-multiple w-100 form-control" name="states[]" id="ass_list_1" multiple="multiple">
-                                        <option value="" selected>hello</option>
-                                        <option value="" >hyy</option>
+                                      <select class="js-example-basic-multiple2 w-100 form-control" name="states[]" id="ass_list_1" multiple="multiple">
+                                      <option value="" disabled>Please select </option>
+                                      <option value="hello">hello</option>
+                                        <option value="hyy" >hyy</option>
+                                        <option value="WY">Wyoming</option>
                                       </select>
                                     </div>
                                   </div>
                                   <div class="col-12 ">
                                     <div class="form-outline my-3">
                                       <label class="form-label text-dark">Description</label>
-                                      <textarea rows="4" cols="70" class="w-100 p-2" minlength="1" maxlength="255" id="textarea_1" name="textarea_" style="border: 1px solid #ced4da;"></textarea>
+                                      <textarea rows="4" cols="70" class="w-100 p-2"  id="textarea_1" name="textarea_" style="border: 1px solid #ced4da;"></textarea>
                                     </div>
                                   </div>
                                     <div class="col-12 col-lg-12 col-md-12 col-sm-12">
