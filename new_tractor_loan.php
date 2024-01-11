@@ -2,8 +2,15 @@
 <html lang="en">
 
 <head> <?php
-   include 'includes/headertag.php';
-   ?>
+// include 'includes/header.php';
+include 'includes/headertag.php';
+include 'includes/headertagadmin.php';
+include 'includes/footertag.php';
+
+?> 
+<script> var APIBaseURL = "<?php echo $APIBaseURL; ?>";</script>
+<script> var baseUrl = "<?php echo $baseUrl; ?>";</script>
+    <script src="<?php $baseUrl; ?>model/tractor_loan_customer.js"></script>
 </head>
 <style>
 .form-outline .form-label {
@@ -64,7 +71,7 @@
             <div class="container-mid">
                 <div class="justify-content-center loan_form bg-light border border-dark">
                     <div id="loanForm">
-                        <form id="applicationForm">
+                        <form id="applicationForm" method="POST">
                             <h3 class="text-dark text-center fw-bold mt-4">Secure Your Loan with the Best Rates</h3>
                             <h6 class="text-dark text-center mt-2">Provide Your Details to Access Exclusive Loan Options
                             </h6>
@@ -73,14 +80,7 @@
                                     <div class="form-outline">
                                         <label class="form-label" for="loanType">Loan Type</label>
                                         <select class="form-select" id="loanType" name="loanType" required>
-                                            <option value="" selected disabled>Select Loan Type</option>
-                                            <option value="newTractorLoan">New Tractor Loan</option>
-                                            <option value="usedTractorLoan">Used Tractor Loan</option>
-                                            <option value="loanAgainstTractor">Loan Against Tractor</option>
-                                            <option value="usedHarvesterLoan">Used Harvester Loan</option>
-                                            <option value="harvesterLoan">Harvester Loan</option>
-                                            <option value="implementLoan">Implement Loan</option>
-                                            <option value="personalLoan">Personal Loan</option>
+                                         
                                         </select>
                                     </div>
                                 </div>
@@ -88,6 +88,13 @@
                                     <div class="form-outline">
                                         <label class="form-label" for="firstName">First Name</label>
                                         <input type="text" class="form-control" id="firstName" name="firstName"
+                                            required />
+                                    </div>
+                                </div>
+                                <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-4" hidden>
+                                    <div class="form-outline">
+                                        <label class="form-label" for="firstName">First Name</label>
+                                        <input type="text" class="form-control" id="enquiry_type_id" value="15" name=""
                                             required />
                                     </div>
                                 </div>
@@ -108,9 +115,7 @@
                                     <div class="form-outline">
                                         <label class="form-label" for="brand">Brand</label>
                                         <select class="form-select" id="brand" name="brand" required>
-                                            <option value="" selected disabled>Select Brand</option>
-                                            <option value="brand1">Brand 1</option>
-                                            <option value="brand2">Brand 2</option>
+                                            
                                         </select>
                                     </div>
                                 </div>
@@ -118,20 +123,17 @@
                                     <div class="form-outline">
                                         <label class="form-label" for="model">Model</label>
                                         <select class="form-select" id="model" name="model" required>
-                                            <option value="" selected disabled>Select Model</option>
-                                            <option value="model1">Model 1</option>
-                                            <option value="model2">Model 2</option>
-                                            <option value="other">Other</option>
+                                           
                                         </select>
                                     </div>
                                 </div>
-                                <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-4">
+                                <!-- <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-4">
                                     <div class="form-outline">
                                         <label class="form-label" for="enterModel">Enter Model</label>
                                         <input type="text" class="form-control" id="enterModel" name="enterModel"
                                             disabled />
                                     </div>
-                                </div>
+                                </div> -->
                                 <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-4">
                                     <div class="form-outline">
                                         <label class="form-label" for="vehicleRegNo">Vehicle Registered Number</label>
@@ -159,7 +161,7 @@
                                         <label class="form-label" for="state">State</label>
                                         <select class="form-select" id="state" name="state" required>
                                             <option value="" selected disabled>Select State</option>
-
+                                            <option value="other">Other</option>
                                             <option value="Chhattisgarh">Chhattisgarh</option>
                                         </select>
                                     </div>
@@ -169,16 +171,16 @@
                                         <label class="form-label" for="district">District</label>
                                         <select class="form-control" id="district" name="district" required>
                                             <option value="" selected disabled>Select District</option>
+                                            <option value="raipur">Raipur</option>
+                                            <option value="bilaspur">Bilaspur</option>
                                         </select>
                                     </div>
                                 </div>
                                 <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-4">
                                     <div class="form-outline">
                                         <label class="form-label " for="tehsil">Tehsil</label>
-                                        <select class="form-control" id="tehsil" name="tehsil">
-                                            <option value="" selected>Select Tehsil</option>
-
-                                        </select>
+                                        <input type="text" class="form-control" id="tehsil" name="tehsil"
+                                             />
                                     </div>
                                 </div>
 
@@ -188,9 +190,8 @@
                                         Conditions*</a>
                                 </p>
                                 <div class="d-grid col-8 mx-auto mb-3">
-                                    <button type="submit" class="btn btn-success fw-bold" onclick="applyForLoan()">Apply
-                                        for
-                                        Loan</button>
+                                <button type="button" class="btn btn-success fw-bold" id="apply_loan" onclick="applyForLoan(event)">Apply for Loan</button>
+
                                 </div>
                             </div>
                         </form>
@@ -785,18 +786,6 @@
             },
         });
 
-        updateFormFields();
-        updateEnterModelField();
-
-
-        $('#loanType').change(function() {
-            updateFormFields();
-        });
-
-
-        $('#model').change(function() {
-            updateEnterModelField();
-        });
 
 
     });
@@ -831,71 +820,8 @@
         }
     }
 
-    $('#state').change(function() {
-        updateDistricts();
-    });
 
-    // Handle district change
-    $('#district').change(function() {
-        updateTehsils();
-    });
-
-    // ... (other event handlers) ...
-
-    function updateDistricts() {
-        var selectedState = $('#state').val();
-        var districtGroup = $('#districtGroup');
-        var districtDropdown = $('#district');
-
-        if (selectedState) {
-            // Show the District dropdown
-            districtGroup.show();
-
-            // Implement logic to fetch and populate districts based on the selected state
-            // This may involve an AJAX call to a server-side script or using a predefined dataset
-            // Example:
-            districtDropdown.empty();
-            if (selectedState === 'Chhattisgarh') {
-                districtDropdown.append('<option value="District1">District 1</option>');
-                districtDropdown.append('<option value="District2">District 2</option>');
-                // Add more districts as needed
-            }
-        } else {
-            // Hide the District dropdown when no state is selected
-            districtGroup.hide();
-            // Clear the District dropdown options
-            districtDropdown.empty();
-        }
-
-        // Reset Tehsil dropdown and hide it
-        updateTehsils();
-    }
-
-    function updateTehsils() {
-        var selectedDistrict = $('#district').val();
-        var tehsilGroup = $('#tehsilGroup');
-        var tehsilDropdown = $('#tehsil');
-
-        if (selectedDistrict) {
-            // Show the Tehsil dropdown
-            tehsilGroup.show();
-
-            // Implement logic to fetch and populate tehsils based on the selected district
-            // This may involve an AJAX call to a server-side script or using a predefined dataset
-            // Example:
-            tehsilDropdown.empty();
-            if (selectedDistrict === 'District1') {
-                tehsilDropdown.append('<option value="Tehsil1">Tehsil 1</option>');
-                tehsilDropdown.append('<option value="Tehsil2">Tehsil 2</option>');
-                // Add more tehsils as needed
-            }
-        } else {
-            // Hide the Tehsil dropdown when no district is selected
-            tehsilGroup.hide();
-            // Clear the Tehsil dropdown options
-            tehsilDropdown.empty();
-        }
-    }
+  
     </script>
 
 </body>

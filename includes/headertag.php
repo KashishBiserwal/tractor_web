@@ -1,7 +1,9 @@
 <?php
  $APIBaseURL = 'http://tractor-api.divyaltech.com/api/admin/';
-$baseUrl = '/tractor-project/tractor_project/';
-// $baseUrl = '/tractor_house/'; 
+// $baseUrl = '/tractor-project/tractor_project/';
+$baseUrl = '/tractor_house/'; 
+
+
 //   $APIBaseURL = "http://192.168.1.41:8000/api/admin/";
 
 ?>
@@ -13,12 +15,12 @@ $baseUrl = '/tractor-project/tractor_project/';
 	<meta name="apple-touch-fullscreen" content="yes"/>
     <meta name="apple-mobile-web-app-status-bar-style" content="default"/>
 	<meta name="description" content="">
-	<link rel="stylesheet" type="text/css" href="assets/css/bootstrap.css" />
-	<link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css" />
-	<link rel="stylesheet" type="text/css" href="assets/css/utilities.css" />
-	<link rel="stylesheet" type="text/css" href="assets/css/style.css" />
-	<link rel="stylesheet" type="text/css" href="assets/css/style2.css" />
-	<link rel="stylesheet" type="text/css" href="js/validation.js" />
+	<link rel="stylesheet" type="text/css" href="assets/css/bootstrap.css"/>
+	<link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css"/>
+	<link rel="stylesheet" type="text/css" href="assets/css/utilities.css"/>
+	<link rel="stylesheet" type="text/css" href="assets/css/style.css"/>
+	<link rel="stylesheet" type="text/css" href="assets/css/style2.css"/>
+	<link rel="stylesheet" type="text/css" href="js/validation.js"/>
 	
 	<link rel="stylesheet" type="text/css" href="assets/css/owl.carousel.css"/>
 	<link rel="stylesheet" type="text/css" href="assets/css/owl.theme.default.css"/> 

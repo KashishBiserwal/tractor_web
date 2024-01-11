@@ -1,8 +1,94 @@
-$('#dataedit').click(edit_data_id);
+
+$(document).ready(function(){
+    $('#subbtn').click(edit_id_data);
+    // $('#Search_data').click(search);
+          jQuery.validator.addMethod("customPhoneNumber", function(value, element) {
+          return /^[6-9]\d{9}$/.test(value); 
+          }, "Phone number must start with 6 or above");
+    
+            
+      $("#dealers_form").validate({
+      
+      rules: {
+        fname: {
+          required: true,
+        },
+        last_name:{
+          required: true,
+        },
+        date:{
+          required: true,
+        },
+        mobile:{
+          required:true, 
+            maxlength:10,
+            digits: true,
+            customPhoneNumber: true
+        },
+        email:{
+        required:true,
+        email:true
+          },
+        state_:{
+          required: true,
+        },
+        dist:{
+          required: true,
+        },
+      },
+  
+      messages:{
+        fname: {
+          required: "This field is required",
+        },
+        last_name:{
+          required: "This field is required",
+        },
+        date: {
+          required: "This field is required",
+        },
+        mobile: {
+          required:"This field is required",
+          maxlength:"Enter only 10 digits",
+          digits: "Please enter only digits"
+        },
+        email:{
+            required:"This field is required",
+            email:"Please Enter vaild Email",
+          },
+        
+        state_: {
+          required: "This field is required",
+        },
+        dist: {
+          required: "This field is required",
+        },
+      },
+      
+      submitHandler: function (form) {
+        alert("Form submitted successfully!");
+      },
+      });
+  
+    
+      $("#subbtn").on("click", function () {
+    
+        $("#dealers_form").valid();
+      
+      });
+      
+  
+      });
+
+
+
+//****get data***
+
 function get_dealers() {
     var apiBaseURL = APIBaseURL;
     var url = apiBaseURL + 'get_dealer_enquiry_data';
-
+    console.log('dfghjkiuytgf');
+    
     $.ajax({
         url: url,
         type: "GET",
@@ -10,39 +96,54 @@ function get_dealers() {
             'Authorization': 'Bearer ' + localStorage.getItem('token')
         },
         success: function (data) {
-            const tableBody = document.getElementById('data-table');
+            const tableBody = $('#data-table'); // Use jQuery selector for the table body
+            tableBody.empty(); // Clear previous data
+  
             let serialNumber = 1;
   
             if (data.dealer_enquiry_details && data.dealer_enquiry_details.length > 0) {
+                var table = $('#example').DataTable({
+                    paging: true,
+                    searching: true,
+                    columns: [
+                        { title: 'S.No.' },
+                        { title: 'Date' },
+                        { title: 'Full Name' },
+                        { title: 'Mobile' },
+                        { title: 'State' },
+                        { title: 'District' },
+                        { title: 'Action', orderable: false }
+                    ]
+                });
+  
                 data.dealer_enquiry_details.forEach(row => {
-
                     const fullName = row.first_name + ' ' + row.last_name;
-                    const tableRow = document.createElement('tr');
-                    tableRow.innerHTML = `
-                        <td>${serialNumber}</td>
-                        <td>${row.date}</td>
-                        <td>${fullName}</td>
-                        <td>${row.brand_name}</td>
-                        <td>${row.mobile}</td>
-                        <td>${row.district}</td>
-                        <td>
-                            <div class="d-flex">
-                            <button class="btn btn-warning btn-sm text-white mx-1" data-bs-toggle="modal" onclick="fetch_data(${row.id});" data-bs-target="#view_model_dealers">
-                            <i class="fa-solid fa-eye" style="font-size: 11px;"></i></button>
-                                <button class="btn btn-primary btn-sm btn_edit" onclick="fetch_edit_data(${row.id})" data-bs-toggle="modal" data-bs-target="#staticBackdrop" id="yourUniqueIdHere">
-                                    <i class="fas fa-edit" style="font-size: 11px;"></i>
-                                </button>
-                                <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.id})">
-                                    <i class="fa fa-trash" style="font-size: 11px;"></i>
-                                </button>
-                            </div>
-                        </td>
-                    `;
-                    tableBody.appendChild(tableRow);
+  
+                    // Add row to DataTable
+                    table.row.add([
+                        serialNumber,
+                        row.date,
+                        fullName,
+                        row.mobile,
+                        row.state,
+                        row.district,
+                        `<div class="d-flex">
+                            <button class="btn btn-warning btn-sm text-white mx-1" data-bs-toggle="modal" onclick="openViewdata(${row.id});" data-bs-target="#view_model_dealer">
+                                <i class="fas fa-eye" style="font-size: 11px;"></i>
+                            </button> 
+                            <button class="btn btn-primary btn-sm btn_edit" onclick="fetch_edit_data(${row.id});" data-bs-toggle="modal" data-bs-target="#edit_dealers" id="yourUniqueIdHere">
+                            <i class="fas fa-edit" style="font-size: 11px;"></i>
+                        </button>
+                            <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.id});">
+                                <i class="fa fa-trash" style="font-size: 11px;"></i>
+                            </button>
+                        </div>`
+                    ]).draw(false);
+  
                     serialNumber++;
                 });
             } else {
-                tableBody.innerHTML = '<tr><td colspan="9">No valid data available</td></tr>';
+                tableBody.html('<tr><td colspan="6">No valid data available</td></tr>');
             }
         },
         error: function (error) {
@@ -52,65 +153,81 @@ function get_dealers() {
   }
   get_dealers();
 
-  function fetch_data(id) {
-    console.log(id, "id");
-    console.log(window.location);
-    var urlParams = new URLSearchParams(window.location.search);
-  
-    var productId = id;
+  // View data
+function openViewdata(userId) {
     var apiBaseURL = APIBaseURL;
-    var url = apiBaseURL + 'get_dealer_enquiry_data_by_id/' + productId;
-    var headers = { 
-        'Authorization': 'Bearer ' + localStorage.getItem('token')
+    var url = apiBaseURL + 'get_dealer_enquiry_data_by_id/' + userId;
+  
+    var headers = {
+      'Authorization': 'Bearer ' + localStorage.getItem('token')
     };
   
     $.ajax({
-        url: url,
-        type: "GET",
-        headers: headers,
-        success: function (data) {
-          console.log(data, 'abc');
-          document.getElementById('dealer_name').innerText = data.dealer_enquiry_details[0].dealer_name;
-          document.getElementById('brand_nmae').innerText = data.dealer_enquiry_details[0].brand_name;
-          document.getElementById('email_id').innerText = data.dealer_enquiry_details[0].email;
-          document.getElementById('contact').innerText = data.dealer_enquiry_details[0].mobile;
-          document.getElementById('state').innerText =data.dealer_enquiry_details[0].state;
-          document.getElementById('district').innerText = data.dealer_enquiry_details[0].district;
-          document.getElementById('tehsil_').innerText = data.dealer_enquiry_details[0].tehsil;
-          document.getElementById('addrss').innerText = data.dealer_enquiry_details[0].address;
-      
-          $("#selectedImagesContainer").empty();
-      
-          if (data.dealer_enquiry_details[0].image_names) {
-              var imageNamesArray = Array.isArray(data.dealer_enquiry_details[0].image_names) ? data.dealer_enquiry_details[0].image_names : data.dealer_details[0].image_names.split(',');
-      
-              imageNamesArray.forEach(function (imageName) {
-                  var imageUrl = 'http://tractor-api.divyaltech.com/uploads/dealer_img/' + imageName.trim();
-      
-                  var newCard = `
-                      <div class="col-6 col-lg-6 col-md-6 col-sm-6">
-                          <div class="brand-main d-flex box-shadow   mt-2 text-center shadow">
-                              <a class="weblink text-decoration-none text-dark" title="Tyre Image">
-                                  <img class="img-fluid w-100 h-100 " src="${imageUrl}" alt="Tyre Image">
-                              </a>
-                          </div>
-                      </div>
-                  `;
-      
-                  $("#selectedImagesContainer").append(newCard);
-              });
-          }
+      url: url,
+      type: 'GET',
+      headers: headers,
+    
+      success: function(response) {
+        var userData = response.dealer_enquiry_details[0];
+        document.getElementById('fname1').innerText=userData.first_name;
+        document.getElementById('lname1').innerText=userData.last_name;
+        document.getElementById('number1').innerText=userData.mobile;
+        document.getElementById('email_1').innerText=userData.email;
+        document.getElementById('date_1').innerText=userData.date;
+        document.getElementById('state1').innerText=userData.state;
+        document.getElementById('dist1').innerText=userData.district;
+        document.getElementById('tehsil1').innerText=userData.tehsil;
       },
-        error: function (error) {
-            console.error('Error fetching data:', error);
-        }
+      error: function(error) {
+        console.error('Error fetching user data:', error);
+      }
     });
-  } 
+  }
+
+ 
+
+ // **delete***
+//  function destroy(id) {
+//     var apiBaseURL = APIBaseURL;
+//     var url = apiBaseURL + 'customer_enquiries/' + id;
+//     console.log(url);
+//     var token = localStorage.getItem('token');
+  
+//     if (!token) {
+//       console.error("Token is missing");
+//       return;
+//     }
+//     var isConfirmed = confirm("Are you sure you want to delete this data?");
+//     if (!isConfirmed) {
+//       return;
+//     }
+  
+//     $.ajax({
+//       url: url,
+//       type: "DELETE",
+//       headers: {
+//         'Authorization': 'Bearer ' + token
+//       },
+//       success: function(result) {
+//         window.location.reload();
+//         get_dealers();
+
+//         console.log("Delete request successful");
+//         alert("Delete operation successful");
+//       },
+//       error: function(error) {
+//         console.error('Error fetching data:', error);
+//         alert("Error during delete operation");
+//       }
+//     });
+//   }
 
 
-  function fetch_edit_data(id) {
+// edit data 
+
+function fetch_edit_data(id) {
     var apiBaseURL = APIBaseURL;
-    var url = apiBaseURL + 'get_dealer_enquiry_data_by_id/' + id ;
+    var url = apiBaseURL + 'get_dealer_enquiry_data_by_id/' + id;
     console.log(url);
   
     var headers = {
@@ -123,166 +240,113 @@ function get_dealers() {
         headers: headers,
         success: function (response) {
             var Data = response.dealer_enquiry_details[0];
-            $('#dname').val(Data.dealer_name);
-            $('#brand').val(Data.brand_name);
-            $('#email').val(Data.email);
-            $('#cno').val(Data.mobile);
-            $('#address').val(Data.address);
-            $('#state_').val(Data.state);
-            $('#dist').val(Data.district);
-            $('#tehsil').val(Data.tehsil);
             $('#idUser').val(Data.id);
-  
-            // Clear existing images
-            $("#selectedImagesContainer").empty();
-  
-            if (Data.image_names) {
-                // Check if Data.image_names is an array
-                var imageNamesArray = Array.isArray(Data.image_names) ? Data.image_names : Data.image_names.split(',');
-  
-                imageNamesArray.forEach(function (imageName) {
-                    var imageUrl = 'http://tractor-api.divyaltech.com/uploads/dealer_img/' + imageName.trim();
-  
-                    var newCard = `
-                        <div class="col-6 col-lg-6 col-md-6 col-sm-6">
-                            <div class="brand-main d-flex box-shadow mt-2 text-center shadow">
-                                <a class="weblink text-decoration-none text-dark" title="Image">
-                                    <img class="img-fluid w-100 h-100" src="${imageUrl}" alt=" Image">
-                                </a>
-                            </div>
-                        </div>
-                    `;
-                    // Append the new image element to the container
-                    $("#selectedImagesContainer").append(newCard);
-                });
-            }
+            $('#first_name').val(Data.first_name);
+            $('#last_name').val(Data.last_name);
+            $('#mobile').val(Data.mobile);
+            $('#email').val(Data.email);
+            $('#date').val(Data.date);
+            $('#state_').val(Data.state);
+            console.log(Data.state);
+            $('#dist_').val(Data.district);
+            $('#tehsil_').val(Data.tehsil);
         },
         error: function (error) {
             console.error('Error fetching user data:', error);
         }
     });
   }
-  function get() {
-    var apiBaseURL =APIBaseURL;
-    var url = apiBaseURL + 'getBrands';
-    $.ajax({
-        url: url,
-        type: "GET",
-        headers: {
-            'Authorization': 'Bearer ' + localStorage.getItem('token')
-        },
-        success: function (data) {
-            console.log(data);
-            const select = document.getElementById('brand');
-            select.innerHTML = '<option selected disabled value="">Please select an option</option>';
 
-            if (data.brands.length > 0) {
-                data.brands.forEach(row => {
-                    const option = document.createElement('option');
-                    option.textContent = row.brand_name;
-                    option.value = row.id;
-                    select.appendChild(option);
-                });
-            } else {
-                select.innerHTML ='<option>No valid data available</option>';
-            }
-        },
-        error: function (error) {
-            console.error('Error fetching data:', error);
-        }
-    });
-}
-get();
+function edit_id_data() {
+  var enquiry_type_id = $("#enquiry_type_id").val();
+  var edit_id = $("#idUser").val();
+  var first_name = $("#first_name").val();
+  var last_name = $("#last_name").val();
+  var mobile = $("#mobile").val();
+  var email = $("#email").val();
+  var date = $("#date").val();
+  var state = $("#state_").val();
+  var district = $("#dist_").val();
+  var tehsil = $("#tehsil_").val();
 
-
-   function edit_data_id(edit_id) {
-    console.log(edit_id);
-    var edit_id = $("#userId").val();
-    console.log(edit_id);
-    var image_names = document.getElementById('_image').files;
-    var dname = $("#dname").val();
-    var brand = $('#brand').val();
-    var email = $('#email').val();
-    var cno = $('#cno').val();
-    var state_ = $('#state_').val();
-    var dist = $('#dist').val();
-    var tehsil = $('#tehsil').val();
-
-    var apiBaseURL = APIBaseURL;
-    var url = apiBaseURL + 'customer_enquiries/' + edit_id ;
-    var token = localStorage.getItem('token');
-    var _method = 'put';
-    var headers = {
-        'Authorization': 'Bearer ' + token
-    };
-  
-    var data = new FormData();
-  
-    for (var x = 0; x < image_names.length; x++) {
-        data.append('images[]', image_names[x]);
-    }
-    data.append('_method', _method);
-    data.append('id',edit_id)
-    data.append('dealer_name', dname);
-    data.append('brand_name', brand);
-    data.append('email', email);
-    data.append('mobile', cno);
-    data.append('state', state_);
-    data.append('district', dist);
-    data.append('tehsil', tehsil);
-    $.ajax({
-      url: url,
-      type: "POST",
-      data: data,
-      headers: headers,
-      processData: false,
-      contentType: false,
-       success: function (result) {
-         console.log(result, "result");
-         get_dealers();
-        // nursery_data();
-        // window.location.reload();
-         console.log("updated successfully");
-         alert('successfully updated..!')
-       },
-       error: function (error) {
-         console.error('Error fetching data:', error);
-       }
-    });
-}
-
- // **delete***
- function destroy(id) {
-    var apiBaseURL = APIBaseURL;
-    var url = apiBaseURL + 'customer_enquiries/' + id;
-    console.log(url);
-    var token = localStorage.getItem('token');
-  
-    if (!token) {
-      console.error("Token is missing");
-      return;
-    }
-    var isConfirmed = confirm("Are you sure you want to delete this data?");
-    if (!isConfirmed) {
-      return;
-    }
-  
-    $.ajax({
-      url: url,
-      type: "DELETE",
-      headers: {
-        'Authorization': 'Bearer ' + token
-      },
-      success: function(result) {
-        window.location.reload();
-        get_dealers();
-
-        console.log("Delete request successful");
-        alert("Delete operation successful");
-      },
-      error: function(error) {
-        console.error('Error fetching data:', error);
-        alert("Error during delete operation");
-      }
-    });
+  // Validate mobile number
+  if (!/^[6-9]\d{9}$/.test(mobile)) {
+      alert("Mobile number must start with 6 or above and should be 10 digits");
+      return; // Exit the function if validation fails
   }
+
+  var paraArr = {
+      'first_name': first_name,
+      'last_name': last_name,
+      'mobile': mobile,
+      'email': email,
+      'date': date,
+      'state': state,
+      'district': district,
+      'tehsil': tehsil,
+      'id': edit_id,
+      'enquiry_type_id': enquiry_type_id,
+  };
+
+  var apiBaseURL = APIBaseURL;
+  var url = apiBaseURL + 'customer_enquiries/' + edit_id;
+console.log(url);
+  var headers = {
+      'Authorization': 'Bearer ' + localStorage.getItem('token')
+  };
+
+  $.ajax({
+    url: url,
+    type: "PUT",
+    data: paraArr,
+    headers: headers,
+    success: function (result) {
+        console.log(result, "result");
+        window.location.reload();
+        console.log("updated successfully");
+        alert('successfully updated..!')
+    },
+    error: function (error) {
+        console.error('Error fetching data:', error);
+    }
+});
+}
+  
+$(document).ready(function () {
+    // Initialize the DataTable
+    var table = $('#example').DataTable({
+        paging: true,
+        searching: true,
+        columns: [
+            { title: 'S.No.' },
+            { title: 'Date' },
+            { title: 'Full Name' },
+            { title: 'Mobile' },
+            { title: 'State' },
+            { title: 'District' },
+            { title: 'Action', orderable: false }
+        ]
+    });
+
+    // Search Button Click Event
+    $('#Search').click(function () {
+        // Get selected values from dropdowns
+        var dealerName = $('#dealerNameSelect').val();
+        var brandDealer = $('#brandDealerSelect').val();
+        var district = $('#districtSelect').val();
+
+        // Filter the DataTable based on selected values
+        table.columns(2).search(dealerName).draw();
+        table.columns(4).search(brandDealer).draw();
+        table.columns(5).search(district).draw();
+    });
+
+    // Reset Button Click Event
+    $('#Reset').click(function () {
+        // Reset selected values in dropdowns
+        $('#dealerNameSelect, #brandDealerSelect, #districtSelect').val('Select').trigger('change');
+
+        // Clear the DataTable search
+        table.search('').columns().search('').draw();
+    });
+});

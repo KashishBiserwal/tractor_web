@@ -506,13 +506,7 @@
                 modelSelect: 'required',
             },
             submitHandler: function (form) {
-                // var formData = {
-                //     brandSelect: $('#brandSelect').val(),
-                //     modelSelect: $('#modelSelect').val()
-                //     };
-                //     localStorage.setItem('formData', JSON.stringify(formData));
-
-                    // If the form is valid, redirect to a new page
+             
                     window.location.href = "emi_inner.php";
                     return false; // prevent default form submission
                 }

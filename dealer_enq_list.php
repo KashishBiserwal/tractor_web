@@ -37,18 +37,19 @@
           <div class="col-12 col-sm-12 col-md-3 col-lg-3">
               <div class="form-outline">
                 <label class="form-label fw-bold"> Dealer Name</label>
-                <select class="form-select py-2" aria-label="Default select example">
+                <input type="text" class="form-control" placeholder=""  id="dealerNameSelect">
+                <!-- <select class="form-select py-2" aria-label="Default select example" id="dealerNameSelect">
                     <option selected>Select Name</option>
                     <option value="1">name1</option>
                     <option value="2">name2</option>
                     <option value="3">name3</option>
-                </select>
+                </select> -->
               </div>
             </div>
             <div class="col-12 col-sm-12 col-md-3 col-lg-3">
               <div class="form-outline">
                 <label class="form-label fw-bold">Brand Dealer</label>
-                <select class="form-select py-2" aria-label="Default select example">
+                <select class="form-select py-2" aria-label="Default select example" id="brandDealerSelect">
                     <option selected>Select Brand Dealer</option>
                     <option value="1">Mahindra</option>
                     <option value="2">Swaraj</option>
@@ -58,7 +59,7 @@
             <div class="col-12 col-sm-12 col-md-3 col-lg-3">
               <div class="form-outline ">
                 <label class="form-label fw-bold">District</label>
-                <select class="form-select py-2" aria-label="Default select example">
+                <select class="form-select py-2" aria-label="Default select example" id="districtSelect">
                     <option selected>Select District</option>
                     <option value="1">Raipur</option>
                     <option value="2">Bilaspur</option>
@@ -85,10 +86,10 @@
                                             <th class="d-none d-md-table-cell text-white">S.No.</th>
                                             <th class="d-none d-md-table-cell text-white">Date </th>
                                             <th class="d-none d-md-table-cell text-white">Name </th>
-                                            <th class="d-none d-md-table-cell text-white">Brand Dealer </th>
-                                            <th class="d-none d-md-table-cell text-white">Phone Number</th>
+                                            <th class="d-none d-md-table-cell text-white">Phone number</th>
+                                            <th class="d-none d-md-table-cell text-white">State</th>
                                             <th class="d-none d-md-table-cell text-white">District</th>
-                                            <th class="d-none d-md-table-cell text-white"> Action</th>
+                                            <th class="d-none d-md-table-cell text-white">Action</th>
                                             
                                         </tr>
                                     </thead>
@@ -100,11 +101,11 @@
     </div>
    </section>
 
-   <div class="modal fade" id="view_model_dealers" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+   <div class="modal fade" id="view_model_dealer" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
             <div class="modal-dialog modal-lg modal-dialog-centered">
               <div class="modal-content modal_box">
                 <div class="modal-header modal_head">
-                  <h5 class="modal-title text-white fw-bold" id="staticBackdropLabel"> HaatBazar Details</h5>
+                  <h5 class="modal-title text-white fw-bold" id="staticBackdropLabel"> Dealers Enquiry Information </h5>
                   <button type="button" class="btn-close btn-success" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                   <div class="modal-body bg-light">
@@ -112,40 +113,32 @@
                        <div class="col-12">
                         <table class="table table-striped">
                         <tbody>
-                         <tr>
-                            <td>Dealers Name-</td>
-                            <td id="dealer_name"></td>
-                            <td>Brand-</td>
-                            <td id="brand_nmae"></td>
+                         <tr> 
+                            <td>First Name-</td>
+                            <td id="fname1"></td>
+                            <td>Last Name-</td>
+                            <td id="lname1"></td>
                           </tr>
                           <tr>
-                            <td>Email Id-</td>
-                            <td id="email_id"></td>
-                            <td>Contact Number-</td>
-                            <td id="contact"></td>
+                           
+                            <td>Mobile Number-</td>
+                            <td id="number1"></td>
+                            <td>Email-</td>
+                            <td id="email_1"></td>
                           </tr>
                           <tr>
+                          <td>Date-</td>
+                            <td id="date_1"></td>
                             <td>State-</td>
-                            <td id="state"></td>
-                            <td>District-</td>
-                            <td id="district"></td>
+                            <td id="state1"></td>
+                            
                           </tr>
                           <tr>
+                          <td>District-</td>
+                            <td id="dist1"></td>
                             <td>Tehsil-</td>
-                            <td id="tehsil_"></td>
-                            <td>Address-</td>
-                              <td colspan="3">
-                                  <div class="col-12" id="addrss"></div>
-                              </td>
+                            <td id="tehsil1"></td>
                           </tr>
-                          <!-- <tr>
-                              <td>Upload images-</td>
-                              <td colspan="3">
-                                  <div class="col-12">
-                                      <div id="selectedImagesContainer1" class="upload__img-wrap row"></div>
-                                  </div>
-                              </td>
-                          </tr> -->
                         </tbody>
                       </table>
                     </div>
@@ -157,117 +150,113 @@
               </div>
             </div>
           </div>
+    </div>
 
         
       
     
 </div>
-          <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+   <!-- model edit -->
+   <div class="modal fade" id="edit_dealers" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
             <div class="modal-dialog modal-lg modal-dialog-centered">
               <div class="modal-content modal_box">
                 <div class="modal-header modal_head">
-                  <h5 class="modal-title text-white fw-bold" id="staticBackdropLabel"> Edit Dealers Enquiry</h5>
+                  <h5 class="modal-title text-white fw-bold" id="staticBackdropLabel"> Update Dealers Enquiry</h5>
                   <button type="button" class="btn-close btn-success" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body bg-light">
                         <div class="row justify-content-center">
                             <div class="col-lg-10">
-                              <h4 class="text-center">Fill your Details</h4>
-                            <form id="dealer_list_form">
-                                <div class="row justify-content-center pt-4">
+                            <form id="dealers_form">
+                                <div class="row  pt-4">
                                 <div class="col- col-sm-6 col-lg-6 col-md-6" hidden>
                                   <label class="text-dark"> id Name<span class="text-danger">*</span></label>
                                           <input type="text" class="form-control py-2" for="idUser"  id="idUser" name="first_name" placeholder="Enter First Name">
                                   <small></small>
+                                </div>  
+                                <div class="col- col-sm-6 col-lg-6 col-md-6" hidden>
+                                  <label class="text-dark"> id Name<span class="text-danger">*</span></label>
+                                          <input type="text" class="form-control py-2" for="enquiry_type_id"  id="enquiry_type_id" value="14" name="first_name" placeholder="Enter First Name">
+                                  <small></small>
                                 </div>
+
                                  <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
                                       <div class="form-outline">
-                                        <label for="name" class="form-label text-dark">Dealer Name</label>
-                                        <input type="text" class="form-control" placeholder="" id="dname" name="dname">
+                                        <label for="name" class="form-label text-dark">First Name</label>
+                                        <input type="text" class="form-control" placeholder="" id="first_name" name="fname">
                                       </div>
                                     </div>
                                     <div class="ol-12 col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-outline">
-                                            <label class="form-label"> Brand</label>
-                                            <select class="form-select py-2" aria-label="Default select example" id="brand" name="brand">
-                                                
-                                            </select>
+                                            <label class="form-label text-dark"> Last Name</label>
+                                            <input type="text" class="form-control py-2" for="last_name"  id="last_name" name="last_name">
                                         </div>
                                     </div>
                                     <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
                                       <div class="form-outline mt-3">
-                                        <label for="name" class="form-label text-dark">Email Id</label>
+                                        <label for="name" class="form-label text-dark">Phone Number</label>
+                                        <input type="text" class="form-control" placeholder="" id="mobile" name="mobile">
+                                      </div>
+                                    </div>
+                                    <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
+                                      <div class="form-outline mt-3">
+                                        <label for="name" class="form-label text-dark">Email</label>
                                         <input type="text" class="form-control" placeholder="" id="email" name="email">
                                       </div>
                                     </div>
                                     <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
                                       <div class="form-outline mt-3">
-                                        <label for="name" class="form-label text-dark">Contact Number</label>
-                                        <input type="text" class="form-control" placeholder="" id="cno" name="cno">
+                                        <label for="name" class="form-label text-dark">Date</label>
+                                        <input type="text" class="form-control" placeholder="" id="date" name="date">
                                       </div>
                                     </div>
-                                    <div class="col-12  mb-2">
-                                      <div class="form-outline mt-3">
-                                        <label for="name" class="form-label text-dark">Address</label>
-                                        <!-- <input type="email" class="form-control" placeholder="" id="" name=""> -->
-                                        <textarea rows="3" cols="70" class="w-100 pt-2" minlength="1" maxlength="255" id="address" name="address"></textarea>
-                                      </div>
-                                    </div>
-                                    <div class="col-12 col-sm-4 col-md-4 col-lg-4">
-                                            <div class="form-outline mt-3">
-                                                <label class="form-label">State</label>
-                                                <select class="form-select py-2" aria-label="Default select example" id="state_" name="state_">
-                                                    <option value>Select State</option>
-                                                    <option value="1">Chattisgarh</option>
-                                                    <option value="2">Other</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="col-12  col-sm-4 col-md-4 col-lg-4">
-                                            <div class="form-outline mt-3">
-                                                <label class="form-label">District</label>
-                                                <select class="form-select py-2" aria-label="Default select example" id="dist" name="dist">
-                                                    <option value>Select District</option>
-                                                    <option value="1">Raipur</option>
-                                                    <option value="2">Bilaspur</option>
-                                                    <option value="3">Surajpur</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="col-12 col-sm-4 col-md-4 col-lg-4">
-                                            <div class="form-outline mt-3">
-                                                <label class="form-label">Tehsil</label>
-                                                <select class="form-select py-2" id="tehsil" aria-label="Default select example">
-                                                    <option value>Select Tehsil</option>
-                                                    <option value="1">Raipur</option>
-                                                    <option value="2">Bilaspur</option>
-                                                    <option value="3">Surajpur</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <!-- <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                                        <div class="upload__box">
-                                          <div class="upload__btn-box text-center">
-                                            <label >
-                                              <p class="upload__btn ">Upload images</p>
-                                              <input type="file" multiple="" data-max_length="20" class="upload__inputfile" id="_image" name="_image">
-                                            </label>
+                                    <div class="col-12 col-sm-6 col-md-6 col-lg-6">
+                                          <div class="form-outline mt-3">
+                                             <label class="form-label text-dark">State</label>
+                                              <select class="form-select py-2" aria-label="Default select example" id="state_" name="state_">
+                                                <option value>Select State</option>
+                                                <option value="Chattisgarh">Chattisgarh</option>
+                                                <option value="Other">Other</option>
+                                              </select>
                                           </div>
-                                          <div id="selectedImagesContainer" class="upload__img-wrap"></div>
                                         </div>
-                                      </div> -->
+                                        <div class="col-12 col-sm-6 col-md-6 col-lg-6">
+                                          <div class="form-outline mt-3">
+                                            <label class="form-label text-dark">District</label>
+                                            <select class="form-select py-2" aria-label="Default select example" id="dist_" name="dist">
+                                              <option value>Select District</option>
+                                              <option value="Raipur">Raipur</option>
+                                              <option value="Bilaspur">Bilaspur</option>
+                                              <option value="Surajpur">Surajpur</option>
+                                            </select>
+                                          </div>
+                                        </div>
+                                        <div class="col-12 col-sm-6 col-md-6 col-lg-6">
+                                          <div class="form-outline mt-3">
+                                            <label class="form-label text-dark">Tehsil</label>
+                                            <select class="form-select py-2" aria-label="Default select example" id="tehsil_">
+                                              <option value>Select Tehsil</option>
+                                              <option value="Raipur">Raipur</option>
+                                              <option value="Bilaspur">Bilaspur</option>
+                                              <option value="Surajpur">Surajpur</option>
+                                            </select>
+                                          </div>
+                                        </div>
                                 </div>
+                               
                             </form>
                             </div>
                         </div>
                     </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-secondary px-3" data-bs-dismiss="modal">Close</button>
-                  <button type="submit" id="dataedit" class="btn btn-success fw-bold px-3">Submit</button>
+                  <button type="button" id="subbtn" class="btn btn-success fw-bold px-3">Save Change</button>
                 </div>
               </div>
             </div>
           </div>
+    
+</div>
 </div>
 </body>
 

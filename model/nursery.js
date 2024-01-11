@@ -500,8 +500,6 @@ function edit_data_id(id){
       contentType: false,
        success: function (result) {
          console.log(result, "result");
-        //  get();
-        // nursery_data();
         window.location.reload();
          console.log("updated successfully");
          alert('successfully updated..!')

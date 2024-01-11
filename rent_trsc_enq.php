@@ -1,8 +1,13 @@
 <?php
-   include 'includes/headertagadmin.php';
-  
+    include 'includes/headertag.php';
+    include 'includes/headertagadmin.php';
+   include 'includes/footertag.php';
    
    ?> 
+     <script> var APIBaseURL = "<?php echo $APIBaseURL; ?>";</script>
+  <script> var baseUrl = "<?php echo $baseUrl; ?>";</script>
+  <script src="<?php $baseUrl; ?>model/rent_trsc_enq.js"></script>
+
 <body class="loaded"> 
 <div class="main-wrapper">
     <div class="app" id="app">
@@ -110,7 +115,7 @@
             <div class="col-12 col-sm-12 col-md-3 col-lg-3">
               <div class="form-outline">
                 <label class="form-label"> Brand Name</label>
-                <!-- <input type="text" id="search_email" name="search_email" class="form-control" /> -->
+                <input type="text" id="search_email" name="search_email" class="form-control" />
                 <select class="form-select py-2" aria-label="Default select example">
                     <option selected>Select Brand</option>
                     <option value="1">Mahindra</option>
@@ -142,7 +147,7 @@
               </div>
             </div>
             <div class="col-12 col-sm-12 col-md-3 col-lg-3">
-              <div class=" mt-4 pt-1">
+              <div class="">
                 <button type="button" class="btn-success btn px-3 py-2" id="Search">Search</button>
                 <button type="button" class="btn-success btn  mx-2 px-3 py-2" id="Reset">Reset</button>
               </div>

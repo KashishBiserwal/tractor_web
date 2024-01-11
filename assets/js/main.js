@@ -556,7 +556,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const swiper3 = new Swiper(".mySwiper2_buy", {
   autoplay: {
-      delay: 5000,
+      delay: 3000,
       disableOnInteraction: false
   },
   slidesPerView: "auto",
@@ -574,6 +574,8 @@ document.addEventListener("DOMContentLoaded", function () {
   }
   });
 },false);
+
+
 
 // latest sell swiper
 

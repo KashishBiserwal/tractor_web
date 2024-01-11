@@ -2,9 +2,14 @@
 <html lang="en">
 
 <head>
-    <?php
-				include 'includes/headertag.php';
-			?>
+<?php
+include 'includes/headertag.php';
+include 'includes/headertagadmin.php';
+include 'includes/footertag.php';
+?> 
+<script> var APIBaseURL = "<?php echo $APIBaseURL; ?>";</script>
+<script> var baseUrl = "<?php echo $baseUrl; ?>";</script>
+    <script src="<?php $baseUrl; ?>model/insurance_customer.js"></script>
 </head>
 <style>
 .error .form-label {
@@ -92,11 +97,15 @@
                                     <label class="form-label" for="insurance_type">Insurance Type</label>
                                     <select class="form-select error mb-2 pb-2" aria-label="Default select example"
                                         id="insurance_type" name="insurance_type">
-                                        <option value=""></option>
-                                        <option value="1">New Tractor Insurance</option>
-                                        <option value="2">Renew Tractor Insurance</option>
-                                        <option value="3">Harvester Insurance</option>
+                                        
                                     </select>
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm-6 col-md-6 col-lg-4 mt-4" style="display:none">
+                                <div class="form-outline">
+                                    <label class="form-label" >First Name</label>
+                                    <input type="hidden" id="enquiry_type_id" value="17" name="enquiry_type_id"
+                                        class="data_search form-control input-group-sm" />
                                 </div>
                             </div>
                             <div class="col-12 col-sm-6 col-md-6 col-lg-4 mt-4">
@@ -127,10 +136,7 @@
                                     <label class="form-label  " for="brand">Brand</label>
                                     <select class="form-select error mb-2 pb-2" id="brand" name="brand"
                                         aria-label="Default select example">
-                                        <option selected></option>
-                                        <option value="1">name1</option>
-                                        <option value="2">name2</option>
-                                        <option value="3">name3</option>
+                                        
                                     </select>
                                 </div>
                             </div>
@@ -139,20 +145,11 @@
                                     <label class="form-label" for="model">Model</label>
                                     <select class="form-select   error mb-2 pb-2" id="model" name="model"
                                         aria-label="Default select example">
-                                        <option selected></option>
-                                        <option value="1">name1</option>
-                                        <option value="2">name2</option>
-                                        <option value="3">name3</option>
+                                       
                                     </select>
                                 </div>
                             </div>
-                            <div class="col-12 col-sm-6 col-md-6 col-lg-4 mt-4">
-                                <div class="form-outline">
-                                    <label class="form-label" for="enter_model">Enter Model</label>
-                                    <input type="text" id="enter_model" name="enter_model"
-                                        class="form-control input-group-sm " />
-                                </div>
-                            </div>
+                           
                             <div class="col-12 col-sm-6 col-md-6 col-lg-4 mt-4">
                                 <div class="form-outline">
                                     <label class="form-label" for="vehicle_registered_number">Vehicle Registered
@@ -167,10 +164,11 @@
                                     <label class="form-label  " for="registered_year">Registered Year</label>
                                     <select class="form-select error mb-2 pb-2" id="registered_year" name="registered_year"
                                         aria-label="Default select example">
-                                        <option selected></option>
-                                        <option value="1">name1</option>
-                                        <option value="2">name2</option>
-                                        <option value="3">name3</option>
+                                        <script>
+                                            for (let year = 2023; year >= 2008; year--) {
+                                                document.write(`<option value="${year}">${year}</option>`);
+                                            }
+                                            </script>
                                     </select>
                                 </div>
                             </div>
@@ -201,13 +199,8 @@
                             <div class="col-12 col-sm-6 col-md-6 col-lg-4 mt-4">
                                 <div class="form-outline">
                                     <label class="form-label " for="tehsil">Tehsil</label>
-                                    <select class="form-select  error mb-2 pb-2" id="tehsil" name="tehsil"
-                                        aria-label="Default select example">
-                                        <option selected></option>
-                                        <option value="1">name1</option>
-                                        <option value="2">name2</option>
-                                        <option value="3">name3</option>
-                                    </select>
+                                    <input type="text" id="tehsil" name="tehsil"
+                                        class=" data_search form-control input-group-sm " />
                                 </div>
                             </div>
                             <!-- <div class="col-12">
@@ -314,11 +307,10 @@
     <!--Popular Tractor Insurance Companies-->
 
 
-    <div class="container">
+    <!-- <div class="container">
         <h4 class="mt-5 mb-4 assured px-2 fw-bold">Popular Tractor Insurance Companies</h4>
         <div class="row mt-3 row-cols-1 row-cols-md-2 row-cols-lg-3 justify-content-center">
 
-            <!-- Card 1 -->
             <div class="col mb-4">
                 <div class="card">
                     <img src="assets\images\tata1.png" class="card-img-top cards" alt="Company 1">
@@ -327,9 +319,6 @@
                     </div>
                 </div>
             </div>
-
-
-
             <div class="col mb-4">
                 <div class="card">
                     <img src="assets\images\magma1.png" class="card-img-top cards" alt="Company 2">
@@ -376,7 +365,7 @@
             </div>
 
         </div>
-    </div>
+    </div> -->
 
 
     <!--Popular Tractor Insurance Companies End-->

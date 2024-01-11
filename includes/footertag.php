@@ -18,10 +18,6 @@
 <script src="js/validation.js"></script>
 <script src="js/main.js"></script>
 <script src="assets/js/main.js"></script>
-<!-- <script src="model/login.js"></script> -->
-<!-- <script src="model/lookupdata.js"></script>
-<script src="model/lookupvalue.js"></script>
-<script src="model/tractor_listing.js"></script> -->
 
 
 </body>

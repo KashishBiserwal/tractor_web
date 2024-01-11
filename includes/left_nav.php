@@ -16,9 +16,7 @@
         <div class="collapse" id="about-collapse">
           <ul class="list-unstyled fw-800  show mb-0">
               <li class="ps-3"><a href="usermanagement.php" class="align-items-center text-white   text-decoration-none rounded">User Listing</a></li>
-              <!-- <li class="py-1 ps-3"><a href="total_lead.php" class="d-inline-flex align-items-center text-white text-decoration-none rounded">Total Leads</a></li> -->
-              <!-- <li class="py-1 ps-3"><a href="recentactivity.php" class="d-inline-flex align-items-center text-white text-decoration-none rounded">Recent Activity</a></li> -->
-              <!-- <li class="py-1 ps-3"><a href="purchasereq.php" class="d-inline-flex align-items-center text-white  text-decoration-none rounded">Purchase Request</a></li> -->
+              
           </ul>
         </div>
 
@@ -45,7 +43,9 @@
               <li class="py-1 ps-3"><a href="old_farm_equilist.php" class="d-inline-flex align-items-center text-white text-decoration-none rounded">Old Farm Equipment  List</a></li>
               <li class="py-1 ps-3"><a href="harvester_list.php" class="d-inline-flex align-items-center text-white text-decoration-none rounded">New Harvester Listing</a></li>
               <li class="py-1 ps-3"><a href="old_harvester_equilist.php" class="d-inline-flex align-items-center text-white text-decoration-none rounded">Old Harvester List</a></li>
+              <li class="py-1 ps-3"><a href="news_category.php" class="d-inline-flex align-items-center text-white  text-decoration-none rounded">Blog & News Category</a></li>
               <li class="py-1 ps-3"><a href="news_updates.php" class="d-inline-flex align-items-center text-white  text-decoration-none rounded">News and Updates</a></li>
+              <li class="py-1 ps-3"><a href="blog_list.php" class="d-inline-flex align-items-center text-white  text-decoration-none rounded">Blog Section</a></li>
               <li class="py-1 ps-3"><a href="tyers_list.php" class="d-inline-flex align-items-center text-white text-decoration-none rounded">New Tyres Listing</a></li>
               <li class="py-1 ps-3"><a href="engine_oil_list.php" class="d-inline-flex align-items-center text-white  text-decoration-none rounded">Engine Oil Listing</a></li>
              
