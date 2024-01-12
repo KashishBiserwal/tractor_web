@@ -256,11 +256,13 @@ function fetch_edit_data(id) {
             var Data = response.enquiry_data[0];
             $('#idUser').val(Data.id);
             $('#brand_name').val(Data.brand_name);
+            // $("#brand_name option").prop("selected", false);
+            // $("#brand_name option[value='" + Data.brand_name + "']").prop("selected", true);
             $('#model_name').val(Data.model);
             $('#first_name').val(Data.first_name);
             $('#last_name').val(Data.last_name);
             $('#mobile').val(Data.mobile);
-            $('#email').val(Data.email);
+            $('#email').val(Data.email); 
             $('#date').val(Data.date);
             $('#state_').val(Data.state);
             console.log(Data.state);

@@ -49,7 +49,7 @@
             <div class="col-12 col-sm-12 col-md-3 col-lg-3">
               <div class="form-outline">
                 <label class="form-label">State</label>
-                <select class="form-select py-2" aria-label="Default select example"  id="districtSelect">
+                <select class="form-select py-2" aria-label="Default select example"  id="stateSelect">
                     <option value>Select State</option>
                     <option value="1">Chattisgarh</option>
                     <option value="2">Other</option>

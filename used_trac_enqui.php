@@ -275,6 +275,14 @@
                                         <input type="text" class="form-control" placeholder="" id="brand_name" name="bname">
                                       </div>
                                     </div>
+                                    <!-- <div class="ol-12 col-lg-6 col-md-6 col-sm-6">
+                                        <div class="form-outline">
+                                            <label class="form-label">Brand Name</label>
+                                            <select class="form-select py-2" aria-label="Default select example" id="brand_name" name="bname">
+                                                
+                                            </select>
+                                        </div>
+                                    </div> -->
                                     <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
                                       <div class="form-outline">
                                         <label for="name" class="form-label text-dark">Model Name</label>

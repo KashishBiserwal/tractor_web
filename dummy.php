@@ -357,9 +357,10 @@
                                             <i class="fa-solid fa-location-dot"></i> District</label>
                                             <select class="form-select error mb-2 pb-2" id="district1" name="district" aria-label="Default select example">
                                                 <option selected></option>
-                                                <option selected></option>
-                                                <option selected></option>
-                                               
+                                                <option value="Durg">Durg</option>
+                                                <option value="Raipur">Raipur</option>
+                                                <option value="Bhilai">Bhilai</option>
+                                                <option value="Bemetara">Bemetara</option>
                                             </select>
                                             <!-- <select class="form-control" id="district" name="district"></select> -->
                                         </div>
@@ -370,9 +371,10 @@
                                             <select class="form-select error mb-2 pb-2" id="tehsil1" name="tehsil"
                                                 aria-label="Default select example">
                                                 <option selected></option>
-                                                <option value="1">name1</option>
-                                                <option value="2">name2</option>
-                                                <option value="3">name3</option>
+                                                <option value="Durg">Durg</option>
+                                                <option value="Raipur">Raipur</option>
+                                                <option value="Bhilai">Bhilai</option>
+                                                <option value="Bemetara">Bemetara</option>
                                             </select>
                                             <!-- <select class="form-control" id="tehsil" name="tehsil"></select> -->
                                         </div>
@@ -404,7 +406,7 @@
 
 <script>
     $(document).ready(function () {
-        // Sample data (replace with your actual data)
+        Sample data (replace with your actual data)
         var stateData = {
             "state1": {
                 "districts": ["District1", "District2"],

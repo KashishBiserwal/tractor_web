@@ -156,7 +156,6 @@
                                             <div class="form-outline">
                                                 <label class="form-label">Sub-Category</label>
                                                 <select class="form-select py-2" aria-label="Default select example"id="sub_cate" name="sub_cate">
-                                                    
                                                 </select>
                                             </div>
                                         </div>
@@ -165,14 +164,14 @@
                                                 <input type="number" id="quantityInput" class="form-control text-black" placeholder="Quantity" aria-label="Text input with dropdown button" name="quantity" >
                                                 <select type="button" id="unitSelect" name="unit" class="btn border border-secondary-2 h-25 dropdown-toggle" data-bs-toggle="dropdown">
                                                     <ul class="dropdown-menu">
-                                                        <option class="dropdown-item" value="">Select Unit</option>
-                                                        <option class="dropdown-item" value="As per">As per</option>
-                                                        <option class="dropdown-item" value="gram">gram</option>
-                                                        <option class="dropdown-item" value="Kg">Kg</option>
-                                                        <option class="dropdown-item" value="Quintal">Quintal</option>
-                                                        <option class="dropdown-item" value="Ton">Ton</option>
-                                                        <option class="dropdown-item" value="Pack">Pack</option>
-                                                        <option class="dropdown-item" value="Unit">Unit</option>
+                                                      <option class="dropdown-item" value="">Select Unit</option>
+                                                      <option class="dropdown-item" value="As per">As per</option>
+                                                      <option class="dropdown-item" value="gram">gram</option>
+                                                      <option class="dropdown-item" value="Kg">Kg</option>
+                                                      <option class="dropdown-item" value="Quintal">Quintal</option>
+                                                      <option class="dropdown-item" value="Ton">Ton</option>
+                                                      <option class="dropdown-item" value="Pack">Pack</option>
+                                                      <option class="dropdown-item" value="Unit">Unit</option>
                                                     </ul>
                                                 </select>
                                             </div>
@@ -234,8 +233,8 @@
                                           <label class="form-label ">State</label>
                                           <select class="form-select py-2" aria-label="Default select example" id="state_" name="state_">
                                               <option value="">Select State</option>
-                                              <option value="1">Chattisgarh</option>
-                                              <option value="2">Other</option>
+                                              <option value="Chattisgarh">Chattisgarh</option>
+                                              <option value="Other">Other</option>
                                           </select>
                                       </div>
                                     </div>
@@ -244,8 +243,8 @@
                                           <label class="form-label ">District</label>
                                           <select class="form-select py-2" aria-label="Default select example" id="dist" name="dist">
                                             <option value="">Select District</option>
-                                            <option value="1">Raipur</option>
-                                            <option value="2">Bilaspur</option>
+                                            <option value="Raipur">Raipur</option>
+                                            <option value="Bilaspur">Bilaspur</option>
                                           </select>
                                         </div>
                                       </div>
@@ -254,8 +253,8 @@
                                           <label class="form-label">Tehsil</label>
                                           <select class="form-select py-2" id="tehsil" aria-label="Default select example">
                                               <option value>Select Tehsil</option>
-                                              <option value="1">Raipur</option>
-                                              <option value="2">Bilaspur</option>
+                                              <option value="Raipur">Raipur</option>
+                                              <option value="Bilaspur">Bilaspur</option>
                                           </select>
                                         </div>
                                       </div>

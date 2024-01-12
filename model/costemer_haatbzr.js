@@ -131,7 +131,7 @@ get_category();
                      data.append("images[]", image_names[x]);
                      console.log("multiple image", image_names[x]);
                    }
-                   data.append('_method', _method);
+                  data.append('_method', _method);
                   data.append('sub_category_id', sub_category_id);
                   data.append('enquiry_type_id', enquiry_type_id);
                   data.append('image_type_id',image_type_id);
