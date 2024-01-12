@@ -327,7 +327,7 @@
                                     <div class="col-12 col-sm-6 col-md-6 col-lg-6 mt-4">
                                         <div class="form-outline">
                                             <label class="form-label " for="lname"><i class="fa-regular fa-user"></i> Last Name</label>
-                                            <input type="text" id="lname" name="lname"
+                                            <input type="text" id="lname1" name="lname"
                                                 class="data_search form-control input-group-sm" onkeydown="return /[a-zA-Z]/i.test(event.key)" />
                                         </div>
                                     </div>
@@ -335,7 +335,7 @@
                                         <div class="form-outline">
                                             <label class="form-label" for="phone">
                                             <i class="fa fa-phone" aria-hidden="true"></i> Phone Number</label>
-                                            <input type="text" id="phone" name="phone"
+                                            <input type="text" id="number1" name="phone"
                                                 class=" data_search form-control input-group-sm" />
                                         </div>
                                     </div>
@@ -343,7 +343,7 @@
                                         <div class="form-outline">
                                             <label class="form-label" for="state"> <i class="fas fa-location"></i> State</label>
                                             <!-- <select class="form-control" id="district" name="district"></select> -->
-                                            <select class="form-select error mb-2 pb-2" id="state" name="state"
+                                            <select class="form-select error mb-2 pb-2" id="state1" name="state"
                                                 aria-label="Default select example">
                                                 <option selected></option>
                                                 <option value="state1">state1</option>
@@ -355,7 +355,7 @@
                                         <div class="form-outline">
                                             <label class="form-label" for="district">
                                             <i class="fa-solid fa-location-dot"></i> District</label>
-                                            <select class="form-select error mb-2 pb-2" id="district" name="district" aria-label="Default select example">
+                                            <select class="form-select error mb-2 pb-2" id="district1" name="district" aria-label="Default select example">
                                                 <option selected></option>
                                                 <option selected></option>
                                                 <option selected></option>
@@ -367,7 +367,7 @@
                                     <div class="col-12 col-sm-6 col-md-6 col-lg-6 mt-4">
                                         <div class="form-outline">
                                             <label class="form-label" for="tehsil">Tehsil</label>
-                                            <select class="form-select error mb-2 pb-2" id="tehsil" name="tehsil"
+                                            <select class="form-select error mb-2 pb-2" id="tehsil1" name="tehsil"
                                                 aria-label="Default select example">
                                                 <option selected></option>
                                                 <option value="1">name1</option>
@@ -380,7 +380,7 @@
                                 </div>
                                 <div class="form-footer d-flex mt-4">
                                     <button type="button" class="btn w-50 btn-primary mb-4 prev-step">Previous</button>
-                                    <button type="submit" class="btn w-50 ms-2 btn-success mb-4">Submit</button>
+                                    <button type="submitbnt" class="btn w-50 ms-2 btn-success mb-4">Submit</button>
                                 </div>
                             </div>
                         </form>

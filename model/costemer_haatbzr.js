@@ -2,7 +2,7 @@ $(document).ready(function () {
     ImgUpload();
     // $('#submit').click(store);
     // $('#submit').click(store_subcategory);
-    $('#submit').click(hatbazar_add);
+    $('#submitbnt').click(hatbazar_add);
   //category form
    
   });
@@ -72,7 +72,7 @@ get_category();
     get_category_main();
 
     function hatbazar_add(event) {
-        // event.preventDefault();
+        event.preventDefault();
     
         var image_names = document.getElementById('imageInput').files;
          var enquiry_type_id = $('#enquiry_type_id').val();
@@ -89,7 +89,7 @@ get_category();
          var last_name = $('#lname1').val();
          var number = $('#number1').val();
          var state = $('#state1').val();
-         var district = $('#dist1').val();
+         var district = $('#district1').val();
          var tehsil = $('#tehsil1').val();
         
          console.log(state_,"state");
@@ -168,3 +168,6 @@ get_category();
         });
     
     }
+
+    
+    
