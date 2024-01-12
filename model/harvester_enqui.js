@@ -1,6 +1,6 @@
   
   $(document).ready(function(){
-    // $('#Search').click(search_data);
+    $('#Search_btn').click(search_data);
     $('#undate_btn_harvester_enq').click(edit_data_id);
     
           jQuery.validator.addMethod("customPhoneNumber", function(value, element) {
@@ -11,6 +11,12 @@
       $("#new_harvester_form").validate({
       
       rules: {
+        bname: {
+          required: true,
+        },
+        mname: {
+          required: true,
+        },
           name: {
           required: true,
         },
@@ -46,6 +52,12 @@
       },
   
       messages:{
+        bname: {
+          required: "This field is required",
+        },
+        mname: {
+          required: "This field is required",
+        },
           name: {
           required: "This field is required",
         },
@@ -109,9 +121,9 @@
         success: function (data) {
             const tableBody = $('#data-table'); // Use jQuery selector for the table body
             tableBody.empty(); // Clear previous data
-  
+            
             let serialNumber = 1;
-  
+           
             if (data.enquiry_data && data.enquiry_data.length > 0) {
                 var table = $('#example').DataTable({
                     paging: true,
@@ -119,6 +131,8 @@
                     columns: [
                         { title: 'S.No.' },
                         { title: 'Date' },
+                        { title: 'Brand' },
+                        { title: 'Model' },
                         { title: 'Full Name' },
                         { title: 'Mobile' },
                         { title: 'State' },
@@ -128,16 +142,19 @@
                 });
   
                 data.enquiry_data.forEach(row => {
-                    const fullName = row.first_name + ' ' + row.last_name;
-  
+                   
+                  const fullName = row.first_name + ' ' + row.last_name;
                     // Add row to DataTable
                     table.row.add([
                         serialNumber,
                         row.date,
+                        row.brand_name,
+                        row.model,
                         fullName,
                         row.mobile,
                         row.state,
                         row.district,
+                     
                         `<div class="d-flex">
                             <button class="btn btn-warning btn-sm text-white mx-1" data-bs-toggle="modal" onclick="openViewdata(${row.id});" data-bs-target="#view_new_harvester_enq">
                                 <i class="fas fa-eye" style="font-size: 11px;"></i>
@@ -188,9 +205,10 @@ function destroy(id) {
       },
       success: function(result) {
         // get_tyre_list();
-        window.location.reload();
+        //window.location.reload();
         console.log("Delete request successful");
         alert("Delete operation successful");
+        get_new_harvester();
       },
       error: function(error) {
         console.error('Error fetching data:', error);
@@ -215,6 +233,8 @@ function openViewdata(userId) {
     
       success: function(response) {
         var userData = response.enquiry_data[0];
+        document.getElementById('bname1').innerText=userData.brand_name;
+        document.getElementById('mname1').innerText=userData.model;
         document.getElementById('fname1').innerText=userData.first_name;
         document.getElementById('lname1').innerText=userData.last_name;
         document.getElementById('number1').innerText=userData.mobile;
@@ -248,6 +268,8 @@ function fetch_edit_data(id) {
         success: function (response) {
             var Data = response.enquiry_data[0];
             $('#userId').val(Data.id);
+            $('#brand_name').val(Data.brand_name);
+            $('#model_name').val(Data.model);
             $('#fname_2').val(Data.first_name);
             $('#lname_2').val(Data.last_name);
             $('#number_2').val(Data.mobile);
@@ -265,59 +287,162 @@ function fetch_edit_data(id) {
   
 
   function edit_data_id() {
-  var enquiry_type_id = $("#enquiry_type_id").val();
-  var edit_id = $("#userId").val();
-  console.log(edit_id);
-  var first_name = $("#fname_2").val();
-  console.log(first_name);
-  var last_name = $("#lname_2").val();
-  var mobile = $("#number_2").val();
-  var email = $("#email_2").val();
-  var date = $("#date_2").val();
-  var state = $("#state_2").val();
-  var district = $("#dist_2").val();
-  var tehsil = $("#tehsil_2").val();
+    var enquiry_type_id = $("#enquiry_type_id").val();
+    var product_id = $("#product_id").val();
+    var edit_id = $("#userId").val();
+    var brand_name = $("#brand_name").val();
+    var model_name = $("#model_name").val();
+    var first_name = $("#fname_2").val();
+    var last_name = $("#lname_2").val();
+    var mobile = $("#number_2").val();
+    var email = $("#email_2").val();
+    var date = $("#date_2").val();
+    var state = $("#state_2").val();
+    var district = $("#dist_2").val();
+    var tehsil = $("#tehsil_2").val();
+    var _method = 'put';
+
+
+    // Validate mobile number
+    if (!/^[6-9]\d{9}$/.test(mobile)) {
+        alert("Mobile number must start with 6 or above and should be 10 digits");
+        return; // Exit the function if validation fails
+    }
+   
+    var paraArr = {
+        'brand_name': brand_name,
+        'model': model_name,
+        'first_name': first_name,
+        'last_name': last_name,
+        'mobile': mobile,
+        'email': email,
+        'date': date,
+        'state': state,
+        'district': district,
+        'tehsil': tehsil,
+        'id': edit_id,
+        'enquiry_type_id': enquiry_type_id,
+        'product_id': product_id,
+        '_method': _method,
+    };
   
-  // Validate mobile number
-  if (!/^[6-9]\d{9}$/.test(mobile)) {
-      alert("Mobile number must start with 6 or above and should be 10 digits");
-      return; // Exit the function if validation fails
+    var apiBaseURL = APIBaseURL;
+    var url = apiBaseURL + 'customer_enquiries/' + edit_id;
+    
+    var headers = {
+        'Authorization': 'Bearer ' + localStorage.getItem('token')
+    };
+ 
+    $.ajax({
+        url: url,
+        type: "POST",
+        data: paraArr,
+        headers: headers,
+        success: function (result) {
+            console.log(result, "result");
+            window.location.reload();
+            console.log("updated successfully");
+            alert('successfully updated..!');
+            get_new_harvester();
+
+        },
+        error: function (error) {
+            console.error('Error fetching data:', error);
+        }
+    });
   }
   
-  var paraArr = {
-      'first_name': first_name,
-      'last_name': last_name,
-      'mobile': mobile,
-      'email': email,
-      'date': date,
-      'state': state,
-      'district': district,
-      'tehsil': tehsil,
-      'id': edit_id,
-      'enquiry_type_id': enquiry_type_id,
+
+  function search_data() {
+    console.log("dfghsfg,sdfgdfg");
+    
+    var brand_id = $('#brand_id').val();
+    var brand = $('#brandsearch').val();
+    var state = $('#statesearch').val();
+    var district = $('#districtsearch').val();
+   
+  
+    var paraArr = {
+      'brand_id': brand,
+      'brand_id ':brand_id,
+      'state':state,
+      'district':district,
+    };
+  
+    var apiBaseURL = APIBaseURL;
+    var url = apiBaseURL + 'search_for_new_harvester_enquiry';
+    $.ajax({
+        url:url, 
+        type: 'POST',
+        data: paraArr,
+      
+        headers: {
+            'Authorization': 'Bearer ' + localStorage.getItem('token')
+        },
+        success: function (searchData) {
+          console.log(searchData,"hello brand");
+          updateTable(searchData);
+        },
+        error: function (error) {
+            console.error('Error searching for brands:', error);
+        }
+    });
   };
+  function updateTable(data) {
+    const tableBody = document.getElementById('data-table');
+    tableBody.innerHTML = '';
+    let serialNumber = 1; 
+    if(data.newTractor && data.newTractor.length > 0) {
+        let tableData = []; 
+        data.newTractor.forEach(row => {
+          const fullName = row.first_name + ' ' + row.last_name;
+            let action =  `<div class="d-flex">
+            <button class="btn btn-warning btn-sm text-white mx-1" data-bs-toggle="modal" onclick="openViewdata(${row.id});" data-bs-target="#view_model_tractor_enq">
+                <i class="fas fa-eye" style="font-size: 11px;"></i>
+            </button>
+            <button class="btn btn-primary btn-sm btn_edit" onclick="fetch_edit_data(${row.id});" data-bs-toggle="modal" data-bs-target="#editmodel_oldtractor_enq" id="yourUniqueIdHere">
+                <i class="fas fa-edit" style="font-size: 11px;"></i>
+            </button>
+            <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.id});">
+                <i class="fa fa-trash" style="font-size: 11px;"></i>
+            </button>
+        </div>`
+       
+            tableData.push([
+              serialNumber,
+             row.date,
+             row.brand,
+             row.model,
+              fullName,
+              row.mobile,
+              row.state,
+              row.district,
+              action
+          ]);
+  console.log( row.district);
+          serialNumber++;
+      });
   
-  var apiBaseURL = APIBaseURL;
-  var url = apiBaseURL + 'customer_enquiries/' + edit_id;
-  
-  var headers = {
-      'Authorization': 'Bearer ' + localStorage.getItem('token')
-  };
-  
-  $.ajax({
-      url: url,
-      type: "PUT",
-      data: paraArr,
-      headers: headers,
-      success: function (result) {
-          console.log(result, "result");
-          window.location.reload();
-          console.log("updated successfully");
-          alert('successfully updated..!')
-      },
-      error: function (error) {
-          console.error('Error fetching data:', error);
-      }
-  });
+      $('#example').DataTable().destroy();
+      $('#example').DataTable({
+          data: tableData,
+          columns: [
+            { title: 'S.No.' },
+            { title: 'Date.' },
+            { title: 'Brand' },
+            { title: 'Model' },
+            { title: 'Full Name' },
+            { title: 'Mobile' },
+            { title: 'State' },
+            { title: 'District' },
+            { title: 'Action', orderable: false }
+          ],
+          paging: true,
+          searching: true,
+          // ... other options ...
+      });
+    } else {
+        // Display a message if there's no valid data
+        tableBody.innerHTML = '<tr><td colspan="4">No valid data available</td></tr>';
+    }
   }
-  

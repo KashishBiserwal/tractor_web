@@ -85,6 +85,8 @@
                                     <thead>
                                         <tr>
                                             <th class="d-none d-md-table-cell text-white">S.No.</th>
+                                            <th class="d-none d-md-table-cell text-white">Date </th>
+                                            <th class="d-none d-md-table-cell text-white">Nursery </th>
                                             <th class="d-none d-md-table-cell text-white">Name </th>
                                             <th class="d-none d-md-table-cell text-white">Phone Number</th>
                                             <th class="d-none d-md-table-cell text-white">State</th>
@@ -113,28 +115,33 @@
                         <table class="table table-striped">
                         <tbody>
                          <tr> 
+                         <td>Nursery Name-</td>
+                            <td id="nname1"></td>
                             <td>First Name-</td>
                             <td id="fname1"></td>
+                            
+                          </tr>
+                          <tr>
                             <td>Last Name-</td>
                             <td id="lname1"></td>
-                          </tr>
-                          <tr>
-                           
                             <td>Mobile Number-</td>
                             <td id="number1"></td>
-                            <td>Email-</td>
+                         </tr>
+                          <tr>
+                             <td>Email-</td>
                             <td id="email_1"></td>
-                          </tr>
-                          <tr>
-                          <td>Date-</td>
+                            <td>Date-</td>
                             <td id="date_1"></td>
-                            <td>State-</td>
-                            <td id="state1"></td>
-                          </tr>
+                           </tr>
                           <tr>
+                          <td>State-</td>
+                            <td id="state1"></td>
                           <td>District-</td>
                             <td id="dist1"></td>
-                            <td>Tehsil-</td>
+                            
+                          </tr>
+                          <tr>
+                          <td>Tehsil-</td>
                             <td id="tehsil1"></td>
                           </tr>
                         </tbody>
@@ -161,7 +168,7 @@
                     <div class="row justify-content-center">
                         <div class="col-lg-10">
                            <form id="narsary_list_enq_form"method="post"enctype="multipart/form-data" onsubmit="return false">
-                                <div class="row justify-content-center pt-4">
+                                <div class="row  pt-4">
                                 <div class="col-12 col-lg-6 col-sm-5 col-md-6 my-1" hidden>
                                           <div class="form-outline ">
                                             <label for="name" class="form-label text-dark">Nursery</label>
@@ -173,20 +180,25 @@
                                                   <input type="text" class="form-control py-2" for="idUser"  id="enquiry_type_id" value="11" name="first_name" placeholder="Enter First Name">
                                           <small></small>
                                         </div>
-                                        <!-- <div class="col-12 col-lg-6 col-sm-5 col-md-6 my-1">
+                                        <div class="col- col-sm-6 col-lg-6 col-md-6" hidden>
+                                          <label class="text-dark"> product_type_id <span class="text-danger">*</span></label>
+                                                  <input type="text" class="form-control py-2" for="idUser"  id="product_id" value="3" name="first_name" placeholder="Enter First Name">
+                                          <small></small>
+                                        </div>
+                                        <div class="col-12 col-lg-6 col-sm-5 col-md-6 my-1">
                                           <div class="form-outline ">
                                             <label for="name" class="form-label text-dark">Nursery Name</label>
                                             <input type="text" class="form-control" placeholder="" id="nursery_name1" name="name">
                                           </div>
-                                        </div> -->
-                                        <div class="col-12 col-lg-6 col-sm-5 col-md-6">
+                                        </div>
+                                        <div class="col-12 col-lg-6 col-sm-5 col-md-6 my-1">
                                           <div class="form-outline">
                                             <label for="name" class="form-label text-dark">First Name</label>
                                             <input type="text" class="form-control" placeholder="" id="fname_2" name="fname">
                                           </div>
                                         </div>
                                         <div class="col-12 col-lg-6 col-sm-5 col-md-6">
-                                          <div class="form-outline">
+                                          <div class="form-outline  mt-4">
                                             <label for="name" class="form-label text-dark">Last Name</label>
                                             <input type="text" class="form-control" placeholder="" id="lname_2" name="lname">
                                           </div>
@@ -242,8 +254,7 @@
                                             </select>
                                           </div>
                                         </div>
-                                      
-                                </div>
+                                    </div>
                             </form>
                        </div>
                    </div>
