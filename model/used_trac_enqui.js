@@ -167,7 +167,6 @@
   }
   get_old_tractor();
 
-
   // View data
 function openViewdata(userId) {
     var apiBaseURL = APIBaseURL;

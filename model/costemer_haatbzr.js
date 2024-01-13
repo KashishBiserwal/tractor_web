@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    ImgUpload();
+    // ImgUpload();
     // $('#submit').click(store);
     // $('#submit').click(store_subcategory);
     $('#submitbnt').click(hatbazar_add);

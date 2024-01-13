@@ -38,12 +38,6 @@
               <div class="form-outline">
                 <label class="form-label fw-bold"> Dealer Name</label>
                 <input type="text" class="form-control" placeholder=""  id="dealerNameSelect">
-                <!-- <select class="form-select py-2" aria-label="Default select example" id="dealerNameSelect">
-                    <option selected>Select Name</option>
-                    <option value="1">name1</option>
-                    <option value="2">name2</option>
-                    <option value="3">name3</option>
-                </select> -->
               </div>
             </div>
             <div class="col-12 col-sm-12 col-md-3 col-lg-3">
@@ -79,25 +73,24 @@
       </div>
       <!-- Table Card -->
       <div class=" mb-5">
-                            <div class="table-responsive shadow bg-white mt-2">
-                                <table id="example" class="table table-striped table-hover dataTable no-footer py-1" width="100%">
-                                    <thead>
-                                        <tr>
-                                            <th class="d-none d-md-table-cell text-white">S.No.</th>
-                                             <th class="d-none d-md-table-cell text-white">Date </th>
-                                            <th class="d-none d-md-table-cell text-white">Dealer Name </th>
-                                            <th class="d-none d-md-table-cell text-white">Name </th>
-                                            <th class="d-none d-md-table-cell text-white">Phone number</th>
-                                            <th class="d-none d-md-table-cell text-white">State</th>
-                                            <th class="d-none d-md-table-cell text-white">District</th>
-                                            <th class="d-none d-md-table-cell text-white">Action</th>
-                                            
-                                        </tr>
-                                    </thead>
-                                    <tbody id="data-table">
-                                    </tbody>
-                                </table>
-                            </div>
+          <div class="table-responsive shadow bg-white mt-2">
+              <table id="example" class="table table-striped table-hover dataTable no-footer py-1" width="100%">
+                  <thead>
+                      <tr>
+                        <th class="d-none d-md-table-cell text-white">S.No.</th>
+                        <th class="d-none d-md-table-cell text-white">Date </th>
+                        <th class="d-none d-md-table-cell text-white">Dealer Name </th>
+                        <th class="d-none d-md-table-cell text-white">Name </th>
+                        <th class="d-none d-md-table-cell text-white">Phone number</th>
+                        <th class="d-none d-md-table-cell text-white">State</th>
+                        <th class="d-none d-md-table-cell text-white">District</th>
+                        <th class="d-none d-md-table-cell text-white">Action</th>
+                      </tr>
+                  </thead>
+                   <tbody id="data-table">
+                  </tbody>
+              </table>
+          </div>
       </div>
     </div>
    </section>

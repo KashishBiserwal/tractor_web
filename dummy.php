@@ -406,7 +406,7 @@
 
 <script>
     $(document).ready(function () {
-        Sample data (replace with your actual data)
+        // Sample data (replace with your actual data)
         var stateData = {
             "state1": {
                 "districts": ["District1", "District2"],
@@ -497,10 +497,10 @@
                 }
             }
 
-            displayStep(stepNumber);
+            // displayStep(stepNumber);
         });
 
-        displayStep(1);
+        // displayStep(1);
     });
     </script>
 
