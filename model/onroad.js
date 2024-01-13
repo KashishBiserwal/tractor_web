@@ -96,7 +96,7 @@ function get_on_roadadd(event) {
     // Prepare data to send to the server
     var paraArr = {
         'enquiry_type_id':enquiry_type_id,
-    //   'insurance_type_id': insurance_type,
+    //'insurance_type_id': insurance_type,
       'first_name': first_name,
       'last_name': last_name,
       'mobile': mobile_no,
