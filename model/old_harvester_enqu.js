@@ -10,6 +10,12 @@ $(document).ready(function(){
     $("#old_harvester_form").validate({
     
     rules: {
+      bname: {
+        required: true,
+      },
+      mname: {
+        required: true,
+      },
         name: {
         required: true,
       },
@@ -45,6 +51,12 @@ $(document).ready(function(){
     },
 
     messages:{
+      bname: {
+        required: "This field is required",
+      },
+      mname: {
+        required: "This field is required",
+      },
         name: {
         required: "This field is required",
       },
@@ -182,6 +194,8 @@ function get_old_harvester_enqu() {
                     columns: [
                         { title: 'S.No.' },
                         { title: 'Date'},
+                        { title: 'Brand'},
+                        { title: 'Model'},
                         { title: 'Full Name' },
                         { title: 'Mobile' },
                         { title: 'State' },
@@ -197,6 +211,8 @@ function get_old_harvester_enqu() {
                     table.row.add([
                         serialNumber,
                         row.date,
+                        row.brand_name,
+                        row.model,
                         fullName,
                         row.mobile,
                         row.state,
@@ -283,6 +299,8 @@ function openViewdata(userId) {
     
       success: function(response) {
         var userData = response.enquiry_data[0];
+        document.getElementById('bname1').innerText=userData.brand_name;
+        document.getElementById('mname1').innerText=userData.model;
         document.getElementById('First_Name1').innerText=userData.first_name;
         document.getElementById('Last_Name1').innerText=userData.last_name;
         document.getElementById('Mobile_1').innerText=userData.mobile;
@@ -317,6 +335,8 @@ function fetch_edit_data(id) {
       success: function (response) {
           var Data = response.enquiry_data [0];
           $('#userId').val(Data.id);
+          $('#brand_name').val(Data.brand_name);
+          $('#model_name').val(Data.model);
           $('#fnam_e').val(Data.first_name);
           $('#lnam_e').val(Data.last_name);
           $('#numbe_r').val(Data.mobile);
@@ -335,7 +355,11 @@ function fetch_edit_data(id) {
 
 function edit_data_id() {
 var enquiry_type_id = $("#enquiry_type_id").val();
+var product_id = $("#product_id").val();
 var edit_id = $("#userId").val();
+var brand_name = $("#brand_name").val();
+console.log(brand_name);
+var model_name = $("#model_name").val();
 var first_name = $("#fnam_e").val();
 console.log(first_name);
 var last_name = $("#lnam_e").val();
@@ -345,6 +369,7 @@ var date = $("#dat_e").val();
 var state = $("#stat_e").val();
 var district = $("#dis_t").val();
 var tehsil = $("#tehsi_l").val();
+var _method = 'put';
 
 // Validate mobile number
 if (!/^[6-9]\d{9}$/.test(mobile)) {
@@ -353,6 +378,8 @@ if (!/^[6-9]\d{9}$/.test(mobile)) {
 }
 
 var paraArr = {
+    'brand_name': brand_name,
+    'model': model_name,
     'first_name': first_name,
     'last_name': last_name,
     'mobile': mobile,
@@ -363,6 +390,8 @@ var paraArr = {
     'tehsil': tehsil,
     'id': edit_id,
     'enquiry_type_id': enquiry_type_id,
+    'product_id': product_id,
+    '_method': _method,
 };
 
 var apiBaseURL = APIBaseURL;
@@ -374,7 +403,7 @@ var headers = {
 
 $.ajax({
     url: url,
-    type: "PUT",
+    type: "POST",
     data: paraArr,
     headers: headers,
     success: function (result) {

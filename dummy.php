@@ -1,10 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <?php
-   include 'includes/headertag.php';
-   ?>
+<?php
+    include 'includes/headertag.php';
+    include 'includes/headertagadmin.php';
+   include 'includes/footertag.php';
+   
+   ?> 
+  <script> var APIBaseURL = "<?php echo $APIBaseURL; ?>";</script>
+  <script> var baseUrl = "<?php echo $baseUrl; ?>";</script>
+  <script src="<?php $baseUrl; ?>model/costemer_haatbzr.js"></script>
 
     <style>
     .step-container {
@@ -109,14 +111,14 @@
             </div>
         </div>
     </section>
-
-    <section class="form-view bg-white ">
+   
+    <section class="form-view bg-white mt-5 pt-5">
         <div class="container-mid" style="position: relative;">
             <div class="row justify-content-center">
                 <div class="col-md-8 col-lg-7">
-                    <div id="container" class="container mt-3 mb-3 bg-light shadow">
-                        <h3 class="text-center text-danger pt-2 mb-4">Sell Your Harvest</h3>
-                        <form id="form-step-1" class=" ps-4 pe-4 mul_stp_frm" style="" method="post">
+                    <div id="container" class="container mt-3 mb-3 ">
+                        <h2 class="text-center  pt-2 mb-4">Sell Your Harvest</h2>
+                        <form id="form-step-1" class=" ps-4 pe-4 mul_stp_frm" method="post">
                             <div class="d-flex justify-content-center mb-3">
                                 <div class="col-12 col-lg-5 col-md-5 col-sm-5">
                                     <div class="float-start">Harvest Info</div>
@@ -130,7 +132,7 @@
                             </div>
                             <div class="progress px-1" style="height: 4px;">
                                 <div class="progress-bar" role="progressbar"
-                                    style="width: 0%; background-color: ##6f98c2;" aria-valuenow="0" aria-valuemin="0"
+                                    style="width: 0%; background-color: #6f98c2;" aria-valuenow="0" aria-valuemin="0"
                                     aria-valuemax="100"></div>
                             </div>
 
@@ -144,15 +146,30 @@
                                 <div class="step_sellused">
                                     <p class="text-center h5 mb-4 pb-2">Fill Your Harvest Details Below</p>
                                     <div class="row">
+                                    <div class="col-12 col-lg-6 col-md-6 col-sm-6" hidden>
+                                            <div class="form-outline mt-4">
+                                                <input type="text" class="form-control" placeholder="" value="7" id="enquiry_type_id" name="price">
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-lg-6 col-md-6 col-sm-6" hidden>
+                                            <div class="form-outline mt-4">
+                                                <input type="text" class="form-control" placeholder="" value="2" id="image_type_id" name="price">
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-lg-6 col-md-6 col-sm-6" hidden>
+                                            <div class="form-outline mt-4">
+                                                <input type="text" class="form-control" placeholder="" value="9" id="sub_category_id" name="price">
+                                            </div>
+                                        </div>
                                         <div class="col-12 col-sm-6 col-md-6 col-lg-6">
                                             <div class="form-outline">
                                                 <label class="form-label" for="category">Category</label>
                                                 <select class="form-select" id="category" name="category" required>
-                                                    <option value="" selected disabled>Select Category</option>
+                                                    <!-- <option value="" selected disabled>Select Category</option>
                                                     <option value="1">Vegetable</option>
                                                     <option value="2">Fruits</option>
                                                     <option value="3">Grain</option>
-                                                    <option value="3">Pulses</option>
+                                                    <option value="3">Pulses</option> -->
                                                 </select>
                                             </div>
                                         </div>
@@ -161,11 +178,11 @@
                                                 <label class="form-label" for="subcategory">Sub-Category</label>
                                                 <select class="form-select" id="subcategory" name="subcategory"
                                                     required>
-                                                    <option value="" selected disabled>Select Sub-Category</option>
+                                                    <!-- <option value="" selected disabled>Select Sub-Category</option>
                                                     <option value="1">Vegetable</option>
                                                     <option value="2">Fruits</option>
                                                     <option value="3">Grain</option>
-                                                    <option value="3">Pulses</option>
+                                                    <option value="3">Pulses</option> -->
                                                 </select>
                                             </div>
                                         </div>
@@ -211,8 +228,7 @@
                                         </div>
                                     </div>
                                     <div class="form-footer d-flex my-3">
-                                        <button type="submit" id="  "
-                                            class="btn btn-success w-100 next-step">Next</button>
+                                    <button type="button" class="btn btn-success w-100 next-step" onclick="hatbazar_add(1)">Next</button>
                                     </div>
                                 </div>
                             </div>
@@ -233,7 +249,7 @@
                             </div>
                             <div class="progress px-1" style="height: 4px;">
                                 <div class="progress-bar" role="progressbar"
-                                    style="width: 0%; background-color: ##6f98c2;" aria-valuenow="0" aria-valuemin="0"
+                                    style="width: 0%; background-color: #6f98c2;" aria-valuenow="0" aria-valuemin="0"
                                     aria-valuemax="100"></div>
                             </div>
                             <div class="step-container d-flex justify-content-between">
@@ -264,10 +280,8 @@
 
 
                                     <div class="form-footer d-flex mt-3">
-                                        <button type="button" class="btn btn-success w-50 mb-4 prev-step"
-                                            id="">Previous</button>
-                                        <button type="button" class="btn btn-success ms-2 mb-4 w-50 next-step"
-                                            id="">Next</button>
+                                        <button type="button" class="btn btn-success ms-2 mb-4 w-50 next-step" onclick="hatbazar_add(2)">Next</button>
+                                        <button type="button" class="btn w-50 btn-primary mb-4 prev-step" onclick="hatbazar_add(2)">Previous</button>
                                     </div>
                                 </div>
                             </div>
@@ -288,7 +302,7 @@
                             </div>
                             <div class="progress px-1" style="height: 4px;">
                                 <div class="progress-bar" role="progressbar"
-                                    style="width: 0%; background-color: ##6f98c2;" aria-valuenow="0" aria-valuemin="0"
+                                    style="width: 0%; background-color: #6f98c2;" aria-valuenow="0" aria-valuemin="0"
                                     aria-valuemax="100"></div>
                             </div>
                             <div class="step-container d-flex justify-content-between">
@@ -303,14 +317,14 @@
                                     <div class="col-12 col-sm-6 col-md-6 col-lg-6 mt-4">
                                         <div class="form-outline">
                                             <label class="form-label " for="fname"><i class="fa-regular fa-user"></i> First Name</label>
-                                            <input type="text" id="fname" name="fname"
+                                            <input type="text" id="fname1" name="fname"
                                                 class="data_search form-control input-group-sm" onkeydown="return /[a-zA-Z]/i.test(event.key)" />
                                         </div>
                                     </div>
                                     <div class="col-12 col-sm-6 col-md-6 col-lg-6 mt-4">
                                         <div class="form-outline">
                                             <label class="form-label " for="lname"><i class="fa-regular fa-user"></i> Last Name</label>
-                                            <input type="text" id="lname" name="lname"
+                                            <input type="text" id="lname1" name="lname"
                                                 class="data_search form-control input-group-sm" onkeydown="return /[a-zA-Z]/i.test(event.key)" />
                                         </div>
                                     </div>
@@ -318,14 +332,14 @@
                                         <div class="form-outline">
                                             <label class="form-label" for="phone">
                                             <i class="fa fa-phone" aria-hidden="true"></i> Phone Number</label>
-                                            <input type="text" id="phone" name="phone"
+                                            <input type="text" id="number1" name="phone"
                                                 class=" data_search form-control input-group-sm" />
                                         </div>
                                     </div>
                                     <div class="col-12 col-sm-6 col-md-6 col-lg-6 mt-4">
                                         <div class="form-outline">
                                             <label class="form-label" for="state"> <i class="fas fa-location"></i> State</label>
-                                            <select class="form-select error mb-2 pb-2" id="state" name="state"
+                                            <select class="form-select error mb-2 pb-2" id="state1" name="state"
                                                 aria-label="Default select example">
                                                 <option selected></option>
                                                 <option value="state1">state1</option>
@@ -337,31 +351,34 @@
                                         <div class="form-outline">
                                             <label class="form-label" for="district">
                                             <i class="fa-solid fa-location-dot"></i> District</label>
-                                            <!-- <select class="form-select error mb-2 pb-2" id="district" name="district"
-                                                aria-label="Default select example">
+                                            <select class="form-select error mb-2 pb-2" id="district1" name="district" aria-label="Default select example">
                                                 <option selected></option>
-                                               
-                                            </select> -->
-                                            <select class="form-control" id="district" name="district"></select>
+                                                <option value="Durg">Durg</option>
+                                                <option value="Raipur">Raipur</option>
+                                                <option value="Bhilai">Bhilai</option>
+                                                <option value="Bemetara">Bemetara</option>
+                                            </select>
+                                            <!-- <select class="form-control" id="district" name="district"></select> -->
                                         </div>
                                     </div>
                                     <div class="col-12 col-sm-6 col-md-6 col-lg-6 mt-4">
                                         <div class="form-outline">
                                             <label class="form-label" for="tehsil">Tehsil</label>
-                                            <!-- <select class="form-select error mb-2 pb-2" id="tehsil" name="tehsil"
+                                            <select class="form-select error mb-2 pb-2" id="tehsil1" name="tehsil"
                                                 aria-label="Default select example">
                                                 <option selected></option>
-                                                <option value="1">name1</option>
-                                                <option value="2">name2</option>
-                                                <option value="3">name3</option>
-                                            </select> -->
-                                            <select class="form-control" id="tehsil" name="tehsil"></select>
+                                                <option value="Durg">Durg</option>
+                                                <option value="Raipur">Raipur</option>
+                                                <option value="Bhilai">Bhilai</option>
+                                                <option value="Bemetara">Bemetara</option>
+                                            </select>
+                                            <!-- <select class="form-control" id="tehsil" name="tehsil"></select> -->
                                         </div>
                                     </div>
                                 </div>
-                                <div class="form-footer d-flex mt-4">
-                                    <button type="button" class="btn w-50 btn-primary mb-4 prev-step">Previous</button>
-                                    <button type="submit" class="btn w-50 ms-2 btn-success mb-4">Submit</button>
+                                 <div class="form-footer d-flex mt-4">
+                                    <button type="button" class="btn btn-success ms-2 mb-4 w-50 next-step" onclick="hatbazar_add(3)">Next</button>
+                                    <button type="submitbnt" id="btn_submit" class="btn w-50 ms-2 btn-success mb-4" onclick="hatbazar_add(3)">Submit</button>
                                 </div>
                             </div>
                         </form>
@@ -373,19 +390,14 @@
         </div>
     </section>
 
-
-
-
-
     <?php
     include 'includes/footer.php';
-    include 'includes/footertag.php';
 
 ?>
 
 <script>
     $(document).ready(function () {
-        // Sample data (replace with your actual data)
+        // Sample data (replace with your actual data)+
         var stateData = {
             "state1": {
                 "districts": ["District1", "District2"],
@@ -413,7 +425,7 @@
 
             // Check if the selected state exists in the data
             if (stateData.hasOwnProperty(selectedState)) {
-                // Populate districts dropdown
+                // Populate districts dropdowndistricts
                 populateDropdown(districtsDropdown, stateData[selectedState].districts);
 
                 // Populate tehsils dropdown
@@ -430,61 +442,128 @@
     <!-- SCRIPT FOR THE DISPLAY & HIDE -->
 
     <script>
-    $(document).ready(function() {
-        var currentStep = 1;
-        var updateProgressBar;
+    // $(document).ready(function() {
+    //     var currentStep = 1;
+    //     var updateProgressBar;
 
-        function displayStep(stepNumber) {
-            if (stepNumber >= 1 && stepNumber <= 3) {
-                $(".mul_stp_frm").hide();
-                $("#form-step-" + stepNumber).show();
-                currentStep = stepNumber;
-                updateProgressBar();
+    //     function displayStep(stepNumber) {
+    //         if (stepNumber >= 1 && stepNumber <= 3) {
+    //             $(".mul_stp_frm").hide();
+    //             $("#form-step-" + stepNumber).show();
+    //             currentStep = stepNumber;
+    //             updateProgressBar();
+    //         }
+    //     }
+
+    //     $(".next-step").click(function(event) {
+    //         event.preventDefault();
+    //         var currentStepForm = $("#form-step-" + currentStep);
+
+    //         if (currentStepForm.valid()){
+    //             currentStepForm.hide();
+    //             currentStep++;
+    //             $("#form-step-" + currentStep).show();
+    //             updateProgressBar();
+    //         }
+    //     });
+
+    //     $(".prev-step").click(function(event) {
+    //         event.preventDefault();
+    //         currentStep--;
+    //         displayStep(currentStep);
+    //     });
+
+    //     updateProgressBar = function() {
+    //         var progressPercentage = ((currentStep - 1) / 2) * 100;
+    //         $(".progress-bar").css("width", progressPercentage + "%");
+    //     };
+
+    //     $(".step-circle").click(function() {
+    //         var stepNumber = parseInt($(this).text());
+
+    //         if (stepNumber > currentStep) {
+    //             var currentStepForm = $("#form-step-" + currentStep);
+    //             if (!currentStepForm.valid()){
+    //                 return;
+    //             }
+    //         }
+
+    //         displayStep(stepNumber);
+    //     });
+
+    //     displayStep(1);
+    // });
+    $(document).ready(function () {
+    var currentStep = 1;
+    var updateProgressBar;
+
+    function displayStep(stepNumber) {
+        if (stepNumber >= 1 && stepNumber <= 3) {
+            $(".mul_stp_frm").hide();
+            $("#form-step-" + stepNumber).show();
+            currentStep = stepNumber;
+            updateProgressBar();
+        }
+    }
+
+    $(".next-step").click(function (event) {
+        event.preventDefault();
+        var currentStepForm = $("#form-step-" + currentStep);
+
+        if (currentStepForm.valid()) {
+            currentStepForm.hide();
+            currentStep++;
+            $("#form-step-" + currentStep).show();
+            updateProgressBar();
+        }
+    });
+
+    $(".prev-step").click(function (event) {
+        event.preventDefault();
+        currentStep--;
+        displayStep(currentStep);
+    });
+
+    updateProgressBar = function () {
+        var progressPercentage = ((currentStep - 1) / 2) * 100;
+        $(".progress-bar").css("width", progressPercentage + "%");
+    };
+
+    $(".step-circle").click(function () {
+        var stepNumber = parseInt($(this).text());
+
+        if (stepNumber > currentStep) {
+            var currentStepForm = $("#form-step-" + currentStep);
+            if (!currentStepForm.valid()) {
+                return;
             }
         }
 
-        $(".next-step").click(function(event) {
-            event.preventDefault();
-            var currentStepForm = $("#form-step-" + currentStep);
-
-            if (currentStepForm.valid()) {
-                currentStepForm.hide();
-                currentStep++;
-                $("#form-step-" + currentStep).show();
-                updateProgressBar();
-            }
-        });
-
-        $(".prev-step").click(function(event) {
-            event.preventDefault();
-            currentStep--;
-            displayStep(currentStep);
-        });
-
-        updateProgressBar = function() {
-            var progressPercentage = ((currentStep - 1) / 2) * 100;
-            $(".progress-bar").css("width", progressPercentage + "%");
-        };
-
-        $(".step-circle").click(function() {
-            var stepNumber = parseInt($(this).text());
-
-            if (stepNumber > currentStep) {
-                var currentStepForm = $("#form-step-" + currentStep);
-                if (!currentStepForm.valid()) {
-                    return;
-                }
-            }
-
-            displayStep(stepNumber);
-        });
-
-        displayStep(1);
+        displayStep(stepNumber);
     });
+
+    // Submit button click event
+    $("#btn_submit").click(function (event) {
+        event.preventDefault();
+
+        // Handle form submission here, e.g., using Ajax
+        // $.ajax({
+        //     type: "POST",
+        //     url: "your_submission_url",
+        //     data: $("#your_form_id").serialize(),
+        //     success: function(response) {
+        //         // Handle success response
+        //     },
+        //     error: function(error) {
+        //         // Handle error
+        //     }
+        // });
+    });
+
+    displayStep(1);
+});
+
     </script>
-
-
-
 
 
     <!-- SCRIPT FOR THE VALIDATION OF 1st FORM -->
@@ -560,7 +639,7 @@
             
             // Check if the number of selected files is within the allowed range
             if (selectedFiles.length < 1 || selectedFiles.length > maxAllowedFiles) {
-                alert("Please select between 1 and " + maxAllowedFiles + " images.");
+                // alert("Please select between 1 and " + maxAllowedFiles + " images.");
                 // You can provide additional feedback to the user, such as disabling a submit button
             } else {
                 // You can proceed with handling the selected files

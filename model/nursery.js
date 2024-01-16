@@ -491,23 +491,23 @@ function edit_data_id(id){
   data.append('address', address);
   data.append('description', description);
 
-  $.ajax({
-      url: url,
+   $.ajax({
+    url: url,
       type: "POST",
       data: data,
       headers: headers,
       processData: false,
       contentType: false,
-       success: function (result) {
-         console.log(result, "result");
+    success: function (result) {
+        console.log(result, "result");
         window.location.reload();
-         console.log("updated successfully");
-         alert('successfully updated..!')
-       },
-       error: function (error) {
-         console.error('Error fetching data:', error);
-       }
-   })
+        console.log("updated successfully");
+        alert('successfully updated..!')
+    },
+    error: function (error) {
+        console.error('Error fetching data:', error);
+    }
+});
  }
 
  

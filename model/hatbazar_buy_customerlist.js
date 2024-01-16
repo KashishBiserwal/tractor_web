@@ -1,118 +1,12 @@
-
 $(document).ready(function() {
     console.log("ready!");
     getTractorList();
-    
-    // $('#submit_enquiry').click(tractor_enquiry);
-    // $('#submit_enquiry').on('click',function(){
-    //     alert('sdfsadf');
-    //     tractor_enquiry();
-    // })
-    // $('#submit_enquiry').click(function () {
-    //     $('#contact-seller-call').submit();
-    // });
-    // $('#contact-seller-call').submit(tractor_enquiry);
-
-    $("#contact-seller-call").validate({
-        rules: {
-            brandName: {
-                required: true
-            },
-            modeName: {
-                required: true
-            },
-            firstName: {
-                required: true
-            },
-            lastName: {
-                required: true
-            },
-            mobile_number: {
-                required: true,
-                digits: true,
-                minlength: 10
-            },
-            state: {
-                required: true,
-                notEqual: "Select State"
-            },
-            district: {
-                required: true,
-                notEqual: "Select District"
-            },
-            Tehsil: {
-                required: true
-            }
-        },
-        messages: {
-            state: {
-                notEqual: "Please select a state."
-            },
-            district: {
-                notEqual: "Please select a district."
-            }
-        },
-        submitHandler: function (form) {
-            savedata();
-            // tractor_enquiry();
-        }
-    });
-
-    // Custom validation method for notEqual rule
-    $.validator.addMethod("notEqual", function (value, element, param) {
-        return value !== param;
-    }, "Value must not equal {0}");
-
-    });
-
-
-
-function model_click(){
-    get();
-    console.log("confirm")
-  }
-
-  function get() {
-    var url = 'http://tractor-api.divyaltech.com/api/customer/get_all_brands';
-    $.ajax({
-        url: url,
-        type: "GET",
-        headers: {
-            'Authorization': 'Bearer ' + localStorage.getItem('token')
-        },
-        success: function (data) {
-            console.log(data);
-            const selects = document.querySelectorAll('#brandName');
-
-            selects.forEach(select => {
-                select.innerHTML = '<option selected disabled value="">Please select an option</option>';
-
-                if (data.brands.length > 0) {
-                    data.brands.forEach(row => {
-                        const option = document.createElement('option');
-                        option.textContent = row.brand_name;
-                        option.value = row.id;
-                        select.appendChild(option);
-                    });
-                } else {
-                    select.innerHTML = '<option>No valid data available</option>';
-                }
-            });
-        },
-        error: function (error) {
-            console.error('Error fetching data:', error);
-        }
-    });
-}
-
-
-
-
+});
 function getTractorList() {
-    var url = "http://tractor-api.divyaltech.com/api/customer/get_new_tractor";
+    var url = "http://tractor-api.divyaltech.com/api/customer/get_haat_bazar";
 
     // Keep track of the total tractors and the currently displayed tractors
-    var totalTractors = 0;
+    var haat_bazar_data = 0;
     var displayedTractors = 6; // Initially display 6 tractors
 
     $.ajax({
@@ -120,15 +14,15 @@ function getTractorList() {
         type: "GET",
         success: function(data) {
             var productContainer = $("#productContainer");
-            var loadMoreButton = $("#load_moretract");
+            var loadMoreButton = $("#load_more");
 
-            if (data.product.allProductData && data.product.allProductData.length > 0) {
-                totalTractors = data.product.allProductData.length;
+            if (data.allData.haat_bazar_data && data.allData.haat_bazar_data.length > 0) {
+                haat_bazar_data = data.allData.haat_bazar_data.length;
 
                 // Display the initial set of 6 tractors
-                displayTractors(data.product.allProductData.slice(0, displayedTractors));
+                displaylist(data.allData.haat_bazar_data.slice(0, displayedTractors));
 
-                if (totalTractors <= displayedTractors) {
+                if (haat_bazar_data <= displayedTractors) {
                     loadMoreButton.hide();
                 } else {
                     loadMoreButton.show();
@@ -137,8 +31,8 @@ function getTractorList() {
                 // Handle "Load More Tractors" button click
                 loadMoreButton.click(function() {
                     // Display all tractors
-                    displayedTractors = totalTractors;
-                    displayTractors(data.product.allProductData);
+                    displayedTractors = haat_bazar_data;
+                    displaylist(data.allData.haat_bazar_data);
 
                     // Hide the "Load More Tractors" button
                     loadMoreButton.hide();
@@ -152,7 +46,7 @@ function getTractorList() {
 }
 
 
-function displayTractors(tractors) {
+function displaylist(tractors) {
     var productContainer = $("#productContainer");
     var tableData = $("#tableData");
     // Clear existing content
@@ -176,31 +70,34 @@ function displayTractors(tractors) {
                     <div class="col-12 col-lg-4 col-md-4 col-sm-4 mb-3">
                     <div class="h-auto success__stry__item d-flex flex-column shadow">
                         <div class="thumb">
-                            <a href="detail_tractor.php?product_id=${p.product_id}">
+                            <a href="hatbzrbuy_inner.php?id=${p.haat_bazar_id}">
                                 <div class="ratio ratio-16x9">
-                                <img src="http://tractor-api.divyaltech.com/uploads/product_img/${a[0]}" class="object-fit-cover" alt="${p.description}">
+                                <img src="http://tractor-api.divyaltech.com/uploads/haat_bazar_img/${a[0]}" class="object-fit-cover" alt="${p.description}">
                                 </div>
                             </a>
                         </div>
                         <div class="content d-flex flex-column flex-grow-1">
                             <div class="caption text-center">
-                                <a href="detail_tractor.php?product_id=${p.product_id}" class="text-decoration-none text-dark">
-                                    <p class="pt-3"><strong class="series_tractor_strong text-center h4 fw-bold ">${p.model}</strong></p>
+                                <a href="hatbzrbuy_inner.php?id=${p.haat_bazar_id}" class="text-decoration-none text-dark">
+                                    <p class="pt-3"><strong class="series_tractor_strong text-center h4 fw-bold ">${p.sub_category_name}</strong></p>
                                 </a>      
                             </div>
                             <div class="power text-center mt-2">
                                 <div class="row">
-                                    <div class="col-12 col-lg-6 col-md-6 col-sm-6"><p class="text-dark ps-2"><i class="fas fa-bolt"></i>  ${p.hp_category}HP</p></div>
+                                    <div class="col-12 col-lg-6 col-md-6 col-sm-6"><p class="text-dark ps-2"> ${p.haat_bazar_category_name}</p></div>
                                     <div class="col-12 col-lg-6 col-md-6 col-sm-6" style="padding-right: 32px;">
-                                         <p id="adduser" type="" class="text-dark">
-                                          <i class="fa-solid fa-gear"></i>  ${p.engine_capacity_cc} CC </p>
+                                    <p class="text-success ps-2"><i class="fa fa-inr" aria-hidden="true"></i>
+                                    ${p.price}/<span>  ${p.as_per}</span></p>
                                     </div>
                                 </div>    
                             </div>
                             <div class="col-12">
+                                            <p class=" text-center" id="district"><span id="engine_powerhp2"></span> ${p.district},<span id="year"> ${p.state}</span></p>
+                                        </div>
+                            <div class="col-12">
                                 <button type="button" class="add_btn btn-success w-100" onclick="model_click()" data-bs-toggle="modal" data-bs-target="#used_tractor_callbnt_${p.product_id}">
 
-                                <i class="fa-regular fa-handshake"></i> Get on Road Price
+                                <i class="fa-regular fa-handshake"></i> Contact Seller
                                 </button>
                             </div>
 
@@ -280,19 +177,6 @@ function displayTractors(tractors) {
                     </div>
                 </div>
                     `;
-                    var tableRow  = `
-                    <tr class="">
-                        <td class="py-3">${p.model}</td>
-                        <td class="py-3"><span>${p.hp_category}</span> HP</td>
-                        <td class="py-3">Rs. <span>${p.starting_price}</span> - <span>${p.ending_price}</span>*</td>
-                    </tr> 
-                `;
-                var tablerow_hp = `
-                    <tr class="">
-                        <td class="py-3">${p.model}</td>
-                        <td class="py-3">Rs. <span>${p.starting_price}</span> - <span>${p.ending_price}</span>*</td>
-                    </tr>
-`;
 
                 // Add event listener for modal opening
     $(".add_btn").on("click", function () {
@@ -301,79 +185,7 @@ function displayTractors(tractors) {
     });
         // Append the new card to the container
         productContainer.append(newCard);
-        tableData.append(tableRow);
-        hp_wise.append(tablerow_hp);
+      
        
     });
 }
-
-// enquiry form
-
-function tractor_enquiry() {
-    var brandName = $('#brandName').val();
-    var modeName = $('#modeName').val();
-    var firstName = $('#firstName').val();
-    var lastName = $('#lastName').val();
-    var mobile_number = $('#mobile_number').val();
-    var state = $('#state').val();
-    var district = $('#district').val();
-    var Tehsil = $('#Tehsil').val();
-    var enquiry_type_id =$('#enquiry_type_id').val();
-    var paraArr = {
-      'brand_name': brandName,
-      'model': modeName,
-      'first_name': firstName,
-      'last_name': lastName,
-      'mobile': mobile_number,
-      'state': state,
-      'district': district,
-      'tehsil': Tehsil,
-      'enquiry_type_id':enquiry_type_id,
-    };
-    // console.log(paraArr);
-  
-//   var apiBaseURL =APIBaseURL;
-//   var url = apiBaseURL + 'customer_enquiries';
-var url ='http://tractor-api.divyaltech.com/api/customer/customer_enquiries';
-  
-    var token = localStorage.getItem('token');
-    var headers = {
-      'Authorization': 'Bearer ' + token
-    };
-    $.ajax({
-      url: url,
-      type: "POST",
-      data: paraArr,
-      headers: headers,
-      success: function (result) {
-        // savedata();
-    console.log("Add successfully");
-    $("#used_tractor_callbnt_").modal('hide'); 
-    var msg = "Added successfully !"
-    $("#errorStatusLoading").modal('show');    
-    $("#errorStatusLoading").find('.modal-title').html('<p class="text-center">Congratulation..! Requested Successful</p>');
- 
-    $("#errorStatusLoading").find('.modal-body').html(msg);
-    $("#errorStatusLoading").find('.modal-body').html('<img src="assets/images/successfull.gif" style="display:block; margin:0 auto;" class="w-50 text-center" alt="Successfull Request"></img>');
-    // $("#errorStatusLoading").find('.modal-body').html('sdfghj');
-  
-  
-      },
-      error: function (error) {
-        console.error('Error fetching data:', error);
-        var msg = error;
-        $("#errorStatusLoading").modal('show');
-        $("#errorStatusLoading").find('.modal-title').html('<p class="text-center">Process Failed..! Enter Valid Detail</p>');
-        $("#errorStatusLoading").find('.modal-body').html(msg);
-        $("#errorStatusLoading").find('.modal-body').html('<img src="assets/images/comp_3.gif" style="display:block; margin:0 auto;" class="w-50 text-center" alt="Successfull Request"></img>');
-        // 
-      }
-    });
-  }
- 
-
-  function savedata(){
-    tractor_enquiry();
-    console.log("confirm");
-    console.log("Form submitted successfully");
-  }

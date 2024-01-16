@@ -6,7 +6,7 @@
    ?> 
   <script> var APIBaseURL = "<?php echo $APIBaseURL; ?>";</script>
   <script> var baseUrl = "<?php echo $baseUrl; ?>";</script>
-  <script src="<?php $baseUrl; ?>model/tyres_list.js"></script>
+  <script src="<?php $baseUrl; ?>model/tyres_enquiry_list.js"></script>
   
 <body class="loaded"> 
 <div class="main-wrapper">
@@ -23,137 +23,47 @@
             <ol class="breadcrumb mb-0">
               
               <li class="breadcrumb-item">
-                <span>Tyres Listings</span>
+                <span>Tyres Enquiry Listings</span>
               </li>
             </ol>
           </nav>
-          <button type="button" id="add_trac" class="btn add_btn btn-success float-right btn_all" data-bs-toggle="modal"  data-bs-target="#staticBackdrop">
-              <i class="fa fa-plus" aria-hidden="true"></i> Add New Tyre
-          </button>
-
-          <!-- Modal -->
-          <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-            <div class="modal-dialog modal-lg modal-dialog-centered">
-              <div class="modal-content modal_box">
-                <div class="modal-header modal_head">
-                  <h5 class="modal-title text-white fw-bold" id="staticBackdropLabel">Add Tyre </h5>
-                  <button type="button" class="btn-close btn-success" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body bg-white">
-                        <div class="row justify-content-center">
-                            <div class="col-lg-10">
-                              <h4 class="text-center" style="font-weight:600;">Fill your Details</h4>
-                              <form id="form_tyre_list">
-                                <div class="row justify-content-center">
-                                    <div class="col-12 col-lg-6 col-md-6 col-sm-6 mt-3 ">
-                                      <div class="form-outline">
-                                        <label for="name" class="form-label text-dark">Brand</label>
-                                        <input type="text" class="form-control" placeholder="" id="brand" name="brand">
-                                      </div>
-                                    </div>
-                                    <div class="col-12 col-lg-6 col-md-6 col-sm-6 mt-3">
-                                      <div class="form-outline ">
-                                        <label for="name" class="form-label text-dark">Tyre Model</label>
-                                        <input type="text" class="form-control" placeholder="" id="tyre" name="tyre">
-                                      </div>
-                                    </div>
-                                    <div class="col-12 col-lg-6 col-md-6 col-sm-6 mt-3">
-                                      <div class="form-outline ">
-                                        <label for="name" class="form-label text-dark">Tyre Position</label>
-                                        <input type="text" class="form-control" placeholder="" id="tyre_position" name="tyre_position">
-                                      </div>
-                                    </div>
-                                    <div class="col-12 col-lg-6 col-md-6 col-sm-6 mt-3">
-                                      <div class="form-outline ">
-                                        <label for="name" class="form-label text-dark">Size of the tyre</label>
-                                        <input type="text" class="form-control" placeholder="" id="tyre_size" name="tyre_size">
-                                      </div>
-                                    </div>
-                                    <div class="col-12 col-lg-6 col-md-6 col-sm-6 mt-3">
-                                      <div class="form-outline ">
-                                        <label for="name" class="form-label text-dark">Tyre Diameter</label>
-                                        <input type="text" class="form-control" placeholder="" id="tyre_diameter" name="tyre_diameter">
-                                      </div>
-                                    </div>
-                                    <div class="col-12 col-lg-6 col-md-6 col-sm-6 mt-3">
-                                      <div class="form-outline ">
-                                        <label for="name" class="form-label text-dark">Tyre Width</label>
-                                        <input type="text" class="form-control" placeholder="" id="tyre_width" name="tyre_width">
-                                      </div>
-                                    </div> 
-                                    <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-3">
-                                     <div class="form-outline ">
-                                      <label for="yr_state" class="form-label text-dark">Category</label>
-                                      <select class="form-select form-control" aria-label=".form-select-lg example"id="category" name="category">
-                                         
-                                      </select>
-                                    </div>
-                                  </div>
-                                    <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                                      <div class="upload__box">
-                                        <div class="upload__btn-box text-center">
-                                          <label >
-                                            <p class="upload__btn ">Upload images</p>
-                                            <input type="file" multiple="" data-max_length="20" class="upload__inputfile" id="_image" name="_image">
-                                          </label>
-                                          <!-- <p></p> -->
-                                        </div>
-                                        <div id="selectedImagesContainer1" class="upload__img-wrap row"></div>
-                                      </div>
-                                    </div>
-                                   
-                                </div>
-                            </form>
-                            </div>
-                        </div>
-                    </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary btn_all" data-bs-dismiss="modal">Close</button>
-                  <button type="button" id="subbnt" class="btn btn-success btn_all">Submit</button>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </div>
     <div class="">
       <!-- Filter Card -->
-      <div class="filter-card">
+      <div class="filter-card mb-2">
         <div class="card-body">
-        <form action="" id="myform" class="mb-0">
           <div class="row">
-            <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-3">
+            <div class="col-12 col-sm-12 col-md-4 col-lg-4">
               <div class="form-outline">
-                <label class="form-label">Brand</label>
-                <select class="form-select form-control" aria-label="Default select example">
-                  <option selected>Select Brand</option>
-                  <option value="1">Mahindra</option>
-                  <option value="2">Swaraj</option>
-                  <option value="3">John deere</option>
+                <label class="form-label">State</label>
+                <select class="form-select py-2" aria-label="Default select example"  id="districtSelect">
+                    <option value>Select State</option>
+                    <option value="1">Chattisgarh</option>
+                    <option value="2">Other</option>
                 </select>
               </div>
             </div>
-            <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-3">
-              <div class="form-outline">
-                <label class="form-label">Tyre Position</label>
-                <select class="form-select form-control" aria-label="Default select example">
-                  <option selected disabled>Select Position</option>
-                  <option value="1">Front-Left</option>
-                  <option value="2">Front-right</option>
-                  <option value="2">Back-Left</option>
-                  <option value="2">Back-right</option>
+            <div class="col-12 col-sm-12 col-md-4 col-lg-4">
+              <div class="form-outline ">
+                <label class="form-label fw-bold">District</label>
+                <select class="form-select py-2" aria-label="Default select example" id="districtSelect">
+                    <option selected>Select District</option>
+                    <option value="1">Raipur</option>
+                    <option value="2">Bilaspur</option>
+                    <option value="3">Surajpur</option>
                 </select>
               </div>
             </div>
-            <div class="col-12 col-sm-12 col-md-4 col-lg-4  mt-3">
+           
+            <div class="col-12 col-sm-12 col-md-4 col-lg-4">
               <div class="text-center">
-                <button type="button" class="btn-success btn btn_all" id="Search">Search</button>
-                <button type="button" class="btn-success btn  btn_all" id="Reset">Reset</button>
+                <button type="button" class="btn-success btn px-3 py-2 " id="Search">Search</button>
+                <button type="button" class="btn-success btn mx-2 px-3 py-2  " id="Reset">Reset</button>
               </div>
             </div>
           </div>
-        </form>
         </div>
       </div>
       <!-- Table Card -->
@@ -164,6 +74,8 @@
                   <tr>
                 <th class="d-none d-md-table-cell text-white">S.No.</th>
                 <th class="d-none d-md-table-cell text-white">Date</th>
+                <th class="d-none d-md-table-cell text-white">Brand</th>
+                <th class="d-none d-md-table-cell text-white">Model</th>
                 <th class="d-none d-md-table-cell text-white">Name</th>
                 <th class="d-none d-md-table-cell text-white">Phone number</th>
                 <th class="d-none d-md-table-cell text-white">State</th>
@@ -183,13 +95,48 @@
             <div class="modal-dialog modal-md modal-dialog-centered">
               <div class="modal-content modal_box">
                 <div class="modal-header modal_head">
-                  <h5 class="modal-title text-white fw-bold" id="staticBackdropLabel">Tyre Information</h5>
+                  <h5 class="modal-title text-white fw-bold" id="staticBackdropLabel">Tyres Enquiry Information </h5>
                   <button type="button" class="btn-close btn-success" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="modal-body bg-white">
-                <div class="row">
-                    <div class="col-12 col-lg-6 col-sm-6 col-md-6">
-                      <h6 class="fw-bold">Brand Name: </h6>
+                  <div class="modal-body bg-light">
+                    <div class="row ">
+                       <div class="col-12">
+                        <table class="table table-striped">
+                        <tbody>
+                        <tr> 
+                            <td>Brand Name-</td>
+                            <td id="bname1"></td>
+                            <td>Model Name-</td>
+                            <td id="mname1"></td>
+                          </tr>
+                         <tr> 
+                            <td>First Name-</td>
+                            <td id="fname1"></td>
+                            <td>Last Name-</td>
+                            <td id="lname1"></td>
+                          </tr>
+                          <tr>
+                           
+                            <td>Mobile Number-</td>
+                            <td id="number1"></td>
+                            <td>Email-</td>
+                            <td id="email_1"></td>
+                          </tr>
+                          <tr>
+                          <td>Date-</td>
+                            <td id="date_1"></td>
+                            <td>State-</td>
+                            <td id="state1"></td>
+                            
+                          </tr>
+                          <tr>
+                          <td>District-</td>
+                            <td id="dist1"></td>
+                            <td>Tehsil-</td>
+                            <td id="tehsil1"></td>
+                          </tr>
+                        </tbody>
+                      </table>
                     </div>
                   </div>  
                 <div class="modal-footer">
@@ -208,7 +155,7 @@
             <div class="modal-dialog modal-lg modal-dialog-centered">
               <div class="modal-content modal_box">
                 <div class="modal-header modal_head">
-                  <h5 class="modal-title text-white fw-bold" id="staticBackdropLabel"> Update Hire Tractor Enquiry</h5>
+                  <h5 class="modal-title text-white fw-bold" id="staticBackdropLabel"> Update Tyres Enquiry</h5>
                   <button type="button" class="btn-close btn-success" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body bg-light">
@@ -223,18 +170,34 @@
                                 </div>  
                                 <div class="col- col-sm-6 col-lg-6 col-md-6" hidden>
                                   <label class="text-dark"> id Name<span class="text-danger">*</span></label>
+                                    <input type="text" class="form-control py-2" for="idUser"  id="product_id" value="1" name="first_name" placeholder="Enter First Name">
+                                  <small></small>
+                                </div>
+                                <div class="col- col-sm-6 col-lg-6 col-md-6" hidden>
+                                  <label class="text-dark"> id Name<span class="text-danger">*</span></label>
                                           <input type="text" class="form-control py-2" for="idUser"  id="enquiry_type_id" value="10" name="first_name" placeholder="Enter First Name">
                                   <small></small>
                                 </div>
-
-                                 <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
+                                <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
                                       <div class="form-outline">
+                                        <label for="name" class="form-label text-dark">Brand Name</label>
+                                        <input type="text" class="form-control" placeholder="" id="brand_name" name="bname">
+                                      </div>
+                                    </div>
+                                    <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
+                                      <div class="form-outline">
+                                        <label for="name" class="form-label text-dark">Model Name</label>
+                                        <input type="text" class="form-control" placeholder="" id="model_name" name="mname">
+                                      </div>
+                                    </div>
+                                 <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
+                                      <div class="form-outline mt-3">
                                         <label for="name" class="form-label text-dark">First Name</label>
                                         <input type="text" class="form-control" placeholder="" id="first_name" name="fname">
                                       </div>
                                     </div>
                                     <div class="ol-12 col-lg-6 col-md-6 col-sm-6">
-                                        <div class="form-outline">
+                                        <div class="form-outline mt-3">
                                             <label class="form-label text-dark"> Last Name</label>
                                             <input type="text" class="form-control py-2" for="last_name"  id="last_name" name="last_name">
                                         </div>

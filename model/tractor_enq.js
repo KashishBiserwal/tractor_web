@@ -1,7 +1,7 @@
 
 $(document).ready(function(){
     $('#new_trac_subbtn').click(edit_id_data);
-    // $('#Search_data').click(search);
+    $('#Search').click(search);
           jQuery.validator.addMethod("customPhoneNumber", function(value, element) {
           return /^[6-9]\d{9}$/.test(value); 
           }, "Phone number must start with 6 or above");
@@ -10,6 +10,12 @@ $(document).ready(function(){
       $("#new_tractor_form").validate({
       
       rules: {
+        bname: {
+          required: true,
+        },
+        mname: {
+          required: true,
+        },
         fname: {
           required: true,
         },
@@ -41,6 +47,12 @@ $(document).ready(function(){
       },
   
       messages:{
+        bname: {
+          required: "This field is required",
+        },
+        mname: {
+          required: "This field is required",
+        },
         fname: {
           required: "This field is required",
         },
@@ -113,6 +125,8 @@ function get_new_tractor() {
                     columns: [
                         { title: 'S.No.' },
                         { title: 'Date' },
+                        { title: 'Brand' },
+                        { title: 'Model' },
                         { title: 'Full Name' },
                         { title: 'Mobile' },
                         { title: 'State' },
@@ -128,6 +142,8 @@ function get_new_tractor() {
                     table.row.add([
                         serialNumber,
                         row.date,
+                        row.brand_name,
+                        row.model,
                         fullName,
                         row.mobile,
                         row.state,
@@ -210,6 +226,8 @@ function openViewdata(userId) {
     
       success: function(response) {
         var userData = response.enquiry_data[0];
+        document.getElementById('bname1').innerText=userData.brand_name;
+        document.getElementById('mname1').innerText=userData.model;
         document.getElementById('fname1').innerText=userData.first_name;
         document.getElementById('lname1').innerText=userData.last_name;
         document.getElementById('number1').innerText=userData.mobile;
@@ -243,6 +261,8 @@ function fetch_edit_data(id) {
         success: function (response) {
             var Data = response.enquiry_data[0];
             $('#idUser').val(Data.id);
+            $('#brand_name').val(Data.brand_name);
+            $('#model_name').val(Data.model);
             $('#first_name').val(Data.first_name);
             $('#last_name').val(Data.last_name);
             $('#mobile').val(Data.mobile);
@@ -260,7 +280,10 @@ function fetch_edit_data(id) {
 
 function edit_id_data() {
   var enquiry_type_id = $("#enquiry_type_id").val();
+  var product_id = $("#product_id").val();
   var edit_id = $("#idUser").val();
+  var brand_name = $("#brand_name").val();
+  var model_name = $("#model_name").val();
   var first_name = $("#first_name").val();
   var last_name = $("#last_name").val();
   var mobile = $("#mobile").val();
@@ -269,7 +292,7 @@ function edit_id_data() {
   var state = $("#state_").val();
   var district = $("#dist_").val();
   var tehsil = $("#tehsil_").val();
-
+  var _method = 'put';
   // Validate mobile number
   if (!/^[6-9]\d{9}$/.test(mobile)) {
       alert("Mobile number must start with 6 or above and should be 10 digits");
@@ -277,7 +300,9 @@ function edit_id_data() {
   }
 
   var paraArr = {
-      'first_name': first_name,
+    'brand_name': brand_name,
+    'first_name': first_name,
+      'model': model_name,
       'last_name': last_name,
       'mobile': mobile,
       'email': email,
@@ -287,6 +312,8 @@ function edit_id_data() {
       'tehsil': tehsil,
       'id': edit_id,
       'enquiry_type_id': enquiry_type_id,
+      'product_id': product_id,
+      '_method': _method,
   };
 
   var apiBaseURL = APIBaseURL;
@@ -298,7 +325,7 @@ function edit_id_data() {
 
   $.ajax({
       url: url,
-      type: "PUT",
+      type: "POST",
       data: paraArr,
       headers: headers,
       success: function (result) {
@@ -311,4 +338,99 @@ function edit_id_data() {
           console.error('Error fetching data:', error);
       }
   });
+}
+
+
+function search() {
+  console.log("dfghsfg,sdfgdfg");
+  var brand_id = $('#brand_id').val();
+  var brandselect = $('#bran_d').val();
+  var modelselect = $('#mode_l').val();
+  var stateselect = $('#stat_e').val();
+  var districtselect = $('#dis_t').val();
+
+  var paraArr = {
+    'brand_id':brand_id,
+    'brand_name':brandselect,
+    'model':modelselect,
+    'state':stateselect,
+    'district':districtselect,
+  };
+
+  var apiBaseURL = APIBaseURL;
+  var url = apiBaseURL + 'search_for_new_tractor_enquiry';
+  $.ajax({
+      url:url, 
+      type: 'POST',
+      data: paraArr,
+    
+      headers: {
+          'Authorization': 'Bearer ' + localStorage.getItem('token')
+      },
+      success: function (searchData) {
+        console.log(searchData,"hello brand");
+        updateTable(searchData);
+      },
+      error: function (error) {
+          console.error('Error searching for brands:', error);
+      }
+  });
+};
+function updateTable(data) {
+  const tableBody = document.getElementById('data-table');
+  tableBody.innerHTML = '';
+  let serialNumber = 1; 
+  if(data.newTractor && data.newTractor.length > 0) {
+      let tableData = []; 
+      data.newTractor.forEach(row => {
+        const fullName = row.first_name + ' ' + row.last_name;
+          let action =  `<div class="d-flex">
+          <button class="btn btn-warning btn-sm text-white mx-1" data-bs-toggle="modal" onclick="openViewdata(${row.id});" data-bs-target="#view_model_tractor_enq">
+              <i class="fas fa-eye" style="font-size: 11px;"></i>
+          </button>
+          <button class="btn btn-primary btn-sm btn_edit" onclick="fetch_edit_data(${row.id});" data-bs-toggle="modal" data-bs-target="#editmodel_oldtractor_enq" id="yourUniqueIdHere">
+              <i class="fas fa-edit" style="font-size: 11px;"></i>
+          </button>
+          <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.id});">
+              <i class="fa fa-trash" style="font-size: 11px;"></i>
+          </button>
+      </div>`
+     
+          tableData.push([
+            serialNumber,
+            row.date,
+            row.brand_name,
+            row.model,
+            fullName,
+            row.mobile,
+            row.state,
+            row.district,
+            action
+        ]);
+
+        serialNumber++;
+    });
+
+    $('#example').DataTable().destroy();
+    $('#example').DataTable({
+        data: tableData,
+        columns: [
+          { title: 'S.No.' },
+          { title: 'Date' },
+          { title: 'Brand' },
+          { title: 'Model' },
+          { title: 'Full Name' },
+          { title: 'Mobile' },
+          { title: 'State' },
+          { title: 'District' },
+          { title: 'Action', orderable: false }
+        ],
+        paging: true,
+        searching: true,
+        // ... other options ...
+    });
+  } else {
+      // Display a message if there's no valid data
+      tableBody.innerHTML = '<tr><td colspan="4">No valid data available</td></tr>';
+  }
 }

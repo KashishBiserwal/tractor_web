@@ -6,7 +6,7 @@
    ?> 
      <script> var APIBaseURL = "<?php echo $APIBaseURL; ?>";</script>
   <script> var baseUrl = "<?php echo $baseUrl; ?>";</script>
-  <script src="<?php $baseUrl; ?>model/tractor_enq.js"></script>
+  <script src="<?php $baseUrl; ?>model/engine_oil_enquiry.js"></script>
 
 
 <body class="loaded"> 
@@ -24,7 +24,7 @@
             <ol class="breadcrumb my-0 ms-2">
               
               <li class="breadcrumb-item">
-                <span>New Tractor Enquiries</span>
+                <span>Engine Oil Enquiries </span>
               </li>
             </ol>
           </nav>
@@ -38,17 +38,10 @@
       <div class="filter-card mb-2">
         <div class="card-body">
           <div class="row">
-          <div class="col-12 col-sm-12 col-md-3 col-lg-3"hidden>
-              <div class="form-outline">
-                <label class="form-label">Search By id</label>
-                  <select class=" form-select form-control mb-0" id="brand_id">
-                  </select>
-              </div>
-            </div>
             <div class="col-12 col-sm-12 col-md-3 col-lg-3">
               <div class="form-outline">
                 <label class="form-label"> Brand Name</label>
-                <select class="form-select py-2" aria-label="Default select example" id="bran_d">
+                <select class="form-select py-2" aria-label="Default select example">
                     <option selected>Select Brand</option>
                     <option value="1">Mahindra</option>
                     <option value="2">Swaraj</option>
@@ -59,7 +52,7 @@
             <div class="col-12 col-sm-12 col-md-3 col-lg-3">
               <div class="form-outline ">
                 <label class="form-label">Model</label>
-                    <select class="form-select py-2" aria-label="Default select example" id="mode_l">
+                    <select class="form-select py-2" aria-label="Default select example">
                         <option selected>Select Model</option>
                         <option value="1">3032 NX</option>
                         <option value="2">3030 NX</option>
@@ -70,7 +63,7 @@
             <div class="col-12 col-sm-12 col-md-3 col-lg-3">
               <div class="form-outline">
                 <label class="form-label">State</label>
-                <select class="form-select py-2" aria-label="Default select example" id="stat_e">
+                <select class="form-select py-2" aria-label="Default select example">
                     <option value>Select State</option>
                     <option value="1">Chattisgarh</option>
                     <option value="2">Other</option>
@@ -80,7 +73,7 @@
             <div class="col-12 col-sm-12 col-md-3 col-lg-3">
               <div class="form-outline">
                 <label class="form-label">District</label>
-                <select class="form-select py-2" aria-label="Default select example" id="dis_t">
+                <select class="form-select py-2" aria-label="Default select example">
                     <option value>Select District</option>
                     <option value="1">Raipur</option>
                     <option value="2">Bilaspur</option>
@@ -122,11 +115,11 @@
     </div>
    </section>
       
-    <div class="modal fade" id="view_model_new_tractor" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal fade" id="view_model_engine_oil" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
             <div class="modal-dialog modal-lg modal-dialog-centered">
               <div class="modal-content modal_box">
                 <div class="modal-header modal_head">
-                  <h5 class="modal-title text-white fw-bold" id="staticBackdropLabel"> New Tractor Enquiries Information </h5>
+                  <h5 class="modal-title text-white fw-bold" id="staticBackdropLabel">Engine Oil Enquiries Information </h5>
                   <button type="button" class="btn-close btn-success" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                   <div class="modal-body bg-light">
@@ -184,13 +177,13 @@
             <div class="modal-dialog modal-lg modal-dialog-centered">
               <div class="modal-content modal_box">
                 <div class="modal-header modal_head">
-                  <h5 class="modal-title text-white fw-bold" id="staticBackdropLabel"> Update New Tractor Enquiries</h5>
+                  <h5 class="modal-title text-white fw-bold" id="staticBackdropLabel"> Update Engine Oil Enquiries</h5>
                   <button type="button" class="btn-close btn-success" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body bg-light">
                         <div class="row justify-content-center">
                             <div class="col-lg-10">
-                            <form id="new_tractor_form">
+                            <form id="engine_oilr_form">
                                 <div class="row  pt-4">
                                 <div class="col- col-sm-6 col-lg-6 col-md-6" hidden>
                                   <label class="text-dark"> id Name<span class="text-danger">*</span></label>
@@ -198,15 +191,15 @@
                                   <small></small>
                                 </div>  
                                 <div class="col- col-sm-6 col-lg-6 col-md-6" hidden>
-                                  <label class="text-dark"> id Name<span class="text-danger">*</span></label>
-                                          <input type="text" class="form-control py-2" for="idUser"  id="enquiry_type_id" value="2" name="first_name" placeholder="Enter First Name">
-                                  <small></small>
-                                </div>
-                                <div class="col- col-sm-6 col-lg-6 col-md-6" hidden>
                                           <label class="text-dark"> id Name<span class="text-danger">*</span></label>
-                                                  <input type="text" class="form-control py-2" for="idUser"  id="product_id" value="104" name="first_name" placeholder="Enter First Name">
+                                                  <input type="text" class="form-control py-2" for="idUser"  id="product_id" value="2" name="first_name" placeholder="Enter First Name">
                                           <small></small>
                                         </div>
+                                <div class="col- col-sm-6 col-lg-6 col-md-6" hidden>
+                                  <label class="text-dark"> id Name<span class="text-danger">*</span></label>
+                                          <input type="text" class="form-control py-2" for="idUser"  id="enquiry_type_id" value="12" name="first_name" placeholder="Enter First Name">
+                                  <small></small>
+                                </div>
                                 <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
                                       <div class="form-outline">
                                         <label for="name" class="form-label text-dark">Brand Name</label>
@@ -289,7 +282,7 @@
                     </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-secondary px-3" data-bs-dismiss="modal">Close</button>
-                  <button type="button" id="new_trac_subbtn" class="btn btn-success fw-bold px-3">Save Change</button>
+                  <button type="button" id="engine_subbtn" class="btn btn-success fw-bold px-3">Save Change</button>
                 </div>
               </div>
             </div>

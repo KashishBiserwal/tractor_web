@@ -79,74 +79,79 @@
  
 
       
- //****get data***
- function get_hire() {
-    var apiBaseURL = APIBaseURL;
-    var url = apiBaseURL + 'hire_data';
-    console.log('dfghjkiuytgf');
     
-    $.ajax({
-        url: url,
-        type: "GET",
-        headers: {
-            'Authorization': 'Bearer ' + localStorage.getItem('token')
-        },
-        success: function (data) {
-            const tableBody = $('#data-table'); // Use jQuery selector for the table body
-            tableBody.empty(); // Clear previous data
+//****get data***
+function get_hire() {
+  var apiBaseURL = APIBaseURL;
+  var url = apiBaseURL + 'hire_data';
+  console.log('dfghjkiuytgf');
   
-            let serialNumber = 1;
-  
-            if (data.hire_details && data.hire_details.length > 0) {
-                var table = $('#example').DataTable({
-                    paging: true,
-                    searching: true,
-                    columns: [
-                        { title: 'S.No.' },
-                        { title: 'Date' },
-                        { title: 'Full Name' },
-                        { title: 'Mobile' },
-                        { title: 'State' },
-                        { title: 'District' },
-                        { title: 'Action', orderable: false }
-                    ]
-                });
-  
-                data.hire_details.forEach(row => {
-                    const fullName = row.first_name + ' ' + row.last_name;
-  
-                    // Add row to DataTable
-                    table.row.add([
-                        serialNumber,
-                        row.date,
-                        fullName,
-                        row.mobile,
-                        row.state,
-                        row.district,
-                        `<div class="d-flex">
-                            <button class="btn btn-warning btn-sm text-white mx-1" data-bs-toggle="modal" onclick="openViewdata(${row.id});" data-bs-target="#view_model_hire_enq">
-                                <i class="fas fa-eye" style="font-size: 11px;"></i>
-                            </button> 
-                            <button class="btn btn-primary btn-sm btn_edit" onclick="fetch_edit_data(${row.id});" data-bs-toggle="modal" data-bs-target="#staticBackdrop2" id="yourUniqueIdHere">
-                            <i class="fas fa-edit" style="font-size: 11px;"></i>
-                        </button>
-                            <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.id});">
-                                <i class="fa fa-trash" style="font-size: 11px;"></i>
-                            </button>
-                        </div>`
-                    ]).draw(false);
-  
-                    serialNumber++;
-                });
-            } else {
-                tableBody.html('<tr><td colspan="6">No valid data available</td></tr>');
-            }
-        },
-        error: function (error) {
-            console.error('Error fetching data:', error);
-        }
-    });
-  }
+  $.ajax({
+      url: url,
+      type: "GET",
+      headers: {
+          'Authorization': 'Bearer ' + localStorage.getItem('token')
+      },
+      success: function (data) {
+          const tableBody = $('#data-table'); // Use jQuery selector for the table body
+          tableBody.empty(); // Clear previous data
+
+          let serialNumber = 1;
+
+          if (data.customer_details && data.customer_details.length > 0) {
+              var table = $('#example').DataTable({
+                  paging: true,
+                  searching: true,
+                  columns: [
+                      { title: 'S.No.' },
+                      { title: 'Date' },
+                      { title: 'Brand' },
+                      { title: 'Model' },
+                      { title: 'Full Name' },
+                      { title: 'Mobile' },
+                      { title: 'State' },
+                      { title: 'District' },
+                      { title: 'Action', orderable: false }
+                  ]
+              });
+
+              data.customer_details.forEach(row => {
+                  const fullName = row.first_name + ' ' + row.last_name;
+
+                  // Add row to DataTable
+                  table.row.add([
+                      serialNumber,
+                      row.date,
+                      row.brand_name,
+                      row.model,
+                      fullName,
+                      row.mobile,
+                      row.state,
+                      row.district,
+                      `<div class="d-flex">
+                          <button class="btn btn-warning btn-sm text-white mx-1" data-bs-toggle="modal" onclick="openViewdata(${row.id});" data-bs-target="#view_model_tyre">
+                              <i class="fas fa-eye" style="font-size: 11px;"></i>
+                          </button> 
+                          <button class="btn btn-primary btn-sm btn_edit" onclick="fetch_edit_data(${row.id});" data-bs-toggle="modal" data-bs-target="#edit_tyres" id="yourUniqueIdHere">
+                          <i class="fas fa-edit" style="font-size: 11px;"></i>
+                      </button>
+                          <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.id});">
+                              <i class="fa fa-trash" style="font-size: 11px;"></i>
+                          </button>
+                      </div>`
+                  ]).draw(false);
+
+                  serialNumber++;
+              });
+          } else {
+              tableBody.html('<tr><td colspan="6">No valid data available</td></tr>');
+          }
+      },
+      error: function (error) {
+          console.error('Error fetching data:', error);
+      }
+  });
+}
   get_hire();
 
   // Searching

@@ -36,30 +36,51 @@
       <div class="filter-card mb-2">
         <div class="card-body">
           <div class="row">
-            <div class="col-12 col-sm-12 col-md-3 col-lg-3">
-              <div class="form-outline">
-                <label class="form-label">Model Name </label>
-                <input type="text" id="model" name="model" class="form-control" />
+          <div class="col-12 col-sm-12 col-md-3 col-lg-3"hidden>
+            <div class="form-outline">
+              <label class="form-label">Search By id</label>
+                <select class=" form-select form-control mb-0" id="brand_id">
+                </select>
+            </div>
+          </div>
+          <div class="col-12 col-sm-12 col-md-3 col-lg-3">
+          <div class="form-outline">
+                <label class="form-label"> Brand Name</label>
+                <select class="form-select py-2" aria-label="Default select example" id="brandsearch">
+                    <option selected>Select Brand</option>
+                    <option value="Mahindra">Mahindra</option>
+                    <option value="Swaraj">Swaraj</option>
+                    <option value="John Deere">John Deere</option>
+                </select>
               </div>
             </div>
             <div class="col-12 col-sm-12 col-md-3 col-lg-3">
               <div class="form-outline">
-                <label class="form-label">No. of Cylinder</label>
-                <input type="text" id="cylinder" name="cylinder" class="form-control" />
+                <label class="form-label">State</label>
+                <select class="form-select py-2" aria-label="Default select example"  id="statesearch">
+                    <option value>Select State</option>
+                    <option value="Chattisgarh">Chattisgarh</option>
+                    <option value="Other">Other</option>
+                </select>
               </div>
             </div>
             <div class="col-12 col-sm-12 col-md-3 col-lg-3">
-              <div class="form-outline">
-                <label class="form-label"> Power</label>
-                <input type="text" id="power" name="power" class="form-control" />
+              <div class="form-outline ">
+                <label class="form-label fw-bold">District</label>
+                <select class="form-select py-2" aria-label="Default select example" id="districtsearch">
+                    <option selected>Select District</option>
+                    <option value="Bhilai">Bhilai</option>
+                    <option value="Raipur">Raipur</option>
+                    <option value="Bilaspur">Bilaspur</option>
+                    <option value="Surajpur">Surajpur</option>
+                </select>
               </div>
             </div>
            
-            
             <div class="col-12 col-sm-12 col-md-3 col-lg-3">
-              <div class="float-end text-center ">
-                <button type="button" class="btn-success btn px-4 py-2" id="Search">Search</button>
-                <button type="button" class="btn-success mx-2 btn px-4 py-2" id="Reset">Reset</button>
+              <div class="text-center">
+                <button type="button" class="btn-success btn px-3 py-2 " id="Search_btn">Search</button>
+                <button type="button" class="btn-success btn mx-2 px-3 py-2  " id="Reset">Reset</button>
               </div>
             </div>
           </div>
@@ -73,8 +94,8 @@
                   <tr>
                     <th class="d-none d-md-table-cell text-white">S.No.</th>
                     <th class="d-none d-md-table-cell text-white">Date</th>
-                    <!-- <th class="d-none d-md-table-cell text-white">Brand</th>
-                    <th class="d-none d-md-table-cell text-white">Power Source</th> -->
+                    <th class="d-none d-md-table-cell text-white">Brand</th>
+                    <th class="d-none d-md-table-cell text-white">Model</th>
                     <th class="d-none d-md-table-cell text-white">Name</th>
                     <th class="d-none d-md-table-cell text-white">Mobile</th>
                     <th class="d-none d-md-table-cell text-white">State</th>
@@ -102,6 +123,12 @@
                        <div class="col-12">
                         <table class="table table-striped">
                         <tbody>
+                        <tr> 
+                            <td>Brand Name-</td>
+                            <td id="bname1"></td>
+                            <td>Model Name-</td>
+                            <td id="mname1"></td>
+                          </tr>
                          <tr> 
                             <td>First Name-</td>
                             <td id="fname1"></td>
@@ -161,17 +188,34 @@
                                         </div>
                                         <div class="col- col-sm-6 col-lg-6 col-md-6" hidden>
                                           <label class="text-dark"> id Name<span class="text-danger">*</span></label>
+                                                  <input type="text" class="form-control py-2" for="idUser"  id="product_id" value="307" name="first_name" placeholder="Enter First Name">
+                                          <small></small>
+                                        </div>
+                                        <div class="col- col-sm-6 col-lg-6 col-md-6" hidden>
+                                          <label class="text-dark"> id Name<span class="text-danger">*</span></label>
                                                   <input type="text" class="form-control py-2" for="idUser"  id="enquiry_type_id" value="4" name="first_name" placeholder="Enter First Name">
                                           <small></small>
                                         </div>
+                                        <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
+                                      <div class="form-outline">
+                                        <label for="name" class="form-label text-dark">Brand Name</label>
+                                        <input type="text" class="form-control" placeholder="" id="brand_name" name="bname">
+                                      </div>
+                                    </div>
+                                    <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
+                                      <div class="form-outline">
+                                        <label for="name" class="form-label text-dark">Model Name</label>
+                                        <input type="text" class="form-control" placeholder="" id="model_name" name="mname">
+                                      </div>
+                                    </div>
                                         <div class="col-12 col-lg-6 col-sm-5 col-md-6">
-                                          <div class="form-outline">
+                                          <div class="form-outline mt-4">
                                             <label for="name" class="form-label text-dark">First Name</label>
                                             <input type="text" class="form-control" placeholder="" id="fname_2" name="fname">
                                           </div>
                                         </div>
                                         <div class="col-12 col-lg-6 col-sm-5 col-md-6">
-                                          <div class="form-outline">
+                                          <div class="form-outline mt-4">
                                             <label for="name" class="form-label text-dark">Last Name</label>
                                             <input type="text" class="form-control" placeholder="" id="lname_2" name="lname">
                                           </div>
@@ -240,7 +284,6 @@
               </div>
             </div>
         </div>
-
 </div>
 </div>
 </div>

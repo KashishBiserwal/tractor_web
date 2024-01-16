@@ -1,9 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head> <?php
-   include 'includes/headertag.php';
-   ?> </head>
+<head>  <?php
+// include 'includes/header.php';
+include 'includes/headertag.php';
+include 'includes/headertagadmin.php';
+include 'includes/footertag.php';
+
+?> 
+<script> var APIBaseURL = "<?php echo $APIBaseURL; ?>";</script>
+<script> var baseUrl = "<?php echo $baseUrl; ?>";</script>
+    <script src="<?php $baseUrl; ?>model/haatbazar_inner.js"></script>
+</head>
 
 <body> <?php
    include 'includes/header.php';
@@ -52,10 +60,10 @@
                                     <img class="img_buy" src="assets/images/potato.webp" />
                                 </div>
                                 <div class="swiper-slide swiper-slide_buy">
-                                    <img class="img_buy " src="assets/images/potatoes-lead_h.webp" />
+                                    <img class="img_buy " src="assets/images/potatoes-lead_h.webp"/>
                                 </div>
                                 <div class="swiper-slide swiper-slide_buy">
-                                    <img class="img_buy " src="assets/images/potato.webp" />
+                                    <img class="img_buy " src="assets/images/potato.webp"/>
                                 </div>
                             </div>
                             <div class="swiper-button-prev">
@@ -84,6 +92,13 @@
                                                         <input type="text" class="form-control" id="fname" onkeydown="return /[a-zA-Z]/i.test(event.key)" name="fname">
                                                     </div>
                                                 </div>
+                                                <div class="col-12 col-lg-6 col-md-6 col-sm-6 mt-3"hidden>
+                                                    <div class="form-outline">
+                                                        <label for="fname" class="form-label "><i
+                                                                class="fa-regular fa-user"></i> First Name</label>
+                                                        <input type="text" class="form-control" id="enquiry_type_id" value=""  name="fname">
+                                                    </div>
+                                                </div>
                                                 <div class="col-12 col-lg-6 col-md-6 col-sm-6 mt-3">
                                                     <div class="form-outline">
                                                         <label for="lname" class="form-label "><i
@@ -107,9 +122,9 @@
                                                         <select class="form-select mb-2 "
                                                             aria-label=".form-select-lg example" id="state"
                                                             name="state">
-                                                            <option value="" selected disabled></option>
-                                                            <option value="1">Chhattisgarh</option>
-                                                            <option value="2">Other</option>
+                                                            <option value="" selected disabled>Select State</option>
+                                                            <option value="Chhattisgarh">Chhattisgarh</option>
+                                                            <option value="Other">Other</option>
                                                         </select>
                                                     </div>
                                                 </div>
@@ -121,10 +136,10 @@
                                                         <select class="form-select mb-2"
                                                             aria-label=".form-select-lg example" name="district"
                                                             id="district">
-                                                            <option value="" selected disabled></option>
-                                                            <option value="1">Raipur</option>
-                                                            <option value="2">Bilaspur</option>
-                                                            <option value="2">Durg</option>
+                                                            <option value="" selected disabled>Select District</option>
+                                                            <option value="Raipur">Raipur</option>
+                                                            <option value="Bilaspur">Bilaspur</option>
+                                                            <option value="Durg">Durg</option>
                                                         </select>
                                                     </div>
                                                 </div>
@@ -133,10 +148,10 @@
                                                         <label for="tehsil" class="form-label">Tehsil</label>
                                                         <select class="form-select" aria-label=".form-select-lg example"
                                                             name="tehsil" id="tehsil">
-                                                            <option value="" selected disabled></option>
-                                                            <option value="1">Raipur</option>
-                                                            <option value="2">Bilaspur</option>
-                                                            <option value="2">Durg</option>
+                                                            <option value="" selected disabled>Select Tehsil</option>
+                                                            <option value="Raipur">Raipur</option>
+                                                            <option value="Bilaspur">Bilaspur</option>
+                                                            <option value="Durg">Durg</option>
                                                         </select>
                                                     </div>
                                                 </div>
@@ -224,23 +239,23 @@
                 <tbody>
                     <tr>
                         <td class="table-data col-6 col-md-6 col-lg-6 col-sm-6">Category</td>
-                        <td class="table-data col-6 col-md-6 col-lg-6 col-sm-6">Vegetable</td>
+                        <td class="table-data col-6 col-md-6 col-lg-6 col-sm-6" id="category_name"></td>
                     </tr>
                     <tr>
                         <td class="table-data">Vegetable Type:</td>
-                        <td class="table-data">Potato</td>
+                        <td class="table-data"id="sucategory_name">Potato</td>
                     </tr>
                     <tr>
                         <td class="table-data">Quantity:</td>
-                        <td class="table-data">5kg</td>
+                        <td class="table-data" id="quantity"></td>
                     </tr>
                     <tr>
                         <td class="table-data">Price (as per kg):</td>
-                        <td class="table-data">222/-</td>
+                        <td class="table-data" id="price_as">222 <span> /- </span></td>
                     </tr>
                     <tr>
                         <td class="table-data">About</td>
-                        <td class="table-data">about harvest </td>
+                        <td class="table-data" id="description"> </td>
                     </tr>
 
 
@@ -251,23 +266,23 @@
                 <tbody>
                     <tr>
                         <td class="table-data col-6 col-md-6 col-lg-6 col-sm-6">Name</td>
-                        <td class="table-data col-6 col-md-6 col-lg-6 col-sm-6">Ram Singh</td>
+                        <td class="table-data col-6 col-md-6 col-lg-6 col-sm-6" id="first_name"></td>
                     </tr>
                     <tr>
                         <td class="table-data">Phone Number</td>
-                        <td class="table-data">+91831******</td>
+                        <td class="table-data" id="phone_number"></td>
                     </tr>
                     <tr>
                         <td class="table-data">State</td>
-                        <td class="table-data">Chhattisgarh</td>
+                        <td class="table-data" id="state"></td>
                     </tr>
                     <tr>
                         <td class="table-data">District</td>
-                        <td class="table-data">Ambikapur</td>
+                        <td class="table-data" id="district"></td>
                     </tr>
                     <tr>
                         <td class="table-data">Tehsil</td>
-                        <td class="table-data">Ambikapur</td>
+                        <td class="table-data" id="tehsil">Ambikapur</td>
                     </tr>
 
                 </tbody>
