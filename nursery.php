@@ -77,8 +77,8 @@ include 'includes/headertag.php';
                                              <label class="form-label">State</label>
                                               <select class="form-select py-2" aria-label="Default select example" id="state_" name="state_">
                                                 <option value>Select State</option>
-                                                <option value="1">Chattisgarh</option>
-                                                <option value="2">Other</option>
+                                                <option value="Chattisgarh">Chattisgarh</option>
+                                                <option value="Other">Other</option>
                                               </select>
                                           </div>
                                         </div>
@@ -87,9 +87,9 @@ include 'includes/headertag.php';
                                             <label class="form-label">District</label>
                                             <select class="form-select py-2" aria-label="Default select example" id="dist" name="dist">
                                               <option value>Select District</option>
-                                              <option value="1">Raipur</option>
-                                              <option value="2">Bilaspur</option>
-                                              <option value="3">Surajpur</option>
+                                              <option value="Raipur">Raipur</option>
+                                              <option value="Bilaspur">Bilaspur</option>
+                                              <option value="Surajpur">Surajpur</option>
                                             </select>
                                           </div>
                                         </div>
@@ -98,9 +98,9 @@ include 'includes/headertag.php';
                                             <label class="form-label">Tehsil</label>
                                             <select class="form-select py-2" aria-label="Default select example" id="tehsil">
                                               <option value>Select Tehsil</option>
-                                              <option value="1">Raipur</option>
-                                              <option value="2">Bilaspur</option>
-                                              <option value="3">Surajpur</option>
+                                              <option value="Raipur">Raipur</option>
+                                              <option value="Bilaspur">Bilaspur</option>
+                                              <option value="Surajpur">Surajpur</option>
                                             </select>
                                           </div>
                                         </div>

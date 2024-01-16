@@ -815,5 +815,5 @@ function updateTable(data) {
 function resetform(){
   $('#brand1').val('');
   $('#model1').val('');
-  
+  engineOil_add();
 }
