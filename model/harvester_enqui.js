@@ -1,6 +1,6 @@
   
   $(document).ready(function(){
-    $('#Search_btn').click(search_data);
+    // $('#Search_btn').click(search_data);
     // $('#Reset').click(resetForm);
     $('#undate_btn_harvester_enq').click(edit_data_id);
     
@@ -353,10 +353,8 @@ function fetch_edit_data(id) {
     });
   }
 
-
-  function get_search_brand() {
-    var apiBaseURL =APIBaseURL;
-    var url = apiBaseURL + 'getBrands';
+  function get() {
+    var url = 'http://tractor-api.divyaltech.com/api/customer/get_all_brands';
     $.ajax({
         url: url,
         type: "GET",
@@ -365,42 +363,92 @@ function fetch_edit_data(id) {
         },
         success: function (data) {
             console.log(data);
-            const select = document.getElementById('brand_name');
-            select.innerHTML = '';
+            const selects = document.querySelectorAll('#brand_name');
   
-            if (data.brands.length > 0) {
-                data.brands.forEach(row => {
-                    const option = document.createElement('option');
-                    option.value = row.id; // You might want to set a value for each option
-                    option.textContent = row.brand_name;
-                    select.appendChild(option);
-                });
-            } else {
-                select.innerHTML ='<option>No valid data available</option>';
-            }
+            selects.forEach(select => {
+                select.innerHTML = '<option selected disabled value="">Please select an option</option>';
+  
+                if (data.brands.length > 0) {
+                    data.brands.forEach(row => {
+                        const option = document.createElement('option');
+                        option.textContent = row.brand_name;
+                        option.value = row.id;
+                        console.log(option);
+                        select.appendChild(option);
+                    });
+  
+                    // Add event listener to brand dropdown
+                    select.addEventListener('change', function() {
+                        const selectedBrandId = this.value;
+                        get_model(selectedBrandId);
+                    });
+                } else {
+                    select.innerHTML = '<option>No valid data available</option>';
+                }
+            });
         },
         error: function (error) {
             console.error('Error fetching data:', error);
         }
     });
   }
-  get_search_brand();
+  
+  function get_model(brand_id) {
+    var url = 'http://tractor-api.divyaltech.com/api/customer/get_brand_model/' + brand_id;
+    $.ajax({
+        url: url,
+        type: "GET",
+        headers: {
+            'Authorization': 'Bearer ' + localStorage.getItem('token')
+        },
+        success: function (data) {
+            console.log(data);
+            const selects = document.querySelectorAll('#model3');
+  
+            selects.forEach(select => {
+                select.innerHTML = '<option selected disabled value="">Please select an option</option>';
+  
+                if (data.model.length > 0) {
+                    data.model.forEach(row => {
+                        const option = document.createElement('option');
+                        option.textContent = row.model;
+                        option.value = row.id;
+                        console.log(option);
+                        select.appendChild(option);
+                    });
+                } else {
+                    select.innerHTML = '<option>No valid data available</option>';
+                }
+            });
+        },
+        error: function (error) {
+            console.error('Error fetching data:', error);
+        }
+    });
+  }
+  
+  get();
 
-  function search_data() {
-    // console.log("dfghsfg,sdfgdfg");
-    var selectedBrand = $('#brand_name').val();
-    // var brand_id = $('#brand_id').val();
-    var district = $('#districtsearch').val();
-    var state = $('#statesearch').val();
-  console.log(selectedBrand);
-  // console.log(brand_id);
-  console.log(district);
-  console.log(state);
+  function searchdata() {
+    console.log("dfghsfg,sdfgdfg");
+    var brand_id = $('#brand_id').val();
+    var brandselect = $('#brand_name').val();
+    var modelselect = $('#model3').val();
+    var stateselect = $('#state3').val();
+    var districtselect = $('#district3').val();
+   
+  console.log(brand_id);
+  console.log(brandselect);
+  console.log(modelselect);
+  console.log(stateselect);
+  console.log(districtselect);
+  
     var paraArr = {
-      'brand_id': selectedBrand,
-      // 'id':brand_id,
-      'state':state,
-      'district':district,
+      'id':brand_id,
+      'brand_name':brandselect,
+      'model':modelselect,
+      'state':stateselect,
+      'district':districtselect,
     };
   
     var apiBaseURL = APIBaseURL;
@@ -422,16 +470,15 @@ function fetch_edit_data(id) {
         }
     });
   };
-  function updateTable(searchData) {
+  function updateTable(data) {
     const tableBody = document.getElementById('data-table');
     tableBody.innerHTML = '';
     let serialNumber = 1; 
-  
-    if(searchData.newTractor && searchData.newTractor.length > 0) {
+    if(data.newTractor && data.newTractor.length > 0) {
         let tableData = []; 
-        searchData.newTractor.forEach(row => {
+        data.newTractor.forEach(row => {
           const fullName = row.first_name + ' ' + row.last_name;
-            let action =  `<div class="d-flex">
+            let action =   `<div class="d-flex">
             <button class="btn btn-warning btn-sm text-white mx-1" data-bs-toggle="modal" onclick="openViewdata(${row.id});" data-bs-target="#view_new_harvester_enq">
                 <i class="fas fa-eye" style="font-size: 11px;"></i>
             </button>
@@ -442,7 +489,7 @@ function fetch_edit_data(id) {
                 <i class="fa fa-trash" style="font-size: 11px;"></i>
             </button>
         </div>`;
-  
+       
             tableData.push([
               serialNumber,
               row.date,
@@ -452,7 +499,7 @@ function fetch_edit_data(id) {
               row.mobile,
               row.state,
               row.district,
-              actio
+              action
           ]);
   
           serialNumber++;
@@ -481,3 +528,14 @@ function fetch_edit_data(id) {
         tableBody.innerHTML = '<tr><td colspan="4">No valid data available</td></tr>';
     }
   }
+  
+  
+  
+  function resetform(){
+    $('#brand_name').val('');
+    $('#model3').val('');
+    $('#state3').val('');
+    $('#district3').val('');
+    window.location.reload(); 
+  }
+  
