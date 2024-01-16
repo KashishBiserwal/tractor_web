@@ -1,6 +1,8 @@
  
   $(document).ready(function(){
+   
     $('#dataeditbtn').click(edit_id);
+   
     // $('#Search').click(search);
           jQuery.validator.addMethod("customPhoneNumber", function(value, element) {
           return /^[6-9]\d{9}$/.test(value); 
@@ -27,9 +29,9 @@
         },
         mobile:{
           required:true, 
-            maxlength:10,
-            digits: true,
-            customPhoneNumber: true
+          maxlength:10,
+          digits: true,
+          customPhoneNumber: true
         },
         email:{
             required:true,
@@ -65,9 +67,9 @@
         },
         email:{
 
-            required:"This field is required",
-            email:"Please Enter vaild Email",
-          },
+          required:"This field is required",
+          email:"Please Enter vaild Email",
+        },
         state_: {
           required: "This field is required",
         },
@@ -177,7 +179,7 @@
         },
         success: function (data) {
             console.log(data);
-            const selects = document.querySelectorAll('#brand_name1');
+            const selects = document.querySelectorAll('#brand_name');
 
             selects.forEach(select => {
                 select.innerHTML = '<option selected disabled value="">Please select an option</option>';
@@ -420,7 +422,7 @@ function edit_id() {
 function searchdata() {
   console.log("dfghsfg,sdfgdfg");
   var brand_id = $('#brand_id').val();
-  var brandselect = $('#brand_name1').val();
+  var brandselect = $('#brand_name').val();
   var modelselect = $('#model2').val();
   var stateselect = $('#state2').val();
   var districtselect = $('#district2').val();
@@ -432,8 +434,8 @@ console.log(stateselect);
 console.log(districtselect);
 
   var paraArr = {
-    'brand_id':brand_id,
-    'brand_id':brandselect,
+    'id':brand_id,
+    'brand_name':brandselect,
     'model':modelselect,
     'state':stateselect,
     'district':districtselect,
@@ -516,3 +518,17 @@ function updateTable(data) {
       tableBody.innerHTML = '<tr><td colspan="4">No valid data available</td></tr>';
   }
 }
+
+
+
+function resetform(){
+  $('#brand_name').val('');
+  $('#model2').val('');
+  $('#state2').val('');
+  $('#district2').val('');
+  window.location.reload(); 
+}
+
+
+
+

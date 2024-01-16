@@ -106,7 +106,7 @@
             <div class="col-12 col-sm-12 col-md-3 col-lg-3">
               <div class="form-outline">
                 <label class="form-label">Search By Brand</label>
-                <select class="js-select2 form-select form-control mb-0" id="brand_name1">
+                <select class="js-select2 form-select form-control mb-0" id="brand_name">
                 </select>
               </div>
             </div>
@@ -126,11 +126,11 @@
               <div class="form-outline ">
                 <label class="form-label">Model</label>
                     <select class="form-select py-2" aria-label="Default select example"  id="model2">
-                        <option selected>Select Model</option>
+                        <!-- <option selected>Select Model</option>
                         <option value="sdfgh">sdfgh</option>
                         <option value="3032 NX">3032 NX</option>
                         <option value="3030 NX">3030 NX</option>
-                        <option value="3230 NX">3230 NX</option>
+                        <option value="3230 NX">3230 NX</option> -->
                     </select>
               </div>
             </div>
@@ -155,7 +155,7 @@
                 </select>
               </div>
             </div>
-            <div class="col-12 my-4">
+            <div class="col-12 mt-4">
               <div class="text-center">
               <button type="button" class="btn-success btn px-3 pt-2" id="Search" onclick="searchdata()">Search</button>
                     <button type="button" class="btn-success btn mx-2 px-3 pt-2" id="Reset" onclick="resetform()">Reset</button>

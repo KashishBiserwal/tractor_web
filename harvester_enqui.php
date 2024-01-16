@@ -85,8 +85,8 @@
             </div>
             <div class="col-12 col-sm-12 col-md-3 col-lg-3">
               <div class="text-center ">
-                <button type="button" class="btn-success btn px-3 py-2 " id="Search_btn">Search</button>
-                <button type="button" class="btn-success btn mx-2 px-3 py-2  " id="Reset">Reset</button>
+                <button type="button" class="btn-success btn px-3 py-2 " id="Search_btn" onclick="searchdata()">Search</button>
+                <button type="button" class="btn-success btn mx-2 px-3 py-2 "id="Reset" onclick="resetform()">Reset</button>
               </div>
             </div>
           </div>
