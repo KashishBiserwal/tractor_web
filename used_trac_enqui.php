@@ -105,6 +105,13 @@
             </div>
             <div class="col-12 col-sm-12 col-md-3 col-lg-3">
               <div class="form-outline">
+                <label class="form-label">Search By Brand</label>
+                <select class="js-select2 form-select form-control mb-0" id="brand_name">
+                </select>
+              </div>
+            </div>
+            <!-- <div class="col-12 col-sm-12 col-md-3 col-lg-3">
+              <div class="form-outline">
                 <label class="form-label"> Brand Name</label>
                 <select class="form-select py-2" aria-label="Default select example" id="brand2">
                     <option selected>Select Brand</option>
@@ -114,7 +121,7 @@
                     <option value="Preet">Preet</option>
                 </select>
               </div>
-            </div>
+            </div> -->
             <div class="col-12 col-sm-12 col-md-3 col-lg-3">
               <div class="form-outline ">
                 <label class="form-label">Model</label>
@@ -150,8 +157,8 @@
             </div>
             <div class="col-12 my-4">
               <div class="text-center">
-                <button type="button" class="btn-success btn px-3 pt-2" id="Search">Search</button>
-                <button type="button" class="btn-success btn mx-2 px-3 pt-2" id="Reset">Reset</button>
+              <button type="button" class="btn-success btn px-3 pt-2" id="Search">Search</button>
+                    <button type="button" class="btn-success btn mx-2 px-3 pt-2" onclick="resetForm()" id="Reset">Reset</button>
               </div>
             </div>
           </div>

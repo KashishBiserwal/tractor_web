@@ -277,6 +277,10 @@
    ?> 
    <script>
      $(document).ready(function() {
+      $('#Reset').on('click', function() {
+        resetForm();
+      });
+      
       BackgroundUpload();
       get_product_type();
       $('#save').click(store);

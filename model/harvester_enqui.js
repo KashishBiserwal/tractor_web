@@ -1,6 +1,7 @@
   
   $(document).ready(function(){
     $('#Search_btn').click(search_data);
+    // $('#Reset').click(resetForm);
     $('#undate_btn_harvester_enq').click(edit_data_id);
     
           jQuery.validator.addMethod("customPhoneNumber", function(value, element) {
@@ -351,20 +352,53 @@ function fetch_edit_data(id) {
         }
     });
   }
+
+
+  function get_search_brand() {
+    var apiBaseURL =APIBaseURL;
+    var url = apiBaseURL + 'getBrands';
+    $.ajax({
+        url: url,
+        type: "GET",
+        headers: {
+            'Authorization': 'Bearer ' + localStorage.getItem('token')
+        },
+        success: function (data) {
+            console.log(data);
+            const select = document.getElementById('brand_name');
+            select.innerHTML = '';
   
+            if (data.brands.length > 0) {
+                data.brands.forEach(row => {
+                    const option = document.createElement('option');
+                    option.value = row.id; // You might want to set a value for each option
+                    option.textContent = row.brand_name;
+                    select.appendChild(option);
+                });
+            } else {
+                select.innerHTML ='<option>No valid data available</option>';
+            }
+        },
+        error: function (error) {
+            console.error('Error fetching data:', error);
+        }
+    });
+  }
+  get_search_brand();
 
   function search_data() {
-    console.log("dfghsfg,sdfgdfg");
-    
-    var brand_id = $('#brand_id').val();
-    var brand = $('#brandsearch').val();
-    var state = $('#statesearch').val();
+    // console.log("dfghsfg,sdfgdfg");
+    var selectedBrand = $('#brand_name').val();
+    // var brand_id = $('#brand_id').val();
     var district = $('#districtsearch').val();
-   
-  
+    var state = $('#statesearch').val();
+  console.log(selectedBrand);
+  // console.log(brand_id);
+  console.log(district);
+  console.log(state);
     var paraArr = {
-      'brand_id': brand,
-      'brand_id ':brand_id,
+      'brand_id': selectedBrand,
+      // 'id':brand_id,
       'state':state,
       'district':district,
     };
@@ -388,38 +422,39 @@ function fetch_edit_data(id) {
         }
     });
   };
-  function updateTable(data) {
+  function updateTable(searchData) {
     const tableBody = document.getElementById('data-table');
     tableBody.innerHTML = '';
     let serialNumber = 1; 
-    if(data.newTractor && data.newTractor.length > 0) {
+  
+    if(searchData.newTractor && searchData.newTractor.length > 0) {
         let tableData = []; 
-        data.newTractor.forEach(row => {
+        searchData.newTractor.forEach(row => {
           const fullName = row.first_name + ' ' + row.last_name;
             let action =  `<div class="d-flex">
-            <button class="btn btn-warning btn-sm text-white mx-1" data-bs-toggle="modal" onclick="openViewdata(${row.id});" data-bs-target="#view_model_tractor_enq">
+            <button class="btn btn-warning btn-sm text-white mx-1" data-bs-toggle="modal" onclick="openViewdata(${row.id});" data-bs-target="#view_new_harvester_enq">
                 <i class="fas fa-eye" style="font-size: 11px;"></i>
             </button>
-            <button class="btn btn-primary btn-sm btn_edit" onclick="fetch_edit_data(${row.id});" data-bs-toggle="modal" data-bs-target="#editmodel_oldtractor_enq" id="yourUniqueIdHere">
+            <button class="btn btn-primary btn-sm btn_edit" onclick="fetch_edit_data(${row.id});" data-bs-toggle="modal" data-bs-target="#editmodel_new_harvester" id="yourUniqueIdHere">
                 <i class="fas fa-edit" style="font-size: 11px;"></i>
             </button>
             <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.id});">
                 <i class="fa fa-trash" style="font-size: 11px;"></i>
             </button>
-        </div>`
-       
+        </div>`;
+  
             tableData.push([
               serialNumber,
-             row.date,
-             row.brand,
-             row.model,
+              row.date,
+              row.brand_name,
+              row.model,
               fullName,
               row.mobile,
               row.state,
               row.district,
-              action
+              actio
           ]);
-  console.log( row.district);
+  
           serialNumber++;
       });
   
@@ -428,7 +463,7 @@ function fetch_edit_data(id) {
           data: tableData,
           columns: [
             { title: 'S.No.' },
-            { title: 'Date.' },
+            { title: 'Date' },
             { title: 'Brand' },
             { title: 'Model' },
             { title: 'Full Name' },

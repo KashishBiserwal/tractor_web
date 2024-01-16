@@ -1,5 +1,5 @@
 $(document).ready(function(){
-  // $('#Search').click(search_data);
+  $('#Search_btn').click(search_data);
   $('#undate_btn_oldharvester_enq').click(edit_data_id);
   
         jQuery.validator.addMethod("customPhoneNumber", function(value, element) {
@@ -242,9 +242,141 @@ function get_old_harvester_enqu() {
     });
 }
 
-// Call the get_old_harvester_enqu() function to fetch and display data
 get_old_harvester_enqu();
 
+
+function get_search_brand() {
+  var apiBaseURL =APIBaseURL;
+  var url = apiBaseURL + 'getBrands';
+  $.ajax({
+      url: url,
+      type: "GET",
+      headers: {
+          'Authorization': 'Bearer ' + localStorage.getItem('token')
+      },
+      success: function (data) {
+          console.log(data);
+          const select = document.getElementById('brand_name');
+          select.innerHTML = '';
+
+          if (data.brands.length > 0) {
+              data.brands.forEach(row => {
+                  const option = document.createElement('option');
+                  option.value = row.id; // You might want to set a value for each option
+                  option.textContent = row.brand_name;
+                  select.appendChild(option);
+              });
+          } else {
+              select.innerHTML ='<option>No valid data available</option>';
+          }
+      },
+      error: function (error) {
+          console.error('Error fetching data:', error);
+      }
+  });
+}
+get_search_brand();
+
+
+
+// Function to handle search
+function search_data() {
+  // console.log("dfghsfg, sdfgdfg");
+  var selectedBrand = $('#brand_name').val();
+  var district = $('#dist_2').val();
+  var state = $('#state_2').val();
+  console.log(selectedBrand);
+  console.log(district);
+
+  var paraArr = {
+      'brand_id': selectedBrand,
+      'state': state,
+      'district': district,
+  };
+
+  var apiBaseURL = APIBaseURL;
+  var url = apiBaseURL + 'search_for_old_harvester_enquiry';
+  $.ajax({
+      url: url,
+      type: 'POST',
+      data: paraArr,
+      headers: {
+          'Authorization': 'Bearer ' + localStorage.getItem('token')
+      },
+      success: function (searchData) {
+          console.log(searchData, "hello brand");
+          updateTable(searchData);
+      },
+      error: function (xhr, status, error) {
+          console.error('Error searching for brands:', error);
+          // Add your error handling logic here
+      }
+  });
+}
+
+// Function to update the DataTable
+function updateTable(data) {
+  const tableBody = document.getElementById('data-table');
+  tableBody.innerHTML = '';
+  let serialNumber = 1;
+
+  if (data.newTractor && data.newTractor.length > 0) {
+      let tableData = [];
+      data.newTractor.forEach(row => {
+          const fullName = row.first_name + ' ' + row.last_name;
+          let action = `<div class="d-flex">
+              <button class="btn btn-warning btn-sm text-white mx-1" data-bs-toggle="modal" onclick="openViewdata(${row.id});" data-bs-target="#view_old_harvester_enqu">
+                  <i class="fas fa-eye" style="font-size: 11px;"></i>
+              </button>
+              <button class="btn btn-primary btn-sm btn_edit" onclick="fetch_edit_data(${row.id});" data-bs-toggle="modal" data-bs-target="#editmodel_old_harvester" id="yourUniqueIdHere">
+                  <i class="fas fa-edit" style="font-size: 11px;"></i>
+              </button>
+              <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.id});">
+                  <i class="fa fa-trash" style="font-size: 11px;"></i>
+              </button>
+          </div>`;
+
+          tableData.push([
+              serialNumber,
+              row.date,
+              row.brand_name,
+              row.model,
+              fullName,
+              row.mobile,
+              row.state,
+              row.district,
+              action
+          ]);
+
+          serialNumber++;
+      });
+
+      if ($.fn.DataTable.isDataTable('#example')) {
+          $('#example').DataTable().destroy();
+      }
+
+      $('#example').DataTable({
+          data: tableData,
+          columns: [
+              { title: 'S.No.' },
+              { title: 'Date' },
+              { title: 'Brand' },
+              { title: 'Model' },
+              { title: 'Full Name' },
+              { title: 'Mobile' },
+              { title: 'State' },
+              { title: 'District' },
+              { title: 'Action', orderable: false }
+          ],
+          paging: true,
+          searching: true,
+          // ... other options ...
+      });
+  } else {
+      // Display a message if there's no valid data
+      tableBody.innerHTML = '<tr><td colspan="4">No valid data available</td></tr>';
+  }
+}
 
 
   //****delete data***

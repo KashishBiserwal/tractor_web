@@ -174,6 +174,39 @@ function get_new_tractor() {
   }
   get_new_tractor();
 
+// brand 
+  function get_search_brand() {
+    var apiBaseURL =APIBaseURL;
+    var url = apiBaseURL + 'getBrands';
+    $.ajax({
+        url: url,
+        type: "GET",
+        headers: {
+            'Authorization': 'Bearer ' + localStorage.getItem('token')
+        },
+        success: function (data) {
+            console.log(data);
+            const select = document.getElementById('brand_name');
+            select.innerHTML = '';
+  
+            if (data.brands.length > 0) {
+                data.brands.forEach(row => {
+                    const option = document.createElement('option');
+                    option.value = row.id; // You might want to set a value for each option
+                    option.textContent = row.brand_name;
+                    select.appendChild(option);
+                });
+            } else {
+                select.innerHTML ='<option>No valid data available</option>';
+            }
+        },
+        error: function (error) {
+            console.error('Error fetching data:', error);
+        }
+    });
+  }
+  get_search_brand();
+
   //****delete data***
 function destroy(id) {
     var apiBaseURL = APIBaseURL;

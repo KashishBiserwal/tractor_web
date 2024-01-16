@@ -11,6 +11,12 @@ $(document).ready(function(){
       $("#haatbazar_buyer").validate({
       
       rules: {
+        category: {
+          required: true,
+        },
+        sub_category1: {
+          required: true,
+        },
         first_name: {
           required: true,
         },
@@ -38,6 +44,12 @@ $(document).ready(function(){
       },
   
       messages:{
+        category: {
+          required: "This field is required",
+        },
+        sub_category1: {
+          required: "This field is required",
+        },
         first_name: {
           required: "This field is required",
         },
@@ -88,66 +100,139 @@ $(document).ready(function(){
       }
       
       // fetch data
-      function get_haatbzr() {
-        console.log('iuytrewsdfgb');
-        var apiBaseURL = APIBaseURL;
-        var url = apiBaseURL + 'haat_bazar';
-        $.ajax({
-            url: url,
-            type: "GET",
-            headers: {
-                'Authorization': 'Bearer ' + localStorage.getItem('token')
-            },
-            success: function (data) {
-                // console.log(data);
+    //   function get_haatbzr() {
+    //     console.log('iuytrewsdfgb');
+    //     var apiBaseURL = APIBaseURL;
+    //     var url = apiBaseURL + 'haat_bazar';
+    //     $.ajax({
+    //         url: url,
+    //         type: "GET",
+    //         headers: {
+    //             'Authorization': 'Bearer ' + localStorage.getItem('token')
+    //         },
+    //         success: function (data) {
+    //             // console.log(data);
     
-                const tableBody = document.getElementById('data-table');
+    //             const tableBody = document.getElementById('data-table');
     
-                if (data.allData.haat_bazar_data && data.allData.haat_bazar_data.length > 0) {
-                    // console.log(typeof product);
+    //             if (data.allData.haat_bazar_data && data.allData.haat_bazar_data.length > 0) {
+    //                 // console.log(typeof product);
     
-                    data.allData.haat_bazar_data.forEach(row => {
+    //                 data.allData.haat_bazar_data.forEach(row => {
                       
                     
-                      const tableRow = document.createElement('tr');
-                      // console.log(tableRow, 'helloooo');
+    //                   const tableRow = document.createElement('tr');
+    //                   // console.log(tableRow, 'helloooo');
 
-                        tableRow.innerHTML = `
-                            <td>${row.haat_bazar_id}</td>
-                            <td>${row.category_name}</td>
-                            <td>${row.sub_category_name}</td>
-                            <td>${row.first_name}</td>
-                            <td>${row.mobile}</td>
-                            <td>${row.state}</td>
-                            <td>${row.district}</td>
-                            <td>
-                                <div class="d-flex">
-                                <button class="btn btn-warning text-white btn-sm mx-1" onclick="openView(${row.haat_bazar_id});" data-bs-toggle="modal" data-bs-target="#viewdatamodel" id="viewbtn">
-                                <i class="fa fa-eye" style="font-size: 11px;"></i>
-                                </button>
-                                <button class="btn btn-primary btn-sm btn_edit" onclick=" fetch_edit_data(${row.haat_bazar_id});" data-bs-toggle="modal" data-bs-target="#data_for_edit" id="your_UniqueId">
-                                <i class="fas fa-edit" style="font-size: 11px;"></i>
-                             </button>
-                                <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.haat_bazar_id});">
-                                <i class="fa fa-trash" style="font-size: 11px;"></i>
-                              </button>
-                                </div>
-                            </td>
-                        `;
-                        tableBody.appendChild(tableRow);
+    //                     tableRow.innerHTML = `
+    //                         <td>${row.haat_bazar_id}</td>
+    //                         <td>${row.category_name}</td>
+    //                         <td>${row.sub_category_name}</td>
+    //                         <td>${row.first_name}</td>
+    //                         <td>${row.mobile}</td>
+    //                         <td>${row.state}</td>
+    //                         <td>${row.district}</td>
+    //                         <td>
+    //                             <div class="d-flex">
+    //                             <button class="btn btn-warning text-white btn-sm mx-1" onclick="openView(${row.haat_bazar_id});" data-bs-toggle="modal" data-bs-target="#viewdatamodel" id="viewbtn">
+    //                             <i class="fa fa-eye" style="font-size: 11px;"></i>
+    //                             </button>
+    //                             <button class="btn btn-primary btn-sm btn_edit" onclick=" fetch_edit_data(${row.haat_bazar_id});" data-bs-toggle="modal" data-bs-target="#data_for_edit" id="your_UniqueId">
+    //                             <i class="fas fa-edit" style="font-size: 11px;"></i>
+    //                          </button>
+    //                             <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.haat_bazar_id});">
+    //                             <i class="fa fa-trash" style="font-size: 11px;"></i>
+    //                           </button>
+    //                             </div>
+    //                         </td>
+    //                     `;
+    //                     tableBody.appendChild(tableRow);
                         
-                    });
-                } else {
-                    tableBody.innerHTML = '<tr><td colspan="9">No valid data available</td></tr>';
-                }
-            },
-            error: function (error) {
-                console.error('Error fetching data:', error);
-            }
-        });
-    }
-    get_haatbzr();
+    //                 });
+    //             } else {
+    //                 tableBody.innerHTML = '<tr><td colspan="9">No valid data available</td></tr>';
+    //             }
+    //         },
+    //         error: function (error) {
+    //             console.error('Error fetching data:', error);
+    //         }
+    //     });
+    // }
+    // get_haatbzr();
 
+ // fetch data
+ function get_haatbzr() {
+  var apiBaseURL = APIBaseURL;
+  var url = apiBaseURL + 'haat_bazar';
+  $.ajax({
+      url: url,
+      type: "GET",
+      headers: {
+          'Authorization': 'Bearer ' + localStorage.getItem('token')
+      },
+      success: function (data) {
+          const tableBody = document.getElementById('data-table');
+ const categoryName = data.allData.category_name[0].haat_bazar_category_name;
+     
+          if (data.allData.haat_bazar_data && data.allData.haat_bazar_data.length > 0) {
+              let tableData = [];
+              let counter = 1;
+
+              data.allData.haat_bazar_data.forEach(row => {
+                  let action = `
+                      <div class="d-flex">
+                          <button class="btn btn-warning btn-sm text-white mx-1" data-bs-toggle="modal" onclick="openView(${row.haat_bazar_id});" data-bs-target="#viewdatamodel">
+                          <i class="fa-solid fa-eye" style="font-size: 11px;"></i></button>
+                          <button class="btn btn-primary btn-sm btn_edit" onclick="fetch_edit_data(${row.haat_bazar_id});" data-bs-toggle="modal" data-bs-target="#data_for_edit" id="yourUniqueIdHere" style="padding:5px">
+                            <i class="fas fa-edit" style="font-size: 11px;"></i>
+                          </button>
+                          <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.haat_bazar_id});" style="padding:5px">
+                            <i class="fa fa-trash" style="font-size: 11px;"></i>
+                          </button>
+                      </div>`;
+
+                  tableData.push([
+                      counter,
+                      categoryName,
+                      row.sub_category_name,
+                      row.first_name,
+                      row.mobile,
+                      row.state,
+                      row.district,
+                      action
+                  ]);
+
+                  counter++;
+              });
+
+              $('#example').DataTable().destroy();
+              $('#example').DataTable({
+                  data: tableData,
+                  columns: [
+                      { title: 'S.No.' },
+                      { title: 'Category' },
+                      { title: 'Sub-Category' },
+                      { title: 'Name' },
+                      { title: 'Phone Number' },
+                      { title: 'State' },
+                      { title: 'District' },
+                      { title: 'Action', orderable: false }
+                  ],
+                  paging: true,
+                  searching: true,
+                  // ... other options ...
+              });
+          } else {
+              tableBody.innerHTML = '<tr><td colspan="9">No valid data available</td></tr>';
+          }
+      },
+      error: function (error) {
+          console.error('Error fetching data:', error);
+      }
+  });
+}
+
+get_haatbzr();
 
     // Delete data
     function destroy(id) {
@@ -202,6 +287,8 @@ function openView(userId) {
     
       success: function(response) {
         var userData = response.allData.haat_bazar_data[0];
+        document.getElementById('category').innerText=userData.haat_bazar_category_name;
+        document.getElementById('sub_category').innerText=userData.sub_category_name;
         document.getElementById('fname').innerText=userData.first_name;
         document.getElementById('lname').innerText=userData.last_name;
         document.getElementById('mob').innerText=userData.mobile;
@@ -260,6 +347,8 @@ function openView(userId) {
             var userData = response.allData.haat_bazar_data[0];
             $('#userId').val(userData.haat_bazar_id);
             $('#username').val(userData.haat_bazar_id);
+            $('#category1').val(userData.haat_bazar_category_name);
+            $('#sub_category1').val(userData.sub_category_name);
             $('#first_name1').val(userData.first_name);
             $('#last_name1').val(userData.last_name);
             $('#mobile_no').val(userData.mobile);
@@ -304,6 +393,8 @@ function openView(userId) {
         var image_names = document.getElementById('image_pic').files;
         var enquiry_type_id = $("#enquiry_type_id").val();
         console.log(enquiry_type_id);
+        var category = $('#category1').val();
+        var sub_category = $('#sub_category1').val();
         var first_name = $('#first_name1').val();
         var last_name = $('#last_name1').val();
         var mobile = $('#mobile_no').val();
@@ -328,6 +419,8 @@ function openView(userId) {
         data.append('_method', _method);
         data.append('id',edit_id)
         data.append('enquiry_type_id', enquiry_type_id);
+        data.append('haat_bazar_category_name', category);
+        data.append('sub_category_name', sub_category);
         data.append('first_name', first_name);
         data.append('last_name', last_name);
         data.append('mobile', mobile);
@@ -402,3 +495,34 @@ function openView(userId) {
         $(this).parent().parent().remove();
     });
 }
+
+function get_category() {
+  var apiBaseURL = APIBaseURL;
+  var url = apiBaseURL + 'haat_bazar_category';
+  $.ajax({
+      url: url,
+      type: "GET",
+      headers: {
+          'Authorization': 'Bearer ' + localStorage.getItem('token')
+      },
+      success: function (data) {
+          const select = document.getElementById('category1');
+          select.innerHTML = '<option selected disabled value="">Please select an option</option>';
+
+          if (data.allCategory.length > 0) {
+              data.allCategory.forEach(row => {
+                  const option = document.createElement('option');
+                  option.textContent = row.category_name;
+                  option.value = row.id;
+                  select.appendChild(option);
+              });
+          } else {
+              select.innerHTML = '<option>No valid data available</option>';
+          }
+      },
+      error: function (error) {
+          console.error('Error fetching data:', error);
+      }
+  });
+}
+get_category();

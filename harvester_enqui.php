@@ -36,34 +36,41 @@
       <div class="filter-card mb-2">
         <div class="card-body">
           <div class="row">
-          <div class="col-12 col-sm-12 col-md-3 col-lg-3"hidden>
-            <div class="form-outline">
-              <label class="form-label">Search By id</label>
-                <select class=" form-select form-control mb-0" id="brand_id">
-                </select>
-            </div>
-          </div>
-          <div class="col-12 col-sm-12 col-md-3 col-lg-3">
-          <div class="form-outline">
-                <label class="form-label"> Brand Name</label>
-                <select class="form-select py-2" aria-label="Default select example" id="brandsearch">
-                    <option selected>Select Brand</option>
-                    <option value="Mahindra">Mahindra</option>
-                    <option value="Swaraj">Swaraj</option>
-                    <option value="John Deere">John Deere</option>
-                </select>
-              </div>
-            </div>
             <div class="col-12 col-sm-12 col-md-3 col-lg-3">
               <div class="form-outline">
-                <label class="form-label">State</label>
-                <select class="form-select py-2" aria-label="Default select example"  id="statesearch">
-                    <option value>Select State</option>
-                    <option value="Chattisgarh">Chattisgarh</option>
-                    <option value="Other">Other</option>
+                <label class="form-label">Search By Brand</label>
+                <select class="js-select2 form-select form-control mb-0" id="brand_name">
                 </select>
               </div>
             </div>
+            <!-- <div class="col-12 col-sm-12 col-md-3 col-lg-3"hidden>
+                <div class="form-outline">
+                  <label class="form-label">Search By id</label>
+                    <select class=" form-select form-control mb-0" id="brand_id">
+                    </select>
+                </div>
+              </div> -->
+            <!-- <div class="col-12 col-sm-12 col-md-3 col-lg-3">
+            <div class="form-outline">
+                  <label class="form-label"> Brand Name</label>
+                  <select class="form-select py-2" aria-label="Default select example" id="brandsearch">
+                      <option selected>Select Brand</option>
+                      <option value="Mahindra">Mahindra</option>
+                      <option value="Swaraj">Swaraj</option>
+                      <option value="John Deere">John Deere</option>
+                  </select>
+                </div>
+              </div> -->
+              <div class="col-12 col-sm-12 col-md-3 col-lg-3">
+                <div class="form-outline">
+                  <label class="form-label">State</label>
+                  <select class="form-select py-2" aria-label="Default select example"  id="statesearch">
+                      <option value>Select State</option>
+                      <option value="Chattisgarh">Chattisgarh</option>
+                      <option value="Other">Other</option>
+                  </select>
+                </div>
+              </div>
             <div class="col-12 col-sm-12 col-md-3 col-lg-3">
               <div class="form-outline ">
                 <label class="form-label fw-bold">District</label>
@@ -76,9 +83,8 @@
                 </select>
               </div>
             </div>
-           
             <div class="col-12 col-sm-12 col-md-3 col-lg-3">
-              <div class="text-center">
+              <div class="text-center ">
                 <button type="button" class="btn-success btn px-3 py-2 " id="Search_btn">Search</button>
                 <button type="button" class="btn-success btn mx-2 px-3 py-2  " id="Reset">Reset</button>
               </div>

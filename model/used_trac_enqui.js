@@ -167,6 +167,40 @@
   }
   get_old_tractor();
 
+// fet brand
+
+  function get_search_brand() {
+    var apiBaseURL =APIBaseURL;
+    var url = apiBaseURL + 'getBrands';
+    $.ajax({
+        url: url,
+        type: "GET",
+        headers: {
+            'Authorization': 'Bearer ' + localStorage.getItem('token')
+        },
+        success: function (data) {
+            console.log(data);
+            const select = document.getElementById('brand_name');
+            select.innerHTML = '';
+  
+            if (data.brands.length > 0) {
+                data.brands.forEach(row => {
+                    const option = document.createElement('option');
+                    option.value = row.id; // You might want to set a value for each option
+                    option.textContent = row.brand_name;
+                    select.appendChild(option);
+                });
+            } else {
+                select.innerHTML ='<option>No valid data available</option>';
+            }
+        },
+        error: function (error) {
+            console.error('Error fetching data:', error);
+        }
+    });
+  }
+  get_search_brand();
+
   // View data
 function openViewdata(userId) {
     var apiBaseURL = APIBaseURL;
@@ -344,8 +378,7 @@ function edit_id() {
 function search() {
   console.log("dfghsfg,sdfgdfg");
   
-  var brand_id = $('#brand_id').val();
-  var brand = $('#brand2').val();
+  var brand_id = $('#brand_name').val();
   var model = $('#model2').val();
   var Selectstate = $('#state2').val();
   var district = $('#district2').val();
@@ -353,7 +386,6 @@ function search() {
   var paraArr = {
     // 'brand_id': brand,
     'brand_id ':brand_id,
-    'brand_name': brand,
     'model':model,
     'state':Selectstate,
     'district':district,
