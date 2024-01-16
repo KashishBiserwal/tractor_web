@@ -67,6 +67,7 @@
                                           <input type="text" class="form-control py-2" id="brand_name" placeholder="Enter brand">
                                        
                                         </div>
+                                       
                                         <div class="col-12 col-sm-4 col-lg-4 col-md-4 ps-3">
                                           <div class="background__box mt-4 pt-1">
                                                 <div class="background__btn-box ">
@@ -84,7 +85,10 @@
                                                 </div>
                                           </div>
                                         </div>
-                        
+                                        <div class="col-12 col-sm-12 col-lg-12 col-md-12 mt-3">
+                                                        <label for="name" class="text-dark fw-bold">Select Product Type</label>
+                                                        <div id="type_name" name="type_name"></div>
+                                                    </div>
                                         <div class="col-12 col-sm-2 col-lg-2 col-md-2 ">
                                             <div class="float-left mt-4 pt-2">
                                                 <button class="btn px-4 bg-success text-white" id="save">Submit</button>
@@ -180,6 +184,7 @@
                                           <input type="text" class="form-control py-2" id="brand_name1" placeholder="Enter brand">
                                           <small></small>
                                         </div>
+                                       
                                         <div class="col-12 col-sm-4 col-lg-4 col-md-4 ps-3">
                                         <div class="background__box mt-4 pt-1">
                                                 <div class="background__btn-box ">
@@ -197,6 +202,11 @@
                                                 </div>
                                           </div>
                                         </div>
+
+                                        <div class="col-12 col-sm-12 col-lg-12 col-md-12 mt-3">
+                                                        <label for="name" class="text-dark fw-bold">Select Product Type</label>
+                                                        <div id="type_name" name="type_name"></div>
+                                                    </div>
                         
                                         
                                       </div>
@@ -268,6 +278,7 @@
    <script>
      $(document).ready(function() {
       BackgroundUpload();
+      get_product_type();
       $('#save').click(store);
       $('#save_brand').click(edit_brand);
       $('#Search').click(search_data);
@@ -285,16 +296,63 @@
     $(".upload__img-closeDy"+thisId).remove();
 
   }
+
+  function get_product_type() {
+  console.log('initsfd')
+    var url = '<?php echo $APIBaseURL; ?>get_all_products_type';
+    $.ajax({
+        url: url,
+        type: "GET",
+        headers: {
+            'Authorization': 'Bearer ' + localStorage.getItem('token')
+        },
+        success: function (data) {
+          // lookup select
+          console.log(data,'ok');
+         
+
+            // checkbox
+            $("#type_name").empty();
+
+            // var tractorTypesArray = [];
+            
+            for (var j = 0; j < data.getProductType.length; j++) {
+              console.log( data.getProductType.product_type_name)
+            var product_type = data.getProductType[j].product_type_name;
+              var strFirstThree = product_type.substring(0,3);
+              if(strFirstThree != 'OLD'){
+                var checkbox = $('<input type="checkbox" id="tractor_type_' + data.getProductType[j].id + '" value="' + data.getProductType[j].id + '">');
+                var label = $('<label for="tractor_type_' + data.getProductType[j].id + '">' + data.getProductType[j].product_type_name + '</label>');
+            
+              $("#type_name").append(checkbox);
+              $("#type_name").append(label);
+              }
+             
+            }
+          
+        },
+        
+        complete:function(){
+         
+        },
+        error: function (error) {
+            console.error('Error fetching data:', error);
+        }
+    });
+}
     // store data
   function store(event) {
     event.preventDefault();
     console.log('jfhfhw');
     var brand_name = document.getElementById('brand_name').value;
         var brand_img = document.getElementById('brand_img').files[0]; // Use files[0] to access the selected file
+        var type_name = document.getElementById('type_name').value;
+        console.log(type_name,"type_name")
         var formData = new FormData(); // Create a FormData object to send the file
 
         formData.append('brand_name', brand_name);
         formData.append('brand_img', brand_img);
+        formData.append('product_type_id', type_name);
     var url = "<?php echo $APIBaseURL; ?>storeBrands";
     console.log(url);
     var token = localStorage.getItem('token');
@@ -380,7 +438,7 @@ function get() {
                         { title: 'Action', orderable: false } // Disable ordering for Action column
                     ],
                       paging: true,
-                      searching: true,
+                      searching: false,
                       // ... other options ...
                   });
             } else {

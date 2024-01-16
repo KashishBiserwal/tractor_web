@@ -120,7 +120,7 @@
                     </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-secondary btn_all" data-bs-dismiss="modal">Close</button>
-                  <button type="button" id="submit_btn"class="btn btn-success  btn_all">Submit</button>
+                  <button type="button" id="submit_btn" class="btn btn-success  btn_all">Submit</button>
                 </div>
               </div>
             </div>

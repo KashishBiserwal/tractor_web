@@ -38,6 +38,46 @@
         padding: 2px 20px 40px;
         border-radius: 15px;
     }
+    .gallery {
+  width: 100%;
+  max-width: 620px;
+  margin: 40px auto;
+}
+    .gallery-slider {
+  width: 100%;
+  height: auto;
+  margin: 0 0 10px 0;
+}
+.gallery-slider .swiper-slide {
+  width: auto;
+  height: 400px;
+}
+.gallery-slider .swiper-slide img {
+  display: block;
+  width: auto;
+  height: 100%;
+  margin: 0 auto;
+}
+.gallery-thumbs {
+  width: 100%;
+  padding: 0;
+  overflow: hidden;
+}
+.gallery-thumbs .swiper-slide {
+  width: 100px;
+  height: 100px;
+  text-align: center;
+  overflow: hidden;
+  opacity: 0.1;
+}
+.gallery-thumbs .swiper-slide-active {
+  opacity: 1;
+}
+.gallery-thumbs .swiper-slide img {
+  width: auto;
+  height: 100%;
+}
+
     </style>
 </head>
 
@@ -45,31 +85,41 @@
    include 'includes/header.php';
    ?>
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
-    <section class="mt-5 pt-5">
-        <div class="container pt-4">
-            <div class="">
-                <span class="mt-5 text-white pt-5 ">
-                    <a href="index.php" class="text-decoration-none header-link px-1">Home <i
-                            class="fa-solid fa-chevron-right px-1"></i></a><span class="text-dark"><a
-                            href="nursery_ui.php" class="text-decoration-none header-link px-1"> Nursery </a></span>
-                </span>
-            </div>
+    <section class="mt-100 bg-light">
+        <div class="container">
+        <div class="py-2">
+                    <span class="text-white">
+                        <a href="index.php" class="text-decoration-none header-link px-1">Home <i
+                                class="fa-solid fa-chevron-right px-1"></i></a>
+
+                        <span class="text-dark p">Tyre</span>
+                    </span>
+                </div>
         </div>
     </section>
     <section class="mt-0 pt-0">
         <div class="container">
             <div class="row">
-                <div class="col-12 col-sm-6 col-lg-6 col-md-6">
-                    <div class="swiper swiper_buy mySwiper2_buy pt-3 ">
-                        <div class="swiper-wrapper swiper-wrapper_buy">
-                            <div class="swiper-slide swiper-slide_buy">
-                                <!-- <img class="img_buy_hire w-100" src="assets/images/birla_tyre.jpg" /> -->
-                            </div>
-                        </div>
+                <div class="col-12 col-sm-6 col-lg-6 col-md-6" style="position: relative;">
+                    <h1 class="fw-bold text-danger pt-3" id="brand_name"></h1>
+                    <div class="gallery">   
+                    <div class="swiper-container gallery-slider">
+        <div class="swiper-wrapper mySwiper2_data">
+           
+        </div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+    </div>
+
+    <div class="swiper-container gallery-thumbs">
+        <div class="swiper-wrapper mySwiper_data">
+          </div>
+    </div>
                     </div>
-                    <div thumbsSlider="" class="swiper mySwiper_buy" style="height:74px; width: 43%;" id="swip_img"></div>
+                
                 </div>
-                <div class="col-12 col-sm-4 col-lg-4 col-md-4">
+               
+                <div class="col-12 col-sm-6 col-lg-6 col-md-6" style="background:#fff; z-index:9;">
                     <h3 class="text-dark fw-bold" id="model_no"></h3>
                     <div class="row my-3">
                         <div class="col-12 justify-content-center">
@@ -425,7 +475,7 @@
     include 'includes/footer.php';
     include 'includes/footertag.php';
     ?>
-
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script>
     $(document).ready(function() {
         $("#hire_inner").validate({
@@ -471,7 +521,34 @@
             }
         }
     })
+
+  
+   
+    var slider = new Swiper ('.gallery-slider', {
+    slidesPerView: 1,
+    centeredSlides: true,
+    loop: true,
+    loopedSlides: 1, 
+    navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+    },
+});
+
+var thumbs = new Swiper ('.gallery-thumbs', {
+    slidesPerView: 'auto',
+    spaceBetween: 10,
+    centeredSlides: true,
+    loop: true,
+    slideToClickedSlide: true,
+});
+
+
+slider.controller.control = thumbs;
+thumbs.controller.control = slider;
+
+
     </script>
-    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+   
 
 </html>
