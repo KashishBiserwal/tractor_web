@@ -325,7 +325,7 @@
             var product_type = data.getProductType[j].product_type_name;
               var strFirstThree = product_type.substring(0,3);
               if(strFirstThree != 'OLD'){
-                var checkbox = $('<input type="checkbox" id="tractor_type_' + data.getProductType[j].id + '" value="' + data.getProductType[j].id + '">');
+                var checkbox = $('<input type="checkbox" class="product_type_checkbox" id="tractor_type_' + data.getProductType[j].id + '" value="' + data.getProductType[j].id + '">');
                 var label = $('<label for="tractor_type_' + data.getProductType[j].id + '">' + data.getProductType[j].product_type_name + '</label>');
             
               $("#type_name").append(checkbox);
@@ -350,7 +350,16 @@
     console.log('jfhfhw');
     var brand_name = document.getElementById('brand_name').value;
         var brand_img = document.getElementById('brand_img').files[0]; // Use files[0] to access the selected file
-        var type_name = document.getElementById('type_name').value;
+            // Retrieve selected checkboxes
+            var selectedCheckboxes = $('.product_type_checkbox:checked');
+    var type_name = [];
+
+    // Extract values from selected checkboxes
+    selectedCheckboxes.each(function () {
+        type_name.push($(this).val());
+    });
+
+
         console.log(type_name,"type_name")
         var formData = new FormData(); // Create a FormData object to send the file
 
@@ -511,9 +520,9 @@ function fetch_edit_data(userId) {
 function edit_brand(){
   //  alert('fherjlkferif');
   var edit_id = document.getElementById('idUser').value;
-  console.log(edit_id);
+
   var brand_name = document.getElementById('brand_name1').value;
-  console.log(brand_name);
+
   var _method = 'put';
         var brand_img1 = document.getElementById('brand_img1').files[0];
 
