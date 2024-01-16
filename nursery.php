@@ -9,7 +9,7 @@ include 'includes/headertag.php';
 <script> var baseUrl = "<?php echo $baseUrl; ?>";</script>
 <script src="<?php $baseUrl; ?>model/nursery.js"></script>
 <style>
- 
+
 </style>
 <body class="loaded"> 
 <div class="main-wrapper">
@@ -150,39 +150,42 @@ include 'includes/headertag.php';
             <div class="col-12 col-sm-12 col-md-3 col-lg-3">
               <div class="form-outline">
                 <label class="form-label">Name</label>
-                <select class="form-select py-2" aria-label="Default select example">
+                <input type="text" id="name1" name="name1" class="form-control" />
+               <!--  <select class="form-select py-2" aria-label="Default select example">
                     <option selected>Select Name</option>
                     <option value="">Name 1</option>
                     <option value="">Name 2</option>
                     <option value="">Name 3</option>
-                </select>
+                </select> -->
               </div>
             </div>
             <div class="col-12 col-sm-12 col-md-3 col-lg-3">
               <div class="form-outline">
                 <label class="form-label">State</label>
-                <select class="form-select py-2" aria-label="Default select example">
+                <input type="text" id="state_1" name="state_1" class="form-control" />
+              <!--   <select class="form-select py-2" aria-label="Default select example">
                     <option value>Select State</option>
                     <option value="">Chattisgarh</option>
                     <option value="">Other</option>
-                </select>
+                </select> -->
               </div>
             </div>
             <div class="col-12 col-sm-12 col-md-3 col-lg-3">
               <div class="form-outline">
                 <label class="form-label">District</label>
-                <select class="form-select py-2" aria-label="Default select example">
+                <input type="text" id="district_1" name="district_1" class="form-control" />
+              <!--   <select class="form-select py-2" aria-label="Default select example">
                     <option value>Select District</option>
                     <option value="">Raipur</option>
                     <option value="">Bilaspur</option>
                     <option value="">Surajpur</option>
-                </select>
+                </select> -->
               </div>
             </div>
             <div class="col-12 col-sm-12 col-md-3 col-lg-3">
               <div class="text-center">
-                <button type="button" class="btn-success btn px-3 pt-2" id="Search">Search</button>
-                <button type="button" class="btn-success btn mx-2 px-3 pt-2" id="Reset">Reset</button>
+                <button type="button" class="btn-success btn px-3 pt-2" id="Search" onclick="searchdata()">Search</button>
+                <button type="button" class="btn-success btn mx-2 px-3 pt-2" id="Reset" onclick="resetform()">Reset</button>
               </div>
             </div>
           
@@ -190,11 +193,11 @@ include 'includes/headertag.php';
         </div>
       </div>
       <!-- Table Card -->
-      <div class=" mb-5">
-        <div class="table-responsive bg-white shadow">
-          <table id="example" class="table table-striped  table-hover table-bordered dataTable no-footer" width="100%">
-            <thead>
-              <tr>
+      <div class=" mb-5 shadow bg-white mt-3 p-3">
+            <div class="table-responsive">
+              <table id="example" class="table table-striped  table-hover table-bordered dataTable no-footer" width="100%; margin-bottom: 15px;">
+                <thead class="">
+                  <tr>
                 <th class="d-none d-md-table-cell text-white">S.No.</th>
                 <th class="d-none d-md-table-cell text-white">Name</th>
                 <th class="d-none d-md-table-cell text-white">Phone Number </th>
@@ -390,7 +393,3 @@ include 'includes/headertag.php';
             </div>
         </div>
 </body>
-<script src="<?php $baseUrl; ?>model/nursery.js"></script>
-<?php
-   include 'includes/footertag.php';
-?> 

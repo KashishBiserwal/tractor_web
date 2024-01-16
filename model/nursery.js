@@ -1,14 +1,11 @@
 
- $(document).ready(function(){
+$(document).ready(function(){
   $('#btn_sb').click(store);
   $('#undate_btn').click(edit_data_id);
-  
-        jQuery.validator.addMethod("customPhoneNumber", function(value, element) {
-        return /^[6-9]\d{9}$/.test(value); 
-        }, "Phone number must start with 6 or above");
-  
-          
-    $("#narsary_list_form").validate({
+  jQuery.validator.addMethod("customPhoneNumber", function(value, element) {
+    return /^[6-9]\d{9}$/.test(value); 
+  }, "Phone number must start with 6 or above");
+  $("#narsary_list_form").validate({
     
     rules: {
         name: {
@@ -78,91 +75,69 @@
     submitHandler: function (form) {
       alert("Form submitted successfully!");
     },
-    });
-
-  
-    $("#btn_sb").on("click", function () {
-  
-      $("#narsary_list_form").valid();
-    
-    });
-    
-
-    });
-  
-// for image
+  });
+  $("#btn_sb").on("click", function () {
+    $("#narsary_list_form").valid();
+  });
+});
 jQuery(document).ready(function () {
   ImgUpload();
 });
-
-  function ImgUpload() {
-    var imgWrap = "";
-    var imgArray = [];
-
-    $('.upload__inputfile').each(function () {
-      console.log("ding dong")
-      $(this).on('change', function (e) {
-        imgWrap = $(this).closest('.upload__box').find('.upload__img-wrap');
-        var maxLength = $(this).attr('data-max_length');
-
-        var files = e.target.files;
-        var filesArr = Array.prototype.slice.call(files);
-        var iterator = 0;
-        filesArr.forEach(function (f, index) {
-
-          if (!f.type.match('image.*')) {
-            return;
+function ImgUpload() {
+  var imgWrap = "";
+  var imgArray = [];
+  $('.upload__inputfile').each(function () {
+    console.log("ding dong")
+    $(this).on('change', function (e) {
+      imgWrap = $(this).closest('.upload__box').find('.upload__img-wrap');
+      var maxLength = $(this).attr('data-max_length');
+      var files = e.target.files;
+      var filesArr = Array.prototype.slice.call(files);
+      var iterator = 0;
+      filesArr.forEach(function (f, index) {
+        if (!f.type.match('image.*')) {
+          return;
+        }
+        if (imgArray.length > maxLength) {
+          return false
+        } else {
+          var len = 0;
+          for (var i = 0; i < imgArray.length; i++) {
+            if (imgArray[i] !== undefined) {
+              len++;
+            }
           }
-
-          if (imgArray.length > maxLength) {
-            return false
+          if (len > maxLength) {
+            return false;
           } else {
-            var len = 0;
-            for (var i = 0; i < imgArray.length; i++) {
-              if (imgArray[i] !== undefined) {
-                len++;
-              }
+            imgArray.push(f);
+            var reader = new FileReader();
+            reader.onload = function (e) {
+              var html = "<div class='upload__img-box'><div style='background-image: url(" + e.target.result + ")' data-number='" + $(".upload__img-close").length + "' data-file='" + f.name + "' class='img-bg'><div class='upload__img-close'></div></div></div>";
+              imgWrap.append(html);
+              iterator++;
             }
-            if (len > maxLength) {
-              return false;
-            } else {
-              imgArray.push(f);
-
-              var reader = new FileReader();
-              reader.onload = function (e) {
-                var html = "<div class='upload__img-box'><div style='background-image: url(" + e.target.result + ")' data-number='" + $(".upload__img-close").length + "' data-file='" + f.name + "' class='img-bg'><div class='upload__img-close'></div></div></div>";
-                imgWrap.append(html);
-                iterator++;
-              }
-              reader.readAsDataURL(f);
-            }
+            reader.readAsDataURL(f);
           }
-        });
+        }
       });
     });
-   
-   
-
-    $('body').on('click', ".upload__img-close", function (e) {
-      var file = $(this).parent().data("file");
-      for (var i = 0; i < imgArray.length; i++) {
-        if (imgArray[i].name === file) {
-          imgArray.splice(i, 1);
-          break;
-        }
+  });
+  $('body').on('click', ".upload__img-close", function (e) {
+    var file = $(this).parent().data("file");
+    for (var i = 0; i < imgArray.length; i++) {
+      if (imgArray[i].name === file) {
+        imgArray.splice(i, 1);
+        break;
       }
-      $(this).parent().parent().remove();
-    });
-
-
-  
-  }
-
-
-  function removeImage(ele){
-    console.log(ele);
-    let thisId=ele.id;
-    thisId=thisId.split('closeId');
+    }
+    $(this).parent().parent().remove();
+  });
+}
+function removeImage(ele){
+  console.log(ele);
+  let thisId=ele.id;
+  thisId=thisId.split('closeId');
     thisId=thisId[1];
     $("#"+ele.id).remove();
     $(".upload__img-closeDy"+thisId).remove();
@@ -250,38 +225,58 @@ function store(event) {
                   'Authorization': 'Bearer ' + localStorage.getItem('token')
               },
               success: function (data) {
-                  const tableBody = document.getElementById('data-table');
-                  let serialNumber = 1;
+                const tableBody = document.getElementById('data-table');
+                let serialNumber = 1;
+                let tableData = [];
       
                   if (data.nursery_data && data.nursery_data.length > 0) {
                       data.nursery_data.forEach(row => {
-                          const tableRow = document.createElement('tr');
-                          tableRow.innerHTML = `
-                              <td>${serialNumber}</td>
-                              <td>${row.nursery_name}</td>
-                              <td>${row.mobile}</td>
-                              <td>${row.state}</td>
-                              <td>${row.district}</td>
-                              <td>
-                                  <div class="d-flex">
-                                      <button class="btn btn-warning text-white btn-sm mx-1" onclick="openViewdata(${row.product_id})" data-bs-toggle="modal" data-bs-target="#view_model_nursery" id="viewbtn">
-                                          <i class="fa fa-eye" style="font-size: 11px;"></i>
-                                      </button>
-                                      <button class="btn btn-primary btn-sm btn_edit" onclick=" fetch_edit_data_nursery(${row.id})" data-bs-toggle="modal" data-bs-target="#editmodel" id="your_UniqueId">
-                                          <i class="fas fa-edit" style="font-size: 11px;"></i>
-                                      </button>
-                                      <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.id})">
-                                          <i class="fa fa-trash" style="font-size: 11px;"></i>
-                                      </button>
-                                  </div>
-                              </td>
-                          `;
-                          tableBody.appendChild(tableRow);
-                          serialNumber++;
+                        let action = `   <div class="d-flex">
+                        <button class="btn btn-warning text-white btn-sm mx-1" onclick="openViewdata(${row.product_id})" data-bs-toggle="modal" data-bs-target="#view_model_nursery" id="viewbtn">
+                            <i class="fa fa-eye" style="font-size: 11px;"></i>
+                        </button>
+                        <button class="btn btn-primary btn-sm btn_edit" onclick=" fetch_edit_data_nursery(${row.id})" data-bs-toggle="modal" data-bs-target="#editmodel" id="your_UniqueId">
+                            <i class="fas fa-edit" style="font-size: 11px;"></i>
+                        </button>
+                        <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.id})">
+                            <i class="fa fa-trash" style="font-size: 11px;"></i>
+                        </button>
+                    </div>`;
+        
+                        // Push row data as an array into the tableData
+                        tableData.push([
+                          serialNumber,
+                          row.nursery_name,
+                          row.mobile,
+                          row.state,
+                          row.district,
+                          action
+                      ]);
+        
+                      serialNumber++;
+                  });
+        
+                  // Initialize DataTable after preparing the tableData
+                  $('#example').DataTable().destroy();
+                  $('#example').DataTable({
+                          data: tableData,
+                          columns: [
+                            { title: 'S.No.' },
+                            { title: 'Name' },
+                            { title: 'Phone Number' },
+                            { title: 'State' },
+                            { title: 'District' },
+                            { title: 'Action', orderable: false } // Disable ordering for Action column
+                        ],
+                          paging: true,
+                          searching: false,
+                          // ... other options ...
                       });
+                 
                   } else {
                       tableBody.innerHTML = '<tr><td colspan="9">No valid data available</td></tr>';
                   }
+                        
               },
               error: function (error) {
                   console.error('Error fetching data:', error);
@@ -510,4 +505,101 @@ function edit_data_id(id){
 });
  }
 
+ function searchdata(){
+  var name = $('#name1').val();
+  var state = $('#state_1').val();
+  var district = $('#district_1').val();
+  
+  var apiBaseURL = APIBaseURL;
+  var url = apiBaseURL + 'search_for_nursery';
+  var token = localStorage.getItem('token');
+
+  var headers = {
+      'Authorization': 'Bearer ' + token
+  };
+
+  var data = new FormData();
  
+ 
+  data.append('nursery_name', name);
+  data.append('state', state);
+  data.append('district', district);
+
+  $.ajax({
+    url: url,
+    type: "POST",
+    data: data,
+    headers: headers,
+    processData: false,
+    contentType: false,
+    success: function (data) {
+      console.log('Success:', data.engineOilData);
+      const tableBody = document.getElementById('data-table');
+      let serialNumber = 1;
+      let tableData = [];
+
+      if (data.nursery && data.nursery.length > 0) {
+          data.nursery.forEach(row => {
+            let action = `   <div class="d-flex">
+            <button class="btn btn-warning text-white btn-sm mx-1" onclick="openViewdata(${row.product_id})" data-bs-toggle="modal" data-bs-target="#view_model_nursery" id="viewbtn">
+                <i class="fa fa-eye" style="font-size: 11px;"></i>
+            </button>
+            <button class="btn btn-primary btn-sm btn_edit" onclick=" fetch_edit_data_nursery(${row.id})" data-bs-toggle="modal" data-bs-target="#editmodel" id="your_UniqueId">
+                <i class="fas fa-edit" style="font-size: 11px;"></i>
+            </button>
+            <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.id})">
+                <i class="fa fa-trash" style="font-size: 11px;"></i>
+            </button>
+        </div>`;
+
+            // Push row data as an array into the tableData
+            tableData.push([
+              serialNumber,
+              row.nursery_name,
+              row.mobile,
+              row.state,
+              row.district,
+              action
+          ]);
+
+          serialNumber++;
+      });
+
+      // Initialize DataTable after preparing the tableData
+      $('#example').DataTable().destroy();
+      $('#example').DataTable({
+              data: tableData,
+              columns: [
+                { title: 'S.No.' },
+                { title: 'Name' },
+                { title: 'Phone Number' },
+                { title: 'State' },
+                { title: 'District' },
+                { title: 'Action', orderable: false } // Disable ordering for Action column
+            ],
+              paging: true,
+              searching: false,
+              // ... other options ...
+          });
+     
+      } else {
+          tableBody.innerHTML = '<tr><td colspan="9">No valid data available</td></tr>';
+      }
+  },
+  error: function (error) {
+    const tableBody = document.getElementById('data-table');
+    if(error.status == 400){
+      tableBody.innerHTML = '<tr><td colspan="9">No valid data available</td></tr>';
+    }
+      console.error('Error fetching data:', error);
+  
+  }
+});
+}
+
+function resetform(){
+  $('#name1').val('');
+  $('#state_1').val('');
+  $('#district_1').val('');
+  nursery_data();
+}

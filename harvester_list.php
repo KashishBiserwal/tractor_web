@@ -84,16 +84,24 @@ include 'includes/footertag.php';
                                         </select>
                                       </div>
                                     </div>
-                                    <div class="col-12 col-sm-6 col-lg-6 col-md-6 mt-3">
+                                    <div class="col-12 col-sm-4 col-lg-4 col-md-4 mt-3">
                                       <div class="form-outline">
                                         <label class="form-label">Engine</label>
                                         <input type="email" name="engine" id="engine" class="form-control">
                                       </div>
                                     </div>
-                                    <div class="col-12 col-sm-6 col-lg-6 col-md-6 mt-3">
+                                    <div class="col-12 col-sm-4 col-lg-4 col-md-4 mt-3">
                                       <div class="form-outline">
                                         <label class="form-label">Cylinder</label>
                                         <select class="form-select form-control" id="TOTAL_CYCLINDER" name="cylinder" aria-label="Default select example">
+                                            <option selected disabled>Please select an option</option>
+                                        </select>
+                                      </div>
+                                    </div>
+                                    <div class="col-12 col-sm-4 col-lg-4 col-md-4 mt-3">
+                                      <div class="form-outline">
+                                        <label class="form-label">Power Source</label>
+                                        <select class="form-select form-control" id="POWER_SOURCE" name="cylinder" aria-label="Default select example">
                                             <option selected disabled>Please select an option</option>
                                         </select>
                                       </div>
