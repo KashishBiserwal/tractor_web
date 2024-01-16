@@ -143,27 +143,28 @@
           <div class="col-12 col-sm-12 col-md-3 col-lg-3">
               <div class="form-outline ">
                 <label class="form-label">Name</label>
-                    <select class="form-select py-2" aria-label="Default select example">
+                <input type="text" id="name1" name="name1" class="form-control" />
+                  <!--   <select class="form-select py-2" aria-label="Default select example">
                         <option selected>Select Name</option>
                         <option value="1">.....</option>
                         <option value="2">.....</option>
                         <option value="3">.....</option>
-                    </select>
+                    </select> -->
               </div>
             </div>
             <div class="col-12 col-sm-12 col-md-3 col-lg-3">
               <div class="form-outline">
                 <label class="form-label"> Brand Name</label>
-                <select class="form-select py-2" aria-label="Default select example">
-                    <option selected>Select Brand</option>
+                <select class="form-select py-2" id="brand1" aria-label="Default select example">
+                  <!--   <option selected>Select Brand</option>
                     <option value="1">Mahindra</option>
                     <option value="2">Swaraj</option>
-                    <option value="3">John Deere</option>
+                    <option value="3">John Deere</option> -->
                 </select>
               </div>
             </div>
            
-            <div class="col-12 col-sm-12 col-md-3 col-lg-3">
+          <!--   <div class="col-12 col-sm-12 col-md-3 col-lg-3">
               <div class="form-outline">
                 <label class="form-label">State</label>
                 <select class="form-select py-2" aria-label="Default select example">
@@ -172,22 +173,23 @@
                     <option value="2">Other</option>
                 </select>
               </div>
-            </div>
+            </div> -->
             <div class="col-12 col-sm-12 col-md-3 col-lg-3">
               <div class="form-outline">
                 <label class="form-label">District</label>
-                <select class="form-select py-2" aria-label="Default select example">
+                <input type="text" id="district_1" name="district_1" class="form-control" />
+              <!--   <select class="form-select py-2" aria-label="Default select example">
                     <option value>Select District</option>
                     <option value="1">Raipur</option>
                     <option value="2">Bilaspur</option>
                     <option value="3">Surajpur</option>
-                </select>
+                </select> -->
               </div>
             </div>
             <div class="col-12 mt-4">
               <div class="text-center">
-                <button type="button" class="btn-success btn px-4 pt-2" id="Search">Search</button>
-                <button type="button" class="btn-success btn mx-2 px-4 pt-2" id="Reset">Reset</button>
+                <button type="button" class="btn-success btn px-4 pt-2" id="Search" onclick="searchdata()">Search</button>
+                <button type="button" class="btn-success btn mx-2 px-4 pt-2" id="Reset" onclick="resetform()">Reset</button>
               </div>
             </div>
           
@@ -195,15 +197,15 @@
         </div>
       </div>
       <!-- Table Card -->
-    <div class=" mb-5">
-        <div class="table-responsive shadow bg-white mt-2">
-            <table id="example" class="table table-striped  table-hover table-bordered dataTable no-footer" width="100%">
-                <thead>
-                    <tr>
+      <div class=" mb-5 shadow bg-white mt-3 p-3">
+            <div class="table-responsive">
+              <table id="example" class="table table-striped  table-hover table-bordered dataTable no-footer" width="100%; margin-bottom: 15px;">
+                <thead class="">
+                  <tr>
                         <th class="d-none d-md-table-cell text-white">S.No.</th>
                         <th class="d-none d-md-table-cell text-white">Date</th>
                         <th class="d-none d-md-table-cell text-white">Brand</th>
-                        <th class="d-none d-md-table-cell text-white">Phone Number </th>
+                        <th class="d-none d-md-table-cell text-white">Dealer Name </th>
                         <th class="d-none d-md-table-cell text-white">State</th>
                         <th class="d-none d-md-table-cell text-white">District</th>
                         <th class="d-none d-md-table-cell text-white">Action</th>

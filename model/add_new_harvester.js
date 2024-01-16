@@ -133,6 +133,7 @@ get();
     var air_filter = $('#AIR_FILTER').val();
     var engine = $('#engine').val();
     var cylinder = $('#TOTAL_CYCLINDER').val();
+    var POWER_SOURCE = $('#POWER_SOURCE').val();
     var cutting_bar = $('#cutting_bar').val();
     var cuttingmax_height = $('#cuttingmax_height').val();
     var cuttingmin_height = $('#cuttingmin_height').val();
@@ -199,6 +200,7 @@ get();
       'air_filter_id':air_filter,
       'engine':engine,
       'total_cyclinder_id':cylinder,
+      'power_source_id':POWER_SOURCE,
       'cutting_bar_width':cutting_bar,
       'max_cutting_height':cuttingmax_height,
       'min_cutting_height':cuttingmin_height,
