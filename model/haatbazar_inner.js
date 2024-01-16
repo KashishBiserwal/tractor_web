@@ -19,7 +19,6 @@ function add_enquiry(event) {
     var tehsil = $('#tehsil').val();price
     var price = $('#price').val();
 
-    // Prepare data to send to the server
     var paraArr = {
       'first_name': first_name,
       'enquiry_type_id':enquiry_type_id,
