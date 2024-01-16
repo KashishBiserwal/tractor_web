@@ -35,50 +35,57 @@
       <div class="filter-card mb-2">
         <div class="card-body">
           <div class="row">
-          <div class="col-12 col-sm-12 col-md-3 col-lg-3">
+          <div class="col-12 col-sm-12 col-md-3 col-lg-3"hidden>
+              <div class="form-outline">
+                <label class="form-label">Search By id</label>
+                  <select class=" form-select form-control mb-0" id="brand_id">
+                  </select>
+              </div>
+            </div>
+            <div class="col-12 col-sm-12 col-md-3 col-lg-3">
               <div class="form-outline">
                 <label class="form-label">Search By Brand</label>
                 <select class="js-select2 form-select form-control mb-0" id="brand_name">
                 </select>
               </div>
             </div>
-          <!-- <div class="col-12 col-sm-12 col-md-3 col-lg-3">
-          <div class="form-outline">
-                <label class="form-label"> Brand Name</label>
-                <select class="form-select py-2" aria-label="Default select example">
-                    <option selected>Select Brand</option>
-                    <option value="1">Mahindra</option>
-                    <option value="2">Swaraj</option>
-                    <option value="3">John Deere</option>
-                </select>
+            <div class="col-12 col-sm-12 col-md-3 col-lg-3">
+              <div class="form-outline ">
+                <label class="form-label">Model</label>
+                    <select class="form-select py-2" aria-label="Default select example"  id="model_1">
+                        <!-- <option selected>Select Model</option>
+                        <option value="sdfgh">sdfgh</option>
+                        <option value="3032 NX">3032 NX</option>
+                        <option value="3030 NX">3030 NX</option>
+                        <option value="3230 NX">3230 NX</option> -->
+                    </select>
               </div>
-            </div> -->
+            </div>
             <div class="col-12 col-sm-12 col-md-3 col-lg-3">
               <div class="form-outline">
                 <label class="form-label">State</label>
-                <select class="form-select py-2" aria-label="Default select example"  id="state_2">
+                <select class="form-select py-2" aria-label="Default select example"  id="state_1">
                     <option value>Select State</option>
-                    <option value="1">Chattisgarh</option>
-                    <option value="2">Other</option>
+                    <option value="Chattisgarh">Chattisgarh</option>
+                    <option value="Other">Other</option>
                 </select>
               </div>
             </div>
             <div class="col-12 col-sm-12 col-md-3 col-lg-3">
-              <div class="form-outline ">
-                <label class="form-label fw-bold">District</label>
-                <select class="form-select py-2" aria-label="Default select example" id="dist_2">
-                    <option selected>Select District</option>
-                    <option value="1">Raipur</option>
-                    <option value="2">Bilaspur</option>
-                    <option value="3">Surajpur</option>
+              <div class="form-outline">
+                <label class="form-label">District</label>
+                <select class="form-select py-2" aria-label="Default select example" id="district_2">
+                    <option value>Select District</option>
+                    <option value="Raipur">Raipur</option>
+                    <option value="Bilaspur">Bilaspur</option>
+                    <option value="Surajpur">Surajpur</option>
                 </select>
               </div>
             </div>
-           
-            <div class="col-12 col-sm-12 col-md-3 col-lg-3">
+            <div class="col-12 mt-4">
               <div class="text-center">
-                <button type="button" class="btn-success btn px-3 py-2 " id="Search_btn">Search</button>
-                <button type="button" class="btn-success btn mx-2 px-3 py-2  " id="Reset">Reset</button>
+              <button type="button" class="btn-success btn px-3 pt-2" id="Search" onclick="searchdata()">Search</button>
+                    <button type="button" class="btn-success btn mx-2 px-3 pt-2" id="Reset" onclick="resetform()">Reset</button>
               </div>
             </div>
           </div>
