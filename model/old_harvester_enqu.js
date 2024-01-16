@@ -172,7 +172,6 @@ function BackgroundUpload() {
 function get_old_harvester_enqu() {
     var apiBaseURL = APIBaseURL;
     var url = apiBaseURL + 'get_enquiry_for_old_harvester';
-    console.log('dfghjkiuytgf');
     
     $.ajax({
         url: url,
@@ -254,7 +253,6 @@ function get() {
           'Authorization': 'Bearer ' + localStorage.getItem('token')
       },
       success: function (data) {
-          console.log(data);
           const selects = document.querySelectorAll('#brand_name');
 
           selects.forEach(select => {
@@ -265,7 +263,6 @@ function get() {
                       const option = document.createElement('option');
                       option.textContent = row.brand_name;
                       option.value = row.id;
-                      console.log(option);
                       select.appendChild(option);
                   });
 
@@ -294,7 +291,6 @@ function get_model(brand_id) {
           'Authorization': 'Bearer ' + localStorage.getItem('token')
       },
       success: function (data) {
-          console.log(data);
           const selects = document.querySelectorAll('#model_1');
 
           selects.forEach(select => {
@@ -331,12 +327,6 @@ function searchdata() {
   var modelselect = $('#model_1').val();
   var stateselect = $('#state_1').val();
   var districtselect = $('#district_2').val();
- 
-console.log(brand_id);
-console.log(brandselect);
-console.log(modelselect);
-console.log(stateselect);
-console.log(districtselect);
 
   var paraArr = {
     'id':brand_id,
@@ -357,7 +347,6 @@ console.log(districtselect);
           'Authorization': 'Bearer ' + localStorage.getItem('token')
       },
       success: function (searchData) {
-        console.log(searchData,"hello brand");
         updateTable(searchData);
       },
       error: function (error) {
@@ -440,7 +429,6 @@ function resetform(){
     function destroy(id) {
     var apiBaseURL = APIBaseURL;
     var url = apiBaseURL + 'customer_enquiries/' + id;
-    console.log(url);
     var token = localStorage.getItem('token');
   
     if (!token) {
@@ -475,8 +463,6 @@ function resetform(){
 function openViewdata(userId) {
     var apiBaseURL = APIBaseURL;
     var url = apiBaseURL + 'get_enquiry_for_old_harvester_by_id/' + userId;
-  console.log(url);
-  console.log('sumansahu');
     var headers = {
       'Authorization': 'Bearer ' + localStorage.getItem('token')
     };
@@ -511,7 +497,6 @@ function openViewdata(userId) {
 function fetch_edit_data(id) {
   var apiBaseURL = APIBaseURL;
   var url = apiBaseURL + 'get_enquiry_for_old_harvester_by_id/' + id;
-  console.log(url);
 
   var headers = {
       'Authorization': 'Bearer ' + localStorage.getItem('token')
@@ -524,7 +509,7 @@ function fetch_edit_data(id) {
       success: function (response) {
           var Data = response.enquiry_data [0];
           $('#userId').val(Data.id);
-          $('#brand_name').val(Data.brand_name);
+          $('#brand_name1').val(Data.brand_name);
           console.log(Data.brand_name,'brand');
           $('#model_name').val(Data.model);
           $('#fnam_e').val(Data.first_name);
@@ -553,11 +538,9 @@ function edit_data_id() {
 var enquiry_type_id = $("#enquiry_type_id").val();
 var product_id = $("#product_id").val();
 var edit_id = $("#userId").val();
-var brand_name = $("#brand_name").val();
-console.log(brand_name);
+var brand_name = $("#brand_name1").val();
 var model_name = $("#model_name").val();
 var first_name = $("#fnam_e").val();
-console.log(first_name);
 var last_name = $("#lnam_e").val();
 var mobile = $("#numbe_r").val();
 var email = $("#emai_l").val();
