@@ -1,5 +1,5 @@
 $(document).ready(function(){
-  $('#Search').click(search_data);
+  // $('#Search').click(search_data);
   $('#undate_btn_nursery_enq').click(edit_data_id);
   
         jQuery.validator.addMethod("customPhoneNumber", function(value, element) {
@@ -164,37 +164,6 @@ function get_nursery() {
 }
 get_nursery();
 
-
-// Searching
-function search_data() {
-
-  var selectedBrand = $('#brand').val();
-  var brand_id = $('#brand_id').val();
-  console.log(brand_id);
-  var paraArr = {
-    'brand_id': selectedBrand,
-    'id':brand_id,
-  };
-
-  var url = '<?php echo $APIBaseURL; ?>search_for_brand' ;
-  $.ajax({
-      url:url, 
-      type: 'POST',
-      data: paraArr,
-     
-      headers: {
-          'Authorization': 'Bearer ' + localStorage.getItem('token')
-      },
-      success: function (searchData) {
-        console.log(searchData,"hello brand");
-        updateTable(searchData);
-      },
-      error: function (error) {
-          console.error('Error searching for brands:', error);
-      }
-  });
-};
-
 //****delete data***
 function destroy(id) {
     var apiBaseURL = APIBaseURL;
@@ -263,108 +232,6 @@ function openViewdata(userId) {
     });
   }
 
-  // edit data 
-
-// function fetch_edit_data(id) {
-//   var apiBaseURL = APIBaseURL;
-//   var url = apiBaseURL + 'get_nursery_enquiry_data_by_id/' + id;
-
-
-//   var headers = {
-//       'Authorization': 'Bearer ' + localStorage.getItem('token')
-//   };
-
-//   $.ajax({
-//       url: url,
-//       type: 'GET',
-//       headers: headers,
-//       success: function (response) {
-//           var Data = response.nursery_enquiry_data[0];
-//           $('#userId').val(Data.id);
-//           // $('#product_id').val(Data.product_subject_id);
-//           // console.log(Data.product_subject_id);
-//           $('#nursery_name1').val(Data.nursery_name);
-//           $('#fname_2').val(Data.first_name);
-//           $('#lname_2').val(Data.last_name);
-//           $('#number_2').val(Data.mobile);
-//           $('#email_2').val(Data.email);
-//           $('#date_2').val(Data.date);
-//           $('#state_2').val(Data.state);
-//           $('#dist_2').val(Data.district);
-//           $('#tehsil_2').val(Data.tehsil);
-//       },
-//       error: function (error) {
-//           console.error('Error fetching user data:', error);
-//       }
-//   });
- 
-// }
-
-// function edit_data_id() {
-// var enquiry_type_id = $("#enquiry_type_id").val();
-// var product= $("#product_id").val();
-// // document.getElementById("product_id").value = product ;
-// console.log(product);
-// var edit_id = $("#userId").val();
-// console.log(edit_id);
-// var nursery_name = $("#nursery_name1").val();
-// var first_name = $("#fname_2").val();
-// console.log(first_name);
-// var last_name = $("#lname_2").val();
-// var mobile = $("#number_2").val();
-// var email = $("#email_2").val();
-// var date = $("#date_2").val();
-// var state = $("#state_2").val();
-// var district = $("#dist_2").val();
-// var tehsil = $("#tehsil_2").val();
-// var _method = 'put';
-
-// // Validate mobile number
-// if (!/^[6-9]\d{9}$/.test(mobile)) {
-//     alert("Mobile number must start with 6 or above and should be 10 digits");
-//     return; // Exit the function if validation fails
-// }
-
-// var paraArr = {
-//   'nursery_name': nursery_name,
-//     'first_name': first_name,
-//     'last_name': last_name,
-//     'mobile': mobile,
-//     'email': email,
-//     'date': date,
-//     'state': state,
-//     'district': district,
-//     'tehsil': tehsil,
-//     'id': edit_id,
-//     'enquiry_type_id': enquiry_type_id,
-//     'product_subject_id': product,
-//     '_method': _method,
-// };
-
-// var apiBaseURL = APIBaseURL;
-// var url = apiBaseURL + 'customer_enquiries/' + edit_id;
-
-// var headers = {
-//     'Authorization': 'Bearer ' + localStorage.getItem('token')
-// };
-
-// $.ajax({
-//     url: url,
-//     type: "POST",
-//     data: paraArr,
-//     headers: headers,
-//     success: function (result) {
-//         console.log(result, "result");
-//         // window.location.reload();
-//         console.log("updated successfully");
-//         alert('successfully updated..!')
-//     },
-//     error: function (error) {
-//         console.error('Error fetching data:', error);
-//     }
-// });
-// }
-// edit data 
 
 function fetch_edit_data(id) {
   var apiBaseURL = APIBaseURL;
@@ -461,21 +328,25 @@ $.ajax({
     }
 });
 }
+
 function search_data() {
+  console.log("dfghsfg,sdfgdfg");
+ var nameselect = $('#nameselect').val();
+ console.log(nameselect);
+  var stateselect = $('#stateselect').val();
+  var districtselect = $('#distselect').val();
  
-  var name = $('#nameselect').val();
-  console.log(name);
-  var state = $('#stateselect').val();
-  var district = $('#distselect').val();
+
+
   var paraArr = {
-    'nursery_name': name,
-    'state':state,
-    'district':district,
+    'nursery_name': nameselect,
+    'state':stateselect,
+    'district':districtselect,
   };
+  console.log(paraArr,'all data');
 
   var apiBaseURL = APIBaseURL;
   var url = apiBaseURL + 'search_for_nursery_enquiry';
-  console.log(url);
   $.ajax({
       url:url, 
       type: 'POST',
@@ -484,7 +355,6 @@ function search_data() {
       headers: {
           'Authorization': 'Bearer ' + localStorage.getItem('token')
       },
-     
       success: function (searchData) {
         updateTable(searchData);
       },
@@ -493,41 +363,38 @@ function search_data() {
       }
   });
 };
-
-  function updateTable(data) {
-    const tableBody = document.getElementById('data-table');
-    tableBody.innerHTML = '';
-    let counter = 1; 
-  
-    if(data.hire_details && data.hire_details.length > 0) {
-        let tableData = []; 
-        data.hire_details.forEach(row => {
-            let action = ` 
-            <div class="d-flex">
-            <button class="btn btn-warning btn-sm text-white mx-1" data-bs-toggle="modal" onclick="fetch_data(${row.id});" data-bs-target="#exampleModal">
-              <i class="fa-solid fa-eye" style="font-size: 11px;"></i></button>
-            <button class="btn btn-primary btn-sm btn_edit" onclick="fetch_edit_data(${row.id});" data-bs-toggle="modal" data-bs-target="#staticBackdrop" id="yourUniqueIdHere">
+function updateTable(data) {
+  const tableBody = document.getElementById('data-table');
+  tableBody.innerHTML = '';
+  let serialNumber = 1; 
+  if(data.newTractor && data.newTractor.length > 0) {
+      let tableData = []; 
+      data.newTractor.forEach(row => {
+        const fullName = row.first_name + ' ' + row.last_name;
+          let action =    `<div class="d-flex">
+          <button class="btn btn-warning btn-sm text-white mx-1" data-bs-toggle="modal" onclick="openViewdata(${row.id});" data-bs-target="#view_model_nursery_enq">
+              <i class="fas fa-eye" style="font-size: 11px;"></i>
+          </button>
+          <button class="btn btn-primary btn-sm btn_edit" onclick="fetch_edit_data(${row.id});" data-bs-toggle="modal" data-bs-target="#editmodel_nursery_enq" id="yourUniqueIdHere">
               <i class="fas fa-edit" style="font-size: 11px;"></i>
-            </button>
-            <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.id});">
+          </button>
+          <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.id});">
               <i class="fa fa-trash" style="font-size: 11px;"></i>
-            </button>
-          </div>`;
+          </button>
+      </div>`
+     
           tableData.push([
-            counter,
-            // formatDateTime(row.date),
-            formatDateTime(row.created_at),
             serialNumber,
             row.date,
-            row.brand,
-            row.model,
+            row.nursery_name,
             fullName,
             row.mobile,
             row.state,
             row.district,
+            action
         ]);
 
-        counter++;
+        serialNumber++;
     });
 
     $('#example').DataTable().destroy();
@@ -536,8 +403,7 @@ function search_data() {
         columns: [
           { title: 'S.No.' },
           { title: 'Date' },
-          { title: 'Brand' },
-          { title: 'Model' },
+          { title: 'Nursery Name' },
           { title: 'Full Name' },
           { title: 'Mobile' },
           { title: 'State' },
@@ -548,8 +414,8 @@ function search_data() {
         searching: true,
         // ... other options ...
     });
-    } else {
-        // Display a message if there's no valid data
-        tableBody.innerHTML = '<tr><td colspan="4">No valid data available</td></tr>';
-    }
+  } else {
+      // Display a message if there's no valid data
+      tableBody.innerHTML = '<tr><td colspan="4">No valid data available</td></tr>';
   }
+}

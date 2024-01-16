@@ -180,7 +180,7 @@ function formatDateTime(originalDateTimeStr) {
       'brand_id': selectedBrand,
       'id':brand_id,
       'model':model,
-      'hp':hp,
+      'horse_power':hp,
     };
 
     var apiBaseURL = APIBaseURL;
@@ -286,9 +286,10 @@ $.ajax({
       console.log(data);
       const select = document.getElementById('brand');
       select.innerHTML = '';
-
+      select.innerHTML = '<option selected disabled value="">Please select an option</option>';
       if (data.brands.length > 0) {
           data.brands.forEach(row => {
+
               const option = document.createElement('option');
               option.value = row.id; // You might want to set a value for each option
               option.textContent = row.brand_name;
