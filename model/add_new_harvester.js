@@ -272,11 +272,13 @@ get();
         success: function (data) {
              console.log(data,"datata");
 
-
+             const tableBody = document.getElementById('data-table');
+             let tableData = [];
             if (data.product && data.product.length > 0) {
                 // console.log(typeof product);
+           
                 let serialNumber = 1;
-                let tableData = [];
+             
                 data.product.forEach(row => {
                   
                   let action = ` <div class="d-flex">
@@ -319,7 +321,7 @@ get();
                     // ... other options ...
                 });
             } else {
-                tableBody.innerHTML = '<tr><td colspan="9">No valid data available</td></tr>';
+              tableBody.innerHTML = '<tr><td colspan="9">No valid data available</td></tr>';
             }
         },
         error: function (error) {

@@ -177,73 +177,58 @@
   </div>
 </section>
 
-<div class="modal fade" data-bs-backdrop="static" data-bs-keyboard="false" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-md modal-dialog-centered">
+
+<div class="modal fade" id="exampleModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg modal-dialog-centered">
               <div class="modal-content modal_box">
                 <div class="modal-header modal_head">
-                  <h5 class="modal-title text-white fw-bold" id="staticBackdropLabel">Tyre Information</h5>
+                  <h5 class="modal-title text-white fw-bold" id="staticBackdropLabel">Tyre Information </h5>
                   <button type="button" class="btn-close btn-success" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="modal-body bg-white">
-                  
-                <div class="row">
-                    <div class="col-12 col-lg-6 col-sm-6 col-md-6">
-                      <h6 class="fw-bold">Brand Name: </h6>
+                  <div class="modal-body bg-light">
+                    <div class="row ">
+                       <div class="col-12">
+                        <table class="table table-striped">
+                        <tbody>
+                         <tr>
+                            <td>Brand Name:-</td>
+                            <td id="brand_name2"></td>
+                            </tr>
+                          <tr>
+                            <td>Model-</td>
+                            <td id="model2"></td>
+                          </tr>
+                          <tr>
+                            <td>Tyre Position-</td>
+                            <td id="quantity"></td>
+                            </tr>
+                          <tr>
+                            <td>Tyre Size-</td>
+                            <td id="grade"></td>
+                          </tr>
+                          <tr>
+                            <td>Tyre Category-</td>
+                            <td id="price"></td>
+                          </tr>
+                          
+                            <td>Upload images-</td>
+                              <td colspan="3">
+                                  <div class="col-12">
+                                      <div id="selectedImagesContainer1" class="upload__img-wrap row"></div>
+                                  </div>
+                              </td>
+                          </tr>
+                        </tbody>
+                      </table>
                     </div>
-                    <div class="col-12 col-lg-6 col-sm-6 col-md-6">
-                      <p id="brand_name2" ></p>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-12 col-lg-6 col-sm-6 col-md-6">
-                      <h6 class="fw-bold">Tyre Model:</h6>
-                    </div>
-                    <div class="col-12  col-lg-6 col-sm-6 col-md-6">
-                     <div id="model2"></div>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-12 col-lg-6 col-sm-6 col-md-6">
-                      <h6 class="fw-bold">Tyre Position:</h6>
-                    </div>
-                    <div class="col-12 col-lg-6 col-sm-6 col-md-6">
-                     <div id="quantity"></div>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-12 col-lg-6 col-sm-6 col-md-6">
-                      <h6 class="fw-bold">Size of Tyre:</h6>
-                    </div>
-                    <div class="col-12  col-lg-6 col-sm-6 col-md-6">
-                     <div id="grade"></div>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-12 col-lg-6 col-sm-6 col-md-6">
-                      <h6 class="fw-bold">Category:</h6>
-                    </div>
-                    <div class="col-12 col-lg-6 col-sm-6 col-md-6">
-                     <div id="price"></div>
-                    </div>
-                  </div>
-                  
-                  <div class="row">
-                    <div class="col-12 col-lg-6 col-sm-6 col-md-6">
-                      <!-- <h6 class="fw-bold">Image:</h6> -->
-                    </div>
-                    <div class="col-12 col-lg-6 col-sm-6 col-md-6">
-                    <div id="selectedImagesContainer" class="upload__img-wrap row"></div>
-                    </div>
-                  </div>
-                    </div>
+                  </div>  
                 <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary btn_all" data-bs-dismiss="modal">Close</button>
-                  </div>
+                  <button type="button" class="btn btn-secondary px-3" data-bs-dismiss="modal">Close</button>
+                  <!-- <button type="submit" id="btn_sb" class="btn btn-success fw-bold px-3">Submit</button> -->
+                </div>
               </div>
             </div>
           </div>
-    
-</div>
 </div>
 </body>
 

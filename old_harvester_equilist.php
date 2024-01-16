@@ -67,7 +67,7 @@
                                 <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-3">
                                   <div class="form-outline ">
                                     <label class="form-label text-dark">Brand</label>
-                                    <select class="form-select form-control" aria-label=".form-select-lg example" id="brand"name="brand">
+                                    <select class="form-select form-control" aria-label=".form-select-lg example" id="brand" name="brand">
                                       
                                       </select>
                                   </div>
@@ -206,18 +206,15 @@
             <div class="col-12 col-sm-12 col-md-3 col-lg-3">
               <div class="form-outline">
                 <label class="form-label"> Brand Name</label>
-                <select class="form-select form-control" aria-label="Default select example">
-                    <option selected>Select Brand</option>
-                    <option value="1">Mahindra</option>
-                    <option value="2">Swaraj</option>
-                    <option value="3">John Deere</option>
+                <select class="form-select form-control" id="brand2">
+                 
                 </select>
               </div>
             </div>
             <div class="col-12 col-sm-12 col-md-3 col-lg-3">
               <div class="form-outline ">
                 <label class="form-label">Model</label>
-                <input type="text" class="form-control"aria-label="Default select example">
+                <input type="text" class="form-control" id="model_name" name="model">
                     <!-- <select class="form-select form-control" aria-label="Default select example">
                         <option selected>Select Model</option>
                         <option value="1">3032 NX</option>
@@ -229,7 +226,7 @@
             <div class="col-12 col-sm-12 col-md-3 col-lg-3">
               <div class="form-outline">
                 <label class="form-label">State</label>
-                <input type="text" class="form-control"aria-label="Default select example">
+                <input type="text" class="form-control" id="state_name" name="state">
                 <!-- <select class="form-select form-control" aria-label="Default select example">
                     <option value>Select State</option>
                     <option value="1">Chattisgarh</option>
@@ -240,7 +237,7 @@
             <div class="col-12 col-sm-12 col-md-3 col-lg-3">
               <div class="form-outline">
                 <label class="form-label">District</label>
-                <input type="text" class="form-control"aria-label="Default select example">
+                <input type="text" class="form-control" id="district_name" name="district">
                 <!-- <select class="form-select form-control" aria-label="Default select example">
                     <option value>Select District</option>
                     <option value="1">Raipur</option>
@@ -251,7 +248,7 @@
             </div>
             <div class="col-12 mt-4">
               <div class="text-center">
-                <button type="button" class="btn-success btn btn_all" id="Search">Search</button>
+                <button type="button" class="btn-success btn btn_all" id="Search" onclick="searchdata()">Search</button>
                 <button type="button" class="btn-success btn btn_all" id="Reset">Reset</button>
               </div>
             </div>
