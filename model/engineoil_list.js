@@ -734,6 +734,7 @@ function edit_user(id){
        }
    })
  }
+ 
 function searchdata(){
   var brand_name = $('#brand1').val();
   var model_name = $('#model1').val();

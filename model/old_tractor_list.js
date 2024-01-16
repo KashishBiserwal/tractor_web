@@ -164,9 +164,7 @@ function get() {
 get();
 
 function get_search_brand() {
-  // var url = "<?php echo $APIBaseURL; ?>getBrands";
   var apiBaseURL =APIBaseURL;
-  // Now you can use the retrieved value in your JavaScript logic
   var url = apiBaseURL + 'getBrands';
   $.ajax({
       url: url,
