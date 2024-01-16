@@ -525,15 +525,22 @@ function fetch_edit_data(id) {
           var Data = response.enquiry_data [0];
           $('#userId').val(Data.id);
           $('#brand_name').val(Data.brand_name);
+          console.log(Data.brand_name,'brand');
           $('#model_name').val(Data.model);
           $('#fnam_e').val(Data.first_name);
           $('#lnam_e').val(Data.last_name);
           $('#numbe_r').val(Data.mobile);
           $('#emai_l').val(Data.email);
           $('#dat_e').val(Data.date);
-          $('#stat_e').val(Data.state);
-          $('#dis_t').val(Data.district);
-          $('#tehsi_l').val(Data.tehsil);
+          $("#stat_e option").prop("selected", false);
+          $("#stat_e option[value='" + Data.state+ "']").prop("selected", true);
+
+          $("#dis_t option").prop("selected", false);
+          $("#dis_t option[value='" + Data.district+ "']").prop("selected", true);
+
+          $("#tehsi_l option").prop("selected", false);
+          $("#tehsi_l option[value='" + Data.tehsil+ "']").prop("selected", true);
+
       },
       error: function (error) {
           console.error('Error fetching user data:', error);
