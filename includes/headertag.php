@@ -21,7 +21,6 @@ $baseUrl = '/tractor_house/';
 	<link rel="stylesheet" type="text/css" href="assets/css/style.css"/>
 	<link rel="stylesheet" type="text/css" href="assets/css/style2.css"/>
 	<link rel="stylesheet" type="text/css" href="js/validation.js"/>
-	
 	<link rel="stylesheet" type="text/css" href="assets/css/owl.carousel.css"/>
 	<link rel="stylesheet" type="text/css" href="assets/css/owl.theme.default.css"/> 
 	<!-- <link rel="stylesheet" type="text/css" href="assets/css/main.css" /> -->
