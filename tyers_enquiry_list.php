@@ -6,7 +6,7 @@
    ?> 
   <script> var APIBaseURL = "<?php echo $APIBaseURL; ?>";</script>
   <script> var baseUrl = "<?php echo $baseUrl; ?>";</script>
-  <script src="<?php $baseUrl; ?>model/new_tyre_list.js"></script>
+  <script src="<?php $baseUrl; ?>model/tyres_enquiry_list.js"></script>
   
 <body class="loaded"> 
 <div class="main-wrapper">

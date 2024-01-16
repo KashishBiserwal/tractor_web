@@ -158,17 +158,16 @@ function get_tyre_list() {
   console.log('dfghjkiuytgf');
   
   $.ajax({
-      url: url,
-      type: "GET",
-      headers: {
-          'Authorization': 'Bearer ' + localStorage.getItem('token')
-      },
-      success: function (data) {
-        var tableBody = document.getElementById('data-table');
-        let serialNumber = 1;
-        let tableData = [];
+    url: url,
+    type: "GET",
+    headers: {
+        'Authorization': 'Bearer ' + localStorage.getItem('token')
+    },
+    success: function (data) {
+        const tableBody = $('#data-table'); // Use jQuery selector for the table body
+        tableBody.empty(); // Clear previous data
 
-          let serialNumber = 1;
+        let serialNumber = 1;
 
           if (data.customer_details && data.customer_details.length > 0) {
               var table = $('#example').DataTable({
