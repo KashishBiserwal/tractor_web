@@ -143,8 +143,7 @@
                 <select class="form-select form-control" aria-label=".form-select-lg example" id="brand1" name="brand">
                   <!-- <option value="" disabled>Select Brand</option> -->
                 </select>
-              </div>
-            </div>
+              </div>  
             <div class="col-12 col-sm-12 col-md-4 col-lg-4">
               <div class="form-outline">
                 <label class="form-label">Model Name</label>
@@ -168,19 +167,18 @@
               <table id="example" class="table table-striped  table-hover table-bordered dataTable no-footer" width="100%; margin-bottom: 15px;">
                 <thead class="">
                   <tr>
-                                            <th class="d-none d-md-table-cell text-white">S.No.</th>
-                                            <th class="d-none d-md-table-cell text-white">Brand</th>
-                                            <th class="d-none d-md-table-cell text-white">Model Name</th>
-                                            <th class="d-none d-md-table-cell text-white">Quantity</th>
-                                            <th class="d-none d-md-table-cell text-white">Action</th>
-                                           
-                                        </tr>
-                                    </thead>
-                                    <tbody id="data-table">
-                                    </tbody>
-                                </table>
-                    </div>
-                       </div>
+                    <th class="d-none d-md-table-cell text-white">S.No.</th>
+                    <th class="d-none d-md-table-cell text-white">Brand</th>
+                    <th class="d-none d-md-table-cell text-white">Model Name</th>
+                    <th class="d-none d-md-table-cell text-white">Quantity</th>
+                    <th class="d-none d-md-table-cell text-white">Action</th>
+                 </tr>
+                </thead>
+                <tbody id="data-table">
+                </tbody>
+              </table>
+            </div>
+          </div>
       </div>
     </div>
   </section>
