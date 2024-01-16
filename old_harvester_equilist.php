@@ -249,7 +249,7 @@
             <div class="col-12 mt-4">
               <div class="text-center">
                 <button type="button" class="btn-success btn btn_all" id="Search" onclick="searchdata()">Search</button>
-                <button type="button" class="btn-success btn btn_all" id="Reset">Reset</button>
+                <button type="button" class="btn-success btn btn_all" id="Reset" onclick="resetform()">Reset</button>
               </div>
             </div>
           
