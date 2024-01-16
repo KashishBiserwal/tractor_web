@@ -913,6 +913,6 @@ function destroy(id) {
     $('#model_name').val('');
     $('#state_name').val('');
     $('#district_name').val('');
-    
+    get_old_harvester();
   }
 
