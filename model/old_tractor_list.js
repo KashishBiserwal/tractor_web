@@ -241,7 +241,6 @@ get_year_and_hours();
 
 function store(event) {
   console.log('run store function');
-  //  var typeDiv = document.getElementById('type_name');
      event.preventDefault();
     
      var image_names = document.getElementById('_image').files;
@@ -280,7 +279,7 @@ function store(event) {
        'Authorization': 'Bearer ' + token
      };
 
-     var _method = 'PUT'; 
+     var _method = 'POST';
     var url, method;
     
     console.log('edit state',editId_state);
