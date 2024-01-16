@@ -62,12 +62,12 @@ function displayTractors(tractors) {
 
         var newCard = `
         <div class="col-12 col-lg-4 col-md-4 col-sm-4 mb-3">
-                                <div class="h-auto success__stry__item d-flex flex-column shadow ">
+                                <div class="h-auto success__stry__item d-flex flex-column shadow tyre_card">
                                     <div class="thumb">
                                         <a href="tyre_inner.php?product_id=${p.id}">
-                                            <div class="ratio ratio-16x9">
+                                            <div class="">
 
-                                                <img src="http://tractor-api.divyaltech.com/uploads/tyre_img/${a[0]}" class="" alt="img">
+                                                <img width="275" height="150" src="http://tractor-api.divyaltech.com/uploads/tyre_img/${a[0]}" class="img-fluid" alt="img">
 
                                             </div>
                                         </a>
@@ -76,26 +76,29 @@ function displayTractors(tractors) {
                                         <div class="caption text-center">
                                             <a href="tyre_inner.php?product_id=${p.id}" class="text-decoration-none text-dark">
                                                 <p class="pt-3"><strong
-                                                        class="series_tractor_strong text-center h6 fw-bold ">${p.tyre_model}</strong></p>
+                                                        class="series_tractor_strong text-center h6 fw-bold "> ${p.brand_name} ${p.tyre_model}</strong></p>
                                             </a>
                                         </div>
                                         <div class="power">
                                             <a href="tyre_inner.php" class="text-decoration-none text-dark">
-                                                <div class="row text-center ">
-                                                    <div class="col-4 col-lg-4 col-md-4 col-sm-4">
+                                            <div class="col-12 px-3">
+                                                <div class="row ">
+                                                   
+                                                    <div class="col-6 col-lg-6 col-md-6 col-sm-6  engineoil_details pe-1">
 
-                                                        <p class="text-dark ">${p.tyre_category}</p>
+                                                        <p class="text-dark" style="text-transform:uppercase; font-weight:bolder"> ${p.tyre_position}</p>
                                                     </div>
-                                                    <div class="col-4 col-lg-4 col-md-4 col-sm-4">
-
-                                                        <p class="text-dark"> ${p.tyre_position}</p>
-                                                    </div>
-                                                    <div class="col-4 col-lg-4 col-md-4 col-sm-4">
+                                                    <div class="col-6 col-lg-6 col-md-6 col-sm-6  engineoil_details ps-1">
 
                                                         <p id="adduser" type="" class="text-dark">${p.tyre_size
                                                         }
                                                         </p>
                                                     </div>
+                                                    <div class="col-12 col-lg-12 col-md-12 col-sm-12  engineoil_details">
+
+                                                    <p class="text-dark ">Compatible with: <span style="text-transform:uppercase; font-weight:bolder">${p.tyre_category}</span></p>
+                                                </div>
+                                                </div>
                                                 </div>
                                             </a>
                                         </div>
@@ -111,93 +114,79 @@ function displayTractors(tractors) {
                                     aria-hidden="true">
                                     <div class="modal-dialog modal-lg modal-dialog-centered">
                                         <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h4 class="modal-title text-dark fw-bold" id="staticBackdropLabel">Fill
-                                                    the form to Get Tyre Price MRF SHAKTI LIFE 13.6 - 28</h4>
+                                            <div class="modal-header  modal_head">
+                                            <h5 class="modal-title text-white ms-1" id="staticBackdropLabel">Fill
+                                                    the form to Get Tyre Price ${p.brand_name} ${p.tyre_model}</h4>
                                             </div>
-                                            <div class="modal-body">
+                                            <div class="modal-body bg-white mt-3">
                                                 <div class="model-cont">
-                                                    <form id="hire_inner" name="hire_inner" method="post">
+                                                    <form id="hire_inner" name="hire_inner" method="POST" onsubmit="return false">
                                                         <div class="row">
-                                                            <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-4">
+                                                           
+                                                            <input type="hidden" id="brandName" value="${p.brand_name}" >
+                                                            <input type="hidden" id="modelName" value="${p.oil_model}" >
+                                                            <input type="hidden" id="enquiry_type_id" value="10" >
+                
+            
+         
+                                                            <div class="col-12 col-lg-6 col-md-6 col-sm-6">
                                                                 <div class="form-outline">
-                                                                    <label class="form-label" for="first_name">First
-                                                                        Name</label>
-                                                                    <input type="text" id="first_name" name="first_name"
-                                                                        class=" data_search form-control input-group-sm py-2" />
+                                                                <label for="f_name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i> First Name</label>
+                                                                <input type="text" class="form-control mb-0" placeholder="Enter Your Name" id="firstName" name="firstName">
                                                                 </div>
                                                             </div>
-                                                            <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-4">
+                                                            <div class="col-12 col-lg-6 col-md-6 col-sm-6">
                                                                 <div class="form-outline">
-                                                                    <label class="form-label" for="last_name">Last
-                                                                        Name</label>
-                                                                    <input type="text" id="last_name" name="last_name"
-                                                                        class=" data_search form-control input-group-sm py-2" />
+                                                                <label for="last_name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i> Last Name</label>
+                                                                <input type="text" class="form-control mb-0" placeholder="Enter Your Name" id="lastName" name="lastName">
                                                                 </div>
                                                             </div>
-                                                            <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-4">
+                                                            <div class="col-12 col-sm-6 col-md-6 col-lg-6 mt-4">
                                                                 <div class="form-outline">
-                                                                    <label class="form-label" for="mobile_number">Mobile
-                                                                        Number</label>
-                                                                    <input type="text" id="mobile_number"
-                                                                        name="mobile_number"
-                                                                        class=" data_search form-control input-group-sm py-2" />
+                                                                <label for="eo_number" class="form-label text-dark fw-bold"> <i class="fa fa-phone" aria-hidden="true"></i> Phone Number</label>
+                                                                <input type="text" class="form-control mb-0" placeholder="Enter Number" id="mobile_number" name="mobile_number">
                                                                 </div>
                                                             </div>
-                                                            <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-4">
+                                                            <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-4">
                                                                 <div class="form-outline">
-                                                                    <label class="form-label" for="state">State</label>
-                                                                    <select class="form-select py-2"
-                                                                        aria-label="Default select example" id="state"
-                                                                        name="state">
-                                                                        <option selected></option>
-                                                                        <option value="1">New Tractor Loan</option>
-                                                                        <option value="2">Used Tractor Loan,</option>
-                                                                        <option value="3">Loan Against Tractor</option>
-                                                                        <option value="4">Harvester Loan</option>
-                                                                        <option value="5">Used Harvester Loan</option>
-                                                                        <option value="6">Implement Loan</option>
-                                                                        <option value="7">Personal Loan</option>
-                                                                    </select>
+                                                                <label for="eo_state" class="form-label text-dark fw-bold"> <i class="fas fa-location"></i> State</label>
+                                                                <select class="form-select py-2 " aria-label=".form-select-lg example" id="state" name="state">
+                                                                    <option value="" selected disabled=""> </option>  
+                                                                    <option value="1">Chhattisgarh</option>
+                                                                    <option value="2">Other</option>
+                                                                </select>
                                                                 </div>
                                                             </div>
-                                                            <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-4">
+                                                            <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-4">
                                                                 <div class="form-outline">
-                                                                    <label class="form-label"
-                                                                        for="district">District</label>
-                                                                    <select class="form-select py-2"
-                                                                        aria-label="Default select example"
-                                                                        name="district" id="district">
-                                                                        <option selected></option>
-                                                                        <option value="1">name1</option>
-                                                                        <option value="2">name2</option>
-                                                                        <option value="3">name3</option>
-                                                                    </select>
+                                                                <label for="eo_dist" class="form-label fw-bold  text-dark"><i class="fa-solid fa-location-dot"></i> District</label>
+                                                                <select class="form-select py-2 " aria-label=".form-select-lg example" id="district" name="district">
+                                                                    <option value="" selected disabled=""></option>
+                                                                    <option value="1">Raipur</option>
+                                                                    <option value="2">Bilaspur</option>
+                                                                    <option value="2">Durg</option>
+                                                                </select>
+                                                                </div>                    
+                                                            </div>       
+                                                            <div class="col-12 col-sm-6 col-md-6 col-lg-6 mt-4">
+                                                                <div class="form-outline">
+                                                                <label for="eo_tehsil" class="form-label fw-bold text-dark"> Tehsil</label>
+                                                                <select class="form-select py-2 " aria-label=".form-select-lg example" id="Tehsil" name="Tehsil">
+                                                                    <option value="" selected disabled=""></option>
+                                                                    <option value="2">Durg</option>
+                                                                </select>
                                                                 </div>
                                                             </div>
-                                                            <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-4">
-                                                                <div class="form-outline">
-                                                                    <label class="form-label"
-                                                                        for="taluka">Tehsil</label>
-                                                                    <select class="form-select py-2"
-                                                                        aria-label="Default select example"
-                                                                        name="taluka" id="taluka">
-                                                                        <option selected></option>
-                                                                        <option value="1">name1</option>
-                                                                        <option value="2">name2</option>
-                                                                        <option value="3">name3</option>
-                                                                    </select>
-                                                                </div>
-                                                            </div>
-                                                        </div>
+
+                                                        </div> 
+                                                          
                                                     </form>
                                                 </div>
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary"
                                                     data-bs-dismiss="modal">Close</button>
-                                                <button type="button" id="button_hire"
-                                                    class="btn btn-danger">Request</button>
+                                                    <button type="submit" id="button_hire" class="btn add_btn btn-success  btn_all" onclick="tyre_enquiry()" data-bs-dismiss="modal">Submit</button>        
                                             </div>
                                         </div>
                                     </div>
@@ -212,3 +201,66 @@ function displayTractors(tractors) {
        productContainer.append(newCard);
     });
 }
+
+function tyre_enquiry() {
+    var brandName = $('#brandName').val();
+    var modelName = $('#modelName').val();
+    var firstName = $('#firstName').val();
+    var lastName = $('#lastName').val();
+    var mobile_number = $('#mobile_number').val();
+    var state = $('#state').val();
+    var district = $('#district').val();
+    var Tehsil = $('#Tehsil').val();
+    var enquiry_type_id =$('#enquiry_type_id').val();
+    var paraArr = {
+      'brand_name': brandName,
+      'model': modelName,
+      'first_name': firstName,
+      'last_name': lastName,
+      'mobile': mobile_number,
+      'state': state,
+      'district': district,
+      'tehsil': Tehsil,
+      'enquiry_type_id':enquiry_type_id,
+    };
+    // console.log(paraArr);
+  
+//   var apiBaseURL =APIBaseURL;
+//   var url = apiBaseURL + 'customer_enquiries';
+var url ='http://tractor-api.divyaltech.com/api/customer/customer_enquiries';
+    console.log(url);
+  
+    var token = localStorage.getItem('token');
+    var headers = {
+      'Authorization': 'Bearer ' + token
+    };
+    $.ajax({
+      url: url,
+      type: "POST",
+      data: paraArr,
+      headers: headers,
+      success: function (result) {
+        console.log(result, "result");
+    console.log("Add successfully");
+    $("#used_tractor_callbnt_").modal('hide'); 
+    var msg = "Added successfully !"
+    $("#errorStatusLoading").modal('show');    
+    $("#errorStatusLoading").find('.modal-title').html('<p class="text-center">Congratulation..! Requested Successful</p>');
+ 
+    $("#errorStatusLoading").find('.modal-body').html(msg);
+    $("#errorStatusLoading").find('.modal-body').html('<img src="assets/images/successfull.gif" style="display:block; margin:0 auto;" class="w-50 text-center" alt="Successfull Request"></img>');
+    // $("#errorStatusLoading").find('.modal-body').html('sdfghj');
+  
+  
+      },
+      error: function (error) {
+        console.error('Error fetching data:', error);
+        var msg = error;
+        $("#errorStatusLoading").modal('show');
+        $("#errorStatusLoading").find('.modal-title').html('<p class="text-center">Process Failed..! Enter Valid Detail</p>');
+        $("#errorStatusLoading").find('.modal-body').html(msg);
+        $("#errorStatusLoading").find('.modal-body').html('<img src="assets/images/comp_3.gif" style="display:block; margin:0 auto;" class="w-50 text-center" alt="Successfull Request"></img>');
+        // 
+      }
+    });
+  }
