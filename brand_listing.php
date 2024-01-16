@@ -267,6 +267,10 @@
    ?> 
    <script>
      $(document).ready(function() {
+      $('#Reset').on('click', function() {
+        resetForm();
+      });
+      
       BackgroundUpload();
       $('#save').click(store);
       $('#save_brand').click(edit_brand);

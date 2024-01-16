@@ -355,3 +355,45 @@ function fetch_edit_data(id) {
         }
     });
   }
+
+  $(document).ready(function () {
+    // Initialize DataTable
+    var table = $('#example').DataTable({
+        paging: true,
+        searching: true,
+        columns: [
+            { title: 'S.No.' },
+            { title: 'Date' },
+            { title: 'Brand' },
+            { title: 'Model' },
+            { title: 'Full Name' },
+            { title: 'Mobile' },
+            { title: 'State' },
+            { title: 'District' },
+            { title: 'Action', orderable: false }
+        ]
+    });
+
+    // Search Button Click Event
+    $("#Search").click(function () {
+        var selectedBrand = $('#brand_name').val();
+        var selectedModel = $('#model').val();
+        var selectedState = $('#state').val();
+        var selectedDistrict = $('#district').val();
+
+        // Perform search
+        table.columns(2).search(selectedBrand).draw();
+        table.columns(3).search(selectedModel).draw();
+        table.columns(6).search(selectedState).draw();
+        table.columns(7).search(selectedDistrict).draw();
+    });
+
+    // Reset Button Click Event
+    $("#Reset").click(function () {
+        // Reset all select options
+        $('#brand_name, #model, #state, #district').val('');
+
+        // Clear search and redraw the table
+        table.search('').columns().search('').draw();
+    });
+});

@@ -1,6 +1,12 @@
 <?php
-   include 'includes/headertagadmin.php';
+    include 'includes/headertag.php';
+    include 'includes/headertagadmin.php';
+   include 'includes/footertag.php';
+   
    ?> 
+  <script> var APIBaseURL = "<?php echo $APIBaseURL; ?>";</script>
+  <script> var baseUrl = "<?php echo $baseUrl; ?>";</script>
+  <script src="<?php $baseUrl; ?>model/form_equi_enq.js"></script> 
 <body class="loaded"> 
  <div class="main-wrapper">
     <div class="app" id="app">

@@ -46,6 +46,13 @@
               </div>
             </div>
             <div class="col-12 col-sm-12 col-md-3 col-lg-3">
+                <div class="form-outline">
+                      <label class="form-label">Search By Brand</label>
+                      <select class="js-select2 form-select form-control mb-0" id="brand_name">
+                      </select>
+                </div>
+              </div>
+            <!-- <div class="col-12 col-sm-12 col-md-3 col-lg-3">
               <div class="form-outline">
                 <label class="form-label"> Brand Name</label>
                 <select class="form-select py-2" aria-label="Default select example" id="bran_d">
@@ -55,7 +62,7 @@
                     <option value="3">John Deere</option>
                 </select>
               </div>
-            </div>
+            </div> -->
             <div class="col-12 col-sm-12 col-md-3 col-lg-3">
               <div class="form-outline ">
                 <label class="form-label">Model</label>

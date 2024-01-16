@@ -28,8 +28,6 @@
               </li>
             </ol>
           </nav>
-          <!-- <button id="adduser" type="button" class="add_btn btn-success float-right">
-            <i class="fa fa-plus" aria-hidden="true"></i>Add New</button> -->
         </div>
       </div>
     </div>
@@ -41,7 +39,7 @@
             <div class="col-12 col-sm-12 col-md-3 col-lg-3">
               <div class="form-outline">
                 <label class="form-label"> Brand Name</label>
-                <select class="form-select py-2" aria-label="Default select example">
+                <select class="form-select py-2" aria-label="Default select example" id="brand_name">
                     <option selected>Select Brand</option>
                     <option value="1">Mahindra</option>
                     <option value="2">Swaraj</option>
@@ -52,7 +50,7 @@
             <div class="col-12 col-sm-12 col-md-3 col-lg-3">
               <div class="form-outline ">
                 <label class="form-label">Model</label>
-                    <select class="form-select py-2" aria-label="Default select example">
+                    <select class="form-select py-2" aria-label="Default select example" id="model">
                         <option selected>Select Model</option>
                         <option value="1">3032 NX</option>
                         <option value="2">3030 NX</option>
@@ -63,7 +61,7 @@
             <div class="col-12 col-sm-12 col-md-3 col-lg-3">
               <div class="form-outline">
                 <label class="form-label">State</label>
-                <select class="form-select py-2" aria-label="Default select example">
+                <select class="form-select py-2" aria-label="Default select example" id="state">
                     <option value>Select State</option>
                     <option value="1">Chattisgarh</option>
                     <option value="2">Other</option>
@@ -73,7 +71,7 @@
             <div class="col-12 col-sm-12 col-md-3 col-lg-3">
               <div class="form-outline">
                 <label class="form-label">District</label>
-                <select class="form-select py-2" aria-label="Default select example">
+                <select class="form-select py-2" aria-label="Default select example" id="district">
                     <option value>Select District</option>
                     <option value="1">Raipur</option>
                     <option value="2">Bilaspur</option>

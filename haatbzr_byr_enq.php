@@ -128,6 +128,12 @@
                        <div class="col-12">
                         <table class="table table-striped">
                         <tbody>
+                        <tr>
+                            <td>Category-</td>
+                            <td id="category"></td>
+                            <td>Sub-Category-</td>
+                            <td id="sub_category"></td>
+                          </tr>
                          <tr>
                             <td>First Name-</td>
                             <td id="fname"></td>
@@ -209,24 +215,36 @@
             </div>
             <div class="col-12 col-sm-6 col-md-6 col-lg-6 mt-2">
               <div class="form-outline">
+                <label class="form-label" for="first_name">Category</label>
+                <input type="text" id="category1" name="category" class=" data_search form-control input-group-sm py-2" />
+              </div>
+            </div>
+            <div class="col-12 col-sm-6 col-md-6 col-lg-6 mt-2">
+              <div class="form-outline">
+                <label class="form-label" for="first_name">Sub-category</label>
+                <input type="text" id="sub_category1" name="sub_category1" class=" data_search form-control input-group-sm py-2" />
+              </div>
+            </div>
+            <div class="col-12 col-sm-6 col-md-6 col-lg-6 mt-2">
+              <div class="form-outline mt-3">
                 <label class="form-label" for="first_name">First Name</label>
                 <input type="text" id="first_name1" name="first_name" class=" data_search form-control input-group-sm py-2" />
               </div>
             </div>
             <div class="col-12 col-sm-6 col-md-6 col-lg-6 mt-2">
-              <div class="form-outline">
+              <div class="form-outline mt-3">
                 <label class="form-label" for="first_name">Last Name</label>
                 <input type="text" id="last_name1" name="last_name" class=" data_search form-control input-group-sm py-2" />
               </div>
             </div>
             <div class="col-12 col-sm-6 col-md-6 col-lg-6 mt-2">
-              <div class="form-outline">
+              <div class="form-outline mt-3">
                 <label class="form-label" for="mobile_number">Mobile Number</label>
                 <input type="text" id="mobile_no" name="mobile" class=" data_search form-control input-group-sm py-2" />
               </div>
             </div>
             <div class="col-12 col-sm-6 col-md-6 col-lg-6 mt-2">
-              <div class="form-outline">
+              <div class="form-outline mt-3">
                 <label class="form-label" for="state">State</label>
                 <select class="form-select py-2" aria-label="Default select example" id="state_" name="state">
                   <option selected disabled="" ></option>
@@ -236,7 +254,7 @@
               </div>
             </div>
             <div class="col-12 col-sm-6 col-md-6 col-lg-6 mt-2">
-              <div class="form-outline">
+              <div class="form-outline mt-3">
                 <label class="form-label" for="district">District</label>
                 <select class="form-select py-2" aria-label="Default select example" name="district" id="district">
                   <option selected disabled=""></option>
@@ -247,7 +265,7 @@
               </div>
             </div>
             <div class="col-12 col-sm-6 col-md-6 col-lg-6 mt-3">
-              <div class="form-outline">
+              <div class="form-outline mt-2">
                 <label class="form-label" for="tehsil">Tehsil</label>
                 <select class="form-select py-2" aria-label="Default select example" name="tehsil" id="tehsil">
                   <option selected disabled=""></option>
@@ -258,7 +276,7 @@
               </div>
             </div>
             <div class="col-12 col-sm-6 col-md-6 col-lg-6 mt-3">
-              <div class="form-outline">
+              <div class="form-outline mt-3 ">
                 <label class="form-label" for="mobile_number">Price</label>
                 <input type="text" id="price" name="price_name" class=" data_search form-control input-group-sm py-2" />
               </div>
@@ -279,7 +297,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="submit" class="btn btn-success" data-bs-dismiss="modal" id="update_button">Save Change</button>
+        <button type="button" class="btn btn-success" data-bs-dismiss="modal" id="update_button">Save Change</button>
       </div>
     </div>
   </div>

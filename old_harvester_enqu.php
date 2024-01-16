@@ -36,6 +36,13 @@
         <div class="card-body">
           <div class="row">
           <div class="col-12 col-sm-12 col-md-3 col-lg-3">
+              <div class="form-outline">
+                <label class="form-label">Search By Brand</label>
+                <select class="js-select2 form-select form-control mb-0" id="brand_name">
+                </select>
+              </div>
+            </div>
+          <!-- <div class="col-12 col-sm-12 col-md-3 col-lg-3">
           <div class="form-outline">
                 <label class="form-label"> Brand Name</label>
                 <select class="form-select py-2" aria-label="Default select example">
@@ -45,11 +52,11 @@
                     <option value="3">John Deere</option>
                 </select>
               </div>
-            </div>
+            </div> -->
             <div class="col-12 col-sm-12 col-md-3 col-lg-3">
               <div class="form-outline">
                 <label class="form-label">State</label>
-                <select class="form-select py-2" aria-label="Default select example"  id="districtSelect">
+                <select class="form-select py-2" aria-label="Default select example"  id="state_2">
                     <option value>Select State</option>
                     <option value="1">Chattisgarh</option>
                     <option value="2">Other</option>
@@ -59,7 +66,7 @@
             <div class="col-12 col-sm-12 col-md-3 col-lg-3">
               <div class="form-outline ">
                 <label class="form-label fw-bold">District</label>
-                <select class="form-select py-2" aria-label="Default select example" id="districtSelect">
+                <select class="form-select py-2" aria-label="Default select example" id="dist_2">
                     <option selected>Select District</option>
                     <option value="1">Raipur</option>
                     <option value="2">Bilaspur</option>
@@ -70,7 +77,7 @@
            
             <div class="col-12 col-sm-12 col-md-3 col-lg-3">
               <div class="text-center">
-                <button type="button" class="btn-success btn px-3 py-2 " id="Search">Search</button>
+                <button type="button" class="btn-success btn px-3 py-2 " id="Search_btn">Search</button>
                 <button type="button" class="btn-success btn mx-2 px-3 py-2  " id="Reset">Reset</button>
               </div>
             </div>
