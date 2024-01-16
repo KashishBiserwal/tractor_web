@@ -429,6 +429,7 @@ function destroy(id) {
   } 
 
   function fetch_edit_data(id) {
+    get('brand');
     var apiBaseURL = APIBaseURL;
     var url = apiBaseURL + 'dealer_data/' + id;
     editId_state= true;
