@@ -133,17 +133,14 @@
       <div class="filter-card">
         <div class="card-body">
           <form id="search_form">
-
-      
           <div class="row">
             <div class="col-12 col-sm-12 col-md-4 col-lg-4">
               <div class="form-outline">
                 <label class="form-label">Brand</label>
-                <!-- <input type="email" id="search_name" name="search_name" class="form-control" /> -->
                 <select class="form-select form-control" aria-label=".form-select-lg example" id="brand1" name="brand">
-                  <!-- <option value="" disabled>Select Brand</option> -->
                 </select>
-              </div>  
+              </div>
+            </div>  
             <div class="col-12 col-sm-12 col-md-4 col-lg-4">
               <div class="form-outline">
                 <label class="form-label">Model Name</label>
@@ -152,7 +149,8 @@
             </div>
             <div class="col-12 col-sm-12 col-md-4 col-lg-4">
               <div class="text-center">
-                <button type="button" class="btn-success btn btn_all" id="Search" onclick="searchdata()">Search</button>
+              <button type="button" class="btn-success btn btn_all" id="Search" onclick="search_data()">Search</button>
+
                 <button type="button" class="btn-success btn btn_all" id="Reset" onclick="resetform()">Reset</button>
               </div>
             </div>

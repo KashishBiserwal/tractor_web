@@ -53,11 +53,7 @@
               <div class="form-outline ">
                 <label class="form-label">Model</label>
                     <select class="form-select py-2" aria-label="Default select example"  id="model_1">
-                        <!-- <option selected>Select Model</option>
-                        <option value="sdfgh">sdfgh</option>
-                        <option value="3032 NX">3032 NX</option>
-                        <option value="3030 NX">3030 NX</option>
-                        <option value="3230 NX">3230 NX</option> -->
+                       
                     </select>
               </div>
             </div>
@@ -292,6 +288,3 @@
 </div>
 </body>
 
-<?php
-   include 'includes/footertag.php';
-   ?> 

@@ -114,17 +114,16 @@ success: function (data) {
                                  </button> 
                         </div>`;
 
-                    tableData.push([
-                        counter,
-                        formatDateTime(row.date),
-                        row.brand_name,
-                        row.model,
-                        row.wheel_drive_value,
-                        row.hp_category,
-                        row.ending_price,
-                        action
-                    ]);
-
+                        tableData.push([
+                          counter,
+                          formatDateTime(row.date),
+                          row.brand_name,
+                          row.model,
+                          row.wheel_drive_value,
+                          row.hp_category,
+                          row.ending_price,
+                          action
+                        ]);
                     counter++;
                 });
 
@@ -132,18 +131,19 @@ success: function (data) {
                 $('#example').DataTable({
                     data: tableData,
                     columns: [
-                        { title: 'S.No.' },
-                        { title: 'Date' },
-                        { title: 'Brand' },
-                        { title: 'Model' },
-                        { title: 'Wheel Drive' },
-                        { title: 'HP Category' },
-                        { title: 'Price' },
-                        { title: 'Action', orderable: false }
+                      { title: 'S.No.' },
+                      { title: 'Date' },
+                      { title: 'Brand' },
+                      { title: 'Model' },
+                      { title: 'Wheel Drive' },
+                      { title: 'HP Category' },
+                      { title: 'Price' },
+                      { title: 'Action', orderable: false }
                     ],
+                    
                     paging: true,
                     searching: true,
-    });
+                  });
   } else {
     tableBody.innerHTML = '<tr><td colspan="9">No valid data available</td></tr>';
   }
@@ -155,7 +155,20 @@ error: function (error) {
 }
 
 
-
+function formatDateTime(originalDateTimeStr) {
+  const originalDateTime = new Date(originalDateTimeStr);
+  
+  const pad = (num) => (num < 10 ? '0' : '') + num;
+  
+  const day = pad(originalDateTime.getDate());
+  const month = pad(originalDateTime.getMonth() + 1);
+  const year = originalDateTime.getFullYear();
+  const hours = pad(originalDateTime.getHours());
+  const minutes = pad(originalDateTime.getMinutes());
+  const seconds = pad(originalDateTime.getSeconds());
+  
+  return `${day}-${month}-${year} / ${hours}:${minutes}:${seconds}`;
+  }
   function search_data() {
 
     var selectedBrand = $('#brand').val();
@@ -192,10 +205,11 @@ error: function (error) {
   function updateTable(data) {
     const tableBody = document.getElementById('data-table');
     tableBody.innerHTML = '';
-    let serialNumber = 1; 
+    // let serialNumber = 1; 
 
     if(data.newTractor.allProductData && data.newTractor.allProductData.length > 0) {
-        let tableData = []; 
+      let tableData = [];
+      let counter = 1;
         data.newTractor.allProductData.forEach(row => {
             let action = `<div class="float-start">
             <button class="btn btn-warning text-white btn-sm mx-1" onclick="openView(${row.product_id})" data-bs-toggle="modal" data-bs-target="#viewModal_btn" id="viewbtn">
@@ -208,34 +222,33 @@ error: function (error) {
             </div>`;
 
             tableData.push([
-              serialNumber,
-                formatDateTime(row.date),
-                row.model,
-                row.brand_name,
-                row.wheel_drive_value,
-                row.hp_category,
-                row.ending_price,
-                action
+              counter,
+              formatDateTime(row.date),
+              row.brand_name,
+              row.model,
+              row.wheel_drive_value,
+              row.hp_category,
+              row.ending_price,
+              action
             ]);
+          counter++;
+      });
 
-            serialNumber++;
-        });
-
-        $('#example').DataTable().destroy();
-        $('#example').DataTable({
-            data: tableData,
-            columns: [
-                { title: 'S.No.' },
-                { title: 'Date' },
-                { title: 'Brand Name' },
-                { title: 'Wheel Drive' },
-                { title: 'HP Category' },
-                { title: 'Price' },
-                { title: 'Action', orderable: false } // Disable ordering for Action column
-            ],
-            paging: true,
-            searching: true,
-            // ... other options ...
+      $('#example').DataTable().destroy();
+      $('#example').DataTable({
+          data: tableData,
+          columns: [
+            { title: 'S.No.' },
+            { title: 'Date' },
+            { title: 'Brand' },
+            { title: 'Model' },
+            { title: 'Wheel Drive' },
+            { title: 'HP Category' },
+            { title: 'Price' },
+            { title: 'Action', orderable: false }
+          ],
+          paging: true,
+          searching: true,
         });
     } else {
         // Display a message if there's no valid data
@@ -423,4 +436,10 @@ console.error('Error fetching data:', error);
 
 
 
+function resetform(){
+  $('#brand').val('');
+  $('#model').val('');
+  $('#hp').val('');
+  getTractorList();
+}
 

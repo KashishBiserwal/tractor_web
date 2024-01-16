@@ -3,6 +3,10 @@ var editId_state= false;
 
 
 jQuery(document).ready(function () {
+  get('brand2');
+  $('#add_trac').on('click', function() {
+    get('brand');
+  });
     get_old_harvester();
     ImgUpload();
     $('#submitbtn').click(store);
@@ -187,10 +191,8 @@ jQuery(document).ready(function () {
   }
 
 
-  function get() {
-    // var url = "<?php echo $APIBaseURL; ?>getBrands";
+  function get(selectId) {
     var apiBaseURL =APIBaseURL;
-    // Now you can use the retrieved value in your JavaScript logic
     var url = apiBaseURL + 'getBrands';
     $.ajax({
         url: url,
@@ -200,25 +202,32 @@ jQuery(document).ready(function () {
         },
         success: function (data) {
             console.log(data);
-            const select = document.getElementById('brand');
-            select.innerHTML = '';
-
+            const select = document.getElementById(selectId);
+          
+            select.innerHTML = '<option selected disabled value="">Please select an option</option>';
+  
             if (data.brands.length > 0) {
                 data.brands.forEach(row => {
                     const option = document.createElement('option');
-                    option.value = row.id; // You might want to set a value for each option
                     option.textContent = row.brand_name;
+                    option.value = row.id;
                     select.appendChild(option);
                 });
             } else {
                 select.innerHTML ='<option>No valid data available</option>';
             }
+      
         },
         error: function (error) {
             console.error('Error fetching data:', error);
+            var msg = error;
+            $("#errorStatusLoading").modal('show');
+            $("#errorStatusLoading").find('.modal-title').html('Error');
+            $("#errorStatusLoading").find('.modal-body').html(msg);
         }
     });
-}
+  }
+  
 get();
 
   function get_year_and_hours() {
@@ -597,38 +606,59 @@ function fetch_edit_data(id) {
             // console.log(data);
 
             const tableBody = document.getElementById('data-table');
+            let serialNumber = 1;
+            let tableData = [];
 
             if (data.product && data.product.length > 0) {
                 // console.log(typeof product);
 
                 data.product.forEach(row => {
-                  
-                  const tableRow = document.createElement('tr');
-                  // console.log(tableRow, 'helloooo');
-                    tableRow.innerHTML = `
-                        <td>${formatDateTime(row.created_at)}</td>
-                        <td>${row.brand_name}</td>
-                        <td>${row.model}</td>
-                        <td>${row.purchase_year}</td>
-                        <td>${row.state}</td>
-                        <td>${row.district}</td>
-                        <td>${row.mobile}</td>
-                        <td>
-                            <div class="d-flex">
-                              <button class="btn btn-warning text-white btn-sm mx-1" onclick="openViewdata(${row.id})" data-bs-toggle="modal" data-bs-target="#view_old_harvester" id="viewbtn">
-                                <i class="fa fa-eye" style="font-size: 11px;"></i>
-                              </button>
-                              <button class="btn btn-primary btn-sm btn_edit" onclick=" fetch_edit_data(${row.id})" data-bs-toggle="modal" data-bs-target="#staticBackdrop" id="your_edit">
-                                <i class="fas fa-edit" style="font-size: 11px;"></i>
-                              </button>
-                              <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.id});">
-                                <i class="fa fa-trash" style="font-size: 11px;"></i>
-                              </button>
-                            </div>
-                        </td>
-                    `;
-                    tableBody.appendChild(tableRow);
-                });
+                  let action = `  <div class="d-flex">
+                  <button class="btn btn-warning text-white btn-sm mx-1" onclick="openViewdata(${row.id})" data-bs-toggle="modal" data-bs-target="#view_old_harvester" id="viewbtn">
+                    <i class="fa fa-eye" style="font-size: 11px;"></i>
+                  </button>
+                  <button class="btn btn-primary btn-sm btn_edit" onclick=" fetch_edit_data(${row.id})" data-bs-toggle="modal" data-bs-target="#staticBackdrop" id="your_edit">
+                    <i class="fas fa-edit" style="font-size: 11px;"></i>
+                  </button>
+                  <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.id});">
+                    <i class="fa fa-trash" style="font-size: 11px;"></i>
+                  </button>
+                </div>`;
+  
+                  // Push row data as an array into the tableData
+                  tableData.push([
+                    formatDateTime(row.created_at),
+                    row.brand_name,
+                    row.model,
+                    row.purchase_year,
+                    row.state,
+                    row.district,
+                    row.mobile,
+                    action
+                ]);
+  
+            });
+            // Initialize DataTable after preparing the tableData
+          $('#example').DataTable().destroy();
+          $('#example').DataTable({
+                  data: tableData,
+                  columns: [
+                    { title: 'Date' },
+                    { title: 'Brand' },
+                    { title: 'Model Name' },
+                    { title: 'Year' },
+                    { title: 'State' },
+                    { title: 'district' },
+                    { title: 'Phone Number' },
+                    { title: 'Action', orderable: false } // Disable ordering for Action column
+                ],
+                  paging: true,
+                  searching: false,
+                  // ... other options ...
+              });
+         
+          
+                 
             } else {
                 tableBody.innerHTML = '<tr><td colspan="9">No valid data available</td></tr>';
             }
@@ -640,38 +670,38 @@ function fetch_edit_data(id) {
 }
 
 // Seach data
-function myFunction() {
-  var input, filter, table, tr, td, i, j, txtValue;
-  input = document.getElementById("namesearch");
-  filter = input.value.toUpperCase();
-  table = document.getElementById("example");
-  tr = table.getElementsByTagName("tr");
+// function myFunction() {
+//   var input, filter, table, tr, td, i, j, txtValue;
+//   input = document.getElementById("namesearch");
+//   filter = input.value.toUpperCase();
+//   table = document.getElementById("example");
+//   tr = table.getElementsByTagName("tr");
 
-  for (i = 0; i < tr.length; i++) {
-    // Loop through all td elements in the current row
-    td = tr[i].getElementsByTagName("td");
-    for (j = 0; j < td.length; j++) {
-      txtValue = td[j].textContent || td[j].innerText;
-      if (txtValue.toUpperCase().indexOf(filter) > -1) {
-        tr[i].style.display = "";
-        break; // Break the inner loop if a match is found in any td
-      } else {
-        tr[i].style.display = "none";
-      }
-    }
-  }
-}
-function resetForm() {
-        document.getElementById("myform").reset();
+//   for (i = 0; i < tr.length; i++) {
+//     // Loop through all td elements in the current row
+//     td = tr[i].getElementsByTagName("td");
+//     for (j = 0; j < td.length; j++) {
+//       txtValue = td[j].textContent || td[j].innerText;
+//       if (txtValue.toUpperCase().indexOf(filter) > -1) {
+//         tr[i].style.display = "";
+//         break; // Break the inner loop if a match is found in any td
+//       } else {
+//         tr[i].style.display = "none";
+//       }
+//     }
+//   }
+// }
+// function resetForm() {
+//         document.getElementById("myform").reset();
 
-        // Show all rows in the table
-        var table = document.getElementById("example");
-        var rows = table.getElementsByTagName("tr");
+//         // Show all rows in the table
+//         var table = document.getElementById("example");
+//         var rows = table.getElementsByTagName("tr");
 
-        for (var i = 0; i < rows.length; i++) {
-            rows[i].style.display = "";
-        }
-    }
+//         for (var i = 0; i < rows.length; i++) {
+//             rows[i].style.display = "";
+//         }
+//     }
 
 
 // delete data
@@ -775,5 +805,114 @@ function destroy(id) {
         }
     });
   } 
+  function searchdata(){
+    var brand_name = $('#brand2').val();
+    var model_name = $('#model_name').val();
+    var state = $('#state_name').val();
+    var district = $('#district_name').val();
+    
+    var apiBaseURL = APIBaseURL;
+    var url = apiBaseURL + 'search_for_old_harvester';
+    var token = localStorage.getItem('token');
+  
+    var headers = {
+        'Authorization': 'Bearer ' + token
+    };
+  
+    var data = new FormData();
+    if(brand_name == null){
+      data.append('brand_id', '');
+    }else{
+      data.append('brand_id', brand_name);
+    }
+    
+   
+    data.append('model', model_name);
+    data.append('state', state);
+    data.append('district', district);
+  
+    $.ajax({
+      url: url,
+      type: "POST",
+      data: data,
+      headers: headers,
+      processData: false,
+      contentType: false,
+      success: function (data) {
+        console.log('Success:', data.oldTractor);
+        const tableBody = document.getElementById('data-table');
+       
+        let tableData = [];
+  
+        if (data.oldTractor && data.oldTractor.length > 0) {
+            data.oldTractor.forEach(row => {
+               // const tableRow = document.createElement('tr');
+               let action = `  <div class="d-flex">
+               <button class="btn btn-warning text-white btn-sm mx-1" onclick="openViewdata(${row.id})" data-bs-toggle="modal" data-bs-target="#view_old_harvester" id="viewbtn">
+                 <i class="fa fa-eye" style="font-size: 11px;"></i>
+               </button>
+               <button class="btn btn-primary btn-sm btn_edit" onclick=" fetch_edit_data(${row.id})" data-bs-toggle="modal" data-bs-target="#staticBackdrop" id="your_edit">
+                 <i class="fas fa-edit" style="font-size: 11px;"></i>
+               </button>
+               <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.id});">
+                 <i class="fa fa-trash" style="font-size: 11px;"></i>
+               </button>
+             </div>`;
 
+               // Push row data as an array into the tableData
+               tableData.push([
+                 formatDateTime(row.created_at),
+                 row.brand_name,
+                 row.model,
+                 row.purchase_year,
+                 row.state,
+                 row.district,
+                 row.mobile,
+                 action
+             ]);
+
+         });
+         // Initialize DataTable after preparing the tableData
+       $('#example').DataTable().destroy();
+       $('#example').DataTable({
+               data: tableData,
+               columns: [
+                 { title: 'Date' },
+                 { title: 'Brand' },
+                 { title: 'Model Name' },
+                 { title: 'Year' },
+                 { title: 'State' },
+                 { title: 'district' },
+                 { title: 'Phone Number' },
+                 { title: 'Action', orderable: false } // Disable ordering for Action column
+             ],
+               paging: true,
+               searching: false,
+               // ... other options ...
+           });
+      
+       
+              
+         } else {
+             tableBody.innerHTML = '<tr><td colspan="9">No valid data available</td></tr>';
+         }
+    },
+    error: function (error) {
+      const tableBody = document.getElementById('data-table');
+      if(error.status == 400){
+        tableBody.innerHTML = '<tr><td colspan="9">No valid data available</td></tr>';
+      }
+        console.error('Error fetching data:', error);
+    
+    }
+  });
+  }
+  
+  function resetform(){
+    $('#brand2').val('');
+    $('#model_name').val('');
+    $('#state_name').val('');
+    $('#district_name').val('');
+    get_old_harvester();
+  }
 

@@ -396,7 +396,7 @@ include 'includes/footertag.php';
                 <th class="d-none d-md-table-cell text-white">Action</th>
               </tr>
             </thead>
-            <tbody>
+            <tbody id="data-table">
             </tbody>
           </table>
         </div>
