@@ -436,4 +436,10 @@ console.error('Error fetching data:', error);
 
 
 
+function resetform(){
+  $('#brand').val('');
+  $('#model').val('');
+  $('#hp').val('');
+  getTractorList();
+}
 

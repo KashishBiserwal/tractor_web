@@ -75,7 +75,7 @@ include 'includes/footertag.php';
                 <div class="col-12 col-sm-12 col-md-3 col-lg-3 text-center">
                   <div class="mt-4 pt-1">
                     <button type="button" class="btn-success btn px-4 py-2"  id="Search">Search</button>
-                    <button type="reset" value = "Reset data"  class="btn-success btn px-4 py-2" id="Reset">Reset</button>
+                    <button type="button" class="btn-success btn btn_all" id="Reset" onclick="resetform()">Reset</button>
                   </div>
                 </div>
               </div>
