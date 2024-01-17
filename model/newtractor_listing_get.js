@@ -1,7 +1,16 @@
 
 $(document).ready(function () {
   getTractorList();
+  $("#Reset").click(function () {
 
+    $("#brand").val("");
+    $("#model").val("");
+    $("#hp").val("");
+    
+    
+    getTractorList();
+    
+    });
   $('#Search').click(search_data);
 
   $('.edit_btn').click(function() {
@@ -109,28 +118,28 @@ success: function (data) {
                     ],
                     
                     paging: true,
-                    searching: true,
-                  });
-  } else {
-    tableBody.innerHTML = '<tr><td colspan="9">No valid data available</td></tr>';
-  }
-},
-error: function (error) {
-  console.error('Error fetching data:', error);
-}
-});
-}
+                    searching: false,
+                });
+              } else {
+                tableBody.innerHTML = '<tr><td colspan="9">No valid data available</td></tr>';
+              }
+            },
+            error: function (error) {
+              console.error('Error fetching data:', error);
+            }
+            });
+            }
 
   function search_data() {
 
     var selectedBrand = $('#brand').val();
-    var brand_id = $('#brand_id').val();
+    //var brand_id = $('#brand_id').val();
     var model = $('#model').val();
     var hp = $('#hp').val();
-    console.log(brand_id);
+    console.log(selectedBrand,"selectedBrand");
     var paraArr = {
       'brand_id': selectedBrand,
-      'id':brand_id,
+      
       'model':model,
       'horse_power':hp,
     };
@@ -155,6 +164,7 @@ error: function (error) {
     });
   };
   function updateTable(data) {
+    console.log(data,"search data table")
     const tableBody = document.getElementById('data-table');
     tableBody.innerHTML = '';
     // let serialNumber = 1; 
@@ -174,7 +184,7 @@ error: function (error) {
             </div>`;
 
             tableData.push([
-              counter,
+              serialNumber,
               formatDateTime(row.date),
               row.brand_name,
               row.model,
@@ -182,7 +192,7 @@ error: function (error) {
               row.hp_category,
               row.ending_price,
               action
-            ]);
+          ]);
           counter++;
       });
 
@@ -202,6 +212,24 @@ error: function (error) {
           paging: true,
           searching: true,
         });
+
+        $('#example').DataTable().destroy();
+        $('#example').DataTable({
+            data: tableData,
+            columns: [
+              { title: 'S.No.' },
+              { title: 'Date' },
+              { title: 'Brand' },
+              { title: 'Model' },
+              { title: 'Wheel Drive' },
+              { title: 'HP Category' },
+              { title: 'Price' },
+              { title: 'Action', orderable: false } // Disable ordering for Action column
+            ],
+            paging: true,
+            searching: false,
+            // ... other options ...
+        });
     } else {
         // Display a message if there's no valid data
         tableBody.innerHTML = '<tr><td colspan="4">No valid data available</td></tr>';
@@ -210,52 +238,53 @@ error: function (error) {
 
 
 
-$("#Reset").click(function () {
 
-$("#brand").val("");
-$("#model").val("");
-$("#hp").val("");
-
-if (originalData) {
-  table.clear().rows.add(originalData).draw();
-} else {
-  
-getTractorList();
-}
-});
 
 // get brand
 function get() {
-var apiBaseURL = APIBaseURL;
-var url = apiBaseURL + 'getBrands';
-$.ajax({
-  url: url,
-  type: "GET",
-  headers: {
-      'Authorization': 'Bearer ' + localStorage.getItem('token')
-  },
-  success: function (data) {
-      console.log(data);
-      const select = document.getElementById('brand');
-      select.innerHTML = '';
-      select.innerHTML = '<option selected disabled value="">Please select an option</option>';
-      if (data.brands.length > 0) {
-          data.brands.forEach(row => {
+  var apiBaseURL = APIBaseURL;
+  var url = apiBaseURL + 'getBrands';
 
-              const option = document.createElement('option');
-              option.value = row.id; // You might want to set a value for each option
-              option.textContent = row.brand_name;
-              select.appendChild(option);
-          });
-      } else {
-          select.innerHTML ='<option>No valid data available</option>';
-      }
-  },
-  error: function (error) {
+  $.ajax({
+    url: url,
+    type: "GET",
+    headers: {
+      'Authorization': 'Bearer ' + localStorage.getItem('token')
+    },
+    success: function (data) {
+      console.log(data);
+      select.innerHTML = '<option selected disabled value="">Please select an option</option>';
+      const select = $('#brand');
+      select.empty(); // Clear existing options
+
+      // Add a default option
+      select.append('<option selected disabled value="">Please select Brand</option>');
+
+      // Use an object to keep track of unique brands
+      var uniqueBrands = {};
+
+      $.each(data.brands, function (index, brand) {
+        var brand_id = brand.id;
+        var brand_name = brand.brand_name;
+
+        // Check if the brand ID is not already in the object
+        if (!uniqueBrands[brand_id]) {
+          // Add brand ID to the object
+          uniqueBrands[brand_id] = true;
+
+          // Append the option to the dropdown
+          select.append('<option value="' + brand_id + '">' + brand_name + '</option>');
+        }
+      });
+    },
+    error: function (error) {
       console.error('Error fetching data:', error);
-  }
-});
+    }
+  });
 }
+
+
+
 get();
 
 // delete data
@@ -336,21 +365,21 @@ $.ajax({
     document.getElementById('Torque_1').innerText=data.product.allProductData[0].torque;
     document.getElementById('Type_1').innerText=data.product.allProductData[0].transmission_type_value;
     document.getElementById('Clutch_1').innerText=data.product.allProductData[0].transmission_clutch_value;
-    document.getElementById('Min_Forward_Speed_1').innerText=data.product.allProductData[0].transmission_forward;
-    document.getElementById('Max_Forward_Speed_1').innerText=data.product.allProductData[0].transmission_forward;
-    document.getElementById('Min_Reverse_Speed_1').innerText=data.product.allProductData[0].transmission_reverse;
-    document.getElementById('Max_Reverse_Speed_1').innerText=data.product.allProductData[0].transmission_reverse;
+    document.getElementById('Min_Forward_Speed_1').innerText=data.product.allProductData[0].transmission_forward + " kmph";
+    document.getElementById('Max_Forward_Speed_1').innerText=data.product.allProductData[0].transmission_forward  + " kmph";
+    document.getElementById('Min_Reverse_Speed_1').innerText=data.product.allProductData[0].transmission_reverse + " kmph";
+    document.getElementById('Max_Reverse_Speed_1').innerText=data.product.allProductData[0].transmission_reverse + " kmph";
     document.getElementById('st_Type_1').innerText=data.product.allProductData[0].steering_details_value;
     document.getElementById('Coloumn_1').innerText=data.product.allProductData[0].steering_column_value;
     document.getElementById('Type2_1').innerText=data.product.allProductData[0].power_take_off_type;
     document.getElementById('RPM_1').innerText=data.product.allProductData[0].power_take_off_rpm;
-    document.getElementById('Total_Weight_1').innerText=data.product.allProductData[0].total_weight;
-    document.getElementById('Wheel_Base_1').innerText=data.product.allProductData[0].wheel_base;
-    document.getElementById('Lifting_Capacity_1').innerText=data.product.allProductData[0].lifting_capacity;
+    document.getElementById('Total_Weight_1').innerText=data.product.allProductData[0].total_weight + " kg";
+    document.getElementById('Wheel_Base_1').innerText=data.product.allProductData[0].wheel_base + " mm";
+    document.getElementById('Lifting_Capacity_1').innerText=data.product.allProductData[0].lifting_capacity + " kg";
     document.getElementById('Point_Linkage_1').innerText=data.product.allProductData[0].linkage_point_value;
     document.getElementById('Wheel_Drive_1').innerText=data.product.allProductData[0].wheel_drive_value;
-    document.getElementById('Front_1').innerText=data.product.allProductData[0].front_tyre;
-    document.getElementById('Rear_1').innerText=data.product.allProductData[0].rear_tyre;
+    document.getElementById('Front_1').innerText=data.product.allProductData[0].front_tyre + " mm";
+    document.getElementById('Rear_1').innerText=data.product.allProductData[0].rear_tyre + " mm";
     document.getElementById('Accessories_1').innerText=data.product.accessory_and_tractor_type[0].accessory;
     document.getElementById('Status_1').innerText=data.product.allProductData[0].status_value;
     document.getElementById('About_1').innerText=data.product.allProductData[0].description;

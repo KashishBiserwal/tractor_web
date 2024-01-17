@@ -52,16 +52,16 @@ include 'includes/footertag.php';
           <div class="filter-card mb-2">
             <div class="card-body">
               <div class="row" id="myForm">
-                  <div class="col-12 col-sm-12 col-md-4 col-lg-4"hidden>
+                  <!-- <div class="col-12 col-sm-12 col-md-4 col-lg-4"hidden>
                   <div class="form-outline">
                     <label class="form-label">Search By id</label>
                       <select class="js-select2 form-select form-control mb-0" id="brand_id">
                       </select>
                   </div>
-                </div>
+                </div> -->
                 <div class="col-12 col-sm-12 col-md-3 col-lg-3">
                     <label class="text-dark fw-bold mb-2">Search By Brand</label>
-                    <select class="js-select2 form-select" id="brand">
+                    <select class="form-select" id="brand">
                     </select>
                 </div>
                 <div class="col-12 col-sm-12 col-md-3 col-lg-3">
@@ -81,11 +81,11 @@ include 'includes/footertag.php';
               </div>
             </div>
           </div>
-          <div class="mb-5">
-            <div class="table-responsive shadow bg-white mt-3 py-2">
-              <table id="example" class="table bg-white table-striped table-hover py-1" width="100%">
-                  <thead>
-                    <tr>
+          <div class=" mb-5 shadow bg-white mt-3 p-3">
+            <div class="table-responsive">
+              <table id="example" class="table table-striped  table-hover table-bordered dataTable no-footer" width="100%; margin-bottom: 15px;">
+                <thead class="">
+                  <tr>
                       <th class="d-none d-md-table-cell text-white">S.No.</th>
                       <th class="d-none d-md-table-cell text-white">Date</th>
                       <th class="d-none d-md-table-cell text-white">Brand</th>
@@ -253,16 +253,16 @@ include 'includes/footertag.php';
                                  
                                 </div>
                               </div>
-                              <div class="col-12 col-sm-4 col-lg-4 col-md-4 ps-3">
+                              <div class="">
                              
                                 <div class="upload__box mt-2">
-                                            <div class="upload__btn-box text-center">
+                                            <div class="upload__btn-box text-center col-12 col-sm-4 col-lg-4 col-md-4 ps-3">
                                               <label >
                                                 <p class="upload__btn ">Upload images</p>
                                                 <input type="file" name='files[]' multiple="" data-max_length="20" class="upload__inputfile" id="image_name">
                                               </label>
                                             </div>
-                                            <div id="selectedImagesContainer" class="upload__img-wrap"></div>
+                                            <div id="selectedImagesContainer" class="upload__img-wrap col-12 col-sm-12 col-lg-12 col-md-12"></div>
                                           </div>
                               </div>
                               <h5 class="fw-bold"> Engine Details</h5>

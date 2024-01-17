@@ -110,7 +110,7 @@ function get_data() {
                           { title: 'Action', orderable: false } // Disable ordering for Action column
                       ],
                         paging: true,
-                        searching: true,
+                        searching: false,
                         // ... other options ...
                     });
             } else {

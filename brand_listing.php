@@ -150,6 +150,7 @@
                     <th class="d-none d-md-table-cell text-white py-2">S.No.</th>
                     <th class="d-none d-md-table-cell text-white py-2">Brand Name</th>
                     <th class="d-none d-md-table-cell text-white py-2">Brand Image</th>
+                    <th class="d-none d-md-table-cell text-white py-2">Product Type</th>
                     <th class="d-none d-md-table-cell text-white py-2">Action</th>
                   </tr>
                 </thead>
@@ -205,7 +206,7 @@
 
                                         <div class="col-12 col-sm-12 col-lg-12 col-md-12 mt-3">
                                                         <label for="name" class="text-dark fw-bold">Select Product Type</label>
-                                                        <div id="type_name" name="type_name"></div>
+                                                        <div id="type_name1" name="type_name1"></div>
                                                     </div>
                         
                                         
@@ -301,7 +302,7 @@
 
   }
 
-  function get_product_type() {
+  function get_product_type(id) {
   console.log('initsfd')
     var url = '<?php echo $APIBaseURL; ?>get_all_products_type';
     $.ajax({
@@ -316,7 +317,7 @@
          
 
             // checkbox
-            $("#type_name").empty();
+            $("#" + id).empty();
 
             // var tractorTypesArray = [];
             
@@ -328,8 +329,8 @@
                 var checkbox = $('<input type="checkbox" class="product_type_checkbox" id="tractor_type_' + data.getProductType[j].id + '" value="' + data.getProductType[j].id + '">');
                 var label = $('<label for="tractor_type_' + data.getProductType[j].id + '">' + data.getProductType[j].product_type_name + '</label>');
             
-              $("#type_name").append(checkbox);
-              $("#type_name").append(label);
+              $("#" + id).append(checkbox);
+              $("#" + id).append(label);
               }
              
             }
@@ -344,54 +345,56 @@
         }
     });
 }
+get_product_type('type_name');
     // store data
-  function store(event) {
+    function store(event) {
     event.preventDefault();
     console.log('jfhfhw');
     var brand_name = document.getElementById('brand_name').value;
-        var brand_img = document.getElementById('brand_img').files[0]; // Use files[0] to access the selected file
-            // Retrieve selected checkboxes
-            var selectedCheckboxes = $('.product_type_checkbox:checked');
+    var brand_img = document.getElementById('brand_img').files[0];
+    var selectedCheckboxes = $('.product_type_checkbox:checked');
     var type_name = [];
 
-    // Extract values from selected checkboxes
     selectedCheckboxes.each(function () {
         type_name.push($(this).val());
     });
 
+    console.log(type_name, "type_name");
 
-        console.log(type_name,"type_name")
-        var formData = new FormData(); // Create a FormData object to send the file
+    // Convert the array to a JSON string
+    var type_name_json = JSON.stringify(type_name);
 
-        formData.append('brand_name', brand_name);
-        formData.append('brand_img', brand_img);
-        formData.append('product_type_id', type_name);
+    var formData = new FormData();
+    formData.append('brand_name', brand_name);
+    formData.append('brand_img', brand_img);
+    formData.append('product_type_id', type_name_json);
+
     var url = "<?php echo $APIBaseURL; ?>storeBrands";
     console.log(url);
     var token = localStorage.getItem('token');
     var headers = {
-      'Authorization': 'Bearer ' + token
+        'Authorization': 'Bearer ' + token
     };
+
     $.ajax({
-      url: url,
-      type: "POST",
-      data:formData,
-      processData: false, // Don't process the data
-      contentType: false,
-      headers: headers,
-      success: function (result) {
-        console.log(result, "result");
-        // Redirect to a success page or perform other actions
-        window.location.href = "<?php echo $baseUrl; ?>brand_listing.php"; 
-        console.log("Add successfully");
-        alert('successfully inserted..!')
-      },
-      error: function (error) {
-        console.error('Error fetching data:', error);
-        // window.location.href = baseUrl + "login.php";
-      }
+        url: url,
+        type: "POST",
+        data: formData,
+        processData: false,
+        contentType: false,
+        headers: headers,
+        success: function (result) {
+            console.log(result, "result");
+            window.location.href = "<?php echo $baseUrl; ?>brand_listing.php";
+            console.log("Add successfully");
+            alert('successfully inserted..!');
+        },
+        error: function (error) {
+            console.error('Error fetching data:', error);
+        }
     });
-  }
+}
+
 // fetch data
 function get() {
     var url = "<?php echo $APIBaseURL; ?>getBrands";
@@ -406,54 +409,68 @@ function get() {
             tableBody.innerHTML = ''; // Clear previous data
             var select_brand = $("#brand");
             
+             
             select_brand.empty(); // Clear existing options
             select_brand.append('<option selected disabled="" value="">Please select Brand</option>');
-      console.log(data, 'ok');
-      for (var j = 0; j < data.brands.length; j++) {
+            
+            // Create an array to store unique brand names with their ids
+            var uniqueBrandNames = [];
+
+            console.log(data, 'ok');
+            for (var j = 0; j < data.brands.length; j++) {
                 var brand_id = data.brands[j].id;
                 var brand_name = data.brands[j].brand_name;
-                
-        console.log(brand_name);
-        select_brand.append('<option value="' + brand_id + '">' + brand_name + '</option>');
-      }
- 
+
+                // Check if the brand name is not already in the array
+                if (!uniqueBrandNames.find(item => item.name === brand_name)) {
+                    // Add brand name and id to the array
+                    uniqueBrandNames.push({ id: brand_id, name: brand_name });
+                }
+
+                console.log(brand_name);
+            }
+
+            // Add unique brand names to the dropdown
+            uniqueBrandNames.forEach(function (brand) {
+                select_brand.append('<option value="' + brand.id + '">' + brand.name + '</option>');
+            });
+
             let serialNumber = 1; // Initialize serial number
 
             if (data.brands.length > 0) {
-              let tableData = [];
+                let tableData = [];
                 // Loop through the data and create table rows
                 data.brands.forEach(row => {
-                    //const tableRow = document.createElement('tr');
                     let action = `<div class="float-start"><button class="btn btn-warning btn-sm text-white mx-1" data-bs-toggle="modal" onclick="fetch_data(${row.id});" data-bs-target="#exampleModal" style="padding:5px">
                         <i class="fa-solid fa-eye" style="font-size: 11px;"></i></button>
                         <button class="btn btn-primary btn-sm btn_edit" onclick="fetch_edit_data(${row.id});" data-bs-toggle="modal" data-bs-target="#staticBackdrop_model" id="yourUniqueIdHere" style="padding:5px">
                           <i class="fas fa-edit" style="font-size: 11px;"></i></button>
-                        </button> <button class="btn btn-danger btn-sm mx-1" id="delete_user" onclick="destroy(${row.id});" style="padding:5px"><i class="fa fa-trash" style="font-size: 11px;"></i></button></div>
-                        
-                        `;
+                        </button> <button class="btn btn-danger btn-sm mx-1" id="delete_user" onclick="destroy(${row.id});" style="padding:5px"><i class="fa fa-trash" style="font-size: 11px;"></i></button></div>`;
                     tableData.push([
-                    serialNumber,
-                    row.brand_name,
-                    row.brand_img,
-                    action
-                ]);
-                
-               // Increment serial number for the next row
+                        serialNumber,
+                        row.brand_name,
+                        row.brand_img,
+                        row.product_type_name,
+                        action
+                    ]);
+
+                    // Increment serial number for the next row
                     serialNumber++;
                 });
                 $('#example').DataTable().destroy();
-              $('#example').DataTable({
-                      data: tableData,
-                      columns: [
+                $('#example').DataTable({
+                    data: tableData,
+                    columns: [
                         { title: 'S.No.' },
                         { title: 'Brand Name' },
                         { title: 'Brand Image' },
+                        { title: 'Product Type' },
                         { title: 'Action', orderable: false } // Disable ordering for Action column
                     ],
-                      paging: true,
-                      searching: false,
-                      // ... other options ...
-                  });
+                    paging: true,
+                    searching: false,
+                    // ... other options ...
+                });
             } else {
                 // Display a message if there's no valid data
                 tableBody.innerHTML = '<tr><td colspan="7">No valid data available</td></tr>';
@@ -466,10 +483,12 @@ function get() {
     });
 }
 
+
 get();
 
 function fetch_edit_data(userId) {
   // var apiBaseURL = APIBaseURL;
+  get_product_type('type_name1');
   var url = '<?php echo $APIBaseURL; ?>getBrandsById/'+ userId;
 
   var headers = {
@@ -483,6 +502,7 @@ function fetch_edit_data(userId) {
     success: function(response) {
       // var userData = response.brands[0];
       $('#idUser').val(response.brands[0].id);
+      $('#brand_name1').val(response.brands[0].brand_name);
       $('#brand_name1').val(response.brands[0].brand_name);
       // $('#brand_img1').val(response.brands[0].brand_img);
                 // Append the new card to the container
@@ -654,10 +674,10 @@ function search_data() {
 
     var selectedBrand = $('#brand').val();
     var brand_id = $('#brand_id').val();
-    console.log(brand_id);
+    console.log(selectedBrand,"brand_id");
     var paraArr = {
       'brand_id': selectedBrand,
-      'id':brand_id,
+      //'id':brand_id,
     };
 
     var url = '<?php echo $APIBaseURL; ?>search_for_brand' ;
@@ -699,28 +719,30 @@ function updateTable(data) {
             </div>`;
 
             tableData.push([
-                serialNumber,
-                row.brand_name,
-                row.brand_img,
-                action
-            ]);
+                        serialNumber,
+                        row.brand_name,
+                        row.brand_img,
+                        row.product_type_name,
+                        action
+                    ]);
 
-            serialNumber++;
-        });
-
-        $('#example').DataTable().destroy();
-        $('#example').DataTable({
-            data: tableData,
-            columns: [
-                { title: 'S.No.' },
-                { title: 'Brand Name' },
-                { title: 'Brand Image' },
-                { title: 'Action', orderable: false } // Disable ordering for Action column
-            ],
-            paging: true,
-            searching: true,
-            // ... other options ...
-        });
+                    // Increment serial number for the next row
+                    serialNumber++;
+                });
+                $('#example').DataTable().destroy();
+                $('#example').DataTable({
+                    data: tableData,
+                    columns: [
+                        { title: 'S.No.' },
+                        { title: 'Brand Name' },
+                        { title: 'Brand Image' },
+                        { title: 'Product Type' },
+                        { title: 'Action', orderable: false } // Disable ordering for Action column
+                    ],
+                    paging: true,
+                    searching: false,
+                    // ... other options ...
+                });
     } else {
         // Display a message if there's no valid data
         tableBody.innerHTML = '<tr><td colspan="4">No valid data available</td></tr>';
