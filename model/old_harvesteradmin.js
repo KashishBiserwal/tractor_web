@@ -336,8 +336,8 @@ function store(event) {
     'Authorization': 'Bearer ' + token
   };
 
-  // var urlParams = new URLSearchParams(window.location.search);
-  // var editId = urlParams.get('id');
+  var urlParams = new URLSearchParams(window.location.search);
+  var editId = urlParams.get('id');
   var url, method;
   _method = 'POST';
 
