@@ -54,6 +54,12 @@
                                </div>
                                <div class="col-12 col-lg-6 col-md-6 col-sm-6 mt-3" hidden>
                                   <div class="form-outline ">
+                                    <label for="name" class="form-label text-dark"> id</label>
+                                    <input type="text" class="form-control" placeholder="Enter Your Model Name" id="EditIdmain_" name="enquiry_type_id" value="3">
+                                  </div>
+                               </div>
+                               <div class="col-12 col-lg-6 col-md-6 col-sm-6 mt-3" hidden>
+                                  <div class="form-outline ">
                                     <label for="name" class="form-label text-dark">Product id</label>
                                     <input type="text" class="form-control" placeholder="Enter Your Model Name" value="3" id="product_type_id" name="product_type_id">
                                   </div>
@@ -226,24 +232,24 @@
             <div class="col-12 col-sm-12 col-md-3 col-lg-3">
               <div class="form-outline">
                 <label class="form-label">State</label>
-                <input type="text" class="form-control" id="state_name" name="state">
-                <!-- <select class="form-select form-control" aria-label="Default select example">
+                <!-- <input type="text" class="form-control" id="state_name" name="state"> -->
+                <select class="form-select form-control" aria-label="Default select example" id="state_name" name="state">
                     <option value>Select State</option>
                     <option value="1">Chattisgarh</option>
                     <option value="2">Other</option>
-                </select> -->
+                </select>
               </div>
             </div>
             <div class="col-12 col-sm-12 col-md-3 col-lg-3">
               <div class="form-outline">
                 <label class="form-label">District</label>
-                <input type="text" class="form-control" id="district_name" name="district">
-                <!-- <select class="form-select form-control" aria-label="Default select example">
+                <!-- <input type="text" class="form-control" id="district_name" name="district"> -->
+                <select class="form-select form-control" aria-label="Default select example" id="district_name" name="district">
                     <option value>Select District</option>
                     <option value="1">Raipur</option>
                     <option value="2">Bilaspur</option>
                     <option value="3">Surajpur</option>
-                </select> -->
+                </select>
               </div>
             </div>
             <div class="col-12 mt-4">

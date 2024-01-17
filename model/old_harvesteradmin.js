@@ -234,44 +234,8 @@ function get() {
   }
   get();
 
-//   function get(selectId) {
-//     var apiBaseURL =APIBaseURL;
-//     var url = apiBaseURL + 'getBrands';
-//     $.ajax({
-//         url: url,
-//         type: "GET",
-//         headers: {
-//             'Authorization': 'Bearer ' + localStorage.getItem('token')
-//         },
-//         success: function (data) {
-//             console.log(data);
-//             const select = document.getElementById(selectId);
-          
-//             select.innerHTML = '<option selected disabled value="">Please select an option</option>';
   
-//             if (data.brands.length > 0) {
-//                 data.brands.forEach(row => {
-//                     const option = document.createElement('option');
-//                     option.textContent = row.brand_name;
-//                     option.value = row.id;
-//                     select.appendChild(option);
-//                 });
-//             } else {
-//                 select.innerHTML ='<option>No valid data available</option>';
-//             }
-      
-//         },
-//         error: function (error) {
-//             console.error('Error fetching data:', error);
-//             var msg = error;
-//             $("#errorStatusLoading").modal('show');
-//             $("#errorStatusLoading").find('.modal-title').html('Error');
-//             $("#errorStatusLoading").find('.modal-body').html(msg);
-//         }
-//     });
-//   }
-  
-// get();
+
 
   function get_year_and_hours() {
     console.log('initsfd')
@@ -346,6 +310,7 @@ function store(event) {
   event.preventDefault();
 
   console.log('jfhfhw');
+  var EditIdmain_ = $('EditIdmain_').val();
   var form_type = $('#form_type').val();
   var enquiry_type_id = $('#enquiry_type_id').val();
   var product_type_id = $('#product_type_id').val();
@@ -371,18 +336,21 @@ function store(event) {
     'Authorization': 'Bearer ' + token
   };
 
-  var urlParams = new URLSearchParams(window.location.search);
-  var editId = urlParams.get('id');
+  // var urlParams = new URLSearchParams(window.location.search);
+  // var editId = urlParams.get('id');
   var url, method;
+  _method = 'POST';
 
   console.log('edit state', editId_state);
   console.log('edit id', EditIdmain_);
   console.log('sumansahu');
-  if (editId_state) {
+  if (EditIdmain_!='' && EditIdmain_ !="null") {
     // Update mode
     console.log('abcdefg',editId_state);
-    method = 'PUT';
+    _method = 'PUT';
     url = apiBaseURL + 'customer_enquiries/' + EditIdmain_;
+    console.log(url);
+   method= 'POST';
     console.log(url);
   } else {
     // Add mode
@@ -394,7 +362,8 @@ function store(event) {
   for (var x = 0; x < image.length; x++) {
     data.append("images[]", image[x]);
   }
-
+   data.append('id', EditIdmain_);  
+   data.append('_method', _method); 
   data.append('form_type', form_type);
   data.append('enquiry_type_id', enquiry_type_id);
   data.append('product_type_id', product_type_id);
@@ -441,106 +410,6 @@ function store(event) {
 }
 
 
-// store
-// function store(event) {
-//   event.preventDefault();
-
-//   console.log('jfhfhw');
-//   var form_type = $('#form_type').val();
-//   var enquiry_type_id = $('#enquiry_type_id').val();
-//   var product_type_id = $('#product_type_id').val();
-//   var brand = $('#brand').val();
-//   var model = $('#model').val();
-//   var CROPS_TYPE = $('#CROPS_TYPE').val();
-//   var POWER_SOURCE = $('#POWER_SOURCE').val();
-//   var hours = $('#hours').val();
-//   var year = $('#year').val();
-//   var price = $('#price').val();
-//   var image = document.getElementById('image').files;
-//   var about = $('#about').val();
-//   var name = $('#name').val();
-//   var lname =$('#lname').val();
-//   var Mobile = $('#Mobile').val();
-//   var state = $('#state').val();
-//   var district = $('#district').val();
-//   var tehsil = $('#tehsil').val();
-//   var apiBaseURL = APIBaseURL;
-
-//   var token = localStorage.getItem('token');
-//   var headers = {
-//       'Authorization': 'Bearer ' + token
-//   };
-
-//   var urlParams = new URLSearchParams(window.location.search);
-//   var editId = urlParams.get('id');
-//   var _method = 'post';
-//   var url, method;
-
-//   console.log('edit state', editId_state);
-//   console.log('edit id', EditIdmain_);
-//   if (editId_state) {
-//       // Update mode
-//       console.log(editId_state);
-//       method = 'put';
-//       url = apiBaseURL + 'customer_enquiries/' + EditIdmain_;
-//       console.log(url);
-//       method = 'PUT'; // Change this to 'PUT' for update mode
-//   } else {
-//       // Add mode
-//       url = apiBaseURL + 'customer_enquiries';
-//       method = 'POST';
-//   }
-
-//   var data = new FormData();
-//   for (var x = 0; x < image.length; x++) {
-//       data.append("images[]", image[x]);
-//   }
-
-//   data.append('form_type', form_type);
-//   data.append('enquiry_type_id', enquiry_type_id);
-//   data.append('product_type_id', product_type_id);
-//   data.append('brand_id', brand);
-//   data.append('model', model);
-//   data.append('crops_type_id', CROPS_TYPE);
-//   console.log(CROPS_TYPE);
-//   data.append('power_source_id', POWER_SOURCE);
-//   console.log("power_osurce", POWER_SOURCE);
-//   data.append('hours_driven', hours);
-//   data.append('purchase_year', year);
-//   data.append('price', price);
-//   data.append('description', about);
-//   data.append('first_name', name);
-//   data.append('last_name', lname);
-//   data.append('mobile', Mobile);
-//   data.append('state', state);
-//   data.append('district', district);
-//   data.append('tehsil', tehsil);
-
-//   $.ajax({
-//       url: url,
-//       type: method,
-//       data: data,
-//       headers: headers,
-//       processData: false,
-//       contentType: false,
-//       success: function (result) {
-//         console.log(result, "result");
-    
-//         if (editId_state) {
-//             // Update mode
-//             console.log("updated successfully");
-//             alert('Successfully updated!');
-//         } else {
-//             // Add mode
-//             console.log("added successfully");
-//             alert('Successfully added!');
-//         }
-//       },
-//       error: function (error) {
-//           console.error('Error:', error);
-//       }
-//   });
-// }
 
 
 // edit data 
@@ -561,7 +430,8 @@ function fetch_edit_data(id) {
     headers: headers,
     success: function(response) {
       var userData = response.product[0];
-      $('#userId').val(userData.id);
+      // $('#userId').val(userData.id);
+      $('#EditIdmain_').val(userData.id);
        $('#product_type_id').val(userData.id);
       // $('#brand').val(userData.brand_name);
       $("#brand option").prop("selected", false);
