@@ -287,6 +287,7 @@ function store(event) {
       headers: headers,
       success: function(response) {
         var editData = response.product.allProductData[0];
+        var tractorTypeNames = response.product.accessory_and_tractor_type[0].tractor_type_name;
         console.log("all data", editData);
 
         // $('#brand').val(editData.brand_name);
@@ -311,7 +312,12 @@ function store(event) {
         $('#type_name').val(editData.tractor_type_id).attr('select', true);
         console.log(editData.tractor_type_id,"tractors value");
         $('#_image').val(editData.image_type_id);
+      // Split the string into an array using the comma as a delimiter
+        var tractorTypeArray = tractorTypeNames.split(',');
 
+        tractorTypeArray.forEach(function (typeId) {
+            $('#type_name input[value="' + typeId.trim() + '"]').prop('checked', true);;
+        });
         $('#CAPACITY_CC').val(editData.engine_capacity_cc);
         // $("#CAPACITY_CC option").prop("selected", false);
         // $("#CAPACITY_CC option[value='" + editData.engine_capacity_cc + "']").prop("selected", true);

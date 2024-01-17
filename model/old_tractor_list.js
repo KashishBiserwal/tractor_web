@@ -4,7 +4,17 @@ $(document).ready(function() {
   ImgUpload();
   $('#old_btn').click(store);
   $('#search').click(search_data);
-   
+  $("#Reset").click(function () {
+
+    $("#brand_name").val("");
+    $("#model_name").val("");
+    $("#state_name").val("");
+    $("#district_name").val("");
+    
+    
+    get_tractor_list();
+    
+    });
     jQuery.validator.addMethod("customPhoneNumber", function(value, element) {
       return /^[6-9]\d{9}$/.test(value); 
     }, "Phone number must start with 6 or above");
@@ -130,69 +140,87 @@ $(document).ready(function() {
 
 // get brand
 function get() {
-    // var url = "<?php echo $APIBaseURL; ?>getBrands";
-    var apiBaseURL =APIBaseURL;
-    // Now you can use the retrieved value in your JavaScript logic
-    var url = apiBaseURL + 'getBrands';
-    $.ajax({
-        url: url,
-        type: "GET",
-        headers: {
-            'Authorization': 'Bearer ' + localStorage.getItem('token')
-        },
-        success: function (data) {
-            console.log(data);
-            const select = document.getElementById('brand');
-            select.innerHTML = '';
+  var apiBaseURL = APIBaseURL;
+  var url = apiBaseURL + 'getBrands';
 
-            if (data.brands.length > 0) {
-                data.brands.forEach(row => {
-                    const option = document.createElement('option');
-                    option.value = row.id; // You might want to set a value for each option
-                    option.textContent = row.brand_name;
-                    select.appendChild(option);
-                });
-            } else {
-                select.innerHTML ='<option>No valid data available</option>';
-            }
-        },
-        error: function (error) {
-            console.error('Error fetching data:', error);
+  $.ajax({
+    url: url,
+    type: "GET",
+    headers: {
+      'Authorization': 'Bearer ' + localStorage.getItem('token')
+    },
+    success: function (data) {
+      console.log(data);
+
+      const select = $('#brand');
+      select.empty(); // Clear existing options
+
+      // Add a default option
+      select.append('<option selected disabled value="">Please select Brand</option>');
+
+      // Use an object to keep track of unique brands
+      var uniqueBrands = {};
+
+      $.each(data.brands, function (index, brand) {
+        var brand_id = brand.id;
+        var brand_name = brand.brand_name;
+
+        // Check if the brand ID is not already in the object
+        if (!uniqueBrands[brand_id]) {
+          // Add brand ID to the object
+          uniqueBrands[brand_id] = true;
+
+          // Append the option to the dropdown
+          select.append('<option value="' + brand_id + '">' + brand_name + '</option>');
         }
-    });
+      });
+    },
+    error: function (error) {
+      console.error('Error fetching data:', error);
+    }
+  });
 }
 get();
 
 function get_search_brand() {
-  // var url = "<?php echo $APIBaseURL; ?>getBrands";
-  var apiBaseURL =APIBaseURL;
-  // Now you can use the retrieved value in your JavaScript logic
+  var apiBaseURL = APIBaseURL;
   var url = apiBaseURL + 'getBrands';
-  $.ajax({
-      url: url,
-      type: "GET",
-      headers: {
-          'Authorization': 'Bearer ' + localStorage.getItem('token')
-      },
-      success: function (data) {
-          console.log(data);
-          const select = document.getElementById('brand_name');
-          select.innerHTML = '';
 
-          if (data.brands.length > 0) {
-              data.brands.forEach(row => {
-                  const option = document.createElement('option');
-                  option.value = row.id; // You might want to set a value for each option
-                  option.textContent = row.brand_name;
-                  select.appendChild(option);
-              });
-          } else {
-              select.innerHTML ='<option>No valid data available</option>';
-          }
-      },
-      error: function (error) {
-          console.error('Error fetching data:', error);
-      }
+  $.ajax({
+    url: url,
+    type: "GET",
+    headers: {
+      'Authorization': 'Bearer ' + localStorage.getItem('token')
+    },
+    success: function (data) {
+      console.log(data);
+
+      const select = $('#brand_name');
+      select.empty(); // Clear existing options
+
+      // Add a default option
+      select.append('<option selected disabled value="">Please select Brand</option>');
+
+      // Use an object to keep track of unique brands
+      var uniqueBrands = {};
+
+      $.each(data.brands, function (index, brand) {
+        var brand_id = brand.id;
+        var brand_name = brand.brand_name;
+
+        // Check if the brand ID is not already in the object
+        if (!uniqueBrands[brand_id]) {
+          // Add brand ID to the object
+          uniqueBrands[brand_id] = true;
+
+          // Append the option to the dropdown
+          select.append('<option value="' + brand_id + '">' + brand_name + '</option>');
+        }
+      });
+    },
+    error: function (error) {
+      console.error('Error fetching data:', error);
+    }
   });
 }
 get_search_brand();
@@ -430,7 +458,7 @@ function store(event) {
                         { title: 'Action', orderable: false }
                     ],
                     paging: true,
-                    searching: true,
+                    searching: false,
                     // ... other options ...
                 });
             } else {
@@ -449,7 +477,7 @@ get_tractor_list();
 function search_data() {
   console.log("dfghsfg,sdfgdfg");
   var selectedBrand = $('#brand_name').val();
-  var brand_id = $('#brand_id').val();
+ // var brand_id = $('#brand_id').val();
   var model = $('#model_name').val();
   var district = $('#district_name').val();
   var state = $('#state_name').val();
@@ -457,7 +485,7 @@ function search_data() {
   console.log('model name',model);
   var paraArr = {
     'brand_id': selectedBrand,
-    'id':brand_id,
+   // 'id':brand_id,
     'model':model,
     'state':state,
     'district':district,
@@ -490,13 +518,16 @@ function updateTable(data) {
   if(data.oldTractor && data.oldTractor.length > 0) {
       let tableData = []; 
       data.oldTractor.forEach(row => {
-          let action = `<div class="float-start">
+          let action = `<div class="d-flex">
           <button class="btn btn-warning btn-sm text-white mx-1" data-bs-toggle="modal" onclick="fetch_data(${row.product_id});" data-bs-target="#exampleModal">
-        <a href="tractor_form_list.php?trac_edit=${row.product_id}" onclick="fetch_edit_data(${row.product_id})" class="btn btn-primary btn-sm edit_btn" ><i class="fas fa-edit" style="font-size: 11px;"></i></a>
-          <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.product_id})">
-          <i class="fa fa-trash" style="font-size: 11px;"></i>
-          </button> 
-          </div>`;
+          <i class="fa-solid fa-eye" style="font-size: 11px;"></i></button>
+          <button class="btn btn-primary btn-sm btn_edit" onclick="fetch_edit_data(${row.product_id});" data-bs-toggle="modal" data-bs-target="#staticBackdrop" id="yourUniqueIdHere" style="padding:5px">
+            <i class="fas fa-edit" style="font-size: 11px;"></i>
+          </button>
+          <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.product_id});" style="padding:5px">
+            <i class="fa fa-trash" style="font-size: 11px;"></i>
+          </button>
+      </div>`;
 
           tableData.push([
             serialNumber,
@@ -524,7 +555,7 @@ function updateTable(data) {
             { title: 'Action', orderable: false }
         ],
         paging: true,
-        searching: true,
+        searching: false,
         // ... other options ...
     });
   } else {
