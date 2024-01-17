@@ -318,76 +318,52 @@ function store(event) {
 
         $('#engine_rated_rpm').val(editData.engine_rated_rpm);
 
-        // $('#COOLING').val(editData.cooling_id);
         $("#COOLING option").prop("selected", false);
         $("#COOLING option[value='" + editData.cooling_id + "']").prop("selected", true);
 
-        // $('#AIR_FILTER').val(editData.air_filter);
         $("#AIR_FILTER option").prop("selected", false);
         $("#AIR_FILTER option[value='" + editData.air_filter + "']").prop("selected", true);
 
-        // $('#FUEL_PUMP').val(editData.fuel_pump_id);
         $("#FUEL_PUMP option").prop("selected", false);
         $("#FUEL_PUMP option[value='" + editData.fuel_pump_id + "']").prop("selected", true);
 
         $('#TORQUE').val(editData.torque);
-        // $("#TORQUE option").prop("selected", false);
-        // $("#TORQUE option[value='" + editData.torque + "']").prop("selected", true);
-
-        // $('#TRANSMISSION_TYPE').val(editData.transmission_type_id);
         $("#TRANSMISSION_TYPE option").prop("selected", false);
         $("#TRANSMISSION_TYPE option[value='" + editData.transmission_type_id + "']").prop("selected", true);
 
-        // $('#TRANSMISSION_CLUTCH').val(editData.transmission_clutch_id);
         $("#TRANSMISSION_CLUTCH option").prop("selected", false);
         $("#TRANSMISSION_CLUTCH option[value='" + editData.transmission_clutch_id + "']").prop("selected", true);
 
         $('#min_forward_speed').val(editData.transmission_forward);
-        // $('#max_forward_speed').val(editData.transmission_forward);
         $('#min_reverse_speed').val(editData.transmission_reverse);
-        // $('#max_reverse_speed').val(editData.max_reverse_speed);
-
-        // $('#STEERING_DETAIL').val(editData.steering_details_id);
         $("#STEERING_DETAIL option").prop("selected", false);
         $("#STEERING_DETAIL option[value='" + editData.steering_details_id + "']").prop("selected", true);
 
-        // $('#STEERING_COLUMN').val(editData.steering_column_id);
         $("#STEERING_COLUMN option").prop("selected", false);
         $("#STEERING_COLUMN option[value='" + editData.steering_column_id + "']").prop("selected", true);
 
         $('#POWER_TAKEOFF_TYPE').val(editData.power_take_off_type);
-        // $("#POWER_TAKEOFF_TYPE option").prop("selected", false);
-        // $("#POWER_TAKEOFF_TYPE option[value='" + editData.power_take_off_type_id + "']").prop("selected", true);
 
 
         $('#power_take_off_rpm').val(editData.power_take_off_rpm);
         $('#totat_weight').val(editData.total_weight);
 
         $('#WHEEL_BASE').val(editData.wheel_base);
-        // $("#WHEEL_BASE option").prop("selected", false);
-        // $("#WHEEL_BASE option[value='" + editData.wheel_base + "']").prop("selected", true);
 
         $('#LIFTING_CAPACITY').val(editData.lifting_capacity);
-        // $("#LIFTING_CAPACITY option").prop("selected", false);
-        // $("#LIFTING_CAPACITY option[value='" + editData.lifting_capacity + "']").prop("selected", true);
 
-        // $('#LINKAGE_POINT').val(editData.linkage_point_id);
         $("#LINKAGE_POINT option").prop("selected", false);
         $("#LINKAGE_POINT option[value='" + editData.linkage_point_id + "']").prop("selected", true);
 
-        // $('#WHEEL_DRIVE').val(editData.wheel_drive_id);
         $("#WHEEL_DRIVE option").prop("selected", false);
         $("#WHEEL_DRIVE option[value='" + editData.wheel_drive_id + "']").prop("selected", true);
 
         $('#front_tyre').val(editData.front_tyre);
         $('#rear_tyre').val(editData.rear_tyre);
 
-        // $('#ass_list').val(editData.accessory_id);
         $("#ass_list option").prop("selected", false);
         $("#ass_list option[value='" + editData.accessory_id + "']").prop("selected", true);
 
-
-        // $('#STATUS').val(editData.status_id);
         $("#STATUS option").prop("selected", false);
         $("#STATUS option[value='" + editData.status_id + "']").prop("selected", true);
 
@@ -424,7 +400,8 @@ function store(event) {
       }
     });
   }
-    function get() {
+    
+  function get() {
         // var url = "<?php echo $APIBaseURL; ?>getBrands";
         var apiBaseURL =APIBaseURL;
         var url = apiBaseURL + 'getBrands';

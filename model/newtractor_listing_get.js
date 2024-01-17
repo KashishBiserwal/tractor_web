@@ -24,40 +24,7 @@ const seconds = pad(originalDateTime.getSeconds());
 
 return `${day}-${month}-${year} / ${hours}:${minutes}:${seconds}`;
 }
-
-
-// function displayData(data) {
-// const tableBody = document.getElementById('data-table');
-// tableBody.innerHTML = '';
-
-// if (data.length > 0) {
-//   data.forEach(row => {
-//     const tableRow = document.createElement('tr');
-//     tableRow.innerHTML = `
-//       <td>${row.product_id}</td>
-//       <td>${formatDateTime(row.date)}</td>
-//       <td>${row.brand_name}</td>
-//       <td>${row.model}</td>
-//       <td>${row.wheel_drive_value}</td>
-//       <td>${row.hp_category}</td>
-//       <td>${row.ending_price}</td>
-//       <td>
-//         <div class="d-flex">
-//           <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.id});">
-//             <i class="fa fa-trash" style="font-size: 11px;"></i>
-//           </button> 
-//         </div>
-//       </td>
-//     `;
-//     tableBody.appendChild(tableRow);
-//   });
-// } else {
-//   tableBody.innerHTML = '<tr><td colspan="9">No matching data available</td></tr>';
-// }
-// }
 var originalData = [];
-
-
 
 function getTractorList() {
 console.log('kjhskdjf');

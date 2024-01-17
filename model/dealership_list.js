@@ -139,8 +139,8 @@ $(document).ready(function () {
 
 
   function removeImage(ele){
-    console.log("print ele");
-      console.log(ele);
+    // console.log("print ele");
+    //   console.log(ele);
       let thisId=ele.id;
       thisId=thisId.split('closeId');
       thisId=thisId[1];
