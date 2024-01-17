@@ -16,12 +16,11 @@ $(document).ready(function() {
                 required:true,
                 minlength: 10,
                 maxlength:10,
-                 digits: true,// Allow only digits
+                 digits: true,
                 customPhoneNumber: true
               },
               state: "required",
               district: "required",
-              // tehsil:"required",
               brand:"required",
               model:"required",
               purchase_year:"required",
@@ -242,14 +241,17 @@ get_year_and_hours();
 function store(event) {
   console.log('run store function');
      event.preventDefault();
-    
+    var enquiry_type_id = 1;
+    var image_type_id = 1;
+    var tractor_type_id=1;
+    var form_type ='FOR_SELL_TRACTOR';
      var image_names = document.getElementById('_image').files;
      console.log('imgds',image_names);
-     var form_type = $('#form_type').val();
+    //  var form_type = $('#form_type').val();
      var product_type_id = $('#product_type_id').val();
-     var image_type_id = $('#image_type_id').val();
-     var enquiry_type_id = $('#enquiry_type_id').val();
-     var tractor_type_id = $('#tractor_type_id').val();
+    //  var image_type_id = $('#image_type_id').val();
+    //  var enquiry_type_id = $('#enquiry_type_id').val();
+    //  var tractor_type_id = $('#tractor_type_id').val();
      console.log('tractor_type_id',tractor_type_id);
      var first_name = $('#first_name').val();
      console.log(first_name);

@@ -466,7 +466,9 @@ function fetch_data(id) {
         document.getElementById('model2').innerText = data.engine_oil_details[0].oil_model;
         document.getElementById('quantity').innerText = data.engine_oil_details[0].quantity;
         document.getElementById('grade').innerText = data.engine_oil_details[0].grade;
-        document.getElementById('price').innerText = data.engine_oil_details[0].price;
+        console.log(data.engine_oil_details[0].grade);
+        document.getElementById('price_1').innerText = data.engine_oil_details[0].price;
+        console.log(data.engine_oil_details[0].price);
         var compatibleModel = data.engine_oil_details[0].compatible_model;
         document.getElementById('compatible').innerText = Array.isArray(compatibleModel) ? compatibleModel.join(', ') : compatibleModel || 'N/A';
         document.getElementById('descrption').innerText = data.engine_oil_details[0].description;
@@ -771,13 +773,14 @@ function updateTable(data) {
       data.engineOilData.forEach(row => {
           let action = `<div class="d-flex">
           <button class="btn btn-warning btn-sm text-white mx-1" data-bs-toggle="modal" onclick="fetch_data(${row.id});" data-bs-target="#exampleModal" style="padding:5px">
-        <i class="fa-solid fa-eye" style="font-size: 11px;"></i></button>
-              <button class="btn btn-primary btn-sm btn_edit" onclick="fetch_edit_data(${row.id});" data-bs-toggle="modal" data-bs-target="#staticBackdrop_1" id="yourUniqueIdHere" style="padding:5px">
-                  <i class="fas fa-edit" style="font-size: 11px;"></i>
-              </button>
-              <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.id});" style="padding:5px">
-                  <i class="fa fa-trash" style="font-size: 11px;"></i>
-              </button>
+            <i class="fa-solid fa-eye" style="font-size: 11px;"></i>
+          </button>
+          <button class="btn btn-primary btn-sm btn_edit" onclick="fetch_edit_data(${row.id});" data-bs-toggle="modal" data-bs-target="#staticBackdrop_1" id="yourUniqueIdHere" style="padding:5px">
+            <i class="fas fa-edit" style="font-size: 11px;"></i>
+          </button>
+          <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.id});" style="padding:5px">
+            <i class="fa fa-trash" style="font-size: 11px;"></i>
+          </button>
           </div>`;
 
           tableData.push([

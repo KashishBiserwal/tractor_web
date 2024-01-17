@@ -723,7 +723,7 @@ include 'includes/footertag.php';
                                                     </div>
                                                     <div class="col-12 col-sm-6 col-lg-6 col-md-6 mt-3">
                                                         <div class="form-outline">
-                                                            <label class="form-label">Coloumn</label>
+                                                            <label class="form-label">Column</label>
                                                             <select class="form-select py-2" id="STEERING_COLUMN" name="STEERING_COLUMN" aria-label="Default select example" required>
                                                                 <option selected disabled="" value="">Please select an option</option>
                                                             </select>

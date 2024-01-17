@@ -190,45 +190,88 @@ jQuery(document).ready(function () {
     });
   }
 
-
-  function get(selectId) {
-    var apiBaseURL =APIBaseURL;
-    var url = apiBaseURL + 'getBrands';
-    $.ajax({
-        url: url,
-        type: "GET",
-        headers: {
-            'Authorization': 'Bearer ' + localStorage.getItem('token')
-        },
-        success: function (data) {
-            console.log(data);
-            const select = document.getElementById(selectId);
-          
-            select.innerHTML = '<option selected disabled value="">Please select an option</option>';
+  function removeImage(ele){
+    console.log("print ele");
+      console.log(ele);
+      let thisId=ele.id;
+      thisId=thisId.split('closeId');
+      thisId=thisId[1];
+      $("#"+ele.id).remove();
+      $(".upload__img-closeDy"+thisId).remove();
   
-            if (data.brands.length > 0) {
-                data.brands.forEach(row => {
-                    const option = document.createElement('option');
-                    option.textContent = row.brand_name;
-                    option.value = row.id;
-                    select.appendChild(option);
-                });
-            } else {
-                select.innerHTML ='<option>No valid data available</option>';
-            }
-      
-        },
-        error: function (error) {
-            console.error('Error fetching data:', error);
-            var msg = error;
-            $("#errorStatusLoading").modal('show');
-            $("#errorStatusLoading").find('.modal-title').html('Error');
-            $("#errorStatusLoading").find('.modal-body').html(msg);
+    }
+// get brand
+function get() {
+  var apiBaseURL = APIBaseURL;
+  var url = apiBaseURL + 'getBrands';
+  $.ajax({
+    url: url,
+    type: "GET",
+    headers: {
+        'Authorization': 'Bearer ' + localStorage.getItem('token')
+    },
+    success: function (data) {
+        console.log(data);
+        const select = document.getElementById('brand');
+        select.innerHTML = '';
+        select.innerHTML = '<option selected disabled value="">Please select an option</option>';
+        if (data.brands.length > 0) {
+            data.brands.forEach(row => {
+  
+                const option = document.createElement('option');
+                option.value = row.id; // You might want to set a value for each option
+                option.textContent = row.brand_name;
+                select.appendChild(option);
+            });
+        } else {
+            select.innerHTML ='<option>No valid data available</option>';
         }
-    });
+    },
+    error: function (error) {
+        console.error('Error fetching data:', error);
+    }
+  });
   }
+  get();
+
+//   function get(selectId) {
+//     var apiBaseURL =APIBaseURL;
+//     var url = apiBaseURL + 'getBrands';
+//     $.ajax({
+//         url: url,
+//         type: "GET",
+//         headers: {
+//             'Authorization': 'Bearer ' + localStorage.getItem('token')
+//         },
+//         success: function (data) {
+//             console.log(data);
+//             const select = document.getElementById(selectId);
+          
+//             select.innerHTML = '<option selected disabled value="">Please select an option</option>';
   
-get();
+//             if (data.brands.length > 0) {
+//                 data.brands.forEach(row => {
+//                     const option = document.createElement('option');
+//                     option.textContent = row.brand_name;
+//                     option.value = row.id;
+//                     select.appendChild(option);
+//                 });
+//             } else {
+//                 select.innerHTML ='<option>No valid data available</option>';
+//             }
+      
+//         },
+//         error: function (error) {
+//             console.error('Error fetching data:', error);
+//             var msg = error;
+//             $("#errorStatusLoading").modal('show');
+//             $("#errorStatusLoading").find('.modal-title').html('Error');
+//             $("#errorStatusLoading").find('.modal-body').html(msg);
+//         }
+//     });
+//   }
+  
+// get();
 
   function get_year_and_hours() {
     console.log('initsfd')
@@ -337,7 +380,7 @@ function store(event) {
   console.log('sumansahu');
   if (editId_state) {
     // Update mode
-    console.log('suman',editId_state);
+    console.log('abcdefg',editId_state);
     method = 'PUT';
     url = apiBaseURL + 'customer_enquiries/' + EditIdmain_;
     console.log(url);
@@ -359,7 +402,7 @@ function store(event) {
   data.append('model', model);
   data.append('crops_type_id', CROPS_TYPE);
   data.append('power_source_id', POWER_SOURCE);
-  console.log("power_osurce", POWER_SOURCE);
+  // console.log("power_osurce", POWER_SOURCE);
   data.append('hours_driven', hours);
   data.append('purchase_year', year);
   data.append('price', price);
@@ -506,7 +549,7 @@ function fetch_edit_data(id) {
   var apiBaseURL = APIBaseURL;
   var id = id;
   var url = apiBaseURL + 'get_old_harvester_by_id/' + id;
-
+  editId_state= true;
 
   var headers = {
     'Authorization': 'Bearer ' + localStorage.getItem('token')
@@ -669,41 +712,6 @@ function fetch_edit_data(id) {
     });
 }
 
-// Seach data
-// function myFunction() {
-//   var input, filter, table, tr, td, i, j, txtValue;
-//   input = document.getElementById("namesearch");
-//   filter = input.value.toUpperCase();
-//   table = document.getElementById("example");
-//   tr = table.getElementsByTagName("tr");
-
-//   for (i = 0; i < tr.length; i++) {
-//     // Loop through all td elements in the current row
-//     td = tr[i].getElementsByTagName("td");
-//     for (j = 0; j < td.length; j++) {
-//       txtValue = td[j].textContent || td[j].innerText;
-//       if (txtValue.toUpperCase().indexOf(filter) > -1) {
-//         tr[i].style.display = "";
-//         break; // Break the inner loop if a match is found in any td
-//       } else {
-//         tr[i].style.display = "none";
-//       }
-//     }
-//   }
-// }
-// function resetForm() {
-//         document.getElementById("myform").reset();
-
-//         // Show all rows in the table
-//         var table = document.getElementById("example");
-//         var rows = table.getElementsByTagName("tr");
-
-//         for (var i = 0; i < rows.length; i++) {
-//             rows[i].style.display = "";
-//         }
-//     }
-
-
 // delete data
 function destroy(id) {
   console.log(id);
@@ -805,6 +813,8 @@ function destroy(id) {
         }
     });
   } 
+
+  // search data 
   function searchdata(){
     var brand_name = $('#brand2').val();
     var model_name = $('#model_name').val();
