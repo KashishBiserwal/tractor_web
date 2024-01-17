@@ -41,13 +41,19 @@ include 'includes/footertag.php';
                         <div class="row justify-content-center">
                             <div class="col-lg-10">
                               <h4 class="text-center" style="font-weight:600">Fill your Details</h4>
-                            <form>
+                            <form id="harvester_form">
                             <div class="col-12 col-lg-6 col-md-6 col-sm-6 mt-3" hidden>
                                   <div class="form-outline ">
                                     <label for="name" class="form-label text-dark">Product id</label>
                                     <input type="text" class="form-control" placeholder="Enter Your Model Name" value="4" id="product_type_id" name="product_type_id">
                                   </div>
                                </div>
+                               <div class="col-12 col-sm-4 col-lg-4 col-md-4 mt-3" hidden>
+                                      <div class="form-outline">
+                                        <label class="form-label">id</label>
+                                        <input type="text" name="id" id="id" class="form-control">
+                                      </div>
+                                    </div>
                                 <div class="row justify-content-center py-3">
                                   <h5 class="fw-bold mb-3">Specification</h5>
                                     <div class="col-12 col-sm-6 col-lg-6 col-md-6 mt-3">
@@ -84,12 +90,7 @@ include 'includes/footertag.php';
                                         </select>
                                       </div>
                                     </div>
-                                    <div class="col-12 col-sm-4 col-lg-4 col-md-4 mt-3">
-                                      <div class="form-outline">
-                                        <label class="form-label">Engine</label>
-                                        <input type="email" name="engine" id="engine" class="form-control">
-                                      </div>
-                                    </div>
+                                    
                                     <div class="col-12 col-sm-4 col-lg-4 col-md-4 mt-3">
                                       <div class="form-outline">
                                         <label class="form-label">Cylinder</label>
@@ -272,17 +273,17 @@ include 'includes/footertag.php';
                                         <input type="email" name="tyre_sizerear" id="tyre_sizerear" class="form-control">
                                       </div>
                                     </div>
-                                    <h5 class="fw-bold my-3">Fuel & Capacity</h5>
+                                    <!-- <h5 class="fw-bold my-3">Fuel & Capacity</h5>
                                     <div class="col-12 col-sm-6 col-lg-6 col-md-6 mt-3">
                                       <div class="form-outline">
                                         <label class="form-label">Fuel Tank Capacity(L)</label>
                                         <input type="email" name="fuel_capacity" id="fuel_capacity" class="form-control">
                                       </div>
-                                    </div>
+                                    </div> -->
                                     <div class="col-12  col-sm-6 col-lg-6 col-md-6 mt-3">
                                       <div class="form-outline">
                                         <label class="form-label">Total weight Without Grain(kg)</label>
-                                        <input type="email" name="weight_drain" id="weight_drain" class="form-control">
+                                        <input type="email" name="total_weight_without_grains" id="total_weight_without_grains" class="form-control">
                                       </div>
                                     </div>
                                     <h5 class="fw-bold my-3">Dimensions & Clearance</h5>
@@ -356,30 +357,28 @@ include 'includes/footertag.php';
             <div class="col-12 col-sm-12 col-md-3 col-lg-3">
               <div class="form-outline">
                 <label class="form-label">Brand</label>
-                <select class="form-select form-control" aria-label="Default select example">
-                    <option selected>Select Category</option>
-                    <option value="1">Mahindra</option>
-                    <option value="2">Swaraj</option>
-                    <option value="3">John Deere</option>
+                <select class="form-select form-control" id="brand_name1" aria-label="Default select example">
+                   
                 </select>
               </div>
+            </div>
+            <div class="col-12 col-sm-12 col-md-3 col-lg-3" hidden>
+            <label class="form-label">Search By id</label>
+                      <select class="js-select2 form-select form-control mb-0" id="brand_id">
+                      </select>
+                
             </div>
             <div class="col-12 col-sm-12 col-md-3 col-lg-3">
               <div class="form-outline">
                 <label class="form-label">Model Name</label>
-                <select class="form-select form-control" aria-label="Default select example">
-                    <option selected>Select Name</option>
-                    <option value="1">name1</option>
-                    <option value="2">name2</option>
-                    <option value="3">name3</option>
-                </select>
+               <input type="text" id="model" class="form-control">
               </div>
             </div>
           
             <div class="col-12 col-sm-12 col-md-3 col-lg-3">
                 <div class="text-center">
                     <button type="button" class="btn-success btn btn_all" id="Search">Search</button>
-                    <button type="button" class="btn-success btn btn_all" id="Reset">Reset</button>
+                    <button type="button" class="btn-success btn btn_all" id="Reset" onclick="resetform()">Reset</button>
                 </div>
             </div>
            
@@ -534,7 +533,7 @@ include 'includes/footertag.php';
                           <td colspan="4" class="fw-bold text-center py-3">Fuel & Capacity</td>
                           <tr>
                             <td class="bg-light">Fuel Tank Capacity(L)</td>
-                            <td id="fuel_capacity" class="bg-light"></td>
+                            <td id="fuel_capacity1" class="bg-light"></td>
                             <td>Total weight Without Grain(kg)</td>
                             <td id="weight_grain"></td>
                           </tr>
