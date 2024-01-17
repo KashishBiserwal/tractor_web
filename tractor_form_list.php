@@ -449,23 +449,56 @@ include 'includes/footertag.php';
             margin-right: 250px;
         }
         }
+        .step1 ul,.step2 ul,.step3 ul,.step4 ul,.step5 ul{
+            margin-bottom: 0;
+    padding: 15px 10px;
+    font-size: 15px;
+    font-weight: 600;
+        }
         .step11{
             width: 5px;
-    background: #dcdcdc;
-    height: 100px;
-    margin: 0 auto;
-    position: relative;
+            background: #dcdcdc;
+            height: 100px;
+            margin: 0 auto;
+            position: relative;
         }
-        .step11::before{
+        .step12{
+            width: 5px;
+            background: #dcdcdc;
+            height: 75px;
+            margin: 0 auto;
+            position: relative;
+        }
+        .step13{
+            width: 5px;
+            background: #dcdcdc;
+            height: 120px;
+            margin: 0 auto;
+            position: relative;
+        }
+        .step14{
+            width: 5px;
+            background: #dcdcdc;
+            height: 100px;
+            margin: 0 auto;
+            position: relative;
+        }
+        .step15{
+            width: 5px;
+            background: #dcdcdc;
+            height: 100px;
+            margin: 0 auto;
+            position: relative;
+        }
+        .step11::before,.step12::before,.step13::before,.step14::before,.step15::before{
             content: '';
-    position: absolute;
-    width: 15px;
-    height: 15px;
-    background-color: #dcdcdc;
-    border-radius: 50%;
-    left: -5px;
-    top: -5px;
-
+            position: absolute;
+            width: 15px;
+            height: 15px;
+            background-color: #dcdcdc;
+            border-radius: 50%;
+            left: -5px;
+            top: -5px;
         }
 </style>
 
@@ -476,14 +509,9 @@ include 'includes/footertag.php';
       include 'includes/left_nav.php';
       include 'includes/header_admin.php';
       ?>
-      <section style="padding: 0 15px;">
-        <div class="container" style="position: relative;">
-            <div class="row justify-content-center">
-                <div class="col-12">
-                    <div class="row">
-                        <div id="multi_step_form">
-                            <div class="container">
-                                <div id="wrapper">
+       <section style="padding: 0 15px 0 60px;">
+       
+                                <div id="wrapper" class="mt-4">
                                   <div class="row">
                                     <div class="col-9">
                                     <section id="content-wrapper" class="shadow p-5 bg-white">
@@ -611,8 +639,11 @@ include 'includes/footertag.php';
                                                             </div>
                                                     
                                                         </div>
+                                                        <div class="col-12 mt-3">
+                                                        <button type="button" class="nextStep text-center btn btn-success btn_all float-end" id="nextbtn1">Next</button>
+                                                        </div>
                                                     </div>
-                                                <button type="button" class="nextStep text-center" id="nextbtn1">Next</button>
+                                              
                                                 </form>
                                                 <form id="step2_form" class="step">
                                                     <!-- ... Step 2 content ... -->
@@ -840,10 +871,10 @@ include 'includes/footertag.php';
                                     </section>
                                     </div>
                                     <div class="col-3">
-                                    <aside id="sidebar-wrapper">
+                                    <aside id="sidebar-wrapper" class="shadow">
                                         <div class="sidebar-nav">
-                                            <h3 class="text-center ">Progress</h3>
-                                            <div id="multistep_nav" class="col-12 col-lg-12 col-md-12 col-sm-12">
+                                            <h4 class="text-center fw-bold pt-3" style="color: #4aa65a; text-transform: uppercase;">Progress</h4>
+                                            <div id="multistep_nav" class="col-12 col-lg-12 col-md-12 col-sm-12 mt-4">
                                                 <div class="step1">
                                                     <div class="d-flex">
                                                         <div class="col-2">
@@ -858,7 +889,61 @@ include 'includes/footertag.php';
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="progress_holder"disabled>
+                                                <div class="step2">
+                                                    <div class="d-flex">
+                                                        <div class="col-2">
+                                                            <div class="step12"> </div>
+                                                        </div>
+                                                        <div class="col-10">
+                                                            <ul>
+                                                                <li>Engine Details</li>
+                                                                <li>Transmission Details</li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="step3">
+                                                    <div class="d-flex">
+                                                        <div class="col-2">
+                                                            <div class="step13"> </div>
+                                                        </div>
+                                                        <div class="col-10">
+                                                            <ul>
+                                                                <li>Steering Details</li>
+                                                                <li>Power Take Off Details</li>
+                                                                <li>Dimensions</li>
+                                                                <li>Weight Details</li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="step4">
+                                                    <div class="d-flex">
+                                                        <div class="col-2">
+                                                            <div class="step14"> </div>
+                                                        </div>
+                                                        <div class="col-10">
+                                                            <ul>
+                                                                <li>Hydraulics Details</li>
+                                                                <li>Wheels Details</li>
+                                                                <li>Tyres Details</li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="step5">
+                                                    <div class="d-flex">
+                                                        <div class="col-2">
+                                                            <div class="step15"> </div>
+                                                        </div>
+                                                        <div class="col-10">
+                                                            <ul>
+                                                                <li>Other Information Details</li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                              <!--   <div class="progress_holder"disabled>
                                                     <p>1.Listing,Select Tractor Type,image</p>
                                                 </div>
                                                 <div class="progress_holder">
@@ -872,7 +957,7 @@ include 'includes/footertag.php';
                                                 </div>
                                                 <div class="progress_holder">
                                                     <p>5.Other Information Details</p>
-                                                </div>
+                                                </div> -->
                                             </div>
                                         </div>
                                     </aside>
@@ -883,12 +968,7 @@ include 'includes/footertag.php';
                                    
                                     <a href="tractor_listing.php" class=" mt-4  btn text-center btn-secondary backbtn">Back To Tractor details</a>
                                 </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+                            
     </section>
     </div>
   </div>
