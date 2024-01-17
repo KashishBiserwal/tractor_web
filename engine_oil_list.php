@@ -296,7 +296,7 @@
                           </tr>
                           <tr>
                             <td>Price-</td>
-                            <td id="price"></td>
+                            <td id="price_1"></td>
                             <td>Compatitble Tractors-</td>
                             <td id="compatible"></td>
                           </tr>

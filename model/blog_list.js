@@ -396,12 +396,13 @@ function destroy(id) {
         url: url,
         type: "GET",
         headers: headers,
-        success: function (data) {
-          console.log(data, 'abc');
-          document.getElementById('news_cate').innerText = data.blog_details[0].blog_category;
-          document.getElementById('headline_news').innerText = data.blog_details[0].heading;
-          document.getElementById('content_news').innerText = data.blog_details[0].content;
-          document.getElementById('publi').innerText = data.blog_details[0].publisher;
+        success: function (response) {
+          console.log(response, 'abc');
+          var userData = response.blog_details[0];
+          document.getElementById('news_cate').innerText = userData.blog_category;
+          document.getElementById('headline_news').innerText = userData.heading;
+          document.getElementById('content_news').innerText = userData.content;
+          document.getElementById('publi').innerText = userData.publisher;
       
           $("#selectedImagesContainer1").empty();
       
