@@ -234,10 +234,10 @@ $(document).ready(function(){
     var brand_name = $('#brand').val();
     var tyre_model = $('#tyre').val();
     var tyre_position = $('#tyre_position').val();
-    var tyre_size = $('#tyre_size').val();
+    var tyre_diameter = $('#tyre_diameter').val();
     var tyre_width = $('#tyre_width').val();
     var category = $('#category').val();
-  
+    var tyre_size = tyre_width + 'X' + tyre_diameter;
   
     var apiBaseURL = APIBaseURL;
     var url = apiBaseURL + 'tyre_data';

@@ -18,6 +18,9 @@
     color: red;
    
 }
+.brand_table thead th:last-child{
+  width: 100px !important;
+}
 </style>
 
 <body class="loaded"> 
@@ -144,14 +147,14 @@
       <!-- Table Card -->
       <div class=" mb-5 shadow bg-white mt-3 p-3">
             <div class="table-responsive">
-              <table id="example" class="table table-striped  table-hover table-bordered  no-footer" width="100%; margin-bottom: 15px;">
+              <table id="example" class="table table-striped brand_table  table-hover table-bordered  no-footer" width="100%; margin-bottom: 15px;">
                 <thead class="">
                   <tr>
                     <th class="d-none d-md-table-cell text-white py-2">S.No.</th>
                     <th class="d-none d-md-table-cell text-white py-2">Brand Name</th>
                     <th class="d-none d-md-table-cell text-white py-2">Brand Image</th>
                     <th class="d-none d-md-table-cell text-white py-2">Product Type</th>
-                    <th class="d-none d-md-table-cell text-white py-2">Action</th>
+                    <th class="d-none d-md-table-cell text-white py-2" style="width: 100px !important;">Action</th>
                   </tr>
                 </thead>
                 <tbody id="data-table">
@@ -450,7 +453,7 @@ function get() {
                         serialNumber,
                         row.brand_name,
                         row.brand_img,
-                        row.product_type_name,
+                        row.product_type_names,
                         action
                     ]);
 
