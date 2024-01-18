@@ -252,6 +252,8 @@ $(document).ready(function(){
     for (var x = 0; x < image_names.length; x++) {
         data.append('images[]', image_names[x]);
     }
+
+    
   
     data.append('brand_id', brand_name);
     data.append('tyre_model', tyre_model);
