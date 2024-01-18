@@ -181,11 +181,6 @@ $('#add_trac').on('click', function() {
   });
  
   
- 
-
-
-
-
 function engineOil_add() {
   var apiBaseURL = APIBaseURL;
   var url = apiBaseURL + 'engine_oil';
@@ -389,6 +384,7 @@ function store(event) {
       $('#brand, #model, #grade, #qualtity, #price, #textarea_, #_image, #ass_list').val('');
       // window.location.reload();
       $("#staticBackdrop").modal('hide');
+      engineOil_add();
       var msg = "Added successfully !"
         $("#errorStatusLoading").modal('show');
         $("#errorStatusLoading").find('.modal-title').html('Success');
@@ -429,6 +425,7 @@ function destroy(id) {
     },
     success: function(result) {
       // get_tractor_list();
+      engineOil_add();
       console.log("Delete request successful");
       var msg = "Deleted successfully !"
         $("#errorStatusLoading").modal('show');
@@ -469,7 +466,9 @@ function fetch_data(id) {
         document.getElementById('model2').innerText = data.engine_oil_details[0].oil_model;
         document.getElementById('quantity').innerText = data.engine_oil_details[0].quantity;
         document.getElementById('grade').innerText = data.engine_oil_details[0].grade;
-        document.getElementById('price').innerText = data.engine_oil_details[0].price;
+        console.log(data.engine_oil_details[0].grade);
+        document.getElementById('price_1').innerText = data.engine_oil_details[0].price;
+        console.log(data.engine_oil_details[0].price);
         var compatibleModel = data.engine_oil_details[0].compatible_model;
         document.getElementById('compatible').innerText = Array.isArray(compatibleModel) ? compatibleModel.join(', ') : compatibleModel || 'N/A';
         document.getElementById('descrption').innerText = data.engine_oil_details[0].description;
@@ -734,99 +733,90 @@ function edit_user(id){
        }
    })
  }
-function searchdata(){
-  var brand_name = $('#brand1').val();
-  var model_name = $('#model1').val();
-  
-  var apiBaseURL = APIBaseURL;
-  var url = apiBaseURL + 'search_for_engine_oil';
-  var token = localStorage.getItem('token');
-
-  var headers = {
-      'Authorization': 'Bearer ' + token
+ 
+ function search_data() {
+  var selectedBrand = $('#brand1').val();
+  var brand_id = $('#brand_id').val();
+  var model = $('#model').val();
+  var paraArr = {
+    'brand_name': selectedBrand,
+    'id':brand_id,
+    'model':model,
   };
 
-  var data = new FormData();
-  if(brand_name == null){
-    data.append('brand_id', '');
-  }else{
-    data.append('brand_id', brand_name);
-  }
- 
-  data.append('oil_model', model_name);
-
+  var apiBaseURL = APIBaseURL;
+  var url = apiBaseURL + 'search_for_engine_oil';
   $.ajax({
-    url: url,
-    type: "POST",
-    data: data,
-    headers: headers,
-    processData: false,
-    contentType: false,
-    success: function (data) {
-      console.log('Success:', data.engineOilData);
-      const tableBody = document.getElementById('data-table');
-      let serialNumber = 1;
-      let tableData = [];
-
-      if (data.engineOilData && data.engineOilData.length > 0) {
-          data.engineOilData.forEach(row => {
-             // const tableRow = document.createElement('tr');
-            let action = `   <div class="d-flex">
-            <button class="btn btn-warning btn-sm text-white mx-1" data-bs-toggle="modal" onclick="fetch_data(${row.id});" data-bs-target="#exampleModal" style="padding:5px">
-          <i class="fa-solid fa-eye" style="font-size: 11px;"></i></button>
-                <button class="btn btn-primary btn-sm btn_edit" onclick="fetch_edit_data(${row.id});" data-bs-toggle="modal" data-bs-target="#staticBackdrop_1" id="yourUniqueIdHere" style="padding:5px">
-                    <i class="fas fa-edit" style="font-size: 11px;"></i>
-                </button>
-                <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.id});" style="padding:5px">
-                    <i class="fa fa-trash" style="font-size: 11px;"></i>
-                </button>
-            </div>`;
-
-            // Push row data as an array into the tableData
-            tableData.push([
-              serialNumber,
-              row.brand_name,
-              row.oil_model,
-              row.quantity,
-              action
-          ]);
-
-          serialNumber++;
-      });
-
-      // Initialize DataTable after preparing the tableData
-      $('#example').DataTable().destroy();
-      $('#example').DataTable({
-              data: tableData,
-              columns: [
-                { title: 'S.No.' },
-                { title: 'Brand' },
-                { title: 'Model Name' },
-                { title: 'Quantity' },
-                { title: 'Action', orderable: false } // Disable ordering for Action column
-            ],
-              paging: true,
-              searching: false,
-              // ... other options ...
-          });
-     
-      } else {
-          tableBody.innerHTML = '<tr><td colspan="9">No valid data available</td></tr>';
+      url:url, 
+      type: 'POST',
+      data: paraArr,
+    
+      headers: {
+          'Authorization': 'Bearer ' + localStorage.getItem('token')
+      },
+      success: function (searchData) {
+        updateTable(searchData);
+      },
+      error: function (error) {
+          console.error('Error searching for brands:', error);
       }
-  },
-  error: function (error) {
-    const tableBody = document.getElementById('data-table');
-    if(error.status == 400){
-      tableBody.innerHTML = '<tr><td colspan="9">No valid data available</td></tr>';
-    }
-      console.error('Error fetching data:', error);
-  
+  });
+};
+function updateTable(data) {
+  const tableBody = document.getElementById('data-table');
+  tableBody.innerHTML = '';
+ 
+
+  if(data.engineOilData && data.engineOilData.length > 0) {
+      let tableData = []; 
+      let serialNumber = 1; 
+      data.engineOilData.forEach(row => {
+          let action = `<div class="d-flex">
+          <button class="btn btn-warning btn-sm text-white mx-1" data-bs-toggle="modal" onclick="fetch_data(${row.id});" data-bs-target="#exampleModal" style="padding:5px">
+            <i class="fa-solid fa-eye" style="font-size: 11px;"></i>
+          </button>
+          <button class="btn btn-primary btn-sm btn_edit" onclick="fetch_edit_data(${row.id});" data-bs-toggle="modal" data-bs-target="#staticBackdrop_1" id="yourUniqueIdHere" style="padding:5px">
+            <i class="fas fa-edit" style="font-size: 11px;"></i>
+          </button>
+          <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.id});" style="padding:5px">
+            <i class="fa fa-trash" style="font-size: 11px;"></i>
+          </button>
+          </div>`;
+
+          tableData.push([
+            serialNumber,
+            row.brand_name,
+            row.oil_model,
+            row.quantity,
+            action
+        ]);
+
+        serialNumber++;
+    });
+
+    // Initialize DataTable after preparing the tableData
+    $('#example').DataTable().destroy();
+    $('#example').DataTable({
+            data: tableData,
+            columns: [
+              { title: 'S.No.' },
+              { title: 'Brand' },
+              { title: 'Model Name' },
+              { title: 'Quantity' },
+              { title: 'Action', orderable: false } // Disable ordering for Action column
+          ],
+            paging: true,
+            searching: false,
+            // ... other options ...
+        });
+  } else {
+      // Display a message if there's no valid data
+      tableBody.innerHTML = '<tr><td colspan="4">No valid data available</td></tr>';
   }
-});
 }
 
 function resetform(){
   $('#brand1').val('');
   $('#model1').val('');
-  
+  engineOil_add();
 }

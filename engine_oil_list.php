@@ -133,18 +133,14 @@
       <div class="filter-card">
         <div class="card-body">
           <form id="search_form">
-
-      
           <div class="row">
             <div class="col-12 col-sm-12 col-md-4 col-lg-4">
               <div class="form-outline">
                 <label class="form-label">Brand</label>
-                <!-- <input type="email" id="search_name" name="search_name" class="form-control" /> -->
                 <select class="form-select form-control" aria-label=".form-select-lg example" id="brand1" name="brand">
-                  <!-- <option value="" disabled>Select Brand</option> -->
                 </select>
               </div>
-            </div>
+            </div>  
             <div class="col-12 col-sm-12 col-md-4 col-lg-4">
               <div class="form-outline">
                 <label class="form-label">Model Name</label>
@@ -153,7 +149,8 @@
             </div>
             <div class="col-12 col-sm-12 col-md-4 col-lg-4">
               <div class="text-center">
-                <button type="button" class="btn-success btn btn_all" id="Search" onclick="searchdata()">Search</button>
+              <button type="button" class="btn-success btn btn_all" id="Search" onclick="search_data()">Search</button>
+
                 <button type="button" class="btn-success btn btn_all" id="Reset" onclick="resetform()">Reset</button>
               </div>
             </div>
@@ -168,19 +165,18 @@
               <table id="example" class="table table-striped  table-hover table-bordered dataTable no-footer" width="100%; margin-bottom: 15px;">
                 <thead class="">
                   <tr>
-                                            <th class="d-none d-md-table-cell text-white">S.No.</th>
-                                            <th class="d-none d-md-table-cell text-white">Brand</th>
-                                            <th class="d-none d-md-table-cell text-white">Model Name</th>
-                                            <th class="d-none d-md-table-cell text-white">Quantity</th>
-                                            <th class="d-none d-md-table-cell text-white">Action</th>
-                                           
-                                        </tr>
-                                    </thead>
-                                    <tbody id="data-table">
-                                    </tbody>
-                                </table>
-                    </div>
-                       </div>
+                    <th class="d-none d-md-table-cell text-white">S.No.</th>
+                    <th class="d-none d-md-table-cell text-white">Brand</th>
+                    <th class="d-none d-md-table-cell text-white">Model Name</th>
+                    <th class="d-none d-md-table-cell text-white">Quantity</th>
+                    <th class="d-none d-md-table-cell text-white">Action</th>
+                 </tr>
+                </thead>
+                <tbody id="data-table">
+                </tbody>
+              </table>
+            </div>
+          </div>
       </div>
     </div>
   </section>
@@ -300,7 +296,7 @@
                           </tr>
                           <tr>
                             <td>Price-</td>
-                            <td id="price"></td>
+                            <td id="price_1"></td>
                             <td>Compatitble Tractors-</td>
                             <td id="compatible"></td>
                           </tr>

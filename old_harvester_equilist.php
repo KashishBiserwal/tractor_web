@@ -54,6 +54,12 @@
                                </div>
                                <div class="col-12 col-lg-6 col-md-6 col-sm-6 mt-3" hidden>
                                   <div class="form-outline ">
+                                    <label for="name" class="form-label text-dark"> id</label>
+                                    <input type="text" class="form-control" placeholder="Enter Your Model Name" id="EditIdmain_" name="" value="3">
+                                  </div>
+                               </div>
+                               <div class="col-12 col-lg-6 col-md-6 col-sm-6 mt-3" hidden>
+                                  <div class="form-outline ">
                                     <label for="name" class="form-label text-dark">Product id</label>
                                     <input type="text" class="form-control" placeholder="Enter Your Model Name" value="3" id="product_type_id" name="product_type_id">
                                   </div>
@@ -118,7 +124,7 @@
                                </div>
                                <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
                                           <div class="upload__box ">
-                                            <div class="upload__btn-box text-center">
+                                            <div class="upload__btn-box text-center mt-3">
                                               <label >
                                                 <p class="upload__btn ">Upload images</p>
                                                 <input type="file" name='files[]' multiple="" data-max_length="20" class="upload__inputfile" id="image">
@@ -226,24 +232,24 @@
             <div class="col-12 col-sm-12 col-md-3 col-lg-3">
               <div class="form-outline">
                 <label class="form-label">State</label>
-                <input type="text" class="form-control" id="state_name" name="state">
-                <!-- <select class="form-select form-control" aria-label="Default select example">
+                <!-- <input type="text" class="form-control" id="state_name" name="state"> -->
+                <select class="form-select form-control" aria-label="Default select example" id="state_name" name="state">
                     <option value>Select State</option>
                     <option value="1">Chattisgarh</option>
                     <option value="2">Other</option>
-                </select> -->
+                </select>
               </div>
             </div>
             <div class="col-12 col-sm-12 col-md-3 col-lg-3">
               <div class="form-outline">
                 <label class="form-label">District</label>
-                <input type="text" class="form-control" id="district_name" name="district">
-                <!-- <select class="form-select form-control" aria-label="Default select example">
+                <!-- <input type="text" class="form-control" id="district_name" name="district"> -->
+                <select class="form-select form-control" aria-label="Default select example" id="district_name" name="district">
                     <option value>Select District</option>
                     <option value="1">Raipur</option>
                     <option value="2">Bilaspur</option>
                     <option value="3">Surajpur</option>
-                </select> -->
+                </select>
               </div>
             </div>
             <div class="col-12 mt-4">
@@ -355,6 +361,169 @@
     </div>
 </div>
 </div>
+
+<!-- Modal -->
+        <!-- <div class="modal fade" id="staticBackdrop1" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog modal-xl modal-dialog-centered">
+              <div class="modal-content modal_box">
+                <div class="modal-header modal_head">
+                  <h5 class="modal-title text-white fw-bold" id="staticBackdropLabel">Add Old Harvester</h5>
+                  <button type="button" class="btn-close btn-success" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body bg-white">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-10">
+                              <form id="old_form" enctype="multipart/form-data" onsubmit="return false">
+                            <div class="row justify-content-center pt-3">
+                                <h5 class="fw-bold">Your Harvester Information</h5>
+                                <div class="col-12 col-lg-6 col-md-6 col-sm-6 mt-3" hidden>
+                                  <div class="form-outline ">
+                                    <label for="name" class="form-label text-dark">Enquiry id</label>
+                                    <input type="text" class="form-control" placeholder="Enter Your Model Name" id="enquiry_type_id" name="enquiry_type_id" value="3">
+                                  </div>
+                               </div>
+                               <div class="col-12 col-lg-6 col-md-6 col-sm-6 mt-3" hidden>
+                                  <div class="form-outline ">
+                                    <label for="name" class="form-label text-dark">Product id</label>
+                                    <input type="text" class="form-control" placeholder="Enter Your Model Name" value="3" id="product_type_id" name="product_type_id">
+                                  </div>
+                               </div>
+                               <div class="col-12 col-lg-6 col-md-6 col-sm-6 mt-3" hidden>
+                                  <div class="form-outline ">
+                                    <label for="name" class="form-label text-dark">Form type</label>
+                                    <input type="text" class="form-control" placeholder="Enter Your Model Name" value="FOR_SELL_HARVESTER" id="form_type" name="form_type">
+                                  </div>
+                               </div>
+                                <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-3">
+                                  <div class="form-outline ">
+                                    <label class="form-label text-dark">Brand</label>
+                                    <select class="form-select form-control" aria-label=".form-select-lg example" id="brand" name="brand">
+                                      
+                                      </select>
+                                  </div>
+                                </div>
+                                <div class="col-12 col-lg-6 col-md-6 col-sm-6 mt-3">
+                                  <div class="form-outline ">
+                                    <label for="name" class="form-label text-dark">Model Name</label>
+                                    <input type="text" class="form-control" placeholder="Enter Your Model Name" id="model1" name="model">
+                                  </div>
+                               </div>
+                               <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-3">
+                                  <div class="form-outline">
+                                    <label class="form-label text-dark">Crop Type</label>
+                                    <select class="form-select form-control " aria-label=".form-select-lg example" id="CROPS_TYPE" name="CROPS_TYPE">
+                                       
+                                    </select>
+                                  </div>
+                                </div>
+                                <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-3">
+                                  <div class="form-outline ">
+                                    <label class="form-label text-dark"> Power Source</label>
+                                    <select class="form-select form-control " aria-label=".form-select-lg example" id="POWER_SOURCE" name="POWER_SOURCE">
+                                      
+                                    </select>
+                                  </div>
+                                </div>
+                                <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-3">
+                                  <div class="form-outline">
+                                    <label class="form-label text-dark">Hours</label>
+                                    <select class="form-select form-control " aria-label=".form-select-lg example" id="hours1" name="hours">
+                                    </select>
+                                    </select>
+                                  </div>
+                                </div>
+                                <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-3">
+                                  <div class="form-outline">
+                                    <label class="form-label text-dark">Purchase Year</label>
+                                    <select class="form-select form-control" aria-label=".form-select-lg example" id="year1" name="year">
+                                          
+                                    </select>
+                                  </div>
+                                </div>
+                                <div class="col-12 col-lg-6 col-md-6 col-sm-6 mt-3">
+                                  <div class="form-outline">
+                                    <label for="name" class="form-label text-dark">Price</label>
+                                    <input type="text" class="form-control" placeholder="Enter Price" id="price1" name="price">
+                                  </div>
+                               </div>
+                               <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
+                                          <div class="upload__box ">
+                                            <div class="upload__btn-box text-center">
+                                              <label >
+                                                <p class="upload__btn ">Upload images</p>
+                                                <input type="file" name='files[]' multiple="" data-max_length="20" class="upload__inputfile" id="image">
+                                              </label>
+                                            </div>
+                                            <div id="selectedImagesContainer" class="upload__img-wrap"></div>
+                                          </div>
+                                        </div>
+                                <div class="col-12 mt-3">
+                                  <div class="form-outline">
+                                    <label class="form-label text-dark">About</label>
+                                      <textarea rows="4" cols="70" class="w-100 p-2" minlength="1" maxlength="255" id="about1" name="about"></textarea>
+                                    </div>
+                                </div>
+                                  <h5 class="fw-bold mt-4 ">Personal Information</h5>
+                                <div class="col-12 col-sm-6 col-lg-6 col-md-6  mt-3">
+                                  <div class="form-outline">
+                                    <label for="name" class="form-label text-dark"> First Name</label>
+                                    <input type="text" class="form-control" id="name1" name="name" placeholder="Enter Your Name">
+                                  </div>
+                               </div>
+                               <div class="col-12 col-sm-6 col-lg-6 col-md-6 mt-3">
+                                  <div class="form-outline ">
+                                    <label for="name" class="form-label text-dark"> Last Name</label>
+                                    <input type="text" class="form-control" id="lname1" name="lname" placeholder="Enter Your Name">
+                                  </div>
+                               </div>
+                                <div class="col-12 col-sm-6 col-lg-6 col-md-6 mt-3">
+                                  <div class="form-outline ">
+                                    <label for="name" class="form-label text-dark">Mobile</label>
+                                    <input type="text" class="form-control"  id="Mobile1" name="Mobile" placeholder="Enter Your Number">
+                                  </div>
+                                </div>
+                                    <div class="col-12 col-sm-6 col-lg-6 col-md-6 mt-3">
+                                  <div class="form-outline ">
+                                    <label class="form-label text-dark">State</label>
+                                    <select class="form-select form-control" aria-label=".form-select-lg example" id="state1" name="state">
+                                        <option value="">Select State</option>
+                                        <option value="1">Chhattisgarh</option>
+                                        <option value="2">Others</option>
+                                      </select>
+                                  </div>
+                                </div>
+                                    <div class="col-12 col-sm-6 col-lg-6 col-md-6 mt-3">
+                                  <div class="form-outline ">
+                                    <label class="form-label text-dark">District</label>
+                                    <select class="form-select form-control" aria-label=".form-select-lg example" id="district1" name="district">
+                                        <option value="">Select Districte</option>
+                                        <option value="1">Jagdalpur</option>
+                                        <option value="2">Sarguja</option>
+                                      </select>
+                                  </div>
+                                </div>
+                                    <div class="col-12 col-sm-6 col-lg-6 col-md-6 mt-3">
+                                  <div class="form-outline ">
+                                    <label class="form-label text-dark">Tehsil</label>
+                                    <select class="form-select form-control" aria-label=".form-select-lg example" id="tehsil1" name="tehsil">
+                                        <option value="">Select Tehsil</option>
+                                        <option value="1">Jagdalpur</option>
+                                          <option value="2">Sarguja</option>
+                                      </select>
+                                  </div>
+                                </div>
+                               
+                            </form>
+                            </div>
+                        </div>
+                    </div>
+                <div class="modal-footer mt-3">
+                  <button type="button" class="btn btn-secondary btn_all" data-bs-dismiss="modal">Close</button>
+                  <button type="submit" id="submitbtn" class="btn btn-success btn_all">Submit</button>
+                </div>
+              </div>
+            </div>
+        </div> -->
 
 </body>
 

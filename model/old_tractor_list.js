@@ -26,12 +26,11 @@ $(document).ready(function() {
                 required:true,
                 minlength: 10,
                 maxlength:10,
-                 digits: true,// Allow only digits
+                 digits: true,
                 customPhoneNumber: true
               },
               state: "required",
               district: "required",
-              // tehsil:"required",
               brand:"required",
               model:"required",
               purchase_year:"required",
@@ -65,7 +64,6 @@ $(document).ready(function() {
       });
       $('#old_btn').on('click', function() {
           $('#old_tract').valid();
-          console.log($('#old_tract').valid());
       });
   });
 
@@ -127,16 +125,7 @@ $(document).ready(function() {
   }
 
 
-  function removeImage(ele){
-    console.log("print ele");
-      console.log(ele);
-      let thisId=ele.id;
-      thisId=thisId.split('closeId');
-      thisId=thisId[1];
-      $("#"+ele.id).remove();
-      $(".upload__img-closeDy"+thisId).remove();
   
-    }
 
 // get brand
 function get() {
@@ -150,7 +139,6 @@ function get() {
       'Authorization': 'Bearer ' + localStorage.getItem('token')
     },
     success: function (data) {
-      console.log(data);
 
       const select = $('#brand');
       select.empty(); // Clear existing options
@@ -193,7 +181,6 @@ function get_search_brand() {
       'Authorization': 'Bearer ' + localStorage.getItem('token')
     },
     success: function (data) {
-      console.log(data);
 
       const select = $('#brand_name');
       select.empty(); // Clear existing options
@@ -226,7 +213,6 @@ function get_search_brand() {
 get_search_brand();
 
 function get_year_and_hours() {
-  console.log('initsfd')
     var apiBaseURL = APIBaseURL;
     var url = apiBaseURL + 'get_year_and_hours';
     $.ajax({
@@ -240,7 +226,7 @@ function get_year_and_hours() {
           var hours_select = $("#hours_driven");
           hours_select.empty(); // Clear existing options
           hours_select.append('<option selected disabled="" value="">Please select an option</option>'); 
-          console.log(data,'ok');
+   
           for (var k = 0; k < data.getHoursDriven.length; k++){
             var optionText = data.getHoursDriven[k].start + " - " + data.getHoursDriven[k].end;
             hours_select.append('<option value="' + k + '">' + optionText + '</option>');
@@ -249,7 +235,7 @@ function get_year_and_hours() {
           var select_year = $("#purchase_year");
           select_year.empty(); // Clear existing options
           select_year.append('<option selected disabled="" value="">Please select an option</option>'); 
-          console.log(data,'ok');
+        
           for (var j = 0; j < data.getYears.length; j++) {
             select_year.append('<option value="' + data.getYears[j] + '">' + data.getYears[j] + '</option>');
         }
@@ -270,20 +256,15 @@ get_year_and_hours();
 
 
 function store(event) {
-  console.log('run store function');
-  //  var typeDiv = document.getElementById('type_name');
      event.preventDefault();
-    
+    var enquiry_type_id = 1;
+    var image_type_id = 1;
+    var tractor_type_id=1;
+    var product_type_id = 1;
+    var form_type ='FOR_SELL_TRACTOR';
      var image_names = document.getElementById('_image').files;
-     console.log('imgds',image_names);
-     var form_type = $('#form_type').val();
-     var product_type_id = $('#product_type_id').val();
-     var image_type_id = $('#image_type_id').val();
-     var enquiry_type_id = $('#enquiry_type_id').val();
-     var tractor_type_id = $('#tractor_type_id').val();
-     console.log('tractor_type_id',tractor_type_id);
+     var EditIdmain_ = $('#EditIdmain_').val();
      var first_name = $('#first_name').val();
-     console.log(first_name);
      var last_name = $('#last_name').val();
      var mobile = $('#mobile_number').val();
      var state = $('#state').val();
@@ -310,19 +291,15 @@ function store(event) {
        'Authorization': 'Bearer ' + token
      };
 
-     var _method = 'PUT'; 
-    var url, method;
-    
-    console.log('edit state',editId_state);
-    console.log('edit id', EditIdmain_);
-    if (EditIdmain_) {
-        // Update mode
-        console.log(editId_state, "state");
-        console.log(EditIdmain_, "id edit");
-        _method = 'put';
-        url = apiBaseURL + 'customer_enquiries/' + EditIdmain_ ;
-        console.log(url);
-        method = 'POST'; 
+     var url, method;
+  _method = 'POST';
+
+  if (EditIdmain_!='' && EditIdmain_ !="null") {
+
+    _method = 'PUT';
+    url = apiBaseURL + 'customer_enquiries/' + EditIdmain_;
+    console.log(url);
+   method= 'POST';
     } else {
         // Add mode
         url = apiBaseURL + 'customer_enquiries';
@@ -332,9 +309,9 @@ function store(event) {
     
      for (var x = 0; x < image_names.length; x++) {
        data.append("images[]", image_names[x]);
-       console.log("multiple image", image_names[x]);
      }
        data.append('form_type',form_type);
+       data.append('product_id',EditIdmain_);
        data.append('_method',_method);
        data.append('product_type_id', product_type_id);
        data.append('enquiry_type_id', enquiry_type_id);
@@ -360,7 +337,6 @@ function store(event) {
        data.append('noc', nocAvailable);
       
        data.append('description',description);
-       console.log(data, "okk");
 
      $.ajax({
       url: url,
@@ -370,7 +346,6 @@ function store(event) {
         processData: false,
         contentType: false,
        success: function (result) {
-         console.log(result, "result");
          // getTractorList();
          console.log("Add successfully");
          get_tractor_list();
@@ -450,7 +425,7 @@ function store(event) {
                     data: tableData,
                     columns: [
                         { title: 'S.No.' },
-                        { title: 'Date' },
+                        { title: 'Date/Time' },
                         { title: 'Brand' },
                         { title: 'Model' },
                         { title: 'Purchase Year' },
@@ -475,14 +450,11 @@ get_tractor_list();
 
 
 function search_data() {
-  console.log("dfghsfg,sdfgdfg");
   var selectedBrand = $('#brand_name').val();
  // var brand_id = $('#brand_id').val();
   var model = $('#model_name').val();
   var district = $('#district_name').val();
   var state = $('#state_name').val();
-  console.log(selectedBrand,"brand named");
-  console.log('model name',model);
   var paraArr = {
     'brand_id': selectedBrand,
    // 'id':brand_id,
@@ -518,7 +490,7 @@ function updateTable(data) {
   if(data.oldTractor && data.oldTractor.length > 0) {
       let tableData = []; 
       data.oldTractor.forEach(row => {
-          let action = `<div class="d-flex">
+          let action = ` <div class="d-flex">
           <button class="btn btn-warning btn-sm text-white mx-1" data-bs-toggle="modal" onclick="fetch_data(${row.product_id});" data-bs-target="#exampleModal">
           <i class="fa-solid fa-eye" style="font-size: 11px;"></i></button>
           <button class="btn btn-primary btn-sm btn_edit" onclick="fetch_edit_data(${row.product_id});" data-bs-toggle="modal" data-bs-target="#staticBackdrop" id="yourUniqueIdHere" style="padding:5px">
@@ -547,7 +519,7 @@ function updateTable(data) {
         data: tableData,
         columns: [
             { title: 'S.No.' },
-            { title: 'Date' },
+            { title: 'Date/Time' },
             { title: 'Brand' },
             { title: 'Model' },
             { title: 'Purchase Year' },
@@ -566,8 +538,6 @@ function updateTable(data) {
 
 
 function removeImage(ele){
-  console.log("print ele");
-    console.log(ele);
     let thisId=ele.id;
     thisId=thisId.split('closeId');
     thisId=thisId[1];
@@ -594,6 +564,7 @@ function fetch_edit_data(id) {
     success: function(response) {
       var userData = response.product[0];
 
+      $('#EditIdmain_').val(userData.product_id);
       $('#enquiry_type_id').val(userData.enquiry_type_id);
       $('#image_type_id').val(userData.image_type_id);
       $('#tractor_type_id').val(userData.tractor_type_id);
@@ -658,8 +629,6 @@ function fetch_edit_data(id) {
 
 // view data
 function fetch_data(product_id){
-  // alert(product_id);
-  console.log(window.location)
   var urlParams = new URLSearchParams(window.location.search);
   
   var productId = product_id;
@@ -673,7 +642,6 @@ function fetch_data(product_id){
       type: "GET",
       headers: headers,
       success: function(data) {
-      console.log(data, 'abc');
       document.getElementById('first_name2').innerText=data.product[0].first_name;
       document.getElementById('last_name2').innerText=data.product[0].last_name;
       document.getElementById('monile').innerText=data.product[0].mobile;

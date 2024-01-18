@@ -21,8 +21,8 @@ $(document).ready(function () {
         image_:{
 
           required:true,
-          minlength: 2,
-          maxlength: 5,
+          // minlength: 2,
+          // maxlength: 5,
        
         }
       },
@@ -43,8 +43,8 @@ $(document).ready(function () {
         image_:{
 
           required:"This field is required",
-          minlength: 2,
-          maxlength: 5,
+          // minlength: 2,
+          // maxlength: 5,
        
         }
        
@@ -59,10 +59,10 @@ $(document).ready(function () {
     $("#submitBtn").on("click", function () {
    
       $("#form_news_updates").valid();
-      if ($("#form_news_updates").valid()) {
+      // if ($("#form_news_updates").valid()) {
         
-        alert("Form is valid. Ready to submit!");
-      }
+      //   alert("Form is valid. Ready to submit!");
+      // }
     });
    
   });
@@ -286,13 +286,14 @@ function get_news() {
                     let action = `
                         <div class="d-flex">
                           <button class="btn btn-warning btn-sm text-white mx-1" data-bs-toggle="modal" onclick="fetch_data(${row.id});" data-bs-target="#exampleModal">
-                                       <i class="fa-solid fa-eye" style="font-size: 11px;"></i></button>
-                                       <button class="btn btn-primary btn-sm btn_edit" onclick="fetch_edit_data(${row.id});" data-bs-toggle="modal" data-bs-target="#staticBackdrop" id="yourUniqueIdHere">
-                                                              <i class="fas fa-edit" style="font-size: 11px;"></i>
-                                                           </button>
-                                                           <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.id});">
-                                                                             <i class="fa fa-trash" style="font-size: 11px;"></i>
-                                                              </button>
+                            <i class="fa-solid fa-eye" style="font-size: 11px;"></i>
+                          </button>
+                          <button class="btn btn-primary btn-sm btn_edit" onclick="fetch_edit_data(${row.id});" data-bs-toggle="modal" data-bs-target="#staticBackdrop" id="yourUniqueIdHere">
+                            <i class="fas fa-edit" style="font-size: 11px;"></i>
+                          </button>
+                          <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.id});">
+                            <i class="fa fa-trash" style="font-size: 11px;"></i>
+                          </button>
                         </div>`;
 
                     tableData.push([

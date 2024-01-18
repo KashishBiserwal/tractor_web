@@ -1,6 +1,8 @@
-
+var EditIdmain_ = "";
+var editId_state= false;
 $(document).ready(function() {
     $('#add_harvester').click(store);
+    $('#Search').click(search_data);
     console.log("ready!");
     ImgUpload();
 });
@@ -60,6 +62,17 @@ function ImgUpload() {
       $(this).parent().parent().remove();
     });
   }
+
+  function removeImage(ele){
+    console.log("print ele");
+      console.log(ele);
+      let thisId=ele.id;
+      thisId=thisId.split('closeId');
+      thisId=thisId[1];
+      $("#"+ele.id).remove();
+      $(".upload__img-closeDy"+thisId).remove();
+  
+    }
 
   function get() {
     // var url = "<?php echo $APIBaseURL; ?>getBrands";
@@ -125,7 +138,9 @@ get();
   function store(event) {
     event.preventDefault();
     console.log('harvester values');
-    var product_type_id = $('#product_type_id').val();
+    // var product_type_id = $('#product_type_id').val();
+    var product_type_id = 4;
+    var EditIdmain_= $('#id').val();;
     var brand = $('#brand').val();
     var model = $('#model').val();
     var rpm = $('#rpm').val();
@@ -155,15 +170,16 @@ get();
     var clutch_type = $('#TRANSMISSION_CLUTCH').val();
     var tyre_sizefront = $('#tyre_sizefront').val();
     var tyre_sizerear = $('#tyre_sizerear').val();
-    var fuel_capacity = $('#fuel_capacity').val();
+    var total_weight_without_grains = $('#total_weight_without_grains').val();
     var weight_drain = $('#weight_drain').val();
     var dia_length = $('#dia_length').val();
     var dia_height = $('#dia_height').val();
     var dia_width = $('#dia_width').val();
     var ground_clerance = $('#ground_clerance').val();
     var crops = $('#CROPS_TYPE').val();
-    var image = $('#_image').val();
+    // var image = $('#_image').val();
     var transmission_gears = $('#transmission_gears').val();
+    var image_names = document.getElementById('_image').files;
 
       // Split the string by '+' and trim the whitespace
       var gearsArray = transmission_gears.split('+').map(function(gear) {
@@ -190,71 +206,94 @@ get();
       // Output the results
       console.log('Forward Gears:', transforward);
       console.log('Reverse Gears:', transreverse);
-  
-    // Prepare data to send to the server
-    var paraArr = {
-    'brand_id':brand,
-    'model':model,
-      'engine_rated_rpm': rpm,
-      'horse_power':hp_power,
-      'air_filter_id':air_filter,
-      'engine':engine,
-      'total_cyclinder_id':cylinder,
-      'power_source_id':POWER_SOURCE,
-      'cutting_bar_width':cutting_bar,
-      'max_cutting_height':cuttingmax_height,
-      'min_cutting_height':cuttingmin_height,
-      'cutter_bar_height_adjustment_id':height_adjust,
-      'reel_type_id':type,
-      'reel_diameter':reel_dia,
-      'speed_adjustment_id':speed_adj,
-      'min_reel_revolution':min_revol,
-      'max_reel_revolution':max_revol,
-      'reel_height_adjustment_id':height_adj,
-      'cooling_id':cool_system,
-      'coolant_capacity':cool_capacity,
-      'threshing_drum_width':drump_width,
-      'threshing_drum_length':drump_length,
-      'threshing_drum_diameter':drump_diameter,
-      'threshing_drum_speed_adjustment_id':drump_adjust,
-      'clearance_concave':clear_concave,
-      'grain_tank_capacity':tank_capa,
-      'transmission_forward': transforward,
-      'transmission_reverse':transreverse,
-      'clutch_type_id':clutch_type,
-      'front_tyre':tyre_sizefront,
-      'rear_tyre':tyre_sizerear,
-      'fuel_capacity':fuel_capacity,
-      'total_weight_without_grains':weight_drain,
-      'dimension_length':dia_length,
-      'dimension_height':dia_height,
-      'dimension_width':dia_width,
-      'ground_clearance':ground_clerance,
-      'crops_type_id':crops,
-      'image':image,
-      'product_type_id': product_type_id,
-    };
-  
-  var apiBaseURL =APIBaseURL;
-  var url = apiBaseURL +'harvester';
-    console.log(url);
-  
-    var token = localStorage.getItem('token');
-    var headers = {
-      'Authorization': 'Bearer ' + token
-    };
-  
-    // Make an AJAX request to the server
+
+      var apiBaseURL =APIBaseURL;
+    //  var url = apiBaseURL + 'customer_enquiries';
+     var token = localStorage.getItem('token');
+     var headers = {
+       'Authorization': 'Bearer ' + token
+     };
+
+     var _method = 'POST';
+    var url, method;
+    
+    // console.log('edit state',editId_state);
+    // console.log('edit id', EditIdmain_);
+    if (EditIdmain_!= "" && EditIdmain_!= "null") {
+     
+      _method = 'PUT';  
+      url = apiBaseURL + 'harvester/' + EditIdmain_;
+      console.log(url);
+      method = 'POST';  
+  } else {
+      // Add mode
+      url = apiBaseURL + 'harvester';
+      console.log(url);
+      method = 'POST';
+  }
+     var data = new FormData();
+     for (var x = 0; x < image_names.length; x++) {
+      data.append("images[]", image_names[x]);
+      console.log("multiple image", image_names[x]);
+    }
+      data.append('id',EditIdmain_);
+      data.append('brand_id',brand);
+      data.append('_method',_method);
+      data.append('model', model);
+      data.append('engine_rated_rpm', rpm);
+      data.append('horse_power',hp_power);
+      data.append('air_filter_id',air_filter);
+      data.append('engine',engine);
+      data.append('total_cyclinder_id',cylinder);
+      data.append('power_source_id',POWER_SOURCE);
+      data.append('cutting_bar_width',cutting_bar);
+      data.append('max_cutting_height',cuttingmax_height);
+      data.append('min_cutting_height',cuttingmin_height);
+      data.append('cutter_bar_height_adjustment_id',height_adjust);
+      data.append('reel_type_id',type);
+      data.append('reel_diameter',reel_dia);
+      data.append('speed_adjustment_id',speed_adj);
+      data.append('min_reel_revolution',min_revol);
+      data.append('max_reel_revolution',max_revol);
+      data.append('reel_height_adjustment_id',height_adj);
+      data.append('cooling_id',cool_system);
+      data.append('coolant_capacity',cool_capacity);
+      data.append('threshing_drum_width',drump_width);
+      data.append('threshing_drum_length',drump_length);
+      data.append('threshing_drum_diameter',drump_diameter);
+      data.append('threshing_drum_speed_adjustment_id',drump_adjust);
+      data.append('clearance_concave',clear_concave);
+      data.append('grain_tank_capacity',tank_capa);
+      data.append('transmission_forward', transforward);
+      data.append('transmission_reverse',transreverse);
+      data.append('clutch_type_id',clutch_type);
+      data.append('front_tyre',tyre_sizefront);
+      data.append('rear_tyre',tyre_sizerear);
+      // data.append('fuel_capacity',fuel_capacity);
+      data.append('total_weight_without_grains',total_weight_without_grains);
+      data.append('dimension_length',dia_length);
+      data.append('dimension_height',dia_height);
+      data.append('dimension_width',dia_width);
+      data.append('ground_clearance',ground_clerance);
+      data.append('crops_type_id',crops);
+      data.append('product_type_id', product_type_id);
     $.ajax({
       url: url,
-      type: "POST",
-      data: paraArr,
+      type: method,
+      data: data,
       headers: headers,
+      processData: false,
+      contentType: false,
       success: function (result) {
         console.log(result, "result");
        
         console.log("Add successfully");
-        alert('successfully inserted..!')
+        alert('successfully..!');
+          $("#harvester_form").empty();
+          window.location.reload();
+
+
+        get_harvester();
       },
       error: function (error) {
         console.error('Error fetching data:', error);
@@ -371,12 +410,13 @@ function destroy(id) {
     });
   }
 
-
+// for view
   function fetch_data(id) {
     console.log(id, "id");
     console.log(window.location);
     //var urlParams = new URLSearchParams(window.location.search);
-  
+    editId_state= true;
+    // EditIdmain_= product_id;
     var harvesterId = id;
     var apiBaseURL = APIBaseURL;
     var url = apiBaseURL + 'harvester/' + harvesterId;
@@ -420,25 +460,28 @@ function destroy(id) {
           document.getElementById('clutch_type').innerText = data.product[0].clutch_type_value;
           document.getElementById('front_tyre').innerText = data.product[0].front_tyre;
           document.getElementById('rear_tyre').innerText =data.product[0].rear_tyre;
-          document.getElementById('fuel_capacity').innerText = data.product[0].brand_name;
+          document.getElementById('total_weight_without_grains').innerText = data.product[0].total_weight_without_grains;
           document.getElementById('weight_grain').innerText = data.product[0].brand_name;
           document.getElementById('length').innerText = data.product[0].dimension_length;
           document.getElementById('width').innerText = data.product[0].dimension_width;
           document.getElementById('ground_clearance').innerText = data.product[0].brand_name;
           document.getElementById('crops').innerText = data.product[0].crops_type_value;
-          document.getElementById('selectedImagesContainer1').innerText = data.product[0].brand_img;
+          // document.getElementById('selectedImagesContainer1').innerText = data.product[0].brand_img;
       
           $("#selectedImagesContainer1").empty();
       
-          if (data.dealer_details[0].image_names) {
-              var imageNamesArray = Array.isArray(data.dealer_details[0].image_names) ? data.dealer_details[0].image_names : data.dealer_details[0].image_names.split(',');
+          if (data.product[0].image_names) {
+              var imageNamesArray = Array.isArray(data.product[0].image_names) ? data.product[0].image_names : data.product[0].image_names.split(',');
       
-              imageNamesArray.forEach(function (imageName) {
-                  var imageUrl = 'http://tractor-api.divyaltech.com/uploads/dealer_img/' + imageName.trim();
+                var countclass = 0;
+             imageNamesArray.forEach(function (image_names) {
+                 var imageUrl = 'http://tractor-api.divyaltech.com/uploads/product_img/' + image_names.trim();
+            
+                 countclass++;
       
                   var newCard = `
                       <div class="col-6 col-lg-6 col-md-6 col-sm-6">
-                          <div class="brand-main d-flex box-shadow   mt-2 text-center shadow">
+                          <div class="brand-main d-flex box-shadow  mt-2 text-center shadow">
                               <a class="weblink text-decoration-none text-dark" title="Image">
                                   <img class="img-fluid w-100 h-100 " src="${imageUrl}" alt="Image">
                               </a>
@@ -455,3 +498,259 @@ function destroy(id) {
         }
     });
   } 
+
+  // for edit
+  function fetch_edit_data(id) {
+    console.log(window.location)
+   
+
+    var harvesterId = id;
+    // console.log(harvesterId, 'harvesterId');
+    var apiBaseURL = APIBaseURL;
+    var url = apiBaseURL + 'harvester/' + harvesterId;
+    console.log('prachi');
+    editId_state= true;
+    console.log(url);
+  
+    var headers = {
+      'Authorization': 'Bearer ' + localStorage.getItem('token')
+    };
+  
+    $.ajax({
+      url: url,
+      type: 'GET',
+      headers: headers,
+      success: function(response) {
+        var editData = response.product[0];
+        $('#id').val(harvesterId);
+        $("#brand_name option").prop("selected", false);
+        $("#brand_name option[value='" + editData.brand_name + "']").prop("selected", true);
+
+        $('#model').val(editData.model);
+        $('#rpm').val(editData.engine_rated_rpm);
+        $('#hp_power').val(editData.horse_power);
+
+        $("#AIR_FILTER option").prop("selected", false);
+        $("#AIR_FILTER option[value='" + editData.air_filter + "']").prop("selected", true);
+
+        $('#engine').val(editData.engine);
+
+        $("#TOTAL_CYCLINDER option").prop("selected", false);
+        $("#TOTAL_CYCLINDER option[value='" + editData.total_cyclinder_value + "']").prop("selected", true);
+
+         
+        $("#POWER_SOURCE option").prop("selected", false);
+        $("#POWER_SOURCE option[value='" + editData.POWER_SOURCE + "']").prop("selected", true);
+
+        $('#cutting_bar').val(editData.cutting_bar_width);
+        $('#cuttingmax_height').val(editData.max_cutting_height);
+        $('#cuttingmin_height').val(editData.min_cutting_height);
+
+        $("#CUTTER_BAR_HEIGHT_ADJUSTMENT option").prop("selected", false);
+        $("#CUTTER_BAR_HEIGHT_ADJUSTMENT option[value='" + editData.cutter_bar_height_adjustment_value + "']").prop("selected", true);
+
+        $("#REEL_TYPE option").prop("selected", false);
+        $("#REEL_TYPE option[value='" + editData.reel_type_value + "']").prop("selected", true);
+
+        $('#reel_dia').val(editData.reel_diameter);
+
+        $("#REEL_SPEED_CONTROL option").prop("selected", false);
+        $("#REEL_SPEED_CONTROL option[value='" + editData.speed_adjustment_value + "']").prop("selected", true);
+
+        $('#min_revol').val(editData.min_reel_revolution);
+        $('#max_revol').val(editData.max_reel_revolution);
+
+        $("#REEL_HEIGHT_ADJUSTMENT option").prop("selected", false);
+        $("#REEL_HEIGHT_ADJUSTMENT option[value='" + editData.reel_height_adjustment_value + "']").prop("selected", true);
+
+        $('#cool_capacity').val(editData.coolant_capacity);
+        
+        $("#COOLING option").prop("selected", false);
+        $("#COOLING option[value='" + editData.cooling_value + "']").prop("selected", true);
+
+        $('#drump_width').val(editData.threshing_drum_width);
+        $('#drump_length').val(editData.threshing_drum_length);
+        $('#drump_diameter').val(editData.threshing_drum_diameter);  
+      
+        $("#THRESHING_DRUM_SPEED_ADJUSTMENT option").prop("selected", false);
+        $("#THRESHING_DRUM_SPEED_ADJUSTMENT option[value='" + editData.threshing_drum_speed_adjustment_value + "']").prop("selected", true);
+
+        $('#clear_concave').val(editData.clearance_concave);
+
+        $("#TRANSMISSION_CLUTCH option").prop("selected", false);
+        $("#TRANSMISSION_CLUTCH option[value='" + editData.clutch_type_value + "']").prop("selected", true);
+
+        $('#tank_capa').val(editData.grain_tank_capacity);
+        $('#transmission_gears').val(editData.model);
+        $('#tyre_sizefront').val(editData.front_tyre);
+        $('#tyre_sizerear').val(editData.rear_tyre);
+        $('#total_weight_without_grains').val(editData.total_weight_without_grains);
+        $('#weight_drain').val(editData.model);
+        $('#dia_length').val(editData.dimension_length);
+        $('#dia_height').val(editData.dimension_height);
+        $('#dia_width').val(editData.dimension_width);
+        $('#ground_clerance').val(editData.clearance_concave);
+
+        $("#CROPS_TYPE option").prop("selected", false);
+        $("#CROPS_TYPE option[value='" + editData.crops_type_value + "']").prop("selected", true);
+
+        $('#product_type_id').val(editData.product_type_id);
+
+        $("#selectedImagesContainer").empty();
+
+           if (editData.image_names) {
+             var imageNamesArray = Array.isArray(editData.image_names) ? editData.image_names : editData.image_names.split(',');
+             console.log('imageNamesArray',imageNamesArray);  
+             var countclass = 0;
+             imageNamesArray.forEach(function (image_names) {
+                 var imageUrl = 'http://tractor-api.divyaltech.com/uploads/product_img/' + image_names.trim();
+            
+                 countclass++;
+                 var newCard = `
+                     <div class="col-12 col-md-6 col-lg-4 position-relative" style="left:6px;">
+                         <div class="upload__img-close_button " id="closeId${countclass}" onclick="removeImage(this);"></div>
+                         <div class="brand-main d-flex box-shadow mt-1 py-2 text-center shadow upload__img-closeDy${countclass}">
+                             <a class="weblink text-decoration-none text-dark" title="Image">
+                                 <img class="img-fluid w-100 h-100" src="${imageUrl}" alt="Image">
+                              </a>
+                          </div>
+                      </div>
+       `;
+       $("#selectedImagesContainer").append(newCard);
+});
+  
+  }
+        
+      },
+      error: function(error) {
+        console.error('Error fetching user data:', error);
+      }
+    });
+  }
+
+  // get brand
+  function get() {
+    // var url = "<?php echo $APIBaseURL; ?>getBrands";
+    var apiBaseURL =APIBaseURL;
+    var url = apiBaseURL + 'getBrands';
+    $.ajax({
+        url: url,
+        type: "GET",
+        headers: {
+            'Authorization': 'Bearer ' + localStorage.getItem('token')
+        },
+        success: function (data) {
+            console.log(data);
+            const select = document.getElementById('brand_name');
+            // select.innerHTML = '';
+
+            if (data.brands.length > 0) {
+                data.brands.forEach(row => {
+                    const option = document.createElement('option');
+                    option.value = row.id; 
+                    option.textContent = row.brand_name;
+                    select.appendChild(option);
+                });
+            } else {
+                select.innerHTML ='<option>No valid data available</option>';
+            }
+        },
+        error: function (error) {
+            console.error('Error fetching data:', error);
+        }
+    });
+}
+get();
+
+// search
+function search_data() {
+
+  var selectedBrand = $('#brand_name1').val();
+
+  var model = $('#model').val();
+  console.log(brand_id);
+  var paraArr = {
+    'brand_id': selectedBrand,
+    //'id':brand_id,
+    'model':model, 
+  }
+
+  var apiBaseURL = APIBaseURL;
+  var url = apiBaseURL + 'search_for_new_harvester';
+  $.ajax({
+      url:url, 
+      type: 'POST',
+      data: paraArr,
+    
+      headers: {
+          'Authorization': 'Bearer ' + localStorage.getItem('token')
+      },
+      success: function (searchData) {
+        console.log(searchData,"hello brand");
+        updateTable(searchData);
+      },
+      error: function (error) {
+          console.error('Error searching for brands:', error);
+      }
+  });
+};
+function updateTable(data) {
+  const tableBody = document.getElementById('data-table');
+  tableBody.innerHTML = '';
+  // let serialNumber = 1; 
+
+  if(data.newHarvester && data.newHarvester.length > 0) {
+    let tableData = [];
+    let serialNumber = 1;
+      data.newHarvester.forEach(row => {
+          let action = `<div class="d-flex">
+          <button class="btn btn-warning btn-sm text-white mx-1" data-bs-toggle="modal" onclick="fetch_data(${row.id});" data-bs-target="#view_model_harvester">
+                    <i class="fa-solid fa-eye" style="font-size: 11px;"></i></button>
+                    <button class="btn btn-primary btn-sm btn_edit" onclick="fetch_edit_data(${row.id});" data-bs-toggle="modal" data-bs-target="#staticBackdrop" id="yourUniqueIdHere" style="padding:5px">
+                      <i class="fas fa-edit" style="font-size: 11px;"></i>
+                    </button>
+          <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.id});">
+              <i class="fa fa-trash" style="font-size: 11px;"></i>
+          </button>
+      </div>`;
+
+      tableData.push([
+        serialNumber,
+        row.brand_name,
+        row.model,
+        row.horse_power,
+        row.air_filter,
+        row.crops_type_value,
+        action
+    ]);
+
+    serialNumber++;
+  });
+    $('#example').DataTable().destroy();
+    $('#example').DataTable({
+            data: tableData,
+            columns: [
+              { title: 'S.No.' },
+              { title: 'Brand' },
+              { title: 'Model Name' },
+              { title: 'HP Power' },
+              { title: 'Air Filter' },
+              { title: 'Crops' },
+              { title: 'Action', orderable: false } // Disable ordering for Action column
+          ],
+            paging: true,
+            searching: false,
+            // ... other options ...
+        });
+  } else {
+      // Display a message if there's no valid data
+      tableBody.innerHTML = '<tr><td colspan="4">No valid data available</td></tr>';
+  }
+}
+function resetform(){
+  $('#brand_name').val('');
+  $('#brand_id').val('');
+  $('#model').val('');
+  get_harvester();
+  
+}

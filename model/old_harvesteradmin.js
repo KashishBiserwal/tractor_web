@@ -190,45 +190,52 @@ jQuery(document).ready(function () {
     });
   }
 
-
-  function get(selectId) {
-    var apiBaseURL =APIBaseURL;
-    var url = apiBaseURL + 'getBrands';
-    $.ajax({
-        url: url,
-        type: "GET",
-        headers: {
-            'Authorization': 'Bearer ' + localStorage.getItem('token')
-        },
-        success: function (data) {
-            console.log(data);
-            const select = document.getElementById(selectId);
-          
-            select.innerHTML = '<option selected disabled value="">Please select an option</option>';
+  function removeImage(ele){
+    console.log("print ele");
+      console.log(ele);
+      let thisId=ele.id;
+      thisId=thisId.split('closeId');
+      thisId=thisId[1];
+      $("#"+ele.id).remove();
+      $(".upload__img-closeDy"+thisId).remove();
   
-            if (data.brands.length > 0) {
-                data.brands.forEach(row => {
-                    const option = document.createElement('option');
-                    option.textContent = row.brand_name;
-                    option.value = row.id;
-                    select.appendChild(option);
-                });
-            } else {
-                select.innerHTML ='<option>No valid data available</option>';
-            }
-      
-        },
-        error: function (error) {
-            console.error('Error fetching data:', error);
-            var msg = error;
-            $("#errorStatusLoading").modal('show');
-            $("#errorStatusLoading").find('.modal-title').html('Error');
-            $("#errorStatusLoading").find('.modal-body').html(msg);
+    }
+// get brand
+function get() {
+  var apiBaseURL = APIBaseURL;
+  var url = apiBaseURL + 'getBrands';
+  $.ajax({
+    url: url,
+    type: "GET",
+    headers: {
+        'Authorization': 'Bearer ' + localStorage.getItem('token')
+    },
+    success: function (data) {
+        console.log(data);
+        const select = document.getElementById('brand');
+        select.innerHTML = '';
+        select.innerHTML = '<option selected disabled value="">Please select an option</option>';
+        if (data.brands.length > 0) {
+            data.brands.forEach(row => {
+  
+                const option = document.createElement('option');
+                option.value = row.id; // You might want to set a value for each option
+                option.textContent = row.brand_name;
+                select.appendChild(option);
+            });
+        } else {
+            select.innerHTML ='<option>No valid data available</option>';
         }
-    });
+    },
+    error: function (error) {
+        console.error('Error fetching data:', error);
+    }
+  });
   }
+  get();
+
   
-get();
+
 
   function get_year_and_hours() {
     console.log('initsfd')
@@ -303,6 +310,7 @@ function store(event) {
   event.preventDefault();
 
   console.log('jfhfhw');
+  var EditIdmain_ = $('#EditIdmain_').val();
   var form_type = $('#form_type').val();
   var enquiry_type_id = $('#enquiry_type_id').val();
   var product_type_id = $('#product_type_id').val();
@@ -331,15 +339,18 @@ function store(event) {
   var urlParams = new URLSearchParams(window.location.search);
   var editId = urlParams.get('id');
   var url, method;
+  _method = 'POST';
 
   console.log('edit state', editId_state);
   console.log('edit id', EditIdmain_);
-  console.log('sumansahu');
-  if (editId_state) {
+  if (EditIdmain_!='' && EditIdmain_ !="null") {
+
     // Update mode
-    console.log('suman',editId_state);
-    method = 'PUT';
+    console.log('abcdefg',EditIdmain_);
+    _method = 'PUT';
     url = apiBaseURL + 'customer_enquiries/' + EditIdmain_;
+    console.log(url);
+   method= 'POST';
     console.log(url);
   } else {
     // Add mode
@@ -351,7 +362,8 @@ function store(event) {
   for (var x = 0; x < image.length; x++) {
     data.append("images[]", image[x]);
   }
-
+   data.append('id', EditIdmain_);  
+   data.append('_method', _method); 
   data.append('form_type', form_type);
   data.append('enquiry_type_id', enquiry_type_id);
   data.append('product_type_id', product_type_id);
@@ -359,7 +371,7 @@ function store(event) {
   data.append('model', model);
   data.append('crops_type_id', CROPS_TYPE);
   data.append('power_source_id', POWER_SOURCE);
-  console.log("power_osurce", POWER_SOURCE);
+  // console.log("power_osurce", POWER_SOURCE);
   data.append('hours_driven', hours);
   data.append('purchase_year', year);
   data.append('price', price);
@@ -398,106 +410,6 @@ function store(event) {
 }
 
 
-// store
-// function store(event) {
-//   event.preventDefault();
-
-//   console.log('jfhfhw');
-//   var form_type = $('#form_type').val();
-//   var enquiry_type_id = $('#enquiry_type_id').val();
-//   var product_type_id = $('#product_type_id').val();
-//   var brand = $('#brand').val();
-//   var model = $('#model').val();
-//   var CROPS_TYPE = $('#CROPS_TYPE').val();
-//   var POWER_SOURCE = $('#POWER_SOURCE').val();
-//   var hours = $('#hours').val();
-//   var year = $('#year').val();
-//   var price = $('#price').val();
-//   var image = document.getElementById('image').files;
-//   var about = $('#about').val();
-//   var name = $('#name').val();
-//   var lname =$('#lname').val();
-//   var Mobile = $('#Mobile').val();
-//   var state = $('#state').val();
-//   var district = $('#district').val();
-//   var tehsil = $('#tehsil').val();
-//   var apiBaseURL = APIBaseURL;
-
-//   var token = localStorage.getItem('token');
-//   var headers = {
-//       'Authorization': 'Bearer ' + token
-//   };
-
-//   var urlParams = new URLSearchParams(window.location.search);
-//   var editId = urlParams.get('id');
-//   var _method = 'post';
-//   var url, method;
-
-//   console.log('edit state', editId_state);
-//   console.log('edit id', EditIdmain_);
-//   if (editId_state) {
-//       // Update mode
-//       console.log(editId_state);
-//       method = 'put';
-//       url = apiBaseURL + 'customer_enquiries/' + EditIdmain_;
-//       console.log(url);
-//       method = 'PUT'; // Change this to 'PUT' for update mode
-//   } else {
-//       // Add mode
-//       url = apiBaseURL + 'customer_enquiries';
-//       method = 'POST';
-//   }
-
-//   var data = new FormData();
-//   for (var x = 0; x < image.length; x++) {
-//       data.append("images[]", image[x]);
-//   }
-
-//   data.append('form_type', form_type);
-//   data.append('enquiry_type_id', enquiry_type_id);
-//   data.append('product_type_id', product_type_id);
-//   data.append('brand_id', brand);
-//   data.append('model', model);
-//   data.append('crops_type_id', CROPS_TYPE);
-//   console.log(CROPS_TYPE);
-//   data.append('power_source_id', POWER_SOURCE);
-//   console.log("power_osurce", POWER_SOURCE);
-//   data.append('hours_driven', hours);
-//   data.append('purchase_year', year);
-//   data.append('price', price);
-//   data.append('description', about);
-//   data.append('first_name', name);
-//   data.append('last_name', lname);
-//   data.append('mobile', Mobile);
-//   data.append('state', state);
-//   data.append('district', district);
-//   data.append('tehsil', tehsil);
-
-//   $.ajax({
-//       url: url,
-//       type: method,
-//       data: data,
-//       headers: headers,
-//       processData: false,
-//       contentType: false,
-//       success: function (result) {
-//         console.log(result, "result");
-    
-//         if (editId_state) {
-//             // Update mode
-//             console.log("updated successfully");
-//             alert('Successfully updated!');
-//         } else {
-//             // Add mode
-//             console.log("added successfully");
-//             alert('Successfully added!');
-//         }
-//       },
-//       error: function (error) {
-//           console.error('Error:', error);
-//       }
-//   });
-// }
 
 
 // edit data 
@@ -506,7 +418,7 @@ function fetch_edit_data(id) {
   var apiBaseURL = APIBaseURL;
   var id = id;
   var url = apiBaseURL + 'get_old_harvester_by_id/' + id;
-
+  editId_state= true;
 
   var headers = {
     'Authorization': 'Bearer ' + localStorage.getItem('token')
@@ -518,7 +430,8 @@ function fetch_edit_data(id) {
     headers: headers,
     success: function(response) {
       var userData = response.product[0];
-      $('#userId').val(userData.id);
+      // $('#userId').val(userData.id);
+      $('#EditIdmain_').val(userData.id);
        $('#product_type_id').val(userData.id);
       // $('#brand').val(userData.brand_name);
       $("#brand option").prop("selected", false);
@@ -558,7 +471,7 @@ function fetch_edit_data(id) {
                   <div class="upload__img-close_button " id="closeId${countclass}" onclick="removeImage(this);"></div>
                       <div class="brand-main d-flex box-shadow mt-1 py-2 text-center shadow upload__img-closeDy${countclass}">
                           <a class="weblink text-decoration-none text-dark" title="Tyre Image">
-                              <img class="img-fluid w-100 h-100" src="${imageUrl}" alt="Tyre Image">
+                            <img class="img-fluid w-100 h-100" src="${imageUrl}" alt="Tyre Image">
                           </a>
                       </div>
                   </div>
@@ -669,41 +582,6 @@ function fetch_edit_data(id) {
     });
 }
 
-// Seach data
-// function myFunction() {
-//   var input, filter, table, tr, td, i, j, txtValue;
-//   input = document.getElementById("namesearch");
-//   filter = input.value.toUpperCase();
-//   table = document.getElementById("example");
-//   tr = table.getElementsByTagName("tr");
-
-//   for (i = 0; i < tr.length; i++) {
-//     // Loop through all td elements in the current row
-//     td = tr[i].getElementsByTagName("td");
-//     for (j = 0; j < td.length; j++) {
-//       txtValue = td[j].textContent || td[j].innerText;
-//       if (txtValue.toUpperCase().indexOf(filter) > -1) {
-//         tr[i].style.display = "";
-//         break; // Break the inner loop if a match is found in any td
-//       } else {
-//         tr[i].style.display = "none";
-//       }
-//     }
-//   }
-// }
-// function resetForm() {
-//         document.getElementById("myform").reset();
-
-//         // Show all rows in the table
-//         var table = document.getElementById("example");
-//         var rows = table.getElementsByTagName("tr");
-
-//         for (var i = 0; i < rows.length; i++) {
-//             rows[i].style.display = "";
-//         }
-//     }
-
-
 // delete data
 function destroy(id) {
   console.log(id);
@@ -805,6 +683,8 @@ function destroy(id) {
         }
     });
   } 
+
+  // search data 
   function searchdata(){
     var brand_name = $('#brand2').val();
     var model_name = $('#model_name').val();

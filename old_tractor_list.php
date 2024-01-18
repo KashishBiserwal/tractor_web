@@ -67,6 +67,11 @@ include 'includes/headertag.php';
                               </div>
                               <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-2" hidden>
                                 <div class="form-outline">
+                                  <input type="text" id="EditIdmain_" name="" value="" class=" data_search form-control input-group-sm py-2" />
+                                </div>
+                              </div>
+                              <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-2" hidden>
+                                <div class="form-outline">
                                 
                                   <input type="text" id="image_type_id" name="" value="1" class=" data_search form-control input-group-sm py-2" />
                                 </div>
@@ -224,7 +229,7 @@ include 'includes/headertag.php';
                               </div>
                               <div class="col-12 col-lg-6 col-md-6 col-sm-6 row">
                               <div class="upload__box ">
-                                            <div class="upload__btn-box text-center">
+                                            <div class="upload__btn-box text-center mt-3">
                                               <label >
                                                 <p class="upload__btn ">Upload images</p>
                                                 <input type="file" multiple="" data-max_length="20" class="upload__inputfile" id="_image" name="_image">
@@ -242,7 +247,7 @@ include 'includes/headertag.php';
                               <div class="col-12 col-sm-6 col-lg-6 col-md-6 my-2" hidden>
                                 <div class="form-outline">
                                   <label class="form-label">Product Type</label>
-                                  <input type="text" class="" placeholder=" " value="1" id="product_type_id">
+                                  <!-- <input type="text" class="" placeholder=" " value="1" id="product_type_id"> -->
                                 </div>
                               </div>
                             </div>
@@ -266,13 +271,7 @@ include 'includes/headertag.php';
             <div class="card-body">
             <form action="" id="myform" class="mb-0">
               <div class="row">
-              <div class="col-12 col-sm-12 col-md-3 col-lg-3"hidden>
-                <div class="form-outline">
-                  <label class="form-label">Search By id</label>
-                    <select class=" form-select form-control mb-0" id="brand_id">
-                    </select>
-                </div>
-              </div>
+              
               <div class="col-12 col-sm-12 col-md-3 col-lg-3">
                 <div class="form-outline">
                       <label class="form-label">Search By Brand</label>
@@ -292,13 +291,13 @@ include 'includes/headertag.php';
                     <input type="text" id="state_name" name="state" class="form-control" />
                   </div>
                 </div>
-                <div class="col-12 col-sm-12 col-md-3 col-lg-3">
+                <!-- <div class="col-12 col-sm-12 col-md-3 col-lg-3">
                   <div class="form-outline">
                     <label class="form-label">Search by District</label>
                     <input type="text"id="district_name"  name="state" class="form-control" />
                   </div>
-                </div>
-                <div class="col-12 mt-3">
+                </div> -->
+                <div class="col-12 col-sm-12 col-md-3 col-lg-3">
                   <div class=" text-center">
                     <button type="button" class="btn-success btn mb-0 btn_all" id="search">Search</button>
                     <button type="button" class="btn-success btn mb-0 btn_all" id="Reset">Reset</button>
@@ -315,7 +314,7 @@ include 'includes/headertag.php';
                 <thead class="">
                   <tr>
                     <th class="d-none d-md-table-cell text-white">S.No.</th>
-                    <th class="d-none d-md-table-cell text-white">Date</th>
+                    <th class="d-none d-md-table-cell text-white">Date / Time</th>
                     <!-- <th class="d-none d-md-table-cell text-white">UID</th> -->
                     <th class="d-none d-md-table-cell text-white">Brand</th>
                     <th class="d-none d-md-table-cell text-white"> Model </th>
