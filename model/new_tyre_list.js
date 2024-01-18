@@ -209,7 +209,7 @@ $(document).ready(function(){
                     ],
                       paging: true,
                       searching: false,
-                      // ... other options ...
+                      // ... other options ..............
                   })
                   
             } else {
@@ -221,6 +221,8 @@ $(document).ready(function(){
         }
     });
   }
+
+
   
   get_tyre_list();
   
@@ -253,7 +255,7 @@ $(document).ready(function(){
         data.append('images[]', image_names[x]);
     }
 
-    
+
   
     data.append('brand_id', brand_name);
     data.append('tyre_model', tyre_model);
