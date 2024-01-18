@@ -34,56 +34,62 @@
       <div class="filter-card mb-2">
         <div class="card-body">
           <div class="row">
-          <div class="col-12 col-sm-12 col-md-3 col-lg-3">
+          <div class="col-12 col-sm-12 col-md-3 col-lg-3"hidden>
               <div class="form-outline">
-                <label class="form-label">Brand Name</label>
-                <!-- <input type="text" id="search_email" name="search_email" class="form-control" /> -->
-                <select class="form-select py-2" aria-label="Default select example">
-                    <option selected>Select Name</option>
-                    <option value="1">name1</option>
-                    <option value="2">name2</option>
-                    <option value="3">name3</option>
-                </select>
+                <label class="form-label">Search By id</label>
+                  <select class=" form-select form-control mb-0" id="brand_id">
+                  </select>
               </div>
             </div>
             <div class="col-12 col-sm-12 col-md-3 col-lg-3">
               <div class="form-outline">
-                <label class="form-label"> State</label>
-                <!-- <input type="text" id="search_email" name="search_email" class="form-control" /> -->
-                <select class="form-select py-2" aria-label="Default select example">
-                    <option selected>Select State</option>
-                    <option value="1">Raipur</option>
-                    <option value="2">Bilaspur</option>
-                    <option value="3">Ambikapur</option>
+                <label class="form-label"> Brand Name</label>
+                <select class="form-select py-2" aria-label="Default select example" id="brand_name">
+                    <option selected>Select Brand</option>
+                    <option value="Mahindra">Mahindra</option>
+                    <option value="Swaraj">Swaraj</option>
+                    <option value="John Deere">John Deere</option>
+                    <option value="Preet">Preet</option>
                 </select>
               </div>
             </div>
-            <!-- <div class="col-12 col-sm-12 col-md-3 col-lg-3">
+            <div class="col-12 col-sm-12 col-md-3 col-lg-3">
               <div class="form-outline ">
                 <label class="form-label">Model</label>
-                    <select class="form-select py-2" aria-label="Default select example">
+                    <select class="form-select py-2" aria-label="Default select example"  id="model_enquiry">
                         <option selected>Select Model</option>
-                        <option value="1">3032 NX</option>
-                        <option value="2">3030 NX</option>
-                        <option value="3">3230 NX</option>
+                        <option value="sdfgh">sdfgh</option>
+                        <option value="3032 NX">3032 NX</option>
+                        <option value="3030 NX">3030 NX</option>
+                        <option value="3230 NX">3230 NX</option>
                     </select>
               </div>
-            </div> -->
+            </div>
+            <div class="col-12 col-sm-12 col-md-3 col-lg-3">
+              <div class="form-outline">
+                <label class="form-label">State</label>
+                <select class="form-select py-2" aria-label="Default select example"  id="state_enquiry">
+                    <option value>Select State</option>
+                    <option value="Chattisgarh">Chattisgarh</option>
+                    <option value="Other">Other</option>
+                </select>
+              </div>
+            </div>
             <div class="col-12 col-sm-12 col-md-3 col-lg-3">
               <div class="form-outline">
                 <label class="form-label">District</label>
-                    <select class="form-select py-2" aria-label="Default select example">
-                        <option selected>Select District</option>
-                        <option value="1">Raipur</option>
-                        <option value="2">Bilaspur</option>
-                        <option value="3">Ambikapur</option>
-                    </select>
+                <select class="form-select py-2" aria-label="Default select example" id="district_enquiry">
+                    <option value>Select District</option>
+                    <option value="Raipur">Raipur</option>
+                    <option value="Bilaspur">Bilaspur</option>
+                    <option value="Surajpur">Surajpur</option>
+                </select>
               </div>
             </div>
-            <div class="col-12 col-sm-12 col-md-3 col-lg-3">
-              <div class="">
-                <button type="button" class="btn-success btn px-3 py-2" id="Search">Search</button>
-                <button type="button" class="btn-success btn  mx-2 px-3 py-2" id="Reset">Reset</button>
+            <div class="col-12 my-4">
+              <div class="text-center">
+                <button type="button" class="btn-success btn px-3 pt-2" id="Search">Search</button>
+                <button type="button" class="btn-success btn mx-2 px-3 pt-2" id="Reset">Reset</button>
               </div>
             </div>
           </div>
@@ -107,7 +113,7 @@
                         <th class="d-none d-md-table-cell text-white">Action</th>
                       </tr>
                     </thead>
-                    <tbody>
+                    <tbody id="data-table">
                     </tbody>
             </table>
             </div>
