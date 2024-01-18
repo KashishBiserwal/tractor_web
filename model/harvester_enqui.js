@@ -444,7 +444,7 @@ function fetch_edit_data(id) {
   console.log(districtselect);
   
     var paraArr = {
-      'id':brand_id,
+      'brand_id':brand_id,
       'brand_name':brandselect,
       'model':modelselect,
       'state':stateselect,

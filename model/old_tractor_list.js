@@ -274,11 +274,12 @@ function store(event) {
     var enquiry_type_id = 1;
     var image_type_id = 1;
     var tractor_type_id=1;
+    var product_type_id=1;
     var form_type ='FOR_SELL_TRACTOR';
      var image_names = document.getElementById('_image').files;
      console.log('imgds',image_names);
     //  var form_type = $('#form_type').val();
-     var product_type_id = $('#product_type_id').val();
+    //  var product_type_id = $('#product_type_id').val();
     //  var image_type_id = $('#image_type_id').val();
     //  var enquiry_type_id = $('#enquiry_type_id').val();
     //  var tractor_type_id = $('#tractor_type_id').val();
