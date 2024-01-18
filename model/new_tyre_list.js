@@ -209,7 +209,7 @@ $(document).ready(function(){
                     ],
                       paging: true,
                       searching: false,
-                      // ... other options ..............
+                      // ... other options .................
                   })
                   
             } else {
