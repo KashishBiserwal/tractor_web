@@ -310,7 +310,7 @@ function store(event) {
   event.preventDefault();
 
   console.log('jfhfhw');
-  var EditIdmain_ = $('EditIdmain_').val();
+  var EditIdmain_ = $('#EditIdmain_').val();
   var form_type = $('#form_type').val();
   var enquiry_type_id = $('#enquiry_type_id').val();
   var product_type_id = $('#product_type_id').val();
@@ -343,10 +343,10 @@ function store(event) {
 
   console.log('edit state', editId_state);
   console.log('edit id', EditIdmain_);
-  console.log('sumansahu');
   if (EditIdmain_!='' && EditIdmain_ !="null") {
+
     // Update mode
-    console.log('abcdefg',editId_state);
+    console.log('abcdefg',EditIdmain_);
     _method = 'PUT';
     url = apiBaseURL + 'customer_enquiries/' + EditIdmain_;
     console.log(url);
@@ -471,7 +471,7 @@ function fetch_edit_data(id) {
                   <div class="upload__img-close_button " id="closeId${countclass}" onclick="removeImage(this);"></div>
                       <div class="brand-main d-flex box-shadow mt-1 py-2 text-center shadow upload__img-closeDy${countclass}">
                           <a class="weblink text-decoration-none text-dark" title="Tyre Image">
-                              <img class="img-fluid w-100 h-100" src="${imageUrl}" alt="Tyre Image">
+                            <img class="img-fluid w-100 h-100" src="${imageUrl}" alt="Tyre Image">
                           </a>
                       </div>
                   </div>
