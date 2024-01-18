@@ -53,7 +53,7 @@
                                <div class="col-12 col-lg-6 col-md-6 col-sm-6 mt-3" hidden>
                                   <div class="form-outline ">
                                     <label for="name" class="form-label text-dark">Product id</label>
-                                    <input type="text" class="form-control" placeholder="Enter Your Model Name" value="3" id="product_type_id" name="product_type_id">
+                                    <input type="text" class="form-control" placeholder="Enter Your Model Name" value="5" id="product_type_id" name="product_type_id">
                                   </div>
                                </div>
                                <div class="col-12 col-lg-6 col-md-6 col-sm-6 mt-3" hidden>

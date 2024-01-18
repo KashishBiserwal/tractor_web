@@ -55,7 +55,7 @@
                                <div class="col-12 col-lg-6 col-md-6 col-sm-6 mt-3" hidden>
                                   <div class="form-outline ">
                                     <label for="name" class="form-label text-dark"> id</label>
-                                    <input type="text" class="form-control" placeholder="Enter Your Model Name" id="EditIdmain_" name="enquiry_type_id" value="3">
+                                    <input type="text" class="form-control" placeholder="Enter Your Model Name" id="EditIdmain_" name="" value="3">
                                   </div>
                                </div>
                                <div class="col-12 col-lg-6 col-md-6 col-sm-6 mt-3" hidden>
@@ -124,7 +124,7 @@
                                </div>
                                <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
                                           <div class="upload__box ">
-                                            <div class="upload__btn-box text-center">
+                                            <div class="upload__btn-box text-center mt-3">
                                               <label >
                                                 <p class="upload__btn ">Upload images</p>
                                                 <input type="file" name='files[]' multiple="" data-max_length="20" class="upload__inputfile" id="image">

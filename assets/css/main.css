@@ -1,12 +1,11 @@
-@font-face {
-    font-family: "Montserrat";
-    src: url(../font/Montserrat-Regular.ttf);
-}
+/* @font-face { */
+    /* font-family: "Montserrat"; */
+    /* src: url(../font/Montserrat-Regular.ttf); */
+/* } */
 
-body{
-    /* background: #EFEFEF; */
-    font-family: "Montserrat", sans-serif !important;
-}
+/* body{ */
+    /* font-family: "Montserrat", sans-serif !important; */
+/* } */
 
 .loaded{
     padding: 0;

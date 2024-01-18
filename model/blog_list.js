@@ -273,8 +273,6 @@ function add_news(event) {
     });
 
 }
-
-
 function get_news() {
     var apiBaseURL = APIBaseURL;
     var url = apiBaseURL + 'blog_details';

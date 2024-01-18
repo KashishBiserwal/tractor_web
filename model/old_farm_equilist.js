@@ -125,63 +125,67 @@ $(document).ready(function(){
   
     });
 
-    function ImgUpload() {
-        var imgWrap = "";
-        var imgArray = [];
-    
-        $('.upload__inputfile').each(function () {
-          $(this).on('change', function (e) {
-            imgWrap = $(this).closest('.upload__box').find('.upload__img-wrap');
-            var maxLength = $(this).attr('data-max_length');
-    
-            var files = e.target.files;
-            var filesArr = Array.prototype.slice.call(files);
-            var iterator = 0;
-            filesArr.forEach(function (f, index) {
-    
-              if (!f.type.match('image.*')) {
-                return;
+    function BackgroundUpload() {
+      var imgWrap = "";
+      var imgArray = [];
+  
+      function generateUniqueClassName(index) {
+        return "background-image-" + index;
+      }
+  
+      $('.background__inputfile').each(function () {
+        $(this).on('change', function (e) {
+          imgWrap = $(this).closest('.background__box').find('.background__img-wrap');
+          var maxLength = $(this).attr('data-max_length');
+  
+          var files = e.target.files;
+          var filesArr = Array.prototype.slice.call(files);
+          var iterator = 0;
+          filesArr.forEach(function (f, index) {
+  
+            if (!f.type.match('image.*')) {
+              return;
+            }
+  
+            if (imgArray.length > maxLength) {
+              return false;
+            } else {
+              var len = 0;
+              for (var i = 0; i < imgArray.length; i++) {
+                if (imgArray[i] !== undefined) {
+                  len++;
+                }
               }
-    
-              if (imgArray.length > maxLength) {
-                return false
+              if (len > maxLength) {
+                return false;
               } else {
-                var len = 0;
-                for (var i = 0; i < imgArray.length; i++) {
-                  if (imgArray[i] !== undefined) {
-                    len++;
-                  }
+                imgArray.push(f);
+  
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                  var className = generateUniqueClassName(iterator);
+                  var html = "<div class='background__img-box'><div onclick='BackgroundImage(\"" + className + "\")' style='background-image: url(" + e.target.result + ")' data-number='" + $(".background__img-close").length + "' data-file='" + f.name + "' class='img-bg " + className + "'><div class='background__img-close'></div></div></div>";
+                  imgWrap.append(html);
+                  iterator++;
                 }
-                if (len > maxLength) {
-                  return false;
-                } else {
-                  imgArray.push(f);
-    
-                  var reader = new FileReader();
-                  reader.onload = function (e) {
-                    var html = "<div class='upload__img-box'><div style='background-image: url(" + e.target.result + ")' data-number='" + $(".upload__img-close").length + "' data-file='" + f.name + "' class='img-bg'><div class='upload__img-close'></div></div></div>";
-                    imgWrap.append(html);
-                    iterator++;
-                  }
-                  reader.readAsDataURL(f);
-                }
+                reader.readAsDataURL(f);
               }
-            });
+            }
           });
         });
-    
-        $('body').on('click', ".upload__img-close", function (e) {
-          var file = $(this).parent().data("file");
-          for (var i = 0; i < imgArray.length; i++) {
-            if (imgArray[i].name === file) {
-              imgArray.splice(i, 1);
-              break;
-            }
+      });
+  
+      $('body').on('click', ".background__img-close", function (e) {
+        var file = $(this).parent().data("file");
+        for (var i = 0; i < imgArray.length; i++) {
+          if (imgArray[i].name === file) {
+            imgArray.splice(i, 1);
+            break;
           }
-          $(this).parent().parent().remove();
-        });
-      }
-    
+        }
+        $(this).parent().parent().remove();
+      });
+  }
     
       function removeImage(ele){
         console.log("print ele");
@@ -238,10 +242,10 @@ function store(event) {
      console.log('image',image_names);
      var form_type = $('#form_type').val();
      var product_type_id = $('#product_type_id').val();
-     var image_type_id = $('#image_type_id').val();
+    //  var image_type_id = $('#image_type_id').val();
      var enquiry_type_id = $('#enquiry_type_id').val();
-     var tractor_type_id = $('#tractor_type_id').val();
-     console.log('tractor_type_id',tractor_type_id);
+    //  var tractor_type_id = $('#tractor_type_id').val();
+    //  console.log('tractor_type_id',tractor_type_id);
      var category = $('#category').val();
      var brand = $('#brand').val();
      var model = $('#model').val();
@@ -292,8 +296,8 @@ function store(event) {
        data.append('_method',_method);
        data.append('product_type_id', product_type_id);
        data.append('enquiry_type_id', enquiry_type_id);
-       data.append('image_type_id', image_type_id);
-       data.append('tractor_type_id', tractor_type_id);
+      //  data.append('image_type_id', image_type_id);
+      //  data.append('tractor_type_id', tractor_type_id);
        data.append('category', category);
        data.append('first_name', first_name);
        data.append('last_name', last_name);
@@ -586,6 +590,43 @@ function fetch_edit_data(id) {
     },
     error: function(error) {
       console.error('Error fetching user data:', error);
+    }
+  });
+}
+
+
+// delete data
+function destroy(id) {
+  var apiBaseURL = APIBaseURL;
+  var url = apiBaseURL + 'customer_enquiries/' + id;
+  var token = localStorage.getItem('token');
+
+  if (!token) {
+    console.error("Token is missing");
+    return;
+  }
+
+  // Show a confirmation popup
+  var isConfirmed = confirm("Are you sure you want to delete this data?");
+  if (!isConfirmed) {
+    // User clicked 'Cancel' in the confirmation popup
+    return;
+  }
+
+  $.ajax({
+    url: url,
+    type: "DELETE",
+    headers: {
+      'Authorization': 'Bearer ' + token
+    },
+    success: function(result) {
+      get_tractor_list();
+      console.log("Delete request successful");
+      alert("Delete operation successful");
+    },
+    error: function(error) {
+      console.error('Error fetching data:', error);
+      alert("Error during delete operation");
     }
   });
 }

@@ -362,7 +362,6 @@ function fetch_edit_data(id) {
             'Authorization': 'Bearer ' + localStorage.getItem('token')
         },
         success: function (data) {
-            console.log(data);
             const selects = document.querySelectorAll('#brand_name');
   
             selects.forEach(select => {
@@ -373,7 +372,6 @@ function fetch_edit_data(id) {
                         const option = document.createElement('option');
                         option.textContent = row.brand_name;
                         option.value = row.id;
-                        console.log(option);
                         select.appendChild(option);
                     });
   
@@ -402,7 +400,6 @@ function fetch_edit_data(id) {
             'Authorization': 'Bearer ' + localStorage.getItem('token')
         },
         success: function (data) {
-            console.log(data);
             const selects = document.querySelectorAll('#model3');
   
             selects.forEach(select => {
@@ -426,12 +423,12 @@ function fetch_edit_data(id) {
         }
     });
   }
-  
   get();
+  
 
   function searchdata() {
     console.log("dfghsfg,sdfgdfg");
-    var brand_id = $('#brand_id').val();
+    var brand_id = $('#brand_id1').val();
     var brandselect = $('#brand_name').val();
     var modelselect = $('#model3').val();
     var stateselect = $('#state3').val();
