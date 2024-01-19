@@ -97,8 +97,8 @@
       </div>
       <!-- Table Card -->
       <div class=" mb-5">
-          <div class="table-responsive">
-            <table id="example" class="table dataTable no-footer py-1" width="100%">                                                                                                                                                                                                                                                                                                                                                                                                                                     
+          <div class="table-responsive shadow bg-white mt-3">
+            <table id="example" class="table table-striped  table-hover table-bordered dataTable no-footer" width="100%; margin-bottom: 15px;">                                                                                                                                                                                                                                                                                                                                                                                                                                     
                     <thead>
                       <tr>
                         <th class="d-none d-md-table-cell text-white">S.No.</th>
@@ -134,32 +134,38 @@
                         <table class="table table-striped">
                         <tbody>
                         <tr> 
-                            <td>Brand Name-</td>
+                            <td>Brand-</td>
                             <td id="bname1"></td>
-                            <td>First Name-</td>
-                            <td id="fname1"></td>
+                            <td>Model-</td>
+                            <td id="mname1"></td>
                           </tr>
                          <tr> 
+                            <td>First Name-</td>
+                            <td id="fname1"></td>
                             <td>Last Name-</td>
                             <td id="lname1"></td>
-                            <td>Mobile Number-</td>
-                            <td id="number1"></td>
+                         
                           </tr>
                           <tr>
+                          <td>Mobile Number-</td>
+                            <td id="number1"></td>
                             <td>Email-</td>
                             <td id="email_1"></td>
-                            <td>Date-</td>
-                            <td id="date_1"></td>
+                          
                           </tr>
                           <tr>
+                          <td>Date-</td>
+                            <td id="date_1"></td>
                             <td>Year-</td>
                             <td id="year_1"></td>
-                            <td>State-</td>
-                            <td id="state1"></td>
                           </tr>
                           <tr>
-                          <td>District-</td>
+                          <td>State-</td>
+                            <td id="state1"></td>
+                            <td>District-</td>
                             <td id="dist1"></td>
+                         </tr>
+                          <tr>
                             <td>Tehsil-</td>
                             <td id="tehsil1"></td>
                           </tr>
@@ -197,20 +203,20 @@
                                 </div>  
                                 <div class="col- col-sm-6 col-lg-6 col-md-6" hidden>
                                   <label class="text-dark"> id Name<span class="text-danger">*</span></label>
-                                          <input type="text" class="form-control py-2" for="idUser"  id="enquiry_type_id" value="21" name="first_name" placeholder="Enter First Name">
+                                          <input type="text" class="form-control py-2" for="idUser"  id="enquiry_type_id" value="25" name="first_name" placeholder="Enter First Name">
                                   <small></small>
                                 </div>
                                 <div class="col- col-sm-6 col-lg-6 col-md-6" hidden>
                                           <label class="text-dark"> id Name<span class="text-danger">*</span></label>
-                                                  <input type="text" class="form-control py-2" for="idUser"  id="product_id" value="307" name="first_name" placeholder="Enter First Name">
+                                                  <input type="text" class="form-control py-2" for="idUser"  id="product_id" value="389" name="first_name" placeholder="Enter First Name">
                                           <small></small>
                                         </div>
-                                <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
+                                <!-- <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
                                       <div class="form-outline">
                                         <label for="name" class="form-label text-dark">Brand Name</label>
                                         <input type="text" class="form-control" placeholder="" id="brand_name" name="bname">
                                       </div>
-                                    </div>
+                                    </div> -->
                                     <div class="ol-12 col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-outline">
                                             <label class="form-label">Brand Name</label>
@@ -219,12 +225,12 @@
                                             </select>
                                         </div>
                                     </div>
-                                    <!-- <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
+                                    <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
                                       <div class="form-outline">
                                         <label for="name" class="form-label text-dark">Model Name</label>
                                         <input type="text" class="form-control" placeholder="" id="model_name" name="mname">
                                       </div>
-                                    </div> -->
+                                    </div>
                                  <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
                                       <div class="form-outline mt-3">
                                         <label for="name" class="form-label text-dark">First Name</label>
@@ -258,7 +264,12 @@
                                     <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
                                       <div class="form-outline mt-3">
                                         <label for="name" class="form-label text-dark">Year</label>
-                                        <input type="text" class="form-control" placeholder="" id="year" name="year">
+                                        <!-- <input type="text" class="form-control" placeholder="" id="year" name="year"> -->
+                                        <select class="form-select form-control" aria-label=".form-select-lg example" id="year" name="year">
+                                      <option value="">Select Purchase Year</option>
+                                      <option value="2020">2020</option>
+                                       <option value="2021">2021</option>
+                                    </select>
                                       </div>
                                     </div>
                                     <div class="col-12 col-sm-6 col-md-6 col-lg-6">
