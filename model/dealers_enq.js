@@ -333,24 +333,22 @@ console.log(url);
 
 
 // search
-function search() {
+function searchdata() {
   console.log("dfghsfg,sdfgdfg");
   
-  var brand_id = $('#brand_id').val();
   var dealer_name = $('#dealerNameSelect').val();
   var state = $('#stateSelect').val();
-  var district = $('#stateSelect').val();
+  var district = $('#districtSelect').val();
  
   var paraArr = {
-    // 'brand_id': brand,
-    'brand_id ':brand_id,
+    
     'dealer_name': dealer_name,
     'state':state,
     'district':district,
   };
 
   var apiBaseURL = APIBaseURL;
-  var url = apiBaseURL + 'search_for_old_tractor_enquiry';
+  var url = apiBaseURL + 'search_for_dealer_for_enquiry';
   $.ajax({
       url:url, 
       type: 'POST',

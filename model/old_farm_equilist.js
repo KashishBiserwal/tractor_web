@@ -516,8 +516,6 @@ function fetch_data(product_id){
   
           },
   
-       
-          
           complete:function(){
            
           },
