@@ -300,7 +300,7 @@ get();
       }
     });
   }
-  $(document).ready(function() {
+ 
   function get_harvester() {
     var apiBaseURL = APIBaseURL;
     var url = apiBaseURL +'harvester';
@@ -371,7 +371,7 @@ get();
     });
 }
 get_harvester();
-  });
+ 
 // delete data
 function destroy(id) {
   console.log(id);
@@ -669,7 +669,7 @@ function search_data() {
 
   var selectedBrand = $('#brand_name1').val();
 
-  var model = $('#model').val();
+  var model = $('#model1').val();
   console.log(brand_id);
   var paraArr = {
     'brand_id': selectedBrand,
@@ -751,8 +751,9 @@ function updateTable(data) {
 }
 function resetform(){
   $('#brand_name').val('');
-  $('#brand_id').val('');
-  $('#model').val('');
+  // $('#brand_id').val('');
+  $('#model1').val('');
   get_harvester();
+  // window.location.reload();
   
 }

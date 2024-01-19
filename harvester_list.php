@@ -371,7 +371,7 @@ include 'includes/footertag.php';
             <div class="col-12 col-sm-12 col-md-3 col-lg-3">
               <div class="form-outline">
                 <label class="form-label">Model Name</label>
-               <input type="text" id="model" class="form-control">
+               <input type="text" id="model1" class="form-control">
               </div>
             </div>
           
