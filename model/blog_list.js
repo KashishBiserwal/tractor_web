@@ -325,7 +325,6 @@ function get_news() {
                     ],
                     paging: true,
                     searching: true,
-                    // ... other options ...
                 });
             } else {
                 tableBody.innerHTML = '<tr><td colspan="9">No valid data available</td></tr>';
