@@ -467,7 +467,6 @@ function destroy(id) {
           document.getElementById('crops').innerText = data.product[0].crops_type_value;
           // document.getElementById('transmission').innerText = data.product[0].transmission_forward;
           // document.getElementById('selectedImagesContainer1').innerText = data.product[0].brand_img;
-      
           $("#selectedImagesContainer1").empty();
       
           if (data.product[0].image_names) {

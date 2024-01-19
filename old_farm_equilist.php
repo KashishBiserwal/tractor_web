@@ -74,9 +74,7 @@
                                   <div class="form-outline ">
                                     <label class="form-label text-dark">Brand</label>
                                     <select class="form-select form-control" aria-label=".form-select-lg example" id="brand"name="brand">
-                                      <option value="">Select Brand</option>
-                                      <option value="Sonalika">Sonalika</option>
-                                      <option value="Mahindra">Mahindra</option>
+                                     
                                     </select>
                                   </div>
                                 </div>
@@ -84,19 +82,9 @@
                                   <div class="form-outline ">
                                     <label class="form-label text-dark">Model Name</label>
                                     <input type="text" class="form-control"  id="model"name="model">
-                                    <!-- <select class="form-select form-control" aria-label=".form-select-lg example" id="model"name="model">
-                                        <option value="">Select Model</option>
-                                        <option value="Sonalika">Sonalika</option>
-                                        <option value="Mahindra">Mahindra</option>
-                                      </select> -->
+                                   
                                   </div>
                                 </div>
-                                <!-- <div class="col-12 col-lg-6 col-md-6 col-sm-6 mt-3">
-                                  <div class="form-outline ">
-                                    <label for="name" class="form-label text-dark">Model Name</label>
-                                    <input type="text" class="form-control" placeholder="Enter Your Model Name" id="model" name="model">
-                                  </div>
-                               </div> -->
                                <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-3">
                                   <div class="form-outline">
                                     <label class="form-label text-dark">Purchase Year</label>
@@ -107,22 +95,7 @@
                                     </select>
                                   </div>
                                 </div>
-                               <!-- <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-3">
-                                  <div class="form-outline">
-                                    <label class="form-label text-dark">Crop Type</label>
-                                    <select class="form-select form-control " aria-label=".form-select-lg example" id="CROPS_TYPE" name="CROPS_TYPE">
-                                       
-                                    </select>
-                                  </div>
-                                </div> -->
-                                <!-- <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-3">
-                                  <div class="form-outline ">
-                                    <label class="form-label text-dark"> Power Source</label>
-                                    <select class="form-select form-control " aria-label=".form-select-lg example" id="POWER_SOURCE" name="POWER_SOURCE">
-                                      
-                                    </select>
-                                  </div>
-                                </div> -->
+                               
                                 <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-3">
                                   <div class="form-outline">
                                     <label class="form-label text-dark">Hours Drive</label>
@@ -240,24 +213,14 @@
               <div class="form-outline">
                 <label class="form-label"> Brand Name</label>
                 <select class="form-select py-2" aria-label="Default select example" id="brand2">
-                    <option selected>Select Brand</option>
-                    <option value="Mahindra">Mahindra</option>
-                    <option value="Swaraj">Swaraj</option>
-                    <option value="John Deere">John Deere</option>
-                    <option value="Preet">Preet</option>
+                  
                 </select>
               </div>
             </div>
             <div class="col-12 col-sm-12 col-md-3 col-lg-3">
               <div class="form-outline ">
                 <label class="form-label">Model</label>
-                    <select class="form-select py-2" aria-label="Default select example"  id="model2">
-                        <option selected>Select Model</option>
-                        <option value="sdfgh">sdfgh</option>
-                        <option value="3032 NX">3032 NX</option>
-                        <option value="3030 NX">3030 NX</option>
-                        <option value="3230 NX">3230 NX</option>
-                    </select>
+                  <input type="text" class="form-control" id="model2" name="model2">
               </div>
             </div>
             <div class="col-12 col-sm-12 col-md-3 col-lg-3">

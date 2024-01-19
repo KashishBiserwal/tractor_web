@@ -45,24 +45,15 @@
               <div class="form-outline">
                 <label class="form-label"> Brand Name</label>
                 <select class="form-select py-2" aria-label="Default select example" id="brand_name1">
-                    <option selected>Select Brand</option>
-                    <option value="Mahindra">Mahindra</option>
-                    <option value="Swaraj">Swaraj</option>
-                    <option value="John Deere">John Deere</option>
-                    <option value="Preet">Preet</option>
+                  
                 </select>
               </div>
             </div>
             <div class="col-12 col-sm-12 col-md-3 col-lg-3">
               <div class="form-outline ">
                 <label class="form-label">Model</label>
-                    <select class="form-select py-2" aria-label="Default select example"  id="model_enquiry">
-                        <option selected>Select Model</option>
-                        <option value="sdfgh">sdfgh</option>
-                        <option value="3032 NX">3032 NX</option>
-                        <option value="3030 NX">3030 NX</option>
-                        <option value="3230 NX">3230 NX</option>
-                    </select>
+                <input type="text" class="form-control py-2" for="idUser"  id="model_enquiry" name="model_enquiry" >
+                  
               </div>
             </div>
             <div class="col-12 col-sm-12 col-md-3 col-lg-3">
