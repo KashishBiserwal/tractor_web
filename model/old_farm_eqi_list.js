@@ -1,6 +1,6 @@
  
    $(document).ready(function(){
-    $('#implement_btn').click(edit_id);
+    // $('#implement_btn').click(edit_id);
     // $('#Search').click(search);
           jQuery.validator.addMethod("customPhoneNumber", function(value, element) {
           return /^[6-9]\d{9}$/.test(value); 
@@ -98,12 +98,82 @@
   
     });
  
- 
+    function get() {
+      var url = 'http://tractor-api.divyaltech.com/api/customer/get_all_brands';
+      $.ajax({
+          url: url,
+          type: "GET",
+          headers: {
+              'Authorization': 'Bearer ' + localStorage.getItem('token')
+          },
+          success: function (data) {
+              const selects = document.querySelectorAll('#brand_name');
+    
+              selects.forEach(select => {
+                  select.innerHTML = '<option selected disabled value="">Please select an option</option>';
+    
+                  if (data.brands.length > 0) {
+                      data.brands.forEach(row => {
+                          const option = document.createElement('option');
+                          option.textContent = row.brand_name;
+                          option.value = row.id;
+                          select.appendChild(option);
+                      });
+    
+                      // Add event listener to brand dropdown
+                      select.addEventListener('change', function() {
+                          const selectedBrandId = this.value;
+                          get_model(selectedBrandId);
+                      });
+                  } else {
+                      select.innerHTML = '<option>No valid data available</option>';
+                  }
+              });
+          },
+          error: function (error) {
+              console.error('Error fetching data:', error);
+          }
+      });
+    }
+    
+    function get_model(brand_id) {
+      var url = 'http://tractor-api.divyaltech.com/api/customer/get_brand_model/' + brand_id;
+      $.ajax({
+          url: url,
+          type: "GET",
+          headers: {
+              'Authorization': 'Bearer ' + localStorage.getItem('token')
+          },
+          success: function (data) {
+              const selects = document.querySelectorAll('#model_enquiry');
+    
+              selects.forEach(select => {
+                  select.innerHTML = '<option selected disabled value="">Please select an option</option>';
+    
+                  if (data.model.length > 0) {
+                      data.model.forEach(row => {
+                          const option = document.createElement('option');
+                          option.textContent = row.model;
+                          option.value = row.id;
+                          console.log(option);
+                          select.appendChild(option);
+                      });
+                  } else {
+                      select.innerHTML = '<option>No valid data available</option>';
+                  }
+              });
+          },
+          error: function (error) {
+              console.error('Error fetching data:', error);
+          }
+      });
+    }
+    get();
  
  // fetch data
 function get() {
   var apiBaseURL = APIBaseURL;
-  var url = apiBaseURL + 'get_old_implements';
+  var url = apiBaseURL + 'get_enquiry_data_for_old_implements';
   console.log(url);
   $.ajax({
       url: url,
@@ -114,26 +184,26 @@ function get() {
       success: function (data) {
           const tableBody = document.getElementById('data-table');
 // console.log(data);
-          if (data.enquiry_data && data.enquiry_data.length > 0) {
+          if (data.getOldImplementEnquiry && data.getOldImplementEnquiry.length > 0) {
               let tableData = [];
               let counter = 1;
 
-              data.enquiry_data.forEach(row => {
+              data.getOldImplementEnquiry.forEach(row => {
                   let action = `
                       <div class="d-flex">
-                          <button class="btn btn-warning btn-sm text-white mx-1" data-bs-toggle="modal" onclick="fetch_data(${row.product_id});" data-bs-target="#old_farm_enq">
+                          <button class="btn btn-warning btn-sm text-white mx-1" data-bs-toggle="modal" onclick="fetch_data(${row.id});" data-bs-target="#old_farm_enq">
                           <i class="fa-solid fa-eye" style="font-size: 11px;"></i></button>
-                          <button class="btn btn-primary btn-sm btn_edit" onclick="fetch_edit_data(${row.product_id});" data-bs-toggle="modal" data-bs-target="#old_farm_implement_enq" id="yourUniqueIdHere" style="padding:5px">
+                          <button class="btn btn-primary btn-sm btn_edit" onclick="fetch_edit_data(${row.id});" data-bs-toggle="modal" data-bs-target="#old_farm_implement_enq" id="yourUniqueIdHere" style="padding:5px">
                             <i class="fas fa-edit" style="font-size: 11px;"></i>
                           </button>
-                          <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.product_id});" style="padding:5px">
+                          <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.id});" style="padding:5px">
                             <i class="fa fa-trash" style="font-size: 11px;"></i>
                           </button>
                       </div>`;
 
                   tableData.push([
                       counter,
-                      formatDateTime(row.date),
+                      row.date,
                       row.brand_name,
                       row.model,
                       row.name,
