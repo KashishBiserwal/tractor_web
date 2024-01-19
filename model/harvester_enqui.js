@@ -269,16 +269,27 @@ function fetch_edit_data(id) {
         success: function (response) {
             var Data = response.enquiry_data[0];
             $('#userId').val(Data.id);
-            $('#brand_name').val(Data.brand_name);
+            // $('#brand_name_1').val(Data.brand_name);
+            $("#brand_name_1 option").prop("selected", false);
+            $("#brand_name_1 option[value='" + Data.brand_name + "']").prop("selected", true);
             $('#model_name').val(Data.model);
             $('#fname_2').val(Data.first_name);
             $('#lname_2').val(Data.last_name);
             $('#number_2').val(Data.mobile);
             $('#email_2').val(Data.email);
             $('#date_2').val(Data.date);
-            $('#state_2').val(Data.state);
-            $('#dist_2').val(Data.district);
-            $('#tehsil_2').val(Data.tehsil);
+            // $('#state_2').val(Data.state);
+            // $('#dist_2').val(Data.district);
+            // $('#tehsil_2').val(Data.tehsil);
+
+            $("#state_2 option").prop("selected", false);
+            $("#state_2 option[value='" + Data.state+ "']").prop("selected", true);
+            
+            $("#dist_2 option").prop("selected", false);
+            $("#dist_2 option[value='" + Data.district+ "']").prop("selected", true);
+            
+            $("#tehsil_2 option").prop("selected", false);
+            $("#tehsil_2 option[value='" + Data.tehsil+ "']").prop("selected", true);
         },
         error: function (error) {
             console.error('Error fetching user data:', error);
@@ -425,6 +436,51 @@ function fetch_edit_data(id) {
   }
   get();
   
+
+
+  // brand
+function get_search() {
+  var apiBaseURL = APIBaseURL;
+  var url = apiBaseURL + 'getBrands';
+
+  $.ajax({
+    url: url,
+    type: "GET",
+    headers: {
+      'Authorization': 'Bearer ' + localStorage.getItem('token')
+    },
+    success: function (data) {
+      console.log(data);
+
+      const select = $('#brand_name_1');
+      select.empty(); // Clear existing options
+
+      // Add a default option
+      select.append('<option selected disabled value="">Please select Brand</option>');
+
+      // Use an object to keep track of unique brands
+      var uniqueBrands = {};
+
+      $.each(data.brands, function (index, brand) {
+        var brand_id = brand.id;
+        var brand_name = brand.brand_name;
+
+        // Check if the brand ID is not already in the object
+        if (!uniqueBrands[brand_id]) {
+          // Add brand ID to the object
+          uniqueBrands[brand_id] = true;
+
+          // Append the option to the dropdown
+          select.append('<option value="' + brand_id + '">' + brand_name + '</option>');
+        }
+      });
+    },
+    error: function (error) {
+      console.error('Error fetching data:', error);
+    }
+  });
+}
+get_search();
 
   function searchdata() {
     console.log("dfghsfg,sdfgdfg");

@@ -218,7 +218,9 @@
                                         <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
                                       <div class="form-outline">
                                         <label for="name" class="form-label text-dark">Brand Name</label>
-                                        <input type="text" class="form-control" placeholder="" id="brand_name" name="bname">
+                                        <!-- <input type="text" class="form-control" placeholder="" id="brand_name_1" name="bname"> -->
+                                        <select class="js-select2 form-select form-control mb-0" id="brand_name_1" name="bname">
+                                        </select>
                                       </div>
                                     </div>
                                     <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">

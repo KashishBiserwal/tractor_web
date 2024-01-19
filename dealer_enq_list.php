@@ -45,7 +45,7 @@
                 <label class="form-label">State</label>
                 <select class="form-select py-2" aria-label="Default select example"  id="stateSelect">
                     <option value>Select State</option>
-                    <option value="Chattisgarh">Chattisgarh</option>
+                    <option value="Chhattisgarh">Chhattisgarh</option>
                     <option value="Other">Other</option>
                 </select>
               </div>
@@ -231,7 +231,7 @@
                                              <label class="form-label text-dark">State</label>
                                               <select class="form-select py-2" aria-label="Default select example" id="state_" name="state_">
                                                 <option value>Select State</option>
-                                                <option value="Chattisgarh">Chattisgarh</option>
+                                                <option value="Chhattisgarh">Chhattisgarh</option>
                                                 <option value="Other">Other</option>
                                               </select>
                                           </div>
@@ -242,6 +242,7 @@
                                             <select class="form-select py-2" aria-label="Default select example" id="dist_" name="dist">
                                               <option value>Select District</option>
                                               <option value="Raipur">Raipur</option>
+                                              <option value="Bastar">Bastar</option>
                                               <option value="Bilaspur">Bilaspur</option>
                                               <option value="Surajpur">Surajpur</option>
                                             </select>
@@ -253,6 +254,7 @@
                                             <select class="form-select py-2" aria-label="Default select example" id="tehsil_">
                                               <option value>Select Tehsil</option>
                                               <option value="Raipur">Raipur</option>
+                                              <option value="Bastar">Bastar</option>
                                               <option value="Bilaspur">Bilaspur</option>
                                               <option value="Surajpur">Surajpur</option>
                                             </select>

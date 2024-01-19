@@ -106,7 +106,7 @@
             <div class="col-12 col-sm-12 col-md-3 col-lg-3">
               <div class="form-outline">
                 <label class="form-label">Search By Brand</label>
-                <select class="js-select2 form-select form-control mb-0" id="brand_name">
+                <select class="js-select2 form-select form-control mb-0" id="brand_name1">
                 </select>
               </div>
             </div>
@@ -125,13 +125,14 @@
             <div class="col-12 col-sm-12 col-md-3 col-lg-3">
               <div class="form-outline ">
                 <label class="form-label">Model</label>
-                    <select class="form-select py-2" aria-label="Default select example"  id="model2">
-                        <!-- <option selected>Select Model</option>
+                <input type="text" class="form-control py-2" for="last_name"  id="model2" name="model2">
+                    <!-- <select class="form-select py-2" aria-label="Default select example"  id="model2">
+                        <option selected>Select Model</option>
                         <option value="sdfgh">sdfgh</option>
                         <option value="3032 NX">3032 NX</option>
                         <option value="3030 NX">3030 NX</option>
-                        <option value="3230 NX">3230 NX</option> -->
-                    </select>
+                        <option value="3230 NX">3230 NX</option>
+                    </select> -->
               </div>
             </div>
             <div class="col-12 col-sm-12 col-md-3 col-lg-3">
@@ -276,20 +277,20 @@
                                                   <input type="text" class="form-control py-2" for="idUser"  id="product_id" value="307" name="first_name" placeholder="Enter First Name">
                                           <small></small>
                                         </div>
-                                <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
+                                <!-- <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
                                       <div class="form-outline">
                                         <label for="name" class="form-label text-dark">Brand Name</label>
                                         <input type="text" class="form-control" placeholder="" id="brand_name" name="bname">
                                       </div>
-                                    </div>
-                                    <!-- <div class="ol-12 col-lg-6 col-md-6 col-sm-6">
+                                    </div> -->
+                                    <div class="ol-12 col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-outline">
                                             <label class="form-label">Brand Name</label>
                                             <select class="form-select py-2" aria-label="Default select example" id="brand_name" name="bname">
                                                 
                                             </select>
                                         </div>
-                                    </div> -->
+                                    </div>
                                     <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
                                       <div class="form-outline">
                                         <label for="name" class="form-label text-dark">Model Name</label>
