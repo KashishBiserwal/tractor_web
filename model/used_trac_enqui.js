@@ -169,82 +169,168 @@
   }
   get_old_tractor();
 
-  function get() {
-    var url = 'http://tractor-api.divyaltech.com/api/customer/get_all_brands';
-    $.ajax({
-        url: url,
-        type: "GET",
-        headers: {
-            'Authorization': 'Bearer ' + localStorage.getItem('token')
-        },
-        success: function (data) {
-            console.log(data);
-            const selects = document.querySelectorAll('#brand_name');
+//   function get() {
+//     var url = 'http://tractor-api.divyaltech.com/api/customer/get_all_brands';
+//     $.ajax({
+//         url: url,
+//         type: "GET",
+//         headers: {
+//             'Authorization': 'Bearer ' + localStorage.getItem('token')
+//         },
+//         success: function (data) {
+//             console.log(data);
+//             const selects = document.querySelectorAll('#brand_name');
 
-            selects.forEach(select => {
-                select.innerHTML = '<option selected disabled value="">Please select an option</option>';
+//             selects.forEach(select => {
+//                 select.innerHTML = '<option selected disabled value="">Please select an option</option>';
 
-                if (data.brands.length > 0) {
-                    data.brands.forEach(row => {
-                        const option = document.createElement('option');
-                        option.textContent = row.brand_name;
-                        option.value = row.id;
-                        console.log(option);
-                        select.appendChild(option);
-                    });
+//                 if (data.brands.length > 0) {
+//                     data.brands.forEach(row => {
+//                         const option = document.createElement('option');
+//                         option.textContent = row.brand_name;
+//                         option.value = row.id;
+//                         console.log(option);
+//                         select.appendChild(option);
+//                     });
 
-                    // Add event listener to brand dropdown
-                    select.addEventListener('change', function() {
-                        const selectedBrandId = this.value;
-                        get_model(selectedBrandId);
-                    });
-                } else {
-                    select.innerHTML = '<option>No valid data available</option>';
-                }
-            });
-        },
-        error: function (error) {
-            console.error('Error fetching data:', error);
+//                     // Add event listener to brand dropdown
+//                     select.addEventListener('change', function() {
+//                         const selectedBrandId = this.value;
+//                         get_model(selectedBrandId);
+//                     });
+//                 } else {
+//                     select.innerHTML = '<option>No valid data available</option>';
+//                 }
+//             });
+//         },
+//         error: function (error) {
+//             console.error('Error fetching data:', error);
+//         }
+//     });
+// }
+
+// function get_model(brand_id) {
+//     var url = 'http://tractor-api.divyaltech.com/api/customer/get_brand_model/' + brand_id;
+//     $.ajax({
+//         url: url,
+//         type: "GET",
+//         headers: {
+//             'Authorization': 'Bearer ' + localStorage.getItem('token')
+//         },
+//         success: function (data) {
+//             console.log(data);
+//             const selects = document.querySelectorAll('#model2');
+
+//             selects.forEach(select => {
+//                 select.innerHTML = '<option selected disabled value="">Please select an option</option>';
+
+//                 if (data.model.length > 0) {
+//                     data.model.forEach(row => {
+//                         const option = document.createElement('option');
+//                         option.textContent = row.model;
+//                         option.value = row.id;
+//                         console.log(option);
+//                         select.appendChild(option);
+//                     });
+//                 } else {
+//                     select.innerHTML = '<option>No valid data available</option>';
+//                 }
+//             });
+//         },
+//         error: function (error) {
+//             console.error('Error fetching data:', error);
+//         }
+//     });
+// }
+
+// get();
+// brand
+function get_search_brand() {
+  var apiBaseURL = APIBaseURL;
+  var url = apiBaseURL + 'getBrands';
+
+  $.ajax({
+    url: url,
+    type: "GET",
+    headers: {
+      'Authorization': 'Bearer ' + localStorage.getItem('token')
+    },
+    success: function (data) {
+      console.log(data);
+
+      const select = $('#brand_name1');
+      select.empty(); // Clear existing options
+
+      // Add a default option
+      select.append('<option selected disabled value="">Please select Brand</option>');
+
+      // Use an object to keep track of unique brands
+      var uniqueBrands = {};
+
+      $.each(data.brands, function (index, brand) {
+        var brand_id = brand.id;
+        var brand_name = brand.brand_name;
+
+        // Check if the brand ID is not already in the object
+        if (!uniqueBrands[brand_id]) {
+          // Add brand ID to the object
+          uniqueBrands[brand_id] = true;
+
+          // Append the option to the dropdown
+          select.append('<option value="' + brand_id + '">' + brand_name + '</option>');
         }
-    });
+      });
+    },
+    error: function (error) {
+      console.error('Error fetching data:', error);
+    }
+  });
 }
+get_search_brand();
 
-function get_model(brand_id) {
-    var url = 'http://tractor-api.divyaltech.com/api/customer/get_brand_model/' + brand_id;
-    $.ajax({
-        url: url,
-        type: "GET",
-        headers: {
-            'Authorization': 'Bearer ' + localStorage.getItem('token')
-        },
-        success: function (data) {
-            console.log(data);
-            const selects = document.querySelectorAll('#model2');
+// brand
+function get_search() {
+  var apiBaseURL = APIBaseURL;
+  var url = apiBaseURL + 'getBrands';
 
-            selects.forEach(select => {
-                select.innerHTML = '<option selected disabled value="">Please select an option</option>';
+  $.ajax({
+    url: url,
+    type: "GET",
+    headers: {
+      'Authorization': 'Bearer ' + localStorage.getItem('token')
+    },
+    success: function (data) {
+      console.log(data);
 
-                if (data.model.length > 0) {
-                    data.model.forEach(row => {
-                        const option = document.createElement('option');
-                        option.textContent = row.model;
-                        option.value = row.id;
-                        console.log(option);
-                        select.appendChild(option);
-                    });
-                } else {
-                    select.innerHTML = '<option>No valid data available</option>';
-                }
-            });
-        },
-        error: function (error) {
-            console.error('Error fetching data:', error);
+      const select = $('#brand_name');
+      select.empty(); // Clear existing options
+
+      // Add a default option
+      select.append('<option selected disabled value="">Please select Brand</option>');
+
+      // Use an object to keep track of unique brands
+      var uniqueBrands = {};
+
+      $.each(data.brands, function (index, brand) {
+        var brand_id = brand.id;
+        var brand_name = brand.brand_name;
+
+        // Check if the brand ID is not already in the object
+        if (!uniqueBrands[brand_id]) {
+          // Add brand ID to the object
+          uniqueBrands[brand_id] = true;
+
+          // Append the option to the dropdown
+          select.append('<option value="' + brand_id + '">' + brand_name + '</option>');
         }
-    });
+      });
+    },
+    error: function (error) {
+      console.error('Error fetching data:', error);
+    }
+  });
 }
-
-get();
-
+get_search();
   // View data
 function openViewdata(userId) {
     var apiBaseURL = APIBaseURL;
@@ -332,9 +418,9 @@ function fetch_edit_data(id) {
         success: function (response) {
             var Data = response.enquiry_data[0];
             $('#idUser').val(Data.id);
-            $('#brand_name').val(Data.brand_name);
-            // $("#brand_name option").prop("selected", false);
-            // $("#brand_name option[value='" + Data.brand_name + "']").prop("selected", true);
+            // $('#brand_name').val(Data.brand_name);
+            $("#brand_name option").prop("selected", false);
+            $("#brand_name option[value='" + Data.brand_name + "']").prop("selected", true);
             $('#model_name').val(Data.model);
             $('#first_name').val(Data.first_name);
             $('#last_name').val(Data.last_name);

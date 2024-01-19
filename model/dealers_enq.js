@@ -251,17 +251,24 @@ function fetch_edit_data(id) {
           var Data = response.dealer_enquiry_details[0];
           $('#idUser').val(Data.id);
           $('#dname_name').val(Data.dealer_name);
-          // $("#brand_name option").prop("selected", false);
-          // $("#brand_name option[value='" + Data.brand_name + "']").prop("selected", true);
+
+          $("#brand_name option").prop("selected", false);
+          $("#brand_name option[value='" + Data.brand_name + "']").prop("selected", true);
           $('#first_name').val(Data.first_name);
           $('#first_name').val(Data.first_name);
           $('#last_name').val(Data.last_name);
           $('#mobile').val(Data.mobile);
           $('#email').val(Data.email);
           $('#date').val(Data.date);
-          $('#state_').val(Data.state)
-          $('#dist_').val(Data.district);
-          $('#tehsil_').val(Data.tehsil);
+          $("#state_ option").prop("selected", false);
+          $("#state_ option[value='" + Data.state+ "']").prop("selected", true);
+          
+          $("#dist_ option").prop("selected", false);
+          $("#dist_ option[value='" + Data.district+ "']").prop("selected", true);
+          
+          $("#tehsil_ option").prop("selected", false);
+          $("#tehsil_ option[value='" + Data.tehsil+ "']").prop("selected", true);
+         
       },
       error: function (error) {
           console.error('Error fetching user data:', error);
@@ -270,11 +277,10 @@ function fetch_edit_data(id) {
 }
 
 function edit_id_data() {
+  var edit_id = $("#idUser").val();
   var enquiry_type_id = $("#enquiry_type_id").val();
   var product_id = $("#product_id").val();
-  var edit_id = $("#idUser").val();
   var dealer_name = $("#dname_name").val();
-  var first_name = $("#first_name").val();
   var first_name = $("#first_name").val();
   var last_name = $("#last_name").val();
   var mobile = $("#mobile").val();
@@ -283,7 +289,21 @@ function edit_id_data() {
   var state = $("#state_").val();
   var district = $("#dist_").val();
   var tehsil = $("#tehsil_").val();
-  var _method = 'put';
+  
+
+  console.log(edit_id);
+  console.log(enquiry_type_id);
+  console.log(product_id);
+  console.log(dealer_name);
+  console.log(first_name); 
+  console.log(last_name);
+  console.log(mobile);
+  console.log(email);
+  console.log(date);
+  console.log(state);
+  console.log(district);
+  console.log(tehsil);
+  // var _method = 'put';
 
   // Validate mobile number
   if (!/^[6-9]\d{9}$/.test(mobile)) {
@@ -304,7 +324,7 @@ function edit_id_data() {
       'id': edit_id,
       'enquiry_type_id': enquiry_type_id,
       'product_id': product_id,
-      '_method': _method,
+      // '_method': _method,
   };
 
   var apiBaseURL = APIBaseURL;
@@ -316,12 +336,12 @@ console.log(url);
 
   $.ajax({
     url: url,
-    type: "POST",
+    type: "PUT",
     data: paraArr,
     headers: headers,
     success: function (result) {
         console.log(result, "result");
-        window.location.reload();
+        // window.location.reload();
         console.log("updated successfully");
         alert('successfully updated..!')
     },
@@ -341,8 +361,8 @@ function searchdata() {
   var district = $('#districtSelect').val();
  
   var paraArr = {
-    
-    'dealer_name': dealer_name,
+
+    'dealer_name':dealer_name,
     'state':state,
     'district':district,
   };
