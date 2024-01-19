@@ -209,7 +209,7 @@ $(document).ready(function(){
                     ],
                       paging: true,
                       searching: false,
-                      // ... other options ...
+                      // ... other options .................
                   })
                   
             } else {
@@ -221,6 +221,8 @@ $(document).ready(function(){
         }
     });
   }
+
+
   
   get_tyre_list();
   
@@ -234,10 +236,10 @@ $(document).ready(function(){
     var brand_name = $('#brand').val();
     var tyre_model = $('#tyre').val();
     var tyre_position = $('#tyre_position').val();
-    var tyre_size = $('#tyre_size').val();
+    var tyre_diameter = $('#tyre_diameter').val();
     var tyre_width = $('#tyre_width').val();
     var category = $('#category').val();
-  
+    var tyre_size = tyre_width + 'X' + tyre_diameter;
   
     var apiBaseURL = APIBaseURL;
     var url = apiBaseURL + 'tyre_data';
@@ -252,6 +254,8 @@ $(document).ready(function(){
     for (var x = 0; x < image_names.length; x++) {
         data.append('images[]', image_names[x]);
     }
+
+
   
     data.append('brand_id', brand_name);
     data.append('tyre_model', tyre_model);

@@ -1,35 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head> <?php
-   include 'includes/headertag.php';
-   ?> </head>
+<head>
+<?php
+      include 'includes/headertag.php';
+      include 'includes/header.php';
+      $id=$_REQUEST['id'];
+      //echo $id;
+      include 'includes/footertag.php';
+      ?>
+     
+     <script> var CustomerAPIBaseURL = "<?php echo $CustomerAPIBaseURL; ?>";</script>
+     <script> var APIBaseURL = "<?php echo $APIBaseURL; ?>";</script>
+     <script> var baseUrl = "<?php echo $baseUrl; ?>";</script>
+     <script src="<?php $baseUrl; ?>model/nursery_detail.js"></script>
+  
+      
+   </head>
 
-<body> <?php
-   include 'includes/header.php';
-   ?>
+<body> 
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
-    <section class=" mt-5 pt-5">
-        <div class="container pt-3">
-            <div class="py-1">
-                <span class="text-white ">
-                    <a href="index.php" class="text-decoration-none header-link px-1">Home <i
-                            class="fa-solid fa-chevron-right px-1"></i>
-                    </a>
-                    <span class="">
-                        <span class="text-dark header-link  px-1">HaatBazar <i
-                                class="fa-solid fa-chevron-right px-1"></i>
-                        </span>
+    <section class="mt-130 bg-light">
+            <div class="container ">
+                <div class="py-2">
+                    <span class="text-white">
+                        <a href="index.php" class="text-decoration-none header-link px-1">Home <i
+                                class="fa-solid fa-chevron-right px-1"></i></a>
+
+                        <span class="text-dark p">Nursery</span>
                     </span>
-                    <span class="text-dark">Sell</span>
-                </span>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
     <!-- next section start -->
     <section>
-        <div class="container">
-            <div class="vegehead pt-3">
+        <div class="container my-4">
+            <div class="vegehead ">
                 <div class="row">
                     <div class="col-12 col-lg-6 ">
                         <h4 class="fw-bold text-danger pt-4 ">Nursery in District Name</h4>
@@ -77,6 +83,8 @@
                                     <div class="col-md-12 col-12 col-lg-12 col-lg-12">
                                         <div class=" ml-2">
                                             <div class="row">
+                                            <!-- <input type="hidden" id="product_id" value=" $id " > -->
+                                            <input type="hidden" id="enquiry_type_id" value="11" >
                                                 <div class="col-12 col-lg-6 col-md-6 col-sm-12 mt-4">
                                                     <div class="form-outline">
                                                         <label for="fname" class="form-label "><i
@@ -225,8 +233,8 @@
     <section class="mt-3">
         <div class="container">
             <h2 class="fw-bold text-dark text-start mt-4 assured ps-3">Similar Product</h3>
-                <div class="row">
-                    <div class="col-12 col-lg-3 col-md-3 col-sm-3 mb-4">
+                <div id="productContainer" class="row">
+                  <!--   <div class="col-12 col-lg-3 col-md-3 col-sm-3 mb-4">
                         <div class="h-auto success__stry__item d-flex flex-column text-decoration-none shadow ">
                             <div class="thumb">
                                 <div>
@@ -254,7 +262,7 @@
                                     </button>
                                 </div>
 
-                                <!-- Modal -->
+                              
                                 <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static"
                                     data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel"
                                     aria-hidden="true">
@@ -316,161 +324,8 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-12 col-lg-3 col-md-3 col-sm-3 mb-4">
-                        <a href="#" class="h-auto success__stry__item text-decoration-none d-flex flex-column shadow ">
-                            <div class="thumb">
-                                <div>
-                                    <div class="ratio ratio-16x9">
-                                        <img src="assets/images/default-plant-nurseries-9.avif"
-                                            class="object-fit-cover w-100 " alt="img">
-                                    </div>
-                                </div>
-                            </div>
-
-
-                            <div class="content d-flex flex-column flex-grow-1 ">
-                                <div class="power text-center mt-3">
-                                    <div class="col-12">
-                                        <p class="text-success fw-bold">Nursery Name</p>
-                                    </div>
-                                </div>
-                                <div class="row text-center">
-                                    <div class="col-12 text-center">
-                                        <p class="fw-bold pe-3">Surajpur,Chhattisgarh</p>
-                                    </div>
-                                </div>
-                                <div class="col-12 btn-success">
-                                    <button type="button" class="btn btn-success py-2 w-100" data-bs-toggle="modal"
-                                        data-bs-target="#staticBackdrop"><i class="fa-solid fa-phone"></i>
-                                        Contact Nursery
-                                    </button>
-                                </div>
-
-                                <!-- Modal -->
-                                <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static"
-                                    data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel"
-                                    aria-hidden="true">
-                                    <div class="modal-dialog modal-lg modal-dialog-centered">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title text-danger" id="staticBackdropLabel">Contact
-                                                    Nursery</h5>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                    aria-label="Close"></button>
-                                            </div>
-                                            <div class="modal-body">
-                                                <div class="model-cont">
-                                                    <h4 class="text-center text-danger">Request to Call</h3>
-                                                        <div class="row px-3 py-2">
-                                                            <div class="col-12  col-sm-12 col-md-6 col-lg-6 ">
-                                                                <label for="slr_name"
-                                                                    class="form-label fw-bold text-dark"> <i
-                                                                        class="fa-regular fa-user"></i> Seller
-                                                                    Name</label>
-                                                                <input type="text" class="form-control" id="slr_name">
-                                                            </div>
-                                                            <div class="col-12 col-sm-12 col-md-6 col-lg-6  ">
-                                                                <label for="number"
-                                                                    class="form-label text-dark fw-bold"> <i
-                                                                        class="fa fa-phone" aria-hidden="true"></i>
-                                                                    Phone Number</label>
-                                                                <input type="text" class="form-control" id="number">
-                                                            </div>
-                                                            <div class="col-12 col-sm-12 col-md-6 col-lg-6  ">
-                                                                <label for="number"
-                                                                    class="form-label text-dark fw-bold"> State</label>
-                                                                <select class="form-select py-2 "
-                                                                    aria-label=".form-select-lg example">
-                                                                    <option selected>Select State</option>
-                                                                    <option value="1">Chhattisgarh</option>
-                                                                    <option value="2">Other</option>
-                                                                </select>
-                                                            </div>
-                                                            <div class="col-12 col-sm-12 col-md-6 col-lg-6  ">
-                                                                <label for="number"
-                                                                    class="form-label text-dark fw-bold">
-                                                                    District</label>
-                                                                <select class="form-select py-2 "
-                                                                    aria-label=".form-select-lg example">
-                                                                    <option selected>Select District</option>
-                                                                    <option value="1">Mungeli</option>
-                                                                    <option value="2">Durg</option>
-                                                                </select>
-                                                            </div>
-                                                        </div>
-                                                </div>
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary"
-                                                    data-bs-dismiss="modal">Close</button>
-                                                <button type="button" class="btn btn-danger">Request</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-12 col-lg-3 col-md-3 col-sm-3 mb-4">
-                        <a href="#" class="h-auto success__stry__item d-flex text-decoration-none flex-column shadow ">
-                            <div class="thumb">
-                                <div>
-                                    <div class="ratio ratio-16x9">
-                                        <img src="assets/images/seed.jpg" class="object-fit-cover " alt="img">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="content d-flex flex-column flex-grow-1 ">
-                                <div class="power text-center mt-3">
-                                    <div class="col-12">
-                                        <p class="text-success fw-bold">Nursery Name</p>
-                                    </div>
-                                </div>
-                                <div class="row text-center">
-                                    <div class="col-12 text-center">
-                                        <p class="fw-bold pe-3">Raipur,Chhattisgarh</p>
-                                    </div>
-                                </div>
-                                <div class="col-12 btn-success">
-                                    <button type="button" class="btn btn-success py-2 w-100"><i
-                                            class="fa-solid fa-phone"></i>
-                                        Contact Nursery
-                                    </button>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-12 col-lg-3 col-md-3 col-sm-3 mb-4">
-                        <a href="#" class="h-auto success__stry__item text-decoration-none d-flex flex-column shadow ">
-                            <div class="thumb">
-                                <div>
-                                    <div class="ratio ratio-16x9">
-                                        <img src="assets/images/seeds-child-plant-nature-macro-nursery.jpg"
-                                            class="object-fit-cover " alt="img">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="content d-flex flex-column flex-grow-1 ">
-                                <div class="power text-center mt-3">
-                                    <div class="col-12">
-                                        <p class="text-success fw-bold">Nursery Name</p>
-                                    </div>
-                                </div>
-                                <div class="row text-center">
-                                    <div class="col-12 text-center">
-                                        <p class="fw-bold pe-3">Surajpur,Chhattisgarh</p>
-                                    </div>
-                                </div>
-                                <div class="col-12 btn-success">
-                                    <button type="button" class="btn btn-success py-2 w-100"><i
-                                            class="fa-solid fa-phone"></i>
-                                        Contact Nursery
-                                    </button>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
+                    </div> -->
+                 
                 </div>
         </div>
         <div class="col text-center my-3 pb-5">
@@ -512,6 +367,7 @@
                 },
                 state: "required",
                 district: "required",
+                tehsil: "required",
 
             },
 

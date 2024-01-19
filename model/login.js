@@ -35,7 +35,7 @@ var url = apiBaseURL + 'user_login';
         contentType: "application/json", 
         data: JSON.stringify(paraArr), 
         success: function (result) {
-            // console.log(result, 'login success');
+             console.log(result, 'login success');
             // localStorage.setItem('token', result.access_token);
             // localStorage.setItem('expireIn', result.expires_in);
             // window.location.href = baseUrl +"usermanagement.php"; 

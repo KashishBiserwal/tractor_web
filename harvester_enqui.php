@@ -39,7 +39,7 @@
           <div class="col-12 col-sm-12 col-md-3 col-lg-3"hidden>
               <div class="form-outline">
                 <label class="form-label">Search By id</label>
-                  <select class=" form-select form-control mb-0" id="brand_id">
+                  <select class=" form-select form-control mb-0" id="brand_id1">
                   </select>
               </div>
             </div>
@@ -66,13 +66,13 @@
               <div class="form-outline ">
                 <label class="form-label">Model</label>
                 <input type="text" class="form-control" placeholder="" id="model3" name="model">
-                    <!-- <select class="form-select py-2" aria-label="Default select example"  id="model3"> -->
-                        <!-- <option selected>Select Model</option>
+                    <!-- <select class="form-select py-2" aria-label="Default select example"  id="model3" name="model"> 
+                        <option selected>Select Model</option>
                         <option value="sdfgh">sdfgh</option>
                         <option value="3032 NX">3032 NX</option>
                         <option value="3030 NX">3030 NX</option>
-                        <option value="3230 NX">3230 NX</option> -->
-                    <!-- </select> -->
+                        <option value="3230 NX">3230 NX</option> 
+                    </select> -->
               </div>
             </div>
             <div class="col-12 col-sm-12 col-md-3 col-lg-3">

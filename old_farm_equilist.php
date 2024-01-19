@@ -47,13 +47,13 @@
                                 <div class="col-12 col-lg-6 col-md-6 col-sm-6 mt-3" hidden>
                                   <div class="form-outline ">
                                     <label for="name" class="form-label text-dark">Enquiry id</label>
-                                    <input type="text" class="form-control" placeholder="Enter Your Model Name" id="enquiry_type_id" name="enquiry_type_id" value="3">
+                                    <input type="text" class="form-control" placeholder="Enter Your Model Name" id="enquiry_type_id" name="enquiry_type_id" value="5">
                                   </div>
                                </div>
                                <div class="col-12 col-lg-6 col-md-6 col-sm-6 mt-3" hidden>
                                   <div class="form-outline ">
                                     <label for="name" class="form-label text-dark">Product id</label>
-                                    <input type="text" class="form-control" placeholder="Enter Your Model Name" value="3" id="product_type_id" name="product_type_id">
+                                    <input type="text" class="form-control" placeholder="Enter Your Model Name" value="5" id="product_type_id" name="product_type_id">
                                   </div>
                                </div>
                                <div class="col-12 col-lg-6 col-md-6 col-sm-6 mt-3" hidden>
@@ -83,11 +83,12 @@
                                 <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-3">
                                   <div class="form-outline ">
                                     <label class="form-label text-dark">Model Name</label>
-                                    <select class="form-select form-control" aria-label=".form-select-lg example" id="model"name="model">
+                                    <input type="text" class="form-control"  id="model"name="model">
+                                    <!-- <select class="form-select form-control" aria-label=".form-select-lg example" id="model"name="model">
                                         <option value="">Select Model</option>
                                         <option value="Sonalika">Sonalika</option>
                                         <option value="Mahindra">Mahindra</option>
-                                      </select>
+                                      </select> -->
                                   </div>
                                 </div>
                                 <!-- <div class="col-12 col-lg-6 col-md-6 col-sm-6 mt-3">
@@ -125,7 +126,7 @@
                                 <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-3">
                                   <div class="form-outline">
                                     <label class="form-label text-dark">Hours Drive</label>
-                                    <select class="form-select form-control " aria-label=".form-select-lg example" id="hours" name="hours">
+                                    <select class="form-select form-control " aria-label=".form-select-lg example" id="hours_driven" name="hours">
                                       <option value="">Select Hours Drive</option>
                                       <option value="1">1</option>
                                       <option value="2">2</option>
@@ -182,8 +183,8 @@
                                     <label class="form-label text-dark">State</label>
                                     <select class="form-select form-control" aria-label=".form-select-lg example" id="state" name="state">
                                         <option value="">Select State</option>
-                                        <option value="1">Chhattisgarh</option>
-                                        <option value="2">Others</option>
+                                        <option value="Chhattisgarh">Chhattisgarh</option>
+                                        <option value="Others">Others</option>
                                       </select>
                                   </div>
                                 </div>
@@ -192,8 +193,9 @@
                                     <label class="form-label text-dark">District</label>
                                     <select class="form-select form-control" aria-label=".form-select-lg example" id="district" name="district">
                                         <option value="">Select Districte</option>
-                                        <option value="1">Jagdalpur</option>
-                                        <option value="2">Sarguja</option>
+                                        <option value="Jagdalpur">Jagdalpur</option>
+                                        <option value="Sarguja">Sarguja</option>
+                                        <option value="Dhamtari">Dhamtari</option>
                                       </select>
                                   </div>
                                 </div>
@@ -202,8 +204,9 @@
                                     <label class="form-label text-dark">Tehsil</label>
                                     <select class="form-select form-control" aria-label=".form-select-lg example" id="tehsil" name="tehsil">
                                         <option value="">Select Tehsil</option>
-                                        <option value="1">Jagdalpur</option>
-                                          <option value="2">Sarguja</option>
+                                        <option value="Jagdalpur">Jagdalpur</option>
+                                          <option value="Sarguja">Sarguja</option>
+                                          <option value="Dhamtari">Dhamtari</option>
                                       </select>
                                   </div>
                                 </div>
@@ -214,7 +217,7 @@
                     </div>
                 <div class="modal-footer mt-3">
                   <button type="button" class="btn btn-secondary btn_all" data-bs-dismiss="modal">Close</button>
-                  <button type="submit" id="submitbtn" class="btn btn-success btn_all">Submit</button>
+                  <button type="button" id="submitbtn" class="btn btn-success btn_all">Submit</button>
                 </div>
               </div>
             </div>
@@ -298,19 +301,87 @@
                       <th class="d-none d-md-table-cell text-white">Brand</th>
                       <th class="d-none d-md-table-cell text-white">Model</th>
                       <th class="d-none d-md-table-cell text-white">Seller name</th>
-                      <th class="d-none d-md-table-cell text-white"> Mobile Number</th>
+                      <th class="d-none d-md-table-cell text-white">Mobile Number</th>
                       <th class="d-none d-md-table-cell text-white">Year</th>
-                      <th class="d-none d-md-table-cell text-white">State </th>
+                      <th class="d-none d-md-table-cell text-white">State</th>
                       <th class="d-none d-md-table-cell text-white">District</th>
                       <th class="d-none d-md-table-cell text-white">Action</th>
                   </tr>
               </thead>
-              <tbody>
+              <tbody id="data-table">
               </tbody>
           </table>
       </div>
       </div>
     </div>
+
+
+     <!-- view -->
+     <div class="modal fade" id="old_farm_view" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg modal-dialog-centered">
+              <div class="modal-content modal_box">
+                <div class="modal-header modal_head">
+                  <h5 class="modal-title text-white fw-bold" id="staticBackdropLabel">Old Tractor Information </h5>
+                  <button type="button" class="btn-close btn-success" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                  <div class="modal-body bg-light">
+                    <div class="row ">
+                       <div class="col-12">
+                        <table class="table table-striped">
+                        <tbody>
+                        <tr>
+                            <td>Brand:-</td>
+                            <td id="brand_2"></td>
+                            <td>Model-</td>
+                            <td id="model_2"></td>
+                          </tr>
+                         <tr>
+                            <td>First Name:-</td>
+                            <td id="first_name2"></td>
+                            <td>Last Name-</td>
+                            <td id="last_name2"></td>
+                          </tr>
+                          <tr>
+                            <td>Mobile Number-</td>
+                            <td id="mobile"></td>
+                            <td>Email-</td>
+                            <td id="email_2"></td>
+                          </tr>
+                          <tr>
+                            <td>Date-</td>
+                            <td id="date_2"></td>
+                            <td>Year-</td>
+                            <td id="year_2"></td>
+                          </tr>
+                          <tr>
+                          <td>State-</td>
+                            <td id="state_2"></td>
+                            <td>District-</td>
+                            <td id="district_2"></td>
+                          </tr>
+                          <tr>
+                          <td>Tehsil-</td>
+                            <td id="tehsil2"></td>
+                          </tr>
+                          <tr>
+                          <tr>
+                            <td>Upload images-</td>
+                              <td colspan="3">
+                                  <div class="col-12">
+                                      <div id="selectedImagesContainer1" class="upload__img-wrap row"></div>
+                                  </div>
+                              </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>  
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary px-3" data-bs-dismiss="modal">Close</button>
+                </div>
+              </div>
+            </div>
+          </div>
    </section>
       
     
