@@ -371,7 +371,7 @@ include 'includes/footertag.php';
             <div class="col-12 col-sm-12 col-md-3 col-lg-3">
               <div class="form-outline">
                 <label class="form-label">Model Name</label>
-               <input type="text" id="model" class="form-control">
+               <input type="text" id="model1" class="form-control">
               </div>
             </div>
           
@@ -434,16 +434,11 @@ include 'includes/footertag.php';
                             <td>Engine Rated RPM</td>
                             <td id="engine_rpm"></td>
                             <td class="bg-light">HP Power</td>
-                            <td id="hp_power" class="bg-light"></td>
+                            <td id="hp_power2" class="bg-light"></td>
                           </tr>
                           <tr>
                           <td>Air Filter</td>
                             <td id="air_filter"></td>
-                            <td>Engine</td>
-                            <td id="engine"></td>
-                          </tr>
-                          <tr>
-                          
                             <td class="bg-light">Cylinder</td>
                             <td id="cylinder" class="bg-light"></td>
                           </tr>
@@ -499,10 +494,10 @@ include 'includes/footertag.php';
                             <td>Thresing Drump Width</td>
                             <td id="thresing_duump_width"></td>
                             <td class="bg-light">Thresing Drump Length</td>
-                            <td id="drump_length" class="bg-light"></td>
+                            <td id="drump_length1" class="bg-light"></td>
                           </tr> <tr>
                             <td class="bg-light">Thresing Drump Diameter</td>
-                            <td id="drump_diameter" class="bg-light"></td>
+                            <td id="drump_diameter1" class="bg-light"></td>
                             <td>Thresing Drum Speed Adjustment</td>
                             <td id="drump_speed_adjust"></td>
                             
@@ -511,18 +506,14 @@ include 'includes/footertag.php';
                           <td>Clearance Concave</td>
                             <td id="clearance_concave"></td>
                           </tr>
-                          <td colspan="4" class="fw-bold text-center py-3">Grain Handling</td>
+                          <td colspan="4" class="fw-bold text-center py-3">Grain Handling & Transmission and Clutch</td>
                           <tr>
                             <td class="bg-light">Grain Trank Capacity (m3)</td>
                             <td id="grain_tank_capacity" class="bg-light"></td>
-                          </tr>
-                          <td colspan="4" class="fw-bold text-center py-3">Transmission and Clutch</td>
-                          <tr>
-                            <td class="bg-light">Transmission (No. Of Gears)</td>
-                            <td id="transmission" class="bg-light"></td>
                             <td>Clutch Type</td>
                             <td id="clutch_type"></td>
                           </tr>
+                         
                           <td colspan="4" class="fw-bold text-center py-3">Tyre Specification</td>
                           <tr>
                             <td class="bg-light">Tyre Size(Front)</td>
@@ -532,8 +523,8 @@ include 'includes/footertag.php';
                           </tr>
                           <td colspan="4" class="fw-bold text-center py-3">Fuel & Capacity</td>
                           <tr>
-                            <td class="bg-light">Fuel Tank Capacity(L)</td>
-                            <td id="fuel_capacity1" class="bg-light"></td>
+                            <!-- <td class="bg-light">Fuel Tank Capacity(L)</td>
+                            <td id="fuel_capacity1" class="bg-light"></td> -->
                             <td>Total weight Without Grain(kg)</td>
                             <td id="weight_grain"></td>
                           </tr>

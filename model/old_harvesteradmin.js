@@ -200,8 +200,8 @@ jQuery(document).ready(function () {
       $(".upload__img-closeDy"+thisId).remove();
   
     }
-// get brand
-function get() {
+// get brand223
+function get(id) {
   var apiBaseURL = APIBaseURL;
   var url = apiBaseURL + 'getBrands';
   $.ajax({
@@ -212,7 +212,7 @@ function get() {
     },
     success: function (data) {
         console.log(data);
-        const select = document.getElementById('brand');
+        const select = document.getElementById(id);
         select.innerHTML = '';
         select.innerHTML = '<option selected disabled value="">Please select an option</option>';
         if (data.brands.length > 0) {

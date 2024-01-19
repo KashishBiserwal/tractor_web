@@ -18,7 +18,10 @@
 <script src="js/validation.js"></script>
 <script src="js/main.js"></script>
 <script src="assets/js/main.js"></script>
+<script>
 
+    
+</script>
 
 </body>
 </html>

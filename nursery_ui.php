@@ -11,7 +11,12 @@
     <?php
    include 'includes/header.php';
    ?>
-
+   <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
+<script> var CustomerAPIBaseURL = "<?php echo $CustomerAPIBaseURL; ?>";</script>
+<script> var baseUrl = "<?php echo $baseUrl; ?>";</script>
+    <script src="<?php $baseUrl; ?>model/nursery_ui.js"></script>
+    
     <section class="mt-5 pt-5">
         <div class="container-fullwidth pt-4">
             <div class="">
@@ -27,8 +32,8 @@
             <div class="row">
                 <div class="col-12 col-sm-9 col-lg-9 col-md-9">
                     <h3 class="py-2  fw-bold">Locate <span class="text-success fw-bold"> Nurseries </span>Near You</h3>
-                    <div class="row my-4">
-                        <div class="col-12 col-lg-4 col-md-4 col-sm-4 mb-4">
+                    <div id="productContainer" class="row my-4">
+                     <!--    <div class="col-12 col-lg-4 col-md-4 col-sm-4 mb-4">
                             <a href="nursery_inner.php"
                                 class="h-auto success__stry__item text-decoration-none d-flex flex-column shadow ">
                                 <div class="thumb">
@@ -56,10 +61,10 @@
                                     data-bs-target="#staticBackdrop"><i class="fa-solid fa-phone"></i>
                                     Contact Nursery
                                 </button>
-                            </div>
+                            </div> -->
 
                             <!-- Modal -->
-                            <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static"
+                       <!--      <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static"
                                 data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel"
                                 aria-hidden="true">
                                 <div class="modal-dialog modal-lg modal-dialog-centered">
@@ -162,10 +167,10 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div> -->
 
-                        </div>
-                        <div class="col-12 col-lg-4 col-md-4 col-sm-4 mb-4">
+                        <!-- </div> -->
+                     <!--    <div class="col-12 col-lg-4 col-md-4 col-sm-4 mb-4">
                             <div class="h-auto success__stry__item d-flex flex-column text-decoration-none shadow ">
                                 <div class="thumb">
                                     <div>
@@ -193,7 +198,7 @@
                                         </button>
                                     </div>
 
-                                    <!-- Modal -->
+                                 
                                     <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static"
                                         data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel"
                                         aria-hidden="true">
@@ -287,7 +292,7 @@
                                         </button>
                                     </div>
 
-                                    <!-- Modal -->
+                                 
                                     <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static"
                                         data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel"
                                         aria-hidden="true">
@@ -438,11 +443,11 @@
                                     </div>
                                 </div>
                             </a>
-                        </div>
+                        </div> -->
 
                     </div>
                     <div class="col-12 text-center mb-4">
-                        <button id="adduser" type="button" class="add_btn btn-success btn btn-lg">
+                        <button id="load_moretract"  type="button" class="add_btn btn-success btn btn-lg">
                             <i class="fas fa-undo"></i> Load More </button>
                     </div>
                 </div>
