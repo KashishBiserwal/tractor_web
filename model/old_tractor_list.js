@@ -714,7 +714,7 @@ function fetch_data(product_id){
               `;
       
               // Append the new image element to the container
-              $("#selectedImagesContainer1").append(newCard);
+              $("#selectedImagesContainer-old").append(newCard);
           });
   
   

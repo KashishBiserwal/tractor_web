@@ -74,10 +74,8 @@ function ImgUpload() {
   
     }
 
-  function get() {
-    // var url = "<?php echo $APIBaseURL; ?>getBrands";
+  function get_brand_add() {
     var apiBaseURL =APIBaseURL;
-    // Now you can use the retrieved value in your JavaScript logic
     var url = apiBaseURL + 'getBrands';
     $.ajax({
         url: url,
@@ -86,14 +84,13 @@ function ImgUpload() {
             'Authorization': 'Bearer ' + localStorage.getItem('token')
         },
         success: function (data) {
-            console.log(data);
             const select = document.getElementById('brand');
             select.innerHTML = '';
-
+          
             if (data.brands.length > 0) {
                 data.brands.forEach(row => {
                     const option = document.createElement('option');
-                    option.value = row.id; // You might want to set a value for each option
+                    option.value = row.id;
                     option.textContent = row.brand_name;
                     select.appendChild(option);
                 });
@@ -106,7 +103,8 @@ function ImgUpload() {
         }
     });
 }
-get();
+get_brand_add();
+
   // fetch lookup data in select box
   function get_lookup() {
     console.log('initsfd')
@@ -289,7 +287,7 @@ get();
        
         console.log("Add successfully");
         alert('successfully..!');
-          $("#harvester_form").empty();
+          // $("#harvester_form").empty();
           window.location.reload();
 
 
@@ -434,9 +432,9 @@ function destroy(id) {
           document.getElementById('brand_name').innerText = data.product[0].brand_name;
           document.getElementById('model_name').innerText = data.product[0].model;
           document.getElementById('engine_rpm').innerText = data.product[0].engine_rated_rpm;
-          document.getElementById('hp_power').innerText = data.product[0].horse_power;
+          document.getElementById('hp_power2').innerText = data.product[0].horse_power;
           document.getElementById('air_filter').innerText =data.product[0].air_filter;
-          document.getElementById('engine').innerText = data.product[0].brand_name;
+          // document.getElementById('engine').innerText = data.product[0].brand_name;
           document.getElementById('cylinder').innerText = data.product[0].total_cyclinder_value;
           document.getElementById('cutter_bar_width').innerText = data.product[0].cutting_bar_width;
           document.getElementById('max_cutting_height').innerText = data.product[0].max_cutting_height;
@@ -451,12 +449,13 @@ function destroy(id) {
           document.getElementById('cooling_sys').innerText = data.product[0].cooling_value;
           document.getElementById('coolent_capacity').innerText = data.product[0].coolant_capacity;
           document.getElementById('thresing_duump_width').innerText = data.product[0].threshing_drum_width;
-          document.getElementById('drump_length').innerText =data.product[0].threshing_drum_length;
-          document.getElementById('drump_diameter').innerText = data.product[0].threshing_drum_diameter;
+          document.getElementById('drump_length1').innerText =data.product[0].threshing_drum_length;
+          document.getElementById('drump_diameter1').innerText = data.product[0].threshing_drum_diameter;
+          document.getElementById('height').innerText = data.product[0].dimension_height;
           document.getElementById('drump_speed_adjust').innerText = data.product[0].threshing_drum_speed_adjustment_value;
           document.getElementById('clearance_concave').innerText = data.product[0].clearance_concave;
           document.getElementById('grain_tank_capacity').innerText = data.product[0].grain_tank_capacity;
-          document.getElementById('transmission').innerText = data.product[0].transmission_forward;
+          
           document.getElementById('clutch_type').innerText = data.product[0].clutch_type_value;
           document.getElementById('front_tyre').innerText = data.product[0].front_tyre;
           document.getElementById('rear_tyre').innerText =data.product[0].rear_tyre;
@@ -464,8 +463,9 @@ function destroy(id) {
           document.getElementById('weight_grain').innerText = data.product[0].brand_name;
           document.getElementById('length').innerText = data.product[0].dimension_length;
           document.getElementById('width').innerText = data.product[0].dimension_width;
-          document.getElementById('ground_clearance').innerText = data.product[0].brand_name;
+          document.getElementById('ground_clearance').innerText = data.product[0].ground_clearance;
           document.getElementById('crops').innerText = data.product[0].crops_type_value;
+          // document.getElementById('transmission').innerText = data.product[0].transmission_forward;
           // document.getElementById('selectedImagesContainer1').innerText = data.product[0].brand_img;
       
           $("#selectedImagesContainer1").empty();
@@ -501,8 +501,6 @@ function destroy(id) {
 
   // for edit
   function fetch_edit_data(id) {
-    console.log(window.location)
-   
 
     var harvesterId = id;
     // console.log(harvesterId, 'harvesterId');
@@ -589,7 +587,7 @@ function destroy(id) {
         $('#dia_length').val(editData.dimension_length);
         $('#dia_height').val(editData.dimension_height);
         $('#dia_width').val(editData.dimension_width);
-        $('#ground_clerance').val(editData.clearance_concave);
+        $('#ground_clerance').val(editData.ground_clearance);
 
         $("#CROPS_TYPE option").prop("selected", false);
         $("#CROPS_TYPE option[value='" + editData.crops_type_value + "']").prop("selected", true);
@@ -641,7 +639,7 @@ function destroy(id) {
         },
         success: function (data) {
             console.log(data);
-            const select = document.getElementById('brand_name');
+            const select = document.getElementById('brand_name1');
             // select.innerHTML = '';
 
             if (data.brands.length > 0) {
