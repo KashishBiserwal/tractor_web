@@ -25,7 +25,7 @@
               </li>
             </ol>
           </nav>
-          <button type="button" id="add_trac" class="btn add_btn btn-success float-right" data-bs-toggle="modal"  data-bs-target="#staticBackdrop">
+          <button type="button" id="add_trac" class="btn add_btn btn-success float-right add_trac" data-bs-toggle="modal"  data-bs-target="#staticBackdrop">
               <i class="fa fa-plus" aria-hidden="true"></i> Add Old Farm Implements
           </button>
 
@@ -44,22 +44,11 @@
                               <form id="old_farm_implement" enctype="multipart/form-data" onsubmit="return false">
                             <div class="row justify-content-center pt-3">
                                 <h5 class="fw-bold">Your Old Farm Implements Information</h5>
-                                <div class="col-12 col-lg-6 col-md-6 col-sm-6 mt-3" hidden>
+                                
+                               <div class="col-12 col-lg-6 col-md-6 col-sm-6 mt-3" hidden >
                                   <div class="form-outline ">
-                                    <label for="name" class="form-label text-dark">Enquiry id</label>
-                                    <input type="text" class="form-control" placeholder="Enter Your Model Name" id="enquiry_type_id" name="enquiry_type_id" value="5">
-                                  </div>
-                               </div>
-                               <div class="col-12 col-lg-6 col-md-6 col-sm-6 mt-3" hidden>
-                                  <div class="form-outline ">
-                                    <label for="name" class="form-label text-dark">Product id</label>
-                                    <input type="text" class="form-control" placeholder="Enter Your Model Name" value="5" id="product_type_id" name="product_type_id">
-                                  </div>
-                               </div>
-                               <div class="col-12 col-lg-6 col-md-6 col-sm-6 mt-3" hidden>
-                                  <div class="form-outline ">
-                                    <label for="name" class="form-label text-dark">Form type</label>
-                                    <input type="text" class="form-control" placeholder="Enter Your Model Name" value="FOR_SELL_HARVESTER" id="form_type" name="form_type">
+                                    <label for="name" class="form-label text-dark">id</label>
+                                    <input type="text" class="form-control" placeholder="" value="" id="EditIdmain_" name="">
                                   </div>
                                </div>
                                <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-3">
@@ -121,16 +110,16 @@
                                       <textarea rows="3" cols="70" class="w-100 p-2" minlength="1" maxlength="255" id="about" name="about"></textarea>
                                     </div>
                                 </div>
-                                <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
-                                          <div class="upload__box w-100">
-                                            <div class="upload__btn-box text-center">
-                                              <label >
-                                                <p class="upload__btn ">Upload images</p>
-                                                <input type="file" name='files[]' multiple="" data-max_length="20" class="upload__inputfile" id="image">
-                                              </label>
-                                            </div>
-                                            <div id="selectedImagesContainer" class="upload__img-wrap"></div>
-                                          </div>
+                                <div class="col-12 ">
+                                <div class="upload__box mt-5">
+                                        <div class="upload__btn-box text-center">
+                                          <label >
+                                            <p class="upload__btn ">Upload images</p>
+                                            <input type="file" multiple="" data-max_length="20" class="upload__inputfile" id="_image" name="_image">
+                                          </label>
+                                        </div>
+                                        <div id="selectedImagesContainer" class="upload__img-wrap"></div>
+                                      </div>
                                         </div>
                                   <h5 class="fw-bold mt-4 ">Personal Information</h5>
                                 <div class="col-12 col-sm-6 col-lg-6 col-md-6  mt-3">
@@ -351,7 +340,3 @@
 </div>
 </div>
 </body>
-
-<?php
-   include 'includes/footertag.php';
-   ?> 

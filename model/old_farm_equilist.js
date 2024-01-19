@@ -2,10 +2,14 @@ var EditIdmain_ = "";
 var editId_state= false;
 
 $(document).ready(function(){
-
-    // $('#implement_btn').click(edit_id);
-    // $('#Search').click(search);
+  // get('brand2');
+  // get('brand');
+  ImgUpload();
      $('#submitbtn').click(store);
+    // $('#add_trac').on('click', function() {
+    //   get('brand');
+    // });
+    
           jQuery.validator.addMethod("customPhoneNumber", function(value, element) {
           return /^[6-9]\d{9}$/.test(value); 
           }, "Phone number must start with 6 or above");
@@ -125,17 +129,13 @@ $(document).ready(function(){
   
     });
 
-    function BackgroundUpload() {
+    function ImgUpload() {
       var imgWrap = "";
       var imgArray = [];
   
-      function generateUniqueClassName(index) {
-        return "background-image-" + index;
-      }
-  
-      $('.background__inputfile').each(function () {
+      $('.upload__inputfile').each(function () {
         $(this).on('change', function (e) {
-          imgWrap = $(this).closest('.background__box').find('.background__img-wrap');
+          imgWrap = $(this).closest('.upload__box').find('.upload__img-wrap');
           var maxLength = $(this).attr('data-max_length');
   
           var files = e.target.files;
@@ -148,7 +148,7 @@ $(document).ready(function(){
             }
   
             if (imgArray.length > maxLength) {
-              return false;
+              return false
             } else {
               var len = 0;
               for (var i = 0; i < imgArray.length; i++) {
@@ -163,8 +163,7 @@ $(document).ready(function(){
   
                 var reader = new FileReader();
                 reader.onload = function (e) {
-                  var className = generateUniqueClassName(iterator);
-                  var html = "<div class='background__img-box'><div onclick='BackgroundImage(\"" + className + "\")' style='background-image: url(" + e.target.result + ")' data-number='" + $(".background__img-close").length + "' data-file='" + f.name + "' class='img-bg " + className + "'><div class='background__img-close'></div></div></div>";
+                  var html = "<div class='upload__img-box'><div style='background-image: url(" + e.target.result + ")' data-number='" + $(".upload__img-close").length + "' data-file='" + f.name + "' class='img-bg'><div class='upload__img-close'></div></div></div>";
                   imgWrap.append(html);
                   iterator++;
                 }
@@ -175,7 +174,7 @@ $(document).ready(function(){
         });
       });
   
-      $('body').on('click', ".background__img-close", function (e) {
+      $('body').on('click', ".upload__img-close", function (e) {
         var file = $(this).parent().data("file");
         for (var i = 0; i < imgArray.length; i++) {
           if (imgArray[i].name === file) {
@@ -185,7 +184,7 @@ $(document).ready(function(){
         }
         $(this).parent().parent().remove();
       });
-  }
+    }
     
       function removeImage(ele){
         console.log("print ele");
@@ -197,11 +196,88 @@ $(document).ready(function(){
           $(".upload__img-closeDy"+thisId).remove();
       
         }
+// for search brand 
+        function get_seach_brand() {
+          var apiBaseURL =APIBaseURL;
+          var url = apiBaseURL + 'getBrands';
+          $.ajax({
+              url: url,
+              type: "GET",
+              headers: {
+                  'Authorization': 'Bearer ' + localStorage.getItem('token')
+              },
+              success: function (data) {
+                  console.log(data);
+                  const select = document.getElementById('brand2');
+                
+                  select.innerHTML = '<option selected disabled value="">Please select an option</option>';
+        
+                  if (data.brands.length > 0) {
+                      data.brands.forEach(row => {
+                          const option = document.createElement('option');
+                          option.textContent = row.brand_name;
+                          option.value = row.id;
+                          select.appendChild(option);
+                      });
+                  } else {
+                      select.innerHTML ='<option>No valid data available</option>';
+                  }
+            
+              },
+              error: function (error) {
+                  console.error('Error fetching data:', error);
+                  var msg = error;
+                  $("#errorStatusLoading").modal('show');
+                  $("#errorStatusLoading").find('.modal-title').html('Error');
+                  $("#errorStatusLoading").find('.modal-body').html(msg);
+              }
+          });
+        }
+        get_seach_brand();
 
+  // for add brand dropdown
+  function get() {
+    var apiBaseURL =APIBaseURL;
+    var url = apiBaseURL + 'getBrands';
+    $.ajax({
+        url: url,
+        type: "GET",
+        headers: {
+            'Authorization': 'Bearer ' + localStorage.getItem('token')
+        },
+        success: function (data) {
+            console.log(data);
+            const select = document.getElementById('brand');
+          
+            select.innerHTML = '<option selected disabled value="">Please select an option</option>';
+  
+            if (data.brands.length > 0) {
+                data.brands.forEach(row => {
+                    const option = document.createElement('option');
+                    option.textContent = row.brand_name;
+                    option.value = row.id;
+                    select.appendChild(option);
+                });
+            } else {
+                select.innerHTML ='<option>No valid data available</option>';
+            }
+      
+        },
+        error: function (error) {
+            console.error('Error fetching data:', error);
+            var msg = error;
+            $("#errorStatusLoading").modal('show');
+            $("#errorStatusLoading").find('.modal-title').html('Error');
+            $("#errorStatusLoading").find('.modal-body').html(msg);
+        }
+    });
+  }
+
+  get();
       
   function get_category() {
     var apiBaseURL = APIBaseURL;
-    var url = apiBaseURL + 'haat_bazar_category';
+    var url = apiBaseURL + 'get_implement_category';
     $.ajax({
         url: url,
         type: "GET",
@@ -233,19 +309,12 @@ get_category();
 function store(event) {
   console.log('run store function');
      event.preventDefault();
-    // var enquiry_type_id = 1;
-    // var image_type_id = 1;
-    // var tractor_type_id=1;
-    // var product_type_id=1;
-    // var form_type ='FOR_SELL_TRACTOR';
-     var image_names = document.getElementById('image').files;
+    var enquiry_type_id = 5;
+    var product_type_id = 5;
+    var implement_category_id = 1;
+    var image_names = document.getElementById('_image').files;
      console.log('image',image_names);
-     var form_type = $('#form_type').val();
-     var product_type_id = $('#product_type_id').val();
-    //  var image_type_id = $('#image_type_id').val();
-     var enquiry_type_id = $('#enquiry_type_id').val();
-    //  var tractor_type_id = $('#tractor_type_id').val();
-    //  console.log('tractor_type_id',tractor_type_id);
+     var EditIdmain_ = $('#EditIdmain_').val();
      var category = $('#category').val();
      var brand = $('#brand').val();
      var model = $('#model').val();
@@ -260,23 +329,15 @@ function store(event) {
      var district = $('#district').val();
      var tehsil = $('#tehsil').val();
 
-
-     var apiBaseURL =APIBaseURL;
-     var url = apiBaseURL + 'get_old_implements';
+     var _method = 'POST';
+    var url, method;
+    
+    var apiBaseURL =APIBaseURL;
      var token = localStorage.getItem('token');
      var headers = {
        'Authorization': 'Bearer ' + token
      };
-
-     var _method = 'POST';
-    var url, method;
-    
-    console.log('edit state',editId_state);
-    console.log('edit id', EditIdmain_);
-    if (EditIdmain_) {
-        // Update mode
-        console.log(editId_state, "state");
-        console.log(EditIdmain_, "id edit");
+    if (EditIdmain_!="null" && EditIdmain_!="") {
         _method = 'put';
         url = apiBaseURL + 'customer_enquiries/' + EditIdmain_ ;
         console.log(url);
@@ -292,27 +353,25 @@ function store(event) {
        data.append("images[]", image_names[x]);
        console.log("multiple image", image_names[x]);
      }
-       data.append('form_type',form_type);
+     data.append('id',EditIdmain_);
        data.append('_method',_method);
        data.append('product_type_id', product_type_id);
+       data.append('implement_category_id', implement_category_id);
        data.append('enquiry_type_id', enquiry_type_id);
-      //  data.append('image_type_id', image_type_id);
-      //  data.append('tractor_type_id', tractor_type_id);
        data.append('category', category);
        data.append('first_name', first_name);
        data.append('last_name', last_name);
        data.append('mobile', mobile);
-       data.append('brand_id', brand);
-       data.append('model', model);
-       data.append('purchase_year', year);
-       data.append('hours_driven', hours_driven);
+       data.append('implement_brand_id', brand);
+       data.append('implement_model', model);
+       data.append('implement_purchase_year', year);
+       data.append('implement_hours_driven', hours_driven);
        data.append('state',state);
        data.append('district',district);
        data.append('tehsil',tehsil);
        data.append('price',price);
-    
-       data.append('description',description);
-       console.log(data, "okk");
+       data.append('implement_description',description);
+      //  console.log(data, "okk");
 
      $.ajax({
       url: url,
@@ -323,13 +382,13 @@ function store(event) {
         contentType: false,
        success: function (result) {
          console.log(result, "result");
-         // getTractorList();
          console.log("Add successfully");
-         get_tractor_list();
+         old_farm_implement();
+         window.location.reload();
           if(result.length){
-         //   get_tractor_list();
+            // old_farm_implement();
          }
-         // alert('successfully inserted..!')
+        
        },
        error: function (error) {
          console.error('Error fetching data:', error);
@@ -342,8 +401,6 @@ function store(event) {
 function old_farm_implement() {
     var apiBaseURL = APIBaseURL;
     var url = apiBaseURL + 'get_old_implements';
-    console.log(url);
-    console.log('asdfghjhgfdsasdfghgfdssdfgh');
     $.ajax({
         url: url,
         type: "GET",
@@ -419,14 +476,11 @@ function old_farm_implement() {
 old_farm_implement();
 
 // view data
-function fetch_data(product_id){
-  // alert(product_id);
-  console.log(window.location)
-  var urlParams = new URLSearchParams(window.location.search);
-  
-  var productId = product_id;
+function fetch_data(id){
+
+  var productId = id;
   var apiBaseURL = APIBaseURL;
-  var url = apiBaseURL + 'get_old_implements' 
+  var url = apiBaseURL + 'get_old_implementsById/' + productId; 
   var headers = {
   'Authorization': 'Bearer ' + localStorage.getItem('token')
   };
@@ -456,7 +510,7 @@ function fetch_data(product_id){
            
           var countclass=0;
           imageNamesArray.forEach(function (image_names) {
-              var imageUrl = 'http://tractor-api.divyaltech.com/uploads/getOldImplement_img/' + image_names.trim();
+              var imageUrl = 'http://tractor-api.divyaltech.com/uploads/product_img/' + image_names.trim();
               countclass++;
               var newCard = `
                   <div class="col-12 col-md-3 col-lg-3 col-sm-3">
@@ -529,8 +583,9 @@ function fetch_data(product_id){
 
 
 function fetch_edit_data(id) {
+  // var productId = id;
   var apiBaseURL = APIBaseURL;
-  var url = apiBaseURL + 'get_old_implements' ;
+  var url = apiBaseURL + 'get_old_implementsById/' + id; 
   editId_state= true;
   // EditIdmain_= product_id;
   var headers = {
@@ -543,16 +598,26 @@ function fetch_edit_data(id) {
     headers: headers,
     success: function(response) {
       var userData = response.getOldImplement[0];
-
+      $('#EditIdmain_').val(userData.id);
       $('#enquiry_type_id').val(userData.enquiry_type_id);
       $('#image_type_id').val(userData.image_type_id);
       $('#tractor_type_id').val(userData.tractor_type_id);
       $('#form_type').val(userData.form_type);
-      $('#category').val(userData.category_name);
-      $('#brand').val(userData.brand_name);
+
+      $("#category option").prop("selected", false);
+      $("#category option[value='" +userData.category_name + "']").prop("selected", true);
+
+      $("#brand option").prop("selected", false);
+      $("#brand option[value='" +userData.brand_name + "']").prop("selected", true);
+
       $('#model').val(userData.model);
-      $('#year').val(userData.purchase_year);
-      $('#hours_driven').val(userData.hours_driven);
+
+      $("#year option").prop("selected", false);
+      $("#year option[value='" +userData.purchase_year + "']").prop("selected", true);
+
+      $("#hours_driven option").prop("selected", false);
+      $("#hours_driven option[value='" +userData.hours_driven + "']").prop("selected", true);
+
       $('#price').val(userData.price);
       $('#about').val(userData.description);
       $('#name').val(userData.first_name);
@@ -572,7 +637,7 @@ function fetch_edit_data(id) {
               var imageUrl = 'http://tractor-api.divyaltech.com/uploads/product_img/' + imageName.trim();
               countclass++;
               var newCard = `
-                  <div class="col-6 col-lg-6 col-md-6 col-sm-6 position-relative">
+                  <div class=" position-relative">
                   <div class="upload__img-close_button" id="closeId${countclass}" onclick="removeImage(this);"></div>
                       <div class="brand-main d-flex box-shadow mt-2 text-center shadow upload__img-closeDy${countclass}">
                           <a class="weblink text-decoration-none text-dark" title="Image">
@@ -618,9 +683,9 @@ function destroy(id) {
       'Authorization': 'Bearer ' + token
     },
     success: function(result) {
-      get_tractor_list();
       console.log("Delete request successful");
       alert("Delete operation successful");
+      old_farm_implement();
     },
     error: function(error) {
       console.error('Error fetching data:', error);
