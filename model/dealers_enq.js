@@ -251,8 +251,8 @@ function fetch_edit_data(id) {
           var Data = response.dealer_enquiry_details[0];
           $('#idUser').val(Data.id);
           $('#dname_name').val(Data.dealer_name);
-          // $("#brand_name option").prop("selected", false);
-          // $("#brand_name option[value='" + Data.brand_name + "']").prop("selected", true);
+          $("#brand_name option").prop("selected", false);
+          $("#brand_name option[value='" + Data.brand_name + "']").prop("selected", true);
           $('#first_name').val(Data.first_name);
           $('#first_name').val(Data.first_name);
           $('#last_name').val(Data.last_name);
@@ -341,8 +341,8 @@ function searchdata() {
   var district = $('#districtSelect').val();
  
   var paraArr = {
-    
-    'dealer_name': dealer_name,
+
+    'dealer_name':dealer_name,
     'state':state,
     'district':district,
   };
