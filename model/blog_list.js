@@ -271,7 +271,6 @@ function add_news(event) {
             console.error('Error:', error);
         }
     });
-
 }
 function get_news() {
     var apiBaseURL = APIBaseURL;
