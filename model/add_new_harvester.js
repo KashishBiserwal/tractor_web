@@ -104,8 +104,7 @@ function ImgUpload() {
     });
 }
 get_brand_add();
-
-  // fetch lookup data in select box
+  
   function get_lookup() {
     console.log('initsfd')
       var apiBaseURL = APIBaseURL;
@@ -748,7 +747,6 @@ function updateTable(data) {
 }
 function resetform(){
   $('#brand_name').val('');
-  // $('#brand_id').val('');
   $('#model1').val('');
   get_harvester();
   // window.location.reload();
