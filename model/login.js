@@ -40,7 +40,10 @@ var url = apiBaseURL + 'user_login';
             // localStorage.setItem('expireIn', result.expires_in);
             // window.location.href = baseUrl +"usermanagement.php"; 
             console.log(result, 'login success');
+
             localStorage.setItem('token', result.access_token);
+            localStorage.setItem('email', email);
+            localStorage.setItem('password', password);
             // localStorage.setItem('expireIn', result.expires_in);
             const d = new Date();
             d.setTime(d.getTime() + 60 * 60 * 1000);
