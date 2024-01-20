@@ -278,13 +278,10 @@ function store(event) {
     var form_type ='FOR_SELL_TRACTOR';
      var image_names = document.getElementById('_image').files;
      console.log('imgds',image_names);
-    //  var form_type = $('#form_type').val();
-    //  var product_type_id = $('#product_type_id').val();
-    //  var image_type_id = $('#image_type_id').val();
-    //  var enquiry_type_id = $('#enquiry_type_id').val();
-    //  var tractor_type_id = $('#tractor_type_id').val();
      console.log('tractor_type_id',tractor_type_id);
      var first_name = $('#first_name').val();
+     var customer_id = $('#customer_id').val();
+    //  var EditIdmain_ = $('#EditIdmain_').val();
      console.log(first_name);
      var last_name = $('#last_name').val();
      var mobile = $('#mobile_number').val();
@@ -317,12 +314,12 @@ function store(event) {
     
     console.log('edit state',editId_state);
     console.log('edit id', EditIdmain_);
-    if (EditIdmain_) {
+    if (customer_id!="" && customer_id!=" ") {
         // Update mode
         console.log(editId_state, "state");
         console.log(EditIdmain_, "id edit");
         _method = 'put';
-        url = apiBaseURL + 'customer_enquiries/' + EditIdmain_ ;
+        url = apiBaseURL + 'customer_enquiries/' + customer_id ;
         console.log(url);
         method = 'POST'; 
     } else {
@@ -336,6 +333,8 @@ function store(event) {
        data.append("images[]", image_names[x]);
        console.log("multiple image", image_names[x]);
      }
+    //  data.append('product_id',EditIdmain_);
+     data.append('customer_id',customer_id);
        data.append('form_type',form_type);
        data.append('_method',_method);
        data.append('product_type_id', product_type_id);
@@ -360,8 +359,6 @@ function store(event) {
        data.append('description', description);
        data.append('finance', finance);
        data.append('noc', nocAvailable);
-      
-       data.append('description',description);
        console.log(data, "okk");
 
      $.ajax({
@@ -596,6 +593,8 @@ function fetch_edit_data(id) {
     success: function(response) {
       var userData = response.product[0];
 
+      $('#customer_id').val(userData.customer_id);
+      $('#EditIdmain_').val(userData.product_id);
       $('#enquiry_type_id').val(userData.enquiry_type_id);
       $('#image_type_id').val(userData.image_type_id);
       $('#tractor_type_id').val(userData.tractor_type_id);
@@ -606,17 +605,19 @@ function fetch_edit_data(id) {
       $('#state').val(userData.state);
       $('#district').val(userData.district);
       $('#tehsil').val(userData.tehsil);
-      $('#brand').val(userData.brand_name);
+      // $('#brand').val(userData.brand_name);
+
+      $("#brand option").prop("selected", false);
+      $("#brand option[value='" +userData.brand_name + "']").prop("selected", true);
+
       $('#model').val(userData.model);
       $('#purchase_year').val(userData.purchase_year);
       $('#condition').val(userData.engine_condition);
       $('#tyrecondition').val(userData.tyre_condition);
       $('#hours_driven').val(userData.hours_driven);
       $('#price_old').val(userData.price);
-      // $('#image_pic').val(userData.image_pic);
       $('#description').val(userData.description);
       $('#product_type_id').val(userData.product_type);
-      // $('#finance').val(userData.finance);
       $('#rc_num').val(userData.vehicle_registered_num);
       $('input[name="fav_rc"]').filter('[value="' + userData.rc_number + '"]').prop('checked', true);
       $('input[name="fav_language1"]').filter('[value="' + userData.noc + '"]').prop('checked', true);

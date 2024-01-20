@@ -310,10 +310,9 @@ function store(event) {
   event.preventDefault();
 
   console.log('jfhfhw');
-  var EditIdmain_ = $('#EditIdmain_').val();
+  var customer_id = $('#customer_id').val();
   var form_type = $('#form_type').val();
   var enquiry_type_id = $('#enquiry_type_id').val();
-  var product_type_id = $('#product_type_id').val();
   var brand = $('#brand').val();
   var model = $('#model').val();
   var CROPS_TYPE = $('#CROPS_TYPE').val();
@@ -343,12 +342,12 @@ function store(event) {
 
   console.log('edit state', editId_state);
   console.log('edit id', EditIdmain_);
-  if (EditIdmain_!='' && EditIdmain_ !="null") {
+  if (customer_id!='' && customer_id !="null") {
 
     // Update mode
     console.log('abcdefg',EditIdmain_);
     _method = 'PUT';
-    url = apiBaseURL + 'customer_enquiries/' + EditIdmain_;
+    url = apiBaseURL + 'customer_enquiries/' + customer_id;
     console.log(url);
    method= 'POST';
     console.log(url);
@@ -362,16 +361,14 @@ function store(event) {
   for (var x = 0; x < image.length; x++) {
     data.append("images[]", image[x]);
   }
-   data.append('id', EditIdmain_);  
+   data.append('customer_id', customer_id);  
    data.append('_method', _method); 
   data.append('form_type', form_type);
   data.append('enquiry_type_id', enquiry_type_id);
-  data.append('product_type_id', product_type_id);
   data.append('brand_id', brand);
   data.append('model', model);
   data.append('crops_type_id', CROPS_TYPE);
   data.append('power_source_id', POWER_SOURCE);
-  // console.log("power_osurce", POWER_SOURCE);
   data.append('hours_driven', hours);
   data.append('purchase_year', year);
   data.append('price', price);
@@ -431,8 +428,8 @@ function fetch_edit_data(id) {
     success: function(response) {
       var userData = response.product[0];
       // $('#userId').val(userData.id);
-      $('#EditIdmain_').val(userData.id);
-       $('#product_type_id').val(userData.id);
+      $('#EditIdmain_').val(userData.product_id);
+      $('#customer_id').val(userData.customer_id);
       // $('#brand').val(userData.brand_name);
       $("#brand option").prop("selected", false);
       $("#mySelect option[value='" + userData.brand_name + "']").prop("selected", true);
