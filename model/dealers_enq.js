@@ -245,7 +245,7 @@ function edit_id_data() {
   var enquiry_type_id = $("#enquiry_type_id").val();
   var product_id = $("#product_id").val();
   var dealer_name = $("#dname_name").val();
-  var first_name = $("#first_name").val();
+  // var first_name = $("#first_name").val();
   var last_name = $("#last_name").val();
   var mobile = $("#mobile").val();
   var email = $("#email").val();
