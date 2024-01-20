@@ -121,66 +121,63 @@ var date= new Date();
 var currentdate = date.toString();
 var expiredate = localStorage.getItem('expireIn');
 var newtime = new Date(expiredate);
-
 newtime.setSeconds(newtime.getSeconds() - 20);
 var exiredatenew = new Date(newtime).toString();
 var token =  localStorage.getItem('token');
 if(currentdate >= exiredatenew){
- 
   var username = localStorage.getItem('email');
   var password = localStorage.getItem('password');
   var paraArr = {};
     paraArr['email'] = username;
     paraArr['password'] = password;
   var apiBaseURL =APIBaseURL;
-var url = apiBaseURL + 'user_login';
-    $.ajax({
-        url: url,
-        type: "POST",
-        contentType: "application/json", 
-        data: JSON.stringify(paraArr), 
-        success: function (result) {
-            localStorage.removeItem('email', username);
-            localStorage.removeItem('password', password);
-            localStorage.setItem('token', result.access_token);
-            localStorage.setItem('email', username);
-            localStorage.setItem('password', password);
-            // localStorage.setItem('expireIn', result.expires_in);
-            const d = new Date();
-            d.setTime(d.getTime() + 60 * 60 * 1000);
-            var expires_in = d;
-            localStorage.setItem('expireIn', expires_in);
-          //  window.location.href = baseUrl + "usermanagement.php"; 
-           
-       
-
-        },
-        error: function (xhr, textStatus, errorThrown) {
-            console.log(xhr.status, 'error');
-            if (xhr.status === 401) {
-                console.log('Invalid credentials');
-                var htmlcontent = `<p>Invalid credentials!</p>`;
-            document.getElementById("error_message").innerHTML = htmlcontent;
-               
-            } else if (xhr.status === 403) {
-                console.log('Forbidden: You don\'t have permission to access this resource.');
-                var htmlcontent = ` <p> You don't have permission to access this resource.</p>`;
-                document.getElementById("error_message").innerHTML = htmlcontent;
-               
-            } else {
-                console.log('An error occurred:', textStatus, errorThrown);
-                var htmlcontent = `<p>An error occurred while processing your request.</p>`;
-            document.getElementById("error_message").innerHTML = htmlcontent;
-                
-            }
-        },
-        complete: function () {
-            // Hide the spinner after the API call is complete
-            hideOverlay();
-        },
+  var url = apiBaseURL + 'user_login';
+      $.ajax({
+          url: url,
+          type: "POST",
+          contentType: "application/json", 
+          data: JSON.stringify(paraArr), 
+          success: function (result) {
+              localStorage.removeItem('email', username);
+              localStorage.removeItem('password', password);
+              localStorage.setItem('token', result.access_token);
+              localStorage.setItem('email', username);
+              localStorage.setItem('password', password);
+              const d = new Date();
+              d.setTime(d.getTime() + 60 * 60 * 1000);
+              var expires_in = d;
+              localStorage.setItem('expireIn', expires_in);
+            //  window.location.href = baseUrl + "usermanagement.php"; 
+            
         
-    });
-}
+
+          },
+          error: function (xhr, textStatus, errorThrown) {
+              console.log(xhr.status, 'error');
+              if (xhr.status === 401) {
+                  console.log('Invalid credentials');
+                  var htmlcontent = `<p>Invalid credentials!</p>`;
+              document.getElementById("error_message").innerHTML = htmlcontent;
+                
+              } else if (xhr.status === 403) {
+                  console.log('Forbidden: You don\'t have permission to access this resource.');
+                  var htmlcontent = ` <p> You don't have permission to access this resource.</p>`;
+                  document.getElementById("error_message").innerHTML = htmlcontent;
+                
+              } else {
+                  console.log('An error occurred:', textStatus, errorThrown);
+                  var htmlcontent = `<p>An error occurred while processing your request.</p>`;
+              document.getElementById("error_message").innerHTML = htmlcontent;
+                  
+              }
+          },
+          complete: function () {
+              // Hide the spinner after the API call is complete
+              hideOverlay();
+          },
+          
+      });
+  }
 
 
 }
@@ -190,13 +187,8 @@ var url = apiBaseURL + 'user_login';
       var mouseTimer;
 
       function handleEvent(event) {
-          // Clear any existing timer
           clearTimeout(mouseTimer);
-          // Set a new timer for 30 seconds
-        //  console.log(mouseTimer,"mouseTimer");
-          mouseTimer = setTimeout(stopRecording, 60 * 60 *1000); // 60 minutes = 60  60  1000 milliseconds
-          
-        //  console.log( 5 * 60 *1000,"hello")
+          mouseTimer = setTimeout(stopRecording, 60 * 60 *1000); 
       }
        
       document.addEventListener('mousemove', handleEvent);
@@ -204,8 +196,6 @@ var url = apiBaseURL + 'user_login';
       document.addEventListener('keydown', handleEvent);
    
       function stopRecording() {
-      //  this.user = null;
-      console.log("timeout")
       var url = "<?php echo $APIBaseURL; ?>user_logout";
     var token = localStorage.getItem('token');
     
@@ -222,8 +212,6 @@ var url = apiBaseURL + 'user_login';
         },
         success: function (result) {
             console.log("Logout admin");
-            // alert("Logged out successfully");
-            // Redirect to the login page
             localStorage.removeItem("token");
             localStorage.removeItem("expireIn");
             localStorage.removeItem('email', email);
@@ -234,6 +222,5 @@ var url = apiBaseURL + 'user_login';
             console.error('Error logging out:', error);
         }
     });
-       // location.reload();
       }
 </script>
