@@ -127,9 +127,9 @@
             <img src="assets/images/rent.jpg" alt="reload img" class="w-100" style="height:358px;">
             <div class="container-mid">
                 <div class="row justify-content-center loan_form bg-light">
-                    <h2 class="text-dark text-center fw-bold mt-3">Rent Your Tractors and Implements</h2>
-                    <div id="container" class="container mt-3 mb-3 bg-light shadow">
-                        <form id="form-step-1" class=" ps-4 pe-4 mul_stp_frm" method="post">
+                    <h2 class="text-dark text-center fw-bold mt-3 mb-0">Rent Your Tractors and Implements</h2>
+                  
+                        <form id="form-step-1" class=" ps-4 pe-4 mul_stp_frm2" method="post">
                             <div class="d-flex justify-content-center mb-3">
                                 <div class="col-12 col-lg-5 col-md-5 col-sm-5">
                                     <div class="float-start">Harvest Info</div>
@@ -206,14 +206,13 @@
                                         </div>
                                     </div>
                                     <div class="form-footer d-flex my-3">
-                                        <button type="submit" id="  "
-                                            class="btn btn-success w-100 next-step">Next</button>
+                                        <button type="submit" class="btn btn-success w-100 next-step" id="step1_form">Next</button>
                                     </div>
                                 </div>
                             </div>
                         </form>
 
-                        <form id="form-step-2" class=" mul_stp_frm  ps-4 pe-4 " style="display:none;" method="post"
+                        <form id="form-step-2" class=" mul_stp_frm2  ps-4 pe-4 " style="display:none;" method="post"
                             action="">
                             <div class="d-flex justify-content-center mb-3">
                                 <div class="col-12 col-lg-5 col-md-5 col-sm-5">
@@ -228,7 +227,7 @@
                             </div>
                             <div class="progress px-1" style="height: 4px;">
                                 <div class="progress-bar" role="progressbar"
-                                    style="width: 0%; background-color: ##6f98c2;" aria-valuenow="0" aria-valuemin="0"
+                                    style="width: 0%; background-color:#6f98c2;" aria-valuenow="0" aria-valuemin="0"
                                     aria-valuemax="100"></div>
                             </div>
                             <div class="step-container d-flex justify-content-between">
@@ -289,7 +288,7 @@
                                     <button type="button" class="btn btn-success w-50 mb-4 prev-step"
                                         id="">Previous</button>
                                     <button type="button" class="btn btn-success ms-2 mb-4 w-50 next-step"
-                                        id="">Next</button>
+                                        id="step2_form">Next</button>
                                     <button type="button" class="btn btn-info ms-2 mb-4 w-25" id="addMore">Add
                                         More</button>
                                 </div>
@@ -297,7 +296,7 @@
                             </div>
                         </form>
 
-                        <form id="form-step-3" class=" mul_stp_frm ps-4 pe-4 " action="" method="post"
+                        <form id="form-step-3" class=" mul_stp_frm2 ps-4 pe-4 " action="" method="post"
                             style="display:none;">
                             <div class="d-flex justify-content-center mb-3">
                                 <div class="col-12 col-lg-5 col-md-5 col-sm-5">
@@ -312,7 +311,7 @@
                             </div>
                             <div class="progress px-1" style="height: 4px;">
                                 <div class="progress-bar" role="progressbar"
-                                    style="width: 0%; background-color: ##6f98c2;" aria-valuenow="0" aria-valuemin="0"
+                                    style="width: 0%; background-color: #6f98c2;" aria-valuenow="0" aria-valuemin="0"
                                     aria-valuemax="100"></div>
                             </div>
                             <div class="step-container d-flex justify-content-between">
@@ -389,12 +388,11 @@
                                 </div>
                                 <div class="form-footer d-flex mt-4">
                                     <button type="button" class="btn w-50 btn-primary mb-4 prev-step">Previous</button>
-                                    <button type="submit" class="btn w-50 ms-2 btn-success mb-4">Submit</button>
+                                    <button type="button" class="btn w-50 ms-2 btn-success mb-4" id="rent_submit">Submit</button>
                                 </div>
                             </div>
                         </form>
 
-                    </div>
                 </div>
             </div>
         </div>
@@ -574,6 +572,15 @@
                 tehsilsDropdown.empty();
             }
         });
+        $("#step1_form").on('click', function(event) {
+            step1_form();
+        });
+        $("#step2_form").on('click', function(event) {
+            step2_form();
+        });
+        $("#rent_submit").on('click', function(event) {
+            rent_submit();
+        });
     });
     </script>
 
@@ -631,6 +638,8 @@
 
         displayStep(1);
     });
+
+ 
     </script>
 
 
@@ -818,6 +827,124 @@
             $(this).parent().parent().remove();
         });
     }
+
+    var arry = [];  // Declare arry outside of functions to maintain its scope
+
+function step1_form() {
+    var brand_name = $('#brand').val();
+    var model_name = $('#model').val();
+    var year = $('#year').val();
+    var workingRadius = $('#workingRadius').val();
+    var note = $('#note').val();
+
+    console.log(brand_name, model_name, year, workingRadius, note);
+
+    // Push values into the array
+    arry.push({
+        brand_name: brand_name,
+        model_name: model_name,
+        year: year,
+        workingRadius: workingRadius,
+        note: note
+    });
+
+    console.log(arry);
+}
+
+function step2_form() {
+    var implement = $('#implement').val();
+    var rate = $('#rate').val();
+    var ratePer = $('#ratePer').val();
+    var imageInput = $('#imageInput').val();  // Use val() to get the value of file input
+   // var images = [] ;
+   // for (var x = 0; x < imageInput.length; x++) {
+    //  images = imageInput[x];
+   // }
+    console.log(implement, rate, ratePer, imageInput);
+
+    // Push values into the array
+    arry.push({
+        implement: implement,
+        rate: rate,
+        ratePer: ratePer,
+        imageInput: imageInput,
+    });
+
+    console.log(arry);
+}
+function rent_submit(){
+    console.log(arry);
+    var fname = $('#fname').val();
+    var lname = $('#lname').val();
+    var phone = $('#phone').val();
+    var state = $('#state').val();
+    var district = $('#district').val();
+    var tehsil = $('#tehsil').val();
+    console.log(fname,lname, phone, state, district, tehsil)
+    var data = new FormData();
+  
+  /*   for (var x = 0; x < image_names.length; x++) {
+        data.append('images[]', image_names[x]);
+    } */
+    if (arry.length > 0) {
+        var step1Data = arry[0];  // Assuming step1_form pushes data first
+        data.append('brand_id', step1Data.brand_name);
+        data.append('model', step1Data.model_name);
+        data.append('purchase_year', step1Data.year);
+        data.append('working_radius', step1Data.workingRadius);
+        data.append('message', step1Data.note);
+
+        if (arry.length > 1) {
+            var step2Data = arry[1];  // Assuming step2_form pushes data second
+            data.append('implement_type_id', step2Data.implement);
+            data.append('rate', step2Data.rate);
+            data.append('rate_per', step2Data.ratePer);
+            data.append('images[]', step2Data.imageInput);
+        }
+    }
+
+  
+    data.append('rent_first_name', fname);
+    data.append('rent_last_name', lname);
+   // data.append('email', tyre_position);
+    data.append('rent_mobile', phone);
+    data.append('rent_state', state);
+    data.append('rent_district', district);
+    data.append('tehsil', tehsil);
+    data.append('rent_enquiry_type_id', '18');
+ /*    var apiBaseURL = APIBaseURL; */
+    var url = 'http://tractor-api.divyaltech.com/api/customer/customer_enquiries';
+    // var token = localStorage.getItem('token');
+  /* 
+    var headers = {
+        'Authorization': 'Bearer ' + token
+    }; */
+  
+    $.ajax({
+      url: url,
+      type: "POST",
+      data: data,
+    //   headers: headers,
+      processData: false,
+      contentType: false,
+      success: function (result) {
+        console.log('Success:', result);
+      
+        $("#staticBackdrop").modal('hide');
+        var msg = "Added successfully !"
+          $("#errorStatusLoading").modal('show');
+          $("#errorStatusLoading").find('.modal-title').html('Success');
+          $("#errorStatusLoading").find('.modal-body').html(msg);
+      },
+      error: function (error) {
+        console.error('Error:', error);
+        var msg = error;
+        $("#errorStatusLoading").modal('show');
+        $("#errorStatusLoading").find('.modal-title').html('Error');
+        $("#errorStatusLoading").find('.modal-body').html(msg);
+      }
+    });
+}
     </script>
 </body>
 

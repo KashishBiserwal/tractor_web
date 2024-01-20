@@ -125,7 +125,7 @@
                                 <input type="text" class="form-control text-dark" placeholder="Enter Name" id="Mobile" name="Mobile">
                             </div>
                             <div class="col-12 mt-3">
-                                <button data-res="<?php echo $sum; ?>" type="submit" class="btn-success w-100 fw-bold" data-bs-toggle="modal" data-bs-target="#get_valuation_btn" >Get valuation</button>
+                                <button id="tractor_valuation" data-res="<?php echo $sum; ?>" type="button" class="btn-success w-100 fw-bold" data-bs-toggle="modal" data-bs-target="#get_valuation_btn" >Get valuation</button>
                             </div>       
                         </div>
                     </form>
@@ -381,6 +381,9 @@
 
     <script>
         $(document).ready(function(){
+            $("#tractor_valuation").on('click', function(event) {
+                tractor_valuation();
+        });
     console.log('testing');
     $('#tractor-valuation-form').validate({
         rules:{
@@ -440,6 +443,18 @@
         }
     });
 });
+    </script>
+    <script>
+       function tractor_valuation(){
+            var brand_id = $('#select_brand').val();
+            var brand_id = $('#model').val();
+            var brand_id = $('#select_state').val();
+            var brand_id = $('#Owners').val();
+            var brand_id = $('#Manufacture').val();
+            var brand_id = $('#Tyre').val();
+            var brand_id = $('#your_name').val();
+            var brand_id = $('#Mobile').val();
+        }
     </script>
 </body>
 </html>

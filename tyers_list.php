@@ -113,15 +113,14 @@
                                     </div>  -->
                                  
                                     <div class="col-12 col-lg-12 col-md-12 col-sm-12 mt-5">
-                                      <div class="upload__box">
-                                        <div class="upload__btn-box">
+                                    <div class="upload__box">
+                                        <div class="upload__btn-box text-center">
                                           <label >
                                             <p class="upload__btn ">Upload images</p>
                                             <input type="file" multiple="" data-max_length="20" class="upload__inputfile" id="_image" name="_image">
                                           </label>
-                                          <!-- <p></p> -->
                                         </div>
-                                        <div id="selectedImagesContainer1" class="upload__img-wrap row"></div>
+                                        <div id="selectedImagesContainer" class="upload__img-wrap"></div>
                                       </div>
                                     </div>
                                    
