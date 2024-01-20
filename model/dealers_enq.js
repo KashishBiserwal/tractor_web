@@ -269,7 +269,6 @@ function edit_id_data() {
   console.log(tehsil);
   // var _method = 'put';
 
-  // Validate mobile number
   if (!/^[6-9]\d{9}$/.test(mobile)) {
       alert("Mobile number must start with 6 or above and should be 10 digits");
       return; // Exit the function if validation fails
