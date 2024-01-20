@@ -287,7 +287,7 @@ function edit_id_data() {
       'id': edit_id,
       'enquiry_type_id': enquiry_type_id,
       'product_id': product_id,
-      // '_method': _method,
+     
   };
 
   var apiBaseURL = APIBaseURL;
