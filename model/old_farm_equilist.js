@@ -343,7 +343,6 @@ function store(event) {
         console.log(url);
         method = 'POST'; 
     } else {
-        // Add mode
         url = apiBaseURL + 'customer_enquiries';
         method = 'POST';
     }

@@ -193,43 +193,7 @@ function openViewdata(userId) {
     });
   }
 
- 
 
- // **delete***
-//  function destroy(id) {
-//     var apiBaseURL = APIBaseURL;
-//     var url = apiBaseURL + 'customer_enquiries/' + id;
-//     console.log(url);
-//     var token = localStorage.getItem('token');
-  
-//     if (!token) {
-//       console.error("Token is missing");
-//       return;
-//     }
-//     var isConfirmed = confirm("Are you sure you want to delete this data?");
-//     if (!isConfirmed) {
-//       return;
-//     }
-  
-//     $.ajax({
-//       url: url,
-//       type: "DELETE",
-//       headers: {
-//         'Authorization': 'Bearer ' + token
-//       },
-//       success: function(result) {
-//         window.location.reload();
-//         get_dealers();
-
-//         console.log("Delete request successful");
-//         alert("Delete operation successful");
-//       },
-//       error: function(error) {
-//         console.error('Error fetching data:', error);
-//         alert("Error during delete operation");
-//       }
-//     });
-//   }
 
     
 // edit data 
@@ -386,6 +350,7 @@ function searchdata() {
       }
   });
 };
+
 function updateTable(data) {
   const tableBody = document.getElementById('data-table');
   tableBody.innerHTML = '';
