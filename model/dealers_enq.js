@@ -193,7 +193,49 @@ function openViewdata(userId) {
     });
   }
 
+// brand
+function get_search() {
+  var apiBaseURL = APIBaseURL;
+  var url = apiBaseURL + 'getBrands';
 
+  $.ajax({
+    url: url,
+    type: "GET",
+    headers: {
+      'Authorization': 'Bearer ' + localStorage.getItem('token')
+    },
+    success: function (data) {
+      console.log(data);
+
+      const select = $('#brand_name');
+      select.empty(); // Clear existing options
+
+      // Add a default option
+      select.append('<option selected disabled value="">Please select Brand</option>');
+
+      // Use an object to keep track of unique brands
+      var uniqueBrands = {};
+
+      $.each(data.brands, function (index, brand) {
+        var brand_id = brand.id;
+        var brand_name = brand.brand_name;
+
+        // Check if the brand ID is not already in the object
+        if (!uniqueBrands[brand_id]) {
+          // Add brand ID to the object
+          uniqueBrands[brand_id] = true;
+
+          // Append the option to the dropdown
+          select.append('<option value="' + brand_id + '">' + brand_name + '</option>');
+        }
+      });
+    },
+    error: function (error) {
+      console.error('Error fetching data:', error);
+    }
+  });
+}
+get_search();
 
     
 // edit data 
@@ -215,7 +257,6 @@ function fetch_edit_data(id) {
           var Data = response.dealer_enquiry_details[0];
           $('#idUser').val(Data.id);
           $('#dname_name').val(Data.dealer_name);
-
           $("#brand_name option").prop("selected", false);
           $("#brand_name option[value='" + Data.brand_name + "']").prop("selected", true);
           $('#first_name').val(Data.first_name);
@@ -224,6 +265,7 @@ function fetch_edit_data(id) {
           $('#mobile').val(Data.mobile);
           $('#email').val(Data.email);
           $('#date').val(Data.date);
+          $('#message').val(Data.message);
           $("#state_ option").prop("selected", false);
           $("#state_ option[value='" + Data.state+ "']").prop("selected", true);
           
@@ -241,11 +283,15 @@ function fetch_edit_data(id) {
 }
 
 function edit_id_data() {
+  var enquiry_type_id=14;
+  var product_id=13;
   var edit_id = $("#idUser").val();
-  var enquiry_type_id = $("#enquiry_type_id").val();
-  var product_id = $("#product_id").val();
+  console.log(edit_id, 'edit_id');
+  // var enquiry_type_id = $("#enquiry_type_id").val();
+  // var product_id = $("#product_id").val();
+  var brand_name = $("#brand_name").val();
   var dealer_name = $("#dname_name").val();
-  // var first_name = $("#first_name").val();
+  var first_name = $("#first_name").val();
   var last_name = $("#last_name").val();
   var mobile = $("#mobile").val();
   var email = $("#email").val();
@@ -253,21 +299,8 @@ function edit_id_data() {
   var state = $("#state_").val();
   var district = $("#dist_").val();
   var tehsil = $("#tehsil_").val();
-  
+  var message = $("#message").val();
 
-  console.log(edit_id);
-  console.log(enquiry_type_id);
-  console.log(product_id);
-  console.log(dealer_name);
-  console.log(first_name); 
-  console.log(last_name);
-  console.log(mobile);
-  console.log(email);
-  console.log(date);
-  console.log(state);
-  console.log(district);
-  console.log(tehsil);
-  // var _method = 'put';
 
   if (!/^[6-9]\d{9}$/.test(mobile)) {
       alert("Mobile number must start with 6 or above and should be 10 digits");
@@ -275,6 +308,7 @@ function edit_id_data() {
   }
 
   var paraArr = {
+      'brand_name': brand_name,
       'dealer_name': dealer_name,
       'first_name': first_name,
       'last_name': last_name,
@@ -284,6 +318,7 @@ function edit_id_data() {
       'state': state,
       'district': district,
       'tehsil': tehsil,
+      'message': message,
       'id': edit_id,
       'enquiry_type_id': enquiry_type_id,
       'product_id': product_id,
@@ -292,26 +327,27 @@ function edit_id_data() {
 
   var apiBaseURL = APIBaseURL;
   var url = apiBaseURL + 'customer_enquiries/' + edit_id;
-console.log(url);
+  console.log(url);
+
   var headers = {
       'Authorization': 'Bearer ' + localStorage.getItem('token')
   };
 
   $.ajax({
-    url: url,
-    type: "PUT",
-    data: paraArr,
-    headers: headers,
-    success: function (result) {
-        console.log(result, "result");
-        // window.location.reload();
-        console.log("updated successfully");
-        alert('successfully updated..!')
-    },
-    error: function (error) {
-        console.error('Error fetching data:', error);
-    }
-});
+      url: url,
+      type: "PUT",
+      data: paraArr,
+      headers: headers,
+      success: function (result) {
+          console.log(result, "result");
+          // window.location.reload();
+          console.log("updated successfully");
+          alert('successfully updated..!')
+      },
+      error: function (error) {
+          console.error('Error fetching data:', error);
+      }
+  });
 }
 
 

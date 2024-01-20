@@ -255,9 +255,18 @@ function fetch_edit_data(id) {
           $('#number_2').val(Data.mobile);
           $('#email_2').val(Data.email);
           $('#date_2').val(Data.date);
-          $('#state_2').val(Data.state);
-          $('#dist_2').val(Data.district);
-          $('#tehsil_2').val(Data.tehsil);
+          // $('#state_2').val(Data.state);
+          // $('#dist_2').val(Data.district);
+          // $('#tehsil_2').val(Data.tehsil);
+
+          $("#state_2 option").prop("selected", false);
+          $("#state_2 option[value='" + Data.state+ "']").prop("selected", true);
+          
+          $("#dist_2 option").prop("selected", false);
+          $("#dist_2 option[value='" + Data.district+ "']").prop("selected", true);
+          
+          $("#tehsil_2 option").prop("selected", false);
+          $("#tehsil_2 option[value='" + Data.tehsil+ "']").prop("selected", true);
       },
       error: function (error) {
           console.error('Error fetching user data:', error);
@@ -329,49 +338,55 @@ $.ajax({
 });
 }
 
+
 function search_data() {
-  console.log("dfghsfg,sdfgdfg");
- var nameselect = $('#nameselect').val();
- console.log(nameselect);
-  var stateselect = $('#stateselect').val();
-  var districtselect = $('#distselect').val();
- 
+  var nursery_name = $('#nursery_name').val();
+  var state = $('#state_1').val();
+  var district = $('#dist_1').val();
 
+  // Create an object to store search parameters with the first non-empty value
+  var paraArr = {};
 
-  var paraArr = {
-    'nursery_name': nameselect,
-    'state':stateselect,
-    'district':districtselect,
-  };
-  console.log(paraArr,'all data');
+  if (nursery_name.trim() !== '') {
+    paraArr['nursery_name'] = nursery_name.trim();
+  } else if (state.trim() !== '') {
+    paraArr['state'] = state.trim();
+  } else if (district.trim() !== '') {
+    paraArr['district'] = district.trim();
+  }
+
+  console.log('Search Parameters:', paraArr);
 
   var apiBaseURL = APIBaseURL;
   var url = apiBaseURL + 'search_for_nursery_enquiry';
+
   $.ajax({
-      url:url, 
-      type: 'POST',
-      data: paraArr,
-    
-      headers: {
-          'Authorization': 'Bearer ' + localStorage.getItem('token')
-      },
-      success: function (searchData) {
-        updateTable(searchData);
-      },
-      error: function (error) {
-          console.error('Error searching for brands:', error);
-      }
+    url: url,
+    type: 'POST',
+    data: paraArr,
+    headers: {
+      'Authorization': 'Bearer ' + localStorage.getItem('token')
+    },
+    success: function (searchData) {
+      updateTable(searchData);
+    },
+    error: function (error) {
+      console.error('Error searching for brands:', error);
+    }
   });
-};
+}
 function updateTable(data) {
   const tableBody = document.getElementById('data-table');
   tableBody.innerHTML = '';
-  let serialNumber = 1; 
-  if(data.newTractor && data.newTractor.length > 0) {
+ 
+
+  if(data.nurseryEnquiry && data.nurseryEnquiry.length > 0) {
       let tableData = []; 
-      data.newTractor.forEach(row => {
+      let serialNumber = 1; 
+      data.nurseryEnquiry.forEach(row => {
+
         const fullName = row.first_name + ' ' + row.last_name;
-          let action =    `<div class="d-flex">
+          let action =  `<div class="d-flex">
           <button class="btn btn-warning btn-sm text-white mx-1" data-bs-toggle="modal" onclick="openViewdata(${row.id});" data-bs-target="#view_model_nursery_enq">
               <i class="fas fa-eye" style="font-size: 11px;"></i>
           </button>
@@ -381,8 +396,8 @@ function updateTable(data) {
           <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.id});">
               <i class="fa fa-trash" style="font-size: 11px;"></i>
           </button>
-      </div>`
-     
+      </div>`;
+
           tableData.push([
             serialNumber,
             row.date,
@@ -397,25 +412,33 @@ function updateTable(data) {
         serialNumber++;
     });
 
+    // Initialize DataTable after preparing the tableData
     $('#example').DataTable().destroy();
     $('#example').DataTable({
-        data: tableData,
-        columns: [
-          { title: 'S.No.' },
-          { title: 'Date' },
-          { title: 'Nursery Name' },
-          { title: 'Full Name' },
-          { title: 'Mobile' },
-          { title: 'State' },
-          { title: 'District' },
-          { title: 'Action', orderable: false }
-        ],
-        paging: true,
-        searching: true,
-        // ... other options ...
-    });
+            data: tableData,
+            columns: [
+              { title: 'S.No.' },
+              { title: 'Date' },
+              { title: 'Nursery Name' },
+              { title: 'Full Name' },
+              { title: 'Mobile' },
+              { title: 'State' },
+              { title: 'District' },
+              { title: 'Action', orderable: false } 
+          ],
+            paging: true,
+            searching: false,
+            // ... other options ...
+        });
   } else {
       // Display a message if there's no valid data
       tableBody.innerHTML = '<tr><td colspan="4">No valid data available</td></tr>';
   }
+}
+
+function resetform(){
+  $('#nursery_name').val('');
+  $('#state_1').val('');
+  $('#dist_1').val('');
+  // get_nursery();
 }

@@ -181,9 +181,17 @@
                                 </div>
                                 <div class="col- col-sm-6 col-lg-6 col-md-6" hidden>
                                           <label class="text-dark"> id Name<span class="text-danger">*</span></label>
-                                                  <input type="text" class="form-control py-2" for="idUser"  id="product_id" value="13" name="first_name" placeholder="Enter First Name">
+                                                  <input type="text" class="form-control py-2" for="product_id"  id="product_id" value="13" name="first_name" placeholder="Enter First Name">
                                           <small></small>
                                         </div>
+                                        <div class="ol-12 col-lg-6 col-md-6 col-sm-6">
+                                        <div class="form-outline">
+                                            <label class="form-label">Brand Name</label>
+                                            <select class="form-select py-2" aria-label="Default select example" id="brand_name" name="bname">
+                                                
+                                            </select>
+                                        </div>
+                                    </div>
                                 <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
                                       <div class="form-outline">
                                         <label for="name" class="form-label text-dark">Dealers Name</label>
@@ -197,7 +205,7 @@
                                       </div>
                                     </div> -->
                                  <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
-                                      <div class="form-outline">
+                                      <div class="form-outline mt-3">
                                         <label for="name" class="form-label text-dark">First Name</label>
                                         <input type="text" class="form-control" placeholder="" id="first_name" name="fname">
                                       </div>
@@ -226,6 +234,7 @@
                                         <input type="text" class="form-control" placeholder="" id="date" name="date">
                                       </div>
                                     </div>
+                                  
                                     <div class="col-12 col-sm-6 col-md-6 col-lg-6">
                                           <div class="form-outline mt-3">
                                              <label class="form-label text-dark">State</label>
@@ -260,6 +269,14 @@
                                             </select>
                                           </div>
                                         </div>
+
+                                        <div class="col-12  mb-2">
+                                      <div class="form-outline mt-3">
+                                        <label for="name" class="form-label text-dark">Discription</label>
+                                        <!-- <input type="email" class="form-control" placeholder="" id="" name=""> -->
+                                        <textarea rows="3" cols="70" class="w-100 pt-2" minlength="1" maxlength="255" id="message" name="message"></textarea>
+                                      </div>
+                                    </div>
                                 </div>
                                
                             </form>
