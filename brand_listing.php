@@ -329,7 +329,7 @@
             var product_type = data.getProductType[j].product_type_name;
               var strFirstThree = product_type.substring(0,3);
               if(strFirstThree != 'OLD'){
-                var checkbox = $('<input type="checkbox" class="product_type_checkbox" id="tractor_type_' + data.getProductType[j].id + '" value="' + data.getProductType[j].id + '">');
+                var checkbox = $('<input type="checkbox" class="product_type_checkbox" name="productTypes" id="tractor_type_' + data.getProductType[j].id + '" value="' + data.getProductType[j].id + '">');
                 var label = $('<label for="tractor_type_' + data.getProductType[j].id + '">' + data.getProductType[j].product_type_name + '</label>');
             
               $("#" + id).append(checkbox);
@@ -503,10 +503,26 @@ function fetch_edit_data(userId) {
     type: 'GET',
     headers: headers,
     success: function(response) {
+      console.log(response,"response brand")
       // var userData = response.brands[0];
       $('#idUser').val(response.brands[0].id);
       $('#brand_name1').val(response.brands[0].brand_name);
-      $('#brand_name1').val(response.brands[0].brand_name);
+      $('#type_name1').val(response.brands[0].product_type_names);
+      
+      // Clear existing checkboxes
+      $('input[name="productTypes"]').prop('checked', false);
+
+      // Check checkboxes based on response data
+      if (response.brands[0].product_type_names) {
+        var productTypesArray = response.brands[0].product_type_names.split(',');
+        productTypesArray.forEach(function (productType) {
+          // Trim to remove extra spaces
+          var trimmedProductType = productType.trim();
+          
+          // Check the checkbox with matching value
+          $('input[name="productTypes"][value="' + trimmedProductType + '"]').prop('checked', true);
+        });
+      }
       // $('#brand_img1').val(response.brands[0].brand_img);
                 // Append the new card to the container
                 // productContainer.append(newCard);
