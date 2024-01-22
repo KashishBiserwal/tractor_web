@@ -4,20 +4,19 @@
     <?php
         include 'includes/header.php';
         include 'includes/headertag.php';
-        
+        include 'includes/footer.php';
+        include 'includes/footertag.php';
     ?>
+    
 </head>
 <body>
-    
+
     <section class=" mt-5 pt-5 bg-light">
-        <div class="container pt-3">
+        <div class="container pt-5">
             <div class="py-2">
                 <span class="text-white ">
                     <a href="index.php" class="text-decoration-none header-link px-1">Home <i class="fa-solid fa-chevron-right px-1"></i></a>
-
-                        <span class=""><span class="text-dark header-link  px-1">Dealership Enquiry<i class="fa-solid fa-chevron-right px-1"></i> </span></span>
-                        
-                        <span class="text-dark">On-Road Price</span>
+                        <span class=""><span class="text-dark header-link  px-1">Dealership Enquiry<i class="fa-solid fa-chevron-right px-1"></i> </span></span> 
                 </span> 
             </div>
         </div>
@@ -467,11 +466,7 @@
             </div>
         </div>
     </section>
-    
-    <?php
-        include 'includes/footer.php';
-        include 'includes/footertag.php';
-    ?>
+   
 
     <script>
         $(document).ready(function(){

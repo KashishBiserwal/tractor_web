@@ -3,13 +3,21 @@
 <head>
     <?php
         include 'includes/headertag.php';
-        include 'includes/header.php';
+      
+        include 'includes/footertag.php';
     ?>
+   
 </head>
 <body>
+<?php
+   include 'includes/header.php';
+   ?>
+<script> var CustomerAPIBaseURL = "<?php echo $CustomerAPIBaseURL; ?>";</script>
+    <script> var baseUrl = "<?php echo $baseUrl; ?>";</script>
+    <script src="<?php $baseUrl; ?>model/certified_dealers.js"></script>
   <section class="bg-light">
-    <div class="container mt-5 pt-5">
-      <div class="mt-5 mb-1 py-2">
+    <div class="container mt-5 pt-4">
+      <div class="mt-5 py-2">
         <span class="">
           <a href="index.php" class="text-decoration-none header-link px-1">Home <i class="fa-solid fa-chevron-right px-1"></i></a>
           <span class=""><span class=" header-link  px-1">Certified Dealers</span></span>
@@ -17,13 +25,6 @@
       </div>
     </div>
   </section>
-  <!--TEXT Find Tractor Dealer -->
-  <!-- <section>
-        <div class="d-sm-flex align-items-center justify-content-between w-100">
-            <div class="col-12 h-100 " style="min-height: 420px; background-image: url(assets/images/tractor-dealerimg.png); background-position: center; background-size: cover;" alt="img">
-            </div>
-        </div>
-    </section> -->
     <section>
         <div class="d-sm-flex align-items-center justify-content-between w-100">
             <div class="col-12 h-100 " style="min-height: 420px; background-image: url(assets/images/tractordealerqqqqq.webp); background-position: center; background-size: cover;" alt="img">
@@ -92,116 +93,12 @@
   <!-- CERTIFIED DEALER CARDS -->
   <section>
     <div class="container mt-5" style="float:start;">
-      <div class="row">
-        <h3 class="">Recent Certified Dealers</h3>
-        <div class="col-12 col-sm-3 col-md-3 col-lg-3 px-2 py-3 h-100">
-          <div class="h-auto success__stry__item d-flex flex-column shadow ">
-            <div class="thumb" style="positon:relative;">
-              <a href="certified_dealers_inner.php">
-                <div class="ratio ratio-16x9">
-                  <img src="assets/images/ratnaautomotive.webp" class="object-fit-cover " alt="img">
-                </div>
-              </a>            
-            </div>
-            <div class="position-absolute" >
-              <p class="rounded-pill bg-warning text-center px-2 mt-1">Certified</p>
-            </div>
-            <div class="">
-              <a href="certified_dealers_inner.php" class="text-decoration-none text-dark">
-                <h5 class="fw-bold text-center mt-3 mx-3">Ratna Automotive Pvt. Ltd. </h5>
-              </a> 
-              <div class="col-12 col-lg-12 col-md-12 col-sm-12">
-                <p class=" text-center text-dark fw-bold ps-3">Sonalika Dealer</p>
-              </div>              
-              <div class="justify-content-center  d-flex">
-                <button typt="button" class="btn btn-success w-100">Rangareddy, Telangana</button>
-              </div>
-            </div>
-          </div>
+      <h3 class="">Recent Certified Dealers</h3>
+      <div id="productContainer" class="row "></div>
+      <div class="col-12 text-center mb-4">
+          <button id="load_moretract"  type="button" class="add_btn btn-success btn btn-lg">
+          <i class="fas fa-undo"></i> Load More </button>
         </div>
-
-        <div class="col-12 col-sm-3 col-md-3 col-lg-3 px-2 py-3 h-100">
-          <div class="h-auto success__stry__item d-flex flex-column shadow ">
-            <div class="thumb" style="positon:relative;">
-              <a href="certified_dealers_inner.php">
-                <div class="ratio ratio-16x9">
-                  <img src="assets/images/ratnaautomotive.webp" class="object-fit-cover " alt="img">
-                </div>
-              </a>            
-            </div>
-            <div class="position-absolute" >
-              <p class="rounded-pill bg-warning text-center px-2 mt-1">Certified</p>
-            </div>
-            <div class="">
-              <a href="certified_dealers_inner.php" class="text-decoration-none text-dark">
-                <h5 class="fw-bold text-center mt-3 mx-3">Ratna Automotive Pvt. Ltd. </h5>
-              </a> 
-              <div class="row">
-              <div class="col-12 col-lg-12 col-md-12 col-sm-12"><p class=" text-center text-dark fw-bold ps-3">Sonalika Dealer</p></div>
-               
-              </div>
-              <div class="justify-content-center  d-flex">
-                <button typt="button" class="btn btn-success w-100">Rangareddy, Telangana</button>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        <div class="col-12 col-sm-3 col-md-3 col-lg-3 px-2 py-3 h-100">
-          <div class="h-auto success__stry__item d-flex flex-column shadow ">
-            <div class="thumb" style="positon:relative;">
-              <a href="certified_dealers_inner.php">
-                <div class="ratio ratio-16x9">
-                  <img src="assets/images/ratnaautomotive.webp" class="object-fit-cover " alt="img">
-                </div>
-              </a>            
-            </div>
-            <div class="position-absolute" >
-              <p class="rounded-pill bg-warning text-center px-2 mt-1">Certified</p>
-            </div>
-            <div class="">
-              <a href="certified_dealers_inner.php" class="text-decoration-none text-dark">
-                <h5 class="fw-bold text-center mt-3 mx-3">Ratna Automotive Pvt. Ltd. </h5>
-              </a> 
-              <div class="row">
-              <div class="col-12 col-lg-12 col-md-12 col-sm-12"><p class=" text-center text-dark fw-bold ps-3">Sonalika Dealer</p></div>
-               
-              </div>
-              <div class="justify-content-center  d-flex">
-                <button typt="button" class="btn btn-success w-100">Rangareddy, Telangana</button>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        <div class="col-12 col-sm-3 col-md-3 col-lg-3 px-2 py-3 h-100">
-          <div class="h-auto success__stry__item d-flex flex-column shadow ">
-            <div class="thumb" style="positon:relative;">
-              <a href="certified_dealers_inner.php">
-                <div class="ratio ratio-16x9">
-                  <img src="assets/images/ratnaautomotive.webp" class="object-fit-cover " alt="img">
-                </div>
-              </a>            
-            </div>
-            <div class="position-absolute" >
-              <p class="rounded-pill bg-warning text-center px-2 mt-1">Certified</p>
-            </div>
-            <div class="">
-              <a href="certified_dealers_inner.php" class="text-decoration-none text-dark">
-                <h5 class="fw-bold text-center mt-3 mx-3">Ratna Automotive Pvt. Ltd. </h5>
-              </a> 
-              <div class="row">
-                <div class="col-12 col-lg-12 col-md-12 col-sm-12"><p class=" text-center text-dark fw-bold ps-3">Sonalika Dealer</p></div>
-               
-              </div>
-              <div class="justify-content-center  d-flex">
-                <button typt="button" class="btn btn-success w-100">Rangareddy, Telangana</button>
-              </div>
-            </div>
-          </div>
-        </div>
-
-      </div>
     </div>
   </section>
 
@@ -253,9 +150,8 @@
     </div>
   </section>        
 
-  <?php
+  <?php 
     include 'includes/footer.php';
-    include 'includes/footertag.php';
   ?>
 </body>
 </html>

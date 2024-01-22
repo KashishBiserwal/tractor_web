@@ -27,7 +27,7 @@
               </li>
             </ol>
           </nav>
-          <button type="button" id="add_trac" class="btn add_btn btn-success float-right btn_all" data-bs-toggle="modal"  data-bs-target="#staticBackdrop">
+          <button type="button" id="add_trac" class="btn add_btn btn-success float-right btn_all" data-bs-toggle="modal"  onclick="resetFormFields()"  data-bs-target="#staticBackdrop">
             <i class="fa fa-plus" aria-hidden="true"></i> Add Old Harvester
           </button>
 
@@ -46,22 +46,11 @@
                               <form id="old_form" enctype="multipart/form-data" onsubmit="return false">
                             <div class="row justify-content-center pt-3">
                                 <h5 class="fw-bold">Your Harvester Information</h5>
-                                <div class="col-12 col-lg-6 col-md-6 col-sm-6 mt-3" hidden>
+                              
+                               <div class="col-12 col-lg-6 col-md-6 col-sm-6 mt-3" hidden >
                                   <div class="form-outline ">
-                                    <label for="name" class="form-label text-dark">Enquiry id</label>
-                                    <input type="text" class="form-control" placeholder="Enter Your Model Name" id="enquiry_type_id" name="enquiry_type_id" value="3">
-                                  </div>
-                               </div>
-                               <div class="col-12 col-lg-6 col-md-6 col-sm-6 mt-3" hidden>
-                                  <div class="form-outline ">
-                                    <label for="name" class="form-label text-dark"> id</label>
-                                    <input type="text" class="form-control" placeholder="Enter Your Model Name" id="EditIdmain_" name="" value="3">
-                                  </div>
-                               </div>
-                               <div class="col-12 col-lg-6 col-md-6 col-sm-6 mt-3" hidden>
-                                  <div class="form-outline ">
-                                    <label for="name" class="form-label text-dark"> id</label>
-                                    <input type="text" class="form-control" placeholder="Enter Your Model Name" id="customer_id" name="" value="3">
+                                    <label for="name" class="form-label text-dark"> customer_id id</label>
+                                    <input type="text" class="form-control"  id="customer_id" name="" value="">
                                   </div>
                                </div>
                                <!-- <div class="col-12 col-lg-6 col-md-6 col-sm-6 mt-3" hidden>
@@ -169,8 +158,8 @@
                                     <label class="form-label text-dark">State</label>
                                     <select class="form-select form-control" aria-label=".form-select-lg example" id="state" name="state">
                                         <option value="">Select State</option>
-                                        <option value="1">Chhattisgarh</option>
-                                        <option value="2">Others</option>
+                                        <option value="Chhattisgarh">Chhattisgarh</option>
+                                        <option value="Others">Others</option>
                                       </select>
                                   </div>
                                 </div>
@@ -179,8 +168,8 @@
                                     <label class="form-label text-dark">District</label>
                                     <select class="form-select form-control" aria-label=".form-select-lg example" id="district" name="district">
                                         <option value="">Select Districte</option>
-                                        <option value="1">Jagdalpur</option>
-                                        <option value="2">Sarguja</option>
+                                        <option value="Jagdalpur">Jagdalpur</option>
+                                        <option value="Sarguja">Sarguja</option>
                                       </select>
                                   </div>
                                 </div>
@@ -189,8 +178,8 @@
                                     <label class="form-label text-dark">Tehsil</label>
                                     <select class="form-select form-control" aria-label=".form-select-lg example" id="tehsil" name="tehsil">
                                         <option value="">Select Tehsil</option>
-                                        <option value="1">Jagdalpur</option>
-                                          <option value="2">Sarguja</option>
+                                        <option value="Jagdalpur">Jagdalpur</option>
+                                          <option value="Sarguja">Sarguja</option>
                                       </select>
                                   </div>
                                 </div>

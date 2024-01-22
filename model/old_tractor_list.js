@@ -1,4 +1,4 @@
-var EditIdmain_ = "";
+var customer_id = "";
 var editId_state= false;
 $(document).ready(function() {
   ImgUpload();
@@ -317,7 +317,6 @@ function store(event) {
     if (customer_id!="" && customer_id!=" ") {
         // Update mode
         console.log(editId_state, "state");
-        console.log(EditIdmain_, "id edit");
         _method = 'put';
         url = apiBaseURL + 'customer_enquiries/' + customer_id ;
         console.log(url);
@@ -421,12 +420,12 @@ function store(event) {
                 data.product.forEach(row => {
                     let action = `
                         <div class="d-flex">
-                            <button class="btn btn-warning btn-sm text-white mx-1" data-bs-toggle="modal" onclick="fetch_data(${row.product_id});" data-bs-target="#exampleModal">
+                            <button class="btn btn-warning btn-sm text-white mx-1" data-bs-toggle="modal" onclick="fetch_data(${row.customer_id});" data-bs-target="#exampleModal">
                             <i class="fa-solid fa-eye" style="font-size: 11px;"></i></button>
-                            <button class="btn btn-primary btn-sm btn_edit" onclick="fetch_edit_data(${row.product_id});" data-bs-toggle="modal" data-bs-target="#staticBackdrop" id="yourUniqueIdHere" style="padding:5px">
+                            <button class="btn btn-primary btn-sm btn_edit" onclick="fetch_edit_data(${row.customer_id});" data-bs-toggle="modal" data-bs-target="#staticBackdrop" id="yourUniqueIdHere" style="padding:5px">
                               <i class="fas fa-edit" style="font-size: 11px;"></i>
                             </button>
-                            <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.product_id});" style="padding:5px">
+                            <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.customer_id});" style="padding:5px">
                               <i class="fa fa-trash" style="font-size: 11px;"></i>
                             </button>
                         </div>`;
@@ -518,16 +517,16 @@ function updateTable(data) {
       let tableData = []; 
       data.oldTractor.forEach(row => {
           let action = ` <div class="d-flex">
-          <button class="btn btn-warning btn-sm text-white mx-1" data-bs-toggle="modal" onclick="fetch_data(${row.product_id});" data-bs-target="#exampleModal">
+          <button class="btn btn-warning btn-sm text-white mx-1" data-bs-toggle="modal" onclick="fetch_data(${row.customer_id});" data-bs-target="#exampleModal">
           <i class="fa-solid fa-eye" style="font-size: 11px;"></i></button>
-          <button class="btn btn-primary btn-sm btn_edit" onclick="fetch_edit_data(${row.product_id});" data-bs-toggle="modal" data-bs-target="#staticBackdrop" id="yourUniqueIdHere" style="padding:5px">
+          <button class="btn btn-primary btn-sm btn_edit" onclick="fetch_edit_data(${row.customer_id});" data-bs-toggle="modal" data-bs-target="#staticBackdrop" id="yourUniqueIdHere" style="padding:5px">
             <i class="fas fa-edit" style="font-size: 11px;"></i>
           </button>
-          <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.product_id});" style="padding:5px">
+          <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.customer_id});" style="padding:5px">
             <i class="fa fa-trash" style="font-size: 11px;"></i>
           </button>
       </div>`;
-
+console.log(row.customer_id);
           tableData.push([
             serialNumber,
             formatDateTime(row.date),
@@ -549,7 +548,7 @@ function updateTable(data) {
             { title: 'Date' },
             { title: 'Brand' },
             { title: 'Model' },
-            { title: 'Purchase Year' },
+            { title: 'Purchase Year'},
             { title: 'State' },
             { title: 'Action', orderable: false }
         ],
@@ -577,9 +576,10 @@ function removeImage(ele){
 
 // fetch edit data
 
-function fetch_edit_data(id) {
+function fetch_edit_data(customer_id) {
+  console.log(customer_id,'customer_id');
   var apiBaseURL = APIBaseURL;
-  var url = apiBaseURL + 'get_old_tractor_by_id/' + id ;
+  var url = apiBaseURL + 'get_old_tractor_by_id/' + customer_id ;
   editId_state= true;
   // EditIdmain_= product_id;
   var headers = {
@@ -594,7 +594,6 @@ function fetch_edit_data(id) {
       var userData = response.product[0];
 
       $('#customer_id').val(userData.customer_id);
-      $('#EditIdmain_').val(userData.product_id);
       $('#enquiry_type_id').val(userData.enquiry_type_id);
       $('#image_type_id').val(userData.image_type_id);
       $('#tractor_type_id').val(userData.tractor_type_id);
@@ -602,18 +601,30 @@ function fetch_edit_data(id) {
       $('#first_name').val(userData.first_name);
       $('#last_name').val(userData.last_name);
       $('#mobile_number').val(userData.mobile);
-      $('#state').val(userData.state);
-      $('#district').val(userData.district);
-      $('#tehsil').val(userData.tehsil);
-      // $('#brand').val(userData.brand_name);
+
+      $("#state option").prop("selected", false);
+      $("#state option[value='" + userData.state + "']").prop("selected", true);
+
+      $("#district option").prop("selected", false);
+      $("#district option[value='" + userData.district + "']").prop("selected", true);
+
+      $("#tehsil option").prop("selected", false);
+      $("#tehsil option[value='" + userData.tehsil+ "']").prop("selected", true);
 
       $("#brand option").prop("selected", false);
       $("#brand option[value='" +userData.brand_name + "']").prop("selected", true);
 
       $('#model').val(userData.model);
       $('#purchase_year').val(userData.purchase_year);
-      $('#condition').val(userData.engine_condition);
-      $('#tyrecondition').val(userData.tyre_condition);
+
+      $("#condition option").prop("selected", false);
+      $("#condition option[value='" +userData.engine_condition + "']").prop("selected", true);
+
+
+      $("#tyrecondition option").prop("selected", false);
+      $("#tyrecondition option[value='" +userData.tyre_condition + "']").prop("selected", true);
+
+
       $('#hours_driven').val(userData.hours_driven);
       $('#price_old').val(userData.price);
       $('#description').val(userData.description);
