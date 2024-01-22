@@ -14,7 +14,6 @@ function getoldTractorList() {
         url: url,
         type: "GET",
         success: function (data) {
-            console.log(data, 'abc');
             var productContainer = $("#productContainer");
             // Clear the existing content in the container
             productContainer.empty();
@@ -22,18 +21,19 @@ function getoldTractorList() {
             if (data.product && data.product.length > 0) {
                 allCards = data.product; // Store all cards in the variable
 
-                // Display the initial set of cards
+                // Sort cards in descending order based on the purchase_year
+                allCards.sort(function(a, b) {
+                    return b.purchase_year - a.purchase_year;
+                });
+
+                // Display all cards
                 allCards.slice(0, cardsPerPage).forEach(function (p) {
                     appendCard(productContainer, p);
                     cardsDisplayed++;
                 });
 
-                // Show the "Load More" button only if there are more cards to display
-                if (cardsDisplayed >= allCards.length) {
-                    $("#loadMoreBtn").show();
-                } else {
-                    $("#loadMoreBtn").hide();
-                }
+                // Hide the "Load More" button since all cards are displayed initially
+                $("#loadMoreBtn").hide();
             } else {
                 // Hide the "Load More" button if there are no cards
                 $("#loadMoreBtn").hide();
@@ -58,7 +58,6 @@ function appendCard(container, p) {
         }
     }
 
-    console.log(p, "pp");
     var newCard = `
     <div class="col-12 col-lg-4 col-md-4 col-sm-4 mb-4">
     <div class="h-auto success__stry__item d-flex flex-column shadow ">
@@ -115,4 +114,6 @@ $(document).on('click', '#loadMoreBtn', function(){
         $("#loadMoreBtn").hide();
     }
 });
+
+// Initial call to getoldTractorList
 getoldTractorList();

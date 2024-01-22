@@ -72,6 +72,11 @@ include 'includes/headertag.php';
                               </div>
                               <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-2" hidden>
                                 <div class="form-outline">
+                                  <input type="text" id="customer_id" name="" value="" class=" data_search form-control input-group-sm py-2" />
+                                </div>
+                              </div>
+                              <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-2" hidden>
+                                <div class="form-outline">
                                 
                                   <input type="text" id="image_type_id" name="" value="1" class=" data_search form-control input-group-sm py-2" />
                                 </div>

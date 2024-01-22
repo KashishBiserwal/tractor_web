@@ -67,19 +67,17 @@ function getEngineoilById() {
         document.getElementById('grade').innerText=data.engine_oil_details[0].grade;
         document.getElementById('quantity').innerText=data.engine_oil_details[0].quantity;
         document.getElementById('price').innerText=data.engine_oil_details[0].price;
-        document.getElementById('compatible_tractor').innerText=JSON.parse(data.engine_oil_details[0].compatible_model);
+        // document.getElementById('compatible_tractor').innerText=JSON.parse(data.engine_oil_details[0].compatible_model);
         document.getElementById('description').innerText=data.engine_oil_details[0].description;
      
             var product = data.engine_oil_details[0];
-
             var imageNames = product.image_names.split(',');
-
             var carouselContainer = $('.swiper-wrapper_buy');
 
             carouselContainer.empty();
 
             imageNames.forEach(function(imageName) {
-                var imageUrl = "http://tractor-api.divyaltech.com/uploads/engine_oil_img/" + imageName.trim(); // Update the path
+                var imageUrl = "http://tractor-api.divyaltech.com/uploads/engine_oil_img/" + imageName.trim(); 
                 var slide = $('<div class="swiper-slide swiper-slide_buy"><img class="img_buy" src="' + imageUrl + '" /></div>');
                 carouselContainer.append(slide);
             });
@@ -99,7 +97,7 @@ function getEngineOilList() {
 
     // Keep track of the total tractors and the currently displayed tractors
     var totalEngineoil = 0;
-    var displayedEngineoil = 8; // Initially display 6 tractors
+    var displayedEngineoil = 8; // Initially display 8 tractors
 
     $.ajax({
         url: url,
@@ -245,9 +243,9 @@ function displayEngineoil(engineoil) {
                       <label for="eo_dist" class="form-label fw-bold  text-dark"><i class="fa-solid fa-location-dot"></i> District</label>
                       <select class="form-select py-2 " aria-label=".form-select-lg example" id="district" name="district">
                         <option value="" selected disabled=""></option>
-                        <option value="1">Raipur</option>
-                        <option value="2">Bilaspur</option>
-                        <option value="2">Durg</option>
+                        <option value="Raipur">Raipur</option>
+                        <option value="Bilaspur">Bilaspur</option>
+                        <option value="Durg">Durg</option>
                       </select>
                     </div>                    
                   </div>       
