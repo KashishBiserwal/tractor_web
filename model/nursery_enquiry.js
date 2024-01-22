@@ -339,23 +339,181 @@ $.ajax({
 }
 
 
-function search_data() {
+// function search_data() {
+//   var nursery_name = $('#nursery_name').val();
+//   var state = $('#state_1').val();
+//   var district = $('#dist_1').val();
+
+//   // Create an object to store search parameters with the first non-empty value
+//   var paraArr = {};
+
+//   if (nursery_name.trim() !== '') {
+//     paraArr['nursery_name'] = nursery_name.trim();
+//   } else if (state.trim() !== '') {
+//     paraArr['state'] = state.trim();
+//   } else if (district.trim() !== '') {
+//     paraArr['district'] = district.trim();
+//   }
+
+//   console.log('Search Parameters:', paraArr);
+
+//   var apiBaseURL = APIBaseURL;
+//   var url = apiBaseURL + 'search_for_nursery_enquiry';
+
+//   $.ajax({
+//     url: url,
+//     type: 'POST',
+//     data: paraArr,
+//     headers: {
+//       'Authorization': 'Bearer ' + localStorage.getItem('token')
+//     },
+//     success: function (searchData) {
+//       updateTable(searchData);
+//     },
+//     error: function (error) {
+//       console.error('Error searching for brands:', error);
+//     }
+//   });
+// }
+// function updateTable(data) {
+//   const tableBody = document.getElementById('data-table');
+//   tableBody.innerHTML = '';
+ 
+
+//   if(data.nurseryEnquiry && data.nurseryEnquiry.length > 0) {
+//       let tableData = []; 
+//       let serialNumber = 1; 
+//       data.nurseryEnquiry.forEach(row => {
+
+//         const fullName = row.first_name + ' ' + row.last_name;
+//           let action =  `<div class="d-flex">
+//           <button class="btn btn-warning btn-sm text-white mx-1" data-bs-toggle="modal" onclick="openViewdata(${row.id});" data-bs-target="#view_model_nursery_enq">
+//               <i class="fas fa-eye" style="font-size: 11px;"></i>
+//           </button>
+//           <button class="btn btn-primary btn-sm btn_edit" onclick="fetch_edit_data(${row.id});" data-bs-toggle="modal" data-bs-target="#editmodel_nursery_enq" id="yourUniqueIdHere">
+//               <i class="fas fa-edit" style="font-size: 11px;"></i>
+//           </button>
+//           <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.id});">
+//               <i class="fa fa-trash" style="font-size: 11px;"></i>
+//           </button>
+//       </div>`;
+
+//           tableData.push([
+//             serialNumber,
+//             row.date,
+//             row.nursery_name,
+//             fullName,
+//             row.mobile,
+//             row.state,
+//             row.district,
+//             action
+//         ]);
+
+//         serialNumber++;
+//     });
+
+//     // Initialize DataTable after preparing the tableData
+//     $('#example').DataTable().destroy();
+//     $('#example').DataTable({
+//             data: tableData,
+//             columns: [
+//               { title: 'S.No.' },
+//               { title: 'Date' },
+//               { title: 'Nursery Name' },
+//               { title: 'Full Name' },
+//               { title: 'Mobile' },
+//               { title: 'State' },
+//               { title: 'District' },
+//               { title: 'Action', orderable: false } 
+//           ],
+//             paging: true,
+//             searching: false,
+//             // ... other options ...
+//         });
+//   } else {
+//       // Display a message if there's no valid data
+//       tableBody.innerHTML = '<tr><td colspan="4">No valid data available</td></tr>';
+//   }
+// }
+
+// function resetform(){
+//   $('#nursery_name').val('');
+//   $('#state_1').val('');
+//   $('#dist_1').val('');
+//   // get_nursery();
+// }
+
+
+// function search_data() {
+//   var nursery_name = $('#nursery_name').val();
+//   var state = $('#state_1').val();
+//   var district = $('#dist_1').val();
+
+//   // Create an object to store search parameters
+//   var paraArr = {};
+
+//   if (nursery_name.trim() !== '') {
+//     paraArr['nursery_name'] = nursery_name.trim();
+//   }
+
+//   if (state.trim() !== '') {
+//     paraArr['state'] = state.trim();
+//   }
+
+//   if (district.trim() !== '') {
+//     paraArr['district'] = district.trim();
+//   }
+
+//   console.log('Search Parameters:', paraArr);
+
+//   var apiBaseURL = APIBaseURL;
+//   var url = apiBaseURL + 'search_for_nursery_enquiry';
+
+//   $.ajax({
+//     url: url,
+//     type: 'POST',
+//     data: paraArr,
+//     headers: {
+//       'Authorization': 'Bearer ' + localStorage.getItem('token')
+//     },
+//     success: function (searchData) {
+//       updateTable(searchData);
+//     },
+//     error: function (error) {
+//       console.error('Error searching for brands:', error);
+//     }
+//   });
+// }
+
+
+// Search data function
+function searchdata() {
   var nursery_name = $('#nursery_name').val();
   var state = $('#state_1').val();
   var district = $('#dist_1').val();
 
-  // Create an object to store search parameters with the first non-empty value
-  var paraArr = {};
-
-  if (nursery_name.trim() !== '') {
-    paraArr['nursery_name'] = nursery_name.trim();
-  } else if (state.trim() !== '') {
-    paraArr['state'] = state.trim();
-  } else if (district.trim() !== '') {
-    paraArr['district'] = district.trim();
+  // Check if any search criteria are provided
+  if (!nursery_name && (!state || state === 'Select State') && (!district || district === 'Select District')) {
+    console.error('Please provide at least one valid search criteria');
+    return; // Exit the function if no valid search criteria are provided
   }
 
-  console.log('Search Parameters:', paraArr);
+  // Check which fields are filled
+  var searchParams = {};
+
+  if (nursery_name) {
+    searchParams['nursery_name'] = nursery_name;
+  }
+
+  if (state && state !== 'Select State') {
+    searchParams['state'] = state;
+  }
+
+  if (district && district !== 'Select District') {
+    searchParams['district'] = district;
+  }
+
+  console.log('Search Parameters:', searchParams); // Log search parameters for debugging
 
   var apiBaseURL = APIBaseURL;
   var url = apiBaseURL + 'search_for_nursery_enquiry';
@@ -363,11 +521,12 @@ function search_data() {
   $.ajax({
     url: url,
     type: 'POST',
-    data: paraArr,
+    data: searchParams,
     headers: {
       'Authorization': 'Bearer ' + localStorage.getItem('token')
     },
     success: function (searchData) {
+      console.log('API Response:', searchData); // Log API response for debugging
       updateTable(searchData);
     },
     error: function (error) {
@@ -375,68 +534,69 @@ function search_data() {
     }
   });
 }
+// Update table function
 function updateTable(data) {
   const tableBody = document.getElementById('data-table');
   tableBody.innerHTML = '';
- 
+  let serialNumber = 1;
 
-  if(data.nurseryEnquiry && data.nurseryEnquiry.length > 0) {
-      let tableData = []; 
-      let serialNumber = 1; 
-      data.nurseryEnquiry.forEach(row => {
+  if (data.nurseryEnquiry && data.nurseryEnquiry.length > 0) {
+    let tableData = [];
+    data.nurseryEnquiry.forEach(row => {
+      const fullName = row.first_name + ' ' + row.last_name;
+      const action = buildActionButtons(row.id);
 
-        const fullName = row.first_name + ' ' + row.last_name;
-          let action =  `<div class="d-flex">
-          <button class="btn btn-warning btn-sm text-white mx-1" data-bs-toggle="modal" onclick="openViewdata(${row.id});" data-bs-target="#view_model_nursery_enq">
-              <i class="fas fa-eye" style="font-size: 11px;"></i>
-          </button>
-          <button class="btn btn-primary btn-sm btn_edit" onclick="fetch_edit_data(${row.id});" data-bs-toggle="modal" data-bs-target="#editmodel_nursery_enq" id="yourUniqueIdHere">
-              <i class="fas fa-edit" style="font-size: 11px;"></i>
-          </button>
-          <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.id});">
-              <i class="fa fa-trash" style="font-size: 11px;"></i>
-          </button>
-      </div>`;
+      tableData.push([
+        serialNumber,
+        row.date,
+        row.nursery_name,
+        fullName,
+        row.mobile,
+        row.state,
+        row.district,
+        action
+      ]);
 
-          tableData.push([
-            serialNumber,
-            row.date,
-            row.nursery_name,
-            fullName,
-            row.mobile,
-            row.state,
-            row.district,
-            action
-        ]);
-
-        serialNumber++;
+      serialNumber++;
     });
 
-    // Initialize DataTable after preparing the tableData
     $('#example').DataTable().destroy();
     $('#example').DataTable({
-            data: tableData,
-            columns: [
-              { title: 'S.No.' },
-              { title: 'Date' },
-              { title: 'Nursery Name' },
-              { title: 'Full Name' },
-              { title: 'Mobile' },
-              { title: 'State' },
-              { title: 'District' },
-              { title: 'Action', orderable: false } 
-          ],
-            paging: true,
-            searching: false,
-            // ... other options ...
-        });
+      data: tableData,
+      columns: [
+        { title: 'S.No.' },
+        { title: 'Date' },
+        { title: 'Nursery Name' },
+        { title: 'Full Name' },
+        { title: 'Mobile' },
+        { title: 'State' },
+        { title: 'District' },
+        { title: 'Action', orderable: false }
+      ],
+      paging: true,
+      searching: false,
+      // ... other options ...
+    });
   } else {
-      // Display a message if there's no valid data
-      tableBody.innerHTML = '<tr><td colspan="4">No valid data available</td></tr>';
+    tableBody.innerHTML = '<tr><td colspan="8">No valid data available</td></tr>';
   }
 }
 
-function resetform(){
+// Function to build action buttons
+function buildActionButtons(id) {
+  return  `<div class="d-flex">
+  <button class="btn btn-warning btn-sm text-white mx-1" data-bs-toggle="modal" onclick="openViewdata(${row.id});" data-bs-target="#view_model_nursery_enq">
+      <i class="fas fa-eye" style="font-size: 11px;"></i>
+  </button>
+  <button class="btn btn-primary btn-sm btn_edit" onclick="fetch_edit_data(${row.id});" data-bs-toggle="modal" data-bs-target="#editmodel_nursery_enq" id="yourUniqueIdHere">
+      <i class="fas fa-edit" style="font-size: 11px;"></i>
+  </button>
+  <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.id});">
+      <i class="fa fa-trash" style="font-size: 11px;"></i>
+  </button>
+</div>`;
+}
+function resetform() {
   $('#nursery_name').val('');
   $('#state_1').val('');
   $('#dist_1').val('');

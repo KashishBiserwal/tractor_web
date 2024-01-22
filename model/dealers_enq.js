@@ -161,6 +161,43 @@ function get_dealers() {
   }
   get_dealers();
 
+
+
+   // **delete***
+function destroy(id) {
+  var apiBaseURL = APIBaseURL;
+  var url = apiBaseURL + 'customer_enquiries/' + id;
+  console.log(url);
+  var token = localStorage.getItem('token');
+
+  if (!token) {
+    console.error("Token is missing");
+    return;
+  }
+  var isConfirmed = confirm("Are you sure you want to delete this data?");
+  if (!isConfirmed) {
+    return;
+  }
+
+  $.ajax({
+    url: url,
+    type: "DELETE",
+    headers: {
+      'Authorization': 'Bearer ' + token
+    },
+    success: function(result) {
+      window.location.reload();
+      get_dealers();
+
+      console.log("Delete request successful");
+      alert("Delete operation successful");
+    },
+    error: function(error) {
+      console.error('Error fetching data:', error);
+      alert("Error during delete operation");
+    }
+  });
+}
   // View data
 function openViewdata(userId) {
     var apiBaseURL = APIBaseURL;
@@ -290,12 +327,11 @@ function edit_id_data() {
   // var enquiry_type_id = $("#enquiry_type_id").val();
   // var product_id = $("#product_id").val();
   var brand_name = $("#brand_name").val();
-  var dealer_name = $("#dname_name").val();
   var first_name = $("#first_name").val();
   var last_name = $("#last_name").val();
   var mobile = $("#mobile").val();
   var email = $("#email").val();
-  var date = $("#date").val();
+  // var date = $("#date").val();
   var state = $("#state_").val();
   var district = $("#dist_").val();
   var tehsil = $("#tehsil_").val();
@@ -308,13 +344,12 @@ function edit_id_data() {
   }
 
   var paraArr = {
-      'brand_name': brand_name,
-      'dealer_name': dealer_name,
+      'brand_id': brand_name,
       'first_name': first_name,
       'last_name': last_name,
       'mobile': mobile,
       'email': email,
-      'date': date,
+      // 'date': date,
       'state': state,
       'district': district,
       'tehsil': tehsil,
@@ -324,6 +359,7 @@ function edit_id_data() {
       'product_id': product_id,
      
   };
+  console.log(paraArr);
 
   var apiBaseURL = APIBaseURL;
   var url = apiBaseURL + 'customer_enquiries/' + edit_id;
@@ -340,7 +376,7 @@ function edit_id_data() {
       headers: headers,
       success: function (result) {
           console.log(result, "result");
-          // window.location.reload();
+          window.location.reload();
           console.log("updated successfully");
           alert('successfully updated..!')
       },
@@ -351,94 +387,145 @@ function edit_id_data() {
 }
 
 
-// search
+// Search data function
 function searchdata() {
-  console.log("dfghsfg,sdfgdfg");
-  
-  var dealer_name = $('#dealerNameSelect').val();
-  var state = $('#stateSelect').val();
-  var district = $('#districtSelect').val();
- 
-  var paraArr = {
+  var dealer_name = $('#dealers_1').val();
+  var state = $('#state_1').val();
+  var district = $('#district_1').val();
 
-    'dealer_name':dealer_name,
-    'state':state,
-    'district':district,
-  };
+  // Check if any search criteria are provided
+  if (!dealer_name && (!state || state === 'Select State') && (!district || district === 'Select District')) {
+    console.error('Please provide at least one valid search criteria');
+    return; // Exit the function if no valid search criteria are provided
+  }
+
+  // Check which fields are filled
+  var searchParams = {};
+
+  if (dealer_name) {
+    searchParams['dealer_name'] = dealer_name;
+  }
+
+  if (state && state !== 'Select State') {
+    searchParams['state'] = state;
+  }
+
+  if (district && district !== 'Select District') {
+    searchParams['district'] = district;
+  }
+
+  console.log('Search Parameters:', searchParams); // Log search parameters for debugging
 
   var apiBaseURL = APIBaseURL;
   var url = apiBaseURL + 'search_for_dealer_for_enquiry';
-  $.ajax({
-      url:url, 
-      type: 'POST',
-      data: paraArr,
-    
-      headers: {
-          'Authorization': 'Bearer ' + localStorage.getItem('token')
-      },
-      success: function (searchData) {
-        console.log(searchData,"hello brand");
-        updateTable(searchData);
-      },
-      error: function (error) {
-          console.error('Error searching for brands:', error);
-      }
-  });
-};
 
+  $.ajax({
+    url: url,
+    type: 'POST',
+    data: searchParams,
+    headers: {
+      'Authorization': 'Bearer ' + localStorage.getItem('token')
+    },
+    success: function (searchData) {
+      console.log('API Response:', searchData); // Log API response for debugging
+      updateTable(searchData);
+    },
+    error: function (error) {
+      console.error('Error searching for brands:', error);
+    }
+  });
+}
+// Update table function
 function updateTable(data) {
   const tableBody = document.getElementById('data-table');
   tableBody.innerHTML = '';
-  let serialNumber = 1; 
-  if(data.oldTractor && data.oldTractor.length > 0) {
-      let tableData = []; 
-      data.oldTractor.forEach(row => {
-        const fullName = row.first_name + ' ' + row.last_name;
-          let action =  `<div class="d-flex">
-          <button class="btn btn-warning btn-sm text-white mx-1" data-bs-toggle="modal" onclick="openViewdata(${row.id});" data-bs-target="#view_model_tractor_enq">
-              <i class="fas fa-eye" style="font-size: 11px;"></i>
-          </button>
-          <button class="btn btn-primary btn-sm btn_edit" onclick="fetch_edit_data(${row.id});" data-bs-toggle="modal" data-bs-target="#editmodel_oldtractor_enq" id="yourUniqueIdHere">
-              <i class="fas fa-edit" style="font-size: 11px;"></i>
-          </button>
-          <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.id});">
-              <i class="fa fa-trash" style="font-size: 11px;"></i>
-          </button>
-      </div>`
-     
-          tableData.push([
-            serialNumber,
-            row.date,
-            row.dealer_name ,
-            fullName,
-            row.mobile,
-            row.state,
-            row.district,
-            action
-        ]);
+  let serialNumber = 1;
 
-        serialNumber++;
+  if (data.dealerData && data.dealerData.length > 0) {
+    let tableData = [];
+    data.dealerData.forEach(row => {
+      const fullName = row.first_name + ' ' + row.last_name;
+      const action = buildActionButtons(row.id);
+
+      tableData.push([
+        serialNumber,
+        row.date,
+        row.dealer_name,
+        fullName,
+        row.mobile,
+        row.state,
+        row.district,
+        action
+      ]);
+
+      serialNumber++;
     });
 
     $('#example').DataTable().destroy();
     $('#example').DataTable({
-        data: tableData,
-        columns: [
-          { title: 'S.No.' },
-          { title: 'Date' },
-          { title: 'Dealer Name' },
-          { title: 'Full Name' },
-          { title: 'Mobile' },
-          { title: 'State' },
-          { title: 'District' },
-          { title: 'Action', orderable: false }
-        ],
-        paging: true,
-        searching: true,
-        // ... other options ...
+      data: tableData,
+      columns: [
+        { title: 'S.No.' },
+        { title: 'Date' },
+        { title: 'Dealer Name' },
+        { title: 'Full Name' },
+        { title: 'Mobile' },
+        { title: 'State' },
+        { title: 'District' },
+        { title: 'Action', orderable: false }
+      ],
+      paging: true,
+      searching: false,
+      // ... other options ...
     });
   } else {
-      // Display a message if there's no valid data
-      tableBody.innerHTML = '<tr><td colspan="4">No valid data available</td></tr>';
+    tableBody.innerHTML = '<tr><td colspan="8">No valid data available</td></tr>';
   }
+}
+
+// Function to build action buttons
+function buildActionButtons(id) {
+  return `<div class="d-flex">
+    <button class="btn btn-warning btn-sm text-white mx-1" data-bs-toggle="modal" onclick="openViewdata(${id});" data-bs-target="#view_model_dealer">
+      <i class="fas fa-eye" style="font-size: 11px;"></i>
+    </button> 
+    <button class="btn btn-primary btn-sm btn_edit" onclick="fetch_edit_data(${id});" data-bs-toggle="modal" data-bs-target="#edit_dealers" id="yourUniqueIdHere">
+      <i class="fas fa-edit" style="font-size: 11px;"></i>
+    </button>
+    <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${id});">
+      <i class="fa fa-trash" style="font-size: 11px;"></i>
+    </button>
+  </div>`;
+}
+
+// Reset form function
+function resetform() {
+  // Clear input fields
+  $('#dealers_1').val('');
+  $('#state_1').val('Select State');
+  $('#district_1').val('Select District');
+
+  // Fetch all data and update the table
+  fetchAllData();
+}
+
+// Fetch all data function
+function fetchAllData() {
+  var apiBaseURL = APIBaseURL;
+  var url = apiBaseURL + 'search_for_dealer_for_enquiry';
+
+  $.ajax({
+    url: url,
+    type: 'POST',
+    data: {}, // Empty data to fetch all records
+    headers: {
+      'Authorization': 'Bearer ' + localStorage.getItem('token')
+    },
+    success: function (allData) {
+      updateTable(allData);
+    },
+    error: function (error) {
+      console.error('Error fetching all data:', error);
+    }
+  });
 }

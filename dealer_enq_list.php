@@ -37,13 +37,13 @@
           <div class="col-12 col-sm-12 col-md-3 col-lg-3">
               <div class="form-outline">
                 <label class="form-label fw-bold"> Dealer Name</label>
-                <input type="text" class="form-control" placeholder=""  id="dealerNameSelect">
+                <input type="text" class="form-control" placeholder=""  id="dealers_1">
               </div>
             </div>
             <div class="col-12 col-sm-12 col-md-3 col-lg-3">
               <div class="form-outline">
                 <label class="form-label">State</label>
-                <select class="form-select py-2" aria-label="Default select example"  id="stateSelect">
+                <select class="form-select py-2" aria-label="Default select example"  id="state_1">
                     <option value>Select State</option>
                     <option value="Chhattisgarh">Chhattisgarh</option>
                     <option value="Other">Other</option>
@@ -53,7 +53,7 @@
             <div class="col-12 col-sm-12 col-md-3 col-lg-3">
               <div class="form-outline ">
                 <label class="form-label fw-bold">District</label>
-                <select class="form-select py-2" aria-label="Default select example" id="districtSelect">
+                <select class="form-select py-2" aria-label="Default select example" id="district_1">
                     <option selected>Select District</option>
                     <option value="Raipur">Raipur</option>
                     <option value="Bastar">Bastar</option>
@@ -195,7 +195,7 @@
                                 <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
                                       <div class="form-outline">
                                         <label for="name" class="form-label text-dark">Dealers Name</label>
-                                        <input type="text" class="form-control" placeholder="" id="dname_name" name="dname">
+                                        <input type="text" class="form-control" placeholder="" id="dname_name" name="dname" readonly="readonly">
                                       </div>
                                     </div>
                                     <!-- <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
@@ -231,7 +231,7 @@
                                     <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
                                       <div class="form-outline mt-3">
                                         <label for="name" class="form-label text-dark">Date</label>
-                                        <input type="text" class="form-control" placeholder="" id="date" name="date">
+                                        <input type="text" class="form-control" placeholder="" id="date" name="date" readonly="readonly">
                                       </div>
                                     </div>
                                   

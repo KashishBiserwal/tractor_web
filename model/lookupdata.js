@@ -179,10 +179,10 @@ $.ajax({
   },
   error: function (error) {
     console.error('Error fetching data:', error);
-    var msg = error;
-    $("#errorStatusLoading").modal('show');
-    $("#errorStatusLoading").find('.modal-title').html('Error');
-    $("#errorStatusLoading").find('.modal-body').html(msg);
+    // var msg = error;
+    // // $("#errorStatusLoading").modal('show');
+    // // $("#errorStatusLoading").find('.modal-title').html('Error');
+    // // $("#errorStatusLoading").find('.modal-body').html(msg);
   }
 });
 }
