@@ -140,51 +140,58 @@ get_data();
 
 
 function store(event) {
-event.preventDefault();
-console.log('jfhfhw');
-var lookup_type = $('#lookupSelectbox').val();
-var lookup_data_value = $('#lookup_data_value').val();
-console.log(lookup_type);
+  event.preventDefault();
+  console.log('jfhfhw');
+  var lookup_type = $('#lookupSelectbox').val();
+  var lookup_data_value = $('#lookup_data_value').val();
+  console.log(lookup_type);
 
-// Prepare data to send to the server
-var paraArr = {
-  'lookup_type_id': lookup_type,
-  'lookup_data_value':lookup_data_value
-};
+  // Prepare data to send to the server
+  var paraArr = {
+    'lookup_type_id': lookup_type,
+    'lookup_data_value': lookup_data_value
+  };
 
-// var url = "<?php echo $APIBaseURL; ?>lookup_data";
-var apiBaseURL =APIBaseURL;
-var url = apiBaseURL + 'lookup_data';
+  var apiBaseURL = APIBaseURL;
+  var url = apiBaseURL + 'lookup_data';
 
-console.log(url);
+  console.log(url);
 
-var token = localStorage.getItem('token');
-var headers = {
-  'Authorization': 'Bearer ' + token
-};
+  var token = localStorage.getItem('token');
+  var headers = {
+    'Authorization': 'Bearer ' + token
+  };
 
-$.ajax({
-  url: url,
-  type: "POST",
-  data: paraArr,
-  headers: headers,
-  success: function (result) {
-    console.log(result, "result");
-    // window.location.href = "<?php echo $baseUrl; ?>lookup_data.php"; 
-    console.log("Add successfully");
-    var msg = "Added successfully !"
-        $("#errorStatusLoading").modal('show');
-        $("#errorStatusLoading").find('.modal-title').html('Success');
-        $("#errorStatusLoading").find('.modal-body').html(msg);
-  },
-  error: function (error) {
-    console.error('Error fetching data:', error);
-    // var msg = error;
-    // // $("#errorStatusLoading").modal('show');
-    // // $("#errorStatusLoading").find('.modal-title').html('Error');
-    // // $("#errorStatusLoading").find('.modal-body').html(msg);
-  }
-});
+  $.ajax({
+    url: url,
+    type: "POST",
+    data: paraArr,
+    headers: headers,
+    success: function (result) {
+      console.log(result, "result");
+      console.log("Add successfully");
+      var msg = "Added successfully !"
+      $("#errorStatusLoading").modal('show');
+      $("#errorStatusLoading").find('.modal-title').html('Success');
+      $("#errorStatusLoading").find('.modal-body').html(msg);
+
+      // Hide the modal immediately
+      $("#staticBackdrop1").modal('hide');
+
+      // Show alert box with OK button
+      var alertConfirmation = confirm("Data added successfully. Do you want to reload the page?");
+      if (alertConfirmation) {
+        window.location.reload();
+      }
+    },
+    error: function (error) {
+      console.error('Error fetching data:', error);
+      var msg = error;
+      $("#errorStatusLoading").modal('show');
+      $("#errorStatusLoading").find('.modal-title').html('Error');
+      $("#errorStatusLoading").find('.modal-body').html(msg);
+    }
+  });
 }
 
 //   get data in select box
@@ -268,44 +275,80 @@ function get() {
 
 
 // get data in table
-// delete data
-function destroy(id) {
-// var url = "<?php echo $APIBaseURL; ?>lookup_data/" + id;
-var apiBaseURL =APIBaseURL;
-// Now you can use the retrieved value in your JavaScript logic
-var url = apiBaseURL + 'lookup_data/'+ id;
-var token = localStorage.getItem('token');
 
-if (!token) {
-console.error("Token is missing");
-return;
-}
 
-$.ajax({
-url: url,
-type: "DELETE",
-headers: {
-  'Authorization': 'Bearer ' + token
-},
-success: function(result) {
-  // window.location.reload();
-  get_data();
-  console.log("Delete request successful");
-  var msg = "Deleted successfully !"
-        $("#errorStatusLoading").modal('show');
-        $("#errorStatusLoading").find('.modal-title').html('Success');
-        $("#errorStatusLoading").find('.modal-body').html(msg);
-},
-error: function(error) {
-  console.error('Error fetching data:', error);
-  var msg = error;
-  $("#errorStatusLoading").modal('show');
-  $("#errorStatusLoading").find('.modal-title').html('Error');
-  $("#errorStatusLoading").find('.modal-body').html(msg);
-}
-});
-}
+// // delete data
+// function destroy(id) {
+// // var url = "<?php echo $APIBaseURL; ?>lookup_data/" + id;
+// var apiBaseURL =APIBaseURL;
+// // Now you can use the retrieved value in your JavaScript logic
+// var url = apiBaseURL + 'lookup_data/'+ id;
+// var token = localStorage.getItem('token');
 
+// if (!token) {
+// console.error("Token is missing");
+// return;
+// }
+
+// $.ajax({
+// url: url,
+// type: "DELETE",
+// headers: {
+//   'Authorization': 'Bearer ' + token
+// },
+// success: function(result) {
+//   // window.location.reload();
+//   get_data();
+//   console.log("Delete request successful");
+//   var msg = "Deleted successfully !"
+//         $("#errorStatusLoading").modal('show');
+//         $("#errorStatusLoading").find('.modal-title').html('Success');
+//         $("#errorStatusLoading").find('.modal-body').html(msg);
+// },
+// error: function(error) {
+//   console.error('Error fetching data:', error);
+//   var msg = error;
+//   $("#errorStatusLoading").modal('show');
+//   $("#errorStatusLoading").find('.modal-title').html('Error');
+//   $("#errorStatusLoading").find('.modal-body').html(msg);
+// }
+// });
+// }
+  // **delete***
+  function destroy(id) {
+    var apiBaseURL = APIBaseURL;
+    var url = apiBaseURL + 'lookup_data/' + id;
+    console.log(url);
+    var token = localStorage.getItem('token');
+  
+    if (!token) {
+      console.error("Token is missing");
+      return;
+    }
+    var isConfirmed = confirm("Are you sure you want to delete this data?");
+    if (!isConfirmed) {
+      return;
+    }
+  
+    $.ajax({
+      url: url,
+      type: "DELETE",
+      headers: {
+        'Authorization': 'Bearer ' + token
+      },
+      success: function(result) {
+        window.location.reload();
+        get_dealers();
+  
+        console.log("Delete request successful");
+        alert("Delete operation successful");
+      },
+      error: function(error) {
+        console.error('Error fetching data:', error);
+        alert("Error during delete operation");
+      }
+    });
+  }
 
 function myFunction() {
     var input, filter, table, tr, td, i, j, txtValue;

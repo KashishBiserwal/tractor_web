@@ -198,6 +198,8 @@ function destroy(id) {
     }
   });
 }
+
+
   // View data
 function openViewdata(userId) {
     var apiBaseURL = APIBaseURL;
@@ -502,8 +504,8 @@ function buildActionButtons(id) {
 function resetform() {
   // Clear input fields
   $('#dealers_1').val('');
-  $('#state_1').val('Select State');
-  $('#district_1').val('Select District');
+  $('#state_1').val('');
+  $('#district_1').val('');
 
   // Fetch all data and update the table
   fetchAllData();

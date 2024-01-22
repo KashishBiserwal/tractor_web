@@ -53,6 +53,7 @@
                 <select class="form-select py-2" aria-label="Default select example"  id="state_1">
                     <option value>Select State</option>
                     <option value="Chattisgarh">Chattisgarh</option>
+                    <option value="Chhattisgarh">Chhattisgarh</option>
                     <option value="Other">Other</option>
                 </select>
               </div>
@@ -64,13 +65,14 @@
                     <option value>Select District</option>
                     <option value="Raipur">Raipur</option>
                     <option value="Bilaspur">Bilaspur</option>
+                    <option value="	Dhamtari">	Dhamtari</option>
                     <option value="Surajpur">Surajpur</option>
                 </select>
               </div>
             </div>
             <div class="col-12 col-sm-12 col-md-3 col-lg-3">
               <div class="">
-              <button type="button" class="btn-success btn px-3 py-2 " id="Search" onclick="searchdata()">Search</button>
+                <button type="button" class="btn-success btn px-3 py-2 " id="Search" onclick="search_data()">Search</button>
                 <button type="button" class="btn-success btn mx-2 px-3 py-2  " id="Reset" onclick="resetform()">Reset</button>
               </div>
             </div>

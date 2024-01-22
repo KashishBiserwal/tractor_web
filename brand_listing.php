@@ -281,9 +281,9 @@
    ?> 
    <script>
      $(document).ready(function() {
-      $('#Reset').on('click', function() {
-        resetForm();
-      });
+      // $('#Reset').on('click', function() {
+      //   resetForm();
+      // });
       
       BackgroundUpload();
       get_product_type();
@@ -767,11 +767,38 @@ function updateTable(data) {
         tableBody.innerHTML = '<tr><td colspan="4">No valid data available</td></tr>';
     }
 }
-function resetForm() {
-  $('#brand').val('');
-    $('#brand_id').val('');
-            }
 
+function fetchAllData() {
+    var apiBaseURL = APIBaseURL; 
+    var url = apiBaseURL + 'search_for_brand';
+
+    $.ajax({
+      url: url,
+      type: 'POST',
+      data: {},
+      headers: {
+        'Authorization': 'Bearer ' + localStorage.getItem('token')
+      },
+      success: function (allData) {
+        updateTable(allData);
+      },
+      error: function (error) {
+        console.error('Error fetching all data:', error);
+      }
+    });
+  }
+
+  // Reset form function
+  function resetForm() {
+    // Reset the values of select elements
+    $('#brand').val('').trigger('change');
+    $('#brand_id').val('').trigger('change');
+
+    // Fetch all data and update the table
+    fetchAllData();
+  }
+
+            
   function BackgroundUpload() {
     var imgWrap = "";
     var imgArray = [];
