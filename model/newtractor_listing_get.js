@@ -253,7 +253,7 @@ function get() {
     },
     success: function (data) {
       console.log(data);
-      select.innerHTML = '<option selected disabled value="">Please select an option</option>';
+     // select.innerHTML = '<option selected disabled value="">Please select an option</option>';
       const select = $('#brand');
       select.empty(); // Clear existing options
 

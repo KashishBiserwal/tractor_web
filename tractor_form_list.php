@@ -13,442 +13,8 @@ include 'includes/footertag.php';
 
 
 
-<style>
-        p {
-        margin: 0;
-        }
-
-       
-
-        .upload__inputfile {
-        width: .1px;
-        height: .1px;
-        opacity: 0;
-        overflow: hidden;
-        position: absolute;
-        z-index: -1;
-        }
-
-        .upload__btn {
-        display: inline-block;
-        font-weight: 600;
-        color: #fff;
-        text-align: center;
-        min-width: 150px;
-        padding: 5px;
-        transition: all .3s ease;
-        cursor: pointer;
-        border: 2px solid;
-        background-color:  #198754;
-        border-color:  #198754;
-        border-radius: 10px;
-        line-height: 26px;
-        font-size: 14px;
-        }
-
-        .upload__btn:hover {
-        background-color: unset;
-        color:  #198754;
-        transition: all .3s ease;
-        }
-
-        .upload__btn-box {
-        margin-bottom: 10px;
-        margin-top:-25px;
-        width: 150px;
-        }
-
-        .upload__img-wrap {
-        display: flex;
-        }
-
-        .upload__img-box {
-        flex: 0 0 calc(33.333% - 20px); 
-        margin: 0 10px 20px; 
-        position: relative;
-        }
-
-        .upload__img-close {
-        width: 24px;
-        height: 24px;
-        border-radius: 50%;
-        background-color: rgba(0, 0, 0, 0.5);
-        position: absolute;
-        top: 10px;
-        right: 60px;
-        text-align: center;
-        line-height: 24px;
-        z-index: 1;
-        cursor: pointer;
-        }
-
-        .upload__img-close:after {
-        content: '\2716';
-        font-size: 14px;
-        color: white;
-        }
-
-        .img-bg {
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: cover;
-        position: relative;
-        width: 160px;
-        height: 125px;
-        }
-
-</style>
-<style>
-        #multi_step_form {
-        padding-bottom: 75px;
-        }
-        #multi_step_form .container {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        }
-        .container #multistep_nav {
-        display: flex;
-        flex-direction: column; /* Change to column */
-        }
-        .container #multistep_nav .progress_holder {
-        padding: 20px;
-        text-align: center;
       
-        }
-        #multistep_nav .activated_step {
-        background-color:LightGray;
-        color: black;
-        }
-        #multi_step_form .nextStep {
-        position: absolute;
-        right: 45px;
-        bottom: 6;
-        padding: 5px;
-        width: 80px;
-        border: 1px solid black;
-        background-color:#198754;
-        color:white;
-        text-align: start;
-        }
-        .subbtn{
-        position: absolute;
-        right: 45px;
-        bottom: 6;
-        padding: 5px;
-        width: 80px;
-        border: 1px solid black;
-        background-color:#198754;
-        color:white;
-        text-align: start;
-        }
-        #multi_step_form  .prevStep {
-        position: absolute;
-        left: 48px;
-        bottom: 6;
-        padding: 6px;
-        width: 80px;
-        border: 1px solid black;
-        background-color:#198754;
-        color:white;
-        text-align: start;
-        }
-        #multi_step_form .container form.step:not(:first-of-type) {
-        display: none;
-        }
-        .btn{
-            align-items: center;
-        }
-
-         #multi_step_form {
-        margin-top: 50px;
-        }
-        .progress_holder {
-            margin-bottom: 20px;
-        }
-        .progress-bar-container {
-            width: 100%;
-            position: relative;
-        }
-        .progress-bar {
-            height: 20px;
-            background-color: #4CAF50;
-            width: 0%;
-        }
-        form {
-            /* display: none; */
-        }
-        form.active {
-            display: block;
-        }
-        .progress_holder {
-            cursor: pointer;
-        }
-        .activated_step {
-            background-color: #198754;
-            color: white;
-        }
-        .backbutton {
-         position: absolute;
-        left: 158px;
-        bottom: -80;
-        padding: 6px;
-        width: 80px;
-        display: inline-block;
-        text-decoration: none;
-        background-color: #198754; 
-        color: #fff; 
-        border: 1px solid black;
-       }
-        .text-center {
-        text-align: center;
-        }
-</style>
 <style>
-        body {
-        padding-bottom: 30px;
-        position: relative;
-        min-height: 100%;
-        }
-
-        a {
-        transition: background 0.2s, color 0.2s;
-        }
-        a:hover,
-        a:focus {
-        text-decoration: none;
-        }
-
-        #wrapper {
-        padding-left: 0;
-        transition: all 0.5s ease;
-        position: relative;
-        }
-
-        #sidebar-wrapper {
-        z-index: 1000;
-      /*   position: fixed;
-        left: 250px;
-        width: 0; */
-        height: 100%;
-        /* margin-left: -250px; */
-        overflow-y: auto;
-        overflow-x: hidden;
-        background: #ffffff;
-        transition: all 0.5s ease;
-        }
-
-        #wrapper.toggled #sidebar-wrapper {
-        width: 250px;
-        }
-
-        .sidebar-brand {
-        position: absolute;
-        top: 0;
-        width: 250px;
-        text-align: center;
-        padding: 20px 0;
-        }
-        .sidebar-brand h2 {
-        margin: 0;
-        font-weight: 600;
-        font-size: 24px;
-        color: #fff;
-        }
-
-       /*  .sidebar-nav {
-        position: absolute;
-        top: 75px;
-        width: 250px;
-        margin: 0;
-        padding: 0;
-        list-style: none;
-        } */
-        .sidebar-nav > li {
-        text-indent: 10px;
-        line-height: 42px;
-        }
-        .sidebar-nav > li a {
-        display: block;
-        text-decoration: none;
-        color: #757575;
-        font-weight: 600;
-        font-size: 18px;
-        }
-        .sidebar-nav > li > a:hover,
-        .sidebar-nav > li.active > a {
-        text-decoration: none;
-        color: #fff;
-        background: #F8BE12;
-        }
-        .sidebar-nav > li > a i.fa {
-        font-size: 24px;
-        width: 60px;
-        }
-
-        #navbar-wrapper {
-            width: 100%;
-            position: absolute;
-            z-index: 2;
-        }
-        #wrapper.toggled #navbar-wrapper {
-            position: absolute;
-            margin-right: -250px;
-        }
-        #navbar-wrapper .navbar {
-        border-width: 0 0 0 0;
-        background-color: #eee;
-        font-size: 24px;
-        margin-bottom: 0;
-        border-radius: 0;
-        }
-        #navbar-wrapper .navbar a {
-        color: #757575;
-        }
-        #navbar-wrapper .navbar a:hover {
-        color: #F8BE12;
-        }
-
-        #content-wrapper {
-        width: 100%;
-        position: absolute;
-        padding: 15px;
-        top: 100px;
-        }
-        #wrapper.toggled #content-wrapper {
-        position: absolute;
-        margin-right: -250px;
-        }
-
-        @media (min-width: 992px) {
-      
-        
-        #wrapper.toggled {
-            padding-left: 60px;
-        }
-
-      /*   #sidebar-wrapper {
-            width: 250px;
-            top:0;
-
-        } */
-        
-        #wrapper.toggled #sidebar-wrapper {
-            width: 60px;
-        }
-        
-        #wrapper.toggled #navbar-wrapper {
-            position: absolute;
-            margin-right: -190px;
-        }
-        
-        #wrapper.toggled #content-wrapper {
-            position: absolute;
-            margin-right: -190px;
-        }
-
-        #navbar-wrapper {
-            position: relative;
-        }
-
-        #wrapper.toggled {
-            padding-left: 60px;
-        }
-
-        #content-wrapper {
-            position: relative;
-            top: 0;
-        }
-
-        #wrapper.toggled #navbar-wrapper,
-        #wrapper.toggled #content-wrapper {
-            position: relative;
-            margin-right: 60px;
-        }
-        }
-
-        @media (min-width: 768px) and (max-width: 991px) {
-        #wrapper {
-            padding-left: 60px;
-        }
-
-        #sidebar-wrapper {
-            width: 60px;
-            top:0;
-        }
-        
-        #wrapper.toggled #navbar-wrapper {
-            position: absolute;
-            margin-right: -250px;
-        }
-        
-        #wrapper.toggled #content-wrapper {
-            position: absolute;
-            margin-right: -250px;
-        }
-
-        #navbar-wrapper {
-            position: relative;
-        }
-
-        #wrapper.toggled {
-            padding-left: 250px;
-        }
-
-        #content-wrapper {
-            position: relative;
-            top: 0;
-        }
-
-        #wrapper.toggled #navbar-wrapper,
-        #wrapper.toggled #content-wrapper {
-            position: relative;
-            margin-right: 250px;
-        }
-        }
-
-        @media (max-width: 767px) {
-        #wrapper {
-            padding-left: 0;
-        }
-
-        #sidebar-wrapper {
-            width: 0;
-            top:0;
-        }
-
-        #wrapper.toggled #sidebar-wrapper {
-            width: 250px;
-        }
-        #wrapper.toggled #navbar-wrapper {
-            position: absolute;
-            margin-right: -250px;
-        }
-
-        #wrapper.toggled #content-wrapper {
-            position: absolute;
-            margin-right: -250px;
-        }
-
-        #navbar-wrapper {
-            position: relative;
-        }
-
-        #wrapper.toggled {
-            padding-left: 250px;
-        }
-
-        #content-wrapper {
-            position: relative;
-            top: 0;
-        }
-
-        #wrapper.toggled #navbar-wrapper,
-        #wrapper.toggled #content-wrapper {
-            position: relative;
-            margin-right: 250px;
-        }
-        }
         .step1 ul,.step2 ul,.step3 ul,.step4 ul,.step5 ul{
             margin-bottom: 0;
     padding: 15px 10px;
@@ -458,6 +24,13 @@ include 'includes/footertag.php';
         .step11{
             width: 5px;
             background: #dcdcdc;
+            height: 100px;
+            margin: 0 auto;
+            position: relative;
+        }
+        .step21{
+            width: 5px;
+            background: green;
             height: 100px;
             margin: 0 auto;
             position: relative;
@@ -486,16 +59,76 @@ include 'includes/footertag.php';
         .step15{
             width: 5px;
             background: #dcdcdc;
+            height: 75px;
+            margin: 0 auto 40px;
+            position: relative;
+        }
+
+        .step22{
+            width: 5px;
+            background: green;
+            height: 75px;
+            margin: 0 auto;
+            position: relative;
+        }
+        .step23{
+            width: 5px;
+            background: green;
+            height: 120px;
+            margin: 0 auto;
+            position: relative;
+        }
+        .step24{
+            width: 5px;
+            background: green;
             height: 100px;
             margin: 0 auto;
             position: relative;
         }
+        .step25{
+            width: 5px;
+            background: green;
+            height: 100px;
+            margin: 0 auto;
+            position: relative;
+        }
+
         .step11::before,.step12::before,.step13::before,.step14::before,.step15::before{
             content: '';
             position: absolute;
             width: 15px;
             height: 15px;
             background-color: #dcdcdc;
+            border-radius: 50%;
+            left: -5px;
+            top: -5px;
+        }
+        .step15::after{
+            content: '';
+            position: absolute;
+            width: 15px;
+            height: 15px;
+            background-color: #dcdcdc;
+            border-radius: 50%;
+            left: -5px;
+            bottom: -5px;
+        }
+        .step25::after{
+            content: '';
+            position: absolute;
+            width: 15px;
+            height: 15px;
+            background-color: green;
+            border-radius: 50%;
+            left: -5px;
+            bottom: -5px;
+        }
+        .step21::before,.step22::before,.step23::before,.step24::before,.step25::before{
+            content: '';
+            position: absolute;
+            width: 15px;
+            height: 15px;
+            background-color: green;
             border-radius: 50%;
             left: -5px;
             top: -5px;
@@ -733,8 +366,21 @@ include 'includes/footertag.php';
                                                             </div>
                                                         </div> -->
                                                     </div>
-                                                    <button type="button" class="prevStep text-center mt-5" id="prevbtn2">Prev</button>
-                                                    <button type="button" class="nextStep text-center" id="nextbtn2">Next</button>
+                                                    <div class="row">
+                                                        <div class="col-9"></div>
+                                                        <div class="col-3">
+                                                            <div class="row  mt-5">
+                                                                <div class="col-6">
+                                                                    <button type="button" class="prevStep btn btn-success btn_all  text-center" id="prevbtn2">Prev</button>
+                                                                </div>
+                                                                <div class="col-6">
+                                                                    <button type="button" class="nextStep btn btn-success btn_all  text-center" id="nextbtn2">Next</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                   
+                                                   
                                                 </form>
                                                 <form id="step3_form" class="step">
                                                 <!-- ... Step 3 content ... -->
@@ -783,8 +429,20 @@ include 'includes/footertag.php';
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <button type="button" class="prevStep text-center" id="prevbtn3">Prev</button>
-                                                    <button type="button" class="nextStep text-center" id="nextbtn3">Next</button>
+                                                    <div class="row">
+                                                        <div class="col-9"></div>
+                                                        <div class="col-3">
+                                                            <div class="row  mt-5">
+                                                                <div class="col-6">
+                                                                    <button type="button" class="prevStep btn btn-success btn_all  text-center" id="prevbtn3">Prev</button>
+                                                                </div>
+                                                                <div class="col-6">
+                                                                    <button type="button" class="nextStep btn btn-success btn_all  text-center" id="nextbtn3">Next</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
                                                 </form>
                                                 <form id="step4_form" class="step">
                                                         <!-- ... Step 4 content ... -->
@@ -833,8 +491,20 @@ include 'includes/footertag.php';
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <button type="button" class="prevStep text-center" id="prevbtn4">Prev</button>
-                                                    <button type="button" class="nextStep text-center" id="nextbtn4">Next</button>
+                                                    <div class="row">
+                                                        <div class="col-9"></div>
+                                                        <div class="col-3">
+                                                            <div class="row  mt-5">
+                                                                <div class="col-6">
+                                                                    <button type="button" class="prevStep btn btn-success btn_all  text-center" id="prevbtn4">Prev</button>
+                                                                </div>
+                                                                <div class="col-6">
+                                                                    <button type="button" class="nextStep btn btn-success btn_all  text-center" id="nextbtn4">Next</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                
                                                 </form>
                                                 <form id="step5_form" class="step">
                                                         <!-- ... Step 5 content ... -->     
@@ -862,9 +532,20 @@ include 'includes/footertag.php';
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <button type="button" class="prevStep text-center" id="prevbtn5">Prev</button>
-                                                    <button type="button" class="subbtn text-center" id="submitbtn">Submit</button>
-                                                </form>
+                                                    <div class="row">
+                                                        <div class="col-9"></div>
+                                                        <div class="col-3">
+                                                            <div class="row  mt-5">
+                                                                <div class="col-6">
+                                                                    <button type="button" class="prevStep btn btn-success btn_all  text-center" id="prevbtn5">Prev</button>
+                                                                </div>
+                                                                <div class="col-6">
+                                                                    <button type="button" class="subbtn btn btn-success btn_all  text-center" id="submitbtn">Submit</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                     </form>
                                             </div>
                                         </div>
                                         
@@ -872,13 +553,13 @@ include 'includes/footertag.php';
                                     </div>
                                     <div class="col-3">
                                     <aside id="sidebar-wrapper" class="shadow">
-                                        <div class="sidebar-nav">
+                                        <div class="sidebar-nav bg-white">
                                             <h4 class="text-center fw-bold pt-3" style="color: #4aa65a; text-transform: uppercase;">Progress</h4>
                                             <div id="multistep_nav" class="col-12 col-lg-12 col-md-12 col-sm-12 mt-4">
                                                 <div class="step1">
                                                     <div class="d-flex">
                                                         <div class="col-2">
-                                                            <div class="step11"> </div>
+                                                            <div class="step11 step1list"> </div>
                                                         </div>
                                                         <div class="col-10">
                                                             <ul>
@@ -892,7 +573,7 @@ include 'includes/footertag.php';
                                                 <div class="step2">
                                                     <div class="d-flex">
                                                         <div class="col-2">
-                                                            <div class="step12"> </div>
+                                                            <div class="step12 step2list"> </div>
                                                         </div>
                                                         <div class="col-10">
                                                             <ul>
@@ -905,7 +586,7 @@ include 'includes/footertag.php';
                                                 <div class="step3">
                                                     <div class="d-flex">
                                                         <div class="col-2">
-                                                            <div class="step13"> </div>
+                                                            <div class="step13 step3list"> </div>
                                                         </div>
                                                         <div class="col-10">
                                                             <ul>
@@ -920,7 +601,7 @@ include 'includes/footertag.php';
                                                 <div class="step4">
                                                     <div class="d-flex">
                                                         <div class="col-2">
-                                                            <div class="step14"> </div>
+                                                            <div class="step14 step4list"> </div>
                                                         </div>
                                                         <div class="col-10">
                                                             <ul>
@@ -934,7 +615,7 @@ include 'includes/footertag.php';
                                                 <div class="step5">
                                                     <div class="d-flex">
                                                         <div class="col-2">
-                                                            <div class="step15"> </div>
+                                                            <div class="step15 step5list"> </div>
                                                         </div>
                                                         <div class="col-10">
                                                             <ul>
@@ -1000,7 +681,7 @@ include 'includes/footertag.php';
 
 
 </body>
-<script>
+<!-- <script>
   const $button  = document.querySelector('#sidebar-toggle');
 const $wrapper = document.querySelector('#wrapper');
 
@@ -1009,7 +690,7 @@ $button.addEventListener('click', (e) => {
   $wrapper.classList.toggle('toggled');
 });
 
-</script>
+</script> -->
 
 <!-- <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script> -->
@@ -1067,23 +748,21 @@ $button.addEventListener('click', (e) => {
             } else {
                 // Custom validation error messages for the first step
                 $.validator.addMethod('decimal', function(value, element) {
-        return this.optional(element) || /^[0-9]+\.\d{1,3}$/.test(value);
-    }, "Please enter a correct number, format 0.00");
+                    return this.optional(element) || /^[0-9]+\.\d{1,3}$/.test(value);
+                }, "Please enter a correct number, format 0.00");
 
-jQuery.validator.setDefaults({
-        debug: true,
-        success: "valid"
-    });
-    $.validator.addMethod("validPrice", function(value, element) {
-      
-      const cleanedValue = value.replace(/,/g, '');
-
-      return /^\d+$/.test(cleanedValue);
-    }, "Please enter a valid price (digits and commas only)");
-    $.validator.addMethod("customNumber", function (value, element) {
-        // Use a regular expression to validate the input
-        return /^(\d+(\.\d+)?|\d*\.\d+)(\*\d+(\.\d+)?|\*\d*\.\d+)?$/.test(value);
-    }, "Please enter a valid number or multiplication expression");
+                jQuery.validator.setDefaults({
+                    debug: true,
+                    success: "valid"
+                });
+                $.validator.addMethod("validPrice", function(value, element) {
+                    const cleanedValue = value.replace(/,/g, '');
+                    return /^\d+$/.test(cleanedValue);
+                },"Please enter a valid price (digits and commas only)");
+                $.validator.addMethod("customNumber", function (value, element) {
+                    // Use a regular expression to validate the input
+                    return /^(\d+(\.\d+)?|\d*\.\d+)(\*\d+(\.\d+)?|\*\d*\.\d+)?$/.test(value);
+                },"Please enter a valid number or multiplication expression");
 
                 $("#step1_form").validate({
                     rules: {
@@ -1174,245 +853,231 @@ jQuery.validator.setDefaults({
                     },
                 });
 
-                $('#nextbtn1').on('click', function () {
-                    $('#step1_form').valid();
-                });
+               
                 $("#step2_form").validate({
-                rules: {
-                CAPACITY_CC:{
-                    required: true,
-                    number:true,
-                },
-                engine_rated_rpm:{
-                    required: true,
-                    number:true,
-                },
-                COOLING:{
-                    required: true,
-                },
-                AIR_FILTER:{
-                    required: true,
-                },
-                fuel_pump_id:{
-                    required: true,
-                },
-                TORQUE:{
-                    required: true,
-                },
-                TRANSMISSION_TYPE:{
-                    required: true,
-                },
-                TRANSMISSION_CLUTCH:{
-                    required: true,
-                },
-                min_forward_speed:{
-                    required: true,
-                    number:true,
-                },
-                max_forward_speed:{
-                    required: true,
-                    number:true,
-                },
-                min_reverse_speed:{
-                    required: true,
-                    number:true,
-                },
-                max_reverse_speed:{
-                    required: true,
-                    number:true,
-                }
-            },
-            messages: {
-                CAPACITY_CC:{
-                    required:"This field is required",
-                    number:"Enter only digits /Decimal Number",
-                },
-                engine_rated_rpm:{
-                    required:"This field is required",
-                    number:"Enter only digits /Decimal Number",
-                },
-                COOLING:{
-                    required:"This field is required",
-                },
-                AIR_FILTER:{
-                    required:"This field is required",
-                },
-                fuel_pump_id:{
-                    required:"This field is required",
-                },
-                TORQUE:{
-                    required:"This field is required",
-                },
-                TRANSMISSION_TYPE:{
-                    required:"This field is required",
-                },
-                TRANSMISSION_CLUTCH:{
-                    required:"This field is required",
-                },
-                min_forward_speed:{
-                    required:"This field is required",
-                    number:"Enter only digits /Decimal Number",
-                },
-                max_forward_speed:{
-                    required:"This field is required",
-                    number:"Enter only digits /Decimal Number",
-                },
-                min_reverse_speed:{
-                    required:"This field is required",
-                    number:"Enter only digits /Decimal Number",
-                },
-                max_reverse_speed:{
-                    required:"This field is required",
-                    number:"Enter only digits /Decimal Number",
-                }
-            },
-        });
+                    rules: {
+                        CAPACITY_CC:{
+                            required: true,
+                            number:true,
+                        },
+                        engine_rated_rpm:{
+                            required: true,
+                            number:true,
+                        },
+                        COOLING:{
+                            required: true,
+                        },
+                        AIR_FILTER:{
+                            required: true,
+                        },
+                        fuel_pump_id:{
+                            required: true,
+                        },
+                        TORQUE:{
+                            required: true,
+                        },
+                        TRANSMISSION_TYPE:{
+                            required: true,
+                        },
+                        TRANSMISSION_CLUTCH:{
+                            required: true,
+                        },
+                        min_forward_speed:{
+                            required: true,
+                            number:true,
+                        },
+                        max_forward_speed:{
+                            required: true,
+                            number:true,
+                        },
+                        min_reverse_speed:{
+                            required: true,
+                            number:true,
+                        },
+                        max_reverse_speed:{
+                            required: true,
+                            number:true,
+                        }
+                    },
+                    messages: {
+                        CAPACITY_CC:{
+                            required:"This field is required",
+                            number:"Enter only digits /Decimal Number",
+                        },
+                        engine_rated_rpm:{
+                            required:"This field is required",
+                            number:"Enter only digits /Decimal Number",
+                        },
+                        COOLING:{
+                            required:"This field is required",
+                        },
+                        AIR_FILTER:{
+                            required:"This field is required",
+                        },
+                        fuel_pump_id:{
+                            required:"This field is required",
+                        },
+                        TORQUE:{
+                            required:"This field is required",
+                        },
+                        TRANSMISSION_TYPE:{
+                            required:"This field is required",
+                        },
+                        TRANSMISSION_CLUTCH:{
+                            required:"This field is required",
+                        },
+                        min_forward_speed:{
+                            required:"This field is required",
+                            number:"Enter only digits /Decimal Number",
+                        },
+                        max_forward_speed:{
+                            required:"This field is required",
+                            number:"Enter only digits /Decimal Number",
+                        },
+                        min_reverse_speed:{
+                            required:"This field is required",
+                            number:"Enter only digits /Decimal Number",
+                        },
+                        max_reverse_speed:{
+                            required:"This field is required",
+                            number:"Enter only digits /Decimal Number",
+                        }
+                    },
+                });
 
-        $('#nextbtn2').on('click', function () {
-            $('#step2_form').valid();
-        });
+              
 
         
-        $("#step3_form").validate({
-            rules: {
-                STEERING_DETAIL:{
-                    required: true,
-                },
-                STEERING_COLUMN:{
-                    required: true,
-                },
-                POWER_TAKEOFF_TYPE:{
-                    required: true,
-                },
-                power_take_off_rpm:{
-                    required: true,
-                },
-                totat_weight:{
-                    required: true,
-                    number:true,
-                },
-                WHEEL_BASE:{
-                    required: true,
-                    number:true,
-                    
-                }
-            },
-            messages: {
-                STEERING_DETAIL:{
-                    required:"This field is required",
-                },
-                STEERING_COLUMN:{
-                    required:"This field is required",
-                },
-                POWER_TAKEOFF_TYPE:{
-                    required:"This field is required",
-                },
-                power_take_off_rpm:{
-                    required:"This field is required",
-                },
+                $("#step3_form").validate({
+                    rules: {
+                        STEERING_DETAIL:{
+                            required: true,
+                        },
+                        STEERING_COLUMN:{
+                            required: true,
+                        },
+                        POWER_TAKEOFF_TYPE:{
+                            required: true,
+                        },
+                        power_take_off_rpm:{
+                            required: true,
+                        },
+                        totat_weight:{
+                            required: true,
+                            number:true,
+                        },
+                        WHEEL_BASE:{
+                            required: true,
+                            number:true,
+                            
+                        }
+                    },
+                    messages: {
+                        STEERING_DETAIL:{
+                            required:"This field is required",
+                        },
+                        STEERING_COLUMN:{
+                            required:"This field is required",
+                        },
+                        POWER_TAKEOFF_TYPE:{
+                            required:"This field is required",
+                        },
+                        power_take_off_rpm:{
+                            required:"This field is required",
+                        },
 
-                totat_weight:{
-                    required:"This field is required",
-                    number:"Enter only digits /Decimal Number",
+                        totat_weight:{
+                            required:"This field is required",
+                            number:"Enter only digits /Decimal Number",
 
-                },
-                WHEEL_BASE:{
-                    required:"This field is required",
-                    number:"Enter only digits /Decimal Number",
-                    
-                }
-            },
-        });
+                        },
+                        WHEEL_BASE:{
+                            required:"This field is required",
+                            number:"Enter only digits /Decimal Number",
+                            
+                        }
+                    },
+                });
 
-        $('#nextbtn3').on('click', function () {
-            $('#step3_form').valid();
-        });
-        $("#step4_form").validate({
-            rules: {
-                LIFTING_CAPACITY:{
-                    required: true,
-                    number:true,
-                },
-                LINKAGE_POINT:{
-                    required: true,
-                },
-                // fuel_tank_cc:{
-                //     required: true,
-                // },
-                WHEEL_DRIVE:{
-                    required: true,
-                },
-                front_tyre:{
-                    required: true,
-                    customNumber: true,
-                },
-                rear_tyre:{
-                    required: true,
-                    customNumber: true,
-                }
-            },
-            messages: {
-                LIFTING_CAPACITY:{
-                    required:"This field is required",
-                    number:"Enter only digits /Decimal Number",
-                },
-                LINKAGE_POINT:{
-                    required:"This field is required",
-                },
-                // fuel_tank_cc:{
-                //     required:"This field is required",
-                // },
-                WHEEL_DRIVE:{
-                    required:"This field is required",
-                },
-                front_tyre:{
-                    required:"This field is required",
-                    customNumber: "Please enter a valid number or multiplication expression",
-                },
-                rear_tyre:{
-                    required:"This field is required",
-                    customNumber: "Please enter a valid number or multiplication expression",
-                }
-            },
-        });
+       
+                $("#step4_form").validate({
+                    rules: {
+                        LIFTING_CAPACITY:{
+                            required: true,
+                            number:true,
+                        },
+                        LINKAGE_POINT:{
+                            required: true,
+                        },
+                        // fuel_tank_cc:{
+                        //     required: true,
+                        // },
+                        WHEEL_DRIVE:{
+                            required: true,
+                        },
+                        front_tyre:{
+                            required: true,
+                            customNumber: true,
+                        },
+                        rear_tyre:{
+                            required: true,
+                            customNumber: true,
+                        }
+                    },
+                    messages: {
+                        LIFTING_CAPACITY:{
+                            required:"This field is required",
+                            number:"Enter only digits /Decimal Number",
+                        },
+                        LINKAGE_POINT:{
+                            required:"This field is required",
+                        },
+                        // fuel_tank_cc:{
+                        //     required:"This field is required",
+                        // },
+                        WHEEL_DRIVE:{
+                            required:"This field is required",
+                        },
+                        front_tyre:{
+                            required:"This field is required",
+                            customNumber: "Please enter a valid number or multiplication expression",
+                        },
+                        rear_tyre:{
+                            required:"This field is required",
+                            customNumber: "Please enter a valid number or multiplication expression",
+                        }
+                    },
+                });
 
-        $('#nextbtn4').on('click', function () {
-            $('#step4_form').valid();
-        });
+       
 
-        $("#step5_form").validate({
-            // ignore: ":hidden:not(select)",
-            rules: {
-                ass_list: {
-                    required: true,
-                },
-                STATUS: {
-                    required: true,
-                },
-                description: {
-                    required: true,
-                }
-            },
-            messages: {
-                ass_list: {
-                    required: "This field is required",
-                },
-                STATUS: {
-                    required: "This field is required",
-                },
-                description: {
-                    required: "This field is required",
-                }
-            },
-        });
+                $("#step5_form").validate({
+                    // ignore: ":hidden:not(select)",
+                    rules: {
+                        ass_list: {
+                            required: true,
+                        },
+                        STATUS: {
+                            required: true,
+                        },
+                        description: {
+                            required: true,
+                        }
+                    },
+                    messages: {
+                        ass_list: {
+                            required: "This field is required",
+                        },
+                        STATUS: {
+                            required: "This field is required",
+                        },
+                        description: {
+                            required: "This field is required",
+                        }
+                    },
+                });
 
-        $('#submitbtn').on('click', function(event) {
-        event.preventDefault();
-        if ($('#step5_form').valid()) {
-            
-            $('#step5_form').submit(); 
-        }
-        });
+        
             }
         });
 
@@ -1428,6 +1093,45 @@ jQuery.validator.setDefaults({
         // Show the initial form section and set the initial progress bar state
         showSection(currentSectionIndex);
         progressHolders.eq(currentSectionIndex).addClass('activated_step');
+    });
+
+    $('#nextbtn1').on('click', function () {
+        $('#step1_form').valid();
+        if( $('#step1_form').valid()){
+            $(".step1list").removeClass('step11');
+            $(".step1list").addClass('step21');
+        }
+    });
+    $('#nextbtn2').on('click', function () {
+        $('#step2_form').valid();
+        if( $('#step2_form').valid()){
+            $(".step2list").removeClass('step12');
+            $(".step2list").addClass('step22');
+        }
+    });
+    $('#nextbtn3').on('click', function () {
+        $('#step3_form').valid();
+        if( $('#step3_form').valid()){
+            $(".step3list").removeClass('step13');
+            $(".step3list").addClass('step23');
+        }
+    });
+    $('#nextbtn4').on('click', function () {
+        $('#step4_form').valid();
+        if( $('#step4_form').valid()){
+            $(".step4list").removeClass('step14');
+            $(".step4list").addClass('step24');
+        }
+    });
+    $('#submitbtn').on('click', function(event) {
+        event.preventDefault();
+        if ($('#step5_form').valid()) {
+            $('#step5_form').submit(); 
+            if( $('#step5_form').valid()){
+                $(".step5list").removeClass('step15');
+                $(".step5list").addClass('step25');
+            }
+        }
     });
 </script>
 <script>
@@ -1491,4 +1195,5 @@ jQuery.validator.setDefaults({
         $(this).parent().parent().remove();
       });
     }
+
 </script>

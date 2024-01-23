@@ -33,19 +33,20 @@
             <div class="col-12 col-sm-9 col-lg-9 col-md-9">
                 <h3 class="">SEARCH USED  <span class="text-success fw-bold">TRACTORS IN INDIA</span> </h3>
                 <div class=" row mb-3" id="">
-                    <div class="col-12 col-sm-12 col-md-12 col-lg-12 my-3">
+                    <!-- <div class="col-12 col-sm-12 col-md-12 col-lg-12 my-3">
                         <button id="adduser" type="button" class="add_btn btn  btn-success px-3">
                              <i class="fa-solid fa-cart-shopping"></i> Buy tractor </button>  &nbsp;
                         <button id="adduser" type="button" class="add_btn btn btn-success">
                             <i class="fa-sharp fa-solid fa-handshake"></i> Sell tractor </button>
-                    </div>
+                    </div> -->
                 </div>
                 <div class="row my-3">
                     <div id="productContainer" class="row">
                     </div>
                     <div class="col-12 text-center">
                         <button id="loadMoreBtn" type="button" class="add_btn btn btn-success mt-4 shadow">
-                        <i class="fas fa-undo"></i>  Load More  </button>
+                        <i class="fas fa-undo"></i>  Load More Tractor </button>
+                       
                     </div>
                 </div>
             </div>
@@ -108,8 +109,8 @@
                             <input type="checkbox" class="checkbox-round mt-1 ms-3" value="Bihar"/><span class="ps-2 fs-6">Bihar</span><br />
                             <input type="checkbox" class="checkbox-round mt-1 ms-3" value="Chhattisgarh"/><span class="ps-2 fs-6">Chhattisgarh</span><br />
                             <input type="checkbox" class="checkbox-round mt-1 ms-3" value="Dadra"/><span class="ps-2 fs-6">Dadra and Nagar Haveli </span><br />
-                            <input type="checkbox" class="checkbox-round mt-1 ms-3" value="3-6"/><span class="ps-2 fs-6">Daman and Diu</span><br />
-                            <input type="checkbox" class="checkbox-round mt-1 ms-3" value="6-9"/><span class="ps-2 fs-6">Delhi</span><br />
+                            <input type="checkbox" class="checkbox-round mt-1 ms-3" value="Daman and Diu"/><span class="ps-2 fs-6">Daman and Diu</span><br />
+                            <input type="checkbox" class="checkbox-round mt-1 ms-3" value="Delhi"/><span class="ps-2 fs-6">Delhi</span><br />
                             <input type="checkbox" class="checkbox-round mt-1 ms-3" value="3-6"/><span class="ps-2 fs-6">Goa</span><br />
                             <input type="checkbox" class="checkbox-round mt-1 ms-3" value="6-9"/><span class="ps-2 fs-6">Gujarat</span><br />
                             <input type="checkbox" class="checkbox-round mt-1 ms-3" value="3-6"/><span class="ps-2 fs-6">Jammu Kashmir</span><br />
@@ -244,65 +245,7 @@
     </div>
 </section>
 
-<section>
-      <div class="modal fade" id="used_tractor_callbnt" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg modal-dialog-centered">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title ms-1" id="staticBackdropLabel">Farmtrac_60</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <!-- MODAL BODY -->
-            <div class="modal-body">
-              <form action="" id="contact-seller-call">
-                <div class="row">
-                    <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
-                        <label for="name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i> First Name</label>
-                        <input type="text" class="form-control" placeholder="Enter Your Name" id="fname" name="fname">
-                    </div>
-                    <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
-                        <label for="name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i> Last Name</label>
-                        <input type="text" class="form-control" placeholder="Enter Your Name" id="lname" name="lname">
-                    </div>
-                    <div class="col-12 col-sm-6 col-md-6 col-lg-6">
-                        <label for="number" class="form-label text-dark fw-bold"> <i class="fa fa-phone" aria-hidden="true"></i> Phone Number</label>
-                        <input type="password" class="form-control" placeholder="Enter Number" id="number" name="number">
-                    </div>
-                    <div class="col-12 col-sm-12 col-md-6 col-lg-6">
-                        <label for="yr_state" class="form-label text-dark fw-bold"> <i class="fas fa-location"></i> State</label>
-                        <select class="form-select py-2 " aria-label=".form-select-lg example" id="state" name="state">
-                            <option value>Select State</option>
-                            <option value="1">Chhattisgarh</option>
-                            <option value="2">Other</option>
-                        </select>
-                    </div>
-                <div class="col-12 col-sm-12 col-md-6 col-lg-6">
-                    <label for="yr_dist" class="form-label text-dark"><i class="fa-solid fa-location-dot"></i> District</label>
-                    <select class="form-select py-2 " aria-label=".form-select-lg example" id="district" name="district">
-                        <option value>Select District</option>
-                        <option value="1">Raipur</option>
-                        <option value="2">Bilaspur</option>
-                        <option value="2">Durg</option>
-                    </select>
-                </div>
-                <div class="col-12 col-sm-6 col-md-6 col-lg-6">
-                    <label for="yr_price" class="form-label text-dark">Tehsil</label>
-                    <input type="yr_price" class="form-control" placeholder="Enter Your Tehsil" id="Tehsil" name="Tehsil">
-                </div>
-                <div class="col-12 my-2">
-                    <label for="yr_price" class="form-label text-dark">Enter Your Badget</label>
-                    <input type="yr_price" class="form-control" placeholder="Enter Your Badget" id="badget" name="badget">
-                  </div>                           
-            </div> 
-                <div class="text-center my-3">
-                  <button type="submit" class="btn btn-success px-5 w-100">Call Now</button>         
-                </div>        
-              </form>                             
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+
 
 
 
