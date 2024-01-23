@@ -98,7 +98,7 @@ function get_data() {
                
                   tableData.push([
                     serialNumber,
-                    row.lookup_type_id,
+                    row.name,
                     row.lookup_data_value,
                     action
                 ]);
