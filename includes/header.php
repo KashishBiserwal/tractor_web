@@ -1,4 +1,3 @@
-
 <div class="fixed_nav">
 <nav class="navbar navbar-expand-sm navbar-index">
   <div class="container p-0">
@@ -231,7 +230,7 @@
           <a class="nav-link dropdown-toggle fw-bold" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             News & Update
           </a>
-          <ul class="dropdown-menu " id="news_category">
+          <ul class="dropdown-menu " id="selectedImagesContainer1">
            
           </ul>
         </li>
@@ -279,6 +278,9 @@
     </div>
   </div>
 </div>
+<?php 
+ include 'includes/footertag.php';
+?>
 
 
 <script>
@@ -302,11 +304,12 @@
 
         var newCard = data.news_category.map(function(category) {
           return `<li id="${category.category_name.replace(/\s+/g, '')}">
-                    <a class="dropdown-item fw-bold" href="${category.category_name.toLowerCase()}_news.php">
+                    <a class="dropdown-item fw-bold" href="${category.category_name.toLowerCase()}_news.php?category_id=id">
                       ${category.category_name}
                     </a>
                   </li>
                   <hr class="dropdown-divider">`;
+                  // console.log(id);
         });
 
         $("#selectedImagesContainer1").append(newCard.join(''));
@@ -319,7 +322,7 @@
 </script>
 
 
-      <!-- <li id="allNews"><a class="dropdown-item fw-bold" href="all_news.php">All News</a></li>
+                    <!-- <li id="allNews"><a class="dropdown-item fw-bold" href="all_news.php">All News</a></li>
                     <hr class="dropdown-divider">
                     <li id="tractorNews"><a class="dropdown-item fw-bold" href="tractor_news.php" >Tractor News</a></li>
                     <hr class="dropdown-divider">

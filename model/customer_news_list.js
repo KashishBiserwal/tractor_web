@@ -76,16 +76,16 @@ function displayEngineoil(engineoil) {
                 <a href="news_content.php?id=${p.id}">
                 <img src="http://tractor-api.divyaltech.com/uploads/news_img/${a[0]}" class="engineoil_img  w-100" alt="img">
                 </a>
-            </div>
-                    <div class="content mb-3 ms-3">
-                    <button type="button" class="btn btn-warning mt-3">${p.news_category} </button>
-                    <div class="row mt-2">
-                        <p class="fw-bold">${p.news_headline}</p>
-                    </div>
-                    <a href="news_content.php?id=${p.id}" class="text-decoration-none pb-1">
-                        <span class=""> Date/time-${p.date} </span>
-                    </a>
-                    </div>
+                </div>
+                <div class="content mb-3 ms-3">
+                <button type="button" class="btn btn-warning mt-3">${p.news_category} </button>
+                <div class="row mt-2">
+                    <p class="fw-bold">${p.news_headline}</p>
+                </div>
+                <a href="news_content.php?id=${p.id}" class="text-decoration-none pb-1">
+                    <span class=""> Date/time-${p.date} </span>
+                </a>
+                </div>
                 </div>
                 </div> 
                     `;

@@ -1,17 +1,16 @@
 
 $(document).ready(function () {
   getTractorList();
+
   $("#Reset").click(function () {
 
     $("#brand").val("");
     $("#model").val("");
     $("#hp").val("");
-    
-    
     getTractorList();
     
     });
-  $('#Search').click(search_data);
+  // $('#Search').click(search_data);
 
   $('.edit_btn').click(function() {
     var productId = $(this).data('row-productid');
@@ -130,115 +129,90 @@ success: function (data) {
             });
             }
 
-  function search_data() {
+            function search_data() {
+              var selectedBrand = $('#brand').val();
+              var model = $('#model').val();
+              var hp = $('#hp').val();
+          
+              var paraArr = {
+                  'brand_id': selectedBrand,
+                  'model': model,
+                  'horse_power':hp,
+              };
+          
+              var apiBaseURL = APIBaseURL;
+              var url = apiBaseURL + 'search_for_new_tractor';
+              $.ajax({
+                  url: url,
+                  type: 'POST',
+                  data: paraArr,
+                  headers: {
+                      'Authorization': 'Bearer ' + localStorage.getItem('token')
+                  },
+                  success: function (searchData) {
+                      updateTable(searchData);
+                  },
+                  error: function (error) {
+                      console.error('Error searching for brands:', error);
+                  }
+              });
+          };
+          
+          function updateTable(data) {
+              const tableBody = document.getElementById('data-table');
+              tableBody.innerHTML = '';
+          
+              if (data.newTractor.allProductData && data.newTractor.allProductData.length > 0) {
+                  let tableData = [];
+                  let counter = 1;
+          
+                  data.newTractor.allProductData.forEach(row => {
+                      let action = `<div class="float-start">
+                          <button class="btn btn-warning text-white btn-sm mx-1" onclick="openView(${row.product_id})" data-bs-toggle="modal" data-bs-target="#viewModal_btn" id="viewbtn">
+                              <i class="fa fa-eye" style="font-size: 11px;"></i>
+                          </button>
+                          <a href="tractor_form_list.php?trac_edit=${row.product_id}" onclick="fetch_edit_data(${row.product_id})" class="btn btn-primary btn-sm edit_btn" >
+                              <i class="fas fa-edit" style="font-size: 11px;"></i>
+                          </a>
+                          <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.product_id})">
+                              <i class="fa fa-trash" style="font-size: 11px;"></i>
+                          </button> 
+                      </div>`;
+          
+                      tableData.push([
+                          counter,
+                          formatDateTime(row.date),
+                          row.brand_name,
+                          row.model,
+                          row.wheel_drive_value,
+                          row.hp_category,
+                          row.ending_price,
+                          action
+                      ]);
+                      counter++;
+                  });
 
-    var selectedBrand = $('#brand').val();
-    //var brand_id = $('#brand_id').val();
-    var model = $('#model').val();
-    var hp = $('#hp').val();
-    console.log(selectedBrand,"selectedBrand");
-    var paraArr = {
-      'brand_id': selectedBrand,
-      
-      'model':model,
-      'horse_power':hp,
-    };
-
-    var apiBaseURL = APIBaseURL;
-    var url = apiBaseURL + 'search_for_new_tractor';
-    $.ajax({
-        url:url, 
-        type: 'POST',
-        data: paraArr,
-      
-        headers: {
-            'Authorization': 'Bearer ' + localStorage.getItem('token')
-        },
-        success: function (searchData) {
-          console.log(searchData,"hello brand");
-          updateTable(searchData);
-        },
-        error: function (error) {
-            console.error('Error searching for brands:', error);
-        }
-    });
-  };
-  function updateTable(data) {
-    console.log(data,"search data table")
-    const tableBody = document.getElementById('data-table');
-    tableBody.innerHTML = '';
-    // let serialNumber = 1; 
-
-    if(data.newTractor.allProductData && data.newTractor.allProductData.length > 0) {
-      let tableData = [];
-      let counter = 1;
-        data.newTractor.allProductData.forEach(row => {
-            let action = `<div class="float-start">
-            <button class="btn btn-warning text-white btn-sm mx-1" onclick="openView(${row.product_id})" data-bs-toggle="modal" data-bs-target="#viewModal_btn" id="viewbtn">
-            <i class="fa fa-eye" style="font-size: 11px;"></i>
-            </button>
-          <a href="tractor_form_list.php?trac_edit=${row.product_id}" onclick="fetch_edit_data(${row.product_id})" class="btn btn-primary btn-sm edit_btn" ><i class="fas fa-edit" style="font-size: 11px;"></i></a>
-            <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.product_id})">
-            <i class="fa fa-trash" style="font-size: 11px;"></i>
-            </button> 
-            </div>`;
-
-            tableData.push([
-              serialNumber,
-              formatDateTime(row.date),
-              row.brand_name,
-              row.model,
-              row.wheel_drive_value,
-              row.hp_category,
-              row.ending_price,
-              action
-          ]);
-          counter++;
-      });
-
-      $('#example').DataTable().destroy();
-      $('#example').DataTable({
-          data: tableData,
-          columns: [
-            { title: 'S.No.' },
-            { title: 'Date' },
-            { title: 'Brand' },
-            { title: 'Model' },
-            { title: 'Wheel Drive' },
-            { title: 'HP Category' },
-            { title: 'Price' },
-            { title: 'Action', orderable: false }
-          ],
-          paging: true,
-          searching: true,
-        });
-
-        $('#example').DataTable().destroy();
-        $('#example').DataTable({
-            data: tableData,
-            columns: [
-              { title: 'S.No.' },
-              { title: 'Date' },
-              { title: 'Brand' },
-              { title: 'Model' },
-              { title: 'Wheel Drive' },
-              { title: 'HP Category' },
-              { title: 'Price' },
-              { title: 'Action', orderable: false } // Disable ordering for Action column
-            ],
-            paging: true,
-            searching: false,
-            // ... other options ...
-        });
-    } else {
-        // Display a message if there's no valid data
-        tableBody.innerHTML = '<tr><td colspan="4">No valid data available</td></tr>';
-    }
-  }
-
-
-
-
+                  $('#example').DataTable().destroy();
+                  $('#example').DataTable({
+                      data: tableData,
+                      columns: [
+                          { title: 'S.No.' },
+                          { title: 'Date' },
+                          { title: 'Brand' },
+                          { title: 'Model' },
+                          { title: 'Wheel Drive' },
+                          { title: 'HP Category' },
+                          { title: 'Price' },
+                          { title: 'Action', orderable: false }
+                      ],
+                      paging: true,
+                      searching: true,
+                  });
+              } else {
+                  // Display a message if there's no valid data
+                  tableBody.innerHTML = '<tr><td colspan="8">No valid data available</td></tr>';
+              }
+          }
 
 // get brand
 function get() {
@@ -418,10 +392,5 @@ console.error('Error fetching data:', error);
 
 
 
-function resetform(){
-  $('#brand').val('');
-  $('#model').val('');
-  $('#hp').val('');
-  getTractorList();
-}
+// 
 
