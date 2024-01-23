@@ -14,52 +14,149 @@
      <script> var baseUrl = "<?php echo $baseUrl; ?>";</script>
      <script src="<?php $baseUrl; ?>model/engineoil_detail.js"></script>
   
-      
+<style>
+     .gallery {
+  width: 100%;
+  max-width: 620px;
+  margin: 40px auto;
+}
+    .gallery-slider {
+  width: 100%;
+  height: auto;
+  margin: 0 0 10px 0;
+}
+.gallery-slider .swiper-slide {
+  width: auto;
+  height: 300px;
+}
+.gallery-slider .swiper-slide img {
+  display: block;
+  width: auto;
+  height: 100%;
+  margin: 0 auto;
+}
+.gallery-thumbs {
+  width: 100%;
+  padding: 0;
+  overflow: hidden;
+  height: 140px;
+}
+.gallery-thumbs .swiper-slide {
+  width: 100px;
+  height: 100px;
+  text-align: center;
+  overflow: hidden;
+  opacity: 0.5;
+}
+.gallery-thumbs .swiper-slide-active {
+  opacity: 1;
+}
+.gallery-thumbs .swiper-slide img {
+  width: auto;
+  height: 75%;
+}
+.swiper-button-prev:after, .swiper-button-next:after {
+
+    background: transparent;
+    font-size: 25px !important;
+}
+</style>
 
 </head>
 <body>
-    <section class="mt-4 pt-5">
-    <div class="container mt-5 pt-4">
-        <div class="">
-            <span class="mt-5 text-white pt-5 ">
-                <a href="index.php" class="text-decoration-none header-link px-1">Home <i class="fa-solid fa-chevron-right px-1"></i></a>
-            </span>
-            <span class="mt-5 text-white pt-5 ">
-                <a href="engine_oil.php" class="text-decoration-none header-link px-1">Engine Oil <i class="fa-solid fa-chevron-right px-1"></i></a>
-            </span>
-            <!-- </span>  -->
+<section class="mt-130 bg-light">
+        <div class="container">
+        <div class="py-2">
+                    <span class="text-white">
+                        <a href="index.php" class="text-decoration-none header-link px-1">Home <i
+                                class="fa-solid fa-chevron-right px-1"></i></a>
+
+                                <a href="engine_oil.php" class="text-decoration-none header-link px-1"> <span class="text-dark p">Engine Oil</span></a>
+                    </span>
+                </div>
         </div>
-    </div>
     </section>
+
     <!-- IMAGE SWIPER WITH THREE THUMBNAIL IMAGE -->
     <section>
         <div class="container">
-            <div class="vegehead pt-3">
-                <div class="row">
-                    <!-- <h1 class="fw-bold text-danger pt-3">Engine Oil</h1> -->
-                </div>
-            </div>
-       
-            <div class="row mt-3">
-                <div class="col-12 col-sm-6 col-lg-6 col-md-6">
+         <div class="row mt-3">
+                <div class="col-12 col-sm-6 col-lg-6 col-md-6" style="position: relative;">
                     <div>
                     <h1 class="fw-bold text-danger pt-3" id="brand_name"></h1>
-                    <div class="swiper swiper_buy mySwiper2_buy">
-                    <div class="swiper-wrapper swiper-wrapper_buy"></div>
-                    <div class="swiper-button-prev"></div>
-                    <div class="swiper-button-next"></div>
+                    <div class="gallery">   
+                        <div class="swiper-container gallery-slider">
+                            <div class="swiper-wrapper mySwiper2_data"></div>
+                            <div class="swiper-button-prev"></div>
+                            <div class="swiper-button-next"></div>
+                        </div>
+
+                        <div class="swiper-container gallery-thumbs">
+                            <div class="swiper-wrapper mySwiper_data"></div>
+                        </div>
                     </div>
-                    <div thumbsSlider="" class="swiper mySwiper_buy"  style="height:74px;" id="swip_img"></div>
                     </div>
                 </div>
-                <div class="col-12 col-sm-6 col-lg-6 col-md-6 mt-4">
+                <div class="col-12 col-lg-6 col-md-6 col-sm-6 mt-5" style="z-index: 9; background: #fff;">
+                    <table class="table border bg-light  mt-5">
+                        <tbody>
+                            <tr>
+                                <td class="col-12 col-lg-6 col-md-6 col-sm-6">
+                                    <h5> <i class="fa-solid fa-award"></i> Name</h5>
+                                </td>
+                                <td class="col-12 col-lg-6 col-md-6 col-sm-6">
+                                    <h5><a href="#" class="text-decoration-none h5 text-danger " id="model_name"></a></h5>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <h6><i class="fa-solid fa-gas-pump"></i> Grade</h6>
+                                </td>
+                                <td><p id="grade"></p></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <h6><i class="fas fa-bolt"></i>Quantity</h6>
+                                </td>
+                                <td><p> <span id="quantity"></span></p> </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <h6><i class="fas fa-bolt"></i>Price</h6>
+                                </td>
+                                <td>
+                                    <p> <span  id="price"></span></p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <h6><i class="fas fa-bolt"></i>Compatible Tractors</h6>
+                                </td>
+                                <td>
+                                    <p> <span  id="compatible_tractor"></span></p>
+                                </td>
+                            </tr>
+                           
+                        </tbody>
+                    </table>
+                    <div class="row my-3 text-center">
+                       
+                        <div class="col-12 col-lg-12 col-md-12 col-sm-12">
+                        <button type="button" class="btn btn-success text-center w-100" data-bs-toggle="modal" data-bs-target="#staticBackdrop3">
+                                                        Request Call Back
+                                                    </button>
+                        </div>
+                    </div>
+
+                </div>
+              <!--   <div class="col-12 col-sm-6 col-lg-6 col-md-6 mt-4">
                     <h2 class="text-danger fw-bold me-5">About This Engine Oil</h2>
                     <form action="">
                         <div class="row my-3">
                             <div class="col-12 justify-content-center">
                                 <div class="d-flex flex-md-row px-3  flex-column-reverse">
                                     <div class="col-md-12 col-12 col-lg-12 col-lg-12">
-                                        <!-- <div class=" ml-2"> -->
+                                       
                                         <div class="row px-3 ">
                                             <table class="table table-border">
                                                 <tr>
@@ -118,7 +215,7 @@
                             </div>
                         </div>
                     </form>
-                </div>
+                </div> -->
             </div>
         </div>
     </section>
@@ -309,6 +406,32 @@
         });
   </script> -->
 
+<script>
+      var slider = new Swiper ('.gallery-slider', {
+    slidesPerView: 1,
+    centeredSlides: true,
+    loop: true,
+    loopedSlides: 1, 
+    navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+    },
+});
 
+var thumbs = new Swiper ('.gallery-thumbs', {
+    slidesPerView: 'auto',
+    spaceBetween: 10,
+    centeredSlides: true,
+    loop: true,
+    slideToClickedSlide: true,
+});
+
+
+slider.controller.control = thumbs;
+thumbs.controller.control = slider;
+
+
+    </script>
+</script>
 </body>
 </html>
