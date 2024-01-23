@@ -3,6 +3,7 @@ var editId_state= false;
 $(document).ready(function () {
   get_lookup();
   // $('.js-example-basic-multiple').select2();
+ 
   fetch_edit_data();
     // getTractorList();
     // BackgroundUpload();
