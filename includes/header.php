@@ -231,7 +231,7 @@
           <a class="nav-link dropdown-toggle fw-bold" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             News & Update
           </a>
-          <ul class="dropdown-menu " id="news_category">
+          <ul class="dropdown-menu " id="selectedImagesContainer1">
            
           </ul>
         </li>
@@ -293,7 +293,7 @@
   
     // var productId = id;
     // var apiBaseURL = APIBaseURL;
-     url =  'http://tractor-api.divyaltech.com/api/customer/get_news_category'
+     url =  'http://tractor-api.divyaltech.com/api/customer/get_news_category';
   
     var headers = { 
         'Authorization': 'Bearer ' + localStorage.getItem('token')
