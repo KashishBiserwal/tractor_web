@@ -55,7 +55,7 @@
                     <div class="row my-3">
                     <div class="col-12 justify-content-center">
                         <div class="d-flex flex-md-row px-3  flex-column-reverse">
-                        <div class="col-md-12 col-12 col-lg-12 col-lg-12">
+                            <div class="col-md-12 col-12 col-lg-12 col-lg-12">
                             <div class=" ml-2">
                                 <div class="row px-3 ">
                                     <div class="col-12 col-lg-6 col-md-6 col-sm-6 " hidden>
@@ -108,11 +108,7 @@
                                         <input type="submit" value="Contact Seller" id="contact_seller" class="btn btn-success w-100"> 
                                         </div>
                                     </div>
-                                    <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-3">
-                                        <div class="get-loan text-center ">
-                                            <a href="#" class="btn border-success text-success w-100">View Loan Offer</a>
-                                        </div>
-                                    </div>
+                                    
                                 </div>
                             </div>
                         </div>
