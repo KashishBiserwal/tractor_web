@@ -50,7 +50,7 @@
 }
 .gallery-slider .swiper-slide {
   width: auto;
-  height: 400px;
+  height: 300px;
 }
 .gallery-slider .swiper-slide img {
   display: block;
@@ -62,20 +62,26 @@
   width: 100%;
   padding: 0;
   overflow: hidden;
+  height: 140px;
 }
 .gallery-thumbs .swiper-slide {
   width: 100px;
   height: 100px;
   text-align: center;
   overflow: hidden;
-  opacity: 0.1;
+  opacity: 0.5;
 }
 .gallery-thumbs .swiper-slide-active {
   opacity: 1;
 }
 .gallery-thumbs .swiper-slide img {
   width: auto;
-  height: 100%;
+  height: 75%;
+}
+.swiper-button-prev:after, .swiper-button-next:after {
+
+    background: transparent;
+    font-size: 25px !important;
 }
 
     </style>
