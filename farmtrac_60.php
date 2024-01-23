@@ -60,7 +60,11 @@
                                 <div class="row px-3 ">
                                     <div class="col-12 col-lg-6 col-md-6 col-sm-6 " hidden>
                                         <label for="name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i> enquiryName</label>
-                                        <input type="text" class="form-control" placeholder="Enter Your Name" id="enquiry_type_id" value="1" name="fname">
+                                        <input type="text" class="form-control" placeholder="Enter Your Name" id="enquiry_type_id" value="21" name="fname">
+                                    </div>
+                                    <div class="col-12 col-lg-6 col-md-6 col-sm-6 " hidden>
+                                        <label for="name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i> product_id</label>
+                                        <input type="text" class="form-control" id="product_id" value="">
                                     </div>
                                     <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
                                         <label for="name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i> First Name</label>
