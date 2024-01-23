@@ -3,69 +3,68 @@ $(document).ready(function() {
     getoldTractorList();
 });
 
-var cardsPerPage = 9; // Number of cards to show initially
-var cardsDisplayed = 0; // Counter to keep track of the number of cards displayed
-var allCards; // Variable to store all cards
+    var cardsPerPage = 9; // Number of cards to show initially
+    var cardsDisplayed = 0; // Counter to keep track of the number of cards displayed
+    var allCards; // Variable to store all cards
 
 
-function getoldTractorList() {
-    var url = "http://tractor-api.divyaltech.com/api/customer/get_old_tractor";
-    
+    function getoldTractorList() {
+        var url = "http://tractor-api.divyaltech.com/api/customer/get_old_tractor";
+        
 
-    $.ajax({
-        url: url,
-        type: "GET",
-        success: function (data) {
-            var productContainer = $("#productContainer");
-            // Clear the existing content in the container
-            productContainer.empty();
+        $.ajax({
+            url: url,
+            type: "GET",
+            success: function (data) {
+                var productContainer = $("#productContainer");
+                // Clear the existing content in the container
+                productContainer.empty();
 
-            if (data.product && data.product.length > 0) {
-                allCards = data.product; 
-            
-                allCards.sort(function(a, b) {
-                    return b.customer_id - a.customer_id;
-                });
-            
-                // Display all cards
-                allCards.slice(0, cardsPerPage).forEach(function (p) {
-                    appendCard(productContainer, p);
-                    cardsDisplayed++;
-                });
-            
-                if (allCards.length > cardsPerPage) {
-                    $("#loadMoreBtn").show();
+                if (data.product && data.product.length > 0) {
+                    allCards = data.product; 
+                
+                    allCards.sort(function(a, b) {
+                        return b.customer_id - a.customer_id;
+                    });
+                
+                    // Display all cards
+                    allCards.slice(0, cardsPerPage).forEach(function (p) {
+                        appendCard(productContainer, p);
+                        cardsDisplayed++;
+                    });
+                
+                    if (allCards.length > cardsPerPage) {
+                        $("#loadMoreBtn").show();
+                    } else {
+                        $("#loadMoreBtn").hide();
+                    }
                 } else {
+                    // Hide the "Load More" button if there are no cards
                     $("#loadMoreBtn").hide();
                 }
-            } else {
-                // Hide the "Load More" button if there are no cards
-                $("#loadMoreBtn").hide();
+            },
+            error: function (error) {
+                console.error('Error fetching data:', error);
             }
-        },
-        error: function (error) {
-            console.error('Error fetching data:', error);
-        }
-    });
-}
-
-// Function to append a card to the container
-function appendCard(container, p) {
-    var images = p.image_names;
-    var a = [];
-
-    if (images) {
-        if (images.indexOf(',') > -1) {
-            a = images.split(',');
-        } else {
-            a = [images];
-        }
+        });
     }
-    var cardId = `card_${p.product_id}`; // Dynamic ID for the card
-    var modalId = `used_tractor_callbnt_${p.product_id}`; // Dynamic ID for the modal
-    var formId = `contact-seller-call_${p.product_id}`; // Dynamic ID for the form
 
-    var newCard = `
+    function appendCard(container, p) {
+        var images = p.image_names;
+        var a = [];
+
+        if (images) {
+            if (images.indexOf(',') > -1) {
+                a = images.split(',');
+            } else {
+                a = [images];
+            }
+        }
+        var cardId = `card_${p.product_id}`; // Dynamic ID for the card
+        var modalId = `used_tractor_callbnt_${p.product_id}`; // Dynamic ID for the modal
+        var formId = `contact-seller-call_${p.product_id}`; // Dynamic ID for the form
+
+        var newCard = `
     <div class="col-12 col-lg-4 col-md-4 col-sm-4 mb-4" id="${cardId}">
         <div class="h-auto success__stry__item d-flex flex-column shadow ">
             <div class="thumb">
@@ -180,23 +179,22 @@ function appendCard(container, p) {
         </div>
     </div>
 
-    `;
-    // Append the new card to the container
-    container.append(newCard);
-}
-$(document).on('click', '#loadMoreBtn', function(){
-    var productContainer = $("#productContainer");
-
-    allCards.slice(cardsDisplayed, cardsDisplayed + cardsPerPage).forEach(function (p) {
-        appendCard(productContainer, p);
-        cardsDisplayed++;
-    });
-
-    // Hide the "Load More" button if all cards are displayed
-    if (cardsDisplayed >= allCards.length) {
-        $("#loadMoreBtn").hide();
+        `;
+        container.append(newCard);
     }
-});
+    $(document).on('click', '#loadMoreBtn', function(){
+        var productContainer = $("#productContainer");
+
+        allCards.slice(cardsDisplayed, cardsDisplayed + cardsPerPage).forEach(function (p) {
+            appendCard(productContainer, p);
+            cardsDisplayed++;
+        });
+
+        // Hide the "Load More" button if all cards are displayed
+        if (cardsDisplayed >= allCards.length) {
+            $("#loadMoreBtn").hide();
+        }
+    });
 
   function tractor_enquiry(formId) {
         // Use the formId to get values dynamically
@@ -268,4 +266,40 @@ var url = "http://tractor-api.divyaltech.com/api/customer/customer_enquiries";
   function savedata(formId) {
     tractor_enquiry(formId);
     console.log("Form submitted successfully");
+  }
+
+//   search cards by hp, brand, price, state, district
+function get() {
+    // var apiBaseURL = CustomerAPIBaseURL;
+    var url = 'http://tractor-api.divyaltech.com/api/customer/get_brands';
+
+    $.ajax({
+        url: url,
+        type: "GET",
+        headers: {
+            'Authorization': 'Bearer ' + localStorage.getItem('token')
+        },
+        success: function (data) {
+            console.log(data);
+
+            const checkboxContainer = $('#checkboxContainer');
+            checkboxContainer.empty(); // Clear existing checkboxes
+
+            // Loop through the data and add checkboxes
+            $.each(data.brands, function (index, brand) {
+                var brand_id = brand.id;
+                var brand_name = brand.brand_name;
+
+                var checkboxHtml = '<input type="checkbox" class="checkbox-round mt-1 ms-3" value="' + brand_id + '"/>' +
+                    '<span class="ps-2 fs-6">' + brand_name + '</span><br />';
+
+                // Append the checkbox to the container
+                checkboxContainer.append(checkboxHtml);
+            });
+        },
+        error: function (error) {
+            console.error('Error fetching data:', error);
+        }
+    });
 }
+get();
