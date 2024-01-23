@@ -1,11 +1,11 @@
-var EditIdmain_ = "";
+var customer_id = "";
 var editId_state= false;
 
 
 jQuery(document).ready(function () {
-  get('brand2');
+  // get('brand2');
   $('#add_trac').on('click', function() {
-    get('brand');
+    resetFormFields();
   });
     get_old_harvester();
     ImgUpload();
@@ -200,42 +200,6 @@ jQuery(document).ready(function () {
       $(".upload__img-closeDy"+thisId).remove();
   
     }
-// get brand223
-function get(id) {
-  var apiBaseURL = APIBaseURL;
-  var url = apiBaseURL + 'getBrands';
-  $.ajax({
-    url: url,
-    type: "GET",
-    headers: {
-        'Authorization': 'Bearer ' + localStorage.getItem('token')
-    },
-    success: function (data) {
-        console.log(data);
-        const select = document.getElementById(id);
-        select.innerHTML = '';
-        select.innerHTML = '<option selected disabled value="">Please select an option</option>';
-        if (data.brands.length > 0) {
-            data.brands.forEach(row => {
-  
-                const option = document.createElement('option');
-                option.value = row.id; // You might want to set a value for each option
-                option.textContent = row.brand_name;
-                select.appendChild(option);
-            });
-        } else {
-            select.innerHTML ='<option>No valid data available</option>';
-        }
-    },
-    error: function (error) {
-        console.error('Error fetching data:', error);
-    }
-  });
-  }
-  get();
-
-  
-
 
   function get_year_and_hours() {
     console.log('initsfd')
@@ -310,10 +274,12 @@ function store(event) {
   event.preventDefault();
 
   console.log('jfhfhw');
-  var EditIdmain_ = $('#EditIdmain_').val();
+  var product_type_id = 3;
+  var enquiry_type_id = 3;
+  // var form_type = FOR_SELL_TRACTOR;
+  var customer_id = $('#customer_id').val();
+  // console.log(customer_id);
   var form_type = $('#form_type').val();
-  var enquiry_type_id = $('#enquiry_type_id').val();
-  var product_type_id = $('#product_type_id').val();
   var brand = $('#brand').val();
   var model = $('#model').val();
   var CROPS_TYPE = $('#CROPS_TYPE').val();
@@ -342,13 +308,12 @@ function store(event) {
   _method = 'POST';
 
   console.log('edit state', editId_state);
-  console.log('edit id', EditIdmain_);
-  if (EditIdmain_!='' && EditIdmain_ !="null") {
+  if (customer_id!='' && customer_id !="null") {
 
     // Update mode
-    console.log('abcdefg',EditIdmain_);
+    console.log('abcdefg',customer_id);
     _method = 'PUT';
-    url = apiBaseURL + 'customer_enquiries/' + EditIdmain_;
+    url = apiBaseURL + 'customer_enquiries/' + customer_id;
     console.log(url);
    method= 'POST';
     console.log(url);
@@ -362,16 +327,15 @@ function store(event) {
   for (var x = 0; x < image.length; x++) {
     data.append("images[]", image[x]);
   }
-   data.append('id', EditIdmain_);  
+   data.append('customer_id', customer_id);  
    data.append('_method', _method); 
+  data.append('product_type_id', product_type_id);
   data.append('form_type', form_type);
   data.append('enquiry_type_id', enquiry_type_id);
-  data.append('product_type_id', product_type_id);
   data.append('brand_id', brand);
   data.append('model', model);
   data.append('crops_type_id', CROPS_TYPE);
   data.append('power_source_id', POWER_SOURCE);
-  // console.log("power_osurce", POWER_SOURCE);
   data.append('hours_driven', hours);
   data.append('purchase_year', year);
   data.append('price', price);
@@ -397,10 +361,12 @@ function store(event) {
         // Update mode
         console.log("updated successfully");
         alert('Successfully updated!');
+        window.location.reload();
       } else {
         // Add mode
         console.log("added successfully");
         alert('Successfully added!');
+        window.location.reload();
       }
     },
     error: function (error) {
@@ -430,21 +396,15 @@ function fetch_edit_data(id) {
     headers: headers,
     success: function(response) {
       var userData = response.product[0];
-      // $('#userId').val(userData.id);
-      $('#EditIdmain_').val(userData.id);
-       $('#product_type_id').val(userData.id);
-      // $('#brand').val(userData.brand_name);
+      // $('#EditIdmain_').val(userData.product_id);
+      $('#customer_id').val(userData.customer_id);
       $("#brand option").prop("selected", false);
       $("#mySelect option[value='" + userData.brand_name + "']").prop("selected", true);
       $('#model').val(userData.model);
-      // $('#CROPS_TYPE').val(userData.crops_type_value);
       $("#CROPS_TYPE option").prop("selected", false);
-       $("#mySelect option[value='" + userData.crops_type_value + "']").prop("selected", true);
-      console.log(userData.crops_type_value);
-      // $('#POWER_SOURCE').val(userData.power_source_value);
+      $("#mySelect option[value='" + userData.crops_type_value + "']").prop("selected", true);
       $("#POWER_SOURCE option").prop("selected", false);
       $("#mySelect option[value='" + userData.power_source_value + "']").prop("selected", true);
-      console.log(userData.power_source_value );
       $('#hours').val(userData.hours_driven);
       $('#year').val(userData.purchase_year);
       $('#price').val(userData.price);
@@ -453,7 +413,6 @@ function fetch_edit_data(id) {
       $('#lname').val(userData.last_name);
       $('#Mobile').val(userData.mobile);
       $('#state').val(userData.state);
-      console.log(userData.state);
       $('#district').val(userData.district);
       $('#tehsil').val(userData.tehsil);
 
@@ -471,7 +430,7 @@ function fetch_edit_data(id) {
                   <div class="upload__img-close_button " id="closeId${countclass}" onclick="removeImage(this);"></div>
                       <div class="brand-main d-flex box-shadow mt-1 py-2 text-center shadow upload__img-closeDy${countclass}">
                           <a class="weblink text-decoration-none text-dark" title="Tyre Image">
-                            <img class="img-fluid w-100 h-100" src="${imageUrl}" alt="Tyre Image">
+                            <img class="img-fluid w-100 h-100" id="img_url" src="${imageUrl}" alt="Tyre Image">
                           </a>
                       </div>
                   </div>
@@ -527,10 +486,10 @@ function fetch_edit_data(id) {
 
                 data.product.forEach(row => {
                   let action = `  <div class="d-flex">
-                  <button class="btn btn-warning text-white btn-sm mx-1" onclick="openViewdata(${row.id})" data-bs-toggle="modal" data-bs-target="#view_old_harvester" id="viewbtn">
+                  <button class="btn btn-warning text-white btn-sm mx-1" onclick="openViewdata(${row.customer_id})" data-bs-toggle="modal" data-bs-target="#view_old_harvester" id="viewbtn">
                     <i class="fa fa-eye" style="font-size: 11px;"></i>
                   </button>
-                  <button class="btn btn-primary btn-sm btn_edit" onclick=" fetch_edit_data(${row.id})" data-bs-toggle="modal" data-bs-target="#staticBackdrop" id="your_edit">
+                  <button class="btn btn-primary btn-sm btn_edit" onclick=" fetch_edit_data(${row.customer_id})" data-bs-toggle="modal" data-bs-target="#staticBackdrop" id="your_edit">
                     <i class="fas fa-edit" style="font-size: 11px;"></i>
                   </button>
                   <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.id});">
@@ -556,7 +515,7 @@ function fetch_edit_data(id) {
           $('#example').DataTable({
                   data: tableData,
                   columns: [
-                    { title: 'Date' },
+                    { title: 'Date/Time' },
                     { title: 'Brand' },
                     { title: 'Model Name' },
                     { title: 'Year' },
@@ -757,7 +716,7 @@ function destroy(id) {
        $('#example').DataTable({
                data: tableData,
                columns: [
-                 { title: 'Date' },
+                 { title: 'Date/Time' },
                  { title: 'Brand' },
                  { title: 'Model Name' },
                  { title: 'Year' },
@@ -795,4 +754,87 @@ function destroy(id) {
     $('#district_name').val('');
     get_old_harvester();
   }
+  function get() {
+    var apiBaseURL = APIBaseURL;
+    var url = apiBaseURL + 'getBrands';
+    $.ajax({
+      url: url,
+      type: "GET",
+      headers: {
+          'Authorization': 'Bearer ' + localStorage.getItem('token')
+      },
+      success: function (data) {
+          console.log(data);
+          const select = document.getElementById('brand');
+          select.innerHTML = '';
+          select.innerHTML = '<option selected disabled value="">Please select an option</option>';
+          if (data.brands.length > 0) {
+              data.brands.forEach(row => {
+    
+                  const option = document.createElement('option');
+                  option.value = row.id; // You might want to set a value for each option
+                  option.textContent = row.brand_name;
+                  select.appendChild(option);
+              });
+          } else {
+              select.innerHTML ='<option>No valid data available</option>';
+          }
+      },
+      error: function (error) {
+          console.error('Error fetching data:', error);
+      }
+    });
+    }
+    get();
 
+    function get_edit_brand() {
+      var apiBaseURL = APIBaseURL;
+      var url = apiBaseURL + 'getBrands';
+      $.ajax({
+        url: url,
+        type: "GET",
+        headers: {
+            'Authorization': 'Bearer ' + localStorage.getItem('token')
+        },
+        success: function (data) {
+            console.log(data);
+            const select = document.getElementById('brand2');
+            select.innerHTML = '';
+            select.innerHTML = '<option selected disabled value="">Please select an option</option>';
+            if (data.brands.length > 0) {
+                data.brands.forEach(row => {
+      
+                    const option = document.createElement('option');
+                    option.value = row.id; // You might want to set a value for each option
+                    option.textContent = row.brand_name;
+                    select.appendChild(option);
+                });
+            } else {
+                select.innerHTML ='<option>No valid data available</option>';
+            }
+        },
+        error: function (error) {
+            console.error('Error fetching data:', error);
+        }
+      });
+      }
+      get_edit_brand();
+
+      function resetFormFields() {
+        $('#name').val('');
+        $('#lname').val('');
+        $('#Mobile').val('');
+        $('#state').val('');
+        $('#district').val('');
+        $('#tehsil').val('');
+        $('#brand').val('');
+        $('#model').val('');
+        $('#CROPS_TYPE').val('');
+        $('#POWER_SOURCE').val('');
+        $('#price').val('');
+        $('#image').val('');
+        $('#about').val('');
+        $('#hours').val('');
+        $('#year').val('');
+        $('#selectedImagesContainer').val('');
+      } $('#img_url').val();
