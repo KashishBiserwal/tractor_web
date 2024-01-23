@@ -109,23 +109,64 @@
                 <div class="col-12 col-sm-6 col-lg-6 col-md-6" style="position: relative;">
                     <h1 class="fw-bold text-danger pt-3" id="brand_name"></h1>
                     <div class="gallery">   
-                    <div class="swiper-container gallery-slider">
-        <div class="swiper-wrapper mySwiper2_data">
-           
-        </div>
-        <div class="swiper-button-prev"></div>
-        <div class="swiper-button-next"></div>
-    </div>
+                        <div class="swiper-container gallery-slider">
+                            <div class="swiper-wrapper mySwiper2_data"></div>
+                            <div class="swiper-button-prev"></div>
+                            <div class="swiper-button-next"></div>
+                        </div>
 
-    <div class="swiper-container gallery-thumbs">
-        <div class="swiper-wrapper mySwiper_data">
-          </div>
-    </div>
+                        <div class="swiper-container gallery-thumbs">
+                            <div class="swiper-wrapper mySwiper_data"></div>
+                        </div>
                     </div>
                 
                 </div>
+                <div class="col-12 col-lg-6 col-md-6 col-sm-6 mt-5" style="z-index: 9; background: #fff;">
+                    <table class="table border bg-light  mt-5">
+                        <tbody>
+                            <tr>
+                                <td class="col-12 col-lg-6 col-md-6 col-sm-6">
+                                    <h5> <i class="fa-solid fa-award"></i> Brand</h5>
+                                </td>
+                                <td class="col-12 col-lg-6 col-md-6 col-sm-6">
+                                    <h5><a href="mahindra.php" class="text-decoration-none h5 text-danger " id="brand_name1"></a></h5>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <h6><i class="fa-solid fa-gas-pump"></i> Model</h6>
+                                </td>
+                                <td><p id="tyre"></p></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <h6><i class="fas fa-bolt"></i>Type</h6>
+                                </td>
+                                <td><p> <span id="tyre_type"></span></p> </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <h6><i class="fas fa-bolt"></i>Size</h6>
+                                </td>
+                                <td>
+                                    <p> <span  id="tyre_size"></span></p>
+                                </td>
+                            </tr>
+                           
+                        </tbody>
+                    </table>
+                    <div class="row my-3 text-center">
+                       
+                        <div class="col-12 col-lg-12 col-md-12 col-sm-12">
+                        <button id="adduser" type="button" class="add_btn  btn-success w-100"
+                                                    data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                                                    Send Enquiry</button>
+                        </div>
+                    </div>
+
+                </div>
                
-                <div class="col-12 col-sm-6 col-lg-6 col-md-6" style="background:#fff; z-index:9;">
+               <!--  <div class="col-12 col-sm-6 col-lg-6 col-md-6" style="background:#fff; z-index:9;">
                     <h3 class="text-dark fw-bold" id="model_no"></h3>
                     <div class="row my-3">
                         <div class="col-12 justify-content-center">
@@ -158,9 +199,9 @@
                                         </div>
                                     </div>
                                 </div>
-                                <!-- Button trigger modal -->
+                          
 
-                                <!-- Modal -->
+                               
                                 <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static"
                                     data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel"
                                     aria-hidden="true">
@@ -265,7 +306,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
     </section>

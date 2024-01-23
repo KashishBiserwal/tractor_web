@@ -72,19 +72,26 @@ function getEngineoilById() {
      
             var product = data.engine_oil_details[0];
             var imageNames = product.image_names.split(',');
-            var carouselContainer = $('.swiper-wrapper_buy');
+            var carouselContainer = $('.mySwiper2_data');
+            var carouselContainer2 = $('.mySwiper_data');
 
             carouselContainer.empty();
 
             imageNames.forEach(function(imageName) {
                 var imageUrl = "http://tractor-api.divyaltech.com/uploads/engine_oil_img/" + imageName.trim(); 
                 var slide = $('<div class="swiper-slide swiper-slide_buy"><img class="img_buy" src="' + imageUrl + '" /></div>');
+                var slide2 = $('<div class="swiper-slide swiper-slide_buy"><img class="img_buy" src="' + imageUrl + '" /></div>');
                 carouselContainer.append(slide);
+                carouselContainer2.append(slide2);
             });
 
-            var mySwiper = new Swiper('.swiper_buy', {
-            });
-            console.log(data, 'abc');
+           // Initialize or update the Swiper carousel
+            var mySwiper = new Swiper('.mySwiper2_data', {
+              // Your Swiper configuration options
+          });
+          var mySwiper = new Swiper('.mySwiper_data', {
+              // Your Swiper configuration options
+          });
         },
         error: function (error) {
             console.error('Error fetching data:', error);

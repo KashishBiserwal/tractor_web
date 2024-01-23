@@ -15,6 +15,7 @@ function gettyre() {
         type: "GET",
         success: function(data) {
         console.log(data, 'abc');
+        document.getElementById('brand_name1').innerText=data.tyre_details[0].brand_name;
         document.getElementById('tyre').innerText=data.tyre_details[0].tyre_model;
         document.getElementById('brand_name').innerText=data.tyre_details[0].tyre_model;
         // console.log(data.product[0].brand_name);
