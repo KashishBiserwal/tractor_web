@@ -33,26 +33,24 @@ include 'includes/footertag.php';
       <div class="filter-card mb-2">
         <div class="card-body">
           <div class="row">
-            <div class="col-12 col-sm-12 col-md-3 col-lg-3">
+          <div class="col-12 col-sm-12 col-md-3 col-lg-3">
               <div class="form-outline">
-                <label class="form-label"> Brand Name</label>
-                <select class="form-select py-2" aria-label="Default select example">
-                    <option selected>Select Brand</option>
-                    <option value="1">Mahindra</option>
-                    <option value="2">Swaraj</option>
-                    <option value="3">John Deere</option>
+                <label class="form-label">Brand</label>
+                <select class="form-select form-control" id="brand_name" aria-label="Default select example">
+                   
                 </select>
               </div>
             </div>
             <div class="col-12 col-sm-12 col-md-3 col-lg-3">
               <div class="form-outline ">
                 <label class="form-label">Model</label>
-                    <select class="form-select py-2" aria-label="Default select example">
+                <input type="text" class="form-control" placeholder="" id="model" name="model">
+                    <!-- <select class="form-select py-2" aria-label="Default select example">
                         <option selected>Select Model</option>
                         <option value="1">3032 NX</option>
                         <option value="2">3030 NX</option>
                         <option value="3">3230 NX</option>
-                    </select>
+                    </select> -->
               </div>
             </div>
             <div class="col-12 col-sm-12 col-md-3 col-lg-3">
@@ -89,14 +87,14 @@ include 'includes/footertag.php';
       <!-- Table Card -->
       <div class=" mb-5">
                             <div class="table-responsive bg-white shadow">
-                                <table id="example" class="table table-striped  table-hover table-bordered dataTable no-footer" width="100%; margin-bottom: 15px;">
+                            <table id="example" class="table table-striped  table-hover table-bordered dataTable no-footer" width="100%; margin-bottom: 15px;">
                                     <thead>
                                         <tr>
                                             <th class="d-none d-md-table-cell text-white">S.No.</th>
-                                            <th class="d-none d-md-table-cell text-white">Date</th>
-                                            <!-- <th class="d-none d-md-table-cell text-white">Brand</th> -->
-                                            <!-- <th class="d-none d-md-table-cell text-white">Model</th> -->
-                                            <th class="d-none d-md-table-cell text-white">Name</th>
+                                            <th class="d-none d-md-table-cell text-white">Date/Time</th>
+                                            <th class="d-none d-md-table-cell text-white">Brand</th>
+                                            <th class="d-none d-md-table-cell text-white">Model</th>
+                                            <th class="d-none d-md-table-cell text-white">Full Name</th>
                                             <th class="d-none d-md-table-cell text-white">Phone Number </th>
                                             <th class="d-none d-md-table-cell text-white">State </th>
                                             <th class="d-none d-md-table-cell text-white">District</th>
@@ -111,7 +109,7 @@ include 'includes/footertag.php';
     </div>
    </section>
       <!-- model edit -->
-      <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"       aria-labelledby="staticBackdropLabel" aria-hidden="true">
+      <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
             <div class="modal-dialog modal-lg modal-dialog-centered">
               <div class="modal-content modal_box">
                 <div class="modal-header modal_head">
@@ -133,14 +131,32 @@ include 'includes/footertag.php';
                                           <input type="text" class="form-control py-2" for="idUser"  id="enquiry_type_id" value="19" name="first_name" placeholder="Enter First Name">
                                   <small></small>
                                 </div>
-
-                                 <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
+                                <div class="col-12 col-lg-6 col-md-6 col-sm-6 mt-3" hidden>
+                                  <div class="form-outline ">
+                                    <label for="name" class="form-label text-dark">Product id</label>
+                                    <input type="text" class="form-control" placeholder="Enter Your Model Name" value="192" id="product_type_id" name="product_type_id">
+                                  </div>
+                                </div>
+                                <div class="col-12 col-sm-6 col-lg-6 col-md-6">
+                                  <div class="form-outline">
+                                    <label class="form-label">Brand</label>
+                                    <select class="form-select py-2" id="brand_name_1" name="brand_name" aria-label="Default select example" required>
+                                    </select>
+                                  </div>
+                                </div>
+                                    <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
+                                      <div class="form-outline">
+                                        <label for="name" class="form-label text-dark">Model</label>
+                                        <input type="text" class="form-control" placeholder="" id="model_1" name="model_1">
+                                      </div>
+                                    </div>
+                                 <div class="col-12 col-lg-6 col-md-6 col-sm-6 mt-3 ">
                                       <div class="form-outline">
                                         <label for="name" class="form-label text-dark">First Name</label>
                                         <input type="text" class="form-control" placeholder="" id="first_name1" name="fname">
                                       </div>
                                     </div>
-                                    <div class="ol-12 col-lg-6 col-md-6 col-sm-6">
+                                    <div class="ol-12 col-lg-6 col-md-6 col-sm-6 mt-3">
                                         <div class="form-outline">
                                             <label class="form-label text-dark"> Last Name</label>
                                             <input type="text" class="form-control py-2" for="last_name"  id="last_name1" name="last_name">
@@ -152,6 +168,19 @@ include 'includes/footertag.php';
                                         <input type="text" class="form-control" placeholder="" id="mobile" name="mobile">
                                       </div>
                                     </div>
+                                    <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
+                                      <div class="form-outline mt-3">
+                                        <label for="name" class="form-label text-dark">Email</label>
+                                        <input type="text" class="form-control" placeholder="" id="email" name="email">
+                                      </div>
+                                    </div>
+                                    <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
+                                      <div class="form-outline mt-3">
+                                        <label for="name" class="form-label text-dark">Date</label>
+                                        <input type="text" class="form-control" placeholder="" id="date" name="date" readonly="readonly">
+                                      </div>
+                                    </div>
+                                  
                                     <div class="col-12 col-sm-6 col-md-6 col-lg-6">
                                           <div class="form-outline mt-3">
                                              <label class="form-label text-dark">State</label>
@@ -212,6 +241,12 @@ include 'includes/footertag.php';
                        <div class="col-12">
                         <table class="table table-striped">
                         <tbody>
+                        <tr>
+                            <td>Brand Name-</td>
+                            <td id="b_name"></td>
+                            <td>Model Name-</td>
+                            <td id="m_name"></td>
+                          </tr>
                          <tr>
                             <td>First Name-</td>
                             <td id="f_name"></td>
@@ -221,13 +256,17 @@ include 'includes/footertag.php';
                           <tr>
                             <td>Mobile Number-</td>
                             <td id="mo_number"></td>
-                            <td>State-</td>
-                            <td id="state_1"></td>
+                            <td>Date-</td>
+                            <td id="date_1"></td>
                           </tr>
                           <tr>
+                          <td>State-</td>
+                            <td id="state_1"></td>
                             <td>District-</td>
                             <td id="dist_1"></td>
-                            <td>Tehsil-</td>
+                          </tr>
+                          <tr>
+                          <td>Tehsil-</td>
                             <td id="tehsil_1"></td>
                           </tr>
                         </tbody>

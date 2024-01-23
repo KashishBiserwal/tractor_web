@@ -231,14 +231,8 @@
           <a class="nav-link dropdown-toggle fw-bold" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             News & Update
           </a>
-          <ul class="dropdown-menu ">
-            <li id="allNews"><a class="dropdown-item fw-bold" href="all_news.php">All News</a></li>
-            <hr class="dropdown-divider">
-            <li id="tractorNews"><a class="dropdown-item fw-bold" href="tractor_news.php" >Tractor News</a></li>
-            <hr class="dropdown-divider">
-            <li id="agricultureNews"><a class="dropdown-item fw-bold" href="agri_news.php">Agriculture News</a></li>
-            <hr class="dropdown-divider">
-            <li id="sarkariNews"><a class="dropdown-item fw-bold" href="sarkari_news.php">Sarkari Yojana news</a></li>
+          <ul class="dropdown-menu " id="news_category">
+           
           </ul>
         </li>
   
@@ -287,3 +281,53 @@
 </div>
 
 
+<script>
+  $(document).ready(function(){
+    news_category();
+  });
+
+  function news_category(id) {
+    console.log(id, "id");
+    console.log(window.location);
+    var urlParams = new URLSearchParams(window.location.search);
+  
+    // var productId = id;
+    // var apiBaseURL = APIBaseURL;
+     url =  'http://tractor-api.divyaltech.com/api/customer/get_news_category'
+  
+    var headers = { 
+        'Authorization': 'Bearer ' + localStorage.getItem('token')
+    };
+  
+    $.ajax({
+        url: url,
+        type: "GET",
+        headers: headers,
+        success: function (data) {
+         
+          $("#selectedImagesContainer1").empty();
+        
+        
+              
+                  
+      
+                  var newCard = `
+                  <li id="allNews"><a class="dropdown-item fw-bold" href="all_news.php">All News</a></li>
+                    <hr class="dropdown-divider">
+                    <li id="tractorNews"><a class="dropdown-item fw-bold" href="tractor_news.php" >Tractor News</a></li>
+                    <hr class="dropdown-divider">
+                    <li id="agricultureNews"><a class="dropdown-item fw-bold" href="agri_news.php">Agriculture News</a></li>
+                    <hr class="dropdown-divider">
+                    <li id="sarkariNews"><a class="dropdown-item fw-bold" href="sarkari_news.php">Sarkari Yojana news</a></li>
+                  `;
+                  $("#selectedImagesContainer1").append(newCard);
+                  
+            
+       
+      },
+        error: function (error) {
+            console.error('Error fetching data:', error);
+        }
+    });
+  } 
+  </script>

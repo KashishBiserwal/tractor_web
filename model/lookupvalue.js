@@ -222,16 +222,16 @@ function myFunction() {
   }
 }
 function resetForm() {
-        document.getElementById("myform").reset();
+  document.getElementById("myform").reset();
 
-        // Show all rows in the table
-        var table = document.getElementById("example");
-        var rows = table.getElementsByTagName("tr");
+  // Show all rows in the table
+  var table = document.getElementById("example");
+  var rows = table.getElementsByTagName("tr");
 
-        for (var i = 0; i < rows.length; i++) {
-            rows[i].style.display = "";
-        }
-    }
+  for (var i = 0; i < rows.length; i++) {
+      rows[i].style.display = "";
+  }
+}
 
     // edit and update 
     function fetch_edit_data(id) {

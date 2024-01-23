@@ -292,18 +292,17 @@ function get_news() {
                     let action = `
                         <div class="d-flex">
                           <button class="btn btn-warning btn-sm text-white mx-1" data-bs-toggle="modal" onclick="fetch_data(${row.id});" data-bs-target="#exampleModal">
-                                       <i class="fa-solid fa-eye" style="font-size: 11px;"></i></button>
-                                       <button class="btn btn-primary btn-sm btn_edit" onclick="fetch_edit_data(${row.id});" data-bs-toggle="modal" data-bs-target="#staticBackdrop" id="yourUniqueIdHere">
-                                                              <i class="fas fa-edit" style="font-size: 11px;"></i>
-                                                           </button>
-                                                           <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.id});">
-                                                                             <i class="fa fa-trash" style="font-size: 11px;"></i>
-                                                              </button>
+                            <i class="fa-solid fa-eye" style="font-size: 11px;"></i></button>
+                          <button class="btn btn-primary btn-sm btn_edit" onclick="fetch_edit_data(${row.id});" data-bs-toggle="modal" data-bs-target="#staticBackdrop" id="yourUniqueIdHere">
+                            <i class="fas fa-edit" style="font-size: 11px;"></i>
+                          </button>
+                          <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.id});">
+                            <i class="fa fa-trash" style="font-size: 11px;"></i>
+                          </button>
                         </div>`;
 
                     tableData.push([
                         counter,
-                        // formatDateTime(row.date),
                         row.date,
                         row.blog_category,
                         row.heading,
@@ -470,8 +469,7 @@ function destroy(id) {
                                     <img class="img-fluid w-100 h-100" src="${imageUrl}" alt="Image">
                                 </a>
                             </div>
-                        </div>
-                    `;
+                        </div>`;
                     // Append the new image element to the container
                     $("#selectedImagesContainer2").append(newCard);
                 });
@@ -481,4 +479,105 @@ function destroy(id) {
             console.error('Error fetching user data:', error);
         }
     });
+  }
+
+   // search data 
+   function searchdata(){
+    var category_name = $('#category_name').val();
+    var search_headline = $('#search_headline').val();
+   
+    var apiBaseURL = APIBaseURL;
+    var url = apiBaseURL + 'search_for_old_harvester';
+    var token = localStorage.getItem('token');
+  
+    var headers = {
+        'Authorization': 'Bearer ' + token
+    };
+  
+    var data = new FormData();
+    if(brand_name == null){
+      data.append('category_name', '');
+    }else{
+      data.append('search_headline', search_headline);
+    }
+    
+   
+    data.append('category_name', category_name);
+    data.append('search_headline', search_headline);
+  
+    $.ajax({
+      url: url,
+      type: "POST",
+      data: data,
+      headers: headers,
+      processData: false,
+      contentType: false,
+      success: function (data) {
+        console.log('Success:', data.oldTractor);
+        const tableBody = document.getElementById('data-table');
+       
+        let tableData = [];
+  
+        if (data.oldTractor && data.oldTractor.length > 0) {
+            data.oldTractor.forEach(row => {
+               // const tableRow = document.createElement('tr');
+               let action = `
+               <div class="d-flex">
+                 <button class="btn btn-warning btn-sm text-white mx-1" data-bs-toggle="modal" onclick="fetch_data(${row.id});" data-bs-target="#exampleModal">
+                   <i class="fa-solid fa-eye" style="font-size: 11px;"></i></button>
+                 <button class="btn btn-primary btn-sm btn_edit" onclick="fetch_edit_data(${row.id});" data-bs-toggle="modal" data-bs-target="#staticBackdrop" id="yourUniqueIdHere">
+                   <i class="fas fa-edit" style="font-size: 11px;"></i>
+                 </button>
+                 <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.id});">
+                   <i class="fa fa-trash" style="font-size: 11px;"></i>
+                 </button>
+               </div>`;
+
+               // Push row data as an array into the tableData
+               tableData.push([
+                counter,
+                row.date,
+                row.blog_category,
+                row.heading,
+                action
+             ]);
+
+         });
+         // Initialize DataTable after preparing the tableData
+       $('#example').DataTable().destroy();
+       $('#example').DataTable({
+               data: tableData,
+               columns: [
+                { title: 'S.No.' },
+                { title: 'Date' },
+                { title: 'Blog Category' },
+                { title: 'Blog Headline' },
+                { title: 'Action', orderable: false } // Disable ordering for Action column
+             ],
+               paging: true,
+               searching: false,
+               // ... other options ...
+           });
+      
+       
+              
+         } else {
+             tableBody.innerHTML = '<tr><td colspan="9">No valid data available</td></tr>';
+         }
+    },
+    error: function (error) {
+      const tableBody = document.getElementById('data-table');
+      if(error.status == 400){
+        tableBody.innerHTML = '<tr><td colspan="9">No valid data available</td></tr>';
+      }
+        console.error('Error fetching data:', error);
+    
+    }
+  });
+  }
+  
+  function resetform(){
+    $('#category_name').val('');
+    $('#search_headline').val('');
+    get_old_harvester();
   }

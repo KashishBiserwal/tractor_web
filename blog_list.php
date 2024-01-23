@@ -79,7 +79,7 @@
                                         </div>
                                     </div>
                                     <div class="col-12  col-lg-4 col-md-4 col-sm-4">
-                                        <div class="upload__box">
+                                        <div class="upload__box m-5">
                                           <div class="upload__btn-box">
                                             <label >
                                               <p class="upload__btn ">Upload images</p>
@@ -122,7 +122,7 @@
             <div class="col-12 col-sm-12 col-md-4 col-lg-4">
               <div class="form-outline">
                 <label class="form-label">Headline</label>
-                <input type="text" id="search_email" name="search_email" class="form-control" />
+                <input type="text" id="search_headline" name="search_email" class="form-control" />
               </div>
             </div>
             <div class="col-12 col-sm-12 col-md-4 col-lg-4">
