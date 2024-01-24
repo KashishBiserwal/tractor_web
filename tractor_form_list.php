@@ -9,7 +9,6 @@ include 'includes/footertag.php';
   <script> var APIBaseURL = "<?php echo $APIBaseURL; ?>";</script>
 <script> var baseUrl = "<?php echo $baseUrl; ?>";</script>
 <script src="<?php $baseUrl; ?>model/tractor_listing.js"></script>
-<!-- <script src="<?php $baseUrl; ?>model/newtractor_listing_get.js"></script> -->
 
 
 
@@ -253,7 +252,7 @@ include 'includes/footertag.php';
                                                             <label for="name" class="text-dark fw-bold">Select Tractor Type</label>
                                                             <div id="type_name" name="type_name"></div>
                                                         </div>
-                                                        <div class="col-12 col-sm-6 col-lg-6 col-md-6 mt-5">
+                                                        <div class="col-12 mt-5">
                                                             <div class="upload__box text-center">
                                                                 <div class="upload__btn-box text-center">
                                                                     <label >
@@ -261,17 +260,21 @@ include 'includes/footertag.php';
                                                                         <input type="file" multiple="" data-max_length="20" class="upload__inputfile" id="image_name" name="_image"required>
                                                                     </label>
                                                                 </div>
-                                                                
-                                                                
+                                                                <div class="col-12">
+                                                                     <div id="selectedImagesContainer2" class="upload__img-wrap float-start"></div>
+                                                                </div>
+                                                               
                                                             </div>
+                                                            
                                                             <p class="text-danger">Note*- Image Must be JPEG, PNG & JPG format</p>
+                                                           
                                                         </div>
-                                                        <div class="col-12">
+                                                        <!-- <div class="col-12">
                                                             <div class="upload__box text-center mt-3  w-100">
                                                             <div id="selectedImagesContainer2" class="upload__img-wrap"></div>
                                                             </div>
                                                     
-                                                        </div>
+                                                        </div> -->
                                                         <div class="col-12 mt-3">
                                                         <button type="button" class="nextStep text-center btn btn-success btn_all float-end" id="nextbtn1">Next</button>
                                                         </div>
@@ -701,7 +704,7 @@ $button.addEventListener('click', (e) => {
 <script>
      $(document).ready(function () {
         $('.js-example-basic-multiple').select2();
-        ImgUpload();
+       
      });
 </script>
 
@@ -1125,15 +1128,29 @@ $button.addEventListener('click', (e) => {
         }
     });
     $('#submitbtn').on('click', function(event) {
-        event.preventDefault();
-        if ($('#step5_form').valid()) {
-            $('#step5_form').submit(); 
-            if( $('#step5_form').valid()){
-                $(".step5list").removeClass('step15');
-                $(".step5list").addClass('step25');
+    event.preventDefault();
+    if ($('#step5_form').valid()) {
+        // Perform any actions needed for the last step
+        $(".step5list").removeClass('step15');
+        $(".step5list").addClass('step25');
+        $.ajax({
+            type: 'POST',
+            url: $('#step5_form').attr('action'),
+            data: $('#step5_form').serialize(),
+            success: function(response) {
+                // Handle success response if needed
+                console.log(response);
+            },
+            error: function(error) {
+                // Handle error if needed
+                console.error(error);
             }
-        }
-    });
+        });
+
+        // Optionally, you can hide the form or perform any other actions
+        // $('#step5_form').hide();
+    }
+});
 </script>
 <script>
       jQuery(document).ready(function () {

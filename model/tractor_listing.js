@@ -6,62 +6,7 @@ $(document).ready(function () {
   // $('.js-example-basic-multiple').select2();
   ImgUpload();
  
-  function ImgUpload() {
-    var imgWrap = "";
-    var imgArray = [];
-
-    $('.upload__inputfile').each(function () {
-      $(this).on('change', function (e) {
-        imgWrap = $(this).closest('.upload__box').find('.upload__img-wrap');
-        var maxLength = $(this).attr('data-max_length');
-
-        var files = e.target.files;
-        var filesArr = Array.prototype.slice.call(files);
-        var iterator = 0;
-        filesArr.forEach(function (f, index) {
-
-          if (!f.type.match('image.*')) {
-            return;
-          }
-
-          if (imgArray.length > maxLength) {
-            return false
-          } else {
-            var len = 0;
-            for (var i = 0; i < imgArray.length; i++) {
-              if (imgArray[i] !== undefined) {
-                len++;
-              }
-            }
-            if (len > maxLength) {
-              return false;
-            } else {
-              imgArray.push(f);
-
-              var reader = new FileReader();
-              reader.onload = function (e) {
-                var html = "<div class='upload__img-box'><div style='background-image: url(" + e.target.result + ")' data-number='" + $(".upload__img-close").length + "' data-file='" + f.name + "' class='img-bg'><div class='upload__img-close'></div></div></div>";
-                imgWrap.append(html);
-                iterator++;
-              }
-              reader.readAsDataURL(f);
-            }
-          }
-        });
-      });
-    });
-
-    $('body').on('click', ".upload__img-close", function (e) {
-      var file = $(this).parent().data("file");
-      for (var i = 0; i < imgArray.length; i++) {
-        if (imgArray[i].name === file) {
-          imgArray.splice(i, 1);
-          break;
-        }
-      }
-      $(this).parent().parent().remove();
-    });
-  }
+ 
     $('#submitbtn').click(store);
     console.log('fjfej');
   
@@ -290,8 +235,7 @@ function store(event) {
     _method = 'POST';
     var url, method;
     console.log('edit state', editId_stateedit);
-    //console.log('edit id', EditIdmain_);
-    var _method = 'post'; // Default value for _method
+    var _method = 'post'; 
 
     if (editId_stateedit !== '' && editId_stateedit !== null) {
       // Update mode
@@ -363,7 +307,7 @@ function store(event) {
         console.log(result, "result");
         // getTractorList();
         console.log("Add successfully");
-        // window.location.href="tractor_listing.php";
+        window.location.href="tractor_listing.php";
          if(result.length){
         //   get_tractor_list();
         }
@@ -399,6 +343,7 @@ function store(event) {
       success: function(response) {
         var editData = response.product.allProductData[0];
         var tractorTypeNames = response.product.accessory_and_tractor_type.map(item => item.tractor_type_id);
+        
         var selectedAccessories = response.product.accessory_and_tractor_type[0];
         console.log("all data tractor_type_name", tractorTypeNames);
 
@@ -421,13 +366,15 @@ function store(event) {
         $('#type_name').val(editData.tractor_type_id).attr('select', true);
         console.log(editData.tractor_type_id,"tractors value");
         $('#_image').val(editData.image_type_id);
-
-      tractorTypeNames.forEach(function (typeId) {
-        console.log('typeId',typeId);
-        $("#type_name").prop("checked", false);
-        $('#type_name input[value="' + typeId + '"]').prop('checked', true);
-         
-    });
+        $('#type_name input[type="checkbox"]').prop("checked", false);
+        tractorTypeNames.forEach(function (typeId) {
+          console.log('typeId', typeId);
+           
+          $('#type_name input[value="' +typeId+ '"]').prop('checked', true);
+        });
+        $('#type_name input[type="checkbox"]').on('change', function() {
+          // Handle change event if needed
+        });
         $('#CAPACITY_CC').val(editData.engine_capacity_cc);
 
         $('#engine_rated_rpm').val(editData.engine_rated_rpm);

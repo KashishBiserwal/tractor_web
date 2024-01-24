@@ -252,7 +252,7 @@ include 'includes/footertag.php';
                                  
                                 </div>
                               </div>
-                              <div class="">
+                              <!-- <div class="">
                              
                                 <div class="upload__box mt-2">
                                             <div class="upload__btn-box text-center col-12 col-sm-4 col-lg-4 col-md-4 ps-3">
@@ -263,7 +263,7 @@ include 'includes/footertag.php';
                                             </div>
                                             <div id="selectedImagesContainer" class="upload__img-wrap col-12 col-sm-12 col-lg-12 col-md-12"></div>
                                           </div>
-                              </div>
+                              </div> -->
                               <h5 class="fw-bold"> Engine Details</h5>
                               <div  class="col-12 col-sm-4 col-lg-4 col-md-4">
                                 <div class="form-outline">
@@ -640,4 +640,3 @@ include 'includes/footertag.php';
 //    document.getElementById("myForm").reset();  
 //  }   
 </script>
-<!-- <script src="<?php $baseUrl; ?>model/newtractor_listing_get.js"></script> -->
