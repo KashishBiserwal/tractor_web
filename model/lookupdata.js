@@ -1,7 +1,5 @@
 $(document).ready(function() {
-
   
-
   $('#dataeditbtn').click(edit_user);
 
   $("#lookup_data_form").validate({
@@ -352,7 +350,50 @@ function get() {
     });
   }
 
+  function myFunction() {
+    var input, filter, table, tr, td, i, j, txtValue;
+    input = document.getElementById("name");
+    filter = input.value.toUpperCase();
+    table = document.getElementById("example");
+    tr = table.getElementsByTagName("tr");
+  
+    for (i = 0; i < tr.length; i++) {
+        // Loop through all td elements in the current row
+        td = tr[i].getElementsByTagName("td");
+        let rowMatches = false;
 
+        for (j = 0; j < td.length; j++) {
+            txtValue = td[j].textContent || td[j].innerText;
+
+            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                rowMatches = true;
+                break; // Break the inner loop if a match is found in any td
+            }
+        }
+
+        // Check if any td in the current row matched the filter
+        if (rowMatches) {
+            tr[i].style.display = "";
+        } else {
+            tr[i].style.display = "none";
+        }
+    }
+}
+
+  function resetForm() {
+          document.getElementById("myform").reset();
+  
+          // Show all rows in the table
+          var table = document.getElementById("example");
+          var rows = table.getElementsByTagName("tr");
+  
+          for (var i = 0; i < rows.length; i++) {
+              rows[i].style.display = "";
+          }
+      }
+
+
+  
 
 
       // edit and update 
@@ -430,55 +471,3 @@ function get() {
         }
     });
   }
-
-  // function myFunction() {
-  //   var input, filter, table, tr, td, i, j, txtValue;
-  //   input = document.getElementById("name");
-  //   filter = input.value.toUpperCase();
-  //   table = document.getElementById("example");
-  //   tr = table.getElementsByTagName("tr");
-  
-  //   for (i = 0; i < tr.length; i++) {
-  //     // Loop through all td elements in the current row
-  //     td = tr[i].getElementsByTagName("td");
-  //     for (j = 0; j < td.length; j++) {
-  //       txtValue = td[j].textContent || td[j].innerText;
-  //       if (txtValue.toUpperCase().indexOf(filter) > -1) {
-  //         tr[i].style.display = "";
-  //         break; // Break the inner loop if a match is found in any td
-  //       } else {
-  //         tr[i].style.display = "none";
-  //       }
-  //     }
-  //   }
-  // }
-
-  function myFunction() {
-    var input, filter, table, tr, td, i, txtValue;
-    input = document.getElementById("name");
-    filter = input.value.toUpperCase();
-    table = $('#example').DataTable();
-
-    // Save the current page
-    var currentPage = table.page();
-
-    // Search through all pages
-    table.search(filter).draw();
-
-    // Display all rows on the current page
-    table.page(currentPage).draw('page');
-}
-
-
-  function resetForm() {
-          document.getElementById("myform").reset();
-  
-          // Show all rows in the table
-          var table = document.getElementById("example");
-          var rows = table.getElementsByTagName("tr");
-  
-          for (var i = 0; i < rows.length; i++) {
-              rows[i].style.display = "";
-          }
-      }
-

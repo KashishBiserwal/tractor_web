@@ -7,9 +7,6 @@ include 'includes/headertag.php';
 <script> var APIBaseURL = "<?php echo $APIBaseURL; ?>";</script>
 <script> var baseUrl = "<?php echo $baseUrl; ?>";</script>
     <script src="<?php $baseUrl; ?>model/lookupdata.js"></script>
-
-
-
 <body class="loaded"> 
 <div class="main-wrapper">
     <div class="app" id="app">
@@ -85,41 +82,40 @@ include 'includes/headertag.php';
     <div class="">
       <!-- Filter Card -->
       <div class="filter-card">
-    <div class="card-body">
-        <form action="" id="myform" class="mb-0">
-            <div class="row">
-                <div class="col-12 col-sm-12 col-md-4 col-lg-4">
-                    <div class="form-outline">
-                        <label class="form-label">Search by Any Field</label>
-                        <input type="text" id="name" oninput="myFunction()" name="name" class="mb-0 data_search form-control input-group-sm" />
+        <div class="card-body">
+            <form action="" id="myform" class="mb-0">
+                <div class="row">
+                    <div class="col-12 col-sm-12 col-md-4 col-lg-4">
+                        <div class="form-outline">
+                            <label class="form-label">Search by Any Field</label>
+                            <input type="text" id="name" onkeyup="myFunction()"  name="name_1" class="mb-0 data_search form-control input-group-sm" />
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-12 col-md-8 col-lg-8">
+                        <input type="reset" onclick="resetForm()" class="bg-success text-white btn  mb-0 btn_all" value="Reset">
                     </div>
                 </div>
-                <div class="col-12 col-sm-12 col-md-8 col-lg-8">
-                    <input type="reset" onclick="resetForm()" class="bg-success text-white btn mb-0 btn_all" value="Reset">
-                </div>
-            </div>
-        </form>
+            </form>
+        </div>
+      </div>
+      <!-- Table Card -->
+      <div class=" mb-5  shadow bg-white mt-3 p-3">
+      <div class="table-responsive">
+            <table id="example" class="table table-striped  table-hover table-bordered  no-footer" width="100%;">
+                 <thead>
+                                        <tr>
+                                            <th class="d-none d-md-table-cell text-white">ID</th>
+                                            <th class="d-none d-md-table-cell text-white">Lookup Type </th>
+                                            <th class="d-none d-md-table-cell text-white">Lookup Data </th>
+                                            <th class="d-none d-md-table-cell text-white">Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="data-table">
+                                    </tbody>
+                                </table>
+                            </div>
+      </div>
     </div>
-</div>
-
-<!-- Table Card -->
-<div class="mb-5 shadow bg-white mt-3 p-3">
-    <div class="table-responsive">
-        <table id="example" class="table table-striped table-hover table-bordered no-footer" width="100%;">
-            <thead>
-                <tr>
-                    <th class="d-none d-md-table-cell text-white">ID</th>
-                    <th class="d-none d-md-table-cell text-white">Lookup Type</th>
-                    <th class="d-none d-md-table-cell text-white">Lookup Data</th>
-                    <th class="d-none d-md-table-cell text-white">Action</th>
-                </tr>
-            </thead>
-            <tbody id="data-table">
-                <!-- Populate this section with your data -->
-            </tbody>
-        </table>
-    </div>
-</div>
    </section>
       
 
