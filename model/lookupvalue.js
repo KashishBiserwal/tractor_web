@@ -200,37 +200,81 @@ $.ajax({
 });
 }
 
+// function myFunction() {
+//   var input, filter, table, tr, td, i, j, txtValue;
+//   input = document.getElementById("namesearch");
+//   filter = input.value.toUpperCase();
+//   table = document.getElementById("example");
+//   tr = table.getElementsByTagName("tr");
+
+//   for (i = 0; i < tr.length; i++) {
+//     // Loop through all td elements in the current row
+//     td = tr[i].getElementsByTagName("td");
+//     for (j = 0; j < td.length; j++) {
+//       txtValue = td[j].textContent || td[j].innerText;
+//       if (txtValue.toUpperCase().indexOf(filter) > -1) {
+//         tr[i].style.display = "";
+//         break; // Break the inner loop if a match is found in any td
+//       } else {
+//         tr[i].style.display = "none";
+//       }
+//     }
+//   }
+// }
+
+// function myFunction() {
+//   var input, filter, table, tr, td, i, j, txtValue;
+//   input = document.getElementById("namesearch");
+//   filter = input.value.toUpperCase();
+//   table = document.getElementById("example");
+//   tr = table.getElementsByTagName("tr");
+
+//   for (i = 0; i < tr.length; i++) {
+//     var found = false;
+//     // Loop through all td elements in the current row
+//     td = tr[i].getElementsByTagName("td");
+//     for (j = 0; j < td.length; j++) {
+//       txtValue = td[j].textContent || td[j].innerText;
+//       if (txtValue.toUpperCase().indexOf(filter) > -1) {
+//         found = true;
+//         break; // Break the inner loop if a match is found in any td
+//       }
+//     }
+//     // Show or hide the row based on the search result
+//     if (found) {
+//       tr[i].style.display = "";
+//     } else {
+//       tr[i].style.display = "none";
+//     }
+//   }
+// }
+// function resetForm() {
+//   document.getElementById("myform").reset();
+
+//   // Show all rows in the table
+//   var table = document.getElementById("example");
+//   var rows = table.getElementsByTagName("tr");
+
+//   for (var i = 0; i < rows.length; i++) {
+//       rows[i].style.display = "";
+//   }
+// }
 function myFunction() {
   var input, filter, table, tr, td, i, j, txtValue;
   input = document.getElementById("namesearch");
   filter = input.value.toUpperCase();
-  table = document.getElementById("example");
-  tr = table.getElementsByTagName("tr");
+  table = $('#example').DataTable(); // Initialize DataTable
 
-  for (i = 0; i < tr.length; i++) {
-    // Loop through all td elements in the current row
-    td = tr[i].getElementsByTagName("td");
-    for (j = 0; j < td.length; j++) {
-      txtValue = td[j].textContent || td[j].innerText;
-      if (txtValue.toUpperCase().indexOf(filter) > -1) {
-        tr[i].style.display = "";
-        break; // Break the inner loop if a match is found in any td
-      } else {
-        tr[i].style.display = "none";
-      }
-    }
-  }
+  // Use DataTables search method to filter rows
+  table.search(filter).draw();
 }
+
 function resetForm() {
   document.getElementById("myform").reset();
 
-  // Show all rows in the table
-  var table = document.getElementById("example");
-  var rows = table.getElementsByTagName("tr");
-
-  for (var i = 0; i < rows.length; i++) {
-      rows[i].style.display = "";
-  }
+  // Clear search and redraw the table to show all rows
+  var table = $('#example').DataTable();
+  table.search('').draw();
 }
 
     // edit and update 

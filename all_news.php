@@ -112,7 +112,6 @@
 
  <?php
     include 'includes/footer.php';
-    include 'includes/footertag.php';
 
     ?> 
 </html>

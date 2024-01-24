@@ -122,7 +122,7 @@
             <div class="col-12 col-sm-12 col-md-4 col-lg-4">
               <div class="form-outline">
                 <label class="form-label">Headline</label>
-                <input type="text" id="search_headline" name="search_email" class="form-control" />
+                <input type="text"  name="search_email" class="form-control" id="search_headline"/>
               </div>
             </div>
             <div class="col-12 col-sm-12 col-md-4 col-lg-4">

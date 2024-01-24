@@ -52,13 +52,13 @@ include 'includes/footertag.php';
           <div class="filter-card mb-2">
             <div class="card-body">
               <div class="row" id="myForm">
-                  <!-- <div class="col-12 col-sm-12 col-md-4 col-lg-4"hidden>
+                  <div class="col-12 col-sm-12 col-md-4 col-lg-4"hidden>
                   <div class="form-outline">
                     <label class="form-label">Search By id</label>
                       <select class="js-select2 form-select form-control mb-0" id="brand_id">
                       </select>
                   </div>
-                </div> -->
+                </div>
                 <div class="col-12 col-sm-12 col-md-3 col-lg-3">
                     <label class="text-dark fw-bold mb-2">Search By Brand</label>
                     <select class="form-select" id="brand">
@@ -74,7 +74,7 @@ include 'includes/footertag.php';
                 </div>
                 <div class="col-12 col-sm-12 col-md-3 col-lg-3 text-center">
                   <div class="mt-4 pt-1">
-                    <button type="button" class="btn-success btn px-4 py-2"  id="Search">Search</button>
+                    <button type="button" class="btn-success btn px-4 py-2"  id="Search" onclick="search_data()">Search</button>
                     <button type="button" class="btn-success btn btn_all" id="Reset" onclick="resetform()">Reset</button>
                   </div>
                 </div>

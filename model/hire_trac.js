@@ -1,5 +1,17 @@
 
 $(document).ready(function(){
+
+  $('#Search').click(search_data);
+  $("#Reset").click(function () {
+
+    $("#brand_name").val("");
+    $("#model_sct").val("");
+    $("#state_sct").val("");
+    $("#district_sct").val("");
+    get_hire_tract();
+
+  });
+
   $('#dataeditbtn').click(edit_user);
   
   jQuery.validator.addMethod("customPhoneNumber", function(value, element) {
@@ -403,4 +415,99 @@ function edit_user() {
   }
 
 
- 
+ // Data Searching
+function search_data() {
+
+  var selectedBrand = $('#brand_name').val();
+  var model = $('#model_sct').val();
+  var state = $('#state_sct').val();
+  var district = $('#district_sct').val();
+
+  var paraArr = {
+    'brand_id': selectedBrand,
+    'model':model,
+    'state':state,
+    'district':district,
+  };
+
+  var apiBaseURL = APIBaseURL;
+  var url = apiBaseURL + 'search_for_hire_enquiry';
+  $.ajax({
+      url:url, 
+      type: 'POST',
+      data: paraArr,
+    
+      headers: {
+          'Authorization': 'Bearer ' + localStorage.getItem('token')
+      },
+      success: function (searchData) {
+        console.log(searchData,"hello brand");
+        updateTable(searchData);
+      },
+      error: function (error) {
+          console.error('Error searching for brands:', error);
+      }
+  });
+};
+function updateTable(data) {
+  const tableBody = document.getElementById('data-table');
+  tableBody.innerHTML = '';
+  let serialNumber = 1; 
+
+  if(data.hire_details && data.hire_details.length > 0) {
+      let tableData = []; 
+      data.hire_details.forEach(row => {
+        const fullName = row.first_name + ' ' + row.last_name;
+          let action = `<div class="d-flex">
+          <button class="btn btn-warning text-white btn-sm mx-1" onclick="openViewdata(${row.id})" data-bs-toggle="modal" data-bs-target="#hire_trac_model" id="viewbtn">
+          <i class="fa fa-eye" style="font-size: 11px;"></i>
+      </button>
+              <button class="btn btn-primary btn-sm btn_edit" onclick="fetch_edit_data(${row.id});" data-bs-toggle="modal" data-bs-target="#staticBackdrop" id="yourUniqueIdHere">
+                  <i class="fas fa-edit" style="font-size: 11px;"></i>
+              </button>
+              <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.id})">
+                        <i class="fa fa-trash" style="font-size: 11px;"></i>
+                    </button>
+             
+          </div>
+      </td>
+  `;
+console.log(row.customer_id);
+          tableData.push([
+            serialNumber,
+            row.date,
+            row.brand_name,
+            row.model,
+            fullName,
+            row.mobile,
+            row.state,
+            row.district,
+            action
+        ]);
+
+        serialNumber++;
+    });
+
+    $('#example').DataTable().destroy();
+    $('#example').DataTable({
+        data: tableData,
+        columns: [
+          { title: 'S.No.' },
+          { title: 'Date/Time' },
+          { title: 'Brand' },
+          { title: 'Model' },
+          { title: 'fullName' },
+          { title: 'mobile' },
+          { title: 'state' },
+          { title: 'district' },
+          { title: 'Action', orderable: false }
+        ],
+        paging: true,
+        searching: false,
+        // ... other options ...
+    });
+  } else {
+    // Display a message if there's no valid data
+    tableBody.innerHTML = '<tr><td colspan="4">No valid data available</td></tr>';
+}
+}

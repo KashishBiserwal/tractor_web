@@ -9,7 +9,16 @@ $(document).ready(function(){
     // $('#add_trac').on('click', function() {
     //   get('brand');
     // });
-    
+    $('#Search').click(search_data);
+    $("#Reset").click(function () {
+  
+      $("#brand2").val("");
+      $("#model2").val("");
+      $("#state2").val("");
+      $("#district2").val("");
+      old_farm_implement();
+
+    });
           jQuery.validator.addMethod("customPhoneNumber", function(value, element) {
           return /^[6-9]\d{9}$/.test(value); 
           }, "Phone number must start with 6 or above");
@@ -128,6 +137,7 @@ $(document).ready(function(){
       
   
     });
+
 
     function ImgUpload() {
       var imgWrap = "";
@@ -691,4 +701,101 @@ function destroy(id) {
       alert("Error during delete operation");
     }
   });
+}
+
+
+// Data Searching
+function search_data() {
+
+  var selectedBrand = $('#brand2').val();
+  var model = $('#model2').val();
+  var state = $('#state2').val();
+  var district = $('#district2').val();
+
+  var paraArr = {
+    'brand_id': selectedBrand,
+    'model':model,
+    'state':state,
+    'district':district,
+  };
+
+  var apiBaseURL = APIBaseURL;
+  var url = apiBaseURL + 'search_for_old_implements';
+  $.ajax({
+      url:url, 
+      type: 'POST',
+      data: paraArr,
+    
+      headers: {
+          'Authorization': 'Bearer ' + localStorage.getItem('token')
+      },
+      success: function (searchData) {
+        console.log(searchData,"hello brand");
+        updateTable(searchData);
+      },
+      error: function (error) {
+          console.error('Error searching for brands:', error);
+      }
+  });
+};
+function updateTable(data) {
+  const tableBody = document.getElementById('data-table');
+  tableBody.innerHTML = '';
+  let serialNumber = 1; 
+
+  if(data.oldImplement && data.oldImplement.length > 0) {
+      let tableData = []; 
+      data.oldImplement.forEach(row => {
+        const fullName = row.first_name + ' ' + row.last_name;
+          let action = `
+          <div class="d-flex">
+              <button class="btn btn-warning btn-sm text-white mx-1" data-bs-toggle="modal" onclick="fetch_data(${row.id});" data-bs-target="#old_farm_view">
+              <i class="fa-solid fa-eye" style="font-size: 11px;"></i></button>
+              <button class="btn btn-primary btn-sm btn_edit" onclick="fetch_edit_data(${row.id});" data-bs-toggle="modal" data-bs-target="#staticBackdrop" id="yourUniqueIdHere" style="padding:5px">
+                <i class="fas fa-edit" style="font-size: 11px;"></i>
+              </button>
+              <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.id});" style="padding:5px">
+                <i class="fa fa-trash" style="font-size: 11px;"></i>
+              </button>
+          </div>`;
+console.log(row.customer_id);
+          tableData.push([
+            serialNumber,
+            row.date,
+            row.brand_name,
+            row.model,
+            fullName,
+            row.mobile,
+            row.purchase_year,
+            row.state,
+            row.district,
+            action
+        ]);
+
+        serialNumber++;
+    });
+
+    $('#example').DataTable().destroy();
+    $('#example').DataTable({
+        data: tableData,
+        columns: [
+          { title: 'S.No.' },
+          { title: 'Date' },
+          { title: 'Brand' },
+          { title: 'Model' },
+          { title: 'Seller Name' },
+          { title: 'Mobile' },
+          { title: 'Year' },
+          { title: 'State' },
+          { title: 'District' },
+          { title: 'Action', orderable: false }
+        ],
+        paging: true,
+        searching: false,
+        // ... other options ...
+    });
+  } else {
+    // Display a message if there's no valid data
+    tableBody.innerHTML = '<tr><td colspan="4">No valid data available</td></tr>';
+}
 }
