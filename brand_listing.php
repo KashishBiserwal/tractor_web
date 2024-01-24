@@ -449,13 +449,13 @@ function get() {
                         <button class="btn btn-primary btn-sm btn_edit" onclick="fetch_edit_data(${row.id});" data-bs-toggle="modal" data-bs-target="#staticBackdrop_model" id="yourUniqueIdHere" style="padding:5px">
                           <i class="fas fa-edit" style="font-size: 11px;"></i></button>
                         </button> <button class="btn btn-danger btn-sm mx-1" id="delete_user" onclick="destroy(${row.id});" style="padding:5px"><i class="fa fa-trash" style="font-size: 11px;"></i></button></div>`;
-                    tableData.push([
-                        serialNumber,
+                        tableData.push([
+                          serialNumber,
                         row.brand_name,
                         row.brand_img,
-                        row.product_type_names,
+                        row.product_type_names, // Assuming product_type_names is a string
                         action
-                    ]);
+                          ]);
 
                     // Increment serial number for the next row
                     serialNumber++;
@@ -467,9 +467,10 @@ function get() {
                         { title: 'S.No.' },
                         { title: 'Brand Name' },
                         { title: 'Brand Image' },
-                        { title: 'Product Type' },
-                        { title: 'Action', orderable: false } // Disable ordering for Action column
+                        { title: 'Product Types' }, // Modify the column title
+                        { title: 'Action', orderable: false }
                     ],
+
                     paging: true,
                     searching: false,
                     // ... other options ...
@@ -485,8 +486,6 @@ function get() {
         }
     });
 }
-
-
 get();
 
 function fetch_edit_data(userId) {
@@ -741,7 +740,7 @@ function updateTable(data) {
                         serialNumber,
                         row.brand_name,
                         row.brand_img,
-                        row.product_type_name,
+                        row.product_type_names,
                         action
                     ]);
 

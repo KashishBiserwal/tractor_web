@@ -1,12 +1,12 @@
 $(document).ready(function() {
     console.log("ready!");
     getoldTractorList();
+    $('#filter_tractor').click(filter_serach);
 });
 
     var cardsPerPage = 9; // Number of cards to show initially
     var cardsDisplayed = 0; // Counter to keep track of the number of cards displayed
     var allCards; // Variable to store all cards
-
 
     function getoldTractorList() {
         var url = "http://tractor-api.divyaltech.com/api/customer/get_old_tractor";
@@ -48,7 +48,6 @@ $(document).ready(function() {
             }
         });
     }
-
     function appendCard(container, p) {
         var images = p.image_names;
         var a = [];
@@ -262,13 +261,12 @@ var url = "http://tractor-api.divyaltech.com/api/customer/customer_enquiries";
     });
   }
 
-
   function savedata(formId) {
     tractor_enquiry(formId);
     console.log("Form submitted successfully");
   }
 
-//   search cards by hp, brand, price, state, district
+// search cards by hp, brand, price, state, district
 function get() {
     // var apiBaseURL = CustomerAPIBaseURL;
     var url = 'http://tractor-api.divyaltech.com/api/customer/get_brands';
@@ -289,11 +287,9 @@ function get() {
             $.each(data.brands, function (index, brand) {
                 var brand_id = brand.id;
                 var brand_name = brand.brand_name;
+                var checkboxHtml = '<input type="checkbox" class="checkbox-round mt-1 ms-3 brand_checkbox" value="' + brand_id + '"/>' +
+                    '<span class="ps-2 fs-6">' + brand_name + '</span> <br/>';
 
-                var checkboxHtml = '<input type="checkbox" class="checkbox-round mt-1 ms-3" value="' + brand_id + '"/>' +
-                    '<span class="ps-2 fs-6">' + brand_name + '</span><br />';
-
-                // Append the checkbox to the container
                 checkboxContainer.append(checkboxHtml);
             });
         },
@@ -303,3 +299,97 @@ function get() {
     });
 }
 get();
+
+function filter_serach() {
+
+    var selectedBrand = $('.brand_checkbox').val();
+    var budget_checkbox = $('.budget_checkbox').val();
+    var hp_checkbox = $('.hp_checkbox').val();
+
+    var paraArr = {
+      'brand_id': selectedBrand,
+      'brand_id': budget_checkbox,
+      'model':hp_checkbox, 
+    }
+  
+    // var apiBaseURL = APIBaseURL;
+    var url = 'http://tractor-api.divyaltech.com/api/customer/get_old_tractor_by_filter';
+    $.ajax({
+        url:url, 
+        type: 'POST',
+        data: paraArr,
+      
+        headers: {
+            'Authorization': 'Bearer ' + localStorage.getItem('token')
+        },
+        success: function (searchData) {
+          console.log(searchData,"hello brand");
+          getoldTractorList(searchData);
+        },
+        error: function (error) {
+            console.error('Error searching for brands:', error);
+        }
+    });
+  };
+//   function updateTable(data) {
+//     const tableBody = document.getElementById('data-table');
+//     tableBody.innerHTML = '';
+//     // let serialNumber = 1; 
+  
+//     if(data.newHarvester && data.newHarvester.length > 0) {
+//       let tableData = [];
+//       let serialNumber = 1;
+//         data.newHarvester.forEach(row => {
+//             let action = `<div class="d-flex">
+//             <button class="btn btn-warning btn-sm text-white mx-1" data-bs-toggle="modal" onclick="fetch_data(${row.id});" data-bs-target="#view_model_harvester">
+//                       <i class="fa-solid fa-eye" style="font-size: 11px;"></i></button>
+//                       <button class="btn btn-primary btn-sm btn_edit" onclick="fetch_edit_data(${row.id});" data-bs-toggle="modal" data-bs-target="#staticBackdrop" id="yourUniqueIdHere" style="padding:5px">
+//                         <i class="fas fa-edit" style="font-size: 11px;"></i>
+//                       </button>
+//             <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.id});">
+//                 <i class="fa fa-trash" style="font-size: 11px;"></i>
+//             </button>
+//         </div>`;
+  
+//         tableData.push([
+//           serialNumber,
+//           row.brand_name,
+//           row.model,
+//           row.horse_power,
+//           row.air_filter,
+//           row.crops_type_value,
+//           action
+//       ]);
+  
+//       serialNumber++;
+//     });
+//       $('#example').DataTable().destroy();
+//       $('#example').DataTable({
+//               data: tableData,
+//               columns: [
+//                 { title: 'S.No.' },
+//                 { title: 'Brand' },
+//                 { title: 'Model Name' },
+//                 { title: 'HP Power' },
+//                 { title: 'Air Filter' },
+//                 { title: 'Crops' },
+//                 { title: 'Action', orderable: false } // Disable ordering for Action column
+//             ],
+//               paging: true,
+//               searching: false,
+//               // ... other options ...
+//           });
+//     } else {
+//         // Display a message if there's no valid data
+//         tableBody.innerHTML = '<tr><td colspan="4">No valid data available</td></tr>';
+//     }
+//   }
+  function resetform(){
+    $('.brand_checkbox').val('');
+    $('.budget_checkbox').val('');
+    $('.hp_checkbox').val('');
+    
+    getoldTractorList();
+    // window.location.reload();
+    
+  }

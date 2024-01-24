@@ -169,81 +169,6 @@
   }
   get_old_tractor();
 
-//   function get() {
-//     var url = 'http://tractor-api.divyaltech.com/api/customer/get_all_brands';
-//     $.ajax({
-//         url: url,
-//         type: "GET",
-//         headers: {
-//             'Authorization': 'Bearer ' + localStorage.getItem('token')
-//         },
-//         success: function (data) {
-//             console.log(data);
-//             const selects = document.querySelectorAll('#brand_name');
-
-//             selects.forEach(select => {
-//                 select.innerHTML = '<option selected disabled value="">Please select an option</option>';
-
-//                 if (data.brands.length > 0) {
-//                     data.brands.forEach(row => {
-//                         const option = document.createElement('option');
-//                         option.textContent = row.brand_name;
-//                         option.value = row.id;
-//                         console.log(option);
-//                         select.appendChild(option);
-//                     });
-
-//                     // Add event listener to brand dropdown
-//                     select.addEventListener('change', function() {
-//                         const selectedBrandId = this.value;
-//                         get_model(selectedBrandId);
-//                     });
-//                 } else {
-//                     select.innerHTML = '<option>No valid data available</option>';
-//                 }
-//             });
-//         },
-//         error: function (error) {
-//             console.error('Error fetching data:', error);
-//         }
-//     });
-// }
-
-// function get_model(brand_id) {
-//     var url = 'http://tractor-api.divyaltech.com/api/customer/get_brand_model/' + brand_id;
-//     $.ajax({
-//         url: url,
-//         type: "GET",
-//         headers: {
-//             'Authorization': 'Bearer ' + localStorage.getItem('token')
-//         },
-//         success: function (data) {
-//             console.log(data);
-//             const selects = document.querySelectorAll('#model2');
-
-//             selects.forEach(select => {
-//                 select.innerHTML = '<option selected disabled value="">Please select an option</option>';
-
-//                 if (data.model.length > 0) {
-//                     data.model.forEach(row => {
-//                         const option = document.createElement('option');
-//                         option.textContent = row.model;
-//                         option.value = row.id;
-//                         console.log(option);
-//                         select.appendChild(option);
-//                     });
-//                 } else {
-//                     select.innerHTML = '<option>No valid data available</option>';
-//                 }
-//             });
-//         },
-//         error: function (error) {
-//             console.error('Error fetching data:', error);
-//         }
-//     });
-// }
-
-// get();
 // brand
 function get_search_brand() {
   var apiBaseURL = APIBaseURL;
@@ -512,8 +437,6 @@ function searchdata() {
   var modelselect = $('#model2').val();
   var stateselect = $('#state2').val();
   var districtselect = $('#district2').val();
- 
-
 
   var paraArr = {
     'id':brandselect,
@@ -521,7 +444,6 @@ function searchdata() {
     'state':stateselect,
     'district':districtselect,
   };
-console.log(paraArr,'paraArr');
   var apiBaseURL = APIBaseURL;
   var url = apiBaseURL + 'search_for_old_tractor_enquiry';
   $.ajax({
@@ -607,7 +529,7 @@ function resetform(){
   $('#model2').val('');
   $('#state2').val('');
   $('#district2').val('');
-  window.location.reload(); 
+  window.location.reload();
 }
 
 

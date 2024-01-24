@@ -1,12 +1,11 @@
 var EditIdmain_ = "";
 var editId_state= false;
+var editId_stateedit= "";
 $(document).ready(function () {
   get_lookup();
   // $('.js-example-basic-multiple').select2();
  
-  fetch_edit_data();
-    // getTractorList();
-    // BackgroundUpload();
+ 
    
     $('#submitbtn').click(store);
     console.log('fjfej');
@@ -174,22 +173,21 @@ function store(event) {
 
     // Check if an ID is present in the URL, indicating edit mode
     var urlParams = new URLSearchParams(window.location.search);
-    editId_state = urlParams.get('trac_edit');
-    console.log("editId from URL:", editId_state);
+    editId_stateedit = urlParams.get('trac_edit');
+    console.log("editId from URL:", editId_stateedit);
 
     var url, method;
-    console.log('edit state', editId_state);
+    console.log('edit state', editId_stateedit);
     //console.log('edit id', EditIdmain_);
     var _method = 'post'; // Default value for _method
 
-    if (editId_state !== '' && editId_state !== null) {
+    if (editId_stateedit !== '' && editId_stateedit !== null) {
       // Update mode
       _method = 'put';
-      url = apiBaseURL + 'updateProduct/' + editId_state ;
+      url = apiBaseURL + 'updateProduct/' + editId_stateedit;
       console.log(url);
       method = 'POST'; 
     } else {
-      // Add mode
       url = apiBaseURL + 'storeProduct';
       console.log('prachi');
       method = 'POST';
@@ -288,17 +286,16 @@ function store(event) {
       headers: headers,
       success: function(response) {
         var editData = response.product.allProductData[0];
-        var tractorTypeNames = response.product.accessory_and_tractor_type[0].tractor_type_name;
-        console.log("all data", editData);
+        var tractorTypeNames = response.product.accessory_and_tractor_type.map(item => item.tractor_type_id);
+        var selectedAccessories = response.product.accessory_and_tractor_type[0];
+        console.log("all data tractor_type_name", tractorTypeNames);
 
-        // $('#brand').val(editData.brand_name);
         $("#brand_name option").prop("selected", false);
         $("#brand_name option[value='" + editData.brand_name + "']").prop("selected", true);
 
         $('#model').val(editData.model);
         $('#product_type_id').val(editData.product_type_id);
         $('#hp_category').val(editData.hp_category);
-        // $('#TOTAL_CYCLINDER').val(editData.total_cyclinder_id);
         $("#TOTAL_CYCLINDER option").prop("selected", false);
         $("#TOTAL_CYCLINDER option[value='" + editData.total_cyclinder_id + "']").prop("selected", true);
         $('#horse_power').val(editData.horse_power);
@@ -306,22 +303,20 @@ function store(event) {
         $('#gear_box_reverse').val(editData.gear_box_reverse);
         $("#BRAKE_TYPE option").prop("selected", false);
         $("#BRAKE_TYPE option[value='" + editData.brake_type_id + "']").prop("selected", true);
-        // $('#BRAKE_TYPE').val(editData.brake_type_id);
         $('#starting_price').val(editData.starting_price);
         $('#ending_price').val(editData.ending_price);
         $('#warranty').val(editData.warranty);
         $('#type_name').val(editData.tractor_type_id).attr('select', true);
         console.log(editData.tractor_type_id,"tractors value");
         $('#_image').val(editData.image_type_id);
-      // Split the string into an array using the comma as a delimiter
-        var tractorTypeArray = tractorTypeNames.split(',');
 
-        tractorTypeArray.forEach(function (typeId) {
-            $('#type_name input[value="' + typeId.trim() + '"]').prop('checked', true);;
-        });
+      tractorTypeNames.forEach(function (typeId) {
+        console.log('typeId',typeId);
+        $("#type_name").prop("checked", false);
+        $('#type_name input[value="' + typeId + '"]').prop('checked', true);
+         
+    });
         $('#CAPACITY_CC').val(editData.engine_capacity_cc);
-        // $("#CAPACITY_CC option").prop("selected", false);
-        // $("#CAPACITY_CC option[value='" + editData.engine_capacity_cc + "']").prop("selected", true);
 
         $('#engine_rated_rpm').val(editData.engine_rated_rpm);
 
@@ -369,7 +364,9 @@ function store(event) {
         $('#rear_tyre').val(editData.rear_tyre);
 
         $("#ass_list option").prop("selected", false);
-        $("#ass_list option[value='" + editData.accessory_id + "']").prop("selected", true);
+        $("#ass_list option[value='" + selectedAccessories.accessory + "']").prop("selected", true);
+        $("#ass_list").trigger('change');
+        console.log('accessory', selectedAccessories.accessory );
 
         $("#STATUS option").prop("selected", false);
         $("#STATUS option[value='" + editData.status_id + "']").prop("selected", true);
@@ -407,7 +404,7 @@ function store(event) {
       }
     });
   }
-    
+  fetch_edit_data();
   function get() {
         // var url = "<?php echo $APIBaseURL; ?>getBrands";
         var apiBaseURL =APIBaseURL;
@@ -416,7 +413,7 @@ function store(event) {
             url: url,
             type: "GET",
             headers: {
-                'Authorization': 'Bearer ' + localStorage.getItem('token')
+                'Authorization': 'Bearer' + localStorage.getItem('token')
             },
             success: function (data) {
                 console.log(data);

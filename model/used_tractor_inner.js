@@ -93,7 +93,7 @@ function store(event) {
   
     // Prepare data to send to the server
     var paraArr = {
-        'product_id':product_id,
+      'product_id':product_id,
       'enquiry_type_id':enquiry_type_id,
       'first_name': first_name,
       'last_name':last_name,

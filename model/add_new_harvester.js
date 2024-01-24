@@ -4,6 +4,8 @@ $(document).ready(function() {
 
   $('#add_harvester').click(store);
   $('#Search').click(search_data);
+  
+
   console.log("ready!");
   ImgUpload();
 

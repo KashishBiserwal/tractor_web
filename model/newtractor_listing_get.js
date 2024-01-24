@@ -287,6 +287,7 @@ function get() {
 
 get();
 
+
 // delete data
 function destroy(id) {
   var apiBaseURL = APIBaseURL;

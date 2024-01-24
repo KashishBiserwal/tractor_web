@@ -162,7 +162,7 @@ include 'includes/footertag.php';
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-      <form id="add_tractor_form" method="post"enctype="multipart/form-data" onsubmit="return false">
+      <form id="add_tractor_form" method="post" enctype="multipart/form-data" onsubmit="return false">
                             <div class="row justify-content-center pt-4">
                               <h5 class="fw-bold">Listing</h5>
                               <div class="col-12 col-sm-6 col-lg-6 col-md-6 mt-2">
@@ -196,8 +196,7 @@ include 'includes/footertag.php';
                                   <label class="form-label">No. of Cylinder</label>
                                   <select class="form-select py-2" id="TOTAL_CYCLINDER" aria-label="Default select example">
                                     <option selected disabled="" value="">Please select an option</option>
-                                    <option value="1">1</option>
-                                    <option value="2">1</option>
+                                   
                                   </select>
                                 </div>
                               </div>

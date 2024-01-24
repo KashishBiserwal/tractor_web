@@ -151,7 +151,7 @@ include 'includes/footertag.php';
                                 
                                         <div class="row">
                                             <div class="col-lg-12">
-                                                <form id="step1_form" class="step">
+                                                <form id="step1_form" method="POST" class="step">
                                                     <div class="row">
                                                         <h4 class="text-center">Listing</h4>
                                                         <div class="col-12 col-sm-6 col-lg-6 col-md-6 mt-3">
@@ -278,7 +278,7 @@ include 'includes/footertag.php';
                                                     </div>
                                               
                                                 </form>
-                                                <form id="step2_form" class="step">
+                                                <form id="step2_form"  method="POST"  class="step">
                                                     <!-- ... Step 2 content ... -->
                                                     <div class="row">
                                                         <h4 class="text-center">Engine Details</h4>
@@ -382,7 +382,7 @@ include 'includes/footertag.php';
                                                    
                                                    
                                                 </form>
-                                                <form id="step3_form" class="step">
+                                                <form id="step3_form"  method="POST"  class="step">
                                                 <!-- ... Step 3 content ... -->
                                                     <div class="row">
                                                         <h5 class="text-center">Steering Details</h5>
@@ -444,7 +444,7 @@ include 'includes/footertag.php';
                                                     </div>
 
                                                 </form>
-                                                <form id="step4_form" class="step">
+                                                <form id="step4_form"  method="POST"  class="step">
                                                         <!-- ... Step 4 content ... -->
                                                     <div class="row">
                                                         <h5 class="text-center mt-3">Hydraulics Details</h5>
@@ -506,7 +506,7 @@ include 'includes/footertag.php';
                                                     </div>
                                                 
                                                 </form>
-                                                <form id="step5_form" class="step">
+                                                <form id="step5_form"  method="POST"  class="step">
                                                         <!-- ... Step 5 content ... -->     
                                                     <div class="row">
                                                         <h5 class="text-center mt-3">Other Information Details</h5>
