@@ -158,6 +158,9 @@
                                         <option value="Jagdalpur">Jagdalpur</option>
                                         <option value="Sarguja">Sarguja</option>
                                         <option value="Dhamtari">Dhamtari</option>
+                                        <option value="Raipur">Raipur</option>
+                                        <option value="Bilaspur">Bilaspur</option>
+                                        <option value="Surajpur">Surajpur</option>
                                       </select>
                                   </div>
                                 </div>
@@ -169,6 +172,9 @@
                                         <option value="Jagdalpur">Jagdalpur</option>
                                           <option value="Sarguja">Sarguja</option>
                                           <option value="Dhamtari">Dhamtari</option>
+                                          <option value="Raipur">Raipur</option>
+                                          <option value="Bilaspur">Bilaspur</option>
+                                          <option value="Surajpur">Surajpur</option>
                                       </select>
                                   </div>
                                 </div>
@@ -191,13 +197,13 @@
       <div class="filter-card mb-2">
         <div class="card-body">
           <div class="row">
-          <div class="col-12 col-sm-12 col-md-3 col-lg-3"hidden>
+          <!-- <div class="col-12 col-sm-12 col-md-3 col-lg-3"hidden>
               <div class="form-outline">
                 <label class="form-label">Search By id</label>
                   <select class=" form-select form-control mb-0" id="brand_id">
                   </select>
               </div>
-            </div>
+            </div> -->
             <div class="col-12 col-sm-12 col-md-3 col-lg-3">
               <div class="form-outline">
                 <label class="form-label"> Brand Name</label>

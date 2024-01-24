@@ -93,7 +93,7 @@
           </div>
         </div>
       </div> -->
-      <div class="filter-card mb-2">
+      <div class="filter-card">
         <div class="card-body">
           <div class="row">
           
@@ -149,10 +149,10 @@
         </div>
       </div>
       <!-- Table Card -->
-      <div class=" mb-5">
-        <div class="table-responsive shadow bg-white ">
-            <table id="example" class="table table-striped table-hover dataTable no-footer py-1" width="100%">
-                <thead>
+      <div class=" mb-5 shadow bg-white mt-3 p-3">
+            <div class="table-responsive">
+              <table id="example" class="table table-striped brand_table  table-hover table-bordered  no-footer" width="100%; margin-bottom: 15px;">
+                <thead class="">
                     <tr>
                         <th class="d-none d-md-table-cell text-white">S.No.</th>
                         <th class="d-none d-md-table-cell text-white">Date </th>
