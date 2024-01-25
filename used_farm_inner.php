@@ -1,19 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<?php
-   include 'includes/headertag.php';
-   ?>
-    <title>Used_Farmtrac_60</title>
-     
-</head>
+
+   <?php
+  include 'includes/headertag.php';
+    //include 'includes/headertagadmin.php';
+
+    $product_id=$_REQUEST['product_id'];
+    echo $product_id;
+    
+     include 'includes/footertag.php';
+     ?> 
+    <script> var APIBaseURL = "<?php echo $APIBaseURL; ?>";</script>
+    <script> var baseUrl = "<?php echo $baseUrl; ?>";</script>
+    <script src="<?php $baseUrl; ?>model/used_farm_inner.js"></script>
 <body>
 <?php
    include 'includes/header.php';
    ?>
-<section class="bg-light mt-5 pt-5">
+<section class="bg-light mt-5 pt-2">
     <div class="container py-2">
-        <div class="py-2">
+        <div class="py-2 mt-3">
             <span class="my-4 text-white pt-4 ">
                 <a href="index.php" class="text-decoration-none header-link px-1">Home <i class="fa-solid fa-chevron-right px-1"></i></a>
                     <span class=""><a href="#" class="text-decoration-none header-link  px-1">Used tractor<i class="fa-solid fa-chevron-right px-1"></i> </a></span>
@@ -118,28 +124,22 @@
         <div class="row my-3">
             <div class="col-12 col-sm-6 col-lg-6 col-md-6">
                 <div>
-                <h4>Mourya 2013</h4>
+                <h4 id="model_name"></h4>
                 </div>
                 <div>
-                    <div class="swiper swiper_buy mySwiper2_buy">
+                <div class="swiper swiper_buy mySwiper2_buy">
                         <div class="swiper-wrapper swiper-wrapper_buy">
                             <div class=" swiper-slide swiper-slide_buy">
-                            <img class="img_buy"  src="assets/images/the-wheat-farm-in-the-morning-free-video.jpg"/>
-                            </div>
-                            <div class="swiper-slide swiper-slide_buy">
-                            <img class="img_buy " src="assets/images/super-seeder-117-1673520503.webp" />
-                            </div>
-                            <div class="swiper-slide swiper-slide_buy">
-                            <img class="img_buy " src="assets/images/trac.jpg" />
+                            <!-- <img class="img_buy" src="assets/images/437-1632718440.webp" /> -->
                             </div>
                         </div>
                     </div>
-                    <div thumbsSlider="" class="swiper mySwiper_buy"></div>
+                    <div thumbsSlider="" class="swiper mySwiper_buy" style="height:50px; width: 43%;" id="swip_img"></div>
                 </div>
             </div>
             <div class="col-12 col-sm-6 col-lg-6 col-md-6">
                  <div class="pirce-section ">
-                    <h5>Price - ₹ 5,00,000</h5>
+                    <h5>Price:- <span id="original_price"></span> /-</h5>
                 </div>
                 
                 <form action="" id="interested-form" class="outline-solid bg-light">
@@ -150,6 +150,14 @@
                             <div class="col-md-12 col-12 col-lg-12 col-lg-12">
                                 <div class=" ml-2">
                                     <div class="row px-3 ">
+                                        <div class="col-12 col-lg-6 col-md-6 col-sm-6 " hidden>
+                                            <label for="name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i> enquiryName</label>
+                                            <input type="text" class="form-control" placeholder="Enter Your Name" id="enquiry_type_id" value="25" name="fname">
+                                        </div>
+                                        <div class="col-12 col-lg-6 col-md-6 col-sm-6 " hidden>
+                                            <label for="name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i> product_id</label>
+                                            <input type="text" class="form-control" id="product_id" value="">
+                                        </div>
                                         <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
                                             <label for="name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i> First Name</label>
                                             <input type="text" class="form-control" placeholder="Enter Your Name" id="fname" name="fname">
@@ -158,33 +166,25 @@
                                             <label for="name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i> Last Name</label>
                                             <input type="text" class="form-control" placeholder="Enter Your Name" id="lname" name="lname">
                                         </div>
-                                        <div class="col-12 col-sm-12 col-md-6 col-lg-6 ">
+                                        <div class="col-12 col-sm-12 col-md-12 col-lg-12 ">
                                             <label for="number" class="form-label text-dark fw-bold"> <i class="fa fa-phone" aria-hidden="true"></i> Phone Number</label>
-                                            <input type="password" class="form-control" placeholder="Enter Number" id="number" name="number">
+                                            <input type="text" class="form-control" placeholder="Enter Number" id="number" name="number">
                                         </div>
                                         <div class="col-12 col-sm-12 col-md-6 col-lg-6">
                                             <label for="yr_state" class="form-label text-dark fw-bold" id="state" name="state"> <i class="fas fa-location"></i> State</label>
-                                            <select class="form-select py-2 " aria-label=".form-select-lg example"id="state" name="state">
+                                            <select class="form-select py-2 " aria-label=".form-select-lg example"id="state_form_1" name="state">
                                                 <option value>Select State</option>
-                                                <option value="1">Chhattisgarh</option>
-                                                <option value="2">Other</option>
+                                                <option value="Chhattisgarh">Chhattisgarh</option>
+                                                <option value="Other">Other</option>
                                             </select>
                                         </div> 
                                         <div class="col-12 col-sm-12 col-md-6 col-lg-6">
-                                            <label for="yr_state" class="form-label text-dark fw-bold" id="state" name="state"> <i class="fas fa-location"></i> State</label>
-                                            <select class="form-select py-2 " aria-label=".form-select-lg example"id="state" name="state">
-                                                <option value>Select State</option>
-                                                <option value="1">Chhattisgarh</option>
-                                                <option value="2">Other</option>
-                                            </select>
-                                        </div>
-                                        <div class="col-12 col-sm-12 col-md-6 col-lg-6">
                                             <label class="form-label text-dark"><i class="fa-solid fa-location-dot"></i> District</label>
-                                            <select class="form-select py-2 " aria-label=".form-select-lg example" name="district" id="district">
+                                            <select class="form-select py-2 " aria-label=".form-select-lg example" id="district_form_1"  name="district">
                                                 <option value>Select District</option>
-                                                <option value="1">Raipur</option>
-                                                <option value="2">Bilaspur</option>
-                                                <option value="2">Durg</option>
+                                                <option value="Raipur">Raipur</option>
+                                                <option value="Bilaspur">Bilaspur</option>
+                                                <option value="Durg">Durg</option>
                                             </select>
                                         </div>
                                         <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-2">
@@ -197,7 +197,7 @@
                                         </div>
                                         <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-3">
                                             <div class="">
-                                            <input type="submit" value="Contact Seller" class="btn btn-success w-100"> 
+                                            <input type="submit" value="Contact Seller" id="contact_seller" class="btn btn-success w-100"> 
                                             </div>
                                         </div>
                                         <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-3">
@@ -227,7 +227,7 @@
                             </div>
                             <div class="col-12">
                                 <h6 class="engine_ text-center fw-bold fs-6 m-1 text-dark">Power Source</h6>
-                                <p class="engine_name text-center">HP</p>
+                                <p class="engine_name text-center"><span id="Power_powerhp"></span>N/A</p>
                             </div>
                         </div>
                     </div>
@@ -238,105 +238,103 @@
                             </div>
                             <div class="col-12">
                                 <h6 class="total_hours text-center fw-bold fs-6 m-1 text-dark">Total Hours</h6>
-                                <p class="total_time text-center">Less than 1000</p>
+                                <p class="total_time text-center" id="hours_driven"></p>
                             </div>
                         </div>
                     </div>
                     <div class="col-12 col-md-3 col-lg-3 col-sm-3 mb-3">
                         <div class=" Total-Hours shadow p-3" style="background-color:#fff">
                             <div class="col-12 text-center">
-                                <img src="assets/images/tyre-condition.png" width="50" height="50" alt="">
+                                <img src="assets/images/location.png" width="50" height="50" alt="">
                             </div>
                             <div class="col-12">
-                                <h6 class="total_hours text-center fw-bold fs-6 m-1 text-dark">Tyre Conditon</h6>
-                                <p class="total_time text-center">76-100% (Very Good)</p>
+                                <h6 class="total_hours text-center fw-bold fs-6 m-1 text-dark">Location</h6>
+                                <p class="total_time text-center" id="location_1"></p>
                             </div>
                         </div>
                     </div>
-
                     <div class="col-12 col-md-3 col-lg-3 col-sm-3 mb-3">
-                        <div class=" Total-Hours shadow" style="background-color:#fff">
+                        <div class=" Total-Hours shadow p-3" style="background-color:#fff">
                             <div class="col-12 text-center">
-                                <img src="assets/images/engine-condition.png" width="50" height="50" alt="">
+                                <img src="assets/images/purchase-year.png" width="50" height="50" alt="">
                             </div>
-                            <div class="col-12 py-3">
-                                <h6 class="total_hours text-center fw-bold fs-6 m-1 text-dark">Engine Conditon</h6>
-                                <p class="total_time text-center">76-100% (Very Good)</p>
+                            <div class="col-12">
+                                <h6 class="total_hours text-center fw-bold fs-6 m-1 text-dark">Purchase Year</h6>
+                                <p class="total_time text-center" id="purchase_year"></p>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="my-4">
                     <div class="text-editor-black my-4 " style="background-color:#fff">
-                        <h4><p class="mt-md mt-4 p-2 mb-3 my-4 assured">Mourya 2013 Specifications</p></h4>
+                        <h4><p class="mt-md mt-4 p-2 mb-3 my-4 assured">Specifications For <span id="model_name2"></span></h4>
                     </div>
                 </div>
                 <table class="table w-100 table-hover table table-striped my-4">
                     <tbody>
                     <tr>
                         <td class="table-data">Brand</td>
-                        <td class="table-data">Mourya</td>
+                        <td class="table-data" id="brand_name"></td>
                         </tr>
                         <tr>
                         <td class="table-data">model</td>
-                        <td class="table-data">Mourya 2013</td>
+                        <td class="table-data" id="model_name_3"></td>
                         </tr>
                         <tr class="col-12">
-                        <td class="table-data col-6">Type</td>
+                        <td class="table-data col-6"> Type</td>
                         <td class="table-data col-6">Implement</td>
                         </tr>
                         <tr>
                         <td class="table-data">Category</td>
-                        <td class="table-data">_______</td>
+                        <td class="table-data" id="category_1"></td>
                         </tr>
                         <tr>
+                            <td class="table-data">Price</td>
+                            <td class="table-data" ><span id="price_1"></span> /-</td>
+                        </tr> 
+                        <!-- <tr>
                         <td class="table-data">Power</td>
-                        <td class="table-data">__HP</td>
-                        </tr>
-                        <tr>
-                        <td class="table-data">Price</td>
-                        <td class="table-data"><b>₹</b> 5,00,000</td>
-                        </tr>
+                        <td class="table-data" id="power_1"></td>
+                        </tr> -->
+                       
                     </tbody>
                 </table>
                 <div class="my-4">
                     <div class="text-editor-black my-4 " style="background-color:#fff">
-                        <h4><p class="mt-md mt-4 p-2 mb-3 my-4 assured">Seller Info</p></h4>
+                        <h4><p class="mt-md mt-4 p-2 mb-3 my-4 assured">Seller Info <span id="model_name4"></span></p></h4>
                     </div>
                 </div>
                 <table class="table1 w-100 table-hover table table-striped my-4">
                      <tbody>
                         <tr>
                         <td class="table-data">Name</td>
-                        <td class="table-data">Manohar</td>
+                        <td class="table-data" id="name"></td>
                         </tr>
                         <tr>
                         <td class="table-data">Mobile Number</td>
-                        <td class="table-data">+9199****5329</td>
+                        <td class="table-data" id="mobile"></td>
                         </tr>
-                        <tr>
+                        <!-- <tr>
                         <td class="table-data">E-mail</td>
-                        <td class="table-data">___@gmail.com</td>
-                        </tr>
+                        <td class="table-data" id="email"></td>
+                        </tr> -->
                         <tr>
                         <td class="table-data">District</td>
-                        <td class="table-data">Durg</td>
+                        <td class="table-data"  id="district_1"></td>
                         </tr>
                         <tr>
                         <td class="table-data">State</td>
-                        <td class="table-data">Chhattisgarh</td>
+                        <td class="table-data" id="state_1"></td>
                         </tr>
                     </tbody>
                 </table>
 
-                <div class="text-editor-black  my-3" style="background-color:#fff">
-                <h4><p class="mt-md mt-3 p-2 mb-3 assured ps-3 my-4">Mourya 2013 Tractor Troller Discription</p></h4>
-                </div>
-                <div class="product_discription">
-                    <p> Buy Used Mourya 2013 Implement in Raipur, Chhattisgarh. You can buy a Mourya 2013 Implement at Tractor Junction. Used Mourya 2013 comes in the Tractor Trailer category.</p>
-                    <p>This old Mourya Implement is a 2013 year model. The price of this used Mourya Implement is Rs. ₹ 1,90,000. If you are interested in Second hand Mourya 2013 Implement, fill your details in the above form. You can also directly contact the Used Mourya 2013 Implement owner Yogesh Paikara by number +9196****9861 and email ___@gmail.com. Visit Tractor Junction for more updates regarding Mourya 2013 Used Implement.</p>
-                    <p>Buy online second hand Mourya 2013 in your budget, visit TractorJunction. Here you can find each detail regarding the old Mourya 2013 Tractor Trailer. Get Mourya 2013 state-wise and budget-wise by applying filters. For more updates about this used Mourya 2013 and price, fill the given form.</p>
-                    <p>Listed On: 24-November-2023</p>
+                <div class="my-4">
+                    <div class="text-editor-black my-4 " style="background-color:#fff">
+                        <h4><p class="mt-md mt-4 p-2 mb-3 my-4 assured"><span id="model4"></span> Description</p></h4>
+                    </div>
+                    <p id="description"></p>
+                    
                 </div>
             </div>
 
@@ -345,7 +343,10 @@
                     <div>
                         <h1 class="h4  my-4">New Popular Tractor</h1>
                     </div>
-                    <div class="tractor-list mb-3 box-shadow grey-bg d-flex flex-row shadow p-1">
+                    <div id="productContainerpopular" class="row"></div>
+                    <div class="text-center"><button id="load_more" class="btn btn-success">Load More</button></div>
+
+                    <!-- <div class="tractor-list mb-3 box-shadow grey-bg d-flex flex-row shadow p-1">
                     <div class="tractor-list-left text-center">
                             <a href="popular_tractors.php" class="weblink">
                             <img src="assets/images/450-1630737775.webp" width="100" height="70" alt="">
@@ -400,13 +401,20 @@
                                 <span class="bg-light"style=" font-size: 0.9rem;">WD</span>
                             </p>
                     </div>
-                    </div>
-                    <div class="sticky my-3">
+                    </div> -->
+                     <div class="sticky my-3">
                         <div class="popular_used_tractor mb-3">
-                            <h4>Popular Used Tractors</h4>
+                            <h4>New Upcoming Tractors</h4>
                         </div>
-                        <div class="popular-used-tractor">
-                        <div class="row">
+                <div class="popular-used-tractor">
+                    <div class="row">
+                    <div id="productContainerupcoming" class="row"></div>
+                    <div class="col-12 text-center ">
+                    <button id="load_btn" type="button" class="btn btn-success">
+                        <i class="fas fa-undo"></i> Load More
+                    </button>
+                    </div>
+                        <!-- <div class="row">
                             <div class="used-tractor mb-3 d-flex flex-row shadow p-2" style="background-color:#fff">
                                 <div class="text-center">
                                     <a href="#" class="weblink">
@@ -477,7 +485,7 @@
                     </div>
                 </div>
         </div>
-    </div>
+    </div> -->
 </section>
 <section>
     <div class="container">

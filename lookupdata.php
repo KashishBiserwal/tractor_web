@@ -87,13 +87,23 @@ include 'includes/headertag.php';
                 <div class="row">
                     <div class="col-12 col-sm-12 col-md-4 col-lg-4">
                         <div class="form-outline">
-                            <label class="form-label">Search by Any Field</label>
-                            <input type="text" id="name" onkeyup="myFunction()"  name="name_1" class="mb-0 data_search form-control input-group-sm" />
+                            <label class="form-label">Search by Lookup type</label>
+                            <input type="text" id="lookup_type" name="name_1" class="mb-0 data_search form-control input-group-sm" />
                         </div>
                     </div>
-                    <div class="col-12 col-sm-12 col-md-8 col-lg-8">
-                        <input type="reset" onclick="resetForm()" class="bg-success text-white btn  mb-0 btn_all" value="Reset">
+                    <div class="col-12 col-sm-12 col-md-4 col-lg-4">
+                        <div class="form-outline">
+                            <label class="form-label">Search by Lookup data </label>
+                            <input type="text" id="lookup_data" name="name_2" class="mb-0 data_search form-control input-group-sm" />
+                        </div>
                     </div>
+                    <div class="col-12 col-sm-12 col-md-4 col-lg-4">
+                    <div class="text-center">
+                      <button type="button" class="btn-success btn px-3 pt-2" id="Search" onclick="searchdata()">Search</button>
+                            <button type="button" class="btn-success btn mx-2 px-3 pt-2" id="Reset">Reset</button>
+                      </div>
+                    </div>
+                    
                 </div>
             </form>
         </div>

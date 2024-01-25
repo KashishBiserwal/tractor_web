@@ -1,5 +1,15 @@
 $(document).ready(function() {
   
+  $("#Reset").click(function () {
+  
+    $("#lookup_type").val("");
+    $("#lookup_data").val("");
+    
+    get_data();
+
+  });
+
+
   $('#dataeditbtn').click(edit_user);
 
   $("#lookup_data_form").validate({
@@ -350,47 +360,83 @@ function get() {
     });
   }
 
-  function myFunction() {
-    var input, filter, table, tr, td, i, j, txtValue;
-    input = document.getElementById("name");
-    filter = input.value.toUpperCase();
-    table = document.getElementById("example");
-    tr = table.getElementsByTagName("tr");
   
-    for (i = 0; i < tr.length; i++) {
-        // Loop through all td elements in the current row
-        td = tr[i].getElementsByTagName("td");
-        let rowMatches = false;
+function searchdata() {
+  console.log("dfghsfg,sdfgdfg");
+  var lookup_type = $('#lookup_type').val();
+  var lookup_data = $('#lookup_data').val();
 
-        for (j = 0; j < td.length; j++) {
-            txtValue = td[j].textContent || td[j].innerText;
+  var paraArr = {
+    'lookup_type': lookup_type,
+    'lookup_data':lookup_data,
+    
+  };
 
-            if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                rowMatches = true;
-                break; // Break the inner loop if a match is found in any td
-            }
-        }
+  var apiBaseURL = APIBaseURL;
+  var url = apiBaseURL + 'search_for_lookup_data';
+  $.ajax({
+      url:url, 
+      type: 'POST',
+      data: paraArr,
+    
+      headers: {
+          'Authorization': 'Bearer ' + localStorage.getItem('token')
+      },
+      success: function (searchData) {
+        console.log(searchData,"hello brand");
+        updateTable(searchData);
+      },
+      error: function (error) {
+          console.error('Error searching for brands:', error);
+      }
+  });
+};
+function updateTable(data) {
+  const tableBody = document.getElementById('data-table');
+  tableBody.innerHTML = '';
+  let serialNumber = 1; 
 
-        // Check if any td in the current row matched the filter
-        if (rowMatches) {
-            tr[i].style.display = "";
-        } else {
-            tr[i].style.display = "none";
-        }
-    }
+  if(data.lookupType && data.lookupType.length > 0) {
+      let tableData = []; 
+      data.lookupType.forEach(row => {
+          let action =  `<div class="d-flex">
+          <button class="btn btn-danger btn-sm mx-1" id="delete_user" onclick="destroy(${row.id});" style="padding:5px;">
+              <i class="fa fa-trash" style="font-size: 11px;"></i>
+          </button>
+          <button class="btn btn-primary btn-sm btn_edit" onclick="fetch_edit_data(${row.id});" data-bs-toggle="modal" data-bs-target="#staticBackdrop_2" id="yourUniqueIdHere">
+             <i class="fas fa-edit" style="font-size: 11px;"></i>
+          </button>
+      </div>`;
+console.log(row.customer_id);
+          tableData.push([
+            serialNumber,
+            row.name,
+            row.lookup_data_value,
+            action
+        ]);
+
+        serialNumber++;
+    });
+
+    $('#example').DataTable().destroy();
+    $('#example').DataTable({
+        data: tableData,
+        columns: [
+          { title: 'ID' },
+          { title: 'Lookup Type' },
+          { title: 'Lookup Data' },
+          { title: 'Action', orderable: false }
+        ],
+        paging: true,
+        searching: false,
+        // ... other options ...
+    });
+  } else {
+      // Display a message if there's no valid data
+      tableBody.innerHTML = '<tr><td colspan="4">No valid data available</td></tr>';
+  }
 }
 
-  function resetForm() {
-          document.getElementById("myform").reset();
-  
-          // Show all rows in the table
-          var table = document.getElementById("example");
-          var rows = table.getElementsByTagName("tr");
-  
-          for (var i = 0; i < rows.length; i++) {
-              rows[i].style.display = "";
-          }
-      }
 
 
   
