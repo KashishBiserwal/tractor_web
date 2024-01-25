@@ -9,7 +9,6 @@ include 'includes/footertag.php';
   <script> var APIBaseURL = "<?php echo $APIBaseURL; ?>";</script>
 <script> var baseUrl = "<?php echo $baseUrl; ?>";</script>
 <script src="<?php $baseUrl; ?>model/tractor_listing.js"></script>
-<!-- <script src="<?php $baseUrl; ?>model/newtractor_listing_get.js"></script> -->
 
 
 
@@ -151,7 +150,7 @@ include 'includes/footertag.php';
                                 
                                         <div class="row">
                                             <div class="col-lg-12">
-                                                <form id="step1_form" class="step">
+                                                <form id="step1_form" method="POST" class="step">
                                                     <div class="row">
                                                         <h4 class="text-center">Listing</h4>
                                                         <div class="col-12 col-sm-6 col-lg-6 col-md-6 mt-3">
@@ -253,7 +252,7 @@ include 'includes/footertag.php';
                                                             <label for="name" class="text-dark fw-bold">Select Tractor Type</label>
                                                             <div id="type_name" name="type_name"></div>
                                                         </div>
-                                                        <div class="col-12 col-sm-6 col-lg-6 col-md-6 mt-5">
+                                                        <div class="col-12 mt-5">
                                                             <div class="upload__box text-center">
                                                                 <div class="upload__btn-box text-center">
                                                                     <label >
@@ -261,24 +260,28 @@ include 'includes/footertag.php';
                                                                         <input type="file" multiple="" data-max_length="20" class="upload__inputfile" id="image_name" name="_image"required>
                                                                     </label>
                                                                 </div>
-                                                                
-                                                                
+                                                                <div class="col-12">
+                                                                     <div id="selectedImagesContainer2" class="upload__img-wrap float-start"></div>
+                                                                </div>
+                                                               
                                                             </div>
+                                                            
                                                             <p class="text-danger">Note*- Image Must be JPEG, PNG & JPG format</p>
+                                                           
                                                         </div>
-                                                        <div class="col-12">
+                                                        <!-- <div class="col-12">
                                                             <div class="upload__box text-center mt-3  w-100">
                                                             <div id="selectedImagesContainer2" class="upload__img-wrap"></div>
                                                             </div>
                                                     
-                                                        </div>
+                                                        </div> -->
                                                         <div class="col-12 mt-3">
                                                         <button type="button" class="nextStep text-center btn btn-success btn_all float-end" id="nextbtn1">Next</button>
                                                         </div>
                                                     </div>
                                               
                                                 </form>
-                                                <form id="step2_form" class="step">
+                                                <form id="step2_form"  method="POST"  class="step">
                                                     <!-- ... Step 2 content ... -->
                                                     <div class="row">
                                                         <h4 class="text-center">Engine Details</h4>
@@ -382,7 +385,7 @@ include 'includes/footertag.php';
                                                    
                                                    
                                                 </form>
-                                                <form id="step3_form" class="step">
+                                                <form id="step3_form"  method="POST"  class="step">
                                                 <!-- ... Step 3 content ... -->
                                                     <div class="row">
                                                         <h5 class="text-center">Steering Details</h5>
@@ -444,7 +447,7 @@ include 'includes/footertag.php';
                                                     </div>
 
                                                 </form>
-                                                <form id="step4_form" class="step">
+                                                <form id="step4_form"  method="POST"  class="step">
                                                         <!-- ... Step 4 content ... -->
                                                     <div class="row">
                                                         <h5 class="text-center mt-3">Hydraulics Details</h5>
@@ -506,7 +509,7 @@ include 'includes/footertag.php';
                                                     </div>
                                                 
                                                 </form>
-                                                <form id="step5_form" class="step">
+                                                <form id="step5_form"  method="POST"  class="step">
                                                         <!-- ... Step 5 content ... -->     
                                                     <div class="row">
                                                         <h5 class="text-center mt-3">Other Information Details</h5>
@@ -701,6 +704,7 @@ $button.addEventListener('click', (e) => {
 <script>
      $(document).ready(function () {
         $('.js-example-basic-multiple').select2();
+       
      });
 </script>
 
@@ -1124,76 +1128,34 @@ $button.addEventListener('click', (e) => {
         }
     });
     $('#submitbtn').on('click', function(event) {
-        event.preventDefault();
-        if ($('#step5_form').valid()) {
-            $('#step5_form').submit(); 
-            if( $('#step5_form').valid()){
-                $(".step5list").removeClass('step15');
-                $(".step5list").addClass('step25');
+    event.preventDefault();
+    if ($('#step5_form').valid()) {
+        // Perform any actions needed for the last step
+        $(".step5list").removeClass('step15');
+        $(".step5list").addClass('step25');
+        $.ajax({
+            type: 'POST',
+            url: $('#step5_form').attr('action'),
+            data: $('#step5_form').serialize(),
+            success: function(response) {
+                // Handle success response if needed
+                console.log(response);
+            },
+            error: function(error) {
+                // Handle error if needed
+                console.error(error);
             }
-        }
-    });
+        });
+
+        // Optionally, you can hide the form or perform any other actions
+        // $('#step5_form').hide();
+    }
+});
 </script>
 <script>
       jQuery(document).ready(function () {
-      ImgUpload();
     });
 
-    function ImgUpload() {
-      var imgWrap = "";
-      var imgArray = [];
-
-      $('.upload__inputfile').each(function () {
-        $(this).on('change', function (e) {
-          imgWrap = $(this).closest('.upload__box').find('.upload__img-wrap');
-          var maxLength = $(this).attr('data-max_length');
-
-          var files = e.target.files;
-          var filesArr = Array.prototype.slice.call(files);
-          var iterator = 0;
-          filesArr.forEach(function (f, index) {
-
-            if (!f.type.match('image.*')) {
-              return;
-            }
-
-            if (imgArray.length > maxLength) {
-              return false
-            } else {
-              var len = 0;
-              for (var i = 0; i < imgArray.length; i++) {
-                if (imgArray[i] !== undefined) {
-                  len++;
-                }
-              }
-              if (len > maxLength) {
-                return false;
-              } else {
-                imgArray.push(f);
-
-                var reader = new FileReader();
-                reader.onload = function (e) {
-                  var html = "<div class='upload__img-box'><div style='background-image: url(" + e.target.result + ")' data-number='" + $(".upload__img-close").length + "' data-file='" + f.name + "' class='img-bg'><div class='upload__img-close'></div></div></div>";
-                  imgWrap.append(html);
-                  iterator++;
-                }
-                reader.readAsDataURL(f);
-              }
-            }
-          });
-        });
-      });
-
-      $('body').on('click', ".upload__img-close", function (e) {
-        var file = $(this).parent().data("file");
-        for (var i = 0; i < imgArray.length; i++) {
-          if (imgArray[i].name === file) {
-            imgArray.splice(i, 1);
-            break;
-          }
-        }
-        $(this).parent().parent().remove();
-      });
-    }
+    
 
 </script>

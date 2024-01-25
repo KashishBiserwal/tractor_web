@@ -1,10 +1,285 @@
 var EditIdmain_ = "";
 var editId_state= false;
 $(document).ready(function() {
-    $('#add_harvester').click(store);
-    $('#Search').click(search_data);
-    console.log("ready!");
-    ImgUpload();
+
+  $('#add_harvester').click(store);
+  $('#Search').click(search_data);
+  
+
+  console.log("ready!");
+  ImgUpload();
+
+  jQuery.validator.addMethod("customPhoneNumber", function(value, element) {
+    return /^[6-9]\d{9}$/.test(value);
+}, "Phone number must start with 6 or above and should be 10 digits");
+$.validator.addMethod("customNumber", function (value, element) {
+  // Use a regular expression to validate the input
+  return /^(\d+(\.\d+)?|\d*\.\d+)(\*\d+(\.\d+)?|\*\d*\.\d+)?$/.test(value);
+}, "Please enter a valid number or multiplication expression");
+
+$("#harvester_form").validate({
+    rules: {
+        brand: {
+            required: true,
+        },
+        model: {
+            required: true,
+        },
+        rpm: {
+            required: true,
+            number:true,
+        },
+        hp_power: {
+          required: true,
+          number:true,
+        },
+        AIR_FILTER: {
+          required: true,
+        },
+        TOTAL_CYCLINDER: {
+          required: true,
+        },
+        POWER_SOURCE: {
+          required: true,
+        },
+        cutting_bar: {
+          required: true,
+          number:true,
+        },
+        cuttingmax_height: {
+          required: true,
+          number:true,
+        },
+        cuttingmin_height: {
+          required: true,
+          number:true,
+        },
+        CUTTER_BAR_HEIGHT_ADJUSTMENT: {
+          required: true,
+        },
+        REEL_TYPE: {
+          required: true,
+        },
+        reel_dia: {
+          required: true,
+          number:true,
+        },
+        REEL_SPEED_CONTROL: {
+          required: true,
+        },
+        min_revol: {
+          required: true,
+        },
+        max_revol: {
+          required: true,
+        },
+        REEL_HEIGHT_ADJUSTMENT: {
+          required: true,
+        },
+        COOLING: {
+          required: true,
+        },
+        cool_capacity: {
+          required: true,
+        },
+        drump_width: {
+          required: true,
+          number:true,
+        },
+        drump_length: {
+          required: true,
+          number:true,
+        },
+        drump_diameter: {
+          required: true,
+          number:true,
+        },
+        THRESHING_DRUM_SPEED_ADJUSTMENT: {
+          required: true,
+        },
+        clear_concave: {
+          required: true,
+        },
+        tank_capa: {
+          required: true,
+          number:true,
+        },
+        transmission_gears: {
+          required: true,
+        },
+        TRANSMISSION_CLUTCH: {
+          required: true,
+        },
+        tyre_sizefront: {
+          required: true,
+          customNumber: true,
+        },
+        tyre_sizerear: {
+          required: true,
+          customNumber: true,
+        },
+        total_weight_without_grains: {
+          required: true,
+          number:true,
+        },
+        dia_length: {
+          required: true,
+          number:true,
+        },
+        dia_height: {
+          required: true,
+          number:true,
+        },
+        dia_width: {
+          required: true,
+          number:true,
+        },
+        ground_clerance: {
+          required: true,
+        },
+        CROPS_TYPE: {
+          required: true,
+        },
+        _image: {
+          required: true,
+        }
+    },
+    messages: {
+      brand: {
+            required: "This field is required",
+        },
+        model: {
+            required: "This field is required",
+        },
+        rpm: {
+            required: "This field is required",
+            number:"Enter only digits /Decimal Number",
+          },
+        hp_power: {
+          required: "This field is required",
+          number:"Enter only digits /Decimal Number",
+        },
+        AIR_FILTER: {
+          required: "This field is required",
+        },
+        TOTAL_CYCLINDER: {
+           required: "This field is required",
+        },
+        POWER_SOURCE: {
+          required: "This field is required",
+        },
+        cutting_bar: {
+          required: "This field is required",
+          number:"Enter only digits /Decimal Number",
+        },
+        cuttingmax_height: {
+          required: "This field is required",
+          number:"Enter only digits /Decimal Number",
+        },
+        cuttingmin_height: {
+          required: "This field is required",
+          number:"Enter only digits /Decimal Number",
+        },
+        CUTTER_BAR_HEIGHT_ADJUSTMENT: {
+          required: "This field is required",
+        },
+        REEL_TYPE: {
+          required: "This field is required",
+        },
+        reel_dia: {
+          required: "This field is required",
+          number:"Enter only digits /Decimal Number",
+        },
+        REEL_SPEED_CONTROL: {
+          required: "This field is required",
+        },
+        min_revol: {
+          required: "This field is required",
+        },
+        max_revol: {
+          required: "This field is required",
+        },
+        REEL_HEIGHT_ADJUSTMENT: {
+          required: "This field is required",
+        },
+        COOLING: {
+          required: "This field is required",
+        },
+        cool_capacity: {
+          required: "This field is required",
+        },
+        drump_width: {
+          required: "This field is required",
+          number:"Enter only digits /Decimal Number",
+        },
+        drump_length: {
+          required: "This field is required",
+          number:"Enter only digits /Decimal Number",
+        },
+        drump_diameter: {
+          required: "This field is required",
+          number:"Enter only digits /Decimal Number",
+        },
+        THRESHING_DRUM_SPEED_ADJUSTMENT: {
+          required: "This field is required",
+        },
+        clear_concave: {
+          required: "This field is required",
+        },
+        tank_capa: {
+          required: "This field is required",
+          number:"Enter only digits /Decimal Number",
+        },
+        transmission_gears: {
+          required: "This field is required",
+        },
+        TRANSMISSION_CLUTCH: {
+          required: "This field is required",
+        },
+        tyre_sizefront: {
+          required: "This field is required",
+          customNumber: "Please enter a valid number or multiplication expression",
+        },
+        tyre_sizerear: {
+          required: "This field is required",
+          customNumber: "Please enter a valid number or multiplication expression",
+        },
+        total_weight_without_grains: {
+          required: "This field is required",
+          number:"Enter only digits /Decimal Number",
+        },
+        dia_length: {
+          required: "This field is required",
+          number:"Enter only digits /Decimal Number",
+        },
+        dia_height: {
+          required: "This field is required",
+          number:"Enter only digits /Decimal Number",
+        },
+        dia_width: {
+          required: "This field is required",
+          number:"Enter only digits /Decimal Number",
+        },
+        ground_clerance: {
+          required: "This field is required",
+
+        },
+        CROPS_TYPE: {
+          required: "This field is required",
+        },
+        _image: {
+          required: "This field is required",
+        }
+    },
+    submitHandler: function (form) {
+        alert("Form submitted successfully!");
+    },
+});
+
+$("#add_harvester").on("click", function () {
+    $("#harvester_form").valid();
+});
+
 });
 function ImgUpload() {
     var imgWrap = "";

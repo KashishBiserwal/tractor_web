@@ -24,12 +24,12 @@ $(document).ready(function(){
         date:{
           required: true,
         },
-        mobile:{
-          required:true, 
-            maxlength:10,
-            digits: true,
-            customPhoneNumber: true
-        },
+        // mobile:{
+        //   required:true, 
+        //     maxlength:10,
+        //     digits: true,
+        //     customPhoneNumber: true
+        // },
         email:{
         required:true,
         email:true
@@ -66,10 +66,10 @@ $(document).ready(function(){
           maxlength:"Enter only 10 digits",
           digits: "Please enter only digits"
         },
-        email:{
-            required:"This field is required",
-            email:"Please Enter vaild Email",
-          },
+        // email:{
+        //     required:"This field is required",
+        //     email:"Please Enter vaild Email",
+        //   },
         
         state_: {
           required: "This field is required",
@@ -305,7 +305,6 @@ function openViewdata(userId) {
         document.getElementById('fname1').innerText=userData.first_name;
         document.getElementById('lname1').innerText=userData.last_name;
         document.getElementById('number1').innerText=userData.mobile;
-        document.getElementById('email_1').innerText=userData.email;
         document.getElementById('date_1').innerText=userData.date;
         document.getElementById('state1').innerText=userData.state;
         document.getElementById('dist1').innerText=userData.district;
@@ -334,17 +333,20 @@ function fetch_edit_data(id) {
         headers: headers,
         success: function (response) {
             var Data = response.enquiry_data[0];
-            $('#idUser').val(Data.id);
-            $('#brand_name').val(Data.brand_name);
-            $('#model_name').val(Data.model);
+            $('#id').val(Data.id);
+            $('#enquiry_type_id').val(Data.enquiry_type_id);
+            $('#product_subject_id').val(Data.product_subject_id);
             $('#first_name').val(Data.first_name);
             $('#last_name').val(Data.last_name);
             $('#mobile').val(Data.mobile);
             $('#email').val(Data.email);
             $('#date').val(Data.date);
-            $('#state_').val(Data.state);
-            $('#dist_').val(Data.district);
-            $('#tehsil_').val(Data.tehsil);
+            $("#state_ option").prop("selected", false);
+            $("#state_ option[value='" + Data.state + "']").prop("selected", true);
+            $("#dist_ option").prop("selected", false);
+            $("#dist_ option[value='" + Data.district + "']").prop("selected", true);
+            $("#tehsil_ option").prop("selected", false);
+            $("#tehsil_ option[value='" + Data.tehsil + "']").prop("selected", true);
         },
         error: function (error) {
             console.error('Error fetching user data:', error);
@@ -354,19 +356,16 @@ function fetch_edit_data(id) {
 
 function edit_id_data() {
   var enquiry_type_id = $("#enquiry_type_id").val();
-  var product_id = $("#product_id").val();
-  var edit_id = $("#idUser").val();
-  var brand_name = $("#brand_name").val();
-  var model_name = $("#model_name").val();
+  var product_subject_id = $("#product_subject_id").val();
+  var edit_id = $("#id").val();
+  console.log(edit_id,'edit_id');
   var first_name = $("#first_name").val();
   var last_name = $("#last_name").val();
   var mobile = $("#mobile").val();
-  var email = $("#email").val();
   var date = $("#date").val();
   var state = $("#state_").val();
   var district = $("#dist_").val();
   var tehsil = $("#tehsil_").val();
-  var _method = 'put';
   // Validate mobile number
   if (!/^[6-9]\d{9}$/.test(mobile)) {
       alert("Mobile number must start with 6 or above and should be 10 digits");
@@ -374,21 +373,18 @@ function edit_id_data() {
   }
 
   var paraArr = {
-    'brand_name': brand_name,
     'first_name': first_name,
-      'model': model_name,
       'last_name': last_name,
       'mobile': mobile,
-      'email': email,
       'date': date,
       'state': state,
       'district': district,
       'tehsil': tehsil,
       'id': edit_id,
       'enquiry_type_id': enquiry_type_id,
-      'product_id': product_id,
-      '_method': _method,
+      'product_id': product_subject_id,
   };
+  console.log('paraArr',paraArr);
 
   var apiBaseURL = APIBaseURL;
   var url = apiBaseURL + 'customer_enquiries/' + edit_id;
@@ -399,7 +395,7 @@ function edit_id_data() {
 
   $.ajax({
       url: url,
-      type: "POST",
+      type: "PUT",
       data: paraArr,
       headers: headers,
       success: function (result) {
@@ -513,4 +509,11 @@ function updateTable(data) {
       // Display a message if there's no valid data
       tableBody.innerHTML = '<tr><td colspan="4">No valid data available</td></tr>';
   }
+}
+function resetform(){
+  $('#brand_name').val('');
+  $('#mode_l').val('');
+  $('#stat_e').val('');
+  $('#dis_t').val('');
+  window.location.reload();
 }

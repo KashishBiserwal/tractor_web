@@ -52,13 +52,13 @@ include 'includes/footertag.php';
           <div class="filter-card mb-2">
             <div class="card-body">
               <div class="row" id="myForm">
-                  <!-- <div class="col-12 col-sm-12 col-md-4 col-lg-4"hidden>
+                  <div class="col-12 col-sm-12 col-md-4 col-lg-4"hidden>
                   <div class="form-outline">
                     <label class="form-label">Search By id</label>
                       <select class="js-select2 form-select form-control mb-0" id="brand_id">
                       </select>
                   </div>
-                </div> -->
+                </div>
                 <div class="col-12 col-sm-12 col-md-3 col-lg-3">
                     <label class="text-dark fw-bold mb-2">Search By Brand</label>
                     <select class="form-select" id="brand">
@@ -74,7 +74,7 @@ include 'includes/footertag.php';
                 </div>
                 <div class="col-12 col-sm-12 col-md-3 col-lg-3 text-center">
                   <div class="mt-4 pt-1">
-                    <button type="button" class="btn-success btn px-4 py-2"  id="Search">Search</button>
+                    <button type="button" class="btn-success btn px-4 py-2"  id="Search" onclick="search_data()">Search</button>
                     <button type="button" class="btn-success btn btn_all" id="Reset" onclick="resetform()">Reset</button>
                   </div>
                 </div>
@@ -162,7 +162,7 @@ include 'includes/footertag.php';
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-      <form id="add_tractor_form" method="post"enctype="multipart/form-data" onsubmit="return false">
+      <form id="add_tractor_form" method="post" enctype="multipart/form-data" onsubmit="return false">
                             <div class="row justify-content-center pt-4">
                               <h5 class="fw-bold">Listing</h5>
                               <div class="col-12 col-sm-6 col-lg-6 col-md-6 mt-2">
@@ -196,8 +196,7 @@ include 'includes/footertag.php';
                                   <label class="form-label">No. of Cylinder</label>
                                   <select class="form-select py-2" id="TOTAL_CYCLINDER" aria-label="Default select example">
                                     <option selected disabled="" value="">Please select an option</option>
-                                    <option value="1">1</option>
-                                    <option value="2">1</option>
+                                   
                                   </select>
                                 </div>
                               </div>
@@ -253,7 +252,7 @@ include 'includes/footertag.php';
                                  
                                 </div>
                               </div>
-                              <div class="">
+                              <!-- <div class="">
                              
                                 <div class="upload__box mt-2">
                                             <div class="upload__btn-box text-center col-12 col-sm-4 col-lg-4 col-md-4 ps-3">
@@ -264,7 +263,7 @@ include 'includes/footertag.php';
                                             </div>
                                             <div id="selectedImagesContainer" class="upload__img-wrap col-12 col-sm-12 col-lg-12 col-md-12"></div>
                                           </div>
-                              </div>
+                              </div> -->
                               <h5 class="fw-bold"> Engine Details</h5>
                               <div  class="col-12 col-sm-4 col-lg-4 col-md-4">
                                 <div class="form-outline">
@@ -641,4 +640,3 @@ include 'includes/footertag.php';
 //    document.getElementById("myForm").reset();  
 //  }   
 </script>
-<!-- <script src="<?php $baseUrl; ?>model/newtractor_listing_get.js"></script> -->

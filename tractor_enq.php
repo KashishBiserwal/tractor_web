@@ -66,8 +66,9 @@
             <div class="col-12 col-sm-12 col-md-3 col-lg-3">
               <div class="form-outline ">
                 <label class="form-label">Model</label>
-                    <select class="form-select py-2" aria-label="Default select example" id="mode_l">
-                    </select>
+                    <!-- <select class="form-select py-2" aria-label="Default select example" id="mode_l">
+                    </select> -->
+                    <input type="text" class="form-control" placeholder="" id="mode_l" name="">
               </div>
             </div>
             <div class="col-12 col-sm-12 col-md-3 col-lg-3">
@@ -75,8 +76,8 @@
                 <label class="form-label">State</label>
                 <select class="form-select py-2" aria-label="Default select example" id="stat_e">
                     <option value>Select State</option>
-                    <option value="1">Chattisgarh</option>
-                    <option value="2">Other</option>
+                    <option value="Chattisgarh">Chattisgarh</option>
+                    <option value="Other">Other</option>
                 </select>
               </div>
             </div>
@@ -85,9 +86,9 @@
                 <label class="form-label">District</label>
                 <select class="form-select py-2" aria-label="Default select example" id="dis_t">
                     <option value>Select District</option>
-                    <option value="1">Raipur</option>
-                    <option value="2">Bilaspur</option>
-                    <option value="3">Surajpur</option>
+                    <option value="Raipur">Raipur</option>
+                    <option value="Bilaspur">Bilaspur</option>
+                    <option value="Surajpur">Surajpur</option>
                 </select>
               </div>
             </div>
@@ -153,19 +154,17 @@
                            
                             <td>Mobile Number-</td>
                             <td id="number1"></td>
-                            <td>Email-</td>
-                            <td id="email_1"></td>
+                            <td>Date-</td>
+                            <td id="date_1"></td>
                           </tr>
                           <tr>
-                          <td>Date-</td>
-                            <td id="date_1"></td>
+                          
                             <td>State-</td>
                             <td id="state1"></td>
-                            
+                            <td>District-</td>
+                            <td id="dist1"></td>
                           </tr>
                           <tr>
-                          <td>District-</td>
-                            <td id="dist1"></td>
                             <td>Tehsil-</td>
                             <td id="tehsil1"></td>
                           </tr>
@@ -196,32 +195,32 @@
                             <form id="new_tractor_form">
                                 <div class="row  pt-4">
                                 <div class="col- col-sm-6 col-lg-6 col-md-6" hidden>
-                                  <label class="text-dark"> id Name<span class="text-danger">*</span></label>
-                                          <input type="text" class="form-control py-2" for="idUser"  id="idUser" name="first_name" placeholder="Enter First Name">
+                                  <label class="text-dark"> customer id<span class="text-danger">*</span></label>
+                                          <input type="text" class="form-control py-2" for="" value=""  id="id" name="" placeholder="Enter First Name">
                                   <small></small>
                                 </div>  
                                 <div class="col- col-sm-6 col-lg-6 col-md-6" hidden>
-                                  <label class="text-dark"> id Name<span class="text-danger">*</span></label>
-                                          <input type="text" class="form-control py-2" for="idUser"  id="enquiry_type_id" value="2" name="first_name" placeholder="Enter First Name">
+                                  <label class="text-dark"> enquiry<span class="text-danger">*</span></label>
+                                          <input type="text" class="form-control py-2" for=""  id="enquiry_type_id" value="2" name="first_name" placeholder="Enter First Name">
                                   <small></small>
                                 </div>
                                 <div class="col- col-sm-6 col-lg-6 col-md-6" hidden>
-                                          <label class="text-dark"> id Name<span class="text-danger">*</span></label>
-                                                  <input type="text" class="form-control py-2" for="idUser"  id="product_id" value="104" name="first_name" placeholder="Enter First Name">
+                                          <label class="text-dark">product id <span class="text-danger">*</span></label>
+                                                  <input type="text" class="form-control py-2" for="idUser"  id="product_subject_id" value="" name="first_name" placeholder="Enter First Name">
                                           <small></small>
                                         </div>
-                                <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
+                                <!-- <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
                                       <div class="form-outline">
                                         <label for="name" class="form-label text-dark">Brand Name</label>
                                         <input type="text" class="form-control" placeholder="" id="brand_name" name="bname">
                                       </div>
-                                    </div>
-                                    <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
+                                    </div> -->
+                                    <!-- <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
                                       <div class="form-outline">
                                         <label for="name" class="form-label text-dark">Model Name</label>
                                         <input type="text" class="form-control" placeholder="" id="model_name" name="mname">
                                       </div>
-                                    </div>
+                                    </div> -->
                                  <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
                                       <div class="form-outline mt-3">
                                         <label for="name" class="form-label text-dark">First Name</label>
@@ -240,12 +239,7 @@
                                         <input type="text" class="form-control" placeholder="" id="mobile" name="mobile">
                                       </div>
                                     </div>
-                                    <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
-                                      <div class="form-outline mt-3">
-                                        <label for="name" class="form-label text-dark">Email</label>
-                                        <input type="text" class="form-control" placeholder="" id="email" name="email">
-                                      </div>
-                                    </div>
+                                   
                                     <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
                                       <div class="form-outline mt-3">
                                         <label for="name" class="form-label text-dark">Date</label>
@@ -303,8 +297,3 @@
 </div>
 </div>
 </body>
-
-
-<?php
-   include 'includes/footertag.php';
-   ?> 

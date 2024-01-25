@@ -1,10 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <?php
-        include 'includes/headertag.php';
-        include 'includes/header.php';
-    ?>
+  <?php
+include 'includes/headertag.php';
+   include 'includes/headertagadmin.php';
+   include 'includes/footertag.php';
+   
+   ?> 
+<script> var APIBaseURL = "<?php echo $APIBaseURL; ?>";</script>
+<script> var baseUrl = "<?php echo $baseUrl; ?>";</script>
+    <script src="<?php $baseUrl; ?>model/certified_dealers_inner.js"></script>
 </head>
 <body>
     <section>
@@ -135,7 +140,7 @@
             </div>
             <!-- MODAL BODY -->
             <div class="modal-body">
-              <form id="dealership_enq_from" class="bg-light" action="" method="" >
+              <form id="dealership_enq_from" class="bg-light" action="" method="POST" >
                 <div class="row justify-content-center">
                   <div class="col-12 col-sm-12 col-md-6 col-lg-6">
                     <div class="mt-2">
@@ -192,7 +197,7 @@
                     </select>
                   </div>
                   <div class="text-center my-3">
-                    <button type="submit" id="delership_enq_btn" class="btn btn-success px-5 w-100 ">Submit</button>         
+                    <button type="button" id="delership_enq_btn" class="btn btn-success px-5 w-100 ">Submit</button>         
                   </div>        
                   <p class="mb-0 text-center">By proceeding ahead you expressly agree to the Bharat Tractors <a href="#" class="text-decoration-none" target="_blank" title="terms and conditions">terms and conditions*</a></p>
                 </div>
@@ -597,7 +602,6 @@
 
   <?php
     include 'includes/footer.php';
-    include 'includes/footertag.php';
   ?>
 
   <script>
@@ -619,13 +623,13 @@
            l_name: {
               required: true,
               minlength: 3
-            }
+            },
             mb_num: {
                 required: true,
               minlength: 10,
               digits: true,
               customPhoneNumber: true 
-            }
+            },
            // _tehsil: {
            //     required: true,
             //     minlength: 3
@@ -672,7 +676,8 @@
             _brand: {
               required: "Select Your Brand Name",
               // minlength: ""
-            }                
+            }},               
+          
           });
         })
       });

@@ -82,26 +82,10 @@ include 'includes/headertag.php';
             </form>
         </div>
       </div>
-      <!-- Table Card -->
-      <!-- <div class=" mb-5">
-        <div class="table-responsive">
-            <table id="example" class="table table-striped table-hover table-bordered dataTable no-footer" width="100%; margin-bottom: 15px;">
-                <thead>
-                    <tr>
-                        <th class="d-none d-md-table-cell text-white">ID</th>
-                        <th class="d-none d-md-table-cell text-white">Lookup Type </th>
-                        <th class="d-none d-md-table-cell text-white">Action</th>
-                    </tr>
-                </thead>
-                <tbody id="data-table">
-                </tbody>
-            </table>
-        </div>
-      </div> -->
-      <div class=" mb-5  shadow bg-white mt-3 p-3">
-          <div class="table-responsive">
-            <table id="example" class="table table-striped  table-hover table-bordered  no-footer" width="100%;">
-                <thead>
+      <div class="mb-5 shadow bg-white mt-3 p-3">
+    <div class="table-responsive">
+        <table id="example" class="table table-striped table-hover table-bordered no-footer" width="100%;">
+            <thead>
                     <tr>
                         <th class="d-none d-md-table-cell text-white">ID</th>
                         <th class="d-none d-md-table-cell text-white">Lookup Type </th>

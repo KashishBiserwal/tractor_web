@@ -93,16 +93,10 @@
           </div>
         </div>
       </div> -->
-      <div class="filter-card mb-2">
+      <div class="filter-card">
         <div class="card-body">
           <div class="row">
-          <div class="col-12 col-sm-12 col-md-3 col-lg-3"hidden>
-              <div class="form-outline">
-                <label class="form-label">Search By id</label>
-                  <select class=" form-select form-control mb-0" id="brand_id">
-                  </select>
-              </div>
-            </div>
+          
             <div class="col-12 col-sm-12 col-md-3 col-lg-3">
               <div class="form-outline">
                 <label class="form-label">Search By Brand</label>
@@ -110,18 +104,7 @@
                 </select>
               </div>
             </div>
-            <!-- <div class="col-12 col-sm-12 col-md-3 col-lg-3">
-              <div class="form-outline">
-                <label class="form-label"> Brand Name</label>
-                <select class="form-select py-2" aria-label="Default select example" id="brand2">
-                    <option selected>Select Brand</option>
-                    <option value="Mahindra">Mahindra</option>
-                    <option value="Swaraj">Swaraj</option>
-                    <option value="John Deere">John Deere</option>
-                    <option value="Preet">Preet</option>
-                </select>
-              </div>
-            </div> -->
+           
             <div class="col-12 col-sm-12 col-md-3 col-lg-3">
               <div class="form-outline ">
                 <label class="form-label">Model</label>
@@ -166,10 +149,10 @@
         </div>
       </div>
       <!-- Table Card -->
-      <div class=" mb-5">
-        <div class="table-responsive shadow bg-white ">
-            <table id="example" class="table table-striped table-hover dataTable no-footer py-1" width="100%">
-                <thead>
+      <div class=" mb-5 shadow bg-white mt-3 p-3">
+            <div class="table-responsive">
+              <table id="example" class="table table-striped brand_table  table-hover table-bordered  no-footer" width="100%; margin-bottom: 15px;">
+                <thead class="">
                     <tr>
                         <th class="d-none d-md-table-cell text-white">S.No.</th>
                         <th class="d-none d-md-table-cell text-white">Date </th>
@@ -219,20 +202,19 @@
                            
                             <td>Mobile Number-</td>
                             <td id="number1"></td>
-                            <td>Email-</td>
-                            <td id="email_1"></td>
+                            <td>Date-</td>
+                            <td id="date_1"></td>
                           </tr>
                           <tr>
-                          <td>Date-</td>
-                            <td id="date_1"></td>
+                          
                             <td>State-</td>
                             <td id="state1"></td>
+                            <td>District-</td>
+                            <td id="dist2"></td>
                           </tr>
                           <tr>
-                          <td>District-</td>
-                            <td id="dist1"></td>
                             <td>Tehsil-</td>
-                            <td id="tehsil1"></td>
+                            <td id="tehsil2"></td>
                           </tr>
                         </tbody>
                       </table>
@@ -313,12 +295,6 @@
                                       <div class="form-outline mt-3">
                                         <label for="name" class="form-label text-dark">Phone Number</label>
                                         <input type="text" class="form-control" placeholder="" id="mobile" name="mobile">
-                                      </div>
-                                    </div>
-                                    <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
-                                      <div class="form-outline mt-3">
-                                        <label for="name" class="form-label text-dark">Email</label>
-                                        <input type="text" class="form-control" placeholder="" id="email" name="email">
                                       </div>
                                     </div>
                                     <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">

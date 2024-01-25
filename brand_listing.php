@@ -136,7 +136,7 @@
             <div class="col-12 col-sm-12 col-md-8 col-lg-8  text-center">
               <div class="d-flex float-end">
                 <button type="button" class="btn-success btn px-5 btn_all" id="Search">Search</button>
-                <button type="button" class="btn-success btn px-5 mx-2 btn_all"onclick="resetForm()" id="Reset">Reset</button>
+                <button type="button" class="btn-success btn px-5 mx-2 btn_all"  id="Reset" onclick="resetForm()">Reset</button>
               </div>
                 
             </div>
@@ -449,13 +449,13 @@ function get() {
                         <button class="btn btn-primary btn-sm btn_edit" onclick="fetch_edit_data(${row.id});" data-bs-toggle="modal" data-bs-target="#staticBackdrop_model" id="yourUniqueIdHere" style="padding:5px">
                           <i class="fas fa-edit" style="font-size: 11px;"></i></button>
                         </button> <button class="btn btn-danger btn-sm mx-1" id="delete_user" onclick="destroy(${row.id});" style="padding:5px"><i class="fa fa-trash" style="font-size: 11px;"></i></button></div>`;
-                    tableData.push([
-                        serialNumber,
+                        tableData.push([
+                          serialNumber,
                         row.brand_name,
                         row.brand_img,
-                        row.product_type_names,
+                        row.product_type_names, // Assuming product_type_names is a string
                         action
-                    ]);
+                          ]);
 
                     // Increment serial number for the next row
                     serialNumber++;
@@ -467,9 +467,10 @@ function get() {
                         { title: 'S.No.' },
                         { title: 'Brand Name' },
                         { title: 'Brand Image' },
-                        { title: 'Product Type' },
-                        { title: 'Action', orderable: false } // Disable ordering for Action column
+                        { title: 'Product Types' }, // Modify the column title
+                        { title: 'Action', orderable: false }
                     ],
+
                     paging: true,
                     searching: false,
                     // ... other options ...
@@ -485,8 +486,6 @@ function get() {
         }
     });
 }
-
-
 get();
 
 function fetch_edit_data(userId) {
@@ -741,7 +740,7 @@ function updateTable(data) {
                         serialNumber,
                         row.brand_name,
                         row.brand_img,
-                        row.product_type_name,
+                        row.product_type_names,
                         action
                     ]);
 
@@ -767,38 +766,69 @@ function updateTable(data) {
         tableBody.innerHTML = '<tr><td colspan="4">No valid data available</td></tr>';
     }
 }
-
 function fetchAllData() {
-    var apiBaseURL = APIBaseURL; 
-    var url = apiBaseURL + 'search_for_brand';
+  var apiBaseURL = '<?php echo $APIBaseURL; ?>';
+  var url = apiBaseURL + 'search_for_brand';
 
-    $.ajax({
-      url: url,
-      type: 'POST',
-      data: {},
-      headers: {
-        'Authorization': 'Bearer ' + localStorage.getItem('token')
-      },
-      success: function (allData) {
-        updateTable(allData);
-      },
-      error: function (error) {
-        console.error('Error fetching all data:', error);
-      }
-    });
-  }
+  $.ajax({
+    url: url,
+    type: 'POST',
+    data: {},
+    headers: {
+      'Authorization': 'Bearer ' + localStorage.getItem('token')
+    },
+    success: function (allData) {
+      updateTable(allData);
+    },
+    error: function (error) {
+      console.error('Error fetching all data:', error);
+    }
+  });
+}
 
-  // Reset form function
-  function resetForm() {
-    // Reset the values of select elements
-    $('#brand').val('').trigger('change');
-    $('#brand_id').val('').trigger('change');
+// Function to reset the form and table
+function resetForm() {
+  // Reset the values of select elements using jQuery
+  $('#brand').val('').trigger('change');
+  $('#brand_id').val('').trigger('change');
 
-    // Fetch all data and update the table
-    fetchAllData();
-  }
+  // Show all rows in the table
+  $('#example tbody tr').show();
 
-            
+  // Fetch all data and update the table
+  fetchAllData();
+}
+
+// Event listener for the Reset button
+$(document).on('click', '#Reset', function () {
+  resetForm();
+});
+
+// Event listener for the Search button
+$(document).on('click', '#Search', function () {
+  myFunction();
+});
+
+// Document ready function
+$(document).ready(function () {
+  // Initialize DataTable
+  $('#example').DataTable({
+    columns: [
+      { title: 'S.No.' },
+      { title: 'Brand Name' },
+      { title: 'Brand Image' },
+      { title: 'Product Type' },
+      { title: 'Action', orderable: false }
+    ],
+    paging: true,
+    searching: false,
+    // ... other options ...
+  });
+
+  // Initial fetch and update when the page loads
+  fetchAllData();
+});
+
   function BackgroundUpload() {
     var imgWrap = "";
     var imgArray = [];

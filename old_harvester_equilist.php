@@ -241,9 +241,11 @@
                 <!-- <input type="text" class="form-control" id="district_name" name="district"> -->
                 <select class="form-select form-control" aria-label="Default select example" id="district_name" name="district">
                     <option value>Select District</option>
-                    <option value="1">Raipur</option>
-                    <option value="2">Bilaspur</option>
-                    <option value="3">Surajpur</option>
+                    <option value="Raipur">Raipur</option>
+                    <option value="Bilaspur">Bilaspur</option>
+                    <option value="Jagdalpur">Jagdalpur</option>
+                    <option value="Sarguja">Sarguja</option>
+                    <option value="Surajpur">Surajpur</option>
                 </select>
               </div>
             </div>

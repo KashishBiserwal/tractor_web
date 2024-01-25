@@ -169,81 +169,6 @@
   }
   get_old_tractor();
 
-//   function get() {
-//     var url = 'http://tractor-api.divyaltech.com/api/customer/get_all_brands';
-//     $.ajax({
-//         url: url,
-//         type: "GET",
-//         headers: {
-//             'Authorization': 'Bearer ' + localStorage.getItem('token')
-//         },
-//         success: function (data) {
-//             console.log(data);
-//             const selects = document.querySelectorAll('#brand_name');
-
-//             selects.forEach(select => {
-//                 select.innerHTML = '<option selected disabled value="">Please select an option</option>';
-
-//                 if (data.brands.length > 0) {
-//                     data.brands.forEach(row => {
-//                         const option = document.createElement('option');
-//                         option.textContent = row.brand_name;
-//                         option.value = row.id;
-//                         console.log(option);
-//                         select.appendChild(option);
-//                     });
-
-//                     // Add event listener to brand dropdown
-//                     select.addEventListener('change', function() {
-//                         const selectedBrandId = this.value;
-//                         get_model(selectedBrandId);
-//                     });
-//                 } else {
-//                     select.innerHTML = '<option>No valid data available</option>';
-//                 }
-//             });
-//         },
-//         error: function (error) {
-//             console.error('Error fetching data:', error);
-//         }
-//     });
-// }
-
-// function get_model(brand_id) {
-//     var url = 'http://tractor-api.divyaltech.com/api/customer/get_brand_model/' + brand_id;
-//     $.ajax({
-//         url: url,
-//         type: "GET",
-//         headers: {
-//             'Authorization': 'Bearer ' + localStorage.getItem('token')
-//         },
-//         success: function (data) {
-//             console.log(data);
-//             const selects = document.querySelectorAll('#model2');
-
-//             selects.forEach(select => {
-//                 select.innerHTML = '<option selected disabled value="">Please select an option</option>';
-
-//                 if (data.model.length > 0) {
-//                     data.model.forEach(row => {
-//                         const option = document.createElement('option');
-//                         option.textContent = row.model;
-//                         option.value = row.id;
-//                         console.log(option);
-//                         select.appendChild(option);
-//                     });
-//                 } else {
-//                     select.innerHTML = '<option>No valid data available</option>';
-//                 }
-//             });
-//         },
-//         error: function (error) {
-//             console.error('Error fetching data:', error);
-//         }
-//     });
-// }
-
-// get();
 // brand
 function get_search_brand() {
   var apiBaseURL = APIBaseURL;
@@ -303,9 +228,7 @@ function get_search() {
       console.log(data);
 
       const select = $('#brand_name');
-      select.empty(); // Clear existing options
-
-      // Add a default option
+      select.empty(); 
       select.append('<option selected disabled value="">Please select Brand</option>');
 
       // Use an object to keep track of unique brands
@@ -352,11 +275,10 @@ function openViewdata(userId) {
         document.getElementById('fname1').innerText=userData.first_name;
         document.getElementById('lname1').innerText=userData.last_name;
         document.getElementById('number1').innerText=userData.mobile;
-        document.getElementById('email_1').innerText=userData.email;
         document.getElementById('date_1').innerText=userData.date;
         document.getElementById('state1').innerText=userData.state;
-        document.getElementById('dist1').innerText=userData.district;
-        document.getElementById('tehsil1').innerText=userData.tehsil;
+        document.getElementById('dist2').innerText=userData.district;
+        document.getElementById('tehsil2').innerText=userData.tehsil;
       },
       error: function(error) {
         console.error('Error fetching user data:', error);
@@ -424,13 +346,17 @@ function fetch_edit_data(id) {
             $('#model_name').val(Data.model);
             $('#first_name').val(Data.first_name);
             $('#last_name').val(Data.last_name);
-            $('#mobile').val(Data.mobile);
-            $('#email').val(Data.email); 
+            $('#mobile').val(Data.mobile); 
             $('#date').val(Data.date);
-            $('#state_').val(Data.state);
-            console.log(Data.state);
-            $('#dist_').val(Data.district);
-            $('#tehsil_').val(Data.tehsil);
+
+            $("#state_ option").prop("selected", false);
+            $("#state_ option[value='" + Data.state + "']").prop("selected", true);
+           
+            $("#dist_ option").prop("selected", false);
+            $("#dist_ option[value='" + Data.district + "']").prop("selected", true);
+
+            $("#tehsil_ option").prop("selected", false);
+            $("#tehsil_ option[value='" + Data.tehsil + "']").prop("selected", true);
         },
         error: function (error) {
             console.error('Error fetching user data:', error);
@@ -507,26 +433,17 @@ function edit_id() {
 
 function searchdata() {
   console.log("dfghsfg,sdfgdfg");
-  var brand_id = $('#brand_id').val();
-  var brandselect = $('#brand_name').val();
+  var brandselect = $('#brand_name1').val();
   var modelselect = $('#model2').val();
   var stateselect = $('#state2').val();
   var districtselect = $('#district2').val();
- 
-console.log(brand_id);
-console.log(brandselect);
-console.log(modelselect);
-console.log(stateselect);
-console.log(districtselect);
 
   var paraArr = {
-    'id':brand_id,
-    'brand_name':brandselect,
+    'id':brandselect,
     'model':modelselect,
     'state':stateselect,
     'district':districtselect,
   };
-
   var apiBaseURL = APIBaseURL;
   var url = apiBaseURL + 'search_for_old_tractor_enquiry';
   $.ajax({
@@ -608,11 +525,11 @@ function updateTable(data) {
 
 
 function resetform(){
-  $('#brand_name').val('');
+  $('#brand_name1').val('');
   $('#model2').val('');
   $('#state2').val('');
   $('#district2').val('');
-  window.location.reload(); 
+  window.location.reload();
 }
 
 

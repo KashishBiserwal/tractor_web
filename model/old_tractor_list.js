@@ -226,46 +226,48 @@ get_search_brand();
 
 function get_year_and_hours() {
   console.log('initsfd')
-    var apiBaseURL = APIBaseURL;
-    var url = apiBaseURL + 'get_year_and_hours';
-    $.ajax({
-        url: url,
-        type: "GET",
-        headers: {
-            'Authorization': 'Bearer ' + localStorage.getItem('token')
-        },
-        success: function (data) {
-
+  var apiBaseURL = APIBaseURL;
+  var url = apiBaseURL + 'get_year_and_hours';
+  $.ajax({
+      url: url,
+      type: "GET",
+      headers: {
+          'Authorization': 'Bearer ' + localStorage.getItem('token')
+      },
+      success: function (data) {
           var hours_select = $("#hours_driven");
           hours_select.empty(); // Clear existing options
           hours_select.append('<option selected disabled="" value="">Please select an option</option>'); 
-          console.log(data,'ok');
+          console.log(data, 'ok');
           for (var k = 0; k < data.getHoursDriven.length; k++){
-            var optionText = data.getHoursDriven[k].start + " - " + data.getHoursDriven[k].end;
-            hours_select.append('<option value="' + k + '">' + optionText + '</option>');
+              var optionText = data.getHoursDriven[k].start + " - " + data.getHoursDriven[k].end;
+              hours_select.append('<option value="' + k + '">' + optionText + '</option>');
           } 
 
           var select_year = $("#purchase_year");
           select_year.empty(); // Clear existing options
           select_year.append('<option selected disabled="" value="">Please select an option</option>'); 
-          console.log(data,'ok');
+
+          // Sort the array in descending order
+          data.getYears.sort(function(a, b) {
+              return b - a;
+          });
+
           for (var j = 0; j < data.getYears.length; j++) {
-            select_year.append('<option value="' + data.getYears[j] + '">' + data.getYears[j] + '</option>');
-        }
-
-        },
-
-     
-        
-        complete:function(){
-         
-        },
-        error: function (error) {
-            console.error('Error fetching data:', error);
-        }
-    });
+              select_year.append('<option value="' + data.getYears[j] + '">' + data.getYears[j] + '</option>');
+          }
+      },
+      complete: function() {
+          // You can add code here that will run after the request is complete
+      },
+      error: function (error) {
+          console.error('Error fetching data:', error);
+      }
+  });
 }
+
 get_year_and_hours();
+
 
 
 function store(event) {
@@ -281,7 +283,6 @@ function store(event) {
      console.log('tractor_type_id',tractor_type_id);
      var first_name = $('#first_name').val();
      var customer_id = $('#customer_id').val();
-    //  var EditIdmain_ = $('#EditIdmain_').val();
      console.log(first_name);
      var last_name = $('#last_name').val();
      var mobile = $('#mobile_number').val();
@@ -401,7 +402,7 @@ function store(event) {
     return `${day}-${month}-${year} / ${hours}:${minutes}:${seconds}`;
     }
    // fetch data
- function get_tractor_list() {
+   function get_tractor_list() {
     var apiBaseURL = APIBaseURL;
     var url = apiBaseURL + 'get_old_tractor';
     $.ajax({
@@ -457,6 +458,7 @@ function store(event) {
                     ],
                     paging: true,
                     searching: false,
+                    order: [[0, 'desc']], // Sort by the first column (S.No.) in descending order
                     // ... other options ...
                 });
             } else {
@@ -470,6 +472,7 @@ function store(event) {
 }
 
 get_tractor_list();
+
 
 
 function search_data() {
@@ -741,7 +744,7 @@ function fetch_data(product_id){
 // delete data
   function destroy(id) {
     var apiBaseURL = APIBaseURL;
-    var url = apiBaseURL + 'deleteProduct/' + id;
+    var url = apiBaseURL + 'customer_enquiries/' + id;
     var token = localStorage.getItem('token');
   
     if (!token) {

@@ -67,19 +67,19 @@ include 'includes/footertag.php';
                                     <div class="col-12 col-sm-6 col-lg-6 col-md-6 mt-3">
                                       <div class="form-outline">
                                         <label class="form-label">Model</label>
-                                        <input type="email" name="model" id="model" class="form-control">
+                                        <input type="text" name="model" id="model" class="form-control">
                                       </div>
                                     </div>
                                     <div class="col-12 col-sm-4 col-lg-4 col-md-4 mt-3">
                                       <div class="form-outline">
                                         <label class="form-label">Engine Rated RPM</label>
-                                        <input type="email" name="rpm" id="rpm" class="form-control">
+                                        <input type="text" name="rpm" id="rpm" class="form-control">
                                       </div>
                                     </div>
                                     <div class="col-12 col-sm-4 col-lg-4 col-md-4 mt-3">
                                       <div class="form-outline">
                                         <label class="form-label">HP Power</label>
-                                        <input type="email" name="hp_power" id="hp_power" class="form-control">
+                                        <input type="text" name="hp_power" id="hp_power" class="form-control">
                                       </div>
                                     </div>
                                     <div class="col-12 col-sm-4 col-lg-4 col-md-4 mt-3">
@@ -94,7 +94,7 @@ include 'includes/footertag.php';
                                     <div class="col-12 col-sm-4 col-lg-4 col-md-4 mt-3">
                                       <div class="form-outline">
                                         <label class="form-label">Cylinder</label>
-                                        <select class="form-select form-control" id="TOTAL_CYCLINDER" name="cylinder" aria-label="Default select example">
+                                        <select class="form-select form-control" id="TOTAL_CYCLINDER" name="TOTAL_CYCLINDER" aria-label="Default select example">
                                             <option selected disabled>Please select an option</option>
                                         </select>
                                       </div>
@@ -102,7 +102,7 @@ include 'includes/footertag.php';
                                     <div class="col-12 col-sm-4 col-lg-4 col-md-4 mt-3">
                                       <div class="form-outline">
                                         <label class="form-label">Power Source</label>
-                                        <select class="form-select form-control" id="POWER_SOURCE" name="cylinder" aria-label="Default select example">
+                                        <select class="form-select form-control" id="POWER_SOURCE" name="POWER_SOURCE" aria-label="Default select example">
                                             <option selected disabled>Please select an option</option>
                                         </select>
                                       </div>
@@ -111,25 +111,25 @@ include 'includes/footertag.php';
                                     <div class="col-12 col-sm-6 col-lg-6 col-md-6  mt-3">
                                       <div class="form-outline">
                                         <label class="form-label">Cutter Bar Width (ft.)</label>
-                                        <input type="email" name="cutting_bar" id="cutting_bar" class="form-control">
+                                        <input type="text" name="cutting_bar" id="cutting_bar" class="form-control">
                                       </div>
                                     </div>
                                     <div class="col-12 col-sm-6 col-lg-6 col-md-6  mt-3">
                                       <div class="form-outline">
                                         <label class="form-label">Maximum Cutting Height</label>
-                                        <input type="email" name="cuttingmax_height" id="cuttingmax_height" class="form-control">
+                                        <input type="text" name="cuttingmax_height" id="cuttingmax_height" class="form-control">
                                       </div>
                                     </div>
                                     <div class="col-12 col-sm-6 col-lg-6 col-md-6 mt-3">
                                       <div class="form-outline">
                                         <label class="form-label">Minimum Cutting Height</label>
-                                        <input type="email" name="cuttingmin_height" id="cuttingmin_height" class="form-control">
+                                        <input type="text" name="cuttingmin_height" id="cuttingmin_height" class="form-control">
                                       </div>
                                     </div>
                                     <div class="col-12 col-sm-6 col-lg-6 col-md-6 mt-3">
                                       <div class="form-outline">
                                         <label class="form-label">Height Adjustment</label>
-                                        <!-- <input type="email" name="height_adjust" id="height_adjust" class="form-control"> -->
+                                        <!-- <input type="text" name="height_adjust" id="height_adjust" class="form-control"> -->
                                         <select class="form-select form-control" id="CUTTER_BAR_HEIGHT_ADJUSTMENT" name="CUTTER_BAR_HEIGHT_ADJUSTMENT" aria-label="Default select example">
                                             <option selected disabled>Please select an option</option>
                                         </select>
@@ -139,7 +139,7 @@ include 'includes/footertag.php';
                                     <div class="col-12 col-lg-4 col-sm-4 col-md-4 mt-3">
                                       <div class="form-outline">
                                         <label class="form-label">Type</label>
-                                        <!-- <input type="email" name="type" id="type" class="form-control"> -->
+                                        <!-- <input type="text" name="type" id="type" class="form-control"> -->
                                         <select class="form-select form-control" id="REEL_TYPE" name="REEL_TYPE" aria-label="Default select example">
                                             <option selected disabled>Please select an option</option>
                                         </select>
@@ -148,7 +148,7 @@ include 'includes/footertag.php';
                                     <div class="col-12 col-lg-4 col-sm-4 col-md-4 mt-3">
                                       <div class="form-outline">
                                         <label class="form-label">Reel Diameter</label>
-                                        <input type="email" name="reel_dia" id="reel_dia" class="form-control">
+                                        <input type="text" name="reel_dia" id="reel_dia" class="form-control">
 
 
                                       </div>
@@ -156,7 +156,7 @@ include 'includes/footertag.php';
                                     <div class="col-12 col-lg-4 col-sm-4 col-md-4 mt-3">
                                       <div class="form-outline">
                                         <label class="form-label">Speed Adjustment</label>
-                                        <!-- <input type="email" name="speed_adj" id="speed_adj" class="form-control"> -->
+                                        <!-- <input type="text" name="speed_adj" id="speed_adj" class="form-control"> -->
                                         <select class="form-select form-control" id="REEL_SPEED_CONTROL" name="REEL_SPEED_CONTROL" aria-label="Default select example">
                                             <option selected disabled>Please select an option</option>
                                         </select>
@@ -165,19 +165,19 @@ include 'includes/footertag.php';
                                     <div class="col-12 col-lg-4 col-sm-4 col-md-4 mt-3">
                                       <div class="form-outline">
                                         <label class="form-label">Minimum Revolution</label>
-                                        <input type="email" name="min_revol" id="min_revol" class="form-control">
+                                        <input type="text" name="min_revol" id="min_revol" class="form-control">
                                       </div>
                                     </div>
                                     <div class="col-12 col-lg-4 col-sm-4 col-md-4 mt-3">
                                       <div class="form-outline">
                                         <label class="form-label">Maximum Revolution</label>
-                                        <input type="email" name="max_revol" id="max_revol" class="form-control">
+                                        <input type="text" name="max_revol" id="max_revol" class="form-control">
                                       </div>
                                     </div>
                                     <div class="col-12 col-lg-4 col-sm-4 col-md-4 mt-3">
                                       <div class="form-outline">
                                         <label class="form-label">Height Adjustment</label>
-                                        <!-- <input type="email" name="REEL_HEIGHT_ADJUSTMENT" id="height_adj" class="form-control"> -->
+                                        <!-- <input type="text" name="REEL_HEIGHT_ADJUSTMENT" id="height_adj" class="form-control"> -->
                                         <select class="form-select form-control" id="REEL_HEIGHT_ADJUSTMENT" name="REEL_HEIGHT_ADJUSTMENT" aria-label="Default select example">
                                             <option selected disabled>Please select an option</option>
                                         </select>
@@ -188,8 +188,8 @@ include 'includes/footertag.php';
                                     <div class="col-sm-6 col-lg-6 col-md-6 mt-3">
                                       <div class="form-outline">
                                         <label class="form-label">Cooling System</label>
-                                        <!-- <input type="email" name="min_revol" id="cool_system" class="form-control"> -->
-                                        <select class="form-select form-control" id="COOLING" name="cylinder" aria-label="Default select example">
+                                        <!-- <input type="text" name="min_revol" id="cool_system" class="form-control"> -->
+                                        <select class="form-select form-control" id="COOLING" name="COOLING" aria-label="Default select example">
                                             <option selected disabled>Please select an option</option>
                                         </select>
                                       </div>
@@ -197,33 +197,33 @@ include 'includes/footertag.php';
                                     <div class="col-sm-6 col-lg-6 col-md-6 mt-3">
                                       <div class="form-outline">
                                         <label class="form-label">Coolent Capacity</label>
-                                        <input type="email" name="cool_capacity" id="cool_capacity" class="form-control">
+                                        <input type="text" name="cool_capacity" id="cool_capacity" class="form-control">
                                       </div>
                                     </div>
                                     <h5 class="fw-bold my-3">Threshing & Cleaning System</h5>
                                     <div class="col-12 col-sm-6 col-lg-4 col-md-4 mt-3">
                                       <div class="form-outline">
                                         <label class="form-label">Thresing Drump Width</label>
-                                        <input type="email" name="drump_width" id="drump_width" class="form-control">
+                                        <input type="text" name="drump_width" id="drump_width" class="form-control">
                                       </div>
                                     </div>
                                     <div class="col-12 col-sm-6 col-lg-4 col-md-4 mt-3">
                                       <div class="form-outline">
                                         <label class="form-label">Thresing Drump Length</label>
-                                        <input type="email" name="drump_length" id="drump_length" class="form-control">
+                                        <input type="text" name="drump_length" id="drump_length" class="form-control">
                                       </div>
                                     </div>
                                     <div class="col-12 col-sm-6 col-lg-4 col-md-4 mt-3">
                                       <div class="form-outline">
                                         <label class="form-label">Thresing Drump Diameter</label>
-                                        <input type="email" name="drump_diameter" id="drump_diameter" class="form-control">
+                                        <input type="text" name="drump_diameter" id="drump_diameter" class="form-control">
 
                                       </div>
                                     </div>
                                     <div class="col-12 col-sm-6 col-lg-6 col-md-6 mt-3">
                                       <div class="form-outline">
                                         <label class="form-label">Thresing Drum Speed Adjustment</label>
-                                        <!-- <input type="email" name="drump_adjust" id="drump_adjust" class="form-control"> -->
+                                        <!-- <input type="text" name="drump_adjust" id="drump_adjust" class="form-control"> -->
                                         <select class="form-select form-control" id="THRESHING_DRUM_SPEED_ADJUSTMENT" name="THRESHING_DRUM_SPEED_ADJUSTMENT" aria-label="Default select example">
                                             <option selected disabled>Please select an option</option>
                                         </select>
@@ -232,7 +232,7 @@ include 'includes/footertag.php';
                                     <div class="col-12 col-sm-6 col-lg-6 col-md-6 mt-3">
                                       <div class="form-outline">
                                         <label class="form-label">Clearance Concave</label>
-                                        <input type="email" name="clear_concave" id="clear_concave" class="form-control">
+                                        <input type="text" name="clear_concave" id="clear_concave" class="form-control">
                                       </div>
                                     </div>
                                     
@@ -240,7 +240,7 @@ include 'includes/footertag.php';
                                     <div class="col-12  col-sm-6 col-lg-6 col-md-6 mt-3">
                                       <div class="form-outline">
                                         <label class="form-label">Grain Trank Capacity (m3)</label>
-                                        <input type="email" name="tank_capa" id="tank_capa" class="form-control">
+                                        <input type="text" name="tank_capa" id="tank_capa" class="form-control">
                                       </div>
                                     </div>
                                     <div class="col-12 col-sm-6 col-lg-6 col-md-6 mt-3"></div>
@@ -249,7 +249,7 @@ include 'includes/footertag.php';
                                     <div class="col-12  col-sm-6 col-lg-6 col-md-6 mt-3">
                                       <div class="form-outline">
                                         <label class="form-label">Transmission (No. Of Gears)</label>
-                                        <input type="email" name="transmission_gears" id="transmission_gears" class="form-control">
+                                        <input type="text" name="transmission_gears" id="transmission_gears" class="form-control">
                                       </div>
                                     </div>
                                     <div class="col-12  col-sm-6 col-lg-6 col-md-6 mt-3">
@@ -264,59 +264,59 @@ include 'includes/footertag.php';
                                     <div class="col-12  col-sm-6 col-lg-6 col-md-6 mt-3">
                                       <div class="form-outline">
                                         <label class="form-label">Tyre Size(Front)</label>
-                                        <input type="email" name="tyre_sizefront" id="tyre_sizefront" class="form-control">
+                                        <input type="text" name="tyre_sizefront" id="tyre_sizefront" class="form-control">
                                       </div>
                                     </div>
                                     <div class="col-12  col-sm-6 col-lg-6 col-md-6 mt-3">
                                       <div class="form-outline">
                                         <label class="form-label">Tyre Size(Rear)</label>
-                                        <input type="email" name="tyre_sizerear" id="tyre_sizerear" class="form-control">
+                                        <input type="text" name="tyre_sizerear" id="tyre_sizerear" class="form-control">
                                       </div>
                                     </div>
                                     <!-- <h5 class="fw-bold my-3">Fuel & Capacity</h5>
                                     <div class="col-12 col-sm-6 col-lg-6 col-md-6 mt-3">
                                       <div class="form-outline">
                                         <label class="form-label">Fuel Tank Capacity(L)</label>
-                                        <input type="email" name="fuel_capacity" id="fuel_capacity" class="form-control">
+                                        <input type="text" name="fuel_capacity" id="fuel_capacity" class="form-control">
                                       </div>
                                     </div> -->
                                     <div class="col-12  col-sm-6 col-lg-6 col-md-6 mt-3">
                                       <div class="form-outline">
                                         <label class="form-label">Total weight Without Grain(kg)</label>
-                                        <input type="email" name="total_weight_without_grains" id="total_weight_without_grains" class="form-control">
+                                        <input type="text" name="total_weight_without_grains" id="total_weight_without_grains" class="form-control">
                                       </div>
                                     </div>
                                     <h5 class="fw-bold my-3">Dimensions & Clearance</h5>
                                     <div class="col-12 col-sm-6 col-lg-6 col-md-6 mt-3">
                                       <div class="form-outline">
                                         <label class="form-label">Length(mm)</label>
-                                        <input type="email" name="dia_length" id="dia_length" class="form-control">
+                                        <input type="text" name="dia_length" id="dia_length" class="form-control">
                                       </div>
                                     </div>
                                     <div class="col-12  col-sm-6 col-lg-6 col-md-6 mt-3">
                                       <div class="form-outline">
                                         <label class="form-label">Height(mm)</label>
-                                        <input type="email" name="dia_height" id="dia_height" class="form-control">
+                                        <input type="text" name="dia_height" id="dia_height" class="form-control">
                                       </div>
                                     </div>
                                     <div class="col-12  col-sm-6 col-lg-6 col-md-6 mt-3">
                                       <div class="form-outline">
                                         <label class="form-label">Width(mm)</label>
-                                        <input type="email" name="dia_width" id="dia_width" class="form-control">
+                                        <input type="text" name="dia_width" id="dia_width" class="form-control">
                                       </div>
                                     </div>
                                     <div class="col-12  col-sm-6 col-lg-6 col-md-6 mt-3">
                                       <div class="form-outline">
                                         <label class="form-label">Ground Clearance</label>
-                                        <input type="email" name="ground_clerance" id="ground_clerance" class="form-control">
+                                        <input type="text" name="ground_clerance" id="ground_clerance" class="form-control">
                                       </div>
                                     </div>
                                     <h5 class="fw-bold my-3">Crops & Additional Features</h5>
                                     <div class="col-12 col-lg-6 col-md-6 col-sm-6 mt-3">
                                       <div class="form-outline">
                                         <label class="form-label">Crops</label>
-                                        <!-- <input type="email" name="crops" id="crops" class="form-control"> -->
-                                        <select class="form-select form-control" id="CROPS_TYPE" name="cylinder" aria-label="Default select example">
+                                        <!-- <input type="text" name="crops" id="crops" class="form-control"> -->
+                                        <select class="form-select form-control" id="CROPS_TYPE" name="CROPS_TYPE" aria-label="Default select example">
                                             <option selected disabled>Please select an option</option>
                                         </select>
                                       </div>
