@@ -1,3 +1,5 @@
+
+
 $(document).ready(function () {
     $('#submitbnt').click(hatbazar_add);
   });
