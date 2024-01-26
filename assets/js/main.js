@@ -381,15 +381,6 @@ $(document).ready(function() {
 
   // login user
 
-  $('#verify-otp').hide();
-$('#request-otp').on('click',function(){
-  $('#sign-in').hide();
-  $('#verify-otp').show();
-});
-$('.fa-chevron-left').on('click',function(){
-  $('#sign-in').show();
-  $('#verify-otp').hide();
-});
 
 // profile user
 
@@ -636,71 +627,67 @@ const swiper_sell = new Swiper(".slider", {
 
 // mahindra brand carousel
 
-jQuery("#carousel_related").owlCarousel({
-  autoplay: true,
-  rewind: true,
-  margin: 20,
-   /*
-  animateOut: 'fadeOut',
-  animateIn: 'fadeIn',
-  */
-  responsiveClass: true,
-  autoHeight: true,
-  autoplayTimeout: 7000,
-  smartSpeed: 800,
-  nav: true,
-  responsive: {
-    0: {
-      items: 1
-    },
+// jQuery("#carousel_related").owlCarousel({
+//   autoplay: true,
+//   rewind: true,
+//   margin: 20,
+//    /*
+//   animateOut: 'fadeOut',
+//   animateIn: 'fadeIn',
+//   */
+//   responsiveClass: true,
+//   autoHeight: true,
+//   autoplayTimeout: 7000,
+//   smartSpeed: 800,
+//   nav: true,
+//   responsive: {
+//     0: {
+//       items: 1
+//     },
 
-    600: {
-      items: 3
-    },
+//     600: {
+//       items: 3
+//     },
 
-    1024: {
-      items: 4
-    },
+//     1024: {
+//       items: 4
+//     },
 
-    1366: {
-      items: 4
-    }
-  }
-});
+//     1366: {
+//       items: 4
+//     }
+//   }
+// });
 
 
 // certified dealers similar brands
-jQuery("#carousel_related_brand").owlCarousel({
-  autoplay: true,
-  rewind: true,
-  margin: 20,
-   /*
-  animateOut: 'fadeOut',
-  animateIn: 'fadeIn',
-  */
-  responsiveClass: true,
-  autoHeight: true,
-  autoplayTimeout: 7000,
-  smartSpeed: 800,
-  nav: true,
-  responsive: {
-    0: {
-      items: 1
-    },
+// $("#carousel_related_brand").owlCarousel({
+//   autoplay: true,
+//   rewind: true,
+//   margin: 20,
+//   responsiveClass: true,
+//   autoHeight: true,
+//   autoplayTimeout: 7000,
+//   smartSpeed: 800,
+//   nav: true,
+//   responsive: {
+//     0: {
+//       items: 1
+//     },
 
-    600: {
-      items: 3
-    },
+//     600: {
+//       items: 3
+//     },
 
-    1024: {
-      items: 4
-    },
+//     1024: {
+//       items: 4
+//     },
 
-    1366: {
-      items: 4
-    }
-  }
-});
+//     1366: {
+//       items: 4
+//     }
+//   }
+// });
 
 // $(function() {
 //   // Owl Carousel

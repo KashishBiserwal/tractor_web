@@ -13,8 +13,8 @@ $(document).ready(function () {
   // $('#Search').click(search_data);
 
   $('.edit_btn').click(function() {
-    var productId = $(this).data('row-productid');
-    fetch_edit_data(productId);
+    // var productId = $(this).data('row-productid');
+  //  fetch_edit_data(productId);
 });
 });
 
@@ -83,7 +83,7 @@ success: function (data) {
                         <button class="btn btn-warning text-white btn-sm mx-1" onclick="openView(${row.product_id})" data-bs-toggle="modal" data-bs-target="#viewModal_btn" id="viewbtn">
                                  <i class="fa fa-eye" style="font-size: 11px;"></i>
                                  </button>
-                               <a href="tractor_form_list.php?trac_edit=${row.product_id}" onclick="fetch_edit_data(${row.product_id})" class="btn btn-primary btn-sm edit_btn" ><i class="fas fa-edit" style="font-size: 11px;"></i></a>
+                               <a href="tractor_form_list.php?trac_edit=${row.product_id}" class="btn btn-primary btn-sm edit_btn" ><i class="fas fa-edit" style="font-size: 11px;"></i></a>
                                  <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.product_id})">
                                  <i class="fa fa-trash" style="font-size: 11px;"></i>
                                  </button> 

@@ -9,14 +9,15 @@
     <style>
         .sidebar_profile{
             background: linear-gradient(-185deg, rgb(63, 81, 181) 19%, rgb(76, 175, 80) 100%);
-            border-radius: 8px;
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
         }
         .profile_image img{
             width: 85px;
             margin: 0px auto;
             text-align: center;
             display: block;
-            padding: 30px 0 10px;
+            padding: 20px 0 10px;
         }
         .profile_name p{
             color:#fff;
@@ -26,13 +27,14 @@
         .btn_all2{
             color: #fff !important;
     text-transform: capitalize;
+    padding: 0 10px;
         }
         .hr1{
             border: 1px solid #fff !important;
     width: 1px;
     height: 20px !important;
     background-color: #fff !important;
-    margin: 8px 0 0;
+    margin: 2px 0 0;
         }
         .profile_btn{
             display: flex;
@@ -61,14 +63,51 @@
       .customer_options .nav-tabs li a span i{
         margin: 0 10px;
       }
-      .customer_options .nav-tabs .nav-link.active, .nav-tabs .nav-link:focus, .nav-tabs .nav-link:hover {
+      .customer_options .nav-tabs .nav-link.active, .customer_options .nav-tabs .nav-link:focus, .customer_options .nav-tabs .nav-link:hover {
         border-color: #fff;
     border: none;
     color: #a5a2a2;
     font-weight: 600 !important;
+    
+      }
+    
+
+
+
+      .sidebar_profile2{
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+        }
+      .sidebar_profile2 .nav-tabs li{
+      
+        width: 100%;
+      }
+      .sidebar_profile2 .nav-tabs li a{
+        color: #a5a2a2;
+    text-decoration: none;
+    border: none;
+    border-radius: 0;
+    font-weight: 500;
+    padding: 10px;
+        
+      }
+      .sidebar_profile2 .nav-tabs li a span i{
+        margin: 0 10px;
+      }
+      .sidebar_profile2 .nav-tabs .nav-link.active, .sidebar_profile2 .nav-tabs .nav-link:focus, .sidebar_profile2 .nav-tabs .nav-link:hover {
+        border-color: #fff;
+    border: none;
+    color: #a5a2a2;
+    color: #fff;
+    font-weight: 600 !important;
+    background: #4caa57;
+    font-weight: 500;
       }
       #purchase thead th , #mylist thead th, #interested thead th{
         background: rgb(21 115 71);
+      } 
+      .sidebar_profile2 .nav-tabs li:focus-visible {
+        outline: none;
       }
     </style>
 </head>
@@ -76,6 +115,9 @@
 <section class="mt-130 bg-white">
             <div class="container ">
                 <div class="py-2">
+                    <div class="row">
+                
+                    </div>
                     <span class="text-white">
                         <a href="index.php" class="text-decoration-none header-link px-1">Home <i
                                 class="fa-solid fa-chevron-right px-1"></i></a>
@@ -89,33 +131,39 @@
             <div class="container-fluid pt-4 bg-light">
                 <div class="row w-100">
                     <div class="col-3 my-3">
-                        <div class="sidebar_profile">
+                        <div class="sidebar_profile pb-2">
                             <div class="profile_image">
                                 <img src="assets/images/user.png">
                             </div>
                             <div class="profile_name">
                                 <p>Welcome!<br> <span style="font-size:20px; font-weight:700;">John Berry<span></p>
                             </div>
-                            <div class="profile_btn">
+                           <!--  <div class="profile_btn">
                                 <button class="btn btn_all2">Logout</button>
                                 <div class="hr1"></div>
                                 <button class="btn btn_all2">Edit</button>
-                            </div>
+                            </div> -->
                         </div>
-                        <div class="sidebar_profile2">
-                        
+                        <div class="sidebar_profile2 shadow  bg-white">
+                        <ul class="nav nav-tabs"  role="tablist">
+                            <li class="active nav-item"><a class="nav-link" data-bs-toggle="tab" href="#presonal_info"><span><i class="fa-solid fa-image-portrait"></i><span>Personal Information</a></li>
+                            <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#purchase_request"><span><i class="fa-solid fa-cart-shopping"></i><span>Purchase Request</a></li>
+                            <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#my_list"><span><i class="fa-solid fa-bars"></i><span>My List</a></li>
+                            <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#interested_buyers"><span><i class="fa-solid fa-tags"></i><span>Interested Buyers</a></li>
+                            <li class="nav-item"><a class="nav-link" ><span><i class="fa-solid fa-arrow-right-from-bracket"></i><span>Logout</a></li>
+                        </ul>
                         </div>
                         
                     </div>
                     <div class="col-9 my-3">
-                        <div class="customer_options bg-white">
+                       <!--  <div class="customer_options bg-white">
                         <ul class="nav nav-tabs"  role="tablist">
                             <li class="active nav-item"><a class="nav-link" data-bs-toggle="tab" href="#presonal_info"><span><i class="fa-solid fa-image-portrait"></i><span>Personal Information</a></li>
                             <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#purchase_request"><span><i class="fa-solid fa-cart-shopping"></i><span>Purchase Request</a></li>
                             <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#my_list"><span><i class="fa-solid fa-bars"></i><span>My List</a></li>
                             <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#interested_buyers"><span><i class="fa-solid fa-tags"></i><span>Interested Buyers</a></li>
                         </ul>
-                        </div>
+                        </div> -->
                         <div class="customer_detail_section bg-white tab-content">
                             <div id="presonal_info" class="tab-pane active shadow bg-white  p-3">
                             <div class=" mb-5  p-3" style="border: 1px solid #dcdcdc;">
@@ -169,6 +217,15 @@
                                 </div>
                             </div>
                             <div id="purchase_request" class="tab-pane">
+                                     <div class="customer_options bg-white">
+                        <ul class="nav nav-tabs"  role="tablist">
+                            <li class="active nav-item"><a class="nav-link" data-bs-toggle="tab" href="#"><span><i class="fa-solid fa-image-portrait"></i><span>Tractor</a></li>
+                            <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#"><span><i class="fa-solid fa-cart-shopping"></i><span>Harvester</a></li>
+                            <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#"><span><i class="fa-solid fa-bars"></i><span>HaatBazar</a></li>
+                            <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#"><span><i class="fa-solid fa-tags"></i><span>Implements</a></li>
+                            <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#"><span><i class="fa-solid fa-tags"></i><span>Nursery</a></li>
+                        </ul>
+                        </div>
                                 <div class=" mb-5 shadow bg-white p-3">
                                     <div class="table-responsive">
                                     <table id="purchase" class="table table-striped  table-hover table-bordered  no-footer" width="100%; margin-bottom: 15px;">
