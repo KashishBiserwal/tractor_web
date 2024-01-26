@@ -159,7 +159,7 @@ include 'includes/footertag.php';
     <div class="modal-content">
       <div class="modal-header">
         <h1 class="modal-title fs-5" id="staticBackdropLabel">Modal title</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <button type="button" class="btn-close btn-success" data-bs-dismiss="modal" aria-label="Close"><img src="assets/images/close.png"></button>
       </div>
       <div class="modal-body">
       <form id="add_tractor_form" method="post" enctype="multipart/form-data" onsubmit="return false">
@@ -475,7 +475,7 @@ include 'includes/footertag.php';
     <div class="modal-content">
       <div class="modal-header bg-success text-white">
         <h4 class="modal-title">New Tractor Information</h4>
-        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        <button type="button" class="btn-close btn-success" data-bs-dismiss="modal" aria-label="Close"><img src="assets/images/close.png"></button>
       </div>
       <div class="modal-body">
         <div class="container">

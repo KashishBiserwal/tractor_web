@@ -137,8 +137,7 @@
                                                 <h4 class="modal-title text-dark fw-bold" id="staticBackdropLabel">
                                                     Send
                                                     Rental Enquiry Massey Ferguson 245 DI</h4>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                    aria-label="Close"></button>
+                                                    <button type="button" class="btn-close btn-success" data-bs-dismiss="modal" aria-label="Close"><img src="assets/images/close.png"></button>
                                             </div>
                                             <div class="modal-body">
                                                 <div class="model-cont">

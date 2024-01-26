@@ -1,7 +1,44 @@
 $(document).ready(function() {
     console.log("ready!");
+    getbrands();
     getTractorList();
 });
+
+function getbrands(){
+    var urlParams = new URLSearchParams(window.location.search);
+    var Id = urlParams.get('brand_id');
+    var url = "http://tractor-api.divyaltech.com/api/customer/get_all_brands";
+    console.log(url);
+
+    $.ajax({
+        url: url,
+        type: "GET",
+        success: function(data) {
+            console.log(data, 'abc');
+            var slider_head = $("#slider_head");
+
+            if (data.brands && data.brands.length > 0) {
+                data.brands.forEach(function (p) {
+                    if(p.id == Id){
+                    console.log(p,"pp");
+                    var silder_heading = ` <h1 class="d3 mb-0 text-white display-5 fw-bold">${p.brand_name}</h1>`;
+                  
+
+                    // Append the new card to the container
+                    slider_head.append(silder_heading);
+                    }
+                });
+
+
+                // Initialize Owl Carousel after adding cards
+              
+            }
+        },
+        error: function (error) {
+            console.error('Error fetching data:', error);
+        }
+    });
+}
 
 function getTractorList() {
     var url = "http://tractor-api.divyaltech.com/api/customer/get_new_tractor";
@@ -13,6 +50,7 @@ function getTractorList() {
         success: function(data) {
             console.log(data, 'abc');
             var productContainer = $("#productContainer");
+            // var slider_head = $("#slider_head");
 
             if (data.product.allProductData && data.product.allProductData.length > 0) {
                 data.product.allProductData.forEach(function (p) {
@@ -28,6 +66,7 @@ function getTractorList() {
                             a = [images];
                         }
                     }
+                    // var silder_heading = ` <h1 class="d3 mb-0 text-white display-5 fw-bold">${p.brand_name}</h1>`;
                     var newCard = `
                     <div class="item px-2 py-3 h-100 ">
                     <div class="h-auto success__stry__item shadow">
@@ -65,6 +104,7 @@ function getTractorList() {
 
                     // Append the new card to the container
                     productContainer.append(newCard);
+                    // slider_head.append(silder_heading);
                 });
 
                 // Initialize Owl Carousel after adding cards
