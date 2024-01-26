@@ -257,7 +257,7 @@ function fetch_data(product_id){
   
   var productId = product_id;
   var apiBaseURL = APIBaseURL;
-  var url = apiBaseURL + 'get_old_implements' 
+  var url = apiBaseURL + 'get_enquiry_data_for_old_implements_by_id/' + product_id;
   var headers = {
   'Authorization': 'Bearer ' + localStorage.getItem('token')
   };
@@ -267,17 +267,17 @@ function fetch_data(product_id){
       headers: headers,
       success: function(data) {
       console.log(data, 'abc');
-      document.getElementById('bname1').innerText=data.getOldImplement[0].brand_name;
-      document.getElementById('mname1').innerText=data.getOldImplement[0].model;
-      document.getElementById('fname1').innerText=data.getOldImplement[0].first_name;
-      document.getElementById('lname1').innerText=data.getOldImplement[0].last_name;
-      document.getElementById('number1').innerText=data.getOldImplement[0].mobile;
-      document.getElementById('email_1').innerText=data.getOldImplement[0].email;
-      document.getElementById('date_1').innerText=data.getOldImplement[0].date;
-      document.getElementById('year_1').innerText=data.getOldImplement[0].purchase_year;
-      document.getElementById('state1').innerText=data.getOldImplement[0].state;
-      document.getElementById('dist1').innerText=data.getOldImplement[0].district;
-      document.getElementById('tehsil1').innerText=data.getOldImplement[0].tehsil;
+      document.getElementById('bname1').innerText=data.getOldImplementEnquiry[0].brand_name;
+      document.getElementById('mname1').innerText=data.getOldImplementEnquiry[0].model;
+      document.getElementById('fname1').innerText=data.getOldImplementEnquiry[0].first_name;
+      document.getElementById('lname1').innerText=data.getOldImplementEnquiry[0].last_name;
+      document.getElementById('number1').innerText=data.getOldImplementEnquiry[0].mobile;
+      document.getElementById('email_1').innerText=data.getOldImplementEnquiry[0].email;
+      document.getElementById('date_1').innerText=data.getOldImplementEnquiry[0].date;
+      document.getElementById('year_1').innerText=data.getOldImplementEnquiry[0].purchase_year;
+      document.getElementById('state1').innerText=data.getOldImplementEnquiry[0].state;
+      document.getElementById('dist1').innerText=data.getOldImplementEnquiry[0].district;
+      document.getElementById('tehsil1').innerText=data.getOldImplementEnquiry[0].tehsil;
     },
     error: function (error) {
     console.error('Error fetching data:', error);
