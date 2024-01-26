@@ -106,7 +106,7 @@ $(document).ready(function() {
                                     <div class="modal-content">
                                         <div class="modal-header  modal_head">
                                         <h5 class="modal-title text-white ms-1" id="model_form">${p.model}</h5>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        <button type="button" class="btn-close btn-success" data-bs-dismiss="modal" aria-label="Close"><img src="assets/images/close.png"></button>
                                         </div>
                                         <!-- MODAL BODY -->
                                         <div class="modal-body">

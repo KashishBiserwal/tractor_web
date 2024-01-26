@@ -48,7 +48,7 @@ include 'includes/headertag.php';
               <div class="modal-content modal_box">
                 <div class="modal-header modal_head">
                   <h5 class="modal-title text-white fw-bold" id="staticBackdropLabel"> Add New User</h5>
-                  <button type="button" class="btn-close btn-success" data-bs-dismiss="modal" aria-label="Close"></button>
+                  <button type="button" class="btn-close btn-success" data-bs-dismiss="modal" aria-label="Close"><img src="assets/images/close.png"></button>
                 </div>
                 <div class="modal-body">
                   <div class="row justify-content-center">
