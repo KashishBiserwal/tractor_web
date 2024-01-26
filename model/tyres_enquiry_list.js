@@ -1,7 +1,7 @@
 
   
 $(document).ready(function(){
-  getbrand('brand_name');
+  // getbrand('brand_name');
   $('#undate_btn').click(edit_data_id);
   $('#submit_btn').on('click', function(event) {
     $("#form_tyre_list").valid();
@@ -68,48 +68,115 @@ $(document).ready(function(){
     },
     });
     $('#add_trac').on('click', function(){
-      getbrand('brand_data');
+      // getbrand('brand_data');
       getcategory('category');
     });
     });
 
 
-    function getbrand(selectId) {
+    // function getbrand(selectId) {
+    //   var apiBaseURL =APIBaseURL;
+    //   var url = apiBaseURL + 'getBrands';
+    //   $.ajax({
+    //       url: url,
+    //       type: "GET",
+    //       headers: {
+    //           'Authorization': 'Bearer ' + localStorage.getItem('token')
+    //       },
+    //       success: function (data) {
+    //           console.log(data);
+    //           const select = document.getElementById(selectId);
+            
+    //           select.innerHTML = '<option selected disabled value="">Please select an option</option>';
+    
+    //           if (data.brands.length > 0) {
+    //               data.brands.forEach(row => {
+    //                   const option = document.createElement('option');
+    //                   option.textContent = row.brand_name;
+    //                   option.value = row.id;
+    //                   select.appendChild(option);
+    //               });
+    //           } else {
+    //               select.innerHTML ='<option>No valid data available</option>';
+    //           }
+        
+    //       },
+    //       error: function (error) {
+    //           console.error('Error fetching data:', error);
+    //           var msg = error;
+    //           $("#errorStatusLoading").modal('show');
+    //           $("#errorStatusLoading").find('.modal-title').html('Error');
+    //           $("#errorStatusLoading").find('.modal-body').html(msg);
+    //       }
+    //   });
+    // }
+
+    function getbrand() {
       var apiBaseURL =APIBaseURL;
-      var url = apiBaseURL + 'getBrands';
+      var url = apiBaseURL + 'get_tyre_brands';
       $.ajax({
           url: url,
-          type: "GET",
+          type: "GET",  
           headers: {
-              'Authorization': 'Bearer ' + localStorage.getItem('token')
+              'Authorization': 'Bearer' + localStorage.getItem('token')
           },
           success: function (data) {
               console.log(data);
-              const select = document.getElementById(selectId);
-            
+              const select = document.getElementById('brand_name');
+              // select.innerHTML = '';
+  
               select.innerHTML = '<option selected disabled value="">Please select an option</option>';
-    
               if (data.brands.length > 0) {
                   data.brands.forEach(row => {
                       const option = document.createElement('option');
+                      option.value = row.id; 
                       option.textContent = row.brand_name;
-                      option.value = row.id;
                       select.appendChild(option);
                   });
               } else {
                   select.innerHTML ='<option>No valid data available</option>';
               }
-        
           },
           error: function (error) {
               console.error('Error fetching data:', error);
-              var msg = error;
-              $("#errorStatusLoading").modal('show');
-              $("#errorStatusLoading").find('.modal-title').html('Error');
-              $("#errorStatusLoading").find('.modal-body').html(msg);
           }
       });
-    }
+  }
+  getbrand(); 
+
+
+  function getbrandedit() {
+    var apiBaseURL =APIBaseURL;
+    var url = apiBaseURL + 'get_tyre_brands';
+    $.ajax({
+        url: url,
+        type: "GET",  
+        headers: {
+            'Authorization': 'Bearer' + localStorage.getItem('token')
+        },
+        success: function (data) {
+            console.log(data);
+            const select = document.getElementById('brand_data');
+            // select.innerHTML = '';
+
+            select.innerHTML = '<option selected disabled value="">Please select an option</option>';
+            if (data.brands.length > 0) {
+                data.brands.forEach(row => {
+                    const option = document.createElement('option');
+                    option.value = row.id; 
+                    option.textContent = row.brand_name;
+                    select.appendChild(option);
+                });
+            } else {
+                select.innerHTML ='<option>No valid data available</option>';
+            }
+        },
+        error: function (error) {
+            console.error('Error fetching data:', error);
+        }
+    });
+}
+getbrandedit(); 
 
     function getcategory(selectId) {
       var apiBaseURL =APIBaseURL;
@@ -223,48 +290,48 @@ function get_tyre_list() {
 
 get_tyre_list();
 
-function get() {
-  var url = 'http://tractor-api.divyaltech.com/api/customer/get_all_brands';
-  $.ajax({
-      url: url,
-      type: "GET",
-      headers: {
-          'Authorization': 'Bearer ' + localStorage.getItem('token')
-      },
-      success: function (data) {
-          console.log(data);
-          const selects = document.querySelectorAll('#brand_name');
+// function get() {
+//   var url = 'http://tractor-api.divyaltech.com/api/customer/get_all_brands';
+//   $.ajax({
+//       url: url,
+//       type: "GET",
+//       headers: {
+//           'Authorization': 'Bearer ' + localStorage.getItem('token')
+//       },
+//       success: function (data) {
+//           console.log(data);
+//           const selects = document.querySelectorAll('#brand_name');
 
-          selects.forEach(select => {
-              select.innerHTML = '<option selected disabled value="">Please select an option</option>';
+//           selects.forEach(select => {
+//               select.innerHTML = '<option selected disabled value="">Please select an option</option>';
 
-              if (data.brands.length > 0) {
-                  data.brands.forEach(row => {
-                      const option = document.createElement('option');
-                      option.textContent = row.brand_name;
-                      option.value = row.id;
-                      console.log(option);
-                      select.appendChild(option);
-                  });
+//               if (data.brands.length > 0) {
+//                   data.brands.forEach(row => {
+//                       const option = document.createElement('option');
+//                       option.textContent = row.brand_name;
+//                       option.value = row.id;
+//                       console.log(option);
+//                       select.appendChild(option);
+//                   });
 
-                  // Add event listener to brand dropdown
-                  select.addEventListener('change', function() {
-                      const selectedBrandId = this.value;
-                      get_model(selectedBrandId);
-                  });
-              } else {
-                  select.innerHTML = '<option>No valid data available</option>';
-              }
-          });
-      },
-      error: function (error) {
-          console.error('Error fetching data:', error);
-      }
-  });
-}
+//                   // Add event listener to brand dropdown
+//                   select.addEventListener('change', function() {
+//                       const selectedBrandId = this.value;
+//                       get_model(selectedBrandId);
+//                   });
+//               } else {
+//                   select.innerHTML = '<option>No valid data available</option>';
+//               }
+//           });
+//       },
+//       error: function (error) {
+//           console.error('Error fetching data:', error);
+//       }
+//   });
+// }
 
 function get_model(brand_id) {
-  var url = 'http://tractor-api.divyaltech.com/api/customer/get_brand_model/' + brand_id;
+  var url = 'http://tractor-api.divyaltech.com/api/customer/get_tyre_brands/' + brand_id;
   $.ajax({
       url: url,
       type: "GET",
@@ -297,7 +364,7 @@ function get_model(brand_id) {
   });
 }
 
-get();
+
 
 
 function store(event) {
@@ -385,7 +452,6 @@ console.log('sumansahu');
       document.getElementById('First_Name1').innerText=userData.first_name;
       document.getElementById('Last_Name1').innerText=userData.last_name;
       document.getElementById('Mobile_1').innerText=userData.mobile;
-      document.getElementById('email_1').innerText=userData.email;
       document.getElementById('date_1').innerText=userData.date;
       document.getElementById('State_1').innerText=userData.state;
       document.getElementById('District_1').innerText=userData.district;
@@ -416,15 +482,21 @@ console.log('sumansahu');
       success: function (response) {
           var Data = response.customer_details[0];
           $('#userId').val(Data.id);
-          $('#brand_name').val(Data.brand_name);
+          // $('#brand_name').val(Data.brand_name);
+          $("#brand_name option").prop("selected", false);
+          $("#brand_name option[value='" + Data.brand_id+ "']").prop("selected", true);
+
           $('#model_name').val(Data.tyre_model);
           $('#fnam_e').val(Data.first_name);
           $('#lnam_e').val(Data.last_name);
           $('#numbe_r').val(Data.mobile);
-          $('#emai_l').val(Data.email);
           $('#dat_e').val(Data.date);
-          $('#stat_e').val(Data.state);
-          $('#dis_t').val(Data.district);
+          $("#stat_e option").prop("selected", false);
+          $("#stat_e option[value='" + Data.state+ "']").prop("selected", true);
+
+          $("#dis_t option").prop("selected", false);
+          $("#dis_t option[value='" + Data.district+ "']").prop("selected", true);
+
           $('#tehsi_l').val(Data.tehsil);
       },
       error: function (error) {

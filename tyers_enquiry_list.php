@@ -27,126 +27,12 @@
               </li>
             </ol>
           </nav>
-          <!-- <button type="button" id="add_trac" class="btn add_btn btn-success float-right btn_all" data-bs-toggle="modal"  data-bs-target="#staticBackdrop">
-              <i class="fa fa-plus" aria-hidden="true"></i> Add New Tyre
-          </button> -->
-
-          <!-- Modal -->
-          <!-- <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-            <div class="modal-dialog modal-lg modal-dialog-centered">
-              <div class="modal-content modal_box">
-                <div class="modal-header modal_head">
-                  <h5 class="modal-title text-white fw-bold" id="staticBackdropLabel">Add Tyre </h5>
-                  <button type="button" class="btn-close btn-success" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body bg-white">
-                        <div class="row justify-content-center">
-                            <div class="col-lg-10">
-                              <h4 class="text-center" style="font-weight:600;">Fill your Details</h4>
-                              <form id="form_tyre_list">
-                                <div class="row justify-content-center">
-                                    <div class="col-12 col-lg-6 col-md-6 col-sm-6 mt-3 ">
-                                      <div class="form-outline">
-                                        <label for="name" class="form-label text-dark">Brand</label>
-                                        <select class="form-select form-control" aria-label=".form-select-lg example" id="brand" name="brand">
-                                    
-                                    </select>
-                                      </div>
-                                    </div>
-                                    <div class="col-12 col-lg-6 col-md-6 col-sm-6 mt-3">
-                                      <div class="form-outline ">
-                                        <label for="name" class="form-label text-dark">Tyre Model</label>
-                                        <input type="text" class="form-control" placeholder="" id="tyre" name="tyre">
-                                      </div>
-                                    </div>
-                                    <div class="col-12 col-lg-6 col-md-6 col-sm-6 mt-3">
-                                      <div class="form-outline ">
-                                        <label for="name" class="form-label text-dark">Tyre Position</label>
-                                        <input type="text" class="form-control" placeholder="" id="tyre_position" name="tyre_position">
-                                      </div>
-                                    </div>
-                                    <div class="col-12 col-lg-6 col-md-6 col-sm-6 mt-3">
-                                      <div class="form-outline ">
-                                        <label for="name" class="form-label text-dark">Size of the tyre</label>
-                                        <input type="text" class="form-control" placeholder="" id="tyre_size" name="tyre_size">
-                                      </div>
-                                    </div>
-                                    <div class="col-12 col-lg-6 col-md-6 col-sm-6 mt-3">
-                                      <div class="form-outline ">
-                                        <label for="name" class="form-label text-dark">Tyre Width</label>
-                                        <input type="text" class="form-control" placeholder="" id="tyre_width" name="tyre_width">
-                                      </div>
-                                    </div> 
-                                    <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-3">
-                                     <div class="form-outline ">
-                                      <label for="yr_state" class="form-label text-dark">Category</label>
-                                      <select class="form-select form-control" aria-label=".form-select-lg example"id="category" name="category">
-                                         
-                                      </select>
-                                    </div>
-                                  </div>
-                                    <div class="col-12 col-lg-12 col-md-12 col-sm-12">
-                                      <div class="upload__box">
-                                        <div class="upload__btn-box text-center">
-                                          <label >
-                                            <p class="upload__btn ">Upload images</p>
-                                            <input type="file" multiple="" data-max_length="20" class="upload__inputfile" id="_image" name="_image">
-                                          </label>
-                                         
-                                        </div>
-                                        <div id="selectedImagesContainer1" class="upload__img-wrap row"></div>
-                                      </div>
-                                    </div>
-                                   
-                                </div>
-                            </form>
-                            </div>
-                        </div>
-                    </div>
-                <div class="modal-footer">
-                <button type="button" class="btn btn-secondary btn_all" data-bs-dismiss="modal">Close</button>
-                  <button type="button" id="submit_btn" class="btn btn-success  btn_all">Submit</button>
-                </div>
-              </div>
-            </div>
-          </div> -->
+         
         </div>
       </div>
     </div>
     <div class="">
-      <!-- Filter Card -->
-      <!-- <div class="filter-card mb-2">
-        <div class="card-body">
-          <div class="row">
-            <div class="col-12 col-sm-12 col-md-4 col-lg-4">
-              <div class="form-outline">
-                <label class="form-label">Brand</label>
-                <select class="form-select form-control" aria-label="Default select example" id="brand1">
-                 
-                </select>
-              </div>
-            </div>
-            <div class="col-12 col-sm-12 col-md-4 col-lg-4">
-              <div class="form-outline ">
-                <label class="form-label fw-bold">District</label>
-                <select class="form-select py-2" aria-label="Default select example" id="districtSelect">
-                    <option selected>Select District</option>
-                    <option value="1">Raipur</option>
-                    <option value="2">Bilaspur</option>
-                    <option value="3">Surajpur</option>
-                </select>
-              </div>
-            </div>
-           
-            <div class="col-12 col-sm-12 col-md-4 col-lg-4">
-              <div class="text-center">
-                <button type="button" class="btn-success btn px-3 py-2 " id="Search">Search</button>
-                <button type="button" class="btn-success btn mx-2 px-3 py-2  " id="Reset">Reset</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div> -->
+     
 
       <div class="filter-card mb-2">
         <div class="card-body">
@@ -232,8 +118,8 @@
             <div class="modal-dialog modal-lg modal-dialog-centered">
               <div class="modal-content modal_box">
                 <div class="modal-header modal_head">
-                  <h5 class="modal-title text-white fw-bold" id="staticBackdropLabel">Old Harvester Information </h5>
-                  <button type="button" class="btn-close btn-success" data-bs-dismiss="modal" aria-label="Close"><img src="assets/images/close.png"></button>
+                  <h5 class="modal-title text-white fw-bold" id="staticBackdropLabel">Tyre Details </h5>
+                  <button type="button" class="btn-close btn-success" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                   <div class="modal-body bg-light">
                     <div class="row ">
@@ -254,18 +140,18 @@
                           <tr>
                             <td>Mobile-</td>
                             <td id="Mobile_1"></td>
-                            <td>Email-</td>
-                            <td id="email_1"></td>
+                            <td>Date-</td>
+                            <td id="date_1"></td>
                           </tr>
                           <tr>
-                          <td>Date-</td>
-                            <td id="date_1"></td>
+                          
                           <td>State-</td>
                             <td id="State_1"></td>
+                            <td>District-</td>
+                            <td id="District_1"></td>
                           </tr>
                           <tr>
-                          <td>District-</td>
-                            <td id="District_1"></td>
+                          
                           <td>Tehsil-</td>
                             <td id="Tehsil_1"></td>
                           </tr>
@@ -287,7 +173,7 @@
             <div class="modal-dialog modal-lg modal-dialog-centered">
               <div class="modal-content modal_box">
                 <div class="modal-header modal_head">
-                  <h5 class="modal-title text-white fw-bold" id="staticBackdropLabel">Update Old Harvester Enquiries</h5>
+                  <h5 class="modal-title text-white fw-bold" id="staticBackdropLabel">Update Tyre Enquiries</h5>
                   <button type="button" class="btn-close btn-success" data-bs-dismiss="modal" aria-label="Close"><img src="assets/images/close.png"></button>
                 </div>
                 <div class="modal-body bg-light">
@@ -314,7 +200,9 @@
                                         <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
                                       <div class="form-outline">
                                         <label for="name" class="form-label text-dark">Brand Name</label>
-                                        <input type="text" class="form-control" placeholder="" id="brand_data" name="bname">
+                                        <select class="form-select py-2" aria-label="Default select example" id="brand_data" name="brand_data">
+                                               
+                                              </select>
                                       </div>
                                     </div>
                                     <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
@@ -341,12 +229,7 @@
                                               <input type="text" class="form-control" placeholder="" id="numbe_r" name="number">
                                           </div>
                                         </div>
-                                        <div class="col-12 col-lg-6 col-sm-5 col-md-6 my-1">
-                                          <div class="form-outline mt-4">
-                                              <label for="name" class="form-label text-dark">Email</label>
-                                              <input type="text" class="form-control" placeholder="" id="emai_l" name="email">
-                                          </div>
-                                        </div>
+                                       
                                         <div class="col-12 col-lg-6 col-sm-5 col-md-6 my-1">
                                           <div class="form-outline mt-4">
                                               <label for="name" class="form-label text-dark">Date</label>
@@ -404,6 +287,3 @@
 </div>
 </body>
 
-<?php
-   include 'includes/footertag.php';
-   ?> 
