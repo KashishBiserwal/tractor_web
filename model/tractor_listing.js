@@ -2,11 +2,12 @@ var EditIdmain_ = "";
 var editId_state= false;
 var editId_stateedit= "";
 $(document).ready(function () {
+  get();
   get_lookup();
   // $('.js-example-basic-multiple').select2();
   ImgUpload();
  
- 
+  fetch_edit_data();
     $('#submitbtn').click(store);
     console.log('fjfej');
   
@@ -345,6 +346,9 @@ function store(event) {
         
         
         var selectedAccessories = response.product.accessory_and_tractor_type[0];
+        var accessoryIds = selectedAccessories.accessory_id.split(',');
+        console.log(accessoryIds,"selectedAccessories")
+        console.log("all data accessoryid", tractorTypeNames);
 
         $("#brand_name option").prop("selected", false);
         $("#brand_name option[value='" + editData.brand_name + "']").prop("selected", true);
@@ -365,8 +369,15 @@ function store(event) {
         // $('#type_name').val(editData.tractor_type_id).attr('select', true);
         // console.log(editData.tractor_type_id,"tractors value");
         $('#_image').val(editData.image_type_id);
-        var tractorTypeNames = response.product.accessory_and_tractor_type.map(item => item.tractor_type_id);
+        
+        
+        var $assList = $('#ass_list');
 
+            $assList.val(accessoryIds);
+        
+            $assList.trigger('change');
+    
+        
         $('#type_name input[type="checkbox"]').prop("checked", false);
 
         // Loop through the fetched tractorTypeNames and check the corresponding checkboxes
@@ -467,7 +478,7 @@ function store(event) {
       }
     });
   }
-  fetch_edit_data();
+
   function get() {
         // var url = "<?php echo $APIBaseURL; ?>getBrands";
         var apiBaseURL =APIBaseURL;
@@ -499,6 +510,6 @@ function store(event) {
             }
         });
     }
-    get();
+ 
  
 
