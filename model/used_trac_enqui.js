@@ -437,9 +437,8 @@ function searchdata() {
   var modelselect = $('#model2').val();
   var stateselect = $('#state2').val();
   var districtselect = $('#district2').val();
-
-  var paraArr = {
-    'id':brandselect,
+    var paraArr = {
+    'brand_id':brandselect,
     'model':modelselect,
     'state':stateselect,
     'district':districtselect,
@@ -471,7 +470,7 @@ function updateTable(data) {
       let tableData = []; 
       data.newTractor.forEach(row => {
         const fullName = row.first_name + ' ' + row.last_name;
-          let action =    `<div class="d-flex">
+          let action =     `<div class="d-flex">
           <button class="btn btn-warning btn-sm text-white mx-1" data-bs-toggle="modal" onclick="openViewdata(${row.id});" data-bs-target="#view_model_tractor_enq">
               <i class="fas fa-eye" style="font-size: 11px;"></i>
           </button>
@@ -488,7 +487,7 @@ function updateTable(data) {
             row.date,
             row.brand_name,
             row.model,
-             fullName,
+            fullName,
             row.mobile,
             row.state,
             row.district,

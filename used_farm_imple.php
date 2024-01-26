@@ -1,19 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
    <?php
-   include 'includes/headertag.php';
-   ?>
-</head>
-
+  include 'includes/headertag.php';
+    //include 'includes/headertagadmin.php';
+     include 'includes/footertag.php';
+     
+     ?> 
+    <script> var APIBaseURL = "<?php echo $APIBaseURL; ?>";</script>
+    <script> var baseUrl = "<?php echo $baseUrl; ?>";</script>
+    <script src="<?php $baseUrl; ?>model/used_farm_imple.js"></script>
 <body>
    <?php
    include 'includes/header.php';
    ?>
 
-<section class="">
-    <div class="container mt-5 pt-5">
+<section class="mt-5 pt-5 bg-light">
+    <div class="container">
         <div class="pt-5">
             <span class="mt-5 text-white pt-4 ">
                 <a href="index.php" class="text-decoration-none header-link px-1">Home <i class="fa-solid fa-chevron-right px-1"></i></a>
@@ -28,295 +31,13 @@
         <div class="row">
             <div class="col-12 col-sm-9 col-lg-9 col-md-9">
                 <h3 class="fw-bold">Used <span class="text-success fw-bold">Farm Implements</span> </h3>
-                <div class=" row mb-3" id="">
-                    <div class="col-12 col-sm-12 col-md-12 col-lg-12 mt-4">
-                        <!-- <div class=" col-12 mt-3"> -->
-                             <button id="adduser" type="button" class="add_btn btn-success px-3">
-                             <i class="fa-solid fa-cart-shopping"></i> Sell Harvester</button>  &nbsp;
-                                <button id="adduser" type="button" class="add_btn btn-success">
-                                <i class="fa-sharp fa-solid fa-handshake"></i> Sell Implements </button>
-                          
+              
+                <div class="row my-3" id="productContainer"></div>
+                <div class="col-12 text-center">
+                        <button id="loadMoreBtn" type="button" class="add_btn btn btn-success mt-4 shadow">
+                        <i class="fas fa-undo"></i>  Load More Tractor </button>
+                       
                     </div>
-                </div>
-                <div class="row my-3">
-                    <div class="col-12 col-lg-4 col-md-4 col-sm-4 mt-3 ">
-                        <div class="h-auto success__stry__item d-flex flex-column shadow ">
-                            <div class="thumb">
-                                <a href="used_farm_inner.php">
-                                    <div class="ratio ratio-16x9">
-                                        <img src="assets/images/Sell-implement-product-1674815159-0.jpeg" class="object-fit-cover " alt="img">
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="content d-flex flex-column flex-grow-1 ">
-                                <div class="caption text-center">
-                                    <a href="used_farm_inner.php" class="text-decoration-none text-dark">
-                                        <p class="pt-3"><strong class="series_tractor_strong text-center h4 fw-bold ">Mourya 2013</strong></p>
-                                    </a>      
-                                </div>
-                                <div class="power text-center mt-2">
-                                    <div class="row ">
-                                        <div class="col-12 col-lg-6 col-md-6 col-sm-6"><p class="text-success ps-2">Price : ₹ 190000</p></div>
-                                        <div class="col-12 col-lg-6 col-md-6 col-sm-6" style="padding-right: 32px;">
-                                             <p id="adduser" type="" class="btn-success">
-                                             <i class="fa-solid fa-clock"></i> Hours : N/A </p>
-                                        </div>
-                                    </div>    
-                                </div>
-                            </div>
-                            <div class="col-12">
-                                    <button type="button" id="adduser"class="btn-state state btn-success text-decoration-none px-2 w-100">Raipur, Chhattisgarh</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-lg-4 col-md-4 col-sm-4 mt-3 ">
-                        <div class="h-auto success__stry__item d-flex flex-column shadow ">
-                            <div class="thumb">
-                                <a href="#">
-                                    <div class="ratio ratio-16x9">
-                                        <img src="assets/images/Sell-implement-product-1674813847-0.jpeg" class="object-fit-cover " alt="img">
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="content d-flex flex-column flex-grow-1 ">
-                                <div class="caption text-center">
-                                    <a href="#" class="text-decoration-none text-dark">
-                                        <p class="pt-3"><strong class="series_tractor_strong text-center h4 fw-bold ">Sonalika Sonalika</strong></p>
-                                    </a>      
-                                </div>
-                                <div class="power text-center mt-2">
-                                    <div class="row ">
-                                        <div class="col-12 col-lg-6 col-md-6 col-sm-6"><p class="text-success ps-2">Price : ₹ 105000</p></div>
-                                        <div class="col-12 col-lg-6 col-md-6 col-sm-6" style="padding-right: 32px;">
-                                             <p id="adduser" type="" class="btn-success">
-                                             <i class="fa-solid fa-clock"></i> Hours : N/A</p>
-                                        </div>
-                                    </div>    
-                                </div>
-                            </div>
-                            <div class="col-12">
-                                    <button type="button" id="adduser"class="btn-state state btn-success text-decoration-none px-2 w-100">Bilaspur, Chhattisgarh</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-lg-4 col-md-4 col-sm-4 mt-3 ">
-                        <div class="h-auto success__stry__item d-flex flex-column shadow ">
-                            <div class="thumb">
-                                <a href="#">
-                                    <div class="ratio ratio-16x9">
-                                        <img src="assets/images/Sell-implement-product-1674805150-0.jpeg" class="object-fit-cover " alt="img">
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="content d-flex flex-column flex-grow-1 ">
-                                <div class="caption text-center">
-                                    <a href="#" class="text-decoration-none text-dark">
-                                        <p class="pt-3"><strong class="series_tractor_strong text-center h4 fw-bold ">Mahindra Cutter Thresar</strong></p>
-                                    </a>      
-                                </div>
-                                <div class="power text-center mt-2">
-                                    <div class="row ">
-                                        <div class="col-12 col-lg-6 col-md-6 col-sm-6"><p class="text-success ps-2">Price : ₹ 267000</p></div>
-                                        <div class="col-12 col-lg-6 col-md-6 col-sm-6" style="padding-right: 32px;">
-                                             <p id="adduser" type="" class="btn-success">
-                                             <i class="fa-solid fa-clock"></i> Hours : N/A</p>
-                                        </div>
-                                    </div>    
-                                </div>
-                            </div>
-                            <div class="col-12">
-                                    <button type="button" id="adduser"class="btn-state state btn-success text-decoration-none px-2 w-100">Surajpur, Chhattisgarh</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-lg-4 col-md-4 col-sm-4 mt-3 ">
-                        <div class="h-auto success__stry__item d-flex flex-column shadow ">
-                            <div class="thumb">
-                                <a href="#">
-                                    <div class="ratio ratio-16x9">
-                                        <img src="assets/images/Sell-implement-product-1674787260.jpeg" class="object-fit-cover " alt="img">
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="content d-flex flex-column flex-grow-1 ">
-                                <div class="caption text-center">
-                                    <a href="#" class="text-decoration-none text-dark">
-                                        <p class="pt-3"><strong class="series_tractor_strong text-center h4 fw-bold ">Captain 2023</strong></p>
-                                    </a>      
-                                </div>
-                                <div class="power text-center mt-2">
-                                    <div class="row ">
-                                        <div class="col-12 col-lg-6 col-md-6 col-sm-6"><p class="text-success ps-2">Price : ₹ 325000</p></div>
-                                        <div class="col-12 col-lg-6 col-md-6 col-sm-6" style="padding-right: 32px;">
-                                             <p id="adduser" type="" class="btn-success">
-                                             <i class="fa-solid fa-clock"></i>  Hours : N/A</p>
-                                        </div>
-                                    </div>    
-                                </div>
-                            </div>
-                            <div class="col-12">
-                                    <button type="button" id="adduser"class="btn-state state btn-success text-decoration-none px-2 w-100">Raipur, Chhattisgarh</a>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="col-12 col-lg-4 col-md-4 col-sm-4 mt-3 ">
-                        <div class="h-auto success__stry__item d-flex flex-column shadow ">
-                            <div class="thumb">
-                                <a href="#">
-                                    <div class="ratio ratio-16x9">
-                                        <img src="assets/images/Sell-implement-product-1674643488-0.jpeg" class="object-fit-cover " alt="img">
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="content d-flex flex-column flex-grow-1 ">
-                                <div class="caption text-center">
-                                    <a href="#" class="text-decoration-none text-dark">
-                                        <p class="pt-3"><strong class="series_tractor_strong text-center h4 fw-bold ">Hamidi Misel</strong></p>
-                                    </a>      
-                                </div>
-                                <div class="power text-center mt-2">
-                                    <div class="row ">
-                                        <div class="col-12 col-lg-6 col-md-6 col-sm-6"><p class="text-success ps-2">Price : ₹ 145000</p></div>
-                                        <div class="col-12 col-lg-6 col-md-6 col-sm-6" style="padding-right: 32px;">
-                                             <p id="adduser" type="" class="btn-success">
-                                             <i class="fa-solid fa-clock"></i> Hours : N/A </p>
-                                        </div>
-                                    </div>    
-                                </div>
-                            </div>
-                            <div class="col-12">
-                                    <button type="button" id="adduser"class="btn-state state btn-success text-decoration-none px-2 w-100">Raipur, Chhattisgarh</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-lg-4 col-md-4 col-sm-4 mt-3 ">
-                        <div class="h-auto success__stry__item d-flex flex-column shadow ">
-                            <div class="thumb">
-                                <a href="#">
-                                    <div class="ratio ratio-16x9">
-                                        <img src="assets/images/Sell-implement-product-1674815159-0.jpeg" class="object-fit-cover " alt="img">
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="content d-flex flex-column flex-grow-1 ">
-                                <div class="caption text-center">
-                                    <a href="#" class="text-decoration-none text-dark">
-                                        <p class="pt-3"><strong class="series_tractor_strong text-center h4 fw-bold ">Mourya 2013</strong></p>
-                                    </a>      
-                                </div>
-                                <div class="power text-center mt-2">
-                                    <div class="row ">
-                                        <div class="col-12 col-lg-6 col-md-6 col-sm-6"><p class="text-success ps-2">Price : ₹ 190000</p></div>
-                                        <div class="col-12 col-lg-6 col-md-6 col-sm-6" style="padding-right: 32px;">
-                                             <p id="adduser" type="" class="btn-success">
-                                             <i class="fa-solid fa-clock"></i>  Hours : N/A </p>
-                                        </div>
-                                    </div>    
-                                </div>
-                            </div>
-                            <div class="col-12">
-                                    <button type="button" id="adduser"class="btn-state state btn-success text-decoration-none px-2 w-100">Raipur, Chhattisgarh</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-lg-4 col-md-4 col-sm-4 mt-3 ">
-                        <div class="h-auto success__stry__item d-flex flex-column shadow ">
-                            <div class="thumb">
-                                <a href="#">
-                                    <div class="ratio ratio-16x9">
-                                        <img src="assets/images/Sell-implement-product-1674815159-0.jpeg" class="object-fit-cover " alt="img">
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="content d-flex flex-column flex-grow-1 ">
-                                <div class="caption text-center">
-                                    <a href="#" class="text-decoration-none text-dark">
-                                        <p class="pt-3"><strong class="series_tractor_strong text-center h4 fw-bold ">Mourya 2013</strong></p>
-                                    </a>      
-                                </div>
-                                <div class="power text-center mt-2">
-                                    <div class="row ">
-                                        <div class="col-12 col-lg-6 col-md-6 col-sm-6"><p class="text-success ps-2">Price : ₹ 190000</p></div>
-                                        <div class="col-12 col-lg-6 col-md-6 col-sm-6" style="padding-right: 32px;">
-                                             <p id="adduser" type="" class="btn-success">
-                                             <i class="fa-solid fa-clock"></i>  Hours : N/A </p>
-                                        </div>
-                                    </div>    
-                                </div>
-                            </div>
-                            <div class="col-12">
-                                    <button type="button" id="adduser"class="btn-state state btn-success text-decoration-none px-2 w-100">Raipur, Chhattisgarh</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-lg-4 col-md-4 col-sm-4 mt-3 ">
-                        <div class="h-auto success__stry__item d-flex flex-column shadow ">
-                            <div class="thumb">
-                                <a href="#">
-                                    <div class="ratio ratio-16x9">
-                                        <img src="assets/images/Sell-implement-product-1674673079.jpg" class="object-fit-cover " alt="img">
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="content d-flex flex-column flex-grow-1 ">
-                                <div class="caption text-center">
-                                    <a href="#" class="text-decoration-none text-dark">
-                                        <p class="pt-3"><strong class="series_tractor_strong text-center h4 fw-bold ">Dasmesh 9050610241</strong></p>
-                                    </a>      
-                                </div>
-                                <div class="power text-center mt-2">
-                                    <div class="row ">
-                                        <div class="col-12 col-lg-6 col-md-6 col-sm-6"><p class="text-success ps-2">Price : ₹ 190000</p></div>
-                                        <div class="col-12 col-lg-6 col-md-6 col-sm-6" style="padding-right: 32px;">
-                                             <p id="adduser" type="" class="btn-success">
-                                             <i class="fa-solid fa-clock"></i>  Hours : N/A </p>
-                                        </div>
-                                    </div>    
-                                </div>
-                            </div>
-                            <div class="col-12">
-                                    <button type="button" id="adduser"class="btn-state state btn-success text-decoration-none px-2 w-100">Raipur, Chhattisgarh</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-lg-4 col-md-4 col-sm-4 mt-3 ">
-                        <div class="h-auto success__stry__item d-flex flex-column shadow ">
-                            <div class="thumb">
-                                <a href="#">
-                                    <div class="ratio ratio-16x9">
-                                        <img src="assets/images/Sell-implement-product-1674643488-0.jpeg" class="object-fit-cover " alt="img">
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="content d-flex flex-column flex-grow-1 ">
-                                <div class="caption text-center">
-                                    <a href="#" class="text-decoration-none text-dark">
-                                        <p class="pt-3"><strong class="series_tractor_strong text-center h4 fw-bold ">Hamidi Misel</strong></p>
-                                    </a>      
-                                </div>
-                                <div class="power text-center mt-2">
-                                    <div class="row ">
-                                        <div class="col-12 col-lg-6 col-md-6 col-sm-6"><p class="text-success ps-2">Price : ₹ 145000</p></div>
-                                        <div class="col-12 col-lg-6 col-md-6 col-sm-6" style="padding-right: 32px;">
-                                             <p id="adduser" type="" class="btn-success">
-                                             <i class="fa-solid fa-clock"></i> Hours : N/A </p>
-                                        </div>
-                                    </div>    
-                                </div>
-                            </div>
-                            <div class="col-12">
-                                    <button type="button" id="adduser"class="btn-state state btn-success text-decoration-none px-2 w-100">Raipur, Chhattisgarh</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    
-                </div>
-                <div class="col-12 text-center ">
-                    <button id="adduser" type="button" class="add_btn btn-success">
-                    <i class="fas fa-undo"></i>  Load More  </button>
-                </div>
             </div>
             
             <div class="col-12 col-sm-3 col-lg-3 col-md-3">
@@ -324,11 +45,11 @@
                     <div class="col-12 col-sm-12 col-md-12 col-lg-12">
                         <div class=" row">
                             <div class="col-12 col-sm-6 col-lg-6 col-md-6">
-                                <button id="adduser" type="button" class="add_btn btn-success px-">
+                                <button id="adduser" type="button" class="add_btn btn-success w-100">
                                 <i class="fas fa-undo"></i>  Reset </button>
                             </div>
                            <div class="col-12 col-sm-6 col-lg-6 col-md-6 pe-2">
-                                <button id="adduser" type="button" class="add_btn btn-success">
+                                <button id="adduser" type="button" class="add_btn btn-success w-100">
                                 <i class="fas fa-filter"></i>  Apply Filter </button>
                            </div>
                             

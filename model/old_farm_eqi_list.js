@@ -388,7 +388,7 @@ $.ajax({
     headers: headers,
     success: function (result) {
         console.log(result, "result");
-        // window.location.reload();
+        window.location.reload();
         console.log("updated successfully");
         alert('successfully updated..!')
     },
