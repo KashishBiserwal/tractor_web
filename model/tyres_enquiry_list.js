@@ -1,7 +1,7 @@
 
   
 $(document).ready(function(){
-  getbrand('brand1');
+  getbrand('brand_name');
   $('#undate_btn').click(edit_data_id);
   $('#submit_btn').on('click', function(event) {
     $("#form_tyre_list").valid();
@@ -67,11 +67,8 @@ $(document).ready(function(){
       alert("Form submitted successfully!");
     },
     });
-
-  
-   
-    $('#add_trac').on('click', function() {
-      getbrand('brand');
+    $('#add_trac').on('click', function(){
+      getbrand('brand_data');
       getcategory('category');
     });
     });
@@ -121,7 +118,7 @@ $(document).ready(function(){
           url: url,
           type: "GET",
           headers: {
-              'Authorization': 'Bearer ' + localStorage.getItem('token')
+              'Authorization': 'Bearer' + localStorage.getItem('token')
           },
           success: function (data) {
               console.log(data);

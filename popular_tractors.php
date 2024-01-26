@@ -34,41 +34,7 @@ include 'includes/headertag.php';
         <div class="row">
             <div class="col-12 col-sm-9 col-lg-9 col-md-9">
                 <h3 class="pb-3">Popular  <span class="text-success fw-bold">Tractors in India</span> </h3>
-                <div id="productContainer" class="row">
-                    <!-- <div class="col-12 col-lg-4 col-md-4 col-sm-4 mb-3">
-                        <div class="h-auto success__stry__item d-flex flex-column shadow ">
-                            <div class="thumb">
-                                <a href="Mahindra_575.php">
-                                    <div class="ratio ratio-16x9">
-                                        <img src="assets/images/575-di-xp-plus-1632207330.webp" class="object-fit-cover " alt="img">
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="content d-flex flex-column flex-grow-1 ">
-                                <div class="caption text-center">
-                                    <a href="Mahindra_575.php" class="text-decoration-none text-dark">
-                                        <p class="pt-3"><strong class="series_tractor_strong text-center h4 fw-bold ">Mahindra 575 DI XP Plus</strong></p>
-                                    </a>      
-                                </div>
-                                <div class="power text-center mt-2">
-                                    <div class="row ">
-                                        <div class="col-12 col-lg-6 col-md-6 col-sm-6"><p class="text-dark ps-2"><i class="fas fa-bolt"></i> 47 HP</p></div>
-                                        <div class="col-12 col-lg-6 col-md-6 col-sm-6" style="padding-right: 32px;">
-                                             <p id="adduser" type="" class="text-dark">
-                                              <i class="fa-solid fa-gear"></i>  2979 CC </p>
-                                        </div>
-                                    </div>    
-                                </div>
-                                <div class="col-12">
-                                    <button id="adduser" type="button" class="add_btn  btn-success w-100">
-                                    <i class="fa-regular fa-handshake"></i> Get on Road Price </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div> -->
-                  
-                    
-                </div>
+                <div id="productContainer" class="row"></div>
                 <div class="col-12 text-center mt-3 pt-2 ">
                     <button id="load_moretract" type="button" class="add_btn btn btn-success">
                     <i class="fas fa-undo"></i>  Load More tractors</button>
@@ -108,8 +74,6 @@ include 'includes/headertag.php';
                     <div class="force-overflow">
                     <h5 class=" ps-1 text-dark fw-bold pt-2">Search By HP</h5>
                         <div class="HP py-2">
-                            
-                            <!-- <input type="checkbox" class="text-align-center ms-3" value=""/><span> This is checkbox </span><br /> -->
                             <input type="checkbox" class="checkbox-round mt-1 ms-3" value="0-20"/><span class="ps-2 fs-6">0 HP - 20 HP</span><br />
                             <input type="checkbox" class="checkbox-round mt-1 ms-3" value="21-30"/><span class="ps-2 fs-6">21 HP - 30 HP</span><br />
                             <input type="checkbox" class="checkbox-round mt-1  ms-3" value="31-40"/><span class="ps-2 fs-6">31 HP - 40 HP</span><br />
@@ -123,19 +87,7 @@ include 'includes/headertag.php';
                 <div class="scrollbar mb-3" id=" my-2">
                     <div class="force-overflow">
                         <h5 class=" ps-1 text-dark fw-bold  pt-2">Search By Brand</h5>
-                        <div class="HP py-2">
-                            <!-- <input type="checkbox" class="text-align-center ms-3" value=""/><span> This is checkbox </span><br /> -->
-                            <input type="checkbox" class="checkbox-round mt-1 ms-3" value="Mahindra"/><span class="ps-2 fs-6">Mahindra (97)</span><br />
-                            <input type="checkbox" class="checkbox-round mt-1 ms-3" value="Farmtrac"/><span class="ps-2 fs-6">Farmtrac (21)</span><br />
-                            <input type="checkbox" class="checkbox-round mt-1 ms-3" value="Swaraj"/><span class="ps-2 fs-6">Swaraj (19)</span><br />
-                            <input type="checkbox" class="checkbox-round mt-1 ms-3" value="Massey"/><span class="ps-2 fs-6">Massey Ferguson (16)</span><br />
-                            <input type="checkbox" class="checkbox-round mt-1 ms-3" value="Powertrac"/><span class="ps-2 fs-6">Powertrac (15)</span><br />
-                            <input type="checkbox" class="checkbox-round mt-1 ms-3" value="Sonalika"/><span class="ps-2 fs-6">Sonalika (15)</span><br />
-                            <input type="checkbox" class="checkbox-round mt-1 ms-3" value="Eicher"/><span class="ps-2 fs-6">Eicher (12)</span><br />
-                            <input type="checkbox" class="checkbox-round mt-1 ms-3" value="John"/><span class="ps-2 fs-6">John Deere (6)</span><br />
-                            <input type="checkbox" class="checkbox-round mt-1 ms-3" value="Escorts"/><span class="ps-2 fs-6">Escorts (13)</span><br />
-                            <input type="checkbox" class="checkbox-round mt-1 ms-3" value="Holland"/><span class="ps-2 fs-6">New Holland (2)</span><br />
-                        </div>
+                        <div class="HP py-2"></div>
                     </div>
                 </div>
             </div>

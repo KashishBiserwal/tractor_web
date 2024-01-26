@@ -342,10 +342,9 @@ function store(event) {
       headers: headers,
       success: function(response) {
         var editData = response.product.allProductData[0];
-        var tractorTypeNames = response.product.accessory_and_tractor_type.map(item => item.tractor_type_id);
+        
         
         var selectedAccessories = response.product.accessory_and_tractor_type[0];
-        console.log("all data tractor_type_name", tractorTypeNames);
 
         $("#brand_name option").prop("selected", false);
         $("#brand_name option[value='" + editData.brand_name + "']").prop("selected", true);
@@ -363,18 +362,23 @@ function store(event) {
         $('#starting_price').val(editData.starting_price);
         $('#ending_price').val(editData.ending_price);
         $('#warranty').val(editData.warranty);
-        $('#type_name').val(editData.tractor_type_id).attr('select', true);
-        console.log(editData.tractor_type_id,"tractors value");
+        // $('#type_name').val(editData.tractor_type_id).attr('select', true);
+        // console.log(editData.tractor_type_id,"tractors value");
         $('#_image').val(editData.image_type_id);
+        var tractorTypeNames = response.product.accessory_and_tractor_type.map(item => item.tractor_type_id);
+
         $('#type_name input[type="checkbox"]').prop("checked", false);
+
+        // Loop through the fetched tractorTypeNames and check the corresponding checkboxes
         tractorTypeNames.forEach(function (typeId) {
-          console.log('typeId', typeId);
-           
-          $('#type_name input[value="' +typeId+ '"]').prop('checked', true);
+            console.log('typeId', typeId);
+            $('#type_name input[type="checkbox"]:checked').each(function () {
+              var typeId = $(this).val();
+              $('#type_name input[value="' + typeId + '"]').prop('checked', true);
+          });
         });
-        $('#type_name input[type="checkbox"]').on('change', function() {
-          // Handle change event if needed
-        });
+
+     
         $('#CAPACITY_CC').val(editData.engine_capacity_cc);
 
         $('#engine_rated_rpm').val(editData.engine_rated_rpm);
@@ -423,9 +427,9 @@ function store(event) {
         $('#rear_tyre').val(editData.rear_tyre);
 
         $("#ass_list option").prop("selected", false);
-        $("#ass_list option[value='" + selectedAccessories.accessory + "']").prop("selected", true);
-        $("#ass_list").trigger('change');
-        console.log('accessory', selectedAccessories.accessory );
+    $("#ass_list option[value='" + selectedAccessories.accessory_id + "']").prop("selected", true);
+    $("#ass_list").trigger('change');
+    console.log('accessory', selectedAccessories.accessory_id);
 
         $("#STATUS option").prop("selected", false);
         $("#STATUS option[value='" + editData.status_id + "']").prop("selected", true);

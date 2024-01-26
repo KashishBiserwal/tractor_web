@@ -888,29 +888,29 @@ $button.addEventListener('click', (e) => {
                         },
                         min_forward_speed:{
                             required: true,
-                            number:true,
+                            // number:true,
                         },
                         max_forward_speed:{
                             required: true,
-                            number:true,
+                            // number:true,
                         },
                         min_reverse_speed:{
                             required: true,
-                            number:true,
+                            // number:true,
                         },
                         max_reverse_speed:{
                             required: true,
-                            number:true,
+                            // number:true,
                         }
                     },
                     messages: {
                         CAPACITY_CC:{
                             required:"This field is required",
-                            number:"Enter only digits /Decimal Number",
+                            number:"Enter only digits, - , /Decimal Number",
                         },
                         engine_rated_rpm:{
                             required:"This field is required",
-                            number:"Enter only digits /Decimal Number",
+                            number:"Enter only digits or -, /Decimal Number",
                         },
                         COOLING:{
                             required:"This field is required",
@@ -932,11 +932,11 @@ $button.addEventListener('click', (e) => {
                         },
                         min_forward_speed:{
                             required:"This field is required",
-                            number:"Enter only digits /Decimal Number",
+                            // number:"Enter only digits /Decimal Number",
                         },
                         max_forward_speed:{
                             required:"This field is required",
-                            number:"Enter only digits /Decimal Number",
+                            // number:"Enter only digits /Decimal Number",
                         },
                         min_reverse_speed:{
                             required:"This field is required",

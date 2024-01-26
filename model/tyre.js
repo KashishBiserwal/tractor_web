@@ -59,9 +59,12 @@ function displayTractors(tractors) {
                 a = [images];
             }
         }
+        var cardId = `card_${p.product_id}`; // Dynamic ID for the card
+        var modalId = `used_tractor_callbnt_${p.product_id}`; // Dynamic ID for the modal
+        var formId = `contact-seller-call_${p.product_id}`; 
 
         var newCard = `
-        <div class="col-12 col-lg-4 col-md-4 col-sm-4 mb-3">
+        <div class="col-12 col-lg-4 col-md-4 col-sm-4 mb-3" id="${cardId}">
                                 <div class="h-auto success__stry__item d-flex flex-column shadow tyre_card">
                                     <div class="thumb">
                                         <a href="tyre_inner.php?product_id=${p.id}">
@@ -103,15 +106,14 @@ function displayTractors(tractors) {
                                             </a>
                                         </div>
                                         <div class="col-12">
-                                            <button id="adduser" type="button" class="add_btn  btn-success w-100"
-                                                data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                                                Get Price</button>
+                                           
+                                            <button type="button" class="add_btn btn-success w-100" onclick="model_click()" data-bs-toggle="modal"  data-bs-target="#${modalId}">
+                                            Get  Price
+                                            </button>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static"
-                                    data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel"
-                                    aria-hidden="true">
+                                </div> 
+                                <div class="modal fade" id="${modalId}" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                                     <div class="modal-dialog modal-lg modal-dialog-centered">
                                         <div class="modal-content">
                                             <div class="modal-header  modal_head">
@@ -120,15 +122,12 @@ function displayTractors(tractors) {
                                             </div>
                                             <div class="modal-body bg-white mt-3">
                                                 <div class="model-cont">
-                                                    <form id="hire_inner" name="hire_inner" method="POST" onsubmit="return false">
+                                                    <form id="${formId}" name="hire_inner" method="POST" onsubmit="return false">
                                                         <div class="row">
-                                                           
                                                             <input type="hidden" id="brandName" value="${p.brand_name}" >
                                                             <input type="hidden" id="modelName" value="${p.oil_model}" >
                                                             <input type="hidden" id="enquiry_type_id" value="10" >
-                
-            
-         
+                                                            <input type="hidden" id="product_id" value="${p.id}" >
                                                             <div class="col-12 col-lg-6 col-md-6 col-sm-6">
                                                                 <div class="form-outline">
                                                                 <label for="f_name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i> First Name</label>
@@ -151,9 +150,9 @@ function displayTractors(tractors) {
                                                                 <div class="form-outline">
                                                                 <label for="eo_state" class="form-label text-dark fw-bold"> <i class="fas fa-location"></i> State</label>
                                                                 <select class="form-select py-2 " aria-label=".form-select-lg example" id="state" name="state">
-                                                                    <option value="" selected disabled=""> </option>  
-                                                                    <option value="1">Chhattisgarh</option>
-                                                                    <option value="2">Other</option>
+                                                                    <option value="" selected disabled="">Select State </option>  
+                                                                    <option value="Chhattisgarh">Chhattisgarh</option>
+                                                                    <option value="Other">Other</option>
                                                                 </select>
                                                                 </div>
                                                             </div>
@@ -161,10 +160,10 @@ function displayTractors(tractors) {
                                                                 <div class="form-outline">
                                                                 <label for="eo_dist" class="form-label fw-bold  text-dark"><i class="fa-solid fa-location-dot"></i> District</label>
                                                                 <select class="form-select py-2 " aria-label=".form-select-lg example" id="district" name="district">
-                                                                    <option value="" selected disabled=""></option>
-                                                                    <option value="1">Raipur</option>
-                                                                    <option value="2">Bilaspur</option>
-                                                                    <option value="2">Durg</option>
+                                                                    <option value="" selected disabled="">Select District</option>
+                                                                    <option value="Raipur">Raipur</option>
+                                                                    <option value="Bilaspur">Bilaspur</option>
+                                                                    <option value="Durg">Durg</option>
                                                                 </select>
                                                                 </div>                    
                                                             </div>       
@@ -172,8 +171,8 @@ function displayTractors(tractors) {
                                                                 <div class="form-outline">
                                                                 <label for="eo_tehsil" class="form-label fw-bold text-dark"> Tehsil</label>
                                                                 <select class="form-select py-2 " aria-label=".form-select-lg example" id="Tehsil" name="Tehsil">
-                                                                    <option value="" selected disabled=""></option>
-                                                                    <option value="2">Durg</option>
+                                                                    <option value="" selected disabled="">Select Tehsil</option>
+                                                                    <option value="Durg">Durg</option>
                                                                 </select>
                                                                 </div>
                                                             </div>
@@ -186,7 +185,7 @@ function displayTractors(tractors) {
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary"
                                                     data-bs-dismiss="modal">Close</button>
-                                                    <button type="submit" id="button_hire" class="btn add_btn btn-success  btn_all" onclick="tyre_enquiry()" data-bs-dismiss="modal">Submit</button>        
+                                                    <button type="submit" id="button_hire" class="btn add_btn btn-success  btn_all" onclick="savedata('${formId}')" data-bs-dismiss="modal">Submit</button>        
                                             </div>
                                         </div>
                                     </div>
@@ -202,28 +201,25 @@ function displayTractors(tractors) {
     });
 }
 
-function tyre_enquiry() {
-    var brandName = $('#brandName').val();
-    var modelName = $('#modelName').val();
-    var firstName = $('#firstName').val();
-    var lastName = $('#lastName').val();
-    var mobile_number = $('#mobile_number').val();
-    var state = $('#state').val();
-    var district = $('#district').val();
-    var Tehsil = $('#Tehsil').val();
-    var enquiry_type_id =$('#enquiry_type_id').val();
+function tyre_enquiry(formId) {
+    var firstName = $(`#${formId} #firstName`).val();
+    var product_id = $(`#${formId} #product_id`).val();
+    var lastName = $(`#${formId} #lastName`).val();
+    var mobile_number = $(`#${formId} #mobile_number`).val();
+    var state = $(`#${formId} #state`).val();
+    var district = $(`#${formId} #district`).val();
+    var Tehsil = $(`#${formId} #Tehsil`).val();
+    var enquiry_type_id =$(`#${formId} #enquiry_type_id`).val();
     var paraArr = {
-      'brand_name': brandName,
-      'model': modelName,
       'first_name': firstName,
       'last_name': lastName,
       'mobile': mobile_number,
       'state': state,
       'district': district,
       'tehsil': Tehsil,
+      'product_id':product_id,
       'enquiry_type_id':enquiry_type_id,
     };
-    // console.log(paraArr);
   
 //   var apiBaseURL =APIBaseURL;
 //   var url = apiBaseURL + 'customer_enquiries';
@@ -263,4 +259,9 @@ var url ='http://tractor-api.divyaltech.com/api/customer/customer_enquiries';
         // 
       }
     });
+  }
+  function savedata(formId){
+    tyre_enquiry(formId);
+    console.log("confirm");
+    console.log("Form submitted successfully");
   }
