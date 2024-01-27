@@ -226,6 +226,14 @@
                                 <div class="step_sellused">
                                     <p class="text-center mb-4 fw-bold">Sell Your Used Tractor</p>
                                     <div class="row">
+                                    <div class="col-12 col-lg-6 col-md-6 col-sm-6 " hidden>
+                                        <label for="name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i> enquiryName</label>
+                                        <input type="text" class="form-control" placeholder="Enter Your Name" id="enquiry_type_id" value="1" name="fname">
+                                    </div>
+                                    <div class="col-12 col-lg-6 col-md-6 col-sm-6 " hidden>
+                                        <label for="name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i> product type id</label>
+                                        <input type="text" class="form-control" id="product_type_id" value="">
+                                    </div>
                                         <div class="col-12 col-lg-6 col-md-6 col-sm-6 mb-2 mt-3 ">
                                             <div class="form-outline">
                                                 <label for="f_name" class="form-label mb-0 text-dark"> <i class="fa-regular fa-user"></i> First Name</label>
@@ -257,7 +265,7 @@
                                         <div class="col-12 col-sm-12 col-md-6 col-lg-6">
                                             <div class="form-outline mt-4">
                                                 <label for="eo_dist" class="form-label text-dark"><i class="fa-solid fa-location-dot"></i> District</label>
-                                                <select class="form-select py-2 " aria-label=".form-select-lg example" name="d_dist" id="eo_dist" required>
+                                                <select class="form-select py-2 " aria-label=".form-select-lg example" name="eo_dist" id="d_dist" required>
                                                     <option value="" Selected Disabled=""></option>
                                                     <option value="Raipur">Raipur</option>
                                                     <option value="Bilaspur">Bilaspur</option>
@@ -347,10 +355,10 @@
                                                 <label for="_e_con" class="form-label text-dark">Engine Condition</label>
                                                 <select class="form-select py-2 " aria-label=".form-select-lg example" name="_e_con" id="engine_condition" required>
                                                     <option value="" selected-disabled=""></option>
-                                                    <option value="1">0-25%(poor)</option>
-                                                    <option value="2">25-50%(Average)</option>
-                                                    <option value="2">51-75%(Good)</option>
-                                                    <option value="2">76-100%(Very Good)</option>
+                                                    <option value="0-25%(poor)">0-25%(poor)</option>
+                                                    <option value="25-50%(Average)">25-50%(Average)</option>
+                                                    <option value="51-75%(Good)">51-75%(Good)</option>
+                                                    <option value="76-100%(Very Good)">76-100%(Very Good)</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -359,10 +367,10 @@
                                                 <label for="_t_con"class="form-label text-dark">Tyre Condition</label>
                                                 <select class="form-select py-2 " aria-label=".form-select-lg example" name="_t_con" id="tyre_condition" required>
                                                     <option value="" selected-disabled=""></option>
-                                                    <option value="1">0-25%(poor)</option>
-                                                    <option value="2">25-50%(Average)</option>
-                                                    <option value="2">51-75%(Good)</option>
-                                                    <option value="2">76-100%(Very Good)</option>
+                                                    <option value="0-25%(poor)">0-25%(poor)</option>
+                                                    <option value="25-50%(Average)">25-50%(Average)</option>
+                                                    <option value="51-75%(Good)">51-75%(Good)</option>
+                                                    <option value="76-100%(Very Good)">76-100%(Very Good)</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -377,6 +385,37 @@
                                                 </select>
                                             </div>
                                         </div>
+                                        <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-3">
+                                            <label class="pe-3 fs-5 text-dark">RC Number</label>
+                                            <input type="radio" id="rc_res" name="fav_rc" value="1">
+                                            <label for="rc_res" class="text-dark">Yes</label> 
+                                            <input type="radio" id="rc_no" name="fav_rc" value="0">
+                                            <label for="rc_no" class="text-dark">No</label>
+                                        </div>
+
+                                        <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-3 rc-num-container" style="display: none;">
+                                            <div class="form-outline">
+                                                <label class="form-label  text-dark" for="rc_num">Vehicle Registered Number</label>
+                                                <input type="text" id="rc_num" name="rc_num" class="data_search form-control input-group-sm py-2" />
+                                            </div>
+                                        </div>
+
+                                        <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-3">
+                                            <label class="pe-3 fs-5 text-dark">Financed</label>
+                                            <input type="radio" id="yes" name="fav_language" value="1">
+                                            <label for="yes" class="text-dark">Yes</label> 
+                                            <input type="radio" id="no" name="fav_language" value="0">
+                                            <label for="no" class="text-dark">No</label>
+                                        </div>
+
+                                        <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-3" id="nocDiv" style="display: none;">
+                                            <label class="pe-3 fs-5 text-dark">NOC Available:</label>
+                                            <input type="radio" id="nocyes" name="fav_language1" value="1">
+                                            <label for="nocyes" class="text-dark">Yes</label> 
+                                            <input type="radio" id="nocno" name="fav_language1" value="0">
+                                            <label for="nocno" class="text-dark">No</label>
+                                        </div>
+
                                     </div>
                                     <div class="form-footer d-flex mt-3">
                                         <button type="button" class="btn btn-success w-50 prev-step" id="">Previous</button>
@@ -414,7 +453,7 @@
                                     <div class="upload__box">
                                         <div class="upload__btn-box">
                                             <label>
-                                                <p class="upload__btn w-100">Upload images</p>
+                                                <p class="upload__btn w-100 m-5">Upload images</p>
                                                 <input type="file" multiple="" data-max_length="3" class="upload__inputfile" id="f_file" name="_file">
                                             </label>
                                         </div>
@@ -424,7 +463,17 @@
                                     </div>
                                     <!-- <input type="file" id="_file" multiple="" class="w-100 pb-0 mb-auto" name="_file" required> -->
                                 </div>
-                                <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+                                <div class="col-12 col-lg-6 col-md-6 col-sm-6 mb-2 mt-1">
+                                            <div class="form-outline">
+                                                <label for="f_name" class="form-label mb-0 text-dark">Price</label>
+                                                <input type="text" class="form-control mb-0" placeholder="Enter Price"  id="p_price" name="_price"  required>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-sm-12 col-md-12 col-lg-12 mt-3">
+                                                <label for="a_hrvst" class="form-label text-dark  fw-bold">Description</label>
+                                                <textarea class="form-control" rows="3" placeholder="Leave a comment here (max 200 words)" name="about" id="about" onkeydown="return /[a-zA-Z\s]/i.test(event.key)"  oninput="limitWords(this, 200)"></textarea>
+                                        </div>
+                                <div class="col-12 col-sm-12 col-md-12 col-lg-12" hidden>
                                     <label for="_td_duration" class="form-label text-dark mt-2 mb-0">How early do you want to sell?</label>
                                     <select class="form-select" aria-label=".form-select-lg example" name="_td_duration" id="td_duration" required>
                                         <option value="" selected-disabled=""></option>
@@ -613,6 +662,28 @@
 
     <!-- SCRIPT FOR THE DISPLAY & HIDE -->
 
+
+    <script>
+      $(document).ready(function() {
+    $('input[type="radio"]').change(function(){
+        if($(this).attr('id') === 'yes'){
+            $('#nocDiv').show();
+        } else if ($(this).attr('id') === 'no'){
+            $('#nocDiv').hide();
+        }
+    });
+
+    $('input[name="fav_rc"]').change(function(){
+        if ($(this).attr('id') === 'rc_res' && $(this).is(':checked')) {
+            $('.rc-num-container').show();
+        } else {
+            $('.rc-num-container').hide();
+        }
+    });
+
+});
+
+   </script>
     <script>
         $(document).ready(function () {
             var currentStep = 1;
@@ -785,17 +856,24 @@
                     _file: {
                         required: true,
                     },
+                    about: {
+                        required: true,
+                    },
                     _td_duration: {
-                        required: true
+                        required: true,
                     }
                 },
                 messages: {
                     _file: {
-                        required: "Upload minimum 1 or maximum 4 image"
+                        required: "Upload minimum 1 or maximum 4 image",
+                    },
+                    about: {
+                        required: "This Field is required",
                     },
                     _td_duration: {
-                        required: "Select your time duration"
-                    }                     
+                        required: "Select your time duration",
+                    } 
+
                 },
             });
         });
@@ -910,40 +988,29 @@
             var progressPercentage = ((stepNumber - 1) / 2) * 100; // Assuming 3 steps, calculating the progress percentage
             $(".progress-bar").css("width", progressPercentage + "%");
         }
-
-<<<<<<< .mine
+        .mine
 
     // Function to update the progress bar based on the current step
     function updateProgressBar(stepNumber) {
         var progressPercentage = ((stepNumber - 1) / 2) * 100; // Assuming 3 steps, calculating the progress percentage
         $(".progress-bar").css("width", progressPercentage + "%");
-    }
+    });
 
     // Function to show confirmation box and reset forms
     $("#sell_used_trac_btn").click(function () {
         if (areAllFormsValid()) {
             // Check if all three forms are valid before showing the confirmation box
             if (window.confirm("Are you sure you want to submit?")) {
-                resetForms(); // Reset forms if confirmed
-=======
+                resetForms(); // Reset forms if confir
         // Function to reset forms, display step, and show success message
         $("#sell_used_trac_btn").click(function () {
             if (areAllFormsValid()) {
                 resetForms(); // Reset forms if valid
 
-
-
-
-
-
-
-
-
->>>>>>> .theirs
                 displayStep(1); // Show the first form after resetting
             }
         });
-
+    }
         // Function to show success message after form submission using SweetAlert
         function showSuccessMessage() {
             Swal.fire({
@@ -952,19 +1019,11 @@
                 icon: "success"
             });
         }
+    }
       });
-    </script>
-
-<<<<<<< .mine
-    // Existing code...
-});
-
-    </script>
-=======
     
 
+    </script>
 
-
->>>>>>> .theirs
-</body>
-</html>
+    // Existing code...
+  

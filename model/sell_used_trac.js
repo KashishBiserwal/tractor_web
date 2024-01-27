@@ -134,7 +134,7 @@ function displayStep(step) {
 function store(event) {
     event.preventDefault();
     var enquiry_type_id = $('#enquiry_type_id').val();
-    var product_type_id = 3; 
+    var product_type_id = 1; 
     var brand_name = $('#b_brand').val();
     var model = $('#m_model').val();
     var horse_driven = $('#h_hours').val();
@@ -147,7 +147,13 @@ function store(event) {
     var state = $('#s_state').val();
     var district = $('#d_dist').val();
     var tehsil = $('#t_tehsil').val();
-    var tehsil = $('#td_duration').val();
+    var price = $('#p_price').val();
+    var about = $('#about').val();
+    // var want_to_sell = $('#td_duration').val();
+    var rc = $('#rc_num').val();
+    var rc_number = $('input[name="fav_rc"]:checked').val();
+    var finance = $('input[name="fav_language"]:checked').val();
+    var nocAvailable = $('input[name="fav_language1"]:checked').val();
     var image_names = document.getElementById('f_file').files;
 
     var apiBaseURL = "http://tractor-api.divyaltech.com/api";
@@ -160,19 +166,24 @@ function store(event) {
     data.append('enquiry_type_id', enquiry_type_id);
     data.append('brand_id', brand_name);
     data.append('model', model);
-    data.append('cutting_bar_width', cutting_width);
-    data.append('power_source_id', power_sourse);
-    data.append('crops_type_id', crop_type);
     data.append('hours_driven', horse_driven);
     data.append('purchase_year', purchase_year);
-    data.append('price', price);
-    data.append('description', about_harvester);
+    data.append('engine_condition', engine_condition);
+    data.append('tyre_condition', tyre_condition);
+    // data.append('description', about_harvester);
     data.append('first_name', first_name);
     data.append('last_name', last_name);
     data.append('mobile', mobile);
     data.append('state', state);
     data.append('district', district);
     data.append('tehsil', tehsil);
+    data.append('vehicle_registered_num', rc);
+    data.append('rc_number', rc_number);
+    data.append('finance', finance);
+    data.append('noc', nocAvailable);
+    data.append('price', price);
+    data.append('description', about);
+
 
     // Append each image to the FormData object
     for (var x = 0; x < image_names.length; x++) {
