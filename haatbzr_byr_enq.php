@@ -156,14 +156,14 @@
                             <td>Price-</td>
                             <td id="price1"></td>
                           </tr>
-                          <tr>
+                          <!-- <tr>
                               <td>Upload images-</td>
                               <td colspan="3">
                                   <div class="col-12">
                                       <div id="selectedImagesContainer1" class="upload__img-wrap row"></div>
                                   </div>
                               </td>
-                          </tr>
+                          </tr> -->
                         </tbody>
                       </table>
                     </div>
@@ -204,7 +204,7 @@
           <div class="col-12 col-sm-6 col-md-6 col-lg-6 mt-2" hidden>
               <div class="form-outline">
                 <label class="form-label" for="first_name">User Name</label>
-                <input type="text" id="enquiry_type_id" name="user_name" value="8" class=" data_search form-control input-group-sm py-2" />
+                <input type="text" id="enquiry_type_id" name="user_name" value="7" class=" data_search form-control input-group-sm py-2" />
               </div>
             </div>
             <div class="col-12 col-sm-6 col-md-6 col-lg-6 mt-2" hidden>
@@ -281,7 +281,7 @@
                 <input type="text" id="price" name="price_name" class=" data_search form-control input-group-sm py-2" />
               </div>
             </div>
-            <div class="col-12 col-lg-6 col-md-6 col-sm-6">
+            <!-- <div class="col-12 col-lg-6 col-md-6 col-sm-6">
                 <div class="upload__box mt-3">
                     <div class="upload__btn-box text-center">
                         <label>
@@ -291,7 +291,7 @@
                     </div>
                     <div id="selectedImagesContainer2" class="upload__img-wrap row"></div>
                 </div>
-            </div>
+            </div> -->
           </div>
         </form>
       </div>

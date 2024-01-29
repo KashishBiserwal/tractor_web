@@ -186,43 +186,9 @@
                                                 </select>
                                             </div>
                                         </div>
-                                        <!-- <div class="col-12 col-sm-6 col-md-6 col-lg-6 mt-4">
-                                            <div class="form-outline">
-                                                <label class="form-label" for="quantity">Quantity</label>
-                                                <input type="text" id="quantity" name="quantity"
-                                                    class="form-control input-group-sm "  />
-                                            </div>
-                                        </div>
-                                        <div class="col-12 col-sm-6 col-md-6 col-lg-6 mt-4">
-                                            <div class="form-outline">
-                                                <label class="form-label" for="asPer">As Per</label>
-                                                <select class="form-select" id="asPer" name="asPer" >
-                                                    <option value="" selected disabled></option>
-                                                    <option value="1">Kg</option>
-                                                    <option value="2">Quintal</option>
-                                                    <option value="3">Gram</option>
-                                                    <option value="3">Ton</option>
-                                                </select>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-12 col-sm-6 col-md-6 col-lg-6 mt-4">
-                                            <div class="form-outline">
-                                                <label class="form-label" for="price">Price</label>
-                                                <input type="text" id="price" name="price"
-                                                    class="form-control input-group-sm "  />
-                                            </div>
-                                        </div>
-                                        <div class="col-12 col-sm-6 col-md-6 col-lg-6 mt-4">
-                                            <div class="form-outline">
-                                                <label class="form-label" for="totalprice">Total Price</label>
-                                                <input type="text" id="totalprice" name="totalprice"
-                                                    class="form-control input-group-sm " readonly />
-                                            </div>
-                                        </div> -->
                                         <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-4">
                                             <div class="input-group">
-                                                <input type="number" id="quantityInput" class="form-control text-black" placeholder="Quantity" aria-label="Text input with dropdown button" name="quantity" >
+                                                <input type="number" id="quantityInput" class="form-control text-black"placeholder="Quantity" aria-label="Text input with dropdown button" name="quantity"style="width: 100px;" >
                                                 <select type="button" id="unitSelect" name="unit" class="btn border border-secondary-2 h-25 dropdown-toggle" data-bs-toggle="dropdown">
                                                     <ul class="dropdown-menu">
                                                       <option class="dropdown-item" value="">Select Unit</option>
@@ -236,10 +202,11 @@
                                                     </ul>
                                                 </select>
                                             </div>
+                                            <div class="validation-message" id="quantityValidation"></div>
                                         </div>
                                         <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
                                             <div class="form-outline mt-4">
-                                                <label for="name" class="form-label text-dark">Price</label>
+                                                <label for="name" class="form-label text-dark">Price(eg:-0.00)</label>
                                                 <input type="text" class="form-control" placeholder="" id="price" name="price">
                                             </div>
                                         </div>
@@ -371,8 +338,8 @@
                                             <select class="form-select error mb-2 pb-2" id="state1" name="state"
                                                 aria-label="Default select example">
                                                 <option selected></option>
-                                                <option value="state1">state1</option>
-                                                <option value="state2">state2</option>
+                                                <option value="Chhattisgarh">Chhattisgarh</option>
+                                                <option value="Others">Others</option>
                                             </select>
                                         </div>
                                     </div>
@@ -539,15 +506,11 @@
                     subcategory: {
                         required: true,
                     },
-                    quantity: {
-                        required: true,
-                    },
-                    asPer: {
-                        required: true,
-                    },
-                    price: {
-                        required: true,
+                    price:{
+                         required: true,
                         validPrice: true,
+                    },unit: {
+                        required: true
                     },
                     aboutharvest: {
                         required: true,
@@ -560,19 +523,16 @@
                     subcategory: {
                         required: "This field is required",
                     },
-                    quantity: {
-                        required: "This field is required",
-                    },
-                    asPer: {
-                        required: "This field is required",
-                    },
                     price: {
                         required: "This field is required",
                         validPrice: "Please enter a valid price",
+                    }, unit: {
+                    required: "Please select a quantity and unit."
                     },
                     aboutharvest: {
                         required: "This field is required",
-                    }                 
+                    }
+                                
                 },
             });
         });
@@ -596,28 +556,8 @@
         });
     </script>
 
+ <!-- SCRIPT FOR THE VALIDATION OF 3rd FORM -->
 <script>
-    $(document).ready(function () {
-        // Event listener for file input change
-        $("#imageInput").change(function () {
-            var selectedFiles = $(this)[0].files;
-            var maxAllowedFiles = 4;
-            
-            // Check if the number of selected files is within the allowed range
-            if (selectedFiles.length < 1 || selectedFiles.length > maxAllowedFiles) {
-                // alert("Please select between 1 and " + maxAllowedFiles + " images.");
-                // You can provide additional feedback to the user, such as disabling a submit button
-            } else {
-                // You can proceed with handling the selected files
-                // For example, display the number of selected files
-                alert("Selected " + selectedFiles.length + " image(s).");
-            }
-        });
-    });
-</script>
-
-    <!-- SCRIPT FOR THE VALIDATION OF 3rd FORM -->
-    <script>
     $(document).ready(function() {
         $.validator.addMethod("indianMobile", function(value, element) {
             return this.optional(element) || /^[789]\d{9}$/.test(value);
@@ -663,10 +603,38 @@
                 }, 
 
             },
-          
+            submitHandler: function (form) {
+        alert("Form submitted successfully!");
+      },
         });
+        $("#btn_submit").on("click", function () {
+   
+   $("form[id='form-step-3']").valid();
+
+ });
     });
     </script>
+    <script>
+    $(document).ready(function () {
+        // Event listener for file input change
+        $("#imageInput").change(function () {
+            var selectedFiles = $(this)[0].files;
+            var maxAllowedFiles = 4;
+            
+            // Check if the number of selected files is within the allowed range
+            if (selectedFiles.length < 1 || selectedFiles.length > maxAllowedFiles) {
+                // alert("Please select between 1 and " + maxAllowedFiles + " images.");
+                // You can provide additional feedback to the user, such as disabling a submit button
+            } else {
+                // You can proceed with handling the selected files
+                // For example, display the number of selected files
+                alert("Selected " + selectedFiles.length + " image(s).");
+            }
+        });
+    });
+</script>
+
+
 
     <!-- SCRIPT FOR THE VALIDATION OF IAMGE UPLOAD -->
     <script>

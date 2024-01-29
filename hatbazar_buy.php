@@ -32,7 +32,7 @@
         </div>
     </section>
     <section>
-        <div class="container-fullwidth mt-4">
+        <div class="container mt-4">
             <div class="row">
                 <div class="col-12 col-sm-9 col-lg-9 col-md-9">
                     <h3 class="py-2">Buy Your Item From <span class="text-success fw-bold">Haatbazar</span> </h3>
@@ -207,7 +207,7 @@
                                 </div>
                                 <div class="col-12 col-sm-6 col-lg-6 col-md-6 g-1">
                                     <button id="adduser" type="button" class="add_btn btn btn-success">
-                                        <i class="fas fa-filter"></i> Apply Filter </button>
+                                        <i class="fas fa-filter"></i>Apply Filter</button>
                                 </div>
 
                             </div>

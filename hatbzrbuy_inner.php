@@ -52,30 +52,22 @@ include 'includes/footertag.php';
 
             <div class="row ">
                 <div class="col-12 col-sm-6 col-lg-6 col-md-6">
+                <div class="col-12 col-sm-6 col-lg-6 col-md-6" style="position: relative;">
                     <div>
-                        <div class="swiper swiper_buy mySwiper2_buy">
-                            <div class="swiper-wrapper swiper-wrapper_buy">
-
-                                <div class=" swiper-slide swiper-slide_buy">
-                                    <img class="img_buy" src="assets/images/potato.webp" />
-                                </div>
-                                <div class="swiper-slide swiper-slide_buy">
-                                    <img class="img_buy " src="assets/images/potatoes-lead_h.webp"/>
-                                </div>
-                                <div class="swiper-slide swiper-slide_buy">
-                                    <img class="img_buy " src="assets/images/potato.webp"/>
-                                </div>
-                            </div>
-                            <div class="swiper-button-prev">
-
-                            </div>
-                            <div class="swiper-button-next">
-                            </div>
-
-
+                    <h1 class="fw-bold text-danger pt-3" id="brand_name"></h1>
+                    <div class="gallery">   
+                        <div class="swiper-container gallery-slider">
+                            <div class="swiper-wrapper mySwiper2_data"></div>
+                            <div class="swiper-button-prev"></div>
+                            <div class="swiper-button-next"></div>
                         </div>
-                        <div thumbsSlider="" class="swiper mySwiper_buy"></div>
+
+                        <div class="swiper-container gallery-thumbs">
+                            <div class="swiper-wrapper mySwiper_data"></div>
+                        </div>
                     </div>
+                    </div>
+                </div>
                 </div>
                 <div class="col-12 col-sm-6 col-lg-6 col-md-6">
                     <form action="" id="nursery_form" method="post">

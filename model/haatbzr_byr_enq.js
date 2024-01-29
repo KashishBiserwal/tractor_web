@@ -298,27 +298,27 @@ function openView(userId) {
         document.getElementById('price1').innerText=userData.price;
        
         
-        $("#selectedImagesContainer1").empty();
+        // $("#selectedImagesContainer1").empty();
   
-        if (userData.image_names) {
-            var imageNamesArray = Array.isArray(userData.image_names) ? userData.image_names : userData.image_names.split(',');
+        // if (userData.image_names) {
+        //     var imageNamesArray = Array.isArray(userData.image_names) ? userData.image_names : userData.image_names.split(',');
         
-            imageNamesArray.forEach(function (image_names) {
-                var imageUrl = 'http://tractor-api.divyaltech.com/uploads/haat_bazar_img/' + image_names.trim();
+        //     imageNamesArray.forEach(function (image_names) {
+        //         var imageUrl = 'http://tractor-api.divyaltech.com/uploads/haat_bazar_img/' + image_names.trim();
         
-                var newCard = `
-                    <div class="col-12 col-lg-3 col-md-3 col-sm-3">
-                        <div class="brand-main d-flex box-shadow mt-1 py-2 text-center shadow">
-                            <a class="weblink text-decoration-none text-dark" title="Tyre Image">
-                                <img class="img-fluid d-flex  w-100 h-100" src="${imageUrl}" alt="Tyre Image">
-                            </a>
-                        </div>
-                    </div>
-                `;
+        //         var newCard = `
+        //             <div class="col-12 col-lg-3 col-md-3 col-sm-3">
+        //                 <div class="brand-main d-flex box-shadow mt-1 py-2 text-center shadow">
+        //                     <a class="weblink text-decoration-none text-dark" title="Tyre Image">
+        //                         <img class="img-fluid d-flex  w-100 h-100" src="${imageUrl}" alt="Tyre Image">
+        //                     </a>
+        //                 </div>
+        //             </div>
+        //         `;
                 
-                $("#selectedImagesContainer1").append(newCard);
-            });
-        }
+        //         $("#selectedImagesContainer1").append(newCard);
+        //     });
+        // }
         
         
           // $('#exampleModal').modal('show');
@@ -357,28 +357,28 @@ function openView(userId) {
             $('#tehsil').val(userData.tehsil);
             $('#price').val(userData.price);
 
-            $("#selectedImagesContainer2").empty();
-            if (userData.image_names) {
-              var imageNamesArray = Array.isArray(userData.image_names) ? userData.image_names : userData.image_names.split(',');
-              var countclass=0;
-              imageNamesArray.forEach(function (image_names) {
-                  var imageUrl = 'http://tractor-api.divyaltech.com/uploads/haat_bazar_img/' + image_names.trim();
-                  console.log(imageUrl);
-                  countclass++;
-                  var newCard = `
-                      <div class="col-12 col-md-6 col-lg-4 mb-3 position-relative">
-                      <div class="upload__img-close_button " id="closeId${countclass}" onclick="removeImage(this);"></div>
-                          <div class="brand-main d-flex box-shadow mt-1 py-2 text-center shadow upload__img-closeDy${countclass}">
-                              <a class="weblink text-decoration-none text-dark" title="Tyre Image">
-                                  <img class=" img-fluid w-100 h-100" src="${imageUrl}" alt="Tyre Image">
-                              </a>
-                          </div>
-                      </div>
-                  `;
+          //   $("#selectedImagesContainer2").empty();
+          //   if (userData.image_names) {
+          //     var imageNamesArray = Array.isArray(userData.image_names) ? userData.image_names : userData.image_names.split(',');
+          //     var countclass=0;
+          //     imageNamesArray.forEach(function (image_names) {
+          //         var imageUrl = 'http://tractor-api.divyaltech.com/uploads/haat_bazar_img/' + image_names.trim();
+          //         console.log(imageUrl);
+          //         countclass++;
+          //         var newCard = `
+          //             <div class="col-12 col-md-6 col-lg-4 mb-3 position-relative">
+          //             <div class="upload__img-close_button " id="closeId${countclass}" onclick="removeImage(this);"></div>
+          //                 <div class="brand-main d-flex box-shadow mt-1 py-2 text-center shadow upload__img-closeDy${countclass}">
+          //                     <a class="weblink text-decoration-none text-dark" title="Tyre Image">
+          //                         <img class=" img-fluid w-100 h-100" src="${imageUrl}" alt="Tyre Image">
+          //                     </a>
+          //                 </div>
+          //             </div>
+          //         `;
           
-                  $("#selectedImagesContainer2").append(newCard);
-              });
-          }
+          //         $("#selectedImagesContainer2").append(newCard);
+          //     });
+          // }
           },
           error: function(error) {
             console.error('Error fetching user data:', error);

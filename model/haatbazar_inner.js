@@ -1,11 +1,81 @@
 $(document).ready(function() {
     console.log("ready!");
 
+    gethaatbazzat();
+
     getProductById();
     // get_allbrand();
     getpopularTractorList();
     $('#button_nursery').click(add_enquiry);
 });
+
+
+function gethaatbazzat() {
+  console.log(window.location)
+  var urlParams = new URLSearchParams(window.location.search);
+  var customer_id = urlParams.get('id');
+  console.log(customer_id,'sdfghjksdfghjk');
+  var url = 'http://tractor-api.divyaltech.com/api/customer/haat_bazar/' + customer_id;
+  
+  $.ajax({    
+      url: url,
+      type: "GET",
+      success: function(data) {
+          console.log(data, 'abc');
+
+          // Concatenate district and state
+          var location = data.getOldImplement[0].district + ', ' + data.getOldImplement[0].state;
+
+          // Update HTML elements with data
+          document.getElementById('category_name').innerText = data.getOldImplement[0].model;
+          document.getElementById('sucategory_name').innerText = data.getOldImplement[0].sub_category_id;
+          document.getElementById('quantity').innerText = data.getOldImplement[0].quantity;
+          document.getElementById('price_as').innerText = data.getOldImplement[0].price;
+          document.getElementById('description').innerText = data.getOldImplement[0].about;
+          document.getElementById('description').innerText = location;
+          document.getElementById('first_name').innerText = data.getOldImplement[0].model;
+          document.getElementById('phone_number').innerText = data.getOldImplement[0].brand_name;
+          document.getElementById('state').innerText = data.getOldImplement[0].model;
+          document.getElementById('district').innerText = data.getOldImplement[0].category_name;
+          document.getElementById('tehsil').innerText = data.getOldImplement[0].price;
+          document.getElementById('model_name4').innerText=data.getOldImplement[0].model;
+          document.getElementById('name').innerText = data.getOldImplement[0].first_name;
+          document.getElementById('mobile').innerText = data.getOldImplement[0].mobile;
+          document.getElementById('district_1').innerText = data.getOldImplement[0].district;
+          document.getElementById('state_1').innerText = data.getOldImplement[0].state;
+          document.getElementById('description').innerText = data.getOldImplement[0].description;
+          document.getElementById('model4').innerText = data.getOldImplement[0].model;
+          document.getElementById('product_id').value = data.getOldImplement[0].product_id;
+
+        
+          var product = data.engine_oil_details[0];
+          var imageNames = product.image_names.split(',');
+          var carouselContainer = $('.mySwiper2_data');
+          var carouselContainer2 = $('.mySwiper_data');
+
+          carouselContainer.empty();
+
+          imageNames.forEach(function(imageName) {
+              var imageUrl = "http://tractor-api.divyaltech.com/uploads/haat_bazar_img/" + imageName.trim(); 
+              var slide = $('<div class="swiper-slide swiper-slide_buy"><img class="img_buy" src="' + imageUrl + '" /></div>');
+              var slide2 = $('<div class="swiper-slide swiper-slide_buy"><img class="img_buy" src="' + imageUrl + '" /></div>');
+              carouselContainer.append(slide);
+              carouselContainer2.append(slide2);
+          });
+
+         // Initialize or update the Swiper carousel
+          var mySwiper = new Swiper('.mySwiper2_data', {
+            // Your Swiper configuration options
+        });
+        var mySwiper = new Swiper('.mySwiper_data', {
+            // Your Swiper configuration options
+        });
+      },
+      error: function (error) {
+          console.error('Error fetching data:', error);
+      }
+  });
+}
 
 
 function add_enquiry(event) {

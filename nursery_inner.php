@@ -47,32 +47,20 @@
             </div>
 
             <div class="row mt-3">
-                <div class="col-12 col-sm-6 col-lg-6 col-md-6">
+            <div class="col-12 col-sm-6 col-lg-6 col-md-6" style="position: relative;">
                     <div>
-                        <div class="swiper swiper_buy mySwiper2_buy">
-                            <div class="swiper-wrapper swiper-wrapper_buy">
-
-                                <div class=" swiper-slide swiper-slide_buy">
-                                    <img class="img_buy" src="assets/images/nursury.jpg" />
-                                </div>
-                                <div class="swiper-slide swiper-slide_buy">
-                                    <img class="img_buy "
-                                        src="assets/images/360_F_244762082_uooufBapemjGDq3em6RW41iiYvMoifJS.jpg" />
-                                </div>
-                                <div class="swiper-slide swiper-slide_buy">
-                                    <img class="img_buy " src="assets/images/nursry.jpg" />
-                                </div>
-                            </div>
-                            <div class="swiper-button-prev">
-
-                            </div>
-                            <div class="swiper-button-next">
-
-                            </div>
-
-
+                    <h1 class="fw-bold text-danger pt-3" id="district_name"></h1>
+                    <div class="gallery">   
+                        <div class="swiper-container gallery-slider">
+                            <div class="swiper-wrapper mySwiper2_data"></div>
+                            <div class="swiper-button-prev"></div>
+                            <div class="swiper-button-next"></div>
                         </div>
-                        <div thumbsSlider="" class="swiper mySwiper_buy"></div>
+
+                        <div class="swiper-container gallery-thumbs">
+                            <div class="swiper-wrapper mySwiper_data"></div>
+                        </div>
+                    </div>
                     </div>
                 </div>
                 <div class="col-12 col-sm-6 col-lg-6 col-md-6">
