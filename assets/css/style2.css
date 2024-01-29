@@ -71,12 +71,13 @@
     padding-top: 15px;
   }
   .owl-dots button.owl-dot {
-    width: 15px;
-    height: 15px;
+    width: 8px;
+    height: 8px;
     border-radius: 50%;
     display: inline-block;
     background: #ccc;
-    margin: 0 3px;
+    margin: 20px 3px;
+    padding: 5px;
   }
   .owl-dots button.owl-dot.active {
     background-color: #000;
