@@ -142,80 +142,13 @@
                     <div class="row my-3 text-center">
                        
                         <div class="col-12 col-lg-12 col-md-12 col-sm-12">
-                        <button type="button" class="btn btn-success text-center w-100" data-bs-toggle="modal" data-bs-target="#staticBackdrop3">
-                                                        Request Call Back
-                                                    </button>
+                            <button type="button" class="btn btn-success text-center w-100" data-bs-toggle="modal" data-bs-target="#staticBackdrop3">
+                                Request Call Back
+                            </button>
                         </div>
                     </div>
 
                 </div>
-              <!--   <div class="col-12 col-sm-6 col-lg-6 col-md-6 mt-4">
-                    <h2 class="text-danger fw-bold me-5">About This Engine Oil</h2>
-                    <form action="">
-                        <div class="row my-3">
-                            <div class="col-12 justify-content-center">
-                                <div class="d-flex flex-md-row px-3  flex-column-reverse">
-                                    <div class="col-md-12 col-12 col-lg-12 col-lg-12">
-                                       
-                                        <div class="row px-3 ">
-                                            <table class="table table-border">
-                                                <tr>
-                                                    <div class="col-12 col-lg-3 col-md-3 col-sm-3 ">
-                                                        <td><p class="fw-bold text-dark">Name</p></td>
-                                                    </div>
-                                                    <div class="col-12 col-lg-9 col-md-9 col-sm-9 ">
-                                                        <td><p id="model_name" ></p> </td>
-                                                    </div>
-                                                </tr>
-                                                <tr>
-                                                    <div class="col-12 col-lg-3 col-md-3 col-sm-3 ">
-                                                        <td><p class="fw-bold text-dark">Grade</p></td>
-                                                    </div>
-                                                    <div class="col-12 col-lg-9 col-md-9 col-sm-9 ">
-                                                        <td><p id="grade"></p></td>
-                                                    </div>
-                                                </tr>
-                                                <tr>
-                                                    <div class="col-12 col-lg-3 col-md-3 col-sm-3 ">
-                                                        <td><p class="fw-bold text-dark">Quantity</p></td>
-                                                    </div>
-                                                    <div class="col-12 col-lg-9 col-md-9 col-sm-9 ">
-                                                        <td><p id="quantity"></p></td>
-                                                    </div>
-                                                </tr>
-                                                <tr>
-                                                    <div class="col-12 col-lg-3 col-md-3 col-sm-3 ">
-                                                        <td><p class="fw-bold text-dark">Price</p></td>
-                                                    </div>
-                                                    
-                                                    <div class="col-12 col-lg-9 col-md-9 col-sm-9 ">
-                                                        <td><p id="price"></p></td>
-                                                    </div>
-                                                </tr>
-                                                <tr>
-                                                    <div class="col-12 col-lg-3 col-md-3 col-sm-3 ">
-                                                        <td><p class="fw-bold text-dark">Compatible Tractors</p></td>
-                                                    </div>
-                                                    <div class="col-12 col-lg-2 col-md-2 col-sm-2">
-                                                        <td colspan="3" class="margin-left:10px;"><p id="compatible_tractor"></p></td>
-                                                    </div>   
-                                               </tr>     
-                                            </table> 
-
-                                            <div class="row mt-1">
-                                                <div class="col-12 col-lg-12 col-md-12 col-sm-12">
-                                                    <button type="button" class="btn btn-success text-center w-100" data-bs-toggle="modal" data-bs-target="#staticBackdrop3">
-                                                        Request Call Back
-                                                    </button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </form>
-                </div> -->
             </div>
         </div>
     </section>

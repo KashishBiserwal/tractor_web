@@ -73,7 +73,6 @@ $(document).ready(function(){
     });
     });
 
-
     // function getbrand(selectId) {
     //   var apiBaseURL =APIBaseURL;
     //   var url = apiBaseURL + 'getBrands';

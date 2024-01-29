@@ -2,9 +2,15 @@
 <html lang="en">
 
 <head>
-   <?php
-   include 'includes/headertag.php';
-   ?>
+<?php
+include 'includes/headertag.php';
+   include 'includes/headertagadmin.php';
+   include 'includes/footertag.php';
+   
+   ?> 
+<script> var APIBaseURL = "<?php echo $APIBaseURL; ?>";</script>
+<script> var baseUrl = "<?php echo $baseUrl; ?>";</script>
+<script src="<?php $baseUrl; ?>model/harvester_customer.js"></script>
 </head>
 <style>
   .negative-margin {
@@ -33,8 +39,8 @@
             <div class="col-12 col-sm-9 col-lg-9 col-md-9">
                 <h3 class=" fw-bold">Harvesters</h3>
               
-                <div class="row my-4">
-                    <div class="col-12 col-lg-4 col-md-4 col-sm-4 mb-4">
+                <div class="row my-4" id="productContainer">
+                    <!-- <div class="col-12 col-lg-4 col-md-4 col-sm-4 mb-4">
                         <a href="harvester_inner.php" class="h-auto success__stry__item d-flex flex-column text-decoration-none shadow ">
                             <div class="thumb">
                                 <div>
@@ -64,190 +70,28 @@
                                 </button>
                             </div>
                         </a>
-                    </div>
-
-                    <div class="col-12 col-lg-4 col-md-4 col-sm-4 mb-4">
-                        <a href="#" class="h-auto success__stry__item d-flex flex-column text-decoration-none shadow ">
-                            <div class="thumb">
-                                <div>
-                                    <img src="assets/images/987-1646896081.webp" class="object-fit-cover  w-100" alt="img">
-                                </div>
-                            </div>
-                            <div class="position-absolute" >
-                                <p  style="font-size:13px;"class="rounded-pill bg-success text-white ms-1 text-center px-2 mt-1">Self Propelled</p>
-                            </div>
-                            <div class="content d-flex flex-column flex-grow-1 ">
-                                
-                                <div class="power text-center mt-3">
-                                <div class="row text-center">
-                                    <div class="col-12 text-center">
-                                        <p class="fw-bold pe-3 text-primary">Preet 987</p>
-                                    </div>
-                                </div>
-                                    <div class="row ">
-                                        <div class="col-12 "><p class="text-dark ps-2">Cutting Width : 14 feet(4.3 m)</p></div>
-                                        
-                                    </div>    
-                                </div>
-                            </div>
-                            <div class="col-12 btn-success">
-                                <button type="button" class="btn btn-success py-2 w-100"></i> 
-                                Power : 101 HP
-                                </button>
-                            </div>
-                        </a>
-                    </div>
-                    
-                    <div class="col-12 col-lg-4 col-md-4 col-sm-4 mb-4">
-                        <a href="#" class="h-auto success__stry__item d-flex flex-column text-decoration-none shadow ">
-                            <div class="thumb">
-                                <div>
-                                    <img src="assets/images/435-1647923189.webp" class="object-fit-cover  w-100 " alt="img">
-                                </div>
-                            </div>
-                            <div class="position-absolute" >
-                                <p  style="font-size:13px;"class="rounded-pill bg-success text-white ms-1 text-center px-2 mt-1">Self Propelled</p>
-                            </div>
-                            <div class="content d-flex flex-column flex-grow-1 ">
-                                
-                                <div class="power text-center mt-3">
-                                <div class="row text-center">
-                                    <div class="col-12 text-center">
-                                        <p class="fw-bold pe-3 text-primary">Vishal 435</p>
-                                    </div>
-                                </div>
-                                    <div class="row ">
-                                        <div class="col-12 "><p class="text-dark ps-2">Cutting Width : N/A</p></div>
-                                        
-                                    </div>    
-                                </div>
-                            </div>
-                            <div class="col-12 btn-success">
-                                <button type="button" class="btn btn-success py-2 w-100"></i> 
-                                Power : N/A
-                                </button>
-                            </div>
-                        </a>
-                    </div>
-
-                    <div class="col-12 col-lg-4 col-md-4 col-sm-4 mb-4">
-                        <a href="#" class="h-auto success__stry__item d-flex flex-column text-decoration-none shadow ">
-                            <div class="thumb">
-                                <div>
-                                    <img src="assets/images/harvestmaster-h12-4wd-1649325881.webp" class="object-fit-cover  w-100" alt="img">
-                                </div>
-                            </div>
-                            <div class="position-absolute" >
-                                <p style="font-size:13px;" class="rounded-pill bg-success text-white ms-1 text-center px-2 mt-1">Self Mounted</p>
-                            </div>
-                            <div class="content d-flex flex-column flex-grow-1 ">
-                                
-                                <div class="power text-center mt-3">
-                                <div class="row text-center">
-                                    <div class="col-12 text-center">
-                                        <p class="fw-bold text-primary">Mahindra HarvestMaster H12 4WD</p>
-                                    </div>
-                                </div>
-                                    <div class="row ">
-                                        <div class="col-12 "><p class="text-dark ps-2">Cutting Width : 12 feet</p></div>
-                                        
-                                    </div>    
-                                </div>
-                            </div>
-                            <div class="col-12 btn-success">
-                                <button type="button" class="btn btn-success py-2 w-100"></i> 
-                                Power : N/A
-                                </button>
-                            </div>
-                        </a>
-                    </div>
-
-                    <div class="col-12 col-lg-4 col-md-4 col-sm-4 mb-4">
-                        <a href="#" class="h-auto success__stry__item d-flex flex-column text-decoration-none shadow ">
-                            <div class="thumb">
-                                <div>
-                                    <img src="assets/images/harvesking-dc-68g-hk-1647922688.webp" class="object-fit-cover  w-100" alt="img">
-                                </div>
-                            </div>
-                            <div class="position-absolute" >
-                                <p  style="font-size:13px;"class="rounded-pill bg-success text-white ms-1 text-center px-2 mt-1">Self Propelled</p>
-                            </div>
-                            <div class="content d-flex flex-column flex-grow-1 ">
-                                
-                                <div class="power text-center mt-3">
-                                <div class="row text-center">
-                                    <div class="col-12 text-center">
-                                        <p class="fw-bold text-primary">Kubota HARVESKING DC-68G-HK</p>
-                                    </div>
-                                </div>
-                                    <div class="row ">
-                                        <div class="col-12 "><p class="text-dark ps-2">Cutting Width : 900 x 1903 MM</p></div>
-                                        
-                                    </div>    
-                                </div>
-                            </div>
-                            <div class="col-12 btn-success">
-                                <button type="button" class="btn btn-success py-2 w-100"></i> 
-                                Power : 68
-                                </button>
-                            </div>
-                        </a>
-                    </div>
-
-                    <div class="col-12 col-lg-4 col-md-4 col-sm-4 mb-4">
-                        <a href="#" class="h-auto success__stry__item d-flex flex-column text-decoration-none shadow ">
-                            <div class="thumb">
-                                <div>
-                                    <img src="assets/images/40009999.webp" class="object-fit-cover  w-100" alt="img">
-                                </div>
-                            </div>
-                            <div class="position-absolute" >
-                                <p  style="font-size:13px;"class="rounded-pill bg-success text-white ms-1 text-center px-2 mt-1">Self Propelled</p>
-                            </div>
-                            <div class="content d-flex flex-column flex-grow-1 ">
-                                
-                                <div class="power text-center mt-3">
-                                <div class="row text-center">
-                                    <div class="col-12 text-center">
-                                        <p class="fw-bold pe-3 text-primary">Kartar 4000</p>
-                                    </div>
-                                </div>
-                                    <div class="row ">
-                                        <div class="col-12 "><p class="text-dark ps-2">Cutting Width : 14 Feet</p></div>
-                                        
-                                    </div>    
-                                </div>
-                            </div>
-                            <div class="col-12 btn-success">
-                                <button type="button" class="btn btn-success py-2 w-100"></i> 
-                                Power : 101 HP
-                                </button>
-                            </div>
-                        </a>
-                    </div>
+                    </div> -->
 
                     <div class="text-center my-2">
-                  <button type="submit" id="engine_oil_btn" class="btn btn-success shadow px-5 w-40">Load More</button>         
-                </div>     
-
+                        <button type="submit" id="engine_oil_btn" class="btn btn-success shadow px-5 w-40">Load More</button>         
+                    </div>
                 </div>
             </div>
             <!-- RESET APPLY FILTER -->
             <div class="col-12 col-sm-3 col-lg-3 col-md-3">
                 <div class=" row mb-3" id="">
-                    <div class="col-12 col-sm-12 col-md-12 col-lg-12">
-                        <div class=" row">
-                            <div class="col-12 col-sm-6 col-lg-6 col-md-6">
-                                <button id="adduser" type="button" class="add_btn btn-success px-">
-                                <i class="fas fa-undo"></i>  Reset </button>
+                <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+                            <div class=" row text-center">
+                                <div class="col-12 col-sm-6 col-lg-6 col-md-6">
+                                    <button id="reset_tractor" type="button" onclick="resetform()" class="add_btn btn btn-success w-100">
+                                    <i class="fas fa-undo"></i>  Reset </button>
+                                </div>
+                                <div class="col-12 col-sm-6 col-lg-6 col-md-6 pe-2">
+                                    <button id="filter_tractor" type="button" class="add_btn btn btn-success w-100">
+                                    <i class="fas fa-filter"></i>Apply Filter</button>
+                                </div>
                             </div>
-                           <div class="col-12 col-sm-6 col-lg-6 col-md-6 pe-2">
-                                <button id="adduser" type="button" class="add_btn btn-success">
-                                <i class="fas fa-filter"></i>  Apply Filter </button>
-                           </div>
-                            
                         </div>
-                    </div>
                 </div> 
                
                 <div class=" mb-3" id="">
@@ -268,40 +112,8 @@
                 </div>
                 <div class="scrollbar mb-3" id=" my-2">
                     <div class="force-overflow">
-                    <h5 class=" ps-1 text-dark fw-bold  pt-2">Search By Brand</h5>
-                        <div class="HP py-2">
-                            <!-- <input type="checkbox" class="text-align-center ms-3" value=""/><span> This is checkbox </span><br /> -->
-                            <div class=" d-flex">
-                                <input type="checkbox" class="checkbox-round mt-1 ms-3" value="Mahindra"/><span class="ps-2 fs-6">Mahindra (97)</span>
-                            </div>
-                            <div class=" d-flex">
-                                <input type="checkbox" class="checkbox-round mt-1 ms-3" value="Farmtrac"/><span class="ps-2 fs-6">Farmtrac (21)</span><br />
-                            </div>
-                            <div class=" d-flex">
-                                <input type="checkbox" class="checkbox-round mt-1 ms-3" value="Swaraj"/><span class="ps-2 fs-6">Swaraj (19)</span><br />
-                            </div>
-                            <div class=" d-flex">
-                                <input type="checkbox" class="checkbox-round mt-1 ms-3" value="Massey"/><span class="ps-2 fs-6">Massey Ferguson (16)</span><br />
-                            </div>
-                            <div class=" d-flex">
-                                <input type="checkbox" class="checkbox-round mt-1 ms-3" value="Powertrac"/><span class="ps-2 fs-6">Powertrac (15)</span><br />
-                            </div>
-                            <div class=" d-flex">
-                                <input type="checkbox" class="checkbox-round mt-1 ms-3" value="Sonalika"/><span class="ps-2 fs-6">Sonalika (15)</span><br />
-                            </div>
-                            <div class=" d-flex">
-                                <input type="checkbox" class="checkbox-round mt-1 ms-3" value="Eicher"/><span class="ps-2 fs-6">Eicher (12)</span><br />
-                            </div>
-                            <div class=" d-flex">
-                                <input type="checkbox" class="checkbox-round mt-1 ms-3" value="John"/><span class="ps-2 fs-6">John Deere (6)</span><br />
-                            </div>
-                            <div class=" d-flex">
-                                <input type="checkbox" class="checkbox-round mt-1 ms-3" value="Escorts"/><span class="ps-2 fs-6">Escorts (13)</span><br />
-                            </div>
-                            <div class=" d-flex">
-                                <input type="checkbox" class="checkbox-round mt-1 ms-3" value="Holland"/><span class="ps-2 fs-6">New Holland (2)</span><br />
-                            </div>
-
+                        <h5 class=" ps-1 text-dark fw-bold  pt-2">Search By Brand</h5>
+                        <div class="HP py-2" id="checkboxContainer">
                         </div>
                     </div>
                 </div>
@@ -365,8 +177,6 @@
     </div>
 </section>
 <?php
-    include 'includes/footer.php';
-    include 'includes/footertag.php';
-
+    include 'includes/footer.php'
     ?>
     </html>
