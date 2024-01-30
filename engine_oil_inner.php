@@ -80,7 +80,7 @@
     <!-- IMAGE SWIPER WITH THREE THUMBNAIL IMAGE -->
     <section>
         <div class="container">
-         <div class="row mt-3">
+            <div class="row mt-3">
                 <div class="col-12 col-sm-6 col-lg-6 col-md-6" style="position: relative;">
                     <div>
                     <h1 class="fw-bold text-danger pt-3" id="brand_name"></h1>

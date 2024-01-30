@@ -45,11 +45,11 @@
                         <div class="col-12 col-sm-12 col-md-12 col-lg-12">
                             <div class=" row text-center">
                                 <div class="col-12 col-sm-6 col-lg-6 col-md-6 g-1">
-                                    <button id="adduser" type="button" class="add_btn btn btn-success">
+                                    <button id="adduser" type="button"  onclick="resetform()" class="add_btn btn btn-success">
                                         <i class="fas fa-undo"></i> Reset </button>
                                 </div>
                                 <div class="col-12 col-sm-6 col-lg-6 col-md-6 g-1">
-                                    <button id="adduser" type="button" class="add_btn btn btn-success">
+                                    <button id="filter_button" type="button" class="add_btn btn btn-success">
                                         <i class="fas fa-filter"></i> Apply Filter </button>
                                 </div>
 
@@ -62,11 +62,11 @@
                             <h5 class=" text-center text-dark fw-bold mb-3">Search By State</h5>
                             <div class="price py-2 " style="margin: 0 auto;">
                                 <div class=" d-flex">
-                                    <input type="checkbox" class="checkbox-round mt-1 ms-3" value="cg" /><span
+                                    <input type="checkbox" class="checkbox-round mt-1 ms-3 state_checkbox" value="cg" /><span
                                         class="ps-2 fs-6">Chhattisgarh</span><br />
                                 </div>
                                 <div class=" d-flex">
-                                    <input type="checkbox" class="checkbox-round mt-1 ms-3" value="other" /><span
+                                    <input type="checkbox" class="checkbox-round mt-1 ms-3 state_checkbox" value="other" /><span
                                         class="ps-2 fs-6">Other</span><br />
                                 </div>
                             </div>
@@ -79,32 +79,32 @@
                             <h5 class=" text-center text-dark fw-bold pt-2">Search By District</h5>
                             <div class="HP py-2" style="margin: 0 auto;">
                                 <div class=" d-flex">
-                                    <input type="checkbox" class="checkbox-round ms-3  mt-1" value="raipur" /><span
+                                    <input type="checkbox" class="checkbox-round ms-3 mt-1 district_checkbox" value="raipur" /><span
                                         class="ps-2 fs-6">Raipur</span><br />
                                 </div>
                                 <div class=" d-flex">
-                                    <input type="checkbox" class="checkbox-round ms-3 mt-1" value="Bilaspur" /><span
+                                    <input type="checkbox" class="checkbox-round ms-3 mt-1 district_checkbox" value="Bilaspur" /><span
                                         class="ps-2 fs-6">Bilaspur</span><br />
                                 </div>
                                 <div class=" d-flex">
-                                    <input type="checkbox" class="checkbox-round ms-3 mt-1" value="Ambikapur" /><span
+                                    <input type="checkbox" class="checkbox-round ms-3 mt-1 district_checkbox" value="Ambikapur" /><span
                                         class="ps-2 fs-6">Ambikapur</span><br />
                                 </div>
                                 <div class=" d-flex">
-                                    <input type="checkbox" class="checkbox-round ms-3 mt-1" value="Raigarh" /><span
+                                    <input type="checkbox" class="checkbox-round ms-3 mt-1 district_checkbox" value="Raigarh" /><span
                                         class="ps-2 fs-6">Raigarh</span><br />
                                 </div>
 
                                 <div class=" d-flex">
-                                    <input type="checkbox" class="checkbox-round ms-3 mt-1" value="Surajpur" /><span
+                                    <input type="checkbox" class="checkbox-round ms-3 mt-1 district_checkbox" value="Surajpur" /><span
                                         class="ps-2 fs-6">Surajpur</span><br />
                                 </div>
                                 <div class=" d-flex">
-                                    <input type="checkbox" class="checkbox-round ms-3 mt-1" value="Chirmiri" /><span
+                                    <input type="checkbox" class="checkbox-round ms-3 mt-1 district_checkbox" value="Chirmiri" /><span
                                         class="ps-2 fs-6">Chirmiri</span><br />
                                 </div>
                                 <div class=" d-flex">
-                                    <input type="checkbox" class="checkbox-round ms-3 mt-1" value="Korba" /><span
+                                    <input type="checkbox" class="checkbox-round ms-3 mt-1 district_checkbox" value="Korba" /><span
                                         class="ps-2 fs-6">Korba</span><br />
                                 </div>
                             </div>
@@ -115,31 +115,31 @@
                             <h5 class=" text-center text-dark fw-bold pt-2">Search By Tehsil</h5>
                             <div class="HP py-2" style="margin: 0 auto;">
                                 <div class=" d-flex">
-                                    <input type="checkbox" class="checkbox-round ms-3  mt-1" value="raipur" /><span
+                                    <input type="checkbox" class="checkbox-round ms-3 mt-1 tehsil_checkbox" value="raipur" /><span
                                         class="ps-2 fs-6">Raipur</span><br />
                                 </div>
                                 <div class=" d-flex">
-                                    <input type="checkbox" class="checkbox-round ms-3 mt-1" value="Bilaspur" /><span
+                                    <input type="checkbox" class="checkbox-round ms-3 mt-1 tehsil_checkbox" value="Bilaspur" /><span
                                         class="ps-2 fs-6">Bilaspur</span><br />
                                 </div>
                                 <div class=" d-flex">
-                                    <input type="checkbox" class="checkbox-round ms-3 mt-1" value="Ambikapur" /><span
+                                    <input type="checkbox" class="checkbox-round ms-3 mt-1 tehsil_checkbox" value="Ambikapur" /><span
                                         class="ps-2 fs-6">Ambikapur</span><br />
                                 </div>
                                 <div class=" d-flex">
-                                    <input type="checkbox" class="checkbox-round ms-3 mt-1" value="Raigarh" /><span
+                                    <input type="checkbox" class="checkbox-round ms-3 mt-1 tehsil_checkbox" value="Raigarh" /><span
                                         class="ps-2 fs-6">Raigarh</span><br />
                                 </div>
                                 <div class=" d-flex">
-                                    <input type="checkbox" class="checkbox-round ms-3 mt-1" value="Surajpur" /><span
+                                    <input type="checkbox" class="checkbox-round ms-3 mt-1 tehsil_checkbox" value="Surajpur" /><span
                                         class="ps-2 fs-6">Surajpur</span><br />
                                 </div>
                                 <div class=" d-flex">
-                                    <input type="checkbox" class="checkbox-round ms-3 mt-1" value="Jagdalpur" /><span
+                                    <input type="checkbox" class="checkbox-round ms-3 mt-1 tehsil_checkbox" value="Jagdalpur" /><span
                                         class="ps-2 fs-6">Chirmiri</span><br />
                                 </div>
                                 <div class=" d-flex">
-                                    <input type="checkbox" class="checkbox-round ms-3 mt-1" value="Korba" /><span
+                                    <input type="checkbox" class="checkbox-round ms-3 mt-1 tehsil_checkbox" value="Korba" /><span
                                         class="ps-2 fs-6">Korba</span><br />
                                 </div>
 

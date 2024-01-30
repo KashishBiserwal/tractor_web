@@ -98,7 +98,7 @@ $(document).ready(function() {
                 <div class="col-12">
                 <button type="button" class="add_btn btn-success w-100" data-bs-toggle="modal" data-bs-target="#${modalId}">
                 <i class="fa-regular fa-handshake mx-1"></i>Contact Seller
-            </button>
+                </button>
                             </div>
 
                             <div class="modal fade" id="${modalId}" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -158,13 +158,9 @@ $(document).ready(function() {
                                         <label for="yr_price" class="form-label text-dark">Price</label>
                                         <input type="yr_price" class="form-control" placeholder="Enter Price" id="price_form" name="price">
                                     </div>
-                                    
-                                    
                                 </div>          
-                                                </div> 
-                                            
-                                
-                                                <div class="modal-footer">
+                            </div> 
+                               <div class="modal-footer">
                                                 <button type="submit" id="submit_enquiry" class="btn add_btn btn-success w-100 btn_all" onclick="savedata('${formId}')"
                                                 data-bs-dismiss="modal">Submit</button>
                                                 </div>      
@@ -173,12 +169,11 @@ $(document).ready(function() {
                                     </div>
                                 </div>
                             </div>
-                
-            </div>
-        </div>
-    </div>
+                         </div>
+                    </div>
+                </div>
 
-        `;
+             `;
         container.append(newCard);
     }
     $(document).on('click', '#loadMoreBtn', function(){

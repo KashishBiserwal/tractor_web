@@ -127,10 +127,10 @@
                 <h4 id="model_name"></h4>
                 </div>
                 <div>
-                <div class="swiper swiper_buy mySwiper2_buy">
+                    <div class="swiper swiper_buy mySwiper2_buy">
                         <div class="swiper-wrapper swiper-wrapper_buy">
                             <div class=" swiper-slide swiper-slide_buy">
-                            <!-- <img class="img_buy" src="assets/images/437-1632718440.webp" /> -->
+                                 <!-- <img class="img_buy" src="assets/images/437-1632718440.webp" /> -->
                             </div>
                         </div>
                     </div>

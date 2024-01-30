@@ -1,8 +1,46 @@
 
 
-$(document).ready(function () {
-    $('#submitbnt').click(hatbazar_add);
-  });
+  $(document).ready(function() {
+    console.log("ready!");
+    $('#btn_submit').click(store);
+
+    function calculateTotalPrice() {
+        var quantity = parseFloat(document.getElementById('quantityInput').value) || 0;
+        var unit = document.getElementById('unitSelect').value;
+        var price = parseFloat(document.getElementById('price').value) || 0;
+    
+        // Define unit conversion factors
+        var unitConversion = {
+            'As per': 1,
+            'gram': 1,
+            'Kg': 1000,
+            'Quintal': 100000,
+            'Ton': 1000000,
+            'Pack': 1,
+            'Unit': 1
+        };
+    
+        // Check if quantity and price are valid numbers
+        if (isNaN(quantity) || isNaN(price)) {
+            alert('Please enter valid numbers for quantity and price.');
+            return;
+        }
+    
+        // Calculate total price
+        var total = quantity * price * unitConversion[unit];
+    
+        // Display total price with appropriate precision
+        document.getElementById('tprice').value = total.toFixed(2);
+    }
+    
+    // Attach event listeners to trigger the calculation
+    document.getElementById('quantityInput').addEventListener('input', calculateTotalPrice);
+    document.getElementById('unitSelect').addEventListener('change', calculateTotalPrice);
+    document.getElementById('price').addEventListener('input', calculateTotalPrice);
+    
+});
+
+
 // select category
   function get_category() {
     // var apiBaseURL = APIBaseURL;
@@ -112,8 +150,96 @@ function submitFormData() {
     });
 }
 
-// Attach click event to the final submit button
-$('#btn_submit').click(submitFormData);
+
+
+
+
+    
+// Display the corresponding form step
+function displayStep(step) {
+    // Your logic to show/hide form steps
+}
+
+// Store data through form
+function store(event) {
+    event.preventDefault();
+    var enquiry_type_id = $('#enquiry_type_id').val();
+    var sub_category_id = 9; 
+    var image_type_id = 2; 
+    var category = $('#category').val();
+    var subcategory = $('#subcategory').val();
+    var quantityInput = $('#quantityInput').val();
+    var unitSelect = $('#unitSelect').val();
+    var price = $('#price').val();
+    var tprice = $('#tprice').val();
+    var aboutharvest = $('#aboutharvest').val();
+    var first_name = $('#fname1').val();
+    var last_name = $('#lname1').val();
+    var mobile = $('#number1').val();
+    var state = $('#state1').val();
+    var district = $('#district1').val();
+    var tehsil = $('#tehsil1').val();
+    var image_names = document.getElementById('imageInput').files;
+
+    var apiBaseURL = "http://tractor-api.divyaltech.com/api";
+    var endpoint = '/customer/haat_bazar';
+    var url = apiBaseURL + endpoint;
+
+    // Create a FormData object and append all form data
+    var data = new FormData();
+   
+    data.append('enquiry_type_id', enquiry_type_id);
+    data.append('sub_category_id', sub_category_id);
+    data.append('image_type_id', image_type_id);
+    data.append('category', category);
+    data.append('subcategory', subcategory);
+    data.append('quantity', quantityInput);
+    data.append('as_per', unitSelect);
+    data.append('price', price);
+    data.append('price', tprice);
+    data.append('about', aboutharvest);
+    data.append('first_name', first_name);
+    data.append('last_name', last_name);
+    data.append('mobile', mobile);
+    data.append('state', state);
+    data.append('district', district);
+    data.append('tehsil', tehsil);
+  
+
+    // Append each image to the FormData object
+    for (var x = 0; x < image_names.length; x++) {
+        data.append("images[]", image_names[x]);
+        console.log("multiple image", image_names[x]);
+    }
+
+    // Make an AJAX request to the server
+    $.ajax({
+        url: url,
+        type: 'POST',
+        data: data,
+        processData: false,
+        contentType: false,
+        success: function (result) {
+            console.log(result, 'result');
+            $("#used_tractor_callbnt_").modal('hide');
+            var msg = 'Added successfully !';
+            $("#errorStatusLoading").modal('show');
+            $("#errorStatusLoading").find('.modal-title').html('<p class="text-center">Congratulation..! Requested Successful</p>');
+            $("#errorStatusLoading").find('.modal-body').html(msg);
+            $("#errorStatusLoading").find('.modal-body').html('<img src="assets/images/7efs.gif" style="display:block; margin:0 auto;" class="w-50 text-center" alt="Successfull Request"></img>');
+            console.log('Add successfully');
+        },
+        error: function (error) {
+            console.error('Error fetching data:', error);
+            var msg = error.statusText;
+            $("#errorStatusLoading").modal('show');
+            $("#errorStatusLoading").find('.modal-title').html('<p class="text-center">Process Failed..! Enter Valid Detail</p>');
+            $("#errorStatusLoading").find('.modal-body').html(msg);
+            $("#errorStatusLoading").find('.modal-body').html('<img src="assets/images/comp_3.gif" style="display:block; margin:0 auto;" class="w-50 text-center" alt="Successfull Request"></img>');
+        }
+    });
+}
+
 
 
     

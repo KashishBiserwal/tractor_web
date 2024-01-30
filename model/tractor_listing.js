@@ -348,7 +348,7 @@ function store(event) {
         var selectedAccessories = response.product.accessory_and_tractor_type[0];
         var accessoryIds = selectedAccessories.accessory_id.split(',');
         console.log(accessoryIds,"selectedAccessories")
-        console.log("all data accessoryid", tractorTypeNames);
+        // console.log("all data accessoryid", tractorTypeNames);
 
         $("#brand_name option").prop("selected", false);
         $("#brand_name option[value='" + editData.brand_name + "']").prop("selected", true);

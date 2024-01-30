@@ -164,7 +164,7 @@
                                         <div class="col-12 col-sm-6 col-md-6 col-lg-6">
                                             <div class="form-outline">
                                                 <label class="form-label" for="category">Category</label>
-                                                <select class="form-select" id="category" name="category" required>
+                                                <select class="form-select" id="category" name="category" >
                                                     <!-- <option value="" selected disabled>Select Category</option>
                                                     <option value="1">Vegetable</option>
                                                     <option value="2">Fruits</option>
@@ -177,7 +177,7 @@
                                             <div class="form-outline">
                                                 <label class="form-label" for="subcategory">Sub-Category</label>
                                                 <select class="form-select" id="subcategory" name="subcategory"
-                                                    required>
+                                                    >
                                                     <!-- <option value="" selected disabled>Select Sub-Category</option>
                                                     <option value="1">Vegetable</option>
                                                     <option value="2">Fruits</option>
@@ -186,41 +186,36 @@
                                                 </select>
                                             </div>
                                         </div>
-                                        <div class="col-12 col-sm-6 col-md-6 col-lg-6 mt-4">
-                                            <div class="form-outline">
-                                                <label class="form-label" for="quantity">Quantity</label>
-                                                <input type="text" id="quantity" name="quantity"
-                                                    class="form-control input-group-sm " required />
-                                            </div>
-                                        </div>
-                                        <div class="col-12 col-sm-6 col-md-6 col-lg-6 mt-4">
-                                            <div class="form-outline">
-                                                <label class="form-label" for="asPer">As Per</label>
-                                                <select class="form-select" id="asPer" name="asPer" required>
-                                                    <option value="" selected disabled></option>
-                                                    <option value="1">Kg</option>
-                                                    <option value="2">Quintal</option>
-                                                    <option value="3">Gram</option>
-                                                    <option value="3">Ton</option>
+                                        <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-4">
+                                            <div class="input-group">
+                                                <input type="number" id="quantityInput" class="form-control text-black"placeholder="Quantity" aria-label="Text input with dropdown button" name="quantity"style="width: 100px;" >
+                                                <select type="button" id="unitSelect" name="unit" class="btn border border-secondary-2 h-25 dropdown-toggle" data-bs-toggle="dropdown">
+                                                    <ul class="dropdown-menu">
+                                                      <option class="dropdown-item" value="">Select Unit</option>
+                                                      <option class="dropdown-item" value="As per">As per</option>
+                                                      <option class="dropdown-item" value="gram">gram</option>
+                                                      <option class="dropdown-item" value="Kg">Kg</option>
+                                                      <option class="dropdown-item" value="Quintal">Quintal</option>
+                                                      <option class="dropdown-item" value="Ton">Ton</option>
+                                                      <option class="dropdown-item" value="Pack">Pack</option>
+                                                      <option class="dropdown-item" value="Unit">Unit</option>
+                                                    </ul>
                                                 </select>
                                             </div>
+                                            <div class="validation-message" id="quantityValidation"></div>
                                         </div>
-
-                                        <div class="col-12 col-sm-6 col-md-6 col-lg-6 mt-4">
-                                            <div class="form-outline">
-                                                <label class="form-label" for="price">Price</label>
-                                                <input type="text" id="price" name="price"
-                                                    class="form-control input-group-sm " required />
+                                        <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
+                                            <div class="form-outline mt-4">
+                                                <label for="name" class="form-label text-dark">Price(eg:-0.00)</label>
+                                                <input type="text" class="form-control" placeholder="" id="price" name="price">
                                             </div>
                                         </div>
-                                        <div class="col-12 col-sm-6 col-md-6 col-lg-6 mt-4">
-                                            <div class="form-outline">
-                                                <label class="form-label" for="totalprice">Total Price</label>
-                                                <input type="text" id="totalprice" name="totalprice"
-                                                    class="form-control input-group-sm " readonly />
+                                        <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
+                                            <div class="form-outline mt-4">
+                                                <label for="name" class="form-label text-dark">Total Price Calculation</label>
+                                                <input type="text" class="form-control" placeholder="" id="tprice" name="tprice" readonly>
                                             </div>
                                         </div>
-
                                         <div class="form-outline mt-4">
                                             <label class="form-label" for="aboutharvest">About Your Harvest</label>
                                             <textarea class="form-control" id="aboutharvest" name="aboutharvest"
@@ -228,7 +223,7 @@
                                         </div>
                                     </div>
                                     <div class="form-footer d-flex my-3">
-                                    <button type="button" class="btn btn-success w-100 next-step" onclick="hatbazar_add(1)">Next</button>
+                                    <button type="button" class="btn btn-success w-100 next-step">Next</button>
                                     </div>
                                 </div>
                             </div>
@@ -268,7 +263,7 @@
                                             <label>
                                                 <p class="upload__btn w-100">Upload Images</p>
                                                 <input type="file" data-max_length="4"
-                                                    class="upload__inputfile" id="imageInput" name="images[]" accept="image/*" multiple required>
+                                                    class="upload__inputfile" id="imageInput" name="images[]" accept="image/*" multiple >
                                             </label>
                                         </div>
                                         <div class="col-sm-6">
@@ -280,8 +275,9 @@
 
 
                                     <div class="form-footer d-flex mt-3">
-                                        <button type="button" class="btn btn-success ms-2 mb-4 w-50 next-step" onclick="hatbazar_add(2)">Next</button>
-                                        <button type="button" class="btn w-50 btn-primary mb-4 prev-step" onclick="hatbazar_add(2)">Previous</button>
+                                    <button type="button" class="btn w-50 btn-success mb-4 prev-step">Previous</button>
+                                        <button type="button" class="btn btn-success ms-2 mb-4 w-50 next-step" >Next</button>
+                                       
                                     </div>
                                 </div>
                             </div>
@@ -342,8 +338,8 @@
                                             <select class="form-select error mb-2 pb-2" id="state1" name="state"
                                                 aria-label="Default select example">
                                                 <option selected></option>
-                                                <option value="state1">state1</option>
-                                                <option value="state2">state2</option>
+                                                <option value="Chhattisgarh">Chhattisgarh</option>
+                                                <option value="Others">Others</option>
                                             </select>
                                         </div>
                                     </div>
@@ -377,8 +373,8 @@
                                     </div>
                                 </div>
                                  <div class="form-footer d-flex mt-4">
-                                    <button type="button" class="btn btn-success ms-2 mb-4 w-50 next-step" onclick="hatbazar_add(3)">Next</button>
-                                    <button type="submitbnt" id="btn_submit" class="btn w-50 ms-2 btn-success mb-4" onclick="hatbazar_add(3)">Submit</button>
+                                 <button type="button" class="btn w-50 btn-success mb-4 prev-step">Previous</button>
+                                    <button type="button" id="btn_submit" class="btn w-50 ms-2 btn-success mb-4">Submit</button>
                                 </div>
                             </div>
                         </form>
@@ -439,60 +435,7 @@
     });
 </script>
 
-    <!-- SCRIPT FOR THE DISPLAY & HIDE -->
-
-    <script>
-    // $(document).ready(function() {
-    //     var currentStep = 1;
-    //     var updateProgressBar;
-
-    //     function displayStep(stepNumber) {
-    //         if (stepNumber >= 1 && stepNumber <= 3) {
-    //             $(".mul_stp_frm").hide();
-    //             $("#form-step-" + stepNumber).show();
-    //             currentStep = stepNumber;
-    //             updateProgressBar();
-    //         }
-    //     }
-
-    //     $(".next-step").click(function(event) {
-    //         event.preventDefault();
-    //         var currentStepForm = $("#form-step-" + currentStep);
-
-    //         if (currentStepForm.valid()){
-    //             currentStepForm.hide();
-    //             currentStep++;
-    //             $("#form-step-" + currentStep).show();
-    //             updateProgressBar();
-    //         }
-    //     });
-
-    //     $(".prev-step").click(function(event) {
-    //         event.preventDefault();
-    //         currentStep--;
-    //         displayStep(currentStep);
-    //     });
-
-    //     updateProgressBar = function() {
-    //         var progressPercentage = ((currentStep - 1) / 2) * 100;
-    //         $(".progress-bar").css("width", progressPercentage + "%");
-    //     };
-
-    //     $(".step-circle").click(function() {
-    //         var stepNumber = parseInt($(this).text());
-
-    //         if (stepNumber > currentStep) {
-    //             var currentStepForm = $("#form-step-" + currentStep);
-    //             if (!currentStepForm.valid()){
-    //                 return;
-    //             }
-    //         }
-
-    //         displayStep(stepNumber);
-    //     });
-
-    //     displayStep(1);
-    // });
+<script>
     $(document).ready(function () {
     var currentStep = 1;
     var updateProgressBar;
@@ -541,96 +484,137 @@
 
         displayStep(stepNumber);
     });
-
-    // Submit button click event
-    $("#btn_submit").click(function (event) {
-        event.preventDefault();
-
-        // Handle form submission here, e.g., using Ajax
-        // $.ajax({
-        //     type: "POST",
-        //     url: "your_submission_url",
-        //     data: $("#your_form_id").serialize(),
-        //     success: function(response) {
-        //         // Handle success response
-        //     },
-        //     error: function(error) {
-        //         // Handle error
-        //     }
-        // });
-    });
-
     displayStep(1);
 });
 
     </script>
+ <script>
+        $(document).ready(function(){
 
+            $.validator.addMethod("validPrice", function(value, element) {
+      
+      const cleanedValue = value.replace(/,/g, '');
 
-    <!-- SCRIPT FOR THE VALIDATION OF 1st FORM -->
-    <script>
-    $(document).ready(function() {
-        $("form[id='form-step-1']").validate({
-            rules: {
-                category: {
-                    required: true,
-                },
-                subcategory: {
-                    required: true,
-                },
-                quantity: {
-                    required: true,
-                    digits: true,
+      return /^\d+$/.test(cleanedValue);
+    }, "Please enter a valid price (digits and commas only)");
 
+            $("form[id='form-step-1']").validate({
+                rules: {
+                    category: {
+                        required: true,
+                    },
+                    subcategory: {
+                        required: true,
+                    },
+                    price:{
+                         required: true,
+                        validPrice: true,
+                    },unit: {
+                        required: true
+                    },
+                    aboutharvest: {
+                        required: true,
+                    }
                 },
-                price: {
-                    required: true,
-                    digits: true,
-
+                messages: {
+                    category: {
+                        required: "This field is required",
+                    },
+                    subcategory: {
+                        required: "This field is required",
+                    },
+                    price: {
+                        required: "This field is required",
+                        validPrice: "Please enter a valid price",
+                    }, unit: {
+                    required: "Please select a quantity and unit."
+                    },
+                    aboutharvest: {
+                        required: "This field is required",
+                    }
+                                
                 },
-                aboutharvest: {
-                    letterswithspaces: true // Custom rule for alphabets with spaces
-                },
-            },
-           
+            });
         });
-        
-
-        function calculateTotalPrice() {
-            var quantity = parseFloat($("#quantity").val());
-            var price = parseFloat($("#price").val());
-            var totalprice = quantity * price;
-            
-            // Update the "Total Price" field
-            $("#totalprice").val(totalprice.toFixed(2)); // Adjust decimal places as needed
-        }
-
-        // Trigger calculation when quantity or price changes
-        $("#quantity, #price").on("input", calculateTotalPrice);
-    
-   
-
-    $.validator.addMethod("letterswithspaces", function (value, element) {
-            return this.optional(element) || /^[a-zA-Z\s]*$/.test(value);
-        }, "Only alphabets and spaces are allowed");
-    });
-    </script>
-
-    <!-- SCRIPT FOR THE VALIDATION OF 2nd FORM -->
-    <script>
-    $(document).ready(function() {
-        $("form[id='form-step-2']").validate({
-            rules: {
-                imageInput: {
-                    required: true
-                },
-               
-            },
-           
-        });
-    });
     </script>
 
 <script>
+        $(document).ready(function(){
+            $("form[id='form-step-2']").validate({
+                rules: {
+                    'images[]': {
+                        required: true
+                    },
+                   
+                },
+                messages: {
+                   'images[]': {
+                        required: "This field is required"
+                    }                     
+                },
+            });
+        });
+    </script>
+
+ <!-- SCRIPT FOR THE VALIDATION OF 3rd FORM -->
+<script>
+    $(document).ready(function() {
+        $.validator.addMethod("indianMobile", function(value, element) {
+            return this.optional(element) || /^[789]\d{9}$/.test(value);
+        }, "Please enter a valid Indian mobile number.");
+        $("form[id='form-step-3']").validate({
+            rules: {
+                fname: {
+                    required: true,
+                },
+                lname: {
+                    required: true,
+                    minlength: 2, 
+                },
+                phone: {
+                    required: true,
+                    minlength: 10,
+                    digits: true,
+                },
+                state: {
+                    required: true,
+                },
+                district: {
+                    required: true,
+                },
+            },
+            messages:{
+                fname: {
+                    required: "This field is required",
+                }, 
+                lname: {
+                    required: "This field is required",
+                }, 
+                phone: {
+                    required: "This field is required",
+                    minlength: "Phone Number must be of 10 Digit",
+                   digits: "Please enter only digits"
+                }, 
+                state: {
+                    required: "This field is required",
+                }, 
+                district: {
+                    required: "This field is required",
+                }, 
+
+            },
+            submitHandler: function (form) {
+        alert("Form submitted successfully!");
+      },
+        });
+        $("#btn_submit").on("click", function () {
+   
+   $("form[id='form-step-3']").valid();
+
+ });
+    });
+    </script>
+    <script>
     $(document).ready(function () {
         // Event listener for file input change
         $("#imageInput").change(function () {
@@ -650,38 +634,7 @@
     });
 </script>
 
-    <!-- SCRIPT FOR THE VALIDATION OF 3rd FORM -->
-    <script>
-    $(document).ready(function() {
-        $.validator.addMethod("indianMobile", function(value, element) {
-            return this.optional(element) || /^[789]\d{9}$/.test(value);
-        }, "Please enter a valid Indian mobile number.");
-        $("form[id='form-step-3']").validate({
-            rules: {
-                fname: {
-                    required: true,
-                    minlength: 2, 
-                },
-                lname: {
-                    required: true,
-                    minlength: 2, 
-                },
-                phone: {
-                    required: true,
-                    digits: true,
-                    indianMobile: true,
-                },
-                state: {
-                    required: true,
-                },
-                district: {
-                    required: true,
-                },
-            },
-          
-        });
-    });
-    </script>
+
 
     <!-- SCRIPT FOR THE VALIDATION OF IAMGE UPLOAD -->
     <script>
