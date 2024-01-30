@@ -317,3 +317,6 @@ opacity: 0.8;
   }
 
 
+  #productContainer .owl-prev,  #productContainer .owl-next{
+    display: none;
+}

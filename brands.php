@@ -81,7 +81,12 @@ include 'includes/headertag.php';
         <div class="container-fullwidth my-4">
         <div class="row">
             <div id="used_tractor"></div>
-            <div id="productContainer2" class="row"></div>
+            <div class="row">
+                <div id="productContainer2" class="owl-carousel owl-theme">
+                   
+                </div>
+            </div>
+            <!-- <div id="productContainer2" class="row"></div> -->
         </div>
 
         <div class="col text-center my-3  py-3">
@@ -93,7 +98,10 @@ include 'includes/headertag.php';
     <section class="bg-light">
         <div class="container-fullwidth">
         <div id="old_implement"></div>
-            <div id="productContainer3" class="row">
+        <div class="row">
+                <div id="productContainer3" class="owl-carousel owl-theme">
+                   
+                </div>
                <!--  <div class="col-12 col-sm-6 col-md-3 col-lg-3 px-2 py-3 h-100">
                     <div class="h-auto success__stry__item d-flex flex-column shadow ">
                         <div class="thumb">
@@ -521,8 +529,26 @@ include 'includes/headertag.php';
         </div>
     </section>
 
-   
+<!--    
+<script>
+$('#productContainer2').owlCarousel({
+    loop:true,
+    margin:10,
+    nav:true,
+    responsive:{
+        0:{
+            items:1
+        },
+        600:{
+            items:3
+        },
+        1000:{
+            items:5
+        }
+    }
+})
 
+</script> -->
 
     <?php
     include 'includes/footer.php';

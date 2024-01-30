@@ -17,25 +17,19 @@ include 'includes/footertag.php';
    include 'includes/header.php';
    ?>
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
-    <section class=" mt-5 pt-5">
-        <div class="container pt-3">
-            <div class="py-1">
-                <span class="text-white ">
-                    <a href="index.php" class="text-decoration-none header-link px-1">Home <i
-                            class="fa-solid fa-chevron-right px-1"></i>
-                    </a>
-                    <span class="">
-                        <span class="text-dark header-link  px-1">HaatBazar <i
-                                class="fa-solid fa-chevron-right px-1"></i>
-                        </span>
+    <section class="mt-130 bg-light">
+        <div class="container">
+        <div class="py-2">
+                    <span class="text-white">
+                        <a href="index.php" class="text-decoration-none header-link px-1">Home <i class="fa-solid fa-chevron-right px-1"></i></a>
+                        <a href="" class="text-decoration-none header-link px-1"> <span class="text-dark p">HaatBazar</span></a>
+                        <a href="" class="text-decoration-none header-link px-1"> <span class="text-dark p">Sell</span></a>
                     </span>
-                    <span class="text-dark">Sell</span>
-                </span>
-            </div>
+                </div>
         </div>
     </section>
     <section>
-        <div class="container">
+        <div class="container pt-3">
             <div class="vegehead">
                 <div class="row">
                     <div class="col-12 col-lg-6 ">

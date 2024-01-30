@@ -75,35 +75,32 @@ function getTractorList() {
                             a = [images];
                         }
                     }
-                     var popular_tractor_heading = ` <h1 class=" mt-5">Popular ${p.brand_name} Tractors</h1>`;
+                     var popular_tractor_heading = ` <h3 class="mt-3">Popular ${p.brand_name} Tractors</h3>`;
                     var newCard = `
                     <div class="item px-2 py-3 h-100 ">
                     <div class="h-auto success__stry__item shadow">
                         <div class="thumb">
                             <a href="detail_tractor.php?product_id=${p.product_id}">
-                                <div class="ratio ratio-16x9">
-                                    <img src="http://tractor-api.divyaltech.com/customer/uploads/product_img/${a[0]}" class="object-fit-cover" alt="${p.description}">
+                                <div class="p-3 ratio ratio-16x9">
+                                    <img src="http://tractor-api.divyaltech.com/uploads/product_img/${a[0]}" class="object-fit-cover" alt="${p.description}">
                                 </div>
                             </a>
                         </div>
                         <div class="content d-flex flex-column flex-grow-1 ">
                             <a href="detail_tractor.php?product_id=${p.product_id}" class="text-decoration-none text-dark">
-                                <h4 class="fw-bold mt-3 mx-3">${p.model}</h4>
+                                <h4 class="fw-bold text-center mt-2 text-capitalize">${p.model}</h4>
                             </a>
                             <div class="row mt-1 ps-1">
                                 <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                                    <p class="ps-3"> <i class="fas fa-bolt"></i> ${p.hp_category} HP</p>
+                                    <p class="ps-3" style="font-size:14px;"> <i class="fas fa-bolt me-2" style="background: #e3e0e0; padding: 5px 8px;"></i> ${p.hp_category} HP</p>
                                 </div>
                                 <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                                    <p class="pe-5 me-4"> <i class="fa fa-cog" aria-hidden="true"></i> ${p.engine_capacity_cc} CC </p>
+                                    <p class="ps-3" style="font-size:14px;"> <i class="fa fa-cog me-2" aria-hidden="true" style="background: #e3e0e0; padding: 5px 8px;"></i> ${p.wheel_drive_value}</p>
                                 </div>
                             </div>
-                            <a href="#" class="text-decoration-none text-dark pb-3 fw-bold">
-                                <span class="p-3">
+                            <a href="#" class="text-decoration-none py-2 fw-bold" style=" background: #157347;  margin: 10px; text-align: center; color: #fff;">
+                                <span class="">
                                     Get On Road price
-                                </span>
-                                <span class="icon">
-                                    <i class="fa-solid fa-chevron-right"></i>
                                 </span>
                             </a>
                         </div>
@@ -120,22 +117,22 @@ function getTractorList() {
 
                 // Initialize Owl Carousel after adding cards
                 productContainer.owlCarousel({
-                    items:3,
+                    items:4,
                     loop: true,
                     margin: 10,
                     responsiveClass: true,
                     responsive: {
                         0: {
                             items: 1,
-                            nav: true
+                            nav: false
                         },
                         600: {
                             items: 3,
                             nav: false
                         },
                         1000: {
-                            items: 3,
-                            nav: true,
+                            items: 4,
+                            nav: false,
                             loop: false
                         }
                     }
@@ -174,7 +171,7 @@ function getusedTractorList() {
                     }
                 }
                 brandid.push(model);
-                var used_tractor_heading = ` <h3 class="mt-3 fw-bold">Used ${brandid[0]} Tractors</h3>`;
+                var used_tractor_heading = ` <h3 class="mt-3">Used ${brandid[0]} Tractors</h3>`;
                 used_tractor.append(used_tractor_heading);
                 data.product.forEach(function (p) {
                     if(p.brand_id == Id){
@@ -196,41 +193,36 @@ function getusedTractorList() {
                   
                    
                     var newCard2 = `
-                    <div class="col-12 col-sm-12 col-md-4 col-lg-4 px-2 py-3 ">
+                    <div class="item px-2 py-3 h-100 ">
                         <div class="h-auto success__stry__item shadow">
                             <div class="thumb">
                                 <a href="#">
-                                    <div class="ratio ratio-16x9">
-                                        <img src="http://tractor-api.divyaltech.com/customer/uploads/product_img/${a[0]}" class="object-fit-cover  "  alt="img">
+                                    <div class="p-3 ratio ratio-16x9">
+                                        <img src="http://tractor-api.divyaltech.com/uploads/product_img/${a[0]}" class="object-fit-cover  "  alt="img">
                                     </div>
                                 </a>
                             </div>
-                            <div class="content d-flex flex-column flex-grow-1 ms-3">
-                                <a href="#" class="text-decoration-none text-dark ps-3">
-                                    <h4 class="fw-bold mt-3">${p.brand_name} ${p.model}</h3>
+                            <div class="content d-flex flex-column flex-grow-1 mx-3">
+                                <a href="#" class="text-decoration-none text-dark">
+                                    <h4 class=" mt-3" style="font-size: 20px;">${p.brand_name} ${p.model}</h4>
                                 </a>
+                                <p class="mb-1">${p.district}, ${p.state}</p>
         
-                                <a href="# " class="text-dark flex-grow-1 text-decoration-none ps-3">
-                                    <p>Price: ₹ ${p.price}*</p>
-                                </a>
+                                
         
-                                <div class="row mt-1 ps-3">
-                                    <div class="col-12 col-lg-3 col-md-3 col-sm-3">
-                                        <p class=""> <i class="fas fa-bolt"></i> ${p.hp_category} HP</p>
+                                <div class="row mt-1 w-100 mx-auto">
+                                    <div class="col-6 col-lg-6 col-md-6 col-sm-6 ps-0">
+                                        <p class="mb-1"> <i class="fas fa-bolt"></i> ${p.hp_category} HP</p>
                                     </div>
-                                    <div class="col-12 col-lg-4 col-md-4 col-sm-4">
-                                        <p class="ps-1">${p.model} Model</p>
-                                    </div>
-                                    <div class="col-12 col-lg-5 col-md-5 col-sm-5 pe-1">
-                                        <button class="btn btn-success p-1">Great Deal <i class="fa fa-thumbs-up" aria-hidden="true"></i></button>
+                                    
+                                    <div class="col-12 col-lg-6 col-md-6 col-sm-6 pe-0">
+                                        <button class="btn btn-success p-1" style=" font-size: 12px;  text-align: right; float: right; ">Great Deal <i class="fa fa-thumbs-up" aria-hidden="true"></i></button>
                                     </div>
                                 </div>
-                                <a href="#" class="text-decoration-none text-dark mb-4 ps-3">
-                                    <span>${p.district} ${p.state} </span>
-                                    <span class="icon">
-                                        <i class="fa-solid fa-chevron-right"></i>
-                                    </span>
+                                <a href="# " class="text-dark flex-grow-1 text-decoration-none">
+                                    <p>Price: ₹ ${p.price}*</p>
                                 </a>
+                               
                             </div>
                         </div>
                     </div>`;
@@ -243,28 +235,31 @@ function getusedTractorList() {
                 });
             
 
-                // Initialize Owl Carousel after adding cards
-              /*   $('#productContainer2').owlCarousel({
-                    loop:true,
-                    margin:10,
-                    responsiveClass:true,
-                    responsive:{
-                        0:{
-                            items:1,
-                            nav:true
+              
+             
+            }
+
+            $('#productContainer2').owlCarousel({
+                items:4,
+                    loop: true,
+                    margin: 10,
+                    responsiveClass: true,
+                    responsive: {
+                        0: {
+                            items: 1,
+                            nav: false
                         },
-                        600:{
-                            items:3,
-                            nav:false
+                        600: {
+                            items: 3,
+                            nav: false
                         },
-                        1000:{
-                            items:3,
-                            nav:true,
-                            loop:false
+                        1000: {
+                            items: 4,
+                            nav: false,
+                            loop: false
                         }
                     }
-                }) */
-            }
+            })
         },
         error: function (error) {
             console.error('Error fetching data:', error);
@@ -318,28 +313,28 @@ function getoldimplementList() {
                   
                    
                     var newCard2 = `
-                    <div class="col-12 col-sm-6 col-md-3 col-lg-3 px-2 py-3 h-100">
+                    <div class="item px-2 py-3 h-100 ">
                     <div class="h-auto success__stry__item d-flex flex-column shadow ">
                         <div class="thumb">
                             <a href="#">
                                 <div class="ratio ratio-16x9">
-                                    <img src="assets/images/thresher1.webp" class="object-fit-cover " alt="img">
+                                    <img src="http://tractor-api.divyaltech.com/uploads/product_img/${a[0]}" class="object-fit-cover " alt="img">
                                 </div>
                             </a>
                         </div>
                         <div class="content d-flex flex-column flex-grow-1 ">
                             <div class="caption text-center">
                                 <a href="#" class="text-decoration-none text-dark">
-                                    <p class="pt-3"><strong class="series_tractor_strong text-center h4 fw-bold ">Thresher</strong></p>
+                                    <p class="pt-3"><strong class="series_tractor_strong text-center h4 fw-bold ">${p.model}</strong></p>
                                 </a>        
                             </div>
-                            <div class="power text-center mt-1">Power : 35-55 hp</div>
+                            <div class="power text-center mt-1">Price : ${p.price}</div>
                             <div class="row text-center">
                                 <div class="col-6">
-                                    <p class="fw-bold ps-2">By Mahindra </p>
+                                    <p class="fw-bold ps-2">By ${p.brand_name}</p>
                                 </div>
                                 <div class="col-6">
-                                    <p class="fw-bold pe-2">Post Harvest </p>
+                                    <p class="fw-bold pe-2">${p.category_name} </p>
                                 </div>
                             </div>
                         </div>
@@ -376,6 +371,27 @@ function getoldimplementList() {
                     }
                 }) */
             }
+            $('#productContainer3').owlCarousel({
+                items:3,
+                    loop: true,
+                    margin: 10,
+                    responsiveClass: true,
+                    responsive: {
+                        0: {
+                            items: 1,
+                            nav: false
+                        },
+                        600: {
+                            items: 3,
+                            nav: false
+                        },
+                        1000: {
+                            items: 3,
+                            nav: false,
+                            loop: false
+                        }
+                    }
+            })
         },
         error: function (error) {
             console.error('Error fetching data:', error);
