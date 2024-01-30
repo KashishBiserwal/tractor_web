@@ -1,11 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
    <?php
-   include 'includes/headertag.php';
-   ?>
-</head>
+  include 'includes/headertag.php';
+    //include 'includes/headertagadmin.php';
+     include 'includes/footertag.php';
+     
+     ?> 
+    <script> var APIBaseURL = "<?php echo $APIBaseURL; ?>";</script>
+    <script> var baseUrl = "<?php echo $baseUrl; ?>";</script>
+    <script src="<?php $baseUrl; ?>model/harvester.js"></script>
 <style>
   .negative-margin {
     margin-top: -10px !important; /* Adjust this value as needed */
@@ -47,17 +51,17 @@
                             <div class="content d-flex flex-column flex-grow-1 ">
                                 
                                 <div class="power text-center mt-3">
-                                <div class="row text-center">
-                                    <div class="col-12 text-center">
-                                        <p class="fw-bold pe-3 text-primary">Kartar 4000</p>
+                                    <div class="row text-center">
+                                        <div class="col-12 text-center">
+                                            <p class="fw-bold pe-3 text-primary">Kartar 4000</p>
+                                        </div>
+                                    </div>
+                                        <div class="row ">
+                                            <div class="col-12 "><p class="text-dark ps-2">Cutting Width : 14 Feet</p></div>
+                                            
+                                        </div>    
                                     </div>
                                 </div>
-                                    <div class="row ">
-                                        <div class="col-12 "><p class="text-dark ps-2">Cutting Width : 14 Feet</p></div>
-                                        
-                                    </div>    
-                                </div>
-                            </div>
                             <div class="col-12 btn-success">
                                 <button type="button" class="btn btn-success py-2 w-100"></i> 
                                 Power : 101 HP
@@ -150,13 +154,12 @@
                                 </div>
                                     <div class="row ">
                                         <div class="col-12 "><p class="text-dark ps-2">Cutting Width : 12 feet</p></div>
-                                        
                                     </div>    
                                 </div>
                             </div>
                             <div class="col-12 btn-success">
                                 <button type="button" class="btn btn-success py-2 w-100"></i> 
-                                Power : N/A
+                                    Power : N/A
                                 </button>
                             </div>
                         </a>

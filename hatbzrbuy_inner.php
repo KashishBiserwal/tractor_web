@@ -17,8 +17,8 @@ include 'includes/footertag.php';
    include 'includes/header.php';
    ?>
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
-    <section class=" mt-5 pt-5">
-        <div class="container pt-3">
+    <section class=" bg-light mt-5 pt-5">
+        <div class="container pt-5">
             <div class="py-1">
                 <span class="text-white ">
                     <a href="index.php" class="text-decoration-none header-link px-1">Home <i
@@ -39,13 +39,12 @@ include 'includes/footertag.php';
             <div class="vegehead">
                 <div class="row">
                     <div class="col-12 col-lg-6 ">
-                        <h3 class="fw-bold text-danger">Potato in Durg</h3>
+                        <h3 class="fw-bold text-danger">Potato in <span id="district_main"></span></h3>
+                       
                     </div>
                     <div class="col-12 col-lg-6 ">
                         <h4 class="fw-bold text-danger">Are You Intrested In This Vegetable ?</h4>
-                        <p class="text-success fw-bold "> Total Price :- <i class="fa fa-inr"
-                                aria-hidden="true"></i>
-                            222</p>
+                        <h5>Price:- <span id="original_price"></span> /-</h5>
                     </div>
                 </div>
             </div>
@@ -77,18 +76,19 @@ include 'includes/footertag.php';
                                     <div class="col-md-12 col-12 col-lg-12 col-lg-12">
                                         <div class=" ml-2">
                                             <div class="row px-3 ">
+                                                <div class="col-12 col-lg-6 col-md-6 col-sm-6 " hidden>
+                                                    <label for="name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i> enquiryName</label>
+                                                    <input type="text" class="form-control" placeholder="Enter Your Name" id="enquiry_type_id" value="8" name="fname">
+                                                </div>
+                                                <div class="col-12 col-lg-6 col-md-6 col-sm-6 " hidden>
+                                                    <label for="name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i> product_id</label>
+                                                    <input type="text" class="form-control" id="product_id" value="">
+                                                </div>
                                                 <div class="col-12 col-lg-6 col-md-6 col-sm-6 mt-3">
                                                     <div class="form-outline">
                                                         <label for="fname" class="form-label "><i
                                                                 class="fa-regular fa-user"></i> First Name</label>
                                                         <input type="text" class="form-control" id="fname" onkeydown="return /[a-zA-Z]/i.test(event.key)" name="fname">
-                                                    </div>
-                                                </div>
-                                                <div class="col-12 col-lg-6 col-md-6 col-sm-6 mt-3"hidden>
-                                                    <div class="form-outline">
-                                                        <label for="fname" class="form-label "><i
-                                                                class="fa-regular fa-user"></i> First Name</label>
-                                                        <input type="text" class="form-control" id="enquiry_type_id" value=""  name="fname">
                                                     </div>
                                                 </div>
                                                 <div class="col-12 col-lg-6 col-md-6 col-sm-6 mt-3">
@@ -100,9 +100,7 @@ include 'includes/footertag.php';
                                                 </div>
                                                 <div class="col-12 col-lg-6 col-md-6 col-sm-6 mt-2">
                                                     <div class="form-outline">
-                                                        <label for="phone" class="form-label "><i class="fa fa-phone"
-                                                                aria-hidden="true"></i> Mobile
-                                                            Number</label>
+                                                        <label for="phone" class="form-label "><i class="fa fa-phone"aria-hidden="true"></i> Mobile Number</label>
                                                         <input type="text" class="form-control" id="phone" name="phone">
                                                     </div>
                                                 </div>
@@ -111,9 +109,7 @@ include 'includes/footertag.php';
                                                     <div class="form-outline ">
                                                         <label for="state" class="form-label " id="state" name="state">
                                                             <i class="fas fa-location"></i> State</label>
-                                                        <select class="form-select mb-2 "
-                                                            aria-label=".form-select-lg example" id="state"
-                                                            name="state">
+                                                        <select class="form-select mb-2 "aria-label=".form-select-lg example" id="state"name="state">
                                                             <option value="" selected disabled>Select State</option>
                                                             <option value="Chhattisgarh">Chhattisgarh</option>
                                                             <option value="Other">Other</option>
@@ -125,9 +121,7 @@ include 'includes/footertag.php';
                                                     <div for="district" class="form-outline">
                                                         <label class="form-label "><i
                                                                 class="fa-solid fa-location-dot"></i> District</label>
-                                                        <select class="form-select mb-2"
-                                                            aria-label=".form-select-lg example" name="district"
-                                                            id="district">
+                                                        <select class="form-select mb-2" aria-label=".form-select-lg example" name="district"id="district">
                                                             <option value="" selected disabled>Select District</option>
                                                             <option value="Raipur">Raipur</option>
                                                             <option value="Bilaspur">Bilaspur</option>
@@ -138,8 +132,7 @@ include 'includes/footertag.php';
                                                 <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-2">
                                                     <div class="form-outline">
                                                         <label for="tehsil" class="form-label">Tehsil</label>
-                                                        <select class="form-select" aria-label=".form-select-lg example"
-                                                            name="tehsil" id="tehsil">
+                                                        <select class="form-select" aria-label=".form-select-lg example" name="tehsil" id="tehsil">
                                                             <option value="" selected disabled>Select Tehsil</option>
                                                             <option value="Raipur">Raipur</option>
                                                             <option value="Bilaspur">Bilaspur</option>
@@ -155,46 +148,34 @@ include 'includes/footertag.php';
                                                 </div>
 
                                                 <div class="col-12 col-sm-12 col-md-6 col-lg-12 mt-2">
-                                                    <button type="button" class="btn btn-success w-100"
-                                                        data-bs-toggle="modal" data-bs-target="#staticBackdrop"
+                                                    <button type="button" class="btn btn-success w-100" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
                                                         id="button_nursery">
                                                         Contact Seller
                                                     </button>
                                                 </div>
-                                                <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static"
-                                                    data-bs-keyboard="false" tabindex="-1"
+                                                <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
                                                     aria-labelledby="staticBackdropLabel" aria-hidden="true">
                                                     <div class="modal-dialog modal-lg modal-dialog-centered">
                                                         <div class="modal-content">
                                                             <div class="modal-header">
-                                                                <h5 class="modal-title" id="staticBackdropLabel">Contact
-                                                                    Seller</h5>
-                                                                <button type="button" class="btn-close"
-                                                                    data-bs-dismiss="modal" aria-label="Close"></button>
+                                                                <h5 class="modal-title" id="staticBackdropLabel">Contact Seller</h5>
+                                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                             </div>
                                                             <div class="modal-body">
                                                                 <div class="model-cont">
-                                                                    <h4 class="text-center text-danger">Seller
-                                                                        Information</h3>
+                                                                    <h4 class="text-center text-danger">Seller Information</h3>
                                                                         <div class="row px-3 py-2">
                                                                             <div
                                                                                 class="col-12  col-sm-12 col-md-6 col-lg-6 ">
-                                                                                <label for="slr_name"
-                                                                                    class="form-label fw-bold text-dark">
-                                                                                    <i class="fa-regular fa-user"></i>
+                                                                                <label for="slr_name"class="form-label fw-bold text-dark"><i class="fa-regular fa-user"></i>
                                                                                     Seller Name</label>
-                                                                                <input type="text" class="form-control"
-                                                                                    id="slr_name">
+                                                                                <input type="text" class="form-control" id="slr_name">
                                                                             </div>
                                                                             <div
                                                                                 class="col-12 col-sm-12 col-md-6 col-lg-6  ">
-                                                                                <label for="number"
-                                                                                    class="form-label text-dark fw-bold">
-                                                                                    <i class="fa fa-phone"
-                                                                                        aria-hidden="true"></i> Phone
-                                                                                    Number</label>
-                                                                                <input type="text" class="form-control"
-                                                                                    id="number">
+                                                                                <label for="number"class="form-label text-dark fw-bold"><i class="fa fa-phone"aria-hidden="true"></i>
+                                                                                 Phone Number</label>
+                                                                                <input type="text" class="form-control" id="number">
                                                                             </div>
                                                                         </div>
                                                                 </div>
@@ -235,7 +216,7 @@ include 'includes/footertag.php';
                     </tr>
                     <tr>
                         <td class="table-data">Vegetable Type:</td>
-                        <td class="table-data"id="sucategory_name">Potato</td>
+                        <td class="table-data"id="sucategory_name"></td>
                     </tr>
                     <tr>
                         <td class="table-data">Quantity:</td>
@@ -243,11 +224,11 @@ include 'includes/footertag.php';
                     </tr>
                     <tr>
                         <td class="table-data">Price (as per kg):</td>
-                        <td class="table-data" id="price_as">222 <span> /- </span></td>
+                        <td class="table-data" id="price_as"><span> /- </span></td>
                     </tr>
                     <tr>
                         <td class="table-data">About</td>
-                        <td class="table-data" id="description"> </td>
+                        <td class="table-data" id="description"></td>
                     </tr>
 
 
@@ -274,9 +255,8 @@ include 'includes/footertag.php';
                     </tr>
                     <tr>
                         <td class="table-data">Tehsil</td>
-                        <td class="table-data" id="tehsil">Ambikapur</td>
+                        <td class="table-data" id="tehsil"></td>
                     </tr>
-
                 </tbody>
             </table>
         </div>
@@ -322,8 +302,8 @@ include 'includes/footertag.php';
 
                                         <div class="col-12">
                                             <p class=" text-center" id="district"><span
-                                                    id="engine_powerhp2"></span>Surajpur,<span
-                                                    id="year">Chhattisgarh</span></p>
+                                                id="engine_powerhp2"></span>Surajpur,<span
+                                                id="year">Chhattisgarh</span></p>
                                         </div>
                                     </div>
                                 </div>
@@ -356,8 +336,7 @@ include 'includes/footertag.php';
                                                     </div>
                                                     <div class="col-12 col-sm-12 col-md-6 col-lg-6">
                                                         <label for="number" class="form-label text-dark fw-bold"> <i
-                                                                class="fa fa-phone" aria-hidden="true"></i> Phone
-                                                            Number</label>
+                                                                class="fa fa-phone" aria-hidden="true"></i> Phone Number</label>
                                                         <input type="text" class="form-control" id="number">
                                                     </div>
                                                     <div class="col-12 col-sm-12 col-md-6 col-lg-6  ">

@@ -6,7 +6,7 @@ $(document).ready(function() {
     getProductById();
     // get_allbrand();
     getpopularTractorList();
-    $('#button_nursery').click(add_enquiry);
+    $('#button_nursery').click(store);
 });
 
 
@@ -15,7 +15,7 @@ function gethaatbazzat() {
   var urlParams = new URLSearchParams(window.location.search);
   var customer_id = urlParams.get('id');
   console.log(customer_id,'sdfghjksdfghjk');
-  var url = 'http://tractor-api.divyaltech.com/api/customer/haat_bazar/' + customer_id;
+  var url = 'http://tractor-api.divyaltech.com/api/customer/get_haat_bazar/' + customer_id;
   
   $.ajax({    
       url: url,
@@ -27,24 +27,18 @@ function gethaatbazzat() {
           var location = data.getOldImplement[0].district + ', ' + data.getOldImplement[0].state;
 
           // Update HTML elements with data
-          document.getElementById('category_name').innerText = data.getOldImplement[0].model;
+          document.getElementById('original_price').innerText = data.getOldImplement[0].price;   
+          document.getElementById('category_name').innerText = data.getOldImplement[0].model;  
           document.getElementById('sucategory_name').innerText = data.getOldImplement[0].sub_category_id;
           document.getElementById('quantity').innerText = data.getOldImplement[0].quantity;
           document.getElementById('price_as').innerText = data.getOldImplement[0].price;
           document.getElementById('description').innerText = data.getOldImplement[0].about;
-          document.getElementById('description').innerText = location;
+          // document.getElementById('description').innerText = location;
           document.getElementById('first_name').innerText = data.getOldImplement[0].model;
           document.getElementById('phone_number').innerText = data.getOldImplement[0].brand_name;
           document.getElementById('state').innerText = data.getOldImplement[0].model;
           document.getElementById('district').innerText = data.getOldImplement[0].category_name;
           document.getElementById('tehsil').innerText = data.getOldImplement[0].price;
-          document.getElementById('model_name4').innerText=data.getOldImplement[0].model;
-          document.getElementById('name').innerText = data.getOldImplement[0].first_name;
-          document.getElementById('mobile').innerText = data.getOldImplement[0].mobile;
-          document.getElementById('district_1').innerText = data.getOldImplement[0].district;
-          document.getElementById('state_1').innerText = data.getOldImplement[0].state;
-          document.getElementById('description').innerText = data.getOldImplement[0].description;
-          document.getElementById('model4').innerText = data.getOldImplement[0].model;
           document.getElementById('product_id').value = data.getOldImplement[0].product_id;
 
         
@@ -78,54 +72,78 @@ function gethaatbazzat() {
 }
 
 
-function add_enquiry(event) {
-    event.preventDefault();
-    var first_name = $('#fname').val();
-    var enquiry_type_id = $('#enquiry_type_id').val();
-    var last_name = $('#fname').val();
-    var state = $('#state').val();
-    var mobile = $('#phone').val();
-    var district = $('#district').val();
-    var tehsil = $('#tehsil').val();price
-    var price = $('#price').val();
+// store data throught form
 
-    var paraArr = {
-      'first_name': first_name,
-      'enquiry_type_id':enquiry_type_id,
-      'last_name': last_name,
-      'state': state,
-      'mobile': mobile,
-      'district': district,
-      'tehsil': tehsil,
-      'price': price
-    };
-    var url = "http://tractor-api.divyaltech.com/api/customer/customer_enquiey/" + productId;
-    console.log(url);
-    $.ajax({
-      url: url,
-      type: "POST",
-      data: paraArr,
-      // headers: headers,
-      success: function (result) {
-        console.log(result, "result");
-        get();
-        console.log("Add successfully");
-       // alert('successfully inserted..!')
-       $("#staticBackdrop").modal("hide");
-       var msg = "User Inserted successfully !"
-        $("#errorStatusLoading").modal('show');
-        $("#errorStatusLoading").find('.modal-title').html('Success');
-        $("#errorStatusLoading").find('.modal-body').html(msg);
-      },
-      error: function (error) {
-        console.error('Error fetching data:', error);
-        var msg = error;
-        $("#errorStatusLoading").modal('show');
-        $("#errorStatusLoading").find('.modal-title').html('Error');
-        $("#errorStatusLoading").find('.modal-body').html(msg);
-      }
-    });
-  }
+function store(event) {
+  event.preventDefault();
+  console.log('jfhfhw');
+  var enquiry_type_id = $('#enquiry_type_id').val();
+  var product_id = 9;
+  var first_name = $('#fname').val();
+  var last_name = $('#lname').val();
+  var mobile = $('#phone').val();
+  var state = $('#state').val();
+  var district = $('#district').val();
+  var tehsil = $('#tehsil').val();
+  var price = $('#price').val();
+ 
+  console.log('jfhfhw',product_id);
+
+  // Prepare data to send to the server
+  var paraArr = {
+    'product_id':product_id,
+    'enquiry_type_id':enquiry_type_id,
+    'first_name': first_name,
+    'last_name':last_name,
+    'mobile':mobile,
+    'state':state,
+    'district':district,
+    'tehsil':tehsil,
+    'price':price,
+  };
+ 
+var apiBaseURL =APIBaseURL;
+//   var url = apiBaseURL + 'customer_enquiries';
+var url = "http://tractor-api.divyaltech.com/api/customer/customer_enquiries";
+  console.log(url);
+
+
+  // Make an AJAX request to the server
+  $.ajax({
+    url: url,
+    type: "POST",
+    data: paraArr,
+    success: function (result) {
+      console.log(result, "result");
+      // alert('successfully inserted..!');
+      // const new_data=data.product.filter((s)=>{ 
+      //     if(s.product_type=="FOR_SELL_TRACTOR"){
+      //         return s;
+      //     }
+      // });
+      $("#used_tractor_callbnt_").modal('hide'); 
+      var msg = "Added successfully !"
+      $("#errorStatusLoading").modal('show');    
+      $("#errorStatusLoading").find('.modal-title').html('<p class="text-center">Congratulation..! Requested Successful</p>');
+   
+      $("#errorStatusLoading").find('.modal-body').html(msg);
+      $("#errorStatusLoading").find('.modal-body').html('<img src="assets/images/7efs.gif" style="display:block; margin:0 auto;" class="w-50 text-center" alt="Successfull Request"></img>');
+    
+      // getOldTractorById();
+      console.log("Add successfully");
+    
+    },
+    error: function (error) {
+      console.error('Error fetching data:', error);
+      var msg = error;
+      $("#errorStatusLoading").modal('show');
+      $("#errorStatusLoading").find('.modal-title').html('<p class="text-center">Process Failed..! Enter Valid Detail</p>');
+      $("#errorStatusLoading").find('.modal-body').html(msg);
+      $("#errorStatusLoading").find('.modal-body').html('<img src="assets/images/comp_3.gif" style="display:block; margin:0 auto;" class="w-50 text-center" alt="Successfull Request"></img>');
+      // 
+    }
+  });
+}
 
 
 // function getProductById() {

@@ -1,11 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 
-  <head>
-    <?php
-      include 'includes/headertag.php';
-    ?>
-  </head>
+   <?php
+  include 'includes/headertag.php';
+    //include 'includes/headertagadmin.php';
+     include 'includes/footertag.php';
+     
+     ?> 
+    <script> var APIBaseURL = "<?php echo $APIBaseURL; ?>";</script>
+    <script> var baseUrl = "<?php echo $baseUrl; ?>";</script>
+    <script src="<?php $baseUrl; ?>model/compare_trac.js"></script>
+
+    <body>
   <style>
     #more {display: none;}
   </style>
@@ -29,107 +35,148 @@
   <div class="container" id="an">       
     <div class="row py-1">
       <h3 class="mt-2 mb-3 bg-light">Compare Tractors</h3>
-
-      <div class="col-12 col-lg-3 col-sm-3 col-md-3 mt-2 mb-2">
-        <div class="success__stry__item shadow h-100">
-          <div class="thumb">
-            <a href="#">
-              <div class="">
-              <img src="assets\images\bharattractor2.png" class="object-fit-cover mt-4 p-3 w-100" width="100px" height="200px" alt="img">
-              </div>
-            </a>
-          </div>
-          <div class="content mt-5 py-5 pb-3 text-center">                        
-            <button type="button" class="text-primary fs-5" data-bs-toggle="modal" data-bs-target="#select_trac_modal">
-              Select Tractor
-            </button>                    
-          </div>
-          <!-- <div class="col-12  text-center"> 
-            <button class="btn btn-success text-white col-12 px-5">Compare</button>
-          </div>   -->
+      <div class="col-12 col-lg-3 col-sm-3 col-md-3 mt-4 mb-5">
+            <div class="success__stry__item shadow h-100">
+                <div class="thumb">
+                    <a href="#">
+                        <div class="">
+                            <img src="assets\images\bharattractor2.png" class="object-fit-cover mt-4 p-3 w-100" width="100px" height="200px" alt="img">
+                        </div>
+                    </a>
+                </div>
+                <div class="col-12 col-sm-12 col-md-4 col-lg-4 content mt-2 py-1 pb-3 text-center w-100">
+                                <div class="form-outline">
+                                  <label class="form-label" for="brand"></label>
+                                  <select class="form-select py-2" aria-label="Default select example" name="brand" id="brand">
+                                  
+                                  </select>
+                                </div>
+                              </div>
+                              <div class="col-12 col-sm-12 col-md-4 col-lg-4 content mt-1 text-center w-100">
+                                <div class="form-outline">
+                                  <label class="form-label" for="model"></label>
+                                  <select class="form-select py-2" aria-label="Default select example" name="model" id="model">
+                                   
+                                  </select>
+                                </div>
+                              </div>
+                   <div class="content py-1 pb-3 text-center">
+                    
+                </div>
+            </div>
         </div>
-      </div>   
 
-      <div class="col-12 col-lg-3 col-sm-3 col-md-3 mt-2 mb-2">
-        <div class="success__stry__item shadow h-100">
-          <div class="thumb">
-            <a href="#">
-              <div class="">
-              <img src="assets\images\bharattractor2.png" class="object-fit-cover mt-4 p-3 w-100" width="100px" height="200px" alt="img">
-              </div>
-            </a>
-          </div>
-          <div class="content mt-5 py-5 pb-3 text-center">                        
-            <button type="button" class="text-primary fs-5" data-bs-toggle="modal" data-bs-target="#select_trac_modal">
-              Select Tractor
-            </button>                    
-          </div>
-          <!-- <div class="col-12  text-center"> 
-            <button class="btn btn-success text-white col-12 px-5">Compare</button>
-          </div>   -->
+        <div class="col-12 col-lg-3 col-sm-3 col-md-3 mt-4 mb-5">
+            <div class="success__stry__item shadow h-100">
+                <div class="thumb">
+                    <a href="#">
+                        <div class="">
+                            <img src="assets\images\bharattractor2.png" class="object-fit-cover mt-4 p-3 w-100" width="100px" height="200px" alt="img">
+                        </div>
+                    </a>
+                </div>
+                <div class="col-12 col-sm-12 col-md-4 col-lg-4 content mt-2 py-1 pb-3 text-center w-100">
+                  <div class="form-outline">
+                    <label class="form-label" for="brand"></label>
+                    <select class="form-select py-2" aria-label="Default select example" name="brand" id="brand">
+                      
+                    </select>
+                  </div>
+                 </div>
+                <div class="col-12 col-sm-12 col-md-4 col-lg-4 content mt-1 text-center w-100">
+                  <div class="form-outline">
+                    <label class="form-label" for="model"></label>
+                    <select class="form-select py-2" aria-label="Default select example" name="model" id="model">
+                      
+                    </select>
+                  </div>
+                </div>
+                <div class="content py-1 pb-3 text-center">
+                   
+                </div>
+            </div>
         </div>
-      </div>   
 
-
-      <div class="col-12 col-lg-3 col-sm-3 col-md-3 mt-2 mb-2">
-        <div class="success__stry__item shadow h-100">
-          <div class="thumb">
-            <a href="#">
-              <div class="">
-              <img src="assets\images\bharattractor2.png" class="object-fit-cover mt-4 p-3 w-100" width="100px" height="200px" alt="img">
-              </div>
-            </a>
-          </div>
-          <div class="content mt-5 py-5 pb-3 text-center">                        
-            <button type="button" class="text-primary fs-5" data-bs-toggle="modal" data-bs-target="#select_trac_modal">
-              Select Tractor
-            </button>                    
-          </div>
-          <!-- <div class="col-12  text-center"> 
-            <button class="btn btn-success text-white col-12 px-5">Compare</button>
-          </div>   -->
+        <div class="col-12 col-lg-3 col-sm-3 col-md-3 mt-4 mb-5">
+            <div class="success__stry__item shadow h-100">
+                <div class="thumb">
+                    <a href="#">
+                        <div class="">
+                            <img src="assets\images\bharattractor2.png" class="object-fit-cover mt-4 p-3 w-100" width="100px" height="200px" alt="img">
+                        </div>
+                    </a>
+                </div>
+                <div class="col-12 col-sm-12 col-md-4 col-lg-4 content mt-2 py-1 pb-3 text-center w-100">
+                  <div class="form-outline">
+                    <label class="form-label" for="brand"></label>
+                    <select class="form-select py-2" aria-label="Default select example" name="brand" id="brand">
+                    
+                    </select>
+                  </div>
+                 </div>
+                <div class="col-12 col-sm-12 col-md-4 col-lg-4 content mt-1 text-center w-100">
+                  <div class="form-outline">
+                    <label class="form-label" for="model"></label>
+                    <select class="form-select py-2" aria-label="Default select example" name="model" id="model">
+                     
+                    </select>
+                  </div>
+                </div>
+                <div class="content py-1 pb-3 text-center">
+                    
+                </div>
+            </div>
         </div>
-      </div>   
-              
-      <div class="col-12 col-lg-3 col-sm-3 col-md-3 mt-2 mb-2">
-        <div class="success__stry__item shadow h-100">
-          <div class="thumb">
-            <a href="#">
-              <div class="">
-                <img src="assets\images\bharattractor2.png" class="object-fit-cover mt-4 p-3 w-100" width="100px" height="200px" alt="img">
-              </div>
-            </a>
-          </div>
-          <div class="content mt-5 py-5 pb-3 text-center">                        
-            <button type="button" class="text-primary fs-5" data-bs-toggle="modal" data-bs-target="#select_trac_modal">
-              Select Tractor
-            </button>                    
-          </div>
-          <!-- <div class="col-12  text-center"> 
-            <button class="btn btn-success text-white col-12 px-5">Compare</button>
-          </div>   -->
+        <div class="col-12 col-lg-3 col-sm-3 col-md-3 mt-4 mb-5">
+            <div class="success__stry__item shadow h-100">
+                <div class="thumb">
+                    <a href="#">
+                        <div class="">
+                            <img src="assets\images\bharattractor2.png" class="object-fit-cover mt-4 p-3 w-100" width="100px" height="200px" alt="img">
+                        </div>
+                    </a>
+                </div>
+                <div class="col-12 col-sm-12 col-md-4 col-lg-4 content mt-2 py-1 pb-3 text-center w-100">
+                  <div class="form-outline">
+                    <label class="form-label" for="brand"></label>
+                    <select class="form-select py-2" aria-label="Default select example" name="brand" id="brand">
+                  
+                    </select>
+                  </div>
+                 </div>
+                <div class="col-12 col-sm-12 col-md-4 col-lg-4 content mt-1 text-center w-100">
+                  <div class="form-outline">
+                    <label class="form-label" for="model"></label>
+                    <select class="form-select py-2" aria-label="Default select example" name="model" id="model">
+                      <!-- <option selected disabled="">Select Condition</option>
+                      <option value="0-25%(Poor)">0-25%(Poor)</option>
+                      <option value="26-50%(Average)">26-50%(Average)</option>
+                      <option value="51-75%(Good)">51-75%(Good)</option>
+                      <option value="76-100%(very Good)">76-100%(very Good)</option> -->
+                    </select>
+                  </div>
+                </div>
+                <div class="content py-1 pb-3 text-center">
+                  
+                </div>
+            </div>
         </div>
-      </div>  
-
-      <div class="col-12  text-center mt-3"> 
-        <a href="compare_trac_model.php">
-          <button class="btn btn-success text-white col-12 px-5" style="width:40% ">Compare</button>
-        </a>
-      </div> 
+        <div class="col-12  text-center mt-3">
+            <button class="btn btn-success text-white col-12 px-5" id="compareButton" style="width:40%">Compare</button>
+        </div>
 
     </div>
   </div>
   <!-- MODAL SELECT BRANDS -->
-  <section>
+  <!-- <section>
     <div class="modal fade" id="select_trac_modal"  tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-lg">
         <div class="modal-content">
-          <!-- <div class="modal-header">         
-          </div> -->
+        
           <div class="modal-body">
             <form id="multi-step-form">
               <div class="step step-1">
-                <!-- Step 1 form fields here -->
+             
                 <div class="row mt-3 mb-0">
                   <div class="col-12 col-lg-6 col-md-6 col-sm-6">
                     <div>
@@ -137,7 +184,7 @@
                     </div>
                   </div>
                   <div class="col-12 col-lg-6 col-md-6 col sm 6 d-flex justify-content-end">
-                    <!-- SEARCH BOX  -->
+                
                     <div>
                       <div class="input-group">
                         <div class="form-outline" data-mdb-input-init>
@@ -171,7 +218,7 @@
                       Massey Ferguson
                     </label>
                   </div>
-                  <!-- <p class="fs-5 py-2">Other Brands</p>  -->
+             
                   <div class="form-check">
                     <input class="form-check-input p-1" type="radio" name="radio_brand" id="radio_brand4">
                     <label class="form-check-label ms-1 text-dark" for="radio_brand4"> ACE</label>
@@ -189,11 +236,10 @@
                     </label>
                   </div>
                 </div>
-                <button type="button"  class="btn btn-primary  next-step mt-4">Next</button>
               </div>
 
               <div class="step step-2">
-                <!-- Step 2 form fields here -->
+             
                 <div class="row mt-3 mb-0">
                   <div class="col-12 col-lg-6 col-md-6 col-sm-6">
                     <div>
@@ -201,16 +247,10 @@
                     </div>
                   </div>
                   <div class="col-12 col-lg-6 col-md-6 col sm 6 d-flex justify-content-end">
-                    <!-- SEARCH BOX  -->
+              
                     <div>
                       <div class="input-group">
-                        <div class="form-outline" data-mdb-input-init>
-                          <input type="search" id="form1" class="form-control" />
-                          <label class="form-label" style="margin-top:-61px;" for="form1">Search</label>
-                        </div>
-                        <button type="button" style="margin-top:-11px;"class="btn btn-primary" data-mdb-ripple-init>
-                          <i class="fas fa-search"></i>
-                        </button>
+                  
                       </div>             
                     </div>
                   </div>
@@ -253,28 +293,18 @@
                     </label>
                   </div>
                 </div>
-                <button type="button" class="btn btn-primary prev-step mt-4">Previous</button>
-                <button type="submit" class="btn btn-success mt-4">Submit</button>
+                <div class="text-center">
+                <button type="submit" class="btn btn-success mt-4 w-75">Submit</button>
+                </div>
               </div>
 
-              <!-- <div class="step step-3"> -->
-                <!-- Step 3 form fields here -->
-                <!-- <h3>Step 3</h3>
-                <div class="mb-3">
-                  <label for="field3" class="form-label">Field 3:</label>
-                  <input type="text" class="form-control" id="field3" name="field3">
-                </div>
-                <button type="button" class="btn btn-primary prev-step">Previous</button>
-                <button type="submit" class="btn btn-success">Submit</button>
-              </div> -->
             </form>
           </div>
         </div>
       </div>          
-      <!-- </div>
-      </div> -->
+   
     </div>
-  </section>
+  </section> -->
   <section>
     <div class="container">
       <div class=" ps-5 pe-5">
@@ -1185,60 +1215,312 @@
    include 'includes/footertag.php';
    ?>
 
-  <script>
-    // SCRIPT FOR THE SEARCH BOX
-    $(".data_search").on("keyup", function() {
-      var value = $(this).val().toLowerCase();
-      $("#data-table tr").filter(function() {
-        $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-      });
-    }); 
+<!-- <script>
+   document.addEventListener("DOMContentLoaded", function () {
+    const form = document.getElementById("an"); // Assuming that the form has the ID "an"
+    let selectedValues = {}; // Variable to store selected values for editing
 
-    // SCRIPT FOR THE SELECTION OF BRANDS & MODAL
-    var currentStep = 1;
-    var updateProgressBar;
+    const compareButton = document.getElementById('compareButton');
+    compareButton.setAttribute('disabled', 'disabled'); // Disable the button by default
 
-    function displayStep(stepNumber) {
-      if (stepNumber >= 1 && stepNumber <= 2) {
-        $(".step-" + currentStep).hide();
-        $(".step-" + stepNumber).show();
-        currentStep = stepNumber;
-        updateProgressBar();
-      }
+    form.addEventListener("change", function (event) {
+        const selectedElement = event.target;
+        if (selectedElement.tagName === "SELECT") {
+            // Get the selected value and text
+            const selectedValue = selectedElement.value;
+            const selectedText = selectedElement.options[selectedElement.selectedIndex].text;
+
+            // Get the parent container of the select element
+            const parentContainer = selectedElement.closest('.success__stry__item');
+
+            // Create a new element to display the selected value
+            const selectedValueElement = document.createElement("div");
+            selectedValueElement.classList.add("selected-value");
+            selectedValueElement.textContent = `${selectedText}: ${selectedValue}`;
+
+            // Append the selected value div
+            parentContainer.appendChild(selectedValueElement);
+
+            // Replace the select element with the new div
+            selectedElement.replaceWith(selectedValueElement);
+
+            // Store the selected values for editing
+            const fieldName = selectedElement.getAttribute("name");
+            selectedValues[fieldName] = {
+                value: selectedValue,
+                text: selectedText
+            };
+
+            // Show the "Edit" button
+            showEditButton(parentContainer);
+
+            // Check the number of filled cards and enable/disable the "Compare" button
+            checkFilledCards();
+        }
+    });
+
+    function showEditButton(parentContainer) {
+    const editButton = parentContainer.querySelector('.edit-button');
+    if (!editButton) {
+        const newEditButton = document.createElement("button");
+        newEditButton.classList.add("edit-button", "btn", "btn-success");
+        newEditButton.innerHTML = '<i class="fas fa-edit"></i>'; // Font Awesome edit icon
+        newEditButton.addEventListener("click", function () {
+            // Replace the selected value div with the original select element
+            const selectedValueElement = parentContainer.querySelector('.selected-value');
+            const originalSelect = createOriginalSelect(selectedValueElement.getAttribute("name"));
+            selectedValueElement.replaceWith(originalSelect);
+
+            // Check the number of filled cards and enable/disable the "Compare" button
+            checkFilledCards();
+        });
+
+        parentContainer.appendChild(newEditButton);
+    }
+   }
+
+    function createOriginalSelect(fieldName) {
+        const originalSelect = document.createElement("select");
+        originalSelect.classList.add("form-select", "py-2");
+        originalSelect.setAttribute("name", fieldName);
+
+        // Create and append the options based on your requirements
+        // ...
+
+        return originalSelect;
     }
 
-    $(document).ready(function() {
-      $('#multi-step-form').find('.step').slice(1).hide();
-    
-      $(".next-step").click(function() {
-        if (currentStep < 2) {
-          $(".step-" + currentStep).addClass("animate__animated animate__fadeOutLeft");
-          currentStep++;
-          setTimeout(function() {
-            $(".step").removeClass("animate__animated animate__fadeOutLeft").hide();
-            $(".step-" + currentStep).show().addClass("animate__animated animate__fadeInRight");
-            updateProgressBar();
-          }, 500);
+    function checkFilledCards() {
+        const filledCards = document.querySelectorAll('.success__stry__item .selected-value');
+        if (filledCards.length >= 2) {
+            compareButton.removeAttribute('disabled');
+        } else {
+            compareButton.setAttribute('disabled', 'disabled');
         }
-      });
+    }
 
-      $(".prev-step").click(function() {
-        if (currentStep > 1) {
-          $(".step-" + currentStep).addClass("animate__animated animate__fadeOutRight");
-          currentStep--;
-          setTimeout(function() {
-            $(".step").removeClass("animate__animated animate__fadeOutRight").hide();
-            $(".step-" + currentStep).show().addClass("animate__animated animate__fadeInLeft");
-            updateProgressBar();
-          }, 500);
-        }
-      });
-
-      updateProgressBar = function() {
-        var progressPercentage = ((currentStep - 1) / 2) * 100;
-        $(".progress-bar").css("width", progressPercentage + "%");
-      }
+    // Add a click event listener to the "Compare" button to open the modal again with selected values
+    compareButton.addEventListener("click", function () {
+        const modalElement = document.getElementById('select_trac_modal');
+        const modal = new bootstrap.Modal(modalElement);
+        modal.show();
     });
-  </script>
+  });
+</script> -->
+
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const form = document.getElementById("an"); // Assuming that the form has the ID "an"
+    let selectedValues = {}; // Variable to store selected values for editing
+
+    const compareButton = document.getElementById('compareButton');
+    compareButton.setAttribute('disabled', 'disabled'); // Disable the button by default
+
+    form.addEventListener("change", function (event) {
+        const selectedElement = event.target;
+        if (selectedElement.tagName === "SELECT") {
+            // Get the selected value and text
+            const selectedValue = selectedElement.value;
+            const selectedText = selectedElement.options[selectedElement.selectedIndex].text;
+
+            // Get the parent container of the select element
+            const parentContainer = selectedElement.closest('.success__stry__item');
+
+            // Create a new element to display the selected value
+            const selectedValueElement = document.createElement("div");
+            selectedValueElement.classList.add("selected-value");
+            selectedValueElement.textContent = `${selectedText}: ${selectedValue}`;
+
+            // Append the selected value div
+            parentContainer.appendChild(selectedValueElement);
+
+            // Replace the select element with the new div
+            selectedElement.replaceWith(selectedValueElement);
+
+            // Store the selected values for editing
+            const fieldName = selectedElement.getAttribute("name");
+            selectedValues[fieldName] = {
+                value: selectedValue,
+                text: selectedText
+            };
+
+            // Show the "Edit" button
+            showEditButton(parentContainer);
+
+            // Check the number of filled cards and enable/disable the "Compare" button
+            checkFilledCards();
+        }
+    });
+
+    function showEditButton(parentContainer) {
+        const editButton = parentContainer.querySelector('.edit-button');
+        if (!editButton) {
+            const newEditButton = document.createElement("button");
+            newEditButton.classList.add("edit-button", "btn", "btn-success");
+            newEditButton.innerHTML = '<i class="fas fa-edit"></i>'; // Font Awesome edit icon
+            newEditButton.addEventListener("click", function () {
+                // Replace the selected value div with the original select element
+                const selectedValueElement = parentContainer.querySelector('.selected-value');
+                const originalSelect = createOriginalSelect(selectedValueElement.getAttribute("name"));
+                selectedValueElement.replaceWith(originalSelect);
+
+                // Check the number of filled cards and enable/disable the "Compare" button
+                checkFilledCards();
+            });
+
+            parentContainer.appendChild(newEditButton);
+        }
+    }
+
+    function createOriginalSelect(fieldName) {
+        const originalSelect = document.createElement("select");
+        originalSelect.classList.add("form-select", "py-2");
+        originalSelect.setAttribute("name", fieldName);
+
+        // Fetch and populate options based on the field name
+        fetchOptions(fieldName, originalSelect);
+
+        return originalSelect;
+    }
+
+    function fetchOptions(fieldName, selectElement) {
+        let url;
+
+        // Modify the URL based on the field name
+        switch (fieldName) {
+            case 'brand':
+                url = 'http://tractor-api.divyaltech.com/api/customer/get_all_brands';
+                break;
+            case 'model':
+                // Assuming you have a function to extract brand_id from the selected brand dropdown
+                const selectedBrandId = extractSelectedBrandId();
+                url = 'http://tractor-api.divyaltech.com/api/customer/get_brand_model/' + selectedBrandId;
+                break;
+            // Add more cases for other fields as needed
+        }
+
+        // Fetch data from the API
+        fetch(url, {
+            method: 'GET',
+            headers: {
+                'Authorization': 'Bearer ' + localStorage.getItem('token')
+            }
+        })
+        .then(response => response.json())
+        .then(data => {
+            // Populate options
+            selectElement.innerHTML = '<option selected disabled value="">Please select an option</option>';
+
+            if (data && data.length > 0) { // Ensure data exists and is an array
+                data.forEach(row => {
+                    const option = document.createElement('option');
+                    option.textContent = row.brand_name || row.model; // Adjust based on API response
+                    option.value = row.id;
+
+                    selectElement.appendChild(option);
+                });
+            } else {
+                selectElement.innerHTML = '<option>No valid data available</option>';
+            }
+        })
+        .catch(error => {
+            console.error('Error fetching data:', error);
+        });
+    }
+
+    function extractSelectedBrandId() {
+        // Implement this function to extract the selected brand_id
+        // You might need to adjust it based on how you handle the brand dropdown
+    }
+
+    function checkFilledCards() {
+        const filledCards = document.querySelectorAll('.success__stry__item .selected-value');
+        if (filledCards.length >= 2) {
+            compareButton.removeAttribute('disabled');
+        } else {
+            compareButton.setAttribute('disabled', 'disabled');
+        }
+    }
+
+    // Add a click event listener to the "Compare" button to open the modal again with selected values
+    compareButton.addEventListener("click", function () {
+        const modalElement = document.getElementById('select_trac_modal');
+        const modal = new bootstrap.Modal(modalElement);
+        modal.show();
+    });
+
+    // Initial data fetch
+    get();
+});
+</script>
+
+
+<!-- <script>
+ document.addEventListener("DOMContentLoaded", function () {
+    const form = document.getElementById("an"); // Assuming that the form has the ID "an"
+
+    form.addEventListener("change", function (event) {
+        const selectedElement = event.target;
+        if (selectedElement.tagName === "SELECT") {
+            // Get the selected value and text
+            const selectedValue = selectedElement.value;
+            const selectedText = selectedElement.options[selectedElement.selectedIndex].text;
+
+            // Get the parent container of the select element
+            const parentContainer = selectedElement.closest('.success__stry__item');
+
+            // Create a new element to display the selected value
+            const selectedValueElement = document.createElement("div");
+            selectedValueElement.classList.add("selected-value");
+            selectedValueElement.textContent = `${selectedText}: ${selectedValue}`;
+
+            // Create an "Edit" icon
+            const editIcon = document.createElement("span");
+            editIcon.classList.add("edit-icon");
+            editIcon.textContent = "✎"; // Pencil emoji for edit
+
+            // Append the selected value div and the "Edit" icon
+            parentContainer.appendChild(selectedValueElement);
+            parentContainer.appendChild(editIcon);
+
+            // Replace the select element with the new div
+            selectedElement.replaceWith(selectedValueElement);
+        }
+    });
+
+    // Add event delegation to handle the click on the "Edit" icon
+    form.addEventListener("click", function (event) {
+        const editIcon = event.target.closest(".edit-icon");
+        if (editIcon) {
+            const parentContainer = editIcon.closest('.success__stry__item');
+            // Replace the selected value div with the original select element
+            const selectedValueElement = parentContainer.querySelector('.selected-value');
+            const originalSelect = createOriginalSelect(selectedValueElement.getAttribute("name"));
+            selectedValueElement.replaceWith(originalSelect);
+        }
+    });
+
+    function createOriginalSelect(fieldName) {
+        const originalSelect = document.createElement("select");
+        originalSelect.classList.add("form-select", "py-2");
+        originalSelect.setAttribute("name", fieldName);
+
+        // Create and append the options based on your requirements
+        // ...
+
+        return originalSelect;
+    }
+
+    // Add a click event listener to the "Compare" button to open the modal again with selected values
+    const compareButton = document.getElementById('compareButton');
+    compareButton.addEventListener("click", function () {
+        const modalElement = document.getElementById('select_trac_modal');
+        const modal = new bootstrap.Modal(modalElement);
+        modal.show();
+    });
+});
+
+</script> -->
 </body>
 </html>
