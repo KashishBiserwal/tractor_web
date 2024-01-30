@@ -47,7 +47,7 @@
                 <div class="col-12 col-sm-12 col-md-4 col-lg-4 content mt-2 py-1 pb-3 text-center w-100">
                                 <div class="form-outline">
                                   <label class="form-label" for="brand"></label>
-                                  <select class="form-select py-2" aria-label="Default select example" name="brand" id="brand">
+                                  <select class="form-select py-2 brandselect" aria-label="Default select example" name="brand" id="brand">
                                   
                                   </select>
                                 </div>
@@ -55,7 +55,7 @@
                               <div class="col-12 col-sm-12 col-md-4 col-lg-4 content mt-1 text-center w-100">
                                 <div class="form-outline">
                                   <label class="form-label" for="model"></label>
-                                  <select class="form-select py-2" aria-label="Default select example" name="model" id="model">
+                                  <select class="form-select py-2 modelselect" aria-label="Default select example" name="model" id="model">
                                    
                                   </select>
                                 </div>
@@ -78,7 +78,7 @@
                 <div class="col-12 col-sm-12 col-md-4 col-lg-4 content mt-2 py-1 pb-3 text-center w-100">
                   <div class="form-outline">
                     <label class="form-label" for="brand"></label>
-                    <select class="form-select py-2" aria-label="Default select example" name="brand" id="brand">
+                    <select class="form-select py-2 brandselect" aria-label="Default select example" name="brand" id="brand_1">
                       
                     </select>
                   </div>
@@ -86,7 +86,7 @@
                 <div class="col-12 col-sm-12 col-md-4 col-lg-4 content mt-1 text-center w-100">
                   <div class="form-outline">
                     <label class="form-label" for="model"></label>
-                    <select class="form-select py-2" aria-label="Default select example" name="model" id="model">
+                    <select class="form-select py-2 modelselect" aria-label="Default select example" name="model" id="model_1">
                       
                     </select>
                   </div>
@@ -109,7 +109,7 @@
                 <div class="col-12 col-sm-12 col-md-4 col-lg-4 content mt-2 py-1 pb-3 text-center w-100">
                   <div class="form-outline">
                     <label class="form-label" for="brand"></label>
-                    <select class="form-select py-2" aria-label="Default select example" name="brand" id="brand">
+                    <select class="form-select py-2 brandselect" aria-label="Default select example" name="brand" id="brand_2">
                     
                     </select>
                   </div>
@@ -117,7 +117,7 @@
                 <div class="col-12 col-sm-12 col-md-4 col-lg-4 content mt-1 text-center w-100">
                   <div class="form-outline">
                     <label class="form-label" for="model"></label>
-                    <select class="form-select py-2" aria-label="Default select example" name="model" id="model">
+                    <select class="form-select py-2 modelselect" aria-label="Default select example" name="model" id="model_2">
                      
                     </select>
                   </div>
@@ -139,7 +139,7 @@
                 <div class="col-12 col-sm-12 col-md-4 col-lg-4 content mt-2 py-1 pb-3 text-center w-100">
                   <div class="form-outline">
                     <label class="form-label" for="brand"></label>
-                    <select class="form-select py-2" aria-label="Default select example" name="brand" id="brand">
+                    <select class="form-select py-2 brandselect" aria-label="Default select example" name="brand" id="brand_3">
                   
                     </select>
                   </div>
@@ -147,7 +147,7 @@
                 <div class="col-12 col-sm-12 col-md-4 col-lg-4 content mt-1 text-center w-100">
                   <div class="form-outline">
                     <label class="form-label" for="model"></label>
-                    <select class="form-select py-2" aria-label="Default select example" name="model" id="model">
+                    <select class="form-select py-2 modelselect" aria-label="Default select example" name="model" id="model_3">
                       <!-- <option selected disabled="">Select Condition</option>
                       <option value="0-25%(Poor)">0-25%(Poor)</option>
                       <option value="26-50%(Average)">26-50%(Average)</option>
