@@ -29,13 +29,11 @@ include 'includes/footertag.php';
                                 class="fa-solid fa-chevron-right px-1"></i>
                         </span>
                     </span>
-                    <span class="text-dark">Sell</span>
-                </span>
-            </div>
+                </div>
         </div>
     </section>
     <section>
-        <div class="container">
+        <div class="container pt-3">
             <div class="vegehead">
                 <div class="row">
                     <div class="col-12 col-lg-6 ">

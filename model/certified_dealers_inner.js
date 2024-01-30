@@ -1,6 +1,7 @@
 $(document).ready(function() {
     console.log("ready!");
     $('#delership_enq_btn').click(store);
+    getdealerId();
     
 });
 function store(event) {
@@ -69,3 +70,51 @@ var url = "http://tractor-api.divyaltech.com/api/customer/customer_enquiries";
       }
     });
   }
+
+  function getdealerId() {
+    console.log(window.location)
+    var urlParams = new URLSearchParams(window.location.search);
+    var Id = urlParams.get('id');
+    var url = "http://tractor-api.divyaltech.com/api/customer/dealer_data/" + Id;
+     console.log(url);
+    $.ajax({
+        url: url,
+        type: "GET",
+        success: function(data) {
+        console.log(data, 'abc');
+        /* document.getElementById('brand_name').innerText=data.engine_oil_details[0].brand_name ;
+        document.getElementById('model_name').innerText=data.engine_oil_details[0].oil_model;
+        document.getElementById('grade').innerText=data.engine_oil_details[0].grade;
+        document.getElementById('quantity').innerText=data.engine_oil_details[0].quantity;
+        document.getElementById('price').innerText=data.engine_oil_details[0].price;
+        // document.getElementById('compatible_tractor').innerText=JSON.parse(data.engine_oil_details[0].compatible_model);
+        document.getElementById('description').innerText=data.engine_oil_details[0].description;
+     
+            var product = data.engine_oil_details[0];
+            var imageNames = product.image_names.split(',');
+            var carouselContainer = $('.mySwiper2_data');
+            var carouselContainer2 = $('.mySwiper_data');
+
+            carouselContainer.empty();
+
+            imageNames.forEach(function(imageName) {
+                var imageUrl = "http://tractor-api.divyaltech.com/uploads/engine_oil_img/" + imageName.trim(); 
+                var slide = $('<div class="swiper-slide swiper-slide_buy"><img class="img_buy" src="' + imageUrl + '" /></div>');
+                var slide2 = $('<div class="swiper-slide swiper-slide_buy"><img class="img_buy" src="' + imageUrl + '" /></div>');
+                carouselContainer.append(slide);
+                carouselContainer2.append(slide2);
+            });
+
+           // Initialize or update the Swiper carousel
+            var mySwiper = new Swiper('.mySwiper2_data', {
+              // Your Swiper configuration options
+          });
+          var mySwiper = new Swiper('.mySwiper_data', {
+              // Your Swiper configuration options
+          }); */
+        },
+        error: function (error) {
+            console.error('Error fetching data:', error);
+        }
+    });
+}
