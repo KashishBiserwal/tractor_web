@@ -237,6 +237,77 @@ function appendFilterCard(filterContainer, filter) {
 }
 
 
+function get_lookup() {
+    console.log('init');
+    var apiBaseURL = APIBaseURL;
+    var url = apiBaseURL + 'getLookupData';
+    $.ajax({
+        url: url,
+        type: "GET",
+        headers: {
+            'Authorization': 'Bearer ' + localStorage.getItem('token')
+        },
+        success: function (data) {
+            // lookup checkboxes for Power Source
+            console.log(data, 'ok');
+            var powerSourceDiv = $("#POWER_SOURCE");
+
+            // Filter data based on the 'name' property
+            var filteredData = data.data.filter(item => item.name === "POWER_SOURCE");
+
+            // Iterate over the filtered data
+            for (var i = 0; i < filteredData.length; i++) {
+                var checkboxId = "powerSourceCheckbox" + i;
+                var label = '<label for="' + checkboxId + '" class="ps-2 fs-6" style="margin-top:-8px;">' + filteredData[i].lookup_data_value + '</label><br />';
+                var checkbox = '<input type="checkbox"  id="' + checkboxId + '" class="checkbox-round mt-1 ms-3 " value="' + filteredData[i].id + '"/>';
+
+                powerSourceDiv.append('<div class="d-flex"   >' + checkbox + label + '</div>');
+            }
+        },
+        error: function (error) {
+            console.error('Error fetching data:', error);
+        }
+    });
+}
+
+get_lookup();
+
+function get() {
+    // var apiBaseURL = CustomerAPIBaseURL;
+    var url = 'http://tractor-api.divyaltech.com/api/customer/get_brands';
+
+    $.ajax({
+        url: url,
+        type: "GET",
+        headers: {
+            'Authorization': 'Bearer ' + localStorage.getItem('token')
+        },
+        success: function (data) {
+            console.log(data);
+
+            const checkboxContainer = $('#checkboxContainer');
+            checkboxContainer.empty(); // Clear existing checkboxes
+
+            // Loop through the data and add checkboxes
+            $.each(data.brands, function (index, brand) {
+                var brand_id = brand.id;
+                var brand_name = brand.brand_name;
+                var checkboxHtml = '<input type="checkbox" class="checkbox-round mt-1 ms-3 brand_checkbox" value="' + brand_id + '"/>' +
+                    '<span class="ps-2 fs-6">' + brand_name + '</span> <br/>';
+
+                checkboxContainer.append(checkboxHtml);
+            });
+        },
+        error: function (error) {
+            console.error('Error fetching data:', error);
+        }
+    });
+}
+get();
+
+
+
+
   function resetform(){
     $('.brand_checkbox').val('');
     $('.budget_checkbox').val('');
@@ -244,8 +315,8 @@ function appendFilterCard(filterContainer, filter) {
     $('.brand_checkbox:checked').prop('checked', false);
     $('.budget_checkbox:checked').prop('checked', false);
     $('.hp_checkbox:checked').prop('checked', false);
-    
-    getoldTractorList();
+    get_harvester();
+  
     // window.location.reload();
     
   }

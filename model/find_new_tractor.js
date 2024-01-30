@@ -283,7 +283,6 @@ function displayTractors(tractors) {
                         <td class="py-3">Rs. <span>${p.starting_price}</span> - <span>${p.ending_price}</span>*</td>
                     </tr>
 `;
-
                 // Add event listener for modal opening
     $(".add_btn").on("click", function () {
         var productId = $(this).data("product-id");

@@ -2,9 +2,15 @@
 <html lang="en">
 
 <head>
-    <?php
-   include 'includes/headertag.php';
-   ?>
+<?php
+include 'includes/headertag.php';
+   include 'includes/headertagadmin.php';
+   include 'includes/footertag.php';
+   
+   ?> 
+<script> var APIBaseURL = "<?php echo $APIBaseURL; ?>";</script>
+<script> var baseUrl = "<?php echo $baseUrl; ?>";</script>
+<script src="<?php $baseUrl; ?>model/hire_customer.js"></script>
     <style>
     .form-outline .form-label {
         color: #454444;
@@ -53,8 +59,8 @@
                 <div class="col-12 col-sm-9 col-lg-9 col-md-9">
                     <h3 class="pb-3 fw-bold">Search<span class="text-success fw-bold"> Rental Tractors In INDIA</span>
                     </h3>
-                    <div class="row">
-                        <div class="col-12 col-lg-4 col-md-6 col-sm-6 mb-3">
+                    <div class="row" id="productContainer">
+                        <!-- <div class="col-12 col-lg-4 col-md-6 col-sm-6 mb-3">
                             <div class="h-auto success__stry__item d-flex flex-column shadow ">
                                 <div class="thumb">
                                     <a href="hire_inner.php">
@@ -106,8 +112,6 @@
                                     </div>
                                 </div>
                             </div>
-
-                            <!-- Modal -->
                             <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static"
                                 data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel"
                                 aria-hidden="true">
@@ -116,7 +120,7 @@
                                         <div class="modal-header">
                                             <h4 class="modal-title text-dark fw-bold" id="staticBackdropLabel">Send
                                                 Rental Enquiry Mahindra 575 DI XP Plus</h4>
-                                                <button type="button" class="btn-close btn-success" data-bs-dismiss="modal" aria-label="Close"><img src="assets/images/close.png"></button>
+                                                <button type="button" class="btn-close btn-success" data-bs-dismiss="modal" aria-label="Close"><img src="assets/images/close.png" class="w-25"></button>
                                         </div>
                                         <div class="modal-body">
                                             <div class="model-cont">
@@ -160,14 +164,9 @@
                                                                 <select class="form-select py-2"
                                                                     aria-label="Default select example" id="state"
                                                                     name="state">
-                                                                    <option selected></option>
-                                                                    <option value="1">New Tractor Loan</option>
-                                                                    <option value="2">Used Tractor Loan,</option>
-                                                                    <option value="3">Loan Against Tractor</option>
-                                                                    <option value="4">Harvester Loan</option>
-                                                                    <option value="5">Used Harvester Loan</option>
-                                                                    <option value="6">Implement Loan</option>
-                                                                    <option value="7">Personal Loan</option>
+                                                                    <option selected disabled>Select State </option>
+                                                                    <option value="chhattisgarh">Chhattisgarh</option>
+                                                                    <option value="others">Others</option>
                                                                 </select>
                                                             </div>
                                                         </div>
@@ -179,10 +178,10 @@
                                                                 <select class="form-select py-2"
                                                                     aria-label="Default select example" name="district"
                                                                     id="district">
-                                                                    <option selected></option>
-                                                                    <option value="1">name1</option>
-                                                                    <option value="2">name2</option>
-                                                                    <option value="3">name3</option>
+                                                                    <option selected disabled>Select District</option>
+                                                                    <option value="raipur">Raipur</option>
+                                                                    <option value="bilaspur">Bilaspur</option>
+                                                                    <option value="ambikapur">Ambikapur</option>
                                                                 </select>
                                                             </div>
                                                         </div>
@@ -192,10 +191,10 @@
                                                                 <select class="form-select py-2"
                                                                     aria-label="Default select example" name="taluka"
                                                                     id="taluka">
-                                                                    <option selected></option>
-                                                                    <option value="1">name1</option>
-                                                                    <option value="2">name2</option>
-                                                                    <option value="3">name3</option>
+                                                                    <option selected disabled>Select Tehsil</option>
+                                                                    <option value="raipur">Raipur</option>
+                                                                    <option value="bilaspur">Bilaspur</option>
+                                                                    <option value="ambikapur">Ambikapur</option>
                                                                 </select>
                                                             </div>
                                                         </div>
@@ -212,266 +211,12 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-12 col-lg-4 col-md-6 col-sm-6 mb-3">
-                            <div class="h-auto  success__stry__item d-flex flex-column shadow ">
-                                <div class="thumb">
-                                    <a href="#">
-                                        <div class="ratio ratio-16x9">
-                                            <img src="assets/images/swaraj-855-fe-1694259363.webp"
-                                                class="object-fit-cover " alt="img">
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="content d-flex flex-column flex-grow-1 ">
-                                    <div class="caption text-center">
-                                        <a href="#" class="text-decoration-none text-dark">
-                                            <p class="pt-3" style="font-size: 17px;"><strong
-                                                    class="series_tractor_strong text-center  fw-bold ">Swaraj 855
-                                                    FE</strong></p>
-                                        </a>
-                                    </div>
-                                    <div class="power">
-                                        <a href="hire_inner.php" class="text-decoration-none text-dark">
-                                            <div class="row text-center">
-                                                <div class=" col-4 col-md-4 col-lg-4 col-sm-4">
-                                                    <p class="text-dark custom-font-size fw-bold "><i
-                                                            class="fa-solid fa-indian-rupee-sign "></i> 30/Acre</p>
-                                                </div>
-                                                <div class="col-4 col-md-4 col-lg-4 col-sm-4">
-                                                    <p class="text-dark custom-font-size fw-bold"> <i
-                                                            class="fas fa-bolt "></i> 47 HP</p>
-                                                </div>
-
-                                                <div class=" col-4 col-md-4 col-lg-4 col-sm-4">
-                                                    <p class="text-dark custom-font-size fw-bold"><i
-                                                            class="fa-solid fa-gear"></i> 2979 CC</p>
-                                                </div>
-                                            </div>
-                                            <div class="row text-center fw-bold text-primary">
-                                                <div class=" col-12 mb-2">
-                                                    Dhamtari,Chhattisgarh
-                                                </div>
-
-                                            </div>
-                                        </a>
-                                    </div>
-
-                                    <div class="col-12">
-                                        <button id="adduser" type="button" class="add_btn btn-success w-100">
-                                            Send Enquiry</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-12 col-lg-4 col-md-6 col-sm-6 mb-3">
-                            <div class="h-auto success__stry__item d-flex flex-column shadow ">
-                                <div class="thumb">
-                                    <a href="#">
-                                        <div class="ratio ratio-16x9">
-                                            <img src="assets/images/mahindra-275-di-xp-plus-1686557174.webp"
-                                                class="object-fit-cover " alt="img">
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="content d-flex flex-column flex-grow-1 ">
-                                    <div class="caption text-center">
-                                        <a href="#" class="text-decoration-none text-dark">
-                                            <p class="pt-3" style="font-size: 17px;"><strong
-                                                    class="series_tractor_strong text-center  fw-bold ">Mahindra 275
-                                                    DI XP Plus</strong></p>
-                                        </a>
-                                    </div>
-                                    <div class="power">
-                                        <a href="hire_inner.php" class="text-decoration-none text-dark">
-                                            <div class="row text-center">
-                                                <div class=" col-4 col-md-4 col-lg-4 col-sm-4">
-                                                    <p class="text-dark custom-font-size fw-bold "><i
-                                                            class="fa-solid fa-indian-rupee-sign"></i> 30/Acre</p>
-                                                </div>
-                                                <div class="col-4 col-md-4 col-lg-4 col-sm-4">
-                                                    <p class="text-dark custom-font-size  fw-bold"> <i
-                                                            class="fas fa-bolt "></i> 47 HP</p>
-                                                </div>
-
-                                                <div class=" col-4 col-md-4 col-lg-4 col-sm-4">
-                                                    <p class="text-dark custom-font-size fw-bold"><i
-                                                            class="fa-solid fa-gear"></i> 2979 CC</p>
-                                                </div>
-                                            </div>
-                                            <div class="row text-center fw-bold text-primary">
-                                                <div class=" col-12 mb-2">
-                                                    Dhamtari,Chhattisgarh
-                                                </div>
-
-                                            </div>
-                                        </a>
-                                    </div>
-
-                                    <div class="col-12">
-                                        <button id="adduser" type="button" class="add_btn btn-success w-100">
-                                            Send Enquiry</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-12 col-lg-4 col-md-6 col-sm-6 mb-3">
-                            <div class="h-auto success__stry__item d-flex flex-column shadow ">
-                                <div class="thumb">
-                                    <a href="#">
-                                        <div class="ratio ratio-16x9">
-                                            <img src="assets/images/swaraj-744-fe-1694259976.webp"
-                                                class="object-fit-cover " alt="img">
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="content d-flex flex-column flex-grow-1 ">
-                                    <div class="caption text-center">
-                                        <a href="#" class="text-decoration-none text-dark">
-                                            <p class="pt-3" style="font-size: 17px;"><strong
-                                                    class="series_tractor_strong text-center  fw-bold ">Swaraj 744
-                                                    FE</strong></p>
-                                        </a>
-                                    </div>
-                                    <div class="power">
-                                        <a href="hire_inner.php" class="text-decoration-none text-dark">
-                                            <div class="row text-center">
-                                                <div class=" col-4 col-md-4 col-lg-4 col-sm-4">
-                                                    <p class="text-dark custom-font-size fw-bold "><i
-                                                            class="fa-solid fa-indian-rupee-sign"></i> 30/Acre</p>
-                                                </div>
-                                                <div class="col-4 col-md-4 col-lg-4 col-sm-4">
-                                                    <p class="text-dark custom-font-size fw-bold"> <i
-                                                            class="fas fa-bolt "></i> 47 HP</p>
-                                                </div>
-
-                                                <div class=" col-4 col-md-4 col-lg-4 col-sm-4">
-                                                    <p class="text-dark custom-font-size fw-bold"><i
-                                                            class="fa-solid fa-gear"></i> 2979 CC</p>
-                                                </div>
-                                            </div>
-                                            <div class="row text-center fw-bold text-primary">
-                                                <div class=" col-12 mb-2">
-                                                    Dhamtari,Chhattisgarh
-                                                </div>
-
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div class="col-12">
-                                        <button id="adduser" type="button" class="add_btn btn-success w-100">
-                                            Send Enquiry</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-12 col-lg-4 col-md-6 col-sm-6 mb-3">
-                            <div class="h-auto  success__stry__item d-flex flex-column shadow ">
-                                <div class="thumb">
-                                    <a href="#">
-                                        <div class="ratio ratio-16x9">
-                                            <img src="assets/images/275-di-tu-1632206550.webp" class="object-fit-cover "
-                                                alt="img">
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="content d-flex flex-column flex-grow-1 ">
-                                    <div class="caption text-center">
-                                        <a href="#" class="text-decoration-none text-dark">
-                                            <p class="pt-3" style="font-size: 17px;"><strong
-                                                    class="series_tractor_strong text-center  fw-bold ">Mahindra 275
-                                                    DI TU</strong></p>
-                                        </a>
-                                    </div>
-                                    <div class="power">
-                                        <a href="hire_inner.php" class="text-decoration-none text-dark">
-                                            <div class="row text-center">
-                                                <div class=" col-4 col-md-4 col-lg-4 col-sm-4">
-                                                    <p class="text-dark custom-font-size fw-bold "><i
-                                                            class="fa-solid fa-indian-rupee-sign"></i> 30/Acre</p>
-                                                </div>
-                                                <div class="col-4 col-md-4 col-lg-4 col-sm-4">
-                                                    <p class="text-dark custom-font-size fw-bold"> <i
-                                                            class="fas fa-bolt "></i> 47 HP</p>
-                                                </div>
-
-                                                <div class=" col-4 col-md-4 col-lg-4 col-sm-4">
-                                                    <p class="text-dark custom-font-size fw-bold"><i
-                                                            class="fa-solid fa-gear"></i> 2979 CC</p>
-                                                </div>
-                                            </div>
-                                            <div class="row text-center fw-bold text-primary">
-                                                <div class=" col-12 mb-2">
-                                                    Dhamtari,Chhattisgarh
-                                                </div>
-
-                                            </div>
-                                        </a>
-                                    </div>
-
-                                    <div class="col-12">
-                                        <button id="adduser" type="button" class="add_btn btn-success w-100">
-                                            Send Enquiry</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-12 col-lg-4 col-md-6 col-sm-6 mb-3">
-                            <div class="h-auto success__stry__item d-flex flex-column shadow ">
-                                <div class="thumb">
-                                    <a href="#">
-                                        <div class="ratio ratio-16x9">
-                                            <img src="assets/images/380-1632220220.webp" class="object-fit-cover "
-                                                alt="img">
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="content d-flex flex-column flex-grow-1 ">
-                                    <div class="caption text-center">
-                                        <a href="#" class="text-decoration-none text-dark">
-                                            <p class="pt-3" style="font-size: 17px;"><strong
-                                                    class="series_tractor_strong text-center  fw-bold ">Eicher
-                                                    380</strong></p>
-                                        </a>
-                                    </div>
-                                    <div class="power">
-                                        <a href="hire_inner.php" class="text-decoration-none text-dark">
-                                            <div class="row text-center">
-                                                <div class=" col-4 col-md-4 col-lg-4 col-sm-4">
-                                                    <p class="text-dark custom-font-size fw-bold "><i
-                                                            class="fa-solid fa-indian-rupee-sign"></i> 30/Acre</p>
-                                                </div>
-                                                <div class="col-4 col-md-4 col-lg-4 col-sm-4">
-                                                    <p class="text-dark custom-font-size fw-bold"> <i
-                                                            class="fas fa-bolt "></i> 47 HP</p>
-                                                </div>
-
-                                                <div class=" col-4 col-md-4 col-lg-4 col-sm-4">
-                                                    <p class="text-dark custom-font-size fw-bold"><i
-                                                            class="fa-solid fa-gear"></i> 2979 CC</p>
-                                                </div>
-                                            </div>
-                                            <div class="row text-center text-primary">
-                                                <div class=" col-12 mb-2">
-                                                    Dhamtari,Chhattisgarh
-                                                </div>
-
-                                            </div>
-                                        </a>
-                                    </div>
-
-                                    <div class="col-12">
-                                        <button id="adduser" type="button" class="add_btn btn-success w-100">
-                                            Send Enquiry</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        </div> -->
 
                     </div>
                     <div class="col-12 text-center mt-3 pt-2 ">
-                        <button id="adduser" type="button" class="add_btn btn btn-success">
-                            <i class="fas fa-undo"></i> Load More tractors</button>
+                    <button id="loadMoreBtn" type="button" class="add_btn btn btn-success mt-4 shadow">
+                        <i class="fas fa-undo"></i>  Load More Tractor </button>
                     </div>
                 </div>
 
@@ -696,7 +441,6 @@
 
     <?php
     include 'includes/footer.php';
-    include 'includes/footertag.php';
 
     ?>
     <script>

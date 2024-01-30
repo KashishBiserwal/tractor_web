@@ -1,10 +1,13 @@
 $(document).ready(function() {
     console.log("ready!");
-
+   
     getharvesterById();
-
+    getharvesterList();
  $('#enquiry').click(harvester_enquiry);
 });
+
+
+
 function getharvesterById() {
     console.log(window.location)
     var urlParams = new URLSearchParams(window.location.search);
@@ -33,7 +36,6 @@ var concatenatedHeight = minCuttingHeight + ' - ' + maxCuttingHeight;
         document.getElementById('cylinder').innerText=data.product[0].total_cyclinder_value;
         document.getElementById('power_source').innerText=data.product[0].power_source_value;
         document.getElementById('crop').innerText=data.product[0].crops_type_value;
-
         document.getElementById('engine_type').innerText=data.product[0].engine_rated_rpm;
         document.getElementById('no_of_cylinder').innerText=data.product[0].total_cyclinder_value;
         document.getElementById('cooling_system').innerText=data.product[0].cooling_value;
@@ -55,8 +57,6 @@ var concatenatedHeight = minCuttingHeight + ' - ' + maxCuttingHeight;
         document.getElementById('min_ground_clear').innerText=data.product[0].ground_clearance;
         document.getElementById('fuel_tank').innerText=data.product[0].fuel_tank_capacity;
         document.getElementById('grain_tank_capacity').innerText=data.product[0].total_weight_without_grains;
-
-
             var product = data.product[0];
             var imageNames = product.image_names.split(',');
             var carouselContainer = $('.mySwiper2_data');
@@ -146,3 +146,99 @@ function harvester_enquiry() {
          }
        });
      }
+
+     function getharvesterList() {
+      var url = "http://tractor-api.divyaltech.com/api/customer/harvester";
+      console.log(url);
+  
+      $.ajax({
+          url: url,
+          type: "GET",
+          success: function(data) {
+              console.log(data, 'abc');
+              var productContainer = $("#productContainerharvester");
+              // var slider_head = $("#slider_head");
+  
+              if (data.product && data.product.length > 0) {
+                  data.product.forEach(function (p) {
+                      console.log(p,"pp");
+  
+                      var images = p.image_names;
+                      var a = [];
+  
+                      if (images) {
+                          if (images.indexOf(',') > -1) {
+                              a = images.split(',');
+                          } else {
+                              a = [images];
+                          }
+                      }
+                      // var silder_heading = ` <h1 class="d3 mb-0 text-white display-5 fw-bold">${p.brand_name}</h1>`;
+                      var newCard = `
+                      <div class="col-12 col-lg-4 col-md-4 col-sm-4 mb-4">
+                      <a href="harvester_inner.php?product_id=${p.id}" class="h-auto success__stry__item d-flex flex-column text-decoration-none shadow">
+                          <div class="thumb">
+                              <div>
+                                  <img src="http://tractor-api.divyaltech.com/uploads/product_img/${a[0]}" class="object-fit-cover w-100" alt="harvester_img">
+                              </div>
+                          </div>
+                          <div class="position-absolute" >
+                              <p  style="font-size:13px;" class="rounded-pill bg-success text-white ms-1 text-center px-2 mt-1">Self Propelled</p>
+                          </div>
+                          <div class="content d-flex flex-column flex-grow-1 ">
+                              
+                              <div class="power text-center mt-3">
+                              <div class="row text-center">
+                                  <div class="col-12 text-center">
+                                      <p class="fw-bold pe-3 text-primary">${p.id}</p>
+                                  </div>
+                              </div>
+                                  <div class="row ">
+                                      <div class="col-12 "><p class="text-dark ps-2">Cutting Width : ${p.cutting_bar_width} Feet</p></div>
+                                      
+                                  </div>    
+                              </div>
+                          </div>
+                          <div class="col-12 btn-success">
+                              <button type="button" class="btn btn-success py-2 w-100"></i> 
+                              Power : ${p.horse_power} HP
+                              </button>
+                          </div>
+                      </a>
+                  </div>
+                      `;
+  
+                      // Append the new card to the container
+                      productContainer.append(newCard);
+                      // slider_head.append(silder_heading);
+                  });
+  
+                  // Initialize Owl Carousel after adding cards
+                  productContainer.owlCarousel({
+                      items:3,
+                      loop: true,
+                      margin: 10,
+                      responsiveClass: true,
+                      responsive: {
+                          0: {
+                              items: 1,
+                              nav: true
+                          },
+                          600: {
+                              items: 3,
+                              nav: false
+                          },
+                          1000: {
+                              items: 3,
+                              nav: true,
+                              loop: false
+                          }
+                      }
+                  });
+              }
+          },
+          error: function (error) {
+              console.error('Error fetching data:', error);
+          }
+      });
+  }

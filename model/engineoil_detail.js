@@ -152,7 +152,7 @@ function displayEngineoil(engineoil) {
 
     
     engineoil.forEach(function (p) {
-        console.log(p,"ppp")
+        // console.log(p,"ppp")
         var images = p.image_names;
         var a = [];
 

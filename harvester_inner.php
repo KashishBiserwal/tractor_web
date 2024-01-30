@@ -638,8 +638,8 @@
         <section>
          <div class="container ">
             <h2 class="fw-bold text-dark text-start mt-4 assured ps-3">Similar Harvesters</h3>
-            <div class="row">
-                <div class="col-12 col-lg-3 col-md-3 col-sm-3 mb-4">
+            <div class="row" id="productContainerharvester">
+                <!-- <div class="col-12 col-lg-3 col-md-3 col-sm-3 mb-4">
                     <a href="harvester_inner.php" class="h-auto success__stry__item d-flex flex-column text-decoration-none shadow ">
                         <div class="thumb">
                             <div>
@@ -665,92 +665,11 @@
                             </button>
                         </div>
                     </a>
-                </div>
-                <div class="col-12 col-lg-3 col-md-3 col-sm-3 mb-4">
-                    <a href="harvester_inner.php" class="h-auto success__stry__item d-flex flex-column text-decoration-none shadow ">
-                        <div class="thumb">
-                            <div>
-                                <img src="assets/images/912-1646895681.webp" class="object-fit-cover w-100" alt="img">
-                            </div>
-                        </div>
-                        <div class="content d-flex flex-column flex-grow-1 ">
-                            <div class="power text-center mt-3">
-                                <div class="row text-center">
-                                    <div class="col-12 text-center">
-                                        <p class="fw-bold pe-3 text-primary">Dasmesh 912</p>
-                                    </div>
-                                </div>
-                                <div class="row ">
-                                   <div class="col-12 "><p class="text-dark ps-2">Cutting Width : 14 Feet</p></div>
-                                        
-                                </div>    
-                            </div>
-                        </div>
-                        <div class="col-12 btn-success">
-                            <button type="button" class="btn btn-success py-2 w-100"></i> 
-                                Power : 55-75
-                            </button>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-12 col-lg-3 col-md-3 col-sm-3 mb-4">
-                    <a href="harvester_inner.php" class="h-auto success__stry__item d-flex flex-column text-decoration-none shadow ">
-                        <div class="thumb">
-                            <div>
-                                <img src="assets/images/harvester_new.webp" class="object-fit-cover w-100" alt="img">
-                            </div>
-                        </div>
-                        <div class="content d-flex flex-column flex-grow-1 ">
-                            <div class="power text-center mt-3">
-                                <div class="row text-center">
-                                    <div class="col-12 text-center">
-                                        <p class="fw-bold pe-3 text-primary">Hind Agro HIND 999</p>
-                                    </div>
-                                </div>
-                                <div class="row ">
-                                   <div class="col-12 "><p class="text-dark ps-2">Cutting Width : 4400 Feet</p></div>
-                                        
-                                </div>    
-                            </div>
-                        </div>
-                        <div class="col-12 btn-success">
-                            <button type="button" class="btn btn-success py-2 w-100"></i> 
-                                Power : 101 HP
-                            </button>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-12 col-lg-3 col-md-3 col-sm-3 mb-4">
-                    <a href="harvester_inner.php" class="h-auto success__stry__item d-flex flex-column text-decoration-none shadow ">
-                        <div class="thumb">
-                            <div>
-                                <img src="assets/images/40009999.webp" class="object-fit-cover w-100" alt="img">
-                            </div>
-                        </div>
-                        <div class="content d-flex flex-column flex-grow-1 ">
-                            <div class="power text-center mt-3">
-                                <div class="row text-center">
-                                    <div class="col-12 text-center">
-                                        <p class="fw-bold pe-3 text-primary">Kartar 4000</p>
-                                    </div>
-                                </div>
-                                <div class="row ">
-                                   <div class="col-12 "><p class="text-dark ps-2">Cutting Width : 14 Feet</p></div>
-                                        
-                                </div>    
-                            </div>
-                        </div>
-                        <div class="col-12 btn-success">
-                            <button type="button" class="btn btn-success py-2 w-100"></i> 
-                                Power : 101 HP
-                            </button>
-                        </div>
-                    </a>
-                </div>
+                </div> -->
             </div>
          </div>
          <div class="col text-center my-3 pb-5">
-            <a href="#" class="btn btn-success btn-lg">View All Harvester</a>
+            <a href="harvester.php" class="btn btn-success btn-lg">View All Harvester</a>
         </div>
     </section>
 

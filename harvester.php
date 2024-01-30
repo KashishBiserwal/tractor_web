@@ -117,16 +117,11 @@ include 'includes/headertag.php';
                         </div>
                     </div>
                 </div>
-                <div class=" mb-3" id="">
+                <div class="mb-3" id="">
                     <div class="force-overflow">
-                        <h5 class=" ps-1 text-dark fw-bold mb-3">Power Source</h5>
-                        <div class="price py-2 ">
-                            <div class=" d-flex">
-                                <input type="checkbox" class="checkbox-round mt-1 ms-3" value="0-3"/><span class="ps-2 fs-6">Self Propelled (104)</span><br />
-                            </div>
-                            <div class=" d-flex">
-                                <input type="checkbox" class="checkbox-round mt-1 ms-3" value="3-6"/><span class="ps-2 fs-6">Tractor Mounted (14)</span><br />
-                            </div>
+                        <h5 class="ps-1 text-dark fw-bold">Power Source</h5>
+                        <div class="price pt-4 "  id="POWER_SOURCE">
+                            <!-- Checkbox options will be dynamically added here -->
                         </div>
                     </div>
                 </div>
@@ -139,9 +134,9 @@ include 'includes/headertag.php';
     <div class="conntainer text-center">
         <div class="py-4"><h3 class="fw-bold">About Combine <span class="text-success">Harvester</span></h3></div>
         <div class="py-3 container">
-            <p class="text-dark"> This Platform brings to you the options to choose the best Tractor Combine Harvesters for your farming needs. Best-in-Class machines with up to date technologies and high reliability brand support all through one site, Tractor Junction. We at Tractor Junction, know how crucial it can be for you to choose amongst the varied options amongst Tractor Combine Harvester and therefore we bring to you the best options along with reasonable price listing and description about all the specifications. The choice might be yours but you are never alone to make this choice, we make sure about this.</p> 
+            <p class="text-dark"> This Platform brings to you the options to choose the best Tractor Combine Harvesters for your farming needs. Best-in-Class machines with up to date technologies and high reliability brand support all through one site, BharatAgrimart. We at BharatAgrimart, know how crucial it can be for you to choose amongst the varied options amongst Tractor Combine Harvester and therefore we bring to you the best options along with reasonable price listing and description about all the specifications. The choice might be yours but you are never alone to make this choice, we make sure about this.</p> 
 
-            <p class="py-2">Choose amongst various brands such as Hind Agro, Dashmesh, Claas, New Hind, Preet, etc. Also you can select according to the needed Cutting Width. Not only this you can also filter your search on the basis of the Power Source, be it Self Propelled or Tractor Mounted, but we also have it all. Tractor Junction is committed to bringing to you the best products from the finest houses so you don’t have to mess with service providers thereafter. We bring to you the best because we know the value of the best. Tractor Junction serving you 24*7 at your finger clicks.</p>
+            <p class="py-2">Choose amongst various brands such as Hind Agro, Dashmesh, Claas, New Hind, Preet, etc. Also you can select according to the needed Cutting Width. Not only this you can also filter your search on the basis of the Power Source, be it Self Propelled or Tractor Mounted, but we also have it all. BharatAgrimart is committed to bringing to you the best products from the finest houses so you don’t have to mess with service providers thereafter. We bring to you the best because we know the value of the best. BharatAgrimart serving you 24*7 at your finger clicks.</p>
         </div>
     </div>
 </section>
