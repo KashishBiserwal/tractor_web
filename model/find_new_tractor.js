@@ -60,7 +60,6 @@ $(document).ready(function() {
 
 function model_click(){
     get();
-    console.log("confirm")
   }
 
   function get() {

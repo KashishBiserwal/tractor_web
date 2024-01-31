@@ -1,5 +1,4 @@
 $(document).ready(function(){
-
     $('#compareButton').click(store);
 });
 
@@ -25,7 +24,6 @@ function get() {
                         const option = document.createElement('option');
                         option.textContent = row.brand_name;
                         option.value = row.id;
-                        console.log(option);
                         select.appendChild(option);
                     });
 
@@ -54,7 +52,6 @@ function get_model(brand_id) {
             'Authorization': 'Bearer ' + localStorage.getItem('token')
         },
         success: function (data) {
-            console.log(data);
             const selects = document.querySelectorAll('.modelselect');
 
             selects.forEach(select => {
@@ -65,7 +62,6 @@ function get_model(brand_id) {
                         const option = document.createElement('option');
                         option.textContent = row.model;
                         option.value = row.id;
-                        console.log(option);
                         select.appendChild(option);
                     });
                 } else {
@@ -84,26 +80,12 @@ get();
 
 function store() {
     var brand_id = $('#brand').val();
-    var brand_id_1 = $('#brand_1').val();
-    var brand_id_2 = $('#brand_2').val();
-    var brand_id_3 = $('#brand_3').val();
     var model = $('#model').val();
-    var model_1 = $('#model_1').val();
-    var model_2 = $('#model_2').val();
-    var model_3 = $('#model_3').val();
-   console.log(model);
 
     var paraArr = {
       'brand_id': brand_id,
-      'brand_id': brand_id_1,
-      'brand_id': brand_id_2,
-      'brand_id': brand_id_3,
-      'model':model,
-      'model':model,
-      'model':model,
       'model':model,
     };
-  console.log(paraArr);
     // var apiBaseURL = APIBaseURL;
     var url = 'http://tractor-api.divyaltech.com/api/customer/compare_tractors';
     $.ajax({
@@ -115,7 +97,6 @@ function store() {
             'Authorization': 'Bearer ' + localStorage.getItem('token')
         },
         success: function (searchData) {
-          console.log(searchData,"hello brand");
           
         },
         error: function (error) {

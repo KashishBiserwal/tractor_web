@@ -55,11 +55,11 @@
                         <div class="col-12 col-sm-12 col-md-12 col-lg-12">
                             <div class=" row text-center">
                                 <div class="col-12 col-sm-6 col-lg-6 col-md-6">
-                                    <button id="reset_tractor" type="button" onclick="resetform()" class="add_btn btn btn-success w-100">
+                                    <button onclick="resetform()" type="button" onclick="resetform()" class="add_btn btn btn-success w-100">
                                     <i class="fas fa-undo"></i>  Reset </button>
                                 </div>
                                 <div class="col-12 col-sm-6 col-lg-6 col-md-6 pe-2">
-                                    <button id="filter_tractor" type="button" class="add_btn btn btn-success w-100">
+                                    <button id="filter_tractor"  type="button" class="add_btn btn btn-success w-100">
                                     <i class="fas fa-filter"></i>  Apply Filter </button>
                                 </div>
                             </div>

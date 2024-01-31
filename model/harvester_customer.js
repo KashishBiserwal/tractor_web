@@ -9,7 +9,7 @@ $(document).ready(function() {
     var allCards; // Variable to store all cards
 
     function get_harvester() {
-        var url = "http://tractor-api.divyaltech.com/api/customer/harvester";
+        var url = "http://tractor-api.divyaltech.com/api/customer/get_new_harvester";
         
 
         $.ajax({
@@ -239,8 +239,8 @@ function appendFilterCard(filterContainer, filter) {
 
 function get_lookup() {
     console.log('init');
-    var apiBaseURL = APIBaseURL;
-    var url = apiBaseURL + 'getLookupData';
+    // var apiBaseURL = APIBaseURL;
+    var url = 'http://tractor-api.divyaltech.com/api/customer/getLookupData';
     $.ajax({
         url: url,
         type: "GET",

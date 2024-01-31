@@ -25,13 +25,13 @@ function get_old_harvester_byiD() {
             var name = data.product[0].first_name + ', ' + data.product[0].last_name;
     
         document.getElementById('brand_model_name').innerText=brand_model_name;
-        document.getElementById('location').innerText=location;
-        document.getElementById('power_source1').innerText=data.product[0].power_source_value;
+        document.getElementById('location_1').innerText=location;
+        document.getElementById('Power_powerhp').innerText=data.product[0].power_source_value;
         document.getElementById('hour').innerText=data.product[0].hours_driven;
         document.getElementById('year1').innerText=data.product[0].purchase_year;
         document.getElementById('price_1').innerText=data.product[0].price;
         document.getElementById('model_name4').innerText=data.product[0].model;
-        document.getElementById('name').innerText=fullname;
+        document.getElementById('name').innerText=name;
         document.getElementById('mobile').innerText=data.product[0].mobile;
         document.getElementById('email').innerText=data.product[0].email;
         document.getElementById('district').innerText=data.product[0].district;
