@@ -31,42 +31,23 @@
         <div class="row my-3">
             <div class="col-12 col-sm-6 col-lg-6 col-md-6" style="position: relative;">
                 <div>
-<<<<<<< .mine
                     <h1 class="fw-bold text-danger pt-3" id="brand_model_name"></h1>
                     <div class="gallery">
                         <div class="swiper-container gallery-slider">
                             <div class="swiper-wrapper mySwiper2_data"></div>
                             <div class="swiper-button-prev"></div>
                             <div class="swiper-button-next"></div>
-
-
-=======
-                <h4 id="model_name"></h4>
-                </div>
-                <div>
-                <div class="swiper swiper_buy mySwiper2_buy">
-                        <div class="swiper-wrapper swiper-wrapper_buy">
-                            <div class=" swiper-slide swiper-slide_buy">
-                                 <!-- <img class="img_buy" src="assets/images/437-1632718440.webp" /> -->
-                            </div>
->>>>>>> .theirs
                         </div>
 
                         <div class="swiper-container gallery-thumbs">
                             <div class="swiper-wrapper mySwiper_data"></div>
                         </div>
                     </div>
-<<<<<<< .mine
-
-=======
-                    <div thumbsSlider="" class="swiper mySwiper_buy" style="height:50px; width: 43%;" id="swip_img"></div>
->>>>>>> .theirs
                 </div>
             </div>
             <div class="col-12 col-sm-6 col-lg-6 col-md-6" style="z-index: 9; background: #fff;">
                  <div class="pirce-section ">
-                    <!-- <h5 class="my-2">Price - ₹ 9,50,000</h5> -->
-                    <h5>Price:- <span id="original_price"></span> /-</h5>
+                    <h5 class="my-2">Price - ₹ 9,50,000</h5>
                 </div>
           
                 <form action="" method="POST" id="interested-harvester-form" class="outline-solid bg-light">
@@ -147,44 +128,18 @@
         <div class="row mb-2">
             <div class="col-12 col-lg-9 col-md-9 col-sm-9">
                 <div class="row my-4">
-                    <!-- <div class="col-3 col-md-3 col-lg-3 col-sm-3 ">
+                    <div class="col-3 col-md-3 col-lg-3 col-sm-3 ">
                         <div class="Engine shadow p-3 "style="backdistrictground-color:#fff">
                             <div class="col-12 text-center">
                                 <img src="assets/images/location.png" width="50" height="50" alt="">
                             </div>
                             <div class="col-12">
                                 <h6 class="engine_ text-center fw-bold fs-6 m-1 text-dark">Location</h6>
-<<<<<<< .mine
                                 <p class="engine_name text-center" id="location"></p>
-=======
-                                <p class="engine_name text-center"><span id=""></span> <span id="state"></span></p>
->>>>>>> .theirs
-                            </div>
-                        </div>
-                    </div> -->
-                    <div class="col-12 col-md-3 col-lg-3 col-sm-3 mb-3">
-                        <div class="Engine shadow p-3 "style="background-color:#fff">
-                            <div class="col-12 text-center">
-                                <img src="assets/images/engine.png" width="50" height="50" alt="">
-                            </div>
-                            <div class="col-12">
-                                <h6 class="engine_ text-center fw-bold fs-6 m-1 text-dark">Power Source</h6>
-                                <p class="engine_name text-center"><span id="Power_powerhp"></span>N/A</p>
                             </div>
                         </div>
                     </div>
-                    <div class="col-12 col-md-3 col-lg-3 col-sm-3 mb-3">
-                        <div class=" Total-Hours shadow p-3" style="background-color:#fff">
-                            <div class="col-12 text-center">
-                                <img src="assets/images/total-hours.png" width="50" height="50" alt="">
-                            </div>
-                            <div class="col-12">
-                                <h6 class="total_hours text-center fw-bold fs-6 m-1 text-dark">Total Hours</h6>
-                                <p class="total_time text-center" id="hours_driven"></p>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- <div class="col-3 col-md-3 col-lg-3 col-sm-3 ">
+                    <div class="col-3 col-md-3 col-lg-3 col-sm-3 ">
                         <div class=" Total-Hours shadow p-3" style="background-color:#fff">
                             <div class="col-12 text-center">
                                 <img src="assets/images/engine.png" width="50" height="50" alt="">
@@ -194,19 +149,8 @@
                                 <p class="total_time text-center" id="power_source1"></p>
                             </div>
                         </div>
-                    </div> -->
-                    <div class="col-12 col-md-3 col-lg-3 col-sm-3 mb-3">
-                        <div class=" Total-Hours shadow p-3" style="background-color:#fff">
-                            <div class="col-12 text-center">
-                                <img src="assets/images/location.png" width="50" height="50" alt="">
-                            </div>
-                            <div class="col-12">
-                                <h6 class="total_hours text-center fw-bold fs-6 m-1 text-dark">Location</h6>
-                                <p class="total_time text-center" id="location_1"></p>
-                            </div>
-                        </div>
                     </div>
-                    <!-- <div class="col-3 col-md-3 col-lg-3 col-sm-3">
+                    <div class="col-3 col-md-3 col-lg-3 col-sm-3">
                         <div class=" RTO shadow p-3" style="background-color:#fff">
                             <div class="col-12 text-center">
                                 <img src="assets/images/total-hours.png" width="50" height="50" alt="">
@@ -216,19 +160,8 @@
                                 <p class=" text-center" id="hour"></p>
                             </div>
                         </div>
-                    </div> -->
-                    <div class="col-12 col-md-3 col-lg-3 col-sm-3 mb-3">
-                        <div class=" Total-Hours shadow p-3" style="background-color:#fff">
-                            <div class="col-12 text-center">
-                                <img src="assets/images/purchase-year.png" width="50" height="50" alt="">
-                            </div>
-                            <div class="col-12">
-                                <h6 class="total_hours text-center fw-bold fs-6 m-1 text-dark">Purchase Year</h6>
-                                <p class="total_time text-center" id="purchase_year"></p>
-                            </div>
-                        </div>
                     </div>
-                    <!-- <div class="col-3 col-md-3 col-lg-3 col-sm-3 ">
+                    <div class="col-3 col-md-3 col-lg-3 col-sm-3 ">
                         <div class=" RTO shadow p-3" style="background-color:#fff">
                             <div class="col-12 text-center">
                                 <img src="assets/images/purchase-year.png" width="50" height="50" alt="">
@@ -238,11 +171,11 @@
                                 <p class=" text-center" id="year1"></p>
                             </div>
                         </div>
-                    </div> -->
+                    </div>
                 </div>
                 <div class="my-4">
                     <div class="text-editor-black my-4 " style="background-color:#fff">
-                    <h4><p class="mt-md mt-4 p-2 mb-3 my-4 assured">Specifications For <span id="model_name2"></span></h4>
+                        <h4><p class="mt-md mt-4 p-2 mb-3 my-4 assured"><span id="model2"></span> Harvester Specifications</p></h4>
                     </div>
                 </div>
                 <table class="table w-100 table-hover table table-striped my-4">
@@ -253,16 +186,16 @@
                         </tr>
                         <tr class="col-12">
                         <td class="table-data col-6">Cutting width</td>
-                        <td class="table-data col-6"><span id="cutting_width"></span></td>
+                        <td class="table-data col-6"><span id="cutting_width"></span> Feets</td>
                         </tr>
                         <tr>
                         <td class="table-data">Crop Type</td>
                         <td class="table-data" id="crop_type"></td>
                         </tr>
-                        <!-- <tr>
+                        <tr>
                         <td class="table-data">Power Source</td>
                         <td class="table-data" id="power_source"></td>
-                        </tr> -->
+                        </tr>
                         <tr>
                         <td class="table-data">Hours</td>
                         <td class="table-data" id="hours"></td>
@@ -273,55 +206,42 @@
                         </tr>
                         <tr>
                         <td class="table-data">Price</td>
-<<<<<<< .mine
                         <td class="table-data">₹ <span id="price_"></span> /-</td>
-=======
-                        <td class="table-data" ><span id="price_1"></span> /-</td>
->>>>>>> .theirs
                         </tr>
                         
                     </tbody>
                 </table>
                 <div class="my-4">
                     <div class="text-editor-black my-4 " style="background-color:#fff">
-                    <h4><p class="mt-md mt-4 p-2 mb-3 my-4 assured">Seller Info <span id="model_name4"></span></p></h4>
+                        <h4><p class="mt-md mt-4 p-2 mb-3 my-4 assured">Seller Info</p></h4>
                     </div>
                 </div>
                 <table class="table1 w-100 table-hover table table-striped my-4">
                      <tbody>
                         <tr>
                         <td class="table-data">Name</td>
-<<<<<<< .mine
                         <td class="table-data" id="first_name"></td>
-=======
-                        <td class="table-data" id="name"></td>
->>>>>>> .theirs
                         </tr>
                         <tr>
                         <td class="table-data">Mobile Number</td>
                         <td class="table-data" id="mobile_"></td>
                         </tr>
-                        <tr>state
+                        <tr>
                         <td class="table-data">District</td>
                         <td class="table-data" id="district_"></td>
                         </tr>
                         <tr>
                         <td class="table-data">State</td>
-<<<<<<< .mine
                         <td class="table-data" id="state_"></td>
-=======
-                        <td class="table-data" id=""></td>
->>>>>>> .theirs
                         </tr>
                     </tbody>
                 </table>
 
-               <div class="my-4">
-                    <div class="text-editor-black my-4 " style="background-color:#fff">
-                        <h4><p class="mt-md mt-4 p-2 mb-3 my-4 assured"><span id="model4"></span> Description</p></h4>
-                    </div>
+                <div class="text-editor-black  my-3" style="background-color:#fff">
+                <h4><p class="mt-md mt-3 p-2 mb-3 assured ps-3 my-4"><span id="model3"></span> Harvester Description</p></h4>
+                </div>
+                <div class="product_discription">
                     <p id="description"></p>
-                    
                 </div>
             </div>
 

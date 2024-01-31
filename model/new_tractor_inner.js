@@ -87,8 +87,7 @@ function getProductById() {
                 carouselContainer.append(slide);
             });
 
-            var mySwiper = new Swiper('.swiper_buy', {
-            });
+            var mySwiper = new Swiper('.swiper_buy', {});
             console.log(data, 'abc');
         },
         error: function (error) {
@@ -154,12 +153,12 @@ function displayBrands(brands) {
 
     brands.forEach(function (b) {
         var newCard = `
-            <div class="col-6 col-lg-6 col-md-6 col-sm-6">
-                <div class="brand-main box-shadow mt-2 text-center shadow">
+            <div class="col-6 col-lg-6 col-md-6 col-sm-6 p-2">
+                <div class="brand-main box_shadow text-center">
                     <a class="weblink text-decoration-none text-dark" href="#" title="Old Tractors">
-                        <img class="img-fluid w-50" src="http://tractor-api.divyaltech.com/uploads/brand_img/${b.brand_img}"
-                            data-src="h" alt="Brand Logo">
-                        <p class="mb-0 oneline">${b.brand_name}</p>
+                        <img class="img-fluid " src="http://tractor-api.divyaltech.com/uploads/brand_img/${b.brand_img}"
+                            data-src="h" alt="Brand Logo" style="    height: 120px; padding: 10px;">
+                        <p class="mb-0 pb-1 oneline">${b.brand_name}</p>
                     </a>
                 </div>
             </div>
