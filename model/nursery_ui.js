@@ -249,21 +249,25 @@ function displaynursery(nursery) {
        
     });
 }
+
+function resetForm(formId) {
+    // Reset the form by using its ID
+    document.getElementById(formId).reset();
+}
 function savedata(formId) {
     nursery_enquiry(formId);
     console.log("Form submitted successfully");
-  }
+}
 
-function nursery_enquiry() {
-    var enquiry_type_id = $('#enquiry_type_id').val();
-    var product_id = 3;
-    var first_name = $('#first_name_1').val();
-    console.log('first_name',first_name)
-    var last_name = $('#last_Name_1').val();
-    var mobile_number = $('#mobile_number_1').val();
-    var state = $('#state_1').val();
-    var district = $('#district_1').val();
-    var tehsil = $('#Tehsil_1').val();
+function nursery_enquiry(formId) {
+    var enquiry_type_id = $(`#${formId} #enquiry_type_id`).val();
+    var product_id = 3;  // You may need to adjust this based on your logic
+    var first_name = $(`#${formId} #first_name_1`).val();
+    var last_name = $(`#${formId} #last_Name_1`).val();
+    var mobile_number = $(`#${formId} #mobile_number_1`).val();
+    var state = $(`#${formId} #state_1`).val();
+    var district = $(`#${formId} #district_1`).val();
+    var tehsil = $(`#${formId} #Tehsil_1`).val();
 
     var paraArr = {
         'enquiry_type_id': enquiry_type_id,
@@ -276,30 +280,23 @@ function nursery_enquiry() {
         'tehsil': tehsil,
     };
 
-    console.log(paraArr, 'sdfyuiofghjkfdghg');
-
-    // Update the URL to the correct API endpoint
     var url = 'http://tractor-api.divyaltech.com/api/customer/customer_enquiries';
 
-    console.log(url);
-
-    // Remove the token-related code if authentication is not needed
+    // You can keep the token-related code if needed
     var token = localStorage.getItem('token');
     var headers = {
-      'Authorization': 'Bearer ' + token
+        'Authorization': 'Bearer ' + token
     };
 
     $.ajax({
         url: url,
-        type: 'POST',
+        type: 'POST',  
         data: paraArr,
-        // Remove headers if not needed
-        // headers: headers,
-        success: function(result) {
-            console.log(result, 'result');
-            console.log('Add successfully');
-            
-            $("#nursery_callbnt_").modal('hide'); 
+        // headers: headers, // Remove headers if not needed
+        success: function (result) {
+            console.log(result, "result");
+            // $(`#${formId}`).closest('.modal').modal('hide');
+            $("#used_tractor_callbnt_").modal('hide'); 
             var msg = "Added successfully !"
             $("#errorStatusLoading").modal('show');    
             $("#errorStatusLoading").find('.modal-title').html('<p class="text-center">Congratulation..! Requested Successful</p>');
@@ -307,12 +304,19 @@ function nursery_enquiry() {
             $("#errorStatusLoading").find('.modal-body').html(msg);
             $("#errorStatusLoading").find('.modal-body').html('<img src="assets/images/7efs.gif" style="display:block; margin:0 auto;" class="w-50 text-center" alt="Successfull Request"></img>');
           
-            // Delayed execution of alert
-           
-        
             // getOldTractorById();
             console.log("Add successfully");
-        },
+            resetForm(formId);
+          },
+          error: function (error) {
+            console.error('Error fetching data:', error);
+            var msg = error;
+            $("#errorStatusLoading").modal('show');
+            $("#errorStatusLoading").find('.modal-title').html('<p class="text-center">Process Failed..! Enter Valid Detail</p>');
+            $("#errorStatusLoading").find('.modal-body').html(msg);
+            $("#errorStatusLoading").find('.modal-body').html('<img src="assets/images/comp_3.gif" style="display:block; margin:0 auto;" class="w-50 text-center" alt="Successfull Request"></img>');
+            // 
+          }
     });
 }
 
@@ -427,7 +431,7 @@ function appendFilterCard(filterContainer, filter) {
                     <div class="modal-dialog modal-lg modal-dialog-centered">
                         <div class="modal-content">
                             <div class="modal-header  modal_head">
-                                <h5 class="modal-title text-white ms-1" id="staticBackdropLabel">Contact Nursery</h5>
+                                <h5 class="modal-title text-white ms-1" id="model_form">${p.model}></h5>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <div class="modal-body my-3">

@@ -63,10 +63,13 @@ function displaylist(tractors) {
             } else {
                 a = [images];
             }
-        }
-
+        }  
+        var cardId = `card_${p.product_id}`; // Dynamic ID for the card
+        var modalId = `used_tractor_callbnt_${p.product_id}`; // Dynamic ID for the modal
+        var formId = `contact-seller-call${p.product_id}`; // Dynamic ID for the form
+        
         var newCard = `
-            <div class="col-12 col-lg-4 col-md-4 col-sm-4 mb-3">
+            <div class="col-12 col-lg-4 col-md-4 col-sm-4 mb-3" id="${cardId}">
                 <div class="h-auto success__stry__item d-flex flex-column shadow">
                     <div class="thumb">
                         <a href="hatbzrbuy_inner.php?id=${p.haat_bazar_id}">
@@ -94,42 +97,31 @@ function displaylist(tractors) {
                             <p class=" text-center" id="district"><span id="engine_powerhp2"></span> ${p.district},<span id="year"> ${p.state}</span></p>
                         </div>
                         <div class="col-12">
-                            <button type="button" class="add_btn btn-success w-100" data-bs-toggle="modal" data-bs-target="#used_tractor_callbnt_${p.product_id}" data-product-id="${p.product_id}">
+                            <button type="button" class="add_btn btn-success w-100" data-bs-toggle="modal" data-bs-target="#${modalId}" data-product-id="${p.product_id}">
                                 <i class="fa-regular fa-handshake"></i> Contact Seller
                             </button>
                         </div>
 
-                        <div class="modal fade" id="used_tractor_callbnt_${p.product_id}" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                        <div class="modal fade" id="${modalId}" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                             <div class="modal-dialog modal-lg modal-dialog-centered">
                               <div class="modal-content">
                                 <div class="modal-header  modal_head">
                                   <h5 class="modal-title text-white ms-1" id="staticBackdropLabel">${p.model}</h5>
                                   <button type="button" class="btn-close btn-success" data-bs-dismiss="modal" aria-label="Close"><img src="assets/images/close.png"></button>
                                 </div>
-                                <!-- MODAL BODY -->
-                                <div class="modal-body">
-                                <form  id="contact-seller-call" method="POST" onsubmit="return false">
-                                    <div class="row">
-                                        <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                                            <label for="name" class="form-label fw-bold text-dark"> <i class="fa-brands fa-font-awesome"></i>  Brand Name</label>
-                                            <select class="form-select py-2 " aria-label=".form-select-lg example" id="brandName" name="brandName">
-                                           
-                                            </select>
-                                            
-                                        </div>
-                                        <div class="col-12 col-lg-6 col-md-6 col-sm-6 " hidden>
-                                        <label for="name" class="form-label fw-bold text-dark"><i class="fa-duotone fa-chart-pie-simple"></i> Model Name</label>
-                                        <input type="text" class="form-control" placeholder="Enter Your Name" id="enquiry_type_id" value="2" name="iduser">
-                                    </div>
+                              
                                     <!-- MODAL BODY -->
                                     <div class="modal-body">
-                                        <form id="contact-seller-call" method="POST" onsubmit="return false">
+                                        <form id="${formId}" method="POST" onsubmit="return false">
                                             <div class="row">
                                                 <div class="col-12 col-lg-6 col-md-6 col-sm-6 " hidden>
                                                     <label for="name" class="form-label fw-bold text-dark"><i class="fa-duotone fa-chart-pie-simple"></i> Model Name</label>
                                                     <input type="text" class="form-control" placeholder="Enter Your Name" id="enquiry_type_id" value="8" name="iduser">
                                                 </div>
-
+                                                <div class="col-12 col-lg-6 col-md-6 col-sm-6 " hidden>
+                                                <label for="name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i> product_id</label>
+                                                <input type="text" class="form-control" id="product_id" value="${p.product_id}" hidden> 
+                                                </div>
                                                 <div class="col-12 col-sm-6 col-md-6 col-lg-6">
                                                     <label for="" class="form-label text-dark fw-bold"> <i class="fa-regular fa-user"></i> First Name</label>
                                                     <input type="text" class="form-control" placeholder="Enter Number" id="firstName" name="firstName">
@@ -167,7 +159,7 @@ function displaylist(tractors) {
                                             </div>
 
                                             <div class="modal-footer">
-                                                <button type="submit" id="submit_enquiry" class="btn add_btn btn-success w-100 btn_all" onclick="savedata()" data-bs-dismiss="modal">Submit</button>
+                                                <button type="submit" id="submit_enquiry" class="btn add_btn btn-success w-100 btn_all" onclick="savedata('${formId}')" data-bs-dismiss="modal">Submit</button>
                                                 <!-- <a class="btn  text-primary" data-dismiss="modal">Ok</a> -->
                                             </div>
                                         </form>
@@ -184,73 +176,76 @@ function displaylist(tractors) {
         productContainer.append(newCard);
 
         // Add event listener for modal opening
-        $(".add_btn").on("click", function() {
-            var productId = $(this).data("product-id");
-            $("#used_tractor_callbnt_" + productId).modal("show");
-        });
+     
     });
 }
+function resetForm(formId) {
+    // Reset the form by using its ID
+    document.getElementById(formId).reset();
+}
+function savedata(formId) {
+    submit_enquiry(formId);
+    console.log("Form submitted successfully");
+}
 
-function savedata() {
-    var enquiry_type_id = $('#enquiry_type_id').val();
-    var first_name = $('#firstName').val();
-    var last_name = $('#lastName').val();
-    var mobile = $('#mobile_number').val();
-    var state = $('#state').val();
-    console.log(state);
-    var district = $('#district_1').val();
-    console.log(district);
-    var tehsil = $('#Tehsil').val();
-    var product_id = 9;
-    // var model_form = $('#staticBackdropLabel').val();
+function submit_enquiry(formId) {
+    var enquiry_type_id = $(`#${formId} #enquiry_type_id`).val();
+    var product_id = 30;  // You may need to adjust this based on your logic
+    var first_name = $(`#${formId} #firstName`).val();
+    var last_name = $(`#${formId} #lastName`).val();
+    var mobile_number = $(`#${formId} #mobile_number`).val();
+    var state = $(`#${formId} #state`).val();
+    var district = $(`#${formId} #district_1`).val();
+    var tehsil = $(`#${formId} #Tehsil`).val();
 
-    // Prepare data to send to the server
     var paraArr = {
-        'product_id': product_id,
         'enquiry_type_id': enquiry_type_id,
+        'product_id': product_id,
         'first_name': first_name,
         'last_name': last_name,
-        'mobile': mobile,
+        'mobile': mobile_number,
         'state': state,
         'district': district,
         'tehsil': tehsil,
-        // 'model': model_form,
     };
 
-    var apiBaseURL = "http://tractor-api.divyaltech.com/api/customer/customer_enquiries";
-    var url = apiBaseURL;
+    var url = 'http://tractor-api.divyaltech.com/api/customer/customer_enquiries';
 
-    // Make an AJAX request to the server
+    // You can keep the token-related code if needed
+    var token = localStorage.getItem('token');
+    var headers = {
+        'Authorization': 'Bearer ' + token
+    };
     $.ajax({
         url: url,
-        type: "POST",
+        type: 'POST',  
         data: paraArr,
+        // headers: headers, // Remove headers if not needed
         success: function (result) {
-          console.log(result, "result");
+            console.log(result, "result");
+            // $(`#${formId}`).closest('.modal').modal('hide');
+            $("#used_tractor_callbnt_").modal('hide'); 
+            var msg = "Added successfully !"
+            $("#errorStatusLoading").modal('show');    
+            $("#errorStatusLoading").find('.modal-title').html('<p class="text-center">Congratulation..! Requested Successful</p>');
+         
+            $("#errorStatusLoading").find('.modal-body').html(msg);
+            $("#errorStatusLoading").find('.modal-body').html('<img src="assets/images/7efs.gif" style="display:block; margin:0 auto;" class="w-50 text-center" alt="Successfull Request"></img>');
           
-          $("#used_tractor_callbnt_").modal('hide'); 
-          var msg = "Added successfully !"
-          $("#errorStatusLoading").modal('show');    
-          $("#errorStatusLoading").find('.modal-title').html('<p class="text-center">Congratulation..! Requested Successful</p>');
-       
-          $("#errorStatusLoading").find('.modal-body').html(msg);
-          $("#errorStatusLoading").find('.modal-body').html('<img src="assets/images/7efs.gif" style="display:block; margin:0 auto;" class="w-50 text-center" alt="Successfull Request"></img>');
-        
-          // getOldTractorById();
-          console.log("Add successfully");
-        
-        },
-        error: function (error) {
-          console.error('Error fetching data:', error);
-          var msg = error;
-          $("#errorStatusLoading").modal('show');
-          $("#errorStatusLoading").find('.modal-title').html('<p class="text-center">Process Failed..! Enter Valid Detail</p>');
-          $("#errorStatusLoading").find('.modal-body').html(msg);
-          $("#errorStatusLoading").find('.modal-body').html('<img src="assets/images/comp_3.gif" style="display:block; margin:0 auto;" class="w-50 text-center" alt="Successfull Request"></img>');
-          // 
-        }
-      });
+            // getOldTractorById();
+            console.log("Add successfully");
+            resetForm(formId);
+          },
+          error: function (error) {
+            console.error('Error fetching data:', error);
+            var msg = error;
+            $("#errorStatusLoading").modal('show');
+            $("#errorStatusLoading").find('.modal-title').html('<p class="text-center">Process Failed..! Enter Valid Detail</p>');
+            $("#errorStatusLoading").find('.modal-body').html(msg);
+            $("#errorStatusLoading").find('.modal-body').html('<img src="assets/images/comp_3.gif" style="display:block; margin:0 auto;" class="w-50 text-center" alt="Successfull Request"></img>');
+            // 
+          }
+    });
 }
-
 
 

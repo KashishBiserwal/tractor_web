@@ -745,9 +745,9 @@ function destroy(id) {
           document.getElementById('category').innerText = data.allData.category_name[0].haat_bazar_category_name;
           document.getElementById('subcategory').innerText = data.allData.haat_bazar_data[0].sub_category_name;
           document.getElementById('quantity').innerText = data.allData.haat_bazar_data[0].quantity;
-          document.getElementById('as_per').innerText = data.allData.haat_bazar_data[0].as_per;
+          // document.getElementById('as_per').innerText = data.allData.haat_bazar_data[0].as_per;
           document.getElementById('Total_price').innerText =data.allData.haat_bazar_data[0].price;
-          document.getElementById('dist1').innerText =data.allData.haat_bazar_data[0].district;
+          // document.getElementById('dist1').innerText =data.allData.haat_bazar_data[0].district;
           document.getElementById('textarea').innerText = data.allData.haat_bazar_data[0].about;
           document.getElementById('first_name').innerText = data.allData.haat_bazar_data[0].first_name;
           document.getElementById('last_name').innerText = data.allData.haat_bazar_data[0].last_name;

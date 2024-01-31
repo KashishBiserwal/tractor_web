@@ -163,7 +163,7 @@ $(document).ready(function(){
  // fetch data
  function get_haatbzr() {
   var apiBaseURL = APIBaseURL;
-  var url = apiBaseURL + 'haat_bazar';
+  var url = apiBaseURL + 'get_enquiry_for_haat_bazar';
   $.ajax({
       url: url,
       type: "GET",
@@ -172,28 +172,28 @@ $(document).ready(function(){
       },
       success: function (data) {
           const tableBody = document.getElementById('data-table');
- const categoryName = data.allData.category_name[0].haat_bazar_category_name;
+//  const categoryName = data.allData.category_name[0].haat_bazar_category_name;
      
-          if (data.allData.haat_bazar_data && data.allData.haat_bazar_data.length > 0) {
+          if (data.haatBazarData && data.haatBazarData.length > 0) {
               let tableData = [];
               let counter = 1;
 
-              data.allData.haat_bazar_data.forEach(row => {
+              data.haatBazarData.forEach(row => {
                   let action = `
                       <div class="d-flex">
-                          <button class="btn btn-warning btn-sm text-white mx-1" data-bs-toggle="modal" onclick="openView(${row.haat_bazar_id});" data-bs-target="#viewdatamodel">
+                          <button class="btn btn-warning btn-sm text-white mx-1" data-bs-toggle="modal" onclick="openView(${row.id});" data-bs-target="#viewdatamodel">
                           <i class="fa-solid fa-eye" style="font-size: 11px;"></i></button>
-                          <button class="btn btn-primary btn-sm btn_edit" onclick="fetch_edit_data(${row.haat_bazar_id});" data-bs-toggle="modal" data-bs-target="#data_for_edit" id="yourUniqueIdHere" style="padding:5px">
+                          <button class="btn btn-primary btn-sm btn_edit" onclick="fetch_edit_data(${row.id});" data-bs-toggle="modal" data-bs-target="#data_for_edit" id="yourUniqueIdHere" style="padding:5px">
                             <i class="fas fa-edit" style="font-size: 11px;"></i>
                           </button>
-                          <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.haat_bazar_id});" style="padding:5px">
+                          <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.id});" style="padding:5px">
                             <i class="fa fa-trash" style="font-size: 11px;"></i>
                           </button>
                       </div>`;
 
                   tableData.push([
                       counter,
-                      categoryName,
+                      row.category_name,
                       row.sub_category_name,
                       row.first_name,
                       row.mobile,
@@ -274,7 +274,7 @@ get_haatbzr();
       // View data
 function openView(userId) {
     var apiBaseURL = APIBaseURL;
-    var url = apiBaseURL + 'haat_bazar/' + userId;
+    var url = apiBaseURL + 'get_enquiry_for_haat_bazar_by_id/' + userId;
   
     var headers = {
       'Authorization': 'Bearer ' + localStorage.getItem('token')
@@ -286,7 +286,7 @@ function openView(userId) {
       headers: headers,
     
       success: function(response) {
-        var userData = response.allData.haat_bazar_data[0];
+        var userData = response.haatBazarData[0];
         document.getElementById('category').innerText=userData.haat_bazar_category_name;
         document.getElementById('sub_category').innerText=userData.sub_category_name;
         document.getElementById('fname').innerText=userData.first_name;
@@ -333,7 +333,7 @@ function openView(userId) {
     //   Edit data
     function fetch_edit_data(userId) {
         var apiBaseURL = APIBaseURL;
-        var url = apiBaseURL + 'haat_bazar/' + userId;
+        var url = apiBaseURL + 'get_enquiry_for_haat_bazar_by_id/' + userId;
       
         var headers = {
           'Authorization': 'Bearer ' + localStorage.getItem('token')
@@ -344,7 +344,7 @@ function openView(userId) {
           type: 'GET',
           headers: headers,
           success: function(response) {
-            var userData = response.allData.haat_bazar_data[0];
+            var userData = response.haatBazarData[0];
             $('#userId').val(userData.haat_bazar_id);
             $('#username').val(userData.haat_bazar_id);
             $('#category1').val(userData.haat_bazar_category_name);
@@ -352,33 +352,18 @@ function openView(userId) {
             $('#first_name1').val(userData.first_name);
             $('#last_name1').val(userData.last_name);
             $('#mobile_no').val(userData.mobile);
-            $('#state_').val(userData.state);
-            $('#district').val(userData.district);
-            $('#tehsil').val(userData.tehsil);
+            // $('#state_').val(userData.state);
+            // $('#district').val(userData.district);
+            // $('#tehsil').val(userData.tehsil);
             $('#price').val(userData.price);
+            $("#state_ option").prop("selected", false);
+            $("#state_ option[value='" + Data.state + "']").prop("selected", true);
+           
+            $("#district option").prop("selected", false);
+            $("#district option[value='" + Data.district + "']").prop("selected", true);
 
-          //   $("#selectedImagesContainer2").empty();
-          //   if (userData.image_names) {
-          //     var imageNamesArray = Array.isArray(userData.image_names) ? userData.image_names : userData.image_names.split(',');
-          //     var countclass=0;
-          //     imageNamesArray.forEach(function (image_names) {
-          //         var imageUrl = 'http://tractor-api.divyaltech.com/uploads/haat_bazar_img/' + image_names.trim();
-          //         console.log(imageUrl);
-          //         countclass++;
-          //         var newCard = `
-          //             <div class="col-12 col-md-6 col-lg-4 mb-3 position-relative">
-          //             <div class="upload__img-close_button " id="closeId${countclass}" onclick="removeImage(this);"></div>
-          //                 <div class="brand-main d-flex box-shadow mt-1 py-2 text-center shadow upload__img-closeDy${countclass}">
-          //                     <a class="weblink text-decoration-none text-dark" title="Tyre Image">
-          //                         <img class=" img-fluid w-100 h-100" src="${imageUrl}" alt="Tyre Image">
-          //                     </a>
-          //                 </div>
-          //             </div>
-          //         `;
-          
-          //         $("#selectedImagesContainer2").append(newCard);
-          //     });
-          // }
+            $("#tehsil option").prop("selected", false);
+            $("#tehsil option[value='" + Data.tehsil + "']").prop("selected", true);
           },
           error: function(error) {
             console.error('Error fetching user data:', error);

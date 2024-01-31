@@ -15,34 +15,33 @@ function gethaatbazzat() {
   var urlParams = new URLSearchParams(window.location.search);
   var customer_id = urlParams.get('id');
   console.log(customer_id,'sdfghjksdfghjk');
-  var url = 'http://tractor-api.divyaltech.com/api/customer/get_haat_bazar/' + customer_id;
+  var url = 'http://tractor-api.divyaltech.com/api/customer/get_haat_bazar_by_id/' + customer_id;
   
   $.ajax({    
       url: url,
       type: "GET",
       success: function(data) {
           console.log(data, 'abc');
-
+          // document.getElementById('category_name').innerText = data.allData.haat_bazar_category_name[0].model; 
           // Concatenate district and state
-          var location = data.getOldImplement[0].district + ', ' + data.getOldImplement[0].state;
+          // var location = data.haat_bazar_data[0].district + ', ' + data.haat_bazar_data[0].state;
 
           // Update HTML elements with data
-          document.getElementById('original_price').innerText = data.getOldImplement[0].price;   
-          document.getElementById('category_name').innerText = data.getOldImplement[0].model;  
-          document.getElementById('sucategory_name').innerText = data.getOldImplement[0].sub_category_id;
-          document.getElementById('quantity').innerText = data.getOldImplement[0].quantity;
-          document.getElementById('price_as').innerText = data.getOldImplement[0].price;
-          document.getElementById('description').innerText = data.getOldImplement[0].about;
-          // document.getElementById('description').innerText = location;
-          document.getElementById('first_name').innerText = data.getOldImplement[0].model;
-          document.getElementById('phone_number').innerText = data.getOldImplement[0].brand_name;
-          document.getElementById('state').innerText = data.getOldImplement[0].model;
-          document.getElementById('district').innerText = data.getOldImplement[0].category_name;
-          document.getElementById('tehsil').innerText = data.getOldImplement[0].price;
-          document.getElementById('product_id').value = data.getOldImplement[0].product_id;
+          document.getElementById('original_price').innerText = data.allData.haat_bazar_data[0].price;   
+          document.getElementById('sucategory_name').innerText = data.allData.haat_bazar_data[0].sub_category_id;
+          document.getElementById('quantity').innerText = data.allData.haat_bazar_data[0].quantity;
+          document.getElementById('price_as').innerText = data.allData.haat_bazar_data[0].price;
+          document.getElementById('description').innerText = data.allData.haat_bazar_data[0].about;
+          document.getElementById('description').innerText = location;
+          document.getElementById('first_name').innerText = data.allData.haat_bazar_data[0].model;
+          document.getElementById('phone_number').innerText = data.allData.haat_bazar_data[0].brand_name;
+          document.getElementById('state').innerText = data.allData.haat_bazar_data[0].model;
+          document.getElementById('district').innerText = data.allData.haat_bazar_data[0].category_name;
+          document.getElementById('tehsil').innerText = data.allData.haat_bazar_data[0].price;
+          document.getElementById('product_id').value = data.allData.haat_bazar_data[0].product_id;
 
         
-          var product = data.engine_oil_details[0];
+          var product = data.allData.haat_bazar_data[0];
           var imageNames = product.image_names.split(',');
           var carouselContainer = $('.mySwiper2_data');
           var carouselContainer2 = $('.mySwiper_data');

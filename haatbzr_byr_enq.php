@@ -248,8 +248,8 @@
                 <label class="form-label" for="state">State</label>
                 <select class="form-select py-2" aria-label="Default select example" id="state_" name="state">
                   <option selected disabled="" ></option>
-                  <option value="1">Chhattisgarh</option>
-                  <option value="2">Other </option>
+                  <option value="Chhattisgarh">Chhattisgarh</option>
+                  <option value="Other">Other </option>
                 </select>
               </div>
             </div>
@@ -258,9 +258,12 @@
                 <label class="form-label" for="district">District</label>
                 <select class="form-select py-2" aria-label="Default select example" name="district" id="district">
                   <option selected disabled=""></option>
-                  <option value="1">Raigarh</option>
-                  <option value="2">Sarguja</option>
-                  <option value="3">Surajpur</option>
+                  <option value="Raipur">Raipur</option>
+                  <option value="Bhilai">Bhilai</option>
+                  <option value="Durg">Durg</option>
+                  <option value="Raigarh">Raigarh</option>
+                  <option value="Sarguja">Sarguja</option>
+                  <option value="Surajpur">Surajpur</option>
                 </select>
               </div>
             </div>
@@ -269,9 +272,12 @@
                 <label class="form-label" for="tehsil">Tehsil</label>
                 <select class="form-select py-2" aria-label="Default select example" name="tehsil" id="tehsil">
                   <option selected disabled=""></option>
-                  <option value="1">Raigarh</option>
-                  <option value="2">ambikapur</option>
-                  <option value="3">chirmiri</option>
+                  <option value="Raipur">Raipur</option>
+                  <option value="Bhilai">Bhilai</option>
+                  <option value="Durg">Durg</option>
+                  <option value="Raigarh">Raigarh</option>
+                  <option value="ambikapur">ambikapur</option>
+                  <option value="chirmiri">chirmiri</option>
                 </select>
               </div>
             </div>
