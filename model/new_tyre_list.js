@@ -270,7 +270,7 @@ getbrand_edit();
     var tyre_width = $('#tyre_width').val();
     var category = $('#category').val();
     var EditIdmain_ = $('#EditIdmain_').val();
-    var tyre_size = tyre_width + 'X' + tyre_diameter;
+    var tyre_size = tyre_diameter + 'X' + tyre_width;
   
    
     var apiBaseURL = APIBaseURL;

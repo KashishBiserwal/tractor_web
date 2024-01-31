@@ -25,10 +25,9 @@ include 'includes/footertag.php';
               </li>
             </ol>
           </nav>
-          <button type="button" id="add_trac" class="btn add_btn btn-success float-right btn_all" data-bs-toggle="modal"  data-bs-target="#staticBackdrop">
+          <button type="button" id="add_trac" class="btn add_btn btn-success float-right btn_all" onclick="resetFormFields();" data-bs-toggle="modal"  data-bs-target="#staticBackdrop">
             <i class="fa fa-plus" aria-hidden="true"></i>Add New Harvester
           </button>
-
           <!-- Modal -->
           <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
             <div class="modal-dialog modal-xl modal-dialog-centered">
@@ -414,7 +413,7 @@ include 'includes/footertag.php';
   <div class="modal-dialog modal-xl" role="document">
     <div class="modal-content">
       <div class="modal-header bg-success text-white">
-        <h4 class="modal-title">New Tractor Information</h4>
+        <h4 class="modal-title">All Harvester Information</h4>
         <button type="button" class="btn-close btn-success" data-bs-dismiss="modal" aria-label="Close"><img src="assets/images/close.png"></button>
       </div>
       <div class="modal-body">
@@ -434,7 +433,7 @@ include 'includes/footertag.php';
                             <td>Engine Rated RPM</td>
                             <td id="engine_rpm"></td>
                             <td class="bg-light">HP Power</td>
-                            <td id="hp_power2" class="bg-light"></td>
+                            <td class="bg-light"> <span id="hp_power2"></span> HP</td>
                           </tr>
                           <tr>
                           <td>Air Filter</td>
@@ -447,15 +446,15 @@ include 'includes/footertag.php';
                           </tr>
                           <tr>
                             <td class="bg-light">Cutter Bar Width (ft.)</td>
-                            <td id="cutter_bar_width" class="bg-light"></td>
+                            <td class="bg-light"><span id="cutter_bar_width"></span> mm</td>
                             <td>Maximum Cutting Height</td>
-                            <td id="max_cutting_height"></td>
+                            <td id=""><span id="max_cutting_height"></span> mm</td>
                           </tr>
                           <tr>
                             <td>Minimum Cutting Height</td>
-                            <td id="min_cutting_height"></td>
+                            <td id=""> <span id="min_cutting_height"></span> mm</td>
                             <td class="bg-light">Height Adjustment</td>
-                            <td id="height_adjust" class="bg-light"></td>
+                            <td id="" class="bg-light"><span id="height_adjust"></span> </td>
                           </tr>
                           <tr>
                             <td colspan="4" class="fw-bold text-center py-3">Reel</td>
@@ -464,17 +463,17 @@ include 'includes/footertag.php';
                             <td class="bg-light">Type</td>
                             <td id="reel_type"class="bg-light"></td>
                             <td>Reel Diameter</td>
-                            <td id="reel_diameter"></td>
+                            <td id=""> <span id="reel_diameter"></span> mm</td>
                           </tr>
                           <tr>
                             <td>Speed Adjustment</td>
                             <td id="speed_adjust"></td>
                             <td class="bg-light">Minimum Revolution</td>
-                            <td id="min_revo"class="bg-light"></td>
+                            <td id=""class="bg-light">  <span id="min_revo"></span> mm</td>
                           </tr>
                           <tr>
                             <td class="bg-light">Maximum Revolution</td>
-                            <td id="max_revo" class="bg-light"></td>
+                            <td id="" class="bg-light"> <span id="max_revo"></span> mm</td>
                             <td>Height Adjustment</td>
                             <td id="reel_height_adjust"></td>
                           </tr>
@@ -485,26 +484,26 @@ include 'includes/footertag.php';
                             <td class="bg-light">Cooling System</td>
                             <td id="cooling_sys" class="bg-light"></td>
                             <td>Coolent Capacity</td>
-                            <td id="coolent_capacity"></td>
+                            <td id=""> <span id="coolent_capacity"></span> Ltr.</td>
                           </tr>
                           <tr>
                           <td colspan="4" class="fw-bold text-center py-3">Threshing & Cleaning System</td>
                           </tr>
                           <tr>
                             <td>Thresing Drump Width</td>
-                            <td id="thresing_duump_width"></td>
+                            <td id=""><span id="thresing_duump_width"></span> mm</td>
                             <td class="bg-light">Thresing Drump Length</td>
-                            <td id="drump_length1" class="bg-light"></td>
+                            <td id="" class="bg-light"><span id="drump_length1"></span> mm</td>
                           </tr> <tr>
                             <td class="bg-light">Thresing Drump Diameter</td>
-                            <td id="drump_diameter1" class="bg-light"></td>
+                            <td id="" class="bg-light"> <span id="drump_diameter1"></span> mm</td>
                             <td>Thresing Drum Speed Adjustment</td>
-                            <td id="drump_speed_adjust"></td>
+                            <td id=""> <span id="drump_speed_adjust"></span> </td>
                             
                           </tr>
                           <tr>
                           <td>Clearance Concave</td>
-                            <td id="clearance_concave"></td>
+                            <td id=""><span id="clearance_concave"></span> mm</td>
                           </tr>
                           <td colspan="4" class="fw-bold text-center py-3">Grain Handling & Transmission and Clutch</td>
                           <tr>
@@ -539,7 +538,7 @@ include 'includes/footertag.php';
                             <td>Width(mm)</td>
                             <td id="width"></td>
                             <td>Ground Clearance</td>
-                            <td id="ground_clearance"></td>
+                            <td > <span id="ground_clearance"></span> mm</td>
                           </tr>
                           <td colspan="4" class="fw-bold text-center py-3">Crops & Additional Features</td>
                           <tr>

@@ -323,7 +323,7 @@ include 'includes/footertag.php';
                                                         </div>
                                                         <div  class="col-12 col-sm-4 col-lg-4 col-md-4 my-3">
                                                             <div class="form-outline">
-                                                                <label class="form-label">Torque</label>
+                                                                <label class="form-label">Torque(NM)</label>
                                                                 <input type="text" placeholder=" " id="TORQUE"  name="TORQUE" class="form-control"required>
                                                             </div>
                                                         </div>

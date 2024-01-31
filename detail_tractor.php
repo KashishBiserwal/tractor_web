@@ -377,11 +377,11 @@
                     <tbody>
                         <tr>
                             <td class="table-data col-12 col-lg-6 col-md-6 col-sm-6 ">Total Weight</td>
-                            <td class="table-data col-12 col-lg-6 col-md-6 col-sm-6"><span id="total_weight"></span> KG</td>
+                            <td class="table-data col-12 col-lg-6 col-md-6 col-sm-6"><span id="total_weight"></span> kg</td>
                         </tr>
                         <tr>
                             <td class="table-data">Wheel Base</td>
-                            <td class="table-data"><span id="wheel_base"></span>  MM</td>
+                            <td class="table-data"><span id="wheel_base"></span>  mm</td>
                         </tr>
                     </tbody>
                     </table>

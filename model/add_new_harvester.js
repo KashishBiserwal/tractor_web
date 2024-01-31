@@ -351,7 +351,7 @@ function ImgUpload() {
 
   function get_brand_add() {
     var apiBaseURL =APIBaseURL;
-    var url = apiBaseURL + 'getBrands';
+    var url = apiBaseURL + 'get_brand_by_product_id/'+ 4;
     $.ajax({
         url: url,
         type: "GET",
@@ -753,7 +753,7 @@ function destroy(id) {
                  countclass++;
       
                   var newCard = `
-                      <div class="col-6 col-lg-6 col-md-6 col-sm-6">
+                      <div class="col-3 col-lg-3 col-md-3 col-sm-3">
                           <div class="brand-main d-flex box-shadow  mt-2 text-center shadow">
                               <a class="weblink text-decoration-none text-dark" title="Image">
                                   <img class="img-fluid w-100 h-100 " src="${imageUrl}" alt="Image">
@@ -901,9 +901,8 @@ function destroy(id) {
 
   // get brand
   function get() {
-    // var url = "<?php echo $APIBaseURL; ?>getBrands";
-    var apiBaseURL =APIBaseURL;
-    var url = apiBaseURL + 'getBrands';
+    var apiBaseURL = APIBaseURL;
+    var url = apiBaseURL + 'get_brand_by_product_id/'+ 4;
     $.ajax({
         url: url,
         type: "GET",
@@ -913,17 +912,19 @@ function destroy(id) {
         success: function (data) {
             console.log(data);
             const select = document.getElementById('brand_name1');
-            // select.innerHTML = '';
+
+            select.innerHTML = '';
+            select.innerHTML = '<option selected disabled value="">select Brand</option>';
 
             if (data.brands.length > 0) {
                 data.brands.forEach(row => {
                     const option = document.createElement('option');
-                    option.value = row.id; 
+                    option.value = row.id;
                     option.textContent = row.brand_name;
                     select.appendChild(option);
                 });
             } else {
-                select.innerHTML ='<option>No valid data available</option>';
+                select.innerHTML = '<option>No valid data available</option>';
             }
         },
         error: function (error) {
@@ -931,7 +932,9 @@ function destroy(id) {
         }
     });
 }
+
 get();
+
 
 
 
@@ -1021,9 +1024,48 @@ function updateTable(data) {
   }
 }
 function resetform(){
-  $('#brand_name').val('');
+  $('#brand_name1').val('');
   $('#model1').val('');
   get_harvester();
   // window.location.reload();
   
 }
+
+
+function resetFormFields() {
+  $('#brand').val('');
+  $('#model').val('');
+  $('#rpm').val('');
+  $('#hp_power').val('');
+  $('#AIR_FILTER').val('');
+  $('#TOTAL_CYCLINDER').val('');
+  $('#POWER_SOURCE').val('');
+  $('#cutting_bar').val('');
+  $('#cuttingmax_height').val('');
+  $('#cuttingmin_height').val('');
+  $('#CUTTER_BAR_HEIGHT_ADJUSTMENT').val('');
+  $('#REEL_TYPE').val('');
+  $('#reel_dia').val('');
+  $('#REEL_SPEED_CONTROL').val('');
+  $('#min_revol').val('');
+  $('#max_revol').val('');
+  $('#REEL_HEIGHT_ADJUSTMENT').val('');
+  $('#COOLING').val('');
+  $('#cool_capacity').val('');
+  $('#drump_width').val('');
+  $('#drump_length').val('');
+  $('#drump_diameter').val('');
+  $('#THRESHING_DRUM_SPEED_ADJUSTMENT').val('');
+  $('#clear_concave').val('');
+  $('#tank_capa').val('');
+  $('#transmission_gears').val('');
+  $('#tyre_sizerear').val('');
+  $('#total_weight_without_grains').val('');
+  $('#dia_length').val('');
+  $('#dia_height').val('');
+  $('#dia_width').val('');
+  $('#ground_clerance').val('');
+  $('#CROPS_TYPE').val('');
+  $('#_image').val('');
+  $('#selectedImagesContainer').val('').css('display', 'none');
+} 

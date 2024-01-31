@@ -291,7 +291,7 @@ engineOil_add();
 // get_engine_oil();
 function get(selectId) {
   var apiBaseURL =APIBaseURL;
-  var url = apiBaseURL + 'getBrands';
+  var url = apiBaseURL + 'get_brand_by_product_id/' + 7;
   $.ajax({
       url: url,
       type: "GET",
@@ -466,10 +466,8 @@ function fetch_data(id) {
         document.getElementById('brand_name2').innerText = data.engine_oil_details[0].brand_name;
         document.getElementById('model2').innerText = data.engine_oil_details[0].oil_model;
         document.getElementById('quantity').innerText = data.engine_oil_details[0].quantity;
-        document.getElementById('grade').innerText = data.engine_oil_details[0].grade;
-        console.log(data.engine_oil_details[0].grade);
-        document.getElementById('price_1').innerText = data.engine_oil_details[0].price;
-        console.log(data.engine_oil_details[0].price);
+        document.getElementById('grade11').innerText = data.engine_oil_details[0].grade;
+        document.getElementById('price_11').innerText = data.engine_oil_details[0].price;
         var compatibleModel = data.engine_oil_details[0].compatible_model;
         document.getElementById('compatible').innerText = Array.isArray(compatibleModel) ? compatibleModel.join(', ') : compatibleModel || 'N/A';
         document.getElementById('descrption').innerText = data.engine_oil_details[0].description;
@@ -723,6 +721,7 @@ function edit_user(id){
         $("#errorStatusLoading").modal('show');
         $("#errorStatusLoading").find('.modal-title').html('Success');
         $("#errorStatusLoading").find('.modal-body').html(msg);
+        engineOil_add();
        },
        error: function (error) {
          console.error('Error fetching data:', error);
@@ -738,9 +737,9 @@ function edit_user(id){
  function search_data() {
   var selectedBrand = $('#brand1').val();
   var brand_id = $('#brand_id').val();
-  var model = $('#model').val();
+  var model = $('#model1').val();
   var paraArr = {
-    'brand_name': selectedBrand,
+    'brand_id': selectedBrand,
     'id':brand_id,
     'model':model,
   };

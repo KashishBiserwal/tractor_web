@@ -416,23 +416,28 @@ function store(event) {
 
             if (data.product && data.product.length > 0) {
                 let tableData = [];
-                let counter = 1;
+                // let counter = 1;
+                let counter = data.product.length;
+
+                // Sort data based on the date column in descending order
+                // data.product.sort((a, b) => new Date(b.date) - new Date(a.date));
 
                 data.product.forEach(row => {
                     let action = `
                         <div class="d-flex">
                             <button class="btn btn-warning btn-sm text-white mx-1" data-bs-toggle="modal" onclick="fetch_data(${row.customer_id});" data-bs-target="#exampleModal">
-                            <i class="fa-solid fa-eye" style="font-size: 11px;"></i></button>
+                                <i class="fa-solid fa-eye" style="font-size: 11px;"></i>
+                            </button>
                             <button class="btn btn-primary btn-sm btn_edit" onclick="fetch_edit_data(${row.customer_id});" data-bs-toggle="modal" data-bs-target="#staticBackdrop" id="yourUniqueIdHere" style="padding:5px">
-                              <i class="fas fa-edit" style="font-size: 11px;"></i>
+                                <i class="fas fa-edit" style="font-size: 11px;"></i>
                             </button>
                             <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.customer_id});" style="padding:5px">
-                              <i class="fa fa-trash" style="font-size: 11px;"></i>
+                                <i class="fa fa-trash" style="font-size: 11px;"></i>
                             </button>
                         </div>`;
 
                     tableData.push([
-                        counter,
+                        counter--,
                         formatDateTime(row.date),
                         row.brand_name,
                         row.model,
@@ -440,8 +445,6 @@ function store(event) {
                         row.state,
                         action
                     ]);
-
-                    counter++;
                 });
 
                 $('#example').DataTable().destroy();
@@ -454,11 +457,11 @@ function store(event) {
                         { title: 'Model' },
                         { title: 'Purchase Year' },
                         { title: 'State' },
-                        { title: 'Action', orderable: false }
+                        { title: 'Action', orderable: true }
                     ],
                     paging: true,
                     searching: false,
-                    order: [[0, 'desc']], // Sort by the first column (S.No.) in descending order
+                   // Sort by the second column (Date) in ascending order
                     // ... other options ...
                 });
             } else {
@@ -475,8 +478,9 @@ get_tractor_list();
 
 
 
+
+
 function search_data() {
-  console.log("dfghsfg,sdfgdfg");
   var selectedBrand = $('#brand_name').val();
  // var brand_id = $('#brand_id').val();
   var model = $('#model_name').val();
@@ -503,7 +507,6 @@ function search_data() {
           'Authorization': 'Bearer ' + localStorage.getItem('token')
       },
       success: function (searchData) {
-        console.log(searchData,"hello brand");
         updateTable(searchData);
       },
       error: function (error) {
@@ -514,7 +517,7 @@ function search_data() {
 function updateTable(data) {
   const tableBody = document.getElementById('data-table');
   tableBody.innerHTML = '';
-  let serialNumber = 1; 
+  let serialNumber = data.product.length; 
 
   if(data.oldTractor && data.oldTractor.length > 0) {
       let tableData = []; 
@@ -529,9 +532,9 @@ function updateTable(data) {
             <i class="fa fa-trash" style="font-size: 11px;"></i>
           </button>
       </div>`;
-console.log(row.customer_id);
+// console.log(row.customer_id);
           tableData.push([
-            serialNumber,
+            serialNumber--,
             formatDateTime(row.date),
             row.brand_name,
             row.model,
@@ -540,7 +543,7 @@ console.log(row.customer_id);
             action
         ]);
 
-        serialNumber++;
+        // serialNumber++;
     });
 
     $('#example').DataTable().destroy();
@@ -553,7 +556,7 @@ console.log(row.customer_id);
             { title: 'Model' },
             { title: 'Purchase Year'},
             { title: 'State' },
-            { title: 'Action', orderable: false }
+            { title: 'Action', orderable: true }
         ],
         paging: true,
         searching: false,
