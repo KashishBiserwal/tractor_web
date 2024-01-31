@@ -1,3 +1,12 @@
+/* @font-face { */
+  /* font-family: "helvetica"; */
+  /* src: url(../font/Helvetica.ttf); */
+/* } */
+
+/* body{ */
+  /* font-family: "helvetica" !important; */
+/* } */
+
 .con1 {
     width: 1170px;
     position: relative;
@@ -39,6 +48,30 @@ margin-top: 130px
 #home-banner{
   margin-top: 125px;
 }
+.brand_section{
+  border: 2px solid #dcdcdc;
+    background: #fff;
+    padding: 0;
+}
+.brand_section a{
+  padding: 15px;
+    margin: 0 auto;
+    text-align: center;
+    text-decoration: none;
+    color:#000;
+}
+.brand_section img{
+  height: 120px;
+  width: 80%;
+  margin-bottom: 20px;
+}
+.box_shadow{
+  box-shadow: 0 1px 2px rgba(36, 39, 44, 0.15);
+}
+.b-t-1{
+  border-top: 1px solid #ececec;
+}
+  
   /* header */
   .main-navbar{
     z-index: 99;
@@ -65,10 +98,7 @@ margin-top: 130px
     --_s: .3s; */
   }
 
-  .dropend .dropdown-toggle {
-    /* color: salmon; */
-    margin-left: 1em;
-  }
+ 
   .dropdown-item:hover {
     /* background-color: lightsalmon; */
     /* color: #fff; */
@@ -90,9 +120,7 @@ margin-top: 130px
       top: 0;
       left: 100%;
     }
-    .dropend .dropdown-toggle {
-      margin-left: 0.5em;
-    }
+    
   }
   
 
@@ -1019,10 +1047,7 @@ border-radius: 50%;
 
 .brand-main {
   background-color: #fff;
-  /* padding: 15px 15px 8px; */
-  margin-bottom: 8px;
-  width: 188px;
-  border-radius: 17px;
+  width: 100%;
 }
 
 
@@ -1847,4 +1872,46 @@ input[type="checkbox"]:checked + label:before {
     margin: 0 auto;
     text-align: center;
     display: block;
+}
+.col_padding {
+  padding-left: 6px;
+  padding-right: 6px;
+}
+.other_feature_card{
+  box-shadow: 0 4px 20px rgb(0 0 0/15%);
+  background-color: #fff;
+  padding: 15px 5px 10px;
+  border-radius: 10px;
+  margin: 25px 0 15px;
+}
+.feature__gridIcon {
+  width: 70px;
+  height: 70px;
+  background-color: #e9ecef;
+  margin: -45px auto 10px;
+  border-radius: 50%;
+  border: 1px solid #dee2e6;
+  padding-top: 6px;
+}
+.feature__gridIcon img {
+  width: 55px;
+  height: auto;
+}
+.feature__gridProperty {
+  font-weight: 700;
+  text-transform: uppercase;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+}
+#accordionFlushExample .accordion-button:focus {
+ 
+  outline: 0;
+  box-shadow: none !important;
+}
+#accordionFlushExample .accordion-button:not(.collapsed) {
+  color: #000;
+  background-color: #fff;
+  border-bottom: 1px solid rgba(0,0,0,.125);
 }

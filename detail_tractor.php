@@ -19,22 +19,22 @@
    include 'includes/header.php';
    ?>
 
-    <section>
-        <div class="container mt-5 pt-4">
-            <div class="pt-5">
-                <span class="mt-4 pt-4 ">
-                    <!-- <a href="index.php" class="text-decoration-none header-link px-1">Home <i
-                            class="fa-solid fa-chevron-right px-1"></i></a>
-                    <span class=""><span class=" header-link  px-1">Brand <i class="fa-solid fa-chevron-right px-1"></i>
-                        </span></span> -->
-                </span>
-            </div>
+<section class="mt-130 bg-light">
+        <div class="container">
+        <div class="py-2">
+                    <span class="text-white">
+                        <a href="index.php" class="text-decoration-none header-link px-1">Home <i
+                                class="fa-solid fa-chevron-right px-1"></i></a>
+
+                                <a href="" id="model_name" class="text-decoration-none header-link px-1"> <span class="text-dark p"></span></a>
+                    </span>
+                </div>
         </div>
     </section>
 
     <section id="Mahindra_575">
-        <div class="container">
-            <h1 class="mt-4 pb-2" id="model_name"></h1>
+        <div class="container pt-4">
+            <!-- <h1 class="mt-4 pb-2" id="model_name"></h1> -->
             <!-- <h1 class="mt-4 pb-2"></h1> -->
             <div class="row">
                 <div class="col-12 col-lg-6 col-md-6 col-sm-6">
@@ -139,46 +139,56 @@
 
     <section class="bg-light">
         <div class="container">
-            <div class="row">
-                <div class="col-12 col-lg-12 col-md-12 col-sm-12 mt-3">
+            <div class="row pt-4">
+                <div class="col-12 col-lg-12 col-md-12 col-sm-12 ">
                 <h4 class="text-dark fw-bold assured mt-2 ps-3" ><span class="text-success brand_model "></span> Other Features</h4>
                 </div>
                 <div class="row mt-2">
-                    <div class="col-12 col-lg-2 col-md-2 col-sm-2">
+                    <div class="col-12 col-lg-2 col-md-2 col-sm-2 col_padding ">
 
-                        <div class=" text-center shadow bg-white ">
-                            <img src="assets/images/clutch.png" class="w-50 h-50" alt="">
-                            <h6 class=" text-center fw-bold  text-dark">Clutch</h6>
-                            <p class="engine_name text-center" id="transmission_clutch_value2"> </p>
+                        <div class=" text-center other_feature_card">
+                        <div class="feature__gridIcon">
+                            <img src="assets/images/clutch.png"  alt="">
+                        </div>
+                            <p class="feature__gridProperty mb-1   text-center fw-bold  text-dark">Clutch</p>
+                            <p class="engine_name mb-0 text-center" id="transmission_clutch_value2"> </p>
                         </div>
 
                     </div>
-                    <div class="col-12 col-lg-2 col-md-2 col-sm-2">
-                        <div class=" text-center shadow bg-white ">
-                            <img src="assets/images/steering.png" class="w-50 h-50" alt="">
-                            <h6 class=" text-center fw-bold  text-dark">STEERING</h6>
-                            <p class="engine_name text-center" id="steering_column_value2"></p>
+                    <div class="col-12 col-lg-2 col-md-2 col-sm-2 col_padding">
+                        <div class=" text-center other_feature_card">
+                        <div class="feature__gridIcon">
+                            <img src="assets/images/steering.png"  alt="">
+                        </div>
+                            <p class="feature__gridProperty mb-1   text-center fw-bold  text-dark">STEERING</p>
+                            <p class="engine_name mb-0 text-center" id="steering_column_value2"></p>
                         </div>
                     </div>
-                    <div class="col-12 col-lg-2 col-md-2 col-sm-2">
-                        <div class=" text-center shadow bg-white ">
-                            <img src="assets/images/wheel-drive.png" class="w-50 h-50" alt="">
-                            <h6 class="text-center fw-bold  text-dark">Wheel Drive</h6>
-                            <p class="engine_name text-center" id="wheel_drive"></p>
+                    <div class="col-12 col-lg-2 col-md-2 col-sm-2 col_padding">
+                        <div class=" text-center other_feature_card">
+                        <div class="feature__gridIcon">
+                            <img src="assets/images/wheel-drive.png"  alt="">
+                        </div>
+                            <p class="feature__gridProperty mb-1   text-center fw-bold  text-dark">Wheel Drive</p>
+                            <p class="engine_name mb-0 text-center" id="wheel_drive"></p>
                         </div>
                     </div>
-                    <div class="col-12 col-lg-2 col-md-2 col-sm-2">
-                        <div class=" text-center shadow bg-white ">
-                            <img src="assets/images/lifting.webp" class="w-50 h-50" alt="">
-                            <h6 class=" text-center fw-bold  text-dark">LIFTING CAPACITY</h6>
-                            <p class="engine_name text-center" id="liftingC"></p>
+                    <div class="col-12 col-lg-2 col-md-2 col-sm-2 col_padding">
+                        <div class=" text-center other_feature_card">
+                        <div class="feature__gridIcon">
+                            <img src="assets/images/lifting.webp"  alt="">
+                        </div>
+                            <p class="feature__gridProperty mb-1  text-center fw-bold  text-dark">LIFTING CAPACITY</p>
+                            <p class="engine_name mb-0 text-center" id="liftingC"></p>
                         </div>
                     </div>
-                    <div class="col-12 col-lg-2 col-md-2 col-sm-2">
-                        <div class=" text-center shadow bg-white ">
-                            <img src="assets/images/rpm.png" class="w-50 h-50" alt="">
-                            <h6 class=" text-center fw-bold  text-dark">ENGINE RATED RPM</h6>
-                            <p class="engine_name text-center" id="engine_rated_rpm2"></p>
+                    <div class="col-12 col-lg-2 col-md-2 col-sm-2 col_padding ">
+                        <div class=" text-center other_feature_card">
+                        <div class="feature__gridIcon">
+                            <img src="assets/images/rpm.png" alt="">
+                        </div>
+                            <p class="feature__gridProperty mb-1  text-center fw-bold  text-dark">ENGINE RATED RPM</p>
+                            <p class="engine_name mb-0 text-center" id="engine_rated_rpm2"></p>
                         </div>
 
                     </div>
@@ -190,11 +200,11 @@
 
     </section>
 
-    <section class="bg-light">
-        <div class="container">
+    <section class="bg-light ">
+        <div class="container ">
 
-            <div class="row ">
-                <div class="col-12 col-lg-8 col-md-8 col-sm-8 mt-3">
+            <div class="row  pt-4">
+                <div class="col-12 col-lg-8 col-md-8 col-sm-8">
                     <div class="about border-success  border-4 text-dark border-start">
                     <h4 class="text-dark fw-bold  ps-4"> About <span class="text-success brand_model"></span></h4>
 
@@ -202,7 +212,7 @@
                     <p class="text-dark justify-content-center" id="description"></p>
 
 
-                    <div class="about border-success  border-4 text-dark border-start">
+                    <div class="about border-success  border-4 text-dark border-start mt-4">
                         <h4 class="text-dark fw-bold text-start ps-2"> <span class="text-success brand_model"></span> Engine</h4>
                     </div>
 
@@ -339,7 +349,7 @@
                     <h4 class="text-center fw-bold mt-2">Related Brands</h4>
                     <div class="row" id="related_brand">
                     </div>
-                    <div class=" text-center"><button class="btn btn-success" id="loadMoreButton">Load More</button></div>
+                    <div class=" text-center"><button class=" btn btn-success w-75 mt-2 mx-auto" id="loadMoreButton">Load More</button></div>
 
                     <div class="sticky my-3">
                         <div class="popular_used_tractor mb-3">
@@ -497,8 +507,8 @@
             <div class="mt-4 pb-5">
                 <div class="accordion " id="accordionFlushExample">
                     <div class="accordion-item  rounded-3">
-                        <h2 class="accordion-header p-2" id="flush-headingOne">
-                            <button class="accordion-button collapsed fw-bold h4" type="button"
+                        <h2 class="accordion-header" id="flush-headingOne">
+                            <button class="accordion-button collapsed fw-bold mb-0 h4" type="button"
                                 data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false"
                                 aria-controls="flush-collapseOne">
                                 Que. How much HP does the Mahindra 575 DI XP Plus tractor have?
@@ -513,8 +523,8 @@
                         </div>
                     </div>
                     <div class="accordion-item rounded-3 my-3">
-                        <h2 class="accordion-header p-2" id="flush-headingTwo">
-                            <button class="accordion-button collapsed  fw-bold h4" type="button"
+                        <h2 class="accordion-header" id="flush-headingTwo">
+                            <button class="accordion-button collapsed mb-0  fw-bold h4" type="button"
                                 data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false"
                                 aria-controls="flush-collapseTwo">
                                 Que. What is the price of the Mahindra 575 DI XP Plus tractor?
@@ -528,8 +538,8 @@
                         </div>
                     </div>
                     <div class="accordion-item  rounded-3 my-3">
-                        <h2 class="accordion-header p-2" id="flush-headingThree">
-                            <button class="accordion-button collapsed  fw-bold h4" type="button"
+                        <h2 class="accordion-header" id="flush-headingThree">
+                            <button class="accordion-button collapsed mb-0  fw-bold h4" type="button"
                                 data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false"
                                 aria-controls="flush-collapseThree">
                                 Que. Does the Mahindra 575 DI XP Plus tractor consist high fuel mileage?

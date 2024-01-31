@@ -68,7 +68,6 @@
   
   .owl-dots {
     text-align: center;
-    padding-top: 15px;
   }
   .owl-dots button.owl-dot {
     width: 8px;
@@ -79,9 +78,7 @@
     margin: 20px 3px;
     padding: 5px;
   }
-  .owl-dots button.owl-dot.active {
-    background-color: #000;
-  }
+
   .owl-dots button.owl-dot:focus {
     outline: none;
   }
