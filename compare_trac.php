@@ -60,8 +60,10 @@
                                   </select>
                                 </div>
                               </div>
-                   <div class="content py-1 pb-3 text-center">
-                    
+                   <div class="content py-1 pb-2 text-center">
+                    <div class="col-12  text-center mt-1">
+                    <button class="col-12 px-5 edit_btn" id="edit_1" style="width:40%"><i class="fas fa-pencil-alt"></i></button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -92,7 +94,9 @@
                   </div>
                 </div>
                 <div class="content py-1 pb-3 text-center">
-                   
+                    <div class="col-12  text-center mt-1">
+                    <button class="col-12 px-5 edit_btn" id="edit_1" style="width:40%"><i class="fas fa-pencil-alt"></i></button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -123,7 +127,9 @@
                   </div>
                 </div>
                 <div class="content py-1 pb-3 text-center">
-                    
+                    <div class="col-12  text-center mt-1">
+                        <button class="col-12 px-5 edit_btn" id="edit_1" style="width:40%"><i class="fas fa-pencil-alt"></i></button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -157,7 +163,9 @@
                   </div>
                 </div>
                 <div class="content py-1 pb-3 text-center">
-                  
+                    <div class="col-12  text-center mt-1">
+                        <button class="col-12 px-5 edit_btn" id="edit_1" style="width:40%"><i class="fas fa-pencil-alt"></i></button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1309,124 +1317,236 @@
 </script> -->
 
 
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const form = document.getElementById("an"); // Assuming that the form has the ID "an"
-    let selectedValues = {}; // Variable to store selected values for editing
+<!-- <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const form = document.getElementById("an"); // Assuming that the form has the ID "an"
+      let selectedValues = {}; // Variable to store selected values for editing
 
+      const compareButton = document.getElementById('compareButton');
+      compareButton.setAttribute('disabled', 'disabled'); // Disable the button by default
+
+      form.addEventListener("change", function (event) {
+          const selectedElement = event.target;
+          if (selectedElement.tagName === "SELECT") {
+              // Get the selected value and text
+              const selectedValue = selectedElement.value;
+              const selectedText = selectedElement.options[selectedElement.selectedIndex].text;
+
+              // Get the parent container of the select element
+              const parentContainer = selectedElement.closest('.success__stry__item');
+
+              // Create a new element to display the selected value
+              const selectedValueElement = document.createElement("div");
+              selectedValueElement.classList.add("selected-value");
+              selectedValueElement.textContent = `${selectedText}: ${selectedValue}`;
+
+              // Append the selected value div
+              parentContainer.appendChild(selectedValueElement);
+
+              // Replace the select element with the new div
+              selectedElement.replaceWith(selectedValueElement);
+
+              // Store the selected values for editing
+              const fieldName = selectedElement.getAttribute("name");
+              selectedValues[fieldName] = {
+                  value: selectedValue,
+                  text: selectedText
+              };
+
+              // Show the "Edit" button
+              showEditButton(parentContainer);
+
+              // Check the number of filled cards and enable/disable the "Compare" button
+              checkFilledCards();
+          }
+      });
+
+      function showEditButton(parentContainer) {
+          const editButton = parentContainer.querySelector('.edit-button');
+          if (!editButton) {
+              const newEditButton = document.createElement("button");
+              newEditButton.classList.add("edit-button", "btn", "btn-success");
+              newEditButton.innerHTML = '<i class="fas fa-edit"></i>'; // Font Awesome edit icon
+              newEditButton.addEventListener("click", function () {
+                  // Replace the selected value div with the original select element
+                  const selectedValueElement = parentContainer.querySelector('.selected-value');
+                  const originalSelect = createOriginalSelect(selectedValueElement.getAttribute("name"));
+                  selectedValueElement.replaceWith(originalSelect);
+
+                  // Check the number of filled cards and enable/disable the "Compare" button
+                  checkFilledCards();
+              });
+
+              parentContainer.appendChild(newEditButton);
+          }
+      }
+
+      function createOriginalSelect(fieldName) {
+          const originalSelect = document.createElement("select");
+          originalSelect.classList.add("form-select", "py-2");
+          originalSelect.setAttribute("name", fieldName);
+
+          // Fetch and populate options based on the field name
+          fetchOptions(fieldName, originalSelect);
+
+          return originalSelect;
+      }
+
+      function fetchOptions(fieldName, selectElement) {
+          let url;
+
+          // Modify the URL based on the field name
+          switch (fieldName) {
+              case 'brand':
+                  url = 'http://tractor-api.divyaltech.com/api/customer/get_all_brands';
+                  break;
+              case 'model':
+                  // Assuming you have a function to extract brand_id from the selected brand dropdown
+                  const selectedBrandId = extractSelectedBrandId();
+                  url = 'http://tractor-api.divyaltech.com/api/customer/get_brand_model/' + selectedBrandId;
+                  break;
+              // Add more cases for other fields as needed
+          }
+
+          // Fetch data from the API
+          fetch(url, {
+              method: 'GET',
+              headers: {
+                  'Authorization': 'Bearer ' + localStorage.getItem('token')
+              }
+          })
+          .then(response => response.json())
+          .then(data => {
+              // Populate options
+              selectElement.innerHTML = '<option selected disabled value="">Please select an option</option>';
+
+              if (data && data.length > 0) { // Ensure data exists and is an array
+                  data.forEach(row => {
+                      const option = document.createElement('option');
+                      option.textContent = row.brand_name || row.model; // Adjust based on API response
+                      option.value = row.id;
+
+                      selectElement.appendChild(option);
+                  });
+              } else {
+                  selectElement.innerHTML = '<option>No valid data available</option>';
+              }
+          })
+          .catch(error => {
+              console.error('Error fetching data:', error);
+          });
+      }
+
+      function extractSelectedBrandId() {
+          // Implement this function to extract the selected brand_id
+          // You might need to adjust it based on how you handle the brand dropdown
+      }
+
+      function checkFilledCards() {
+          const filledCards = document.querySelectorAll('.success__stry__item .selected-value');
+          if (filledCards.length >= 2) {
+              compareButton.removeAttribute('disabled');
+          } else {
+              compareButton.setAttribute('disabled', 'disabled');
+          }
+      }
+
+      // Add a click event listener to the "Compare" button to open the modal again with selected values
+      compareButton.addEventListener("click", function () {
+          const modalElement = document.getElementById('select_trac_modal');
+          const modal = new bootstrap.Modal(modalElement);
+          modal.show();
+      });
+
+      // Initial data fetch
+      get();
+  });
+</script> -->
+
+
+<!-- <script>
+ document.addEventListener("DOMContentLoaded", function () {
+    const form = document.getElementById("an");
+    let selectedValues = {};
     const compareButton = document.getElementById('compareButton');
-    compareButton.setAttribute('disabled', 'disabled'); // Disable the button by default
+    compareButton.setAttribute('disabled', 'disabled');
 
     form.addEventListener("change", function (event) {
         const selectedElement = event.target;
         if (selectedElement.tagName === "SELECT") {
-            // Get the selected value and text
             const selectedValue = selectedElement.value;
             const selectedText = selectedElement.options[selectedElement.selectedIndex].text;
-
-            // Get the parent container of the select element
             const parentContainer = selectedElement.closest('.success__stry__item');
 
-            // Create a new element to display the selected value
             const selectedValueElement = document.createElement("div");
             selectedValueElement.classList.add("selected-value");
             selectedValueElement.textContent = `${selectedText}: ${selectedValue}`;
 
-            // Append the selected value div
             parentContainer.appendChild(selectedValueElement);
-
-            // Replace the select element with the new div
             selectedElement.replaceWith(selectedValueElement);
 
-            // Store the selected values for editing
             const fieldName = selectedElement.getAttribute("name");
             selectedValues[fieldName] = {
                 value: selectedValue,
                 text: selectedText
             };
 
-            // Show the "Edit" button
-            showEditButton(parentContainer);
-
-            // Check the number of filled cards and enable/disable the "Compare" button
             checkFilledCards();
         }
     });
 
-    function showEditButton(parentContainer) {
-        const editButton = parentContainer.querySelector('.edit-button');
-        if (!editButton) {
-            const newEditButton = document.createElement("button");
-            newEditButton.classList.add("edit-button", "btn", "btn-success");
-            newEditButton.innerHTML = '<i class="fas fa-edit"></i>'; // Font Awesome edit icon
-            newEditButton.addEventListener("click", function () {
-                // Replace the selected value div with the original select element
-                const selectedValueElement = parentContainer.querySelector('.selected-value');
-                const originalSelect = createOriginalSelect(selectedValueElement.getAttribute("name"));
-                selectedValueElement.replaceWith(originalSelect);
-
-                // Check the number of filled cards and enable/disable the "Compare" button
-                checkFilledCards();
-            });
-
-            parentContainer.appendChild(newEditButton);
-        }
-    }
-
-    function createOriginalSelect(fieldName) {
-        const originalSelect = document.createElement("select");
-        originalSelect.classList.add("form-select", "py-2");
-        originalSelect.setAttribute("name", fieldName);
-
-        // Fetch and populate options based on the field name
-        fetchOptions(fieldName, originalSelect);
-
-        return originalSelect;
-    }
-
     function fetchOptions(fieldName, selectElement) {
         let url;
 
-        // Modify the URL based on the field name
         switch (fieldName) {
             case 'brand':
                 url = 'http://tractor-api.divyaltech.com/api/customer/get_all_brands';
                 break;
             case 'model':
-                // Assuming you have a function to extract brand_id from the selected brand dropdown
                 const selectedBrandId = extractSelectedBrandId();
                 url = 'http://tractor-api.divyaltech.com/api/customer/get_brand_model/' + selectedBrandId;
                 break;
-            // Add more cases for other fields as needed
         }
 
-        // Fetch data from the API
         fetch(url, {
             method: 'GET',
             headers: {
                 'Authorization': 'Bearer ' + localStorage.getItem('token')
             }
         })
-        .then(response => response.json())
-        .then(data => {
-            // Populate options
-            selectElement.innerHTML = '<option selected disabled value="">Please select an option</option>';
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error! Status: ${response.status}`);
+                }
+                // Check the response content type
+                const contentType = response.headers.get('content-type');
+                if (contentType && contentType.indexOf('application/json') !== -1) {
+                    return response.json();
+                } else {
+                    // Log the content if it's not JSON
+                    return response.text().then(content => {
+                        console.error('Unexpected response content:', content);
+                        throw new Error('Unexpected response content type');
+                    });
+                }
+            })
+            .then(data => {
+                selectElement.innerHTML = '<option selected disabled value="">Please select an option</option>';
 
-            if (data && data.length > 0) { // Ensure data exists and is an array
-                data.forEach(row => {
-                    const option = document.createElement('option');
-                    option.textContent = row.brand_name || row.model; // Adjust based on API response
-                    option.value = row.id;
-
-                    selectElement.appendChild(option);
-                });
-            } else {
-                selectElement.innerHTML = '<option>No valid data available</option>';
-            }
-        })
-        .catch(error => {
-            console.error('Error fetching data:', error);
-        });
+                if (data && data.length > 0) {
+                    data.forEach(row => {
+                        const option = document.createElement('option');
+                        option.textContent = row.brand_name || row.model;
+                        option.value = row.id;
+                        selectElement.appendChild(option);
+                    });
+                } else {
+                    selectElement.innerHTML = '<option>No valid data available</option>';
+                }
+            })
+            .catch(error => {
+                console.error('Error fetching data:', error);
+            });
     }
 
     function extractSelectedBrandId() {
@@ -1443,84 +1563,109 @@
         }
     }
 
-    // Add a click event listener to the "Compare" button to open the modal again with selected values
     compareButton.addEventListener("click", function () {
         const modalElement = document.getElementById('select_trac_modal');
         const modal = new bootstrap.Modal(modalElement);
         modal.show();
     });
 
-    // Initial data fetch
     get();
-});
-</script>
-
-
-<!-- <script>
- document.addEventListener("DOMContentLoaded", function () {
-    const form = document.getElementById("an"); // Assuming that the form has the ID "an"
-
-    form.addEventListener("change", function (event) {
-        const selectedElement = event.target;
-        if (selectedElement.tagName === "SELECT") {
-            // Get the selected value and text
-            const selectedValue = selectedElement.value;
-            const selectedText = selectedElement.options[selectedElement.selectedIndex].text;
-
-            // Get the parent container of the select element
-            const parentContainer = selectedElement.closest('.success__stry__item');
-
-            // Create a new element to display the selected value
-            const selectedValueElement = document.createElement("div");
-            selectedValueElement.classList.add("selected-value");
-            selectedValueElement.textContent = `${selectedText}: ${selectedValue}`;
-
-            // Create an "Edit" icon
-            const editIcon = document.createElement("span");
-            editIcon.classList.add("edit-icon");
-            editIcon.textContent = "✎"; // Pencil emoji for edit
-
-            // Append the selected value div and the "Edit" icon
-            parentContainer.appendChild(selectedValueElement);
-            parentContainer.appendChild(editIcon);
-
-            // Replace the select element with the new div
-            selectedElement.replaceWith(selectedValueElement);
-        }
-    });
-
-    // Add event delegation to handle the click on the "Edit" icon
-    form.addEventListener("click", function (event) {
-        const editIcon = event.target.closest(".edit-icon");
-        if (editIcon) {
-            const parentContainer = editIcon.closest('.success__stry__item');
-            // Replace the selected value div with the original select element
-            const selectedValueElement = parentContainer.querySelector('.selected-value');
-            const originalSelect = createOriginalSelect(selectedValueElement.getAttribute("name"));
-            selectedValueElement.replaceWith(originalSelect);
-        }
-    });
-
-    function createOriginalSelect(fieldName) {
-        const originalSelect = document.createElement("select");
-        originalSelect.classList.add("form-select", "py-2");
-        originalSelect.setAttribute("name", fieldName);
-
-        // Create and append the options based on your requirements
-        // ...
-
-        return originalSelect;
-    }
-
-    // Add a click event listener to the "Compare" button to open the modal again with selected values
-    const compareButton = document.getElementById('compareButton');
-    compareButton.addEventListener("click", function () {
-        const modalElement = document.getElementById('select_trac_modal');
-        const modal = new bootstrap.Modal(modalElement);
-        modal.show();
-    });
 });
 
 </script> -->
+
+<script>
+
+            document.addEventListener("DOMContentLoaded", function () {
+                const form = document.getElementById("an");
+                let selectedValues = {};
+                const compareButton = document.getElementById('compareButton');
+                compareButton.setAttribute('disabled', 'disabled');
+
+                form.addEventListener("change", function (event) {
+                    const selectedElement = event.target;
+                    if (selectedElement.tagName === "SELECT") {
+                        const selectedValue = selectedElement.value;
+                        const selectedText = selectedElement.options[selectedElement.selectedIndex].text;
+                        const parentContainer = selectedElement.closest('.success__stry__item');
+
+                        const selectedValueElement = document.createElement("div");
+                        selectedValueElement.classList.add("selected-value");
+                        selectedValueElement.textContent = `${selectedText}: ${selectedValue}`;
+
+                        parentContainer.appendChild(selectedValueElement);
+                        selectedElement.classList.add('d-none'); // Hide the original dropdown
+                        selectedValues[selectedElement.getAttribute("id")] = {
+                            value: selectedValue,
+                            text: selectedText
+                        };
+
+                        checkFilledCards();
+                    }
+                });
+
+                function resetDropdowns(editButton) {
+                    const parentContainer = editButton.closest('.success__stry__item');
+                    const brandSelect = parentContainer.querySelector('.brandselect');
+                    const modelSelect = parentContainer.querySelector('.modelselect');
+
+                    // Remove the selected-value divs
+                    const selectedValues = parentContainer.querySelectorAll('.selected-value');
+                    selectedValues.forEach(valueElement => {
+                        valueElement.remove();
+                    });
+
+                    // Show the original dropdowns
+                    brandSelect.classList.remove('d-none');
+                    modelSelect.classList.remove('d-none');
+
+                    // Set the selected values back to the dropdowns
+                    brandSelect.value = selectedValues[brandSelect.id] ? selectedValues[brandSelect.id].value : '';
+                    modelSelect.value = selectedValues[modelSelect.id] ? selectedValues[modelSelect.id].value : '';
+
+                    // Enable the compare button
+                    compareButton.removeAttribute('disabled');
+                }
+
+                function checkFilledCards() {
+                    const filledCards = document.querySelectorAll('.success__stry__item .selected-value');
+                    if (filledCards.length >= 2) {
+                        compareButton.removeAttribute('disabled');
+                    } else {
+                        compareButton.setAttribute('disabled', 'disabled');
+                    }
+                }
+
+                form.addEventListener("click", function (event) {
+                    const clickedElement = event.target;
+                    if (clickedElement.classList.contains('edit_btn')) {
+                        resetDropdowns(clickedElement);
+                    }
+                });
+
+                compareButton.addEventListener("click", function () {
+                    const modalElement = document.getElementById('select_trac_modal');
+                    const modal = new bootstrap.Modal(modalElement);
+                    modal.show();
+                });
+
+                // Fetch options function remains the same
+                function fetchOptions(fieldName, selectElement) {
+                    // Implementation remains the same
+                }
+
+                // Extract selected brand ID function remains the same
+                function extractSelectedBrandId() {
+                    // Implementation remains the same
+                }
+
+                // Get function remains the same
+                function get() {
+                    // Implementation remains the same
+                }
+            });
+        
+</script>
+
 </body>
 </html>
