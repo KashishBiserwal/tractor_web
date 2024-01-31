@@ -3,8 +3,16 @@
 
 <head>
    <?php
-   include 'includes/headertag.php';
-   ?>
+  include 'includes/headertag.php';
+//   include 'includes/header.php';
+  $id=$_REQUEST['id'];
+  //echo $id;
+  include 'includes/footertag.php';
+  ?>
+ 
+ <script> var CustomerAPIBaseURL = "<?php echo $CustomerAPIBaseURL; ?>";</script>
+ <script> var baseUrl = "<?php echo $baseUrl; ?>";</script>
+ <script src="<?php $baseUrl; ?>model/harvester_customer_inner.js"></script>
 </head>
 
 <body>
@@ -17,20 +25,30 @@
         <div class="pt-5">
             <span class="mt-4 pt-4 ">
                 <a href="index.php" class="text-decoration-none header-link px-1">Home <i class="fa-solid fa-chevron-right px-1"></i></a>
-                    <span class=""><span class=" header-link  px-1">Brand <i class="fa-solid fa-chevron-right px-1"></i> </span></span>
-                    <span class="text-dark"> Mahindra</span>
+                <span class=""><span class=" header-link  px-1">Harvester <i class="fa-solid fa-chevron-right px-1"></i> </span></span>  
             </span> 
         </div>
     </div>
 </section>
 
-<!-- Mahindra 575 DI XP Plus -->
 <section>
     <div class="container">
-        <h1 class="mt-3">Kartar 4000</h1>
+        <!-- <h1 class="mt-3" id="model_name">Kartar 4000</h1> -->
         <div class="row">
-            <div class="col-12 col-lg-6 col-md-6 col-sm-6 mt-5 pt-3">
-                <img src="assets/images/40009999.webp" class="w-75" alt="40009999.webp">
+            <div class="col-12 col-sm-6 col-lg-6 col-md-6" style="position: relative;">
+                <div>
+                    <h1 class="fw-bold text-danger pt-3" id="brand_name"></h1>
+                    <div class="gallery">   
+                        <div class="swiper-container gallery-slider">
+                            <div class="swiper-wrapper mySwiper2_data"></div>
+                            <div class="swiper-button-prev"></div>
+                            <div class="swiper-button-next"></div>
+                        </div>
+                        <div class="swiper-container gallery-thumbs">
+                            <div class="swiper-wrapper mySwiper_data"></div>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="col-12 col-lg-6 col-md-6 col-sm-6">
                 <table class="table table-bordered">
@@ -38,31 +56,31 @@
                     <tbody>
                         <tr>
                             <td class="fw-bold">Brand</td>
-                            <td>Kartar</td>
+                            <td id="brand"></td>
                         </tr>
                         <tr>
                             <td class="fw-bold">Model Name</td>
-                            <td>4000</td>
+                            <td id="model_name"></td>
                         </tr>
                         <tr>
                             <td class="fw-bold">Power</td>
-                            <td>101 HP</td>
+                            <td><span id="hp"></span> HP</td>
                         </tr>
                         <tr>
                             <td class="fw-bold">Cutter Bar – Width</td>
-                            <td>14 Feet</td>
+                            <td> <span id="cutting_width"></span> Feet</td>
                         </tr>
                         <tr>
                             <td class="fw-bold">No Of Cylinder</td>
-                            <td>6</td>
+                            <td id="cylinder"></td>
                         </tr>
                         <tr>
                             <td class="fw-bold">Power Source</td>
-                            <td>Self Propelled</td>
+                            <td id="power_source"></td>
                         </tr>
                         <tr>
                             <td class="fw-bold">Crop</td>
-                            <td>Multicrop</td>
+                            <td id="crop"></td>
                         </tr>
                     </tbody>
                 </table>
@@ -89,7 +107,7 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title ms-1" id="staticBackdropLabel">Request Call Back</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        <button type="button" class="btn-close btn-success" data-bs-dismiss="modal" aria-label="Close"><img class="w-25" src="assets/images/close.png"></button>
                     </div>
 
                     <!-- MODAL BODY -->
@@ -114,18 +132,14 @@
                                         <input type="text" class="form-control mb-0" placeholder="Enter Number" id="eo_number" name="eo_number" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');">
                                     </div>
                                 </div>
-                                    <!-- <div class="col-12 col-sm-12 col-md-6 col-lg-6">
-                                        <label for="eo_state" class="form-label text-dark fw-bold"> <i class="fas fa-location"></i> Number</label>
-                                        <input type="text" placeholder="Enter Mobile number "class="form-control mb-0" id="eo_number" name="eo_number" >
-                                        
-                                </div> -->
+                                  
                                 <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-3">
                                     <div class="form-outline">
                                         <label for="eo_state" class="form-label text-dark fw-bold"> <i class="fas fa-location"></i> State</label>
                                         <select class="form-select py-2 " aria-label=".form-select-lg example" id="eo_state" name="eo_state">
-                                        <option value="" selected disabled=""> </option>  
-                                        <option value="1">Chhattisgarh</option>
-                                        <option value="2">Other</option>
+                                        <option value="" selected disabled="">Select State </option>  
+                                        <option value="Chhattisgarh">Chhattisgarh</option>
+                                        <option value="Other">Other</option>
                                         </select>
                                     </div>
                                 </div>
@@ -133,10 +147,10 @@
                                     <div class="form-outline">
                                         <label for="eo_dist" class="form-label fw-bold  text-dark"><i class="fa-solid fa-location-dot"></i> District</label>
                                         <select class="form-select py-2 " aria-label=".form-select-lg example" id="eo_dist" name="eo_dist">
-                                            <option value="" selected disabled=""></option>
-                                            <option value="1">Raipur</option>
-                                            <option value="2">Bilaspur</option>
-                                            <option value="2">Durg</option>
+                                            <option value="" selected disabled="">Select District</option>
+                                            <option value="Raipur">Raipur</option>
+                                            <option value="Bilaspur">Bilaspur</option>
+                                            <option value="Durg">Durg</option>
                                         </select>
                                     </div>
                                 </div>                           
@@ -144,7 +158,7 @@
                                     <div class="form-outline">
                                         <label for="eo_tehsil" class="form-label fw-bold text-dark"> Tehsil</label>
                                         <select class="form-select py-2 " aria-label=".form-select-lg example" id="eo_tehsil" name="eo_tehsil">
-                                        <option value="" selected disabled=""></option>
+                                        <option value="" selected disabled="">Select Tehsil</option>
                                         <option value="2">Durg</option>
                                         </select>
                                     </div>
@@ -152,7 +166,7 @@
 
                             </div> 
                             <div class="text-center my-3">
-                                <button type="submit" id="engine_oil_btn" class="btn btn-success px-5 w-40">Submit</button>         
+                                <button type="submit" id="enquiry" class="btn btn-success px-5 w-40">Submit</button>         
                             </div>        
                         </form>                             
                     </div>
@@ -165,23 +179,11 @@
 <section>
     <div class="container my-5">
         <div class="about border-success  border-4 text-dark border-start">
-            <h2 class="text-dark fw-bold text-start ps-3">Kartar 4000 Harvester Features</h2>
+            <h2 class="text-dark fw-bold text-start ps-3"><span class="brand_model"></span> Harvester Features</h2>
 
         </div>
         <div class="mt-1">
-            <p class="text-dark">Kartar 4000 Tractor Harvester is an efficient machine for farming in India. The farmers are extensively using Kartar 4000 Multicrop harvester for their farms. In addition, Kartar 4000 harvester features are also excellent. That’s why the Kartar 4000 harvester machine is one of India's most preferred farming machines. Kartar 4000 price 2023 is also valuable for farmers. Moreover, the Kartar 4000 harvester machine is filled with highly modern technology to serve better in the field.</p>
-        </div>
-        <div class="about  text-dark ">
-            <h5 class="text-dark text-start">Kartar 4000 Multicrop Combine Harvester Price</h5>
-        </div>
-        <div class="mt-1">
-            <p class="text-dark">Kartar 4000 Multicrop combine harvester price is valuable to the Indian farmers. You can also get a complete Kartar 4000 combine harvester price list at Tractor Junction. On the other hand, the Kartar 4000 combine on road price can differ from state to state due to several factors.</p>
-        </div>
-        <div class="about  text-dark ">
-            <h5 class="text-dark text-start">Kartar 4000 Harvester Features</h5>
-        </div>
-        <div class="mt-1">
-            <p class="text-dark">Let’s know the Kartar 4000 harvester features. The working efficiency and performance of Kartar 4000 Tractor Harvester are also excellent. The engine of this Kartar 4000 has enormous power and comes at value for money Kartar 4000 combine price. So, let’s know more about Kartar 4000 Multicrop harvester at Tractor Junction.</p>
+            <p class="text-dark" id="description"></p>
         </div>
      
 
@@ -192,7 +194,7 @@
 <section class="mt-3">
     <div class="container">
         <div class="about border-success  border-4 text-dark border-start">
-            <h4 class="text-dark fw-bold text-start ps-3">Specifications For Kartar 4000 ("51")</h4>
+            <h4 class="text-dark fw-bold text-start ps-3">Specifications For <span class="brand_model"></span></h4>
         </div>
         <h5 class="fw-bold pt-2 ps-2">Engine</h5>
 
@@ -207,7 +209,7 @@
                                 <p class="mb-1 mt-1">TYPE</p>
                             </div>
                             <div class="col-12 col-lg-7 col-md-7 col-sm-7">
-                                <p class="mb-1 mt-1">	Ashok Leyland H6ET1C3RD22/1101 H.P @2200 RPM </p>
+                                <p class="mb-1 mt-1" id="engine_type"> </p>
                             </div>
                         </div>
                     </td>                  
@@ -220,7 +222,7 @@
                                 <p class="mb-1 mt-1">No. of Cylinders:</p>
                             </div>
                             <div class="col-12 col-lg-7 col-md-7 col-sm-7">
-                                <p class="mb-1 mt-1">6(SIX) </p>
+                                <p class="mb-1 mt-1" id="no_of_cylinder"> </p>
                             </div>
                         </div>
                     </td>                  
@@ -233,7 +235,7 @@
                                 <p class="mb-1 mt-1">Cooling System</p>
                             </div>
                             <div class="col-12 col-lg-7 col-md-7 col-sm-7">
-                                <p class="mb-1 mt-1">Water Cooled</p>
+                                <p class="mb-1 mt-1" id="cooling_system"></p>
                             </div>
                         </div>
                     </td>                  
@@ -254,7 +256,7 @@
                                 <p class="mb-1 mt-1">Width:</p>
                             </div>
                             <div class="col-12 col-lg-7 col-md-7 col-sm-7">
-                                <p class="mb-1 mt-1">4199 mm</p>
+                                <p class="mb-1 mt-1" ><span id="cutting_bar_width"></span> mm</p>
                             </div>
                         </div>
                     </td>                  
@@ -267,7 +269,7 @@
                                 <p class="mb-1 mt-1">Height Adjustment:</p>
                             </div>
                             <div class="col-12 col-lg-7 col-md-7 col-sm-7">
-                                <p class="mb-1 mt-1">Hydraulically</p>
+                                <p class="mb-1 mt-1" id="height_adj"></p>
                             </div>
                         </div>
                     </td>                  
@@ -280,7 +282,7 @@
                                 <p class="mb-1 mt-1">Cutting Height Max:</p>
                             </div>
                             <div class="col-12 col-lg-7 col-md-7 col-sm-7">
-                                <p class="mb-1 mt-1">700 mm</p>
+                                <p class="mb-1 mt-1"><span id="cutting_bar_height_max"></span> mm</p>
                             </div>
                         </div>
                     </td>                  
@@ -301,7 +303,7 @@
                                 <p class="mb-1 mt-1">TYPE:</p>
                             </div>
                             <div class="col-12 col-lg-7 col-md-7 col-sm-7">
-                                <p class="mb-1 mt-1">Pick Up</p>
+                                <p class="mb-1 mt-1" id="reel_type"></p>
                             </div>
                         </div>
                     </td>                  
@@ -314,7 +316,7 @@
                                 <p class="mb-1 mt-1">Speed Adjustment:</p>
                             </div>
                             <div class="col-12 col-lg-7 col-md-7 col-sm-7">
-                                <p class="mb-1 mt-1">Mechanically</p>
+                                <p class="mb-1 mt-1" id="speed_adj"></p>
                             </div>
                         </div>
                     </td>                  
@@ -327,7 +329,7 @@
                                 <p class="mb-1 mt-1">Height Adjustment:</p>
                             </div>
                             <div class="col-12 col-lg-7 col-md-7 col-sm-7">
-                                <p class="mb-1 mt-1">Hydraulically</p>
+                                <p class="mb-1 mt-1" id="height_adj"></p>
                             </div>
                         </div>
                     </td>                  
@@ -348,7 +350,7 @@
                                 <p class="mb-1 mt-1">Dia of Drum:</p>
                             </div>
                             <div class="col-12 col-lg-7 col-md-7 col-sm-7">
-                                <p class="mb-1 mt-1">600 mm</p>
+                                <p class="mb-1 mt-1"><span id="dia_drum"></span> mm</p>
                             </div>
                         </div>
                     </td>                  
@@ -361,7 +363,7 @@
                                 <p class="mb-1 mt-1">Length of Drum:</p>
                             </div>
                             <div class="col-12 col-lg-7 col-md-7 col-sm-7">
-                                <p class="mb-1 mt-1">1270 mm</p>
+                                <p class="mb-1 mt-1"><span id="length_drum"></span> mm</p>
                             </div>
                         </div>
                     </td>                  
@@ -374,7 +376,7 @@
                                 <p class="mb-1 mt-1">Speed of Drum:</p>
                             </div>
                             <div class="col-12 col-lg-7 col-md-7 col-sm-7">
-                                <p class="mb-1 mt-1">535 to 1210 rpm</p>
+                                <p class="mb-1 mt-1"><span id="speed_drum"></span> rpm</p>
                             </div>
                         </div>
                     </td>                  
@@ -387,40 +389,14 @@
                                 <p class="mb-1 mt-1">Adjustment:</p>
                             </div>
                             <div class="col-12 col-lg-7 col-md-7 col-sm-7">
-                                <p class="mb-1 mt-1">Mechanically</p>
-                            </div>
-                        </div>
-                    </td>                  
-                </tr>
-
-                <tr>
-                    <td class="w-100">
-                        <div class="row w-100">
-                            <div class="col-12 col-lg-5 col-md-5 col-sm-5">
-                                <p class="mb-1 mt-1">No. of Rasp Bars:</p>
-                            </div>
-                            <div class="col-12 col-lg-7 col-md-7 col-sm-7">
-                                <p class="mb-1 mt-1">8(Eight)</p>
-                            </div>
-                        </div>
-                    </td>                  
-                </tr>
-
-                <tr>
-                    <td class="w-100">
-                        <div class="row w-100">
-                            <div class="col-12 col-lg-5 col-md-5 col-sm-5">
-                                <p class="mb-1 mt-1">No. of Spikes:</p>
-                            </div>
-                            <div class="col-12 col-lg-7 col-md-7 col-sm-7">
-                                <p class="mb-1 mt-1">128</p>
+                                <p class="mb-1 mt-1" id="drum_adjustment"></p>
                             </div>
                         </div>
                     </td>                  
                 </tr>
 
             </tbody>
-        </table>
+        </table>    
 
         <h5 class="fw-bold pt-2 ps-2">Concave</h5>
         <table class="table w-75 table-hover table table-striped my-4">
@@ -433,13 +409,13 @@
                                 <p class="mb-1 mt-1">Clearance Between:</p>
                             </div>
                             <div class="col-12 col-lg-7 col-md-7 col-sm-7">
-                                <p class="mb-1 mt-1">16 to 39 mm</p>
+                                <p class="mb-1 mt-1"><span id="clearance_concave"></span> mm</p>
                             </div>
                         </div>
                     </td>                  
                 </tr>
 
-                <tr>
+                <!-- <tr>
                     <td class="w-100">
                         <div class="row w-100">
                             <div class="col-12 col-lg-5 col-md-5 col-sm-5">
@@ -450,8 +426,8 @@
                             </div>
                         </div>
                     </td>                  
-                </tr>
-
+                </tr> -->
+<!-- 
                 <tr>
                     <td class="w-100">
                         <div class="row w-100">
@@ -463,12 +439,12 @@
                             </div>
                         </div>
                     </td>                  
-                </tr>
+                </tr> -->
 
             </tbody>
         </table>
 
-        <h5 class="fw-bold pt-2 ps-2">Straw Walkers</h5>
+        <!-- <h5 class="fw-bold pt-2 ps-2">Straw Walkers</h5>
         <table class="table w-75 table-hover table table-striped my-4">
             
             <tbody>
@@ -498,9 +474,9 @@
                     </td>                  
                 </tr>
             </tbody>
-        </table>
+        </table> -->
 
-        <h5 class="fw-bold pt-2 ps-2">Cleaning</h5>
+        <!-- <h5 class="fw-bold pt-2 ps-2">Cleaning</h5>
         <table class="table w-75 table-hover table table-striped my-4">
             <tbody>
                 <tr>
@@ -530,7 +506,7 @@
                 </tr>
 
             </tbody>
-        </table>
+        </table> -->
 
         <h5 class="fw-bold pt-2 ps-2">Tyre Size</h5>
         <table class="table w-75 table-hover table table-striped my-4">
@@ -542,7 +518,7 @@
                                 <p class="mb-1 mt-1">Front:</p>
                             </div>
                             <div class="col-12 col-lg-7 col-md-7 col-sm-7">
-                                <p class="mb-1 mt-1">18.4/15/30</p>
+                                <p class="mb-1 mt-1"  id="tyre_front"></p>
                             </div>
                         </div>
                     </td>                  
@@ -555,7 +531,7 @@
                                 <p class="mb-1 mt-1">Rear/Trolley:</p>
                             </div>
                             <div class="col-12 col-lg-7 col-md-7 col-sm-7">
-                                <p class="mb-1 mt-1">9.00 X 16</p>
+                                <p class="mb-1 mt-1" id="tyre_rear"></p>
                             </div>
                         </div>
                     </td>                  
@@ -574,7 +550,7 @@
                                 <p class="mb-1 mt-1">Length:</p>
                             </div>
                             <div class="col-12 col-lg-7 col-md-7 col-sm-7">
-                                <p class="mb-1 mt-1">8535 mm</p>
+                                <p class="mb-1 mt-1"><span id="dia_lenght"></span> mm</p>
                             </div>
                         </div>
                     </td>                  
@@ -587,7 +563,7 @@
                                 <p class="mb-1 mt-1">Height:</p>
                             </div>
                             <div class="col-12 col-lg-7 col-md-7 col-sm-7">
-                                <p class="mb-1 mt-1">4572 mm</p>
+                                <p class="mb-1 mt-1"><span id="dia_height"></span> mm</p>
                             </div>
                         </div>
                     </td>                  
@@ -600,7 +576,7 @@
                                 <p class="mb-1">Min Ground Clearance:</p>
                             </div>
                             <div class="col-12 col-lg-7 col-md-7 col-sm-7">
-                                <p class="mb-1">460 mm</p>
+                                <p class="mb-1"><span id="min_ground_clear"></span> mm</p>
                             </div>
                         </div>
                     </td>                  
@@ -613,7 +589,7 @@
                                 <p class="mb-1 mt-1">Weight:</p>
                             </div>
                             <div class="col-12 col-lg-7 col-md-7 col-sm-7">
-                                <p class="mb-1 mt-1">9150 Kgs. (Approx.)</p>
+                                <p class="mb-1 mt-1"><span id="min_ground_weight"></span> Kgs. (Approx.)</p>
                             </div>
                         </div>
                     </td>                  
@@ -622,17 +598,17 @@
             </tbody>
         </table>
 
-        <h5 class="fw-bold pt-2 ps-2">Working Capacity</h5>
+        <h5 class="fw-bold pt-2 ps-2">Capacity</h5>
         <table class="table w-75 table-hover table table-striped my-4">
             <tbody>
                 <tr>
                     <td class="w-100">
                         <div class="row w-100">
                             <div class="col-12 col-lg-5 col-md-5 col-sm-5">
-                                <p class="mb-1 mt-1">Wheat:</p>
+                                <p class="mb-1 mt-1">Fuel Tank Capacity:</p>
                             </div>
                             <div class="col-12 col-lg-7 col-md-7 col-sm-7">
-                                <p class="mb-1 mt-1">4.5 Acres/hour(approx)</p>
+                                <p class="mb-1 mt-1" id="fuel_tank"><span id="grain_tank_capacity"> </span> L</p>
                             </div>
                         </div>
                     </td>                  
@@ -645,7 +621,7 @@
                                 <p class="mb-1 mt-1">Paddy:</p>
                             </div>
                             <div class="col-12 col-lg-7 col-md-7 col-sm-7">
-                                <p class="mb-1 mt-1">4 Acres/hour(approx)</p>
+                                <p class="mb-1 mt-1" ><span id="grain_tank_capacity"> </span> Acres/hour(approx)</p>
                             </div>
                         </div>
                     </td>                  
@@ -662,8 +638,8 @@
         <section>
          <div class="container ">
             <h2 class="fw-bold text-dark text-start mt-4 assured ps-3">Similar Harvesters</h3>
-            <div class="row">
-                <div class="col-12 col-lg-3 col-md-3 col-sm-3 mb-4">
+            <div class="row" id="productContainerharvester">
+                <!-- <div class="col-12 col-lg-3 col-md-3 col-sm-3 mb-4">
                     <a href="harvester_inner.php" class="h-auto success__stry__item d-flex flex-column text-decoration-none shadow ">
                         <div class="thumb">
                             <div>
@@ -689,99 +665,17 @@
                             </button>
                         </div>
                     </a>
-                </div>
-                <div class="col-12 col-lg-3 col-md-3 col-sm-3 mb-4">
-                    <a href="harvester_inner.php" class="h-auto success__stry__item d-flex flex-column text-decoration-none shadow ">
-                        <div class="thumb">
-                            <div>
-                                <img src="assets/images/912-1646895681.webp" class="object-fit-cover w-100" alt="img">
-                            </div>
-                        </div>
-                        <div class="content d-flex flex-column flex-grow-1 ">
-                            <div class="power text-center mt-3">
-                                <div class="row text-center">
-                                    <div class="col-12 text-center">
-                                        <p class="fw-bold pe-3 text-primary">Dasmesh 912</p>
-                                    </div>
-                                </div>
-                                <div class="row ">
-                                   <div class="col-12 "><p class="text-dark ps-2">Cutting Width : 14 Feet</p></div>
-                                        
-                                </div>    
-                            </div>
-                        </div>
-                        <div class="col-12 btn-success">
-                            <button type="button" class="btn btn-success py-2 w-100"></i> 
-                                Power : 55-75
-                            </button>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-12 col-lg-3 col-md-3 col-sm-3 mb-4">
-                    <a href="harvester_inner.php" class="h-auto success__stry__item d-flex flex-column text-decoration-none shadow ">
-                        <div class="thumb">
-                            <div>
-                                <img src="assets/images/harvester_new.webp" class="object-fit-cover w-100" alt="img">
-                            </div>
-                        </div>
-                        <div class="content d-flex flex-column flex-grow-1 ">
-                            <div class="power text-center mt-3">
-                                <div class="row text-center">
-                                    <div class="col-12 text-center">
-                                        <p class="fw-bold pe-3 text-primary">Hind Agro HIND 999</p>
-                                    </div>
-                                </div>
-                                <div class="row ">
-                                   <div class="col-12 "><p class="text-dark ps-2">Cutting Width : 4400 Feet</p></div>
-                                        
-                                </div>    
-                            </div>
-                        </div>
-                        <div class="col-12 btn-success">
-                            <button type="button" class="btn btn-success py-2 w-100"></i> 
-                                Power : 101 HP
-                            </button>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-12 col-lg-3 col-md-3 col-sm-3 mb-4">
-                    <a href="harvester_inner.php" class="h-auto success__stry__item d-flex flex-column text-decoration-none shadow ">
-                        <div class="thumb">
-                            <div>
-                                <img src="assets/images/40009999.webp" class="object-fit-cover w-100" alt="img">
-                            </div>
-                        </div>
-                        <div class="content d-flex flex-column flex-grow-1 ">
-                            <div class="power text-center mt-3">
-                                <div class="row text-center">
-                                    <div class="col-12 text-center">
-                                        <p class="fw-bold pe-3 text-primary">Kartar 4000</p>
-                                    </div>
-                                </div>
-                                <div class="row ">
-                                   <div class="col-12 "><p class="text-dark ps-2">Cutting Width : 14 Feet</p></div>
-                                        
-                                </div>    
-                            </div>
-                        </div>
-                        <div class="col-12 btn-success">
-                            <button type="button" class="btn btn-success py-2 w-100"></i> 
-                                Power : 101 HP
-                            </button>
-                        </div>
-                    </a>
-                </div>
+                </div> -->
             </div>
          </div>
          <div class="col text-center my-3 pb-5">
-            <a href="#" class="btn btn-success btn-lg">View All Harvester</a>
+            <a href="harvester.php" class="btn btn-success btn-lg">View All Harvester</a>
         </div>
     </section>
 
 
     <?php
         include 'includes/footer.php';
-        include 'includes/footertag.php';
     ?>
 
     <script>

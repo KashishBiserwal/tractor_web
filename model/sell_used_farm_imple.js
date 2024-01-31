@@ -5,8 +5,8 @@ $(document).ready(function() {
 
 // get brand
 function get() {
-    var apiBaseURL = APIBaseURL;
-    var url = apiBaseURL + 'getBrands';
+    // var apiBaseURL = APIBaseURL;
+    var url = 'http://tractor-api.divyaltech.com/api/customer/getBrands';
   
     $.ajax({
       url: url,
@@ -49,8 +49,8 @@ function get() {
 
      
   function get_category() {
-    var apiBaseURL = APIBaseURL;
-    var url = apiBaseURL + 'get_implement_category';
+    // var apiBaseURL = APIBaseURL;
+    var url = 'http://tractor-api.divyaltech.com/api/customer/get_implement_category';
     $.ajax({
         url: url,
         type: "GET",
@@ -82,8 +82,8 @@ get_category();
 
 function get_year_and_hours() {
     console.log('initsfd')
-    var apiBaseURL = APIBaseURL;
-    var url = apiBaseURL + 'get_year_and_hours';
+    // var apiBaseURL = APIBaseURL;
+    var url = 'http://tractor-api.divyaltech.com/api/customer/get_year_and_hours';
     $.ajax({
         url: url,
         type: "GET",

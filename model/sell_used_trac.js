@@ -80,8 +80,8 @@ function get() {
 
   function get_year_and_hours() {
     console.log('initsfd')
-    var apiBaseURL = APIBaseURL;
-    var url = apiBaseURL + 'get_year_and_hours';
+    // var apiBaseURL = APIBaseURL;
+    var url = 'http://tractor-api.divyaltech.com/api/customer/get_year_and_hours';
     $.ajax({
         url: url,
         type: "GET",

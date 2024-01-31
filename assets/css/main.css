@@ -6,7 +6,13 @@
 /* body{ */
     /* font-family: "Montserrat", sans-serif !important; */
 /* } */
-
+.btn-close {
+    background:none!important;
+    opacity: 1 !important;
+}
+.btn-close img {
+   width: 15px;
+}
 .loaded{
     padding: 0;
     margin: 0;

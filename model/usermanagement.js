@@ -111,6 +111,7 @@ $('#save').on('click', function() {
     // Get values from form fields
     event.preventDefault();
     console.log('jfhfhw');
+    if( $('#form_add').valid()){
     var first_name = $('#first_name').val();
     var last_name = $('#last_name').val();
     var email = $('#email').val();
@@ -129,28 +130,18 @@ $('#save').on('click', function() {
       'password_confirmation': password_confirmation,
       'user_type': user_type
     };
-
-    // var url = "<?php echo $APIBaseURL; ?>user_registration";
     var apiBaseURL =APIBaseURL;
     var url = apiBaseURL + 'user_registration';
     console.log(url);
-
-    // var token = localStorage.getItem('token');
-    // var headers = {
-    //   'Authorization': 'Bearer ' + token
-    // };
-
     // Make an AJAX request to the server
     $.ajax({
       url: url,
       type: "POST",
       data: paraArr,
-      // headers: headers,
       success: function (result) {
         console.log(result, "result");
         get();
         console.log("Add successfully");
-       // alert('successfully inserted..!')
        $("#staticBackdrop").modal("hide");
        var msg = "User Inserted successfully !"
         $("#errorStatusLoading").modal('show');
@@ -158,13 +149,15 @@ $('#save').on('click', function() {
         $("#errorStatusLoading").find('.modal-body').html(msg);
       },
       error: function (error) {
-        console.error('Error fetching data:', error);
+        console.error('Error fetching data:', error.status);
+        console.error('Error fetching data:', error.responseJSON.error);
         var msg = error;
         $("#errorStatusLoading").modal('show');
         $("#errorStatusLoading").find('.modal-title').html('Error');
         $("#errorStatusLoading").find('.modal-body').html(msg);
       }
     });
+  }
   }
 
   // fetch data
@@ -248,6 +241,15 @@ $('#save').on('click', function() {
         },
         error: function (error) {
             console.error('Error fetching data:', error);
+            console.error('Error fetching data:', error.status);
+            console.error('Error fetching data:', error.responseJSON.error);
+            if(error.status == '401' && error.responseJSON.error == 'Token expired or invalid'){
+              $("#errorStatusLoading").modal('show');
+              $("#errorStatusLoading").find('.modal-title').html('Error');
+              $("#errorStatusLoading").find('.modal-body').html(error.responseJSON.error);
+              window.location.href = baseUrl + "login.php"; 
+
+            }
             // Display an error message or handle the error as needed
         }
     });

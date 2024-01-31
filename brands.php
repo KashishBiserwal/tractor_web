@@ -40,10 +40,10 @@ include 'includes/headertag.php';
 
                     </div> -->
                     <div class="banner__wrapper">
-                        <div class="row  float-start">
+                        <div class="row  w-100 float-start">
                         <div class="col-12 col-sm-12 col-xxl-6 col-xl-6 col-lg-6">
-                            <div class="banner__content float-start ">
-                                <h1 class="d3 mb-0 text-white display-5 fw-bold">Mahindra </h1>
+                            <div class="banner__content float-start" id="slider_head">
+                                <!-- <h1 class="d3 mb-0 text-white display-5 fw-bold">Mahindra </h1> -->
                                 
                                 <div>
                                  
@@ -62,8 +62,8 @@ include 'includes/headertag.php';
   <section>
     <div class="container-fullwidth">
         <div class="row">
-            <h1 class=" mt-5">Popular Mahindra Tractors</h1>
-            
+            <!-- <h1 class=" mt-5">Popular Mahindra Tractors</h1> -->
+            <div id="popular_tractor"></div>
             <div id="productContainer" class="row"></div>
                 
 		    </div>
@@ -79,129 +79,16 @@ include 'includes/headertag.php';
   <!-- used tractor -->
     <section>
         <div class="container-fullwidth my-4">
-        <h3 class="mt-5 pt-4 fw-bold">Used Mahindra Tractors</h3>
-            <div class="row my-4">
-            <div class="col-12 col-sm-6 col-md-4 col-lg-4 px-2 py-3 h-100">
-                <div class="h-auto success__stry__item d-flex flex-column shadow ">
-                    <div class="thumb">
-                        <a href="#">
-                            <div class="ratio ratio-16x9">
-                                <img src="assets/images/575-di-xp-plus-141907-1693895494-0.webp" class="object-fit-cover  "  alt="img">
-                            </div>
-                        </a>
-                    </div>
-                    <div class="content d-flex flex-column flex-grow-1 ms-3">
-                        <a href="#" class="text-decoration-none text-dark ps-3">
-                            <h4 class="fw-bold mt-3">Mahindra 575 DI XP Plus </h3>
-                        </a>
-
-                        <a href="# " class="text-dark flex-grow-1 text-decoration-none ps-3">
-                            <p>Price: ₹ 5,80,000*</p>
-                        </a>
-
-                        <div class="row mt-1 ps-3">
-                                <div class="col-12 col-lg-3 col-md-3 col-sm-3">
-                                    <p class=""> <i class="fas fa-bolt"></i> 47 HP</p>
-                                </div>
-                                <div class="col-12 col-lg-4 col-md-4 col-sm-4">
-                                    <p class="ps-1">2021 Model</p>
-                                </div>
-                                <div class="col-12 col-lg-5 col-md-5 col-sm-5 pe-1">
-                                    <button class="btn btn-success p-1">Great Deal <i class="fa fa-thumbs-up" aria-hidden="true"></i></button>
-                                </div>
-                        </div>
-                        <a href="#" class="text-decoration-none text-dark mb-4 ps-3">
-                            <span>
-                            Dewas, Madhya Pradesh
-                            </span>
-                            <span class="icon">
-                                <i class="fa-solid fa-chevron-right"></i>
-                            </span>
-                        </a>
-                    </div>
+        <div class="row">
+            <div id="used_tractor"></div>
+            <div class="row">
+                <div id="productContainer2" class="owl-carousel owl-theme">
+                   
                 </div>
             </div>
-            <div class="col-12 col-sm-6 col-md-4 col-lg-4 px-2 py-3 h-100">
-                <div class="h-auto success__stry__item d-flex flex-column shadow ">
-                    <div class="thumb">
-                        <a href="#">
-                            <div class="ratio ratio-16x9">
-                                <img src="assets/images/415-di-sp-plus-141891-1693887085-0.webp" class="object-fit-cover " alt="img">
-                            </div>
-                        </a>
-                    </div>
-                    <div class="content d-flex flex-column flex-grow-1 ms-3">
-                        <a href="#" class="text-decoration-none text-dark ps-3">
-                            <h4 class="fw-bold mt-3">Mahindra 415 DI SP Plus </h3>
-                        </a>
-
-                        <a href="# " class="text-dark flex-grow-1 text-decoration-none ps-3">
-                            <p>Price: ₹ 4,90,000*</p>
-                        </a>
-
-                        <div class="row mt-1 ps-3">
-                                <div class="col-12 col-lg-3 col-md-3 col-sm-3">
-                                    <p class=""> <i class="fas fa-bolt"></i> 42 HP </p>
-                                </div>
-                                <div class="col-12 col-lg-4 col-md-4 col-sm-4">
-                                    <p class="ps-1">2021 Model</p>
-                                </div>
-                                <div class="col-12 col-lg-5 col-md-5 col-sm-5 pe-1">
-                                    <button class="btn btn-success p-1">Great Deal <i class="fa fa-thumbs-up" aria-hidden="true"></i></button>
-                                </div>
-                        </div>
-                        <a href="#" class="text-decoration-none text-dark mb-4 ps-3">
-                            <span>
-                                Dewas, Madhya Pradesh
-                            </span>
-                            <span class="icon">
-                                <i class="fa-solid fa-chevron-right"></i>
-                            </span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 col-sm-6 col-md-4 col-lg-4 px-2 py-3 h-100">
-                <div class="h-auto success__stry__item d-flex flex-column shadow ">
-                    <div class="thumb">
-                        <a href="#">
-                            <div class="ratio ratio-16x9">
-                                <img src="assets/images/275-di-xp-plus-141706-1693638432-0.webp" class="object-fit-cover " alt="img">
-                            </div>
-                        </a>
-                    </div>
-                    <div class="content d-flex flex-column flex-grow-1 ms-3">
-                        <a href="#" class="text-decoration-none text-dark ps-3">
-                            <h4 class="fw-bold mt-3">Mahindra 275 DI XP Plus </h3>
-                        </a>
-
-                        <a href="# " class="text-dark flex-grow-1 text-decoration-none ps-3">
-                            <p>Price: ₹ 5,00,000*</p>
-                        </a>
-
-                        <div class="row mt-1 ps-3">
-                                <div class="col-12 col-lg-3 col-md-3 col-sm-3">
-                                    <p class=""> <i class="fas fa-bolt"></i>37 HP</p>
-                                </div>
-                                <div class="col-12 col-lg-4 col-md-4 col-sm-4">
-                                    <p class="ps-1">2021 Model</p>
-                                </div>
-                                <div class="col-12 col-lg-5 col-md-5 col-sm-5 pe-1">
-                                    <button class="btn btn-success p-1">Great Deal <i class="fa fa-thumbs-up" aria-hidden="true"></i></button>
-                                </div>
-                        </div>
-                        <a href="#" class="text-decoration-none text-dark mb-4 ps-3">
-                            <span>
-                            Sikar, Rajasthan
-                            </span>
-                            <span class="icon">
-                                <i class="fa-solid fa-chevron-right"></i>
-                            </span>
-                        </a>
-                    </div>
-                </div>
-            </div>
+            <!-- <div id="productContainer2" class="row"></div> -->
         </div>
+
         <div class="col text-center my-3  py-3">
             <a href="#" class="btn btn-success btn-lg">View All Used Mahindra Tractors</a>
         </div>
@@ -210,9 +97,12 @@ include 'includes/headertag.php';
     <!-- Mahindra Tractor Implements -->
     <section class="bg-light">
         <div class="container-fullwidth">
-            <h3 class="my-4 pt-2 fw-bold">Mahindra Tractor Implements</h3>
-            <div class="row">
-                <div class="col-12 col-sm-6 col-md-3 col-lg-3 px-2 py-3 h-100">
+        <div id="old_implement"></div>
+        <div class="row">
+                <div id="productContainer3" class="owl-carousel owl-theme">
+                   
+                </div>
+               <!--  <div class="col-12 col-sm-6 col-md-3 col-lg-3 px-2 py-3 h-100">
                     <div class="h-auto success__stry__item d-flex flex-column shadow ">
                         <div class="thumb">
                             <a href="#">
@@ -238,8 +128,8 @@ include 'includes/headertag.php';
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-12 col-sm-6 col-md-3 col-lg-3 px-2 py-3 h-100">
+                </div> -->
+             <!--    <div class="col-12 col-sm-6 col-md-3 col-lg-3 px-2 py-3 h-100">
                     <div class="h-auto success__stry__item d-flex flex-column shadow ">
                         <div class="thumb">
                             <a href="#">
@@ -319,7 +209,7 @@ include 'includes/headertag.php';
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> -->
             </div>
             <div class="col text-center my-3 pb-5">
                 <a href="#" class="btn btn-success btn-lg ">View All Tractor Implements</a>
@@ -639,8 +529,26 @@ include 'includes/headertag.php';
         </div>
     </section>
 
-   
+<!--    
+<script>
+$('#productContainer2').owlCarousel({
+    loop:true,
+    margin:10,
+    nav:true,
+    responsive:{
+        0:{
+            items:1
+        },
+        600:{
+            items:3
+        },
+        1000:{
+            items:5
+        }
+    }
+})
 
+</script> -->
 
     <?php
     include 'includes/footer.php';

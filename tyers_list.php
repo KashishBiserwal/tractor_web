@@ -27,7 +27,7 @@
               </li>
             </ol>
           </nav>
-          <button type="button" id="add_trac" class="btn add_btn btn-success float-right btn_all" data-bs-toggle="modal"  data-bs-target="#staticBackdrop">
+          <button type="button" id="add_trac" onclick="resetFormFields()" class="btn add_btn btn-success float-right btn_all" data-bs-toggle="modal"  data-bs-target="#staticBackdrop">
               <i class="fa fa-plus" aria-hidden="true"></i> Add New Tyre
           </button>
 
@@ -37,7 +37,7 @@
               <div class="modal-content modal_box">
                 <div class="modal-header modal_head">
                   <h5 class="modal-title text-white fw-bold" id="staticBackdropLabel">Add Tyre </h5>
-                  <button type="button" class="btn-close btn-success" data-bs-dismiss="modal" aria-label="Close"></button>
+                  <button type="button" class="btn-close btn-success" data-bs-dismiss="modal" aria-label="Close"><img src="assets/images/close.png"></button>
                 </div>
                 <div class="modal-body bg-white">
                         <div class="row justify-content-center">
@@ -49,8 +49,13 @@
                                       <div class="form-outline">
                                         <label for="name" class="form-label text-dark">Brand</label>
                                         <select class="form-select form-control" aria-label=".form-select-lg example" id="brand" name="brand">
-                                    
-                                    </select>
+                                        </select>
+                                      </div>
+                                    </div>
+                                    <div class="col-12 col-lg-6 col-md-6 col-sm-6 mt-3" hidden>
+                                      <div class="form-outline ">
+                                        <label for="name" class="form-label text-dark">product_id</label>
+                                        <input type="text" class="form-control" placeholder="" id="EditIdmain_" name="id">
                                       </div>
                                     </div>
                                     <div class="col-12 col-lg-6 col-md-6 col-sm-6 mt-3">
@@ -62,7 +67,11 @@
                                     <div class="col-12 col-lg-6 col-md-6 col-sm-6 mt-3">
                                       <div class="form-outline ">
                                         <label for="name" class="form-label text-dark">Tyre Position</label>
-                                        <input type="text" class="form-control" placeholder="" id="tyre_position" name="tyre_position">
+                                        
+                                        <select class="form-select form-control" aria-label=".form-select-lg example" id="tyre_position" name="tyre_position">
+                                          <option value="front">Front</option>
+                                          <option value="rare">Rare</option>
+                                        </select>
                                       </div>
                                     </div>
                                     <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-3">
@@ -113,15 +122,15 @@
                                     </div>  -->
                                  
                                     <div class="col-12 col-lg-12 col-md-12 col-sm-12 mt-5">
-                                    <div class="upload__box">
-                                        <div class="upload__btn-box text-center">
-                                          <label >
-                                            <p class="upload__btn ">Upload images</p>
-                                            <input type="file" multiple="" data-max_length="20" class="upload__inputfile" id="_image" name="_image">
-                                          </label>
-                                        </div>
-                                        <div id="selectedImagesContainer" class="upload__img-wrap"></div>
-                                      </div>
+                                    <div class="upload__box ">
+                                            <div class="upload__btn-box text-center mt-3">
+                                              <label >
+                                                <p class="upload__btn ">Upload images</p>
+                                                <input type="file" name='files[]' multiple="" data-max_length="20" class="upload__inputfile" id="image">
+                                              </label>
+                                            </div>
+                                            <div id="selectedImagesContainer" class="upload__img-wrap"></div>
+                                          </div>
                                     </div>
                                    
                                 </div>
@@ -156,19 +165,17 @@
             <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-3">
               <div class="form-outline">
                 <label class="form-label">Tyre Position</label>
-                <select class="form-select form-control" aria-label="Default select example">
+                <select class="form-select form-control" id="search_position" aria-label="Default select example">
                   <option selected disabled>Select Position</option>
-                  <option value="1">Front-Left</option>
-                  <option value="2">Front-right</option>
-                  <option value="2">Back-Left</option>
-                  <option value="2">Back-right</option>
+                  <option value="front">Front</option>
+                  <option value="Rear">Rear</option>
                 </select>
               </div>
             </div>
             <div class="col-12 col-sm-12 col-md-4 col-lg-4  mt-3">
               <div class="text-center">
                 <button type="button" class="btn-success btn btn_all" id="Search">Search</button>
-                <button type="button" class="btn-success btn  btn_all" id="Reset">Reset</button>
+                <button type="button" class="btn-success btn  btn_all" onclick="resetform()" id="Reset">Reset</button>
               </div>
             </div>
           </div>
@@ -203,7 +210,7 @@
               <div class="modal-content modal_box">
                 <div class="modal-header modal_head">
                   <h5 class="modal-title text-white fw-bold" id="staticBackdropLabel">Tyre Information </h5>
-                  <button type="button" class="btn-close btn-success" data-bs-dismiss="modal" aria-label="Close"></button>
+                  <button type="button" class="btn-close btn-success" data-bs-dismiss="modal" aria-label="Close"><img src="assets/images/close.png"></button>
                 </div>
                   <div class="modal-body bg-light">
                     <div class="row ">
@@ -252,6 +259,4 @@
 </div>
 </body>
 
-<?php
-   include 'includes/footertag.php';
-   ?> 
+

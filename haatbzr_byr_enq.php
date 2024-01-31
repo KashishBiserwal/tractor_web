@@ -120,7 +120,7 @@
     <div class="modal-content">
       <div class="modal-header bg-success">
         <h1 class="modal-title fs-5 text-white" id="staticBackdropLabel">Haatbazar Buyer Enquiry Information</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <button type="button" class="btn-close btn-success" data-bs-dismiss="modal" aria-label="Close"><img src="assets/images/close.png"></button>
       </div>
       <div class="modal-body">
       <div class="modal-body bg-light">
@@ -190,7 +190,7 @@
     <div class="modal-content">
       <div class="modal-header bg-success">
         <h1 class="modal-title fs-5 text-white" id="staticBackdropLabel">Update Haatbazar Buyer Enquiry</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <button type="button" class="btn-close btn-success" data-bs-dismiss="modal" aria-label="Close"><img src="assets/images/close.png"></button>
       </div>
       <div class="modal-body">
         <form id="haatbazar_buyer" name="haatbazar_buyer" method="post" class="p-3">

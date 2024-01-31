@@ -101,10 +101,25 @@ function displaylist(tractors) {
 
                         <div class="modal fade" id="used_tractor_callbnt_${p.product_id}" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                             <div class="modal-dialog modal-lg modal-dialog-centered">
-                                <div class="modal-content">
-                                    <div class="modal-header  modal_head">
-                                        <h5 class="modal-title text-white ms-1" id="staticBackdropLabel">${p.model}</h5>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                              <div class="modal-content">
+                                <div class="modal-header  modal_head">
+                                  <h5 class="modal-title text-white ms-1" id="staticBackdropLabel">${p.model}</h5>
+                                  <button type="button" class="btn-close btn-success" data-bs-dismiss="modal" aria-label="Close"><img src="assets/images/close.png"></button>
+                                </div>
+                                <!-- MODAL BODY -->
+                                <div class="modal-body">
+                                <form  id="contact-seller-call" method="POST" onsubmit="return false">
+                                    <div class="row">
+                                        <div class="col-12 col-lg-6 col-md-6 col-sm-6">
+                                            <label for="name" class="form-label fw-bold text-dark"> <i class="fa-brands fa-font-awesome"></i>  Brand Name</label>
+                                            <select class="form-select py-2 " aria-label=".form-select-lg example" id="brandName" name="brandName">
+                                           
+                                            </select>
+                                            
+                                        </div>
+                                        <div class="col-12 col-lg-6 col-md-6 col-sm-6 " hidden>
+                                        <label for="name" class="form-label fw-bold text-dark"><i class="fa-duotone fa-chart-pie-simple"></i> Model Name</label>
+                                        <input type="text" class="form-control" placeholder="Enter Your Name" id="enquiry_type_id" value="2" name="iduser">
                                     </div>
                                     <!-- MODAL BODY -->
                                     <div class="modal-body">

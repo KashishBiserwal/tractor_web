@@ -29,13 +29,11 @@ include 'includes/footertag.php';
                                 class="fa-solid fa-chevron-right px-1"></i>
                         </span>
                     </span>
-                    <span class="text-dark">Sell</span>
-                </span>
-            </div>
+                </div>
         </div>
     </section>
     <section>
-        <div class="container">
+        <div class="container pt-3">
             <div class="vegehead">
                 <div class="row">
                     <div class="col-12 col-lg-6 ">
@@ -158,8 +156,9 @@ include 'includes/footertag.php';
                                                     <div class="modal-dialog modal-lg modal-dialog-centered">
                                                         <div class="modal-content">
                                                             <div class="modal-header">
-                                                                <h5 class="modal-title" id="staticBackdropLabel">Contact Seller</h5>
-                                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                                <h5 class="modal-title" id="staticBackdropLabel">Contact
+                                                                    Seller</h5>
+                                                                    <button type="button" class="btn-close btn-success" data-bs-dismiss="modal" aria-label="Close"><img src="assets/images/close.png"></button>
                                                             </div>
                                                             <div class="modal-body">
                                                                 <div class="model-cont">
@@ -322,8 +321,7 @@ include 'includes/footertag.php';
                                 <div class="modal-content">
                                     <div class="modal-header">
                                         <h5 class="modal-title text-danger" id="staticBackdropLabel">Contact Seller</h5>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                            aria-label="Close"></button>
+                                        <button type="button" class="btn-close btn-success" data-bs-dismiss="modal" aria-label="Close"><img src="assets/images/close.png"></button>
                                     </div>
                                     <div class="modal-body">
                                         <div class="model-cont">
@@ -457,8 +455,7 @@ include 'includes/footertag.php';
                                 <div class="modal-content">
                                     <div class="modal-header">
                                         <h5 class="modal-title text-danger" id="staticBackdropLabel">Contact Seller</h5>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                            aria-label="Close"></button>
+                                        <button type="button" class="btn-close btn-success" data-bs-dismiss="modal" aria-label="Close"><img src="assets/images/close.png"></button>
                                     </div>
                                     <div class="modal-body">
                                         <div class="model-cont">
@@ -594,8 +591,7 @@ include 'includes/footertag.php';
                                 <div class="modal-content">
                                     <div class="modal-header">
                                         <h5 class="modal-title text-danger" id="staticBackdropLabel">Contact Seller</h5>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                            aria-label="Close"></button>
+                                        <button type="button" class="btn-close btn-success" data-bs-dismiss="modal" aria-label="Close"><img src="assets/images/close.png"></button>
                                     </div>
                                     <div class="modal-body">
                                         <div class="model-cont">
@@ -708,8 +704,7 @@ include 'includes/footertag.php';
                                 <div class="modal-content">
                                     <div class="modal-header">
                                         <h5 class="modal-title text-danger" id="staticBackdropLabel">Contact Seller</h5>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                            aria-label="Close"></button>
+                                        <button type="button" class="btn-close btn-success" data-bs-dismiss="modal" aria-label="Close"><img src="assets/images/close.png"></button>
                                     </div>
                                     <div class="modal-body">
                                         <div class="model-cont">

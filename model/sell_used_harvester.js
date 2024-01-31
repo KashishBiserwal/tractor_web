@@ -7,8 +7,8 @@ $(document).ready(function() {
 // fetch lookup data in select box  
 function get_lookup() {
     console.log('initsfd')
-      var apiBaseURL = APIBaseURL;
-      var url = apiBaseURL + 'getLookupData';
+    //   var apiBaseURL = APIBaseURL;
+      var url = 'http://tractor-api.divyaltech.com/api/customer/getLookupData';
       $.ajax({
           url: url,
           type: "GET",
@@ -115,8 +115,8 @@ function get() {
 
   function get_year_and_hours() {
     console.log('initsfd')
-    var apiBaseURL = APIBaseURL;
-    var url = apiBaseURL + 'get_year_and_hours';
+    // var apiBaseURL = APIBaseURL;
+    var url = 'http://tractor-api.divyaltech.com/api/customer/get_year_and_hours';
     $.ajax({
         url: url,
         type: "GET",

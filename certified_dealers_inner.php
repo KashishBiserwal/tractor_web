@@ -136,7 +136,7 @@ include 'includes/headertag.php';
           <div class="modal-content">
             <div class="modal-header">
               <h5 class="modal-title ms-1" id="staticBackdropLabel">Request Call Back</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              <button type="button" class="btn-close btn-success" data-bs-dismiss="modal" aria-label="Close"><img src="assets/images/close.png"></button>
             </div>
             <!-- MODAL BODY -->
             <div class="modal-body">

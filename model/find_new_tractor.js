@@ -60,7 +60,6 @@ $(document).ready(function() {
 
 function model_click(){
     get();
-    console.log("confirm")
   }
 
   function get() {
@@ -204,7 +203,7 @@ function displayTractors(tractors) {
                                     <div class="modal-content">
                                         <div class="modal-header  modal_head">
                                         <h5 class="modal-title text-white ms-1" id="staticBackdropLabel">${p.model}</h5>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        <button type="button" class="btn-close btn-success" data-bs-dismiss="modal" aria-label="Close"><img src="assets/images/close.png"></button>
                                         </div>
                                         <!-- MODAL BODY -->
                                         <div class="modal-body">
@@ -283,7 +282,6 @@ function displayTractors(tractors) {
                         <td class="py-3">Rs. <span>${p.starting_price}</span> - <span>${p.ending_price}</span>*</td>
                     </tr>
 `;
-
                 // Add event listener for modal opening
     $(".add_btn").on("click", function () {
         var productId = $(this).data("product-id");
