@@ -328,12 +328,11 @@ function nursery_enquiry(formId) {
 
 var filteredCards = [];
 var cardsDisplayed = 0;
-var cardsPerPage = 6; 
+var cardsPerPage = 6;
 
 function filter_search() {
-    var checkboxes = $(".state_checkbox:checked");
-    var checkboxes2 = $(".district_checkbox:checked");
-    var checkboxes3 = $(".tehsil_checkbox:checked");
+    var checkboxes = $(".select_state:checked");
+    var checkboxes2 = $(".select_district:checked");
 
     var selectedCheckboxValues = checkboxes.map(function () {
         return $(this).val();
@@ -343,17 +342,14 @@ function filter_search() {
         return $(this).val();
     }).get();
 
-    var selectedteshil = checkboxes3.map(function () {
-        return $(this).val();
-    }).get();
-
     var paraArr = {
         'state': JSON.stringify(selectedCheckboxValues),
         'district': JSON.stringify(selectedCheckboxValues2),
-        'tehsil': JSON.stringify(selectedteshil),
     };
 
-    var url = 'http://tractor-api.divyaltech.com/api/customer/get_nursery_enquiry_data_by_filter';
+    console.log(paraArr);
+
+    var url = 'http://tractor-api.divyaltech.com/api/customer/nursery_filter';
     $.ajax({
         url: url,
         type: 'POST',
@@ -365,7 +361,7 @@ function filter_search() {
             var filterContainer = $("#productContainer");
             filterContainer.empty();
 
-            searchData.product.forEach(function (filter) {
+            searchData.nursery_data.forEach(function (filter) {
                 appendFilterCard(filterContainer, filter);
             });
 
@@ -376,7 +372,6 @@ function filter_search() {
         }
     });
 }
-
 function appendFilterCard(filterContainer, filter) {
     function appendCard(container, p) {
         var images = p.image_names;
@@ -512,6 +507,7 @@ function appendFilterCard(filterContainer, filter) {
         container.append(newCard);
     }
 
+   
     function displayNextSet() {
         var productContainer = $("#productContainer");
     
@@ -536,16 +532,13 @@ function appendFilterCard(filterContainer, filter) {
     displayNextSet();
 }
 
-
   function resetform(){
-    $('.state_checkbox').val('');
-    $('.district_checkbox').val('');
-    $('.tehsil_checkbox').val('');
-    $('.state_checkbox:checked').prop('checked', false);
-    $('.district_checkbox:checked').prop('checked', false);
-    $('.tehsil_checkbox:checked').prop('checked', false);
+    $('.select_state').val('');
+    $('.select_district').val('');
+    $('.select_state:checked').prop('checked', false);
+    $('.select_district:checked').prop('checked', false);
     
-    getnurseryList();
-    // window.location.reload();
+    filter_search();
+    window.location.reload();
     
   }

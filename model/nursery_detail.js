@@ -346,7 +346,7 @@ var url = "http://tractor-api.divyaltech.com/api/customer/customer_enquiries";
         
 
         var newCard2 = `
-        <div class="col-12 col-lg-4 col-md-4 col-sm-4 mb-4" id="${cardId}">
+        <div class="col-12 mb-4" id="${cardId}">
             <a href="nursery_inner.php?id=${p.id}"
                 class="h-auto success__stry__item text-decoration-none d-flex flex-column shadow ">
                 <div class="thumb">

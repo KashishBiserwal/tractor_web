@@ -1,6 +1,8 @@
 $(document).ready(function() {
     console.log("ready!");
     getTractorList();
+    $('#apply_filter_bnt').click(filter_search);
+
 });
 
 function getTractorList() {
@@ -248,4 +250,280 @@ function submit_enquiry(formId) {
     });
 }
 
+function getCategories() {
+    var url = 'http://tractor-api.divyaltech.com/api/customer/haat_bazar_category';
 
+    $.ajax({
+        url: url,
+        type: "GET",
+        headers: {
+            'Authorization': 'Bearer ' + localStorage.getItem('token')
+        },
+        success: function (data) {
+            console.log(data);
+
+            const checkboxContainer = $('#checkboxContainercategory');
+            checkboxContainer.empty(); // Clear existing checkboxes
+
+            // Loop through the data and add checkboxes
+            $.each(data.allCategory, function (index, category) {
+                var category_id = category.id;
+                var category_name = category.category_name;
+                var checkboxHtml = '<input type="checkbox" class="checkbox-round mt-1 ms-3 category_checkbox" value="' + category_id + '"/>' +
+                    '<span class="ps-2 fs-6">' + category_name + '</span> <br/>';
+
+                checkboxContainer.append(checkboxHtml);
+            });
+        },
+        error: function (error) {
+            console.error('Error fetching categories:', error);
+        }
+    });
+}
+
+getCategories();
+function getSubCategories() {
+    var url = 'http://tractor-api.divyaltech.com/api/customer/haat_bazar_sub_category';
+
+    $.ajax({
+        url: url,
+        type: "GET",
+        headers: {
+            'Authorization': 'Bearer ' + localStorage.getItem('token')
+        },
+        success: function (data) {
+            console.log(data);
+
+            const checkboxContainer = $('#sub_cateory_checkbox');
+            checkboxContainer.empty(); // Clear existing checkboxes
+
+            // Loop through the data and add checkboxes
+            $.each(data.allSubCategory, function (index, category) {
+                var category_id = category.id;
+                var sub_category_name = category.sub_category_name;
+                var checkboxHtml = '<input type="checkbox" class="checkbox-round mt-1 ms-3 sub_category_checkbox" value="' + category_id + '"/>' +
+                    '<span class="ps-2 fs-6">' + sub_category_name + '</span> <br/>';
+
+                checkboxContainer.append(checkboxHtml);
+            });
+        },
+        error: function (error) {
+            console.error('Error fetching categories:', error);
+        }
+    });
+}
+
+getSubCategories();
+
+
+function filter_search() {
+    var select_state = $(".select_state:checked");
+    var select_district = $(".select_district:checked");
+    var category_checkbox = $(".category_checkbox:checked");
+    var sub_category_checkbox = $(".sub_category_checkbox:checked");
+
+    var selectedCheckboxValues = select_state.map(function () {
+        return $(this).val();
+    }).get();
+
+    var selectedCheckboxValues2 = select_district.map(function () {
+        return $(this).val();
+    }).get();
+
+    var selectcategoryfilter = category_checkbox.map(function () {
+        return $(this).val();
+    }).get();
+    var selectedsubcategoryfilter = sub_category_checkbox.map(function () {
+        return $(this).val();
+    }).get();
+
+    var paraArr = {
+        'state': JSON.stringify(selectedCheckboxValues),
+        'district': JSON.stringify(selectedCheckboxValues2),
+        'category_id': JSON.stringify(selectcategoryfilter),
+        'sub_category_id': JSON.stringify(selectedsubcategoryfilter),
+    };
+
+    var url = 'http://tractor-api.divyaltech.com/api/customer/haat_bazar_filter';
+    $.ajax({
+        url: url,
+        type: 'POST',
+        data: paraArr,
+        headers: {
+            'Authorization': 'Bearer ' + localStorage.getItem('token')
+        },
+        success: function (searchData) {
+            var filterContainer = $("#productContainer");
+            filterContainer.empty();
+
+            searchData.allData.haat_bazar_data.forEach(function (filter) {
+                appendFilterCard(filterContainer, filter);
+            });
+
+         
+        },
+        error: function (error) {
+            console.error('Error searching for brands:', error);
+        }
+    });
+}
+function appendFilterCard(filterContainer, filter) {
+    function appendCard(container, p) {
+        var images = p.image_names;
+        var a = [];
+
+        if (images) {
+            if (images.indexOf(',') > -1) {
+                a = images.split(',');
+            } else {
+                a = [images];
+            }
+        }
+
+        var cardId = `card_${p.product_id}`; // Dynamic ID for the card
+        var modalId = `used_tractor_callbnt_${p.product_id}`; // Dynamic ID for the modal
+        var formId = `contact-seller-call${p.product_id}`; // Dynamic ID for the form
+        
+        var newCard = `
+            <div class="col-12 col-lg-4 col-md-4 col-sm-4 mb-3" id="${cardId}">
+                <div class="h-auto success__stry__item d-flex flex-column shadow">
+                    <div class="thumb">
+                        <a href="hatbzrbuy_inner.php?id=${p.haat_bazar_id}">
+                            <div class="ratio ratio-16x9">
+                                <img src="http://tractor-api.divyaltech.com/uploads/haat_bazar_img/${a[0]}" class="object-fit-cover" alt="${p.description}">
+                            </div>
+                        </a>
+                    </div>
+                    <div class="content d-flex flex-column flex-grow-1">
+                        <div class="caption text-center">
+                            <a href="hatbzrbuy_inner.php?id=${p.haat_bazar_id}" class="text-decoration-none text-dark">
+                                <p class="pt-3"><strong class="series_tractor_strong text-center h4 fw-bold ">${p.sub_category_name}</strong></p>
+                            </a>
+                        </div>
+                        <div class="power text-center mt-2">
+                            <div class="row">
+                                <div class="col-12 col-lg-6 col-md-6 col-sm-6"><p class="text-dark ps-2"> ${p.haat_bazar_category_name}</p></div>
+                                <div class="col-12 col-lg-6 col-md-6 col-sm-6" style="padding-right: 32px;">
+                                    <p class="text-success ps-2"><i class="fa fa-inr" aria-hidden="true"></i>
+                                    ${p.price}/<span>  ${p.as_per}</span></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <p class=" text-center" id="district"><span id="engine_powerhp2"></span> ${p.district},<span id="year"> ${p.state}</span></p>
+                        </div>
+                        <div class="col-12">
+                            <button type="button" class="add_btn btn-success w-100" data-bs-toggle="modal" data-bs-target="#${modalId}" data-product-id="${p.product_id}">
+                                <i class="fa-regular fa-handshake"></i> Contact Seller
+                            </button>
+                        </div>
+
+                        <div class="modal fade" id="${modalId}" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-lg modal-dialog-centered">
+                              <div class="modal-content">
+                                <div class="modal-header  modal_head">
+                                  <h5 class="modal-title text-white ms-1" id="staticBackdropLabel">${p.model}</h5>
+                                  <button type="button" class="btn-close btn-success" data-bs-dismiss="modal" aria-label="Close"><img src="assets/images/close.png"></button>
+                                </div>
+                              
+                                    <!-- MODAL BODY -->
+                                    <div class="modal-body">
+                                        <form id="${formId}" method="POST" onsubmit="return false">
+                                            <div class="row">
+                                                <div class="col-12 col-lg-6 col-md-6 col-sm-6 " hidden>
+                                                    <label for="name" class="form-label fw-bold text-dark"><i class="fa-duotone fa-chart-pie-simple"></i> Model Name</label>
+                                                    <input type="text" class="form-control" placeholder="Enter Your Name" id="enquiry_type_id" value="8" name="iduser">
+                                                </div>
+                                                <div class="col-12 col-lg-6 col-md-6 col-sm-6 " hidden>
+                                                <label for="name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i> product_id</label>
+                                                <input type="text" class="form-control" id="product_id" value="${p.product_id}" hidden> 
+                                                </div>
+                                                <div class="col-12 col-sm-6 col-md-6 col-lg-6">
+                                                    <label for="" class="form-label text-dark fw-bold"> <i class="fa-regular fa-user"></i> First Name</label>
+                                                    <input type="text" class="form-control" placeholder="Enter Number" id="firstName" name="firstName">
+                                                </div>
+                                                <div class="col-12 col-sm-6 col-md-6 col-lg-6">
+                                                    <label for="" class="form-label text-dark fw-bold"><i class="fa-regular fa-user"></i> Last Name</label>
+                                                    <input type="text" class="form-control" placeholder="Enter Number" id="lastName" name="lastName">
+                                                </div>
+                                                <div class="col-12 col-sm-6 col-md-6 col-lg-6">
+                                                    <label for="number" class="form-label text-dark fw-bold"><i class="fa fa-phone" aria-hidden="true"></i> Mobile Number</label>
+                                                    <input type="text" class="form-control" placeholder="Enter Number" id="mobile_number" name="mobile_number">
+                                                    <p class="text-danger">*Please make sure mobile no. must be valid</p>
+                                                </div>
+                                                <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+                                                    <label for="yr_state" class="form-label text-dark fw-bold"> <i class="fa-solid fa-location-dot"></i>  Select State</label>
+                                                    <select class="form-select py-2 " aria-label=".form-select-lg example" id="state" name="state">
+                                                        <option value>Select State</option>
+                                                        <option value="Chhattisgarh">Chhattisgarh</option>
+                                                        <option value="Other">Other</option>
+                                                    </select>
+                                                </div>
+                                                <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+                                                    <label for="yr_dist" class="form-label text-dark"><i class="fa-solid fa-location-dot"></i> District</label>
+                                                    <select class="form-select py-2 " aria-label=".form-select-lg example" id="district_1" name="district">
+                                                        <option value>Select District</option>
+                                                        <option value="Raipur">Raipur</option>
+                                                        <option value="Bilaspur">Bilaspur</option>
+                                                        <option value="Durg">Durg</option>
+                                                    </select>
+                                                </div>
+                                                <div class="col-12 col-sm-6 col-md-6 col-lg-6">
+                                                    <label for="yr_price" class="form-label text-dark">Tehsil</label>
+                                                    <input type="text" class="form-control" placeholder="Enter Your Tehsil" id="Tehsil" name="Tehsil">
+                                                </div>
+                                            </div>
+
+                                            <div class="modal-footer">
+                                                <button type="submit" id="submit_enquiry" class="btn add_btn btn-success w-100 btn_all" onclick="savedata('${formId}')" data-bs-dismiss="modal">Submit</button>
+                                                <!-- <a class="btn  text-primary" data-dismiss="modal">Ok</a> -->
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        `;
+        container.append(newCard);
+    }
+
+    function displayNextSet() {
+        var productContainer = $("#productContainer");
+    
+        // Display the next set of filtered cards
+        filteredCards.slice(cardsDisplayed, cardsDisplayed + cardsPerPage).forEach(function (p) {
+            appendCard(productContainer, p);
+            cardsDisplayed++;
+        });
+    
+        // Hide the "Load More" button if all filtered cards are displayed
+        if (cardsDisplayed >= filteredCards.length) {
+            $("#loadMoreBtn").hide();
+        }
+    }
+    
+    $(document).on('click', '#loadMoreBtn', function () {
+        // Display the next set of filtered cards when the "Load More" button is clicked
+        displayNextSet();
+    });
+
+    appendCard(filterContainer, filter);
+    displayNextSet();
+}
+function resetform(){
+    $('.select_state').val('');
+    $('.select_district').val('');
+    $('.category_checkbox').val('');
+    $('.sub_category_checkbox').val('');
+    $('.select_state:checked').prop('checked', false);
+    $('.select_district:checked').prop('checked', false);
+    $('.category_checkbox:checked').prop('checked', false);
+    $('.sub_category_checkbox:checked').prop('checked', false);
+    
+    filter_search();
+    window.location.reload();
+    
+  }

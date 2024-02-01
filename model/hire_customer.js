@@ -1,54 +1,90 @@
 $(document).ready(function() {
     console.log("ready!");
     
-    $('#filter_tractor').click(filter_search);
+    // $('#filter_tractor').click(filter_search);
+   
 });
 
-    var cardsPerPage = 6; // Number of cards to show initially
-    var cardsDisplayed = 0; // Counter to keep track of the number of cards displayed
-    var allCards; // Variable to store all cards
 
-    function getTractorList() {
-        var url = "http://tractor-api.divyaltech.com/api/customer/hire_data";
-        
+function getHiretractor() {
+    var url = "http://tractor-api.divyaltech.com/api/customer/get_rent_data";
+    console.log(url);
 
-        $.ajax({
-            url: url,
-            type: "GET",
-            success: function (data) {
-                var productContainer = $("#productContainer");
-                // Clear the existing content in the container
-                productContainer.empty();
+    $.ajax({
+        url: url,
+        type: "GET",
+        success: function (data) {
+            var productContainer = $("#productContainer");
+            var loadMoreButton = $("#loadMoreBtn");
 
-                if (data.hire_details && data.hire_details.length > 0) {
-                    allCards = data.product; 
-                
-                    allCards.sort(function(a, b) {
-                        return b.id - a.id;
-                    });
-                
-                    // Display all cards
-                    allCards.slice(0, cardsPerPage).forEach(function (p) {
-                        appendCard(productContainer, p);
-                        cardsDisplayed++;
-                    });
-                
-                    if (allCards.length > cardsPerPage) {
-                        $("#loadMoreBtn").show();
-                    } else {
-                        $("#loadMoreBtn").hide();
-                    }
+            if (data.rent_details.data1 && data.rent_details.data1.length > 0) {
+                // Display the initial set of 6 tractors from data1
+                displaylist(data.rent_details.data1.slice(0, 6));
+
+                if (data.rent_details.data1.length <= 6) {
+                    loadMoreButton.hide();
                 } else {
-                    // Hide the "Load More" button if there are no cards
-                    $("#loadMoreBtn").hide();
+                    loadMoreButton.show();
                 }
-            },
-            error: function (error) {
-                console.error('Error fetching data:', error);
+
+                // Handle "Load More Tractors" button click
+                loadMoreButton.click(function () {
+                    // Display all tractors from data1
+                    displaylist(data.rent_details.data1);
+
+                    // Hide the "Load More Tractors" button
+                    loadMoreButton.hide();
+                });
             }
+
+            if (data.rent_details.data2 && data.rent_details.data2.length > 0) {
+                // Process data from data2 as needed
+                processDatatwo(data.rent_details.data2);
+            }
+        },
+        error: function (error) {
+            console.error('Error fetching data:', error);
+        }
+    });
+}
+
+function processDatatwo(data2) {
+    var productContainer = $("#productContainer");
+
+    data2.forEach(function (customer) {
+        var rentMappingIds = customer.rent_mapping_ids.split(',');
+        var implementTypeIds = customer.implement_type_ids.split(',');
+        var rates = customer.rates.split(',');
+
+        // Create a new div for the customer
+        var customerDiv = $("<div class='customer-info'></div>");
+
+        // Display information for each rent mapping
+        rentMappingIds.forEach(function (rentMappingId, index) {
+            var rentMappingInfo = `
+                <div class="rental-info">
+                    <p>Customer ID: ${customer.customer_id}</p>
+                    <p>Rent Mapping ID: ${rentMappingId}</p>
+                    <p>Implement Type ID: ${implementTypeIds[index]}</p>
+                    <p>Rate: ${rates[index]}</p>
+                    <hr>
+                </div>
+            `;
+
+            // Append the rent mapping info to the customer div
+            customerDiv.append(rentMappingInfo);
         });
-    }
-    function appendCard(container, p) {
+
+        // Append the customer div to the product container
+        productContainer.append(customerDiv);
+    });
+}
+
+// Function to display data from data1
+function displaylist(tractors) {
+    var productContainer = $("#productContainer");
+
+    tractors.forEach(function (p) {
         var images = p.image_names;
         var a = [];
 
@@ -59,66 +95,55 @@ $(document).ready(function() {
                 a = [images];
             }
         }
-        var cardId = `card_${p.product_id}`; // Dynamic ID for the card
-        var modalId = `used_tractor_callbnt_${p.product_id}`; // Dynamic ID for the modal
-        var formId = `hire_inner${p.product_id}`; // Dynamic ID for the form
+
+        var cardId = `card_${p.id}`; // Dynamic ID for the card
+        var modalId = `used_tractor_callbnt_${p.id}`; // Dynamic ID for the modal
+        var formId = `contact-seller-call${p.id}`; // Dynamic ID for the form
 
         var newCard = `
-        <div class="col-12 col-lg-4 col-md-6 col-sm-6 mb-3"id="${cardId}">
-        <div class="h-auto success__stry__item d-flex flex-column shadow ">
-            <div class="thumb">
-                <a href="hire_inner.php">
-                    <div class="ratio ratio-16x9">
-
-                        <img src="assets/images/575-di-xp-plus-1632207330.webp"
-                            class="object-fit-cover " alt="img">
-
+            <div class="col-12 col-lg-4 col-md-6 col-sm-6 mb-3" id="${cardId}">
+                <div class="h-auto success__stry__item d-flex flex-column shadow ">
+                    <div class="thumb">
+                        <a href="hire_inner.php?id=${p.id}">
+                            <div class="ratio ratio-16x9">
+                                <img src="http://tractor-api.divyaltech.com/uploads/rent_img/${a[0]}" class="object-fit-cover" alt="${p.description}">
+                            </div>
+                        </a>
                     </div>
-                </a>
-            </div>
-            <div class="content d-flex flex-column flex-grow-1 ">
-                <div class="caption text-center">
-                    <a href="hire_inner.php" class="text-decoration-none text-dark">
-                        <p class="pt-3 " style="font-size: 17px;"><strong
-                                class="series_tractor_strong text-center fw-bold ">Mahindra 575
-                                DI XP Plus</strong></p>
-                    </a>
-                </div>
-                <div class="power">
-                    <a href="hire_inner.php" class="text-decoration-none text-dark">
-                        <div class="row text-center">
-                            <div class=" col-4 col-md-4 col-lg-4 col-sm-4">
-                                <p class="text-dark custom-font-size fw-bold"> <i
-                                        class="fa-solid fa-indian-rupee-sign"></i> 30/Acre</p>
-                            </div>
-                            <div class="col-4 col-md-4 col-lg-4 col-sm-4">
-                                <p class="text-dark custom-font-size fw-bold"> <i
-                                        class="fas fa-bolt "></i> 47 HP</p>
-                            </div>
-
-                            <div class=" col-4 col-md-4 col-lg-4 col-sm-4">
-                                <p class="text-dark custom-font-size fw-bold"><i
-                                        class="fa-solid fa-gear"></i> 2979 CC</p>
-                            </div>
+                    <div class="content d-flex flex-column flex-grow-1 ">
+                        <div class="caption text-center">
+                            <a href="hire_inner.php?id=${p.id}" class="text-decoration-none text-dark">
+                                <p class="pt-3 " style="font-size: 17px;">
+                                    <strong class="series_tractor_strong text-center fw-bold ">${p.brand_name}</strong>
+                                </p>
+                            </a>
                         </div>
-                        <div class="row text-center fw-bold text-primary">
-                            <div class=" col-12 mb-2">
-                                Dhamtari,Chhattisgarh
-                            </div>
-
+                        <div class="power">
+                            <a href="" class="text-decoration-none text-dark">
+                                <div class="row text-center">
+                                    <div class=" col-4 col-md-4 col-lg-4 col-sm-4">
+                                        <p class="text-dark custom-font-size fw-bold"><i class="fa-solid fa-indian-rupee-sign"></i>${p.rates}</p>
+                                    </div>
+                                    <!-- Add 'rates' variable or replace it with an appropriate value -->
+                                    <div class="col-4 col-md-4 col-lg-4 col-sm-4">
+                                        <p class="text-dark custom-font-size fw-bold"><i class="fas fa-bolt "></i>Rates</p>
+                                    </div>
+                                    <div class=" col-4 col-md-4 col-lg-4 col-sm-4">
+                                        <p class="text-dark custom-font-size fw-bold"><i class="fa-solid fa-gear"></i>${p.rates}</p>
+                                    </div>
+                                </div>
+                                <div class="row text-center fw-bold text-primary">
+                                    <div class=" col-12 mb-2">${p.district} ${p.state}</div>
+                                </div>
+                            </a>
                         </div>
-                    </a>
-                </div>
-                <div class="col-12">
                         <button type="button" class="add_btn btn-success w-100" data-bs-toggle="modal" data-bs-target="#${modalId}">
-                Send Enquiry </button>
+                            Send Enquiry
+                        </button>
+                    </div>
                 </div>
-                
-            </div>
-        </div>
-        <div class="modal fade" id="${modalId}" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg modal-dialog-centered">
-            <div class="modal-dialog modal-lg modal-dialog-centered">
+                <div class="modal fade" id="${modalId}" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg modal-dialog-centered">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h4 class="modal-title text-dark fw-bold" id="staticBackdropLabel">Send
@@ -127,7 +152,7 @@ $(document).ready(function() {
                     </div>
                     <div class="modal-body">
                         <div class="model-cont">
-                         <form id="${formId}" method="POST" onsubmit="return false">
+                            <form id="${formId}" name="hire_inner" method="post">
                                 <div class="row">
                                     <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-4">
                                         <div class="form-outline">
@@ -208,30 +233,18 @@ $(document).ready(function() {
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary"
                             data-bs-dismiss="modal">Close</button>
-                        <button type="button" onclick="savedata('${formId}')" id="button_hire"
-                            class="btn btn-danger">Request</button>
-                            
+                        <button type="button" id="button_hire" class="btn btn-danger" onclick="savedata('${formId}')">Request</button>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-
+                </div>
+            </div>
         `;
-        container.append(newCard);
-    }
-    $(document).on('click', '#loadMoreBtn', function(){
-        var productContainer = $("#productContainer");
 
-        allCards.slice(cardsDisplayed, cardsDisplayed + cardsPerPage).forEach(function (p) {
-            appendCard(productContainer, p);
-            cardsDisplayed++;
-        });
-
-        // Hide the "Load More" button if all cards are displayed
-        if (cardsDisplayed >= allCards.length) {
-            $("#loadMoreBtn").hide();
-        }
+        // Append the new card to the container
+        productContainer.append(newCard);
     });
+}
 
-    getTractorList();
+// Call the getHiretractor function to fetch and display tractors
+getHiretractor();

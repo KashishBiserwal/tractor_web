@@ -576,7 +576,7 @@ var editId_state= false;
         var url, method;
     
         if (editId_state) {
-          alert("fhjfg");
+          alert("Update operation successful");
           console.log(editId_state);
           _method = 'put';
           url = apiBaseURL + 'haat_bazar/' + EditIdmain_ ;
