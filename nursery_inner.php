@@ -38,41 +38,46 @@
             <div class="vegehead ">
                 <div class="row">
                     <div class="col-12 col-lg-6 ">
-                        <h4 class="fw-bold text-danger pt-4 ">Nursery in District Name</h4>
+                        <!-- <h4 class="fw-bold text-danger pt-4 ">Nursery in District Name</h4> -->
+                        <h4 id="district_main"></h4>
                     </div>
-                    <div class="col-12 col-lg-6 ">
-                        <h4 class="fw-bold text-center text-danger pt-4">Are You Intrested In This Nursery ?</h4>
-                    </div>
+                   
                 </div>
             </div>
 
             <div class="row mt-3">
-            <div class="col-12 col-sm-6 col-lg-6 col-md-6" style="position: relative;">
-                    <div>
-                    <h1 class="fw-bold text-danger pt-3" id="district_name"></h1>
-                    <div class="gallery">   
-                        <div class="swiper-container gallery-slider">
-                            <div class="swiper-wrapper mySwiper2_data"></div>
-                            <div class="swiper-button-prev"></div>
-                            <div class="swiper-button-next"></div>
-                        </div>
-
-                        <div class="swiper-container gallery-thumbs">
-                            <div class="swiper-wrapper mySwiper_data"></div>
-                        </div>
-                    </div>
-                    </div>
+            <div class="col-12 col-sm-6 col-lg-6 col-md-6">
+                <div>
+                <h4 id="district_main"></h4>
                 </div>
+                <div>
+                    <div class="swiper swiper_buy mySwiper2_buy">
+                        <div class="swiper-wrapper swiper-wrapper_buy">
+                            <div class=" swiper-slide swiper-slide_buy">
+                                 <!-- <img class="img_buy" src="assets/images/437-1632718440.webp" /> -->
+                            </div>
+                        </div>
+                    </div>
+                    <div thumbsSlider="" class="swiper mySwiper_buy" style="height:50px; width: 43%;" id="swip_img"></div>
+                </div>
+            </div>
                 <div class="col-12 col-sm-6 col-lg-6 col-md-6">
                     <form action="" id="nursery_form" class="bg-light shadow " method="post">
+                    <h4 class="fw-bold text-center text-danger pt-4">Are You Intrested In This Nursery ?</h4>
                         <div class="row">
                             <div class="col-12 justify-content-center">
                                 <div class="d-flex flex-md-row px-3  flex-column-reverse">
                                     <div class="col-md-12 col-12 col-lg-12 col-lg-12">
                                         <div class=" ml-2">
                                             <div class="row">
-                                            <!-- <input type="hidden" id="product_id" value=" $id " > -->
-                                            <input type="hidden" id="enquiry_type_id" value="11" >
+                                            <div class="col-12 col-lg-6 col-md-6 col-sm-6 " hidden>
+                                            <label for="name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i> enquiryName</label>
+                                            <input type="text" class="form-control" placeholder="Enter Your Name" id="enquiry_type_id" value="11" name="fname">
+                                        </div>
+                                        <div class="col-12 col-lg-6 col-md-6 col-sm-6 " hidden>
+                                            <label for="name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i> product_id</label>
+                                            <input type="text" class="form-control" id="product_id" value="">
+                                        </div>
                                                 <div class="col-12 col-lg-6 col-md-6 col-sm-12 mt-4">
                                                     <div class="form-outline">
                                                         <label for="fname" class="form-label "><i
@@ -89,51 +94,41 @@
                                                 </div>
                                                 <div class="col-12 col-lg-6 col-md-6 col-sm-12 mt-4">
                                                     <div class="form-outline ">
-                                                        <label for="phone" class="form-label "><i class="fa fa-phone"
-                                                                aria-hidden="true"></i> Phone
-                                                            Number</label>
+                                                        <label for="phone" class="form-label "><i class="fa fa-phone" aria-hidden="true"></i> Phone Number</label>
                                                         <input type="tel" class="form-control" id="phone" name="phone">
                                                     </div>
                                                 </div>
 
                                                 <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-4">
                                                     <div class="form-outline ">
-                                                        <label for="state" class="form-label "><i
-                                                                class="fas fa-location"></i> State</label>
-                                                        <select class="form-select py-2 "
-                                                            aria-label=".form-select-lg example" id="state"
-                                                            name="state">
+                                                        <label for="state" class="form-label "><i class="fas fa-location"></i> State</label>
+                                                        <select class="form-select py-2 "aria-label=".form-select-lg example" id="state"name="state">
                                                             <option value="" selected disabled></option>
-                                                            <option value="1">Chhattisgarh</option>
-                                                            <option value="2">Other</option>
+                                                            <option value="Chhattisgarh">Chhattisgarh</option>
+                                                            <option value="Other">Other</option>
                                                         </select>
                                                     </div>
                                                 </div>
 
                                                 <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-4">
                                                     <div class="form-outline ">
-                                                        <label for="district" class="form-label "><i
-                                                                class="fa-solid fa-location-dot"></i> District</label>
-                                                        <select class="form-select py-2 "
-                                                            aria-label=".form-select-lg example" name="district"
-                                                            id="district">
+                                                        <label for="district" class="form-label "><i class="fa-solid fa-location-dot"></i> District</label>
+                                                        <select class="form-select py-2 "aria-label=".form-select-lg example" name="district"id="district">
                                                             <option value="" selected disabled></option>
-                                                            <option value="1">Raipur</option>
-                                                            <option value="2">Bilaspur</option>
-                                                            <option value="2">Durg</option>
+                                                            <option value="Raipur">Raipur</option>
+                                                            <option value="Bilaspur">Bilaspur</option>
+                                                            <option value="Durg">Durg</option>
                                                         </select>
                                                     </div>
                                                 </div>
                                                 <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-4">
                                                     <div class="form-outline ">
                                                         <label for="tehsil" class="form-label">Tehsil</label>
-                                                        <select class="form-select py-2 "
-                                                            aria-label=".form-select-lg example" name="tehsil"
-                                                            id="tehsil">
+                                                        <select class="form-select py-2 "aria-label=".form-select-lg example" name="tehsil"id="tehsil">
                                                             <option value="" selected disabled></option>
-                                                            <option value="1">Raipur</option>
-                                                            <option value="2">Bilaspur</option>
-                                                            <option value="2">Durg</option>
+                                                            <option value="Raipur">Raipur</option>
+                                                            <option value="Bilaspur">Bilaspur</option>
+                                                            <option value="Durg">Durg</option>
                                                         </select>
                                                     </div>
                                                 </div>
@@ -152,7 +147,7 @@
                             </div>
                         </div>
                     </form>
-                    <div id="thankyouModal">
+                    <!-- <div id="thankyouModal">
                         <div class="modal fade" id="staticBackdrop3" data-bs-backdrop="static" data-bs-keyboard="false"
                             tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                             <div class="modal-dialog modal-dialog-centered">
@@ -176,7 +171,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
 
             </div>
@@ -186,29 +181,36 @@
 
     <section>
         <div class="container">
-            <h3 class="text-danger assured ps-3">About Nursery</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto quasi nesciunt provident aliquid accusamus est reprehenderit repellat inventore quidem officia, porro, non similique rem ipsum quam a, quia unde? Ea laborum tenetur aut dicta veniam, perspiciatis esse natus molestias? Facere commodi distinctio temporibus quia excepturi asperiores aperiam, rem vitae laudantium nostrum porro ratione corrupti reprehenderit ut totam aliquid ipsa provident eveniet ab debitis esse quae deserunt quam nobis. Ullam officiis minus cum vero velit nulla voluptates amet provident praesentium asperiores nam, voluptate molestiae atque sunt accusamus cumque itaque eius commodi consequuntur quidem voluptatem ducimus error libero! Excepturi, blanditiis quisquam eum necessitatibus laudantium eos sequi voluptates cumque! Ab porro cumque repellendus ratione, id dignissimos reprehenderit harum. Harum maiores quia deserunt dicta obcaecati! Ab, architecto voluptatum, neque aliquid doloremque fugit fuga voluptate praesentium quidem, quae vel consectetur labore molestiae error nulla ad minus adipisci in atque eos minima sequi cupiditate itaque. Totam consectetur excepturi laborum ab exercitationem. Dolorum error quo blanditiis quos praesentium, ex quia quasi, minus voluptate quis odit laborum dignissimos vel laboriosam nesciunt accusantium corporis? Ab quos autem optio facilis tempore rem? Odio consequuntur modi numquam odit neque recusandae animi, alias ipsum at unde facilis dolor sunt, quia necessitatibus dolorum.</p>
+        <div class="my-4">
+                    <div class="text-editor-black my-4 " style="background-color:#fff">
+                        <h4><p class="mt-md mt-4 p-2 mb-3 my-4 assured"><span id="model4"></span> About Nursety</p></h4>
+                    </div>
+                    <p id="description"></p>
+                    
+                </div>
+            <!-- <h3 class="text-danger assured ps-3">About Nursery</h3> -->
+            
             <table class="table w-100 table-hover table table-striped my-4  ">
                 <tbody>
                     <tr>
                         <td class="table-data col-lg-6">Address</td>
-                        <td class="table-data col-lg-6"> fjjfnvjfkdbv</td>
+                        <td class="table-data col-lg-6" id="address"></td>
                     </tr>
                     <tr>
                         <td class="table-data">State</td>
-                        <td class="table-data">Chhattisgarh</td>
+                        <td class="table-data" id="state_1"></td>
                     </tr>
                     <tr>
-                        <td class="table-data">District:</td>
-                        <td class="table-data">Ambikapur</td>
+                        <td class="table-data">District</td>
+                        <td class="table-data" id="district_1"></td>
                     </tr>
                     <tr>
                         <td class="table-data">Tehsil</td>
-                        <td class="table-data">Ambikapur</td>
+                        <td class="table-data"id="tehsil_1"></td>
                     </tr>
                     <tr>
                         <td class="table-data">Phone Number</td>
-                        <td class="table-data">+9183*******</td>
+                        <td class="table-data"id="number_1"></td>
                     </tr>
                    
 
@@ -217,7 +219,7 @@
             </table>
         </div>
     </section>
-    <section class="mt-3">
+<section class="mt-3">
         <div class="container">
             <h2 class="fw-bold text-dark text-start mt-4 assured ps-3">Similar Product</h3>
                 <div id="productContainer" class="row">

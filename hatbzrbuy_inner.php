@@ -37,7 +37,7 @@ include 'includes/footertag.php';
             <div class="vegehead">
                 <div class="row">
                     <div class="col-12 col-lg-6 ">
-                        <h3 class="fw-bold text-danger">Potato in <span id="district_main"></span></h3>
+                        <h3 class="fw-bold text-danger"> <span id="category_main"></span> <span id="district_main"></span></h3>
                        
                     </div>
                     <div class="col-12 col-lg-6 ">
@@ -49,21 +49,15 @@ include 'includes/footertag.php';
 
             <div class="row ">
                 <div class="col-12 col-sm-6 col-lg-6 col-md-6">
-                <div class="col-12 col-sm-6 col-lg-6 col-md-6" style="position: relative;">
-                    <div>
-                    <h1 class="fw-bold text-danger pt-3" id="brand_name"></h1>
-                    <div class="gallery">   
-                        <div class="swiper-container gallery-slider">
-                            <div class="swiper-wrapper mySwiper2_data"></div>
-                            <div class="swiper-button-prev"></div>
-                            <div class="swiper-button-next"></div>
-                        </div>
-
-                        <div class="swiper-container gallery-thumbs">
-                            <div class="swiper-wrapper mySwiper_data"></div>
+                <div>
+                    <div class="swiper swiper_buy mySwiper2_buy">
+                        <div class="swiper-wrapper swiper-wrapper_buy">
+                            <div class=" swiper-slide swiper-slide_buy">
+                                 <!-- <img class="img_buy" src="assets/images/437-1632718440.webp" /> -->
+                            </div>
                         </div>
                     </div>
-                    </div>
+                    <div thumbsSlider="" class="swiper mySwiper_buy" style="height:50px; width: 43%;" id="swip_img"></div>
                 </div>
                 </div>
                 <div class="col-12 col-sm-6 col-lg-6 col-md-6">
@@ -174,16 +168,14 @@ include 'includes/footertag.php';
                                                                                 class="col-12 col-sm-12 col-md-6 col-lg-6  ">
                                                                                 <label for="number"class="form-label text-dark fw-bold"><i class="fa fa-phone"aria-hidden="true"></i>
                                                                                  Phone Number</label>
-                                                                                <input type="text" class="form-control" id="number">
+                                                                                <input type="text" class="form-control" id="mob_num">
                                                                             </div>
                                                                         </div>
                                                                 </div>
                                                             </div>
                                                             <div class="modal-footer">
-                                                                <button type="button" class="btn btn-secondary"
-                                                                    data-bs-dismiss="modal">Close</button>
-                                                                <button type="button" class="btn btn-danger">Got
-                                                                    It</button>
+                                                                <button type="button" class="btn btn-secondary"data-bs-dismiss="modal">Close</button>
+                                                                <button type="button" class="btn btn-danger">Got It</button>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -211,7 +203,7 @@ include 'includes/footertag.php';
                 <tbody>
                     <tr>
                         <td class="table-data col-6 col-md-6 col-lg-6 col-sm-6">Category</td>
-                        <td class="table-data col-6 col-md-6 col-lg-6 col-sm-6" id="category_name"></td>
+                        <td class="table-data col-6 col-md-6 col-lg-6 col-sm-6" id="category_name_1"></td>
                     </tr>
                     <tr>
                         <td class="table-data">Vegetable Type:</td>
@@ -227,7 +219,7 @@ include 'includes/footertag.php';
                     </tr>
                     <tr>
                         <td class="table-data">About</td>
-                        <td class="table-data" id="description"></td>
+                        <td class="table-data" id="description_1"></td>
                     </tr>
 
 
@@ -246,521 +238,26 @@ include 'includes/footertag.php';
                     </tr>
                     <tr>
                         <td class="table-data">State</td>
-                        <td class="table-data" id="state"></td>
+                        <td class="table-data" id="state_1"></td>
                     </tr>
                     <tr>
                         <td class="table-data">District</td>
-                        <td class="table-data" id="district"></td>
+                        <td class="table-data" id="district_1"></td>
                     </tr>
                     <tr>
                         <td class="table-data">Tehsil</td>
-                        <td class="table-data" id="tehsil"></td>
+                        <td class="table-data" id="tehsil_1"></td>
                     </tr>
                 </tbody>
             </table>
         </div>
     </section>
-    <section>
-        <div class="container ">
+    <section class="mt-3">
+        <div class="container">
             <h2 class="fw-bold text-dark text-start mt-4 assured ps-3">Similar Product</h3>
-                <div class="row">
-                    <div class="col-12 col-lg-3 col-md-3 col-sm-3 mb-4">
-                        <a href="hatbzrbuy_inner.php"
-                            class="h-auto success__stry__item d-flex flex-column text-decoration-none shadow ">
-                            <div class="thumb">
-                                <div>
-                                    <div class="ratio ratio-16x9">
-                                        <img src="assets/images/potato.webp" class="object-fit-cover " alt="img">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="content d-flex flex-column flex-grow-1 ">
-                                    <div class="power mt-3">
-                                        <div class="row ">
-                                            <div class="col-6 col-lg-6 col-md-6 col-sm-6">
-                                                <p class="text-success ps-2">
-                                                    Watermelon</p>
-                                            </div>
-                                            <div class="col-6 col-lg-6 col-md-6 col-sm-6">
-                                                <p id="adduser" type="" class="text-success float-end pe-2">Nadiya Rani
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row ">
-                                        <div class="col-6 col-lg-6 col-md-6 col-sm-6">
-                                            <p class="ps-2 text-success"> <i class="fa fa-inr" aria-hidden="true"></i>
-                                                80.00/Kg</p>
-                                        </div>
-                                        <div class="col-6 col-lg-6 col-md-6 col-sm-6">
-                                            <p class="text-success float-end pe-2">4 Kg</p>
-                                        </div>
-                                    </div>
-
-                                    <div class="row">
-
-                                        <div class="col-12">
-                                            <p class=" text-center" id="district"><span
-                                                id="engine_powerhp2"></span>Surajpur,<span
-                                                id="year">Chhattisgarh</span></p>
-                                        </div>
-                                    </div>
-                                </div>
-                        </a>
-                        <div class="col-12 btn-success">
-                            <button type="button" class="btn btn-success py-2 w-100" data-bs-toggle="modal"
-                                data-bs-target="#staticBackdrop"><i class="fa-solid fa-phone"></i>
-                                Contact Seller
-                            </button>
-                        </div>
-
-                        <!-- Modal -->
-                        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
-                            tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                            <div class="modal-dialog modal-lg modal-dialog-centered">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title text-danger" id="staticBackdropLabel">Contact Seller</h5>
-                                        <button type="button" class="btn-close btn-success" data-bs-dismiss="modal" aria-label="Close"><img src="assets/images/close.png"></button>
-                                    </div>
-                                    <div class="modal-body">
-                                        <div class="model-cont">
-                                            <h4 class="text-center text-danger">Contact with Seller</h3>
-                                                <div class="row px-3 py-2">
-                                                    <div class="col-12  col-sm-12 col-md-6 col-lg-6 ">
-                                                        <label for="slr_name" class="form-label fw-bold text-dark"> <i
-                                                                class="fa-regular fa-user"></i>Name</label>
-                                                        <input type="text" class="form-control" id="slr_name">
-                                                    </div>
-                                                    <div class="col-12 col-sm-12 col-md-6 col-lg-6">
-                                                        <label for="number" class="form-label text-dark fw-bold"> <i
-                                                                class="fa fa-phone" aria-hidden="true"></i> Phone Number</label>
-                                                        <input type="text" class="form-control" id="number">
-                                                    </div>
-                                                    <div class="col-12 col-sm-12 col-md-6 col-lg-6  ">
-                                                        <label for="number" class="form-label text-dark fw-bold">
-                                                            State</label>
-                                                        <select class="form-select py-2 "
-                                                            aria-label=".form-select-lg example">
-                                                            <option selected>Select State</option>
-                                                            <option value="1">Chhattisgarh</option>
-                                                            <option value="2">Other</option>
-                                                        </select>
-                                                    </div>
-                                                    <div class="col-12 col-sm-12 col-md-6 col-lg-6  ">
-                                                        <label for="number" class="form-label text-dark fw-bold">
-                                                            District</label>
-                                                        <select class="form-select py-2 "
-                                                            aria-label=".form-select-lg example">
-                                                            <option selected>Select District</option>
-                                                            <option value="1">Mungeli</option>
-                                                            <option value="2">Durg</option>
-                                                        </select>
-                                                    </div>
-                                                    <div class="col-12  col-sm-12 col-md-6 col-lg-6 ">
-                                                        <label for="slr_name" class="form-label fw-bold text-dark mt-2">
-                                                            Price</label>
-                                                        <input type="text" class="form-control"
-                                                            placeholder="Enter price" id="price">
-                                                    </div>
-                                                    <div class="col-12  col-sm-12 col-md-6 col-lg-6 mt-4 pt-3">
-                                                        <button type="button"
-                                                            class="btn btn-success px-3">Request</button>
-                                                    </div>
-                                                </div>
-                                        </div>
-                                    </div>
-                                    <div class="modal-footer py-4">
-                                        <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> -->
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-lg-3 col-md-3 col-sm-3 mb-4">
-                        <a href="#" class="h-auto success__stry__item d-flex flex-column text-decoration-none shadow ">
-                            <div class="thumb">
-                                <div>
-                                    <div class="ratio ratio-16x9">
-                                        <img src="assets/images/rice.webp" class="object-fit-cover " alt="img">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="content d-flex flex-column flex-grow-1 ">
-                                    <div class="power mt-3">
-                                        <div class="row ">
-                                            <div class="col-6 col-lg-6 col-md-6 col-sm-6">
-                                                <p class="text-success ps-2">
-                                                    Watermelon</p>
-                                            </div>
-                                            <div class="col-6 col-lg-6 col-md-6 col-sm-6">
-                                                <p id="adduser" type="" class="text-success float-end pe-2">Nadiya Rani
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row ">
-                                        <div class="col-6 col-lg-6 col-md-6 col-sm-6">
-                                            <p class="ps-2 text-success"> <i class="fa fa-inr" aria-hidden="true"></i>
-                                                80.00/Kg</p>
-                                        </div>
-                                        <div class="col-6 col-lg-6 col-md-6 col-sm-6">
-                                            <p class="text-success float-end pe-2">4 Kg</p>
-                                        </div>
-                                    </div>
-
-                                    <div class="row">
-
-                                        <div class="col-12">
-                                            <p class=" text-center" id="district"><span
-                                                    id="engine_powerhp2"></span>Surajpur,<span
-                                                    id="year">Chhattisgarh</span></p>
-                                        </div>
-                                    </div>
-                                </div>
-                            <!-- <div class="content d-flex flex-column flex-grow-1 ">
-                                <div class="power text-center mt-3">
-                                    <div class="row ">
-                                        <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                                            <p class="text-success ps-2"> <i class="fa-solid fa-bowl-food"></i> Grain
-                                            </p>
-                                        </div>
-                                        <div class="col-12 col-lg-6 col-md-6 col-sm-6" style="padding-right: 32px;">
-                                            <p id="adduser" type="" class="text-danger fw-bold"> Rice</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row text-center">
-                                    <div class="col-6">
-                                        <p class="ps-2"> <i class="fa fa-inr" aria-hidden="true"></i> Price: <strong
-                                                class="text-primary">380</strong></p>
-                                    </div>
-                                    <div class="col-6 text-center">
-                                        <p class="fw-bold pe-3">Ambikapur(C.G)</p>
-                                    </div>
-                                </div>
-                            </div> -->
-                        </a>
-                        <div class="col-12 btn-success">
-                            <button type="button" class="btn btn-success py-2 w-100" data-bs-toggle="modal"
-                                data-bs-target="#staticBackdrop"><i class="fa-solid fa-phone"></i>
-                                Contact Seller
-                            </button>
-                        </div>
-
-                        <!-- Modal -->
-                        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
-                            tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                            <div class="modal-dialog modal-lg modal-dialog-centered">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title text-danger" id="staticBackdropLabel">Contact Seller</h5>
-                                        <button type="button" class="btn-close btn-success" data-bs-dismiss="modal" aria-label="Close"><img src="assets/images/close.png"></button>
-                                    </div>
-                                    <div class="modal-body">
-                                        <div class="model-cont">
-                                            <h4 class="text-center text-danger">Contact with Seller</h3>
-                                                <div class="row px-3 py-2">
-                                                    <div class="col-12  col-sm-12 col-md-6 col-lg-6 ">
-                                                        <label for="slr_name" class="form-label fw-bold text-dark"> <i
-                                                                class="fa-regular fa-user"></i>Name</label>
-                                                        <input type="text" class="form-control" id="slr_name">
-                                                    </div>
-                                                    <div class="col-12 col-sm-12 col-md-6 col-lg-6">
-                                                        <label for="number" class="form-label text-dark fw-bold"> <i
-                                                                class="fa fa-phone" aria-hidden="true"></i> Phone
-                                                            Number</label>
-                                                        <input type="text" class="form-control" id="number">
-                                                    </div>
-                                                    <div class="col-12 col-sm-12 col-md-6 col-lg-6  ">
-                                                        <label for="number" class="form-label text-dark fw-bold">
-                                                            State</label>
-                                                        <select class="form-select py-2 "
-                                                            aria-label=".form-select-lg example">
-                                                            <option selected>Select State</option>
-                                                            <option value="1">Chhattisgarh</option>
-                                                            <option value="2">Other</option>
-                                                        </select>
-                                                    </div>
-                                                    <div class="col-12 col-sm-12 col-md-6 col-lg-6  ">
-                                                        <label for="number" class="form-label text-dark fw-bold">
-                                                            District</label>
-                                                        <select class="form-select py-2 "
-                                                            aria-label=".form-select-lg example">
-                                                            <option selected>Select District</option>
-                                                            <option value="1">Mungeli</option>
-                                                            <option value="2">Durg</option>
-                                                        </select>
-                                                    </div>
-                                                    <div class="col-12  col-sm-12 col-md-6 col-lg-6 ">
-                                                        <label for="slr_name" class="form-label fw-bold text-dark mt-2">
-                                                            Price</label>
-                                                        <input type="text" class="form-control"
-                                                            placeholder="Enter price" id="price">
-                                                    </div>
-                                                    <div class="col-12  col-sm-12 col-md-6 col-lg-6 mt-4 pt-3">
-                                                        <button type="button"
-                                                            class="btn btn-success px-3">Request</button>
-                                                    </div>
-                                                </div>
-                                        </div>
-                                    </div>
-                                    <div class="modal-footer py-4">
-                                        <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> -->
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-lg-3 col-md-3 col-sm-3 mb-4">
-                        <a href="#" class="h-auto success__stry__item text-decoration-none d-flex flex-column shadow ">
-                            <div class="thumb">
-                                <div>
-                                    <div class="ratio ratio-16x9">
-                                        <img src="assets/images/growing-watermelons.jpg" class="object-fit-cover "
-                                            alt="img">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="content d-flex flex-column flex-grow-1 ">
-                                    <div class="power mt-3">
-                                        <div class="row ">
-                                            <div class="col-6 col-lg-6 col-md-6 col-sm-6">
-                                                <p class="text-success ps-2">
-                                                    Watermelon</p>
-                                            </div>
-                                            <div class="col-6 col-lg-6 col-md-6 col-sm-6">
-                                                <p id="adduser" type="" class="text-success float-end pe-2">Nadiya Rani
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row ">
-                                        <div class="col-6 col-lg-6 col-md-6 col-sm-6">
-                                            <p class="ps-2 text-success"> <i class="fa fa-inr" aria-hidden="true"></i>
-                                                80.00/Kg</p>
-                                        </div>
-                                        <div class="col-6 col-lg-6 col-md-6 col-sm-6">
-                                            <p class="text-success float-end pe-2">4 Kg</p>
-                                        </div>
-                                    </div>
-
-                                    <div class="row">
-
-                                        <div class="col-12">
-                                            <p class=" text-center" id="district"><span
-                                                    id="engine_powerhp2"></span>Surajpur,<span
-                                                    id="year">Chhattisgarh</span></p>
-                                        </div>
-                                    </div>
-                                </div>
-                            <!-- <div class="content d-flex flex-column flex-grow-1 ">
-                                <div class="power text-center mt-3">
-                                    <div class="row ">
-                                        <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                                            <p class="text-success ps-2"> <i class="fa-solid fa-bowl-food"></i> Fruit
-                                            </p>
-                                        </div>
-                                        <div class="col-12 col-lg-6 col-md-6 col-sm-6" style="padding-right: 32px;">
-                                            <p id="adduser" type="" class="text-danger fw-bold"> Watermelon</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row text-center">
-                                    <div class="col-6">
-                                        <p class="ps-2"> <i class="fa fa-inr" aria-hidden="true"></i> Price: <strong
-                                                class="text-primary">80</strong></p>
-                                    </div>
-                                    <div class="col-6 text-center">
-                                        <p class="fw-bold pe-3">Surajpur(C.G)</p>
-                                    </div>
-                                </div>
-                            </div> -->
-                        </a>
-                        <div class="col-12 btn-success">
-                            <button type="button" class="btn btn-success py-2 w-100" data-bs-toggle="modal"
-                                data-bs-target="#staticBackdrop2"><i class="fa-solid fa-phone"></i>
-                                Contact Seller
-                            </button>
-                        </div>
-
-                        <!-- Modal -->
-                        <div class="modal fade" id="staticBackdrop2" data-bs-backdrop="static" data-bs-keyboard="false"
-                            tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                            <div class="modal-dialog modal-lg modal-dialog-centered">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title text-danger" id="staticBackdropLabel">Contact Seller</h5>
-                                        <button type="button" class="btn-close btn-success" data-bs-dismiss="modal" aria-label="Close"><img src="assets/images/close.png"></button>
-                                    </div>
-                                    <div class="modal-body">
-                                        <div class="model-cont">
-                                            <h4 class="text-center text-danger">Contact with Seller</h3>
-                                                <div class="row px-3 py-2">
-                                                    <div class="col-12  col-sm-12 col-md-6 col-lg-6 ">
-                                                        <label for="slr_name" class="form-label fw-bold text-dark"> <i
-                                                                class="fa-regular fa-user"></i>Name</label>
-                                                        <input type="text" class="form-control" id="slr_name">
-                                                    </div>
-                                                    <div class="col-12 col-sm-12 col-md-6 col-lg-6">
-                                                        <label for="number" class="form-label text-dark fw-bold"> <i
-                                                                class="fa fa-phone" aria-hidden="true"></i> Phone
-                                                            Number</label>
-                                                        <input type="text" class="form-control" id="number">
-                                                    </div>
-                                                    <div class="col-12 col-sm-12 col-md-6 col-lg-6  ">
-                                                        <label for="number" class="form-label text-dark fw-bold">
-                                                            State</label>
-                                                        <select class="form-select py-2 "
-                                                            aria-label=".form-select-lg example">
-                                                            <option selected>Select State</option>
-                                                            <option value="1">Chhattisgarh</option>
-                                                            <option value="2">Other</option>
-                                                        </select>
-                                                    </div>
-                                                    <div class="col-12 col-sm-12 col-md-6 col-lg-6  ">
-                                                        <label for="number" class="form-label text-dark fw-bold">
-                                                            District</label>
-                                                        <select class="form-select py-2 "
-                                                            aria-label=".form-select-lg example">
-                                                            <option selected>Select District</option>
-                                                            <option value="1">Mungeli</option>
-                                                            <option value="2">Durg</option>
-                                                        </select>
-                                                    </div>
-                                                    <div class="col-12  col-sm-12 col-md-6 col-lg-6 ">
-                                                        <label for="slr_name" class="form-label fw-bold text-dark mt-2">
-                                                            Price</label>
-                                                        <input type="text" class="form-control"
-                                                            placeholder="Enter price" id="price">
-                                                    </div>
-                                                    <div class="col-12  col-sm-12 col-md-6 col-lg-6 mt-4 pt-3">
-                                                        <button type="button"
-                                                            class="btn btn-success px-3">Request</button>
-                                                    </div>
-                                                </div>
-                                        </div>
-                                    </div>
-                                    <div class="modal-footer py-4">
-                                        <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> -->
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-lg-3 col-md-3 col-sm-3 mb-4">
-                        <a href="#" class="h-auto success__stry__item d-flex text-decoration-none flex-column shadow ">
-                            <div class="thumb">
-                                <div>
-                                    <div class="ratio ratio-16x9">
-                                        <img src="assets/images/pulses.jpg" class="object-fit-cover " alt="img">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="content d-flex flex-column flex-grow-1 ">
-                                    <div class="power mt-3">
-                                        <div class="row ">
-                                            <div class="col-6 col-lg-6 col-md-6 col-sm-6">
-                                                <p class="text-success ps-2">
-                                                    Watermelon</p>
-                                            </div>
-                                            <div class="col-6 col-lg-6 col-md-6 col-sm-6">
-                                                <p id="adduser" type="" class="text-success float-end pe-2">Nadiya Rani
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row ">
-                                        <div class="col-6 col-lg-6 col-md-6 col-sm-6">
-                                            <p class="ps-2 text-success"> <i class="fa fa-inr" aria-hidden="true"></i>
-                                                80.00/Kg</p>
-                                        </div>
-                                        <div class="col-6 col-lg-6 col-md-6 col-sm-6">
-                                            <p class="text-success float-end pe-2">4 Kg</p>
-                                        </div>
-                                    </div>
-
-                                    <div class="row">
-
-                                        <div class="col-12">
-                                            <p class=" text-center" id="district"><span
-                                                    id="engine_powerhp2"></span>Surajpur,<span
-                                                    id="year">Chhattisgarh</span></p>
-                                        </div>
-                                    </div>
-                                </div>
-                        </a>
-                        <div class="col-12 btn-success">
-                            <button type="button" class="btn btn-success py-2 w-100" data-bs-toggle="modal"
-                                data-bs-target="#staticBackdrop2"><i class="fa-solid fa-phone"></i>
-                                Contact Seller
-                            </button>
-                        </div>
-
-                        <!-- Modal -->
-                        <div class="modal fade" id="staticBackdrop2" data-bs-backdrop="static" data-bs-keyboard="false"
-                            tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                            <div class="modal-dialog modal-lg modal-dialog-centered">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title text-danger" id="staticBackdropLabel">Contact Seller</h5>
-                                        <button type="button" class="btn-close btn-success" data-bs-dismiss="modal" aria-label="Close"><img src="assets/images/close.png"></button>
-                                    </div>
-                                    <div class="modal-body">
-                                        <div class="model-cont">
-                                            <h4 class="text-center text-danger">Contact with Seller</h3>
-                                                <div class="row px-3 py-2">
-                                                    <div class="col-12  col-sm-12 col-md-6 col-lg-6 ">
-                                                        <label for="slr_name" class="form-label fw-bold text-dark"> <i
-                                                                class="fa-regular fa-user"></i>Name</label>
-                                                        <input type="text" class="form-control" id="slr_name">
-                                                    </div>
-                                                    <div class="col-12 col-sm-12 col-md-6 col-lg-6">
-                                                        <label for="number" class="form-label text-dark fw-bold"> <i
-                                                                class="fa fa-phone" aria-hidden="true"></i> Phone
-                                                            Number</label>
-                                                        <input type="text" class="form-control" id="number">
-                                                    </div>
-                                                    <div class="col-12 col-sm-12 col-md-6 col-lg-6  ">
-                                                        <label for="number" class="form-label text-dark fw-bold">
-                                                            State</label>
-                                                        <select class="form-select py-2 "
-                                                            aria-label=".form-select-lg example">
-                                                            <option selected>Select State</option>
-                                                            <option value="1">Chhattisgarh</option>
-                                                            <option value="2">Other</option>
-                                                        </select>
-                                                    </div>
-                                                    <div class="col-12 col-sm-12 col-md-6 col-lg-6  ">
-                                                        <label for="number" class="form-label text-dark fw-bold">
-                                                            District</label>
-                                                        <select class="form-select py-2 "
-                                                            aria-label=".form-select-lg example">
-                                                            <option selected>Select District</option>
-                                                            <option value="1">Mungeli</option>
-                                                            <option value="2">Durg</option>
-                                                        </select>
-                                                    </div>
-                                                    <div class="col-12  col-sm-12 col-md-6 col-lg-6 ">
-                                                        <label for="slr_name" class="form-label fw-bold text-dark mt-2">
-                                                            Price</label>
-                                                        <input type="text" class="form-control"
-                                                            placeholder="Enter price" id="price">
-                                                    </div>
-                                                    <div class="col-12  col-sm-12 col-md-6 col-lg-6 mt-4 pt-3">
-                                                        <button type="button"
-                                                            class="btn btn-success px-3">Request</button>
-                                                    </div>
-                                                </div>
-                                        </div>
-                                    </div>
-                                    <div class="modal-footer py-4">
-                                        <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> -->
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                <div id="productContainer" class="row">
+                
+                 
                 </div>
         </div>
         <div class="col text-center my-3 pb-5">

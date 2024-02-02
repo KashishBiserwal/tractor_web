@@ -383,14 +383,13 @@
                           <tr>
                             <td>Quantity</td>
                             <td> <span id="quantity"></span> <span id="as_per"></span></td>
-                            <td>Price As Per-</td>
-                            <td id="price"></td>
-                          </tr>
-                          <tr>
                             <td>Total Price-</td>
                             <td id="Total_price"></td>
-                            <td>District-</td>
-                            <td id="dist1"></td>
+                          </tr>
+                          <tr>
+                            
+                            <!-- <td>District-</td>
+                            <td id="dist1"></td> -->
                           </tr>
                           <tr>
                               <td>Description-</td>

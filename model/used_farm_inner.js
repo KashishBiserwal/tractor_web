@@ -115,12 +115,7 @@ var url = "http://tractor-api.divyaltech.com/api/customer/customer_enquiries";
       data: paraArr,
       success: function (result) {
         console.log(result, "result");
-        // alert('successfully inserted..!');
-        // const new_data=data.product.filter((s)=>{ 
-        //     if(s.product_type=="FOR_SELL_TRACTOR"){
-        //         return s;
-        //     }
-        // });
+        
         $("#used_tractor_callbnt_").modal('hide'); 
         var msg = "Added successfully !"
         $("#errorStatusLoading").modal('show');    

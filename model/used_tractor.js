@@ -515,6 +515,6 @@ function appendFilterCard(filterContainer, filter) {
     $('.hp_checkbox:checked').prop('checked', false);
     
     getoldTractorList();
-    // window.location.reload();
+    window.location.reload();
     
   }
