@@ -48,44 +48,12 @@ function getHiretractor() {
     });
 }
 
-function processDatatwo(data2) {
-    var productContainer = $("#productContainer");
-
-    data2.forEach(function (customer) {
-        var rentMappingIds = customer.rent_mapping_ids.split(',');
-        var implementTypeIds = customer.implement_type_ids.split(',');
-        var rates = customer.rates.split(',');
-
-        // Create a new div for the customer
-        var customerDiv = $("<div class='customer-info'></div>");
-
-        // Display information for each rent mapping
-        rentMappingIds.forEach(function (rentMappingId, index) {
-            var rentMappingInfo = `
-                <div class="rental-info">
-                    <p>Customer ID: ${customer.customer_id}</p>
-                    <p>Rent Mapping ID: ${rentMappingId}</p>
-                    <p>Implement Type ID: ${implementTypeIds[index]}</p>
-                    <p>Rate: ${rates[index]}</p>
-                    <hr>
-                </div>
-            `;
-
-            // Append the rent mapping info to the customer div
-            customerDiv.append(rentMappingInfo);
-        });
-
-        // Append the customer div to the product container
-        productContainer.append(customerDiv);
-    });
-}
-
 // Function to display data from data1
 function displaylist(tractors) {
     var productContainer = $("#productContainer");
 
     tractors.forEach(function (p) {
-        var images = p.image_names;
+        var images = p.image_name;
         var a = [];
 
         if (images) {
