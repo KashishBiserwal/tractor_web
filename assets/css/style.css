@@ -168,7 +168,6 @@ border-radius:0;
 .swiper-slide {
   background-size: cover;
   background-position: 100%;
-  min-height: 53vh;
   /* position: absolute; */
   display: flex;
   align-items: center;
@@ -249,7 +248,7 @@ border-radius:0;
   position: absolute;
   width: 35%;
   right: 0;
-  height: 105%;
+  height: 100%;
   opacity: 0.2px;
   
 }
@@ -639,7 +638,7 @@ div.swiper-5 {
 /* color: red; */
 }
 .bgd_list:hover{
-  color: rgb(3, 142, 3);
+  color: rgb(21 115 71);
 }
 .bgd_list_i{
   color: white;
@@ -998,9 +997,8 @@ border-radius: 50%;
     overflow-y: scroll;
 }
 .add_btn{
-  /* background-color: #0c517a; */
   color: #fff;
-  /* width: 140px; */
+  padding: 5px 0;
 }
 .add_btn i{
   background:  rgb(109 204 123);
@@ -1716,6 +1714,32 @@ input[type="checkbox"]:checked + label:before {
   text-decoration:none;
 }
 .post-slide .over-layer i{
+  position: relative;
+  top:45%;
+  text-align:center;
+  display: block;
+  color:#fff;
+  font-size:25px;
+}
+.harvester_img_section img{
+  width: 100%;
+  height: 200px;
+}
+.harvester_img_section .over-layer{
+  width:100%;
+  height: 200px;
+  position: absolute;
+  top:0;
+  left:0;
+  opacity:0;
+  background: linear-gradient(-45deg, rgba(6,190,244,0.75) 0%, rgba(45,112,253,0.6) 100%);
+  transition:all 0.50s linear;
+}
+.harvester_img_section:hover .over-layer{
+  opacity:1;
+  text-decoration:none;
+}
+.harvester_img_section .over-layer i{
   position: relative;
   top:45%;
   text-align:center;
