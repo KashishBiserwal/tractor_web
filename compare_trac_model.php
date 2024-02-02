@@ -4,7 +4,8 @@
   <head>
     <?php
       include 'includes/headertag.php';
-      include 'includes/header.php';
+      include 'includes/header.php';  
+        include 'includes/footertag.php';
     ?>
     <style>
       .table-data {
@@ -26,23 +27,7 @@
   </head>
  
   <body>
-    <!-- links Nav -->
-    <section class="">
-      <div class="container mt-5 pt-5 ">
-        <div class=" mt-5 py-3 ">
-          <span class="my-4 ">
-            <a href="index.php" class="text-decoration-none header-link px-1">Home <i class="fa-solid fa-chevron-right px-1"></i></a>
-            <!-- <a href=""></a> <span class=""><span class=" header-link  px-1">Enquiry<i class="fa-solid fa-chevron-right px-1"></i> </span></span> -->
-            <span class="text-dark"> Compare</span>
-          </span> 
-        </div>
-      </div>
-    </section>
-
-
-
-
-    <!-- yaha se codepen -->
+ 
     <!-- Fixed navbar -->
     <section class="">
       <div class="">
@@ -1176,10 +1161,7 @@
         </div>
       </section>
 
-      <?php
-         include 'includes/footer.php';
-         include 'includes/footertag.php';
-      ?>
+      
 
    <!-- MODAL -->
     <section>
@@ -1400,14 +1382,14 @@
   </script>
 
 <script>
-  window.addEventListener('scroll', function() {
-    const navbar = document.getElementById('myNavbar');
-    if (window.scrollY > 320) {
-      navbar.classList.remove('d-none');
-    } else {
-      navbar.classList.add('d-none');
-    }
-  });
+window.addEventListener('scroll', function () {
+  const navbar = document.getElementById('myNavbar');
+  if (window.scrollY > 320) {
+    navbar.style.display = 'block'; // or 'inline', depending on your styling
+  } else {
+    navbar.style.display = 'none';
+  }
+});
 </script>
 
 
