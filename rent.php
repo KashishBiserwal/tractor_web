@@ -1,11 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 
+   <?php
+  include 'includes/headertag.php';
+    //include 'includes/headertagadmin.php';
+     include 'includes/footertag.php';
+     
+     ?> 
+    <script> var APIBaseURL = "<?php echo $APIBaseURL; ?>";</script>
+    <script> var baseUrl = "<?php echo $baseUrl; ?>";</script>
+    <script src="<?php $baseUrl; ?>model/rent.js"></script>
 <head>
-    <?php
-				include 'includes/headertag.php';
-			?>
-
     <?php
    include 'includes/header.php';
    ?>
@@ -156,39 +161,47 @@
                                 <!-- Step 1 form fields here -->
                                 <div class="step_sellused">
                                     <div class="row">
+                                    <div class="col-12 col-lg-6 col-md-6 col-sm-6 " hidden>
+                                        <label for="name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i> enquiryName</label>
+                                        <input type="text" class="form-control" placeholder="Enter Your Name" id="enquiry_type_id" value="18" name="fname">
+                                    </div>
+                                    <!-- <div class="col-12 col-lg-6 col-md-6 col-sm-6 " hidden>
+                                        <label for="name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i> product type id</label>
+                                        <input type="text" class="form-control" id="added_by" value="">
+                                    </div> -->
                                         <div class="col-12 col-sm-6 col-md-6 col-lg-6">
                                             <div class="form-outline">
                                                 <label class="form-label" for="brand">Brand</label>
-                                                <select class="form-select" id="brand" name="brand" required>
-                                                    <option value="" selected disabled>Select Brand</option>
+                                                <select class="form-select" id="brand_main" name="brand" required>
+                                                    <!-- <option value="" selected disabled>Select Brand</option>
                                                     <option value="1">Vegetable</option>
                                                     <option value="2">Fruits</option>
                                                     <option value="3">Grain</option>
-                                                    <option value="3">Pulses</option>
+                                                    <option value="3">Pulses</option> -->
                                                 </select>
                                             </div>
                                         </div>
                                         <div class="col-12 col-sm-6 col-md-6 col-lg-6">
                                             <div class="form-outline">
                                                 <label class="form-label" for="model">Model</label>
-                                                <select class="form-select" id="model" name="model" required>
-                                                    <option value="" selected disabled>Select Model</option>
+                                                <select class="form-select" id="model_main" name="model" required>
+                                                    <!-- <option value="" selected disabled>Select Model</option>
                                                     <option value="1">Vegetable</option>
                                                     <option value="2">Fruits</option>
                                                     <option value="3">Grain</option>
-                                                    <option value="3">Pulses</option>
+                                                    <option value="3">Pulses</option> -->
                                                 </select>
                                             </div>
                                         </div>
                                         <div class="col-12 col-sm-6 col-md-6 col-lg-6 mt-4">
                                             <div class="form-outline">
                                                 <label class="form-label" for="year">Year</label>
-                                                <select class="form-select" id="year" name="year" required>
-                                                    <option value="" selected disabled>Select Year</option>
+                                                <select class="form-select" id="year_main" name="year" required>
+                                                    <!-- <option value="" selected disabled>Select Year</option>
                                                     <option value="1">Vegetable</option>
                                                     <option value="2">Fruits</option>
                                                     <option value="3">Grain</option>
-                                                    <option value="3">Pulses</option>
+                                                    <option value="3">Pulses</option> -->
                                                 </select>
                                             </div>
                                         </div>
@@ -268,7 +281,7 @@
                                                 </select>
                                             </div>
                                         </div>
-                                        <div class="upload__box text-center">
+                                        <div class="upload__box text-center mt-5">
                                             <div class="upload__btn-box">
                                                 <label>
                                                     <p class="upload__btn w-100">Upload Images</p>
@@ -324,39 +337,33 @@
                                 <div class="row ">
                                     <div class="col-12 col-sm-6 col-md-6 col-lg-6 mt-4">
                                         <div class="form-outline">
-                                            <label class="form-label " for="fname"><i class="fa-regular fa-user"></i>
-                                                First Name</label>
+                                            <label class="form-label " for="fname"><i class="fa-regular fa-user"></i> First Name</label>
                                             <input type="text" id="fname" name="fname"
-                                                class="data_search form-control input-group-sm"
-                                                onkeydown="return /[a-zA-Z]/i.test(event.key)" />
+                                            class="data_search form-control input-group-sm" onkeydown="return /[a-zA-Z]/i.test(event.key)" />
                                         </div>
                                     </div>
                                     <div class="col-12 col-sm-6 col-md-6 col-lg-6 mt-4">
                                         <div class="form-outline">
-                                            <label class="form-label " for="lname"><i class="fa-regular fa-user"></i>
-                                                Last Name</label>
-                                            <input type="text" id="lname" name="lname"
-                                                class="data_search form-control input-group-sm"
-                                                onkeydown="return /[a-zA-Z]/i.test(event.key)" />
+                                            <label class="form-label" for="lname"><i class="fa-regular fa-user"></i> Last Name</label>
+                                            <input type="text" id="l_name" name="lname"
+                                                class="data_search form-control input-group-sm"onkeydown="return /[a-zA-Z]/i.test(event.key)" />
                                         </div>
                                     </div>
                                     <div class="col-12 col-sm-6 col-md-6 col-lg-6 mt-4">
                                         <div class="form-outline">
                                             <label class="form-label" for="phone">
-                                                <i class="fa fa-phone" aria-hidden="true"></i> Phone Number</label>
-                                            <input type="text" id="phone" name="phone"
-                                                class=" data_search form-control input-group-sm" />
+                                                <i class="fa fa-phone" aria-hidden="true"></i>Phone Number</label>
+                                            <input type="text" id="phone" name="phone" class=" data_search form-control input-group-sm" />
                                         </div>
                                     </div>
                                     <div class="col-12 col-sm-6 col-md-6 col-lg-6 mt-4">
                                         <div class="form-outline">
-                                            <label class="form-label" for="state"> <i class="fas fa-location"></i>
-                                                State</label>
-                                            <select class="form-select error mb-2 pb-2" id="state" name="state"
-                                                aria-label="Default select example">
-                                                <option selected></option>
-                                                <option value="state1">state1</option>
-                                                <option value="state2">state2</option>
+                                            <label class="form-label" for="state"> <i class="fas fa-location"></i>State</label>
+                                            <select class="form-select error mb-2 pb-2" id="state_3" name="state" aria-label="Default select example">
+                                                <option value="" selected disabled></option>
+                                                <option value="Chhattisgarh">Chhattisgarh</option>
+                                                <option value="Other">Other</option>
+                                              
                                             </select>
                                         </div>
                                     </div>
@@ -364,25 +371,28 @@
                                         <div class="form-outline">
                                             <label class="form-label" for="district">
                                                 <i class="fa-solid fa-location-dot"></i> District</label>
-                                            <!-- <select class="form-select error mb-2 pb-2" id="district" name="district"
+                                            <select class="form-select error mb-2 pb-2" id="district_2" name="district"
                                                 aria-label="Default select example">
-                                                <option selected></option>
+                                                <option value="" selected disabled></option>
+                                                <option value="Raipur">Raipur</option>
+                                                <option value="Bilaspur">Bilaspur</option>
+                                                <option value="Durg">Durg</option>
                                                
-                                            </select> -->
-                                            <select class="form-control" id="district" name="district"></select>
+                                            </select>
+                                           
                                         </div>
                                     </div>
                                     <div class="col-12 col-sm-6 col-md-6 col-lg-6 mt-4">
                                         <div class="form-outline">
                                             <label class="form-label" for="tehsil">Tehsil</label>
-                                            <!-- <select class="form-select error mb-2 pb-2" id="tehsil" name="tehsil"
+                                            <select class="form-select error mb-2 pb-2" id="tehsil_1" name="tehsil"
                                                 aria-label="Default select example">
-                                                <option selected></option>
-                                                <option value="1">name1</option>
-                                                <option value="2">name2</option>
-                                                <option value="3">name3</option>
-                                            </select> -->
-                                            <select class="form-control" id="tehsil" name="tehsil"></select>
+                                                <option value="" selected disabled></option>
+                                                <option value="Raipur">Raipur</option>
+                                                <option value="Bilaspur">Bilaspur</option>
+                                                <option value="Durg">Durg</option>
+                                            </select>
+                                          
                                         </div>
                                     </div>
                                 </div>

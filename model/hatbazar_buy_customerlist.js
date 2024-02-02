@@ -73,13 +73,14 @@ function displaylist(tractors) {
         var newCard = `
             <div class="col-12 col-lg-4 col-md-4 col-sm-4 mb-3" id="${cardId}">
                 <div class="h-auto success__stry__item d-flex flex-column shadow">
+                 
                     <div class="thumb">
-                        <a href="hatbzrbuy_inner.php?id=${p.haat_bazar_id}">
-                            <div class="ratio ratio-16x9">
-                                <img src="http://tractor-api.divyaltech.com/uploads/haat_bazar_img/${a[0]}" class="object-fit-cover" alt="${p.description}">
-                            </div>
-                        </a>
-                    </div>
+                    <a href="hatbzrbuy_inner.php?id=${p.haat_bazar_id}">
+                        <div class="ratio ratio-16x9">
+                            <img src="http://tractor-api.divyaltech.com/uploads/haat_bazar_img/${a[0]}" class="object-fit-cover " alt="${p.description}">
+                        </div>
+                    </a>
+                </div>
                     <div class="content d-flex flex-column flex-grow-1">
                         <div class="caption text-center">
                             <a href="hatbzrbuy_inner.php?id=${p.haat_bazar_id}" class="text-decoration-none text-dark">
