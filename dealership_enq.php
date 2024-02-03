@@ -1,16 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <?php
-        include 'includes/header.php';
-        include 'includes/headertag.php';
-        include 'includes/footer.php';
-        include 'includes/footertag.php';
-    ?>
-    
-</head>
-<body>
 
+   <?php
+  include 'includes/headertag.php';
+    //include 'includes/headertagadmin.php';
+     include 'includes/footertag.php';
+     
+     ?> 
+    <script> var APIBaseURL = "<?php echo $APIBaseURL; ?>";</script>
+    <script> var baseUrl = "<?php echo $baseUrl; ?>";</script>
+    <script src="<?php $baseUrl; ?>model/dealership_enq.js"></script>
+<body>
+<?php
+   include 'includes/header.php';
+   ?>
     <section class=" mt-5 pt-5 bg-light">
         <div class="container pt-5">
             <div class="py-2">
@@ -40,11 +43,19 @@
                 <div class="col-md-8 col-lg-7">
                     <form id="dealership_enq_from" class="form-view-inner form-view-overlay bg-light box-shadow p-3" action="" method="" >
                         <div class="row justify-content-center">
+                           <div class="col-12 col-lg-6 col-md-6 col-sm-6 " hidden>
+                                <label for="name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i> enquiryName</label>
+                                <input type="text" class="form-control" placeholder="Enter Your Name" id="enquiry_type_id" value="14" name="fname">
+                            </div>
+                            <div class="col-12 col-lg-6 col-md-6 col-sm-6 " hidden>
+                                <label for="name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i> product id</label>
+                                <input type="text" class="form-control" id="product_id" value="">
+                            </div>
                             <div class="col-12 col-sm-12 col-md-6 col-lg-6">
                                 <div class="mt-2">
                                     <div class="form-outline">
                                         <label class="form-label text-dark" style="background:#fcfcfc54;"><i class="fa-regular fa-user"></i> First Name</label>
-                                        <input type="text" class="form-control mb-0" id="f_name" name="f_name">
+                                        <input type="text" class="form-control mb-0" id="f_name_1" name="f_name">
                                     </div>
                                 </div>
                             </div>
@@ -52,7 +63,7 @@
                                 <div class="mt-2">
                                     <div class="form-outline">
                                         <label class="form-label text-dark" style="background:transparent;"><i class="fa-regular fa-user"></i> Last Name</label>
-                                        <input type="text" class="form-control mb-0" id="l_name" name="l_name">                                
+                                        <input type="text" class="form-control mb-0" id="l_name_1" name="l_name">                                
                                     </div>
                                 </div>
                             </div>
@@ -67,42 +78,43 @@
                             <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-4">
                                 <div class="form-outline">
                                     <label for="yr_state" class="form-label text-dark fw-bold "> <i class="fas fa-location"></i> State</label>
-                                    <select class="form-select py-2" id="_state" name="_state"aria-label=".form-select-lg example">
+                                    <select class="form-select py-2" id="state_s" name="_state"aria-label=".form-select-lg example">
                                         <option value="" selected disabled=""></option>
-                                        <option value="1">Chhattisgarh</option>
-                                        <option value="2">Other</option>
+                                        <option value="Chhattisgarh">Chhattisgarh</option>
+                                        <option value="Other">Other</option>
                                     </select>
                                 </div>
                             </div>
                             <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-4">
                                 <div class="form-outline">
                                     <label for="yr_dist" class="form-label text-dark"><i class="fa-solid fa-location-dot"></i> District</label>
-                                    <select class="form-select py-2" id="_district" name="_district" aria-label=".form-select-lg example">
+                                    <select class="form-select py-2" id="district_s" name="_district" aria-label=".form-select-lg example">
                                         <option value="" selected disabled=""></option>
-                                        <option value="1">Raipur</option>
-                                        <option value="2">Bilaspur</option>
-                                        <option value="2">Durg</option>
+                                        <option value="Raipur">Raipur</option>
+                                        <option value="Bilaspur">Bilaspur</option>
+                                        <option value="Durg">Durg</option>
                                     </select>
                                 </div>
                             </div>
                             <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-4">
                                 <div class="form-outline">
                                     <label for="yr_price" class="form-label text-dark"> Tehsil</label>
-                                    <!-- <input type="yr_price" class="form-control" placeholder="Enter Tehsil" id="_tehsil" name="_tehsil"> -->
-                                    <select class="form-select py-2 " id="_tehsil" name="_tehsil"aria-label=".form-select-lg example">
-                                        <option value="" selected disabled=""></option>
-                                        <option value="1">Durg</option>
+                                    <select class="form-select py-2 " id="t_tehsil" name="_tehsil"aria-label=".form-select-lg example">
+                                    <option value="" selected disabled=""></option>
+                                        <option value="Raipur">Raipur</option>
+                                        <option value="Bilaspur">Bilaspur</option>
+                                        <option value="Durg">Durg</option>
                                     </select>    
                                 </div>  
                             </div>
                             <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-4">
                                 <div class="form-outline">
-                                    <label for="yr_dist" class="form-label text-dark">Brand</label>
-                                    <select class="form-select py-2 " id="_brand" name="_brand"aria-label=".form-select-lg example">
-                                        <option value="" selected disabled=""></option>
+                                    <label for="brand" class="form-label text-dark">Brand</label>
+                                    <select class="form-select py-2 " id="b_brand_1" name="_brand"aria-label=".form-select-lg example">
+                                        <!-- <option value="" selected disabled=""></option>
                                         <option value="1">Mahindra</option>
                                         <option value="2">Swaraj</option>
-                                        <option value="2">Powertrac</option>
+                                        <option value="2">Powertrac</option> -->
                                     </select>
                                 </div>
                             </div>
@@ -466,7 +478,10 @@
             </div>
         </div>
     </section>
-   
+ <?php
+    include 'includes/footer.php';
+    include 'includes/footertag.php';
+    ?>
 
     <script>
         $(document).ready(function(){
