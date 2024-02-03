@@ -16,8 +16,13 @@ function getHiretractor() {
             var productContainer = $("#productContainer");
             var loadMoreButton = $("#loadMoreBtn");
 
+            // Extract data1 and data2 from rent_details
+            var data1 = data.rent_details.data1 || [];
+            var data2 = data.rent_details.data2 || [];
+
             // Combine data1 and data2 into a single array
-            var combinedData = data.rent_details.data1.concat(data.rent_details.data2);
+            var combinedData = data1.concat(data2);
+            console.log('Combined Data:', combinedData);
 
             if (combinedData && combinedData.length > 0) {
                 // Display the initial set of 6 tractors from combinedData
@@ -44,19 +49,14 @@ function getHiretractor() {
         }
     });
 }
-// Function to display data from data1
+
+// Function to display data in cards
 function displaylist(tractors) {
     var productContainer = $("#productContainer");
 
     tractors.forEach(function (p) {
-        var images;
-        if (p.image_name) {
-            images = p.image_name.indexOf(',') > -1 ? p.image_name.split(',') : [p.image_name];
-        } else if (p.images) {
-            images = p.images.split(',');
-        } else {
-            images = [];
-        }
+        // Assuming images are available in p.images
+        var images = p.images ? p.images.split(',') : [];
 
         var cardId = `card_${p.id}`;
         var modalId = `used_tractor_callbnt_${p.id}`;
@@ -64,6 +64,12 @@ function displaylist(tractors) {
         var imageUrl = images.length > 0 ? `http://tractor-api.divyaltech.com/uploads/rent_img/${images[0]}` : '';
 
         var isValidImageUrl = imageUrl && imageUrl.trim() !== "";
+        console.log('Tractors Data:', p);
+
+        var ratePers = p.rate_pers || '';
+        var rates = p.rates || '';
+        var rentMappingIds = p.rent_mapping_ids || '';
+
 
         var newCard = `
             <div class="col-12 col-lg-4 col-md-6 col-sm-6 mb-3" id="${cardId}">
@@ -75,29 +81,20 @@ function displaylist(tractors) {
                             </div>
                         </a>
                         <div class="content d-flex flex-column flex-grow-1 ">
-                            <div class="caption text-center">
-                                <a href="hire_inner.php?id=${p.id}" class="text-decoration-none text-dark">
-                                    <p class="pt-3 " style="font-size: 17px;">
-                                        <strong class="series_tractor_strong text-center fw-bold ">${p.brand_name}</strong>
-                                    </p>
-                                </a>
+                            <div class="row text-center">
+                                <div class="col-4 col-md-4 col-lg-4 col-sm-4">
+                                    <p class="text-dark custom-font-size fw-bold"><i class="fa-solid fa-indian-rupee-sign"></i>${rates}</p>
+                                </div>
+                                <div class="col-4 col-md-4 col-lg-4 col-sm-4">
+                                    <p class="text-dark custom-font-size fw-bold"><i class="fas fa-bolt "></i>${ratePers}</p>
+                                </div>
+                                <div class="col-4 col-md-4 col-lg-4 col-sm-4">
+                                    <p class="text-dark custom-font-size fw-bold"><i class="fa-solid fa-gear"></i>${rentMappingIds}</p>
+                                </div>
                             </div>
-                            <div class="power">
-                                <a href="hire_inner.php?id=${p.id}" class="text-decoration-none text-dark">
-                                    <div class="row text-center">
-                                        <div class="col-4 col-md-4 col-lg-4 col-sm-4">
-                                            <p class="text-dark custom-font-size fw-bold"><i class="fa-solid fa-indian-rupee-sign"></i>${p.rate_pers || p.rates}</p>
-                                        </div>
-                                        <div class="col-4 col-md-4 col-lg-4 col-sm-4">
-                                            <p class="text-dark custom-font-size fw-bold"><i class="fas fa-bolt "></i>${p.rates}</p>
-                                        </div>
-                                        <div class="col-4 col-md-4 col-lg-4 col-sm-4">
-                                            <p class="text-dark custom-font-size fw-bold"><i class="fa-solid fa-gear"></i>${p.rent_mapping_ids}</p>
-                                        </div>
-                                    </div>
-                                    <div class="row text-center fw-bold text-primary">
-                                        <div class=" col-12 mb-2">${p.district || ''} ${p.state || ''}</div>
-                                    </div>
+                                <div class="row text-center fw-bold text-primary">
+                                    <div class=" col-12 mb-2">${p.district || ''} ${p.state || ''}</div>
+                                </div>
                                 </a>
                             </div>
                             <button type="button" class="add_btn btn-success w-100" data-bs-toggle="modal" data-bs-target="#${modalId}">
@@ -197,8 +194,6 @@ function displaylist(tractors) {
                 </div>
             </div>
         `;
-
-        // Append the new card to the container
         productContainer.append(newCard);
     });
 }

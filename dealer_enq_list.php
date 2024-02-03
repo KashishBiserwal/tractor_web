@@ -73,27 +73,58 @@
         </div>
       </div>
       <!-- Table Card -->
-      <div class=" mb-5">
-          <div class="table-responsive shadow bg-white mt-2">
-              <table id="example" class="table table-striped table-hover dataTable no-footer py-1" width="100%">
-                  <thead>
-                      <tr>
-                        <th class="d-none d-md-table-cell text-white">S.No.</th>
-                        <th class="d-none d-md-table-cell text-white">Date </th>
-                        <th class="d-none d-md-table-cell text-white">Dealer Name </th>
-                        <th class="d-none d-md-table-cell text-white">Name </th>
-                        <th class="d-none d-md-table-cell text-white">Phone number</th>
-                        <th class="d-none d-md-table-cell text-white">State</th>
-                        <th class="d-none d-md-table-cell text-white">District</th>
-                        <th class="d-none d-md-table-cell text-white">Action</th>
-                      </tr>
-                  </thead>
-                   <tbody id="data-table">
-                  </tbody>
-              </table>
-          </div>
-      </div>
+    <nav class="">
+    <div class="nav nav-tabs w-50" id="nav-tab" role="tablist">
+        <a class="nav-link active px-5 py-3 h5 fw-bold text-dark py-2" type="button" id="dealers_certifide_target" data-bs-toggle="tab" data-bs-target="#table_data1" role="tab" aria-controls="nav-home" aria-selected="true">Certifide</a>
+        <a class="nav-link px-5 py-3 h5 fw-bold text-dark" id="dealers_normal_target" type="button" data-bs-toggle="tab" data-bs-target="#table_data2" role="tab" aria-controls="nav-contact" aria-selected="false">Normal</a>
     </div>
+</nav>
+
+<div class=" mb-5">
+    <div class="tab-content">
+        <div class="tab-pane fade show active" id="table_data1" role="tabpanel">
+            <div class="table-responsive shadow bg-white mt-2">
+                <table id="example" class="table table-striped table-hover dataTable no-footer py-1" width="100%">
+                    <thead>
+                        <tr>
+                            <th class="d-none d-md-table-cell text-white">S.No.</th>
+                            <th class="d-none d-md-table-cell text-white">Date </th>
+                            <th class="d-none d-md-table-cell text-white">Dealer Name </th>
+                            <th class="d-none d-md-table-cell text-white">Name </th>
+                            <th class="d-none d-md-table-cell text-white">Phone number</th>
+                            <th class="d-none d-md-table-cell text-white">State</th>
+                            <th class="d-none d-md-table-cell text-white">District</th>
+                            <th class="d-none d-md-table-cell text-white">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="data-table">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="tab-pane fade show active" id="table_data2" role="tabpanel">
+            <div class="table-responsive shadow bg-white mt-2">
+                <table id="example2" class="table table-striped table-hover dataTable no-footer py-1" width="100%">
+                    <thead>
+                        <tr class="bg-success">
+                            <th class="d-none d-md-table-cell text-white">S.No.</th>
+                            <th class="d-none d-md-table-cell text-white">Date </th>
+                            <th class="d-none d-md-table-cell text-white">Brand</th>
+                            <th class="d-none d-md-table-cell text-white">Name </th>
+                            <th class="d-none d-md-table-cell text-white">Phone number</th>
+                            <th class="d-none d-md-table-cell text-white">State</th>
+                            <th class="d-none d-md-table-cell text-white">District</th>
+                            <th class="d-none d-md-table-cell text-white">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="data-table2">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
    </section>
 
    <div class="modal fade" id="view_model_dealer" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -298,3 +329,37 @@
 <?php
    include 'includes/footertag.php';
    ?> 
+
+
+
+<script>
+    $(document).ready(function () {
+        $('#dealers_certifide_target').on('click', function () {
+            showTable('#table_data1');
+        });
+
+        $('#dealers_normal_target').on('click', function () {
+            showTable('#table_data2');
+        });
+
+        function showTable(tabId) {
+            // Hide all tables
+            $('#table_data1, #table_data2').removeClass('show active');
+
+            // Show the selected table
+            $(tabId).addClass('show active');
+        }
+
+        // Initial load for the first tab
+        showTable('#table_data1');
+    });
+</script>
+
+<script>
+    $(document).ready(function () {
+        $('#example2').DataTable({
+            lengthChange: false, // Disable show entries
+            searching: false,    // Disable search field
+        });
+    });
+</script>
