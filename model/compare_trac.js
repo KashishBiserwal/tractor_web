@@ -138,6 +138,13 @@ function getcompare_data() {
                 document.getElementById('status-1').innerText = p.status_value;
                 document.getElementById('price-1').innerText = price;
                 document.getElementById('trans_tye-1').innerText = p.transmission_type_value;
+                document.getElementById('brand_nav').innerText = p.brand_name;
+                document.getElementById('model_nav').innerText = p.model;
+                document.getElementById('hp_nav-1').innerText = p.hp_category;
+                // document.getElementById('img_1').innerText = p.image_names;
+                const imageNames = p.image_names.split(',');
+                const firstImagePath = `http://tractor-api.divyaltech.com/uploads/product_img/${imageNames[0].trim()}`;
+                document.getElementById('img_1').src = firstImagePath;
 
                 var images = p.image_names;
                 var a = [];
@@ -317,6 +324,13 @@ function getcompare_data1() {
                 document.getElementById('status-2').innerText = p.status_value;
                 document.getElementById('price-2').innerText = price;
                 document.getElementById('trans_tye-2').innerText = p.transmission_type_value;
+                document.getElementById('brand_nav-2').innerText = p.brand_name;
+                document.getElementById('model_nav-2').innerText = p.model;
+                document.getElementById('hp_nav-2').innerText = p.hp_category;
+
+                const imageNames = p.image_names.split(',');
+                const firstImagePath = `http://tractor-api.divyaltech.com/uploads/product_img/${imageNames[0].trim()}`;
+                document.getElementById('img_2').src = firstImagePath;
 
                 var images = p.image_names;
                 var a = [];
@@ -495,6 +509,13 @@ function getcompare_data2() {
                 document.getElementById('status-2').innerText = p.status_value;
                 document.getElementById('price-2').innerText = price;
                 document.getElementById('trans_tye-2').innerText = p.transmission_type_value;
+                document.getElementById('brand_nav-3').innerText = p.brand_name;
+                document.getElementById('model_nav-3').innerText = p.model;
+                document.getElementById('hp_nav-3').innerText = p.model;
+
+                const imageNames = p.image_names.split(',');
+                const firstImagePath = `http://tractor-api.divyaltech.com/uploads/product_img/${imageNames[0].trim()}`;
+                document.getElementById('img_3').src = firstImagePath;
 
                 var images = p.image_names;
                 var a = [];
@@ -536,6 +557,7 @@ get_card3();
 
 
 // for card4
+
 function get_card4() {
     var url = 'http://tractor-api.divyaltech.com/api/customer/get_all_brands';
 
@@ -680,6 +702,12 @@ function getcompare_data3() {
                 document.getElementById('status-4').innerText = p.status_value;
                 document.getElementById('price-4').innerText = price;
                 document.getElementById('trans_tye-4').innerText = p.transmission_type_value;
+                document.getElementById('brand_nav-4').innerText = p.brand_name;
+                document.getElementById('model_nav-4').innerText = p.model;
+                document.getElementById('hp_nav-4').innerText = p.model;
+                const imageNames = p.image_names.split(',');
+                const firstImagePath = `http://tractor-api.divyaltech.com/uploads/product_img/${imageNames[0].trim()}`;
+                document.getElementById('img_4').src = firstImagePath;
 
                 var images = p.image_names;
                 var a = [];
@@ -717,6 +745,4 @@ function getcompare_data3() {
         }
     });
 }
-
-
 get_card4();
