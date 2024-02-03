@@ -109,14 +109,18 @@ function hide_detail(){
 }
     function getsearchdata() {
         var urlParams = new URLSearchParams(window.location.search);
-    var Id = urlParams.get('budget');
+    var Id = urlParams.get('hp');
+
+// Add spaces before and after the hyphen
+// var formattedId = Id.replace('-', ' - ');
+// console.log(formattedId,"formattedId")
     var arr = [];
     arr.push(Id);
     console.log(arr,"arr");
     var url = "http://tractor-api.divyaltech.com/api/customer/get_new_tractor_by_price_brand_hp";
     console.log(url);
     var paraArr = {
-          'price_ranges': JSON.stringify(arr)
+          'horse_power_ranges': JSON.stringify(arr)
         };
     $.ajax({
         url: url,
@@ -127,8 +131,8 @@ function hide_detail(){
           
           var breadcrumb_head = $('#link_head')
           var title_heading = $('#title_heading')
-          var newCard = `<span class="text-dark p">Tractors  ${Id}</span> `;
-          var newcard2 = `<h4 class="pb-2">Tractors  ${Id} in India</h4>`;
+          var newCard = `<span class="text-dark p">Tractors  ${Id} HP</span> `;
+          var newcard2 = `<h4 class="pb-2">Tractors  ${Id} HP in India</h4>`;
        
        // Append the new card to the container
        breadcrumb_head.append(newCard);
@@ -142,13 +146,9 @@ function hide_detail(){
             var productContainer = $("#tractor_description");
             var productContainer2 = $("#read_more_title");
             var productContainer3 = $("#table_detail");
-            var newcard3 = `<p> ${count} tractors are available ${Id} Rupees at Tractor Junction. 
-                The price range ${Id} can give you a perfect tractor model
-                for your farming operations. Here you
-                can get complete information regarding ${Id} tractors, including price,
-                features and many more.
+            var newcard3 = `<p> ${count} tractors available under ${Id} HP tractor category at TractorJunction. Here, you can find all the information about a tractor under ${Id} HP with price, features and many more.
             </p>`;
-            var newcard4 = `<h5>Tractors ${Id} Price List</h5>`;
+            var newcard4 = `<h5>Tractors ${Id}HP List</h5>`;
             var newcard5 = `Tractors ${Id} `;
           productContainer.append(newcard3);
           productContainer2.append(newcard4);

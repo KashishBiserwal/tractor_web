@@ -45,7 +45,7 @@ $(document).ready(function () {
         direction: 'horizontal',
         loop: false,
         mousewheel: false,
-        slidesPerView: 3,
+        slidesPerView: 4,
         spaceBetween: 10,
         watchSlidesProgress: true,
         slideVisibleClass: 'slide-is-visible',
@@ -67,7 +67,7 @@ $(document).ready(function () {
                 spaceBetween: 40
             },
             992: {
-                slidesPerView: 3,
+                slidesPerView: 4,
                 spaceBetween: 40
             }
         },
