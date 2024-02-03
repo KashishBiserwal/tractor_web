@@ -563,7 +563,7 @@ function edit_brand(){
   var brand_name = document.getElementById('brand_name1').value;
 
   var _method = 'put';
-        var brand_img1 = document.getElementById('brand_img1').files[0];
+  var brand_img1 = document.getElementById('brand_img1').files[0];
 
         var formData = new FormData();
         formData.append('brand_name', brand_name);

@@ -37,11 +37,12 @@
   </section>
 
   <!-- section 1 which is display block first -->
-  <section class="" id="section-1">
-    <div class="container" id="an">       
-      <div class="row py-1">
-        <h3 class="mt-2 mb-3 bg-light">Compare Tractors</h3>
-          <div class="col-12 col-lg-3 col-sm-3 col-md-3 mt-4 mb-5">
+  <section style="display: block;" id="section-1">
+    <div class="container" id="an">      
+    <h3 class="mt-2 mb-3 bg-light">Compare Tractors</h3> 
+      <div class="row py-1" >
+       
+          <div class="col-12 col-lg-3 col-sm-3 col-md-3 mt-4 mb-5" id="">
               <div class="success__stry__item shadow h-100">
                   <div class="thumb">
                       <a href="#">
@@ -50,14 +51,14 @@
                           </div>
                       </a>
                   </div>
-                  <div class="col-12 col-sm-12 col-md-4 col-lg-4 content mt-2 py-1 pb-3 text-center w-100">
+                  <div class="col-12 col-sm-12 col-md-4 col-lg-4 content mt-2  text-center w-100">
                     <div class="form-outline">
                       <label class="form-label" for="brand"></label>
                       <select class="form-select py-2 brandselect" aria-label="Default select example" name="brand" id="brand" onchange="showEditIcon()">
                       </select>
                     </div>
                   </div>
-                  <div class="col-12 col-sm-12 col-md-4 col-lg-4 content mt-1 text-center w-100">
+                  <div class="col-12 col-sm-12 col-md-4 col-lg-4 content  text-center w-100">
                     <div class="form-outline">
                       <label class="form-label" for="model"></label>
                       <select class="form-select py-2 modelselect" aria-label="Default select example" name="model" id="model">
@@ -80,7 +81,7 @@
                           </div>
                       </a>
                   </div>
-                  <div class="col-12 col-sm-12 col-md-4 col-lg-4 content mt-2 py-1 pb-3 text-center w-100">
+                  <div class="col-12 col-sm-12 col-md-4 col-lg-4 content mt-2text-center w-100">
                     <div class="form-outline">
                       <label class="form-label" for="brand"></label>
                       <select class="form-select py-2 brandselect" aria-label="Default select example" name="brand" id="brand_1" onchange="showEditIcon2()">
@@ -88,7 +89,7 @@
                       </select>
                     </div>
                   </div>
-                  <div class="col-12 col-sm-12 col-md-4 col-lg-4 content mt-1 text-center w-100">
+                  <div class="col-12 col-sm-12 col-md-4 col-lg-4 content  text-center w-100">
                     <div class="form-outline">
                       <label class="form-label" for="model"></label>
                       <select class="form-select py-2 modelselect" aria-label="Default select example" name="model" id="model_1">
@@ -113,7 +114,7 @@
                           </div>
                       </a>
                   </div>
-                  <div class="col-12 col-sm-12 col-md-4 col-lg-4 content mt-2 py-1 pb-3 text-center w-100">
+                  <div class="col-12 col-sm-12 col-md-4 col-lg-4 content mt-2 text-center w-100">
                     <div class="form-outline">
                       <label class="form-label" for="brand"></label>
                       <select class="form-select py-2 brandselect" aria-label="Default select example" name="brand" id="brand_2"onchange="showEditIcon3()">
@@ -121,7 +122,7 @@
                       </select>
                     </div>
                   </div>
-                  <div class="col-12 col-sm-12 col-md-4 col-lg-4 content mt-1 text-center w-100">
+                  <div class="col-12 col-sm-12 col-md-4 col-lg-4 content  text-center w-100">
                     <div class="form-outline">
                       <label class="form-label" for="model"></label>
                       <select class="form-select py-2 modelselect" aria-label="Default select example" name="model" id="model_2">
@@ -131,7 +132,7 @@
                   </div>
                   <div class="content pb-1 text-center">
                       <div class="col-12  text-center mt-1">
-                        <div class="col-12  text-center"><i class="fas fa-pencil-alt edit_btn btn" id="edit_2" onclick="valueblanck2()"></i></div>
+                        <div class="col-12  text-center"><i class="fas fa-pencil-alt edit_btn btn" id="edit_2" hidden onclick="valueblanck2()"></i></div>
                       </div>
                   </div>
               </div>
@@ -145,7 +146,7 @@
                           </div>
                       </a>
                   </div>
-                  <div class="col-12 col-sm-12 col-md-4 col-lg-4 content mt-2 py-1 pb-3 text-center w-100">
+                  <div class="col-12 col-sm-12 col-md-4 col-lg-4 content mt-2 text-center w-100">
                     <div class="form-outline">
                       <label class="form-label" for="brand"></label>
                       <select class="form-select py-2 brandselect" aria-label="Default select example" name="brand" id="brand_3" onchange="showEditIcon4()">
@@ -153,7 +154,7 @@
                       </select>
                     </div>
                   </div>
-                  <div class="col-12 col-sm-12 col-md-4 col-lg-4 content mt-1 text-center w-100">
+                  <div class="col-12 col-sm-12 col-md-4 col-lg-4 content  text-center w-100">
                     <div class="form-outline">
                       <label class="form-label" for="model"></label>
                       <select class="form-select py-2 modelselect" aria-label="Default select example" name="model" id="model_3">
@@ -162,13 +163,13 @@
                   </div>
                   <div class="content pb-1 text-center">
                       <div class="col-12  text-center mt-1">
-                        <div class="col-12  text-center"><i class="fas fa-pencil-alt edit_btn btn" id="edit_3" onclick="valueblanck3()"></i></div>
+                        <div class="col-12  text-center"><i class="fas fa-pencil-alt edit_btn btn" id="edit_3" hidden onclick="valueblanck3()"></i></div>
                       </div>
                   </div>
               </div>
           </div>
           <div class="col-12  text-center mt-3">
-          <button class="btn btn-success text-white col-12 px-5" id="compareButton" onclick="showall();" style="width:40%">Compare</button>
+          <button class="btn btn-success text-white col-12 px-5" id="compareButton" onclick="showall();"  style="width:40%">Compare</button>
           </div>
 
       </div>
@@ -179,7 +180,7 @@
 <!-- section 2 which  is display none first -->
 
 
-<section class="" id="section-2">
+<section style="display: none;" id="section-2">
   <?php
     include 'compare_trac_model.php';
   ?>
@@ -201,11 +202,11 @@
       <div class=" fw-bold fs-5 mt-3 ">
         <p class="mb-n4">Compare Tractors</p>
       </div>
-      <p class="">BharatAgriMart is a one-stop authentic online destination where you can compare a variety of Tractors and Farm Implements. All top tractor brands are available here including Mahindra, John Deere, Escorts, Sonalika, Eicher, TAFE, New Holland and many more. The information displayed on Bharat Tractor is believed to be accurate, unbiased and correct. Choose at least two tractors as per your choice to compare based on their specifications, features, mileage, Price, overall perf<span id="dots">...</span><span id="more">ormance and warranty. All Indian Farmers can easily compare tractors of distinct varieties just in a few clicks. TractorJunction brings a welfare opportunity to compare tractor price in India. This allows farmers from every region to compare tractors in India.
+      <p class="">BharatAgriMart is a one-stop authentic online destination where you can compare a variety of Tractors and Farm Implements. All top tractor brands are available here including Mahindra, John Deere, Escorts, Sonalika, Eicher, TAFE, New Holland and many more. The information displayed on BharatAgriMart is believed to be accurate, unbiased and correct. Choose at least two tractors as per your choice to compare based on their specifications, features, mileage, Price, overall perf<span id="dots">...</span><span id="more">ormance and warranty. All Indian Farmers can easily compare tractors of distinct varieties just in a few clicks. BharatAgriMart brings a welfare opportunity to compare tractor price in India. This allows farmers from every region to compare tractors in India.
 
-      TractorJunction provides the most comprehensive tractor comparison tool in India on which you can select at least two or more tractors of your choice for comparison. This online platform provides all the useful guidelines for tractor comparison India. TractorJunction always works to empower Indian farmers with a new tractor compare section.<br><br>
+      BharatAgriMart provides the most comprehensive tractor comparison tool in India on which you can select at least two or more tractors of your choice for comparison. This online platform provides all the useful guidelines for tractor comparison India. BharatAgriMart always works to empower Indian farmers with a new tractor compare section.<br><br>
 
-      Compare tractor prices in India, specifications, warranty and many more at one place and then select your dream tractor. For Further more inquiries stay tuned with TractorJunction.</span></p>
+      Compare tractor prices in India, specifications, warranty and many more at one place and then select your dream tractor. For Further more inquiries stay tuned with BharatAgriMart.</span></p>
       <button class="text-primary" onclick="myFunction()" id="myBtn">Read more</button>
       <script>
         function myFunction() {
@@ -374,21 +375,20 @@ document.addEventListener("DOMContentLoaded", function () {
   </script>
 
 
-  <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      // Add event listener to the "Compare" button
-      document.getElementById('compareButton').addEventListener('click', function () {
-        // Hide section-1 and display section-2
-        document.getElementById('section-1').style.display = 'none';
-        document.getElementById('section-2').style.display = 'block';
-      });
-    });
+<script>
+   function showall() {
+    var section1 = document.getElementById('section-1');
+    var section2 = document.getElementById('section-2');
 
-
-    function showall(){
-
+    if (section1.style.display == 'block') {
+      section1.style.display = 'none';
+      section2.style.display = 'block';
+    } else {
+      section1.style.display = 'block';
+      section2.style.display = 'none';
     }
-  </script>
+  }
 
+</script>
 </body>
 </html>
