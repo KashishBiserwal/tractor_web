@@ -1,11 +1,11 @@
-/* @font-face { */
-    /* font-family: "Montserrat"; */
-    /* src: url(../font/Montserrat-Regular.ttf); */
-/* } */
-
-/* body{ */
-    /* font-family: "Montserrat", sans-serif !important; */
-/* } */
+@font-face {
+    font-family: "helvetica";
+    src: url(../font/Helvetica.ttf);
+}
+/*  */
+body{
+    font-family: "helvetica", sans-serif !important;
+}
 .btn-close {
     background:none!important;
     opacity: 1 !important;

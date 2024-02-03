@@ -324,7 +324,7 @@ $.ajax({
     document.getElementById('model_').innerText=data.product.allProductData[0].model;
     document.getElementById('hp_').innerText=data.product.allProductData[0].hp_category;
     document.getElementById('cylinder_').innerText=data.product.allProductData[0].total_cyclinder_value;
-    document.getElementById('POWER_TAKEOFF_TYPE').innerText=data.product.allProductData[0].power_take_off_type;
+    document.getElementById('POWER_TAKE_OFF_TYPE').innerText=data.product.allProductData[0].power_take_off_type;
     document.getElementById('Gear_Box_Forward_1').innerText=data.product.allProductData[0].gear_box_forward;
     document.getElementById('Gear_Box_Reverse_1').innerText=data.product.allProductData[0].gear_box_reverse;
     document.getElementById('brakes_1').innerText=data.product.allProductData[0].brake_value;

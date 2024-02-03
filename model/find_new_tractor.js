@@ -360,7 +360,6 @@ var url ='http://tractor-api.divyaltech.com/api/customer/customer_enquiries';
 
   function savedata(formId){
     tractor_enquiry(formId);
-    console.log("confirm");
     console.log("Form submitted successfully");
   }
 

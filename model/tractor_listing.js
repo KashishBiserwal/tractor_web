@@ -200,7 +200,7 @@ function store(event) {
     // var max_reverse_speed = $('#max_reverse_speed').val();
     var STEERING_DETAIL = $('#STEERING_DETAIL').val();
     var STEERING_COLUMN = $('#STEERING_COLUMN').val();
-    var power_take_off_type = $('#POWER_TAKEOFF_TYPE').val();
+    var power_take_off_type = $('#POWER_TAKE_OFF_TYPE').val();
     var power_take_off_rpm = $('#power_take_off_rpm').val();
     var totat_weight = $('#totat_weight').val();
     var WHEEL_BASE = $('#WHEEL_BASE').val();
@@ -378,16 +378,7 @@ function store(event) {
             $assList.trigger('change');
     
         
-        $('#type_name input[type="checkbox"]').prop("checked", false);
-
-        // Loop through the fetched tractorTypeNames and check the corresponding checkboxes
-        tractorTypeNames.forEach(function (typeId) {
-            console.log('typeId', typeId);
-            $('#type_name input[type="checkbox"]:checked').each(function () {
-              var typeId = $(this).val();
-              $('#type_name input[value="' + typeId + '"]').prop('checked', true);
-          });
-        });
+        
 
      
         $('#CAPACITY_CC').val(editData.engine_capacity_cc);
@@ -471,7 +462,16 @@ function store(event) {
 });
   
   }
-        
+  $('#type_name input[type="checkbox"]').prop("checked", false);
+
+  // Loop through the fetched tractorTypeNames and check the corresponding checkboxes
+  tractorTypeNames.forEach(function (typeId) {
+      console.log('typeId', typeId);
+      $('#type_name input[type="checkbox"]:checked').each(function () {
+        var typeId = $(this).val();
+        $('#type_name input[value="' + typeId + '"]').prop('checked', true);
+    });
+  });  
       },
       error: function(error) {
         console.error('Error fetching user data:', error);

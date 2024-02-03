@@ -429,8 +429,9 @@ function get_news() {
   }
 
   function resetForm() {
-    $('#category_name').val('');
-      $('#head_search').val('');
+    // $('#category_name').val('');
+    //   $('#head_search').val('');
+      window.location.reload();
               }
 
   // **delete***

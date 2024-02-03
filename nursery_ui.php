@@ -19,8 +19,8 @@
    ?>
    
     
-    <section class="mt-5 pt-5">
-        <div class="container-fullwidth pt-4">
+    <section class="mt-5 pt-5 bg-light">
+        <div class="container-fullwidth py-3 mt-2">
             <div class="">
                 <span class="mt-5 text-white pt-5 ">
                     <a href="index.php" class="text-decoration-none header-link px-1">Home <i
@@ -122,7 +122,7 @@
 
                             </div>
                         </div>
-                    </div> -->
+                    </div>
                     <!-- <div class=" mb-3" id="">
                         <div class="force-overflow">
                             <h5 class=" text-center text-dark fw-bold mb-3">Last Added</h5>
@@ -153,7 +153,6 @@
     <?php
     include 'includes/footer.php';
    
-
     ?>
 
 

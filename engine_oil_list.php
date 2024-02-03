@@ -90,9 +90,10 @@
                                      <div class="form-outline "  id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
                                       <label for="yr_state" class="form-label text-dark">Compatible Tractors</label>
                                       <select class="js-example-basic-multiple w-100 form-control" name="states[]" id="ass_list" multiple="multiple">
-                                        <option value="hello" selected>hello</option>
-                                        <option value="hyy" >hyy</option>
-                                        <option value="WY">Wyoming</option>
+                                       
+                                        <option value="mahindra" selected>Mahindra</option>
+                                        <option value="swaraj" >Swaraj</option>
+                                        <option value="preet">Preet</option>
                                       </select>
                                     </div>
                                   </div>
@@ -104,7 +105,7 @@
                                   </div>
                                     <div class="col-12 col-lg-12 col-md-12 col-sm-12">
                                       <div class="upload__box">
-                                        <div class="upload__btn-box text-center">
+                                        <div class="upload__btn-box text-center mt-2">
                                           <label >
                                             <p class="upload__btn ">Upload images</p>
                                             <input type="file" multiple="" data-max_length="20" class="upload__inputfile" id="_image" name="_image">
@@ -234,9 +235,9 @@
                                       <label for="yr_state" class="form-label text-dark">Compatible Tractors</label>
                                       <select class="js-example-basic-multiple2 w-100 form-control" name="states[]" id="ass_list_1" multiple="multiple">
                                       <option value="" disabled>Please select </option>
-                                      <option value="hello">hello</option>
-                                        <option value="hyy" >hyy</option>
-                                        <option value="WY">Wyoming</option>
+                                      <option value="Mahindra">Mahindra</option>
+                                        <option value="Swaraj" >Swaraj</option>
+                                        <option value="Preet">Preet</option>
                                       </select>
                                     </div>
                                   </div>
@@ -248,7 +249,7 @@
                                   </div>
                                     <div class="col-12 col-lg-12 col-md-12 col-sm-12">
                                       <div class="upload__box">
-                                        <div class="upload__btn-box text-center">
+                                        <div class="upload__btn-box text-center mt-2">
                                           <label >
                                             <p class="upload__btn ">Upload images</p>
                                             <input type="file" multiple="" data-max_length="20" class="upload__inputfile" id="_image1" name="_image">
@@ -292,11 +293,11 @@
                             <td>Quantity-</td>
                             <td id="quantity"></td>
                             <td>Grade-</td>
-                            <td id="grade"></td>
+                            <td id="grade11"></td>
                           </tr>
                           <tr>
                             <td>Price-</td>
-                            <td id="price_1"></td>
+                            <td id="price_11"></td>
                             <td>Compatitble Tractors-</td>
                             <td id="compatible"></td>
                           </tr>

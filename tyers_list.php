@@ -70,7 +70,7 @@
                                         
                                         <select class="form-select form-control" aria-label=".form-select-lg example" id="tyre_position" name="tyre_position">
                                           <option value="front">Front</option>
-                                          <option value="rare">Rare</option>
+                                          <option value="rear">Rear</option>
                                         </select>
                                       </div>
                                     </div>
@@ -91,14 +91,14 @@
                                             <div class="row">
                                               <div class="col-5 col-lg-5 col-md-5 col-sm-5">
                                                 <div class="form-outline ">
-                                                  <label for="name" class="form-label text-dark">Tyre Diameter</label>
+                                                  <label for="name" class="form-label text-dark">Tyre Diameter(feet)</label>
                                                   <input type="text" class="form-control" placeholder="" id="tyre_diameter" name="tyre_diameter">
                                                 </div>
                                               </div> 
                                               <div class="col-1 col-lg-1 col-md-1 col-sm-1 mt-2"><h6>X</h6></div>
                                               <div class="col-6 col-lg-6 col-md-6 col-sm-6">
                                                 <div class="form-outline ">
-                                                  <label for="name" class="form-label text-dark">Tyre Width</label>
+                                                  <label for="name" class="form-label text-dark">Tyre Width(feet)</label>
                                                   <input type="text" class="form-control" placeholder="" id="tyre_width" name="tyre_width">
                                                 </div>
                                               </div>
@@ -231,7 +231,7 @@
                             </tr>
                           <tr>
                             <td>Tyre Size-</td>
-                            <td id="grade"></td>
+                            <td > <span id="grade"> </span> feet</td>
                           </tr>
                           <tr>
                             <td>Tyre Category-</td>

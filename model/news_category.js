@@ -68,63 +68,65 @@ function store(event) {
 
 //   get data
 function get_data() {
-    console.log('get data on table');
-    var apiBaseURL =APIBaseURL;
-    var url = apiBaseURL + 'news_category';
-    
-    // console.log(url);
-    $.ajax({
-        url: url,
-        type: "GET",
-        headers: {
-            'Authorization': 'Bearer ' + localStorage.getItem('token')
-        },
-        success: function (data) {
-        //   console.log(data);
-            const tableBody = document.getElementById('data-table');
-            tableBody.innerHTML = ''; // Clear previous data
-    
-            if (data.news_category.length > 0) {
-              let tableData = [];
-          console.log(typeof data.news_category);
-                data.news_category.forEach(row => {
-                //   console.log(row);
-                   // const tableRow = document.createElement('tr');
-                   let action = ` <div class="d-flex"></button>
-                   <button class="btn btn-primary text-white btn-sm mx-1" onclick="fetch_edit_data(${row.id});" data-bs-toggle="modal" data-bs-target="#staticBackdrop_1" id="yourUniqueIdHere" style="padding:5px">
-                   <i class="fas fa-edit" style="font-size: 11px;"></i></button><button class="btn btn-danger btn-sm mx-1" id="delete_user" onclick="destroy(${row.id});" style="padding:5px"><i class="fa fa-trash" style="font-size: 11px;"></i></div>`;
+  // console.log('get data on table');
+  var apiBaseURL = APIBaseURL;
+  var url = apiBaseURL + 'news_category';
 
-                    tableData.push([
-                      row.id,
+  $.ajax({
+      url: url,
+      type: "GET",
+      headers: {
+          'Authorization': 'Bearer ' + localStorage.getItem('token')
+      },
+      success: function (data) {
+          const tableBody = document.getElementById('data-table');
+          tableBody.innerHTML = ''; // Clear previous data
+
+          if (data.news_category.length > 0) {
+              let tableData = [];
+              let serialNumber = data.news_category.length;
+
+              data.news_category.forEach(row => {
+                  let action = `<div class="d-flex">
+                      <button class="btn btn-primary text-white btn-sm mx-1" onclick="fetch_edit_data(${row.id});" data-bs-toggle="modal" data-bs-target="#staticBackdrop_1" id="yourUniqueIdHere" style="padding:5px">
+                          <i class="fas fa-edit" style="font-size: 11px;"></i>
+                      </button>
+                      <button class="btn btn-danger btn-sm mx-1" id="delete_user" onclick="destroy(${row.id});" style="padding:5px">
+                          <i class="fa fa-trash" style="font-size: 11px;"></i>
+                      </div>`;
+
+                  tableData.push([
+                      serialNumber--,
                       row.category_name,
                       action
                   ]);
-   
-                  
-                });
-                $('#example').DataTable().destroy();
-                $('#example').DataTable({
-                        data: tableData,
-                        columns: [
-                          { title: 'S.No.' },
-                          { title: 'Category Name' },
-                          { title: 'Action', orderable: false } // Disable ordering for Action column
-                      ],
-                        paging: true,
-                        searching: true,
-                        // ... other options ...
-                    });
-            } else {
-                tableBody.innerHTML = '<tr><td colspan="7">No valid data available</td></tr>';
-            }
-        },
-        error: function (error) {
-            console.error('Error fetching data:', error);
-            // Display an error message or handle the error as needed
-        }
-    });
-    }
-    get_data();
+              });
+
+              $('#example').DataTable().destroy();
+              $('#example').DataTable({
+                  data: tableData,
+                  columns: [
+                      { title: 'S.No.' },
+                      { title: 'Category Name' },
+                      { title: 'Action', orderable: true } // Disable ordering for Action column
+                  ],
+                  paging: true,
+                  searching: false,
+                  // ... other options ...
+              });
+          } else {
+              tableBody.innerHTML = '<tr><td colspan="3">No valid data available</td></tr>';
+          }
+      },
+      error: function (error) {
+          console.error('Error fetching data:', error);
+          // Display an error message or handle the error as needed
+      }
+  });
+}
+
+get_data();
+
 
     function fetch_edit_data(userId) {
       // editId_state= true;

@@ -22,23 +22,6 @@ include 'includes/headertag.php';
             <div class="py-5"></div>
             <div class="row justify-content-center">
                 <div class="col-12  text-center">
-                    <!-- <h1 class="display-3 fw-bold float-start text-white">Mahindra</h1>
-                    <div class="lead mb-0  position-relative float-start">
-                        <span>
-                            <a href="#" class="text-decoration-none text-white fw-bold">Home </a>
-                            <span>
-                                <i class="fa-regular fa-chevron-right"></i>
-                            </span>
-                            <a href="#" class="text-decoration-none text-white fw-bold">Brands </a>
-                            <span>
-                                <i class="fa-regular fa-chevron-right"></i>
-                            </span>
-                            <span><p class="text-white fw-bold">Mahindra</p></span>
-                            
-                        </span>
-                        
-
-                    </div> -->
                     <div class="banner__wrapper">
                         <div class="row  w-100 float-start">
                         <div class="col-12 col-sm-12 col-xxl-6 col-xl-6 col-lg-6">
@@ -59,8 +42,8 @@ include 'includes/headertag.php';
             <div class="py-3"></div>
         </div>
    </section>
-  <section>
-    <div class="container-fullwidth">
+  <section class="bg-light pb-4">
+    <div class="container-fullwidth ">
         <div class="row">
             <!-- <h1 class=" mt-5">Popular Mahindra Tractors</h1> -->
             <div id="popular_tractor"></div>
@@ -78,7 +61,7 @@ include 'includes/headertag.php';
 
   <!-- used tractor -->
     <section>
-        <div class="container-fullwidth my-4">
+        <div class="container-fullwidth">
         <div class="row">
             <div id="used_tractor"></div>
             <div class="row">
@@ -102,114 +85,7 @@ include 'includes/headertag.php';
                 <div id="productContainer3" class="owl-carousel owl-theme">
                    
                 </div>
-               <!--  <div class="col-12 col-sm-6 col-md-3 col-lg-3 px-2 py-3 h-100">
-                    <div class="h-auto success__stry__item d-flex flex-column shadow ">
-                        <div class="thumb">
-                            <a href="#">
-                                <div class="ratio ratio-16x9">
-                                    <img src="assets/images/thresher1.webp" class="object-fit-cover " alt="img">
-                                </div>
-                            </a>
-                        </div>
-                        <div class="content d-flex flex-column flex-grow-1 ">
-                            <div class="caption text-center">
-                                <a href="#" class="text-decoration-none text-dark">
-                                    <p class="pt-3"><strong class="series_tractor_strong text-center h4 fw-bold ">Thresher</strong></p>
-                                </a>        
-                            </div>
-                            <div class="power text-center mt-1">Power : 35-55 hp</div>
-                            <div class="row text-center">
-                                <div class="col-6">
-                                    <p class="fw-bold ps-2">By Mahindra </p>
-                                </div>
-                                <div class="col-6">
-                                    <p class="fw-bold pe-2">Post Harvest </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div> -->
-             <!--    <div class="col-12 col-sm-6 col-md-3 col-lg-3 px-2 py-3 h-100">
-                    <div class="h-auto success__stry__item d-flex flex-column shadow ">
-                        <div class="thumb">
-                            <a href="#">
-                                <div class="ratio ratio-16x9">
-                                    <img src="assets/images/102-fx-loader-72-1649068416.webp" class="object-fit-cover " alt="img">
-                                </div>
-                            </a>
-                        </div>
-                        <div class="content d-flex flex-column flex-grow-1 ">
-                            <div class="caption text-center">
-                                <a href="#" class="text-decoration-none text-dark">
-                                    <p class="pt-3"><strong class="series_tractor_strong text-center h4 fw-bold ">10.2 FX Loader</strong></p>
-                                </a>      
-                            </div>
-                            <div class="power text-center mt-1">Power : 21-30 hp</div>
-                            <div class="row text-center">
-                                <div class="col-6">
-                                    <p class="fw-bold ps-2">By Mahindra </p>
-                                </div>
-                                <div class="col-6">
-                                    <p class="fw-bold pe-2">Construction</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 col-sm-6 col-md-3 col-lg-3 px-2 py-3 h-100">
-                    <div class="h-auto success__stry__item d-flex flex-column shadow ">
-                        <div class="thumb">
-                            <a href="#" >
-                                <div class="ratio ratio-16x9">
-                                    <img src="assets/images/land-leveller7.webp" class="object-fit-cover " alt="img">
-                                </div>
-                            </a>
-                        </div>
-                        <div class="content d-flex flex-column flex-grow-1 ">
-                            <div class="caption text-center">
-                                <a href="#" class="text-decoration-none text-dark">
-                                <p class="pt-3"><strong class="series_tractor_strong text-center h4 fw-bold ">Land Leveller</strong></p>
-                                </a>     
-                            </div>
-                            <div class="power text-center mt-1">Power : 35-55 HP & Above</div>
-                            <div class="row text-center">
-                                <div class="col-6">
-                                    <p class="fw-bold ps-2">By Mahindra</p>
-                                </div>
-                                <div class="col-6">
-                                    <p class="fw-bold pe-2"> Preparation</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 col-sm-6 col-md-3 col-lg-3 px-2 py-3 h-100">
-                    <div class="h-auto success__stry__item d-flex flex-column shadow ">
-                        <div class="thumb">
-                            <a href="#" >
-                                <div class="ratio ratio-16x9">
-                                    <img src="assets/images/gyrovator-zlx-12593649.webp" class="object-fit-cover " alt="img">
-                                </div>
-                            </a>
-                        </div>
-                        <div class="content d-flex flex-column flex-grow-1 ">
-                            <div class="caption text-center">
-                                <a href="#" class="text-decoration-none text-dark">
-                                    <p class="pt-3"><strong class="series_tractor_strong text-center h4 fw-bold ">Gyrovator ZLX 125</strong></p>
-                                </a>    
-                            </div>
-                            <div class="power text-center mt-1">Power : 30-60 HP</div>
-                            <div class="row text-center">
-                                <div class="col-6">
-                                    <p class="fw-bold ps-2">By Mahindra</p>
-                                </div>
-                                <div class="col-6">
-                                    <p class="fw-bold pe-2">Tillage</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div> -->
+              
             </div>
             <div class="col text-center my-3 pb-5">
                 <a href="#" class="btn btn-success btn-lg ">View All Tractor Implements</a>
@@ -219,9 +95,9 @@ include 'includes/headertag.php';
 
   <!--  Mahindra Tractor Dealers & Service Centers-->
     <section>
-        <div class="container-fullwidth mt-4 pt-3 ">
-            <h3 class="fw-bold  my-3 ">Mahindra Tractor Dealers & Service Centers</h3>
-            <nav class="my-4 pt-3 w-50">
+        <div class="container-fullwidth mt-4">
+            <h3 class=" my-4 text-uppercase ">Mahindra Tractor Dealers & Service Centers</h3>
+            <nav class=" pt-3 w-50">
                 <div class="nav nav-tabs mb-3 " id="nav-tab" role="tablist">
                     <button class="nav-link active px-5 py-3 h5  mx-2 fw-bold text-dark" id="nav-all-tab" data-bs-toggle="tab" data-bs-target="#nav-all" type="button" role="tab" aria-controls="nav-all" aria-selected="true">Tractor Dealers</button>
                     <button class="nav-link px-5 py-3 h5  mx-2 fw-bold text-dark" id="nav-tractor-tab" data-bs-toggle="tab" data-bs-target="#nav-tractor" type="button" role="tab" aria-controls="nav-tractor" aria-selected="false">Tractor Service Centers</button>
@@ -372,11 +248,15 @@ include 'includes/headertag.php';
     <!--  -->
     <section class="about bg-light">
         <div class="container-fullwidth">
-            <div class="lecture_heading text-center">
-                <h3 class="fw-bold my-5 pt-5">Recently Asked User Questions about Mahindra Tractor</h3>
+            <div class="lecture_heading ">
+                <h3 class="my-4 pt-5">TRACTORS BY BRAND</h3>
             </div>
             <div class="mt-4 pb-5">
-                <div class="accordion " id="accordionFlushExample">
+                <div class="row" id="brandContainer">
+                    
+                    
+                </div>
+               <!--  <div class="accordion " id="accordionFlushExample">
                     <div class="accordion-item  rounded-3">
                         <h2 class="accordion-header p-2" id="flush-headingOne" >
                         <button class="accordion-button collapsed fw-bold h4" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
@@ -523,7 +403,7 @@ include 'includes/headertag.php';
                         </div>
                     </div>
                     
-                </div>
+                </div> -->
             </div>
 
         </div>

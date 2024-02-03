@@ -144,9 +144,7 @@
           </a>
           <ul class="dropdown-menu p-0">
             <li class="nav-item dropend">
-              <a class="nav-link dropdown-toggle text-dark fw-bold" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Implements
-              </a>
+              <a class="nav-link dropdown-toggle text-dark fw-bold" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Implements</a>
               <ul class="dropdown-menu p-0">
                 <li><a class="dropdown-item fw-bold py-1 mt-2" href="all_farm_imple.php">All Implements</a></li>
                <hr class="dropdown-divider m-0">

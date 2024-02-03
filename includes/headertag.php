@@ -4,7 +4,6 @@
  $baseUrl = '/tractor-project/tractor-project/';
 // $baseUrl = '/tractor_house/'; 
 //   $APIBaseURL = "http://192.168.1.41:8000/api/customer/";
-
 ?>
 <meta charset="UTF-8">
 	<title>Tractor Junction</title>
@@ -24,7 +23,7 @@
 	<link rel="stylesheet" type="text/css" href="assets/css/owl.theme.default.css"/>  
 	<link rel="stylesheet" type="text/css" href="assets/css/custom.css"/>
 	<link rel="stylesheet" type="text/css" href="assets/css/custom.css"/>
-	<link rel="stylesheet" type="text/css" href="assets/css/swiper.css" />
+	<link rel="stylesheet" type="text/css" href="assets/css/swiper.css"/>
 	<link rel="stylesheet" type="text/css" href="assets/fontawesome/css/all.css"/>
 	<link rel="stylesheet" type="text/css" href="assets/fontawesome/css/all.min.css"/>
 	<link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
