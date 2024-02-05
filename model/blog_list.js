@@ -34,12 +34,9 @@ $(document).ready(function () {
         publisher:{
             required: true,
         },
-        image_:{
-
+        'image_[]':{
           required:true,
-          minlength: 2,
-          maxlength: 5,
-       
+        
         }
       },
   
@@ -59,12 +56,9 @@ $(document).ready(function () {
         publisher: {
             required: "This field is required",
           },
-        image_:{
-
+        'image_[]':{
           required:"This field is required",
-          minlength: 2,
-          maxlength: 5,
-       
+     
         }
        
       },

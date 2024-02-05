@@ -4,50 +4,56 @@ $(document).ready(function() {
 
 function news_details_list() {
     var urlParams = new URLSearchParams(window.location.search);
-    var productId = urlParams.get('category_name');
-    var url = "http://tractor-api.divyaltech.com/api/customer/get_news_by_news_category/" + productId;
-    console.log(url);
-    console.log(productId);
-   
-    // Keep track of the total tractors and the currently displayed tractors
-    var totalEngineoil = 0;
-    var displayedEngineoil = 8; // Initially display 6 tractors
+    var productId = urlParams.get('id');
 
-    $.ajax({
-        url: url,
-        type: "GET",
-        success: function(data) {
-            var productContainer = $("#productContainer");
-            var loadMoreButton = $("#load_moretract");
+    if (productId !== null) {
+        // Use the productId in your code
+        var url = "http://tractor-api.divyaltech.com/api/customer/get_news_by_news_category/" + productId;
 
-            if (data.news_details && data.news_details.length > 0) {
-                totalEngineoil = data.news_details.length;
+        // Keep track of the total news and the currently displayed news
+        var totalNews = 0;
+        var displayedNews = 8; // Initially display 8 news
 
-                // Display the initial set of 6 tractors
-                displayEngineoil(data.news_details.slice(0, displayedEngineoil));
+        $.ajax({
+            url: url,
+            type: "GET",
+            success: function(data) {
+                var productContainer = $("#productContainer");
+                var loadMoreButton = $("#load_moretract");
 
-                if (totalEngineoil <= displayedEngineoil) {
-                    loadMoreButton.hide();
-                } else {
-                    loadMoreButton.show();
+                if (data.news_details && data.news_details.length > 0) {
+                    totalNews = data.news_details.length;
+
+                    // Display the initial set of 8 news
+                    displayNews(data.news_details.slice(0, displayedNews));
+
+                    if (totalNews <= displayedNews) {
+                        loadMoreButton.hide();
+                    } else {
+                        loadMoreButton.show();
+                    }
+
+                    // Handle "Load More News" button click
+                    loadMoreButton.click(function() {
+                        // Display all news
+                        displayedNews = totalNews;
+                        displayNews(data.news_details);
+
+                        // Hide the "Load More News" button
+                        loadMoreButton.hide();
+                    });
                 }
-
-                // Handle "Load More Tractors" button click
-                loadMoreButton.click(function() {
-                    // Display all tractors
-                    displayedEngineoil = totalEngineoil;
-                    displayEngineoil(data.news_details);
-
-                    // Hide the "Load More Tractors" button
-                    loadMoreButton.hide();
-                });
+            },
+            error: function(error) {
+                console.error('Error fetching data:', error);
             }
-        },
-        error: function(error) {
-            console.error('Error fetching data:', error);
-        }
-    });
+        });
+    } else {
+        console.log('No id parameter found in the URL');
+    }
 }
+
+
 
 
 function displayEngineoil(engineoil) {

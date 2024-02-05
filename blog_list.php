@@ -83,7 +83,7 @@
                                           <div class="upload__btn-box">
                                             <label >
                                               <p class="upload__btn ">Upload images</p>
-                                              <input type="file" multiple="" data-max_length="20" class="upload__inputfile" id="image_" name="image_">
+                                              <input type="file" multiple="" data-max_length="20" class="upload__inputfile" id="image_" name="image_[]">
                                             </label>
                                             <p></p>
                                           </div>
