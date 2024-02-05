@@ -4,7 +4,9 @@
    include 'includes/footertag.php';
    
    ?> 
- 
+  <script> var APIBaseURL = "<?php echo $APIBaseURL; ?>";</script>
+  <script> var baseUrl = "<?php echo $baseUrl; ?>";</script>
+  <script src="<?php $baseUrl; ?>model/agriculture_news.js"></script>
 
 </head>
 <?php
@@ -28,7 +30,7 @@ include 'includes/header.php';
     </div>
 
     <!-- Agriculture News -->
-    <div class="container">       
+<div class="container">       
         <div id="productContainer" class="row py-1">
             <h1 class="mt-2 mb-3">Agriculture News</h1> 
 

@@ -1,10 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <?php
+<?php
+    include 'includes/headertag.php';
+    include 'includes/headertagadmin.php';
+   include 'includes/footertag.php';
    
-        include 'includes/headertag.php';
-    ?>
+   ?> 
+  <script> var APIBaseURL = "<?php echo $APIBaseURL; ?>";</script>
+  <script> var baseUrl = "<?php echo $baseUrl; ?>";</script>
+  <script src="<?php $baseUrl; ?>model/tractor_news.js"></script>
+
 </head>
 <?php
      include 'includes/header.php';
@@ -28,10 +31,10 @@
 
     <!-- Tractor News -->
     <div class="container">       
-        <div class="row py-1">
+        <div id="productContainer" class="row py-1">
             <h1 class="mt-2 mb-3">Tractor News</h1> 
 
-            <div class="col-12 col-lg-4 col-sm-4 col-md-4 mt-2 mb-2">
+            <!-- <div class="col-12 col-lg-4 col-sm-4 col-md-4 mt-2 mb-2">
                 <div class="success__stry__item shadow h-100">
                     <div class="thumb">
                         <a href="news_content.php">
@@ -50,114 +53,10 @@
                         </a>
                     </div>
                 </div>
-            </div>   
-
-            <div class="col-12 col-lg-4 col-sm-4 col-md-4 mt-2 mb-2">
-                <div class="success__stry__item shadow h-100">
-                    <div class="thumb">
-                        <a href="news_content.php">
-                            <div class="">
-                                <img src="assets\images\sarkari-yojana-1698920602.webp" class="object-fit-cover p-3 w-100" alt="img">
-                            </div>
-                        </a>
-                    </div>
-                    <div class="content ms-3">
-                        <button type="button" class="btn btn-warning">Tractor News</button>
-                        <div class="row mt-1 ps-0">
-                            <p class="mt-2">लाड़ली बहना योजना : महिलाओं को 7वीं किस्त में मिल सक...</p>
-                        </div>
-                        <a href="#" class="text-decoration-none text-dark">
-                            <span> 23-November-2023 </span>
-                        </a>
-                    </div>
-                </div>
-            </div>                
-
-            <div class="col-12 col-lg-4 col-sm-4 col-md-4 mt-2 mb-2">
-            <div class="success__stry__item shadow h-100">
-                <div class="thumb">
-                    <a href="news_content.php">
-                        <div class="">
-                            <img src="assets/images/sarkari-yojana-1698923114.webp" class="object-fit-cover p-3 w-100" alt="img">
-                        </div>
-                    </a>
-                </div>
-                <div class="content ms-3">
-                    <button type="button" class="btn btn-warning">Tractor News</button>
-                        <div class="row mt-1 ps-0">
-                            <p class="mt-2">स्क्वायर बेलर मशीन पर मिल रही है 6,25,000 रुपए की...</p>
-                        </div>
-                        <a href="#" class="text-decoration-none text-dark">
-                            <span> 23-November-2023 </span>
-                        </a>
-                    </div>
-                </div>
-            </div>            
-                
-            <div class="col-12 col-lg-4 col-sm-4 col-md-4 mt-2 mb-2">
-                <div class="success__stry__item shadow h-100">
-                    <div class="thumb">
-                        <a href="news_content.php">
-                            <div class="">
-                                <img src="assets\images\tractor-1698836924.webp" class="object-fit-cover p-3 w-100" alt="img">
-                            </div>
-                        </a>
-                    </div>
-                    <div class="content mb-3 ms-3">
-                        <button type="button" class="btn btn-warning">Tractor News</button>
-                        <div class="row mt-2">
-                            <p>खुशखबरी दिवाली पर 1.75 करोड़ परिवारों को फ्री में गैस...</p>
-                        </div>
-                        <a href="#" class="text-decoration-none text-dark pb-1">
-                            <span class=""> 23-November-2023 </span>
-                        </a>
-                    </div>
-                </div>
-            </div>   
-
-            <div class="col-12 col-lg-4 col-sm-4 col-md-4 mt-2 mb-2">
-                <div class="success__stry__item shadow h-100">
-                    <div class="thumb">
-                        <a href="news_content.php">
-                            <div class="">
-                                <img src="assets\images\tractor-1698836924.webp" class="object-fit-cover p-3 w-100" alt="img">
-                            </div>
-                        </a>
-                    </div>
-                    <div class="content ms-3">
-                        <button type="button" class="btn btn-warning">Tractor News</button>
-                        <div class="row mt-1 ps-0">
-                            <p class="mt-2">लाड़ली बहना योजना : महिलाओं को 7वीं किस्त में मिल सक...</p>
-                        </div>
-                        <a href="#" class="text-decoration-none text-dark">
-                        <span> 23-November-2023 </span>
-                        </a>
-                    </div>
-                </div>
-            </div>                
-
-            <div class="col-12 col-lg-4 col-sm-4 col-md-4 mt-2 mb-2">
-                <div class="success__stry__item shadow h-100">
-                    <div class="thumb">
-                        <a href="news_content.php">
-                            <div class="">
-                                <img src="assets/images/sarkari-yojana-1698841100.webp" class="object-fit-cover p-3 w-100" alt="img">
-                            </div>
-                        </a>
-                    </div>
-                    <div class="content ms-3">
-                        <button type="button" class="btn btn-warning">Tractor News</button>
-                            <div class="row mt-1 ps-0">
-                                <p class="mt-2">स्क्वायर बेलर मशीन पर मिल रही है 6,25,000 रुपए की...</p>
-                            </div>
-                            <a href="#" class="text-decoration-none text-dark">
-                                <span> 23-November-2023 </span>
-                            </a>
-                        </div>
-                    </div>  
-                </div> 
-            </div>
-
+            </div>    -->
+        </div>
+        <div class="col text-center mt-3">
+            <button id="load_moretract" type="button" class=" btn add_btn btn-success"><i class="fas fa-undo"></i>View All</button>
         </div>
     </div>
 
