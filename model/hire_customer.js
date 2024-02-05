@@ -471,7 +471,7 @@ $(document).ready(function() {
                                     
 //                                 </div>          
 //                                                 </div> 
-                                            
+                                        
                                 
 //                                                 <div class="modal-footer">
 //                                                 <button type="submit" id="submit_enquiry" class="btn add_btn btn-success w-100 btn_all" onclick="savedata('${formId}')"
