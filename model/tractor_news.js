@@ -3,69 +3,64 @@ $(document).ready(function() {
 });
 
 function news_details_list() {
-    var urlParams = new URLSearchParams(window.location.search);
-    var productId = urlParams.get('id');
+    // Extract 'id' parameter from the URL using plain JavaScript
+    var productId = getParameterByName('category_id');
 
-    if (productId !== null) {
-        // Use the productId in your code
-        var url = "http://tractor-api.divyaltech.com/api/customer/get_news_by_news_category/" + productId;
+    console.log('fghjkl', productId);
 
-        // Keep track of the total news and the currently displayed news
-        var totalNews = 0;
-        var displayedNews = 8; // Initially display 8 news
+    var url = "http://tractor-api.divyaltech.com/api/customer/get_news_by_news_category/" + productId;
+    console.log(url);
 
-        $.ajax({
-            url: url,
-            type: "GET",
-            success: function(data) {
-                var productContainer = $("#productContainer");
-                var loadMoreButton = $("#load_moretract");
+    // Keep track of the total news and the currently displayed news
+    var totalNews = 0;
+    var displayedNews = 8; // Initially display 8 news
 
-                if (data.news_details && data.news_details.length > 0) {
-                    totalNews = data.news_details.length;
+    $.ajax({
+        url: url,
+        type: "GET",
+        success: function(data) {
+            var productContainer = $("#productContainer");
+            var loadMoreButton = $("#load_moretract");
 
-                    // Display the initial set of 8 news
-                    displayNews(data.news_details.slice(0, displayedNews));
+            if (data.news_details && data.news_details.length > 0) {
+                totalNews = data.news_details.length;
 
-                    if (totalNews <= displayedNews) {
-                        loadMoreButton.hide();
-                    } else {
-                        loadMoreButton.show();
-                    }
+                // Display the initial set of 8 news
+                displayNews(data.news_details.slice(0, displayedNews));
 
-                    // Handle "Load More News" button click
-                    loadMoreButton.click(function() {
-                        // Display all news
-                        displayedNews = totalNews;
-                        displayNews(data.news_details);
-
-                        // Hide the "Load More News" button
-                        loadMoreButton.hide();
-                    });
+                if (totalNews <= displayedNews) {
+                    loadMoreButton.hide();
+                } else {
+                    loadMoreButton.show();
                 }
-            },
-            error: function(error) {
-                console.error('Error fetching data:', error);
+
+                // Handle "Load More News" button click
+                loadMoreButton.click(function() {
+                    // Display all news
+                    displayedNews = totalNews;
+                    displayNews(data.news_details);
+
+                    // Hide the "Load More News" button
+                    loadMoreButton.hide();
+                });
             }
-        });
-    } else {
-        console.log('No id parameter found in the URL');
-    }
+        },
+        error: function(error) {
+            console.error('Error fetching data:', error);
+        }
+    });
 }
 
+// Function to get URL parameter by name
+function getParameterByName(name) {
+    var urlParams = new URLSearchParams(window.location.search);
+    return urlParams.get(name);
+}
 
-
-
-function displayEngineoil(engineoil) {
+function displayNews(news) {
     var productContainer = $("#productContainer");
-    var tableData = $("#tableData");
-    // Clear existing content
-    productContainer.html('');
-    tableData.html('');
 
-    
-    engineoil.forEach(function (p) {
-        console.log(p,"ppp")
+    news.forEach(function (p) {
         var images = p.image_names;
         var a = [];
 
@@ -78,33 +73,27 @@ function displayEngineoil(engineoil) {
         }
 
         var newCard = `
-                <div class="col-12 col-lg-4 col-sm-4 col-md-4 mt-2 mb-2">
+            <div class="col-12 col-lg-4 col-sm-4 col-md-4 mt-2 mb-2">
                 <div class="success__stry__item shadow h-100">
-                <div class="thumb">
-                <a href="news_content.php?id=${p.id}">
-                <img src="http://tractor-api.divyaltech.com/uploads/news_img/${a[0]}" class="engineoil_img  w-100" alt="img">
-                </a>
+                    <div class="thumb">
+                        <a href="news_content.php?id=${p.id}">
+                            <img src="http://tractor-api.divyaltech.com/uploads/news_img/${a[0]}" class="engineoil_img w-100" alt="img">
+                        </a>
+                    </div>
+                    <div class="content mb-3 ms-3">
+                        <button type="button" class="btn btn-warning mt-3">${p.news_category}</button>
+                        <div class="row mt-2">
+                            <p class="fw-bold">${p.news_headline}</p>
+                        </div>
+                        <a href="news_content.php?id=${p.id}" class="text-decoration-none pb-1">
+                            <span class=""> Date/time-${p.date} </span>
+                        </a>
+                    </div>
                 </div>
-                <div class="content mb-3 ms-3">
-                <button type="button" class="btn btn-warning mt-3">${p.news_category} </button>
-                <div class="row mt-2">
-                    <p class="fw-bold">${p.news_headline}</p>
-                </div>
-                <a href="news_content.php?id=${p.id}" class="text-decoration-none pb-1">
-                    <span class=""> Date/time-${p.date} </span>
-                </a>
-                </div>
-                </div>
-                </div> 
-                    `;
-                
+            </div> 
+        `;
 
-  
-    var myDiv = $('#description_id');
-myDiv.text(myDiv.text().substring(0,120))
         // Append the new card to the container
         productContainer.append(newCard);
-       
-       
     });
 }
