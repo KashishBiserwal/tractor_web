@@ -2,10 +2,14 @@
 <html lang="en">
 <head>
     <?php
-        include 'includes/header.php';
+       
         include 'includes/headertag.php';
     ?>
 </head>
+
+<?php
+include 'includes/header.php';
+?>
 <body>
 <section class="mt-5 pt-5">
     <div class="container mt-4 pt-4">

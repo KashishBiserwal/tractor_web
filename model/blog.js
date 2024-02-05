@@ -82,9 +82,9 @@ function displayEngineoil(engineoil) {
                 <div class="row mt-2">
                     <p class="fw-bold">${p.heading}</p>
                 </div>
-                <div class="row mt-2">
-                <p class="fw-bold">${p.content}</p>
-            </div>
+                <div class="row">
+                  <p class="fw-bold"><span>publisher: </span>${p.publisher}</p>
+                </div>
                 <a href="blog_customer_inner.php?id=${p.id}" class="text-decoration-none pb-1">
                     <span class=""> Date/time-${p.date} </span>
                 </a>
