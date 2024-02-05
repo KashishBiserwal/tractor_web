@@ -177,11 +177,11 @@
                                     <div class="">
                                       <div class="row">
                                       <div class="col- col-sm-6 col-lg-6 col-md-6 mt-3" hidden >
-                              <div class="form-outline">
-                                  <label class="form-label"> id Name<span class="text-danger">*</span></label>
-                                          <input type="text" class="form-control py-2" for="idUser"  id="idUser">
-                                  <small></small>
-                                </div>
+                                      <div class="form-outline">
+                                          <label class="form-label"> id Name<span class="text-danger">*</span></label>
+                                                  <input type="text" class="form-control py-2" for="idUser"  id="idUser">
+                                          <small></small>
+                                        </div>
                               </div>
                                         <div class="col- col-sm-6 col-lg-6 col-md-6">
                                           <label class="text-dark"> Brand Name<span class="text-danger">*</span></label>
@@ -306,7 +306,7 @@
   }
 
   function get_product_type(id) {
-  console.log('initsfd')
+    console.log('initsfd')
     var url = '<?php echo $APIBaseURL; ?>get_all_products_type';
     $.ajax({
         url: url,
@@ -515,6 +515,7 @@ function fetch_edit_data(userId) {
       if (response.brands[0].product_type_names) {
         var productTypesArray = response.brands[0].product_type_names.split(',');
         var productTypesid = response.brands[0].product_type_id.split(',');
+        console.log(productTypesid,'productTypesid');
         productTypesid.forEach(function (productType) {
           // Trim to remove extra spaces
           var trimmedProductType = productType.trim();
@@ -557,11 +558,13 @@ function fetch_edit_data(userId) {
 }
 
 function edit_brand(){
-  //  alert('fherjlkferif');
   var edit_id = document.getElementById('idUser').value;
 
   var brand_name = document.getElementById('brand_name1').value;
-
+  var checkboxes = document.querySelectorAll('input[name="productTypes"]:checked');
+  // var type_name1 = Array.from(checkboxes).map(checkbox => checkbox.value);
+  var type_name1 = Array.from(new Set(Array.from(checkboxes).map(checkbox => checkbox.value)));
+  console.log('checkboxes',checkboxes);
   var _method = 'put';
   var brand_img1 = document.getElementById('brand_img1').files[0];
 
@@ -569,6 +572,7 @@ function edit_brand(){
         formData.append('brand_name', brand_name);
         formData.append('brand_img', brand_img1);
         formData.append('_method', _method);
+        formData.append('product_type_id',`[${type_name1}]` );
         formData.append('id', edit_id,);
    var url = '<?php echo $APIBaseURL; ?>updateBrands/' + edit_id;
     console.log(url);

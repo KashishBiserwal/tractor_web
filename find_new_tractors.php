@@ -72,11 +72,11 @@ include 'includes/headertag.php';
                     <div class="force-overflow">
                         <div class="price py-2 ">
                             <h5 class=" ps-3 text-dark fw-bold mb-3">Search By Budget</h5>
-                            <input type="checkbox" class="checkbox-round mt-1 ms-3 budget_checkbox" value="0-3"/><span class="ps-2 mt-0 fs-6"> 0 Lakh - 3 Lakh</span><br />
-                            <input type="checkbox" class="checkbox-round mt-1 ms-3 budget_checkbox" value="3-6"/><span class="ps-2 mt-0 fs-6"> 3 Lakh - 5 Lakh</span><br />
-                            <input type="checkbox" class="checkbox-round mt-1 ms-3 budget_checkbox" value="6-9"/><span class="ps-2 mt-0 fs-6"> 5 Lakh - 6 Lakh</span><br />
-                            <input type="checkbox" class="checkbox-round mt-1 ms-3 budget_checkbox" value="6-9"/><span class="ps-2 mt-0 fs-6"> 6 Lakh - 7 Lakh</span><br />
-                            <input type="checkbox" class="checkbox-round mt-1 ms-3 budget_checkbox" value="6-9"/><span class="ps-2 mt-0 fs-6"> 7 Lakh - 9 Lakh</span><br />
+                            <input type="checkbox" class="checkbox-round mt-1 ms-3 budget_checkbox" value="0 - 3"/><span class="ps-2 mt-0 fs-6"> 0 Lakh - 3 Lakh</span><br />
+                            <input type="checkbox" class="checkbox-round mt-1 ms-3 budget_checkbox" value="3 - 6"/><span class="ps-2 mt-0 fs-6"> 3 Lakh - 5 Lakh</span><br />
+                            <input type="checkbox" class="checkbox-round mt-1 ms-3 budget_checkbox" value="6 - 9"/><span class="ps-2 mt-0 fs-6"> 5 Lakh - 6 Lakh</span><br />
+                            <input type="checkbox" class="checkbox-round mt-1 ms-3 budget_checkbox" value="6 - 9"/><span class="ps-2 mt-0 fs-6"> 6 Lakh - 7 Lakh</span><br />
+                            <input type="checkbox" class="checkbox-round mt-1 ms-3 budget_checkbox" value="6 - 9"/><span class="ps-2 mt-0 fs-6"> 7 Lakh - 9 Lakh</span><br />
                         </div>  
                     </div>
                 </div>
@@ -86,13 +86,13 @@ include 'includes/headertag.php';
                         <div class="HP py-2">
                             
                             <!-- <input type="checkbox" class="text-align-center ms-3" value=""/><span> This is checkbox </span><br /> -->
-                            <input type="checkbox" class="checkbox-round mt-1 ms-3 hp_checkbox" value="0-20"/><span class="ps-2 mt-0 fs-6">0 HP - 20 HP</span><br />
-                            <input type="checkbox" class="checkbox-round mt-1 ms-3 hp_checkbox" value="21-30"/><span class="ps-2 mt-0 fs-6">21 HP - 30 HP</span><br />
-                            <input type="checkbox" class="checkbox-round mt-1 ms-3 hp_checkbox" value="31-40"/><span class="ps-2 mt-0 fs-6">31 HP - 40 HP</span><br />
-                            <input type="checkbox" class="checkbox-round mt-1 ms-3 hp_checkbox" value="41-50"/><span class="ps-2 mt-0 fs-6">41 HP - 50 HP</span><br />
-                            <input type="checkbox" class="checkbox-round mt-1 ms-3 hp_checkbox" value="51-60"/><span class="ps-2 mt-0  fs-6">51 HP - 60 HP</span><br />
-                            <input type="checkbox" class="checkbox-round mt-1 ms-3 hp_checkbox" value="61-70"/><span class="ps-2 mt-0 fs-6">61 HP - 75 HP</span><br />
-                            <input type="checkbox" class="checkbox-round mt-1 ms-3 hp_checkbox" value="71-80"/><span class="ps-2 mt-0 fs-6">Above 75 Hp </span><br />
+                            <input type="checkbox" class="checkbox-round mt-1 ms-3 hp_checkbox" value="0 - 20"/><span class="ps-2 mt-0 fs-6">0 HP - 20 HP</span><br />
+                            <input type="checkbox" class="checkbox-round mt-1 ms-3 hp_checkbox" value="21 - 30"/><span class="ps-2 mt-0 fs-6">21 HP - 30 HP</span><br />
+                            <input type="checkbox" class="checkbox-round mt-1 ms-3 hp_checkbox" value="31 - 40"/><span class="ps-2 mt-0 fs-6">31 HP - 40 HP</span><br />
+                            <input type="checkbox" class="checkbox-round mt-1 ms-3 hp_checkbox" value="41 - 50"/><span class="ps-2 mt-0 fs-6">41 HP - 50 HP</span><br />
+                            <input type="checkbox" class="checkbox-round mt-1 ms-3 hp_checkbox" value="51 - 60"/><span class="ps-2 mt-0  fs-6">51 HP - 60 HP</span><br />
+                            <input type="checkbox" class="checkbox-round mt-1 ms-3 hp_checkbox" value="61 - 70"/><span class="ps-2 mt-0 fs-6">61 HP - 75 HP</span><br />
+                            <input type="checkbox" class="checkbox-round mt-1 ms-3 hp_checkbox" value="71 - 80"/><span class="ps-2 mt-0 fs-6">Above 75 Hp </span><br />
                         </div>
                     </div>
                 </div>

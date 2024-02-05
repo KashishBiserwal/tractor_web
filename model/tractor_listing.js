@@ -463,7 +463,7 @@ function store(event) {
   
   }
   $('#type_name input[type="checkbox"]').prop("checked", false);
-
+  tractorTypeNames=[];
   // Loop through the fetched tractorTypeNames and check the corresponding checkboxes
   tractorTypeNames.forEach(function (typeId) {
       console.log('typeId', typeId);
