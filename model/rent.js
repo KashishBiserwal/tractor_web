@@ -1,7 +1,8 @@
 $(document).ready(function() {
     console.log("ready!");
-    $('#rent_submit').click(store);
+   $('#rent_submit').click(store);
 });
+
 
 function get() {
     var url = 'http://tractor-api.divyaltech.com/api/customer/get_all_brands';
@@ -59,7 +60,7 @@ function get() {
                     data.model.forEach(row => {
                         const option = document.createElement('option');
                         option.textContent = row.model;
-                        option.value = row.id;
+                        option.value = row.model;
                         console.log(option);
                         select.appendChild(option);
                     });
@@ -114,88 +115,84 @@ function get() {
 
 
 
-
+   
 // Display the corresponding form step
 function displayStep(step) {
     // Your logic to show/hide form steps
 }
-
 // Store data through form
 function store(event) {
     event.preventDefault();
+
     var enquiry_type_id = $('#enquiry_type_id').val();
-    // var added_by = 0; 
-    var brand_name = $('#b_brand').val();
-    var model = $('#m_model').val();
-    var purchase_year = $('#p_year').val();
+    var added_by = 1;
+    var brand_name = $('#brand_main').val();
+    var model = $('#model_main').val();
+    var year = $('#year_main').val();
     var workingRadius = $('#workingRadius').val();
-    var note = $('#note').val();
-    var implement = $('#implement').val();
+    var implement_type = $('#implement_type').val();
     var rate = $('#rate').val();
     var ratePer = $('#ratePer').val();
-    var first_name = $('#fname').val();
-    var last_name = $('#l_name').val();
-    var mobile = $('#phone').val();
+    var first_name = $('#firstname_1').val();
+    var last_name = $('#lastname_1').val();
+    var mobile = $('#phone_number').val();
     var state = $('#state_3').val();
     var district = $('#district_2').val();
     var tehsil = $('#tehsil_1').val();
     var image_names = document.getElementById('imageInput').files;
 
-    var apiBaseURL = "http://tractor-api.divyaltech.com/api";
-    var endpoint = '/customer/customer_enquiries';
-    var url = apiBaseURL + endpoint;
+    // Convert implement_type, rate, and ratePer to arrays
+    var implementTypeArray = implement_type.split(',');
+    var rateArray = rate.split(',');
+    var ratePerArray = ratePer.split(',');
 
-    // Create a FormData object and append all form data
+    // Create an object with all the form data
+    var formData = {
+        added_by: added_by,
+        enquiry_type_id: enquiry_type_id,
+        brand_id: brand_name,
+        model: model,
+        year: year,
+        workingRadius: workingRadius,
+        implement_type_id: implementTypeArray,
+        rate: rateArray,
+        rate_per: ratePerArray,
+        first_name: first_name,
+        last_name: last_name,
+        mobile: mobile,
+        state: state,
+        district: district,
+        tehsil: tehsil,
+    };
+
+    // Create a FormData object and append the form data
     var data = new FormData();
-    // data.append('added_by', added_by);
-    data.append('enquiry_type_id', enquiry_type_id);
-    data.append('brand_id', brand_name);
-    data.append('model', model);
-    data.append('purchase_year', purchase_year);
-    data.append('working_radius', workingRadius);
-    data.append('message', note);
-    data.append('implement_type_id', implement);
-    data.append('rate', rate);
-    data.append('rate_per', ratePer);
-    data.append('first_name', first_name);
-    data.append('last_name', last_name);
-    data.append('mobile', mobile);
-    data.append('state', state);
-    data.append('district', district);
-    data.append('tehsil', tehsil);
-    
-
+    for (var key in formData) {
+        data.append(key, formData[key]);
+    }
 
     // Append each image to the FormData object
     for (var x = 0; x < image_names.length; x++) {
         data.append("images[]", image_names[x]);
-        console.log("multiple image", image_names[x]);
     }
+
+    // Log the JSON representation of the form data
+    console.log(JSON.stringify(formData));
 
     // Make an AJAX request to the server
     $.ajax({
-        url: url,
+        url: 'http://tractor-api.divyaltech.com/api/customer/customer_enquiries',
         type: 'POST',
         data: data,
         processData: false,
         contentType: false,
-        success: function (result) {
+        success: function(result) {
             console.log(result, 'result');
-            $("#used_tractor_callbnt_").modal('hide');
-            var msg = 'Added successfully !';
-            $("#errorStatusLoading").modal('show');
-            $("#errorStatusLoading").find('.modal-title').html('<p class="text-center">Congratulation..! Requested Successful</p>');
-            $("#errorStatusLoading").find('.modal-body').html(msg);
-            $("#errorStatusLoading").find('.modal-body').html('<img src="assets/images/7efs.gif" style="display:block; margin:0 auto;" class="w-50 text-center" alt="Successfull Request"></img>');
-            console.log('Add successfully');
+            // Handle success response
         },
-        error: function (error) {
+        error: function(error) {
             console.error('Error fetching data:', error);
-            var msg = error.statusText;
-            $("#errorStatusLoading").modal('show');
-            $("#errorStatusLoading").find('.modal-title').html('<p class="text-center">Process Failed..! Enter Valid Detail</p>');
-            $("#errorStatusLoading").find('.modal-body').html(msg);
-            $("#errorStatusLoading").find('.modal-body').html('<img src="assets/images/comp_3.gif" style="display:block; margin:0 auto;" class="w-50 text-center" alt="Successfull Request"></img>');
+            // Handle error response
         }
     });
 }

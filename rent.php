@@ -165,10 +165,11 @@
                                         <label for="name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i> enquiryName</label>
                                         <input type="text" class="form-control" placeholder="Enter Your Name" id="enquiry_type_id" value="18" name="fname">
                                     </div>
-                                    <!-- <div class="col-12 col-lg-6 col-md-6 col-sm-6 " hidden>
+                                    <div class="col-12 col-lg-6 col-md-6 col-sm-6 " hidden>
                                         <label for="name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i> product type id</label>
                                         <input type="text" class="form-control" id="added_by" value="">
-                                    </div> -->
+                                    </div>
+                                    
                                         <div class="col-12 col-sm-6 col-md-6 col-lg-6">
                                             <div class="form-outline">
                                                 <label class="form-label" for="brand">Brand</label>
@@ -255,7 +256,7 @@
                                         <div class="col-12 col-sm-6 col-md-6 col-lg-4 mt-4">
                                             <div class="form-outline">
                                                 <label class="form-label" for="implement">Implement Type</label>
-                                                <select class="form-select" id="implement" name="implement" required>
+                                                <select class="form-select" id="implement_type" name="implement" required>
                                                     <option value="" selected disabled>Select Implement Type</option>
                                                     <option value="1">Vegetable</option>
                                                     <option value="2">Fruits</option>
@@ -338,14 +339,14 @@
                                     <div class="col-12 col-sm-6 col-md-6 col-lg-6 mt-4">
                                         <div class="form-outline">
                                             <label class="form-label " for="fname"><i class="fa-regular fa-user"></i> First Name</label>
-                                            <input type="text" id="fname" name="fname"
+                                            <input type="text" id="firstname_1" name="fname"
                                             class="data_search form-control input-group-sm" onkeydown="return /[a-zA-Z]/i.test(event.key)" />
                                         </div>
                                     </div>
                                     <div class="col-12 col-sm-6 col-md-6 col-lg-6 mt-4">
                                         <div class="form-outline">
                                             <label class="form-label" for="lname"><i class="fa-regular fa-user"></i> Last Name</label>
-                                            <input type="text" id="l_name" name="lname"
+                                            <input type="text" id="lastname_1" name="lname"
                                                 class="data_search form-control input-group-sm"onkeydown="return /[a-zA-Z]/i.test(event.key)" />
                                         </div>
                                     </div>
@@ -353,7 +354,7 @@
                                         <div class="form-outline">
                                             <label class="form-label" for="phone">
                                                 <i class="fa fa-phone" aria-hidden="true"></i>Phone Number</label>
-                                            <input type="text" id="phone" name="phone" class=" data_search form-control input-group-sm" />
+                                            <input type="text" id="phone_number" name="phone" class=" data_search form-control input-group-sm" />
                                         </div>
                                     </div>
                                     <div class="col-12 col-sm-6 col-md-6 col-lg-6 mt-4">
@@ -882,79 +883,7 @@ function step2_form() {
 
     console.log(arry);
 }
-function rent_submit(){
-    console.log(arry);
-    var fname = $('#fname').val();
-    var lname = $('#lname').val();
-    var phone = $('#phone').val();
-    var state = $('#state').val();
-    var district = $('#district').val();
-    var tehsil = $('#tehsil').val();
-    console.log(fname,lname, phone, state, district, tehsil)
-    var data = new FormData();
-  
-  /*   for (var x = 0; x < image_names.length; x++) {
-        data.append('images[]', image_names[x]);
-    } */
-    if (arry.length > 0) {
-        var step1Data = arry[0];  // Assuming step1_form pushes data first
-        data.append('brand_id', step1Data.brand_name);
-        data.append('model', step1Data.model_name);
-        data.append('purchase_year', step1Data.year);
-        data.append('working_radius', step1Data.workingRadius);
-        data.append('message', step1Data.note);
 
-        if (arry.length > 1) {
-            var step2Data = arry[1];  // Assuming step2_form pushes data second
-            data.append('implement_type_id', step2Data.implement);
-            data.append('rate', step2Data.rate);
-            data.append('rate_per', step2Data.ratePer);
-            data.append('images[]', step2Data.imageInput);
-        }
-    }
-
-  
-    data.append('rent_first_name', fname);
-    data.append('rent_last_name', lname);
-   // data.append('email', tyre_position);
-    data.append('rent_mobile', phone);
-    data.append('rent_state', state);
-    data.append('rent_district', district);
-    data.append('tehsil', tehsil);
-    data.append('rent_enquiry_type_id', '18');
- /*    var apiBaseURL = APIBaseURL; */
-    var url = 'http://tractor-api.divyaltech.com/api/customer/customer_enquiries';
-    // var token = localStorage.getItem('token');
-  /* 
-    var headers = {
-        'Authorization': 'Bearer ' + token
-    }; */
-  
-    $.ajax({
-      url: url,
-      type: "POST",
-      data: data,
-    //   headers: headers,
-      processData: false,
-      contentType: false,
-      success: function (result) {
-        console.log('Success:', result);
-      
-        $("#staticBackdrop").modal('hide');
-        var msg = "Added successfully !"
-          $("#errorStatusLoading").modal('show');
-          $("#errorStatusLoading").find('.modal-title').html('Success');
-          $("#errorStatusLoading").find('.modal-body').html(msg);
-      },
-      error: function (error) {
-        console.error('Error:', error);
-        var msg = error;
-        $("#errorStatusLoading").modal('show');
-        $("#errorStatusLoading").find('.modal-title').html('Error');
-        $("#errorStatusLoading").find('.modal-body').html(msg);
-      }
-    });
-}
     </script>
 </body>
 
