@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+
 <html lang="en">
     <?php
 include 'includes/headertag.php';
@@ -9,6 +9,8 @@ include 'includes/headertag.php';
   <script> var APIBaseURL = "<?php echo $APIBaseURL; ?>";</script>
   <script> var baseUrl = "<?php echo $baseUrl; ?>";</script>
   <script src="<?php $baseUrl; ?>model/mahindra_brand.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
 
 <body>
    <?php
@@ -51,9 +53,10 @@ include 'includes/headertag.php';
                 
 		
 		</div>
-        <div class="col text-center">
-            <a href="#" class="btn btn-success btn-lg">Load More Tractors</a>
-        </div>
+        <div class="col-12 text-center mt-3 pt-2 ">
+            <button id="load_moretract" type="button" class=" btn add_btn btn-success">
+            <i class="fas fa-undo"></i>  Load More tractors</button>
+         </div>
     </div>
 </section>
 
@@ -244,8 +247,8 @@ include 'includes/headertag.php';
 		    </div>
         </div>
     </section>
+ 
 
-    <!--  -->
     <section class="about bg-light">
         <div class="container-fullwidth">
             <div class="lecture_heading ">
@@ -432,11 +435,6 @@ $('#productContainer2').owlCarousel({
 
     <?php
     include 'includes/footer.php';
-    include 'includes/footertag.php';
-
     ?>
-    </html>
 
     
-</body>
-</html>

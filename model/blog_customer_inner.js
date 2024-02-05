@@ -15,12 +15,13 @@ function get_details() {
         success: function (data) {
             console.log(data, 'abc');
 
-            document.getElementById('blog_heading').innerText = data.news_details[0].news_headline;
-            document.getElementById('blog_date').innerText = data.news_details[0].date;
-            document.getElementById('heading_deatail').innerText = data.news_details[0].news_headline;
-            document.getElementById('content').innerText = data.news_details[0].news_content;
+            document.getElementById('blog_heading').innerText = data.blog_details[0].blog_category;
+            document.getElementById('blog_date').innerText = data.blog_details[0].date;
+            document.getElementById('publisher_name').innerText = data.blog_details[0].publisher;
+            document.getElementById('heading_deatail').innerText = data.blog_details[0].heading;
+            document.getElementById('content').innerText = data.blog_details[0].content;
 
-            var images = data.news_details[0].image_names;
+            var images = data.blog_details[0].image_names;
             var imageArray = images.split(',');
 
             // Take the first image path

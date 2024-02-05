@@ -177,7 +177,7 @@ function displayTractors(tractors) {
         var formId = `contact-seller-call_${p.product_id}`; 
 
         var newCard = `
-                    <div class="col-12 col-lg-4 col-md-4 col-sm-4 mb-3"id="${cardId}">
+                    <div class="col-12 col-lg-12 col-md-12 col-sm-12 mb-3"id="${cardId}">
                     <div class="h-auto success__stry__item d-flex flex-column shadow">
                     <div class="thumb">
                         <a href="detail_tractor.php?product_id=${p.product_id}">
@@ -201,7 +201,7 @@ function displayTractors(tractors) {
                                 </div>
                              </div>
                             <div class="col-12">
-                                <button type="button" class="add_btn btn-success w-100" onclick="model_click()" data-bs-toggle="modal"  data-bs-target="#${modalId}">
+                                <button type="button" class="add_btn btn-success w-100"  data-bs-toggle="modal"  data-bs-target="#${modalId}">
 
                                 <i class="fa-regular fa-handshake"></i> Get on Road Price
                                 </button>
@@ -281,19 +281,8 @@ function displayTractors(tractors) {
                     </div>
                 </div>
                     `;
-                    var tableRow  = `
-                    <tr class="">
-                        <td class="py-3">${p.model}</td>
-                        <td class="py-3"><span>${p.hp_category}</span> HP</td>
-                        <td class="py-3">Rs. <span>${p.starting_price}</span> - <span>${p.ending_price}</span>*</td>
-                    </tr> 
-                `;
-                var tablerow_hp = `
-                    <tr class="">
-                        <td class="py-3">${p.model}</td>
-                        <td class="py-3">Rs. <span>${p.starting_price}</span> - <span>${p.ending_price}</span>*</td>
-                    </tr>
-`;
+                   
+                
                 // Add event listener for modal opening
     $(".add_btn").on("click", function () {
         var productId = $(this).data("product-id");
@@ -302,31 +291,10 @@ function displayTractors(tractors) {
         // Append the new card to the container
         productContainer.append(newCard);
         tableData.append(tableRow);
-        hp_wise.append(tablerow_hp);
+        // hp_wise.append(tablerow_hp);
        
     });
-    $('#productContainer').owlCarousel({
-        items: 4,
-        loop: true,
-        margin: 10,
-        responsiveClass: true,
-        responsive: {
-            0: {
-                items: 1,
-                nav: false
-            },
-            600: {
-                items: 3,
-                nav: false
-            },
-            1000: {
-                items: 4,
-                nav: false,
-                loop: false
-            }
-        },
-        loopFillGroupWithBlank: true
-    });
+  
 
     
 }
@@ -362,7 +330,7 @@ function submit_enquiry(formId) {
       'tehsil': Tehsil,
       'enquiry_type_id':enquiry_type_id,
     };
-    
+    console.log(paraArr);
 var url ='http://tractor-api.divyaltech.com/api/customer/customer_enquiries';
   
     var token = localStorage.getItem('token');
