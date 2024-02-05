@@ -115,9 +115,7 @@ get();
 
 function add_insurance(event) {
     event.preventDefault();
-    console.log('jfhfhw');
      enquiry_type_id = 17;
-    console.log('enquiry_type_id', enquiry_type_id);
     var insurance_type = $('#insurance_type').val();
     var firstName = $('#first_name').val();
     var lastName = $('#last_name').val();

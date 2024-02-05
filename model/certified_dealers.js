@@ -93,12 +93,6 @@ function displaydealer(dealer) {
                             </div>
                         </div>
                     `;
-                
-
-  
-//     var myDiv = $('#description_id');
-// myDiv.text(myDiv.text().substring(0,120))
-        // Append the new card to the container
         productContainer.append(newCard);
        
        

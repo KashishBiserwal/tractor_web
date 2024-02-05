@@ -1,15 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <?php
-        include 'includes/headertag.php';
-        include 'includes/header.php';
-    ?>
+<?php
+include 'includes/headertag.php';
+   include 'includes/headertagadmin.php';
+   include 'includes/footertag.php';
+   
+   ?> 
+<script> var APIBaseURL = "<?php echo $APIBaseURL; ?>";</script>
+<script> var baseUrl = "<?php echo $baseUrl; ?>";</script>
+<script src="<?php $baseUrl; ?>model/become_certified_dealer.js"></script>
 </head>
+
+
+    <?php
+   include 'includes/header.php';
+   ?>
 <body>
     <section>
         <div class="container mt-5 pt-4">
-            <div class="mt-5 pt-5">
+            <div class="mt-4 pt-5">
                 <span class="mt-4 pt-4 ">
                 <a href="index.php" class="text-decoration-none header-link px-1">Home <i class="fa-solid fa-chevron-right px-1"></i></a>
                 <a href="certified_dealers.php" class="text-decoration-none header-link px-1">Certified Dealers <i class="fa-solid fa-chevron-right px-1"></i></a>
@@ -41,11 +52,19 @@
                     <div class="col-md-8 col-lg-7">
                         <form id="become_dealership_enq_from" class="form-view-inner form-view-overlay bg-light box-shadow p-3" action="" method="" >
                             <div class="row justify-content-center">
+                                <div class="col-12 col-lg-6 col-md-6 col-sm-6 " hidden>
+                                    <label for="name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i> enquiryName</label>
+                                    <input type="text" class="form-control" placeholder="Enter Your Name" id="enquiry_type_id" value="13" name="fname">
+                                </div>
+                                <!-- <div class="col-12 col-lg-6 col-md-6 col-sm-6 " hidden>
+                                    <label for="name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i> product id</label>
+                                    <input type="text" class="form-control" id="product_id" value="">
+                                </div> -->
                                 <div class="col-12 col-sm-12 col-md-6 col-lg-6">
                                     <div class="form-outline">
                                         <div class="mt-2">
                                             <label class="form-label text-dark"><i class="fa-regular fa-user"></i> First Name</label>
-                                            <input type="text" class="form-control mb-0" id="f_name" name="f_name">
+                                            <input type="text" class="form-control mb-0" id="firstname" name="f_name">
                                         </div>
                                     </div>
                                 </div>
@@ -53,7 +72,7 @@
                                     <div class="form-outline">
                                         <div class="mt-2">
                                             <label class="form-label text-dark"><i class="fa-regular fa-user"></i> Last Name</label>
-                                            <input type="text" class="form-control mb-0" id="bcd_name" name="bcd_name">
+                                            <input type="text" class="form-control mb-0" id="lastname" name="bcd_name">
                                         </div>
                                     </div>
                                 </div>
@@ -61,7 +80,7 @@
                                     <div class="form-outline">
                                         <div class="mt-2">
                                             <label class="form-label text-dark"> <i class="fa fa-phone" aria-hidden="true"></i> Mobile Number</label>
-                                            <input type="text" class="form-control mb-0" id="bcd_num" name="bcd_num"  oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');">
+                                            <input type="text" class="form-control mb-0" id="mobnumber" name="bcd_num"  oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');">
                                         </div>
                                     </div>
                                 </div>
@@ -69,7 +88,7 @@
                                     <div class="form-outline">
                                         <div class="mt-2">
                                             <label class="form-label text-dark">Email</label>
-                                            <input type="email" class="form-control mb-0" id="bcd_email" name="bcd_email">
+                                            <input type="email" class="form-control mb-0" id="dealeremail" name="bcd_email">
                                         </div>
                                     </div>
                                 </div>

@@ -1,11 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <?php
-        include 'includes/header.php';
-        include 'includes/headertag.php';
-    ?>
+<?php
+    include 'includes/headertag.php';
+    include 'includes/headertagadmin.php';
+   include 'includes/footertag.php';
+   
+   ?> 
+  <script> var APIBaseURL = "<?php echo $APIBaseURL; ?>";</script>
+  <script> var baseUrl = "<?php echo $baseUrl; ?>";</script>
+  <script src="<?php $baseUrl; ?>model/blog.js"></script>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 </head>
+
+<body>
+   <?php
+   include 'includes/header.php';
+   ?>
 <body>
         <!-- HEADING Home > Blog-->
     <section class="mt-5 pt-5">
@@ -23,7 +31,7 @@
     <!-- Want to be Featured in Bharat Tractor Weekly News? Connect With Us -->
     <section>
         <div class="container">
-            <div class="row  align-items-center my-3">       
+            <div class="row  align-items-center my-3" id="productContainer">       
                 <div class="col-12">
                     <div class="py-3 my-3 ps-4">
                         <p class="fw-bold text-center fs-5">Want to be Featured in Bharat Tractor Blog? Connect With Us</p>

@@ -410,7 +410,10 @@ include 'includes/footertag.php';
                                                         <div  class="col-12 col-sm-6 col-lg-6 col-md-6 mt-3">
                                                             <div class="form-outline">
                                                             <label class="form-label">Type</label>
-                                                            <input type="text" placeholder=" " id="POWER_TAKEOFF_TYPE"  name="POWER_TAKEOFF_TYPE" class="form-control" required>
+                                                            
+                                                            <select class="form-select py-2" id="POWER_TAKE_OFF_TYPE" name="POWER_TAKEOFF_TYPE" aria-label="Default select example" required>
+                                                                    <option selected disabled="" value="">Please select an option</option>
+                                                            </select>
                                                             </div>
                                                         </div>
                                                         <div  class="col-12 col-sm-6 col-lg-6 col-md-6 mt-3">

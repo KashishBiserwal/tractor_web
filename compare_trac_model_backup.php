@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-<?php
-  include 'includes/headertag.php';
-    include 'includes/footertag.php';
-     
-     ?> 
-    <script> var baseUrl = "<?php echo $baseUrl; ?>";</script>
-    <script src="<?php $baseUrl; ?>model/compare_trac.js"></script>
+
+  <head>
+    <?php
+      include 'includes/headertag.php';
+      include 'includes/header.php';  
+        include 'includes/footertag.php';
+    ?>
     <style>
       .table-data {
         white-space: nowrap;
@@ -45,18 +45,17 @@
                         <div class="success__stry__item h-75">
                           <div class="thumb mt-2">
                             <div class="">
-                              <img src="" id="img_1" class="object-fit-cover mt-2 pe-0" width="120px;" height="90px;" alt="img">
+                              <img src="assets\images\farmtrac60 (1).jpg" class="object-fit-cover mt-2 pe-0" width="120px;" height="90px;" alt="img">
                             </div>
                           </div>
                         </div>
                       </div>
-                      <div class="col-12 col-lg-6 col-md-6 col-sm-6 mt-2 text-dark" >
+                      <div class="col-12 col-lg-6 col-md-6 col-sm-6 mt-2 text-dark">
                         <div class="row mt-1" style="font-size:14px;">
-                          <p class="mb-1 text-danger fw-bold" id="brand_nav"></p>
-                          <p class="mb-1 fw-bold text-hover-green"  id="model_nav"></p> 
-                          <p class="mb-1 fw-bold text-hover-green" id=""> <span  id="hp_nav-1"></span> HP</p>   
+                          <p class="mb-1 text-danger fw-bold">ACE</p>
+                          <p class="mb-1 fw-bold text-hover-green">DI-550 NG</p>  
                           <!-- <p class="mb-0">₹ 6.55 Lac - 6.95 Lac*</p> -->
-                          <!-- <a href="#" class="text-decoration-none"><p class="fw-bold text-start text-success mt-0" data-bs-toggle="modal" data-bs-target="#staticBackdrop3">Check Price</p></a> -->
+                          <a href="#" class="text-decoration-none"><p class="fw-bold text-start text-success mt-0" data-bs-toggle="modal" data-bs-target="#staticBackdrop3">Check Price</p></a>
                         </div>
                       </div>
                     </div>
@@ -68,18 +67,17 @@
                         <div class="success__stry__item h-75">
                           <div class="thumb mt-2">
                             <div class="">
-                              <img src="" id="img_2" class="object-fit-cover mt-2 pe-0" width="120px;" height="90px;" alt="img">
+                              <img src="assets\images\farmtrac60 (1).jpg" class="object-fit-cover mt-2 pe-0" width="120px;" height="90px;" alt="img">
                             </div>
                           </div>
                         </div>
                       </div>
                       <div class="col-12 col-lg-6 col-md-6 col-sm-6 mt-2 text-dark">
                         <div class="row mt-1" style="font-size:14px;">
-                          <p class="mb-1 text-danger fw-bold"  id="brand_nav-2"></p>
-                          <p class="mb-1 fw-bold text-hover-green"id="model_nav-2"></p>  
-                          <p class="mb-1 fw-bold text-hover-green" id=""> <span  id="hp_nav-2"></span> HP</p>  
+                          <p class="mb-1 text-danger fw-bold">ACE</p>
+                          <p class="mb-1 fw-bold text-hover-green">DI-550 NG</p>  
                           <!-- <p class="mb-0">₹ 6.55 Lac - 6.95 Lac*</p> -->
-                          <!-- <a href="#" class="text-decoration-none"><p class="fw-bold text-start text-success mt-0" data-bs-toggle="modal" data-bs-target="#staticBackdrop3">Check Price</p></a> -->
+                          <a href="#" class="text-decoration-none"><p class="fw-bold text-start text-success mt-0" data-bs-toggle="modal" data-bs-target="#staticBackdrop3">Check Price</p></a>
                         </div>
                       </div>
                     </div>
@@ -92,18 +90,17 @@
                         <div class="success__stry__item h-75">
                           <div class="thumb mt-2">
                             <div class="">
-                              <img src="" class="object-fit-cover mt-2 pe-0" id="img_3" width="120px;" height="90px;" alt="img">
+                              <img src="assets\images\farmtrac60 (1).jpg" class="object-fit-cover mt-2 pe-0" width="120px;" height="90px;" alt="img">
                             </div>
                           </div>
                         </div>
                       </div>
                       <div class="col-12 col-lg-6 col-md-6 col-sm-6 mt-2 text-dark">
                         <div class="row mt-1" style="font-size:14px;">
-                          <p class="mb-1 text-danger fw-bold"id="brand_nav-3"></p>
-                          <p class="mb-1 fw-bold text-hover-green" id="model_nav-3"></p>  
-                          <p class="mb-1 fw-bold text-hover-green" id=""> <span  id="hp_nav-3"></span> HP</p>  
+                          <p class="mb-1 text-danger fw-bold">ACE</p>
+                          <p class="mb-1 fw-bold text-hover-green">DI-550 NG</p>  
                           <!-- <p class="mb-0">₹ 6.55 Lac - 6.95 Lac*</p> -->
-                          <!-- <a href="#" class="text-decoration-none"><p class="fw-bold text-start text-success mt-0" data-bs-toggle="modal" data-bs-target="#staticBackdrop3">Check Price</p></a> -->
+                          <a href="#" class="text-decoration-none"><p class="fw-bold text-start text-success mt-0" data-bs-toggle="modal" data-bs-target="#staticBackdrop3">Check Price</p></a>
                         </div>
                       </div>
                     </div>
@@ -115,18 +112,17 @@
                         <div class="success__stry__item h-75">
                           <div class="thumb mt-2">
                             <div class="">
-                              <img src="" id="img_4" class="object-fit-cover mt-2 pe-0" width="120px;" height="90px;" alt="img">
+                              <img src="assets\images\farmtrac60 (1).jpg" class="object-fit-cover mt-2 pe-0" width="120px;" height="90px;" alt="img">
                             </div>
                           </div>
                         </div>
                       </div>
                       <div class="col-12 col-lg-6 col-md-6 col-sm-6 mt-2 text-dark">
                         <div class="row mt-1" style="font-size:14px;">
-                          <p class="mb-1 text-danger fw-bold" id="brand_nav-4"></p>
-                          <p class="mb-1 fw-bold text-hover-green" id="model_nav-4"></p>  
-                          <p class="mb-1 fw-bold text-hover-green"> <span  id="hp_nav-4"></span> HP</p>  
+                          <p class="mb-1 text-danger fw-bold">ACE</p>
+                          <p class="mb-1 fw-bold text-hover-green">DI-550 NG</p>  
                           <!-- <p class="mb-0">₹ 6.55 Lac - 6.95 Lac*</p> -->
-                          <!-- <a href="#" class="text-decoration-none"><p class="fw-bold text-start text-success mt-0" data-bs-toggle="modal" data-bs-target="#staticBackdrop3">Check Price</p></a> -->
+                          <a href="#" class="text-decoration-none"><p class="fw-bold text-start text-success mt-0" data-bs-toggle="modal" data-bs-target="#staticBackdrop3">Check Price</p></a>
                         </div>
                       </div>
                     </div>
@@ -152,14 +148,78 @@
       <div class="container jumbo mt-2">      
         <div class="row py-1">
           
-          <div class="col-12 col-lg-3 col-sm-3 col-md-3 mb-2 mt-1" id="productContainer1">
-          </div>  
-          <div class="col-12 col-lg-3 col-sm-3 col-md-3 mb-2 mt-1" id="productContainer2">
+          <div class="col-12 col-lg-3 col-sm-3 col-md-3 mb-2 mt-1">
+            <div class="success__stry__item shadow h-100">
+              <div class="thumb">
+                <a href="#">
+                  <div class="">
+                  <img src="assets\images\bharattractor2.png" class="object-fit-cover mt-4 p-3 w-100" width="100px" height="200px" alt="img">
+                  </div>
+                </a>
+              </div>
+              <div class="row ms-3">
+                <p class="mb-1 fw-bold text-danger">ACE</p>
+                <p class="mb-0 fw-bold text-hover-green">DI-550 NG</p>
+                <!-- <p class="mb-0">₹ 6.55 Lac - 6.95 Lac*</p> -->
+                <button type="button" class="fs-6 fw-bold text-success text-start" data-bs-toggle="modal" data-bs-target="#staticBackdrop3">Check Tractor Price</button>
+              </div>
+            </div>
           </div>   
-          <div class="col-12 col-lg-3 col-sm-3 col-md-3 mb-2 mt-1" id="productContainer3">
-          </div> 
-          <div class="col-12 col-lg-3 col-sm-3 col-md-3 mb-2 mt-1"  id="productContainer4">
+
+          <div class="col-12 col-lg-3 col-sm-3 col-md-3 mb-2 mt-1">
+            <div class="success__stry__item shadow h-100">
+              <div class="thumb">
+                <a href="#">
+                  <div class="">
+                  <img src="assets\images\bharattractor2.png" class="object-fit-cover mt-4 p-3 w-100" width="100px" height="200px" alt="img">
+                  </div>
+                </a>
+              </div>
+              <div class="row ms-3">
+                <p class="mb-1 fw-bold text-danger">ACE</p>
+                <p class="mb-0 fw-bold text-hover-green">DI-550 NG</p>
+                <!-- <p class="mb-0">₹ 6.55 Lac - 6.95 Lac*</p> -->
+                <button type="button" class="fs-6 fw-bold text-success text-start" data-bs-toggle="modal" data-bs-target="#staticBackdrop3">Check Tractor Price</button>
+              </div>
+            </div>
           </div>   
+
+          <div class="col-12 col-lg-3 col-sm-3 col-md-3 mb-2 mt-1">
+            <div class="success__stry__item shadow h-100">
+              <div class="thumb">
+                <a href="#">
+                  <div class="">
+                  <img src="assets\images\bharattractor2.png" class="object-fit-cover mt-4 p-3 w-100" width="100px" height="200px" alt="img">
+                  </div>
+                </a>
+              </div>
+              <div class="row ms-3">
+                <p class="mb-1 fw-bold text-danger">ACE</p>
+                <p class="mb-0 fw-bold text-hover-green">DI-550 NG</p>
+                <!-- <p class="mb-0">₹ 6.55 Lac - 6.95 Lac*</p> -->
+                <button type="button" class="fs-6 fw-bold text-success text-start" data-bs-toggle="modal" data-bs-target="#staticBackdrop3">Check Tractor Price</button>
+              </div>
+            </div>
+          </div>   
+
+          <div class="col-12 col-lg-3 col-sm-3 col-md-3 mb-2 mt-1">
+            <div class="success__stry__item shadow h-100">
+              <div class="thumb">
+                <a href="#">
+                  <div class="">
+                  <img src="assets\images\bharattractor2.png" class="object-fit-cover mt-4 p-3 w-100" width="100px" height="200px" alt="img">
+                  </div>
+                </a>
+              </div>
+              <div class="row ms-3">
+                <p class="mb-1 mt-2 fw-bold text-danger">ACE</p>
+                <p class="mb-0 fw-bold text-hover-green">DI-550 NG</p>
+                <!-- <p class="mb-0">₹ 6.55 Lac - 6.95 Lac*</p> -->
+                <button type="button" class="fs-6 fw-bold text-success text-start" data-bs-toggle="modal" data-bs-target="#staticBackdrop3">Check Tractor Price</button>
+              </div>
+            </div>
+          </div>   
+          
         </div>
       </div>
     <!-- </section> -->
@@ -183,16 +243,16 @@
                     <div class="col-12 col-lg-9 col-md-9 col-sm-9">
                       <div class="row">
                         <div class="col-12 col-lg-3 col-md-3 col-sm-3">
-                          <p class="mb-1" id="cylinder-1">NaN</p>
+                          <p class="mb-1">4</p>
                         </div>
                         <div class="col-12 col-lg-3 col-md-3 col-sm-3">
-                          <p class="mb-1" id="cylinder-2">NaN</p>
+                          <p class="mb-1">4</p>
                         </div>
                         <div class="col-12 col-lg-3 col-md-3 col-sm-3">
-                          <p class="mb-1" id="cylinder-3">NaN</p>
+                          <p class="mb-1">4</p>
                         </div>
                         <div class="col-12 col-lg-3 col-md-3 col-sm-3">
-                          <p class="mb-1" id="cylinder-4">NaN</p>
+                          <p class="mb-1">4</p>
                         </div>           
                       </div>         
                     </div>
@@ -209,16 +269,16 @@
                     <div class="col-12 col-lg-9 col-md-9 col-sm-9">
                       <div class="row">
                         <div class="col-12 col-lg-3 col-md-3 col-sm-3">
-                          <p class="mb-1"> <span id="hp_category-1">NaN</span> HP</p>
+                          <p class="mb-1">42 HP</p>
                         </div>
                         <div class="col-12 col-lg-3 col-md-3 col-sm-3">
-                          <p class="mb-1"> <span id="hp_category-2">NaN</span> HP</p>
+                          <p class="mb-1">42 HP</p>
                         </div>
                         <div class="col-12 col-lg-3 col-md-3 col-sm-3">
-                          <p class="mb-1" > <span id="hp_category-3">NaN</span> HP</p>
+                          <p class="mb-1">42 HP</p>
                         </div>
                         <div class="col-12 col-lg-3 col-md-3 col-sm-3">
-                          <p class="mb-1"> <span id="hp_category-4">NaN</span> HP</p>
+                          <p class="mb-1">42 HP</p>
                         </div>           
                       </div>         
                     </div>
@@ -235,16 +295,16 @@
                     <div class="col-12 col-lg-9 col-md-9 col-sm-9">
                       <div class="row">
                         <div class="col-12 col-lg-3 col-md-3 col-sm-3">
-                          <p class="mb-1" > <span id="cc-1">NaN</span> CC</p>
+                          <p class="mb-1">2500 CC</p>
                         </div>
                         <div class="col-12 col-lg-3 col-md-3 col-sm-3">
-                          <p class="mb-1" > <span id="cc-2">NaN</span> CC</p>
+                          <p class="mb-1">2500 CC</p>
                         </div>
                         <div class="col-12 col-lg-3 col-md-3 col-sm-3">
-                          <p class="mb-1" > <span id="cc-3">NaN</span> CC</p>
+                          <p class="mb-1">2500 CC</p>
                         </div>
                         <div class="col-12 col-lg-3 col-md-3 col-sm-3">
-                          <p class="mb-1"  > <span id="cc-4">NaN</span> CC</p>
+                          <p class="mb-1">2500 CC</p>
                         </div>           
                       </div>         
                     </div>
@@ -261,16 +321,16 @@
                     <div class="col-12 col-lg-9 col-md-9 col-sm-9">
                       <div class="row">
                         <div class="col-12 col-lg-3 col-md-3 col-sm-3">
-                          <p class="mb-1"> <span id="rpm-1">NaN</span> RPM</p>
+                          <p class="mb-1">1800 RPM</p>
                         </div>
                         <div class="col-12 col-lg-3 col-md-3 col-sm-3">
-                          <p class="mb-1"><span id="rpm-2">NaN</span> RPM</p>
+                          <p class="mb-1">1800 RPM</p>
                         </div>
                         <div class="col-12 col-lg-3 col-md-3 col-sm-3">
-                          <p class="mb-1"><span id="rpm-3">NaN</span> RPM</p>
+                          <p class="mb-1">1800 RPM</p>
                         </div>
                         <div class="col-12 col-lg-3 col-md-3 col-sm-3">
-                          <p class="mb-1"><span id="rpm-4">NaN</span> RPM</p>
+                          <p class="mb-1">1800 RPM</p>
                         </div>           
                       </div>         
                     </div>
@@ -287,16 +347,16 @@
                     <div class="col-12 col-lg-9 col-md-9 col-sm-9">
                       <div class="row">
                         <div class="col-12 col-lg-3 col-md-3 col-sm-3">
-                          <p class="mb-1" id="cooling-1"> NaN</p>
+                          <p class="mb-1">Water Cooled</p>
                         </div>
                         <div class="col-12 col-lg-3 col-md-3 col-sm-3">
-                          <p class="mb-1"  id="cooling-2"> NaN</p>
+                          <p class="mb-1">Water Cooled</p>
                         </div>
                         <div class="col-12 col-lg-3 col-md-3 col-sm-3">
-                          <p class="mb-1"  id="cooling-3">  NaN</p>
+                          <p class="mb-1">Water Cooled</p>
                         </div>
                         <div class="col-12 col-lg-3 col-md-3 col-sm-3">
-                          <p class="mb-1"  id="cooling-4">  NaN</p>
+                          <p class="mb-1">Water Cooled</p>
                         </div>           
                       </div>         
                     </div>
@@ -313,16 +373,16 @@
                     <div class="col-12 col-lg-9 col-md-9 col-sm-9">
                       <div class="row">
                         <div class="col-12 col-lg-3 col-md-3 col-sm-3">
-                          <p class="mb-1" id="air_filter-1">  NaN</p>
+                          <p class="mb-1">Wet Type</p>
                         </div>
                         <div class="col-12 col-lg-3 col-md-3 col-sm-3">
-                          <p class="mb-1" id="air_filter-2">  NaN</p>
+                          <p class="mb-1">Wet Type</p>
                         </div>
                         <div class="col-12 col-lg-3 col-md-3 col-sm-3">
-                          <p class="mb-1" id="air_filter-3">  NaN</p>
+                          <p class="mb-1">Wet Type</p>
                         </div>
                         <div class="col-12 col-lg-3 col-md-3 col-sm-3">
-                          <p class="mb-1" id="air_filter-4">  NaN</p>
+                          <p class="mb-1">Wet Type</p>
                         </div>           
                       </div>         
                     </div>
@@ -339,16 +399,16 @@
                     <div class="col-12 col-lg-9 col-md-9 col-sm-9">
                       <div class="row">
                         <div class="col-12 col-lg-3 col-md-3 col-sm-3">
-                          <p class="mb-1" id="pto-1">NaN</p>
+                          <p class="mb-1">38</p>
                         </div>
                         <div class="col-12 col-lg-3 col-md-3 col-sm-3">
-                          <p class="mb-1" id="pto-2">NaN</p>
+                          <p class="mb-1">38</p>
                         </div>
                         <div class="col-12 col-lg-3 col-md-3 col-sm-3">
-                          <p class="mb-1"id="pto-3">NaN</p>
+                          <p class="mb-1">38</p>
                         </div>
                         <div class="col-12 col-lg-3 col-md-3 col-sm-3">
-                          <p class="mb-1"id="pto-4">NaN</p>
+                          <p class="mb-1">38</p>
                         </div>           
                       </div>         
                     </div>
@@ -356,7 +416,7 @@
                 </td>
               </tr>  
 
-              <!-- <tr>
+              <tr>
                 <td class="w-100">
                   <div class="row w-100">
                     <div class="col-12 col-lg-3 col-md-3 col-sm-3">
@@ -380,7 +440,7 @@
                     </div>
                   </div>
                 </td>
-              </tr>   -->
+              </tr>  
 
               <tr>
                 <td class="w-100">
@@ -391,16 +451,16 @@
                     <div class="col-12 col-lg-9 col-md-9 col-sm-9">
                       <div class="row">
                         <div class="col-12 col-lg-3 col-md-3 col-sm-3">
-                          <p class="mb-1"><span id="torque-1">NaN</span> NM</p>
+                          <p class="mb-1">189 NM</p>
                         </div>
                         <div class="col-12 col-lg-3 col-md-3 col-sm-3">
-                          <p class="mb-1"> <span id="torque-2">NaN</span> NM</p>
+                          <p class="mb-1">189 NM</p>
                         </div>
                         <div class="col-12 col-lg-3 col-md-3 col-sm-3">
-                          <p class="mb-1"><span id="torque-3">NaN</span> NM</p>
+                          <p class="mb-1">189 NM</p>
                         </div>
                         <div class="col-12 col-lg-3 col-md-3 col-sm-3">
-                          <p class="mb-1"><span id="torque-4">NaN</span> NM</p>
+                          <p class="mb-1">189 NM</p>
                         </div>           
                       </div>         
                     </div>
@@ -430,16 +490,16 @@
                       <div class="col-12 col-lg-9 col-md-9 col-sm-9">
                         <div class="row">
                           <div class="col-12 col-lg-3 col-md-3 col-sm-3">
-                            <p class="mb-1"><span id="trans_tye-1">NaN</span></p>
+                            <p class="mb-1">Partial Constant Mesh</p>
                           </div>
                           <div class="col-12 col-lg-3 col-md-3 col-sm-3">
-                            <p class="mb-1"><span id="trans_tye-2">NaN</span></p>
+                            <p class="mb-1">Partial Constant Mesh</p>
                           </div>
                           <div class="col-12 col-lg-3 col-md-3 col-sm-3">
-                            <p class="mb-1"> <span id="trans_tye-3">NaN</span> </p>
+                            <p class="mb-1">Partial Constant Mesh</p>
                           </div>
                           <div class="col-12 col-lg-3 col-md-3 col-sm-3">
-                            <p class="mb-1"> <span id="trans_tye-4">NaN</span></p>
+                            <p class="mb-1">Partial Constant Mesh</p>
                           </div>           
                         </div>         
                       </div>
@@ -456,16 +516,16 @@
                       <div class="col-12 col-lg-9 col-md-9 col-sm-9">
                         <div class="row">
                           <div class="col-12 col-lg-3 col-md-3 col-sm-3">
-                            <p class="mb-1"><span id="trans_clutch-1">NaN</span></p>
+                            <p class="mb-1">Single / Dual clutch</p>
                           </div>
                           <div class="col-12 col-lg-3 col-md-3 col-sm-3">
-                            <p class="mb-1"><span id="trans_clutch-2">NaN</span></p>
+                            <p class="mb-1">Single / Dual clutch</p>
                           </div>
                           <div class="col-12 col-lg-3 col-md-3 col-sm-3">
-                            <p class="mb-1"><span id="trans_clutch-3">NaN</span></p>
+                            <p class="mb-1">Single / Dual clutch</p>
                           </div>
                           <div class="col-12 col-lg-3 col-md-3 col-sm-3">
-                            <p class="mb-1"><span id="trans_clutch-4">NaN</span></p>
+                            <p class="mb-1">Single / Dual clutch</p>
                           </div>           
                         </div>         
                       </div>
@@ -482,16 +542,16 @@
                     <div class="col-12 col-lg-9 col-md-9 col-sm-9">
                      <div class="row">
                         <div class="col-12 col-lg-3 col-md-3 col-sm-3">
-                          <p class="mb-1"><span id="gear_box_forward-1">NaN</span> Forward + <span id="gear_box_reverse-1">NaN</span> Reverse</p>
+                          <p class="mb-1">8 Forward + 2 Reverse</p>
                         </div>
                         <div class="col-12 col-lg-3 col-md-3 col-sm-3">
-                          <p class="mb-1"><span id="gear_box_forward-2">NaN</span> Forward + <span id="gear_box_reverse-2">NaN</span> Reverse</p>
+                          <p class="mb-1">8 Forward + 2 Reverse</p>
                         </div>
                         <div class="col-12 col-lg-3 col-md-3 col-sm-3">
-                          <p class="mb-1"><span id="gear_box_forward-3">NaN</span> Forward + <span id="gear_box_reverse-3">NaN</span> Reverse</p>
+                          <p class="mb-1">8 Forward + 2 Reverse</p>
                         </div>
                         <div class="col-12 col-lg-3 col-md-3 col-sm-3">
-                          <p class="mb-1"><span id="gear_box_forward-4">NaN</span> Forward + <span id="gear_box_reverse-4">NaN</span> Reverse</p>
+                          <p class="mb-1">8 Forward + 2 Reverse</p>
                         </div>           
                       </div>         
                     </div>
@@ -508,16 +568,16 @@
                     <div class="col-12 col-lg-9 col-md-9 col-sm-9">
                      <div class="row">
                         <div class="col-12 col-lg-3 col-md-3 col-sm-3">
-                          <p class="mb-1"><span id="transmission_forward-1">NaN</span> kmph</p>
+                          <p class="mb-1">3.1 - 31.3 kmph</p>
                         </div>
                         <div class="col-12 col-lg-3 col-md-3 col-sm-3">
-                          <p class="mb-1"> <span id="transmission_forward-2">NaN</span> kmph</p>
+                          <p class="mb-1">3.1 - 31.3 kmph</p>
                         </div>
                         <div class="col-12 col-lg-3 col-md-3 col-sm-3">
-                          <p class="mb-1"><span id="transmission_forward-3">NaN</span> kmph</p>
+                          <p class="mb-1">3.1 - 31.3 kmph</p>
                         </div>
                         <div class="col-12 col-lg-3 col-md-3 col-sm-3">
-                          <p class="mb-1"><span id="transmission_forward-4">NaN</span> kmph</p>
+                          <p class="mb-1">3.1 - 31.3 kmph</p>
                         </div>           
                       </div>         
                     </div>
@@ -534,16 +594,16 @@
                   <div class="col-12 col-lg-9 col-md-9 col-sm-9">
                      <div class="row">
                         <div class="col-12 col-lg-3 col-md-3 col-sm-3">
-                          <p class="mb-1"><span id="transmission_reverse-1">NaN</span> kmph</p>
+                          <p class="mb-1">4.3 - 12.5 kmph</p>
                         </div>
                         <div class="col-12 col-lg-3 col-md-3 col-sm-3">
-                          <p class="mb-1"><span id="transmission_reverse-2">NaN</span> kmph</p>
+                          <p class="mb-1">4.3 - 12.5 kmph</p>
                         </div>
                         <div class="col-12 col-lg-3 col-md-3 col-sm-3">
-                          <p class="mb-1"><span id="transmission_reverse-3">NaN</span> kmph</p>
+                          <p class="mb-1">4.3 - 12.5 kmph</p>
                         </div>
                         <div class="col-12 col-lg-3 col-md-3 col-sm-3">
-                          <p class="mb-1"><span id="transmission_reverse-4">NaN</span> kmph</p>
+                          <p class="mb-1">4.3 - 12.5 kmph</p>
                         </div>           
                       </div>         
                     </div>
@@ -572,16 +632,16 @@
                     <div class="col-12 col-lg-9 col-md-9 col-sm-9">
                      <div class="row">
                         <div class="col-12 col-lg-3 col-md-3 col-sm-3">
-                          <p class="mb-1"><span id="brake_value-1">NaN</span></p>
+                          <p class="mb-1">Oil Immersed Brakes</p>
                         </div>
                         <div class="col-12 col-lg-3 col-md-3 col-sm-3">
-                          <p class="mb-1"><span id="brake_value-2">NaN</span></p>
+                          <p class="mb-1">Oil Immersed Brakes</p>
                         </div>
                         <div class="col-12 col-lg-3 col-md-3 col-sm-3">
-                          <p class="mb-1"><span id="brake_value-3">NaN</span></p>
+                          <p class="mb-1">Oil Immersed Brakes</p>
                         </div>
                         <div class="col-12 col-lg-3 col-md-3 col-sm-3">
-                          <p class="mb-1"><span id="brake_value-4">NaN</span></p>
+                          <p class="mb-1">Oil Immersed Brakes</p>
                         </div>           
                       </div>         
                     </div>
@@ -611,16 +671,16 @@
                     <div class="col-12 col-lg-9 col-md-9 col-sm-9">
                      <div class="row">
                         <div class="col-12 col-lg-3 col-md-3 col-sm-3">
-                          <p class="mb-1"><span id="steering_type-1">NaN</span></p>
+                          <p class="mb-1">Dual Acting Power steering/Manual Steering (Optional)</p>
                         </div>
                         <div class="col-12 col-lg-3 col-md-3 col-sm-3">
-                          <p class="mb-1"><span id="steering_type-2">NaN</span></p>
+                          <p class="mb-1">Dual Acting Power steering/Manual Steering (Optional)</p>
                         </div>
                         <div class="col-12 col-lg-3 col-md-3 col-sm-3">
-                          <p class="mb-1"><span id="steering_type-3">NaN</span></p>
+                          <p class="mb-1">Dual Acting Power steering/Manual Steering (Optional)</p>
                         </div>
                         <div class="col-12 col-lg-3 col-md-3 col-sm-3">
-                          <p class="mb-1"><span id="steering_type-4">NaN</span></p>
+                          <p class="mb-1">Dual Acting Power steering/Manual Steering (Optional)</p>
                         </div>           
                       </div>         
                     </div>
@@ -637,16 +697,16 @@
                     <div class="col-12 col-lg-9 col-md-9 col-sm-9">
                      <div class="row">
                         <div class="col-12 col-lg-3 col-md-3 col-sm-3">
-                          <p class="mb-1"><span id="steering_col-1">NaN</span></p>
+                          <p class="mb-1">Single Drop Arm</p>
                         </div>
                         <div class="col-12 col-lg-3 col-md-3 col-sm-3">
-                          <p class="mb-1"><span id="steering_col-2">NaN</span></p>
+                          <p class="mb-1">Single Drop Arm</p>
                         </div>
                         <div class="col-12 col-lg-3 col-md-3 col-sm-3">
-                          <p class="mb-1"><span id="steering_col-3">NaN</span></p>
+                          <p class="mb-1">Single Drop Arm</p>
                         </div>
                         <div class="col-12 col-lg-3 col-md-3 col-sm-3">
-                          <p class="mb-1"><span id="steering_col-4">NaN</span></p>
+                          <p class="mb-1">Single Drop Arm</p>
                         </div>           
                       </div>         
                     </div>
@@ -675,16 +735,16 @@
                     <div class="col-12 col-lg-9 col-md-9 col-sm-9">
                      <div class="row">
                         <div class="col-12 col-lg-3 col-md-3 col-sm-3">
-                          <p class="mb-1"><span id="takeoff_type-1">NaN</span></p>
+                          <p class="mb-1">6 Spline</p>
                         </div>
                         <div class="col-12 col-lg-3 col-md-3 col-sm-3">
-                          <p class="mb-1"><span id="takeoff_type-2">NaN</span></p>
+                          <p class="mb-1">6 Spline</p>
                         </div>
                         <div class="col-12 col-lg-3 col-md-3 col-sm-3">
-                          <p class="mb-1"><span id="takeoff_type-3">NaN</span></p>
+                          <p class="mb-1">6 Spline</p>
                         </div>
                         <div class="col-12 col-lg-3 col-md-3 col-sm-3">
-                          <p class="mb-1"><span id="takeoff_type-4">NaN</span></p>
+                          <p class="mb-1">6 Spline/p>
                         </div>           
                       </div>         
                     </div>
@@ -701,16 +761,16 @@
                     <div class="col-12 col-lg-9 col-md-9 col-sm-9">
                      <div class="row">
                         <div class="col-12 col-lg-3 col-md-3 col-sm-3">
-                          <p class="mb-1"><span id="takeoff_rpm-1">NaN</span></p>
+                          <p class="mb-1">540 @ 1890</p>
                         </div>
                         <div class="col-12 col-lg-3 col-md-3 col-sm-3">
-                          <p class="mb-1"><span id="takeoff_rpm-2">NaN</span></p>
+                          <p class="mb-1">540 @ 1890</p>
                         </div>
                         <div class="col-12 col-lg-3 col-md-3 col-sm-3">
-                          <p class="mb-1"><span id="takeoff_rpm-3">NaN</span></p>
+                          <p class="mb-1">540 @ 1890</p>
                         </div>
                         <div class="col-12 col-lg-3 col-md-3 col-sm-3">
-                          <p class="mb-1"><span id="takeoff_rpm-4">NaN</span></p>
+                          <p class="mb-1">540 @ 1890</p>
                         </div>           
                       </div>         
                     </div>
@@ -740,16 +800,16 @@
                     <div class="col-12 col-lg-9 col-md-9 col-sm-9">
                      <div class="row">
                         <div class="col-12 col-lg-3 col-md-3 col-sm-3">
-                          <p class="mb-1"><span id="fuel_tank-1">NaN</span> L</p>
+                          <p class="mb-1">66 L</p>
                         </div>
                         <div class="col-12 col-lg-3 col-md-3 col-sm-3">
-                          <p class="mb-1"><span id="fuel_tank-2">NaN</span> L</p>
+                          <p class="mb-1">66 L</p>
                         </div>
                         <div class="col-12 col-lg-3 col-md-3 col-sm-3">
-                          <p class="mb-1"><span id="fuel_tank-3">NaN</span> L</p>
+                          <p class="mb-1">66 L</p>
                         </div>
                         <div class="col-12 col-lg-3 col-md-3 col-sm-3">
-                          <p class="mb-1"><span id="fuel_tank-4">NaN</span> L</p>
+                          <p class="mb-1">66 L</p>
                         </div>           
                       </div>         
                     </div>
@@ -778,16 +838,16 @@
                     <div class="col-12 col-lg-9 col-md-9 col-sm-9">
                      <div class="row">
                         <div class="col-12 col-lg-3 col-md-3 col-sm-3">
-                          <p class="mb-1"><span id="total_weight-1">NaN</span>  KG</p>
+                          <p class="mb-1">1890 KG</p>
                         </div>
                         <div class="col-12 col-lg-3 col-md-3 col-sm-3">
-                          <p class="mb-1"><span id="total_weight-2">NaN</span> KG</p>
+                          <p class="mb-1">1890 KG</p>
                         </div>
                         <div class="col-12 col-lg-3 col-md-3 col-sm-3">
-                          <p class="mb-1"><span id="total_weight-3">NaN</span> KG</p>
+                          <p class="mb-1">1890 KG</p>
                         </div>
                         <div class="col-12 col-lg-3 col-md-3 col-sm-3">
-                          <p class="mb-1"><span id="total_weight-4">NaN</span> KG</p>
+                          <p class="mb-1">1890 KG</p>
                         </div>           
                       </div>         
                     </div>
@@ -804,16 +864,42 @@
                     <div class="col-12 col-lg-9 col-md-9 col-sm-9">
                      <div class="row">
                         <div class="col-12 col-lg-3 col-md-3 col-sm-3">
-                          <p class="mb-1"><span id="wheel_base-1">NaN</span> MM</p>
+                          <p class="mb-1">1960 MM</p>
                         </div>
                         <div class="col-12 col-lg-3 col-md-3 col-sm-3">
-                          <p class="mb-1"><span id="wheel_base-2">NaN</span> MM</p>
+                          <p class="mb-1">1960 MM</p>
                         </div>
                         <div class="col-12 col-lg-3 col-md-3 col-sm-3">
-                          <p class="mb-1"><span id="wheel_base-3">NaN</span> MM</p>
+                          <p class="mb-1">1960 MM</p>
                         </div>
                         <div class="col-12 col-lg-3 col-md-3 col-sm-3">
-                          <p class="mb-1"><span id="wheel_base-4">NaN</span> MM</p>
+                          <p class="mb-1">1960 MM</p>
+                        </div>           
+                      </div>         
+                    </div>
+                  </div>
+                </td>
+              </tr> 
+
+              <tr>
+                <td class="w-100">
+                  <div class="row w-100">
+                    <div class="col-12 col-lg-3 col-md-3 col-sm-3">
+                      <p class="mb-1">Overall Length</p>
+                    </div>
+                    <div class="col-12 col-lg-9 col-md-9 col-sm-9">
+                     <div class="row">
+                        <div class="col-12 col-lg-3 col-md-3 col-sm-3">
+                          <p class="mb-1">3660 MM</p>
+                        </div>
+                        <div class="col-12 col-lg-3 col-md-3 col-sm-3">
+                          <p class="mb-1">3660 MM</p>
+                        </div>
+                        <div class="col-12 col-lg-3 col-md-3 col-sm-3">
+                          <p class="mb-1">3660 MM</p>
+                        </div>
+                        <div class="col-12 col-lg-3 col-md-3 col-sm-3">
+                          <p class="mb-1">3660 MM</p>
                         </div>           
                       </div>         
                     </div>
@@ -843,16 +929,16 @@
                     <div class="col-12 col-lg-9 col-md-9 col-sm-9">
                      <div class="row">
                         <div class="col-12 col-lg-3 col-md-3 col-sm-3">
-                          <p class="mb-1"><span id="lifting_capacity-1">NaN</span> Kg</p>
+                          <p class="mb-1">1500 Kg</p>
                         </div>
                         <div class="col-12 col-lg-3 col-md-3 col-sm-3">
-                          <p class="mb-1"><span id="lifting_capacity-2">NaN</span> Kg</p>
+                          <p class="mb-1">1500 Kg</p>
                         </div>
                         <div class="col-12 col-lg-3 col-md-3 col-sm-3">
-                          <p class="mb-1"><span id="lifting_capacity-3">NaN</span> Kg</p>
+                          <p class="mb-1">1500 Kg</p>
                         </div>
                         <div class="col-12 col-lg-3 col-md-3 col-sm-3">
-                          <p class="mb-1"><span id="lifting_capacity-4">NaN</span> Kg</p>
+                          <p class="mb-1">1500 Kg</p>
                         </div>           
                       </div>         
                     </div>
@@ -869,16 +955,16 @@
                     <div class="col-12 col-lg-9 col-md-9 col-sm-9">
                      <div class="row">
                         <div class="col-12 col-lg-3 col-md-3 col-sm-3">
-                          <p class="mb-1"><span id="3_pont-1">NaN</span></p>
+                          <p class="mb-1">High precision, CAT-2</p>
                         </div>
                         <div class="col-12 col-lg-3 col-md-3 col-sm-3">
-                          <p class="mb-1"><span id="3_pont-2">NaN</span></p>
+                          <p class="mb-1">High precision, CAT-2</p>
                         </div>
                         <div class="col-12 col-lg-3 col-md-3 col-sm-3">
-                          <p class="mb-1"><span id="3_pont-3">NaN</span></p>
+                          <p class="mb-1">High precision, CAT-2</p>
                         </div>
                         <div class="col-12 col-lg-3 col-md-3 col-sm-3">
-                          <p class="mb-1"><span id="3_pont-4">NaN</span></p>
+                          <p class="mb-1">High precision, CAT-2</p>
                         </div>           
                       </div>         
                     </div>
@@ -909,16 +995,16 @@
                     <div class="col-12 col-lg-9 col-md-9 col-sm-9">
                      <div class="row">
                         <div class="col-12 col-lg-3 col-md-3 col-sm-3">
-                          <p class="mb-1"><span id="wheel_drive-1">NaN</span></p>
+                          <p class="mb-1">2 WD</p>
                         </div>
                         <div class="col-12 col-lg-3 col-md-3 col-sm-3">
-                          <p class="mb-1"><span id="wheel_drive-2">NaN</span></p>
+                          <p class="mb-1">2 WD</p>
                         </div>
                         <div class="col-12 col-lg-3 col-md-3 col-sm-3">
-                          <p class="mb-1"><span id="wheel_drive-3">NaN</span></p>
+                          <p class="mb-1">2 WD</p>
                         </div>
                         <div class="col-12 col-lg-3 col-md-3 col-sm-3">
-                          <p class="mb-1"><span id="wheel_drive-4">NaN</span></p>
+                          <p class="mb-1">2 WD</p>
                         </div>           
                       </div>         
                     </div>
@@ -935,16 +1021,16 @@
                     <div class="col-12 col-lg-9 col-md-9 col-sm-9">
                      <div class="row">
                         <div class="col-12 col-lg-3 col-md-3 col-sm-3">
-                          <p class="mb-1"><span id="front-1">NaN</span></p>
+                          <p class="mb-1">6.00 x 16</p>
                         </div>
                         <div class="col-12 col-lg-3 col-md-3 col-sm-3">
-                          <p class="mb-1"><span id="front-2">NaN</span></p>
+                          <p class="mb-1">6.00 x 16</p>
                         </div>
                         <div class="col-12 col-lg-3 col-md-3 col-sm-3">
-                          <p class="mb-1"><span id="front-3">NaN</span></p>
+                          <p class="mb-1">6.00 x 16</p>
                         </div>
                         <div class="col-12 col-lg-3 col-md-3 col-sm-3">
-                          <p class="mb-1"><span id="front-4">NaN</span></p>
+                          <p class="mb-1">6.00 x 16</p>
                         </div>           
                       </div>         
                     </div>
@@ -961,16 +1047,16 @@
                     <div class="col-12 col-lg-9 col-md-9 col-sm-9">
                      <div class="row">
                         <div class="col-12 col-lg-3 col-md-3 col-sm-3">
-                          <p class="mb-1"><span id="rear-1">NaN</span></p>
+                          <p class="mb-1">14.9 x 28</p>
                         </div>
                         <div class="col-12 col-lg-3 col-md-3 col-sm-3">
-                          <p class="mb-1"><span id="rear-2">NaN</span></p>
+                          <p class="mb-1">14.9 x 28</p>
                         </div>
                         <div class="col-12 col-lg-3 col-md-3 col-sm-3">
-                          <p class="mb-1"><span id="rear-3">NaN</span></p>
+                          <p class="mb-1">14.9 x 28</p>
                         </div>
                         <div class="col-12 col-lg-3 col-md-3 col-sm-3">
-                          <p class="mb-1"><span id="rear-4">NaN</span></p>
+                          <p class="mb-1">14.9 x 28</p>
                         </div>           
                       </div>         
                     </div>
@@ -1001,16 +1087,16 @@
                     <div class="col-12 col-lg-9 col-md-9 col-sm-9">
                      <div class="row">
                         <div class="col-12 col-lg-3 col-md-3 col-sm-3">
-                          <p class="mb-1"><span id="warranty-1">NaN</span> year</p>
+                          <p class="mb-1">6 Year</p>
                         </div>
                         <div class="col-12 col-lg-3 col-md-3 col-sm-3">
-                          <p class="mb-1"><span id="warranty-2">NaN</span> year</p>
+                          <p class="mb-1">6 year</p>
                         </div>
                         <div class="col-12 col-lg-3 col-md-3 col-sm-3">
-                          <p class="mb-1"><span id="warranty-3">NaN</span> year</p>
+                          <p class="mb-1">6 Year</p>
                         </div>
                         <div class="col-12 col-lg-3 col-md-3 col-sm-3">
-                          <p class="mb-1"><span id="warranty-4">NaN</span> year</p>
+                          <p class="mb-1">6 Year</p>
                         </div>           
                       </div>         
                     </div>
@@ -1027,16 +1113,16 @@
                     <div class="col-12 col-lg-9 col-md-9 col-sm-9">
                      <div class="row">
                         <div class="col-12 col-lg-3 col-md-3 col-sm-3">
-                          <p class="mb-1"><span id="status-1">NaN</span></p>
+                          <p class="mb-1">Launched</p>
                         </div>
                         <div class="col-12 col-lg-3 col-md-3 col-sm-3">
-                          <p class="mb-1"><span id="status-2">NaN</span></p>
+                          <p class="mb-1">Launched</p>
                         </div>
                         <div class="col-12 col-lg-3 col-md-3 col-sm-3">
-                          <p class="mb-1"><span id="status-3">NaN</span></p>
+                          <p class="mb-1">Launched</p>
                         </div>
                         <div class="col-12 col-lg-3 col-md-3 col-sm-3">
-                          <p class="mb-1"><span id="status-4">NaN</span></p>
+                          <p class="mb-1">Launched</p>
                         </div>           
                       </div>         
                     </div>
@@ -1051,20 +1137,20 @@
                       <p class="mb-1">Price</p>
                     </div>
 
-
+                    
                     <div class="col-12 col-lg-9 col-md-9 col-sm-9">
                      <div class="row">
                         <div class="col-12 col-lg-3 col-md-3 col-sm-3">
-                          <p class="mb-1"><span id="price-1">NaN</span>*</p>
+                          <p class="mb-1">9.95-10.65 Lac*</p>
                         </div>
                         <div class="col-12 col-lg-3 col-md-3 col-sm-3">
-                          <p class="mb-1"><span id="price-2">NaN</span>*</p>
+                          <p class="mb-1">9.95-10.65 Lac*</p>
                         </div>
                         <div class="col-12 col-lg-3 col-md-3 col-sm-3">
-                          <p class="mb-1"><span id="price-3">NaN</span>*</p>
+                          <p class="mb-1">9.95-10.65 Lac*</p>
                         </div>
                         <div class="col-12 col-lg-3 col-md-3 col-sm-3">
-                          <p class="mb-1"><span id="price-4">NaN</span>*</p>
+                          <p class="mb-1">9.95-10.65 Lac*</p>
                         </div>           
                       </div>         
                     </div>
@@ -1080,14 +1166,15 @@
       
 
    <!-- MODAL -->
-    <!-- <section>
+    <section>
       <div class="modal fade" id="staticBackdrop3" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg modal-dialog-centered">
           <div class="modal-content">
             <div class="modal-header">
               <h5 class="modal-title" id="staticBackdropLabel"> Request Call Back</h5>
-              <button type="button" class="btn-close btn-success" data-bs-dismiss="modal" aria-label="Close"><img class="w-25" src="assets/images/close.png"></button>
+              <button type="button" class="btn-close btn-success" data-bs-dismiss="modal" aria-label="Close"><img src="assets/images/close.png"></button>
             </div>
+            <!-- MODAL BODY -->
             <div class="modal-body bg-light">
               <form id="engine_oil_form" class=""action="">
                 <div class="row">
@@ -1148,11 +1235,11 @@
           </div>
         </div>
       </div>
-    </section> -->
+    </section>
 
     <!-- MODAL FOR THE PRICE -->
     <!-- MODAL -->
-    <!-- <section>
+    <section>
       <div class="modal fade" id="staticBackdrop3" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg modal-dialog-centered">
           <div class="modal-content">
@@ -1160,6 +1247,7 @@
               <h5 class="modal-title" id="staticBackdropLabel"> Request Call Back</h5>
               <button type="button" class="btn-close btn-success" data-bs-dismiss="modal" aria-label="Close"><img src="assets/images/close.png"></button>
             </div>
+            <!-- MODAL BODY -->
             <div class="modal-body bg-light">
               <form id="engine_oil_form" class=""action="">
                 <div class="row">
@@ -1173,7 +1261,7 @@
           </div>
         </div>
       </div>
-    </section> -->
+    </section>
 
   <script>
     (function($) {
@@ -1296,14 +1384,14 @@
   </script>
 
 <script>
-  window.addEventListener('scroll', function () {
-    const navbar = document.getElementById('myNavbar');
-    if (window.scrollY > 300) {
-      navbar.classList.remove('d-none');
-    } else {
-      navbar.classList.add('d-none');
-    }
-  });
+window.addEventListener('scroll', function () {
+  const navbar = document.getElementById('myNavbar');
+  if (window.scrollY > 320) {
+    navbar.style.display = 'block'; // or 'inline', depending on your styling
+  } else {
+    navbar.style.display = 'none';
+  }
+});
 </script>
 
 

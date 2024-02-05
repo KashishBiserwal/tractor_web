@@ -24,16 +24,16 @@ include 'includes/headertag.php';
                 <div class="col-12  text-center">
                     <div class="banner__wrapper">
                         <div class="row  w-100 float-start">
-                        <div class="col-12 col-sm-12 col-xxl-6 col-xl-6 col-lg-6">
-                            <div class="banner__content float-start" id="slider_head">
-                                <!-- <h1 class="d3 mb-0 text-white display-5 fw-bold">Mahindra </h1> -->
-                                
-                                <div>
-                                 
-                                
+                            <div class="col-12 col-sm-12 col-xxl-6 col-xl-6 col-lg-6">
+                                <div class="banner__content float-start" id="slider_head">
+                                    <!-- <h1 class="d3 mb-0 text-white display-5 fw-bold">Mahindra </h1> -->
+                                    
+                                    <div>
+                                    
+                                    
+                                    </div>
                                 </div>
                             </div>
-                        </div>
                         </div>
                     </div>
                 </div>
@@ -42,20 +42,20 @@ include 'includes/headertag.php';
             <div class="py-3"></div>
         </div>
    </section>
-  <section class="bg-light pb-4">
+<section class="bg-light pb-4">
     <div class="container-fullwidth ">
         <div class="row">
             <!-- <h1 class=" mt-5">Popular Mahindra Tractors</h1> -->
             <div id="popular_tractor"></div>
             <div id="productContainer" class="row"></div>
                 
-		    </div>
+		
 		</div>
         <div class="col text-center">
             <a href="#" class="btn btn-success btn-lg">Load More Tractors</a>
         </div>
     </div>
-  </section>
+</section>
 
  
 

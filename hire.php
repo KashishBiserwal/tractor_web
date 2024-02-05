@@ -226,10 +226,10 @@ include 'includes/headertag.php';
                             <div class=" row text-center">
                                 <div class="col-12 col-sm-6 col-lg-6 col-md-6 g-1">
                                     <button id="adduser" type="button" class="add_btn btn btn-success">
-                                        <i class="fas fa-undo"></i> Reset </button>
+                                        <i class="fas fa-undo"  onclick="resetform()"></i> Reset </button>
                                 </div>
                                 <div class="col-12 col-sm-6 col-lg-6 col-md-6 g-1">
-                                    <button id="adduser" type="button" class="add_btn btn btn-success">
+                                    <button id="filter_hiretractor" type="button" class="add_btn btn btn-success">
                                         <i class="fas fa-filter"></i> Apply Filter </button>
                                 </div>
 
@@ -237,16 +237,16 @@ include 'includes/headertag.php';
                         </div>
                     </div>
 
-                    <div class=" mb-3" id="">
+                    <div class=" mb-3" id="search_state">
                         <div class="force-overflow ">
                             <h5 class=" text-center text-dark fw-bold mb-3">Search By State</h5>
                             <div class="price py-2 " style="margin: 0 auto;">
                                 <div class=" d-flex">
-                                    <input type="checkbox" class="checkbox-round mt-1 ms-3" value="cg" /><span
+                                    <input type="checkbox" class="checkbox-round mt-1 ms-3 search_state_filter" value="Chhattisgarh" /><span
                                         class="ps-2 fs-6">Chhattisgarh</span><br />
                                 </div>
                                 <div class=" d-flex">
-                                    <input type="checkbox" class="checkbox-round mt-1 ms-3" value="other" /><span
+                                    <input type="checkbox" class="checkbox-round mt-1 ms-3 search_state_filter" value="other" /><span
                                         class="ps-2 fs-6">Other</span><br />
                                 </div>
                             </div>
@@ -254,121 +254,121 @@ include 'includes/headertag.php';
                     </div>
 
 
-                    <div class="scrollbar mb-3" id="">
+                    <div class="scrollbar mb-3" id="search_district">
                         <div class="force-overflow">
                             <h5 class=" text-center text-dark fw-bold pt-2">Search By District</h5>
                             <div class="HP py-2" style="margin: 0 auto;">
                                 <div class=" d-flex">
-                                    <input type="checkbox" class="checkbox-round ms-3  mt-1" value="raipur" /><span
+                                    <input type="checkbox" class="checkbox-round ms-3  mt-1 search_district_filter" value="raipur" /><span
                                         class="ps-2 fs-6">Raipur</span><br />
                                 </div>
                                 <div class=" d-flex">
-                                    <input type="checkbox" class="checkbox-round ms-3 mt-1" value="Bilaspur" /><span
+                                    <input type="checkbox" class="checkbox-round ms-3 mt-1 search_district_filter" value="Bilaspur" /><span
                                         class="ps-2 fs-6">Bilaspur</span><br />
                                 </div>
                                 <div class=" d-flex">
-                                    <input type="checkbox" class="checkbox-round ms-3 mt-1" value="Ambikapur" /><span
+                                    <input type="checkbox" class="checkbox-round ms-3 mt-1 search_district_filter" value="Ambikapur" /><span
                                         class="ps-2 fs-6">Ambikapur</span><br />
                                 </div>
                                 <div class=" d-flex">
-                                    <input type="checkbox" class="checkbox-round ms-3 mt-1" value="Raigarh" /><span
+                                    <input type="checkbox" class="checkbox-round ms-3 mt-1 search_district_filter" value="Raigarh" /><span
                                         class="ps-2 fs-6">Raigarh</span><br />
                                 </div>
 
                                 <div class=" d-flex">
-                                    <input type="checkbox" class="checkbox-round ms-3 mt-1" value="Surajpur" /><span
+                                    <input type="checkbox" class="checkbox-round ms-3 mt-1 search_district_filter" value="Surajpur" /><span
                                         class="ps-2 fs-6">Surajpur</span><br />
                                 </div>
                                 <div class=" d-flex">
-                                    <input type="checkbox" class="checkbox-round ms-3 mt-1" value="Chirmiri" /><span
+                                    <input type="checkbox" class="checkbox-round ms-3 mt-1 search_district_filter" value="Chirmiri" /><span
                                         class="ps-2 fs-6">Chirmiri</span><br />
                                 </div>
                                 <div class=" d-flex">
-                                    <input type="checkbox" class="checkbox-round ms-3 mt-1" value="Korba" /><span
+                                    <input type="checkbox" class="checkbox-round ms-3 mt-1 search_district_filter" value="Korba" /><span
                                         class="ps-2 fs-6">Korba</span><br />
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <div class="scrollbar mb-3" id="">
+                    <!-- <div class="scrollbar mb-3" id="hp_search">
                         <div class="force-overflow">
                             <h5 class=" text-dark text-center fw-bold pt-2">Search By HP</h5>
                             <div class="HP py-2" style="margin: 0 auto;">
                                 <div class=" d-flex">
-                                    <input type="checkbox" class="checkbox-round ms-3 mt-1" value="0-20" /><span
+                                    <input type="checkbox" class="checkbox-round ms-3 mt-1 search_hp_filter" value="0-20" /><span
                                         class="ps-2 fs-6">0 HP - 20 HP</span><br />
                                 </div>
                                 <div class=" d-flex">
-                                    <input type="checkbox" class="checkbox-round ms-3 mt-1" value="21-30" /><span
+                                    <input type="checkbox" class="checkbox-round ms-3 mt-1 search_hp_filter" value="21-30" /><span
                                         class="ps-2 fs-6">21 HP - 30 HP</span><br />
                                 </div>
                                 <div class=" d-flex">
-                                    <input type="checkbox" class="checkbox-round ms-3 mt-1" value="31-40" /><span
+                                    <input type="checkbox" class="checkbox-round ms-3 mt-1 search_hp_filter" value="31-40" /><span
                                         class="ps-2 fs-6">31 HP - 40 HP</span><br />
                                 </div>
                                 <div class=" d-flex">
-                                    <input type="checkbox" class="checkbox-round ms-3 mt-1" value="41-50" /><span
+                                    <input type="checkbox" class="checkbox-round ms-3 mt-1 search_hp_filter" value="41-50" /><span
                                         class="ps-2 fs-6">41 HP - 50 HP</span><br />
                                 </div>
                                 <div class=" d-flex">
-                                    <input type="checkbox" class="checkbox-round ms-3 mt-1" value="51-60" /><span
+                                    <input type="checkbox" class="checkbox-round ms-3 mt-1 search_hp_filter" value="51-60" /><span
                                         class="ps-2 fs-6">51 HP - 60 HP</span><br />
                                 </div>
                                 <div class=" d-flex">
-                                    <input type="checkbox" class="checkbox-round ms-3 mt-1" value="61-70" /><span
+                                    <input type="checkbox" class="checkbox-round ms-3 mt-1 search_hp_filter" value="61-70" /><span
                                         class="ps-2 fs-6">61 HP - 75 HP</span><br />
                                 </div>
                                 <div class=" d-flex">
-                                    <input type="checkbox" class="checkbox-round ms-3 mt-1" value="71-80" /><span
+                                    <input type="checkbox" class="checkbox-round ms-3 mt-1 search_hp_filter" value="71-80" /><span
                                         class="ps-2 fs-6">Above 75 Hp </span><br />
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="scrollbar mb-3" id=" my-2">
+                    </div> -->
+                    <div class="scrollbar mb-3" id="brand_search">
                         <div class="force-overflow">
                             <h5 class=" text-dark text-center fw-bold  pt-2">Search By Brand</h5>
                             <div class="HP py-2"  style="margin: 0 auto;">
 
                                 <div class=" d-flex">
-                                    <input type="checkbox" class="checkbox-round ms-3 mt-1 " value="Mahindra" /><span
+                                    <input type="checkbox" class="checkbox-round ms-3 mt-1 search_brand_filter" value="Mahindra" /><span
                                         class="ps-2 fs-6">Mahindra (97)</span><br />
                                 </div>
                                 <div class=" d-flex">
-                                    <input type="checkbox" class="checkbox-round ms-3 mt-1" value="Farmtrac" /><span
+                                    <input type="checkbox" class="checkbox-round ms-3 mt-1 search_brand_filter" value="Farmtrac" /><span
                                         class="ps-2 fs-6">Farmtrac (21)</span><br />
                                 </div>
                                 <div class=" d-flex">
-                                    <input type="checkbox" class="checkbox-round ms-3 mt-1" value="Swaraj" /><span
+                                    <input type="checkbox" class="checkbox-round ms-3 mt-1 search_brand_filter" value="Swaraj" /><span
                                         class="ps-2 fs-6">Swaraj (19)</span><br />
                                 </div>
                                 <div class=" d-flex">
-                                    <input type="checkbox" class="checkbox-round ms-3 mt-1" value="Massey" /><span
+                                    <input type="checkbox" class="checkbox-round ms-3 mt-1 search_brand_filter" value="Massey" /><span
                                         class="ps-2 fs-6">Massey Ferguson (16)</span><br />
                                 </div>
                                 <div class=" d-flex">
-                                    <input type="checkbox" class="checkbox-round ms-3 mt-1" value="Powertrac" /><span
+                                    <input type="checkbox" class="checkbox-round ms-3 mt-1 search_brand_filter" value="Powertrac" /><span
                                         class="ps-2 fs-6">Powertrac (15)</span><br />
                                 </div>
                                 <div class=" d-flex">
-                                    <input type="checkbox" class="checkbox-round ms-3 mt-1" value="Sonalika" /><span
+                                    <input type="checkbox" class="checkbox-round ms-3 mt-1 search_brand_filter" value="Sonalika" /><span
                                         class="ps-2 fs-6">Sonalika (15)</span><br />
                                 </div>
                                 <div class=" d-flex">
-                                    <input type="checkbox" class="checkbox-round ms-3 mt-1" value="Eicher" /><span
+                                    <input type="checkbox" class="checkbox-round ms-3 mt-1 search_brand_filter" value="Eicher" /><span
                                         class="ps-2 fs-6">Eicher (12)</span><br />
                                 </div>
                                 <div class=" d-flex">
-                                    <input type="checkbox" class="checkbox-round ms-3 mt-1" value="John" /><span
+                                    <input type="checkbox" class="checkbox-round ms-3 mt-1 search_brand_filter" value="John" /><span
                                         class="ps-2 fs-6">John Deere (6)</span><br />
                                 </div>
                                 <div class=" d-flex">
-                                    <input type="checkbox" class="checkbox-round ms-3 mt-1" value="Escorts" /><span
+                                    <input type="checkbox" class="checkbox-round ms-3 mt-1 search_brand_filter" value="Escorts" /><span
                                         class="ps-2 fs-6">Escorts (13)</span><br />
                                 </div>
                                 <div class=" d-flex">
-                                    <input type="checkbox" class="checkbox-round ms-3 mt-1" value="Holland" /><span
+                                    <input type="checkbox" class="checkbox-round ms-3 mt-1 search_brand_filter" value="Holland" /><span
                                         class="ps-2 fs-6">New Holland (2)</span><br />
                                 </div>
                             </div>
@@ -464,10 +464,12 @@ include 'includes/headertag.php';
         });
         $('#button_hire').on('click', function() {
             $('#hire_inner').valid();
-            console.log($('#hire_inner').valid());
+            // console.log($('#hire_inner').valid());
         });
     });
     </script>
 
 
 </html>
+
+
