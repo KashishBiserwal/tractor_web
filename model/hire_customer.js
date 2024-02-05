@@ -4,47 +4,40 @@ $(document).ready(function() {
     // $('#filter_tractor').click(filter_search);
 });
 
-    var cardsPerPage = 6; // Number of cards to show initially
-    var cardsDisplayed = 0; // Counter to keep track of the number of cards displayed
-    var allCards; // Variable to store all cards
+var cardsPerPage = 6; // Number of cards to show initially
+var cardsDisplayed = 0; // Counter to keep track of the number of cards displayed
+var allCards; // Variable to store all cards
+var abc = [];
+function getHiretractor() {
+    var url = "http://tractor-api.divyaltech.com/api/customer/get_rent_data";
 
-    function getHiretractor() {
-        var url = "http://tractor-api.divyaltech.com/api/customer/get_rent_data";
-    
-        $.ajax({
-            url: url,
-            type: "GET",
-            success: function (response) {
-                var productContainer = $("#productContainer");
-                // Clear the existing content in the container
-                productContainer.empty();
-    
-                // if (response.rent_details && response.rent_details.data1 && response.rent_details.data1.length > 0) {
-                //     response.rent_details.data1.forEach(function (p) {
-                //         appendCard(productContainer, p);
-                //     });
-                // }
-    
-                // if (response.rent_details && response.rent_details.data2 && response.rent_details.data2.length > 0) {
-                //     response.rent_details.data2.forEach(function (p) {
-                //         appendCard(productContainer, p);
-                //     });
-                // }
-    
-               const abc= response.rent_details.data1.map(t1 => ({...t1, ...response.rent_details.data2.find(t2 => t2.customer_id === t1.id)}))
-               abc.forEach(function (p) {
+    $.ajax({
+        url: url,
+        type: "GET",
+        success: function (response) {
+            var productContainer = $("#productContainer");
+            // Clear the existing content in the container
+            productContainer.empty();
+            // merge both data 1 and data 2
+            const abc = response.rent_details.data1.map(t1 => ({...t1, ...response.rent_details.data2.find(t2 => t2.customer_id === t1.id)}));
+
+            abc.slice(0, cardsPerPage).forEach(function (p) {
                 appendCard(productContainer, p);
+                cardsDisplayed++;
             });
 
-            //    console.log('abc',abc)
-
-                $("#loadMoreBtn").toggle(productContainer.children().length > cardsPerPage);
-            },
-            error: function (error) {
-                console.error('Error fetching data:', error);
+            // If there are more cards than the initial display, show the "Load More" button
+            if (abc.length > cardsPerPage) {
+                $("#loadMoreBtn").show();
+            } else {
+                $("#loadMoreBtn").hide();
             }
-        });
-    }
+        },
+        error: function (error) {
+            console.error('Error fetching data:', error);
+        }
+    });
+}
     function appendCard(container, p) {
         var images = p.images;
         var a = [];
@@ -59,7 +52,7 @@ $(document).ready(function() {
         var cardId = `card_${p.product_id}`; // Dynamic ID for the card
         var modalId = `used_tractor_callbnt_${p.product_id}`; // Dynamic ID for the modal
         var formId = `contact-seller-call_${p.product_id}`; // Dynamic ID for the form
-        
+
         var images = p.images;
         // var rates = p.rates;
         var ratesArray = p.rates ? p.rates.split(',') : [];
@@ -117,11 +110,19 @@ $(document).ready(function() {
                                                 <div class="row px-3 ">
                                     <div class="col-12 col-lg-6 col-md-6 col-sm-6 " hidden>
                                         <label for="name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i> enquiryName</label>
-                                        <input type="text" class="form-control" placeholder="Enter Your Name" id="enquiry_type_id" value="21" name="fname">
+                                        <input type="text" class="form-control" placeholder="Enter Your Name" id="enquiry_type_id" value="19" name="fname">
                                     </div>
                                     <div class="col-12 col-lg-6 col-md-6 col-sm-6 " hidden>
                                         <label for="name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i> product_id</label>
-                                        <input type="text" class="form-control" id="product_id" value="${p.product_id}" hidden> 
+                                        <input type="text" class="form-control" id="product_id" value="${p.id}" hidden> 
+                                    </div>
+                                    <div class="col-12 col-lg-6 col-md-6 col-sm-6 "hidden>
+                                        <label for="name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i> First Name</label>
+                                        <input type="text" class="form-control" placeholder="Enter Your Name" value="${p.brand_name}" id="brand_name" name="">
+                                    </div>
+                                    <div class="col-12 col-lg-6 col-md-6 col-sm-6 "hidden>
+                                        <label for="name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i> First Name</label>
+                                        <input type="text" class="form-control" placeholder="Enter Your Name" value="${p.model}" id="model" name="">
                                     </div>
                                     <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
                                         <label for="name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i> First Name</label>
@@ -182,21 +183,23 @@ $(document).ready(function() {
              `;
         container.append(newCard);
     }
-    $(document).on('click', '#loadMoreBtn', function(){
+    $(document).on('click', '#loadMoreBtn', function () {
         var productContainer = $("#productContainer");
-
-        allCards.slice(cardsDisplayed, cardsDisplayed + cardsPerPage).forEach(function (p) {
+    
+        abc.slice(cardsDisplayed, cardsDisplayed + cardsPerPage).forEach(function (p) {
             appendCard(productContainer, p);
             cardsDisplayed++;
         });
 
         // Hide the "Load More" button if all cards are displayed
-        if (cardsDisplayed >= allCards.length) {
+        if (cardsDisplayed >= abc.length) {
             $("#loadMoreBtn").hide();
         }
     });
-
+    
     getHiretractor();
+
+
   function tractor_enquiry(formId) {
         // Use the formId to get values dynamically
         var enquiry_type_id = $(`#${formId} #enquiry_type_id`).val();
@@ -208,12 +211,14 @@ $(document).ready(function() {
         var tehsil = $(`#${formId} #tehsil`).val();
         var price = $(`#${formId} #price_form`).val();
         var product_id = $(`#${formId} #product_id`).val();
-        var model_form = $(`#${formId} #model_form`).val();
+        var model = $(`#${formId} #model`).val();
+        var brand_name = $(`#${formId} #brand_name`).val();
+
 
   
     // Prepare data to send to the server
     var paraArr = {
-      'product_id':product_id,
+      'product_subject_id':product_id,
       'enquiry_type_id':enquiry_type_id,
       'first_name': first_name,
       'last_name':last_name,
@@ -222,7 +227,8 @@ $(document).ready(function() {
       'district':district,
       'tehsil':tehsil,
       'price':price,
-      'model':model_form,
+      'model':model,
+      'brand_name':brand_name,
     };
    
   var apiBaseURL =APIBaseURL;

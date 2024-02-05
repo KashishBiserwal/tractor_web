@@ -270,7 +270,7 @@
          <!-- <img src="../assets/images/success.gif">  -->
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn add_btn btn-success btn_all" data-bs-dismiss="modal">OK</button>
+        <button type="button" class="btn add_btn btn-success btn_all px-3" data-bs-dismiss="modal">OK</button>
         <!-- <a class="btn  text-primary" data-dismiss="modal">Ok</a> -->
       </div>
     </div>
