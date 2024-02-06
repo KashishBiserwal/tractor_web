@@ -48,7 +48,7 @@ function getHireTracById() {
               // Your Swiper configuration options
           });
           var mySwiper = new Swiper('.mySwiper_data', {
-              // Your Swiper configuration options
+              
           });
         },
         error: function (error) {
