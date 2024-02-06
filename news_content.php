@@ -13,7 +13,7 @@
         include 'includes/header.php';
    ?>
     <section class="mt-5 pt-5">
-        <div class="container pt-4">
+        <div class="container mt-3 pt-4">
             <div class="">
                 <span class="mt-5 text-white pt-5 ">
                     <a href="index.php" class="text-decoration-none header-link px-1">Home<i class="fa-solid fa-chevron-right px-1"></i></a>
@@ -32,7 +32,7 @@
                 <p id="news_heading"></p>
             </div>
             <div class="row">
-                <p><i class="fa-solid fa-calendar-days me-2"></i>प्रकाशित - <span id="news_date"></span> ट्रैक्टर जंक्शन द्वारा</p>
+                <p><i class="fa-solid fa-calendar-days me-2"></i>प्रकाशित - <span id="news_date"></span> भारतएग्रीमार्ट द्वारा</p>
                 <!-- <img src="assets\images\sarkari-yojana-1698920602.webp" class="w-50 h-54" alt="img"> -->
                 <div id="news_img"></div>
             </div>

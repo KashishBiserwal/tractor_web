@@ -8,6 +8,7 @@ function get_details() {
     var productId = urlParams.get('id');
     var url = "http://tractor-api.divyaltech.com/api/customer/get_news_details_by_id/" + productId;
     console.log(url);
+    console.log(productId);
 
     $.ajax({
         url: url,

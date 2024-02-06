@@ -107,3 +107,4 @@ myDiv.text(myDiv.text().substring(0,120))
 //     console.log("confirm");
 //     console.log("Form submitted successfully");
 //   }
+

@@ -270,7 +270,7 @@
          <!-- <img src="../assets/images/success.gif">  -->
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn add_btn btn-success btn_all" data-bs-dismiss="modal">OK</button>
+        <button type="button" class="btn add_btn btn-success btn_all px-3" data-bs-dismiss="modal">OK</button>
         <!-- <a class="btn  text-primary" data-dismiss="modal">Ok</a> -->
       </div>
     </div>
@@ -294,30 +294,30 @@
       'Authorization': 'Bearer ' + localStorage.getItem('token')
     };
 
-    $.ajax({
-      url: url,
-      type: "GET",
-      headers: headers,
-      success: function (data) {
-        $("#selectedImagesContainer1").empty();
+  $.ajax({
+  url: url,
+  type: "GET",
+  headers: headers,
+  success: function (data) {
+    $("#selectedImagesContainer1").empty();
 
-        var newCard = data.news_category.map(function(category) {
-          return `<li id="${category.category_name.replace(/\s+/g, '')}">
-                    <a class="dropdown-item fw-bold" href="${category.category_name.toLowerCase()}_news.php?category_id=id">
-                      ${category.category_name}
-                    </a>
-                  </li>
-                 <hr class="dropdown-divider m-0">`;
-                  // console.log(id);
-        });
-
-        $("#selectedImagesContainer1").append(newCard.join(''));
-      },
-      error: function (error) {
-        console.error('Error fetching data:', error);
-      }
+    var newCard = data.news_category.map(function(category) {
+      var categoryWithoutSpaces = category.category_name.replace(/\s+/g, '_');
+      return `<li id="${categoryWithoutSpaces}">
+                <a class="dropdown-item fw-bold" href="${categoryWithoutSpaces.toLowerCase()}.php?category_id=${category.id}">
+                  ${category.category_name}
+                </a>
+              </li>
+             <hr class="dropdown-divider m-0">`;
     });
-  } 
+
+    $("#selectedImagesContainer1").append(newCard.join(''));
+  },
+  error: function (error) {
+    console.error('Error fetching data:', error);
+  }
+  });
+} 
 
 
   function get_brands() {

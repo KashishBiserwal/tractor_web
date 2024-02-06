@@ -69,7 +69,7 @@
                                     <div class="col-12 mt-3">
                                         <div class="form-outline">
                                         <label class="form-label text-dark">Body/ Blog Content</label>
-                                        <textarea class="w-100 p-2" name="contant" id="contant" rows="4" cols="70" minlength="1" maxlength=""></textarea>
+                                        <textarea class="w-100 p-2" name="contant" id="contant" rows="4" cols="70" ></textarea>
                                         </div>
                                     </div>
                                     <div class="col-12 col-lg-8 col-md-8 col-sm-8 mt-3">
@@ -83,7 +83,7 @@
                                           <div class="upload__btn-box">
                                             <label >
                                               <p class="upload__btn ">Upload images</p>
-                                              <input type="file" multiple="" data-max_length="20" class="upload__inputfile" id="image_" name="image_">
+                                              <input type="file" multiple="" data-max_length="20" class="upload__inputfile" id="image_" name="image_[]">
                                             </label>
                                             <p></p>
                                           </div>
