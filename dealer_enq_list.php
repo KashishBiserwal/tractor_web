@@ -34,12 +34,19 @@
       <div class="filter-card mb-2">
         <div class="card-body">
           <div class="row">
-          <div class="col-12 col-sm-12 col-md-3 col-lg-3">
+          <!-- <div class="col-12 col-sm-12 col-md-3 col-lg-3">
               <div class="form-outline">
                 <label class="form-label fw-bold"> Dealer Name</label>
                 <input type="text" class="form-control" placeholder=""  id="dealers_1">
               </div>
-            </div>
+            </div> -->
+            <div class="col-12 col-sm-12 col-md-3 col-lg-3">
+                <div class="form-outline">
+                      <label class="form-label">Search By Brand</label>
+                      <select class="js-select2 form-select form-control mb-0" id="brand_name">
+                      </select>
+                </div>
+              </div>
             <div class="col-12 col-sm-12 col-md-3 col-lg-3">
               <div class="form-outline">
                 <label class="form-label">State</label>

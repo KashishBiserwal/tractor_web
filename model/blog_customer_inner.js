@@ -20,7 +20,6 @@ function get_details() {
             document.getElementById('publisher_name').innerText = data.blog_details[0].publisher;
             document.getElementById('heading_deatail').innerText = data.blog_details[0].heading;
             document.getElementById('content').innerText = data.blog_details[0].content;
-
             var images = data.blog_details[0].image_names;
             var imageArray = images.split(',');
 

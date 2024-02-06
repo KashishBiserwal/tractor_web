@@ -30,7 +30,7 @@
 
     <!-- Want to be Featured in Bharat Tractor Weekly News? Connect With Us -->
     <section>
-        <div class="container">
+        <!-- <div class="container">
             <div class="row  align-items-center my-3" id="productContainer">       
                 <div class="col-12">
                     <div class="py-3 my-3 ps-4">
@@ -39,7 +39,35 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
+        <div class="container" id="an">       
+      <div id="productContainer" class="row py-1">
+        <!-- <h1 class="mt-2 mb-3">Blog</h1>  -->
+            <!-- <div class="col-12 col-lg-4 col-sm-4 col-md-4 mt-2 mb-2">
+              <div class="success__stry__item shadow h-100">
+                <div class="thumb">
+                  <a href="news_content.php">
+                    <div class="">
+                      <img src="assets\images\sarkari-yojana-1698841100.webp" class="object-fit-cover p-3 w-100" alt="img">
+                    </div>
+                  </a>
+                </div>
+                <div class="content mb-3 ms-3">
+                  <button type="button" class="btn btn-warning">Latest News</button>
+                  <div class="row mt-2">
+                    <p>खुशखबरी दिवाली पर 1.75 करोड़ परिवारों को फ्री में गैस...</p>
+                  </div>
+                  <a href="#" class="text-decoration-none text-dark pb-1">
+                    <span class=""> 23-November-2023 </span>
+                  </a>
+                </div>
+              </div>
+            </div>    -->
+      </div>
+      <div class="col text-center mt-3">
+            <button id="load_moretract" type="button" class=" btn add_btn btn-success"><i class="fas fa-undo"></i>View All</button>
+          </div>
+    </div>
     </section>
 
 <?php
@@ -47,17 +75,5 @@
     include 'includes/footertag.php';
 ?>
 
-
-    <script>
-        $(document).ready(function() {
-            $('#pagination-demo').twbsPagination({
-  totalPages: 35,
-  visiblePages: 7,
-  onPageClick: function (event, page) {
-    $('#page-content').text('Page ' + page);
-  }
-});
-        });    
-    </script>
 </body>
 </html>

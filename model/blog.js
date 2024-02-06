@@ -7,7 +7,6 @@ function blog_details_list() {
     // url = CustomerAPIBaseURL + 'news_category';
     url = 'http://tractor-api.divyaltech.com/api/customer/blog_details';
 
-    // Keep track of the total tractors and the currently displayed tractors
     var totalEngineoil = 0;
     var displayedEngineoil = 8; // Initially display 6 tractors
 
@@ -55,9 +54,8 @@ function displayEngineoil(engineoil) {
     productContainer.html('');
     tableData.html('');
 
-    
     engineoil.forEach(function (p) {
-        console.log(p,"ppp")
+        console.log(p, "ppp");
         var images = p.image_names;
         var a = [];
 
@@ -71,35 +69,29 @@ function displayEngineoil(engineoil) {
 
         var newCard = `
                 <div class="col-12 col-lg-4 col-sm-4 col-md-4 mt-2 mb-2">
-                <div class="success__stry__item shadow h-100">
-                <div class="thumb">
-                <a href="blog_customer_inner.php?id=${p.id}">
-                <img src="http://tractor-api.divyaltech.com/uploads/blog_img/${a[0]}" class="engineoil_img  w-100" alt="img">
-                </a>
-                </div>
-                <div class="content mb-3 ms-3">
-                <button type="button" class="btn btn-warning mt-3">${p.blog_category} </button>
-                <div class="row mt-2">
-                    <p class="fw-bold">${p.heading}</p>
-                </div>
-                <div class="row">
-                  <p class="fw-bold"><span>publisher: </span>${p.publisher}</p>
-                </div>
-                <a href="blog_customer_inner.php?id=${p.id}" class="text-decoration-none pb-1">
-                    <span class=""> Date/time-${p.date} </span>
-                </a>
-                </div>
-                </div>
+                    <div class="success__stry__item shadow h-100">
+                        <div class="thumb">
+                            <a href="blog_customer_inner.php?id=${p.id}">
+                            <img src="http://tractor-api.divyaltech.com/uploads/blog_img/${a[0]}" class="engineoil_img  w-100" alt="img">
+                            </a>
+                        </div>
+                        <div class="content mb-3 ms-3">
+                            <button type="button" class="btn btn-warning mt-3">${p.blog_category} </button>
+                            <div class="row mt-2">
+                                <p class="fw-bold">${p.heading}</p>
+                            </div>
+                            <div class="row">
+                                <p class="fw-bold"><span>publisher: </span>${p.publisher}</p>
+                            </div>
+                            <a href="blog_customer_inner.php?id=${p.id}" class="text-decoration-none pb-1">
+                                <span class=""> Date/time-${p.date} </span>
+                            </a>
+                        </div>
+                    </div>
                 </div> 
-                    `;
-                
+            `;
 
-  
-    var myDiv = $('#description_id');
-myDiv.text(myDiv.text().substring(0,120))
-        // Append the new card to the container
-        productContainer.append(newCard);
-       
-       
+        // Use prepend to add the new card at the beginning
+        productContainer.prepend(newCard);
     });
 }
