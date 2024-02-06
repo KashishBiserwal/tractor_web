@@ -74,9 +74,9 @@
               <li class="py-1 ps-3"><a href="old_harvester_enqu.php" class="d-inline-flex align-items-center text-white text-decoration-none rounded"> Old Harvester Enquiries</a></li>
               <li class="py-1 ps-3"><a href="tyers_enquiry_list.php" class="d-inline-flex align-items-center text-white text-decoration-none rounded">Tyres Enquiry</a></li>
               <li class="py-1 ps-3"><a href="nursery_enquiry.php" class="d-inline-flex align-items-center text-white text-decoration-none rounded">Nursery Enquiry</a></li>
-              <!-- <li class="py-1 ps-3"><a href="rent_trsc_enq.php" class="d-inline-flex align-items-center text-white text-decoration-none rounded">Rent Tractor enquiry</a></li> -->
-              <!-- <li class="py-1 ps-3"><a href="hire_trac_enq.php" class="d-inline-flex align-items-center text-white text-decoration-none rounded">Hire Tractor Enquiry</a></li> -->
+              <li class="py-1 ps-3"><a href="insurance_enquiry.php" class="d-inline-flex align-items-center text-white text-decoration-none rounded">Insurance Enquiry</a></li>
               <li class="py-1 ps-3"><a href="engine_oil_enquiry.php" class="d-inline-flex align-items-center text-white text-decoration-none rounded">Engine Oil Enquiry</a></li>
+              <li class="py-1 ps-3"><a href="loan_enquiry.php" class="d-inline-flex align-items-center text-white text-decoration-none rounded">Loan Enquiry</a></li>
           </ul>
         </div>
        

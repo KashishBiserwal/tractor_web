@@ -45,12 +45,7 @@ include 'includes/footertag.php';
               <div class="form-outline ">
                 <label class="form-label">Model</label>
                 <input type="text" class="form-control" placeholder="" id="model_sct" name="model_sct">
-                    <!-- <select class="form-select py-2" aria-label="Default select example">
-                        <option selected>Select Model</option>
-                        <option value="1">3032 NX</option>
-                        <option value="2">3030 NX</option>
-                        <option value="3">3230 NX</option>
-                    </select> -->
+                   
               </div>
             </div>
             <div class="col-12 col-sm-12 col-md-3 col-lg-3">
@@ -135,7 +130,7 @@ include 'includes/footertag.php';
                                 <div class="col-12 col-lg-6 col-md-6 col-sm-6 mt-3" hidden>
                                   <div class="form-outline ">
                                     <label for="name" class="form-label text-dark">Product id</label>
-                                    <input type="text" class="form-control" placeholder="Enter Your Model Name" value="192" id="product_type_id" name="product_type_id">
+                                    <input type="text" class="form-control" placeholder="Enter Your Model Name" value="" id="product_type_id" name="product_type_id">
                                   </div>
                                 </div>
                                 <div class="col-12 col-sm-6 col-lg-6 col-md-6">
@@ -148,7 +143,7 @@ include 'includes/footertag.php';
                                     <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
                                       <div class="form-outline">
                                         <label for="name" class="form-label text-dark">Model</label>
-                                        <input type="text" class="form-control" placeholder="" id="model_1" name="model_1">
+                                        <input type="text" class="form-control" placeholder="" value="" id="model_1" name="model_1">
                                       </div>
                                     </div>
                                  <div class="col-12 col-lg-6 col-md-6 col-sm-6 mt-3 ">
@@ -167,12 +162,6 @@ include 'includes/footertag.php';
                                       <div class="form-outline mt-3">
                                         <label for="name" class="form-label text-dark">Phone Number</label>
                                         <input type="text" class="form-control" placeholder="" id="mobile" name="mobile">
-                                      </div>
-                                    </div>
-                                    <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
-                                      <div class="form-outline mt-3">
-                                        <label for="name" class="form-label text-dark">Email</label>
-                                        <input type="text" class="form-control" placeholder="" id="email" name="email">
                                       </div>
                                     </div>
                                     <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">

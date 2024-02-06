@@ -51,73 +51,81 @@
    ?>
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
     <section class="mt-5 pt-5">
-        <div class="container pt-4">
+        <div class="container pt-5">
             <div class="">
                 <span class="mt-5 text-white pt-5 ">
                     <a href="index.php" class="text-decoration-none header-link px-1">Home <i
                             class="fa-solid fa-chevron-right px-1"></i></a><span class="text-dark"><a
-                            href="nursery_ui.php" class="text-decoration-none header-link px-1"> Nursery </a></span>
+                            href="hire.php" class="text-decoration-none header-link px-1"> Hire Tractor </a></span>
                 </span>
             </div>
         </div>
     </section>
-    <section>
+    <section class="mt-2">
         <div class="container">
             <div class="row">
-                <div class="col-12 col-sm-6 col-lg-6 col-md-6 mt-2">
+                <div class="col-12 col-sm-6 col-lg-6 col-md-6" style="position: relative;">
                     <div>
-                      <h4 id="model_name"></h4>
-                    </div>
-                    <div>
-                    <div class="swiper swiper_buy mySwiper2_buy">
-                        <div class="swiper-wrapper swiper-wrapper_buy">
-                            <div class=" swiper-slide swiper-slide_buy">
-                            <!-- <img class="img_buy" src="assets/images/437-1632718440.webp" /> -->
+                        <h1 class="fw-bold text-danger pt-3" id="brand_name"></h1>
+                        <div class="gallery">   
+                            <div class="swiper-container gallery-slider">
+                                <div class="swiper-wrapper mySwiper2_data"></div>
+                                <div class="swiper-button-prev"></div>
+                                <div class="swiper-button-next"></div>
+                            </div>
+
+                            <div class="swiper-container gallery-thumbs">
+                                <div class="swiper-wrapper mySwiper_data"></div>
                             </div>
                         </div>
                     </div>
-                    <div thumbsSlider="" class="swiper mySwiper_buy" style="height:50px; width: 43%;" id="swip_img"></div>
                 </div>
-                </div>
-                <div class="col-12 col-sm-6 col-lg-6 col-md-6">
+                <div class="col-12 col-sm-6 col-lg-6 col-md-6" >
                     <h5 class="text-black fw-bold text-center "></h5>
                     <div class="power">
                         <div class="row ">
                             <div class="content d-flex flex-column flex-grow-1 mt-2">
                                 <div class="power ">
-                                    <div class="row mt-4">
-                                        <div class="col-6 col-lg-6 col-md-6 col-sm-6 mt-2">
-                                            <p class="text-dark "><i class="fa-solid fa-user mx-2"></i>Name</p>
-                                        </div>
-                                        <div class="col-6 col-lg-6 col-md-6 col-sm-6 mt-2">
-                                            <p class="text-dark "id="name_first"></p>
-                                        </div>
-                                        <div class="col-6 col-lg-6 col-md-6 col-sm-6 mt-2">
-                                            <p class="text-dark "><i class="fa-solid fa-location-dot mx-2"></i>Location</p>
-                                        </div>
-                                        <div class="col-6 col-lg-6 col-md-6 col-sm-6 mt-2">
-                                            <p class="text-dark "><span id="set_dist"></span>,<span id="set_state"></span></p>
-                                        </div>
-                                        <div class="col-6 col-lg-6 col-md-6 col-sm-6 mt-2">
-                                            <p class="text-dark "><i class="fas fa-bolt mx-2"></i>Power</p>
-                                        </div>
-                                        <div class="col-6 col-lg-6 col-md-6 col-sm-6 mt-2">
-                                            <p class="text-dark " id="power_hp"></p>
-                                        </div>
-                                        <div class="col-6 col-lg-6 col-md-6 col-sm-6 mt-2">
-                                            <p class="text-dark "><i class="fa-solid fa-gear mx-2"></i>Engine</p>
-                                        </div>
-                                        <div class="col-6 col-lg-6 col-md-6 col-sm-6 mt-2">
-                                            <p id="engine_cc" type="" class="text-dark "></p>
-                                        </div>
-                                    </div>
-                                    <div class="col-10">
+                                    <table class="table border bg-light  mt-5">
+                                        <tbody>
+                                            <tr>
+                                                <td class="col-12 col-lg-6 col-md-6 col-sm-6">
+                                                    <p class="text-dark "><i class="fa-solid fa-user mx-2"></i>Name</p>
+                                                </td>
+                                                <td class="col-12 col-lg-6 col-md-6 col-sm-6">
+                                                 <p class="text-dark "id="name_first"></p>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <p class="text-dark "><i class="fa-solid fa-location-dot mx-2"></i>Location</p>
+                                                </td>
+                                                <td> <p class="text-dark "><span id="set_dist"></span>,<span id="set_state"></span></p></td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                 <p class="text-dark "><i class="fas fa-bolt mx-2"></i>Price</p>
+                                                </td>
+                                                <td>  <p class="text-dark " id="power_hp"></p></td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                 <p class="text-dark "><i class="fa-solid fa-gear mx-2"></i>Area </p>
+                                                </td>
+                                                <td>
+                                                <p id="engine_cc" type="" class="text-dark "></p>
+                                                </td>
+                                            </tr>
+                                            
+                                        
+                                        </tbody>
+                                    </table>
+                                    <div class="col-12">
                                         <button id="send_enquiry" type="button" class="add_btn  btn-success w-100"data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                                             Send Enquiry</button>
                                     </div>
-                                </div>
 
-                                 <!-- Modal -->
+                                     <!-- Modal -->
                                 <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static"
                                     data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel"
                                     aria-hidden="true">
@@ -139,6 +147,14 @@
                                                             <div class="col-12 col-lg-6 col-md-6 col-sm-6 " hidden>
                                                                 <label for="name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i> product_id</label>
                                                                 <input type="text" class="form-control" id="product_id" value="">
+                                                            </div>
+                                                            <div class="col-12 col-lg-6 col-md-6 col-sm-6 " hidden>
+                                                                <label for="name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i> model</label>
+                                                                <input type="text" class="form-control" id="model_form" value="">
+                                                            </div>
+                                                            <div class="col-12 col-lg-6 col-md-6 col-sm-6 " hidden>
+                                                                <label for="name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i> brand</label>
+                                                                <input type="text" class="form-control" id="brand_name_form" value="">
                                                             </div>
                                                             <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-4">
                                                                 <div class="form-outline">
@@ -202,86 +218,12 @@
                                         </div>
                                     </div>
                                 </div>
+                                </div>
+
+                                
                             </div>
                         </div>
                     </div>
-                    <!-- <form action="" id="used_farm_inner_from" class="outline-solid bg-light">
-                        <div class="row my-3">
-                            <div class="col-12 justify-content-center">
-                                <div class="d-flex flex-md-row px-3  flex-column-reverse">
-                                    <div class="col-md-12 col-12 col-lg-12 col-lg-12">
-                                        <div class=" ml-2">
-                                            <div class="row px-3 ">
-                                                <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
-                                                    <label for="name" class="form-label fw-bold text-dark"> <i
-                                                            class="fa-regular fa-user"></i> First Name</label>
-                                                    <input type="text" class="form-control"
-                                                        placeholder="Enter Your Name" id="fname" name="fname">
-                                                </div>
-                                                <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
-                                                    <label for="name" class="form-label fw-bold text-dark"> <i
-                                                            class="fa-regular fa-user"></i> Last Name</label>
-                                                    <input type="text" class="form-control"
-                                                        placeholder="Enter Your Name" id="lname" name="lname">
-                                                </div>
-                                                <div class="col-12 ">
-                                                    <label for="number" class="form-label text-dark fw-bold"> <i
-                                                            class="fa fa-phone" aria-hidden="true"></i> Phone
-                                                        Number</label>
-                                                    <input type="text" class="form-control" placeholder="Enter Number"
-                                                        id="number" name="number">
-                                                </div>
-                                                <div class="col-12 col-sm-12 col-md-6 col-lg-6">
-                                                    <label for="yr_state" class="form-label text-dark fw-bold"
-                                                        id="state" name="state"> <i class="fas fa-location"></i>
-                                                        State</label>
-                                                    <select class="form-select py-2"
-                                                        aria-label=".form-select-lg example" id="state_form"
-                                                        name="state">
-                                                        <option value>Select State</option>
-                                                        <option value="1">Chhattisgarh</option>
-                                                        <option value="2">Other</option>
-                                                    </select>
-                                                </div>
-                                                <div class="col-12 col-sm-12 col-md-6 col-lg-6">
-                                                    <label class="form-label text-dark"><i
-                                                            class="fa-solid fa-location-dot"></i> District</label>
-                                                    <select class="form-select py-2 "
-                                                        aria-label=".form-select-lg example" name="district"
-                                                        id="district_form">
-                                                        <option value>Select District</option>
-                                                        <option value="1">Raipur</option>
-                                                        <option value="2">Bilaspur</option>
-                                                        <option value="2">Durg</option>
-                                                    </select>
-                                                </div>
-                                                <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-2">
-                                                    <label for="yr_tehsil" class="form-label text-dark"> Tehsil</label>
-                                                    <input type="yr_tehsil" class="form-control"
-                                                        placeholder="Enter Tehsil" id="tehsil" name="tehsil">
-                                                </div>
-                                                <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-2">
-                                                    <label for="yr_price" class="form-label text-dark">Price</label>
-                                                    <input type="yr_price" class="form-control"
-                                                        placeholder="Enter Price" id="price" name="price">
-                                                </div>
-                                                <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-3">
-                                                    <div class="">
-                                                        <input type="submit" value="Contact Seller" id="contact_seller"
-                                                            class="btn btn-success w-100">
-                                                    </div>
-                                                </div>
-                                                <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-3">
-                                                    <div class="get-loan text-center ">
-                                                        <a href="#" class="btn border-success text-success w-100">View
-                                                            Loan Offer</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                    </form> -->
                 </div>
             </div>
         </div>
@@ -387,118 +329,13 @@
         <div class="container slider-column">
             <h3 class="assured px-2 fw-bold mt-4">Similar Rent Tractor</h3>
             <div class="carousel-wrap">
-                <div class="owl-carousel" id="usedtractorforsell">
-                    <div class="item">
-                        <div class="post-slide">
-                            <div class="post-img">
-                                <img src="assets/images/275-di-tu-1632206550.webp" alt="">
-                                <a href="#" class="over-layer">
-                                    <i class="fa fa-link"></i>
-                                </a>
-                            </div>
-                            <div class="post-content">
-                                <h3 class="post-title text-center">
-                                    <a href="#" class="text-decoration-none fw-bold">Mahindra 275DI TU</a>
-                                </h3>
-                                <div class="row">
-                                    <div class="col-6 col-lg-6 col-md-6 col-sm-6">
-                                        <p class="text-dark"><i class="fa-solid fa-location-dot mx-2"></i>Dhamtari</p>
-                                    </div>
-                                    <div class="col-6 col-lg-6 col-md-6 col-sm-6">
-                                        <p class="text-dark" style="margin-left:32px;"><i
-                                                class="fas fa-bolt mx-2"></i>47 HP
-                                        </p>
-                                    </div>
-                                    <div class="col-6 col-lg-6 col-md-6 col-sm-6">
-                                        <p id="adduser" type="" class="text-dark">
-                                            <i class="fa-solid fa-indian-rupee-sign mx-2"></i>30/Acre
-                                        </p>
-                                    </div>
-                                    <div class="col-6 col-lg-6 col-md-6 col-sm-6">
-                                        <p id="adduser" type="" class="text-dark " style="margin-left:29px;">
-                                            <i class="fa-solid fa-gear mx-2"></i>2979 CC
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="post-slide">
-                            <div class="post-img">
-                                <img src="assets/images/275-di-tu-1632206550.webp" alt="">
-                                <a href="#" class="over-layer">
-                                    <i class="fa fa-link"></i>
-                                </a>
-                            </div>
-                            <div class="post-content">
-                                <h3 class="post-title text-center">
-                                    <a href="#" class="text-decoration-none fw-bold">Mahindra 275DI TU</a>
-                                </h3>
-                                <div class="row">
-                                    <div class="col-6 col-lg-6 col-md-6 col-sm-6">
-                                        <p class="text-dark"><i class="fa-solid fa-location-dot mx-2"></i>Dhamtari</p>
-                                    </div>
-                                    <div class="col-6 col-lg-6 col-md-6 col-sm-6">
-                                        <p class="text-dark" style="margin-left:32px;"><i
-                                                class="fas fa-bolt mx-2"></i>47 HP
-                                        </p>
-                                    </div>
-                                    <div class="col-6 col-lg-6 col-md-6 col-sm-6">
-                                        <p id="adduser" type="" class="text-dark">
-                                            <i class="fa-solid fa-indian-rupee-sign mx-2"></i>30/Acre
-                                        </p>
-                                    </div>
-                                    <div class="col-6 col-lg-6 col-md-6 col-sm-6">
-                                        <p id="adduser" type="" class="text-dark " style="margin-left:29px;">
-                                            <i class="fa-solid fa-gear mx-2"></i>2979 CC
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="post-slide">
-                            <div class="post-img">
-                                <img src="assets/images/275-di-tu-1632206550.webp" alt="">
-                                <a href="#" class="over-layer">
-                                    <i class="fa fa-link"></i>
-                                </a>
-                            </div>
-                            <div class="post-content">
-                                <h3 class="post-title text-center">
-                                    <a href="#" class="text-decoration-none fw-bold">Mahindra 275DI TU</a>
-                                </h3>
-                                <div class="row">
-                                    <div class="col-6 col-lg-6 col-md-6 col-sm-6">
-                                        <p class="text-dark"><i class="fa-solid fa-location-dot mx-2"></i>Dhamtari</p>
-                                    </div>
-                                    <div class="col-6 col-lg-6 col-md-6 col-sm-6">
-                                        <p class="text-dark" style="margin-left:32px;"><i
-                                                class="fas fa-bolt mx-2"></i>47 HP
-                                        </p>
-                                    </div>
-                                    <div class="col-6 col-lg-6 col-md-6 col-sm-6">
-                                        <p id="adduser" type="" class="text-dark">
-                                            <i class="fa-solid fa-indian-rupee-sign mx-2"></i>30/Acre
-                                        </p>
-                                    </div>
-                                    <div class="col-6 col-lg-6 col-md-6 col-sm-6">
-                                        <p id="adduser" type="" class="text-dark " style="margin-left:29px;">
-                                            <i class="fa-solid fa-gear mx-2"></i>2979 CC
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <div class="owl-carousel" id="new_harvester"></div>
+                
             </div>
         </div>
     </section>
     <div class="col-12 text-center mb-4 pt-2 ">
-        <a href="hire.php"><button id="adduser" type="button" class="add_btn btn btn-success">
+        <a href="hire.php"><button id="adduser"  type="button" class="add_btn btn btn-success">
                 <i class="fas fa-undo"></i> Load More tractors</button></a>
     </div>
 

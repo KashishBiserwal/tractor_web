@@ -1,8 +1,7 @@
 $(document).ready(function() {
     console.log("ready!");
     $('#button_hire').click(storedata);
-
-    getHireTracById();
+    get_rent_data();
 
 
 });
@@ -17,38 +16,40 @@ function getHireTracById() {
         url: url,
         type: "GET",
         success: function(data) {
-        console.log(data, 'abc');
-        document.getElementById('model_name').innerText=data.rent_details.data1[0].model;
-        document.getElementById('name_first').innerText=data.rent_details.data1[0].first_name;
+        var brand_model = data.rent_details.data1[0].brand_name + " " + data.rent_details.data1[0].model;
+        var full_name = data.rent_details.data1[0].first_name + " " + data.rent_details.data1[0].last_name;
+        document.getElementById('brand_name').innerText= brand_model;
+        document.getElementById('name_first').innerText= full_name;
         document.getElementById('set_dist').innerText=data.rent_details.data1[0].district ;
         document.getElementById('set_state').innerText=data.rent_details.data1[0].state;
-        document.getElementById('power_hp').innerText=data.rent_details.data2[0].rate;
-        document.getElementById('engine_cc').innerText=data.rent_details.data2[0].rate_per;
-        document.getElementById('model_name_2').innerText=data.rent_details.data1[0].model;
+        document.getElementById('power_hp').innerText=data.rent_details.data2[0].rate + "/-";
+        document.getElementById('engine_cc').innerText= " per "+  data.rent_details.data2[0].rate_per;
+        document.getElementById('brand_name_form').innerText= data.rent_details.data1[0].brand_name;
+        document.getElementById('model_form').innerText= data.rent_details.data1[0].model;
      
      
-        var product = data.rent_details.data1[0];
+        var product = data.rent_details.data2[0];
+            var imageNames = product.images.split(',');
+            var carouselContainer = $('.mySwiper2_data');
+            var carouselContainer2 = $('.mySwiper_data');
 
-        // Split the image names into an array
-        var imageNames = product.image_name.split(',');
+            carouselContainer.empty();
 
-        // Select the carousel container
-        var carouselContainer = $('.swiper-wrapper_buy');
+            imageNames.forEach(function(imageName) {
+                var imageUrl = "http://tractor-api.divyaltech.com/uploads/rent_img/" + imageName.trim(); 
+                var slide = $('<div class="swiper-slide swiper-slide_buy"><img class="img_buy" src="' + imageUrl + '" /></div>');
+                var slide2 = $('<div class="swiper-slide swiper-slide_buy"><img class="img_buy" src="' + imageUrl + '" /></div>');
+                carouselContainer.append(slide);
+                carouselContainer2.append(slide2);
+            });
 
-        // Clear existing slides
-        carouselContainer.empty();
-
-        // Iterate through the image names and create carousel slides
-        imageNames.forEach(function(imageName) {
-            var imageUrl = "http://tractor-api.divyaltech.com/uploads/rent_img/" + imageName.trim(); // Update the path
-            var slide = $('<div class="swiper-slide swiper-slide_buy"><img class="img_buy" src="' + imageUrl + '" /></div>');
-            carouselContainer.append(slide);
-        });
-
-        // Initialize or update the Swiper carousel
-        var mySwiper = new Swiper('.swiper_buy', {
-            // Your Swiper configuration options
-        });
+           // Initialize or update the Swiper carousel
+            var mySwiper = new Swiper('.mySwiper2_data', {
+              // Your Swiper configuration options
+          });
+          var mySwiper = new Swiper('.mySwiper_data', {
+              // Your Swiper configuration options
+          });
         },
         error: function (error) {
             console.error('Error fetching data:', error);
@@ -57,8 +58,10 @@ function getHireTracById() {
 }
 
 function storedata() {
-    var enquiry_type_id = $('#enquiry_type_id').val();
-    var product_id = 192;  // You may need to adjust this based on your logic
+    var enquiry_type_id = 19;
+    var model = $('#model_form').val(); 
+    var brand_name = $('#brand_name_form').val();  
+    var product_id = $('#product_id').val();  
     var first_name = $('#first_name').val();
     var last_name = $('#last_name').val();
     var mobile_number = $('#mobile_number').val();
@@ -67,6 +70,8 @@ function storedata() {
     var tehsil = $('#the_tehsil').val();
 
     var paraArr = {
+        'model': model,
+        'brand_name': brand_name,
         'enquiry_type_id': enquiry_type_id,
         'product_id': product_id,
         'first_name': first_name,
@@ -197,6 +202,14 @@ function displaynursery(nursery) {
                                             <label for="name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i> product_id</label>
                                             <input type="text" class="form-control" id="product_id" value="${p.product_id}" hidden> 
                                         </div>
+                                        <div class="col-12 col-lg-6 col-md-6 col-sm-6 " hidden>
+                                        <label for="name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i> brand</label>
+                                        <input type="text" class="form-control" id="" value="${p.brand_name}" hidden> 
+                                    </div>
+                                    <div class="col-12 col-lg-6 col-md-6 col-sm-6 " hidden>
+                                    <label for="name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i> model</label>
+                                    <input type="text" class="form-control" id="" value="${p.model}" hidden> 
+                                </div>
                                         <div class="col-12 col-lg-6 col-md-6 col-sm-6">
                                             <div class="form-outline">
                                                 <label for="f_name" class="form-label fw-bold"> <i class="fa-regular fa-user"></i> First Name</label>
@@ -285,5 +298,109 @@ function displaynursery(nursery) {
             }
         },
         loopFillGroupWithBlank: true // This may help in some cases
+    });
+}
+
+
+
+
+//  get similar
+
+function get_rent_data() {
+    var url = "http://tractor-api.divyaltech.com/api/customer/get_rent_data";
+    
+
+    $.ajax({
+        url: url,
+        type: "GET",
+        success: function (data) {
+
+        if (data.rent_details && data.rent_details.length > 0) {
+           
+            var productContainer = $("#new_harvester");
+            data.rent_details.forEach(function (p) {
+                var images = p.images;
+                var a = [];
+        
+                if (images) {
+                    if (images.indexOf(',') > -1) {
+                        a = images.split(',');
+                    } else {
+                        a = [images];
+                    }
+                }
+                var newCard = `
+                <div class="item">
+                        <div class="post-slide">
+                            <div class="post-img">
+                                <img src="http://tractor-api.divyaltech.com/uploads/rent_img/${a[0]}" alt="">
+                                <a href="#" class="over-layer">
+                                    <i class="fa fa-link"></i>
+                                </a>
+                            </div>
+                            <div class="post-content">
+                                <h3 class="post-title text-center">
+                                    <a href="#" class="text-decoration-none fw-bold">Mahindra 275DI TU</a>
+                                </h3>
+                                <div class="row">
+                                    <div class="col-6 col-lg-6 col-md-6 col-sm-6">
+                                        <p class="text-dark"><i class="fa-solid fa-location-dot mx-2"></i>Dhamtari</p>
+                                    </div>
+                                    <div class="col-6 col-lg-6 col-md-6 col-sm-6">
+                                        <p class="text-dark" style="margin-left:32px;"><i
+                                                class="fas fa-bolt mx-2"></i>47 HP
+                                        </p>
+                                    </div>
+                                    <div class="col-6 col-lg-6 col-md-6 col-sm-6">
+                                        <p id="adduser" type="" class="text-dark">
+                                            <i class="fa-solid fa-indian-rupee-sign mx-2"></i>30/Acre
+                                        </p>
+                                    </div>
+                                    <div class="col-6 col-lg-6 col-md-6 col-sm-6">
+                                        <p id="adduser" type="" class="text-dark " style="margin-left:29px;">
+                                            <i class="fa-solid fa-gear mx-2"></i>2979 CC
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+        
+                // Append the new card to the container
+                productContainer.append(newCard);
+
+                
+                
+
+              
+            });
+
+            productContainer.owlCarousel({
+                items:3,
+                loop: true,
+                margin: 10,
+                responsiveClass: true,
+                responsive: {
+                    0: {
+                        items: 1,
+                        nav: false
+                    },
+                    600: {
+                        items: 3,
+                        nav: false
+                    },
+                    1000: {
+                        items: 3,
+                        nav: false,
+                        loop: false
+                    }
+                }
+            });
+        }
+    },
+    error: function(error) {
+        console.error('Error fetching data:', error);
+    }
     });
 }
