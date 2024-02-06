@@ -231,104 +231,23 @@
     <section>
         <div class="container">
             <div class="row mt-4 pt-3">
-                <h4 class=" px-2 fw-bold">Related Implement Types</h4>
-                <div class="col-12 col-sm-3 col-md-3 col-lg-3 px-2 py-3 h-100">
-                    <div class="h-auto success__stry__item d-flex flex-column shadow ">
-                        <div class="thumb">
-                            <a href="#">
-                                <div class="ratio ratio-16x9">
-                                    <img src="assets/images/hydraulic_reversible.webp" class="object-fit-cover "
-                                        alt="img">
-                                </div>
-                            </a>
-                        </div>
-                        <div class="content d-flex flex-column flex-grow-1 ">
-                            <a href="#" class="text-decoration-none text-dark">
-                                <h5 class="fw-bold mt-3 mx-2">Hydraulic Reversible</h5>
-                            </a>
-                            <div class="row">
-                                <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                                    <i class="fa-solid fa-indian-rupee-sign mx-2 mb-3"></i>30/Acre
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                <h4 class="assured px-2 fw-bold mb-3">Related Old Harvester </h4>
+                <div class="carousel-wrap">
+                <div class="owl-carousel" id="old_harvester_car">
+              
                 </div>
-                <div class="col-12 col-sm-3 col-md-3 col-lg-3 px-2 py-3 h-100">
-                    <div class="h-auto success__stry__item d-flex flex-column shadow ">
-                        <div class="thumb">
-                            <a href="#">
-                                <div class="ratio ratio-16x9">
-                                    <img src="assets/images/happy_seeder.webp" class="object-fit-cover " alt="img">
-                                </div>
-                            </a>
-                        </div>
-                        <div class="content d-flex flex-column flex-grow-1 ">
-
-                            <a href="#" class="text-decoration-none text-dark">
-                                <h5 class="fw-bold mt-3 mx-2">Happy Seeder</h5>
-                            </a>
-                            <div class="row">
-                                <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-
-                                    <i class="fa-solid fa-indian-rupee-sign mx-2 mb-3"></i>30/Acre
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 col-sm-3 col-md-3 col-lg-3 px-2 py-3 h-100">
-                    <div class="h-auto success__stry__item d-flex flex-column shadow ">
-                        <div class="thumb">
-                            <a href="#">
-                                <div class="ratio ratio-16x9">
-                                    <img src="assets/images/seed_drill.webp" class="object-fit-cover " alt="img">
-                                </div>
-                            </a>
-                        </div>
-                        <div class="content d-flex flex-column flex-grow-1 ">
-                            <a href="#" class="text-decoration-none text-dark">
-                                <h5 class="fw-bold mt-3 mx-2">Seed Drill</h5>
-                            </a>
-                            <div class="row">
-                                <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-
-                                    <i class="fa-solid fa-indian-rupee-sign mx-2 mb-3"></i>30/Acre
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 col-sm-3 col-md-3 col-lg-3 px-2 py-3 h-100">
-                    <div class="h-auto success__stry__item d-flex flex-column shadow ">
-                        <div class="thumb">
-                            <a href="#">
-                                <div class="ratio ratio-16x9">
-                                    <img src="assets/images/mud-loader.webp" class="object-fit-cover " alt="img">
-                                </div>
-                            </a>
-                        </div>
-                        <div class="content d-flex flex-column flex-grow-1 ">
-                            <a href="#" class="text-decoration-none text-dark">
-                                <h5 class="fw-bold mt-3 mx-2">Mud Loader</h5>
-                            </a>
-                            <div class="row">
-                                <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-
-                                    <i class="fa-solid fa-indian-rupee-sign mx-2 mb-3"></i>30/Acre
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+              </div>
+                <div class="col text-center pb-4">
+                  <a href="used_harvester.php" class="btn btn-success px-5">View all Old Harvester</a>
                 </div>
             </div>
         </div>
     </section>
     <section class="section slider-section">
 
-        <div class="container slider-column">
-            <h3 class="assured px-2 fw-bold mt-4">Similar Rent Tractor</h3>
-            <div class="carousel-wrap">
+        <div class="container ">
+            <h3 class="assured px-2 fw-bold mt-4 mb-2">Similar Rent Tractor</h3>
+            <div class=" carousel-wrap">
                 <div class="owl-carousel" id="new_harvester"></div>
                 
             </div>
@@ -343,27 +262,27 @@
         <h4 class="fw-bold assured px-2">Quick Links</h4>
         <div class="row my-4">
             <div class="col-12 col-lg-4 col-md-4 col-sm-4 py-2">
-                <a href="#" id="adduser" class="btn btn-outline-success text-decoration-none border-2 p-2 w-100">
+                <a href="index.php" id="adduser" class="btn btn-outline-success text-decoration-none border-2 p-2 w-100">
                     <i class="fas fa-bolt"></i>TRACTOR PRICE</a>
             </div>
             <div class="col-12 col-lg-4 col-md-4 col-sm-4 py-2">
-                <a href="#" id="adduser" class=" btn btn-outline-success text-decoration-none border-2 py-2 px-3 w-100">
+                <a href="find_new_tractors.php" id="adduser" class=" btn btn-outline-success text-decoration-none border-2 py-2 px-3 w-100">
                     <i class="fas fa-bolt"></i>TRACTOR</a>
             </div>
             <div class="col-12 col-lg-4 col-md-4 col-sm-4 py-2">
-                <a href="#" id="adduser" class=" btn btn-outline-success text-decoration-none border-2 py-2 px-3 w-100">
+                <a href="harveste.php" id="adduser" class=" btn btn-outline-success text-decoration-none border-2 py-2 px-3 w-100">
                     <i class="fas fa-bolt"></i>HARVESTERS</a>
             </div>
             <div class="col-12 col-lg-4 col-md-4 col-sm-4 py-2">
-                <a href="#" id="adduser" class="btn btn-outline-success text-decoration-none  border-2 py-2 px-3 w-100">
+                <a href="used_tractor.php" id="adduser" class="btn btn-outline-success text-decoration-none  border-2 py-2 px-3 w-100">
                     <i class="fas fa-bolt"></i>SECOND HAND TRACTOR</a>
             </div>
             <div class="col-12 col-lg-4 col-md-4 col-sm-4 py-2">
-                <a href="#" id="adduser" class="btn btn-outline-success text-decoration-none border-2 py-2 px-3 w-100">
+                <a href="insurance.php" id="adduser" class="btn btn-outline-success text-decoration-none border-2 py-2 px-3 w-100">
                     <i class="fas fa-bolt"></i>EASY FINANCE</a>
             </div>
             <div class="col-12 col-lg-4 col-md-4 col-sm-4 py-2">
-                <a href="#" id="adduser" class="btn btn-outline-success text-decoration-none border-2 py-2 px-3 w-100">
+                <a href="certified_dealers.php" id="adduser" class="btn btn-outline-success text-decoration-none border-2 py-2 px-3 w-100">
                     <i class="fas fa-bolt"></i>DEALERSHIP</a>
             </div>
         </div>

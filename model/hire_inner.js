@@ -2,7 +2,8 @@ $(document).ready(function() {
     console.log("ready!");
     $('#button_hire').click(storedata);
     get_rent_data();
-
+    getHireTracById();
+    get_oldharvester();
 
 });
 function getHireTracById() {
@@ -124,262 +125,28 @@ function storedata() {
     });
 }
 
-function displaynursery(nursery) {
-    var productContainer = $("#productContainer");
-    var tableData = $("#tableData");
-    // Clear existing content
-    productContainer.html('');
-    tableData.html('');
-
-    
-    nursery.forEach(function (p) {
-        console.log(p,"ppp")
-        var images = p.image_names;
-        var a = [];
-
-        if (images) {
-            if (images.indexOf(',') > -1) {
-                a = images.split(',');
-            } else {
-                a = [images];
-            }
-        }
-        var cardId = `card_${p.product_id}`; // Dynamic ID for the card
-        var modalId = `nursery_callbnt_${p.product_id}`; // Dynamic ID for the modal
-        var formId = `nursery_enquiry_form_${p.product_id}`; // Dynamic ID for the form
-        
-
-        var newCard2 = `
-        <div class="col-12 mb-4" id="${cardId}">
-            <a href="nursery_inner.php?id=${p.id}"
-                class="h-auto success__stry__item text-decoration-none d-flex flex-column shadow ">
-                <div class="thumb">
-                    <div>
-                        <div class="ratio ratio-16x9">
-                            <img src="http://tractor-api.divyaltech.com/uploads/nursery_img/${a[0]}" class="object-fit-cover " alt="img">
-                        </div>
-                    </div>
-                </div>
-                <div class="content d-flex flex-column flex-grow-1 ">
-                    <div class="power text-center mt-3">
-                        <div class="col-12">
-                            <p class="text-success fw-bold">${p.nursery_name}</p>
-                        </div>
-                    </div>
-                    <div class="row text-center">
-                        <div class="col-12 text-center">
-                            <p class="fw-bold pe-3">${p.district}, ${p.state}</p>
-                        </div>
-                    </div>
-                </div>
-            </a>
-            <div class="col-12 btn-success">
-                <button type="button" class="btn btn-success py-2 w-100" data-bs-toggle="modal"
-                    data-bs-target="#${modalId}"><i class="fa-solid fa-phone"></i>
-                    Contact Nursery
-                </button>
-            </div>
-    
-            <!-- Modal -->
-            <div class="modal fade" id="${modalId}" data-bs-backdrop="static"
-                data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel"
-                aria-hidden="true">
-                <div class="modal-dialog modal-lg modal-dialog-centered">
-                    <div class="modal-content">
-                        <div class="modal-header  modal_head">
-                            <h5 class="modal-title text-white ms-1" id="staticBackdropLabel">Contact Nursery</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body my-3">
-                            <div class="model-cont">
-                                <form id="${formId}" method="POST" onsubmit="return false">
-                                    <div class="row">
-                                        <div class="col-12 col-lg-6 col-md-6 col-sm-6 " hidden>
-                                            <label for="name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i> enquiryName</label>
-                                            <input type="text" class="form-control" placeholder="Enter Your Name" id="enquiry_type_id" value="11" name="fname">
-                                        </div>
-                                        <div class="col-12 col-lg-6 col-md-6 col-sm-6 " hidden>
-                                            <label for="name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i> product_id</label>
-                                            <input type="text" class="form-control" id="product_id" value="${p.product_id}" hidden> 
-                                        </div>
-                                        <div class="col-12 col-lg-6 col-md-6 col-sm-6 " hidden>
-                                        <label for="name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i> brand</label>
-                                        <input type="text" class="form-control" id="" value="${p.brand_name}" hidden> 
-                                    </div>
-                                    <div class="col-12 col-lg-6 col-md-6 col-sm-6 " hidden>
-                                    <label for="name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i> model</label>
-                                    <input type="text" class="form-control" id="" value="${p.model}" hidden> 
-                                </div>
-                                        <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                                            <div class="form-outline">
-                                                <label for="f_name" class="form-label fw-bold"> <i class="fa-regular fa-user"></i> First Name</label>
-                                                <input type="text" class="form-control mb-0" placeholder="Enter Your Name" id="first_name_1" name="firstName">
-                                            </div>
-                                        </div>
-                                        <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                                            <div class="form-outline">
-                                                <label for="last_name" class="form-label fw-bold"> <i class="fa-regular fa-user"></i> Last Name</label>
-                                                <input type="text" class="form-control mb-0" placeholder="Enter Your Name" id="last_Name_1" name="lastName">
-                                            </div>
-                                        </div>
-                                        <div class="col-12 col-sm-6 col-md-6 col-lg-6 mt-4">
-                                            <div class="form-outline">
-                                                <label for="eo_number" class="form-label fw-bold"> <i class="fa fa-phone" aria-hidden="true"></i> Phone Number</label>
-                                                <input type="text" class="form-control mb-0" placeholder="Enter Number" id="mobile_number_1" name="mobile_number">
-                                            </div>
-                                        </div>
-                                        <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-4">
-                                            <div class="form-outline">
-                                                <label for="eo_state" class="form-label fw-bold"> <i class="fas fa-location"></i> State</label>
-                                                <select class="form-select py-2 " aria-label=".form-select-lg example" id="state_1" name="state">
-                                                    <option value="" selected disabled=""> </option>  
-                                                    <option value="Chhattisgarh">Chhattisgarh</option>
-                                                    <option value="Other">Other</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-4">
-                                            <div class="form-outline">
-                                                <label for="eo_dist" class="form-label fw-bold"><i class="fa-solid fa-location-dot"></i> District</label>
-                                                <select class="form-select py-2 " aria-label=".form-select-lg example" id="district_1" name="district">
-                                                    <option value="" selected disabled=""></option>
-                                                    <option value="Raipur">Raipur</option>
-                                                    <option value="Bilaspur">Bilaspur</option>
-                                                    <option value="Durg">Durg</option>
-                                                </select>
-                                            </div>                    
-                                        </div>       
-                                        <div class="col-12 col-sm-6 col-md-6 col-lg-6 mt-4">
-                                            <div class="form-outline">
-                                                <label for="eo_tehsil" class="form-label fw-bold "> Tehsil</label>
-                                                <select class="form-select py-2 " aria-label=".form-select-lg example" id="Tehsil_1" name="Tehsil">
-                                                    <option value="" selected disabled=""></option>
-                                                    <option value="Raipur">Raipur</option>
-                                                    <option value="Bilaspur">Bilaspur</option>
-                                                    <option value="Durg">Durg</option>
-                                                </select>
-                                            </div>
-                                        </div>
-    
-                                        <div class="text-center my-3">
-                                            <button type="submit" id="submit_enquiry" class="btn add_btn btn-success w-100 btn_all" onclick="savedata('${formId}')" data-bs-dismiss="modal">Submit</button>        
-                                        </div>  
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    `;
-        // Append the new card to the container
-        productContainer.append(newCard2);
-    });
-
-    $('#productContainer').owlCarousel({
-        items: 4,
-        loop: true,
-        margin: 10,
-        responsiveClass: true,
-        responsive: {
-            0: {
-                items: 1,
-                nav: false
-            },
-            600: {
-                items: 3,
-                nav: false
-            },
-            1000: {
-                items: 4,
-                nav: false,
-                loop: false
-            }
-        },
-        loopFillGroupWithBlank: true // This may help in some cases
-    });
-}
-
-
-
-
-//  get similar
-
 function get_rent_data() {
     var url = "http://tractor-api.divyaltech.com/api/customer/get_rent_data";
-    
 
     $.ajax({
         url: url,
         type: "GET",
-        success: function (data) {
-
-        if (data.rent_details && data.rent_details.length > 0) {
-           
+        success: function (response) {
             var productContainer = $("#new_harvester");
-            data.rent_details.forEach(function (p) {
-                var images = p.images;
-                var a = [];
-        
-                if (images) {
-                    if (images.indexOf(',') > -1) {
-                        a = images.split(',');
-                    } else {
-                        a = [images];
-                    }
-                }
-                var newCard = `
-                <div class="item">
-                        <div class="post-slide">
-                            <div class="post-img">
-                                <img src="http://tractor-api.divyaltech.com/uploads/rent_img/${a[0]}" alt="">
-                                <a href="#" class="over-layer">
-                                    <i class="fa fa-link"></i>
-                                </a>
-                            </div>
-                            <div class="post-content">
-                                <h3 class="post-title text-center">
-                                    <a href="#" class="text-decoration-none fw-bold">Mahindra 275DI TU</a>
-                                </h3>
-                                <div class="row">
-                                    <div class="col-6 col-lg-6 col-md-6 col-sm-6">
-                                        <p class="text-dark"><i class="fa-solid fa-location-dot mx-2"></i>Dhamtari</p>
-                                    </div>
-                                    <div class="col-6 col-lg-6 col-md-6 col-sm-6">
-                                        <p class="text-dark" style="margin-left:32px;"><i
-                                                class="fas fa-bolt mx-2"></i>47 HP
-                                        </p>
-                                    </div>
-                                    <div class="col-6 col-lg-6 col-md-6 col-sm-6">
-                                        <p id="adduser" type="" class="text-dark">
-                                            <i class="fa-solid fa-indian-rupee-sign mx-2"></i>30/Acre
-                                        </p>
-                                    </div>
-                                    <div class="col-6 col-lg-6 col-md-6 col-sm-6">
-                                        <p id="adduser" type="" class="text-dark " style="margin-left:29px;">
-                                            <i class="fa-solid fa-gear mx-2"></i>2979 CC
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                `;
-        
-                // Append the new card to the container
-                productContainer.append(newCard);
+            productContainer.empty();
 
-                
-                
+            var dataMerged = response.rent_details.data1.map(t1 => ({ ...t1, ...response.rent_details.data2.find(t2 => t2.customer_id === t1.id) }));
 
-              
+            dataMerged.forEach(function (p) {
+                appendCard(productContainer, p);
             });
-
             productContainer.owlCarousel({
-                items:3,
+                items: 4,
                 loop: true,
                 margin: 10,
+                nav: true, // Enable navigation
+                autoplay: true, // Enable auto-play
+                autoplayTimeout: 3000,
                 responsiveClass: true,
                 responsive: {
                     0: {
@@ -391,16 +158,250 @@ function get_rent_data() {
                         nav: false
                     },
                     1000: {
-                        items: 3,
-                        nav: false,
+                        items: 4,
+                        nav: true,
                         loop: false
                     }
-                }
+                },
+                loopFillGroupWithBlank: true
             });
+        },
+        error: function (error) {
+            console.error('Error fetching data:', error);
         }
-    },
-    error: function(error) {
-        console.error('Error fetching data:', error);
-    }
     });
 }
+    function appendCard(container, p) {
+        var images = p.images;
+        var a = [];
+
+        if (images) {
+            if (images.indexOf(',') > -1) {
+                a = images.split(',');
+            } else {
+                a = [images];
+            }
+        }
+        var cardId = `card_${p.product_id}`; // Dynamic ID for the card
+        var modalId = `used_tractor_callbnt_${p.product_id}`; // Dynamic ID for the modal
+        var formId = `contact-seller-call_${p.product_id}`; // Dynamic ID for the form
+
+        var images = p.images;
+        // var rates = p.rates;
+        var ratesArray = p.rates ? p.rates.split(',') : [];
+        var ratePersArray = p.rate_pers ? p.rate_pers.split(',') : [];
+
+        var rateDisplay = ratesArray.length > 0 ? `${ratesArray[0]}/${ratePersArray[0] || ''}` : '';
+        // var rentMappingIds = p.rent_mapping_ids;
+        var district = p.district || '';
+        var state = p.state || '';
+        var newCard = `
+        <div class="item box_shadow b-t-1" id="${cardId}"> 
+        <div class="h-auto success__stry__item d-flex flex-column shadow ">
+            <div class="thumb">
+                <a href="hire_inner.php?id=${p.id}">
+                    <div class="ratio ratio-16x9">
+                        <img src="http://tractor-api.divyaltech.com/uploads/rent_img/${a[0]}" class="object-fit-cover " alt="${p.description}">
+                    </div>
+                </a>
+                <div class="content d-flex flex-column flex-grow-1 ">
+                    <div class="row text-center">
+                        <p class="text-center fw-bold" id="model_brand">${p.brand_name} ${p.model}</p>
+                        <div class="col-4 col-md-4 col-lg-4 col-sm-4">
+                        <p class="text-dark custom-font-size fw-bold"><i class="fa-solid fa-indian-rupee-sign"></i> ${rateDisplay} </p>
+                        </div>
+                        <div class="col-4 col-md-4 col-lg-4 col-sm-4">
+                           
+                            <p class="text-dark custom-font-size fw-bold"> <i class="fas fa-calendar-alt"></i> Year: ${p.purchase_year}</p>
+                        </div>
+                        <div class="col-4 col-md-4 col-lg-4 col-sm-4">
+                            <p class="text-dark custom-font-size fw-bold"> <i class="far fa-circle"></i> Radius ${p.working_radius}</p>
+                        </div>
+                    </div>
+                        <div class="row text-center fw-bold text-primary">
+                            <div class=" col-12 mb-2">${district || ''} ${state || ''}</div>
+                        </div>
+                        </a>
+                    </div>
+                    <button type="button" class="add_btn btn-success w-100" data-bs-toggle="modal" data-bs-target="#${modalId}">
+                        Send Enquiry
+                    </button>
+                </div>
+            </div>
+            <div class="modal fade" id="${modalId}" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-lg modal-dialog-centered">
+                                    <div class="modal-content">
+                                        <div class="modal-header modal_head">
+                                        <h5 class="modal-title text-white ms-1" id="">Generate Enquiry</h5>
+                                        <button type="button" class="btn-close btn-success" data-bs-dismiss="modal" aria-label="Close"><img src="assets/images/close.png" class="w-25"></button>
+                                        </div>
+                                        <!-- MODAL BODY -->
+                                        <div class="modal-body">
+                                        <form id="${formId}" method="POST" onsubmit="return false">
+                                                <div class="row">
+                                                <div class="row px-3 ">
+                                    <div class="col-12 col-lg-6 col-md-6 col-sm-6 " hidden>
+                                        <label for="name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i> enquiryName</label>
+                                        <input type="text" class="form-control" placeholder="Enter Your Name" id="enquiry_type_id" value="19" name="fname">
+                                    </div>
+                                    <div class="col-12 col-lg-6 col-md-6 col-sm-6 " hidden>
+                                        <label for="name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i> product_id</label>
+                                        <input type="text" class="form-control" id="product_id" value="${p.id}" hidden> 
+                                    </div>
+                                    <div class="col-12 col-lg-6 col-md-6 col-sm-6 "hidden>
+                                        <label for="name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i> First Name</label>
+                                        <input type="text" class="form-control" placeholder="Enter Your Name" value="${p.brand_name}" id="brand_name" name="">
+                                    </div>
+                                    <div class="col-12 col-lg-6 col-md-6 col-sm-6 "hidden>
+                                        <label for="name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i> First Name</label>
+                                        <input type="text" class="form-control" placeholder="Enter Your Name" value="${p.model}" id="model" name="">
+                                    </div>
+                                    <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
+                                        <label for="name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i> First Name</label>
+                                        <input type="text" class="form-control" placeholder="Enter Your Name" id="fname" name="fname">
+                                    </div>
+                                    <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
+                                        <label for="name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i> Last Name</label>
+                                        <input type="text" class="form-control" placeholder="Enter Your Name" id="lname" name="lname">
+                                    </div>
+                                    <div class="col-12 ">
+                                        <label for="number" class="form-label text-dark fw-bold"> <i class="fa fa-phone" aria-hidden="true"></i> Phone Number</label>
+                                        <input type="text" class="form-control" placeholder="Enter Number" id="number" name="number">
+                                        <p class="text-danger">*please provide valid Phone Number.</p>
+                                    </div>
+                                    <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+                                        <label for="yr_state" class="form-label text-dark fw-bold" id="state" name="state"> <i class="fas fa-location"></i> State</label>
+                                        <select class="form-select py-2" aria-label=".form-select-lg example" id="state_form" name="state">
+                                            <option value>Select State</option>
+                                            <option value="chhattisgarh">Chhattisgarh</option>
+                                            <option value="other">Other</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+                                        <label class="form-label text-dark"><i class="fa-solid fa-location-dot"></i> District</label>
+                                        <select class="form-select py-2 " aria-label=".form-select-lg example" name="district" id="district_form">
+                                            <option value>Select District</option>
+                                            <option value="raipur">Raipur</option>
+                                            <option value="bilaspur">Bilaspur</option>
+                                            <option value="durg">Durg</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-2">
+                                        <label for="yr_tehsil" class="form-label text-dark"> Tehsil</label>
+                                        <input type="yr_tehsil" class="form-control" placeholder="Enter Tehsil" id="tehsil" name="tehsil">
+                                    </div>
+                                    <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-2">
+                                        <label for="yr_price" class="form-label text-dark">Price</label>
+                                        <input type="yr_price" class="form-control" placeholder="Enter Price" id="price_form" name="price">
+                                    </div>
+                                </div>          
+                            </div>
+                            <div class="modal-footer">
+                            <button type="submit" id="submit_enquiry" class="btn add_btn btn-success w-100 btn_all" onclick="savedata('${formId}')"
+                            data-bs-dismiss="modal">Submit</button>
+                            </div>      
+                            </form>                             
+                            </div>
+                            </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+             `;
+        container.append(newCard);
+    }
+  
+   // get_rent_data();
+
+
+
+    function get_oldharvester() {
+        var url = "http://tractor-api.divyaltech.com/api/customer/get_old_harvester";
+        
+    
+        $.ajax({
+            url: url,
+            type: "GET",
+            success: function (data) {
+            console.log(data, "harvster data")
+    
+            if (data.product && data.product.length > 0) {
+               
+                var productContainer = $("#old_harvester_car");
+                data.product.forEach(function (p) {
+                    var images = p.image_names;
+                    var a = [];
+            
+                    if (images) {
+                        if (images.indexOf(',') > -1) {
+                            a = images.split(',');
+                        } else {
+                            a = [images];
+                        }
+                    }
+                    var newCard = `
+                    <div class="item box_shadow b-t-1">
+                  <a  href="used_harvester_inner.php?id=${p.customer_id}" class="text-decoration-none fw-bold">
+                    <div class="harvester_img_section">
+                      <img src="http://tractor-api.divyaltech.com/uploads/product_img/${a[0]}" alt="">
+                      <div href="#" class="over-layer"><i class="fa fa-link"></i></div>
+                    </div>
+                  </a>
+                  <div class="harvester_content_section mt-3 text-center">
+                    <a href="used_harvester_inner.php?id=${p.customer_id}" class="text-decoration-none fw-bold text-dark"><h5 class="text-dark">${p.brand_name} ${p.model}</h5></a>
+                    <div class="row w-100">
+                      <div class="col-6 p-0"> <p class="mb-0" style="font-size: 14px;">${p.horse_power} Hp</p></div>
+                      <div class="col-6 p-0"> <p class="mb-0" style="font-size: 14px;">${p.crops_type_value}</p></div>
+                    </div>
+                    <a type="button" href="used_harvester_inner.php?id=${p.customer_id}" class="add_btn text-decoration-none btn-success w-100 mt-3"><i class="fa-regular fa-handshake"></i> Get on Road Price</a>
+                  </div>
+                   
+              
+                </div>
+                    `;
+            
+                    // Append the new card to the container
+                    productContainer.append(newCard);
+    
+                    
+                    
+    
+                  
+                });
+    
+                productContainer.owlCarousel({
+                    items:4,
+                    loop: true,
+                    margin: 10,
+                    nav: true, // Enable navigation
+                    autoplay: true, // Enable auto-play
+                    autoplayTimeout: 3000,
+                    responsiveClass: true,
+                    responsive: {
+                        0: {
+                            items: 1,
+                            nav: false
+                        },
+                        600: {
+                            items: 3,
+                            nav: false
+                        },
+                        1000: {
+                            items: 4,
+                            nav: true,
+                            loop: false
+                        }
+                    }
+                });
+            }
+        },
+        error: function(error) {
+            console.error('Error fetching data:', error);
+        }
+        });
+    }

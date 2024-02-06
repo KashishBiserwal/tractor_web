@@ -22,23 +22,29 @@ function get_old_harvester_byiD() {
         success: function(data) {
             var brand_model_name = data.product[0].brand_name + ', ' + data.product[0].model;
             var location = data.product[0].district + ', ' + data.product[0].state;
-            var name = data.product[0].first_name + ', ' + data.product[0].last_name;
+            var name = data.product[0].first_name + ' ' + data.product[0].last_name;
     
         document.getElementById('brand_model_name').innerText=brand_model_name;
-        document.getElementById('location_1').innerText=location;
-        document.getElementById('Power_powerhp').innerText=data.product[0].power_source_value;
+        document.getElementById('location').innerText=location;
+        document.getElementById('power_source1').innerText=data.product[0].power_source_value;
         document.getElementById('hour').innerText=data.product[0].hours_driven;
         document.getElementById('year1').innerText=data.product[0].purchase_year;
-        document.getElementById('price_1').innerText=data.product[0].price;
-        document.getElementById('model_name4').innerText=data.product[0].model;
-        document.getElementById('name').innerText=name;
-        document.getElementById('mobile').innerText=data.product[0].mobile;
-        document.getElementById('email').innerText=data.product[0].email;
-        document.getElementById('district').innerText=data.product[0].district;
-        document.getElementById('state').innerText=data.product[0].state;
-        document.getElementById('model4').innerText=data.product[0].model;
+        document.getElementById('price_').innerText=data.product[0].price;
+        document.getElementById('crop_type').innerText=data.product[0].crops_type_value;
+        document.getElementById('brand').innerText=data.product[0].brand_name;
+        // document.getElementById('cutting_width').innerText=data.product[0].cutting_width;
+        document.getElementById('power_source').innerText=data.product[0].power_source_value;
+        document.getElementById('year').innerText=data.product[0].purchase_year;
+
+
+        document.getElementById('first_name').innerText=name;
+        document.getElementById('mobile_').innerText=data.product[0].mobile;
+        // document.getElementById('email').innerText=data.product[0].email;
+        document.getElementById('district_').innerText=data.product[0].district;
+        document.getElementById('state_').innerText=data.product[0].state;
+        document.getElementById('model3').innerText=data.product[0].model;
         document.getElementById('description').innerText = data.product[0].description;
-        document.getElementById('product_id').value = data.product[0].product_id;
+        document.getElementById('product_subject_id').value = data.product[0].product_id;
        
           // Split the image names into an array
           var imageNames = data.product[0].image_names.split(',');

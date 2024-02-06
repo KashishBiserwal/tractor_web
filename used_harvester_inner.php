@@ -184,11 +184,8 @@
                         <td class="table-data">Brand</td>
                         <td class="table-data" id="brand"></td>
                         </tr>
+                      
                         <tr class="col-12">
-                        <td class="table-data col-6">Cutting width</td>
-                        <td class="table-data col-6"><span id="cutting_width"></span> Feets</td>
-                        </tr>
-                        <tr>
                         <td class="table-data">Crop Type</td>
                         <td class="table-data" id="crop_type"></td>
                         </tr>

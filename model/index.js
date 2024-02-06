@@ -351,6 +351,9 @@ function get_harvester() {
                 items:4,
                 loop: true,
                 margin: 10,
+                nav: true, // Enable navigation
+                autoplay: true, // Enable auto-play
+                autoplayTimeout: 3000,
                 responsiveClass: true,
                 responsive: {
                     0: {
@@ -363,7 +366,7 @@ function get_harvester() {
                     },
                     1000: {
                         items: 4,
-                        nav: false,
+                        nav: true,
                         loop: false
                     }
                 }
@@ -436,6 +439,9 @@ function get_oldharvester() {
                 items:4,
                 loop: true,
                 margin: 10,
+                nav: true, // Enable navigation
+                autoplay: true, // Enable auto-play
+                autoplayTimeout: 3000,
                 responsiveClass: true,
                 responsive: {
                     0: {
@@ -448,7 +454,7 @@ function get_oldharvester() {
                     },
                     1000: {
                         items: 4,
-                        nav: false,
+                        nav: true,
                         loop: false
                     }
                 }

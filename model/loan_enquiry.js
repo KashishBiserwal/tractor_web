@@ -95,7 +95,7 @@ $(document).ready(function(){
     //****get data***
   function get_loan() {
     var apiBaseURL = APIBaseURL;
-    var url = apiBaseURL + 'get_enquiry_for_loan_data';
+    var url = apiBaseURL + 'loan_data';
     
     $.ajax({
         url: url,
