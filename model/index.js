@@ -4,6 +4,7 @@ $(document).ready(function() {
     getpopularTractorList();
     getUpcomingTractorList();
     getLatestTractorList();
+    getminiTractorList();
     get_harvester();
     get_oldharvester();
 });
@@ -155,6 +156,74 @@ function getUpcomingTractorList() {
         }
     });
 }
+function getminiTractorList() {
+    var url = "http://tractor-api.divyaltech.com/api/customer/get_new_tractor";
+    console.log(url);
+
+    $.ajax({
+        url: url,
+        type: "GET",
+        success: function(data) {
+            let new_arr=[];
+            const new_data=data.product.accessory_and_tractor_type.filter((s)=>{ 
+                const arr=s.tractor_type_name.split(',');
+                
+                if(arr.includes('Mini')){
+                    new_arr.push(s.product_id);
+                    // jisme upcoming tha uska product_id ko new arr me push
+                    return s.product_id;
+                }
+            });
+            // if(new_data.product_id==)
+            var productContainer0 = $("#mini_tractor");
+            if (data.product.allProductData && data.product.allProductData.length > 0) {
+                data.product.allProductData.forEach(function (p) {
+                    if(new_arr.includes(p.product_id)){
+                        // new aar me match aa rhi array 
+                        var images = p.image_names;
+                        var a = [];
+    
+                        if (images) {
+                            if (images.indexOf(',') > -1) {
+                                a = images.split(',');
+                            } else {
+                                a = [images];
+                            }
+                        }
+                        
+                        var newCard3 = ` <div class="swiper-slide success__stry__item  box_shadow  b-t-1 h-100">
+                        <a   class="text-decoration-none " href="detail_tractor.php?${p.product_id}">
+                        <div class="thumb">
+                               <img src="http://tractor-api.divyaltech.com/uploads/product_img/${a[0]}" class="" alt="img" >
+                         </div>
+                        <div class="new-tractor-content text-center b-t-1">
+                            <h5 class="fw-bold mt-2 text-decoration-none text-dark">${p.brand_name} ${p.model}</h5>
+                         
+                        
+                            <p  class="text-dark text-decoration-none mt-2  mb-0">From: ₹${p.starting_price}-${p.ending_price} lac*</p>
+                       
+                            <button type="button" class="add_btn btn-success w-100 mt-2">
+
+                            <i class="fa-regular fa-handshake"></i> Get on Road Price
+                            </button>
+                         </div>
+                      </a>
+                       </div>`;
+                      productContainer0.append(newCard3);
+                
+                    }
+                    });
+
+           
+            }
+        },
+        error: function (error) {
+            console.error('Error fetching data:', error);
+        }
+    });
+}
+
+
 function getLatestTractorList() {
     var url = "http://tractor-api.divyaltech.com/api/customer/get_new_tractor";
     console.log(url);
@@ -279,7 +348,7 @@ function get_harvester() {
             });
 
             productContainer.owlCarousel({
-                items:3,
+                items:4,
                 loop: true,
                 margin: 10,
                 responsiveClass: true,
@@ -293,7 +362,7 @@ function get_harvester() {
                         nav: false
                     },
                     1000: {
-                        items: 3,
+                        items: 4,
                         nav: false,
                         loop: false
                     }
@@ -364,7 +433,7 @@ function get_oldharvester() {
             });
 
             productContainer.owlCarousel({
-                items:3,
+                items:4,
                 loop: true,
                 margin: 10,
                 responsiveClass: true,
@@ -378,7 +447,7 @@ function get_oldharvester() {
                         nav: false
                     },
                     1000: {
-                        items: 3,
+                        items: 4,
                         nav: false,
                         loop: false
                     }

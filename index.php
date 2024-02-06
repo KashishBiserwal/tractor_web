@@ -203,7 +203,7 @@
                 </div>
               </div>
               <div class="col text-center py-4">
-                <a href="#" class="btn btn-success btn-lg">View all Popular Tractors</a>
+                <a href="popular_tractors.php" class="btn btn-success btn-lg">View all Popular Tractors</a>
               </div>
             </div>
         
@@ -219,7 +219,7 @@
                     </div>
                   </div>
                   <div class="col text-center pb-4">
-                    <a href="#" class="btn btn-success btn-lg">View all Latest Tractors</a>
+                    <a href="latest_tractor.php" class="btn btn-success btn-lg">View all Latest Tractors</a>
                   </div>
                 </div>
               
@@ -236,7 +236,7 @@
                     </div>
                   </div>
                   <div class="col text-center pb-4">
-                    <a href="#" class="btn btn-success btn-lg">View all Latest Tractors</a>
+                    <a href="upcoming_tractors.php" class="btn btn-success btn-lg">View all Upcoming Tractors</a>
                   </div>
                 </div>
               
@@ -263,7 +263,7 @@
               <div class="carousel-wrap">
                 <div class="owl-carousel" id="new_harvester"> </div>
                 <div class="col text-center pb-4 mt-2">
-                  <a href="#" class="btn btn-success px-5">View all  Tractors</a>
+                  <a href="harvester.php" class="btn btn-success px-5">View all New Harvester</a>
                 </div>
               </div>
             </section>
@@ -277,7 +277,7 @@
                 </div>
               </div>
                 <div class="col text-center pb-4">
-                  <a href="#" class="btn btn-success px-5">View all Used Tractors</a>
+                  <a href="used_harvester.php" class="btn btn-success px-5">View all Old Harvester</a>
                 </div>
               </div>
             </section>
@@ -298,7 +298,7 @@
             <div class="pricerate container py-3 my-2 ps-5">
               <div class="yr-con my-3 py-2">
                 <div class="ps-3">
-                  <a href="tractor_by_budget.php?budget=0-3" class="text-decoration-none text-dark">
+                  <a href="tractor_by_budget.php?budget=3 Lakh Below" class="text-decoration-none text-dark">
                     <h5 class="fw-bold bgd_list">
                       <i class="fas fa-tractor p-2 bg-success bgd_list_i opacity-25"></i> &nbsp;&nbsp; Below 3 Lakh
                     </h5>
@@ -307,7 +307,7 @@
               </div>
               <div class="yr-con my-3 py-2">
                 <div class="ps-3">
-                  <a href="#" class="text-decoration-none text-dark">
+                  <a href="tractor_by_budget.php?budget=3-5" class="text-decoration-none text-dark">
                     <h5 class="fw-bold bgd_list">
                       <i class="fas fa-tractor p-2 bg-success bgd_list_i  opacity-25" ></i>&nbsp;&nbsp; 3 lakh - 5 lakh
                     </h5>
@@ -316,7 +316,7 @@
               </div>
               <div class="yr-con my-3 py-2">
                 <div class="ps-3">
-                  <a href="#" class="text-decoration-none text-dark">
+                  <a href="tractor_by_budget.php?budget=5-7" class="text-decoration-none text-dark">
                     <h5 class="fw-bold bgd_list">
                       <i class="fas fa-tractor p-2 bg-success bgd_list_i  opacity-25"></i> &nbsp;&nbsp; 5 lakh - 7 lakh
                     </h5>
@@ -325,7 +325,7 @@
               </div>
               <div class="yr-con my-3 py-2">
                 <div class="ps-3">
-                  <a href="#" class="text-decoration-none text-dark">
+                  <a href="tractor_by_budget.php?budget=7-10" class="text-decoration-none text-dark">
                     <h5 class="fw-bold bgd_list">
                       <i class="fas fa-tractor p-2 bg-success bgd_list_i  opacity-25"></i> &nbsp;&nbsp; 7 lakh - 10 lakh
                     </h5>
@@ -334,7 +334,7 @@
               </div>
               <div class="yr-con my-3 py-2">
                 <div class="ps-3">
-                  <a href="#" class="text-decoration-none text-dark">
+                  <a href="tractor_by_budget.php?budget=11 Lakh Above" class="text-decoration-none text-dark">
                     <h5 class="fw-bold  bgd_list">
                       <i class="fas fa-tractor p-2 bg-success  bgd_list_i  opacity-25"></i> &nbsp;&nbsp; Above 10 lakh
                     </h5>
@@ -344,13 +344,13 @@
             </div>
           </div>
           <div class="col-12 col-lg-6 col-md-6 col-sm-6 align-center">
-            <img src="assets/images/new-tractors.png" class=" h-75 text-align-center mt-5 pt-5 tractor" alt="">
+            <img src="assets/images/new-tractors.png" class="text-align-center mt-5 pt-5 tractor" alt="">
           </div>
         </div>
       </div>
-      <div class="col text-center pb-5 ">
+    <!--   <div class="col text-center pb-5 ">
         <a href="#" class="btn btn-success  px-5">View all</a>
-      </div>
+      </div> -->
     </section>
     <section class="backhp">
       <div class="container  py-4">
@@ -359,7 +359,7 @@
           <div class="row my-4 pt-2">
             <div class="col-12 col-sm-3 col-lg-3 col-md-3 my-2">
               <div class="hpbg">
-                <a href="#" class="text-decoration-none text-dark my-3">
+                <a href="tractor_by_hp.php?hp=0 - 20" class="text-decoration-none text-dark my-3">
                   <div class="text-center mt-2">
                     <i class="fas fa-tractor trac_icon fs-2 mt-3"></i>
                   </div>
@@ -370,7 +370,7 @@
             </div>
             <div class="col-12 col-sm-3 col-lg-3 col-md-3 my-2">
               <div class="hpbg">
-                <a href="#" class="text-decoration-none text-dark py-2">
+                <a href="tractor_by_hp.php?hp=21 - 30" class="text-decoration-none text-dark py-2">
                   <div class="text-center mt-2">
                     <i class="fas fa-tractor trac_icon fs-2  mt-3"></i>
                   </div>
@@ -381,7 +381,7 @@
             </div>
             <div class="col-12 col-sm-3 col-lg-3 col-md-3 my-2">
               <div class="hpbg">
-                <a href="#" class="text-decoration-none text-dark">
+                <a href="tractor_by_hp.php?hp=31 - 40" class="text-decoration-none text-dark">
                   <div class="text-center mt-2">
                     <i class="fas fa-tractor trac_icon fs-2  mt-3"></i>
                   </div>
@@ -392,7 +392,7 @@
             </div>
             <div class="col-12 col-sm-3 col-lg-3 col-md-3  my-2">
               <div class="hpbg">
-                <a href="#" class="text-decoration-none text-dark">
+                <a href="tractor_by_hp.php?hp=41 - 45" class="text-decoration-none text-dark">
                   <div class="text-center mt-2">
                     <i class="fas fa-tractor trac_icon fs-2  mt-3"></i>
                   </div>
@@ -403,7 +403,7 @@
             </div>
             <div class="col-12 col-sm-3 col-lg-3 col-md-3 py-2 my-2">
               <div class="hpbg">
-                <a href="#" class="text-decoration-none text-dark">
+                <a href="tractor_by_hp.php?hp=46 - 50" class="text-decoration-none text-dark">
                   <div class="text-center mt-2">
                     <i class="fas fa-tractor trac_icon fs-2  mt-3"></i>
                   </div>
@@ -414,7 +414,7 @@
             </div>
             <div class="col-12 col-sm-3 col-lg-3 col-md-3 py-2 my-2">
               <div class="hpbg">
-                <a href="#" class="text-decoration-none text-dark">
+                <a href="tractor_by_hp.php?hp=51 - 60" class="text-decoration-none text-dark">
                   <div class="text-center mt-2">
                     <i class="fas fa-tractor trac_icon fs-2  mt-3"></i>
                   </div>
@@ -425,7 +425,7 @@
             </div>
             <div class="col-12 col-sm-3 col-lg-3 col-md-3 py-2 my-2">
               <div class="hpbg">
-                <a href="#" class="text-decoration-none text-dark">
+                <a href="tractor_by_hp.php?hp=61 - 70" class="text-decoration-none text-dark">
                   <div class="text-center mt-2">
                     <i class="fas fa-tractor trac_icon fs-2  mt-3"></i>
                   </div>
@@ -436,7 +436,7 @@
             </div>
             <div class="col-12 col-sm-3 col-lg-3 col-md-3 py-2 my-2">
               <div class="hpbg">
-                <a href="#" class="text-decoration-none text-dark">
+                <a href="tractor_by_hp.php?hp=70 - 1000" class="text-decoration-none text-dark">
                   <div class="text-center mt-2">
                     <i class="fas fa-tractor trac_icon fs-2  mt-3"></i>
                   </div>
@@ -459,151 +459,8 @@
           <div class="col-12 ">
             <div class="position-relative " id="proj_swip">
               <div class="swiper swiper-slides-visible p-5 m-n5 testimonial__wrap">
-                <div class="swiper-wrapper ">
-                  <div class="swiper-slide h-auto success__stry__item d-flex flex-column shadow ">
-                    <div class="thumb">
-                      <a href="#">
-                        <div class="">
-                          <img src="assets/images/jivo-305-di-1632305248.webp" class="object-fit-cover p-3 w-100" alt="img">
-                        </div>
-                      </a>
-                    </div>
-                    <div class="post-content">
-                      <h5 class="post-title">
-                        <a href="#" class="text-decoration-none text-dark fw-bold">Mahindra JIVO 305 DI</a>
-                      </h5>
-                      <div class="row mt-1">
-                        <div class="col-12 col-lg-3 col-md-3 col-sm-3">
-                          <p><i class="fas fa-bolt"></i> 30 HP</p>
-                        </div>
-                        <div class="col-12 col-lg-4 col-md-4 col-sm-4">
-                          <p> <i class="fa fa-cog" aria-hidden="true"></i> 1290CC</p>
-                        </div>
-                        <a href="#" class="text-decoration-none text-dark mb-4 ">
-                        <span> Get On Road price </span>
-                        <span class="icon">
-                          <i class="fa-solid fa-chevron-right"></i>
-                        </span>
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="swiper-slide h-auto success__stry__item d-flex flex-column shadow">
-                    <div class="thumb">
-                      <a href="#">
-                        <div class="">
-                          <img src="assets/images/250-di-1630740119.webp" class="object-fit-cover p-3 w-100" alt="img">
-                        </div>
-                      </a>
-                    </div>
-                    <div class="content ms-3">
-                      <h5 class="post-title">
-                        <a href="#" class="text-decoration-none text-dark fw-bold">Captain 250 DI </a>
-                      </h5>
-                      <div class="row mt-1">
-                        <div class="col-12 col-lg-3 col-md-3 col-sm-3">
-                          <p><i class="fas fa-bolt"></i> 30 HP</p>
-                        </div>
-                        <div class="col-12 col-lg-4 col-md-4 col-sm-4">
-                          <p> <i class="fa fa-cog" aria-hidden="true"></i> 1290CC</p>
-                        </div>
-                        <a href="#" class="text-decoration-none text-dark mb-4 ">
-                        <span> Get On Road price </span>
-                        <span class="icon">
-                          <i class="fa-solid fa-chevron-right"></i>
-                        </span>
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="swiper-slide h-auto success__stry__item d-flex flex-column shadow ">
-                    <div class="thumb">
-                      <a href="#">
-                        <div class="">
-                          <img src="assets/images/jivo-245-vineyard-1632305209.webp" class="object-fit-cover p-3 w-100" alt="img">
-                        </div>
-                      </a>
-                    </div>
-                    <div class="content ms-3">
-                      <a href="#" class="text-decoration-none text-dark">
-                        <h5 class="fw-bold mt-2">Mahindra JIVO 245 VINEYARD </h5>
-                      </a>
-                      <div class="row mt-1 ps-1">
-                        <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                          <p class="">
-                            <i class="fas fa-bolt"></i> 24 HP
-                          </p>
-                        </div>
-                        <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                          <p class="">
-                            <i class="fa fa-cog" aria-hidden="true"></i> 1366 CC
-                          </p>
-                        </div>
-                      </div>
-                      <a href="#" class="text-decoration-none text-dark mb-4">
-                        <span> Get On Road price </span>
-                        <span class="icon">
-                          <i class="fa-solid fa-chevron-right"></i>
-                        </span>
-                      </a>
-                    </div>
-                  </div>
-                  <div class="swiper-slide h-auto success__stry__item d-flex flex-column shadow">
-                    <div class="thumb">
-                      <a href="#">
-                        <div class="">
-                          <img src="assets/images/250-di-1630740119.webp" class="object-fit-cover p-3 w-100" alt="img">
-                        </div>
-                      </a>
-                    </div>
-                    <div class="content ms-3">
-                      <h5 class="post-title">
-                        <a href="#" class="text-decoration-none text-dark fw-bold">Captain 250 DI </a>
-                      </h5>
-                      <div class="row mt-1">
-                        <div class="col-12 col-lg-3 col-md-3 col-sm-3">
-                          <p><i class="fas fa-bolt"></i> 30 HP</p>
-                        </div>
-                        <div class="col-12 col-lg-4 col-md-4 col-sm-4">
-                          <p> <i class="fa fa-cog" aria-hidden="true"></i> 1290CC</p>
-                        </div>
-                        <a href="#" class="text-decoration-none text-dark mb-4 ">
-                        <span> Get On Road price </span>
-                        <span class="icon">
-                          <i class="fa-solid fa-chevron-right"></i>
-                        </span>
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="swiper-slide h-auto success__stry__item d-flex flex-column shadow">
-                    <div class="thumb">
-                      <a href="#">
-                        <div class="">
-                          <img src="assets/images/250-di-1630740119.webp" class="object-fit-cover p-3 w-100" alt="img">
-                        </div>
-                      </a>
-                    </div>
-                    <div class="content ms-3">
-                      <h5 class="post-title">
-                        <a href="#" class="text-decoration-none text-dark fw-bold">Captain 250 DI </a>
-                      </h5>
-                      <div class="row mt-1">
-                        <div class="col-12 col-lg-3 col-md-3 col-sm-3">
-                          <p><i class="fas fa-bolt"></i> 30 HP</p>
-                        </div>
-                        <div class="col-12 col-lg-4 col-md-4 col-sm-4">
-                          <p> <i class="fa fa-cog" aria-hidden="true"></i> 1290CC</p>
-                        </div>
-                        <a href="#" class="text-decoration-none text-dark mb-4 ">
-                        <span> Get On Road price </span>
-                        <span class="icon">
-                          <i class="fa-solid fa-chevron-right"></i>
-                        </span>
-                        </a>
-                      </div>
-                    </div>
-                  </div>
+                <div class="swiper-wrapper " id="mini_tractor">
+                  
                 </div>
                 <div class="swiper-pagination"></div>
                 <div class="swiper_nav">
@@ -616,7 +473,7 @@
           </div>
           <div class="py-3"></div>
           <div class="col text-center mb-3">
-            <a href="#" class="btn btn-success btn-lg">View all Mini Tractors</a>
+            <a href="mini_tractor.php" class="btn btn-success btn-lg">View all Mini Tractors</a>
           </div>
         </div>
       </div>

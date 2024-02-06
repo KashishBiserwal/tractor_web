@@ -478,11 +478,7 @@ ul{
   backdrop-filter: blur(10px);
 } */
 
-h2 {
-  color: #fff;
-  text-align: center;
-  margin-bottom: 20px;
-}
+
 
 form {
   display: flex;
@@ -648,8 +644,9 @@ div.swiper-5 {
   box-shadow:0 4px 8px rgba(141, 246, 76, 0.25); 
 }
 .tractor{
-  position:relative;
-  width: 110%;
+  position: relative;
+  width: 100%;
+  top: 40px;
 }
 .tractor::after{
   content:url("assets/images/grass.jpg");
@@ -1938,4 +1935,13 @@ input[type="checkbox"]:checked + label:before {
   color: #000;
   background-color: #fff;
   border-bottom: 1px solid rgba(0,0,0,.125);
+}
+.btn_link{
+  float: right;
+  font-size: 14px;
+  margin-top: -25px;
+
+}
+.tractor_description p{
+  font-size: 14px;
 }
