@@ -86,7 +86,7 @@ function getbrands(){
                   
 
                     var brand_container = `<div class="col-6 col-sm-6 col-md-2 col-lg-2 brand_section">
-                    <a href="brands.php?brand_id=${p.id}"><div class="d-block">
+                    <a href="brands.php?brand_id=${p.id}"><div class="d-block ">
                         <img src="http://tractor-api.divyaltech.com/uploads/brand_img/${p.brand_img}">
                         <p>${p.brand_name}</p>
                     </div></a>

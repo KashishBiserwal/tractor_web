@@ -319,14 +319,14 @@ function get_harvester() {
                 }
                 var newCard = `
                 <div class="item box_shadow b-t-1">
-              <a  href="#" class="text-decoration-none fw-bold">
+              <a  href="harvester_inner.php?product_id=${p.id}" class="text-decoration-none fw-bold">
                 <div class="harvester_img_section">
                   <img src="http://tractor-api.divyaltech.com/uploads/product_img/${a[0]}" alt="">
-                  <div href="#" class="over-layer"><i class="fa fa-link"></i></div>
+                  <div href="harvester_inner.php?product_id=${p.id}" class="over-layer"><i class="fa fa-link"></i></div>
                 </div>
               </a>
               <div class="harvester_content_section mt-3 text-center">
-                <a href="#" class="text-decoration-none fw-bold text-dark"><h5 class="text-dark">${p.brand_name} ${p.model}</h5></a>
+                <a href="harvester_inner.php?product_id=${p.id}" class="text-decoration-none fw-bold text-dark"><h5 class="text-dark">${p.brand_name} ${p.model}</h5></a>
                 <div class="row w-100">
                   <div class="col-6 p-0"> <p class="mb-0" style="font-size: 14px;">${p.horse_power} Hp</p></div>
                   <div class="col-6 p-0"> <p class="mb-0" style="font-size: 14px;">${p.crops_type_value}</p></div>
@@ -404,14 +404,14 @@ function get_oldharvester() {
                 }
                 var newCard = `
                 <div class="item box_shadow b-t-1">
-              <a  href="#" class="text-decoration-none fw-bold">
+              <a  href="used_harvester_inner.php?id=${p.id}" class="text-decoration-none fw-bold">
                 <div class="harvester_img_section">
                   <img src="http://tractor-api.divyaltech.com/uploads/product_img/${a[0]}" alt="">
-                  <div href="#" class="over-layer"><i class="fa fa-link"></i></div>
+                  <div href="used_harvester_inner.php?id=${p.id}" class="over-layer"><i class="fa fa-link"></i></div>
                 </div>
               </a>
               <div class="harvester_content_section mt-3 text-center">
-                <a href="#" class="text-decoration-none fw-bold text-dark"><h5 class="text-dark">${p.brand_name} ${p.model}</h5></a>
+                <a href="used_harvester_inner.php?id=${p.id}" class="text-decoration-none fw-bold text-dark"><h5 class="text-dark">${p.brand_name} ${p.model}</h5></a>
                 <div class="row w-100">
                   <div class="col-6 p-0"> <p class="mb-0" style="font-size: 14px;">${p.horse_power} Hp</p></div>
                   <div class="col-6 p-0"> <p class="mb-0" style="font-size: 14px;">${p.crops_type_value}</p></div>
@@ -460,3 +460,4 @@ function get_oldharvester() {
     }
     });
 }
+
