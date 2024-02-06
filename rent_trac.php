@@ -76,14 +76,33 @@
                       <h4 class="text-center">Fill your Details</h4>
                       <form id="rent_list_form_">
                               <div class="row justify-content-center pt-4">
+                              <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-2" hidden>
+                                <div class="form-outline">
+                                <input type="text" id="enquiry_type_id" name="" value="18" class=" data_search form-control input-group-sm py-2" />
+                                </div>
+                              </div>
+                              <div class="col-12 col-lg-6 col-md-6 col-sm-6 " hidden>
+                                        <label for="name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i> product type id</label>
+                                        <input type="text" class="form-control" id="added_by" value="">
+                                    </div>
+                              <!-- <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-2" hidden>
+                                <div class="form-outline">
+                                  <input type="text" id="customer_id" name="" value="" class=" data_search form-control input-group-sm py-2" />
+                                </div>
+                              </div> -->
+                              <!-- <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-2" hidden>
+                                <div class="form-outline">
+                                <input type="text" id="implement_type_id" name="" value="" class=" data_search form-control input-group-sm py-2" />
+                                </div>
+                              </div> -->
                                 <div class="col-12 col-sm-4 col-md-4 col-lg-4">
                                   <div class="form-outline">
                                     <label class="form-label">Brand</label>
                                     <select class="form-select" aria-label="Default select example"id="brand" name="brand">
-                                      <option value>Select Brand</option>
+                                      <!-- <option value>Select Brand</option>
                                       <option value="1">Mahindra</option>
                                       <option value="2">Swaraj</option>
-                                      <option value="3">John deere</option>
+                                      <option value="3">John deere</option> -->
                                     </select>
                                   </div>
                                 </div>
@@ -91,10 +110,10 @@
                                   <div class="form-outline">
                                     <label class="form-label">Model</label>
                                     <select class="form-select" aria-label="Default select example"id="model" name="model">
-                                      <option value>Select Model</option>
+                                      <!-- <option value>Select Model</option>
                                       <option value="1">Mahindra</option>
                                       <option value="2">Swaraj</option>
-                                      <option value="3">John deere</option>
+                                      <option value="3">John deere</option> -->
                                     </select>
                                   </div>
                                 </div>
@@ -102,10 +121,10 @@
                                   <div class="form-outline">
                                     <label class="form-label">Year</label>
                                     <select class="form-select" aria-label="Default select example"id="year" name="year">
-                                      <option value>Select Year</option>
+                                      <!-- <option value>Select Year</option>
                                       <option value="1">2020</option>
                                       <option value="2">2021</option>
-                                      <option value="3">2022</option>
+                                      <option value="3">2022</option> -->
                                     </select>
                                   </div>
                                 </div>
@@ -141,7 +160,7 @@
                                                     </div>
                                                 </td>
                                                 <td>
-                                                     <input type="text" name="implement_rate[]" id="impRate_0" class="form-control implement-rate-input" maxlength="10" placeholder="e.g- 1500">
+                                                     <input type="text" name="implement_rate[]" id="implement_rent" class="form-control implement-rate-input" maxlength="10" placeholder="e.g- 1500">
                                                 </td>
                                                 <td>
                                                     <div class="select-wrap">
@@ -173,13 +192,13 @@
                                 <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
                                   <div class="form-outline mt-2">
                                     <label class="form-label text-dark">Working Area</label>
-                                    <textarea rows="3" cols="70" class="w-100" minlength="1"  id="textarea_" name="textarea_"></textarea>
+                                    <textarea rows="3" cols="70" class="w-100 p-2"  id="workarea_" name="textarea_"></textarea>
                                   </div>
                                 </div>
                                 <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
                                   <div class="form-outline mt-2">
                                     <label class="form-label text-dark">Description</label>
-                                    <textarea rows="3" cols="70" class="w-100" minlength="1" id="textarea_d" name="textarea_d"></textarea>
+                                    <textarea rows="3" cols="70" class="w-100 p-2"  id="textarea_d" name="textarea_d"></textarea>
                                   </div>
                                 </div>
                                 <div class="text-center">
@@ -188,48 +207,48 @@
                                 <div class="col-12 col-lg-6 col-sm-5 col-md-6 my-1">
                                   <div class="form-outline mt-3">
                                     <label for="name" class="form-label text-dark">First Name</label>
-                                    <input type="text" class="form-control" placeholder="" id="fname" name="fname">
+                                    <input type="text" class="form-control" placeholder="" id="myfname" name="fname">
                                   </div>
                                 </div>
                                 <div class="col-12 col-lg-6 col-sm-5 col-md-6 my-1">
                                   <div class="form-outline mt-3">
                                     <label for="name" class="form-label text-dark">Last Name</label>
-                                    <input type="text" class="form-control" placeholder="" id="lname" name="lname">
+                                    <input type="text" class="form-control" placeholder="" id="mylname" name="lname">
                                   </div>
                                 </div>
                                 <div class="col-12 col-lg-6 col-sm-5 col-md-6 my-1">
                                   <div class="form-outline mt-2">
                                     <label for="name" class="form-label text-dark">Mobile Number</label>
-                                    <input type="text" class="form-control" placeholder="" id="number" name="number">
+                                    <input type="text" class="form-control" placeholder="" id="mynumber" name="number">
                                   </div>
                                 </div>
                                 <div class="col-12 col-lg-6 col-sm-5 col-md-6 my-1">
                                   <div class="form-outline mt-2">
                                     <label class="form-label ">State</label>
-                                    <select class="form-select py-2" aria-label="Default select example" id="state_" name="state_">
+                                    <select class="form-select py-2" aria-label="Default select example" id="state_state" name="state_">
                                       <option value>Select State</option>
-                                      <option value="1">Chattisgarh</option>
-                                      <option value="2">Other</option>
+                                      <option value="Chattisgarh">Chattisgarh</option>
+                                      <option value="Other">Other</option>
                                     </select>
                                   </div>
                                 </div>
                                 <div class="col-12 col-lg-6 col-sm-5 col-md-6 my-1">
                                   <div class="form-outline mt-3">
                                     <label class="form-label ">District</label>
-                                    <select class="form-select py-2" aria-label="Default select example" id="dist" name="dist">
+                                    <select class="form-select py-2" aria-label="Default select example" id="dist_district" name="dist">
                                       <option value>Select District</option>
-                                      <option value="1">Raipur</option>
-                                      <option value="2">Bilaspur</option>
+                                      <option value="Raipur">Raipur</option>
+                                      <option value="Bilaspur">Bilaspur</option>
                                     </select>
                                   </div>
                                 </div>
                                 <div class="col-12 col-lg-6 col-sm-5 col-md-6 my-1">
                                   <div class="form-outline mt-3">
                                     <label class="form-label">Tehsil</label>
-                                    <select class="form-select py-2" aria-label="Default select example">
+                                    <select class="form-select py-2" aria-label="Default select example" id="tehsil_t">
                                       <option value>Select Tehsil</option>
-                                      <option value="1">Raipur</option>
-                                      <option value="2">Bilaspur</option>
+                                      <option value="Raipur">Raipur</option>
+                                      <option value="Bilaspur">Bilaspur</option>
                                     </select>
                                   </div>
                                 </div>
@@ -240,7 +259,7 @@
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-secondary px-3" data-bs-dismiss="modal">Close</button>
-                  <button type="submit"  id="sub_btn_"class="btn btn-success fw-bold px-3">Submit</button>
+                  <button type="button" id="sub_btn_" class="btn btn-success fw-bold px-3"  data-bs-dismiss="modal">Submit</button>
                 </div>
               </div>
             </div>
@@ -306,20 +325,20 @@
         </div>
       </div>
       <!-- Table Card -->
-      <div class=" mb-5">
+      <div class=" mb-5 shadow bg-white mt-3 p-3">
         <div class="table-responsive">
         <table id="example" class="table table-striped  table-hover table-bordered dataTable no-footer" width="100%; margin-bottom: 15px;">
             <thead>
               <tr>
                 <th class="d-none d-md-table-cell text-white">S.No.</th>
-                <th class="d-none d-md-table-cell text-white">Date</th>
+                <th class="d-none d-md-table-cell text-white">Date/Time</th>
                 <th class="d-none d-md-table-cell text-white">Brand</th>
                 <th class="d-none d-md-table-cell text-white">Model</th>
                 <th class="d-none d-md-table-cell text-white">Name</th>
                 <th class="d-none d-md-table-cell text-white">Phone Number</th>
                 <th class="d-none d-md-table-cell text-white">State</th>
                 <th class="d-none d-md-table-cell text-white">District</th>
-                <th class="d-none d-md-table-cell text-white">Action</th>
+                <!-- <th class="d-none d-md-table-cell text-white">Action</th> -->
               </tr>
             </thead>
             <tbody id="data-table">
@@ -330,7 +349,67 @@
     </div>
 </section>
       
-    
+     <!-- view -->
+     <div class="modal fade" id="rent_view_model" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg modal-dialog-centered">
+              <div class="modal-content modal_box">
+                <div class="modal-header modal_head">
+                  <h5 class="modal-title text-white fw-bold" id="staticBackdropLabel">Rent Tractor Information </h5>
+                  <button type="button" class="btn-close btn-success" data-bs-dismiss="modal" aria-label="Close"><img src="assets/images/close.png"></button>
+                </div>
+                  <div class="modal-body bg-light">
+                    <div class="row ">
+                       <div class="col-12">
+                        <table class="table table-striped">
+                        <tbody>
+                        <tr>
+                            <td>Brand-</td>
+                            <td id="brand1"></td> 
+                            <td>Model-</td>
+                            <td id="model1"></td> 
+                          </tr>
+                         <tr>
+                            <td>First Name:-</td>
+                            <td id="first_name2"></td>
+                            <td>Last Name-</td>
+                            <td id="last_name2"></td>
+                          </tr>
+                          <tr>
+                            <td>Mobile Number-</td>
+                            <td id="monile"></td>
+                            <td>Date-</td>
+                            <td id="date_2"></td>
+                          </tr>
+                          <tr>
+                            <td>Purchase Year-</td>
+                            <td id="purchase_year1"></td> 
+                            <td>State-</td>
+                            <td id="state2"></td>
+                          </tr>
+                          <tr>
+                            <td>District-</td>
+                            <td id="district2"></td>
+                            <td>Tehsil-</td>
+                            <td id="tehsil2"></td>
+                           </tr>
+                          <tr>
+                            <td>Upload images-</td>
+                              <td colspan="3">
+                                  <div class="col-12">
+                                      <div id="selectedImagesContainer-old" class="upload__img-wrap row"></div>
+                                  </div>
+                              </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>  
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary px-3" data-bs-dismiss="modal">Close</button>
+                </div>
+              </div>
+            </div>
+          </div>
 </div>
 </div>
 </body>
@@ -372,10 +451,10 @@
           required: true,
         },
         number:{
-          required: true,
-          maxlength:10,
-          digits: true,
-          customPhoneNumber: true
+          required:true, 
+            maxlength:10,
+            digits: true,
+            customPhoneNumber: true
         },
         state_:{
           required: true,

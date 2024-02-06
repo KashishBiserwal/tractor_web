@@ -110,7 +110,7 @@
                                             </div>
                                         </div>
                                         <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                                          <div class="upload__box">
+                                          <div class="upload__box mt-5">
                                             <div class="upload__btn-box text-center">
                                               <label >
                                                 <p class="upload__btn ">Upload images</p>

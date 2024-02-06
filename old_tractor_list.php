@@ -61,8 +61,7 @@ include 'includes/headertag.php';
                               <h5>Fill Your Detail</h5>
                               <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-2" hidden>
                                 <div class="form-outline">
-                                
-                                  <input type="text" id="enquiry_type_id" name="" value="1" class=" data_search form-control input-group-sm py-2" />
+                                <input type="text" id="enquiry_type_id" name="" value="1" class=" data_search form-control input-group-sm py-2" />
                                 </div>
                               </div>
                               <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-2" hidden>

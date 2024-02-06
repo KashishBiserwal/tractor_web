@@ -60,89 +60,83 @@ include 'includes/headertag.php';
                                     <label for="name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i> product id</label>
                                     <input type="text" class="form-control" id="product_id" value="">
                                 </div> -->
-                                <div class="col-12 col-sm-12 col-md-6 col-lg-6">
-                                    <div class="form-outline">
-                                        <div class="mt-2">
-                                            <label class="form-label text-dark"><i class="fa-regular fa-user"></i> First Name</label>
-                                            <input type="text" class="form-control mb-0" id="firstname" name="f_name">
-                                        </div>
+                                <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
+                                    <div class="form-outline mt-3">
+                                        <label for="name" class="form-label text-dark">Dealer Name</label>
+                                        <input type="text" class="form-control" placeholder="" id="dname" name="dname">
                                     </div>
                                 </div>
-                                <div class="col-12 col-sm-12 col-md-6 col-lg-6">
-                                    <div class="form-outline">
-                                        <div class="mt-2">
-                                            <label class="form-label text-dark"><i class="fa-regular fa-user"></i> Last Name</label>
-                                            <input type="text" class="form-control mb-0" id="lastname" name="bcd_name">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-12 col-lg-6 col-md-6 col-sm-6 mt-3">
-                                    <div class="form-outline">
-                                        <div class="mt-2">
-                                            <label class="form-label text-dark"> <i class="fa fa-phone" aria-hidden="true"></i> Mobile Number</label>
-                                            <input type="text" class="form-control mb-0" id="mobnumber" name="bcd_num"  oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-12 col-lg-6 col-md-6 col-sm-6 mt-3">
-                                    <div class="form-outline">
-                                        <div class="mt-2">
-                                            <label class="form-label text-dark">Email</label>
-                                            <input type="email" class="form-control mb-0" id="dealeremail" name="bcd_email">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-4">
-                                    <div class="form-outline">
-                                        <label for="bcd_state" class="form-label text-dark fw-bold"> <i class="fas fa-location"></i> State</label>
-                                        <select class="form-select py-2" id="bcd_state" name="bcd_state"aria-label=".form-select-lg example">
-                                            <option value="" selected-disabled="">Select State</option>
-                                            <option value="1">Chhattisgarh</option>
-                                            <option value="2">Other</option>
+                                <div class="ol-12 col-lg-6 col-md-6 col-sm-6">
+                                    <div class="form-outline mt-3">
+                                        <label class="form-label"> Brand</label>
+                                        <select class="form-select py-2" aria-label="Default select example" id="brand" name="brand">
+                                                
                                         </select>
                                     </div>
                                 </div>
-                                <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-4">
-                                    <div class="form-outline">
-                                        <label for="bcd_district" class="form-label text-dark"><i class="fa-solid fa-location-dot"></i> District</label>
-                                        <select class="form-select py-2" id="bcd_district" name="bcd_district" aria-label=".form-select-lg example">
-                                            <option value=""selected-disabled="">Select District</option>
-                                            <option value="1">Raipur</option>
-                                            <option value="2">Bilaspur</option>
-                                            <option value="2">Durg</option>
+                                <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
+                                    <div class="form-outline mt-3">
+                                        <label for="name" class="form-label text-dark">Email Id</label>
+                                        <input type="text" class="form-control" placeholder="" id="email" name="email">
+                                    </div>
+                                </div>
+                                <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
+                                    <div class="form-outline mt-3">
+                                        <label for="name" class="form-label text-dark">Contact Number</label>
+                                        <input type="text" class="form-control" placeholder="" id="mobnumber" name="bcd_num">
+                                    </div>
+                                </div>
+                                <div class="col-12  mb-2">
+                                      <div class="form-outline mt-3">
+                                        <label for="name" class="form-label text-dark">Address</label>
+                                        <!-- <input type="email" class="form-control" placeholder="" id="" name=""> -->
+                                        <textarea rows="3" cols="70" class="w-100 pt-2" minlength="1" maxlength="255" id="address" name="address"></textarea>
+                                      </div>
+                                    </div>
+                                <div class="col-12 col-sm-6 col-md-6 col-lg-6">
+                                    <div class="form-outline mt-3">
+                                        <label class="form-label">State</label>
+                                        <select class="form-select py-2" aria-label="Default select example" id="bcd_state" name="state_">
+                                            <option value>Select State</option>
+                                            <option value="Chattisgarh">Chattisgarh</option>
+                                            <option value="Other">Other</option>
                                         </select>
                                     </div>
                                 </div>
-                                <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-4">
-                                    <div class="form-outline">
-                                        <label for="bcd_tehsil" class="form-label text-dark"> Tehsil</label>                                        
-                                        <select class="form-select py-2 " id="bcd_tehsil" name="bcd_tehsil"aria-label=".form-select-lg example">
-                                            <option value="" selected-disabled="">Select Brand</option>
-                                            <option value="1">Mahindra</option>
-                                            <option value="2">Swaraj</option>
-                                            <option value="2">Powertrac</option>
+                                <div class="col-12  col-sm-6 col-md-6 col-lg-6">
+                                    <div class="form-outline mt-3">
+                                        <label class="form-label">District</label>
+                                        <select class="form-select py-2" aria-label="Default select example" id="bcd_district" name="dist">
+                                            <option value>Select District</option>
+                                            <option value="Raipur">Raipur</option>
+                                            <option value="Bilaspur">Bilaspur</option>
+                                            <option value="Surajpur">Surajpur</option>
                                         </select>
                                     </div>
                                 </div>
-                                <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-4">
-                                    <div class="form-outline">
-                                        <label for="bcd_brand" class="form-label text-dark">Brand</label>
-                                        <select class="form-select py-2 " id="bcd_brand" name="bcd_brand"aria-label=".form-select-lg example">
-                                            <option value="" selected-disabled="">Select Brand</option>
-                                            <option value="1">Mahindra</option>
-                                            <option value="2">Swaraj</option>
-                                            <option value="2">Powertrac</option>
+                                <div class="col-12 col-sm-6 col-md-6 col-lg-6">
+                                    <div class="form-outline mt-3">
+                                        <label class="form-label">Tehsil</label>
+                                        <select class="form-select py-2" id="tehsil" aria-label="Default select example" id="bcd_tehsil">
+                                            <option value>Select Tehsil</option>
+                                            <option value="Raipur">Raipur</option>
+                                            <option value="Bilaspur">Bilaspur</option>
+                                            <option value="Surajpur">Surajpur</option>
                                         </select>
                                     </div>
                                 </div>
-                                <div class="col-12 col-lg-12 col-md-12 col-sm-12  mt-3">
-                                    <div class="form-outline">
-                                        <div class="mt-2">
-                                            <label for="bcd_message"class="form-label text-dark">Message</label>
-                                            <textarea rows="2" class="form-control" id="bcd_message" name="bcd_message"></textarea>
+                                <div class="col-12 col-lg-6 col-md-6 col-sm-6">
+                                          <div class="upload__box mt-5">
+                                            <div class="upload__btn-box text-center">
+                                              <label >
+                                                <p class="upload__btn ">Upload images</p>
+                                                <input type="file" multiple="" data-max_length="20" class="upload__inputfile" id="_image" name="_image">
+                                              </label>
+                                            </div>
+                                            <div id="selectedImagesContainer" class="upload__img-wrap"></div>
+                                          </div>
                                         </div>
-                                    </div>
-                                </div>
+                               
                                 <div class="text-center my-3">
                                     <button type="submit" id="become_delership_enq_btn" class="btn btn-success mt-1 px-5 w-100 ">Submit</button>         
                                 </div>        
@@ -172,14 +166,11 @@ include 'includes/headertag.php';
                 // }, 2000);
                 $("form[id='become_dealership_enq_from']").validate({
                     rules: {
-                        f_name: {
-                            required: true,
-                            minlength: 3
+                        dname: {
+                            required: true, 
                         },
-
-                        bcd_name: {
+                        brand: {
                             required: true,
-                            minlength: 3
                         },
                         bcd_num: {
                             required: true,
@@ -188,71 +179,62 @@ include 'includes/headertag.php';
                             digits: true,
                             customPhoneNumber: true 
                         },
-                        bcd_state: {
+                        email: {
+                            required:true,
+                            email:true
+                        },
+                        address: {
                             required: true,
                             // minlength: 3
                         },
-                        bcd_email: {
+                        state_: {
                             required: true,
                             // minlength: 3
                         },
-                        bcd_message: {
+                       dist: {
                             required: true,
                             // minlength: 3
                         },
-                        
-                        bcd_brand: {
-                            required: true,
-                            // minlength: 3
-                        },
-                        // eo_tehsil: {
-                        //     required: true,
-                        //     // minlength: 3
-                        // },
-                        bcd_district: {
-                            required: true,
-                            // minlength: 3
+                        _image:{
+                            required: true, 
                         }
                     },
                     messages: {
-                        f_name: {
-                            required: "Enter Your First Name",
-                            minlength: "First Name must be atleast 3 characters long"
+                        dname: {
+                            required:"This field is required",
+                           
                         },
-                        bcd_name: {
-                            required: "Enter Your Last Name",
-                            minlength: "Last Name must be atleast 3 characters long"
+                        brand: {
+                            required:"This field is required",
+                          
                         },
                         bcd_num: {
-                            required: "Enter Your Phone Number",
+                            required:"This field is required",
                             minlength: "Phone Number must be of 10 Digit",
                             maxlength: "Ensure exactly 10 digits of Mobile No.",
                             digits: "Please enter only digits"
                         },
-                        bcd_state: {
-                            required: "Select Your State",
-                            // minlength: "First Name must be atleast 3 characters long"
+                        email: {
+                            required:"This field is required",
+                            email:"Please Enter vaild Email",
+                            
                         },
-                        bcd_email: {
-                            required: "Enter Your Email Address",
-                            // minlength: "First Name must be atleast 3 characters long"
+                        address: {
+                            required:"This field is required",
+                           
                         },
-                        bcd_brand: {
-                            required: "Select Your Brand",
-                            // minlength: "First Name must be atleast 3 characters long"
+                        state_: {
+                            required:"This field is required",
+                            
                         },
-                        bcd_message: {
-                            required: "Enter Your Message",
-                            // minlength: "First Name must be atleast 3 characters long"
+                        dist: {
+                            required:"This field is required",
+                           
                         },
-                        // eo_tehsil: {
-                        //     required: "Select Your Tehsil",
-                        //     // minlength: "First Name must be atleast 3 characters long"
-                        // },
-                        bcd_district: {
-                            required: "Select Your District",
-                            // minlength: "First Name must be atleast 3 characters long"
-                        }                        
+                        _image:{
+                            required:"This field is required",
+                        }
+
                     },
 
                 });
