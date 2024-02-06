@@ -1,8 +1,15 @@
 <?php
-   include 'includes/headertagadmin.php';
-  
+    include 'includes/headertag.php';
+    // $product_id=$_REQUEST['product_id'];
+    // echo $product_id;
+    include 'includes/footertag.php';
+    ?>
    
-   ?> 
+   <script> var APIBaseURL = "<?php echo $APIBaseURL; ?>";</script>
+   <script> var baseUrl = "<?php echo $baseUrl; ?>";</script>
+   <script src="<?php $baseUrl; ?>model/rent_trac.js"></script>
+
+  
     <style>
     /* Add your custom styles here */
     .table-responsive {
@@ -301,7 +308,7 @@
       <!-- Table Card -->
       <div class=" mb-5">
         <div class="table-responsive">
-          <table id="example" class="table dataTable no-footer py-1" width="100%">
+        <table id="example" class="table table-striped  table-hover table-bordered dataTable no-footer" width="100%; margin-bottom: 15px;">
             <thead>
               <tr>
                 <th class="d-none d-md-table-cell text-white">S.No.</th>
@@ -315,7 +322,7 @@
                 <th class="d-none d-md-table-cell text-white">Action</th>
               </tr>
             </thead>
-            <tbody>
+            <tbody id="data-table">
             </tbody>
           </table>
          </div>
