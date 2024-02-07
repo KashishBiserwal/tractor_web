@@ -1,7 +1,7 @@
 $(document).ready(function () {
       $('#store').click(store);
       get();
-    //   get_lookup();
+    // get_lookup();
     });
 
     function get() {
