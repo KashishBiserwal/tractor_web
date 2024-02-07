@@ -83,6 +83,7 @@
               <li class="py-1 ps-3"><a href="tractor_enq.php" class="d-inline-flex align-items-center text-white   text-decoration-none rounded"> New Tractor Enquiries</a></li>
               <li class="py-1 ps-3"><a href="used_trac_enqui.php" class="d-inline-flex align-items-center text-white text-decoration-none rounded">Used Tractor Enquiries</a></li>
               <li class="py-1 ps-3"><a href="dealer_enq_list.php" class="d-inline-flex align-items-center text-white   text-decoration-none rounded"> Dealers Enquiry Listing</a></li>
+              <li class="py-1 ps-3"><a href="become_certified_dealer.php" class="d-inline-flex align-items-center text-white   text-decoration-none rounded"> Become Certified Dealers Enquiry</a></li>
               <li class="py-1 ps-3"><a href="farm_equi_enq.php" class="d-inline-flex align-items-center text-white text-decoration-none rounded"> New Farm Equipment Enquiries</a></li>
               <li class="py-1 ps-3"><a href="old_farm_eqi_list.php" class="d-inline-flex align-items-center text-white text-decoration-none rounded"> Old Farm Equipment Enquiries</a></li>
               <li class="py-1 ps-3"><a href="harvester_enqui.php" class="d-inline-flex align-items-center text-white text-decoration-none rounded"> New Harvester Enquiries</a></li>

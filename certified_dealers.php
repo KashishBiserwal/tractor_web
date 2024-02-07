@@ -77,7 +77,7 @@
                       <button type="submit" id="dealership_enq_btn" class="btn btn-success w-100">Search Dealer</button>
                     </div>
                     <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                      <a href="become_certified_dealer.php" class="btn btn-success w-100">Become Certified Dealer</a>
+                      <a href="become_certified.php" class="btn btn-success w-100">Become Certified Dealer</a>
                     </div>
                   </div>
                 </div>

@@ -96,7 +96,7 @@
                         <tr>
                             <th class="d-none d-md-table-cell text-white">S.No.</th>
                             <th class="d-none d-md-table-cell text-white">Date </th>
-                            <th class="d-none d-md-table-cell text-white">Dealer Name </th>
+                            <!-- <th class="d-none d-md-table-cell text-white">Dealer Name </th> -->
                             <th class="d-none d-md-table-cell text-white"> Brand Name </th>
                             <th class="d-none d-md-table-cell text-white">Phone number</th>
                             <th class="d-none d-md-table-cell text-white">State</th>
