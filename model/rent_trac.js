@@ -346,7 +346,7 @@ function store(event) {
         'images': JSON.stringify(image_names),
     });
 
-    // $.extend(data, JSON.parse(jsonData));
+    $.extend(data, JSON.parse(jsonData));
 
     $.ajax({
         url: url,

@@ -197,6 +197,8 @@ include 'includes/headertag.php';
                         },
                         _image:{
                             required: true, 
+                            minlength: 2,
+                            maxlength: 4,
                         }
                     },
                     messages: {
@@ -233,6 +235,8 @@ include 'includes/headertag.php';
                         },
                         _image:{
                             required:"This field is required",
+                            minlength: "minimum 2 images",
+                            maxlength: "maximum 4 images",
                         }
 
                     },
