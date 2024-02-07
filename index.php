@@ -11,7 +11,7 @@
    ?>
 <style>
  .thumb img {
-    height: auto;
+  height: 100%;
     width: 100%;
     max-width: 400px;
     max-height: 205px;
