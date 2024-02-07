@@ -20,6 +20,7 @@ function get_loan() {
             let serialNumber = data.enquiry_for_insurance_data.length;
   
             if (data.enquiry_for_insurance_data && data.enquiry_for_insurance_data.length > 0) {
+              
                 var table = $('#example').DataTable({
                     paging: true,
                     searching: true,
@@ -27,7 +28,7 @@ function get_loan() {
                         { title: 'S.No.' },
                         { title: 'Date' },
                         { title: 'Loan Type' },
-                        { title: 'Model' },
+                        { title: 'Brand' },
                         { title: 'Full Name' },
                         { title: 'State' },
                         { title: 'District' },
@@ -43,7 +44,7 @@ function get_loan() {
                         serialNumber--,
                         row.date,
                         row.insurance_type_name,
-                        row.model,
+                        row.brand_name,
                         fullName,
                         row.state,
                         row.district,
@@ -368,9 +369,9 @@ function openViewdata(userId) {
 
 //   search dataaa
   function search_data() {
-    var selectedBrand = $('#brand_name').val();
-    var district = $('#district_name').val();
-    var state = $('#state_name').val();
+    var selectedBrand = $('#brand_search').val();
+    var state = $('#state_state').val();
+    var district = $('#dist_state').val();
     var paraArr = {
       'brand_id': selectedBrand,
       'state':state,
@@ -378,7 +379,7 @@ function openViewdata(userId) {
     };
   
     var apiBaseURL = APIBaseURL;
-    var url = apiBaseURL + 'search_for_old_tractor';
+    var url = apiBaseURL + 'search_for_insurance_enquiry';
     $.ajax({
         url:url, 
         type: 'POST',
@@ -396,55 +397,98 @@ function openViewdata(userId) {
     });
   };
   function updateTable(data) {
-    const tableBody = document.getElementById('data-table');
-    tableBody.innerHTML = '';
-    let serialNumber = data.product.length; 
-  
-    if(data.oldTractor && data.oldTractor.length > 0) {
-        let tableData = []; 
-        data.oldTractor.forEach(row => {
-            let action = ` <div class="d-flex">
-            <button class="btn btn-warning btn-sm text-white mx-1" data-bs-toggle="modal" onclick="fetch_data(${row.customer_id});" data-bs-target="#exampleModal">
-            <i class="fa-solid fa-eye" style="font-size: 11px;"></i></button>
-            <button class="btn btn-primary btn-sm btn_edit" onclick="fetch_edit_data(${row.customer_id});" data-bs-toggle="modal" data-bs-target="#staticBackdrop" id="yourUniqueIdHere" style="padding:5px">
-              <i class="fas fa-edit" style="font-size: 11px;"></i>
-            </button>
-            <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.customer_id});" style="padding:5px">
-              <i class="fa fa-trash" style="font-size: 11px;"></i>
-            </button>
-        </div>`;
-  // console.log(row.customer_id);
-            tableData.push([
-              serialNumber--,
-              formatDateTime(row.date),
-              row.brand_name,
-              row.model,
-              row.purchase_year,
-              row.state,
-              action
-          ]);
-  
-          // serialNumber++;
-      });
-  
-      $('#example').DataTable().destroy();
-      $('#example').DataTable({
-          data: tableData,
-          columns: [
-              { title: 'S.No.' },
-              { title: 'Date' },
-              { title: 'Brand' },
-              { title: 'Model' },
-              { title: 'Purchase Year'},
-              { title: 'State' },
-              { title: 'Action', orderable: true }
-          ],
-          paging: true,
-          searching: false,
-          // ... other options ...
-      });
+    const tableBody = $('#data-table');
+    tableBody.empty();
+
+    if (data.enquiry_for_insurance_data && data.enquiry_for_insurance_data.length > 0) {
+        let serialNumber = data.enquiry_for_insurance_data.length;
+
+        // Initialize DataTable outside the loop
+        var table = $('#example').DataTable({
+            paging: true,
+            searching: true,
+            columns: [
+                { title: 'S.No.' },
+                { title: 'Date' },
+                { title: 'Loan Type' },
+                { title: 'Brand' },
+                { title: 'Full Name' },
+                { title: 'State' },
+                { title: 'District' },
+                { title: 'Action', orderable: false }
+            ]
+        });
+
+        data.enquiry_for_insurance_data.forEach(row => {
+            const fullName = row.first_name + ' ' + row.last_name;
+            let action = `<div class="d-flex">
+                <button class="btn btn-warning btn-sm text-white mx-1" data-bs-toggle="modal" onclick="openViewdata(${row.id});" data-bs-target="#view_model_nursery_enq">
+                    <i class="fas fa-eye" style="font-size: 11px;"></i>
+                </button>
+                <button class="btn btn-primary btn-sm btn_edit" onclick="fetch_edit_data(${row.id});" data-bs-toggle="modal" data-bs-target="#editmodel_nursery_enq" id="yourUniqueIdHere">
+                    <i class="fas fa-edit" style="font-size: 11px;"></i>
+                </button>
+                <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.id});">
+                    <i class="fa fa-trash" style="font-size: 11px;"></i>
+                </button>
+            </div>`;
+
+            table.row.add([
+                serialNumber--,
+                row.date,
+                row.insurance_type_name,
+                row.brand_name,
+                fullName,
+                row.state,
+                row.district,
+                action
+            ]).draw(false);
+        });
     } else {
         // Display a message if there's no valid data
-        tableBody.innerHTML = '<tr><td colspan="4">No valid data available</td></tr>';
+        tableBody.html('<tr><td colspan="8">No valid data available</td></tr>');
     }
-  }
+}
+
+
+
+  function get_search() {
+    // var url = "<?php echo $APIBaseURL; ?>getBrands";
+    var apiBaseURL =APIBaseURL;
+    var url = apiBaseURL + 'getBrands';
+    $.ajax({
+        url: url,
+        type: "GET",
+        headers: {
+            'Authorization': 'Bearer' + localStorage.getItem('token')
+        },
+        success: function (data) {
+            console.log(data);
+            const select = document.getElementById('brand_search');
+            // select.innerHTML = '';
+            select.innerHTML = '<option selected disabled value="">Please select an option</option>';
+            if (data.brands.length > 0) {
+                data.brands.forEach(row => {
+                    const option = document.createElement('option');
+                    option.value = row.id; 
+                    option.textContent = row.brand_name;
+                    select.appendChild(option);
+                });
+            } else {
+                select.innerHTML ='<option>No valid data available</option>';
+            }
+        },
+        error: function (error) {
+            console.error('Error fetching data:', error);
+        }
+    });
+}
+get_search();
+
+function resetform(){
+    $('#brand_search').val();
+    $('#state_state').val();
+    $('#dist_state').val();
+    // get_loan();
+    window.location.reload();
+}

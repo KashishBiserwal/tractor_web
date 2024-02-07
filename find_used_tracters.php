@@ -8,7 +8,9 @@
     <script src="https://cdn.jsdelivr.net/gh/bbbootstrap/libraries@main/choices.min.js"></script>
 
     <?php
-   include 'includes/headertag.php';
+ include 'includes/headertag.php';
+ include 'includes/headertagadmin.php';
+ include 'includes/footertag.php';
    ?>
     <style>
     .form-outline .form-label {
@@ -28,6 +30,9 @@
     <?php
    include 'includes/header.php';
    ?>
+   <script> var APIBaseURL = "<?php echo $APIBaseURL; ?>";</script>
+<script> var baseUrl = "<?php echo $baseUrl; ?>";</script>
+    <script src="<?php $baseUrl; ?>model/find_used_tractor.js"></script>
 
     <section class=" bg-light mt-5 pt-5">
         <div class="container pt-5">
@@ -37,7 +42,7 @@
                             class="fa-solid fa-chevron-right px-1"></i></a>
                     <span class=""><span class=" text-dark text-decoration-none header-link  px-1">Buy Used <i
                                 class="fa-solid fa-chevron-right px-1"></i> </span></span>
-                    <span class="text-dark"> Buy Old Tractor</span>
+                    <span class="text-dark">Find Used Tractor</span>
                 </span>
             </div>
         </div>
@@ -58,7 +63,7 @@
         <div class="container-mid" style="position: relative;">
             <div class="row justify-content-center">
                 <div class="col-md-8 col-lg-7">
-                    <form id="find-used-tractor-form" class="form-view-inner form-view-overlay bg-light shadow p-3"
+                    <form id="find-used-tractor-form" method="POST" class="form-view-inner form-view-overlay bg-light shadow p-3"
                         action="" method="">
                         <div class="row justify-content-center">
                             <div class="col-12 col-lg-6 col-sm-12 col-md-6 mt-4">
@@ -73,6 +78,12 @@
                                     <input type="text" class="form-control" onkeydown="return /[a-zA-Z]/i.test(event.key)" id="lName" name="lName" required />
                                 </div>
                             </div>
+                            <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-4" hidden>
+                                <div class="form-outline">
+                                    <label class="form-label" for="phone">Mobile Number</label>
+                                    <input type="tel" class="form-control" id="enquiry_type_id" value="24" name="enquiry_type_id" required />
+                                </div>
+                            </div>
                             <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-4">
                                 <div class="form-outline">
                                     <label class="form-label" for="phone">Mobile Number</label>
@@ -84,8 +95,7 @@
                                     <label class="form-label" for="state">State</label>
                                     <select class="form-select mb-2" id="state" name="state" required>
                                         <option value="" selected disabled>Select State</option>
-
-                                        <option value="Chhattisgarh">Chhattisgarh</option>
+                                        <option value="chhattisgarh">Chhattisgarh</option>
                                     </select>
                                 </div>
                             </div>
@@ -94,6 +104,7 @@
                                     <label class="form-label" for="district">District</label>
                                     <select class="form-select mb-2" id="district" name="district" required>
                                         <option value="" selected disabled>Select District</option>
+                                        <option value="chhattisgarh">Chhattisgarh</option>
                                     </select>
                                 </div>
                             </div>
@@ -133,16 +144,7 @@
                                         <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-4">
                                             <div class="form-outline">
                                                 <label for="brand" class="form-label">Brand</label>
-                                                <select class="form-select mb-2" name="brand[]" required>
-                                                    <option value="" selected disabled>Select Brand</option>
-                                                    <option value="mahindra">Mahindra</option>
-                                                    <option value="swaraj">Swaraj</option>
-                                                    <option value="massey">Massey Ferguson</option>
-                                                    <option value="sonalika">Sonalika</option>
-                                                    <option value="farmtrac">Farmtrac</option>
-                                                    <option value="eicher">Eicher</option>
-                                                    <option value="john">John Deere</option>
-                                                    <option value="powertrac">Powertrac</option>
+                                                <select class="form-select mb-2" name="brand[]" id="brand_used" required>
                                                 </select>
                                             </div>
                                         </div>
@@ -150,12 +152,9 @@
                                         <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-4">
                                             <div class="form-outline">
                                                 <label for="model" class="form-label">Model</label>
-                                                <select class="form-select mb-2" name="model[]" required>
-                                                    <option value="" selected disabled>Select Model</option>
-                                                    <option value="1">3055 DI</option>
-                                                    <option value="2">3040 DI</option>
-                                                    <option value="3">3048 DI</option>
-                                                    <option value="4">2035 DI</option>
+                                                <select class="form-select mb-2" name="model[]" id="model_used" required>
+                                                <option value="2015">2015</option>
+                                                <option value="2015">2016</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -167,11 +166,11 @@
                                     </div>
                                 </div>
                             </div>
-
-                            <div class="col-12 mt-3">
-                                <button data-res="<?php echo $sum; ?>" type="submit" class="btn-success w-100 fw-bold"
+                            <div class="col-12 mt-3"><button id="store" type="button" class="btn-success w-100 fw-bold">Submit</button></div>
+                            <!-- <div class="col-12 mt-3">
+                                <button data-res="<?php echo $sum; ?>" type="button" id="store" class="btn-success w-100 fw-bold"
                                     data-bs-toggle="modal" data-bs-target="#get_OTP_btn">Get OTP</button>
-                            </div>
+                            </div> -->
 
                             <p class="text-center mt-3">By proceeding ahead you expressly agree to the Bharat
                                 Tractors
@@ -454,7 +453,6 @@
 
     <?php
     include 'includes/footer.php';
-    include 'includes/footertag.php';
 
     ?>
     <script>

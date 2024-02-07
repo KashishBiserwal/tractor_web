@@ -37,31 +37,31 @@
           <div class="row">
           <div class="col-12 col-sm-12 col-md-3 col-lg-3">
               <div class="form-outline">
-                <label class="form-label fw-bold"> Name</label>
-                <input type="text" class="form-control" id="nursery_name" >
+                <label class="form-label fw-bold"> Brand</label>
+                <select class="form-select error mb-2 pb-2" aria-label="Default select example"id="brand_search" name="insurance_type"> 
+                </select>
              
               </div>
             </div>
             <div class="col-12 col-sm-12 col-md-3 col-lg-3">
               <div class="form-outline">
                 <label class="form-label">State</label>
-                <select class="form-select py-2" aria-label="Default select example"  id="state_1">
+                <select class="form-select py-2" aria-label="Default select example"  id="state_state">
                     <option value>Select State</option>
-                    <option value="Chattisgarh">Chattisgarh</option>
-                    <option value="Chhattisgarh">Chhattisgarh</option>
-                    <option value="Other">Other</option>
+                    <option value="chattisgarh">Chattisgarh</option>
+                    <option value="other">Other</option>
                 </select>
               </div>
             </div>
             <div class="col-12 col-sm-12 col-md-3 col-lg-3">
               <div class="form-outline">
                 <label class="form-label">District</label>
-                <select class="form-select py-2" aria-label="Default select example" id="dist_1">
+                <select class="form-select py-2" aria-label="Default select example" id="dist_state">
                     <option value>Select District</option>
-                    <option value="Raipur">Raipur</option>
-                    <option value="Bilaspur">Bilaspur</option>
-                    <option value="	Dhamtari">	Dhamtari</option>
-                    <option value="Surajpur">Surajpur</option>
+                    <option value="raipur">Raipur</option>
+                    <option value="bilaspur">Bilaspur</option>
+                    <option value="	dhamtari">	Dhamtari</option>
+                    <option value="surajpur">Surajpur</option>
                 </select>
               </div>
             </div>
@@ -120,17 +120,12 @@
                                         </div>
                                         <div class="col- col-sm-6 col-lg-6 col-md-6" hidden>
                                           <label class="text-dark"> id Name<span class="text-danger">*</span></label>
-                                                  <input type="text" class="form-control py-2" for="idUser"  id="enquiry_type_id" value="11" name="first_name" placeholder="Enter First Name">
-                                          <small></small>
-                                        </div>
-                                        <div class="col- col-sm-6 col-lg-6 col-md-6" hidden>
-                                          <label class="text-dark"> product_type_id <span class="text-danger">*</span></label>
-                                                  <input type="text" class="form-control py-2" for="idUser"  id="product_id" value="3" name="first_name" placeholder="Enter First Name">
+                                                  <input type="text" class="form-control py-2" for="idUser"  id="enquiry_type_id" value="11" name="" placeholder="Enter First Name">
                                           <small></small>
                                         </div>
                                         <div class="col-12 col-lg-6 col-sm-5 col-md-6 my-1">
                                           <div class="form-outline ">
-                                            <label for="name" class="form-label text-dark">Insurance Type</label>
+                                            <label for="name" class="form-label text-dark">Loan Type</label>
                                             <select class="form-select error mb-2 pb-2" aria-label="Default select example"
                                               id="insurance_type" name="insurance_type">
                                         
@@ -168,11 +163,8 @@
                                         <div class="col-12 col-lg-6 col-sm-5 col-md-6 my-1">
                                           <div class="form-outline mt-4">
                                               <label for="name" class="form-label text-dark">Model</label>
-                                              <!-- <input type="text" class="form-control" placeholder="" id="model_name" name="model_name"> -->
-                                              <select class="form-select error mb-2 pb-2" aria-label="Default select example"
-                                              id="model_name" name="model_name">
-                                        
-                                            </select>
+                                              <input type="text" class="form-control" placeholder="" id="model_name" name="model_name">
+                                              <!--  -->
                                           </div>
                                         </div>
                                         <div class="col-12 col-lg-6 col-sm-5 col-md-6 my-1">
@@ -249,7 +241,7 @@
                         <table class="table table-striped">
                         <tbody>
                          <tr> 
-                         <td>Insurance Type-</td>
+                         <td>Loan Type-</td>
                             <td id="insurance_type_name1"></td>
                             <td>Full Name-</td>
                             <td id="last_name2"></td>
