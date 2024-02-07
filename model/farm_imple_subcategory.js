@@ -569,7 +569,7 @@ $(document).ready(function () {
     });
   });
 
-//   Now we are going to create an append method
+//   Now we are going to create an append method dfghj
 
 $(document).ready(function() {
     $("body").on("click", ".add_new_frm_field_btn", function () {
