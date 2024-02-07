@@ -39,7 +39,6 @@
               <li class="py-1 ps-3"><a href="tractor_listing.php" class="d-inline-flex align-items-center text-white   text-decoration-none rounded"> New Tractor Listings</a></li>
               <li class="py-1 ps-3"><a href="old_tractor_list.php" class="d-inline-flex align-items-center text-white text-decoration-none rounded">Old Tractor List</a></li>
               <li class="py-1 ps-3"><a href="accessories.php" class="d-inline-flex align-items-center text-white text-decoration-none rounded"> Accessories Listing</a></li>
-              <li class="py-1 ps-3"><a href="farm_equip.php" class="d-inline-flex align-items-center text-white text-decoration-none rounded"> New Farm Equipment Listings</a></li>
               <li class="py-1 ps-3"><a href="old_farm_equilist.php" class="d-inline-flex align-items-center text-white text-decoration-none rounded">Old Farm Equipment  List</a></li>
               <li class="py-1 ps-3"><a href="harvester_list.php" class="d-inline-flex align-items-center text-white text-decoration-none rounded">New Harvester Listing</a></li>
               <li class="py-1 ps-3"><a href="old_harvester_equilist.php" class="d-inline-flex align-items-center text-white text-decoration-none rounded">Old Harvester List</a></li>
@@ -51,6 +50,22 @@
              
           </ul>
         </div>
+
+        <!-- farm Implements -->
+        <button class=" fw-800 text-white  admin-collapse w-100 align-items-center rounded" data-bs-toggle="collapse" data-bs-target="#about-collapsebazar" aria-expanded="true">
+        <i class="fa-solid fa-cart-shopping pe-3"></i> Farm Implements <span class="ps-2"> <i class="fa-solid fa-angle-down"></i></span>
+        </button>
+        <div class="collapse" id="about-collapsebazar">
+          <ul class="list-unstyled fw-800 mb-0">
+          <li class="py-1 ps-3"><a href="farm_implement_category.php" class="d-inline-flex align-items-center text-white  text-decoration-none rounded">Farm Implement Category</a></li>
+              <li class="py-1 ps-3"><a href="farm_imple_subcategory.php" class="d-inline-flex align-items-center text-white text-decoration-none rounded">Farm Implement Subcategory</a></li>
+              <li class="py-1 ps-3"><a href="farm_equip.php" class="d-inline-flex align-items-center text-white text-decoration-none rounded"> New Farm Equipment Listings</a></li>
+          </ul>
+        </div>
+
+
+
+        <!-- haatbazar -->
         <button class=" fw-800 text-white  admin-collapse w-100 align-items-center rounded" data-bs-toggle="collapse" data-bs-target="#about-collapsebazar" aria-expanded="true">
         <i class="fa-solid fa-cart-shopping pe-3"></i> HaatBazaar <span class="ps-2"> <i class="fa-solid fa-angle-down"></i></span>
         </button>
