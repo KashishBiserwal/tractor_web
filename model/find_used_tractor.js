@@ -4,6 +4,8 @@ $(document).ready(function () {
     // get_lookup();
     });
 
+
+
     function get() {
         var url = 'http://tractor-api.divyaltech.com/api/customer/get_all_brands';
         $.ajax({
