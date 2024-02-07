@@ -450,12 +450,12 @@
         lname:{
           required: true,
         },
-        number:{
-          required:true, 
-            maxlength:10,
-            digits: true,
-            customPhoneNumber: true
-        },
+        // number:{
+        //   required:true, 
+        //     maxlength:10,
+        //     digits: true,
+        //     customPhoneNumber: true
+        // },
         state_:{
           required: true,
         },
@@ -486,11 +486,11 @@
         lname:{
           required:"This field is required",
         },
-        number:{
-          required:"This field is required",
-          maxlength:"Enter only 10 digits",
-          digits: "Please enter only digits"
-        },
+        // number:{
+        //   required:"This field is required",
+        //   maxlength:"Enter only 10 digits",
+        //   digits: "Please enter only digits"
+        // },
         state_:{
           required:"This field is required",
         },

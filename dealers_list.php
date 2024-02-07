@@ -204,8 +204,9 @@
                   <tr>
                         <th class="d-none d-md-table-cell text-white">S.No.</th>
                         <th class="d-none d-md-table-cell text-white">Date</th>
-                        <th class="d-none d-md-table-cell text-white">Brand</th>
                         <th class="d-none d-md-table-cell text-white">Dealer Name </th>
+                        <th class="d-none d-md-table-cell text-white">Brand</th>
+                        <th class="d-none d-md-table-cell text-white">Moble</th>
                         <th class="d-none d-md-table-cell text-white">State</th>
                         <th class="d-none d-md-table-cell text-white">District</th>
                         <th class="d-none d-md-table-cell text-white">Action</th>

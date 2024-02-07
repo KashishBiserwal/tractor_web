@@ -276,7 +276,7 @@ function store(event) {
     event.preventDefault();
 
     var enquiry_type_id = 18;
-    var added_by = 0;
+    var added_by = 1;
     var brand_name = $('#brand').val();
     var Model_name = $('#model').val();
     var purchase_year = $('#year').val();
@@ -289,27 +289,49 @@ function store(event) {
     var district = $('#dist_district').val();
     var tehsil = $('#tehsil_t').val();
 
-    var impType = [];
-    $('select[name="imp_type_id[]"]').each(function() {
-        impType.push($(this).val());
-    });
+    var data = new FormData();
 
-    var implement_rent = [];
-    $('input[name="implement_rate[]"]').each(function() {
-        implement_rent.push($(this).val());
-    });
+    // Append form fields to FormData object
+    data.append('enquiry_type_id', enquiry_type_id);
+    data.append('added_by', added_by);
+    data.append('brand_id', brand_name);
+    data.append('model', Model_name);
+    data.append('purchase_year', purchase_year);
+    data.append('working_radius', working_radius);
+    data.append('message', textarea);
+    data.append('first_name', first_name);
+    data.append('last_name', last_name);
+    data.append('mobile', mobile);
+    data.append('state', state);
+    data.append('district', district);
+    data.append('tehsil', tehsil);
+// 'brand_id': JSON.stringify(selectedBrand),
+    // Append impType array
+            var implementTypeIds = [];
+        $('select[name="imp_type_id[]"]').each(function() {
+            implementTypeIds.push($(this).val());
+        });
+        data.append('implement_type_id[]', JSON.stringify(implementTypeIds));
 
-    var impRatePer = [];
-    $('select[name="rate_per[]"]').each(function() {
-        impRatePer.push($(this).val());
-    });
+        // Append implement_rent array
+        var rates = [];
+        $('input[name="implement_rate[]"]').each(function() {
+            rates.push($(this).val());
+        });
+        data.append('rate[]', JSON.stringify(rates));
 
-    var image_names = [];
-    var impImageFiles = document.getElementById('impImage_0').files;
+        // Append impRatePer array
+        var ratePers = [];
+        $('select[name="rate_per[]"]').each(function() {
+            ratePers.push($(this).val());
+        });
+        data.append('rate_per[]', JSON.stringify(ratePers));
 
-    for (var i = 0; i < impImageFiles.length; i++) {
-        image_names.push(impImageFiles[i].name);
-    }
+        // Append images
+        var impImageFiles = document.getElementById('impImage_0').files;
+        for (var i = 0; i < impImageFiles.length; i++) {
+            data.append('images[]', impImageFiles[i]);
+        }
 
     var apiBaseURL = 'http://tractor-api.divyaltech.com/api/admin/';
     var token = localStorage.getItem('token');
@@ -320,62 +342,62 @@ function store(event) {
     var url = apiBaseURL + 'customer_enquiries'; // Endpoint URL
     var method = 'POST';
 
-    var data = {
-        '_method': 'POST',
-        'added_by': added_by,
-        'enquiry_type_id': enquiry_type_id,
-        'brand_id': brand_name,
-        'model': Model_name,
-        'purchase_year': purchase_year,
-      
-        'working_radius': working_radius,
-        'message': textarea,
-        'first_name': first_name,
-        'last_name': last_name,
-        'mobile': mobile,
-        'state': state,
-        'district': district,
-        'tehsil': tehsil,
-      
-    };
-
-    var jsonData = JSON.stringify({
-        'implement_type_id': JSON.stringify(impType),
-        'rate': JSON.stringify(implement_rent),
-        'rate_per': JSON.stringify(impRatePer),
-        'images': JSON.stringify(image_names),
-    });
-
-    $.extend(data, JSON.parse(jsonData));
-
     $.ajax({
         url: url,
         type: method,
-        data: jsonData,
+        data: data,
         headers: headers,
         processData: false,
-        contentType: 'application/json',
-        success: function (result) {
+        contentType: false, // Set content type to false for FormData
+        success: function(result) {
             console.log(result, "result");
             if (result.length) {
                 // Do something
             }
             alert('successfully inserted..!')
         },
-        error: function (error) {
+        error: function(error) {
             console.error('Error fetching data:', error);
         }
     });
 }
-
-
-
 // Trigger the store function when the form is submitted
 $('#rent_list_form_').submit(store);
 
   
 
-
+function destroy(id) {
+    var apiBaseURL = APIBaseURL;
+    var url = apiBaseURL + 'customer_enquiries/' + id;
+    var token = localStorage.getItem('token');
+  
+    if (!token) {
+      console.error("Token is missing");
+      return;
+    }
+    var isConfirmed = confirm("Are you sure you want to delete this data?");
+    if (!isConfirmed) {
+      return;
+    }
+  
+    $.ajax({
+      url: url,
+      type: "DELETE",
+      headers: {
+        'Authorization': 'Bearer ' + token
+      },
+      success: function(result) {
+        // get_tyre_list();
+        window.location.reload();
+        console.log("Delete request successful");
+        alert("Delete operation successful");
+      },
+      error: function(error) {
+        console.error('Error fetching data:', error);
+        alert("Error during delete operation");
+      }
+    });
+  }
 
 
   function get() {

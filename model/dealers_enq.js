@@ -114,7 +114,6 @@ function get_dealers() {
                   columns: [
                       { title: 'S.No.' },
                       { title: 'Date' },
-                      { title: 'Dealer Name' },
                       { title: 'Brand Name' },
                       { title: 'Mobile' },
                       { title: 'State' },
@@ -130,7 +129,6 @@ function get_dealers() {
                   table.row.add([
                       serialNumber,
                       row.date,
-                      row.dealer_name,
                       row.brand_name,
                       row.mobile,
                       row.state,

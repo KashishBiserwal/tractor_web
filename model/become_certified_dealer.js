@@ -1,12 +1,10 @@
 
-$(document).ready(function() {
-    console.log("ready!");
-    $('#become_delership_enq_btn').click(store);
-});
-
-
-function get() {
-    var url = 'http://tractor-api.divyaltech.com/api/customer/get_all_brands';
+//****get data***
+function get_dealers() {
+    var apiBaseURL = APIBaseURL;
+    var url = apiBaseURL + 'get_become_dealer_enquiry_data'; // Adjust the API endpoint for Certifide data
+    console.log('dfghjkiuytgf');
+    
     $.ajax({
         url: url,
         type: "GET",
@@ -14,92 +12,63 @@ function get() {
             'Authorization': 'Bearer ' + localStorage.getItem('token')
         },
         success: function (data) {
-            const selects = document.querySelectorAll('#brand');
+            const tableBody = $('#data-table'); // Use jQuery selector for the table body
+            tableBody.empty(); // Clear previous data
   
-            selects.forEach(select => {
-                select.innerHTML = '<option selected disabled value="">Please select an option</option>';
+            let serialNumber = 1;
   
-                if (data.brands.length > 0) {
-                    data.brands.forEach(row => {
-                        const option = document.createElement('option');
-                        option.textContent = row.brand_name;
-                        option.value = row.id;
-                        select.appendChild(option);
-                    });
+            if (data.become_dealer_enquiry_details && data.become_dealer_enquiry_details.length > 0) {
+                var table = $('#example').DataTable({
+                    paging: true,
+                    searching: true,
+                    columns: [
+                        { title: 'S.No.' },
+                        { title: 'Date' },
+                        { title: 'Dealer Name' },
+                        { title: 'Brand Name' },
+                        { title: 'Mobile' },
+                        { title: 'State' },
+                        { title: 'District' },
+                        { title: 'Action', orderable: false }
+                    ]
+                });
   
-                    // Add event listener to brand dropdown
-                    select.addEventListener('change', function() {
-                        const selectedBrandId = this.value;
-                        get_model(selectedBrandId);
-                    });
-                } else {
-                    select.innerHTML = '<option>No valid data available</option>';
-                }
-            });
+                data.become_dealer_enquiry_details.forEach(row => {
+                
+  
+                    // Add row to DataTable
+                    table.row.add([
+                        serialNumber,
+                        row.date,
+                        row.dealer_name,
+                        row.brand_name,
+                        row.mobile,
+                        row.state,
+                        row.district,
+                        `<div class="d-flex">
+                            <button class="btn btn-warning btn-sm text-white mx-1" data-bs-toggle="modal" onclick="openViewdatacertifed(${row.id});" data-bs-target="#view_model_dealer_1">
+                                <i class="fas fa-eye" style="font-size: 11px;"></i>
+                            </button> 
+                            <button class="btn btn-primary btn-sm btn_edit" onclick="fetch_edit_data_2(${row.id});" data-bs-toggle="modal" data-bs-target="#edit_dealers_certifed" id="yourUniqueIdHere">
+                                <i class="fas fa-edit" style="font-size: 11px;"></i>
+                            </button>
+                            <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.id});">
+                                <i class="fa fa-trash" style="font-size: 11px;"></i>
+                            </button>
+                        </div>`
+                    ]).draw(false);
+  
+                    serialNumber++;
+                });
+               
+            } else {
+                tableBody.html('<tr><td colspan="6">No valid data available</td></tr>');
+            }
         },
         error: function (error) {
             console.error('Error fetching data:', error);
         }
     });
   }
-  get();
-
-// Store data through form
-function store(event) {
-    event.preventDefault();
-    var enquiry_type_id = $('#enquiry_type_id').val();
-    // var product_id = 2; 
-    var brand_name = $('#brand').val();
-    var brand_name = $('#dname').val();
-    var email = $('#email').val();
-    var address = $('#address').val();
-    var mobile = $('#mobnumber').val();
-    var state = $('#bcd_state').val();
-    var district = $('#bcd_district').val();
-    var tehsil = $('#bcd_tehsil').val();
   
-   
-    var apiBaseURL = "http://tractor-api.divyaltech.com/api";
-    var endpoint = '/customer/customer_enquiries';
-    var url = apiBaseURL + endpoint;
-
-    // Create a FormData object and append all form data
-    var data = new FormData();
-    // data.append('product_id', product_id);
-    data.append('enquiry_type_id', enquiry_type_id);
-    data.append('brand_id', brand_name);
-    data.append('email', email);
-    data.append('address', address);
-    data.append('mobile', mobile);
-    data.append('email', email);
-    data.append('state', state);
-    data.append('district', district);
-    data.append('tehsil', tehsil);
-  
-    // Make an AJAX request to the server
-    $.ajax({
-        url: url,
-        type: 'POST',
-        data: data,
-        processData: false,
-        contentType: false,
-        success: function (result) {
-            console.log(result, 'result');
-            $("#used_tractor_callbnt_").modal('hide');
-            var msg = 'Added successfully !';
-            $("#errorStatusLoading").modal('show');
-            $("#errorStatusLoading").find('.modal-title').html('<p class="text-center">Congratulation..! Requested Successful</p>');
-            $("#errorStatusLoading").find('.modal-body').html(msg);
-            $("#errorStatusLoading").find('.modal-body').html('<img src="assets/images/7efs.gif" style="display:block; margin:0 auto;" class="w-50 text-center" alt="Successfull Request"></img>');
-            console.log('Add successfully');
-        },
-        error: function (error) {
-            console.error('Error fetching data:', error);
-            var msg = error.statusText;
-            $("#errorStatusLoading").modal('show');
-            $("#errorStatusLoading").find('.modal-title').html('<p class="text-center">Process Failed..! Enter Valid Detail</p>');
-            $("#errorStatusLoading").find('.modal-body').html(msg);
-            $("#errorStatusLoading").find('.modal-body').html('<img src="assets/images/comp_3.gif" style="display:block; margin:0 auto;" class="w-50 text-center" alt="Successfull Request"></img>');
-        }
-    });
-}
+  get_dealers();
