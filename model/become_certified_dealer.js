@@ -14,7 +14,7 @@ function get() {
             'Authorization': 'Bearer ' + localStorage.getItem('token')
         },
         success: function (data) {
-            const selects = document.querySelectorAll('#bcd_brand');
+            const selects = document.querySelectorAll('#brand');
   
             selects.forEach(select => {
                 select.innerHTML = '<option selected disabled value="">Please select an option</option>';
@@ -49,11 +49,11 @@ function store(event) {
     event.preventDefault();
     var enquiry_type_id = $('#enquiry_type_id').val();
     // var product_id = 2; 
-    var brand_name = $('#b_brand_1').val();
-    var first_name = $('#firstname').val();
-    var last_name = $('#lastname').val();
+    var brand_name = $('#brand').val();
+    var brand_name = $('#dname').val();
+    var email = $('#email').val();
+    var address = $('#address').val();
     var mobile = $('#mobnumber').val();
-    var email = $('#dealeremail').val();
     var state = $('#bcd_state').val();
     var district = $('#bcd_district').val();
     var tehsil = $('#bcd_tehsil').val();
@@ -68,8 +68,8 @@ function store(event) {
     // data.append('product_id', product_id);
     data.append('enquiry_type_id', enquiry_type_id);
     data.append('brand_id', brand_name);
-    data.append('first_name', first_name);
-    data.append('last_name', last_name);
+    data.append('email', email);
+    data.append('address', address);
     data.append('mobile', mobile);
     data.append('email', email);
     data.append('state', state);
