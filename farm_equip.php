@@ -1,6 +1,12 @@
 <?php
-   include 'includes/headertagadmin.php';
-  
+ include 'includes/headertag.php';
+ include 'includes/headertagadmin.php';
+ include 'includes/footertag.php';
+ 
+ ?> 
+<script> var APIBaseURL = "<?php echo $APIBaseURL; ?>";</script>
+<script> var baseUrl = "<?php echo $baseUrl; ?>";</script>
+  <script src="<?php $baseUrl; ?>model/farm_imple_subcategory.js"></script>
    
    ?> 
 <body class="loaded"> 
@@ -39,13 +45,23 @@
                               <h4 class="text-center" style="font-weight:600;">Fill your Details</h4>
                             <form>
                                 <div class="row justify-content-center">
-                                    <div class="col-12 col-lg-6 col-sm-5 col-md-6 mt-3">
+                                    <div class="col-12 col-sm-6 col-md-6 col-lg-6  mt-4">
                                       <div class="form-outline">
-                                        <label for="name" class="form-label"> Brand</label>
-                                        <input type="text" class="form-control" placeholder=" " id="brand">
-                                       
+                                        <label for="lookupSelectbox" class="form-label">Category</label>
+                                          <select class="form-select form-control py-2" value="lookupSelectbox" for="lookupSelectbox" id="lookupSelectbox" aria-label="Default select example">
+                                            <option value="" id="lookupSelect">Select Category</option>
+                                          </select>
                                       </div>
                                     </div>
+                                    <div class="col-12 col-sm-6 col-md-6 col-lg-6  mt-4">
+                                      <div class="form-outline">
+                                        <label for="lookupSelectbox" class="form-label">Sub-Category</label>
+                                          <select class="form-select form-control py-2" value="lookupSelectbox2" for="lookupSelectbox2" id="lookupSelectbox" aria-label="Default select example">
+                                            <option value="" id="lookupSelect2">Select Category</option>
+                                          </select>
+                                      </div>
+                                    </div>
+                                   
                                     <div class="col-12 col-lg-6 col-sm-5 col-md-6 mt-3">
                                       <div class="form-outline">
                                         
@@ -74,11 +90,6 @@
                                         
                                       </div>
                                     </div>
-                                    <!-- <div class="col-12 col-lg-6 col-sm-5 col-md-6">
-                                      <div class="form-group">
-                                      <input type="file" name="files[]" class="" multiple >
-                                      </div>
-                                    </div> -->
                                     <div class="col-12 col-sm-5 col-lg-5 col-md-5 ps-3 mt-3">
                                       <div class="background__box">
                                             <div class="background__btn-box ">
@@ -212,9 +223,7 @@
 </div>
 </body>
 
-<?php
-   include 'includes/footertag.php';
-   ?> 
+
    <script>
      jQuery(document).ready(function () {
     

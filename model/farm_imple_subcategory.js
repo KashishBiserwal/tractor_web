@@ -297,7 +297,7 @@ function store(event) {
      
       var alertConfirmation = confirm("Data added successfully. Do you want to reload the page?");
       if (alertConfirmation) {
-        window.location.reload();
+        // window.location.reload();
       }
     },
     error: function(error) {
@@ -529,7 +529,7 @@ function store(event) {
     
                 var Data = response.allSubCategory;
                 var Data2 = response.allSubCategory;
-                $('#idUser').val(Data2.custom_data[0].id);
+                $('#idUser').val(Data.implement_sub_category[0].id);
                 $("#lookupSelectbox option").prop("selected", false);
                 $("#lookupSelectbox option[value='" + Data.implement_sub_category[0].category_name + "']").prop("selected", true);
                 $('#lookup_data_value').val(Data.implement_sub_category[0].sub_category_name);
