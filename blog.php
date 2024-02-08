@@ -40,7 +40,7 @@
                 </div>
             </div>
         </div> -->
-        <div class="container" id="an">       
+    <div class="container" id="an">       
       <div id="productContainer" class="row py-1">
         <!-- <h1 class="mt-2 mb-3">Blog</h1>  -->
             <!-- <div class="col-12 col-lg-4 col-sm-4 col-md-4 mt-2 mb-2">
@@ -64,7 +64,7 @@
               </div>
             </div>    -->
       </div>
-      <div class="col text-center mt-3">
+          <div class="col text-center mt-3">
             <button id="load_moretract" type="button" class=" btn add_btn btn-success"><i class="fas fa-undo"></i>View All</button>
           </div>
     </div>
