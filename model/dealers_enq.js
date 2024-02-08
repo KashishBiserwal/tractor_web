@@ -92,9 +92,9 @@ $(document).ready(function(){
 //****get data***
 function get_dealers() {
   var apiBaseURL = APIBaseURL;
-  var url = apiBaseURL + 'get_become_dealer_enquiry_data'; // Adjust the API endpoint for Certifide data
+  var url = apiBaseURL + 'get_dealer_enquiry_data_for_particular_dealer'; // Adjust the API endpoint for Certifide data
   console.log('dfghjkiuytgf');
-  
+
   $.ajax({
       url: url,
       type: "GET",

@@ -35,12 +35,12 @@
       <div class="filter-card mb-2">
         <div class="card-body">
           <div class="row">
-          <div class="col-12 col-sm-12 col-md-3 col-lg-3">
+          <!-- <div class="col-12 col-sm-12 col-md-3 col-lg-3">
               <div class="form-outline">
                 <label class="form-label fw-bold"> Dealer Name</label>
                 <input type="text" class="form-control" placeholder=""  id="dealers_1">
               </div>
-            </div>
+            </div> -->
             <!-- <div class="col-12 col-sm-12 col-md-3 col-lg-3">
                 <div class="form-outline">
                       <label class="form-label">Search By Brand</label>
@@ -51,8 +51,8 @@
             <div class="col-12 col-sm-12 col-md-3 col-lg-3">
               <div class="form-outline">
                 <label class="form-label">State</label>
-                <select class="form-select py-2" aria-label="Default select example"  id="state_1">
-                    <option value>Select State</option>
+                <select class="form-select py-2" aria-label="Default select example"  id="state_state_1">
+                    <option value> Select State</option>
                     <option value="Chhattisgarh">Chhattisgarh</option>
                     <option value="Other">Other</option>
                 </select>
@@ -73,8 +73,8 @@
            
             <div class="col-12 col-sm-12 col-md-3 col-lg-3">
               <div class="text-center">
-                <button type="button" class="btn-success btn px-3 py-2 " id="Search" onclick="searchdata()">Search</button>
-                <button type="button" class="btn-success btn mx-2 px-3 py-2  " id="Reset" onclick="resetform()">Reset</button>
+                <button type="button" class="btn-success btn px-3 py-2 " id="Search">Search</button>
+                <button type="button" class="btn-success btn mx-2 px-3 py-2  " id="Reset">Reset</button>
               </div>
             </div>
           </div>
@@ -137,11 +137,13 @@
                           <tr>
                             <td>Tehsil-</td>
                             <td id="tehsil_"></td>
+                            <td>Date-</td>
+                            <td id="date"></td>
                           </tr>
                           <tr>
                               <td>Address-</td>
                               <td colspan="3">
-                                  <div class="col-12" id="addrss"></div>
+                                  <div class="col-12" id="addrss_1"></div>
                               </td>
                           </tr>
                           <tr>
@@ -167,107 +169,109 @@
 </div>
 </div>
 
-  <!-- Modal -->
-       <!-- <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+ <!-- Modal -->
+          <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
             <div class="modal-dialog modal-lg modal-dialog-centered">
               <div class="modal-content modal_box">
                 <div class="modal-header modal_head">
-                  <h5 class="modal-title text-white fw-bold" id="staticBackdropLabel"> Add New Dealers </h5>
+                  <h5 class="modal-title text-white fw-bold" id="staticBackdropLabel">Update Become Certified Dealers </h5>
                   <button type="button" class="btn-close btn-success" data-bs-dismiss="modal" aria-label="Close"><img src="assets/images/close.png"></button>
                 </div>
                 <div class="modal-body bg-light">
                         <div class="row justify-content-center">
                             <div class="col-lg-10">
                               <h4 class="text-center">Fill your Details</h4>
-                              <form id="become_dealership_enq_from" class="form-view-inner form-view-overlay bg-light box-shadow p-3" action="" method="" >
-                              <div class="row justify-content-center">
-                                  <div class="col-12 col-lg-6 col-md-6 col-sm-6 " hidden>
-                                      <label for="name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i> enquiryName</label>
-                                      <input type="text" class="form-control" placeholder="Enter Your Name" id="enquiry_type_id" value="13" name="fname">
-                                  </div>
-                                  <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
-                                      <div class="form-outline mt-3">
-                                          <label for="name" class="form-label text-dark">Dealer Name</label>
-                                          <input type="text" class="form-control" placeholder="" id="dname" name="dname">
-                                      </div>
-                                  </div>
-                                  <div class="ol-12 col-lg-6 col-md-6 col-sm-6">
-                                      <div class="form-outline mt-3">
-                                          <label class="form-label"> Brand</label>
-                                          <select class="form-select py-2" aria-label="Default select example" id="brand" name="brand">
-                                                  
-                                          </select>
-                                      </div>
-                                  </div>
-                                  <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
-                                      <div class="form-outline mt-3">
-                                          <label for="name" class="form-label text-dark">Email Id</label>
-                                          <input type="text" class="form-control" placeholder="" id="email" name="email">
-                                      </div>
-                                  </div>
-                                  <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
-                                      <div class="form-outline mt-3">
-                                          <label for="name" class="form-label text-dark">Contact Number</label>
-                                          <input type="text" class="form-control" placeholder="" id="mobnumber" name="bcd_num">
-                                      </div>
-                                  </div>
-                                  <div class="col-12  mb-2">
-                                        <div class="form-outline mt-3">
-                                          <label for="name" class="form-label text-dark">Address</label>
-                             
-                                          <textarea rows="3" cols="70" class="w-100 pt-2" minlength="1" maxlength="255" id="address" name="address"></textarea>
-                                        </div>
-                                      </div>
-                                  <div class="col-12 col-sm-6 col-md-6 col-lg-6">
-                                      <div class="form-outline mt-3">
-                                          <label class="form-label">State</label>
-                                          <select class="form-select py-2" aria-label="Default select example" id="bcd_state" name="state_">
-                                              <option value>Select State</option>
-                                              <option value="Chattisgarh">Chattisgarh</option>
-                                              <option value="Other">Other</option>
-                                          </select>
-                                      </div>
-                                  </div>
-                                  <div class="col-12  col-sm-6 col-md-6 col-lg-6">
-                                      <div class="form-outline mt-3">
-                                          <label class="form-label">District</label>
-                                          <select class="form-select py-2" aria-label="Default select example" id="bcd_district" name="dist">
-                                              <option value>Select District</option>
-                                              <option value="Raipur">Raipur</option>
-                                              <option value="Bilaspur">Bilaspur</option>
-                                              <option value="Surajpur">Surajpur</option>
-                                          </select>
-                                      </div>
-                                  </div>
-                                  <div class="col-12 col-sm-6 col-md-6 col-lg-6">
-                                      <div class="form-outline mt-3">
-                                          <label class="form-label">Tehsil</label>
-                                          <select class="form-select py-2" id="tehsil" aria-label="Default select example" id="bcd_tehsil">
-                                              <option value>Select Tehsil</option>
-                                              <option value="Raipur">Raipur</option>
-                                              <option value="Bilaspur">Bilaspur</option>
-                                              <option value="Surajpur">Surajpur</option>
-                                          </select>
-                                      </div>
-                                  </div>
-                                  <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                                            <div class="upload__box mt-5">
-                                              <div class="upload__btn-box text-center">
-                                                <label >
-                                                  <p class="upload__btn ">Upload images</p>
-                                                  <input type="file" multiple="" data-max_length="20" class="upload__inputfile" id="_image" name="_image">
-                                                </label>
-                                              </div>
-                                              <div id="selectedImagesContainer" class="upload__img-wrap"></div>
-                                            </div>
+                            <form id="dealer_list_form" method="post" enctype="multipart/form-data" onsubmit="return false">
+                                <div class="row justify-content-center pt-4">
+                                <div class="col-12 col-lg-6 col-sm-5 col-md-6 my-1" hidden>
+                                          <div class="form-outline ">
+                                            <label for="name" class="form-label text-dark">Harvester</label>
+                                            <input type="text" class="form-control" placeholder="" id="userId" name="name">
                                           </div>
-                                
-                                  <div class="text-center my-3">
-                                      <button type="submit" id="become_delership_enq_btn" class="btn btn-success mt-1 px-5 w-100 ">Submit</button>         
-                                  </div>        
-                                  <p class="mb-0 text-center">By proceeding ahead you expressly agree to the Bharat Tractors <a href="#" class="text-decoration-none" target="_blank" title="terms and conditions">terms and conditions*</a></p>
-                              </div>
-                          </form>
+                                        </div>
+                                        <div class="col- col-sm-6 col-lg-6 col-md-6" hidden>
+                                          <label class="text-dark"> id Name<span class="text-danger">*</span></label>
+                                                  <input type="text" class="form-control py-2" for="idUser"  id="enquiry_type_id" value="13" name="first_name" placeholder="Enter First Name">
+                                          <small></small>
+                                        </div>
+                                 <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
+                                      <div class="form-outline">
+                                        <label for="name" class="form-label text-dark">Dealer Name</label>
+                                        <input type="text" class="form-control" placeholder="" id="dname" name="dname">
+                                      </div>
+                                    </div>
+                                    <div class="ol-12 col-lg-6 col-md-6 col-sm-6">
+                                        <div class="form-outline">
+                                            <label class="form-label"> Brand</label>
+                                            <select class="form-select py-2" aria-label="Default select example" id="brand" name="brand">
+                                                
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
+                                      <div class="form-outline mt-3">
+                                        <label for="name" class="form-label text-dark">Email Id</label>
+                                        <input type="text" class="form-control" placeholder="" id="email" name="email">
+                                      </div>
+                                    </div>
+                                    <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
+                                      <div class="form-outline mt-3">
+                                        <label for="name" class="form-label text-dark">Contact Number</label>
+                                        <input type="text" class="form-control" placeholder="" id="cno" name="cno">
+                                      </div>
+                                    </div>
+                                    <div class="col-12  mb-2">
+                                      <div class="form-outline mt-3">
+                                        <label for="name" class="form-label text-dark">Address</label>
+                                        <!-- <input type="email" class="form-control" placeholder="" id="" name=""> -->
+                                        <textarea rows="3" cols="70" class="w-100 pt-2" minlength="1" maxlength="255" id="address" name="address"></textarea>
+                                      </div>
+                                    </div>
+                                    <div class="col-12 col-sm-6 col-md-6 col-lg-6">
+                                            <div class="form-outline mt-3">
+                                                <label class="form-label">State</label>
+                                                <select class="form-select py-2" aria-label="Default select example" id="state_" name="state_">
+                                                    <option value>Select State</option>
+                                                    <option value="Chattisgarh">Chattisgarh</option>
+                                                    <option value="Other">Other</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-12  col-sm-6 col-md-6 col-lg-6">
+                                            <div class="form-outline mt-3">
+                                                <label class="form-label">District</label>
+                                                <select class="form-select py-2" aria-label="Default select example" id="dist" name="dist">
+                                                    <option value>Select District</option>
+                                                    <option value="Raipur">Raipur</option>
+                                                    <option value="Bilaspur">Bilaspur</option>
+                                                    <option value="Surajpur">Surajpur</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-sm-6 col-md-6 col-lg-6">
+                                            <div class="form-outline mt-3">
+                                                <label class="form-label">Tehsil</label>
+                                                <select class="form-select py-2" id="tehsil" aria-label="Default select example">
+                                                    <option value>Select Tehsil</option>
+                                                    <option value="Raipur">Raipur</option>
+                                                    <option value="Bilaspur">Bilaspur</option>
+                                                    <option value="Surajpur">Surajpur</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-lg-6 col-md-6 col-sm-6">
+                                          <div class="upload__box mt-5">
+                                            <div class="upload__btn-box text-center">
+                                              <label >
+                                                <p class="upload__btn ">Upload images</p>
+                                                <input type="file" multiple="" data-max_length="20" class="upload__inputfile" id="_image" name="_image">
+                                              </label>
+                                            </div>
+                                            <div id="selectedImagesContainer" class="upload__img-wrap"></div>
+                                          </div>
+                                        </div>
+                                </div>
+                            </form>
                             </div>
                         </div>
                     </div>
@@ -277,7 +281,7 @@
                 </div>
               </div>
             </div>
-          </div> -->
+          </div>
 
 </body>
 

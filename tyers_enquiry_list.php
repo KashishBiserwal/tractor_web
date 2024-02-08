@@ -180,7 +180,7 @@
                     <div class="row justify-content-center">
                         <div class="col-lg-10">
                            <form id="old_harvester_form"method="post"enctype="multipart/form-data" onsubmit="return false">
-                                <div class="row justify-content-center pt-4">
+                                <div class="row  pt-4">
                                 <div class="col-12 col-lg-6 col-sm-5 col-md-6 my-1" hidden>
                                           <div class="form-outline ">
                                             <label for="name" class="form-label text-dark">Harvester</label>
@@ -242,7 +242,7 @@
                                              <label class="form-label">State</label>
                                               <select class="form-select py-2" aria-label="Default select example" id="stat_e" name="state_">
                                                 <option value>Select State</option>
-                                                <option value="Chattisgarh">Chattisgarh</option>
+                                                <option value="Chhattisgarh">Chhattisgarh</option>
                                                 <option value="Other">Other</option>
                                               </select>
                                           </div>
@@ -255,6 +255,8 @@
                                               <option value="Raipur">Raipur</option>
                                               <option value="Bilaspur">Bilaspur</option>
                                               <option value="Surajpur">Surajpur</option>
+                                              <option value="Korba">Korba</option>Durg
+                                              <option value="Durg">Durg</option>
                                             </select>
                                           </div>
                                         </div>
@@ -266,6 +268,8 @@
                                               <option value="Raipur">Raipur</option>
                                               <option value="Bilaspur">Bilaspur</option>
                                               <option value="Surajpur">Surajpur</option>
+                                              <option value="Korba">Korba</option>Durg
+                                              <option value="Durg">Durg</option>
                                             </select>
                                           </div>
                                         </div>

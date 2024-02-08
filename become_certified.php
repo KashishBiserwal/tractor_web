@@ -37,8 +37,8 @@ include 'includes/headertag.php';
             <div class="row w-100 ms-5 text-dark">
                 <div class="col-12">
                     <h1>Join Bharat Tractor as Certified Dealers</h1></br>
-                    <p class="fw-bold">Get huge amount of enquiries for a perfect buisness. For enquiry call or</p>
-                    <p class="fw-bold">WhatsApp on 8769-934-402</p></br>
+                    <!-- <p class="fw-bold">Get huge amount of enquiries for a perfect buisness. For enquiry call or</p>
+                    <p class="fw-bold">WhatsApp on 8769-934-402</p></br> -->
                 <div>                
             </div>
         </div>
@@ -90,15 +90,16 @@ include 'includes/headertag.php';
                                       <div class="form-outline mt-3">
                                         <label for="name" class="form-label text-dark">Address</label>
                                         <!-- <input type="email" class="form-control" placeholder="" id="" name=""> -->
-                                        <textarea rows="3" cols="70" class="w-100 pt-2" minlength="1" maxlength="255" id="address" name="address"></textarea>
+                                        <textarea rows="3" cols="70" class="w-100 pt-2" minlength="1" maxlength="255" id="address_2" name="address"></textarea>
                                       </div>
                                     </div>
+                                    
                                 <div class="col-12 col-sm-6 col-md-6 col-lg-6">
                                     <div class="form-outline mt-3">
                                         <label class="form-label">State</label>
                                         <select class="form-select py-2" aria-label="Default select example" id="bcd_state" name="state_">
                                             <option value>Select State</option>
-                                            <option value="Chattisgarh">Chattisgarh</option>
+                                            <option value="Chhattisgarh">Chhattisgarh</option>
                                             <option value="Other">Other</option>
                                         </select>
                                     </div>

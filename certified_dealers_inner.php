@@ -23,26 +23,22 @@ include 'includes/headertag.php';
       </div>
     </section>
     
-    <section>
-      <div class="container">
-        <div class="row mt-2">
-          <div class="col-12 col-sm-6 col-lg-6 col-md-6">
-            <div>
-            <h1 class="fw-bold text-danger pt-3">Ratna Automotive Pvt. Ltd.</h1>
-            <div class="swiper swiper_buy mySwiper2_buy">
-              <div class="swiper-wrapper swiper-wrapper_buy" style="margin-bottom:-100px;">
-                <div class=" swiper-slide swiper-slide_buy">
-                  <img class="img_buy" src="assets/images/ratnaautomotive.webp"/>
-                </div>
-                <div class="swiper-slide swiper-slide_buy">
-                <img class="img_buy " src="assets/images/ratnaautomotive.webp"/>
-              </div>
-              <div class="swiper-slide swiper-slide_buy">
-                <img class="img_buy " src="assets/images/ratnaautomotive.webp" />
+<section>
+  <div class="container">
+    <div class="row mt-2">
+      <div class="col-12 col-sm-6 col-lg-6 col-md-6">
+        <div>
+          <h4 id="brand_main"></h4>
+        </div>
+        <div>
+          <div class="swiper swiper_buy mySwiper2_buy">
+            <div class="swiper-wrapper swiper-wrapper_buy">
+              <div class=" swiper-slide swiper-slide_buy">
+                <!-- <img class="img_buy" src="assets/images/437-1632718440.webp" /> -->
               </div>
             </div>
           </div>
-          <div thumbsSlider="" class="swiper mySwiper_buy"></div>
+          <div thumbsSlider="" class="swiper mySwiper_buy" style="height:50px; width: 43%;" id="swip_img"></div>
         </div>
       </div>
       <div class="col-12 col-sm-6 col-lg-6 col-md-6 py-2">
@@ -53,7 +49,7 @@ include 'includes/headertag.php';
                  <td style="width:25%;">Brand</td>
                </div>
                <div class="col-12 col-sm-6 col-lg-6 col-md-6">
-                <td><a href="" class="text-decoration-none">Sonalika</a></td>
+                <td><a href="" class="text-decoration-none" id="brand_second"></a></td>
               </div>
             </tr>
           </div>
@@ -63,7 +59,7 @@ include 'includes/headertag.php';
                 <td>Address</td>
               </div>
               <div class="col-12 col-sm-6 col-lg-6 col-md-6">
-                <td>B.O: 7-316/1, Sagar Road, Green City, Ibrahimpatnam, Rangareddy District, Telangana, 502506, Rangareddy,Telangana</td>
+                <td id="location"></td>
               </div>
             </tr>
           </div>
@@ -73,7 +69,7 @@ include 'includes/headertag.php';
                 <td>Email</td>
               </div>
               <div class="col-12 col-sm-6 col-lg-6 col-md-6 ">
-                <td>digital@ricomtechnologies.com</td>
+                <td id="email_id"></td>
               </div>
             </tr>
           </div>
@@ -84,7 +80,7 @@ include 'includes/headertag.php';
                 <td>Contact</td>
               </div>
               <div class="col-12 col-sm-6 col-lg-6 col-md-6">
-                <td>+91****</td>
+                <td id="mob_number"></td>
               </div>
             </tr>
           </div>
@@ -95,7 +91,7 @@ include 'includes/headertag.php';
                 <td>State</td>
               </div>
               <div class="col-12 col-sm-6 col-lg-6 col-md-6">
-                <td>Telangana</td>
+                <td id="mystate"></td>
               </div>
             </tr>
           </div>
@@ -106,7 +102,7 @@ include 'includes/headertag.php';
                 <td>District</td>
               </div>
               <div class="col-12 col-sm-6 col-lg-6 col-md-6">
-                <td>Rangareddy</td>
+                <td id="mydistrict"></td>
               </div>
             </tr>
           </div>
@@ -117,16 +113,16 @@ include 'includes/headertag.php';
               <button type="button" id="certified_dlr_rcb_btn" class="btn btn-success btn-block w-100 justify-content-end" data-bs-toggle="modal" data-bs-target="#staticBackdrop3">Request Call Back</button>                                
             </div>
             <div class="col-lg-7 col-md-7 col-sm-7">
-              <a href="become_certified_dealer.php" class="text-decoration-none">
+              <a href="become_certified.php" class="text-decoration-none">
                 <div class="">
                   <button type="button" class="btn btn-success btn-block d-flex justify-content-end">Become Certified Dealer</button>
                 </div>
               </a>
             </div>
           </div>
-        </div>
-      </div>      <!-- </div>-->
-    </section>                <!-- </div>        -->
+    </div>
+  </div>      
+</section>           
   
     
     <!-- MODAL  REQUEST CALL BACK -->
@@ -136,12 +132,27 @@ include 'includes/headertag.php';
           <div class="modal-content">
             <div class="modal-header">
               <h5 class="modal-title ms-1" id="staticBackdropLabel">Request Call Back</h5>
-              <button type="button" class="btn-close btn-success" data-bs-dismiss="modal" aria-label="Close"><img src="assets/images/close.png"></button>
+              <button type="button" class="btn-close btn-success" data-bs-dismiss="modal" aria-label="Close"><img src="assets/images/close.png" class="w-25"></button>
             </div>
             <!-- MODAL BODY -->
             <div class="modal-body">
               <form id="dealership_enq_from" class="bg-light" action="" method="POST" >
                 <div class="row justify-content-center">
+                  <!-- <div class="col-12 col-lg-6 col-sm-5 col-md-6 my-1" hidden>
+                    <div class="form-outline ">
+                      <label for="name" class="form-label text-dark">Harvester</label>
+                      <input type="text" class="form-control" placeholder="" id="userId" name="name">
+                    </div>
+                  </div> -->
+                  <div class="col- col-sm-6 col-lg-6 col-md-6" hidden>
+                    <label class="text-dark">id Name<span class="text-danger">*</span></label>
+                    <input type="text" class="form-control py-2" for="idUser"  id="enquiry_type_id" value="16" name="first_name" placeholder="Enter First Name">
+                    <small></small>
+                  </div>
+                  <div class="col-12 col-lg-6 col-md-6 col-sm-6 " hidden>
+                    <label for="name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i> product_id</label>
+                    <input type="text" class="form-control" id="product_id" value="">
+                  </div>
                   <div class="col-12 col-sm-12 col-md-6 col-lg-6">
                     <div class="mt-2">
                       <label class="form-label  fw-bold text-dark"> <i class="fa-regular fa-user"></i> First Name</label>
@@ -163,38 +174,35 @@ include 'includes/headertag.php';
                   <div class="col-12 col-sm-12 col-md-6 col-lg-6">
                     <label for="yr_state" class="form-label text-dark fw-bold"> <i class="fas fa-location"></i> State</label>
                     <select class="form-select py-2" id="_state" name="_state"aria-label=".form-select-lg example">
-                      <option value="" selected-disabled=""></option>
-                      <option value="1">Chhattisgarh</option>
-                      <option value="2">Other</option>
+                      <option value>Select State</option>
+                      <option value="Chhattisgarh">Chhattisgarh</option>
+                      <option value="Other">Other</option>
                     </select>
                   </div>
                   <div class="col-12 col-sm-12 col-md-6 col-lg-6">
                     <label for="yr_dist" class="form-label  fw-bold text-dark"><i class="fa-solid fa-location-dot"></i> District</label>
                     <select class="form-select py-2" id="_district" name="_district" aria-label=".form-select-lg example">
-                      <option value="" selected-disabled=""></option>
-                      <option value="1">Raipur</option>
-                      <option value="2">Bilaspur</option>
-                      <option value="2">Durg</option>
-                      <option value="2">Other</option>
+                      <option value>Select District</option>
+                      <option value="Raipur">Raipur</option>
+                      <option value="Bilaspur">Bilaspur</option>
+                      <option value="Surajpur">Surajpur</option>
                     </select>
                   </div>
                   <div class="col-12 col-sm-12 col-md-6 col-lg-6">
-                    <label for="yr_price" class="form-label fw-bold  text-dark"> Tehsil</label>
-                    <!-- <input type="yr_price" class="form-control" placeholder="Enter Tehsil" id="_tehsil" name="_tehsil"> -->
+                    <label for="tehsil" class="form-label fw-bold mt-1 text-dark"> Tehsil</label>
                     <select class="form-select py-2 " id="_tehsil" name="_tehsil"aria-label=".form-select-lg example">
-                      <option value="" selected-disabled=""></option>
-                      <option value="1">Durg</option> 
-                      <option value="2">Other</option>                     
+                        <option value>Select Tehsil</option>
+                        <option value="Raipur">Raipur</option>
+                        <option value="Bilaspur">Bilaspur</option>
+                        <option value="Surajpur">Surajpur</option>                   
                     </select>
                   </div>
                   <div class="col-12 col-sm-12 col-md-6 col-lg-6">
-                    <label for="yr_dist" class="form-label fw-bold text-dark">Brand</label>
-                    <select class="form-select py-2 " id="_brand" name="_brand"aria-label=".form-select-lg example">
-                      <option value="" selected-disabled=""></option>
-                      <option value="1">Mahindra</option>
-                      <option value="2">Swaraj</option>
-                      <option value="2">Powertrac</option>
-                    </select>
+                    <label for="tehsil" class="form-label fw-bold  mt-1 text-dark">Brand</label>
+                        <select class="form-select py-2" aria-label="Default select example" id="_brand" name="_brand">
+                                                
+                        </select>
+                      </div>
                   </div>
                   <div class="text-center my-3">
                     <button type="button" id="delership_enq_btn" class="btn btn-success px-5 w-100 ">Submit</button>         
@@ -209,214 +217,21 @@ include 'includes/headertag.php';
     </section>
 
     <!-- BRAND SIMILAR TRACTOR -->
-  <section>
-    <div class="container bg-light">
-      <div class="text-editor-black  my-3" style="background-color:#fff">
-        <h3 class="">Sonalika <span class="text-success fw-bold"> Tractors</span> </h3>
-      </div>
-      <div class="owl-slider ">
-        <div id="carousel_related_brand" class="owl-carousel owl-theme owl-carousel_related">
-
-          <div class="item">
-            <div class="success__stry__item shadow h-100">
-              <div class="thumb">
-                <a href="#">
-                  <div class="">
-                    <img src="assets\images\sonalika-rx-42-4wd-1693217919.webp" class="object-fit-cover p-3 w-100" alt="img">
-                  </div>
-                </a>
-              </div>
-              <div class="content mb-3 ms-3">
-                <div class="post-content">
-                  <h5 class="post-title">
-                    <a href="#" class="text-decoration-none text-dark fw-bold">Sonalika DI 750 Sikander</a>
-                  </h5>
-                  <div class="row mt-1">
-                    <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                      <p><i class="fas fa-bolt"></i> 30 HP</p>
-                    </div>
-                    <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                      <p> <i class="fa fa-cog" aria-hidden="true"></i> 1290CC</p>
-                    </div>
-                  </div>                                
-                </div>                            
-              </div>
-              <button type="button" class="btn btn-success w-100 text-center">Get On Road Price</button>
-            </div>   
-          </div>
-
-          <div class="item">
-            <div class="success__stry__item shadow h-100">
-              <div class="thumb">
-                <a href="#">
-                  <div class="">
-                    <img src="assets\images\sonalika-rx-42-4wd-1693217919.webp" class="object-fit-cover p-3 w-100" alt="img">
-                  </div>
-                </a>
-              </div>
-              <div class="content mb-3 ms-3">
-                <div class="post-content">
-                  <h5 class="post-title">
-                    <a href="#" class="text-decoration-none text-dark fw-bold">Sonalika DI 750 Sikander</a>
-                  </h5>
-                  <div class="row mt-1">
-                    <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                      <p><i class="fas fa-bolt"></i> 30 HP</p>
-                    </div>
-                    <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                      <p> <i class="fa fa-cog" aria-hidden="true"></i> 1290CC</p>
-                    </div>
-                  </div>                                
-                </div>                            
-              </div>
-              <button type="button" class="btn btn-success w-100 text-center">Get On Road Price</button>
-            </div>   
-          </div>
-
-          <div class="item">
-            <div class="success__stry__item shadow h-100">
-              <div class="thumb">
-                <a href="#">
-                  <div class="">
-                    <img src="assets\images\sonalika-rx-42-4wd-1693217919.webp" class="object-fit-cover p-3 w-100" alt="img">
-                  </div>
-                </a>
-              </div>
-              <div class="content mb-3 ms-3">
-                <div class="post-content">
-                  <h5 class="post-title">
-                    <a href="#" class="text-decoration-none text-dark fw-bold">Sonalika DI 750 Sikander</a>
-                  </h5>
-                  <div class="row mt-1">
-                    <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                      <p><i class="fas fa-bolt"></i> 30 HP</p>
-                    </div>
-                    <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                      <p> <i class="fa fa-cog" aria-hidden="true"></i> 1290CC</p>
-                    </div>
-                  </div>                                
-                </div>                            
-              </div>
-              <button type="button" class="btn btn-success w-100 text-center">Get On Road Price</button>
-            </div>   
-          </div>
-
-          <div class="item">
-            <div class="success__stry__item shadow h-100">
-              <div class="thumb">
-                <a href="#">
-                  <div class="">
-                    <img src="assets\images\sonalika-rx-42-4wd-1693217919.webp" class="object-fit-cover p-3 w-100" alt="img">
-                  </div>
-                </a>
-              </div>
-              <div class="content mb-3 ms-3">
-                <div class="post-content">
-                  <h5 class="post-title">
-                    <a href="#" class="text-decoration-none text-dark fw-bold">Sonalika DI 750 Sikander</a>
-                  </h5>
-                  <div class="row mt-1">
-                    <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                      <p><i class="fas fa-bolt"></i> 30 HP</p>
-                    </div>
-                    <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                      <p> <i class="fa fa-cog" aria-hidden="true"></i> 1290CC</p>
-                    </div>
-                  </div>                                
-                </div>                            
-              </div>
-              <button type="button" class="btn btn-success w-100 text-center">Get On Road Price</button>
-            </div>   
-          </div>
-
-          <div class="item">
-            <div class="success__stry__item shadow h-100">
-              <div class="thumb">
-                <a href="#">
-                  <div class="">
-                    <img src="assets\images\sonalika-rx-42-4wd-1693217919.webp" class="object-fit-cover p-3 w-100" alt="img">
-                  </div>
-                </a>
-              </div>
-              <div class="content mb-3 ms-3">
-                <div class="post-content">
-                  <h5 class="post-title">
-                    <a href="#" class="text-decoration-none text-dark fw-bold">Sonalika DI 750 Sikander</a>
-                  </h5>
-                  <div class="row mt-1">
-                    <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                      <p><i class="fas fa-bolt"></i> 30 HP</p>
-                    </div>
-                    <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                      <p> <i class="fa fa-cog" aria-hidden="true"></i> 1290CC</p>
-                    </div>
-                  </div>                                
-                </div>                            
-              </div>
-              <button type="button" class="btn btn-success w-100 text-center">Get On Road Price</button>
-            </div>   
-          </div>
-
-          <div class="item">
-            <div class="success__stry__item shadow h-100">
-              <div class="thumb">
-                <a href="#">
-                  <div class="">
-                    <img src="assets\images\sonalika-rx-42-4wd-1693217919.webp" class="object-fit-cover p-3 w-100" alt="img">
-                  </div>
-                </a>
-              </div>
-              <div class="content mb-3 ms-3">
-                <div class="post-content">
-                  <h5 class="post-title">
-                    <a href="#" class="text-decoration-none text-dark fw-bold">Sonalika DI 750 Sikander</a>
-                  </h5>
-                  <div class="row mt-1">
-                    <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                      <p><i class="fas fa-bolt"></i> 30 HP</p>
-                    </div>
-                    <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                      <p> <i class="fa fa-cog" aria-hidden="true"></i> 1290CC</p>
-                    </div>
-                  </div>                                
-                </div>                            
-              </div>
-              <button type="button" class="btn btn-success w-100 text-center">Get On Road Price</button>
-            </div>   
-          </div>
-
-          <div class="item">
-            <div class="success__stry__item shadow h-100">
-              <div class="thumb">
-                <a href="#">
-                  <div class="">
-                    <img src="assets\images\sonalika-rx-42-4wd-1693217919.webp" class="object-fit-cover p-3 w-100" alt="img">
-                  </div>
-                </a>
-              </div>
-              <div class="content mb-3 ms-3">
-                <div class="post-content">
-                  <h5 class="post-title">
-                    <a href="#" class="text-decoration-none text-dark fw-bold">Sonalika DI 750 Sikander</a>
-                  </h5>
-                  <div class="row mt-1">
-                    <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                      <p><i class="fas fa-bolt"></i> 30 HP</p>
-                    </div>
-                    <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                      <p> <i class="fa fa-cog" aria-hidden="true"></i> 1290CC</p>
-                    </div>
-                  </div>                                
-                </div>                            
-              </div>
-              <button type="button" class="btn btn-success w-100 text-center">Get On Road Price</button>
-            </div>   
-          </div>
-             
-        </div>
-      </div>
+<section class="bg-light pb-4">
+    <div class="container-fullwidth ">
+        <div class="row">
+            <!-- <h1 class=" mt-5">Popular Mahindra Tractors</h1> -->
+            <div id="popular_tractor"></div>
+            <div id="productContainer" class="row"></div>
+                
+		
+		</div>
+        <div class="col-12 text-center mt-3 pt-2 ">
+            <button id="load_moretract" type="button" class=" btn add_btn btn-success">
+            <i class="fas fa-undo"></i>  Load More tractors</button>
+         </div>
     </div>
-  </section>    
+</section>  
 
     <!-- TRACTOR IMPLEMENTS CAROUSEL -->
   <section>

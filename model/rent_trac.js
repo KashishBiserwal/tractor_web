@@ -308,24 +308,24 @@ function store(event) {
 // 'brand_id': JSON.stringify(selectedBrand),
     // Append impType array
             var implementTypeIds = [];
-        $('select[name="imp_type_id[]"]').each(function() {
+        $('select[name="imp_type_id"]').each(function() {
             implementTypeIds.push($(this).val());
         });
-        data.append('implement_type_id[]', JSON.stringify(implementTypeIds));
+        data.append('implement_type_id', JSON.stringify(implementTypeIds));
 
         // Append implement_rent array
         var rates = [];
-        $('input[name="implement_rate[]"]').each(function() {
+        $('input[name="implement_rate"]').each(function() {
             rates.push($(this).val());
         });
-        data.append('rate[]', JSON.stringify(rates));
+        data.append('rate', JSON.stringify(rates));
 
         // Append impRatePer array
         var ratePers = [];
-        $('select[name="rate_per[]"]').each(function() {
+        $('select[name="rate_per"]').each(function() {
             ratePers.push($(this).val());
         });
-        data.append('rate_per[]', JSON.stringify(ratePers));
+        data.append('rate_per', JSON.stringify(ratePers));
 
         // Append images
         var impImageFiles = document.getElementById('impImage_0').files;

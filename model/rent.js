@@ -113,13 +113,53 @@ function get() {
   
   get_year_and_hours();
 
+  function implementget() {
+    var url = 'http://tractor-api.divyaltech.com/api/customer/get_implement_category';
 
+    $.ajax({
+        url: url,
+        type: "GET",
+        headers: {
+            'Authorization': 'Bearer ' + localStorage.getItem('token')
+        },
+        success: function(data) {
+            console.log(data);
 
+            const select = $('#implement_type');
+            select.empty(); // Clear existing options
+
+            // Add a default option
+            select.append('<option selected disabled value="">Please select Implement Type</option>');
+
+            // Use an object to keep track of unique categories
+            var uniqueCategories = {};
+
+            $.each(data.allCategory, function(index, category) {
+                var implement_type = category.id;
+                var category_name = category.category_name;
+
+                // Check if the category ID is not already in the object
+                if (!uniqueCategories[implement_type]) {
+                    // Add category ID to the object
+                    uniqueCategories[implement_type] = true;
+
+                    // Append the option to the dropdown
+                    select.append('<option value="' + implement_type + '">' + category_name + '</option>');
+                }
+            });
+        },
+        error: function(error) {
+            console.error('Error fetching data:', error);
+        }
+    });
+}
+implementget();
    
-// Display the corresponding form step
+/// Display the corresponding form step
 function displayStep(step) {
     // Your logic to show/hide form steps
 }
+
 // Store data through form
 function store(event) {
     event.preventDefault();
@@ -141,10 +181,10 @@ function store(event) {
     var tehsil = $('#tehsil_1').val();
     var image_names = document.getElementById('imageInput').files;
 
-    // Convert implement_type, rate, and ratePer to arrays
-    var implementTypeArray = implement_type.split(',');
-    var rateArray = rate.split(',');
-    var ratePerArray = ratePer.split(',');
+    // Convert implement_type, rate, and ratePer to JSON strings
+    var implementTypeArray = JSON.stringify($('#implement_type').val());
+    var rateArray = JSON.stringify($('#rate').val());
+    var ratePerArray = JSON.stringify($('#ratePer').val());
 
     // Create an object with all the form data
     var formData = {
