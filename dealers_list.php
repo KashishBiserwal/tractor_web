@@ -209,7 +209,7 @@
                         <th class="d-none d-md-table-cell text-white">Moble</th>
                         <th class="d-none d-md-table-cell text-white">State</th>
                         <th class="d-none d-md-table-cell text-white">District</th>
-                        <th class="d-none d-md-table-cell text-white">Action</th>
+                        <!-- <th class="d-none d-md-table-cell text-white">Action</th> -->
                     </tr>
                 </thead>
                 <tbody id="data-table">

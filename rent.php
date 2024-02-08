@@ -524,7 +524,7 @@
     include 'includes/footertag.php';
 
 ?>
-    <script>
+    <!-- <script>
     document.addEventListener("DOMContentLoaded", function() {
         const addMoreButton = document.getElementById('addMore');
         const formContainer = document.getElementById('formContainer');
@@ -541,7 +541,32 @@
             formContainer.appendChild(lastRow);
         });
     });
-    </script>
+    </script> -->
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    const addMoreButton = document.getElementById('addMore');
+    const formContainer = document.getElementById('formContainer');
+
+    addMoreButton.addEventListener('click', function() {
+        // Clone the entire row and append it to the container
+        const lastRow = formContainer.lastElementChild.cloneNode(true);
+        
+        // Clear values of the cloned fields except for the file input field
+        const inputFields = lastRow.querySelectorAll('input:not([type="file"]), select');
+        inputFields.forEach(field => {
+            field.value = ''; // Clear the value
+        });
+
+        // Reset the value of the cloned file input field
+        const clonedFileInput = lastRow.querySelector('input[type="file"]');
+        clonedFileInput.value = null;
+
+        formContainer.appendChild(lastRow);
+    });
+});
+
+</script>
+
     <script>
     $(document).ready(function() {
         // Sample data (replace with your actual data)
@@ -720,18 +745,14 @@
 
     <script>
     $(document).ready(function() {
-        // Event listener for file input change
         $("#imageInput").change(function() {
             var selectedFiles = $(this)[0].files;
             var maxAllowedFiles = 4;
 
-            // Check if the number of selected files is within the allowed range
             if (selectedFiles.length < 1 || selectedFiles.length > maxAllowedFiles) {
                 alert("Please select between 1 and " + maxAllowedFiles + " images.");
-                // You can provide additional feedback to the user, such as disabling a submit button
             } else {
-                // You can proceed with handling the selected files
-                // For example, display the number of selected files
+               
                 alert("Selected " + selectedFiles.length + " image(s).");
             }
         });
