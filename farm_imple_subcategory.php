@@ -165,7 +165,7 @@ include 'includes/headertag.php';
                                                 </div>
                                             </div>
                                             <div class="col-md-12 p-0">
-                                                <div class="col-md-12 form_field_outer p-0" id="two_field">
+                                                <div class="col-md-12 form_field_outer p-0" id="fields">
                                                   <div class="row form_field_outer_row">
                                                     <div class="form-group col-md-6">
                                                         <input type="text" class="form-control w_90" name="mobileb_no[]" id="mobileb_no_1" value="CUSTOM_1" readonly/>
