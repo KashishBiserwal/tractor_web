@@ -47,7 +47,7 @@ $(document).ready(function(){
                 
                     // Add row to DataTable
                     table.row.add([
-                        serialNumber--,  // Increment the serial number
+                        serialNumber--,  
                         row.loan_type_name,
                         fullName,
                         row.mobile,
