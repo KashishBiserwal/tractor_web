@@ -330,7 +330,7 @@ function store(event) {
     var url = apiBaseURL + 'get_new_tractor_by_id/' + productId ;
     console.log('prachi');
     editId_state= true;
-    //EditIdmain_= product_id;
+    EditIdmain_= product_id;
     console.log(url);
   
     var headers = {

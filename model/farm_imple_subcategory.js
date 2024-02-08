@@ -1,3 +1,6 @@
+var EditIdmain_ = "";
+var editId_state= false;
+var id= "";
 $(document).ready(function() {
     get_data();
     ImgUpload();
@@ -233,26 +236,49 @@ function store(event) {
 
   var lookup_type = $('#lookupSelectbox').val();
   var lookup_data_value = $('#lookup_data_value').val();
+  var id = $('#idUser').val();
   var image = $('#image')[0].files[0]; 
 
   var apiBaseURL = APIBaseURL;
-  var url = apiBaseURL + 'implement_sub_category';
+  // var url = apiBaseURL + 'implement_sub_category';
 
   var token = localStorage.getItem('token');
   var headers = {
     'Authorization': 'Bearer ' + token
   };
 
+  // var urlParams = new URLSearchParams(window.location.search);
+  //   id = urlParams.get('id');
+    // console.log("editId from URL:", editId_stateedit);
+    _method = 'POST';
+    var url, method;
+    console.log('edit state', id);
+    var _method = 'post'; 
+
+    if (id !== '' && id !== null) {
+      // Update mode
+      _method = 'put';
+      url = apiBaseURL + 'implement_sub_category/' + id;
+      console.log(url);
+      method = 'POST'; 
+    } else {
+      url = apiBaseURL + 'implement_sub_category';
+      console.log('prachi');
+      method = 'POST';
+    }
+
   var data = new FormData();
+  data.append('id', id);
   data.append('implements_category_id', lookup_type);
   data.append('sub_category_name', lookup_data_value);
   data.append('custom_data', customDataJson);
   data.append('implement_data', implementDataJson);
   data.append('thumbnail', image);
+  data.append('_method', _method);
 
   $.ajax({
     url: url,
-    type: 'POST',
+    type: method,
     data: data,
     headers: headers,
     processData: false,
@@ -268,7 +294,7 @@ function store(event) {
       // Hide the modal immediately
       $("#staticBackdrop1").modal('hide');
 
-      // Show alert box with OK button
+     
       var alertConfirmation = confirm("Data added successfully. Do you want to reload the page?");
       if (alertConfirmation) {
         window.location.reload();
@@ -487,6 +513,8 @@ function store(event) {
         var apiBaseURL = APIBaseURL;
         var url = apiBaseURL + 'implement_sub_category/' + id;
         console.log(url);
+        editId_state= true;
+        id= id;
     
         var headers = {
             'Authorization': 'Bearer ' + localStorage.getItem('token')
@@ -529,15 +557,14 @@ function store(event) {
                 });
     
                 // Enable all delete buttons
-                $(".delete").prop("disabled", false);
+                
     
                 // Add event listener for delete buttons
                 $(".remove_node_btn_frm_field").on("click", function () {
                     var indexToDelete = $(this).data("index");
-                    // Serialize IDs or perform any other necessary action
                     console.log("Deleting field with ID: " + indexToDelete);
-                    // Add your logic for serialization or any other action here
                 });
+                $(".delete").prop("disabled", false);
     
             },
             error: function (error) {
@@ -672,10 +699,22 @@ function store(event) {
     $(document).ready(function () {
       var index = 2;
     
+      function updateIndex() {
+        $(".form_field_outer_row").each(function (i) {
+          $(this)
+            .find('input[name^="mobileb_no"]')
+            .val("CUSTOM_" + (i + 1))
+            .attr("id", "mobileb_no_" + (i + 1));
+    
+          $(this)
+            .find('input[name^="no_type"]')
+            .attr("id", "no_type_" + (i + 1));
+        });
+      }
+    
       $("body").on("click", ".add_new_frm_field_btn", function () {
         console.log("clicked");
     
-        // Append new field row
         $(".form_field_outer").append(`
           <div class="row form_field_outer_row">
             <div class="form-group col-md-6">
@@ -692,27 +731,81 @@ function store(event) {
           </div>
         `);
     
-        // Disable delete buttons for all rows except the last one
-        $(".form_field_outer .remove_node_btn_frm_field").prop("disabled", true);
-        $(".form_field_outer .remove_node_btn_frm_field:last").prop("disabled", false);
+        // Enable delete buttons for all rows
+        $(".form_field_outer .remove_node_btn_frm_field").prop("disabled", false);
+    
+        // Disable delete button for the first row if it's the only one
+        if ($(".form_field_outer_row").length === 1) {
+          $(".form_field_outer .remove_node_btn_frm_field:first").prop("disabled", true);
+        }
     
         // Increment index for the next row
         index++;
+    
+        // Update index values
+        updateIndex();
       });
     
       $("body").on("click", ".remove_node_btn_frm_field", function () {
         // Remove the row
         $(this).closest(".form_field_outer_row").remove();
     
-        // Enable delete buttons for remaining rows except the last one
-        $(".form_field_outer .remove_node_btn_frm_field").prop("disabled", true);
-        $(".form_field_outer .remove_node_btn_frm_field:last").prop("disabled", false);
-    
-        // Disable delete button for the first row if it's the only one
+        // Enable delete button for the first row if it's the only one
         if ($(".form_field_outer_row").length === 1) {
           $(".form_field_outer .remove_node_btn_frm_field:first").prop("disabled", true);
         }
+    
+        // Update index values
+        updateIndex();
       });
     });
+
+    // $(document).ready(function () {
+    //   var index = 2;
+    
+    //   $("body").on("click", ".add_new_frm_field_btn", function () {
+    //     console.log("clicked");
+    
+    //     $(".form_field_outer").append(`
+    //       <div class="row form_field_outer_row">
+    //         <div class="form-group col-md-6">
+    //           <input type="text" class="form-control w_90" name="mobileb_no[]" value="CUSTOM_${index}" id="mobileb_no_${index}" readOnly />
+    //         </div>
+    //         <div class="form-group col-md-4">
+    //           <input type="text" class="form-control" name="no_type[]" id="no_type_${index}" placeholder="Enter Value" aria-invalid="false"/>
+    //         </div>
+    //         <div class="form-group col-md-2 add_del_btn_outer">
+    //           <button class="btn_round remove_node_btn_frm_field">
+    //             <i class="fas fa-trash-alt"></i>
+    //           </button>
+    //         </div>
+    //       </div>
+    //     `);
+    
+    //     // Disable delete buttons for all rows except the last one
+    //     $(".form_field_outer .remove_node_btn_frm_field").prop("disabled", true);
+    //     $(".form_field_outer .remove_node_btn_frm_field:last").prop("disabled", false);
+    
+    //     // Increment index for the next row
+    //     index++;
+    //   });
+    
+    //   $("body").on("click", ".remove_node_btn_frm_field", function () {
+    //     // Remove the row
+    //     $(this).closest(".form_field_outer_row").remove();
+    
+    //     // Enable delete buttons for remaining rows except the last one
+    //     $(".form_field_outer .remove_node_btn_frm_field").prop("disabled", true);
+    //     $(".form_field_outer .remove_node_btn_frm_field:last").prop("disabled", false);
+    
+    //     // Disable delete button for the first row if it's the only one
+    //     if ($(".form_field_outer_row").length === 1) {
+    //       $(".form_field_outer .remove_node_btn_frm_field:first").prop("disabled", true);
+    //     }
+    //   });
+    // });
+   
+    
+    
 
   
