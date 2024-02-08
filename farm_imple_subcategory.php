@@ -121,6 +121,12 @@ include 'includes/headertag.php';
                                     <!-- <h5 class="text-center">Fill Details</h5> -->
                                     <form id="lookup_data_form" method="POST">
                                       <div class="row justify-content-center">
+                                        <div class="col-12 col-sm-6 col-md-6 col-lg-6  mt-4" hidden>
+                                          <div class="form-outline">
+                                            <label for="lookup_data_value" class="form-label text-dark"> idUser</label>
+                                              <input type="text" class="form-control" placeholder=" " value="" id="idUser"  for="idUser" name="">
+                                          </div>
+                                        </div>
                                         <div class="col-12 col-sm-6 col-md-6 col-lg-6  mt-4">
                                           <div class="form-outline">
                                               <label for="lookupSelectbox" class="form-label">Category</label>
@@ -159,8 +165,8 @@ include 'includes/headertag.php';
                                                 </div>
                                             </div>
                                             <div class="col-md-12 p-0">
-                                                <div class="col-md-12 form_field_outer p-0">
-                                                <div class="row form_field_outer_row">
+                                                <div class="col-md-12 form_field_outer p-0" id="two_field">
+                                                  <div class="row form_field_outer_row">
                                                     <div class="form-group col-md-6">
                                                         <input type="text" class="form-control w_90" name="mobileb_no[]" id="mobileb_no_1" value="CUSTOM_1" readonly/>
                                                     </div>
@@ -168,16 +174,11 @@ include 'includes/headertag.php';
                                                         <input type="text" class="form-control" name="no_type[]" id="no_type_1" placeholder="Enter Value"/>
                                                     </div>
                                                     <div class="form-group col-md-2 add_del_btn_outer">
-                                                    <!-- <button class="btn_round add_node_btn_frm_field" title="Copy or clone this row">
-                                                        <i class="fas fa-copy"></i>
-                                                    </button> -->
-
-                                                    <button class="btn_round remove_node_btn_frm_field" disabled>
-                                                        <i class="fas fa-trash-alt"></i>
-                                                    </button>
+                                                      <button class="btn_round remove_node_btn_frm_field" disabled>
+                                                          <i class="fas fa-trash-alt"></i>
+                                                      </button>
                                                     </div>
-                                                </div>
-                                                
+                                                  </div>
                                                 </div>
                                                 <div class="row ml-0 py-1">
                                                     <div class="py-1">
@@ -186,12 +187,6 @@ include 'includes/headertag.php';
                                                 </div>
                                             </div>
                                         </div>
-                                        <!-- <div class="row ml-0 mt-3  py-1">
-                                            <div class="py-1">
-                                                <button class="btn btn-outline-lite bg-light shadow float-end py-1       add_new_frm_field_btn"><i class="fas fa-plus add_icon"></i> Add New field row</button>
-                                            </div>
-                                        </div> -->
-
                                         <div class="col-12 col-lg-6 col-md-6 col-sm-6 mt-3">
                                           <div class="upload__box mt-5">
                                             <div class="upload__btn-box text-center">
@@ -326,7 +321,7 @@ include 'includes/headertag.php';
     </div>
       
 <!-- edit -->
-   <div class="modal fade" id="staticBackdrop_2" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal fade" id="staticBackdrop_2" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                   <div class="modal-dialog  modal-dialog-centered">
                     <div class="modal-content modal_box">
                       <div class="modal-header modal_head">

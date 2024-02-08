@@ -44,10 +44,10 @@ $(document).ready(function(){
   
                 data.Enquiry_for_loan_data.forEach(row => {
                     const fullName = row.first_name + ' ' + row.last_name;
-  
+                
                     // Add row to DataTable
                     table.row.add([
-                        serialNumber--,
+                        serialNumber--,  // Increment the serial number
                         row.loan_type_name,
                         fullName,
                         row.mobile,
@@ -65,9 +65,8 @@ $(document).ready(function(){
                             </button>
                         </div>`
                     ]).draw(false);
-  
-                    // serialNumber++;
                 });
+                
             } else {
                 tableBody.html('<tr><td colspan="6">No valid data available</td></tr>');
             }

@@ -164,11 +164,11 @@ $(document).ready(function() {
                    <button class="btn btn-warning btn-sm text-white mx-1" data-bs-toggle="modal" onclick="openViewdata(${row.id});" data-bs-target="#view_new_harvester_enq">
                                 <i class="fas fa-eye" style="font-size: 11px;"></i>
                     </button>
+                   <button class="btn btn-primary btn-sm btn_edit" onclick="fetch_edit_data(${row.id});" data-bs-toggle="modal" data-bs-target="#staticBackdrop1" id="yourUniqueIdHere">
+                      <i class="fas fa-edit" style="font-size: 11px;"></i>
+                   </button>
                    <button class="btn btn-danger btn-sm mx-1" id="delete_user" onclick="destroy(${row.id});" style="padding:5px;">
                        <i class="fa fa-trash" style="font-size: 11px;"></i>
-                   </button>
-                   <button class="btn btn-primary btn-sm btn_edit" onclick="fetch_edit_data(${row.id});" data-bs-toggle="modal" data-bs-target="#staticBackdrop_2" id="yourUniqueIdHere">
-                      <i class="fas fa-edit" style="font-size: 11px;"></i>
                    </button>
                </div>`;
                  
@@ -388,15 +388,12 @@ function store(event) {
             }
         });
     }
-    
-    
-
-  
-    // **delete***
+ 
+    // delete data
     function destroy(id) {
       var apiBaseURL = APIBaseURL;
-      var url = apiBaseURL + 'get_implement_category/' + id;
-      console.log(url);
+      var url = apiBaseURL + 'implement_sub_category/' + id;
+      
       var token = localStorage.getItem('token');
     
       if (!token) {
@@ -428,8 +425,109 @@ function store(event) {
       });
     }
   
+
+        // edit and update 
+        function fetch_edit_data(id) {
+          var apiBaseURL = APIBaseURL;
+          var url = apiBaseURL + 'implement_sub_category/' + id;
+          console.log(url);
+      
+          var headers = {
+              'Authorization': 'Bearer ' + localStorage.getItem('token')
+          };
+      
+          $.ajax({
+              url: url,
+              type: 'GET',
+              headers: headers,
+              success: function (response) {
+                  $('#two_field').hide(); // Correct selector
+      
+                  var Data = response.allSubCategory;
+                  var Data2 = response.allSubCategory;
+                  $('#idUser').val(Data2.custom_data[0].id);
+                  $("#lookupSelectbox option").prop("selected", false);
+                  $("#lookupSelectbox option[value='" + Data.implement_sub_category[0].category_name + "']").prop("selected", true);
+                  $('#lookup_data_value').val(Data.implement_sub_category[0].sub_category_name);
+      
+                  var tableData = $("#fields");
+                  tableData.html('');
+      
+                  Data.custom_data.forEach(function (p,index) { 
+                      var tableRow = `
+                          <div class="row form_field_outer_row">
+                              <div class="form-group col-md-6">
+                                  <input type="text" class="form-control w_90" name="mobileb_no[]" value="CUSTOM_${index + 1}" id="mobileb_no_${index + 1}" readOnly />
+                              </div>
+                              <div class="form-group col-md-4">
+                                  <input type="text" class="form-control" name="no_type[]" id="no_type_${index + 1}" placeholder="Enter Value" aria-invalid="false"/>
+                              </div>
+                              <div class="form-group col-md-2 add_del_btn_outer">
+                                  <button class="btn_round remove_node_btn_frm_field">
+                                      <i class="fas fa-trash-alt"></i>
+                                  </button>
+                              </div>
+                          </div>
+                      `;
+                      tableData.append(tableRow);
+                  });
+      
+              },
+              error: function (error) {
+                  console.error('Error fetching user data:', error);
+                  var msg = error;
+                  $("#errorStatusLoading").modal('show');
+                  $("#errorStatusLoading").find('.modal-title').html('Error');
+                  $("#errorStatusLoading").find('.modal-body').html(msg);
+              }
+          });
+      }
+      
     
+    function edit_user() {
+      var edit_id = $("#idUser").val();
+      var lookup_type = $("#lookupSelectbox1").val();
+      var lookup_value = $("#lookup_data_value1").val();
+  
+      var paraArr = {
+          'lookup_type_id': lookup_type,
+          'lookup_data_value': lookup_value,
+          'id': edit_id, 
+      };
     
+      var apiBaseURL = APIBaseURL;
+      var url = apiBaseURL + 'lookup_data/' + edit_id;
+    
+      var headers = {
+          'Authorization': 'Bearer ' + localStorage.getItem('token')
+      };
+    
+      $.ajax({
+          url: url,
+          type: "PUT",
+          data: paraArr,
+          headers: headers,
+          success: function (result) {
+              console.log(result, "result");
+              // get();
+              window.location.reload();
+              console.log("updated successfully");
+              var msg = "Updated successfully !"
+          $("#errorStatusLoading").modal('show');
+          $("#errorStatusLoading").find('.modal-title').html('Success');
+          $("#errorStatusLoading").find('.modal-body').html(msg);
+          },
+          error: function (error) {
+              console.error('Error fetching data:', error);
+              var msg = error;
+              $("#errorStatusLoading").modal('show');
+              $("#errorStatusLoading").find('.modal-title').html('Error');
+              $("#errorStatusLoading").find('.modal-body').html(msg);
+          }
+      });
+    }
+
+       
   function searchdata() {
     console.log("dfghsfg,sdfgdfg");
     var lookup_type = $('#lookup_type').val();
@@ -503,156 +601,51 @@ function store(event) {
         tableBody.innerHTML = '<tr><td colspan="4">No valid data available</td></tr>';
     }
   }
-  
- 
-        // edit and update 
-      function fetch_edit_data(id) {
-        var apiBaseURL = APIBaseURL;
-        var url = apiBaseURL + 'lookup_data/' + id; 
-        console.log(url);
-      
-        var headers = {
-            'Authorization': 'Bearer ' + localStorage.getItem('token')
-        };
-      
-        $.ajax({
-            url: url,
-            type: 'GET',
-            headers: headers,
-            success: function (response) {
-              // console.log('sdfgh'); 
-                var Data = response.lookup_data[0];
-                $('#idUser').val(Data.id);
-                $('#lookupSelectbox1').val(Data.lookup_type_id);
-                $('#lookup_data_value1').val(Data.lookup_data_value);
-                // console.log(Data.name);
-                
-            },
-            error: function (error) {
-                console.error('Error fetching user data:', error);
-                var msg = error;
-                $("#errorStatusLoading").modal('show');
-                $("#errorStatusLoading").find('.modal-title').html('Error');
-                $("#errorStatusLoading").find('.modal-body').html(msg);
-            }
-        });
-      }
-    
-    function edit_user() {
-      var edit_id = $("#idUser").val();
-      var lookup_type = $("#lookupSelectbox1").val();
-      var lookup_value = $("#lookup_data_value1").val();
-  
-      var paraArr = {
-          'lookup_type_id': lookup_type,
-          'lookup_data_value': lookup_value,
-          'id': edit_id, 
-      };
-    
-      var apiBaseURL = APIBaseURL;
-      var url = apiBaseURL + 'lookup_data/' + edit_id;
-    
-      var headers = {
-          'Authorization': 'Bearer ' + localStorage.getItem('token')
-      };
-    
-      $.ajax({
-          url: url,
-          type: "PUT",
-          data: paraArr,
-          headers: headers,
-          success: function (result) {
-              console.log(result, "result");
-              // get();
-              window.location.reload();
-              console.log("updated successfully");
-              var msg = "Updated successfully !"
-          $("#errorStatusLoading").modal('show');
-          $("#errorStatusLoading").find('.modal-title').html('Success');
-          $("#errorStatusLoading").find('.modal-body').html(msg);
-          },
-          error: function (error) {
-              console.error('Error fetching data:', error);
-              var msg = error;
-              $("#errorStatusLoading").modal('show');
-              $("#errorStatusLoading").find('.modal-title').html('Error');
-              $("#errorStatusLoading").find('.modal-body').html(msg);
-          }
-      });
-    }
-
-
     // ui work
-    // Now we need to write a jQuery function for performing the task  first we will create a clone method function
-    ///======Clone method
-$(document).ready(function () {
-    $("body").on("click", ".add_node_btn_frm_field", function (e) {
-      var index = $(e.target).closest(".form_field_outer").find(".form_field_outer_row").length + 1;
-      var cloned_el = $(e.target).closest(".form_field_outer_row").clone(true);
-  
-      $(e.target).closest(".form_field_outer").last().append(cloned_el).find(".remove_node_btn_frm_field:not(:first)").prop("disabled", false);
-  
-      $(e.target).closest(".form_field_outer").find(".remove_node_btn_frm_field").first().prop("disabled", true);
-  
-      //change id
-      $(e.target)
-        .closest(".form_field_outer")
-        .find(".form_field_outer_row")
-        .last()
-        .find("input[type='text']")
-        .attr("id", "mobileb_no_" + index);
-  
-      $(e.target)
-        .closest(".form_field_outer")
-        .find(".form_field_outer_row")
-        .last()
-        .find("select")
-        .attr("id", "no_type_" + index);
-  
-      console.log(cloned_el);
-      //count++;
-    });
-  });
-
-//   Now we are going to create an append method dfghj
-
-$(document).ready(function() {
-    var index = 2;
-
-    $("body").on("click", ".add_new_frm_field_btn", function () {
+    $(document).ready(function () {
+      var index = 2;
+    
+      $("body").on("click", ".add_new_frm_field_btn", function () {
         console.log("clicked");
-
+    
+        // Append new field row
         $(".form_field_outer").append(`
-            <div class="row form_field_outer_row">
-                <div class="form-group col-md-6">
-                    <input type="text" class="form-control w_90" name="mobileb_no[]" value="CUSTOM_${index}" id="mobileb_no_${index}" readOnly />
-                </div>
-                <div class="form-group col-md-4">
-                <input type="text" class="form-control" name="no_type[]" id="no_type_${index}" placeholder="Enter Value" aria-invalid="false"/>
-                </div>
-                <div class="form-group col-md-2 add_del_btn_outer">
-                    <button class="btn_round remove_node_btn_frm_field" disabled>
-                        <i class="fas fa-trash-alt"></i>
-                    </button>
-                    
-                </div>
+          <div class="row form_field_outer_row">
+            <div class="form-group col-md-6">
+              <input type="text" class="form-control w_90" name="mobileb_no[]" value="CUSTOM_${index}" id="mobileb_no_${index}" readOnly />
             </div>
+            <div class="form-group col-md-4">
+              <input type="text" class="form-control" name="no_type[]" id="no_type_${index}" placeholder="Enter Value" aria-invalid="false"/>
+            </div>
+            <div class="form-group col-md-2 add_del_btn_outer">
+              <button class="btn_round remove_node_btn_frm_field">
+                <i class="fas fa-trash-alt"></i>
+              </button>
+            </div>
+          </div>
         `);
-
-        $(".form_field_outer").find(".remove_node_btn_frm_field:not(:first)").prop("disabled", false);
-        $(".form_field_outer").find(".remove_node_btn_frm_field").first().prop("disabled", true);
-
+    
+        // Disable delete buttons for all rows except the last one
+        $(".form_field_outer .remove_node_btn_frm_field").prop("disabled", true);
+        $(".form_field_outer .remove_node_btn_frm_field:last").prop("disabled", false);
+    
         // Increment index for the next row
         index++;
+      });
+    
+      $("body").on("click", ".remove_node_btn_frm_field", function () {
+        // Remove the row
+        $(this).closest(".form_field_outer_row").remove();
+    
+        // Enable delete buttons for remaining rows except the last one
+        $(".form_field_outer .remove_node_btn_frm_field").prop("disabled", true);
+        $(".form_field_outer .remove_node_btn_frm_field:last").prop("disabled", false);
+    
+        // Disable delete button for the first row if it's the only one
+        if ($(".form_field_outer_row").length === 1) {
+          $(".form_field_outer .remove_node_btn_frm_field:first").prop("disabled", true);
+        }
+      });
     });
-});
 
-
-
-
-// $(document).ready(function() {
-//     $("body").on("click", ".remove_node_btn_frm_field", function () {
-//         $(this).closest(".form_field_outer_row").remove();
-//         console.log("success");
-//     });
-// });
+  
