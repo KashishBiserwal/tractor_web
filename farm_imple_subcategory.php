@@ -138,7 +138,7 @@ include 'includes/headertag.php';
                                         
 
                                         <!-- custom field -->
-                                        <div class="col-md-12 form_sec_outer_task border mt-3">
+                                        <div class="col-md-12 form_sec_outer_task border mt-2">
                                             <div class="row">
                                                 <div class="col-md-12 bg-light p-2 mb-3">
                                                     <div class="row">
@@ -168,23 +168,29 @@ include 'includes/headertag.php';
                                                         <input type="text" class="form-control" name="no_type[]" id="no_type_1" placeholder="Enter Value"/>
                                                     </div>
                                                     <div class="form-group col-md-2 add_del_btn_outer">
-                                                    <button class="btn_round add_node_btn_frm_field" title="Copy or clone this row">
+                                                    <!-- <button class="btn_round add_node_btn_frm_field" title="Copy or clone this row">
                                                         <i class="fas fa-copy"></i>
-                                                    </button>
+                                                    </button> -->
 
                                                     <button class="btn_round remove_node_btn_frm_field" disabled>
                                                         <i class="fas fa-trash-alt"></i>
                                                     </button>
                                                     </div>
                                                 </div>
+                                                
+                                                </div>
+                                                <div class="row ml-0 py-1">
+                                                    <div class="py-1">
+                                                        <button class="btn btn-outline-lite bg-light shadow float-end py-1       add_new_frm_field_btn"><i class="fas fa-plus add_icon"></i> Add New field row</button>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="row ml-0 bg-light mt-3 border py-3">
-                                            <div class="">
-                                                <button class="btn btn-outline-lite py-0 add_new_frm_field_btn"><i class="fas fa-plus add_icon"></i> Add New field row</button>
+                                        <!-- <div class="row ml-0 mt-3  py-1">
+                                            <div class="py-1">
+                                                <button class="btn btn-outline-lite bg-light shadow float-end py-1       add_new_frm_field_btn"><i class="fas fa-plus add_icon"></i> Add New field row</button>
                                             </div>
-                                        </div>
+                                        </div> -->
 
                                         <div class="col-12 col-lg-6 col-md-6 col-sm-6 mt-3">
                                           <div class="upload__box mt-5">
@@ -256,8 +262,8 @@ include 'includes/headertag.php';
                  <thead>
                                         <tr>
                                             <th class="d-none d-md-table-cell text-white">ID</th>
-                                            <th class="d-none d-md-table-cell text-white">Lookup Type </th>
-                                            <th class="d-none d-md-table-cell text-white">Lookup Data </th>
+                                            <th class="d-none d-md-table-cell text-white">Category Name </th>
+                                            <th class="d-none d-md-table-cell text-white">Subcategrory Name</th>
                                             <th class="d-none d-md-table-cell text-white">Action</th>
                                         </tr>
                                     </thead>
@@ -268,8 +274,58 @@ include 'includes/headertag.php';
       </div>
     </div>
    </section>
+   <!-- view -->
+   <div class="modal fade" id="view_new_harvester_enq" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog modal-xl modal-dialog-centered">
+              <div class="modal-content modal_box">
+                <div class="modal-header modal_head">
+                  <h5 class="modal-title text-white fw-bold" id="staticBackdropLabel"> New Harvester Enquiry Information </h5>
+                  <button type="button" class="btn-close btn-success" data-bs-dismiss="modal" aria-label="Close"><img src="assets/images/close.png"></button>
+                </div>
+                  <div class="modal-body bg-light">
+                    <div class="row ">
+                        <div class="col-12">
+                            <table class="table table-striped">
+                                <tbody>
+                                    <tr> 
+                                        <td>Implement Category Name-</td>
+                                        <td id="category_view"></td>
+                                        <td>Subcategory Name-</td>
+                                        <td id="subcategory_view"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Thumbnail Image-</td>
+                                        <!-- <td id="thumbnail"></td> -->
+                                        <td id="thumbnail" class="row"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div class="justify-content-center" style="margin: 0 auto;">
+                                <table class="table table-striped">
+                                    <thead>
+                                        <tr>
+                                        <th scope="col">S.No</th>
+                                        <th scope="col">Custom Data</th>
+                                        <th scope="col">Implement Name</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="tableData">
+                                    </tbody>
+                                </table>
+                            </div>
+                            
+                        </div>
+                    </div>  
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary px-3" data-bs-dismiss="modal">Close</button>
+                        <!-- <button type="submit" id="btn_sb" class="btn btn-success fw-bold px-3">Submit</button> -->
+                    </div>
+                </div>
+            </div>
+          </div>
+    </div>
       
-
+<!-- edit -->
    <div class="modal fade" id="staticBackdrop_2" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                   <div class="modal-dialog  modal-dialog-centered">
                     <div class="modal-content modal_box">
