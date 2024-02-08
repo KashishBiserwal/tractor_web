@@ -5,7 +5,7 @@
 $baseUrl = '/tractor_house/'; 
 //   $APIBaseURL = "http://192.168.1.41:8000/api/customer/";
 ?>
-<!-- asdfghj -->
+
 <meta charset="UTF-8">
 	<title>Tractor Junction</title>
 	<link rel="icon" type="image/x-icon" href="favicon.ico">
