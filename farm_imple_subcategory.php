@@ -91,7 +91,7 @@ include 'includes/headertag.php';
     include 'includes/left_nav.php';
     include 'includes/header_admin.php';
     ?>
-     <section style="padding: 0 15px 0 60px;">
+    <section style="padding: 0 15px 0 60px;">
     <div class="">
       <div class="">
       <div class="card-body d-flex align-items-center justify-content-between page_title">
@@ -145,7 +145,7 @@ include 'includes/headertag.php';
                                                         <div class="col-md-6">
                                                             <div class="row">
                                                                 <div class="col-md-6 mt-2">
-                                                                <h4 class="frm_section_n">Add Custom Data</h4>
+                                                                <h6 class="frm_section_n">Add Custom Data</h6>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -234,13 +234,13 @@ include 'includes/headertag.php';
                 <div class="row">
                     <div class="col-12 col-sm-12 col-md-4 col-lg-4">
                         <div class="form-outline">
-                            <label class="form-label">Search by Lookup type</label>
+                            <label class="form-label">Search by Category</label>
                             <input type="text" id="lookup_type" name="name_1" class="mb-0 data_search form-control input-group-sm" />
                         </div>
                     </div>
                     <div class="col-12 col-sm-12 col-md-4 col-lg-4">
                         <div class="form-outline">
-                            <label class="form-label">Search by Lookup data </label>
+                            <label class="form-label">Search by Sub category</label>
                             <input type="text" id="lookup_data" name="name_2" class="mb-0 data_search form-control input-group-sm" />
                         </div>
                     </div>

@@ -178,7 +178,7 @@ $('#save').on('click', function() {
 
             if (users.length > 0) {
                 // Initialize serialNumber outside the loop
-                let serialNumber = 1;
+                let serialNumber = users.length;
                 let tableData = [];
 
                 // Loop through the data and create table rows
@@ -205,7 +205,7 @@ $('#save').on('click', function() {
 
                     // Push row data as an array into the tableData
                     tableData.push([
-                        serialNumber,
+                        serialNumber--,
                         formatDate,
                         row.first_name,
                         row.mobile,
@@ -214,7 +214,7 @@ $('#save').on('click', function() {
                         action
                     ]);
 
-                    serialNumber++;
+                    // serialNumber++;
                 });
 
                 // Initialize DataTable after preparing the tableData

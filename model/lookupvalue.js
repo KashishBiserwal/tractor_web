@@ -115,7 +115,7 @@ function get() {
           tableBody.innerHTML = ''; // Clear previous data
 
           if (data.lookup_type.length > 0) {
-              let serialNumber = 1; // Initialize serial number
+              let serialNumber = data.lookup_type.length; // Initialize serial number
               let tableData = [];
               // Loop through the data and create table rows
               data.lookup_type.forEach(row => {
@@ -130,13 +130,13 @@ function get() {
                                 </div>`;
               
                   tableData.push([
-                    serialNumber,
+                    serialNumber--,
                     row.name,
                     action
                 ]);
                   
                   // Increment serialNumber for the next row
-                  serialNumber++;
+                  // serialNumber++;
                   
               });
               $('#example').DataTable().destroy();

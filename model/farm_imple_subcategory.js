@@ -212,64 +212,78 @@ $(document).ready(function() {
   get_data();
   
 //   store subcategory
-  function store(event) {
-    event.preventDefault();
-    console.log('jfhfhw');
-    var lookup_type = $('#lookupSelectbox').val();
-    var lookup_data_value = $('#lookup_data_value').val();
-    var custom_data = $('#mobileb_no_1').val();
-    var implement_data = $('#no_type_1').val();
-    var image = $('#image').val();
-  
-    var apiBaseURL = APIBaseURL;
-    var url = apiBaseURL + 'implement_sub_category';
-  
-    console.log(url);
-  
-    var token = localStorage.getItem('token');
-    var headers = {
-      'Authorization': 'Bearer ' + token
-    };
-    var data = new FormData();
-    data.append('implements_category_id', lookup_type);
-    data.append('sub_category_name', lookup_data_value);
-    data.append('custom_data', custom_data);
-    data.append('implement_data', implement_data);
-    data.append('thumbnail', image);
-  
-    $.ajax({
-        url: url,
-        type: 'POST',
-        data: data,
-        headers: headers,
-        processData: false,
-        contentType: false,
-      success: function (result) {
-        console.log(result, "result");
-        console.log("Add successfully");
-        var msg = "Added successfully !"
-        $("#errorStatusLoading").modal('show');
-        $("#errorStatusLoading").find('.modal-title').html('Success');
-        $("#errorStatusLoading").find('.modal-body').html(msg);
-  
-        // Hide the modal immediately
-        $("#staticBackdrop1").modal('hide');
-  
-        // Show alert box with OK button
-        var alertConfirmation = confirm("Data added successfully. Do you want to reload the page?");
-        if (alertConfirmation) {
-          window.location.reload();
-        }
-      },
-      error: function (error) {
-        console.error('Error fetching data:', error);
-        var msg = error;
-        $("#errorStatusLoading").modal('show');
-        $("#errorStatusLoading").find('.modal-title').html('Error');
-        $("#errorStatusLoading").find('.modal-body').html(msg);
+function store(event) {
+  event.preventDefault();
+
+  var customDataArray = [];
+  var implementDataArray = [];
+
+  // Assuming you have multiple elements with IDs like 'mobileb_no_1', 'mobileb_no_2', etc.
+  $('[id^="mobileb_no_"]').each(function() {
+    customDataArray.push($(this).val());
+  });
+
+  // Assuming you have multiple elements with IDs like 'no_type_1', 'no_type_2', etc.
+  $('[id^="no_type_"]').each(function() {
+    implementDataArray.push($(this).val());
+  });
+
+  var customDataJson = JSON.stringify(customDataArray);
+  var implementDataJson = JSON.stringify(implementDataArray);
+
+  var lookup_type = $('#lookupSelectbox').val();
+  var lookup_data_value = $('#lookup_data_value').val();
+  var image = $('#image')[0].files[0]; 
+
+  var apiBaseURL = APIBaseURL;
+  var url = apiBaseURL + 'implement_sub_category';
+
+  var token = localStorage.getItem('token');
+  var headers = {
+    'Authorization': 'Bearer ' + token
+  };
+
+  var data = new FormData();
+  data.append('implements_category_id', lookup_type);
+  data.append('sub_category_name', lookup_data_value);
+  data.append('custom_data', customDataJson);
+  data.append('implement_data', implementDataJson);
+  data.append('thumbnail', image);
+
+  $.ajax({
+    url: url,
+    type: 'POST',
+    data: data,
+    headers: headers,
+    processData: false,
+    contentType: false,
+    success: function(result) {
+      console.log(result, "result");
+      console.log("Add successfully");
+      var msg = "Added successfully !"
+      $("#errorStatusLoading").modal('show');
+      $("#errorStatusLoading").find('.modal-title').html('Success');
+      $("#errorStatusLoading").find('.modal-body').html(msg);
+
+      // Hide the modal immediately
+      $("#staticBackdrop1").modal('hide');
+
+      // Show alert box with OK button
+      var alertConfirmation = confirm("Data added successfully. Do you want to reload the page?");
+      if (alertConfirmation) {
+        window.location.reload();
       }
-    });
-  }
+    },
+    error: function(error) {
+      console.error('Error fetching data:', error);
+      var msg = error;
+      $("#errorStatusLoading").modal('show');
+      $("#errorStatusLoading").find('.modal-title').html('Error');
+      $("#errorStatusLoading").find('.modal-body').html(msg);
+    }
+  });
+}
+
   
   //   get implement data in select box
     function get() {
