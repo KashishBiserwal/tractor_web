@@ -223,7 +223,7 @@
                 <label class="form-label">State</label>
                 <select class="form-select py-2" aria-label="Default select example"  id="state2">
                     <option value>Select State</option>
-                    <option value="Chattisgarh">Chattisgarh</option>
+                    <option value="Chhattisgarh">Chhattisgarh</option>
                     <option value="Other">Other</option>
                 </select>
               </div>
@@ -234,8 +234,16 @@
                 <select class="form-select py-2" aria-label="Default select example" id="district2">
                     <option value>Select District</option>
                     <option value="Raipur">Raipur</option>
-                    <option value="Bilaspur">Bilaspur</option>
-                    <option value="Surajpur">Surajpur</option>
+                        <option value="Bhilai">Bhilai</option>
+                        <option value="Durg">Durg</option>
+                        <option value="	Bilaspur">Bilaspur</option>
+                        <option value="Raigarh">Raigarh</option>
+                        <option value="Sarguja">Sarguja</option>
+                        <option value="Surajpur">Surajpur</option>
+                        <option value="Jagdalpur">Jagdalpur</option>
+                        <option value="Korba">Korba</option>
+                        <option value="Dhamtari">Dhamtari</option>
+                        <option value="Ambikapur">Ambikapur</option>
                 </select>
               </div>
             </div>

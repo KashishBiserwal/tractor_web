@@ -79,73 +79,53 @@ $(document).ready(function () {
     });
    
   });
-
   function ImgUpload() {
     var imgWrap = "";
-    var imgArray = [];
 
-    $('.upload__inputfile').each(function () {
-      $(this).on('change', function (e) {
+    $('.upload__inputfile').on('change', function (e) {
         imgWrap = $(this).closest('.upload__box').find('.upload__img-wrap');
-        var maxLength = $(this).attr('data-max_length');
+        var maxLength = 1; // Allow only one image to be uploaded
 
         var files = e.target.files;
         var filesArr = Array.prototype.slice.call(files);
-        var iterator = 0;
+
+        // Remove previously uploaded images
+        imgWrap.empty();
+
         filesArr.forEach(function (f, index) {
-
-          if (!f.type.match('image.*')) {
-            return;
-          }
-
-          if (imgArray.length > maxLength) {
-            return false
-          } else {
-            var len = 0;
-            for (var i = 0; i < imgArray.length; i++) {
-              if (imgArray[i] !== undefined) {
-                len++;
-              }
+            if (!f.type.match('image.*')) {
+                return;
             }
-            if (len > maxLength) {
-              return false;
+
+            if (index >= maxLength) {
+                return false;
             } else {
-              imgArray.push(f);
-
-              var reader = new FileReader();
-              reader.onload = function (e) {
-                var html = "<div class='upload__img-box'><div style='background-image: url(" + e.target.result + ")' data-number='" + $(".upload__img-close").length + "' data-file='" + f.name + "' class='img-bg'><div class='upload__img-close'></div></div></div>";
-                imgWrap.append(html);
-                iterator++;
-              }
-              reader.readAsDataURL(f);
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    var html = "<div class='upload__img-box'><div style='background-image: url(" + e.target.result + ")' data-file='" + f.name + "' class='img-bg'><div class='upload__img-close' onclick='removeImage(this)'></div></div></div>";
+                    imgWrap.append(html);
+                }
+                reader.readAsDataURL(f);
             }
-          }
         });
-      });
     });
+}
 
-    $('body').on('click', ".upload__img-close", function (e) {
-      var file = $(this).parent().data("file");
-      for (var i = 0; i < imgArray.length; i++) {
-        if (imgArray[i].name === file) {
-          imgArray.splice(i, 1);
-          break;
-        }
-      }
-      $(this).parent().parent().remove();
-    });
-  }
-  function removeImage(ele){
-    console.log("print ele");
-      console.log(ele);
-      let thisId=ele.id;
-      thisId=thisId.split('closeId');
-      thisId=thisId[1];
-      $("#"+ele.id).remove();
-      $(".upload__img-closeDy"+thisId).remove();
+function removeImage(ele) {
+    $(ele).closest('.upload__img-box').remove();
+    // Clear the input field so that the same file can be selected again
+    $('.upload__inputfile').val('');
+}
+  // function removeImage(ele){
+  //   console.log("print ele");
+  //     console.log(ele);
+  //     let thisId=ele.id;
+  //     thisId=thisId.split('closeId');
+  //     thisId=thisId[1];
+  //     $("#"+ele.id).remove();
+  //     $(".upload__img-closeDy"+thisId).remove();
   
-    }
+  //   }
 
   function get() {
     var apiBaseURL =APIBaseURL;
@@ -212,74 +192,70 @@ function get_search() {
 get_search();
 
 function add_news(event) {
-    event.preventDefault();
+  event.preventDefault();
 
-    var image_names = document.getElementById('image_').files;
-    var category = $('#brand').val();
-    var headline = $('#headline').val();
-    var content = $('#contant').val();
-    var publisher = $('#publisher').val();
+  var image = document.getElementById('image_').files[0]; // Only get the first file
+  var category = $('#brand').val();
+  var headline = $('#headline').val();
+  var content = $('#contant').val();
+  var publisher = $('#publisher').val();
 
-    var apiBaseURL = APIBaseURL;
-    console.log(apiBaseURL);
-    var token = localStorage.getItem('token');
-    var headers = {
-        'Authorization': 'Bearer ' + token
-    };
+  var apiBaseURL = APIBaseURL;
+  var token = localStorage.getItem('token');
+  var headers = {
+      'Authorization': 'Bearer ' + token
+  };
 
-    // Check if an ID is present in the URL, indicating edit mode
-    var urlParams = new URLSearchParams(window.location.search);
-    var editId = urlParams.get('id');
-    var _method = 'post'; 
-    var url, method;
-    
-    console.log('edit state',editId_state);
-    console.log('edit id', EditIdmain_);
-    if (editId_state) {
-        // Update mode
-        console.log(editId_state);
-        _method = 'put';
-        url = apiBaseURL + 'blog_details/' + EditIdmain_ ;
-        console.log(url);
-        method = 'POST'; 
-    } else {
-        // Add mode
-        url = apiBaseURL + 'blog_details';
-        method = 'POST';
-    }
+  // Check if an ID is present in the URL, indicating edit mode
+  var urlParams = new URLSearchParams(window.location.search);
+  var editId = urlParams.get('id');
+  var _method = 'post'; 
+  var url, method;
+  
+  if (editId_state) {
+      // Update mode
+      _method = 'put';
+      url = apiBaseURL + 'blog_details/' + EditIdmain_ ;
+      method = 'POST'; 
+  } else {
+      // Add mode
+      url = apiBaseURL + 'blog_details';
+      method = 'POST';
+  }
 
-    var data = new FormData();
+  var data = new FormData();
 
-    for (var x = 0; x < image_names.length; x++) {
-        data.append("images[]", image_names[x]);
-    }
+  if (image) {
+      data.append("image", image);
+  }
 
-    data.append('_method', _method);
-    data.append('category_id', category);
-    data.append('heading', headline);
-    data.append('content', content);
-    data.append('publisher', publisher);
+  data.append('_method', _method);
+  data.append('category_id', category);
+  data.append('heading', headline);
+  data.append('content', content);
+  data.append('publisher', publisher);
 
 
-    $.ajax({
-        url: url,
-        type: method,
-        data: data,
-        headers: headers,
-        processData: false,
-        contentType: false,
-        success: function (result) {
-            console.log(result, "result");
-            console.log("Operation successfully");
-            alert("successfully Inserted..!");
-            $('#staticBackdrop').modal('hide');
-            get_news();
-        },
-        error: function (error) {
-            console.error('Error:', error);
-        }
-    });
+  $.ajax({
+      url: url,
+      type: method,
+      data: data,
+      headers: headers,
+      processData: false,
+      contentType: false,
+      success: function (result) {
+          console.log(result, "result");
+          console.log("Operation successfully");
+          alert("successfully Inserted..!");
+          $('#staticBackdrop').modal('hide');
+          get_news();
+      },
+      error: function (error) {
+          console.error('Error:', error);
+      }
+  });
 }
+
 function get_news() {
     var apiBaseURL = APIBaseURL;
     var url = apiBaseURL + 'blog_details';

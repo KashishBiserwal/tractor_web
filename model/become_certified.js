@@ -126,7 +126,7 @@ function get_search() {
     var dealer_name = $('#dname').val();
     var brand_name = $('#brand').val();
     var email = $('#email').val();
-    var address = $('#address').val();
+    var address = $('#address_2').val();
     var mobile = $('#mobnumber').val();
     var state = $('#bcd_state').val();
     var district = $('#bcd_district').val();

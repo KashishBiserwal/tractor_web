@@ -323,8 +323,8 @@ var url ='http://tractor-api.divyaltech.com/api/customer/customer_enquiries';
 function store(event) {
     event.preventDefault();
     console.log('jfhfhw');
-    var enquiry_type_id = 16;
-    var product_id =2;
+    var enquiry_type_id = $('#enquiry_type_id').val();
+    var product_id =1;
     var first_name = $('#f_name').val();
     var last_name = $('#l_name').val();
     var mobile = $('#mob_num').val();

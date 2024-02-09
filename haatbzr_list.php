@@ -160,36 +160,36 @@
                                             </div>
                                         </div>
                                         <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-4">
-                                            <div class="input-group">
-                                                <input type="number" id="quantityInput" class="form-control text-black" placeholder="Quantity" aria-label="Text input with dropdown button" name="quantity" >
-                                                <select type="button" id="unitSelect" name="unit" class="btn border border-secondary-2 h-25 dropdown-toggle" data-bs-toggle="dropdown">
-                                                    <ul class="dropdown-menu">
-                                                      <option class="dropdown-item" value="">Select Unit</option>
-                                                      <option class="dropdown-item" value="As per">As per</option>
-                                                      <option class="dropdown-item" value="gram">gram</option>
-                                                      <option class="dropdown-item" value="Kg">Kg</option>
-                                                      <option class="dropdown-item" value="Quintal">Quintal</option>
-                                                      <option class="dropdown-item" value="Ton">Ton</option>
-                                                      <option class="dropdown-item" value="Pack">Pack</option>
-                                                      <option class="dropdown-item" value="Unit">Unit</option>
-                                                    </ul>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
-                                            <div class="form-outline mt-4">
-                                                <label for="name" class="form-label text-dark">Price</label>
-                                                <input type="text" class="form-control" placeholder="" id="price" name="price">
-                                            </div>
-                                        </div>
-                                        <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
-                                            <div class="form-outline mt-4">
-                                                <label for="name" class="form-label text-dark">Total Price Calculation</label>
-                                                <input type="text" class="form-control" placeholder="" id="tprice" name="tprice" readonly>
-                                            </div>
-                                        </div>
+                                          <div class="input-group">
+                                              <input type="number" id="quantityInput" class="form-control text-black" placeholder="Quantity" aria-label="Text input with dropdown button" name="quantity" >
+                                              <select type="button" id="unitSelect" name="unit" class="btn border border-secondary-2 h-25 dropdown-toggle" data-bs-toggle="dropdown">
+                                                  <ul class="dropdown-menu">
+                                                    <option class="dropdown-item" value="">Select Unit</option>
+                                                    <option class="dropdown-item" value="As per">As per</option>
+                                                    <option class="dropdown-item" value="gram">gram</option>
+                                                    <option class="dropdown-item" value="Kg">Kg</option>
+                                                    <option class="dropdown-item" value="Quintal">Quintal</option>
+                                                    <option class="dropdown-item" value="Ton">Ton</option>
+                                                    <option class="dropdown-item" value="Pack">Pack</option>
+                                                    <option class="dropdown-item" value="Unit">Unit</option>
+                                                  </ul>
+                                              </select>
+                                          </div>
+                                      </div>
+                                      <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
+                                          <div class="form-outline mt-4">
+                                              <label for="name" class="form-label text-dark">Price</label>
+                                              <input type="text" class="form-control" placeholder="" id="price" name="price">
+                                          </div>
+                                      </div>
+                                      <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
+                                          <div class="form-outline mt-4">
+                                              <label for="name" class="form-label text-dark">Total Price Calculation</label>
+                                              <input type="text" class="form-control" placeholder="" id="tprice" name="tprice" readonly>
+                                          </div>
+                                      </div>
                                         <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                                          <div class="upload__box mt-2">
+                                          <div class="upload__box mt-5">
                                             <div class="upload__btn-box text-center">
                                               <label >
                                                 <p class="upload__btn ">Upload images</p>

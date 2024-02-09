@@ -234,42 +234,41 @@ $(document).ready(function(){
 
 get_haatbzr();
 
-    // Delete data
-    function destroy(id) {
-        var apiBaseURL = APIBaseURL;
-        var url = apiBaseURL + 'haat_bazar/' + id; 
-        var token = localStorage.getItem('token');
-      
-        if (!token) {
-          console.error("Token is missing");
-          return;
-        }
-      
-        // Show a confirmation popup
-        var isConfirmed = confirm("Are you sure you want to delete this data?");
-        if (!isConfirmed) {
-          // User clicked 'Cancel' in the confirmation popup
-          return;
-        }
-      
-        $.ajax({
-          url: url,
-          type: "DELETE",
-          headers: {
-            'Authorization': 'Bearer ' + token
-          },
-          success: function(result) {
-            window.location.reload();
-            console.log("Delete request successful");
-            // alert("Delete operation successful");
-          },
-          error: function(error) {
-            console.error('Error fetching data:', error);
-            alert("Error during delete operation");
-          }
-        });
-      }
 
+// ****delete data***
+function destroy(id) {
+  var apiBaseURL = APIBaseURL;
+  var url = apiBaseURL + 'customer_enquiries/' + id;
+  console.log(url);
+  var token = localStorage.getItem('token');
+
+  if (!token) {
+    console.error("Token is missing");
+    return;
+  }
+  var isConfirmed = confirm("Are you sure you want to delete this data?");
+  if (!isConfirmed) {
+    return;
+  }
+
+  $.ajax({
+    url: url,
+    type: "DELETE",
+    headers: {
+      'Authorization': 'Bearer ' + token
+    },
+    success: function(result) {
+      // get_tyre_list();
+      window.location.reload();
+      console.log("Delete request successful");
+      alert("Delete operation successful");
+    },
+    error: function(error) {
+      console.error('Error fetching data:', error);
+      alert("Error during delete operation");
+    }
+  });
+}
 
       // View data
 function openView(userId) {
@@ -287,7 +286,7 @@ function openView(userId) {
     
       success: function(response) {
         var userData = response.haatBazarData[0];
-        document.getElementById('category').innerText=userData.haat_bazar_category_name;
+        document.getElementById('category').innerText=userData.category_name;
         document.getElementById('sub_category').innerText=userData.sub_category_name;
         document.getElementById('fname').innerText=userData.first_name;
         document.getElementById('lname').innerText=userData.last_name;
@@ -344,32 +343,26 @@ function openView(userId) {
           type: 'GET',
           headers: headers,
           success: function(response) {
-            var userData = response.haatBazarData[0];
-            $('#userId').val(userData.haat_bazar_id);
-            $('#username').val(userData.haat_bazar_id);
-            $('#category1').val(userData.haat_bazar_category_name);
-            $('#sub_category1').val(userData.sub_category_name);
-            $('#first_name1').val(userData.first_name);
-            $('#last_name1').val(userData.last_name);
-            $('#mobile_no').val(userData.mobile);
-            // $('#state_').val(userData.state);
-            // $('#district').val(userData.district);
-            // $('#tehsil').val(userData.tehsil);
-            $('#price').val(userData.price);
-            $("#state_ option").prop("selected", false);
-            $("#state_ option[value='" + Data.state + "']").prop("selected", true);
-           
-            $("#district option").prop("selected", false);
-            $("#district option[value='" + Data.district + "']").prop("selected", true);
-
-            $("#tehsil option").prop("selected", false);
-            $("#tehsil option[value='" + Data.tehsil + "']").prop("selected", true);
+              var userData = response.haatBazarData[0];
+              $('#userId').val(userData.haat_bazar_id);
+              $('#username').val(userData.haat_bazar_id);
+              $('#category1').val(userData.category_name);
+              $('#sub_category1').val(userData.sub_category_name);
+              $('#first_name1').val(userData.first_name);
+              $('#last_name1').val(userData.last_name);
+              $('#mobile_no').val(userData.mobile);
+              $('#price').val(userData.price);
+  
+              // Set selected options for state, district, and tehsil
+              $("#state_").val(userData.state); // Use "state_" ID here
+              $("#district_1").val(userData.district);
+              $("#tehsil_1").val(userData.tehsil);
           },
           error: function(error) {
-            console.error('Error fetching user data:', error);
+              console.error('Error fetching user data:', error);
           }
-        });
-      }
+      });
+  }
       
       function edit_data_id(edit_id) {
         console.log(edit_id);
@@ -384,8 +377,8 @@ function openView(userId) {
         var last_name = $('#last_name1').val();
         var mobile = $('#mobile_no').val();
         var state = $('#state_').val();
-        var district = $('#district').val();
-        var tehsil = $('#tehsil').val();
+        var district = $('#district_1').val();
+        var tehsil = $('#tehsil_1').val();
         var price = $('#price').val();
 
         var apiBaseURL = APIBaseURL;

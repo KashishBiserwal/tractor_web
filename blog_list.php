@@ -78,7 +78,7 @@
                                         <input type="text" class="form-control" placeholder="" id="publisher" name="publisher">
                                         </div>
                                     </div>
-                                    <div class="col-12  col-lg-4 col-md-4 col-sm-4">
+                                    <!-- <div class="col-12  col-lg-4 col-md-4 col-sm-4">
                                         <div class="upload__box m-5">
                                           <div class="upload__btn-box">
                                             <label >
@@ -89,7 +89,20 @@
                                           </div>
                                           <div id="selectedImagesContainer2" class="upload__img-wrap"></div>
                                         </div>
-                                    </div>
+                                    </div> -->
+                                    <div class="col-12 col-lg-4 col-md-4 col-sm-4">
+                                      <div class="upload__box m-5">
+                                          <div class="upload__btn-box">
+                                              <label>
+                                                  <p class="upload__btn">Upload image</p>
+                                                  <input type="file" class="upload__inputfile" id="image_" name="image_">
+                                              </label>
+                                              <p></p>
+                                          </div>
+                                          <div id="selectedImagesContainer2" class="upload__img-wrap"></div>
+                                      </div>
+                                  </div>
+
                                    
                                 </div>
                             </form>
