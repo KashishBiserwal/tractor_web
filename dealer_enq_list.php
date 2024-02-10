@@ -67,7 +67,7 @@
            
             <div class="col-12 col-sm-12 col-md-3 col-lg-3">
               <div class="text-center">
-                <button type="button" class="btn-success btn px-3 py-2 " id="Search" onclick="searchdata()">Search</button>
+                <button type="button" class="btn-success btn px-3 py-2 " id="Search">Search</button>
                 <button type="button" class="btn-success btn mx-2 px-3 py-2  " id="Reset" onclick="resetform()">Reset</button>
               </div>
             </div>
@@ -344,25 +344,26 @@
                             <td id="dname1"></td> -->
                             <td>Brand-</td>
                             <td id="bname1"></td>
-                          </tr>
-                         <tr> 
                             <td>First Name-</td>
                             <td id="fname_1"></td>
+                          </tr>
+                         <tr> 
+                            
                             <td>Last Name-</td>
                             <td id="lname_1"></td>
-                          </tr>
-                             <td>Mobile Number-</td>
+                            <td>Mobile Number-</td>
                             <td id="number_1"></td>
+                          </tr>
+                            
                             <td>Date-</td>
                             <td id="date1"></td>
+                            <td>State-</td>
+                            <td id="state_2"></td>
                           </tr>
                           <tr>
-                          <td>State-</td>
-                            <td id="state_2"></td>
+                          
                             <td>District-</td>
                             <td id="dist_1"></td>
-                          </tr>
-                          <tr>
                             <td>Tehsil-</td>
                             <td id="tehsil_1"></td>
                           </tr>
@@ -402,12 +403,12 @@
                                           <input type="text" class="form-control py-2" for="enquiry_type_id"  id="enquiry_type_id" value="16" name="first_name" placeholder="Enter First Name">
                                   <small></small>
                                 </div>
-                                <div class="col- col-sm-6 col-lg-6 col-md-6" hidden>
+                                <div class="col- col-sm-6 col-lg-6 col-md-6 " hidden>
                                           <label class="text-dark"> id Name<span class="text-danger">*</span></label>
-                                                  <input type="text" class="form-control py-2" for="product_id"  id="product_id" value="1" name="first_name" placeholder="Enter First Name">
+                                                  <input type="text" class="form-control py-2" for="product_id"  id="product_id" value="13" name="first_name" placeholder="Enter First Name">
                                           <small></small>
                                         </div>
-                                        <div class="ol-12 col-lg-6 col-md-6 col-sm-6">
+                                        <div class="ol-12 col-lg-6 col-md-6 col-sm-6 mt-3">
                                         <div class="form-outline">
                                             <label class="form-label">Brand Name</label>
                                             <select class="form-select py-2" aria-label="Default select example" id="brand_name_2" name="bname">
@@ -431,7 +432,7 @@
                                       <div class="form-outline mt-3">
                                         <label for="name" class="form-label text-dark">First Name</label>
                                         <input type="text" class="form-control" placeholder="" id="first_nme_1" name="fname">
-                                      </div>a
+                                      </div>
                                     </div>
                                     <div class="ol-12 col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-outline mt-3">
@@ -493,13 +494,13 @@
                                           </div>
                                         </div>
 
-                                        <div class="col-12  mb-2">
-                                      <div class="form-outline mt-3">
-                                        <label for="name" class="form-label text-dark">Discription</label>
-                                        <!-- <input type="email" class="form-control" placeholder="" id="" name=""> -->
-                                        <textarea rows="3" cols="70" class="w-100 pt-2" minlength="1" maxlength="255" id="message_1" name="message"></textarea>
-                                      </div>
-                                    </div>
+                                      <!-- <div class="col-12  mb-2">
+                                        <div class="form-outline mt-3">
+                                          <label for="name" class="form-label text-dark">Discription</label>
+                                         
+                                          <textarea rows="3" cols="70" class="w-100 pt-2" minlength="1" maxlength="255" id="message_1" name="message"></textarea>
+                                        </div>
+                                      </div> -->
                                 </div>
                                
                             </form>

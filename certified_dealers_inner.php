@@ -151,7 +151,7 @@ include 'includes/headertag.php';
                   </div>
                   <div class="col-12 col-lg-6 col-md-6 col-sm-6 " hidden>
                     <label for="name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i> product_id</label>
-                    <input type="text" class="form-control" id="product_id" value="">
+                    <input type="text" class="form-control" id="product_id" value="13">
                   </div>
                   <div class="col-12 col-sm-12 col-md-6 col-lg-6">
                     <div class="mt-2">

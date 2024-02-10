@@ -324,7 +324,8 @@ function store(event) {
     event.preventDefault();
     console.log('jfhfhw');
     var enquiry_type_id = $('#enquiry_type_id').val();
-    var product_id =1;
+    var product_id = $('#product_id').val();
+    // var product_id =13;
     var first_name = $('#f_name').val();
     var last_name = $('#l_name').val();
     var mobile = $('#mob_num').val();

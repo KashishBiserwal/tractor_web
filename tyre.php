@@ -204,7 +204,7 @@ include 'includes/headertag.php';
 
         <?php
     include 'includes/footer.php';
-    include 'includes/footertag.php';
+    // include 'includes/footertag.php';
 
     ?>
         <script>
@@ -232,10 +232,7 @@ include 'includes/headertag.php';
 
     </html>
 
-    <?php
-    include 'includes/footer.php';
-
-    ?>
+   
 </body>
 
 </html>

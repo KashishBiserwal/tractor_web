@@ -143,7 +143,7 @@ function get_search() {
     data.append('brand_id', brand_name);
     data.append('dealer_name', dealer_name);
     data.append('email', email);
-    data.append('address', address);
+    data.append('message', address);
     data.append('mobile', mobile);
     data.append('state', state);
     data.append('district', district);

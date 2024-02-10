@@ -297,39 +297,7 @@ var editId_state= false;
 
   }
 
-    //   add category
-      function store(event) {
-        event.preventDefault();
-        console.log('jfhfhw');
-        var category_name = $('#category').val();
-        var paraArr = {
-          'category_name': category_name
-        };
-      
-      var apiBaseURL =APIBaseURL;
-      var url = apiBaseURL + 'haat_bazar_category';
-        console.log(url);
-      
-        var token = localStorage.getItem('token');
-        var headers = {
-          'Authorization': 'Bearer ' + token
-        };
-        $.ajax({
-          url: url,
-          type: "POST",
-          data: paraArr,
-          headers: headers,
-          success: function (result) {
-            console.log(result, "result");
-         
-            console.log("Add successfully");
-            alert('successfully inserted..!')
-          },
-          error: function (error) {
-            console.error('Error fetching data:', error);
-          }
-        });
-      }
+    
 
     // select category
     function get_category() {
