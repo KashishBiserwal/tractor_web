@@ -407,7 +407,6 @@ function filter_search() {
                 appendFilterCard(filterContainer, filter);
             });
 
-         
         },
         error: function (error) {
             console.error('Error searching for brands:', error);
