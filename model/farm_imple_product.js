@@ -366,7 +366,7 @@ function store(event) {
     data.append('implement_sub_category_id', lookup_data_value);
     data.append('custom_data', customDataJson);
     data.append('implement_data', implementDataJson);
-    data.append('implement_data', DataArray);
+    data.append('CUSTOM_1 ', DataArray);
     // data.append('thumbnail', image);
     // data.append('_method', _method);
   
