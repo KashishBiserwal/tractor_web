@@ -50,21 +50,16 @@
     html * {
         box-sizing: border-box;
     }
-
     .mul_stp_frm {
         overflow-x: hidden;
     }
-
-
     p {
         margin: 0;
     }
-
     .upload__box {
         /* padding: 40px; */
         width: 20;
     }
-
     .upload__inputfile {
         width: .1px;
         height: .1px;
@@ -73,7 +68,6 @@
         position: absolute;
         z-index: -1;
     }
-
     .upload__btn {
         display: inline-block;
         font-weight: 600;
@@ -90,13 +84,11 @@
         line-height: 26px;
         font-size: 14px;
     }
-
     .upload__btn:hover {
         background-color: unset;
         color: #198754;
         transition: all .3s ease;
     }
-
     .upload__img-close:after {
         content: '\2716';
         font-size: 14px;
@@ -158,7 +150,6 @@
                                 <div class="step-circle" onclick="displayStep(3)">3</div>
                             </div>
                             <div class="step step-1">
-                                <!-- Step 1 form fields here -->
                                 <div class="step_sellused">
                                     <div class="row">
                                     <div class="col-12 col-lg-6 col-md-6 col-sm-6 " hidden>
@@ -174,11 +165,6 @@
                                             <div class="form-outline">
                                                 <label class="form-label" for="brand">Brand</label>
                                                 <select class="form-select" id="brand_main" name="brand" required>
-                                                    <!-- <option value="" selected disabled>Select Brand</option>
-                                                    <option value="1">Vegetable</option>
-                                                    <option value="2">Fruits</option>
-                                                    <option value="3">Grain</option>
-                                                    <option value="3">Pulses</option> -->
                                                 </select>
                                             </div>
                                         </div>
@@ -186,11 +172,6 @@
                                             <div class="form-outline">
                                                 <label class="form-label" for="model">Model</label>
                                                 <select class="form-select" id="model_main" name="model" required>
-                                                    <!-- <option value="" selected disabled>Select Model</option>
-                                                    <option value="1">Vegetable</option>
-                                                    <option value="2">Fruits</option>
-                                                    <option value="3">Grain</option>
-                                                    <option value="3">Pulses</option> -->
                                                 </select>
                                             </div>
                                         </div>
@@ -198,11 +179,6 @@
                                             <div class="form-outline">
                                                 <label class="form-label" for="year">Year</label>
                                                 <select class="form-select" id="year_main" name="year" required>
-                                                    <!-- <option value="" selected disabled>Select Year</option>
-                                                    <option value="1">Vegetable</option>
-                                                    <option value="2">Fruits</option>
-                                                    <option value="3">Grain</option>
-                                                    <option value="3">Pulses</option> -->
                                                 </select>
                                             </div>
                                         </div>
@@ -258,18 +234,17 @@
                                                 <label class="form-label" for="implement">Implement Type</label>
                                                 <select class="form-select" id="implement_type" name="implement" required>
                                                     <option value="" selected disabled>Select Implement Type</option>
-                                                    <option value="1">Vegetable</option>
-                                                    <option value="2">Fruits</option>
-                                                    <option value="3">Grain</option>
-                                                    <option value="3">Pulses</option>
+                                                    <option value="vegetable">Vegetable</option>
+                                                    <option value="fruits">Fruits</option>
+                                                    <option value="grain">Grain</option>
+                                                    <option value="pulses">Pulses</option>
                                                 </select>
                                             </div>
                                         </div>
                                         <div class="col-12 col-sm-6 col-md-6 col-lg-4 mt-4">
                                             <div class="form-outline">
                                                 <label class="form-label" for="rate">Rate</label>
-                                                <input type="text" id="rate" name="rate"
-                                                    class="form-control input-group-sm " required />
+                                                <input type="text" id="rate" name="rate" class="form-control input-group-sm" required />
                                             </div>
                                         </div>
                                         <div class="col-12 col-sm-6 col-md-6 col-lg-4 mt-4">
@@ -277,8 +252,8 @@
                                                 <label class="form-label" for="ratePer">Rate Per</label>
                                                 <select class="form-select" id="ratePer" name="ratePer" required>
                                                     <option value="" selected disabled>Select Rate</option>
-                                                    <option value="1">Acre</option>
-                                                    <option value="2">Hour</option>
+                                                    <option value="acer">Acre</option>
+                                                    <option value="hour">Hour</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -286,9 +261,7 @@
                                             <div class="upload__btn-box">
                                                 <label>
                                                     <p class="upload__btn w-100">Upload Images</p>
-                                                    <input type="file" data-max_length="4" class="upload__inputfile"
-                                                        id="imageInput" name="images[]" accept="image/*" multiple
-                                                        required>
+                                                    <input type="file" data-max_length="4" class="upload__inputfile" id="imageInput" name="images[]" accept="image/*" multiple required>
                                                 </label>
                                             </div>
                                             <div class="col-sm-6">
@@ -375,9 +348,9 @@
                                             <select class="form-select error mb-2 pb-2" id="district_2" name="district"
                                                 aria-label="Default select example">
                                                 <option value="" selected disabled></option>
-                                                <option value="Raipur">Raipur</option>
-                                                <option value="Bilaspur">Bilaspur</option>
-                                                <option value="Durg">Durg</option>
+                                                <option value="raipur">Raipur</option>
+                                                <option value="bilaspur">Bilaspur</option>
+                                                <option value="durg">Durg</option>
                                                
                                             </select>
                                            
@@ -389,9 +362,9 @@
                                             <select class="form-select error mb-2 pb-2" id="tehsil_1" name="tehsil"
                                                 aria-label="Default select example">
                                                 <option value="" selected disabled></option>
-                                                <option value="Raipur">Raipur</option>
-                                                <option value="Bilaspur">Bilaspur</option>
-                                                <option value="Durg">Durg</option>
+                                                <option value="raipur">Raipur</option>
+                                                <option value="bilaspur">Bilaspur</option>
+                                                <option value="durg">Durg</option>
                                             </select>
                                           
                                         </div>
@@ -461,22 +434,22 @@
             it requires a little maintenance but maintaining it with a proper interval of time reduces time and money.
         </p>
 
-        <p>KhetiGaadi Rent page helps farmers to get tractors on a rent basis. Also, if they wish to sell their products
+        <p>BharatAgrimart Rent page helps farmers to get tractors on a rent basis. Also, if they wish to sell their products
             on
-            a rental basis for various brands then KhetiGaadi is the best option.</p>
+            a rental basis for various brands then BharatAgrimart is the best option.</p>
 
         <p>Tractor Rental in India is additional income for farmers. Many farmers buy tractors for both personal and
-            commercial use. For such Farmers, KhetiGaadi provides a platform where a Farmer can list his tractor on
-            KhetiGaadi and rent out Tractors to needy farmers. There are many tractors available on KhetiGaadi for
+            commercial use. For such Farmers, BharatAgrimart provides a platform where a Farmer can list his tractor on
+            BharatAgrimart and rent out Tractors to needy farmers. There are many tractors available on BharatAgrimart for
             rental
             purpose in India. Farmers can rent their tractors of all brands like Mahindra tractor on rent, Mahindra 575
             tractor on rent, John Deere tractor on rent, Kubota tractor on rent, New Holland tractor on rent, Swaraj
             tractor
             on rent at mutually agreed tractor rent priceTractor Rental in India is additional income for farmers. Many
-            farmers buy tractors for both personal and commercial use. For such Farmers KhetiGaadi provides a platform
+            farmers buy tractors for both personal and commercial use. For such Farmers BharatAgrimart provides a platform
             where
-            a Farmer can list his tractor on KhetiGaadi and rent out Tractors to needy farmers. There are many tractors
-            available on KhetiGaadi for rental purpose in India. Farmers can rent their tractors of all brands like
+            a Farmer can list his tractor on BharatAgrimart and rent out Tractors to needy farmers. There are many tractors
+            available on BharatAgrimart for rental purpose in India. Farmers can rent their tractors of all brands like
             Mahindra
             tractor on rent, Mahindra 575 tractor on rent, John Deere tractor on rent, Kubota tractor on rent, New
             Holland
@@ -883,15 +856,56 @@ function step1_form() {
     console.log(arry);
 }
 
-function step2_form() {
-    var implement = $('#implement').val();
-    var rate = $('#rate').val();
-    var ratePer = $('#ratePer').val();
-    var imageInput = $('#imageInput').val();  // Use val() to get the value of file input
-   // var images = [] ;
-   // for (var x = 0; x < imageInput.length; x++) {
-    //  images = imageInput[x];
-   // }
+// function step2_form(a) {
+//     var index = 1;
+//     var implement = $(`#implement${a.index}`).val();
+//     var rate = $(`#rate${a.index}`).val();
+//     var ratePer = $(`#ratePer${a.index}`).val();
+//     var imageInput = $(`#imageInput${a.index}`).val();
+
+//     console.log(implement, rate, ratePer, imageInput);
+
+//     // Push values into the array
+//     arry.push({
+//         implement: implement,
+//         rate: rate,
+//         ratePer: ratePer,
+//         imageInput: imageInput,
+//     });
+    
+//     index++;
+//     console.log(arry);
+// }
+
+
+var index = 1;
+var arry = [];
+
+function addMore() {
+    var dynamicId = index;
+    
+    // Clone the existing HTML elements and update their IDs
+    var newElements = $("#formContainer").clone();
+    newElements.find("[id]").each(function () {
+        var oldId = $(this).attr("id");
+        var newId = oldId + dynamicId;
+        $(this).attr("id", newId);
+    });
+
+    // Append the cloned elements to the container
+    $("#formContainer").append(newElements.html());
+    
+    index++;
+}
+
+function step2_form(a) {
+    var dynamicId = a.index;
+
+    var implement = $(`#implement_type${dynamicId}`).val();
+    var rate = $(`#rate${dynamicId}`).val();
+    var ratePer = $(`#ratePer${dynamicId}`).val();
+    var imageInput = $(`#imageInput${dynamicId}`).val();
+
     console.log(implement, rate, ratePer, imageInput);
 
     // Push values into the array
@@ -904,6 +918,7 @@ function step2_form() {
 
     console.log(arry);
 }
+
 
     </script>
 </body>

@@ -293,11 +293,11 @@ function store(event) {
 
       // Hide the modal immediately
       $("#staticBackdrop1").modal('hide');
-
+      get_data();
      
       var alertConfirmation = confirm("Data added successfully. Do you want to reload the page?");
       if (alertConfirmation) {
-        // window.location.reload();
+        window.location.reload();
       }
     },
     error: function(error) {

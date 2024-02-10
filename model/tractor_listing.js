@@ -330,7 +330,7 @@ function store(event) {
     var url = apiBaseURL + 'get_new_tractor_by_id/' + productId ;
     console.log('prachi');
     editId_state= true;
-    EditIdmain_= product_id;
+    // EditIdmain_= product_id;
     console.log(url);
   
     var headers = {
@@ -449,11 +449,11 @@ function store(event) {
             
                  countclass++;
                  var newCard = `
-                     <div class="col-12 col-md-6 col-lg-4 position-relative" style="left:6px;">
+                     <div class="col-12 col-md-2 col-lg-2 position-relative" style="left:6px;">
                          <div class="upload__img-close_button " id="closeId${countclass}" onclick="removeImage(this);"></div>
                          <div class="brand-main d-flex box-shadow mt-1 py-2 text-center shadow upload__img-closeDy${countclass}">
                              <a class="weblink text-decoration-none text-dark" title="Image">
-                                 <img class="img-fluid w-100 h-100" src="${imageUrl}" alt="Image">
+                                 <img class="img-fluid w-100" src="${imageUrl}" alt="Image">
                               </a>
                           </div>
                       </div>

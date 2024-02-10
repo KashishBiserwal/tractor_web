@@ -6,7 +6,7 @@
  ?> 
 <script> var APIBaseURL = "<?php echo $APIBaseURL; ?>";</script>
 <script> var baseUrl = "<?php echo $baseUrl; ?>";</script>
-  <script src="<?php $baseUrl; ?>model/farm_imple_subcategory.js"></script>
+  <script src="<?php $baseUrl; ?>model/farm_imple_product.js"></script>
    
    ?> 
 <body class="loaded"> 
@@ -43,9 +43,24 @@
                         <div class="row justify-content-center">
                             <div class="col-lg-10">
                               <h4 class="text-center" style="font-weight:600;">Fill your Details</h4>
-                            <form>
+                              <form>
                                 <div class="row justify-content-center">
-                                    <div class="col-12 col-sm-6 col-md-6 col-lg-6  mt-4">
+                                    <div class="col-12 col-sm-6 col-md-6 col-lg-6 mt-3">
+                                      <div class="form-outline">
+                                        <label class="form-label" for="brand">Brand</label>
+                                        <select class="form-select" id="brand_main" name="brand" required>
+                                        </select>
+                                      </div>
+                                    </div>
+                                    <div class="col-12 col-sm-6 col-md-6 col-lg-6 mt-3">
+                                      <div class="form-outline">
+                                        <label class="form-label" for="model">Model</label>
+                                          <select class="form-select" id="model_main" name="model" required>
+                                            <option selected disabled>Select Model</option>
+                                          </select>
+                                      </div>
+                                    </div>
+                                    <div class="col-12 col-sm-6 col-md-6 col-lg-6  mt-3">
                                       <div class="form-outline">
                                         <label for="lookupSelectbox" class="form-label">Category</label>
                                           <select class="form-select form-control py-2" value="lookupSelectbox" for="lookupSelectbox" id="lookupSelectbox" aria-label="Default select example">
@@ -53,41 +68,12 @@
                                           </select>
                                       </div>
                                     </div>
-                                    <div class="col-12 col-sm-6 col-md-6 col-lg-6  mt-4">
+                                    <div class="col-12 col-sm-6 col-md-6 col-lg-6  mt-3">
                                       <div class="form-outline">
                                         <label for="lookupSelectbox" class="form-label">Sub-Category</label>
-                                          <select class="form-select form-control py-2" value="lookupSelectbox2" for="lookupSelectbox2" id="lookupSelectbox" aria-label="Default select example">
+                                          <select class="form-select form-control py-2" value="lookupSelectbox2" for="lookupSelectbox2" id="lookupSelectbox2" aria-label="Default select example">
                                             <option value="" id="lookupSelect2">Select Category</option>
                                           </select>
-                                      </div>
-                                    </div>
-                                   
-                                    <div class="col-12 col-lg-6 col-sm-5 col-md-6 mt-3">
-                                      <div class="form-outline">
-                                        
-                                        <label for="name" class="form-label">Name</label>
-                                        <input type="text" class="form-control" placeholder=" " id="name">
-                                      </div>
-                                    </div>
-                                    <div class="col-12 col-lg-6 col-sm-5 col-md-6 mt-3">
-                                      <div class="form-outline">
-                                      <label for="name" class="form-label">Implement Type</label>
-                                        <input type="text" class="form-control" placeholder=" " id="type">
-                                        
-                                      </div>
-                                    </div>
-                                    <div class="col-12 col-lg-6 col-sm-5 col-md-6 mt-3">
-                                      <div class="form-outline">
-                                      <label for="name" class="form-label">Implement Power</label>
-                                        <input type="text" class="form-control" placeholder=" " id="power">
-                                        
-                                      </div>
-                                    </div>
-                                    <div class="col-12 col-lg-7 col-sm-7 col-md-7 mt-3">
-                                      <div class="form-outline">
-                                      <label for="name" class="form-label">Categories</label>
-                                        <input type="text" class="form-control" placeholder=" " id="category">
-                                        
                                       </div>
                                     </div>
                                     <div class="col-12 col-sm-5 col-lg-5 col-md-5 ps-3 mt-3">
@@ -105,13 +91,6 @@
                                             <div class="">
                                                 <div class="background__img-wrap"></div>
                                             </div>
-                                      </div>
-                                    </div>
-                                    <div class="col-12 mt-3">
-                                      <div class="form-outline">
-                                      <label for="name" class="form-label">Description</label>
-                                        <input type="text" class="py-5 w-100" placeholder=" " id="description">
-                                        
                                       </div>
                                     </div>
                                   
@@ -357,11 +336,11 @@ function checkEmail(input) {
 }
 
 // Event Listeners
-form.addEventListener('submit', function (e) {
-    e.preventDefault();
+// form.addEventListener('submit', function (e) {
+//     e.preventDefault();
 
-    checkRequired([brand, type,power,category,image,description]);
-    // checkEmail(email); // If you want to check email format
-});
+//     checkRequired([brand, type,power,category,image,description]);
+//     // checkEmail(email); // If you want to check email format
+// });
 
    </script>

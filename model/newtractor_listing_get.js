@@ -368,9 +368,9 @@ $.ajax({
             var imageUrl = 'http://tractor-api.divyaltech.com/uploads/product_img/' + image_names.trim();
             countclass++;
             var newCard = `
-                <div class="col-12 col-md-3 col-lg-3 col-sm-3">
+                <div class="col-12 col-md-2 col-lg-2 col-sm-2">
                 <div class="" id="closeId${countclass}"></div>
-                    <div class="brand-main d-flex box-shadow mt-1 py-2 w-75 text-center shadow upload__img-closeDy${countclass}">
+                    <div class="brand-main d-flex box-shadow mt-1 py-2 w-100 text-center shadow upload__img-closeDy${countclass}">
                         <a class="weblink text-decoration-none text-dark" title="Tyre Image">
                             <img class="img-fluid w-100 h-100" src="${imageUrl}" alt="Tyre Image">
                         </a>
