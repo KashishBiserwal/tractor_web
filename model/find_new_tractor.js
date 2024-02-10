@@ -400,10 +400,10 @@ function filter_search() {
             'Authorization': 'Bearer ' + localStorage.getItem('token')
         },
         success: function (searchData) {
+            console.log('data all',searchData);
             var filterContainer = $("#productContainer");
             filterContainer.empty();
-
-            searchData.product.forEach(function (filter) {
+            searchData.product.allProductData.forEach(function (filter) {
                 appendFilterCard(filterContainer, filter);
             });
 
