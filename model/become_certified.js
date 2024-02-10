@@ -126,7 +126,7 @@ function get_search() {
     var dealer_name = $('#dname').val();
     var brand_name = $('#brand').val();
     var email = $('#email').val();
-    var address = $('#address').val();
+    var address = $('#address_2').val();
     var mobile = $('#mobnumber').val();
     var state = $('#bcd_state').val();
     var district = $('#bcd_district').val();
@@ -143,7 +143,7 @@ function get_search() {
     data.append('brand_id', brand_name);
     data.append('dealer_name', dealer_name);
     data.append('email', email);
-    data.append('address', address);
+    data.append('message', address);
     data.append('mobile', mobile);
     data.append('state', state);
     data.append('district', district);

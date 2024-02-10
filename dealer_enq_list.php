@@ -34,16 +34,11 @@
       <div class="filter-card mb-2">
         <div class="card-body">
           <div class="row">
-          <!-- <div class="col-12 col-sm-12 col-md-3 col-lg-3">
-              <div class="form-outline">
-                <label class="form-label fw-bold"> Dealer Name</label>
-                <input type="text" class="form-control" placeholder=""  id="dealers_1">
-              </div>
-            </div> -->
+          
             <div class="col-12 col-sm-12 col-md-3 col-lg-3">
                 <div class="form-outline">
                       <label class="form-label">Search By Brand</label>
-                      <select class="js-select2 form-select form-control mb-0" id="brand_name">
+                      <select class="js-select2 form-select form-control mb-0" id="brand_name_1">
                       </select>
                 </div>
               </div>
@@ -72,7 +67,7 @@
            
             <div class="col-12 col-sm-12 col-md-3 col-lg-3">
               <div class="text-center">
-                <button type="button" class="btn-success btn px-3 py-2 " id="Search" onclick="searchdata()">Search</button>
+                <button type="button" class="btn-success btn px-3 py-2 " id="Search">Search</button>
                 <button type="button" class="btn-success btn mx-2 px-3 py-2  " id="Reset" onclick="resetform()">Reset</button>
               </div>
             </div>
@@ -87,8 +82,11 @@
     </div>
 </nav>
 
+
 <div class=" mb-5">
     <div class="tab-content">
+
+            <!-- for particular enquiry table -->
         <div class="tab-pane fade show active" id="table_data1" role="tabpanel">
             <div class="table-responsive shadow bg-white mt-2">
                 <table id="example" class="table table-striped table-hover dataTable no-footer py-1" width="100%">
@@ -97,7 +95,8 @@
                             <th class="d-none d-md-table-cell text-white">S.No.</th>
                             <th class="d-none d-md-table-cell text-white">Date </th>
                             <!-- <th class="d-none d-md-table-cell text-white">Dealer Name </th> -->
-                            <th class="d-none d-md-table-cell text-white"> Brand Name </th>
+                            <th class="d-none d-md-table-cell text-white">Brand</th>
+                            <th class="d-none d-md-table-cell text-white">Name </th>
                             <th class="d-none d-md-table-cell text-white">Phone number</th>
                             <th class="d-none d-md-table-cell text-white">State</th>
                             <th class="d-none d-md-table-cell text-white">District</th>
@@ -110,6 +109,8 @@
             </div>
         </div>
 
+
+        <!-- for normal enquiry table -->
         <div class="tab-pane fade show active" id="table_data2" role="tabpanel">
             <div class="table-responsive shadow bg-white mt-2">
                 <table id="example2" class="table table-striped table-hover dataTable no-footer py-1" width="100%">
@@ -132,9 +133,11 @@
         </div>
     </div>
 </div>
-   </section>
+</section>
 
-   <div class="modal fade" id="view_model_dealer" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+
+   <!-- model edit  table 2 normal enquiry -->
+        <div class="modal fade" id="view_model_dealer" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
             <div class="modal-dialog modal-lg modal-dialog-centered">
               <div class="modal-content modal_box">
                 <div class="modal-header modal_head">
@@ -180,14 +183,11 @@
               </div>
             </div>
           </div>
-    </div>
+        </div>
 
-        
-      
-    
-</div>
-   <!-- model edit -->
-   <div class="modal fade" id="edit_dealers" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+
+   <!-- model edit  table 2 normal enquiry -->
+          <div class="modal fade" id="edit_dealers" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
             <div class="modal-dialog modal-lg modal-dialog-centered">
               <div class="modal-content modal_box">
                 <div class="modal-header modal_head">
@@ -324,7 +324,9 @@
 </div>
 </div>
 
-<div class="modal fade" id="view_model_dealer_1" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+
+        <!-- model edit  table 1 Particular enquiry -->
+        <div class="modal fade" id="view_model_dealer_1" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
             <div class="modal-dialog modal-lg modal-dialog-centered">
               <div class="modal-content modal_box">
                 <div class="modal-header modal_head">
@@ -338,29 +340,30 @@
                         <tbody>
                          <tr> 
                          <tr> 
-                            <td>Dealer Name-</td>
-                            <td id="dname1"></td>
+                            <!-- <td>Dealer Name-</td>
+                            <td id="dname1"></td> -->
                             <td>Brand-</td>
                             <td id="bname1"></td>
-                          </tr>
-                         <tr> 
                             <td>First Name-</td>
                             <td id="fname_1"></td>
+                          </tr>
+                         <tr> 
+                            
                             <td>Last Name-</td>
                             <td id="lname_1"></td>
-                          </tr>
-                             <td>Mobile Number-</td>
+                            <td>Mobile Number-</td>
                             <td id="number_1"></td>
+                          </tr>
+                            
                             <td>Date-</td>
                             <td id="date1"></td>
+                            <td>State-</td>
+                            <td id="state_2"></td>
                           </tr>
                           <tr>
-                          <td>State-</td>
-                            <td id="state_2"></td>
+                          
                             <td>District-</td>
                             <td id="dist_1"></td>
-                          </tr>
-                          <tr>
                             <td>Tehsil-</td>
                             <td id="tehsil_1"></td>
                           </tr>
@@ -375,10 +378,10 @@
               </div>
             </div>
           </div>
-    </div>
+        </div>
 
-        
-    <div class="modal fade" id="edit_dealers_certifed" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+         <!-- model edit  table 1 Particular enquiry -->
+          <div class="modal fade" id="edit_dealers_certifed" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
             <div class="modal-dialog modal-lg modal-dialog-centered">
               <div class="modal-content modal_box">
                 <div class="modal-header modal_head">
@@ -397,15 +400,15 @@
                                 </div>  
                                 <div class="col- col-sm-6 col-lg-6 col-md-6" hidden>
                                   <label class="text-dark"> id Name<span class="text-danger">*</span></label>
-                                          <input type="text" class="form-control py-2" for="enquiry_type_id"  id="enquiry_type_id" value="14" name="first_name" placeholder="Enter First Name">
+                                          <input type="text" class="form-control py-2" for="enquiry_type_id"  id="enquiry_type_id" value="16" name="first_name" placeholder="Enter First Name">
                                   <small></small>
                                 </div>
-                                <!-- <div class="col- col-sm-6 col-lg-6 col-md-6" hidden>
+                                <div class="col- col-sm-6 col-lg-6 col-md-6 " hidden>
                                           <label class="text-dark"> id Name<span class="text-danger">*</span></label>
                                                   <input type="text" class="form-control py-2" for="product_id"  id="product_id" value="13" name="first_name" placeholder="Enter First Name">
                                           <small></small>
-                                        </div> -->
-                                        <div class="ol-12 col-lg-6 col-md-6 col-sm-6">
+                                        </div>
+                                        <div class="ol-12 col-lg-6 col-md-6 col-sm-6 mt-3">
                                         <div class="form-outline">
                                             <label class="form-label">Brand Name</label>
                                             <select class="form-select py-2" aria-label="Default select example" id="brand_name_2" name="bname">
@@ -413,22 +416,22 @@
                                             </select>
                                         </div>
                                     </div>
-                                <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
+                                <!-- <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
                                       <div class="form-outline">
                                         <label for="name" class="form-label text-dark">Dealers Name</label>
                                         <input type="text" class="form-control" placeholder="" id="dname_name" name="dname" readonly="readonly">
                                       </div>
-                                    </div>
+                                    </div> -->
                                     <!-- <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
                                       <div class="form-outline">
                                         <label for="name" class="form-label text-dark">Model Name</label>
                                         <input type="text" class="form-control" placeholder="" id="model_name" name="mname">
                                       </div>
                                     </div> -->
-                                 <!-- <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
+                                 <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
                                       <div class="form-outline mt-3">
                                         <label for="name" class="form-label text-dark">First Name</label>
-                                        <input type="text" class="form-control" placeholder="" id="first_name_1" name="fname">
+                                        <input type="text" class="form-control" placeholder="" id="first_nme_1" name="fname">
                                       </div>
                                     </div>
                                     <div class="ol-12 col-lg-6 col-md-6 col-sm-6">
@@ -436,7 +439,7 @@
                                             <label class="form-label text-dark"> Last Name</label>
                                             <input type="text" class="form-control py-2" for="last_name"  id="last_name_1" name="last_name">
                                         </div>
-                                    </div> -->
+                                    </div>
                                     <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
                                       <div class="form-outline mt-3">
                                         <label for="name" class="form-label text-dark">Phone Number</label>
@@ -491,13 +494,13 @@
                                           </div>
                                         </div>
 
-                                        <div class="col-12  mb-2">
-                                      <div class="form-outline mt-3">
-                                        <label for="name" class="form-label text-dark">Discription</label>
-                                        <!-- <input type="email" class="form-control" placeholder="" id="" name=""> -->
-                                        <textarea rows="3" cols="70" class="w-100 pt-2" minlength="1" maxlength="255" id="message_1" name="message"></textarea>
-                                      </div>
-                                    </div>
+                                      <!-- <div class="col-12  mb-2">
+                                        <div class="form-outline mt-3">
+                                          <label for="name" class="form-label text-dark">Discription</label>
+                                         
+                                          <textarea rows="3" cols="70" class="w-100 pt-2" minlength="1" maxlength="255" id="message_1" name="message"></textarea>
+                                        </div>
+                                      </div> -->
                                 </div>
                                
                             </form>

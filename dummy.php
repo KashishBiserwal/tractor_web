@@ -144,7 +144,7 @@
                             <div class="step step-1">
                                 <!-- Step 1 form fields here -->
                                 <div class="step_sellused">
-                                    <p class="text-center h5 mb-4 pb-2">Fill Your Harvest Details Below</p>
+                                    <p class="text-center h5 mb-4 pb-3"></p>
                                     <div class="row">
                                     <div class="col-12 col-lg-6 col-md-6 col-sm-6" hidden>
                                             <div class="form-outline mt-4">
@@ -187,35 +187,34 @@
                                             </div>
                                         </div>
                                         <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-4">
-                                            <div class="input-group">
-                                                <input type="number" id="quantityInput" class="form-control text-black"placeholder="Quantity" aria-label="Text input with dropdown button" name="quantity"style="width: 100px;" >
-                                                <select type="button" id="unitSelect" name="unit" class="btn border border-secondary-2 h-25 dropdown-toggle" data-bs-toggle="dropdown">
-                                                    <ul class="dropdown-menu">
-                                                      <option class="dropdown-item" value="">Select Unit</option>
-                                                      <option class="dropdown-item" value="As per">As per</option>
-                                                      <option class="dropdown-item" value="gram">gram</option>
-                                                      <option class="dropdown-item" value="Kg">Kg</option>
-                                                      <option class="dropdown-item" value="Quintal">Quintal</option>
-                                                      <option class="dropdown-item" value="Ton">Ton</option>
-                                                      <option class="dropdown-item" value="Pack">Pack</option>
-                                                      <option class="dropdown-item" value="Unit">Unit</option>
-                                                    </ul>
-                                                </select>
-                                            </div>
-                                            <div class="validation-message" id="quantityValidation"></div>
-                                        </div>
-                                        <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
-                                            <div class="form-outline mt-4">
-                                                <label for="name" class="form-label text-dark">Price(eg:-0.00)</label>
-                                                <input type="text" class="form-control" placeholder="" id="price" name="price">
-                                            </div>
-                                        </div>
-                                        <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
-                                            <div class="form-outline mt-4">
-                                                <label for="name" class="form-label text-dark">Total Price Calculation</label>
-                                                <input type="text" class="form-control" placeholder="" id="tprice" name="tprice" readonly>
-                                            </div>
-                                        </div>
+                                          <div class="input-group">
+                                              <input type="number" id="quantityInput" class="form-control text-black" placeholder="Quantity" aria-label="Text input with dropdown button" name="quantity" >
+                                              <select type="button" id="unitSelect" name="unit" class="btn border border-secondary-2 h-25 dropdown-toggle" data-bs-toggle="dropdown">
+                                                  <ul class="dropdown-menu">
+                                                    <option class="dropdown-item" value="">Select Unit</option>
+                                                    <option class="dropdown-item" value="As per">As per</option>
+                                                    <option class="dropdown-item" value="gram">gram</option>
+                                                    <option class="dropdown-item" value="Kg">Kg</option>
+                                                    <option class="dropdown-item" value="Quintal">Quintal</option>
+                                                    <option class="dropdown-item" value="Ton">Ton</option>
+                                                    <option class="dropdown-item" value="Pack">Pack</option>
+                                                    <option class="dropdown-item" value="Unit">Unit</option>
+                                                  </ul>
+                                              </select>
+                                          </div>
+                                      </div>
+                                      <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
+                                          <div class="form-outline mt-4">
+                                              <label for="name" class="form-label text-dark">Price</label>
+                                              <input type="text" class="form-control" placeholder="" id="price" name="price">
+                                          </div>
+                                      </div>
+                                      <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
+                                          <div class="form-outline mt-4">
+                                              <label for="name" class="form-label text-dark">Total Price Calculation</label>
+                                              <input type="text" class="form-control" placeholder="" id="tprice" name="tprice" readonly>
+                                          </div>
+                                      </div>
                                         <div class="form-outline mt-4">
                                             <label class="form-label" for="aboutharvest">About Your Harvest</label>
                                             <textarea class="form-control" id="aboutharvest" name="aboutharvest"
@@ -271,10 +270,7 @@
                                         </div>
                                     </div>
                                     <!-- <input type="file" id="_file" class="w-100 pb-0 mb-auto" name="_file" required> -->
-
-
-
-                                    <div class="form-footer d-flex mt-3">
+                                <div class="form-footer d-flex mt-3">
                                     <button type="button" class="btn w-50 btn-success mb-4 prev-step">Previous</button>
                                         <button type="button" class="btn btn-success ms-2 mb-4 w-50 next-step" >Next</button>
                                        

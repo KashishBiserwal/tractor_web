@@ -9,34 +9,25 @@
         var unit = document.getElementById('unitSelect').value;
         var price = parseFloat(document.getElementById('price').value) || 0;
     
-        // Define unit conversion factors
         var unitConversion = {
             'As per': 1,
-            'gram': 1,
-            'Kg': 1000,
-            'Quintal': 100000,
-            'Ton': 1000000,
+            'gram': 0.001,
+            'Kg': 1,
+            'Quintal': 100,
+            'Ton': 1000,
             'Pack': 1,
             'Unit': 1
         };
     
-        // Check if quantity and price are valid numbers
-        if (isNaN(quantity) || isNaN(price)) {
-            alert('Please enter valid numbers for quantity and price.');
-            return;
-        }
-    
-        // Calculate total price
         var total = quantity * price * unitConversion[unit];
     
-        // Display total price with appropriate precision
         document.getElementById('tprice').value = total.toFixed(2);
     }
     
-    // Attach event listeners to trigger the calculation
     document.getElementById('quantityInput').addEventListener('input', calculateTotalPrice);
     document.getElementById('unitSelect').addEventListener('change', calculateTotalPrice);
     document.getElementById('price').addEventListener('input', calculateTotalPrice);
+    
     
 });
 

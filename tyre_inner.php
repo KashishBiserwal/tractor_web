@@ -87,7 +87,8 @@
     </style>
 </head>
 
-<body> <?php
+<body> 
+    <?php
    include 'includes/header.php';
    ?>
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
@@ -108,17 +109,16 @@
             <div class="row">
                 <div class="col-12 col-sm-6 col-lg-6 col-md-6" style="position: relative;">
                     <h1 class="fw-bold text-danger pt-3" id="brand_name"></h1>
-                    <div class="gallery">   
-                        <div class="swiper-container gallery-slider">
-                            <div class="swiper-wrapper mySwiper2_data"></div>
-                            <div class="swiper-button-prev"></div>
-                            <div class="swiper-button-next"></div>
-                        </div>
-
-                        <div class="swiper-container gallery-thumbs">
-                            <div class="swiper-wrapper mySwiper_data"></div>
+                    <div>
+                    <div class="swiper swiper_buy mySwiper2_buy">
+                        <div class="swiper-wrapper swiper-wrapper_buy">
+                            <div class=" swiper-slide swiper-slide_buy">
+                                 <!-- <img class="img_buy" src="assets/images/437-1632718440.webp" /> -->
+                            </div>
                         </div>
                     </div>
+                    <div thumbsSlider="" class="swiper mySwiper_buy" style="height:50px; width: 43%;" id="swip_img"></div>
+                </div>
                 
                 </div>
                 <div class="col-12 col-lg-6 col-md-6 col-sm-6 mt-5" style="z-index: 9; background: #fff;">
@@ -156,162 +156,99 @@
                         </tbody>
                     </table>
                     <div class="row my-3 text-center">
-                       
-                        <div class="col-12 col-lg-12 col-md-12 col-sm-12">
-                        <button id="adduser" type="button" class="add_btn  btn-success w-100"
-                                                    data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                                                    Send Enquiry</button>
+                    <div class="col-12 col-lg-12 col-md-12 col-sm-12">
+                            <button id="adduser" type="button" class="add_btn  btn-success w-100" data-bs-toggle="modal" data-bs-target="#staticBackdrop3">
+                            Send Enquiry
+                            </button>
                         </div>
                     </div>
 
                 </div>
                
-               <!--  <div class="col-12 col-sm-6 col-lg-6 col-md-6" style="background:#fff; z-index:9;">
-                    <h3 class="text-dark fw-bold" id="model_no"></h3>
-                    <div class="row my-3">
-                        <div class="col-12 justify-content-center">
-                            <div class="d-flex flex-md-row px-3  flex-column-reverse">
-                                <div class="power">
-                                    <div class="row ">
-                                        <div class="content d-flex flex-column flex-grow-1 ">
-                                            <div class="power">
-                                                <div class="row ">
-                                                    <div class="col-12 col-lg-12 col-md-12 col-sm-12">
-                                                        <p class="text-dark fw-bold">Tyre	: <span id="tyre"></span>
-                                                        </p>
-                                                    </div>
-                                                    <div class="col-12 col-lg-12 col-md-12 col-sm-12">
-                                                        <p class="text-dark fw-bold">Type	: <span id="tyre_type"></span>
-                                                        </p>
-                                                    </div>
-                                                    <div class="col-12 col-lg-12 col-md-12 col-sm-12">
-                                                        <p class="text-dark fw-bold">Size	: <span id="tyre_size"></span></p>
-                                                    </div>
-
-                                                   
-                                                </div>
-                                            </div>
-                                            <div class="col-12">
-                                                <button id="adduser" type="button" class="add_btn  btn-success w-100"
-                                                    data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                                                    Send Enquiry</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                          
-
-                               
-                                <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static"
-                                    data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel"
-                                    aria-hidden="true">
-                                    <div class="modal-dialog modal-lg modal-dialog-centered">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h4 class="modal-title text-dark fw-bold" id="staticBackdropLabel">
-                                                Fill the form to Get Tyre Price MRF SHAKTI LIFE 13.6 - 28</h4>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                    aria-label="Close"></button>
-                                            </div>
-                                            <div class="modal-body">
-                                                <div class="model-cont">
-                                                    <form id="hire_inner" name="hire_inner" method="post">
-                                                        <div class="row">
-                                                            <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-4">
-                                                                <div class="form-outline">
-                                                                    <label class="form-label" for="first_name">First
-                                                                        Name</label>
-                                                                    <input type="text" id="first_name" name="first_name"
-                                                                        class=" data_search form-control input-group-sm py-2" />
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-4">
-                                                                <div class="form-outline">
-                                                                    <label class="form-label" for="last_name">Last
-                                                                        Name</label>
-                                                                    <input type="text" id="last_name" name="last_name"
-                                                                        class=" data_search form-control input-group-sm py-2" />
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-4">
-                                                                <div class="form-outline">
-                                                                    <label class="form-label" for="mobile_number">Mobile
-                                                                        Number</label>
-                                                                    <input type="text" id="mobile_number"
-                                                                        name="mobile_number"
-                                                                        class=" data_search form-control input-group-sm py-2" />
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-4">
-                                                                <div class="form-outline">
-                                                                    <label class="form-label" for="state">State</label>
-                                                                    <select class="form-select py-2"
-                                                                        aria-label="Default select example" id="state"
-                                                                        name="state">
-                                                                        <option selected></option>
-                                                                        <option value="1">New Tractor Loan</option>
-                                                                        <option value="2">Used Tractor Loan,
-                                                                        </option>
-                                                                        <option value="3">Loan Against Tractor
-                                                                        </option>
-                                                                        <option value="4">Harvester Loan</option>
-                                                                        <option value="5">Used Harvester Loan
-                                                                        </option>
-                                                                        <option value="6">Implement Loan</option>
-                                                                        <option value="7">Personal Loan</option>
-                                                                    </select>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-4">
-                                                                <div class="form-outline">
-                                                                    <label class="form-label"
-                                                                        for="district">District</label>
-                                                                    <select class="form-select py-2"
-                                                                        aria-label="Default select example"
-                                                                        name="district" id="district">
-                                                                        <option selected></option>
-                                                                        <option value="1">name1</option>
-                                                                        <option value="2">name2</option>
-                                                                        <option value="3">name3</option>
-                                                                    </select>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-4">
-                                                                <div class="form-outline">
-                                                                    <label class="form-label"
-                                                                        for="tehsil">Tehsil</label>
-                                                                    <select class="form-select py-2"
-                                                                        aria-label="Default select example"
-                                                                        name="tehsil" id="tehsil">
-                                                                        <option selected></option>
-                                                                        <option value="1">name1</option>
-                                                                        <option value="2">name2</option>
-                                                                        <option value="3">name3</option>
-                                                                    </select>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </form>
-                                                </div>
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary"
-                                                    data-bs-dismiss="modal">Close</button>
-                                                <button type="button" class="btn btn-danger"
-                                                    id="button_hire">Request</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+<div class="modal fade" id="staticBackdrop3" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title ms-1" id="staticBackdropLabel">Request Call Back</h5>
+                <button type="button" class="btn-close btn-success" data-bs-dismiss="modal" aria-label="Close"><img src="assets/images/close.png" class="w-25"></button>
+            </div>
+            <!-- MODAL BODY -->
+            <div class="modal-body">
+                <form id="dealership_enq_from" class="bg-light" action="" method="POST">
+                    <div class="row justify-content-center">
+                        <div class="col-12 col-lg-6 col-md-6 col-sm-6 " hidden>
+                             <label for="name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i> enquiryName</label>
+                            <input type="text" class="form-control" placeholder="Enter Your Name" id="enquiry_type_id" value="10" name="fname">
+                        </div>
+                        <div class="col-12 col-lg-6 col-md-6 col-sm-6 " hidden>
+                            <label for="name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i> product id</label>
+                             <input type="text" class="form-control" id="product_id" value="2">
+                        </div>
+                        <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+                            <div class="mt-2">
+                                <label class="form-label  fw-bold text-dark"> <i class="fa-regular fa-user"></i> First Name</label>
+                                <input type="text" class="form-control" id="f_name" name="f_name">
                             </div>
                         </div>
+                        <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+                            <div class="mt-2">
+                                <label class="form-label fw-bold  text-dark"> <i class="fa-regular fa-user"></i> Last Name</label>
+                                <input type="text" class="form-control" id="l_name" name="l_name">
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-12 col-md-12 col-sm-12">
+                            <div class="mt-2">
+                                <label class="form-label  fw-bold text-dark"><i class="fa fa-phone" aria-hidden="true"></i> Mobile Number</label>
+                                <input type="text" class="form-control" id="mob_num" name="mob_num">
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+                            <label for="yr_state" class="form-label text-dark fw-bold"> <i class="fas fa-location"></i> State</label>
+                            <select class="form-select py-2" id="s_state" name="_state" aria-label=".form-select-lg example">
+                                <option value>Select State</option>
+                                <option value="Chhattisgarh">Chhattisgarh</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                        <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+                            <label for="yr_dist" class="form-label  fw-bold text-dark"><i class="fa-solid fa-location-dot"></i> District</label>
+                            <select class="form-select py-2" id="s_district" name="_district" aria-label=".form-select-lg example">
+                                <option value>Select District</option>
+                                <option value="Raipur">Raipur</option>
+                                <option value="Bilaspur">Bilaspur</option>
+                                <option value="Surajpur">Surajpur</option>
+                            </select>
+                        </div>
+                        <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+                            <label for="tehsil" class="form-label fw-bold mt-1 text-dark"> Tehsil</label>
+                            <select class="form-select py-2 " id="t_tehsil" name="_tehsil" aria-label=".form-select-lg example">
+                                <option value>Select Tehsil</option>
+                                <option value="Raipur">Raipur</option>
+                                <option value="Bilaspur">Bilaspur</option>
+                                <option value="Surajpur">Surajpur</option>
+                            </select>
+                        </div>
+                        <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+                            <label for="tehsil" class="form-label fw-bold  mt-1 text-dark">Brand</label>
+                            <select class="form-select py-2" aria-label="Default select example" id="brand_select" name="_brand"></select>
+                        </div>
+                        <div class="text-center my-3">
+                            <button type="button" id="tyre_enq_btn" class="btn btn-success px-5 w-100 ">Submit</button>
+                        </div>
+                        <p class="mb-0 text-center">By proceeding ahead you expressly agree to the Bharat Tractors <a href="#" class="text-decoration-none" target="_blank" title="terms and conditions">terms and conditions*</a></p>
                     </div>
-                </div> -->
+                </form>
             </div>
         </div>
-    </section>
+    </div>
+</div>
 
-    <section >
+ </div>
+ </div>
+</section>
+
+    
+<section >
         <div class="container">
             <h3 class="fw-bold assured px-2">About MRF SHAKTI LIFE 13.6 - 28</h3>
             <div class="" role="alert">
@@ -321,206 +258,54 @@
             </div>
         </div>
     </section>
-    <section class="section slider-section">
-
-        <div class="container slider-column">
-            <h3 class="assured px-2 fw-bold mt-4">Similar Tyres</h3>
-            <div class="carousel-wrap">
-                <div class="owl-carousel" id="usedtractorforsell">
-                    <div class="item">
-                        <div class="post-slide">
-                            <div class="post-img">
-                                <img src="assets/images/birla_tyre.jpg" alt="">
-                                <a href="#" class="over-layer">
-                                    <i class="fa fa-link"></i>
-                                </a>
-                            </div>
-                            <div class="post-content">
-                                <h3 class="post-title text-center">
-                                    <a href="#" class="text-decoration-none fw-bold ">
-                                        Birla Tyres SHAAN+ 18.4 - 30</a>
-                                </h3>
-                                <div class="row text-center">
-                                    <div class="col-4 col-lg-4 col-md-4 col-sm-4">
-                                        <p class="text-dark">Tractor</p>
-                                    </div>
-                                    <div class="col-4 col-lg-4 col-md-4 col-sm-4">
-                                        <p class="text-dark">Rear
-                                        </p>
-                                    </div>
-                                    <div class="col-4 col-lg-4 col-md-4 col-sm-4">
-                                        <p id="adduser" type="" class="text-dark">
-                                            18.4-30
-                                        </p>
+  
+ <section class="mt-3">
+        <div class="container">
+            <div>
+            <h2 class="fw-bold text-dark text-start mt-3 assured ps-3">Similar Tyres</h3>
+            </div>
+                <div id="productContainer" class="row owl Carousel mt-4" >
+                    <!-- <div class="item">
+                            <div class="post-slide">
+                                <div class="post-img">
+                                    <img src="assets/images/birla_tyre.jpg" alt="">
+                                    <a href="#" class="over-layer">
+                                        <i class="fa fa-link"></i>
+                                    </a>
+                                </div>
+                                <div class="post-content">
+                                    <h3 class="post-title text-center">
+                                        <a href="#" class="text-decoration-none fw-bold ">
+                                            Birla Tyres SHAAN+ 18.4 - 30</a>
+                                    </h3>
+                                    <div class="row text-center">
+                                        <div class="col-4 col-lg-4 col-md-4 col-sm-4">
+                                            <p class="text-dark">Tractor</p>
+                                        </div>
+                                        <div class="col-4 col-lg-4 col-md-4 col-sm-4">
+                                            <p class="text-dark">Rear
+                                            </p>
+                                        </div>
+                                        <div class="col-4 col-lg-4 col-md-4 col-sm-4">
+                                            <p id="adduser" type="" class="text-dark">
+                                                18.4-30
+                                            </p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="post-slide">
-                            <div class="post-img">
-                                <img src="assets/images/birla_tyre.jpg" alt="">
-                                <a href="#" class="over-layer">
-                                    <i class="fa fa-link"></i>
-                                </a>
-                            </div>
-                            <div class="post-content">
-                                <h3 class="post-title  text-center">
-                                    <a href="#" class="text-decoration-none fw-bold">
-                                        Birla Tyres SHAAN+ 18.4 - 30</a>
-                                </h3>
-                                <div class="row text-center">
-                                    <div class="col-4 col-lg-4 col-md-4 col-sm-4">
-                                        <p class="text-dark">Tractor</p>
-                                    </div>
-                                    <div class="col-4 col-lg-4 col-md-4 col-sm-4">
-                                        <p class="text-dark">Rear
-                                        </p>
-                                    </div>
-                                    <div class="col-4 col-lg-4 col-md-4 col-sm-4">
-                                        <p id="adduser" type="" class="text-dark">
-                                            18.4-30
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="post-slide">
-                            <div class="post-img">
-                                <img src="assets/images/birla_tyre.jpg" alt="">
-                                <a href="#" class="over-layer">
-                                    <i class="fa fa-link"></i>
-                                </a>
-                            </div>
-                            <div class="post-content">
-                                <h3 class="post-title text-center">
-                                    <a href="#" class="text-decoration-none fw-bold ">
-                                        Birla Tyres SHAAN+ 18.4 - 30</a>
-                                </h3>
-                                <div class="row text-center">
-                                    <div class="col-4 col-lg-4 col-md-4 col-sm-4">
-                                        <p class="text-dark">Tractor</p>
-                                    </div>
-                                    <div class="col-4 col-lg-4 col-md-4 col-sm-4">
-                                        <p class="text-dark">Rear
-                                        </p>
-                                    </div>
-                                    <div class="col-4 col-lg-4 col-md-4 col-sm-4">
-                                        <p id="adduser" type="" class="text-dark">
-                                            <i class="fa-solid fa-indian-rupee-sign mx-2"></i>18.4-30
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="post-slide">
-                            <div class="post-img">
-                                <img src="assets/images/birla_tyre.jpg" alt="">
-                                <a href="#" class="over-layer">
-                                    <i class="fa fa-link"></i>
-                                </a>
-                            </div>
-                            <div class="post-content">
-                                <h3 class="post-title text-center">
-                                    <a href="#" class="text-decoration-none fw-bold ">
-                                        Birla Tyres SHAAN+ 18.4 - 30</a>
-                                </h3>
-                                <div class="row text-center">
-                                    <div class="col-4 col-lg-4 col-md-4 col-sm-4">
-                                        <p class="text-dark">Tractor</p>
-                                    </div>
-                                    <div class="col-4 col-lg-4 col-md-4 col-sm-4">
-                                        <p class="text-dark">Rear
-                                        </p>
-                                    </div>
-                                    <div class="col-4 col-lg-4 col-md-4 col-sm-4">
-                                        <p id="adduser" type="" class="text-dark">
-                                            <i class="fa-solid fa-indian-rupee-sign mx-2"></i>18.4-30
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="post-slide">
-                            <div class="post-img">
-                                <img src="assets/images/birla_tyre.jpg" alt="">
-                                <a href="#" class="over-layer">
-                                    <i class="fa fa-link"></i>
-                                </a>
-                            </div>
-                            <div class="post-content">
-                                <h3 class="post-title text-center">
-                                    <a href="#" class="text-decoration-none fw-bold">
-                                        Birla Tyres SHAAN+ 18.4 - 30</a>
-                                </h3>
-                                <div class="row text-center">
-                                    <div class="col-4 col-lg-4 col-md-4 col-sm-4">
-                                        <p class="text-dark">Tractor</p>
-                                    </div>
-                                    <div class="col-4 col-lg-4 col-md-4 col-sm-4">
-                                        <p class="text-dark">Rear
-                                        </p>
-                                    </div>
-                                    <div class="col-4 col-lg-4 col-md-4 col-sm-4">
-                                        <p id="adduser" type="" class="text-dark">
-                                            <i class="fa-solid fa-indian-rupee-sign mx-2"></i>18.4-30
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-
-    </section>
-    <div class="col-12 text-center mb-4 pt-2 ">
-        <a href="tyre.php"><button id="adduser" type="button" class="add_btn btn btn-success">
-                <i class="fas fa-undo"></i> Load More Tyres</button></a>
-    </div>
-
-   
-
-
-    <div class="container">
-        <h4 class="fw-bold assured px-2">Quick Links</h4>
-        <div class="row my-4">
-            <div class="col-12 col-lg-4 col-md-4 col-sm-4 py-2">
-                <a href="#" id="adduser" class="btn btn-outline-success text-decoration-none border-2 p-2 w-100">
-                    <i class="fas fa-bolt"></i>TRACTOR PRICE</a>
+                        </div> -->
+                 
+                </div>
             </div>
-            <div class="col-12 col-lg-4 col-md-4 col-sm-4 py-2">
-                <a href="#" id="adduser" class=" btn btn-outline-success text-decoration-none border-2 py-2 px-3 w-100">
-                    <i class="fas fa-bolt"></i>TRACTOR</a>
-            </div>
-            <div class="col-12 col-lg-4 col-md-4 col-sm-4 py-2">
-                <a href="#" id="adduser" class=" btn btn-outline-success text-decoration-none border-2 py-2 px-3 w-100">
-                    <i class="fas fa-bolt"></i>HARVESTERS</a>
-            </div>
-            <div class="col-12 col-lg-4 col-md-4 col-sm-4 py-2">
-                <a href="#" id="adduser" class="btn btn-outline-success text-decoration-none  border-2 py-2 px-3 w-100">
-                    <i class="fas fa-bolt"></i>SECOND HAND TRACTOR</a>
-            </div>
-            <div class="col-12 col-lg-4 col-md-4 col-sm-4 py-2">
-                <a href="#" id="adduser" class="btn btn-outline-success text-decoration-none border-2 py-2 px-3 w-100">
-                    <i class="fas fa-bolt"></i>EASY FINANCE</a>
-            </div>
-            <div class="col-12 col-lg-4 col-md-4 col-sm-4 py-2">
-                <a href="#" id="adduser" class="btn btn-outline-success text-decoration-none border-2 py-2 px-3 w-100">
-                    <i class="fas fa-bolt"></i>DEALERSHIP</a>
-            </div>
+        <div class="col text-center my-3 pb-5">
+            <a href="tyre.php" class="btn btn-success btn-lg">Load More Tyres</a>
         </div>
-    </div>
+    </section>
 
     <?php
     include 'includes/footer.php';
-    include 'includes/footertag.php';
+    // include 'includes/footertag.php';
     ?>
   <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script>
@@ -544,55 +329,8 @@
         });
     });
 
-    $('#usedtractorforsell').owlCarousel({
-        loop: true,
-        margin: 10,
-        nav: true,
-        navText: [
-            "<i class='fa fa-caret-left'></i>",
-            "<i class='fa fa-caret-right'></i>"
-        ],
+ 
 
-        autoplay: false,
-        autoplayTimeout: 3000,
-        autoplayHoverPause: true,
-        responsive: {
-            0: {
-                items: 1
-            },
-            600: {
-                items: 3
-            },
-            1000: {
-                items: 3
-            }
-        }
-    })
-
-  
-   
-    var slider = new Swiper ('.gallery-slider', {
-    slidesPerView: 1,
-    centeredSlides: true,
-    loop: true,
-    loopedSlides: 1, 
-    navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-    },
-});
-
-var thumbs = new Swiper ('.gallery-thumbs', {
-    slidesPerView: 'auto',
-    spaceBetween: 10,
-    centeredSlides: true,
-    loop: true,
-    slideToClickedSlide: true,
-});
-
-
-slider.controller.control = thumbs;
-thumbs.controller.control = slider;
 
 
     </script>

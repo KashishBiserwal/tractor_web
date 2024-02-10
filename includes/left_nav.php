@@ -71,7 +71,9 @@
         </button>
         <div class="collapse" id="about-collapsebazar">
           <ul class="list-unstyled fw-800 mb-0">
-          <li class="py-1 ps-3"><a href="haatbzr_list.php" class="d-inline-flex align-items-center text-white  text-decoration-none rounded">HaatBazaar List Items</a></li>
+              <li class="py-1 ps-3"><a href="haatbzr_list.php" class="d-inline-flex align-items-center text-white  text-decoration-none rounded">HaatBazaar List Items</a></li>
+              <li class="py-1 ps-3"><a href="haatbazar_category.php" class="d-inline-flex align-items-center text-white  text-decoration-none rounded">HaatBazaar List Category</a></li>
+              <li class="py-1 ps-3"><a href="haatbazar_sub_category.php" class="d-inline-flex align-items-center text-white  text-decoration-none rounded">HaatBazaar List Sub Category</a></li>
               <li class="py-1 ps-3"><a href="haatbzr_byr_enq.php" class="d-inline-flex align-items-center text-white text-decoration-none rounded">HaatBazar Buyer Enquiry List</a></li>
           </ul>
         </div>

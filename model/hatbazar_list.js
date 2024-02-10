@@ -5,28 +5,32 @@ var editId_state= false;
     $('#btn_submit').click(store);
     $('#btn_subcat').click(store_subcategory);
     $('#save_btn').click(hatbazar_add);
+
+    
     function calculateTotalPrice() {
-        var quantity = parseFloat(document.getElementById('quantityInput').value) || 0;
-        var unit = document.getElementById('unitSelect').value;
-        var price = parseFloat(document.getElementById('price').value) || 0;
-
-        var unitConversion = {
-            'As per': 1,
-            'gram': 1,
-            'Kg': 1000,
-            'Quintal': 100000,
-            'Ton': 1000000,
-            'Pack': 1,
-            'Unit': 1
-        };
-        var total = quantity * price * unitConversion[unit];
-
-        document.getElementById('tprice').value = total.toFixed(2);
-    }
-
-    document.getElementById('quantityInput').addEventListener('input', calculateTotalPrice);
-    document.getElementById('unitSelect').addEventListener('change', calculateTotalPrice);
-    document.getElementById('price').addEventListener('input', calculateTotalPrice);
+      var quantity = parseFloat(document.getElementById('quantityInput').value) || 0;
+      var unit = document.getElementById('unitSelect').value;
+      var price = parseFloat(document.getElementById('price').value) || 0;
+  
+      var unitConversion = {
+          'As per': 1,
+          'gram': 0.001,
+          'Kg': 1,
+          'Quintal': 100,
+          'Ton': 1000,
+          'Pack': 1,
+          'Unit': 1
+      };
+  
+      var total = quantity * price * unitConversion[unit];
+  
+      document.getElementById('tprice').value = total.toFixed(2);
+  }
+  
+  document.getElementById('quantityInput').addEventListener('input', calculateTotalPrice);
+  document.getElementById('unitSelect').addEventListener('change', calculateTotalPrice);
+  document.getElementById('price').addEventListener('input', calculateTotalPrice);
+  
   //category form
     $("#category_details").validate({
     
@@ -293,39 +297,7 @@ var editId_state= false;
 
   }
 
-    //   add category
-      function store(event) {
-        event.preventDefault();
-        console.log('jfhfhw');
-        var category_name = $('#category').val();
-        var paraArr = {
-          'category_name': category_name
-        };
-      
-      var apiBaseURL =APIBaseURL;
-      var url = apiBaseURL + 'haat_bazar_category';
-        console.log(url);
-      
-        var token = localStorage.getItem('token');
-        var headers = {
-          'Authorization': 'Bearer ' + token
-        };
-        $.ajax({
-          url: url,
-          type: "POST",
-          data: paraArr,
-          headers: headers,
-          success: function (result) {
-            console.log(result, "result");
-         
-            console.log("Add successfully");
-            alert('successfully inserted..!')
-          },
-          error: function (error) {
-            console.error('Error fetching data:', error);
-          }
-        });
-      }
+    
 
     // select category
     function get_category() {
