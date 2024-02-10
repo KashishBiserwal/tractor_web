@@ -1,3 +1,67 @@
+var EditIdmain_ = "";
+var editId_state= false;
+var id= "";
+$(document).ready(function() {
+    $('#save').click(store);
+    ImgUpload();
+  
+  });
+function ImgUpload() {
+    var imgWrap = "";
+    var imgArray = [];
+
+    $('.upload__inputfile').each(function () {
+      $(this).on('change', function (e) {
+        imgWrap = $(this).closest('.upload__box').find('.upload__img-wrap');
+        var maxLength = $(this).attr('data-max_length');
+
+        var files = e.target.files;
+        var filesArr = Array.prototype.slice.call(files);
+        var iterator = 0;
+        filesArr.forEach(function (f, index) {
+
+          if (!f.type.match('image.*')) {
+            return;
+          }
+
+          if (imgArray.length > maxLength) {
+            return false
+          } else {
+            var len = 0;
+            for (var i = 0; i < imgArray.length; i++) {
+              if (imgArray[i] !== undefined) {
+                len++;
+              }
+            }
+            if (len > maxLength) {
+              return false;
+            } else {
+              imgArray.push(f);
+
+              var reader = new FileReader();
+              reader.onload = function (e) {
+                var html = "<div class='upload__img-box'><div style='background-image: url(" + e.target.result + ")' data-number='" + $(".upload__img-close").length + "' data-file='" + f.name + "' class='img-bg'><div class='upload__img-close'></div></div></div>";
+                imgWrap.append(html);
+                iterator++;
+              }
+              reader.readAsDataURL(f);
+            }
+          }
+        });
+      });
+    });
+
+    $('body').on('click', ".upload__img-close", function (e) {
+      var file = $(this).parent().data("file");
+      for (var i = 0; i < imgArray.length; i++) {
+        if (imgArray[i].name === file) {
+          imgArray.splice(i, 1);
+          break;
+        }
+      }
+      $(this).parent().parent().remove();
+    });
+  }
 // get category in select box
 function get() {
     var apiBaseURL = APIBaseURL;
@@ -112,20 +176,16 @@ function get_subcategory_custom(id){
             Data.custom_data.forEach(function (p, index) {
                 var tableRow = `
                     <div class="row form_field_outer_row">
-                        <div class="form-group col-md-3">
+                        <div class="form-group col-md-4">
                             <input type="text" class="form-control w_90" name="mobileb_no[]" value="${p.custom_column_name}" id="mobileb_no_${index + 1}" readOnly />
                         </div>
-                        <div class="form-group col-md-3">
-                            <input type="text" class="form-control" name="no_type[]" id="no_type_${index + 1}" placeholder="Enter Value" aria-invalid="false" value="${p.implement_column_name}" />
+                        <div class="form-group col-md-4">
+                            <input type="text" class="form-control" name="no_type[]" id="no_type_${index + 1}" placeholder="Enter Value" aria-invalid="false" value="${p.implement_column_name}"  readOnly/>
                         </div>
                         <div class="form-group col-md-4">
                             <input type="text" class="form-control" name="custome[]" id="custom_${index + 1}" placeholder="Enter Value" aria-invalid="false" value="" />
                         </div>
-                        <div class="form-group col-md-2 add_del_btn_outer">
-                            <button class="btn_round remove_node_btn_frm_field delete" data-index="${index + 1}" enable>
-                                <i class="fas fa-trash-alt"></i>
-                            </button>
-                        </div>
+                        
                     </div>
                 `;
                 tableData.append(tableRow);
@@ -154,7 +214,7 @@ function get_subcategory_custom(id){
 
 get();
 
-
+// get brand and model
 function get_brand() {
     var url = 'http://tractor-api.divyaltech.com/api/customer/get_all_brands';
     // var url = 'http://tractor-api.divyaltech.com/api/admin/get_all_brands/'+ 6;
@@ -212,7 +272,7 @@ function get_brand() {
                     data.model.forEach(row => {
                         const option = document.createElement('option');
                         option.textContent = row.model;
-                        option.value = row.id;
+                        option.value = row.model;
                         console.log(option);
                         select.appendChild(option);
                     });
@@ -228,3 +288,118 @@ function get_brand() {
   }
   
   get_brand(); 
+
+// store data
+
+//   store subcategory
+function store(event) {
+    event.preventDefault();
+  
+    var customDataArray = [];
+    var implementDataArray = [];
+    var DataArray =[];
+  
+    // Assuming you have multiple elements with IDs like 'mobileb_no_1', 'mobileb_no_2', etc. 
+    $('[id^="mobileb_no_"]').each(function() {
+      customDataArray.push($(this).val());
+    });
+  
+    // Assuming you have multiple elements with IDs like 'no_type_1', 'no_type_2', etc.
+    $('[id^="no_type_"]').each(function() {
+      implementDataArray.push($(this).val());
+    });
+  
+    $('[id^="custom_"]').each(function() {
+        DataArray.push($(this).val());
+      });
+
+    var customDataJson = JSON.stringify(customDataArray);
+    var implementDataJson = JSON.stringify(implementDataArray);
+    var DataArray = JSON.stringify(DataArray);
+  
+    var brand_id = $('#brand_main').val();
+    var model_main = $('#model_main').val();
+    var lookup_type = $('#lookupSelectbox').val();
+    var lookup_data_value = $('#lookup_data_value').val();
+    var id = $('#idUser').val();
+    // var image_names = $('#image_name').files[0]; 
+    var image_names = document.getElementById('image_name').files;
+  
+    var apiBaseURL = APIBaseURL;
+    var url = apiBaseURL + 'implement_details';
+  
+    var token = localStorage.getItem('token');
+    var headers = {
+      'Authorization': 'Bearer ' + token
+    };
+  
+    // var urlParams = new URLSearchParams(window.location.search);
+    //   id = urlParams.get('id');
+      // console.log("editId from URL:", editId_stateedit);
+    //   _method = 'POST';
+    //   var url, method;
+    //   console.log('edit state', id);
+    //   var _method = 'post'; 
+  
+    //   if (id !== '' && id !== null) {
+    //     // Update mode
+    //     _method = 'put';
+    //     url = apiBaseURL + 'implement_sub_category/' + id;
+    //     console.log(url);
+    //     method = 'POST'; 
+    //   } else {
+    //     url = apiBaseURL + 'implement_details';
+    //     console.log('prachi');
+    //     method = 'POST';
+    //   }
+  
+    var data = new FormData();
+    
+    for (var x = 0; x < image_names.length; x++) {
+        data.append("thumbnail[]", image_names[x]);
+        console.log("multiple image", image_names[x]);
+      }
+    data.append('id', id);
+    data.append('brand_id', brand_id);
+    data.append('model', model_main);
+    data.append('implements_category_id', lookup_type);
+    data.append('implement_sub_category_id', lookup_data_value);
+    data.append('custom_data', customDataJson);
+    data.append('implement_data', implementDataJson);
+    data.append('implement_data', DataArray);
+    // data.append('thumbnail', image);
+    // data.append('_method', _method);
+  
+    $.ajax({
+      url: url,
+      type: 'POST',
+      data: data,
+      headers: headers,
+      processData: false,
+      contentType: false,
+      success: function(result) {
+        console.log(result, "result");
+        console.log("Add successfully");
+        var msg = "Added successfully !"
+        $("#errorStatusLoading").modal('show');
+        $("#errorStatusLoading").find('.modal-title').html('Success');
+        $("#errorStatusLoading").find('.modal-body').html(msg);
+  
+        // Hide the modal immediately
+        $("#staticBackdrop1").modal('hide');
+        // get_data();
+       
+        // var alertConfirmation = confirm("Data added successfully. Do you want to reload the page?");
+        // if (alertConfirmation) {
+        // //   window.location.reload();
+        // }
+      },
+      error: function(error) {
+        console.error('Error fetching data:', error);
+        var msg = error;
+        $("#errorStatusLoading").modal('show');
+        $("#errorStatusLoading").find('.modal-title').html('Error');
+        $("#errorStatusLoading").find('.modal-body').html(msg);
+      }
+    });
+  }

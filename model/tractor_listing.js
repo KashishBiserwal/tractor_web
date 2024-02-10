@@ -94,7 +94,7 @@ function get_lookup() {
         },
         success: function (data) {
           // lookup select
-          console.log(data,'ok');
+          console.log(data,'lookup data value');
             for (var i = 0; i < data.data.length; i++) {
                 $("select#" + data.data[i].name).append('<option value="' + data.data[i].id + '">' + data.data[i].lookup_data_value + '</option>');
             }
@@ -175,7 +175,7 @@ function store(event) {
     var product_type_id = $('#product_type_id').val();
     var image_type_id = $('#image_type_id').val();
     var hp_category = $('#hp_category').val();
-    var TOTAL_CYCLINDER = $('#TOTAL_CYCLINDER').val();
+    var TOTAL_CYCLINDER = $('#TOTAL_CYLINDER').val();
     var horse_power = $('#horse_power').val();
     var gear_box_forward = $('#gear_box_forward').val();
     var gear_box_reverse = $('#gear_box_reverse').val();
@@ -344,7 +344,7 @@ function store(event) {
       success: function(response) {
         var editData = response.product.allProductData[0];
         
-        
+        console.log(response,'editData123');
         var selectedAccessories = response.product.accessory_and_tractor_type[0];
         var accessoryIds = selectedAccessories.accessory_id.split(',');
         console.log(accessoryIds,"selectedAccessories")
@@ -356,8 +356,8 @@ function store(event) {
         $('#model').val(editData.model);
         $('#product_type_id').val(editData.product_type_id);
         $('#hp_category').val(editData.hp_category);
-        $("#TOTAL_CYCLINDER option").prop("selected", false);
-        $("#TOTAL_CYCLINDER option[value='" + editData.total_cyclinder_id + "']").prop("selected", true);
+        $("#TOTAL_CYLINDER option").prop("selected", false);
+        $("#TOTAL_CYLINDER option[value='" + editData.total_cyclinder_id + "']").prop("selected", true);
         $('#horse_power').val(editData.horse_power);
         $('#gear_box_forward').val(editData.gear_box_forward);
         $('#gear_box_reverse').val(editData.gear_box_reverse);
@@ -482,7 +482,7 @@ function store(event) {
   function get() {
         // var url = "<?php echo $APIBaseURL; ?>getBrands";
         var apiBaseURL =APIBaseURL;
-        var url = apiBaseURL + 'getBrands';
+        var url = apiBaseURL + 'getBrands/'+ 1;
         $.ajax({
             url: url,
             type: "GET",

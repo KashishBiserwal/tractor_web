@@ -33,7 +33,7 @@
 
           <!-- Modal -->
           <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-            <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-dialog modal-xl modal-dialog-centered">
               <div class="modal-content modal_box">
                 <div class="modal-header modal_head">
                   <h5 class="modal-title text-white fw-bold" id="staticBackdropLabel">Add Farm Equipments</h5>
@@ -43,7 +43,7 @@
                         <div class="row justify-content-center">
                             <div class="col-lg-10">
                               <h4 class="text-center" style="font-weight:600;">Fill your Details</h4>
-                              <form>
+                              <form method="POST">
                                 <div class="row justify-content-center">
                                     <div class="col-12 col-sm-6 col-md-6 col-lg-6 mt-3">
                                       <div class="form-outline">
@@ -76,7 +76,7 @@
                                           </select>
                                       </div>
                                     </div>
-                                    <div class="col-12 col-sm-5 col-lg-5 col-md-5 ps-3 mt-3">
+                                    <!-- <div class="col-12 col-sm-5 col-lg-5 col-md-5 ps-3 mt-3">
                                       <div class="background__box">
                                             <div class="background__btn-box ">
                                                 <label class="background__btn">
@@ -88,11 +88,30 @@
                                                     <small></small>
                                                 </label>
                                             </div>
-                                            <div class="">
+                                           
+                                      </div>
+                                       <div class="">
                                                 <div class="background__img-wrap"></div>
                                             </div>
-                                      </div>
+                                    </div> -->
+                                    <div class="col-12 mt-3" id="fields">
+                                     
                                     </div>
+                                    <div class="col-12 mt-5">
+                                      <div class="upload__box text-center">
+                                        <div class="upload__btn-box text-center">
+                                          <label >
+                                            <p class="upload__btn">Upload images</p>
+                                              <input type="file" multiple="" data-max_length="20" class="upload__inputfile" id="image_name" name="_image"required>
+                                          </label>
+                                        </div>
+                                        <div class="col-12">
+                                          <div id="selectedImagesContainer2" class="upload__img-wrap float-start"></div>
+                                        </div>
+                                                               
+                                      </div>
+                                        <p class="text-danger">Note*- Image Must be JPEG, PNG & JPG format</p>
+                                      </div>
                                   
                                 </div>
                             </form>
@@ -204,72 +223,8 @@
 
 
    <script>
-     jQuery(document).ready(function () {
-    
-    BackgroundUpload();
-  });
+ 
 
-function BackgroundUpload() {
-    var imgWrap = "";
-    var imgArray = [];
-
-    function generateUniqueClassName(index) {
-      return "background-image-" + index;
-    }
-
-    $('.background__inputfile').each(function () {
-      $(this).on('change', function (e) {
-        imgWrap = $(this).closest('.background__box').find('.background__img-wrap');
-        var maxLength = $(this).attr('data-max_length');
-
-        var files = e.target.files;
-        var filesArr = Array.prototype.slice.call(files);
-        var iterator = 0;
-        filesArr.forEach(function (f, index) {
-
-          if (!f.type.match('image.*')) {
-            return;
-          }
-
-          if (imgArray.length > maxLength) {
-            return false;
-          } else {
-            var len = 0;
-            for (var i = 0; i < imgArray.length; i++) {
-              if (imgArray[i] !== undefined) {
-                len++;
-              }
-            }
-            if (len > maxLength) {
-              return false;
-            } else {
-              imgArray.push(f);
-
-              var reader = new FileReader();
-              reader.onload = function (e) {
-                var className = generateUniqueClassName(iterator);
-                var html = "<div class='background__img-box'><div onclick='BackgroundImage(\"" + className + "\")' style='background-image: url(" + e.target.result + ")' data-number='" + $(".background__img-close").length + "' data-file='" + f.name + "' class='img-bg " + className + "'><div class='background__img-close'></div></div></div>";
-                imgWrap.append(html);
-                iterator++;
-              }
-              reader.readAsDataURL(f);
-            }
-          }
-        });
-      });
-    });
-
-    $('body').on('click', ".background__img-close", function (e) {
-      var file = $(this).parent().data("file");
-      for (var i = 0; i < imgArray.length; i++) {
-        if (imgArray[i].name === file) {
-          imgArray.splice(i, 1);
-          break;
-        }
-      }
-      $(this).parent().parent().remove();
-    });
-}
 
 const form = document.getElementById('form');
 const brand = document.getElementById('brand');

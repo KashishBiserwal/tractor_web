@@ -199,7 +199,7 @@ include 'includes/footertag.php';
                                                         <div class="col-12 col-sm-4 col-lg-4 col-md-4 my-4">
                                                             <div class="form-outline">
                                                                 <label class="form-label">No. of Cylinder</label>
-                                                                <select class="form-select py-2" id="TOTAL_CYCLINDER" name="TOTAL_CYCLINDER" aria-label="Default select example" required>
+                                                                <select class="form-select py-2" id="TOTAL_CYLINDER" name="TOTAL_CYCLINDER" aria-label="Default select example" required>
                                                                     <option selected disabled="" value="">Please select an option</option>
                                                                 </select>
                                                             </div>
