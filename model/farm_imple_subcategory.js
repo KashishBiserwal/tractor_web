@@ -577,49 +577,49 @@ function store(event) {
         });
     }
     
-    
-    function edit_user() {
-      var edit_id = $("#idUser").val();
-      var lookup_type = $("#lookupSelectbox1").val();
-      var lookup_value = $("#lookup_data_value1").val();
+    //  function edit_user() {
+    //   var edit_id = $("#idUser").val();
+    //   var lookup_type = $("#lookupSelectbox1").val();
+    //   var lookup_value = $("#lookup_data_value1").val();
   
-      var paraArr = {
-          'lookup_type_id': lookup_type,
-          'lookup_data_value': lookup_value,
-          'id': edit_id, 
-      };
+    //   var paraArr = {
+    //       'lookup_type_id': lookup_type,
+    //       'lookup_data_value': lookup_value,
+    //       'id': edit_id, 
+    //   };
     
-      var apiBaseURL = APIBaseURL;
-      var url = apiBaseURL + 'lookup_data/' + edit_id;
+    //   var apiBaseURL = APIBaseURL;
+    //   var url = apiBaseURL + 'lookup_data/' + edit_id;
     
-      var headers = {
-          'Authorization': 'Bearer ' + localStorage.getItem('token')
-      };
+    //   var headers = {
+    //       'Authorization': 'Bearer ' + localStorage.getItem('token')
+    //   };
     
-      $.ajax({
-          url: url,
-          type: "PUT",
-          data: paraArr,
-          headers: headers,
-          success: function (result) {
-              console.log(result, "result");
-              // get();
-              window.location.reload();
-              console.log("updated successfully");
-              var msg = "Updated successfully !"
-          $("#errorStatusLoading").modal('show');
-          $("#errorStatusLoading").find('.modal-title').html('Success');
-          $("#errorStatusLoading").find('.modal-body').html(msg);
-          },
-          error: function (error) {
-              console.error('Error fetching data:', error);
-              var msg = error;
-              $("#errorStatusLoading").modal('show');
-              $("#errorStatusLoading").find('.modal-title').html('Error');
-              $("#errorStatusLoading").find('.modal-body').html(msg);
-          }
-      });
-    }
+    //   $.ajax({
+    //       url: url,
+    //       type: "PUT",
+    //       data: paraArr,
+    //       headers: headers,
+    //       success: function (result) {
+    //           console.log(result, "result");
+    //           // get();
+    //           window.location.reload();
+    //           console.log("updated successfully");
+    //           var msg = "Updated successfully !"
+    //       $("#errorStatusLoading").modal('show');
+    //       $("#errorStatusLoading").find('.modal-title').html('Success');
+    //       $("#errorStatusLoading").find('.modal-body').html(msg);
+    //       },
+    //       error: function (error) {
+    //           console.error('Error fetching data:', error);
+    //           var msg = error;
+    //           $("#errorStatusLoading").modal('show');
+    //           $("#errorStatusLoading").find('.modal-title').html('Error');
+    //           $("#errorStatusLoading").find('.modal-body').html(msg);
+    //       }
+    //   });
+    // } 
+  
 
        
   function searchdata() {
