@@ -1162,8 +1162,8 @@ border-radius: 50%;
 input[type="checkbox"] + label {
     /* display: block; */
     /* position: relative; */
-    padding: 8px;
-    margin-bottom: 20px;
+    /* padding: 8px; */
+    /* margin-bottom: 20px; */
     /* font: 14px/20px 'Open Sans', Arial, sans-serif; */
     color: black;
     cursor: pointer;

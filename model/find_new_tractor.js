@@ -443,7 +443,7 @@ function appendFilterCard(filterContainer, filter) {
             <div class="content d-flex flex-column flex-grow-1">
                 <div class="caption text-center">
                     <a href="detail_tractor.php?product_id=${p.product_id}" class="text-decoration-none text-dark">
-                        <p class="pt-3"><strong class="series_tractor_strong text-center h4 fw-bold ">${p.model}</strong></p>
+                        <p class="pt-3"><strong class="series_tractor_strong text-center h6 fw-bold ">${p.model}</strong></p>
                     </a>      
                 </div>
                 <div class="power text-center mt-2">
