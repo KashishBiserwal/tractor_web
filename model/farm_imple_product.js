@@ -217,7 +217,7 @@ get();
 // get brand and model
 function get_brand() {
     var url = 'http://tractor-api.divyaltech.com/api/customer/get_all_brands';
-    // var url = 'http://tractor-api.divyaltech.com/api/admin/get_all_brands/'+ 6;
+    // var url = 'http://tractor-api.divyaltech.com/api/customer/get_all_brands/'+ 6;
     $.ajax({
         url: url,
         type: "GET",
@@ -290,48 +290,46 @@ function get_brand() {
   get_brand(); 
 
 // store data
-
-//   store subcategory
 function store(event) {
-    event.preventDefault();
-  
-    var customDataArray = [];
-    var implementDataArray = [];
-    var DataArray =[];
-  
-    // Assuming you have multiple elements with IDs like 'mobileb_no_1', 'mobileb_no_2', etc. 
-    $('[id^="mobileb_no_"]').each(function() {
-      customDataArray.push($(this).val());
-    });
-  
-    // Assuming you have multiple elements with IDs like 'no_type_1', 'no_type_2', etc.
-    $('[id^="no_type_"]').each(function() {
-      implementDataArray.push($(this).val());
-    });
-  
-    $('[id^="custom_"]').each(function() {
-        DataArray.push($(this).val());
-      });
+  event.preventDefault();
 
-    var customDataJson = JSON.stringify(customDataArray);
-    var implementDataJson = JSON.stringify(implementDataArray);
-    var DataArray = JSON.stringify(DataArray);
-  
-    var brand_id = $('#brand_main').val();
-    var model_main = $('#model_main').val();
-    var lookup_type = $('#lookupSelectbox').val();
-    var lookup_data_value = $('#lookup_data_value').val();
-    var id = $('#idUser').val();
-    // var image_names = $('#image_name').files[0]; 
-    var image_names = document.getElementById('image_name').files;
-  
-    var apiBaseURL = APIBaseURL;
-    var url = apiBaseURL + 'implement_details';
-  
-    var token = localStorage.getItem('token');
-    var headers = {
+  var customDataArray = [];
+  var implementDataArray = [];
+  var DataArray = [];
+
+  // Assuming you have multiple elements with IDs like 'mobileb_no_1', 'mobileb_no_2', etc.
+  $('[id^="mobileb_no_"]').each(function () {
+      customDataArray.push($(this).val());
+  });
+
+  // Assuming you have multiple elements with IDs like 'no_type_1', 'no_type_2', etc.
+  $('[id^="no_type_"]').each(function () {
+      implementDataArray.push($(this).val());
+  });
+
+  $('[id^="custom_"]').each(function () {
+      DataArray.push($(this).val());
+  });
+
+  var customDataJson = JSON.stringify(customDataArray);
+  var implementDataJson = JSON.stringify(implementDataArray);
+  var DataArrayJson = JSON.stringify(DataArray);
+
+  var brand_id = $('#brand_main').val();
+  var model_main = $('#model_main').val();
+  var lookup_type = $('#lookupSelectbox').val();
+  var lookup_data_value = $('#lookupSelectbox2').val();
+  var id = $('#idUser').val();
+  // var image_names = $('#image_name').files[0]; 
+  var image_names = document.getElementById('image_name').files;
+
+  var apiBaseURL = APIBaseURL;
+  var url = apiBaseURL + 'implement_details';
+
+  var token = localStorage.getItem('token');
+  var headers = {
       'Authorization': 'Bearer ' + token
-    };
+  };
   
     // var urlParams = new URLSearchParams(window.location.search);
     //   id = urlParams.get('id');
@@ -354,7 +352,9 @@ function store(event) {
     //   }
   
     var data = new FormData();
-    
+    for (var i = 0; i < DataArray.length; i++) {
+      data.append('CUSTOM_' + (i + 1), DataArray[i]);
+  }
     for (var x = 0; x < image_names.length; x++) {
         data.append("thumbnail[]", image_names[x]);
         console.log("multiple image", image_names[x]);
@@ -364,9 +364,9 @@ function store(event) {
     data.append('model', model_main);
     data.append('implements_category_id', lookup_type);
     data.append('implement_sub_category_id', lookup_data_value);
-    data.append('custom_data', customDataJson);
-    data.append('implement_data', implementDataJson);
-    data.append('CUSTOM_1 ', DataArray);
+    // data.append('custom_data', customDataJson);
+    // data.append('implement_data', implementDataJson);
+    // data.append('customDataJson', customDataJson);
     // data.append('thumbnail', image);
     // data.append('_method', _method);
   
@@ -389,10 +389,10 @@ function store(event) {
         $("#staticBackdrop1").modal('hide');
         // get_data();
        
-        // var alertConfirmation = confirm("Data added successfully. Do you want to reload the page?");
-        // if (alertConfirmation) {
-        // //   window.location.reload();
-        // }
+        var alertConfirmation = confirm("Data added successfully. Do you want to reload the page?");
+        if (alertConfirmation) {
+          window.location.reload();
+        }
       },
       error: function(error) {
         console.error('Error fetching data:', error);

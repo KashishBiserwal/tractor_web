@@ -192,15 +192,15 @@ include 'includes/headertag.php';
                                             <div class="upload__btn-box text-center">
                                               <label >
                                                 <p class="upload__btn ">Upload Thumbnail image</p>
-                                                <input type="file" data-max_length="20"name="imgfile"type="file"
-                                                id="image"
-                                                ref="fileInput"
-                                                style="display: none"
-                                                @change="handleFileInput"
-                                                accept="image/png, image/jpg, image/jpeg" class="background__inputfile" >
+                                                <input type="file" data-max_length="20" name="imgfile" type="file"
+                                                  id="image"
+                                                  ref="fileInput"
+                                                  style="display: none"
+                                                  @change="handleFileInput"
+                                                  accept="image/png, image/jpg, image/jpeg" class="background__inputfile">
                                               </label>
                                             </div>
-                                            <div id="selectedImagesContainer" class="upload__img-wrap"></div>
+                                            <div id="selectedImagesContainer2" class="upload__img-wrap float-start"></div>
                                           </div>
                                         </div>
 

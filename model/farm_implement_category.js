@@ -55,7 +55,7 @@ $(document).ready(function() {
   
   });
   
-//   function BackgroundUpload() {
+//   function load() {
 //     var imgWrap = "";
 //     var imgArray = [];
 
