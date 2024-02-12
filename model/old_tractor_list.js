@@ -297,8 +297,16 @@ function store(event) {
      var hours_driven = $('#hours_driven').val();
      var rc = $('#rc_num').val();
      var rc_number = $('input[name="fav_rc"]:checked').val();
+    
      var finance = $('input[name="fav_language"]:checked').val();
-     var nocAvailable = $('input[name="fav_language1"]:checked').val();
+     var nocAvailable;
+
+      if (finance == 1) {
+        nocAvailable = 1;
+      } else {
+        nocAvailable = 0;
+      }
+    //  var nocAvailable = $('input[name="fav_language1"]:checked').val();
      var price= $('#price_old').val();
      var description = $('#description').val();
  
@@ -359,7 +367,6 @@ function store(event) {
        data.append('description', description);
        data.append('finance', finance);
        data.append('noc', nocAvailable);
-       console.log(data, "okk");
 
      $.ajax({
       url: url,

@@ -3,7 +3,7 @@ var editId_state= false;
   $(document).ready(function () {
     $('#Search').click(searchdata);
     ImgUpload();
-    $('#btn_submit').click(store);
+    // $('#btn_submit').click(store);
     $('#btn_subcat').click(store_subcategory);
     $('#save_btn').click(hatbazar_add);
     
@@ -498,58 +498,7 @@ get_category();
     
     }
 
-        //  function get_haatbazar_list() {
-        //     var apiBaseURL = APIBaseURL;
-        //     var url = apiBaseURL + 'haat_bazar';
-        //     $.ajax({
-        //         url: url,
-        //         type: "GET",
-        //         headers: {
-        //             'Authorization': 'Bearer ' + localStorage.getItem('token')
-        //         },
-        //         success: function (data) {
-        //             const tableBody = document.getElementById('data-table');
-        //             let serialNumber = 1;
-        
-        //             if (data.allData.haat_bazar_data && data.allData.haat_bazar_data.length > 0) {
-        //                 data.allData.haat_bazar_data.forEach(row => {
-        //                     const fullName = row.first_name + ' ' + row.last_name;
-                            const cantegory_name=data.allData.category_name[0].haat_bazar_category_name;
-                            const tableRow = document.createElement('tr');
-                            tableRow.innerHTML = `
-                                <td>${serialNumber}</td>
-                                <td>${cantegory_name}</td>
-                                <td>${row.sub_category_name}</td>
-                                <td>${fullName}</td>
-                                <td>${row.mobile}</td>
-                                <td>${row.state}</td>
-                                <td>${row.district}</td>
-                                <td>
-                                    <div class="d-flex">
-                                        <button class="btn btn-warning btn-sm text-white mx-1" data-bs-toggle="modal" onclick="fetch_data(${row.haat_bazar_id})" data-bs-target="#view_model_hatbazar"><i class="fas fa-eye" style="font-size: 11px;"></i></button>
-        
-        //                                 <button class="btn btn-primary btn-sm btn_edit" onclick="fetch_edit_data(${row.haat_bazar_id})" data-bs-toggle="modal" data-bs-target="#staticBackdrop" id="yourUniqueIdHere">
-        //                                     <i class="fas fa-edit" style="font-size: 11px;"></i>
-        //                                 </button>
-        //                                 <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.haat_bazar_id})">
-        //                                     <i class="fa fa-trash" style="font-size: 11px;"></i>
-        //                                 </button>
-        //                             </div>
-        //                         </td>
-        //                     `;
-        //                     tableBody.appendChild(tableRow);
-        //                     serialNumber++;
-        //                 });
-        //             } else {
-        //                 tableBody.innerHTML = '<tr><td colspan="9">No valid data available</td></tr>';
-        //             }
-        //         },
-        //         error: function (error) {
-        //             console.error('Error fetching data:', error);
-        //         }
-        //     });
-        // }
-        // get_haatbazar_list();
+      
         
 
 
@@ -566,8 +515,9 @@ get_category();
             success: function (data) {
                 const tableBody = $('#data-table'); // Use jQuery selector for the table body
                 tableBody.empty(); // Clear previous data
-        
-                let serialNumber = 1;
+
+                // const category=data.allData.haat_bazar_data
+                let serialNumber = data.allData.haat_bazar_data.length;
         
                   if (data.allData.haat_bazar_data && data.allData.haat_bazar_data.length > 0) {
                       var table = $('#example').DataTable({
@@ -590,8 +540,8 @@ get_category();
         
                           // Add row to DataTable
                           table.row.add([
-                              serialNumber,
-                              row.haat_bazar_id,
+                              serialNumber--,
+                              row.category_name,
                               row.sub_category_name,
                               fullName,
                               row.mobile,
@@ -610,7 +560,7 @@ get_category();
                       </td>`
                           ]).draw(false);
         
-                          serialNumber++;
+                          // serialNumber++;
                       });
                   } else {
                     tableBody.innerHTML = '<tr><td colspan="9">No valid data available</td></tr>';

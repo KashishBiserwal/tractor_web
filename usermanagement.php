@@ -107,7 +107,7 @@ include 'includes/headertag.php';
                                 <select class="form-select py-2" aria-label="Default select example" name="user_type" id="user_type">
                                   <option value>Select User</option>
                                   <option value="1" >Admin</option>
-                                  <option value="2">User</option>
+                                  <option value="0">User</option>
                                 </select>
                               </div>
                               </div>
@@ -117,7 +117,7 @@ include 'includes/headertag.php';
                                 <select class="form-select py-2" aria-label="Default select example"  name="status" id="status">
                                   <option value>Select Status</option>
                                   <option value="1">Active</option>
-                                  <option value="2">In Active</option>
+                                  <option value="0">In Active</option>
                                 </select>
                               </div>
                               </div>
