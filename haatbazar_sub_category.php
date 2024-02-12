@@ -83,32 +83,33 @@ include 'includes/headertag.php';
     <div class="">
       <!-- Filter Card -->
       <div class="filter-card">
-        <div class="card-body">
-            <form action="" id="myform" class="mb-0">
-                <div class="row">
-                    <div class="col-12 col-sm-12 col-md-4 col-lg-4">
-                        <div class="form-outline">
-                            <label class="form-label">Search by Category</label>
-                            <input type="text" id="category_search" name="name_1" class="mb-0 data_search form-control input-group-sm" />
-                        </div>
+    <div class="card-body">
+        <form action="" id="myform" class="mb-0">
+            <div class="row">
+                <div class="col-12 col-sm-12 col-md-4 col-lg-4">
+                    <div class="form-outline">
+                        <label class="form-label">Category</label>
+                        <select class="form-select py-2 category_cls" aria-label="Default select example" id="category_search" name="_category" onchange="get_sub_category(this.value)">
+                        </select>
                     </div>
-                    <div class="col-12 col-sm-12 col-md-4 col-lg-4">
-                        <div class="form-outline">
-                            <label class="form-label">Search by Sub Category</label>
-                            <input type="text" id="sub_category_search" name="name_2" class="mb-0 data_search form-control input-group-sm" />
-                        </div>
-                    </div>
-                    <div class="col-12 col-sm-12 col-md-4 col-lg-4">
-                    <div class="text-center">
-                      <button type="button" class="btn-success btn px-3 pt-2" id="Search" onclick="searchdata()">Search</button>
-                            <button type="button" class="btn-success btn mx-2 px-3 pt-2" id="Reset">Reset</button>
-                      </div>
-                    </div>
-                    
                 </div>
-            </form>
-        </div>
-      </div>
+                <div class="col-12 col-sm-12 col-md-4 col-lg-4">
+                    <div class="form-outline">
+                        <label class="form-label">Sub-Category</label>
+                        <select class="form-select py-2 sub_category_cls" aria-label="Default select example" id="sub_category_search" name="sub_cate">
+                        </select>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-12 col-md-4 col-lg-4">
+                    <div class="text-center">
+                        <button type="button" class="btn-success btn px-3 pt-2" id="Search" onclick="searchdata()">Search</button>
+                        <button type="button" class="btn-success btn mx-2 px-3 pt-2" id="Reset" onclick="resetForm()">Reset</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
       <!-- Table Card -->
       <div class=" mb-5  shadow bg-white mt-3 p-3">
       <div class="table-responsive">
@@ -135,7 +136,7 @@ include 'includes/headertag.php';
                   <div class="modal-dialog  modal-dialog-centered">
                     <div class="modal-content modal_box">
                       <div class="modal-header modal_head">
-                        <h5 class="modal-title text-white fw-bold" id="staticBackdropLabel">Add HaatBazaar Sub-Category</h5>
+                        <h5 class="modal-title text-white fw-bold" id="staticBackdropLabel">Update HaatBazaar Sub-Category</h5>
                         <button type="button" class="btn-close btn-success" data-bs-dismiss="modal" aria-label="Close"><img src="assets/images/close.png"></button>
                       </div>
                         <div class="modal-body bg-light">
