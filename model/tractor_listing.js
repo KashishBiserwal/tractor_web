@@ -7,7 +7,7 @@ $(document).ready(function () {
   // $('.js-example-basic-multiple').select2();
   ImgUpload();
  
-  fetch_edit_data();
+ 
     $('#submitbtn').click(store);
     console.log('fjfej');
   
@@ -114,7 +114,7 @@ function get_lookup() {
             // var tractorTypesArray = [];
             
             for (var j = 0; j < data.tractor_type_data.length; j++) {
-              var checkbox = $('<input type="checkbox" id="tractor_type_' + data.tractor_type_data[j].id + '" value="' + data.tractor_type_data[j].id + '">');
+              var checkbox = $(`<input type="checkbox" id=tractor_type_${data.tractor_type_data[j].id} value= ${data.tractor_type_data[j].id }>`);
               var label = $('<label for="tractor_type_' + data.tractor_type_data[j].id + '">' + data.tractor_type_data[j].type_name + '</label>');
             
               $("#type_name").append(checkbox);
@@ -124,7 +124,7 @@ function get_lookup() {
         },
         
         complete:function(){
-         
+          fetch_edit_data();
         },
         error: function (error) {
             console.error('Error fetching data:', error);
@@ -377,11 +377,18 @@ function store(event) {
 
         // var tractorTypeIdToCheck = editData2.tractor_type_id;
         var tractorTypeIdToCheck = editData2.tractor_type_id;
-        $("#type_name input[type='checkbox']").prop("checked", false);
+        $("#tractor_type_ input[type='checkbox']").prop("checked", false);
 
         // $("#type_name_").prop("checked", false);
-        // $(`#type_name ${tractorTypeIdToCheck}`).prop("checked", true);
-        $("#tractor_type_" + tractorTypeIdToCheck).prop("checked", true);
+        // $(`#tractor_type_${tractorTypeIdToCheck}`).prop("checked","checked");
+       
+        // $("#tractor_type_1").attr("checked","checked");
+        
+        // const checkbox = document.getElementById("tractor_type_1");
+        // setTimeout(() => {
+          // console.log(document.getElementById(`tractor_type_${tractorTypeIdToCheck}`));
+          document.getElementById(`tractor_type_${tractorTypeIdToCheck}`).checked = true;
+        //  }, 5000);
 
         console.log(tractorTypeIdToCheck, "tractors value");
 
@@ -458,17 +465,19 @@ function store(event) {
         $("#selectedImagesContainer2").empty();
 
            if (editData.image_names) {
+            $('#_image1').val
              var imageNamesArray = Array.isArray(editData.image_names) ? editData.image_names : editData.image_names.split(',');
              console.log('imageNamesArray',imageNamesArray);  
              var countclass = 0;
              imageNamesArray.forEach(function (image_names) {
                  var imageUrl = 'http://tractor-api.divyaltech.com/uploads/product_img/' + image_names.trim();
-            
+             
                  countclass++;
                  var newCard = `
                      <div class="col-12 col-md-2 col-lg-2 position-relative" style="left:6px;">
-                         <div class="upload__img-close_button " id="closeId${countclass}" onclick="removeImage(this);"></div>
-                         <div class="brand-main d-flex box-shadow mt-1 py-2 text-center shadow upload__img-closeDy${countclass}">
+                     <div class="upload__img-close_button " id="closeId${countclass}" onclick="removeImage(this);"></div>
+                     <div class="brand-main d-flex box-shadow mt-1 py-2 text-center shadow upload__img-closeDy${countclass}">
+                  
                              <a class="weblink text-decoration-none text-dark" title="Image">
                                  <img class="img-fluid w-100" src="${imageUrl}" alt="Image">
                               </a>
@@ -476,6 +485,7 @@ function store(event) {
                       </div>
        `;
        $("#selectedImagesContainer2").append(newCard);
+   
 });
   
   }
@@ -499,6 +509,8 @@ function store(event) {
       }
     });
   }
+  // $("#tractor_type_1").attr("checked","checked");
+ 
 
   // function get() {
   //       // var url = "<?php echo $APIBaseURL; ?>getBrands";

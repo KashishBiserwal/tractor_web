@@ -175,6 +175,7 @@ function get_subcategory_custom(id){
 
             Data.custom_data.forEach(function (p, index) {
                 var tableRow = `
+                
                     <div class="row form_field_outer_row">
                         <div class="form-group col-md-4">
                             <input type="text" class="form-control w_90" name="mobileb_no[]" value="${p.custom_column_name}" id="mobileb_no_${index + 1}" readOnly />
@@ -183,12 +184,13 @@ function get_subcategory_custom(id){
                             <input type="text" class="form-control" name="no_type[]" id="no_type_${index + 1}" placeholder="Enter Value" aria-invalid="false" value="${p.implement_column_name}"  readOnly/>
                         </div>
                         <div class="form-group col-md-4">
-                            <input type="text" class="form-control" name="custome[]" id="custom_${index + 1}" placeholder="Enter Value" aria-invalid="false" value="" />
+                            <input type="text" class="form-control" name="custome[]" id="custom_${index + 1}" placeholder="Enter Value" aria-invalid="false" value="" required/>
                         </div>
                         
                     </div>
                 `;
-                tableData.append(tableRow);
+               
+                tableData.append( "<form>"+tableRow+"</form>");
             });
 
             // Enable all delete buttons
