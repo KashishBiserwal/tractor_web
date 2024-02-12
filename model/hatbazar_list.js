@@ -3,7 +3,7 @@ var editId_state= false;
   $(document).ready(function () {
     $('#Search').click(searchdata);
     ImgUpload();
-    $('#btn_submit').click(store);
+    $('#btn_submit').click(store);y
     $('#btn_subcat').click(store_subcategory);
     $('#save_btn').click(hatbazar_add);
     
@@ -331,7 +331,7 @@ var editId_state= false;
 }
 
 function get_sub_category(category_id) {
-    var apiBaseURL = APIBaseURL; // Assuming APIBaseURL is defined globally
+    var apiBaseURL = APIBaseURL; 
     var url = apiBaseURL + 'haat_bazar_sub_category/' + category_id;
     $.ajax({
         url: url,
@@ -591,7 +591,7 @@ get_category();
                           // Add row to DataTable
                           table.row.add([
                               serialNumber,
-                              row.haat_bazar_id,
+                              row.category_name,
                               row.sub_category_name,
                               fullName,
                               row.mobile,
@@ -913,7 +913,7 @@ function updateTable(data) {
      </td>`;
           tableData.push([
             serialNumber,
-            row.haat_bazar_id,
+            row.category_name,
             row.sub_category_name,
             fullName,
             row.mobile,
