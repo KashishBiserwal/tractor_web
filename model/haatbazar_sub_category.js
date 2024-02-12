@@ -89,7 +89,7 @@ function get_data() {
             tableBody.innerHTML = ''; // Clear previous data
   
             if (data.allSubCategory.length > 0) {
-                let serialNumber = 1; 
+                let serialNumber = data.allSubCategory.length; 
                 let tableData = [];
                 // Loop through the data and create table rows
                 data.allSubCategory.forEach(row => {
@@ -104,14 +104,14 @@ function get_data() {
                </div>`;
                  
                     tableData.push([
-                      serialNumber,
-                      row.category_id,
+                      serialNumber--,
+                      row.category_name,
                       row.sub_category_name,
                       action
                   ]);
   
                     // Increment serialNumber fo  r the next row
-                    serialNumber++;
+                    // serialNumber++;
                     
                 });
                 $('#example').DataTable().destroy();

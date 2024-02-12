@@ -620,11 +620,11 @@ var editId_state= false;
                     if (data.allData.haat_bazar_data && data.allData.haat_bazar_data.length > 0) {
                         data.allData.haat_bazar_data.forEach(row => {
                             const fullName = row.first_name + ' ' + row.last_name;
-        
+                            const cantegory_name=data.allData.category_name[0].haat_bazar_category_name;
                             const tableRow = document.createElement('tr');
                             tableRow.innerHTML = `
                                 <td>${serialNumber}</td>
-                                <td>${row.haat_bazar_category_name}</td>
+                                <td>${cantegory_name}</td>
                                 <td>${row.sub_category_name}</td>
                                 <td>${fullName}</td>
                                 <td>${row.mobile}</td>
