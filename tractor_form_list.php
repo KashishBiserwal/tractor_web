@@ -181,7 +181,11 @@ include 'includes/footertag.php';
                                                         <div class="col-12 col-sm-6 col-lg-6 col-md-6 mt-3">
                                                             <div class="form-outline">
                                                                 <label class="form-label">Model Name</label>
-                                                                <input type="text" placeholder=" " id="model" name="model" class="form-control" required>
+                                                                <!-- <input type="text" placeholder=" " id="model" name="model" class="form-control" required> -->
+                                                                <select class="form-select py-2" id="model" name="model" aria-label="Default select example" required>
+                                                                    <option value="">Select Model</option>
+                                                                </select>
+                                                                
                                                             </div>
                                                         </div>
                                                         <div class="col-12 col-sm-6 col-lg-6 col-md-6 my-4" hidden>

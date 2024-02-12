@@ -106,8 +106,8 @@ include 'includes/headertag.php';
                                 <label class="form-label">User Type<span class="text-danger">*</span></label>
                                 <select class="form-select py-2" aria-label="Default select example" name="user_type" id="user_type">
                                   <option value>Select User</option>
-                                  <option value="1" >Admin</option>
-                                  <option value="0">User</option>
+                                  <option value="0" >Admin</option>
+                                  <option value="1">Super Admin</option>
                                 </select>
                               </div>
                               </div>
