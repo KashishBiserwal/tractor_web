@@ -30,11 +30,11 @@
             
             <div class="col-12 col-sm-7 col-lg-7 col-md-7">
               <div class=" float-end">
-                <button type="button" id="add_trac" class="btn add_btn bg-success" data-bs-toggle="modal"  data-bs-target="#staticBackdrop1">
+                <!-- <button type="button" id="add_trac" class="btn add_btn bg-success" data-bs-toggle="modal"  data-bs-target="#staticBackdrop1">
                   <i class="fa fa-plus" aria-hidden="true"></i> Category
-                </button>
+                </button> -->
                 <!-- modal -->
-                <div class="modal fade" id="staticBackdrop1" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <!-- <div class="modal fade" id="staticBackdrop1" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                   <div class="modal-dialog  modal-dialog-centered">
                     <div class="modal-content modal_box">
                       <div class="modal-header modal_head">
@@ -64,9 +64,9 @@
                         </div>
                     </div>
                   </div>
-                </div>
+                </div> -->
                  <!-- subcategory -->
-                 <button type="button" id="add_trac" class="btn add_btn bg-success" data-bs-toggle="modal"  data-bs-target="#staticBackdrop2">
+                 <!-- <button type="button" id="add_trac" class="btn add_btn bg-success" data-bs-toggle="modal"  data-bs-target="#staticBackdrop2">
                   <i class="fa fa-plus" aria-hidden="true"></i> Sub-Category
                 </button>
                 <div class="modal fade" id="staticBackdrop2" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -112,7 +112,7 @@
                       </div>
                     </div>
                   </div>
-                </div>
+                </div> -->
                 <button type="button" id="add_trac" class="btn add_btn bg-success" data-bs-toggle="modal"  data-bs-target="#staticBackdrop">
                   <i class="fa fa-plus" aria-hidden="true"></i> Haatbazaar Items
                 </button>
@@ -146,19 +146,21 @@
                                             </div>
                                         </div>
                                         <div class="col-12 col-sm-6 col-md-6 col-lg-6">
-                                            <div class="form-outline">
-                                                <label class="form-label">Category</label>
-                                                <select class="form-select py-2 category_" aria-label="Default select example" id="_category" name="_category">
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="col-12 col-sm-6 col-md-6 col-lg-6">
-                                            <div class="form-outline">
-                                                <label class="form-label">Sub-Category</label>
-                                                <select class="form-select py-2" aria-label="Default select example"id="sub_cate" name="sub_cate">
-                                                </select>
-                                            </div>
-                                        </div>
+                                      <div class="form-outline">
+                                          <label class="form-label">Category</label>
+                                          <select class="form-select py-2 category_" aria-label="Default select example" id="c_category" name="_category" onchange="get_sub_category(this.value)">
+                                              <!-- onchange event added to trigger get_sub_category function -->
+                                          </select>
+                                      </div>
+                                  </div>
+                                  <div class="col-12 col-sm-6 col-md-6 col-lg-6">
+                                      <div class="form-outline">
+                                          <label class="form-label">Sub-Category</label>
+                                          <select class="form-select py-2" aria-label="Default select example" id="sub_cate" name="sub_cate">
+                                          </select>
+                                      </div>
+                                  </div>
+
                                         <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-4">
                                           <div class="input-group">
                                               <input type="number" id="quantityInput" class="form-control text-black" placeholder="Quantity" aria-label="Text input with dropdown button" name="quantity" >
@@ -285,30 +287,22 @@
             <div class="col-12 col-sm-12 col-md-3 col-lg-3">
               <div class="form-outline">
                 <label class="form-label">Category</label>
-                <select class="form-select py-2" aria-label="Default select example">
-                    <option value>Select Category</option>
-                    <option value="1">Vegitable</option>
-                    <option value="2">Fruits</option>
-                    <option value="2">Grains</option>
-                    <option value="2">Pulses</option>
+                <select class="form-select py-2 category_" aria-label="Default select example" id="cc_category" name="_category" onchange="get_sub_category(this.value)">
+                 <!-- onchange event added to trigger get_sub_category function -->
                 </select>
               </div>
-            </div>
-            <div class="col-12 col-sm-12 col-md-3 col-lg-3">
-              <div class="form-outline">
-                <label class="form-label">Sub-Category</label>
-                <select class="form-select py-2" aria-label="Default select example">
-                    <option value>Select Sub-Category</option>
-                    <option value="">Potato</option>
-                    <option value="">Rice</option>
-                    <option value="">Papaya</option>
-                </select>
               </div>
-            </div>
+              <div class="col-12 col-sm-12 col-md-3 col-lg-3">
+                  <div class="form-outline">
+                      <label class="form-label">Sub-Category</label>
+                      <select class="form-select py-2" aria-label="Default select example" id="ss_sub_cate" name="sub_cate">
+                      </select>
+                  </div>
+              </div>
             <div class="col-12 col-sm-12 col-md-3 col-lg-3">
               <div class="form-outline">
                 <label class="form-label">State</label>
-                <select class="form-select py-2" aria-label="Default select example">
+                <select class="form-select py-2" aria-label="Default select example" id="select_state">
                     <option value>Select State</option>
                     <option value=""></option>
                     <option value="">Chattisgarh</option>
@@ -319,7 +313,7 @@
             <div class="col-12 col-sm-12 col-md-3 col-lg-3">
               <div class="form-outline">
                 <label class="form-label">District</label>
-                <select class="form-select py-2" aria-label="Default select example">
+                <select class="form-select py-2" aria-label="Default select example" id="select_dist">
                     <option value>Select District</option>
                     <option value="">Raipur</option>
                     <option value="">Bilaspur</option>
@@ -339,27 +333,27 @@
         </div>
       </div>
       <!-- Table Card -->
-      <div class=" mb-5">
-            <div class="table-responsive shadow bg-white mt-2">
-                                <table id="example" class="table table-striped table-hover table-bordered dataTable no-footer" width="100%" >
-                                    <thead>
-                                        <tr>
-                                            <th class="d-none d-md-table-cell text-white">S.No.</th>
-                                            <th class="d-none d-md-table-cell text-white">Category</th>
-                                            <th class="d-none d-md-table-cell text-white">Sub-Category</th>
-                                            <th class="d-none d-md-table-cell text-white">Name</th>
-                                            <th class="d-none d-md-table-cell text-white">Phone Number</th>
-                                            <th class="d-none d-md-table-cell text-white">State</th>
-                                            <th class="d-none d-md-table-cell text-white">District</th>
-                                            <th class="d-none d-md-table-cell text-white">Action</th>
-                                           
-                                        </tr>
-                                    </thead>
-                                    <tbody id="data-table">
-                                    </tbody>
-                                </table>
-                            </div>
-      </div>
+      <div class="mb-5  shadow bg-white mt-3 p-3">
+    <div class="table-responsive mt-2">
+        <table id="example" class="table table-striped table-hover table-bordered no-footer" width="100%;">
+            <thead>
+                <tr>
+                    <th class="d-none d-md-table-cell text-white">S.No.</th>
+                    <th class="d-none d-md-table-cell text-white">Category</th>
+                    <th class="d-none d-md-table-cell text-white">Sub-Category</th>
+                    <th class="d-none d-md-table-cell text-white">Full Name</th>
+                    <th class="d-none d-md-table-cell text-white">Mobile</th>
+                    <th class="d-none d-md-table-cell text-white">State</th>
+                    <th class="d-none d-md-table-cell text-white">District</th>
+                    <th class="d-none d-md-table-cell text-white">Action</th>
+                </tr>
+            </thead>
+            <tbody id="data-table">
+            </tbody>
+        </table>
+    </div>
+</div>
+
     </div>
 </section>
           <div class="modal fade" id="view_model_hatbazar" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
