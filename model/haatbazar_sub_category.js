@@ -312,17 +312,17 @@ function destroy(id) {
   
 function searchdata() {
     console.log("dfghsfg,sdfgdfg");
-    var lookup_type = $('#lookup_type').val();
-    var lookup_data = $('#lookup_data').val();
+    var category = $('#category_search').val();
+    var sub_category = $('#sub_category_search').val();
   
     var paraArr = {
-      'category_name': lookup_type,
-      'sub_category_name':lookup_data,
+      'haat_bazar_id': category,
+      'sub_category_name':sub_category,
       
     };
   
     var apiBaseURL = APIBaseURL;
-    var url = apiBaseURL + 'search_for_lookup_data';
+    var url = apiBaseURL + 'search_for_haat_bazar';
     $.ajax({
         url:url, 
         type: 'POST',
@@ -345,10 +345,10 @@ function searchdata() {
     tableBody.innerHTML = '';
     let serialNumber = 1; 
   
-    if(data.lookupType && data.lookupType.length > 0) {
+    if(data.haatBazarData && data.haatBazarData.length > 0) {
         let tableData = []; 
-        data.lookupType.forEach(row => {
-            let action =  `<div class="d-flex">
+        data.haatBazarData.forEach(row => {
+            let action = `<div class="d-flex">
             <button class="btn btn-danger btn-sm mx-1" id="delete_user" onclick="destroy(${row.id});" style="padding:5px;">
                 <i class="fa fa-trash" style="font-size: 11px;"></i>
             </button>
@@ -356,13 +356,12 @@ function searchdata() {
                <i class="fas fa-edit" style="font-size: 11px;"></i>
             </button>
         </div>`;
-  console.log(row.customer_id);
             tableData.push([
-                serialNumber,
-                row.category_id,
-                row.sub_category_name,
-                action
-          ]);
+              serialNumber,
+              row.category_name,
+              row.sub_category_name,
+              action
+            ]);
   
           serialNumber++;
       });
@@ -371,7 +370,7 @@ function searchdata() {
       $('#example').DataTable({
           data: tableData,
           columns: [
-            { title: 'ID' },
+            { title: 'S.No.' },
             { title: 'Category' },
             { title: 'Sub Category' },
             { title: 'Action', orderable: false }
@@ -384,4 +383,4 @@ function searchdata() {
         // Display a message if there's no valid data
         tableBody.innerHTML = '<tr><td colspan="4">No valid data available</td></tr>';
     }
-  }
+}
