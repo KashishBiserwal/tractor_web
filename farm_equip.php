@@ -100,21 +100,19 @@
                                     <div class="col-12 mt-5">
                                       <div class="upload__box text-center">
                                         <div class="upload__btn-box text-center">
-                                          <label >
+                                          <label>
                                             <p class="upload__btn">Upload images</p>
                                               <input type="file" multiple="" data-max_length="20" class="upload__inputfile" id="image_name" name="_image"required>
                                           </label>
                                         </div>
                                         <div class="col-12">
                                           <div id="selectedImagesContainer2" class="upload__img-wrap float-start"></div>
+                                        </div>             
                                         </div>
-                                                               
+                                          <p class="text-danger">Note*- Image Must be JPEG, PNG & JPG format</p>
+                                        </div>
                                       </div>
-                                        <p class="text-danger">Note*- Image Must be JPEG, PNG & JPG format</p>
-                                      </div>
-                                  
-                                </div>
-                            </form>
+                                  </form>
                             </div>
                         </div>
                     </div>

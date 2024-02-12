@@ -259,47 +259,16 @@
         </div>
     </section>
   
- <section class="mt-3">
+    <section class="mt-3">
         <div class="container">
             <div>
-            <h2 class="fw-bold text-dark text-start mt-3 assured ps-3">Similar Tyres</h3>
+                <h2 class="fw-bold text-dark text-start mt-3 assured ps-3">Similar Tyres</h3>
             </div>
-                <div id="productContainer" class="row owl Carousel mt-4" >
-                    <!-- <div class="item">
-                            <div class="post-slide">
-                                <div class="post-img">
-                                    <img src="assets/images/birla_tyre.jpg" alt="">
-                                    <a href="#" class="over-layer">
-                                        <i class="fa fa-link"></i>
-                                    </a>
-                                </div>
-                                <div class="post-content">
-                                    <h3 class="post-title text-center">
-                                        <a href="#" class="text-decoration-none fw-bold ">
-                                            Birla Tyres SHAAN+ 18.4 - 30</a>
-                                    </h3>
-                                    <div class="row text-center">
-                                        <div class="col-4 col-lg-4 col-md-4 col-sm-4">
-                                            <p class="text-dark">Tractor</p>
-                                        </div>
-                                        <div class="col-4 col-lg-4 col-md-4 col-sm-4">
-                                            <p class="text-dark">Rear
-                                            </p>
-                                        </div>
-                                        <div class="col-4 col-lg-4 col-md-4 col-sm-4">
-                                            <p id="adduser" type="" class="text-dark">
-                                                18.4-30
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div> -->
-                 
-                </div>
+            <div id="productContainer" class="row owl Carousel mt-4" >
             </div>
-        <div class="col text-center my-3 pb-5">
-            <a href="tyre.php" class="btn btn-success btn-lg">Load More Tyres</a>
+            <div class="col text-center my-3 pb-5">
+                <a href="tyre.php" class="btn btn-success btn-lg">Load More Tyres</a>
+            </div>
         </div>
     </section>
 
@@ -307,6 +276,7 @@
     include 'includes/footer.php';
     // include 'includes/footertag.php';
     ?>
+    </body>
   <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script>
     $(document).ready(function() {
@@ -329,11 +299,5 @@
         });
     });
 
- 
-
-
-
     </script>
-   
 
-</html>

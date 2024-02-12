@@ -7,7 +7,9 @@ $(document).ready(function() {
     getTractorList();
 });
 
-
+function model_click(){
+    get();
+  }
 
 
 function get() {
@@ -198,10 +200,12 @@ function getTractorList() {
 function displayTractors(tractors) {
     var productContainer = $("#productContainer");
     var tableData = $("#tableData");
-        // Clear existing content
-        productContainer.html('');
-        tableData.html('');
-    tractors.forEach(function(p) {
+    // Clear existing content
+    productContainer.html('');
+    tableData.html('');
+    tractors.sort((a, b) => b.product_id - a.product_id);
+    var tractorsToDisplay = tractors.slice(0, 4);
+    tractorsToDisplay.forEach(function (p) {
         var images = p.image_names;
         var a = [];
 
@@ -212,12 +216,13 @@ function displayTractors(tractors) {
                 a = [images];
             }
         }
+
         var cardId = `card_${p.product_id}`; // Dynamic ID for the card
-        var modalId = `used_tractor_callbnt_${p.product_id}`; // Dynamic ID for the modal
-        var formId = `contact-seller-call_${p.id}`; 
+        var modalId = `used_tractor_callbtn_${p.product_id}`; // Dynamic ID for the modal
+        var formId = `contact-seller-call_${p.id}`;
 
         var newCard2 = `
-        <div class="col-12 col-lg-12 col-md-12 col-sm-12 mb-3" id="${cardId}">
+        <div class="col-12 col-lg-3 col-md-3 col-sm-3 mb-3" id="${cardId}">
                                 <div class="h-auto success__stry__item d-flex flex-column shadow tyre_card">
                                     <div class="thumb">
                                         <a href="tyre_inner.php?product_id=${p.id}">
@@ -260,7 +265,7 @@ function displayTractors(tractors) {
                                         </div>
                                         <div class="col-12">
                                            
-                                            <button type="button" class="add_btn btn-success w-100" onclick="model_click()" data-bs-toggle="modal"  data-bs-target="#${modalId}">
+                                            <button type="button" class="add_btn btn-success w-100" onclick="model_click()" data-bs-toggle="modal" data-bs-target="#${modalId}">
                                             Get  Price
                                             </button>
                                         </div>
@@ -270,7 +275,7 @@ function displayTractors(tractors) {
                                     <div class="modal-dialog modal-lg modal-dialog-centered">
                                         <div class="modal-content">
                                             <div class="modal-header  modal_head">
-                                            <h5 class="modal-title text-white ms-1" id="staticBackdropLabel">Fill
+                                                <h5 class="modal-title text-white ms-1" id="staticBackdropLabel">Fill
                                                     the form to Get Tyre Price ${p.brand_name} ${p.tyre_model}</h4>
                                             </div>
                                             <div class="modal-body bg-white mt-3">
@@ -283,50 +288,50 @@ function displayTractors(tractors) {
                                                             <input type="hidden" id="product_id" value="${p.id}" >
                                                             <div class="col-12 col-lg-6 col-md-6 col-sm-6">
                                                                 <div class="form-outline">
-                                                                <label for="f_name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i> First Name</label>
-                                                                <input type="text" class="form-control mb-0" placeholder="Enter Your Name" id="firstName" name="firstName">
+                                                                    <label for="f_name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i> First Name</label>
+                                                                    <input type="text" class="form-control mb-0" placeholder="Enter Your Name" id="firstName" name="firstName">
                                                                 </div>
                                                             </div>
                                                             <div class="col-12 col-lg-6 col-md-6 col-sm-6">
                                                                 <div class="form-outline">
-                                                                <label for="last_name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i> Last Name</label>
-                                                                <input type="text" class="form-control mb-0" placeholder="Enter Your Name" id="lastName" name="lastName">
+                                                                    <label for="last_name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i> Last Name</label>
+                                                                    <input type="text" class="form-control mb-0" placeholder="Enter Your Name" id="lastName" name="lastName">
                                                                 </div>
                                                             </div>
                                                             <div class="col-12 col-sm-6 col-md-6 col-lg-6 mt-4">
                                                                 <div class="form-outline">
-                                                                <label for="eo_number" class="form-label text-dark fw-bold"> <i class="fa fa-phone" aria-hidden="true"></i> Phone Number</label>
-                                                                <input type="text" class="form-control mb-0" placeholder="Enter Number" id="mobile_number" name="mobile_number">
+                                                                    <label for="eo_number" class="form-label text-dark fw-bold"> <i class="fa fa-phone" aria-hidden="true"></i> Phone Number</label>
+                                                                    <input type="text" class="form-control mb-0" placeholder="Enter Number" id="mobile_number" name="mobile_number">
                                                                 </div>
                                                             </div>
                                                             <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-4">
                                                                 <div class="form-outline">
-                                                                <label for="eo_state" class="form-label text-dark fw-bold"> <i class="fas fa-location"></i> State</label>
-                                                                <select class="form-select py-2 " aria-label=".form-select-lg example" id="state" name="state">
-                                                                    <option value="" selected disabled="">Select State </option>  
-                                                                    <option value="Chhattisgarh">Chhattisgarh</option>
-                                                                    <option value="Other">Other</option>
-                                                                </select>
+                                                                    <label for="eo_state" class="form-label text-dark fw-bold"> <i class="fas fa-location"></i> State</label>
+                                                                    <select class="form-select py-2 " aria-label=".form-select-lg example" id="state" name="state">
+                                                                        <option value="" selected disabled="">Select State </option>  
+                                                                         <option value="Chhattisgarh">Chhattisgarh</option>
+                                                                        <option value="Other">Other</option>
+                                                                    </select>
                                                                 </div>
                                                             </div>
                                                             <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-4">
                                                                 <div class="form-outline">
-                                                                <label for="eo_dist" class="form-label fw-bold  text-dark"><i class="fa-solid fa-location-dot"></i> District</label>
-                                                                <select class="form-select py-2 " aria-label=".form-select-lg example" id="district" name="district">
-                                                                    <option value="" selected disabled="">Select District</option>
-                                                                    <option value="Raipur">Raipur</option>
-                                                                    <option value="Bilaspur">Bilaspur</option>
-                                                                    <option value="Durg">Durg</option>
-                                                                </select>
+                                                                    <label for="eo_dist" class="form-label fw-bold  text-dark"><i class="fa-solid fa-location-dot"></i> District</label>
+                                                                    <select class="form-select py-2 " aria-label=".form-select-lg example" id="district" name="district">
+                                                                        <option value="" selected disabled="">Select District</option>
+                                                                        <option value="Raipur">Raipur</option>
+                                                                        <option value="Bilaspur">Bilaspur</option>
+                                                                        <option value="Durg">Durg</option>
+                                                                    </select>
                                                                 </div>                    
                                                             </div>       
                                                             <div class="col-12 col-sm-6 col-md-6 col-lg-6 mt-4">
                                                                 <div class="form-outline">
-                                                                <label for="eo_tehsil" class="form-label fw-bold text-dark"> Tehsil</label>
-                                                                <select class="form-select py-2 " aria-label=".form-select-lg example" id="Tehsil" name="Tehsil">
-                                                                    <option value="" selected disabled="">Select Tehsil</option>
-                                                                    <option value="Durg">Durg</option>
-                                                                </select>
+                                                                    <label for="eo_tehsil" class="form-label fw-bold text-dark"> Tehsil</label>
+                                                                    <select class="form-select py-2 " aria-label=".form-select-lg example" id="Tehsil" name="Tehsil">
+                                                                        <option value="" selected disabled="">Select Tehsil</option>
+                                                                        <option value="Durg">Durg</option>
+                                                                    </select>
                                                                 </div>
                                                             </div>
                                                         </div> 
@@ -336,7 +341,7 @@ function displayTractors(tractors) {
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary"
                                                     data-bs-dismiss="modal">Close</button>
-                                                    <button type="submit" id="button_hire" class="btn add_btn btn-success  btn_all" onclick="savedata('${formId}')" data-bs-dismiss="modal">Submit</button>        
+                                                <button type="submit" id="button_hire" class="btn add_btn btn-success  btn_all" onclick="savedata('${formId}')" data-bs-dismiss="modal">Submit</button>        
                                             </div>
                                         </div>
                                     </div>
@@ -350,33 +355,38 @@ function displayTractors(tractors) {
                 });
             
                 // Initialize Owl Carousel
-                initializeOwlCarousel();
+                // initializeOwlCarousel();
 
-                function initializeOwlCarousel() {
-                    $('#productContainer').owlCarousel({
-                        items: 4,
-                        loop: true,
-                        margin: 10,
-                        responsiveClass: true,
-                        responsive: {
-                            0: {
-                                items: 1,
-                                nav: false
-                            },
-                            600: {
-                                items: 3,
-                                nav: false
-                            },
-                            1000: {
-                                items: 4,
-                                nav: false,
-                                loop: false
-                            }
-                        },
-                        loopFillGroupWithBlank: true
-                    });
-                }
-            }
+                // function initializeOwlCarousel() {
+                //     $('#productContainer').owlCarousel({
+                //         items: 4,
+                //         loop: true,
+                //         margin: 10,
+                //         responsiveClass: true,
+                //         responsive: {
+                //             0: {
+                //                 items: 1,
+                //                 nav: false
+                //             },
+                //             600: {
+                //                 items: 3,
+                //                 nav: false
+                //             },
+                //             1000: {
+                //                 items: 4,
+                //                 nav: false,
+                //                 loop: false
+                //             }
+                //         },
+                //         loopFillGroupWithBlank: true
+                //     });
+                // }
+                 // Add an event listener to open the modal
+    // $('[data-bs-toggle="modal"]').on('click', function () {
+    //     var targetModalId = $(this).data('bs-target');
+    //     $(targetModalId).modal('show');
+    // });
+}
             
            
 function tyre_enquiry(formId) {
@@ -434,7 +444,7 @@ var url ='http://tractor-api.divyaltech.com/api/customer/customer_enquiries';
         $("#errorStatusLoading").find('.modal-title').html('<p class="text-center">Process Failed..! Enter Valid Detail</p>');
         $("#errorStatusLoading").find('.modal-body').html(msg);
         $("#errorStatusLoading").find('.modal-body').html('<img src="assets/images/comp_3.gif" style="display:block; margin:0 auto;" class="w-50 text-center" alt="Successfull Request"></img>');
-        // 
+        
       }
     });
   }

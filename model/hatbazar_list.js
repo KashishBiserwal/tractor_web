@@ -514,19 +514,19 @@ get_category();
         //             if (data.allData.haat_bazar_data && data.allData.haat_bazar_data.length > 0) {
         //                 data.allData.haat_bazar_data.forEach(row => {
         //                     const fullName = row.first_name + ' ' + row.last_name;
-        
-        //                     const tableRow = document.createElement('tr');
-        //                     tableRow.innerHTML = `
-        //                         <td>${serialNumber}</td>
-        //                         <td>${row.haat_bazar_category_name}</td>
-        //                         <td>${row.sub_category_name}</td>
-        //                         <td>${fullName}</td>
-        //                         <td>${row.mobile}</td>
-        //                         <td>${row.state}</td>
-        //                         <td>${row.district}</td>
-        //                         <td>
-        //                             <div class="d-flex">
-        //                                 <button class="btn btn-warning btn-sm text-white mx-1" data-bs-toggle="modal" onclick="fetch_data(${row.haat_bazar_id})" data-bs-target="#view_model_hatbazar"><i class="fas fa-eye" style="font-size: 11px;"></i></button>
+                            const cantegory_name=data.allData.category_name[0].haat_bazar_category_name;
+                            const tableRow = document.createElement('tr');
+                            tableRow.innerHTML = `
+                                <td>${serialNumber}</td>
+                                <td>${cantegory_name}</td>
+                                <td>${row.sub_category_name}</td>
+                                <td>${fullName}</td>
+                                <td>${row.mobile}</td>
+                                <td>${row.state}</td>
+                                <td>${row.district}</td>
+                                <td>
+                                    <div class="d-flex">
+                                        <button class="btn btn-warning btn-sm text-white mx-1" data-bs-toggle="modal" onclick="fetch_data(${row.haat_bazar_id})" data-bs-target="#view_model_hatbazar"><i class="fas fa-eye" style="font-size: 11px;"></i></button>
         
         //                                 <button class="btn btn-primary btn-sm btn_edit" onclick="fetch_edit_data(${row.haat_bazar_id})" data-bs-toggle="modal" data-bs-target="#staticBackdrop" id="yourUniqueIdHere">
         //                                     <i class="fas fa-edit" style="font-size: 11px;"></i>

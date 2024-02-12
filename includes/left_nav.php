@@ -52,10 +52,10 @@
         </div>
 
         <!-- farm Implements -->
-        <button class=" fw-800 text-white  admin-collapse w-100 align-items-center rounded" data-bs-toggle="collapse" data-bs-target="#about-collapsebazar" aria-expanded="true">
+        <button class=" fw-800 text-white  admin-collapse w-100 align-items-center rounded" data-bs-toggle="collapse" data-bs-target="#about-collapsebazar1" aria-expanded="true">
         <i class="fa-solid fa-cart-shopping pe-3"></i> Farm Implements <span class="ps-2"> <i class="fa-solid fa-angle-down"></i></span>
         </button>
-        <div class="collapse" id="about-collapsebazar">
+        <div class="collapse" id="about-collapsebazar1">
           <ul class="list-unstyled fw-800 mb-0">
           <li class="py-1 ps-3"><a href="farm_implement_category.php" class="d-inline-flex align-items-center text-white  text-decoration-none rounded">Farm Implement Category</a></li>
               <li class="py-1 ps-3"><a href="farm_imple_subcategory.php" class="d-inline-flex align-items-center text-white text-decoration-none rounded">Farm Implement Subcategory</a></li>
