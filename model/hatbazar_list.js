@@ -1,13 +1,13 @@
 var EditIdmain_ = "";
 var editId_state= false;
   $(document).ready(function () {
-    $('#Search').click(searchdata);
+    // $('#Search').click(searchdata);
     ImgUpload();
     // $('#btn_submit').click(store);
     $('#btn_subcat').click(store_subcategory);
     $('#save_btn').click(hatbazar_add);
-    
-    
+   
+ 
     function calculateTotalPrice() {
       var quantity = parseFloat(document.getElementById('quantityInput').value) || 0;
       var unit = document.getElementById('unitSelect').value;
@@ -298,69 +298,6 @@ var editId_state= false;
 
   }
 
-    
-
-  function get_category() {
-    var apiBaseURL = APIBaseURL; // Assuming APIBaseURL is defined globally
-    var url = apiBaseURL + 'haat_bazar_sub_category';
-    $.ajax({
-        url: url,
-        type: "GET",
-        headers: {
-            'Authorization': 'Bearer ' + localStorage.getItem('token')
-        },
-        success: function (data) {
-            const select = document.getElementById('c_category');
-            select.innerHTML = '<option selected disabled value="">Please select an option</option>';
-
-            if (data.allSubCategory.length > 0) {
-                data.allSubCategory.forEach(row => {
-                    const option = document.createElement('option');
-                    option.textContent = row.category_name;
-                    option.value = row.id;
-                    select.appendChild(option);
-                });
-            } else {
-                select.innerHTML = '<option>No valid data available</option>';
-            }
-        },
-        error: function (error) {
-            console.error('Error fetching data:', error);
-        }
-    });
-}
-
-function get_sub_category(category_id) {
-    var apiBaseURL = APIBaseURL; // Assuming APIBaseURL is defined globally
-    var url = apiBaseURL + 'haat_bazar_sub_category/' + category_id;
-    $.ajax({
-        url: url,
-        type: "GET",
-        headers: {
-            'Authorization': 'Bearer ' + localStorage.getItem('token')
-        },
-        success: function (data) {
-            const select = document.getElementById('sub_cate');
-            select.innerHTML = ''; // Clear previous options
-
-            if (data.data.length > 0) {
-                data.data.forEach(row => {
-                    const option = document.createElement('option');
-                    option.textContent = row.sub_category_name;
-                    option.value = row.id;
-                    select.appendChild(option);
-                });
-            } else {
-                select.innerHTML = '<option>No sub-categories available</option>';
-            }
-        },
-        error: function (error) {
-            console.error('Error fetching sub-categories:', error);
-        }
-    });
-}
-
-get_category();
 
     // subcategory
       function store_subcategory(event) {
@@ -408,7 +345,7 @@ get_category();
         var image_names = document.getElementById('_image').files;
          var enquiry_type_id = $('#enquiry_type_id').val();
          var sub_category_id = $('#sub_category_id').val();
-         var _category = $('#_category').val();
+         var _category = $('#c_category').val();
          var sub_cate = $('#sub_cate').val();
          var unitSelect = $('#unitSelect').val();
          var quantityInput = $('#quantityInput').val();
@@ -498,81 +435,77 @@ get_category();
     
     }
 
+    function get_haatbazar_list() {
+      var apiBaseURL = APIBaseURL;
+      var url = apiBaseURL + 'haat_bazar';
       
-        
+      $.ajax({
+        url: url,
+        type: "GET",
+        headers: {
+            'Authorization': 'Bearer ' + localStorage.getItem('token')
+        },
+        success: function (data) {
+            const tableBody = $('#data-table'); // Use jQuery selector for the table body
+            tableBody.empty(); // Clear previous data
 
+            // const category=data.allData.haat_bazar_data
+            let serialNumber = data.allData.haat_bazar_data.length;
+    
+              if (data.allData.haat_bazar_data && data.allData.haat_bazar_data.length > 0) {
+                  var table = $('#example').DataTable({
+                      paging: true,
+                      searching: true,
+                      columns: [
+                          { title: 'S.No.' },
+                          { title: 'Category' },
+                          { title: 'Sub Category' },
+                          { title: 'Full Name' },
+                          { title: 'Mobile' },
+                          { title: 'State' },
+                          { title: 'District' },
+                          { title: 'Action', orderable: false }
+                      ]
+                  });
+    
+                  data.allData.haat_bazar_data.forEach(row => {
+                      const fullName = row.first_name + ' ' + row.last_name;
+    
+                      // Add row to DataTable
+                      table.row.add([
+                          serialNumber--,
+                          row.category_name,
+                          row.sub_category_name,
+                          fullName,
+                          row.mobile,
+                          row.state,
+                          row.district,
+                          `<div class="d-flex">
+                          <button class="btn btn-warning btn-sm text-white mx-1" data-bs-toggle="modal" onclick="fetch_data(${row.haat_bazar_id})" data-bs-target="#view_model_hatbazar"><i class="fas fa-eye" style="font-size: 11px;"></i></button>
 
-        function get_haatbazar_list() {
-          var apiBaseURL = APIBaseURL;
-          var url = apiBaseURL + 'haat_bazar';
-          
-          $.ajax({
-            url: url,
-            type: "GET",
-            headers: {
-                'Authorization': 'Bearer ' + localStorage.getItem('token')
-            },
-            success: function (data) {
-                const tableBody = $('#data-table'); // Use jQuery selector for the table body
-                tableBody.empty(); // Clear previous data
-
-                // const category=data.allData.haat_bazar_data
-                let serialNumber = data.allData.haat_bazar_data.length;
-        
-                  if (data.allData.haat_bazar_data && data.allData.haat_bazar_data.length > 0) {
-                      var table = $('#example').DataTable({
-                          paging: true,
-                          searching: true,
-                          columns: [
-                              { title: 'S.No.' },
-                              { title: 'Category' },
-                              { title: 'Sub Category' },
-                              { title: 'Full Name' },
-                              { title: 'Mobile' },
-                              { title: 'State' },
-                              { title: 'District' },
-                              { title: 'Action', orderable: false }
-                          ]
-                      });
-        
-                      data.allData.haat_bazar_data.forEach(row => {
-                          const fullName = row.first_name + ' ' + row.last_name;
-        
-                          // Add row to DataTable
-                          table.row.add([
-                              serialNumber--,
-                              row.category_name,
-                              row.sub_category_name,
-                              fullName,
-                              row.mobile,
-                              row.state,
-                              row.district,
-                              `<div class="d-flex">
-                              <button class="btn btn-warning btn-sm text-white mx-1" data-bs-toggle="modal" onclick="fetch_data(${row.haat_bazar_id})" data-bs-target="#view_model_hatbazar"><i class="fas fa-eye" style="font-size: 11px;"></i></button>
-
-                              <button class="btn btn-primary btn-sm btn_edit" onclick="fetch_edit_data(${row.haat_bazar_id})" data-bs-toggle="modal" data-bs-target="#staticBackdrop" id="yourUniqueIdHere">
-                                  <i class="fas fa-edit" style="font-size: 11px;"></i>
-                              </button>
-                              <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.haat_bazar_id})">
-                                  <i class="fa fa-trash" style="font-size: 11px;"></i>
-                              </button>
-                          </div>
-                      </td>`
-                          ]).draw(false);
-        
-                          // serialNumber++;
-                      });
-                  } else {
-                    tableBody.innerHTML = '<tr><td colspan="9">No valid data available</td></tr>';
-                  }
-              },
-              error: function (error) {
-                  console.error('Error fetching data:', error);
+                          <button class="btn btn-primary btn-sm btn_edit" onclick="fetch_edit_data(${row.haat_bazar_id})" data-bs-toggle="modal" data-bs-target="#staticBackdrop" id="yourUniqueIdHere">
+                              <i class="fas fa-edit" style="font-size: 11px;"></i>
+                          </button>
+                          <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.haat_bazar_id})">
+                              <i class="fa fa-trash" style="font-size: 11px;"></i>
+                          </button>
+                      </div>
+                  </td>`
+                      ]).draw(false);
+    
+                      // serialNumber++;
+                  });
+              } else {
+                tableBody.innerHTML = '<tr><td colspan="9">No valid data available</td></tr>';
               }
-          });
-        }
-        
-        get_haatbazar_list();
+          },
+          error: function (error) {
+              console.error('Error fetching data:', error);
+          }
+      });
+    }
+    
+    get_haatbazar_list();
 
 
 
@@ -744,68 +677,138 @@ function destroy(id) {
   }
 
 
-  
-  function get_category() {
-    var apiBaseURL = APIBaseURL; // Assuming APIBaseURL is defined globally
-    var url = apiBaseURL + 'haat_bazar_sub_category';
-    $.ajax({
-        url: url,
-        type: "GET",
-        headers: {
-            'Authorization': 'Bearer ' + localStorage.getItem('token')
-        },
-        success: function (data) {
-            const select = document.getElementById('cc_category');
-            select.innerHTML = '<option selected disabled value="">Please select an option</option>';
+//   function get_category() {
+//     var apiBaseURL = APIBaseURL; // Assuming APIBaseURL is defined globally
+//     var url = apiBaseURL + 'haat_bazar_sub_category';
+//     $.ajax({
+//         url: url,
+//         type: "GET",
+//         headers: {
+//             'Authorization': 'Bearer ' + localStorage.getItem('token')
+//         },
+//         success: function (data) {
+//             const selects = document.getElementsByClassName('category_cls');
+//             for (let i = 0; i < selects.length; i++) {
+//                 const select = selects[i];
+//                 select.innerHTML = '<option selected disabled value="">Please select an option</option>';
 
-            if (data.allSubCategory.length > 0) {
-                data.allSubCategory.forEach(row => {
-                    const option = document.createElement('option');
-                    option.textContent = row.category_name;
-                    option.value = row.id;
-                    select.appendChild(option);
-                });
-            } else {
-                select.innerHTML = '<option>No valid data available</option>';
-            }
-        },
-        error: function (error) {
-            console.error('Error fetching data:', error);
-        }
-    });
+//                 if (data.allSubCategory.length > 0) {
+//                     data.allSubCategory.forEach(row => {
+//                         const option = document.createElement('option');
+//                         option.textContent = row.category_name;
+//                         option.value = row.id;
+//                         select.appendChild(option);
+//                     });
+//                 } else {
+//                     select.innerHTML = '<option>No valid data available</option>';
+//                 }
+//             }
+//         },
+//         error: function (error) {
+//             console.error('Error fetching data:', error);
+//         }
+//     });
+// }
+
+// function get_sub_category(category_id) {
+//     var apiBaseURL = APIBaseURL; // Assuming APIBaseURL is defined globally
+//     var url = apiBaseURL + 'haat_bazar_sub_category/' + category_id;
+//     $.ajax({
+//         url: url,
+//         type: "GET",
+//         headers: {
+//             'Authorization': 'Bearer ' + localStorage.getItem('token')
+//         },
+//         success: function (data) {
+//             const selects = document.getElementsByClassName('sub_category_cls');
+//             for (let i = 0; i < selects.length; i++) {
+//                 const select = selects[i];
+//                 select.innerHTML = ''; // Clear previous options
+
+//                 if (data.data.length > 0) {
+//                     data.data.forEach(row => {
+//                         const option = document.createElement('option');
+//                         option.textContent = row.sub_category_name;
+//                         option.value = row.id;
+//                         select.appendChild(option);
+//                     });
+//                 } else {
+//                     select.innerHTML = '<option>No sub-categories available</option>';
+//                 }
+//             }
+//         },
+//         error: function (error) {
+//             console.error('Error fetching sub-categories:', error);
+//         }
+//     });
+// }
+
+// get_category();
+
+
+function category_main3() {
+  var apiBaseURL = APIBaseURL;
+  var url = apiBaseURL + 'haat_bazar_category';
+  $.ajax({
+      url: url,
+      type: "GET",
+      headers: {
+          'Authorization': 'Bearer ' + localStorage.getItem('token')
+      },
+      success: function(data) {
+          console.log(data);
+          const select = document.getElementById('cc_category');
+          select.innerHTML = '<option selected disabled value="">Please select an option</option>';
+
+          if (data.allCategory.length > 0) {
+              data.allCategory.forEach(row => {
+                  const option = document.createElement('option');
+                  option.textContent = row.category_name;
+                  option.value = row.id;
+                  select.appendChild(option);
+              });
+          } else {
+              select.innerHTML = '<option>No valid data available</option>';
+          }
+      },
+      error: function(error) {
+          console.error('Error fetching data:', error);
+      }
+  });
 }
 
 function get_sub_category(category_id) {
-    var apiBaseURL = APIBaseURL; // Assuming APIBaseURL is defined globally
-    var url = apiBaseURL + 'haat_bazar_sub_category/' + category_id;
-    $.ajax({
-        url: url,
-        type: "GET",
-        headers: {
-            'Authorization': 'Bearer ' + localStorage.getItem('token')
-        },
-        success: function (data) {
-            const select = document.getElementById('ss_sub_cate');
-            select.innerHTML = ''; // Clear previous options
-
-            if (data.data.length > 0) {
-                data.data.forEach(row => {
-                    const option = document.createElement('option');
-                    option.textContent = row.sub_category_name;
-                    option.value = row.id;
-                    select.appendChild(option);
-                });
-            } else {
-                select.innerHTML = '<option>No sub-categories available</option>';
-            }
-        },
-        error: function (error) {
-            console.error('Error fetching sub-categories:', error);
-        }
-    });
+  var apiBaseURL = APIBaseURL;
+  var url = apiBaseURL + 'haat_bazar_sub_category/' + category_id;
+  var select = document.getElementById('ss_sub_cate');
+  select.innerHTML = '<option selected disabled value="">Please select an option</option>';
+  $.ajax({
+      url: url,
+      type: "GET",
+      headers: {
+          'Authorization': 'Bearer ' + localStorage.getItem('token')
+      },
+      success: function(data) {
+          if (data.data.length > 0) {
+              data.data.forEach(row => {
+                  const option = document.createElement('option');
+                  option.textContent = row.sub_category_name;
+                  option.value = row.id;
+                  select.appendChild(option);
+              });
+          } else {
+              const option = document.createElement('option');
+              option.textContent = 'No sub-categories available';
+              option.disabled = true;
+              select.appendChild(option);
+          }
+      },
+      error: function(error) {
+          console.error('Error fetching sub-categories:', error);
+      }
+  });
 }
-
-get_category();
+category_main3();
 
 
 
@@ -815,9 +818,14 @@ function searchdata() {
   var state = $('#select_state').val();
   var district = $('#select_dist').val();
 
+  console.log("Category:", category);
+  console.log("Sub-Category:", sub_category);
+  console.log("State:", state);
+  console.log("District:", district);
+
   var paraArr = {
-      'haat_bazar_id': category,
-      'sub_category_name': sub_category,
+      'category_id': category,
+      'sub_category_id': sub_category,
       'state': state,
       'district': district,
   };
@@ -826,74 +834,147 @@ function searchdata() {
   var url = apiBaseURL + 'search_for_haat_bazar';
 
   $.ajax({
-    url:url, 
-    type: 'POST',
-    data: paraArr,
-  
-    headers: {
-        'Authorization': 'Bearer ' + localStorage.getItem('token')
-    },
-    success: function (searchData) {
-      updateTable(searchData);
-    },
-    error: function (error) {
-        console.error('Error searching for brands:', error);
-    }
-});
-};
+      url: url,
+      type: 'POST',
+      data: paraArr,
+      headers: {
+          'Authorization': 'Bearer ' + localStorage.getItem('token')
+      },
+      success: function(searchData) {
+          updateTable(searchData);
+      },
+      error: function(error) {
+          console.error('Error searching for brands:', error);
+      }
+  });
+}
+
 function updateTable(data) {
-  const tableBody = document.getElementById('data-table');
-  tableBody.innerHTML = '';
-  let serialNumber = 1; 
+  const tableBody = $('#data-table');
+  tableBody.empty();
+  let serialNumber = 1;
 
-  if(data.haatBazarData && data.haatBazarData.length > 0) {
-      let tableData = []; 
+  if (data.haatBazarData && data.haatBazarData.length > 0) {
+      let tableData = [];
       data.haatBazarData.forEach(row => {
-        const fullName = row.first_name + ' ' + row.last_name;
-          let action =   `<div class="d-flex">
-          <button class="btn btn-warning btn-sm text-white mx-1" data-bs-toggle="modal" onclick="fetch_data(${row.haat_bazar_id})" data-bs-target="#view_model_hatbazar"><i class="fas fa-eye" style="font-size: 11px;"></i></button>
+          const fullName = row.first_name + ' ' + row.last_name;
+          let action = `<div class="d-flex">
+              <button class="btn btn-warning btn-sm text-white mx-1" data-bs-toggle="modal" onclick="fetch_data(${row.haat_bazar_id})" data-bs-target="#view_model_hatbazar"><i class="fas fa-eye" style="font-size: 11px;"></i></button>
+              <button class="btn btn-primary btn-sm btn_edit" onclick="fetch_edit_data(${row.haat_bazar_id})" data-bs-toggle="modal" data-bs-target="#staticBackdrop" id="yourUniqueIdHere"><i class="fas fa-edit" style="font-size: 11px;"></i></button>
+              <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.haat_bazar_id})"><i class="fa fa-trash" style="font-size: 11px;"></i></button>
+          </div>`;
 
-          <button class="btn btn-primary btn-sm btn_edit" onclick="fetch_edit_data(${row.haat_bazar_id})" data-bs-toggle="modal" data-bs-target="#staticBackdrop" id="yourUniqueIdHere">
-              <i class="fas fa-edit" style="font-size: 11px;"></i>
-          </button>
-          <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.haat_bazar_id})">
-              <i class="fa fa-trash" style="font-size: 11px;"></i>
-          </button>
-      </div>
-     </td>`;
           tableData.push([
-            serialNumber,
-            row.haat_bazar_id,
-            row.sub_category_name,
-            fullName,
-            row.mobile,
-            row.state,
-            row.district,
-            action
+              serialNumber++,
+              row.category_name,
+              row.sub_category_name,
+              fullName,
+              row.mobile,
+              row.state,
+              row.district,
+              action
           ]);
+      });
 
-        serialNumber++;
-    });
+      // Initialize or destroy existing DataTable
+      if ($.fn.DataTable.isDataTable('#example')) {
+          $('#example').DataTable().destroy();
+      }
 
-    $('#example').DataTable().destroy();
-    $('#example').DataTable({
-        data: tableData,
-        columns: [
-          { title: 'S.No.' },
-          { title: 'Category' },
-          { title: 'Sub Category' },
-          { title: 'Full Name' },
-          { title: 'Mobile' },
-          { title: 'State' },
-          { title: 'District' },
-          { title: 'Action', orderable: false }
-        ],
-        paging: true,
-        searching: false,
-        // ... other options ...
-    });
+      // Reinitialize DataTable with updated data
+      $('#example').DataTable({
+          data: tableData,
+          columns: [
+              { title: 'S.No.' },
+              { title: 'Category' },
+              { title: 'Sub Category' },
+              { title: 'Full Name' },
+              { title: 'Mobile' },
+              { title: 'State' },
+              { title: 'District' },
+              { title: 'Action', orderable: false }
+          ],
+          paging: true,
+          searching: false // Disable searching for now
+          // ... other options ...
+      });
   } else {
       // Display a message if there's no valid data
-      tableBody.innerHTML = '<tr><td colspan="4">No valid data available</td></tr>';
+      tableBody.html('<tr><td colspan="8">No valid data available</td></tr>');
   }
 }
+
+function resetForm() {
+  $("#cc_category").val("");
+  $("#ss_sub_cate").val("");
+  $("#select_state").val("");
+  $("#select_dist").val("");
+  window.location.reload();
+};
+
+
+
+
+function category_main_1() {
+  var apiBaseURL = APIBaseURL;
+  var url = apiBaseURL + 'haat_bazar_category';
+  $.ajax({
+      url: url,
+      type: "GET",
+      headers: {
+          'Authorization': 'Bearer ' + localStorage.getItem('token')
+      },
+      success: function(data) {
+          console.log(data);
+          const select = document.getElementById('c_category');
+          select.innerHTML = '<option selected disabled value="">Please select an option</option>';
+
+          if (data.allCategory.length > 0) {
+              data.allCategory.forEach(row => {
+                  const option = document.createElement('option');
+                  option.textContent = row.category_name;
+                  option.value = row.id;
+                  select.appendChild(option);
+              });
+          } else {
+              select.innerHTML = '<option>No valid data available</option>';
+          }
+      },
+      error: function(error) {
+          console.error('Error fetching data:', error);
+      }
+  });
+}
+
+function get_sub_category_1(category_id) {
+  var apiBaseURL = APIBaseURL;
+  var url = apiBaseURL + 'haat_bazar_sub_category/' + category_id;
+  var select = document.getElementById('sub_cate');
+  select.innerHTML = '<option selected disabled value="">Please select an option</option>';
+  $.ajax({
+      url: url,
+      type: "GET",
+      headers: {
+          'Authorization': 'Bearer ' + localStorage.getItem('token')
+      },
+      success: function(data) {
+          if (data.data.length > 0) {
+              data.data.forEach(row => {
+                  const option = document.createElement('option');
+                  option.textContent = row.sub_category_name;
+                  option.value = row.id;
+                  select.appendChild(option);
+              });
+          } else {
+              const option = document.createElement('option');
+              option.textContent = 'No sub-categories available';
+              option.disabled = true;
+              select.appendChild(option);
+          }
+      },
+      error: function(error) {
+          console.error('Error fetching sub-categories:', error);
+      }
+  });
+}
+category_main_1();

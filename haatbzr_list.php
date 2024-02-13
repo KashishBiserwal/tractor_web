@@ -146,20 +146,20 @@
                                             </div>
                                         </div>
                                         <div class="col-12 col-sm-6 col-md-6 col-lg-6">
-                                      <div class="form-outline">
-                                          <label class="form-label">Category</label>
-                                          <select class="form-select py-2 category_cls" aria-label="Default select example" id="c_category" name="_category" onchange="get_sub_category(this.value)">
-                                              <!-- onchange event added to trigger get_sub_category function -->
-                                          </select>
+                                        <div class="form-outline">
+                                              <label class="form-label">Category</label>
+                                              <select class="form-select py-2 category_cls" aria-label="Default select example" id="c_category" name="_category" onchange="get_sub_category_1(this.value)">
+                                                  <!-- onchange event modified to trigger get_sub_category1 function -->
+                                              </select>
+                                          </div>
                                       </div>
-                                  </div>
-                                  <div class="col-12 col-sm-6 col-md-6 col-lg-6">
-                                      <div class="form-outline">
-                                          <label class="form-label">Sub-Category</label>
-                                          <select class="form-select py-2 sub_category_cls" aria-label="Default select example" id="sub_cate" name="sub_cate">
-                                          </select>
+                                      <div class="col-12 col-sm-6 col-md-6 col-lg-6">
+                                          <div class="form-outline">
+                                              <label class="form-label">Sub-Category</label>
+                                              <select class="form-select py-2 sub_category_cls" aria-label="Default select example" id="sub_cate" name="sub_cate">
+                                              </select>
+                                          </div>
                                       </div>
-                                  </div>
 
                                         <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-4">
                                           <div class="input-group">
@@ -295,7 +295,7 @@
               <div class="col-12 col-sm-12 col-md-3 col-lg-3">
                   <div class="form-outline">
                       <label class="form-label">Sub-Category</label>
-                      <select class="form-select py-2 sub_category_cls" aria-label="Default select example" id="ss_sub_cate" name="sub_cate">
+                      <select class="form-select py-2 sub_category_cls" aria-label="Default select example" id="ss_sub_cate" name="sub_cate_1">
                       </select>
                   </div>
               </div>
