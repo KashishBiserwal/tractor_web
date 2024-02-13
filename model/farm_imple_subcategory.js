@@ -292,7 +292,7 @@ function store(event) {
       // $("#errorStatusLoading").find('.modal-body').html(msg);
 
       // // Hide the modal immediately
-      // $("#staticBackdrop1").modal('hide');
+      $("#staticBackdrop1").modal('hide');
       
       get_data();
      
