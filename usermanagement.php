@@ -116,8 +116,8 @@ include 'includes/headertag.php';
                                 <label class="form-label"> State<span class="text-danger">*</span></label>
                                 <select class="form-select py-2" aria-label="Default select example"  name="status" id="status">
                                   <option value>Select Status</option>
-                                  <option value="1">Active</option>
-                                  <option value="0">In Active</option>
+                                  <option value="0">Active</option>
+                                  <option value="1">In Active</option>
                                 </select>
                               </div>
                               </div>

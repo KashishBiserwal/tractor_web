@@ -24,6 +24,8 @@ console.log("ready");
     }
 
   });
+
+
 $('#form_add').validate({
 rules:{
   first_name:{
@@ -84,6 +86,7 @@ messages:{
     },
     email:{
         required:"Please Enter Your Email",
+        email:"Please Enter vaild Email",
     },
     user_type:{
         required:"Please Select Your User Type",
@@ -108,10 +111,10 @@ $('#save').on('click', function() {
   });
 
   function user_registration(event) {
-    // Get values from form fields
+    // Prevent the default form submission behavior
     event.preventDefault();
-    console.log('jfhfhw');
-    if( $('#form_add').valid()){
+
+    // Get values from form fields
     var first_name = $('#first_name').val();
     var last_name = $('#last_name').val();
     var email = $('#email').val();
@@ -120,45 +123,64 @@ $('#save').on('click', function() {
     var password_confirmation = $('#password_confirmation').val();
     var user_type = $('#user_type').val();
 
+    // Check if any field is empty
+    if (first_name.trim() === '' || last_name.trim() === '' || email.trim() === '' || mobile.trim() === '' || password.trim() === '' || password_confirmation.trim() === '') {
+        // Show an error message if any field is empty
+        alert('All fields are required.');
+        return; // Exit the function to prevent further execution
+    }
+
     // Prepare data to send to the server
     var paraArr = {
-      'first_name': first_name,
-      'last_name': last_name,
-      'email': email,
-      'mobile': mobile,
-      'password': password,
-      'password_confirmation': password_confirmation,
-      'user_type': user_type
+        'first_name': first_name,
+        'last_name': last_name,
+        'email': email,
+        'mobile': mobile,
+        'password': password,
+        'password_confirmation': password_confirmation,
+        'user_type': user_type
     };
-    var apiBaseURL =APIBaseURL;
+
+    var apiBaseURL = APIBaseURL; // Assuming APIBaseURL is defined elsewhere
     var url = apiBaseURL + 'user_registration';
     console.log(url);
+
     // Make an AJAX request to the server
     $.ajax({
-      url: url,
-      type: "POST",
-      data: paraArr,
-      success: function (result) {
-        console.log(result, "result");
-        get();
-        console.log("Add successfully");
-       $("#staticBackdrop").modal("hide");
-       var msg = "User Inserted successfully !"
-        $("#errorStatusLoading").modal('show');
-        $("#errorStatusLoading").find('.modal-title').html('Success');
-        $("#errorStatusLoading").find('.modal-body').html(msg);
-      },
-      error: function (error) {
-        console.error('Error fetching data:', error.status);
-        console.error('Error fetching data:', error.responseJSON.error);
-        var msg = error;
-        $("#errorStatusLoading").modal('show');
-        $("#errorStatusLoading").find('.modal-title').html('Error');
-        $("#errorStatusLoading").find('.modal-body').html(msg);
-      }
+        url: url,
+        type: "POST",
+        data: paraArr,
+        success: function(result) {
+            console.log(result, "result");
+            // If registration is successful, hide the modal, show success message, and reset the form
+            $("#staticBackdrop").modal("hide");
+            var msg = "User Inserted successfully !"
+            $("#errorStatusLoading").modal('show');
+            $("#errorStatusLoading").find('.modal-title').html('Success');
+            $("#errorStatusLoading").find('.modal-body').html(msg);
+            // Reset the form
+            $('#form_add')[0].reset();
+        },
+        error: function(error) {
+            console.error('Error fetching data:', error.status);
+            console.error('Error fetching data:', error.responseJSON.error);
+            // If an error occurs, show the error message
+            var msg = error.responseJSON.email ? error.responseJSON.email[0] : 'An error occurred.';
+            if (msg === "The email has already been taken.") {
+                // Show alert if email already exists
+                alert('Email address already exists.');
+            } else {
+                // Show modal for other errors
+                $("#errorStatusLoading").modal('show');
+                $("#errorStatusLoading").find('.modal-title').html('Error');
+                $("#errorStatusLoading").find('.modal-body').html(msg);
+            }
+        }
     });
-  }
-  }
+}
+
+
+
 
   // fetch data
   function get() {

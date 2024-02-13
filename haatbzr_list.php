@@ -148,7 +148,7 @@
                                         <div class="col-12 col-sm-6 col-md-6 col-lg-6">
                                       <div class="form-outline">
                                           <label class="form-label">Category</label>
-                                          <select class="form-select py-2 category_" aria-label="Default select example" id="c_category" name="_category" onchange="get_sub_category(this.value)">
+                                          <select class="form-select py-2 category_cls" aria-label="Default select example" id="c_category" name="_category" onchange="get_sub_category(this.value)">
                                               <!-- onchange event added to trigger get_sub_category function -->
                                           </select>
                                       </div>
@@ -156,7 +156,7 @@
                                   <div class="col-12 col-sm-6 col-md-6 col-lg-6">
                                       <div class="form-outline">
                                           <label class="form-label">Sub-Category</label>
-                                          <select class="form-select py-2" aria-label="Default select example" id="sub_cate" name="sub_cate">
+                                          <select class="form-select py-2 sub_category_cls" aria-label="Default select example" id="sub_cate" name="sub_cate">
                                           </select>
                                       </div>
                                   </div>
@@ -287,7 +287,7 @@
             <div class="col-12 col-sm-12 col-md-3 col-lg-3">
               <div class="form-outline">
                 <label class="form-label">Category</label>
-                <select class="form-select py-2 category_" aria-label="Default select example" id="cc_category" name="_category" onchange="get_sub_category(this.value)">
+                <select class="form-select py-2 category_cls" aria-label="Default select example" id="cc_category" name="_category" onchange="get_sub_category(this.value)">
                  <!-- onchange event added to trigger get_sub_category function -->
                 </select>
               </div>
@@ -295,7 +295,7 @@
               <div class="col-12 col-sm-12 col-md-3 col-lg-3">
                   <div class="form-outline">
                       <label class="form-label">Sub-Category</label>
-                      <select class="form-select py-2" aria-label="Default select example" id="ss_sub_cate" name="sub_cate">
+                      <select class="form-select py-2 sub_category_cls" aria-label="Default select example" id="ss_sub_cate" name="sub_cate">
                       </select>
                   </div>
               </div>
@@ -304,9 +304,8 @@
                 <label class="form-label">State</label>
                 <select class="form-select py-2" aria-label="Default select example" id="select_state">
                     <option value>Select State</option>
-                    <option value=""></option>
-                    <option value="">Chattisgarh</option>
-                    <option value="">Other</option>
+                     <option value="Chhattisgarh">Chhattisgarh</option>
+                    <option value="Other">Other</option>
                 </select>
               </div>
             </div>
@@ -315,17 +314,17 @@
                 <label class="form-label">District</label>
                 <select class="form-select py-2" aria-label="Default select example" id="select_dist">
                     <option value>Select District</option>
-                    <option value="">Raipur</option>
-                    <option value="">Bilaspur</option>
-                    <option value="">Surajpur</option>
+                    <option value="Raipur">Raipur</option>
+                    <option value="Bilaspur">Bilaspur</option>
+                    <option value="Surajpur">Surajpur</option>
                 </select>
               </div>
             </div>
             
             <div class="col-12 mt-3">
               <div class="text-center">
-                <button type="button" class="btn-success btn px-4 pt-2" id="Search">Search</button>
-                <button type="button" class="btn-success btn mx-2 px-4 pt-2" id="Reset">Reset</button>
+                <button type="button" class="btn-success btn px-4 pt-2" id="Search"  onclick="searchdata()">Search</button>
+                <button type="button" class="btn-success btn mx-2 px-4 pt-2" id="Reset"  onclick="resetForm()">Reset</button>
               </div>
             </div>
           

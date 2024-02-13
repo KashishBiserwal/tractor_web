@@ -73,6 +73,74 @@ function category_main2() {
 }
 category_main2();
 
+
+
+
+function category_main3() {
+  var apiBaseURL = APIBaseURL;
+  var url = apiBaseURL + 'haat_bazar_category';
+  $.ajax({
+      url: url,
+      type: "GET",
+      headers: {
+          'Authorization': 'Bearer ' + localStorage.getItem('token')
+      },
+      success: function(data) {
+          console.log(data);
+          const select = document.getElementById('category_search');
+          select.innerHTML = '<option selected disabled value="">Please select an option</option>';
+
+          if (data.allCategory.length > 0) {
+              data.allCategory.forEach(row => {
+                  const option = document.createElement('option');
+                  option.textContent = row.category_name;
+                  option.value = row.id;
+                  select.appendChild(option);
+              });
+          } else {
+              select.innerHTML = '<option>No valid data available</option>';
+          }
+      },
+      error: function(error) {
+          console.error('Error fetching data:', error);
+      }
+  });
+}
+
+function get_sub_category(category_id) {
+  var apiBaseURL = APIBaseURL;
+  var url = apiBaseURL + 'haat_bazar_sub_category/' + category_id;
+  var select = document.getElementById('sub_category_search');
+  select.innerHTML = '<option selected disabled value="">Please select an option</option>';
+  $.ajax({
+      url: url,
+      type: "GET",
+      headers: {
+          'Authorization': 'Bearer ' + localStorage.getItem('token')
+      },
+      success: function(data) {
+          if (data.data.length > 0) {
+              data.data.forEach(row => {
+                  const option = document.createElement('option');
+                  option.textContent = row.sub_category_name;
+                  option.value = row.id;
+                  select.appendChild(option);
+              });
+          } else {
+              const option = document.createElement('option');
+              option.textContent = 'No sub-categories available';
+              option.disabled = true;
+              select.appendChild(option);
+          }
+      },
+      error: function(error) {
+          console.error('Error fetching sub-categories:', error);
+      }
+  });
+}
+category_main3();
+
+
 function get_data() {
     console.log('hhsdfshdfch');
     var apiBaseURL = APIBaseURL;
@@ -151,14 +219,14 @@ function store_subcategory(event) {
     event.preventDefault();
     console.log('jfhfhw');
 
-    var category_id = $('#category_id').val();
-    var category_name = $('#category').val();
+    // var category_id = $('#category_id').val();
+    var category_id = $('#category_1').val();
     var sub_category_name = $('#sub_category').val();
   
     // Prepare data to send to the server
     var paraArr = {
         'category_id':category_id,
-      'category_name': category_name,
+      // 'category_name': category_name,
       'sub_category_name':sub_category_name,
     };
   
@@ -309,76 +377,80 @@ function destroy(id) {
 
 
 
-  
+  function resetForm() {
+    $('#category_search').val('');
+    $('#sub_category_search').val('');
+    window.location.reload();
+}
+
 function searchdata() {
     console.log("dfghsfg,sdfgdfg");
     var category = $('#category_search').val();
     var sub_category = $('#sub_category_search').val();
-  
+
     var paraArr = {
-      'haat_bazar_id': category,
-      'sub_category_name':sub_category,
-      
+        'category_id': category,
+        'sub_category_id': sub_category,
     };
-  
+
     var apiBaseURL = APIBaseURL;
-    var url = apiBaseURL + 'search_for_haat_bazar';
+    var url = apiBaseURL + 'search_for_haat_bazar_sub_category';
     $.ajax({
-        url:url, 
+        url: url,
         type: 'POST',
         data: paraArr,
-      
         headers: {
             'Authorization': 'Bearer ' + localStorage.getItem('token')
         },
         success: function (searchData) {
-          console.log(searchData,"hello brand");
-          updateTable(searchData);
+            console.log(searchData, "hello brand");
+            updateTable(searchData);
         },
         error: function (error) {
             console.error('Error searching for brands:', error);
         }
     });
-  };
-  function updateTable(data) {
+};
+
+function updateTable(data) {
     const tableBody = document.getElementById('data-table');
     tableBody.innerHTML = '';
-    let serialNumber = 1; 
-  
-    if(data.haatBazarData && data.haatBazarData.length > 0) {
-        let tableData = []; 
-        data.haatBazarData.forEach(row => {
+    let serialNumber = 1;
+
+    if (data.data && data.data.length > 0) {
+        let tableData = [];
+        data.data.forEach(row => {
             let action = `<div class="d-flex">
-            <button class="btn btn-danger btn-sm mx-1" id="delete_user" onclick="destroy(${row.id});" style="padding:5px;">
-                <i class="fa fa-trash" style="font-size: 11px;"></i>
-            </button>
-            <button class="btn btn-primary btn-sm btn_edit" onclick="fetch_edit_data(${row.id});" data-bs-toggle="modal" data-bs-target="#staticBackdrop3" id="yourUniqueIdHere">
-               <i class="fas fa-edit" style="font-size: 11px;"></i>
-            </button>
-        </div>`;
+                <button class="btn btn-danger btn-sm mx-1" id="delete_user" onclick="destroy(${row.id});" style="padding:5px;">
+                    <i class="fa fa-trash" style="font-size: 11px;"></i>
+                </button>
+                <button class="btn btn-primary btn-sm btn_edit" onclick="fetch_edit_data(${row.id});" data-bs-toggle="modal" data-bs-target="#staticBackdrop3" id="yourUniqueIdHere">
+                    <i class="fas fa-edit" style="font-size: 11px;"></i>
+                </button>
+            </div>`;
             tableData.push([
-              serialNumber,
-              row.category_name,
-              row.sub_category_name,
-              action
+                serialNumber,
+                row.category_name,
+                row.sub_category_name,
+                action
             ]);
-  
-          serialNumber++;
-      });
-  
-      $('#example').DataTable().destroy();
-      $('#example').DataTable({
-          data: tableData,
-          columns: [
-            { title: 'S.No.' },
-            { title: 'Category' },
-            { title: 'Sub Category' },
-            { title: 'Action', orderable: false }
-          ],
-          paging: true,
-          searching: false,
-          // ... other options ...
-      });
+
+            serialNumber++;
+        });
+
+        $('#example').DataTable().destroy();
+        $('#example').DataTable({
+            data: tableData,
+            columns: [
+                { title: 'S.No.' },
+                { title: 'Category' },
+                { title: 'Sub Category' },
+                { title: 'Action', orderable: false }
+            ],
+            paging: true,
+            searching: false,
+            // ... other options ...
+        });
     } else {
         // Display a message if there's no valid data
         tableBody.innerHTML = '<tr><td colspan="4">No valid data available</td></tr>';
