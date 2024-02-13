@@ -949,7 +949,7 @@ function category_main_1() {
 function get_sub_category1(category_id) {
   var apiBaseURL = APIBaseURL;
   var url = apiBaseURL + 'haat_bazar_sub_category/' + category_id;
-  var select = document.getElementById('sub_category_cls');
+  var select = document.getElementById('sub_cate');
   select.innerHTML = '<option selected disabled value="">Please select an option</option>';
   $.ajax({
       url: url,
