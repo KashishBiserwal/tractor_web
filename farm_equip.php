@@ -197,16 +197,14 @@
                   <tr>
                                             <th class="d-none d-md-table-cell text-white">S.No.</th>
                                             <th class="d-none d-md-table-cell text-white">Category </th>
-                                            <th class="d-none d-md-table-cell text-white">Photos</th>
-                                            <th class="d-none d-md-table-cell text-white">Name </th>
+                                            <th class="d-none d-md-table-cell text-white">Subcategory</th>
                                             <th class="d-none d-md-table-cell text-white">Brand</th>
-                                            <th class="d-none d-md-table-cell text-white"> Implement Type</th>
-                                            <th class="d-none d-md-table-cell text-white"> Implement Power</th>
-                                            <th class="d-none d-md-table-cell text-white"> Description</th>
+                                            <th class="d-none d-md-table-cell text-white"> Model</th>
+                                            <th class="d-none d-md-table-cell text-white">Action</th>
                                             
                                         </tr>
                                     </thead>
-                                    <tbody>
+                                    <tbody id="data-table">
                                     </tbody>
                                 </table>
                             </div>

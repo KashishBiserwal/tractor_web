@@ -2,12 +2,12 @@ var EditIdmain_ = "";
 var editId_state= false;
 var editId_stateedit= "";
 $(document).ready(function () {
-  get();
+
   get_lookup();
   // $('.js-example-basic-multiple').select2();
   ImgUpload();
  
-  fetch_edit_data();
+ 
     $('#submitbtn').click(store);
     console.log('fjfej');
   
@@ -114,7 +114,7 @@ function get_lookup() {
             // var tractorTypesArray = [];
             
             for (var j = 0; j < data.tractor_type_data.length; j++) {
-              var checkbox = $('<input type="checkbox" id="tractor_type_' + data.tractor_type_data[j].id + '" value="' + data.tractor_type_data[j].id + '">');
+              var checkbox = $(`<input type="checkbox" id=tractor_type_${data.tractor_type_data[j].id} value= ${data.tractor_type_data[j].id }>`);
               var label = $('<label for="tractor_type_' + data.tractor_type_data[j].id + '">' + data.tractor_type_data[j].type_name + '</label>');
             
               $("#type_name").append(checkbox);
@@ -124,7 +124,7 @@ function get_lookup() {
         },
         
         complete:function(){
-         
+          fetch_edit_data();
         },
         error: function (error) {
             console.error('Error fetching data:', error);
@@ -343,39 +343,63 @@ function store(event) {
       headers: headers,
       success: function(response) {
         var editData = response.product.allProductData[0];
+        var editData2 = response.product.accessory_and_tractor_type[0];
         
-        console.log(response,'editData123');
-        var selectedAccessories = response.product.accessory_and_tractor_type[0];
-        var accessoryIds = selectedAccessories.accessory_id.split(',');
-        console.log(accessoryIds,"selectedAccessories")
+        // console.log(response,'editData123');
+        // var selectedAccessories = response.product.accessory_and_tractor_type[0];
+        // var accessoryIds = selectedAccessories.accessory_id.split(',');
+        // console.log(accessoryIds,"selectedAccessories")
         // console.log("all data accessoryid", tractorTypeNames);
 
         $("#brand_name option").prop("selected", false);
         $("#brand_name option[value='" + editData.brand_name + "']").prop("selected", true);
 
-        $('#model').val(editData.model);
+        // $('#model').val(editData.model);
+        $("#model option").prop("selected", false);
+        $("#model option[value='" + editData.model + "']").prop("selected", true);
+
         $('#product_type_id').val(editData.product_type_id);
         $('#hp_category').val(editData.hp_category);
+
         $("#TOTAL_CYLINDER option").prop("selected", false);
         $("#TOTAL_CYLINDER option[value='" + editData.total_cyclinder_id + "']").prop("selected", true);
+
         $('#horse_power').val(editData.horse_power);
         $('#gear_box_forward').val(editData.gear_box_forward);
         $('#gear_box_reverse').val(editData.gear_box_reverse);
+
         $("#BRAKE_TYPE option").prop("selected", false);
         $("#BRAKE_TYPE option[value='" + editData.brake_type_id + "']").prop("selected", true);
+
         $('#starting_price').val(editData.starting_price);
         $('#ending_price').val(editData.ending_price);
         $('#warranty').val(editData.warranty);
-        // $('#type_name').val(editData.tractor_type_id).attr('select', true);
-        // console.log(editData.tractor_type_id,"tractors value");
+
+        // var tractorTypeIdToCheck = editData2.tractor_type_id;
+        var tractorTypeIdToCheck = editData2.tractor_type_id;
+        $("#tractor_type_ input[type='checkbox']").prop("checked", false);
+
+        // $("#type_name_").prop("checked", false);
+        // $(`#tractor_type_${tractorTypeIdToCheck}`).prop("checked","checked");
+       
+        // $("#tractor_type_1").attr("checked","checked");
+        
+        // const checkbox = document.getElementById("tractor_type_1");
+        // setTimeout(() => {
+          // console.log(document.getElementById(`tractor_type_${tractorTypeIdToCheck}`));
+          document.getElementById(`tractor_type_${tractorTypeIdToCheck}`).checked = true;
+        //  }, 5000);
+
+        console.log(tractorTypeIdToCheck, "tractors value");
+
         $('#_image').val(editData.image_type_id);
         
         
-        var $assList = $('#ass_list');
+        // var $assList = $('#ass_list');
 
-            $assList.val(accessoryIds);
+        //     $assList.val(accessoryIds);
         
-            $assList.trigger('change');
+        //     $assList.trigger('change');
     
         
         
@@ -428,10 +452,10 @@ function store(event) {
         $('#front_tyre').val(editData.front_tyre);
         $('#rear_tyre').val(editData.rear_tyre);
 
-        $("#ass_list option").prop("selected", false);
-    $("#ass_list option[value='" + selectedAccessories.accessory_id + "']").prop("selected", true);
-    $("#ass_list").trigger('change');
-    console.log('accessory', selectedAccessories.accessory_id);
+        // $("#ass_list option").prop("selected", false);
+    // $("#ass_list option[value='" + selectedAccessories.accessory_id + "']").prop("selected", true);
+    // $("#ass_list").trigger('change');
+    // console.log('accessory', selectedAccessories.accessory_id);
 
         $("#STATUS option").prop("selected", false);
         $("#STATUS option[value='" + editData.status_id + "']").prop("selected", true);
@@ -441,17 +465,19 @@ function store(event) {
         $("#selectedImagesContainer2").empty();
 
            if (editData.image_names) {
+            $('#_image1').val
              var imageNamesArray = Array.isArray(editData.image_names) ? editData.image_names : editData.image_names.split(',');
              console.log('imageNamesArray',imageNamesArray);  
              var countclass = 0;
              imageNamesArray.forEach(function (image_names) {
                  var imageUrl = 'http://tractor-api.divyaltech.com/uploads/product_img/' + image_names.trim();
-            
+             
                  countclass++;
                  var newCard = `
                      <div class="col-12 col-md-2 col-lg-2 position-relative" style="left:6px;">
-                         <div class="upload__img-close_button " id="closeId${countclass}" onclick="removeImage(this);"></div>
-                         <div class="brand-main d-flex box-shadow mt-1 py-2 text-center shadow upload__img-closeDy${countclass}">
+                     <div class="upload__img-close_button " id="closeId${countclass}" onclick="removeImage(this);"></div>
+                     <div class="brand-main d-flex box-shadow mt-1 py-2 text-center shadow upload__img-closeDy${countclass}">
+                  
                              <a class="weblink text-decoration-none text-dark" title="Image">
                                  <img class="img-fluid w-100" src="${imageUrl}" alt="Image">
                               </a>
@@ -459,57 +485,139 @@ function store(event) {
                       </div>
        `;
        $("#selectedImagesContainer2").append(newCard);
+   
 });
   
   }
-  $('#type_name input[type="checkbox"]').prop("checked", false);
-  tractorTypeNames=[];
+  // $('#type_name input[type="checkbox"]').prop("checked", false);
+  // tractorTypeNames=[];
   // Loop through the fetched tractorTypeNames and check the corresponding checkboxes
-  tractorTypeNames.forEach(function (typeId) {
-      console.log('typeId', typeId);
-      $('#type_name input[type="checkbox"]:checked').each(function () {
-        var typeId = $(this).val();
-        $('#type_name input[value="' + typeId + '"]').prop('checked', true);
-    });
-  });  
+  // tractorTypeNames.forEach(function (typeId) {
+  //     console.log('typeId', typeId);
+  //     $('#type_name input[type="checkbox"]:checked').each(function () {
+  //       var typeId = $(this).val();
+  //       $('#type_name input[value="' + typeId + '"]').prop('checked', true);
+  //   });
+  // });  
+//   tractorTypeNames.forEach(function (typeId) {
+//     console.log('typeId', typeId);
+//     $('#type_name input[type="checkbox"][value="' + typeId + '"]').prop('checked', true);
+// });
       },
       error: function(error) {
         console.error('Error fetching user data:', error);
       }
     });
   }
+  // $("#tractor_type_1").attr("checked","checked");
+ 
 
-  function get() {
-        // var url = "<?php echo $APIBaseURL; ?>getBrands";
-        var apiBaseURL =APIBaseURL;
-        var url = apiBaseURL + 'getBrands/'+ 1;
-        $.ajax({
-            url: url,
-            type: "GET",
-            headers: {
-                'Authorization': 'Bearer' + localStorage.getItem('token')
-            },
-            success: function (data) {
-                console.log(data);
-                const select = document.getElementById('brand_name');
-                // select.innerHTML = '';
+  // function get() {
+  //       // var url = "<?php echo $APIBaseURL; ?>getBrands";
+  //       var apiBaseURL =APIBaseURL;
+  //       // var url = apiBaseURL + 'getBrands/'+ 2;
+  //       var url = "http://tractor-api.divyaltech.com/api/customer/get_brand_by_product_id/" + 2;
+  //       $.ajax({
+  //           url: url,
+  //           type: "GET",
+  //           headers: {
+  //               'Authorization': 'Bearer' + localStorage.getItem('token')
+  //           },
+  //           success: function (data) {
+  //               console.log(data);
+  //               const select = document.getElementById('brand_name');
+  //               // select.innerHTML = '';
 
+  //               if (data.brands.length > 0) {
+  //                   data.brands.forEach(row => {
+  //                     select.innerHTML = '<option selected disabled value="">Please select an option</option>';
+  //                       const option = document.createElement('option');
+  //                       option.value = row.id; 
+  //                       option.textContent = row.brand_name;
+  //                       select.appendChild(option);
+  //                   });
+  //               } else {
+  //                   select.innerHTML ='<option>No valid data available</option>';
+  //               }
+  //           },
+  //           error: function (error) {
+  //               console.error('Error fetching data:', error);
+  //           }
+  //       });
+  //   }
+  function get_brand() {
+    var url = "http://tractor-api.divyaltech.com/api/customer/get_brand_by_product_id/" + 2;
+    // var url = 'http://tractor-api.divyaltech.com/api/customer/get_all_brands/'+ 6;
+    $.ajax({
+        url: url,
+        type: "GET",
+        headers: {
+            'Authorization': 'Bearer ' + localStorage.getItem('token')
+        },
+        success: function (data) {
+            const selects = document.querySelectorAll('#brand_name');
+  
+            selects.forEach(select => {
+                select.innerHTML = '<option selected disabled value="">Please select an option</option>';
+  
                 if (data.brands.length > 0) {
                     data.brands.forEach(row => {
                         const option = document.createElement('option');
-                        option.value = row.id; 
                         option.textContent = row.brand_name;
+                        option.value = row.id;
+                        select.appendChild(option);
+                    });
+  
+                    // Add event listener to brand dropdown
+                    select.addEventListener('change', function() {
+                        const selectedBrandId = this.value;
+                        get_model(selectedBrandId);
+                    });
+                } else {
+                    select.innerHTML = '<option>No valid data available</option>';
+                }
+            });
+        },
+        error: function (error) {
+            console.error('Error fetching data:', error);
+        }
+    });
+  }
+  
+  function get_model(brand_id) {
+    var url = 'http://tractor-api.divyaltech.com/api/customer/get_brand_model/' + brand_id;
+    $.ajax({
+        url: url,
+        type: "GET",
+        headers: {
+            'Authorization': 'Bearer ' + localStorage.getItem('token')
+        },
+        success: function (data) {
+            const selects = document.querySelectorAll('#model');
+  
+            selects.forEach(select => {
+                select.innerHTML = '<option selected disabled value="">Please select an option</option>';
+  
+                if (data.model.length > 0) {
+                    data.model.forEach(row => {
+                        const option = document.createElement('option');
+                        option.textContent = row.model;
+                        option.value = row.model;
+                        console.log(option);
                         select.appendChild(option);
                     });
                 } else {
-                    select.innerHTML ='<option>No valid data available</option>';
+                    select.innerHTML = '<option>No valid data available</option>';
                 }
-            },
-            error: function (error) {
-                console.error('Error fetching data:', error);
-            }
-        });
-    }
+            });
+        },
+        error: function (error) {
+            console.error('Error fetching data:', error);
+        }
+    });
+  }
+  
+  get_brand(); 
  
  
 

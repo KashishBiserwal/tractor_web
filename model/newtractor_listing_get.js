@@ -75,7 +75,7 @@ success: function (data) {
   if (data.product.allProductData && data.product.allProductData.length > 0) {
 
       let tableData = [];
-                let counter = 1;
+                let counter = data.product.allProductData.length;
 
                 data.product.allProductData.forEach(row => {
                     let action = `
@@ -90,7 +90,7 @@ success: function (data) {
                         </div>`;
 
                         tableData.push([
-                          counter,
+                          counter--,
                           formatDateTime(row.date),
                           row.brand_name,
                           row.model,
@@ -99,7 +99,7 @@ success: function (data) {
                           row.ending_price,
                           action
                         ]);
-                    counter++;
+                    // counter++;
                 });
 
                 $('#example').DataTable().destroy();
@@ -164,7 +164,7 @@ success: function (data) {
           
               if (data.newTractor.allProductData && data.newTractor.allProductData.length > 0) {
                   let tableData = [];
-                  let counter = 1;
+                  let counter = data.newTractor.allProductData.length;
           
                   data.newTractor.allProductData.forEach(row => {
                       let action = `<div class="float-start">
@@ -180,7 +180,7 @@ success: function (data) {
                       </div>`;
           
                       tableData.push([
-                          counter,
+                          counter--,
                           formatDateTime(row.date),
                           row.brand_name,
                           row.model,
@@ -189,7 +189,7 @@ success: function (data) {
                           row.ending_price,
                           action
                       ]);
-                      counter++;
+                      // counter++;
                   });
 
                   $('#example').DataTable().destroy();

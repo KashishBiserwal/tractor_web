@@ -35,7 +35,7 @@
       <div class="filter-card mb-2">
         <div class="card-body">
           <div class="row">
-          <div class="col-12 col-sm-12 col-md-3 col-lg-3">
+          <!-- <div class="col-12 col-sm-12 col-md-3 col-lg-3">
               <div class="form-outline">
                 <label class="form-label fw-bold">Buyer Name</label>
                 <select class="form-select py-2" aria-label="Default select example">
@@ -45,25 +45,8 @@
                     <option value="3">name3</option>
                 </select>
               </div>
-            </div>
-            <div class="col-12 col-sm-12 col-md-3 col-lg-3">
-              <div class="form-outline ">
-                <label class="form-label fw-bold">District</label>
-                <select class="form-select py-2" aria-label="Default select example">
-                    <option selected>Select District</option>
-                    <option value="Raipur">Raipur</option>
-                  <option value="Bhilai">Bhilai</option>
-                  <option value="Durg">Durg</option>
-                  <option value="Raigarh">Raigarh</option>
-                  <option value="Sarguja">Sarguja</option>
-                  <option value="Surajpur">Surajpur</option>
-                  <option value="	Jagdalpur">	Jagdalpur</option>
-                  <option value="	Korba">	Korba</option>
-                  <option value="	Dhamtari">	Dhamtari</option>
-                  <option value="	Ambikapur">	Ambikapur</option>	
-                </select>
-              </div>
-            </div>
+            </div> -->
+           
             <div class="col-12 col-sm-12 col-md-3 col-lg-3">
               <div class="form-outline">
                 <label class="form-label fw-bold">Category</label>
@@ -84,6 +67,34 @@
                     <option value="1">Potato</option>
                     <option value="2">Papaya</option>
                     <option value="3">Rice</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-12 col-sm-12 col-md-3 col-lg-3">
+              <div class="form-outline">
+                <label class="form-label">State</label>
+                <select class="form-select py-2" aria-label="Default select example"  id="state_1">
+                    <option value>Select State</option>
+                    <option value="Chhattisgarh">Chhattisgarh</option>
+                    <option value="Other">Other</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-12 col-sm-12 col-md-3 col-lg-3">
+              <div class="form-outline ">
+                <label class="form-label fw-bold">District</label>
+                <select class="form-select py-2" aria-label="Default select example">
+                    <option selected>Select District</option>
+                    <option value="Raipur">Raipur</option>
+                  <option value="Bhilai">Bhilai</option>
+                  <option value="Durg">Durg</option>
+                  <option value="Raigarh">Raigarh</option>
+                  <option value="Sarguja">Sarguja</option>
+                  <option value="Surajpur">Surajpur</option>
+                  <option value="	Jagdalpur">	Jagdalpur</option>
+                  <option value="	Korba">	Korba</option>
+                  <option value="	Dhamtari">	Dhamtari</option>
+                  <option value="	Ambikapur">	Ambikapur</option>	
                 </select>
               </div>
             </div>

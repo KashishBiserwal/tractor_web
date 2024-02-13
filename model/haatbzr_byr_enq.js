@@ -504,3 +504,109 @@ function get_category() {
   });
 }
 get_category();
+
+
+function searchdata() {
+  var category = $('#cc_category').val();
+  var sub_category = $('#ss_sub_cate').val();
+  var state = $('#select_state').val();
+  var district = $('#select_dist').val();
+
+  console.log("Category:", category);
+  console.log("Sub-Category:", sub_category);
+  console.log("State:", state);
+  console.log("District:", district);
+
+  var paraArr = {
+      'category_id': category,
+      'sub_category_id': sub_category,
+      'state': state,
+      'district': district,
+  };
+
+  var apiBaseURL = APIBaseURL;
+  var url = apiBaseURL + 'search_for_haat_bazar_enquiry';
+
+  $.ajax({
+      url: url,
+      type: 'POST',
+      data: paraArr,
+      headers: {
+          'Authorization': 'Bearer ' + localStorage.getItem('token')
+      },
+      success: function(searchData) {
+          updateTable(searchData);
+      },
+      error: function(error) {
+          console.error('Error searching for brands:', error);
+      }
+  });
+}
+
+function updateTable(data) {
+  const tableBody = $('#data-table');
+  tableBody.empty();
+  let counter = 1;
+
+  if (data.haatBazarData && data.haatBazarData.length > 0) {
+      let tableData = [];
+      data.haatBazarData.forEach(row => {
+          // const fullName = row.first_name + ' ' + row.last_name;
+          let action = `
+          <div class="d-flex">
+              <button class="btn btn-warning btn-sm text-white mx-1" data-bs-toggle="modal" onclick="openView(${row.id});" data-bs-target="#viewdatamodel">
+              <i class="fa-solid fa-eye" style="font-size: 11px;"></i></button>
+              <button class="btn btn-primary btn-sm btn_edit" onclick="fetch_edit_data(${row.id});" data-bs-toggle="modal" data-bs-target="#data_for_edit" id="yourUniqueIdHere" style="padding:5px">
+                <i class="fas fa-edit" style="font-size: 11px;"></i>
+              </button>
+              <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.id});" style="padding:5px">
+                <i class="fa fa-trash" style="font-size: 11px;"></i>
+              </button>
+          </div>`;
+          tableData.push([
+            counter,
+            row.category_name,
+            row.sub_category_name,
+            row.first_name,
+            row.mobile,
+            row.state,
+            row.district,
+            action
+          ]);
+      });
+
+      // Initialize or destroy existing DataTable
+      if ($.fn.DataTable.isDataTable('#example')) {
+          $('#example').DataTable().destroy();
+      }
+
+      // Reinitialize DataTable with updated data
+      $('#example').DataTable({
+          data: tableData,
+          columns: [
+            { title: 'S.No.' },
+            { title: 'Category' },
+            { title: 'Sub-Category' },
+            { title: 'Name' },
+            { title: 'Phone Number' },
+            { title: 'State' },
+            { title: 'District' },
+            { title: 'Action', orderable: false }
+          ],
+          paging: true,
+          searching: false // Disable searching for now
+          // ... other options ...
+      });
+  } else {
+      // Display a message if there's no valid data
+      tableBody.html('<tr><td colspan="8">No valid data available</td></tr>');
+  }
+}
+
+function resetForm() {
+  $("#cc_category").val("");
+  $("#ss_sub_cate").val("");
+  $("#select_state").val("");
+  $("#select_dist").val("");
+  window.location.reload();
+};

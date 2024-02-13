@@ -345,7 +345,7 @@ var editId_state= false;
         var image_names = document.getElementById('_image').files;
          var enquiry_type_id = $('#enquiry_type_id').val();
          var sub_category_id = $('#sub_category_id').val();
-         var _category = $('#_category').val();
+         var _category = $('#c_category').val();
          var sub_cate = $('#sub_cate').val();
          var unitSelect = $('#unitSelect').val();
          var quantityInput = $('#quantityInput').val();
@@ -946,7 +946,7 @@ function category_main_1() {
   });
 }
 
-function get_sub_category1(category_id) {
+function get_sub_category_1(category_id) {
   var apiBaseURL = APIBaseURL;
   var url = apiBaseURL + 'haat_bazar_sub_category/' + category_id;
   var select = document.getElementById('sub_cate');

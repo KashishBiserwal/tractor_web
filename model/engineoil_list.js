@@ -645,6 +645,7 @@ function fetch_edit_data(id) {
                       <div class="col-6 col-lg-6 col-md-6 col-sm-6 position-relative">
                       <div class="upload__img-close_button" id="closeId${countclass}" onclick="removeImage(this);"></div>
                           <div class="brand-main d-flex box-shadow mt-2 text-center shadow upload__img-closeDy${countclass}">
+                          <input type="text" class="fetched_class_edit" value="${imageName}" hidden>
                               <a class="weblink text-decoration-none text-dark" title="Image">
                                   <img class="img-fluid w-100 h-100" src="${imageUrl}" alt=" Image">
                               </a>

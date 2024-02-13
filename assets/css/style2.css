@@ -275,6 +275,7 @@ opacity: 0.8;
 
   .upload__img-wrap {
     display: flex;
+    flex-wrap: wrap;
   }
 
   .upload__img-box {
