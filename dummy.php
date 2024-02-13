@@ -38,7 +38,9 @@
     .mul_stp_frm {
         overflow-x: hidden;
     }
-
+    .upload__img-wrap{
+        flex-wrap: nowrap;
+    }
 
     p {
         margin: 0;
@@ -85,9 +87,12 @@
         content: '\2716';
         font-size: 14px;
         color: white;
+       
     }
 
-    
+    .height-same {
+    height: 33px; /* Adjust as needed */
+  }
 
 
     </style>
@@ -161,44 +166,50 @@
                                                 <input type="text" class="form-control" placeholder="" value="9" id="sub_category_id" name="price">
                                             </div>
                                         </div>
-                                        <div class="col-12 col-sm-6 col-md-6 col-lg-6">
+                                        <!-- <div class="col-12 col-sm-6 col-md-6 col-lg-6">
                                             <div class="form-outline">
                                                 <label class="form-label" for="category">Category</label>
                                                 <select class="form-select" id="category" name="category" >
-                                                    <!-- <option value="" selected disabled>Select Category</option>
-                                                    <option value="1">Vegetable</option>
-                                                    <option value="2">Fruits</option>
-                                                    <option value="3">Grain</option>
-                                                    <option value="3">Pulses</option> -->
+                                                   
                                                 </select>
                                             </div>
                                         </div>
                                         <div class="col-12 col-sm-6 col-md-6 col-lg-6">
                                             <div class="form-outline">
                                                 <label class="form-label" for="subcategory">Sub-Category</label>
-                                                <select class="form-select" id="subcategory" name="subcategory"
-                                                    >
-                                                    <!-- <option value="" selected disabled>Select Sub-Category</option>
-                                                    <option value="1">Vegetable</option>
-                                                    <option value="2">Fruits</option>
-                                                    <option value="3">Grain</option>
-                                                    <option value="3">Pulses</option> -->
+                                                <select class="form-select" id="subcategory" name="subcategory">
+                                                   
                                                 </select>
                                             </div>
-                                        </div>
+                                        </div> -->
+                                        <div class="col-12 col-sm-6 col-md-6 col-lg-6">
+                                        <div class="form-outline">
+                                              <label class="form-label">Category</label>
+                                              <select class="form-select py-2 category_cls" aria-label="Default select example" id="category" name="category" onchange="get_sub_category(this.value)">
+                                                  <!-- onchange event modified to trigger get_sub_category1 function -->
+                                              </select>
+                                          </div>
+                                      </div>
+                                      <div class="col-12 col-sm-6 col-md-6 col-lg-6">
+                                          <div class="form-outline">
+                                              <label class="form-label">Sub-Category</label>
+                                              <select class="form-select py-2 sub_category_cls" aria-label="Default select example" id="subcategory" name="subcategory">
+                                              </select>
+                                          </div>
+                                      </div>
                                         <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-4">
                                           <div class="input-group">
-                                              <input type="number" id="quantityInput" class="form-control text-black" placeholder="Quantity" aria-label="Text input with dropdown button" name="quantity" >
-                                              <select type="button" id="unitSelect" name="unit" class="btn border border-secondary-2 h-25 dropdown-toggle" data-bs-toggle="dropdown">
+                                              <input type="number" id="quantityInput" class="form-control text-black height-same" placeholder="Quantity" aria-label="Text input with dropdown button" name="quantity">
+                                              <select type="button" id="unitSelect" name="unit" class="btn border border-secondary-2 h-25 dropdown-toggle height-same" data-bs-toggle="dropdown">
                                                   <ul class="dropdown-menu">
-                                                    <option class="dropdown-item" value="">Select Unit</option>
-                                                    <option class="dropdown-item" value="As per">As per</option>
-                                                    <option class="dropdown-item" value="gram">gram</option>
-                                                    <option class="dropdown-item" value="Kg">Kg</option>
-                                                    <option class="dropdown-item" value="Quintal">Quintal</option>
-                                                    <option class="dropdown-item" value="Ton">Ton</option>
-                                                    <option class="dropdown-item" value="Pack">Pack</option>
-                                                    <option class="dropdown-item" value="Unit">Unit</option>
+                                                      <option class="dropdown-item" selected disabled value>Select Unit</option>
+                                                      <option class="dropdown-item" value="Each">Each</option>
+                                                      <option class="dropdown-item" value="gram">gram</option>
+                                                      <option class="dropdown-item" value="Kg">Kg</option>
+                                                      <option class="dropdown-item" value="Quintal">Quintal</option>
+                                                      <option class="dropdown-item" value="Ton">Ton</option>
+                                                      <option class="dropdown-item" value="Pack">Pack</option>
+                                                      <!-- <option class="dropdown-item" value="Unit">Unit</option> -->
                                                   </ul>
                                               </select>
                                           </div>
@@ -253,18 +264,15 @@
                             </div>
                             <div class="step step-2">
                                 <!-- Step 2 form fields here -->
-                                <div class="">
-                                    <p class="text-center h5 mb-4 pb-2">Upload File</p>
-
-
-                                    <div class="upload__box text-center">
-                                        <div class="upload__btn-box">
-                                            <label>
-                                                <p class="upload__btn w-100">Upload Images</p>
-                                                <input type="file" data-max_length="4"
-                                                    class="upload__inputfile" id="imageInput" name="images[]" accept="image/*" multiple >
-                                            </label>
-                                        </div>
+                                <div class="mt-5">
+                                    <p class=" h5  pb-2 p-1">Upload File</p>
+                                        <div class="upload__box text-center mt-4">
+                                            <div class="upload__btn-box">
+                                                <label>
+                                                    <p class="upload__btn w-100">Upload Images</p>
+                                                    <input type="file" data-max_length="4"class="upload__inputfile" id="imageInput" name="images[]" accept="image/*" multiple >
+                                                </label>
+                                            </div>
                                         <div class="col-sm-6">
                                             <div class="upload__img-wrap"></div>
                                         </div>
@@ -304,8 +312,11 @@
                             </div>
                             <div class="step step-3">
                                 <!-- Step 3 form fields here -->
-                                <p class="text-center mb-4 h5 ps-2 pe-2 pb-2">Fill Your Information</p>
+                              
                                 <div class="row ">
+                                    <div class="mt-5">
+                                       <p class="text-center h5 ps-2 pe-2 pb-2">Fill Your Information</p>
+                                    </div>
                                     <div class="col-12 col-sm-6 col-md-6 col-lg-6 mt-4">
                                         <div class="form-outline">
                                             <label class="form-label " for="fname"><i class="fa-regular fa-user"></i> First Name</label>

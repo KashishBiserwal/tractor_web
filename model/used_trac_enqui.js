@@ -533,4 +533,125 @@ function resetform(){
 
 
 
+// Location
 
+function get_state() {
+  var apiBaseURL = APIBaseURL; // Assuming APIBaseURL is defined elsewhere
+  var url = apiBaseURL + 'state_data';
+
+  $.ajax({
+    url: url,
+    type: "GET",
+    headers: {
+      'Authorization': 'Bearer ' + localStorage.getItem('token')
+    },
+    success: function (data) {
+      console.log(data);
+
+      const selectState = $('#');
+      selectState.empty(); // Clear existing options
+
+      // Add a default option
+      selectState.append('<option selected disabled value="">Please select a state</option>');
+
+      // Loop through stateData array and populate dropdown
+      $.each(data.stateData, function (index, state) {
+        var state_id = state.id;
+        var state_name = state.state_name;
+
+        // Append the option to the dropdown
+        selectState.append('<option value="' + state_id + '">' + state_name + '</option>');
+      });
+
+      // Add event listener for state selection
+      selectState.change(function() {
+        var selectedStateId = $(this).val();
+        if (selectedStateId) {
+          get_districts(selectedStateId);
+        }
+      });
+    },
+    error: function (error) {
+      console.error('Error fetching data:', error);
+    }
+  });
+}
+
+function get_districts(stateId) {
+  var apiBaseURL = APIBaseURL; // Assuming APIBaseURL is defined elsewhere
+  var url = apiBaseURL + 'district_data?state_id=' + stateId;
+
+  $.ajax({
+    url: url,
+    type: "GET",
+    headers: {
+      'Authorization': 'Bearer ' + localStorage.getItem('token')
+    },
+    success: function (data) {
+      console.log(data);
+
+      const selectDistrict = $('#');
+      selectDistrict.empty(); // Clear existing options
+
+      // Add a default option
+      selectDistrict.append('<option selected disabled value="">Please select a district</option>');
+
+      // Loop through districtData array and populate dropdown
+      $.each(data.districtData, function (index, district) {
+        var district_id = district.id;
+        var district_name = district.district_name;
+
+        // Append the option to the dropdown
+        selectDistrict.append('<option value="' + district_id + '">' + district_name + '</option>');
+      });
+
+      // Add event listener for district selection
+      selectDistrict.change(function() {
+        var selectedDistrictId = $(this).val();
+        if (selectedDistrictId) {
+          get_tehsils(selectedDistrictId);
+        }
+      });
+    },
+    error: function (error) {
+      console.error('Error fetching data:', error);
+    }
+  });
+}
+
+function get_tehsils(districtId) {
+  var apiBaseURL = APIBaseURL; // Assuming APIBaseURL is defined elsewhere
+  var url = apiBaseURL + 'tehsil_data?district_id=' + districtId;
+
+  $.ajax({
+    url: url,
+    type: "GET",
+    headers: {
+      'Authorization': 'Bearer ' + localStorage.getItem('token')
+    },
+    success: function (data) {
+      console.log(data);
+
+      const selectTehsil = $('#');
+      selectTehsil.empty(); // Clear existing options
+
+      // Add a default option
+      selectTehsil.append('<option selected disabled value="">Please select a tehsil</option>');
+
+      // Loop through tehsilData array and populate dropdown
+      $.each(data.tehsilData, function (index, tehsil) {
+        var tehsil_id = tehsil.id;
+        var tehsil_name = tehsil.tehsil_name;
+
+        // Append the option to the dropdown
+        selectTehsil.append('<option value="' + tehsil_id + '">' + tehsil_name + '</option>');
+      });
+    },
+    error: function (error) {
+      console.error('Error fetching data:', error);
+    }
+  });
+}
+
+// Call the function to populate the state dropdown
+get_state();

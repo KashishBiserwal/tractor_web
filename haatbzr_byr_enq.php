@@ -35,41 +35,20 @@
       <div class="filter-card mb-2">
         <div class="card-body">
           <div class="row">
-          <!-- <div class="col-12 col-sm-12 col-md-3 col-lg-3">
+          <div class="col-12 col-sm-12 col-md-3 col-lg-3">
               <div class="form-outline">
-                <label class="form-label fw-bold">Buyer Name</label>
-                <select class="form-select py-2" aria-label="Default select example">
-                    <option selected>Select Name</option>
-                    <option value="1">name1</option>
-                    <option value="2">name2</option>
-                    <option value="3">name3</option>
+                <label class="form-label">Category</label>
+                <select class="form-select py-2 category_cls" aria-label="Default select example" id="cc_category" name="_category" onchange="get_sub_category(this.value)">
                 </select>
               </div>
-            </div> -->
-           
-            <div class="col-12 col-sm-12 col-md-3 col-lg-3">
-              <div class="form-outline">
-                <label class="form-label fw-bold">Category</label>
-                <select class="form-select py-2" aria-label="Default select example">
-                    <option selected>Select Category</option>
-                    <option value="1">Vegitable</option>
-                    <option value="2">Fruits</option>
-                    <option value="2">Grains</option>
-                    <option value="2">Pulses</option>
-                </select>
               </div>
-            </div>
-            <div class="col-12 col-sm-12 col-md-3 col-lg-3">
-              <div class="form-outline  ">
-                <label class="form-label fw-bold">Sub-Category</label>
-                <select class="form-select py-2" aria-label="Default select example">
-                    <option selected>Select Sub-Category</option>
-                    <option value="1">Potato</option>
-                    <option value="2">Papaya</option>
-                    <option value="3">Rice</option>
-                </select>
+              <div class="col-12 col-sm-12 col-md-3 col-lg-3">
+                  <div class="form-outline">
+                      <label class="form-label">Sub-Category</label>
+                      <select class="form-select py-2 sub_category_cls" aria-label="Default select example" id="ss_sub_cate" name="sub_cate_1">
+                      </select>
+                  </div>
               </div>
-            </div>
             <div class="col-12 col-sm-12 col-md-3 col-lg-3">
               <div class="form-outline">
                 <label class="form-label">State</label>

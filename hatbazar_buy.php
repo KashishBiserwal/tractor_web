@@ -18,9 +18,9 @@
    include 'includes/header.php';
    ?>
 
-    <section class="mt-5 pt-5">
+    <section class=" bg-light mt-5 pt-5">
         <div class="container-fullwidth pt-4">
-            <div class="">
+            <div class="mt-4">
                 <span class="mt-5 text-white pt-5 ">
                     <a href="index.php" class="text-decoration-none header-link px-1">Home <i
                             class="fa-solid fa-chevron-right px-1"></i></a>
@@ -48,20 +48,19 @@
 
                 <div class="col-12 col-sm-3 col-lg-3 col-md-3">
                     <div class=" row mb-3" id="">
-                        <div class="col-12 col-sm-12 col-md-12 col-lg-12">
-                            <div class=" row text-center">
-                            <div class="col-12 col-sm-6 col-lg-6 col-md-6 g-1">
-                                    <button id="resetButton" type="button" onclick="resetform()" class="add_btn btn btn-success">
-                                        <i class="fas fa-undo"></i> Reset </button>
-                                </div>
-                                <div class="col-12 col-sm-6 col-lg-6 col-md-6 g-1">
-                                    <button id="apply_filter_bnt" type="button" class="add_btn btn btn-success">
-                                        <i class="fas fa-filter"></i>Apply Filter</button>
-                                </div>
-
+                    <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+                        <div class="row text-center">
+                            <div class="col-6 col-sm-6 col-lg-6 col-md-6 g-1">
+                                <button id="resetButton" type="button" onclick="resetform()" class="add_btn btn btn-success w-75">
+                                    <i class="fas fa-undo"></i> Reset </button>
+                            </div>
+                            <div class="col-6 col-sm-6 col-lg-6 col-md-6 g-1">
+                                <button id="apply_filter_bnt" type="button" class="add_btn btn btn-success w-75">
+                                    <i class="fas fa-filter"></i> Apply Filter</button>
                             </div>
                         </div>
                     </div>
+                </div>
 
                     <div class="scrollbar mb-3" id="filter_district">
                         <div class="force-overflow">
@@ -93,17 +92,15 @@
                     </div>
                   
                     <div class="scrollbar mb-3" id="category_filter">
-                    <div class="force-overflow">
-                            <h5 class="ps-1 text-dark fw-bold pt-2">Search By category</h5>
-                            <div class="HP py-2" id="checkboxContainercategory">
+                             <div class="force-overflow">
+                                <h5 class="ps-1 text-dark fw-bold pt-2">Search By category</h5>
+                                <div class="HP py-2" id="checkboxContainercategory"></div>
                             </div>
                         </div>
-                    </div>
                     <div class="scrollbar mb-3" id="Sub_category_filter">
-                    <div class="force-overflow">
+                        <div class="force-overflow">
                             <h5 class="ps-1 text-dark fw-bold pt-2">Search By Sub category</h5>
-                            <div class="HP py-2" id="sub_cateory_checkbox">
-                            </div>
+                            <div class="HP py-2" id="sub_cateory_checkbox"></div>
                         </div>
                     </div>
 

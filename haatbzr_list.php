@@ -9,7 +9,10 @@
   <script src="<?php $baseUrl; ?>model/hatbazar_list.js"></script>
    <style>
      label.error {
-    color: red;
+    color: red; 
+  }
+.height-same {
+    height: 33px; /* Adjust as needed */
   }
    </style>
 <body class="loaded"> 
@@ -161,23 +164,24 @@
                                           </div>
                                       </div>
 
-                                        <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-4">
+                                      <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-4">
                                           <div class="input-group">
-                                              <input type="number" id="quantityInput" class="form-control text-black" placeholder="Quantity" aria-label="Text input with dropdown button" name="quantity" >
-                                              <select type="button" id="unitSelect" name="unit" class="btn border border-secondary-2 h-25 dropdown-toggle" data-bs-toggle="dropdown">
+                                              <input type="number" id="quantityInput" class="form-control text-black height-same" placeholder="Quantity" aria-label="Text input with dropdown button" name="quantity">
+                                              <select type="button" id="unitSelect" name="unit" class="btn border border-secondary-2 h-25 dropdown-toggle height-same" data-bs-toggle="dropdown">
                                                   <ul class="dropdown-menu">
-                                                    <option class="dropdown-item" value="">Select Unit</option>
-                                                    <option class="dropdown-item" value="As per">As per</option>
-                                                    <option class="dropdown-item" value="gram">gram</option>
-                                                    <option class="dropdown-item" value="Kg">Kg</option>
-                                                    <option class="dropdown-item" value="Quintal">Quintal</option>
-                                                    <option class="dropdown-item" value="Ton">Ton</option>
-                                                    <option class="dropdown-item" value="Pack">Pack</option>
-                                                    <option class="dropdown-item" value="Unit">Unit</option>
+                                                      <option class="dropdown-item" value="">Select Unit</option>
+                                                      <option class="dropdown-item" value="Each">Each</option>
+                                                      <option class="dropdown-item" value="gram">gram</option>
+                                                      <option class="dropdown-item" value="Kg">Kg</option>
+                                                      <option class="dropdown-item" value="Quintal">Quintal</option>
+                                                      <option class="dropdown-item" value="Ton">Ton</option>
+                                                      <option class="dropdown-item" value="Pack">Pack</option>
+                                                      <!-- <option class="dropdown-item" value="Unit">Unit</option> -->
                                                   </ul>
                                               </select>
                                           </div>
                                       </div>
+
                                       <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
                                           <div class="form-outline mt-4">
                                               <label for="name" class="form-label text-dark">Price</label>

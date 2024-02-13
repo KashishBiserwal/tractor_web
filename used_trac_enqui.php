@@ -122,8 +122,8 @@
                 <label class="form-label">State</label>
                 <select class="form-select py-2" aria-label="Default select example"  id="state2">
                     <option value>Select State</option>
-                    <option value="Chattisgarh">Chattisgarh</option>
-                    <option value="Other">Other</option>
+                    <!-- <option value="Chattisgarh">Chattisgarh</option>
+                    <option value="Other">Other</option> -->
                 </select>
               </div>
             </div>

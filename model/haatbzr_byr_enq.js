@@ -610,3 +610,69 @@ function resetForm() {
   $("#select_dist").val("");
   window.location.reload();
 };
+
+
+
+function category_main3() {
+  var apiBaseURL = APIBaseURL;
+  var url = apiBaseURL + 'haat_bazar_category';
+  $.ajax({
+      url: url,
+      type: "GET",
+      headers: {
+          'Authorization': 'Bearer ' + localStorage.getItem('token')
+      },
+      success: function(data) {
+          console.log(data);
+          const select = document.getElementById('cc_category');
+          select.innerHTML = '<option selected disabled value="">Please select an option</option>';
+
+          if (data.allCategory.length > 0) {
+              data.allCategory.forEach(row => {
+                  const option = document.createElement('option');
+                  option.textContent = row.category_name;
+                  option.value = row.id;
+                  select.appendChild(option);
+              });
+          } else {
+              select.innerHTML = '<option>No valid data available</option>';
+          }
+      },
+      error: function(error) {
+          console.error('Error fetching data:', error);
+      }
+  });
+}
+
+function get_sub_category(category_id) {
+  var apiBaseURL = APIBaseURL;
+  var url = apiBaseURL + 'haat_bazar_sub_category/' + category_id;
+  var select = document.getElementById('ss_sub_cate');
+  select.innerHTML = '<option selected disabled value="">Please select an option</option>';
+  $.ajax({
+      url: url,
+      type: "GET",
+      headers: {
+          'Authorization': 'Bearer ' + localStorage.getItem('token')
+      },
+      success: function(data) {
+          if (data.data.length > 0) {
+              data.data.forEach(row => {
+                  const option = document.createElement('option');
+                  option.textContent = row.sub_category_name;
+                  option.value = row.id;
+                  select.appendChild(option);
+              });
+          } else {
+              const option = document.createElement('option');
+              option.textContent = 'No sub-categories available';
+              option.disabled = true;
+              select.appendChild(option);
+          }
+      },
+      error: function(error) {
+          console.error('Error fetching sub-categories:', error);
+      }
+  });
+}
+category_main3();

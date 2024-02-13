@@ -14,13 +14,13 @@ var editId_state= false;
       var price = parseFloat(document.getElementById('price').value) || 0;
   
       var unitConversion = {
-          'As per': 1,
-          'gram': 0.001,
+          'Each': 1,
+          'gram': 1,
           'Kg': 1,
-          'Quintal': 100,
-          'Ton': 1000,
+          'Quintal': 1,
+          'Ton': 1,
           'Pack': 1,
-          'Unit': 1
+          
       };
   
       var total = quantity * price * unitConversion[unit];

@@ -37,11 +37,11 @@ include 'includes/footertag.php';
             <div class="vegehead">
                 <div class="row">
                     <div class="col-12 col-lg-6 ">
-                        <h3 class="fw-bold text-danger"> <span id="category_main"></span> <span id="district_main"></span></h3>
+                        <h3 class="fw-bold text-danger"> <span id="Sub_category_main"></span></h3>
                        
                     </div>
                     <div class="col-12 col-lg-6 ">
-                        <h4 class="fw-bold text-danger">Are You Intrested In This Vegetable ?</h4>
+                        <h4 class="fw-bold text-danger">Are You Intrested In This Harvest ?</h4>
                         <h5>Price:- <span id="original_price"></span> /-</h5>
                     </div>
                 </div>
@@ -76,41 +76,36 @@ include 'includes/footertag.php';
                                                     <label for="name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i> product_id</label>
                                                     <input type="text" class="form-control" id="product_id" value="">
                                                 </div>
-                                                <div class="col-12 col-lg-6 col-md-6 col-sm-6 mt-3">
+                                                <div class="col-12 col-lg-6 col-md-6 col-sm-6 mt-4">
                                                     <div class="form-outline">
-                                                        <label for="fname" class="form-label "><i
-                                                                class="fa-regular fa-user"></i> First Name</label>
+                                                        <label for="fname" class="form-label "><i class="fa-regular fa-user"></i> First Name</label>
                                                         <input type="text" class="form-control" id="fname" onkeydown="return /[a-zA-Z]/i.test(event.key)" name="fname">
                                                     </div>
                                                 </div>
-                                                <div class="col-12 col-lg-6 col-md-6 col-sm-6 mt-3">
+                                                <div class="col-12 col-lg-6 col-md-6 col-sm-6 mt-4">
                                                     <div class="form-outline">
-                                                        <label for="lname" class="form-label "><i
-                                                                class="fa-regular fa-user"></i> Last Name</label>
+                                                        <label for="lname" class="form-label "><i class="fa-regular fa-user"></i> Last Name</label>
                                                         <input type="text" class="form-control" onkeydown="return /[a-zA-Z]/i.test(event.key)" id="lname" name="lname">
                                                     </div>
                                                 </div>
-                                                <div class="col-12 col-lg-6 col-md-6 col-sm-6 mt-2">
-                                                    <div class="form-outline">
+                                                <div class="col-12 col-lg-6 col-md-6 col-sm-6">
+                                                    <div class="form-outline mt-4">
                                                         <label for="phone" class="form-label "><i class="fa fa-phone"aria-hidden="true"></i> Mobile Number</label>
                                                         <input type="text" class="form-control" id="phone" name="phone">
                                                     </div>
                                                 </div>
-
-                                                <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-2">
-                                                    <div class="form-outline ">
-                                                        <label for="state" class="form-label " id="state" name="state">
-                                                            <i class="fas fa-location"></i> State</label>
-                                                        <select class="form-select mb-2 "aria-label=".form-select-lg example" id="state"name="state">
+                                                <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+                                                    <div class="form-outline mt-4">
+                                                        <label for="state" class="form-label "><i class="fas fa-location"></i> State</label>
+                                                        <select class="form-select mb-2 "aria-label=".form-select-lg example" id="state_2"name="state">
                                                             <option value="" selected disabled>Select State</option>
                                                             <option value="Chhattisgarh">Chhattisgarh</option>
                                                             <option value="Other">Other</option>
                                                         </select>
                                                     </div>
                                                 </div>
-
-                                                <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-2">
-                                                    <div for="district" class="form-outline">
+                                                <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+                                                    <div for="district" class="form-outline mt-4">
                                                         <label class="form-label "><i
                                                                 class="fa-solid fa-location-dot"></i> District</label>
                                                         <select class="form-select mb-2" aria-label=".form-select-lg example" name="district"id="district">
@@ -121,8 +116,8 @@ include 'includes/footertag.php';
                                                         </select>
                                                     </div>
                                                 </div>
-                                                <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-2">
-                                                    <div class="form-outline">
+                                                <div class="col-12 col-sm-12 col-md-6 col-lg-6 ">
+                                                    <div class="form-outline mt-4">
                                                         <label for="tehsil" class="form-label">Tehsil</label>
                                                         <select class="form-select" aria-label=".form-select-lg example" name="tehsil" id="tehsil">
                                                             <option value="" selected disabled>Select Tehsil</option>
@@ -132,20 +127,31 @@ include 'includes/footertag.php';
                                                         </select>
                                                     </div>
                                                 </div>
-                                                <div class="col-12 col-lg-6 col-md-6 col-sm-6 mt-3">
-                                                    <div class="form-outline">
+                                                <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
+                                                    <div class="form-outline mt-4">
                                                         <label for="price" class="form-label ">Price</label>
                                                         <input type="text" class="form-control" id="price" name="price">
                                                     </div>
                                                 </div>
-
-                                                <div class="col-12 col-sm-12 col-md-6 col-lg-12 mt-2">
-                                                    <button type="button" class="btn btn-success w-100" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
-                                                        id="button_nursery">
+                                                <div class="col-12 col-sm-12 col-md-6 col-lg-12 mt-4 p-2">
+                                                    <button type="button" class="btn btn-success w-100" id="button_nursery">
                                                         Contact Seller
                                                     </button>
                                                 </div>
-                                                <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+                                                
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+                                        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
                                                     aria-labelledby="staticBackdropLabel" aria-hidden="true">
                                                     <div class="modal-dialog modal-lg modal-dialog-centered">
                                                         <div class="modal-content">
@@ -167,35 +173,19 @@ include 'includes/footertag.php';
                                                                             <div
                                                                                 class="col-12 col-sm-12 col-md-6 col-lg-6  ">
                                                                                 <label for="number"class="form-label text-dark fw-bold"><i class="fa fa-phone"aria-hidden="true"></i>
-                                                                                 Phone Number</label>
+                                                                                    Phone Number</label>
                                                                                 <input type="text" class="form-control" id="mob_num">
                                                                             </div>
                                                                         </div>
                                                                 </div>
                                                             </div>
                                                             <div class="modal-footer">
-                                                                <button type="button" class="btn btn-secondary"data-bs-dismiss="modal">Close</button>
-                                                                <button type="button" class="btn btn-danger">Got It</button>
+                                                                <button type="button"  id="got_it_btn "class="btn btn-secondary"data-bs-dismiss="modal">Close</button>
+                                                                <!-- <button type="button" class="btn btn-danger" id="got_it_btn">Got It</button> -->
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-12">
-                                <div class="row px-3 mt-4 float-end">
-                                    <img class="pic  mr-3 " src="assets/images/vege.png">
-                                </div>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
     <section>
         <div class="container">
             <h3 class="text-danger assured ps-2">About Item</h3>
@@ -271,8 +261,8 @@ include 'includes/footertag.php';
     ?>
 
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-    <script>
-    $(document).ready(function() {
+<!-- <script>
+         $(document).ready(function() {
         $.validator.addMethod("indianMobile", function(value, element) {
             return this.optional(element) || /^[789]\d{9}$/.test(value);
         }, "Please enter a valid Indian mobile number.");
@@ -315,6 +305,85 @@ include 'includes/footertag.php';
 
 
     });
-    </script>
+</script> -->
+<script>
+$(document).ready(function() {
+    jQuery.validator.addMethod("customPhoneNumber", function(value, element) {
+        return /^[6-9]\d{9}$/.test(value); 
+    }, "Phone number must start with 6 or above");
+
+    $.validator.addMethod("validPrice", function(value, element) {
+        const cleanedValue = value.replace(/,/g, '');
+        return /^\d+$/.test(cleanedValue);
+    }, "Please enter a valid price (digits and commas only)");
+
+    $('#nursery_form').validate({
+        rules: {
+            fname: {
+                required: true,
+                minlength: 2,
+            },
+            lname: {
+                required: true,
+                minlength: 2,
+            },
+            phone: {
+                required: true,
+                minlength: 10,
+                maxlength: 10,
+                digits: true,
+                customPhoneNumber: true // Custom validation method
+            },
+            state: "required",
+            district: "required",
+            tehsil: "required",
+            price: {
+                required: true,
+                validPrice: true // Custom validation method for price
+            },
+        },
+        messages: {
+            fname: {
+                required: "Please enter your first name.",
+                minlength: "First name must be at least 2 characters long."
+            },
+            lname: {
+                required: "Please enter your last name.",
+                minlength: "Last name must be at least 2 characters long."
+            },
+            phone: {
+                required: "This field is required",
+                minlength: "Phone Number must be of 10 Digit long",
+                maxlength: "Enter only 10 digits",
+                digits: "Please enter only digits"
+            },
+            state: "Please select your state.",
+            district: "Please select your district.",
+            tehsil: "Please select your tehsil.",
+            price: "Please enter the price."
+        },
+        errorElement: "div",
+        errorPlacement: function(error, element) {
+            // Add the `invalid-feedback` class to the error element
+            error.addClass("invalid-feedback");
+
+            if (element.prop("type") === "checkbox") {
+                error.insertAfter(element.parent("label"));
+            } else {
+                error.insertAfter(element);
+            }
+        },
+      
+    });
+
+    // Event listener for opening the modal
+    $('#button_nursery').click(function() {
+        if ($('#nursery_form').valid()) {
+            $('#staticBackdrop').modal('show');
+        }
+    });
+});
+</script>
+
 
 </html>

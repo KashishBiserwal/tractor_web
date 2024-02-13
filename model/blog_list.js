@@ -226,7 +226,7 @@ function add_news(event) {
   var data = new FormData();
 
   if (image) {
-      data.append("image", image);
+      data.append("image_names", image);
   }
 
   data.append('_method', _method);
@@ -358,58 +358,59 @@ function destroy(id) {
   }
 
   // for View
-function fetch_data(id) {
-  console.log(id, "id");
-  console.log(window.location);
-  var urlParams = new URLSearchParams(window.location.search);
-
-  var productId = id;
-  var apiBaseURL = APIBaseURL;
-  var url = apiBaseURL + 'blog_details/' + productId;
-
-  var headers = {
-      'Authorization': 'Bearer ' + localStorage.getItem('token')
-  };
-
-  $.ajax({
-      url: url,
-      type: "GET",
-      headers: headers,
-      success: function (response) {
-          console.log(response, 'abc');
-          var userData = response.blog_details[0];
-          document.getElementById('news_cate').innerText = userData.blog_category;
-          document.getElementById('headline_news').innerText = userData.heading;
-          document.getElementById('content_news').innerText = userData.content;
-          document.getElementById('publi').innerText = userData.publisher;
-
-          $("#selectedImagesContainer1").empty();
-
-          if (userData.image_names) {
-              var imageNamesArray = Array.isArray(userData.image_names) ? userData.image_names : userData.image_names.split(',');
-
-              imageNamesArray.forEach(function (imageName) {
-                  var imageUrl = 'http://tractor-api.divyaltech.com/uploads/blog_img/' + imageName.trim();
-
-                  var newCard = `
-                      <div class="col-6 col-lg-6 col-md-6 col-sm-6">
-                          <div class="brand-main d-flex box-shadow mt-2 text-center shadow">
-                              <a class="weblink text-decoration-none text-dark" title="Image">
-                                  <img class="img-fluid w-100 h-100 " src="${imageUrl}" alt="Image">
-                              </a>
-                          </div>
-                      </div>
-                  `;
-
-                  $("#selectedImagesContainer1").append(newCard);
-              });
-          }
-      },
-      error: function (error) {
-          console.error('Error fetching data:', error);
-      }
-  });
-}
+  function fetch_data(id) {
+    console.log(id, "id");
+    console.log(window.location);
+    var urlParams = new URLSearchParams(window.location.search);
+  
+    var productId = id;
+    var apiBaseURL = APIBaseURL;
+    var url = apiBaseURL + 'blog_details/' + productId;
+  
+    var headers = {
+        'Authorization': 'Bearer ' + localStorage.getItem('token')
+    };
+  
+    $.ajax({
+        url: url,
+        type: "GET",
+        headers: headers,
+        success: function (response) {
+            console.log(response, 'abc');
+            var userData = response.blog_details[0];
+            document.getElementById('news_cate').innerText = userData.blog_category;
+            document.getElementById('headline_news').innerText = userData.heading;
+            document.getElementById('content_news').innerText = userData.content;
+            document.getElementById('publi').innerText = userData.publisher;
+  
+            var selectedImagesContainer = $("#selectedImagesContainer1");
+            selectedImagesContainer.empty();
+  
+            if (userData.image_names) {
+                var imageNamesArray = Array.isArray(userData.image_names) ? userData.image_names : userData.image_names.split(',');
+  
+                imageNamesArray.forEach(function (imageName) {
+                    var imageUrl = 'http://tractor-api.divyaltech.com/uploads/blog_img/' + imageName.trim();
+  
+                    var newCard = `
+                        <div class="col-6 col-lg-6 col-md-6 col-sm-6">
+                            <div class="brand-main d-flex box-shadow mt-2 text-center shadow">
+                                <a class="weblink text-decoration-none text-dark" title="Image">
+                                    <img class="img-fluid w-100 h-100 " src="${imageUrl}" alt="Image">
+                                </a>
+                            </div>
+                        </div>
+                    `;
+  
+                    selectedImagesContainer.append(newCard);
+                });
+            }
+        },
+        error: function (error) {
+            console.error('Error fetching data:', error);
+        }
+    });
+  }
 
   function fetch_edit_data(id) {
     var apiBaseURL = APIBaseURL;
