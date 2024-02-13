@@ -76,7 +76,7 @@ $(document).ready(function() {
    
   });
   
-    $('#dataeditbtn').click(edit_user);
+    // $('#dataeditbtn').click(edit_user);
   
     $("#lookup_data_form").validate({
       rules: {
@@ -284,21 +284,22 @@ function store(event) {
     processData: false,
     contentType: false,
     success: function(result) {
-      console.log(result, "result");
-      console.log("Add successfully");
-      var msg = "Added successfully !"
-      $("#errorStatusLoading").modal('show');
-      $("#errorStatusLoading").find('.modal-title').html('Success');
-      $("#errorStatusLoading").find('.modal-body').html(msg);
+      // console.log(result, "result");
+      // console.log("Add successfully");
+      // var msg = "Added successfully !"
+      // $("#errorStatusLoading").modal('show');
+      // $("#errorStatusLoading").find('.modal-title').html('Success');
+      // $("#errorStatusLoading").find('.modal-body').html(msg);
 
-      // Hide the modal immediately
-      $("#staticBackdrop1").modal('hide');
+      // // Hide the modal immediately
+      // $("#staticBackdrop1").modal('hide');
+      
       get_data();
      
-      var alertConfirmation = confirm("Data added successfully. Do you want to reload the page?");
-      if (alertConfirmation) {
-        window.location.reload();
-      }
+      // var alertConfirmation = confirm("Data added successfully. Do you want to reload the page?");
+      // if (alertConfirmation) {
+      //   window.location.reload();
+      // }
     },
     error: function(error) {
       console.error('Error fetching data:', error);

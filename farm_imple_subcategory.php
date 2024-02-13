@@ -182,7 +182,7 @@ include 'includes/headertag.php';
                                                 </div>
                                                 <div class="row ml-0 py-1">
                                                     <div class="py-1">
-                                                        <button class="btn btn-outline-lite bg-light shadow float-end py-1       add_new_frm_field_btn"><i class="fas fa-plus add_icon"></i> Add New field row</button>
+                                                        <button class="btn btn-outline-lite bg-light shadow float-end py-1 add_new_frm_field_btn"><i class="fas fa-plus add_icon"></i> Add New field row</button>
                                                     </div>
                                                 </div>
                                             </div>
