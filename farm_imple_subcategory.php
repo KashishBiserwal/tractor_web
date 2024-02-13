@@ -135,18 +135,10 @@ include 'includes/headertag.php';
                                                 </select>
                                           </div>
                                         </div>
-                                        <div class="col-12 col-sm-6 col-md-6 col-lg-6  mt-4">
-                                          <div class="form-outline">
-                                            <label for="lookup_data_value" class="form-label text-dark"> Subcategory Name</label>
-                                              <input type="text" class="form-control" placeholder=" " id="lookup_data_value"  for="lookup_data" name="lookup_datavalue">
-                                          </div>
-                                        </div>
-                                        
-
                                         <!-- custom field -->
                                         <div class="col-md-12 form_sec_outer_task border mt-2">
                                             <div class="row">
-                                                <div class="col-md-12 bg-light p-2 mb-3">
+                                                <div class="col-md-12 p-2 mb-3">
                                                     <div class="row">
                                                         <div class="col-md-6">
                                                             <div class="row">
@@ -187,6 +179,12 @@ include 'includes/headertag.php';
                                                 </div>
                                             </div>
                                         </div>
+                                        <div class="col-12 col-sm-6 col-md-6 col-lg-6  mt-4">
+                                          <div class="form-outline">
+                                            <label for="lookup_data_value" class="form-label text-dark"> Subcategory Name</label>
+                                              <input type="text" class="form-control" placeholder=" " id="lookup_data_value"  for="lookup_data" name="lookup_datavalue">
+                                          </div>
+                                        </div>
                                         <div class="col-12 col-lg-6 col-md-6 col-sm-6 mt-3">
                                           <div class="upload__box mt-5">
                                             <div class="upload__btn-box text-center">
@@ -203,7 +201,6 @@ include 'includes/headertag.php';
                                             <div id="selectedImagesContainer2" class="upload__img-wrap float-start"></div>
                                           </div>
                                         </div>
-
                                       </div>
                                       <button type="button" class="btn btn-success  mt-3 mb-0 btn_all" id="lookup_data_submit">Submit</button>
                                     </form>
