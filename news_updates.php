@@ -67,11 +67,11 @@
                                       </div>
                                     </div>
                                     <div class="col-12 mt-3">
-                                  <div class="form-outline">
-                                  <label class="form-label text-dark">Body/ News Content</label>
-                                  <textarea class="w-100 p-2" name="contant" id="contant" rows="4" cols="70" minlength="1" maxlength="255"></textarea>
-                                  </div>
-                                  </div>
+                                        <div class="form-outline">
+                                          <label class="form-label text-dark">Body/ News Content</label>
+                                          <textarea class="w-100 p-2" name="contant" id="contant" rows="4" cols="70" minlength="1" maxlength="255"></textarea>
+                                        </div>
+                                    </div>
                                     <div class="col-12">
                                         <div class="upload__box mt-5">
                                           <div class="upload__btn-box">

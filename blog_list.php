@@ -100,12 +100,10 @@
                                               <p></p>
                                           </div>
                                           <div id="selectedImagesContainer2" class="upload__img-wrap"></div>
+                                        </div>
                                       </div>
-                                  </div>
-
-                                   
-                                </div>
-                            </form>
+                                    </div>
+                                </form>
                             </div>
                         </div>
                     </div>

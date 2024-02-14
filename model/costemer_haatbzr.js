@@ -10,13 +10,13 @@
         var price = parseFloat(document.getElementById('price').value) || 0;
     
         var unitConversion = {
-            'As per': 1,
-            'gram': 0.001,
+            'Each': 1,
+            'gram': 1,
             'Kg': 1,
-            'Quintal': 100,
-            'Ton': 1000,
+            'Quintal': 1,
+            'Ton': 1,
             'Pack': 1,
-            'Unit': 1
+         
         };
     
         var total = quantity * price * unitConversion[unit];
@@ -32,21 +32,20 @@
 });
 
 
-// select category
-  function get_category() {
-    // var apiBaseURL = APIBaseURL;
-    var url = 'http://tractor-api.divyaltech.com/api/customer/haat_bazar_category';
-    // var url = apiBaseURL + 'haat_bazar_category';
+function category_main3() {
+    var apiBaseURL = APIBaseURL;
+    var url = apiBaseURL + 'haat_bazar_category';
     $.ajax({
         url: url,
         type: "GET",
         headers: {
             'Authorization': 'Bearer ' + localStorage.getItem('token')
         },
-        success: function (data) {
+        success: function(data) {
+            console.log(data);
             const select = document.getElementById('category');
             select.innerHTML = '<option selected disabled value="">Please select an option</option>';
-
+  
             if (data.allCategory.length > 0) {
                 data.allCategory.forEach(row => {
                     const option = document.createElement('option');
@@ -58,46 +57,45 @@
                 select.innerHTML = '<option>No valid data available</option>';
             }
         },
-        error: function (error) {
+        error: function(error) {
             console.error('Error fetching data:', error);
         }
     });
-}
-get_category();
-
-
-    // select sub-category
-     function get_category_main() {
-        // var apiBaseURL =APIBaseURL;
-        // var url = apiBaseURL + 'haat_bazar_sub_category';
-        var url = 'http://tractor-api.divyaltech.com/api/customer/haat_bazar_sub_category';
-        $.ajax({
-            url: url,
-            type: "GET",
-            headers: {
-                'Authorization': 'Bearer ' + localStorage.getItem('token')
-            },
-            success: function (data) {
-                console.log(data);
-                const select = document.getElementById('subcategory');
-                select.innerHTML = '<option selected disabled value="">Please select an option</option>';
-                if (data.allSubCategory.length > 0) {
-                    data.allSubCategory.forEach(row => {
-                        const option = document.createElement('option');
-                        option.textContent = row.sub_category_name;
-                        option.value = row.id;
-                        select.appendChild(option);
-                    });
-                } else {
-                    select.innerHTML ='<option>No valid data available</option>';
-                }
-            },
-            error: function (error) {
-                console.error('Error fetching data:', error);
+  }
+  
+  function get_sub_category(category_id) {
+    var apiBaseURL = APIBaseURL;
+    var url = apiBaseURL + 'haat_bazar_sub_category/' + category_id;
+    
+    var select = document.getElementById('subcategory');
+    select.innerHTML = '<option selected disabled value="">Please select an option</option>';
+    $.ajax({
+        url: url,
+        type: "GET",
+        headers: {
+            'Authorization': 'Bearer ' + localStorage.getItem('token')
+        },
+        success: function(data) {
+            if (data.data.length > 0) {
+                data.data.forEach(row => {
+                    const option = document.createElement('option');
+                    option.textContent = row.sub_category_name;
+                    option.value = row.id;
+                    select.appendChild(option);
+                });
+            } else {
+                const option = document.createElement('option');
+                option.textContent = 'No sub-categories available';
+                option.disabled = true;
+                select.appendChild(option);
             }
-        });
-    }
-    get_category_main();
+        },
+        error: function(error) {
+            console.error('Error fetching sub-categories:', error);
+        }
+    });
+  }
+  category_main3();
 
    // Define a global array to store form data
 var formDataArray = [];
