@@ -38,13 +38,12 @@
                 <h3 class=" fw-bold">Harvesters</h3>
               
                 <div class="row my-4" id="productContainer">
-                    
-
-                    <div class="text-center my-2">
-                  <button type="submit" id="engine_oil_btn" class="btn btn-success shadow px-5 w-40">Load More</button>         
-                </div>     
-
                 </div>
+                <h5 id="noDataMessage" class="text-center mt-4 text-danger" style="display: none;">
+                <img src="assets/images/404.gif" class="w-25" alt=""></br>Data not found..!</h5>
+                <div class="text-center my-2">
+                    <button type="submit" id="loadMoreBtn" class="btn btn-success shadow px-5 w-40">Load More</button>         
+                </div> 
             </div>
             <!-- RESET APPLY FILTER -->
             <div class="col-12 col-sm-3 col-lg-3 col-md-3">

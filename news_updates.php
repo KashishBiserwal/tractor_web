@@ -84,7 +84,6 @@
                                           <div id="selectedImagesContainer2" class="upload__img-wrap"></div>
                                         </div>
                                     </div>
-                                   
                                 </div>
                             </form>
                             </div>

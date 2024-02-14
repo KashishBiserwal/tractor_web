@@ -311,7 +311,7 @@ var editId_state= false;
         var paraArr = {
             'category_id':category_id,
           'category_name': category_name,
-          'sub_category_name':sub_category_name,
+          'sub_category_id':sub_category_name,
         };
       
       var apiBaseURL =APIBaseURL;
@@ -402,7 +402,7 @@ var editId_state= false;
                   data.append('sub_category_id', sub_category_id);
                   data.append('enquiry_type_id', enquiry_type_id);
                   data.append('category_name', _category);
-                  data.append('sub_category_name', sub_cate);
+                  data.append('sub_category_id', sub_cate);
                   data.append('quantity', quantityInput);
                   data.append('as_per', unitSelect);
                   data.append('price', tprice);
@@ -816,7 +816,7 @@ function get_sub_category(category_id) {
               data.data.forEach(row => {
                   const option = document.createElement('option');
                   option.textContent = row.sub_category_name;
-                  option.value = row.id;
+                  option.value = row.sub_category_id;
                   select.appendChild(option);
               });
           } else {
@@ -987,7 +987,7 @@ function get_sub_category_1(category_id, callback) {
               data.data.forEach(row => {
                   const option = document.createElement('option');
                   option.textContent = row.sub_category_name;
-                  option.value = row.id;
+                  option.value = row.sub_category_id;
                   select.appendChild(option);
               });
           } else {
