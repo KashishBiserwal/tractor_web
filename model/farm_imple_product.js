@@ -656,15 +656,21 @@ $("#lookupSelectbox2").replaceWith(`
 
                     var customColumnName = Object.keys(p)[0];
                     var implementColumnName = p[customColumnName];
+                    var customColumndata= Object.keys(p)[0];
+                    var implementColumn = p[customColumndata];
+                    
 
                     var tableRow = `
                         <div class="row form_field_outer_row">
-                            <div class="form-group col-md-6">
+                            <div class="form-group col-md-4">
                                 <input type="text" class="form-control w_90" name="mobileb_no[]" value="${customColumnName}" id="mobileb_no_${index + 1}" readOnly />
                             </div>
                             <div class="form-group col-md-4">
-                                <input type="text" class="form-control" name="no_type[]" id="no_type_${index + 1}" placeholder="Enter Value" aria-invalid="false" value="${implementColumnName}" />
+                                <input type="text" class="form-control" name="no_type[]" id="no_type_${index + 1}" placeholder="Enter Value" aria-invalid="false" value="${implementColumnName}" readOnly/>
                             </div>
+                            <div class="form-group col-md-4">
+                            <input type="text" class="form-control" name="custome[]" id="custom_${index + 1}" placeholder="Enter Value" aria-invalid="false" value="${customColumndata}" required/>
+                        </div>
                            
                         </div>
                     `;
