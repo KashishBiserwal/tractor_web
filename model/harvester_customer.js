@@ -4,53 +4,53 @@ $(document).ready(function() {
     $('#filter_tractor').click(filter_search);
 });
 
-    var cardsPerPage = 6; 
-    var cardsDisplayed = 0; 
-    var allCards; // Variable to store all cards
+var cardsPerPage = 6; // Set the initial number of cards per page
+var allCards = []; // Assuming this is a global variable to store all the cards
+var cardsDisplayed = 0; // Track the number of cards displayed
 
-    function get_harvester() {
-        var url = "http://tractor-api.divyaltech.com/api/customer/get_new_harvester";
-        
+function get_harvester() {
+    var url = "http://tractor-api.divyaltech.com/api/customer/get_new_harvester";
 
-        $.ajax({
-            url: url,
-            type: "GET",
-            success: function (data) {
-                var productContainer = $("#productContainer");
-                // Clear the existing content in the container
-                productContainer.empty();
+    $.ajax({
+        url: url,
+        type: "GET",
+        success: function (data) {
+            var productContainer = $("#productContainer");
+            // Clear the existing content in the container
+            productContainer.empty();
 
-                if (data.product && data.product.length > 0) {
-                    allCards = data.product; 
-                
-                    allCards.sort(function(a, b) {
-                        return b.customer_id - a.customer_id;
-                    });
-                
-                    // Display all cards
-                    allCards.slice(0, cardsPerPage).forEach(function (p) {
-                        appendCard(productContainer, p);
-                        cardsDisplayed++;
-                    });
-                
-                    if (allCards.length > cardsPerPage) {
-                        $("#loadMoreBtn").show();
-                    } else {
-                        $("#loadMoreBtn").hide();
-                    }
+            if (data.product && data.product.length > 0) {
+                allCards = data.product;
+
+                allCards.sort(function (a, b) {
+                    return b.customer_id - a.customer_id;
+                });
+
+                // Display the initial set of cards (first 6)
+                allCards.slice(0, cardsPerPage).forEach(function (p) {
+                    appendCard(productContainer, p);
+                    cardsDisplayed++;
+                });
+
+                if (allCards.length > cardsPerPage) {
+                    $("#loadMoreBtn").show();
                 } else {
-                    // Hide the "Load More" button if there are no cards
                     $("#loadMoreBtn").hide();
                 }
-            },
-            error: function (error) {
-                console.error('Error fetching data:', error);
+            } else {
+                // Hide the "Load More" button if there are no cards
+                $("#loadMoreBtn").hide();
             }
-        });
-    }
+        },
+        error: function (error) {
+            console.error('Error fetching data:', error);
+        }
+    });
+}
     function appendCard(container, p) {
         var images = p.image_names;
         var a = [];
+        const name = p.brand_name +" "+p.model;
 
         if (images) {
             if (images.indexOf(',') > -1) {
@@ -75,7 +75,7 @@ $(document).ready(function() {
                     <div class="power text-center mt-3">
                     <div class="row text-center">
                         <div class="col-12 text-center">
-                            <p class="fw-bold pe-3 text-primary">${p.id}</p>
+                            <p class="fw-bold pe-3 text-primary">${name}</p>
                         </div>
                     </div>
                         <div class="row ">
@@ -94,20 +94,20 @@ $(document).ready(function() {
         `;
         container.append(newCard);
     }
-    $(document).on('click', '#loadMoreBtn', function(){
+    $(document).on('click', '#loadMoreBtn', function () {
         var productContainer = $("#productContainer");
-
+    
         allCards.slice(cardsDisplayed, cardsDisplayed + cardsPerPage).forEach(function (p) {
             appendCard(productContainer, p);
             cardsDisplayed++;
         });
-
+    
         // Hide the "Load More" button if all cards are displayed
         if (cardsDisplayed >= allCards.length) {
             $("#loadMoreBtn").hide();
         }
     });
-
+    
     get_harvester();
 
 
@@ -150,11 +150,18 @@ function filter_search() {
             var filterContainer = $("#productContainer");
             filterContainer.empty();
 
-            searchData.product.forEach(function (filter) {
-                appendFilterCard(filterContainer, filter);
-            });
+            if (searchData.product.length > 0) {
+                searchData.product.forEach(function (filter) {
+                    appendFilterCard(filterContainer, filter);
+                });
 
-         
+                $("#noDataMessage").hide();
+                // $("#loadMoreBtn").show();
+            } else {
+                // Show the "Data not found" message
+                $("#noDataMessage").show();
+                $("#loadMoreBtn").hide();
+            }
         },
         error: function (error) {
             console.error('Error searching for brands:', error);
@@ -166,6 +173,8 @@ function appendFilterCard(filterContainer, filter) {
     function appendCard(container, p) {
         var images = p.image_names;
         var a = [];
+        const name = p.brand_name +" "+p.model;
+
 
         if (images) {
             if (images.indexOf(',') > -1) {
@@ -191,7 +200,7 @@ function appendFilterCard(filterContainer, filter) {
                 <div class="power text-center mt-3">
                 <div class="row text-center">
                     <div class="col-12 text-center">
-                        <p class="fw-bold pe-3 text-primary">${p.product_id}</p>
+                        <p class="fw-bold pe-3 text-primary">${name}</p>
                     </div>
                 </div>
                     <div class="row ">
@@ -235,7 +244,8 @@ function appendFilterCard(filterContainer, filter) {
     appendCard(filterContainer, filter);
     displayNextSet();
 }
-
+var noDataMessage = $("#noDataMessage");
+noDataMessage.hide();
 
 function get_lookup() {
     console.log('init');
@@ -274,7 +284,7 @@ get_lookup();
 
 function get() {
     // var apiBaseURL = CustomerAPIBaseURL;
-    var url = 'http://tractor-api.divyaltech.com/api/customer/get_brands';
+    var url = 'http://tractor-api.divyaltech.com/api/customer/get_brand_by_product_id/'+4;
 
     $.ajax({
         url: url,
@@ -316,7 +326,7 @@ get();
     $('.budget_checkbox:checked').prop('checked', false);
     $('.hp_checkbox:checked').prop('checked', false);
     get_harvester();
-  
+    $("#noDataMessage").hide();
     // window.location.reload();
     
   }

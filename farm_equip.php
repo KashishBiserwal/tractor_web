@@ -8,7 +8,7 @@
 <script> var baseUrl = "<?php echo $baseUrl; ?>";</script>
   <script src="<?php $baseUrl; ?>model/farm_imple_product.js"></script>
    
-   ?> 
+
 <body class="loaded"> 
 <div class="main-wrapper">
     <div class="app" id="app">
@@ -55,9 +55,10 @@
                                     <div class="col-12 col-sm-6 col-md-6 col-lg-6 mt-3">
                                       <div class="form-outline">
                                         <label class="form-label" for="model">Model</label>
-                                          <select class="form-select" id="model_main" name="model" required>
+                                          <!-- <select class="form-select" id="model_main" name="model" required>
                                             <option selected disabled>Select Model</option>
-                                          </select>
+                                          </select> -->
+                                          <input type="text" class="form-control" name="model_main" id="model" placeholder="Enter Model"/>
                                       </div>
                                     </div>
                                     <div class="col-12 col-sm-6 col-md-6 col-lg-6  mt-3">
@@ -146,7 +147,7 @@
             </div>
             <div class="col-12 col-sm-12 col-md-3 col-lg-3">
               <div class="form-outline">
-              <label class="form-label">Name</label> 
+              <label class="form-label">Subcategory</label> 
                 <select class="form-select form-control" aria-label="Default select example">
                     <option selected>Select Name</option>
                     <option value="1">name1</option>
@@ -168,7 +169,7 @@
             </div>
             <div class="col-12 col-sm-12 col-md-3 col-lg-3">
               <div class="form-outline">
-              <label class="form-label">Implement Type</label>
+              <label class="form-label">Model</label>
                 <select class="form-select form-control" aria-label="Default select example">
                     <option selected>Select Implement Type</option>
                     <option value="1">Type1</option>
@@ -211,7 +212,55 @@
       </div>
     </div>
    </section>
-      
+   <div class="modal fade" id="exampleModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog modal-xl modal-dialog-centered">
+              <div class="modal-content modal_box">
+                <div class="modal-header modal_head">
+                  <h5 class="modal-title text-white fw-bold" id="staticBackdropLabel"> New Harvester Enquiry Information </h5>
+                  <button type="button" class="btn-close btn-success" data-bs-dismiss="modal" aria-label="Close"><img src="assets/images/close.png"></button>
+                </div>
+                  <div class="modal-body bg-light">
+                    <div class="row ">
+                        <div class="col-12">
+                            <table class="table table-striped">
+                                <tbody>
+                                  <p class="fw-bold text-center">Implement Data Info</p>
+                                    <tr> 
+                                        <td>Implement Category Name-</td>
+                                        <td id="category_view"></td>
+                                        <td>Subcategory Name-</td>
+                                        <td id="subcategory_view"></td>
+                                    </tr>
+                                    <tr> 
+                                        <td>Brand Name-</td>
+                                        <td id="brand_view"></td>
+                                        <td>Model Name-</td>
+                                        <td id="model_view"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Thumbnail Image-</td>
+                                        <td id="thumbnail" class="row"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div class="justify-content-center" style="margin: 0 auto;">
+                                
+                                  <p class="fw-bold text-center">Implement Custom Data Info</p>
+                                    <div id="implementData" class="row">
+                                    </div>
+                              
+                            </div>
+                            
+                        </div>
+                    </div>  
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary px-3" data-bs-dismiss="modal">Close</button>
+                        <!-- <button type="submit" id="btn_sb" class="btn btn-success fw-bold px-3">Submit</button> -->
+                    </div>
+                </div>
+            </div>
+          </div>
+    </div>
     
 </div>
 </div>

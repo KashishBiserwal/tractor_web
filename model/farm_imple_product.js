@@ -1,67 +1,67 @@
 var EditIdmain_ = "";
-var editId_state= false;
-var id= "";
-$(document).ready(function() {
+var editId_state = false;
+var id = "";
+$(document).ready(function () {
     $('#save').click(store);
     ImgUpload();
-  
-  });
+
+});
 function ImgUpload() {
     var imgWrap = "";
     var imgArray = [];
 
     $('.upload__inputfile').each(function () {
-      $(this).on('change', function (e) {
-        imgWrap = $(this).closest('.upload__box').find('.upload__img-wrap');
-        var maxLength = $(this).attr('data-max_length');
+        $(this).on('change', function (e) {
+            imgWrap = $(this).closest('.upload__box').find('.upload__img-wrap');
+            var maxLength = $(this).attr('data-max_length');
 
-        var files = e.target.files;
-        var filesArr = Array.prototype.slice.call(files);
-        var iterator = 0;
-        filesArr.forEach(function (f, index) {
+            var files = e.target.files;
+            var filesArr = Array.prototype.slice.call(files);
+            var iterator = 0;
+            filesArr.forEach(function (f, index) {
 
-          if (!f.type.match('image.*')) {
-            return;
-          }
+                if (!f.type.match('image.*')) {
+                    return;
+                }
 
-          if (imgArray.length > maxLength) {
-            return false
-          } else {
-            var len = 0;
-            for (var i = 0; i < imgArray.length; i++) {
-              if (imgArray[i] !== undefined) {
-                len++;
-              }
-            }
-            if (len > maxLength) {
-              return false;
-            } else {
-              imgArray.push(f);
+                if (imgArray.length > maxLength) {
+                    return false
+                } else {
+                    var len = 0;
+                    for (var i = 0; i < imgArray.length; i++) {
+                        if (imgArray[i] !== undefined) {
+                            len++;
+                        }
+                    }
+                    if (len > maxLength) {
+                        return false;
+                    } else {
+                        imgArray.push(f);
 
-              var reader = new FileReader();
-              reader.onload = function (e) {
-                var html = "<div class='upload__img-box'><div style='background-image: url(" + e.target.result + ")' data-number='" + $(".upload__img-close").length + "' data-file='" + f.name + "' class='img-bg'><div class='upload__img-close'></div></div></div>";
-                imgWrap.append(html);
-                iterator++;
-              }
-              reader.readAsDataURL(f);
-            }
-          }
+                        var reader = new FileReader();
+                        reader.onload = function (e) {
+                            var html = "<div class='upload__img-box'><div style='background-image: url(" + e.target.result + ")' data-number='" + $(".upload__img-close").length + "' data-file='" + f.name + "' class='img-bg'><div class='upload__img-close'></div></div></div>";
+                            imgWrap.append(html);
+                            iterator++;
+                        }
+                        reader.readAsDataURL(f);
+                    }
+                }
+            });
         });
-      });
     });
 
     $('body').on('click', ".upload__img-close", function (e) {
-      var file = $(this).parent().data("file");
-      for (var i = 0; i < imgArray.length; i++) {
-        if (imgArray[i].name === file) {
-          imgArray.splice(i, 1);
-          break;
+        var file = $(this).parent().data("file");
+        for (var i = 0; i < imgArray.length; i++) {
+            if (imgArray[i].name === file) {
+                imgArray.splice(i, 1);
+                break;
+            }
         }
-      }
-      $(this).parent().parent().remove();
+        $(this).parent().parent().remove();
     });
-  }
+}
 // get category in select box
 function get() {
     var apiBaseURL = APIBaseURL;
@@ -84,7 +84,7 @@ function get() {
                     option.value = row.id;
                     select.appendChild(option);
                 });
-                select.addEventListener('change', function() {
+                select.addEventListener('change', function () {
                     const selectedBrandId = this.value;
                     get_subcategory(selectedBrandId);
                 });
@@ -104,10 +104,10 @@ function get() {
 // get subcategory in select box
 function get_subcategory(id) {
     var apiBaseURL = APIBaseURL;
-    var url = apiBaseURL + 'get_implement_sub_cat_by_category_id/'+ id;
+    var url = apiBaseURL + 'get_implement_sub_cat_by_category_id/' + id;
     // var url= 'http://tractor-api.divyaltech.com/api/customer/get_implement_sub_cat_by_category_id/'+ id;
     http://tractor-api.divyaltech.com/api/customer/implement_sub_category_by_id/12
-    
+
     $.ajax({
         url: url,
         type: "GET",
@@ -126,7 +126,7 @@ function get_subcategory(id) {
                     option.value = row.id;
                     select.appendChild(option);
                 });
-                select.addEventListener('change', function() {
+                select.addEventListener('change', function () {
                     const selectedsubId = this.value;
                     get_subcategory_custom(selectedsubId);
                 });
@@ -145,12 +145,12 @@ function get_subcategory(id) {
 }
 
 // getc all custom data of sub category
-function get_subcategory_custom(id){
+function get_subcategory_custom(id) {
     var apiBaseURL = APIBaseURL;
     var url = 'http://tractor-api.divyaltech.com/api/customer/implement_sub_category_by_id/' + id;
     console.log(url);
-    editId_state= true;
-    id= id;
+    editId_state = true;
+    id = id;
 
     var headers = {
         'Authorization': 'Bearer ' + localStorage.getItem('token')
@@ -189,12 +189,12 @@ function get_subcategory_custom(id){
                         
                     </div>
                 `;
-               
-                tableData.append( "<form>"+tableRow+"</form>");
+
+                tableData.append("<form>" + tableRow + "</form>");
             });
 
             // Enable all delete buttons
-            
+
 
             // Add event listener for delete buttons
             $(".remove_node_btn_frm_field").on("click", function () {
@@ -228,10 +228,10 @@ function get_brand() {
         },
         success: function (data) {
             const selects = document.querySelectorAll('#brand_main');
-  
+
             selects.forEach(select => {
                 select.innerHTML = '<option selected disabled value="">Please select an option</option>';
-  
+
                 if (data.brands.length > 0) {
                     data.brands.forEach(row => {
                         const option = document.createElement('option');
@@ -239,12 +239,12 @@ function get_brand() {
                         option.value = row.id;
                         select.appendChild(option);
                     });
-  
+
                     // Add event listener to brand dropdown
-                    select.addEventListener('change', function() {
-                        const selectedBrandId = this.value;
-                        get_model(selectedBrandId);
-                    });
+                    // select.addEventListener('change', function() {
+                    //     const selectedBrandId = this.value;
+                    //     get_model(selectedBrandId);
+                    // });
                 } else {
                     select.innerHTML = '<option>No valid data available</option>';
                 }
@@ -254,93 +254,93 @@ function get_brand() {
             console.error('Error fetching data:', error);
         }
     });
-  }
-  
-  function get_model(brand_id) {
-    var url = 'http://tractor-api.divyaltech.com/api/customer/get_brand_model/' + brand_id;
-    $.ajax({
-        url: url,
-        type: "GET",
-        headers: {
-            'Authorization': 'Bearer ' + localStorage.getItem('token')
-        },
-        success: function (data) {
-            const selects = document.querySelectorAll('#model_main');
-  
-            selects.forEach(select => {
-                select.innerHTML = '<option selected disabled value="">Please select an option</option>';
-  
-                if (data.model.length > 0) {
-                    data.model.forEach(row => {
-                        const option = document.createElement('option');
-                        option.textContent = row.model;
-                        option.value = row.model;
-                        console.log(option);
-                        select.appendChild(option);
-                    });
-                } else {
-                    select.innerHTML = '<option>No valid data available</option>';
-                }
-            });
-        },
-        error: function (error) {
-            console.error('Error fetching data:', error);
-        }
-    });
-  }
-  
-  get_brand(); 
+}
+
+//   function get_model(brand_id) {
+//     var url = 'http://tractor-api.divyaltech.com/api/customer/get_brand_model/' + brand_id;
+//     $.ajax({
+//         url: url,
+//         type: "GET",
+//         headers: {
+//             'Authorization': 'Bearer ' + localStorage.getItem('token')
+//         },
+//         success: function (data) {
+//             const selects = document.querySelectorAll('#model_main');
+
+//             selects.forEach(select => {
+//                 select.innerHTML = '<option selected disabled value="">Please select an option</option>';
+
+//                 if (data.model.length > 0) {
+//                     data.model.forEach(row => {
+//                         const option = document.createElement('option');
+//                         option.textContent = row.model;
+//                         option.value = row.model;
+//                         console.log(option);
+//                         select.appendChild(option);
+//                     });
+//                 } else {
+//                     select.innerHTML = '<option>No valid data available</option>';
+//                 }
+//             });
+//         },
+//         error: function (error) {
+//             console.error('Error fetching data:', error);
+//         }
+//     });
+//   }
+
+get_brand();
 
 // store data
 function store(event) {
-  event.preventDefault();
+    event.preventDefault();
 
-  var customDataArray = [];
-  var implementDataArray = [];
-  var DataArray = [];
+    var customDataArray = [];
+    var implementDataArray = [];
+    var DataArray = [];
 
-  // Assuming you have multiple elements with IDs like 'mobileb_no_1', 'mobileb_no_2', etc.
-  $('[id^="mobileb_no_"]').each(function () {
-      customDataArray.push($(this).val());
-  });
+    // Assuming you have multiple elements with IDs like 'mobileb_no_1', 'mobileb_no_2', etc.
+    $('[id^="mobileb_no_"]').each(function () {
+        customDataArray.push($(this).val());
+    });
 
-  // Assuming you have multiple elements with IDs like 'no_type_1', 'no_type_2', etc.
-  $('[id^="no_type_"]').each(function () {
-      implementDataArray.push($(this).val());
-  });
+    // Assuming you have multiple elements with IDs like 'no_type_1', 'no_type_2', etc.
+    $('[id^="no_type_"]').each(function () {
+        implementDataArray.push($(this).val());
+    });
 
-  $('[id^="custom_"]').each(function () {
-      DataArray.push($(this).val());
-  });
+    $('[id^="custom_"]').each(function () {
+        DataArray.push($(this).val());
+    });
 
-  var customDataJson = JSON.stringify(customDataArray);
-  var implementDataJson = JSON.stringify(implementDataArray);
-  var DataArrayJson = JSON.stringify(DataArray);
+    var customDataJson = JSON.stringify(customDataArray);
+    var implementDataJson = JSON.stringify(implementDataArray);
+    var DataArrayJson = JSON.stringify(DataArray);
 
-  var brand_id = $('#brand_main').val();
-  var model_main = $('#model_main').val();
-  var lookup_type = $('#lookupSelectbox').val();
-  var lookup_data_value = $('#lookupSelectbox2').val();
-  var id = $('#idUser').val();
-  // var image_names = $('#image_name').files[0]; 
-  var image_names = document.getElementById('image_name').files;
+    var brand_id = $('#brand_main').val();
+    var model_main = $('#model_main').val();
+    var lookup_type = $('#lookupSelectbox').val();
+    var lookup_data_value = $('#lookupSelectbox2').val();
+    var id = $('#idUser').val();
+    // var image_names = $('#image_name').files[0]; 
+    var image_names = document.getElementById('image_name').files;
 
-  var apiBaseURL = APIBaseURL;
-  var url = apiBaseURL + 'implement_details';
+    var apiBaseURL = APIBaseURL;
+    var url = apiBaseURL + 'implement_details';
 
-  var token = localStorage.getItem('token');
-  var headers = {
-      'Authorization': 'Bearer ' + token
-  };
-  
+    var token = localStorage.getItem('token');
+    var headers = {
+        'Authorization': 'Bearer ' + token
+    };
+
     // var urlParams = new URLSearchParams(window.location.search);
     //   id = urlParams.get('id');
-      // console.log("editId from URL:", editId_stateedit);
+    // console.log("editId from URL:", editId_stateedit);
     //   _method = 'POST';
     //   var url, method;
     //   console.log('edit state', id);
     //   var _method = 'post'; 
-  
+
     //   if (id !== '' && id !== null) {
     //     // Update mode
     //     _method = 'put';
@@ -352,15 +352,15 @@ function store(event) {
     //     console.log('prachi');
     //     method = 'POST';
     //   }
-  
+
     var data = new FormData();
     for (var i = 0; i < DataArray.length; i++) {
-      data.append('CUSTOM_' + (i + 1), DataArray[i]);
-  }
+        data.append('CUSTOM_' + (i + 1), DataArray[i]);
+    }
     for (var x = 0; x < image_names.length; x++) {
         data.append("thumbnail[]", image_names[x]);
         console.log("multiple image", image_names[x]);
-      }
+    }
     data.append('id', id);
     data.append('brand_id', brand_id);
     data.append('model', model_main);
@@ -371,43 +371,43 @@ function store(event) {
     // data.append('customDataJson', customDataJson);
     // data.append('thumbnail', image);
     // data.append('_method', _method);
-  
-    $.ajax({
-      url: url,
-      type: 'POST',
-      data: data,
-      headers: headers,
-      processData: false,
-      contentType: false,
-      success: function(result) {
-        console.log(result, "result");
-        console.log("Add successfully");
-        var msg = "Added successfully !"
-        $("#errorStatusLoading").modal('show');
-        $("#errorStatusLoading").find('.modal-title').html('Success');
-        $("#errorStatusLoading").find('.modal-body').html(msg);
-  
-        // Hide the modal immediately
-        $("#staticBackdrop1").modal('hide');
-        // get_data();
-       
-        var alertConfirmation = confirm("Data added successfully. Do you want to reload the page?");
-        if (alertConfirmation) {
-          window.location.reload();
-        }
-      },
-      error: function(error) {
-        console.error('Error fetching data:', error);
-        var msg = error;
-        $("#errorStatusLoading").modal('show');
-        $("#errorStatusLoading").find('.modal-title').html('Error');
-        $("#errorStatusLoading").find('.modal-body').html(msg);
-      }
-    });
-  }
 
-  // get data in table
-  function get_product() {
+    $.ajax({
+        url: url,
+        type: 'POST',
+        data: data,
+        headers: headers,
+        processData: false,
+        contentType: false,
+        success: function (result) {
+            console.log(result, "result");
+            console.log("Add successfully");
+            var msg = "Added successfully !"
+            $("#errorStatusLoading").modal('show');
+            $("#errorStatusLoading").find('.modal-title').html('Success');
+            $("#errorStatusLoading").find('.modal-body').html(msg);
+
+            // Hide the modal immediately
+            $("#staticBackdrop1").modal('hide');
+            // get_data();
+
+            var alertConfirmation = confirm("Data added successfully. Do you want to reload the page?");
+            if (alertConfirmation) {
+                window.location.reload();
+            }
+        },
+        error: function (error) {
+            console.error('Error fetching data:', error);
+            var msg = error;
+            $("#errorStatusLoading").modal('show');
+            $("#errorStatusLoading").find('.modal-title').html('Error');
+            $("#errorStatusLoading").find('.modal-body').html(msg);
+        }
+    });
+}
+
+// get data in table
+function get_product() {
     var apiBaseURL = APIBaseURL;
     var url = apiBaseURL + 'implement_details';
     $.ajax({
@@ -472,3 +472,185 @@ function store(event) {
 }
 
 get_product();
+
+
+// view data by id
+
+function fetch_data(userId) {
+    var apiBaseURL = APIBaseURL;
+    var url = apiBaseURL + 'get_implement_details_by_id/' + 876; // Use the userId parameter
+
+    var headers = {
+        'Authorization': 'Bearer ' + localStorage.getItem('token')
+    };
+
+    $.ajax({
+        url: url,
+        type: 'GET',
+        headers: headers,
+        success: function (response) {
+            var userData = response.getAllImplementsById[0].implements_data[0];
+            document.getElementById('category_view').innerText = userData.category_name;
+            document.getElementById('subcategory_view').innerText = userData.sub_category_name;
+            document.getElementById('brand_view').innerText = userData.brand_name;
+            document.getElementById('model_view').innerText = userData.model;
+            var implementDataContainer = $("#implementData");
+            implementDataContainer.html('');
+            if (response.getAllImplementsById[1][0].implement_custom_data && response.getAllImplementsById[1][0].implement_custom_data.length > 0) {
+                response.getAllImplementsById[1][0].implement_custom_data.forEach(function (data) {
+                    for (var key in data) {
+                        var newCard1 = `
+                            <div class="col-12 col-lg-4 col-md-4 col-sm-4">
+                                <div class="text-center shadow">
+                                    <p class="py-2">${key}: ${data[key]}</p>
+                                </div>
+                            </div>
+                        `;
+                        implementDataContainer.append(newCard1);
+                    }
+                });
+            }
+
+            var productContainer = $("#thumbnail");
+            $("#thumbnail").empty();
+
+            if (response.getAllImplementsById[0].implements_data[0].image_names && response.getAllImplementsById[0].implements_data[0].image_names.length > 0) {
+                response.getAllImplementsById[0].implements_data[0].image_names.forEach(function (imageName) {
+                    var newCard = `
+                        <div class="col-6 col-lg-6 col-md-6 col-sm-6">
+                            <div class="brand-main box-shadow mt-2 text-center shadow ">
+                                <a class="weblink text-decoration-none text-dark" title="Old Tractors">
+                                    <img class="img-fluid w-50" src="http://tractor-api.divyaltech.com/uploads/product_img/${imageName}"
+                                        data-src="h" alt="Brand Logo">
+                                </a>
+                            </div>
+                        </div>
+                    `;
+                    // Append the new card to the container
+                    productContainer.append(newCard);
+                });
+            }
+
+            // Handle implement_custom_data
+            // var implementDataContainer = $("#implementData");
+            // implementDataContainer.html('');
+
+            // if (response.getAllImplementsById[1].implement_custom_data && response.getAllImplementsById[1].implement_custom_data.length > 0) {
+            //     response.getAllImplementsById[1].implement_custom_data.forEach(function (data) {
+            //         for (var key in data) {
+            //             if (data.hasOwnProperty(key)) {
+            //                 var newElement = '<p>' + key + ': ' + data[key] + '</p>';
+            //                 implementDataContainer.append(newElement);
+            //             }
+            //         }
+            //     });
+            // }
+        },
+        error: function (error) {
+            console.error('Error fetching user data:', error);
+        }
+    });
+}
+// fetch edit data
+function fetch_edit_data(id) {
+    var apiBaseURL = APIBaseURL;
+    var url = apiBaseURL + 'implement_details/' + 267;
+    console.log(url);
+    editId_state = true;
+    id = id;
+
+    var headers = {
+        'Authorization': 'Bearer ' + localStorage.getItem('token')
+    };
+
+    $.ajax({
+        url: url,
+        type: 'GET',
+        headers: headers,
+        success: function (response) {
+            $('#two_field').hide(); // Correct selector
+
+            var Data = response.getAllImplementsById;
+            $('#idUser').val(Data.getAllImplementsById[0].id);
+            $("#lookupSelectbox option").prop("selected", false);
+            $("#lookupSelectbox option[value='" + Data.implement_sub_category[0].category_name + "']").prop("selected", true);
+            $('#lookup_data_value').val(Data.implement_sub_category[0].sub_category_name);
+
+            var tableData = $("#fields");
+            tableData.html('');
+
+            Data.custom_data.forEach(function (p, index) {
+                var tableRow = `
+                    <div class="row form_field_outer_row">
+                        <div class="form-group col-md-6">
+                            <input type="text" class="form-control w_90" name="mobileb_no[]" value="${p.custom_column_name}" id="mobileb_no_${index + 1}" readOnly />
+                        </div>
+                        <div class="form-group col-md-4">
+                            <input type="text" class="form-control" name="no_type[]" id="no_type_${index + 1}" placeholder="Enter Value" aria-invalid="false" value="${p.implement_column_name}" />
+                        </div>
+                        <div class="form-group col-md-2 add_del_btn_outer">
+                            <button class="btn_round remove_node_btn_frm_field delete" data-index="${index + 1}" enable>
+                                <i class="fas fa-trash-alt"></i>
+                            </button>
+                        </div>
+                    </div>
+                `;
+                tableData.append(tableRow);
+            });
+
+            // Enable all delete buttons
+
+
+            // Add event listener for delete buttons
+            $(".remove_node_btn_frm_field").on("click", function () {
+                var indexToDelete = $(this).data("index");
+                console.log("Deleting field with ID: " + indexToDelete);
+            });
+            $(".delete").prop("disabled", false);
+
+        },
+        error: function (error) {
+            console.error('Error fetching user data:', error);
+            var msg = error;
+            $("#errorStatusLoading").modal('show');
+            $("#errorStatusLoading").find('.modal-title').html('Error');
+            $("#errorStatusLoading").find('.modal-body').html(msg);
+        }
+    });
+}
+
+// delete data
+function destroy(id) {
+    var apiBaseURL = APIBaseURL;
+    var url = apiBaseURL + 'implement_details/' + id;
+
+    var token = localStorage.getItem('token');
+
+    if (!token) {
+        console.error("Token is missing");
+        return;
+    }
+    var isConfirmed = confirm("Are you sure you want to delete this data?");
+    if (!isConfirmed) {
+        return;
+    }
+
+    $.ajax({
+        url: url,
+        type: "DELETE",
+        headers: {
+            'Authorization': 'Bearer ' + token
+        },
+        success: function (result) {
+            get_product();
+
+            console.log("Delete request successful");
+            alert("Delete operation successful");
+        },
+        error: function (error) {
+            console.error('Error fetching data:', error);
+            alert("Error during delete operation");
+        }
+    });
+}
+

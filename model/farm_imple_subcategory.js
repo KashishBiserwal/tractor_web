@@ -247,9 +247,6 @@ function store(event) {
     'Authorization': 'Bearer ' + token
   };
 
-  // var urlParams = new URLSearchParams(window.location.search);
-  //   id = urlParams.get('id');
-    // console.log("editId from URL:", editId_stateedit);
     _method = 'POST';
     var url, method;
     console.log('edit state', id);

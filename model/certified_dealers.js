@@ -65,7 +65,7 @@ function displaydealer(dealer) {
                 a = [images];
             }
         }
-
+const name = p.first_name +" "+ p.last_name;
        
         var newCard = `   <div class="col-12 col-sm-3 col-md-3 col-lg-3 px-2 py-3 h-100">
                             <div class="h-auto success__stry__item d-flex flex-column shadow ">
@@ -81,10 +81,10 @@ function displaydealer(dealer) {
                                 </div>
                                 <div class="">
                                     <a href="certified_dealers_inner.php?id=${p.id}" class="text-decoration-none text-dark">
-                                    <h5 class="fw-bold text-center mt-3 mx-3">${p.dealer_name}</h5>
+                                    <h5 class="fw-bold text-center mt-3 ">${name}</h5>
                                     </a> 
                                     <div class="col-12 col-lg-12 col-md-12 col-sm-12">
-                                    <p class=" text-center text-dark fw-bold ps-3">${p.brand_name} <span>Dealer</span></p>
+                                    <p class=" text-center text-dark fw-bold ">${p.brand_name} <span>Dealer</span></p>
                                     </div>              
                                     <div class="justify-content-center  d-flex">
                                     <button typt="button" class="btn btn-success w-100">Rangareddy, Telangana</button>
