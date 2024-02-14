@@ -60,19 +60,6 @@
                 Brand
               </a>
               <ul class="dropdown-menu p-0" id="selectedImagesContainer2">
-               <!--  <li><a class="dropdown-item fw-bold  py-1" href="mahindra.php">Mahindra</a></li>
-               <hr class="dropdown-divider m-0">
-                <li><a class="dropdown-item fw-bold  py-1" href="#">Swaraj</a></li>
-               <hr class="dropdown-divider m-0">
-                <li><a class="dropdown-item fw-bold  py-1" href="#">Farmtrac</a></li>
-               <hr class="dropdown-divider m-0">
-                <li><a class="dropdown-item fw-bold py-1" href="#">Massey Ferguson</a></li>
-               <hr class="dropdown-divider m-0">
-                <li><a class="dropdown-item  fw-bold py-1" href="#">John Deere</a></li>
-               <hr class="dropdown-divider m-0">
-                <li><a class="dropdown-item  fw-bold py-1" href="#">Sonalika</a></li>
-               <hr class="dropdown-divider m-0">
-                <li><a class="dropdown-item  fw-bold py-1" href="#">ALL BRANDS</a></li> -->
               </ul>
             </li>
            <hr class="dropdown-divider m-0">
@@ -146,8 +133,9 @@
           <ul class="dropdown-menu p-0">
             <li class="nav-item dropend">
               <a class="nav-link dropdown-toggle text-dark fw-bold" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Implements</a>
-              <ul class="dropdown-menu p-0">
-                <li><a class="dropdown-item fw-bold py-1 mt-2" href="all_farm_imple.php">All Implements</a></li>
+              <ul class="dropdown-menu p-0" id="selectedImagesContainer3">
+              </ul>
+                <!-- <li><a class="dropdown-item fw-bold py-1 mt-2" href="all_farm_imple.php">All Implements</a></li>
                <hr class="dropdown-divider m-0">
                 <li><a class="dropdown-item fw-bold py-1" href="#">Rotary Tiller</a></li>
                <hr class="dropdown-divider m-0">
@@ -159,8 +147,8 @@
                <hr class="dropdown-divider m-0">
                 <li><a class="dropdown-item  fw-bold py-1" href="#">Trailor</a></li>
                <hr class="dropdown-divider m-0">
-                <li><a class="dropdown-item  fw-bold py-1 mb-1" href="#">Tractor Mounted Sprayers</a></li>
-              </ul>
+                <li><a class="dropdown-item  fw-bold py-1 mb-1" href="#">Tractor Mounted Sprayers</a></li> -->
+              
             </li>
             <li>
              <hr class="dropdown-divider m-0">
@@ -286,42 +274,89 @@
   $(document).ready(function(){
     news_category();
     get_brands();
+    get_implement();
   });
 
   function news_category(id)
- {
-    var url = 'http://tractor-api.divyaltech.com/api/customer/get_news_category';
-    var headers = { 
-      'Authorization': 'Bearer ' + localStorage.getItem('token')
-    };
+  {
+      var url = 'http://tractor-api.divyaltech.com/api/customer/get_news_category';
+      var headers = { 
+        'Authorization': 'Bearer ' + localStorage.getItem('token')
+      };
+
+    $.ajax({
+    url: url,
+    type: "GET",
+    headers: headers,
+    success: function (data) {
+      $("#selectedImagesContainer1").empty();
+
+      var newCard = data.news_category.map(function(category) {
+        var categoryWithoutSpaces = category.category_name.replace(/\s+/g, '_');
+        return `<li id="${categoryWithoutSpaces}">
+                  <a class="dropdown-item fw-bold" href="${categoryWithoutSpaces.toLowerCase()}.php?category_id=${category.id}">
+                    ${category.category_name}
+                  </a>
+                </li>
+              <hr class="dropdown-divider m-0">`;
+      });
+
+      $("#selectedImagesContainer1").append(newCard.join(''));
+    },
+    error: function (error) {
+      console.error('Error fetching data:', error);
+    }
+    });
+  } 
+
+  function get_implement() {
+  var url = 'http://tractor-api.divyaltech.com/api/customer/get_implement_category';
+  var headers = {
+    'Authorization': 'Bearer ' + localStorage.getItem('token')
+  };
 
   $.ajax({
-  url: url,
-  type: "GET",
-  headers: headers,
-  success: function (data) {
-    $("#selectedImagesContainer1").empty();
+    url: url,
+    type: "GET",
+    headers: headers,
+    success: function (data) {
+      $("#selectedImagesContainer3").empty();
 
-    var newCard = data.news_category.map(function(category) {
-      var categoryWithoutSpaces = category.category_name.replace(/\s+/g, '_');
-      return `<li id="${categoryWithoutSpaces}">
-                <a class="dropdown-item fw-bold" href="${categoryWithoutSpaces.toLowerCase()}.php?category_id=${category.id}">
-                  ${category.category_name}
-                </a>
-              </li>
-             <hr class="dropdown-divider m-0">`;
-    });
+      var newCard = data.allCategory.slice(0, 8).map(function (allCategory) {
+        return `<li id="${allCategory.category_name.replace(/\s+/g, '')}">
+                  <a class="dropdown-item fw-bold" href="farm_imple_category_customer.php?id=${allCategory.id}">
+                    ${allCategory.category_name}
+                  </a>
+                </li>
+                <hr class="dropdown-divider m-0">`;
+      });
 
-    $("#selectedImagesContainer1").append(newCard.join(''));
-  },
-  error: function (error) {
-    console.error('Error fetching data:', error);
-  }
+      // Add "ALL Implement" after the first 8 brands
+      newCard.push(`<li id="allimple">
+                     <a class="dropdown-item fw-bold" href="all_farm_imple.php">
+                       ALL Category
+                     </a>
+                   </li>
+                   `);
+
+      $("#selectedImagesContainer3").append(newCard.join(''));
+
+      // Assuming you have a select element with id "select"
+      $("#select").on('click', function () {
+        const selectedBrandId = this.value;
+        get_subcategory(selectedBrandId);
+      });
+    },
+    error: function (error) {
+      console.error('Error fetching data:', error);
+    }
   });
-} 
+}
 
 
-  function get_brands() {
+
+
+function get_brands() {
   var url = 'http://tractor-api.divyaltech.com/api/customer/get_all_brands';
   var headers = {
     'Authorization': 'Bearer ' + localStorage.getItem('token')

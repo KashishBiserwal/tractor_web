@@ -9,7 +9,7 @@ $(document).ready(function () {
   
       $("#seach_subcat1").val("");
       $("#seach_subcat").val("");
-      $("#brand_main").val("");
+    //   $("#brand_main").val("");
       get_product();
       
       });
@@ -169,11 +169,11 @@ function get_subcategory_custom(id) {
         type: 'GET',
         headers: headers,
         success: function (response) {
-            $('#two_field').hide(); // Correct selector
+            $('#two_field').hide();
 
             var Data = response.allSubCategory;
             // var Data2 = response.allSubCategory;
-            $('#idUser').val(Data.implement_sub_category[0].id);
+            // $('#idUser').val(Data.implement_sub_category[0].id);
             $("#lookupSelectbox option").prop("selected", false);
             $("#lookupSelectbox option[value='" + Data.implement_sub_category[0].category_name + "']").prop("selected", true);
             $('#lookup_data_value').val(Data.implement_sub_category[0].sub_category_name);
@@ -284,7 +284,7 @@ function get_subcategory_search(id) {
                 data.implementSubCategoryData.forEach(row => {
                     const option = document.createElement('option');
                     option.textContent = row.sub_category_name;
-                    option.value = row.id;
+                    option.value = row.sub_category_id;
                     select.appendChild(option);
                 });
                
@@ -362,11 +362,6 @@ function store(event) {
     $('[id^="custom_"]').each(function () {
         DataArray.push($(this).val());
     });
-
-    var customDataJson = JSON.stringify(customDataArray);
-    var implementDataJson = JSON.stringify(implementDataArray);
-    var DataArrayJson = JSON.stringify(DataArray);
-
     var brand_id = $('#brand_main').val();
     var model_main = $('#model').val();
     var lookup_type = $('#lookupSelectbox').val();
@@ -376,22 +371,16 @@ function store(event) {
     var image_names = document.getElementById('image_name').files;
 
     var apiBaseURL = APIBaseURL;
-    // var url = apiBaseURL + 'implement_details';
-
     var token = localStorage.getItem('token');
     var headers = {
         'Authorization': 'Bearer ' + token
     };
 
-    // var urlParams = new URLSearchParams(window.location.search);
-    //   id = urlParams.get('id');
-    // console.log("editId from URL:", editId_stateedit);
       _method = 'POST';
       var url, method;
       var _method = 'post'; 
 
       if (id !== '' && id !== null) {
-        // Update mode
         _method = 'put';
         url = apiBaseURL + 'implement_details/' + id;
         console.log(url);
@@ -415,10 +404,6 @@ function store(event) {
     data.append('model', model_main);
     data.append('implements_category_id', lookup_type);
     data.append('implement_sub_category_id', lookup_data_value);
-    // data.append('custom_data', customDataJson);
-    // data.append('implement_data', implementDataJson);
-    // data.append('customDataJson', customDataJson);
-    // data.append('thumbnail', image);
     data.append('_method', _method);
 
     $.ajax({
@@ -438,12 +423,12 @@ function store(event) {
 
             // Hide the modal immediately
             $("#staticBackdrop1").modal('hide');
-            // get_data();
+            get_product();
 
-            // var alertConfirmation = confirm("Data added successfully. Do you want to reload the page?");
-            // if (alertConfirmation) {
-            //     window.location.reload();
-            // }
+            var alertConfirmation = confirm("Data added successfully. Do you want to reload the page?");
+            if (alertConfirmation) {
+                window.location.reload();
+            }
         },
         error: function (error) {
             console.error('Error fetching data:', error);
@@ -519,12 +504,9 @@ function get_product() {
         }
     });
 }
-
 get_product();
 
-
 // view data by id
-
 function fetch_data(userId) {
     var apiBaseURL = APIBaseURL;
     var url = apiBaseURL + 'get_implement_details_by_id/' + userId; // Use the userId parameter
@@ -547,16 +529,21 @@ function fetch_data(userId) {
             implementDataContainer.html('');
             if (response.getAllImplementsById[1][0].implement_custom_data && response.getAllImplementsById[1][0].implement_custom_data.length > 0) {
                 response.getAllImplementsById[1][0].implement_custom_data.forEach(function (data) {
-                    for (var key in data) {
+                    var customColumnName = Object.keys(data)[0];
+                    var implementColumnName = data[customColumnName];
+                    var customColumndata = Object.values(data)[0]; // Use Object.values to get the value
+                    var implementColumn = data[customColumndata];
+                 
+                    var value= data[`${implementColumnName}`];
                         var newCard1 = `
                             <div class="col-12 col-lg-4 col-md-4 col-sm-4">
                                 <div class="text-center shadow">
-                                    <p class="py-2">${key}: ${data[key]}</p>
+                                    <p class="py-2">${implementColumnName}: ${value}</p>
                                 </div>
                             </div>
                         `;
                         implementDataContainer.append(newCard1);
-                    }
+                    
                 });
             }
 
@@ -579,21 +566,6 @@ function fetch_data(userId) {
                     productContainer.append(newCard);
                 });
             }
-
-            // Handle implement_custom_data
-            // var implementDataContainer = $("#implementData");
-            // implementDataContainer.html('');
-
-            // if (response.getAllImplementsById[1].implement_custom_data && response.getAllImplementsById[1].implement_custom_data.length > 0) {
-            //     response.getAllImplementsById[1].implement_custom_data.forEach(function (data) {
-            //         for (var key in data) {
-            //             if (data.hasOwnProperty(key)) {
-            //                 var newElement = '<p>' + key + ': ' + data[key] + '</p>';
-            //                 implementDataContainer.append(newElement);
-            //             }
-            //         }
-            //     });
-            // }
         },
         error: function (error) {
             console.error('Error fetching user data:', error);
@@ -618,19 +590,19 @@ function fetch_edit_data(id) {
         success: function (response) {
             var userData = response.getAllImplementsById[0].implements_data[0];
             $("#lookupSelectbox").replaceWith(`
-    <div class="form-outline">
-        <label for="lookupSelectbox" class="form-label">Category</label>
-        <input type="text" class="form-control py-2" value="${userData.category_name}" id="lookupSelectbox" aria-label="Category" readonly>
-    </div>
-`);
+                    <div class="form-outline">
+                        <label for="lookupSelectbox" class="form-label">Category</label>
+                        <input type="text" class="form-control py-2" value="${userData.id}" id="lookupSelectbox" aria-label="Category" readonly>
+                    </div>
+                `);
 
-// Set sub_category_name to #lookupSelectbox2 dropdown
-$("#lookupSelectbox2").replaceWith(`
-    <div class="form-outline">
-        <label for="lookupSelectbox2" class="form-label">Sub-Category</label>
-        <input type="text" class="form-control py-2" value="${response.getAllImplementsById[0].implements_data[0].sub_category_name}" id="lookupSelectbox2" aria-label="Sub-Category" readonly>
-    </div>
-`);
+                // Set sub_category_name to #lookupSelectbox2 dropdown
+                $("#lookupSelectbox2").replaceWith(`
+                    <div class="form-outline">
+                        <label for="lookupSelectbox2" class="form-label">Sub-Category</label>
+                        <input type="text" class="form-control py-2" value="${userData.implement_sub_category}" id="lookupSelectbox2" aria-label="Sub-Category" readonly>
+                    </div>
+                `);
             $('#two_field').hide(); // Correct selector
            
 
@@ -639,7 +611,8 @@ $("#lookupSelectbox2").replaceWith(`
             
             // Set brand_name to #model input
             $('#model').val(userData.model);
-            
+            // $('#lookupSelectbox').val(userData.category_name);
+            // $('#lookupSelectbox2').val(userData.sub_category_name);
             // Set brand_name to #brand_main dropdown
             $("#brand_main option").prop("selected", false);
             $("#brand_main option[value='" + userData.brand_name + "']").prop("selected", true);
@@ -656,23 +629,24 @@ $("#lookupSelectbox2").replaceWith(`
 
                     var customColumnName = Object.keys(p)[0];
                     var implementColumnName = p[customColumnName];
-                    var customColumndata= Object.keys(p)[0];
+                    var customColumndata = Object.values(p)[0]; // Use Object.values to get the value
                     var implementColumn = p[customColumndata];
-                    
+                 
+                    var value= p[`${implementColumnName}`];
+                    // if string is seperated by space or other special charater then we can use `` as used in above line to create proper string value 
 
                     var tableRow = `
-                        <div class="row form_field_outer_row">
-                            <div class="form-group col-md-4">
-                                <input type="text" class="form-control w_90" name="mobileb_no[]" value="${customColumnName}" id="mobileb_no_${index + 1}" readOnly />
-                            </div>
-                            <div class="form-group col-md-4">
-                                <input type="text" class="form-control" name="no_type[]" id="no_type_${index + 1}" placeholder="Enter Value" aria-invalid="false" value="${implementColumnName}" readOnly/>
-                            </div>
-                            <div class="form-group col-md-4">
-                            <input type="text" class="form-control" name="custome[]" id="custom_${index + 1}" placeholder="Enter Value" aria-invalid="false" value="${customColumndata}" required/>
-                        </div>
-                           
-                        </div>
+                    <div class="row form_field_outer_row">
+                    <div class="form-group col-md-4">
+                        <input type="text" class="form-control w_90" name="mobileb_no[]" value="${customColumnName}" id="mobileb_no_${index + 1}" readOnly />
+                    </div>
+                    <div class="form-group col-md-4">
+                        <input type="text" class="form-control" name="no_type[]" id="no_type_${index + 1}" placeholder="Enter Value" aria-invalid="false" value="${implementColumnName}" readOnly/>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <input type="text" class="form-control" name="custome[]" id="custom_${index + 1}" placeholder="Enter Value" aria-invalid="false" value="${value}" required/>
+                    </div>
+                </div>
                     `;
                     tableData.append(tableRow);
                 });
@@ -733,17 +707,15 @@ function destroy(id) {
     });
 }
 
-
 // search data
-
 function search_data() {
     var seach_subcat1 = $('#seach_subcat1').val();
     var seach_subcat = $('#seach_subcat').val();
-    var brand_main = $('#brand_main').val();
+    // var brand_main = $('#brand_main').val();
     var paraArr = {
       'implement_category_id': seach_subcat1,
       'implement_subcategory_id':seach_subcat,
-      'brand_id':brand_main,
+    //   'brand_id':brand_main,
     };
   
     var apiBaseURL = APIBaseURL;

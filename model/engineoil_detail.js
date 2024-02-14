@@ -61,7 +61,6 @@ function getEngineoilById() {
         url: url,
         type: "GET",
         success: function(data) {
-        console.log(data, 'abc');
         document.getElementById('brand_name').innerText=data.engine_oil_details[0].brand_name ;
         document.getElementById('model_name').innerText=data.engine_oil_details[0].oil_model;
         document.getElementById('grade').innerText=data.engine_oil_details[0].grade;
