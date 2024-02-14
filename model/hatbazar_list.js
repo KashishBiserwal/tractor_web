@@ -401,8 +401,8 @@ var editId_state= false;
                    data.append('_method', _method);
                   data.append('sub_category_id', sub_category_id);
                   data.append('enquiry_type_id', enquiry_type_id);
-                  data.append('_category', _category);
-                  data.append('tractor_type_id', sub_cate);
+                  data.append('category_name', _category);
+                  data.append('sub_category_name', sub_cate);
                   data.append('quantity', quantityInput);
                   data.append('as_per', unitSelect);
                   data.append('price', tprice);
@@ -434,7 +434,7 @@ var editId_state= false;
         });
     
     }
-
+   
     function get_haatbazar_list() {
       var apiBaseURL = APIBaseURL;
       var url = apiBaseURL + 'haat_bazar';
@@ -627,9 +627,9 @@ function destroy(id) {
         headers: headers,
         success: function (response) {
             var Data = response.allData.haat_bazar_data[0];
-            var dta= response.allData.category_name[0];
+            // var dta= response.allData.category_name[0];
             
-            $('#_category').val(dta.haat_bazar_category_name);
+            $('#c_category').val(Data.category_name);
             $('#sub_cate').val(Data.sub_category_name);
             $('#quantityInput').val(Data.quantity);
             $('#unitSelect').val(Data.as_per);
@@ -639,9 +639,32 @@ function destroy(id) {
             $('#fname').val(Data.first_name);
             $('#number').val(Data.mobile);
             $('#lname').val(Data.last_name);
+            $('#state_').val(Data.state);
+            $('#dist').val(Data.district);
+            $('#tehsil').val(Data.tehsil);
             // var selectedCategoryId = Data.tyre_category_id;
             // $('#category').val(selectedCategoryId).prop('selected', true);
-  
+            var categoryDropdown = document.getElementById('c_category');
+            for (var i = 0; i < categoryDropdown.options.length; i++) {
+                if (categoryDropdown.options[i].text === Data.category_name) {
+                    categoryDropdown.selectedIndex = i;
+                    break;
+                }
+            }
+
+            // Call function to populate sub-category based on the selected category
+            console.log("User Category ID:", Data.category_id);
+            get_sub_category_1(Data.category_id, function() {
+                // Set sub-category value
+                var subCategoryDropdown = document.getElementById('sub_cate');
+                console.log("Sub Categories:", subCategoryDropdown.options);
+                for (var i = 0; i < subCategoryDropdown.options.length; i++) {
+                    if (subCategoryDropdown.options[i].text === Data.sub_category_name) {
+                        subCategoryDropdown.selectedIndex = i;
+                        break;
+                    }
+                }
+            });
             // Clear existing images
             $("#selectedImagesContainer").empty();
   
@@ -946,7 +969,8 @@ function category_main_1() {
   });
 }
 
-function get_sub_category_1(category_id) {
+function get_sub_category_1(category_id, callback) {
+  console.log("Fetching sub-categories for category ID:", category_id);
   var apiBaseURL = APIBaseURL;
   var url = apiBaseURL + 'haat_bazar_sub_category/' + category_id;
   var select = document.getElementById('sub_cate');
@@ -958,6 +982,7 @@ function get_sub_category_1(category_id) {
           'Authorization': 'Bearer ' + localStorage.getItem('token')
       },
       success: function(data) {
+          console.log("Sub-category data received:", data);
           if (data.data.length > 0) {
               data.data.forEach(row => {
                   const option = document.createElement('option');
@@ -970,6 +995,10 @@ function get_sub_category_1(category_id) {
               option.textContent = 'No sub-categories available';
               option.disabled = true;
               select.appendChild(option);
+          }
+          // Call the callback function to indicate that sub-category options have been added
+          if (typeof callback === 'function') {
+              callback();
           }
       },
       error: function(error) {

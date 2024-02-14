@@ -1,5 +1,6 @@
 $(document).ready(function(){
-
+  $('#Search').click(searchdata);
+  $('#Reset').click(resetForm);
   ImgUpload();
     $('#update_button').click(edit_data_id);
     
@@ -98,67 +99,6 @@ $(document).ready(function(){
         $(".upload__img-closeDy"+thisId).remove();
     
       }
-      
-      // fetch data
-    //   function get_haatbzr() {
-    //     console.log('iuytrewsdfgb');
-    //     var apiBaseURL = APIBaseURL;
-    //     var url = apiBaseURL + 'haat_bazar';
-    //     $.ajax({
-    //         url: url,
-    //         type: "GET",
-    //         headers: {
-    //             'Authorization': 'Bearer ' + localStorage.getItem('token')
-    //         },
-    //         success: function (data) {
-    //             // console.log(data);
-    
-    //             const tableBody = document.getElementById('data-table');
-    
-    //             if (data.allData.haat_bazar_data && data.allData.haat_bazar_data.length > 0) {
-    //                 // console.log(typeof product);
-    
-    //                 data.allData.haat_bazar_data.forEach(row => {
-                      
-                    
-    //                   const tableRow = document.createElement('tr');
-    //                   // console.log(tableRow, 'helloooo');
-
-    //                     tableRow.innerHTML = `
-    //                         <td>${row.haat_bazar_id}</td>
-    //                         <td>${row.category_name}</td>
-    //                         <td>${row.sub_category_name}</td>
-    //                         <td>${row.first_name}</td>
-    //                         <td>${row.mobile}</td>
-    //                         <td>${row.state}</td>
-    //                         <td>${row.district}</td>
-    //                         <td>
-    //                             <div class="d-flex">
-    //                             <button class="btn btn-warning text-white btn-sm mx-1" onclick="openView(${row.haat_bazar_id});" data-bs-toggle="modal" data-bs-target="#viewdatamodel" id="viewbtn">
-    //                             <i class="fa fa-eye" style="font-size: 11px;"></i>
-    //                             </button>
-    //                             <button class="btn btn-primary btn-sm btn_edit" onclick=" fetch_edit_data(${row.haat_bazar_id});" data-bs-toggle="modal" data-bs-target="#data_for_edit" id="your_UniqueId">
-    //                             <i class="fas fa-edit" style="font-size: 11px;"></i>
-    //                          </button>
-    //                             <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.haat_bazar_id});">
-    //                             <i class="fa fa-trash" style="font-size: 11px;"></i>
-    //                           </button>
-    //                             </div>
-    //                         </td>
-    //                     `;
-    //                     tableBody.appendChild(tableRow);
-                        
-    //                 });
-    //             } else {
-    //                 tableBody.innerHTML = '<tr><td colspan="9">No valid data available</td></tr>';
-    //             }
-    //         },
-    //         error: function (error) {
-    //             console.error('Error fetching data:', error);
-    //         }
-    //     });
-    // }
-    // get_haatbzr();
 
  // fetch data
  function get_haatbzr() {
@@ -171,23 +111,22 @@ $(document).ready(function(){
           'Authorization': 'Bearer ' + localStorage.getItem('token')
       },
       success: function (data) {
-          const tableBody = document.getElementById('data-table');
-//  const categoryName = data.allData.category_name[0].haat_bazar_category_name;
-     
+          const tableBody = $('#example tbody');
+
           if (data.haatBazarData && data.haatBazarData.length > 0) {
               let tableData = [];
               let counter = 1;
 
-              data.haatBazarData.forEach(row => {
+              data.haatBazarData.reverse().forEach(row => { // Reverse the array to display latest data first
                   let action = `
                       <div class="d-flex">
                           <button class="btn btn-warning btn-sm text-white mx-1" data-bs-toggle="modal" onclick="openView(${row.id});" data-bs-target="#viewdatamodel">
                           <i class="fa-solid fa-eye" style="font-size: 11px;"></i></button>
                           <button class="btn btn-primary btn-sm btn_edit" onclick="fetch_edit_data(${row.id});" data-bs-toggle="modal" data-bs-target="#data_for_edit" id="yourUniqueIdHere" style="padding:5px">
-                            <i class="fas fa-edit" style="font-size: 11px;"></i>
+                              <i class="fas fa-edit" style="font-size: 11px;"></i>
                           </button>
                           <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.id});" style="padding:5px">
-                            <i class="fa fa-trash" style="font-size: 11px;"></i>
+                              <i class="fa fa-trash" style="font-size: 11px;"></i>
                           </button>
                       </div>`;
 
@@ -205,25 +144,11 @@ $(document).ready(function(){
                   counter++;
               });
 
-              $('#example').DataTable().destroy();
-              $('#example').DataTable({
-                  data: tableData,
-                  columns: [
-                      { title: 'S.No.' },
-                      { title: 'Category' },
-                      { title: 'Sub-Category' },
-                      { title: 'Name' },
-                      { title: 'Phone Number' },
-                      { title: 'State' },
-                      { title: 'District' },
-                      { title: 'Action', orderable: false }
-                  ],
-                  paging: true,
-                  searching: true,
-                  // ... other options ...
-              });
+              var dataTable = $('#example').DataTable();
+              dataTable.clear().draw();
+              dataTable.rows.add(tableData).draw();
           } else {
-              tableBody.innerHTML = '<tr><td colspan="9">No valid data available</td></tr>';
+              tableBody.html('<tr><td colspan="9">No valid data available</td></tr>');
           }
       },
       error: function (error) {
@@ -329,40 +254,60 @@ function openView(userId) {
   }
 
 
-    //   Edit data
-    function fetch_edit_data(userId) {
-        var apiBaseURL = APIBaseURL;
-        var url = apiBaseURL + 'get_enquiry_for_haat_bazar_by_id/' + userId;
-      
-        var headers = {
-          'Authorization': 'Bearer ' + localStorage.getItem('token')
-        };
-      
-        $.ajax({
-          url: url,
-          type: 'GET',
-          headers: headers,
-          success: function(response) {
-              var userData = response.haatBazarData[0];
-              $('#userId').val(userData.haat_bazar_id);
-              $('#username').val(userData.haat_bazar_id);
-              $('#category1').val(userData.category_name);
-              $('#sub_category1').val(userData.sub_category_name);
-              $('#first_name1').val(userData.first_name);
-              $('#last_name1').val(userData.last_name);
-              $('#mobile_no').val(userData.mobile);
-              $('#price').val(userData.price);
-  
-              // Set selected options for state, district, and tehsil
-              $("#state_").val(userData.state); // Use "state_" ID here
-              $("#district_1").val(userData.district);
-              $("#tehsil_1").val(userData.tehsil);
-          },
-          error: function(error) {
-              console.error('Error fetching user data:', error);
-          }
-      });
-  }
+  function fetch_edit_data(userId) {
+    var apiBaseURL = APIBaseURL;
+    var url = apiBaseURL + 'get_enquiry_for_haat_bazar_by_id/' + userId;
+
+    var headers = {
+        'Authorization': 'Bearer ' + localStorage.getItem('token')
+    };
+
+    $.ajax({
+        url: url,
+        type: 'GET',
+        headers: headers,
+        success: function(response) {
+            var userData = response.haatBazarData[0];
+            $('#userId').val(userData.haat_bazar_id);
+            $('#username').val(userData.haat_bazar_id);
+            $('#first_name1').val(userData.first_name);
+            $('#last_name1').val(userData.last_name);
+            $('#mobile_no').val(userData.mobile);
+            $('#price').val(userData.price);
+            $("#state_").val(userData.state);
+            $("#district_1").val(userData.district);
+            $("#tehsil_1").val(userData.tehsil);
+
+            console.log("User Data:", userData);
+
+            // Set category value
+            var categoryDropdown = document.getElementById('category1');
+            for (var i = 0; i < categoryDropdown.options.length; i++) {
+                if (categoryDropdown.options[i].text === userData.category_name) {
+                    categoryDropdown.selectedIndex = i;
+                    break;
+                }
+            }
+
+            // Call function to populate sub-category based on the selected category
+            console.log("User Category ID:", userData.category_id);
+            get_sub_category_1(userData.category_id, function() {
+                // Set sub-category value
+                var subCategoryDropdown = document.getElementById('sub_category1');
+                console.log("Sub Categories:", subCategoryDropdown.options);
+                for (var i = 0; i < subCategoryDropdown.options.length; i++) {
+                    if (subCategoryDropdown.options[i].text === userData.sub_category_name) {
+                        subCategoryDropdown.selectedIndex = i;
+                        break;
+                    }
+                }
+            });
+        },
+        error: function(error) {
+            console.error('Error fetching user data:', error);
+        }
+    });
+}
       
       function edit_data_id(edit_id) {
         console.log(edit_id);
@@ -382,7 +327,7 @@ function openView(userId) {
         var price = $('#price').val();
 
         var apiBaseURL = APIBaseURL;
-        var url = apiBaseURL + 'haat_bazar/' + edit_id ;
+        var url = apiBaseURL + 'haat_bazar/' + edit_id;
         var token = localStorage.getItem('token');
         var _method = 'put';
         var headers = {
@@ -397,7 +342,7 @@ function openView(userId) {
         data.append('_method', _method);
         data.append('id',edit_id)
         data.append('enquiry_type_id', enquiry_type_id);
-        data.append('haat_bazar_category_name', category);
+        data.append('category_name', category);
         data.append('sub_category_name', sub_category);
         data.append('first_name', first_name);
         data.append('last_name', last_name);
@@ -427,6 +372,8 @@ function openView(userId) {
            }
         });
     }
+
+
   
   // image script 
   function ImgUpload() {
@@ -474,43 +421,43 @@ function openView(userId) {
     });
 }
 
-function get_category() {
-  var apiBaseURL = APIBaseURL;
-  var url = apiBaseURL + 'haat_bazar_category';
-  $.ajax({
-      url: url,
-      type: "GET",
-      headers: {
-          'Authorization': 'Bearer ' + localStorage.getItem('token')
-      },
-      success: function (data) {
-          const select = document.getElementById('category1');
-          select.innerHTML = '<option selected disabled value="">Please select an option</option>';
+// function get_category() {
+//   var apiBaseURL = APIBaseURL;
+//   var url = apiBaseURL + 'haat_bazar_category';
+//   $.ajax({
+//       url: url,
+//       type: "GET",
+//       headers: {
+//           'Authorization': 'Bearer ' + localStorage.getItem('token')
+//       },
+//       success: function (data) {
+//           const select = document.getElementById('category1');
+//           select.innerHTML = '<option selected disabled value="">Please select an option</option>';
 
-          if (data.allCategory.length > 0) {
-              data.allCategory.forEach(row => {
-                  const option = document.createElement('option');
-                  option.textContent = row.category_name;
-                  option.value = row.id;
-                  select.appendChild(option);
-              });
-          } else {
-              select.innerHTML = '<option>No valid data available</option>';
-          }
-      },
-      error: function (error) {
-          console.error('Error fetching data:', error);
-      }
-  });
-}
-get_category();
+//           if (data.allCategory.length > 0) {
+//               data.allCategory.forEach(row => {
+//                   const option = document.createElement('option');
+//                   option.textContent = row.category_name;
+//                   option.value = row.id;
+//                   select.appendChild(option);
+//               });
+//           } else {
+//               select.innerHTML = '<option>No valid data available</option>';
+//           }
+//       },
+//       error: function (error) {
+//           console.error('Error fetching data:', error);
+//       }
+//   });
+// }
+// get_category();
 
 
 function searchdata() {
   var category = $('#cc_category').val();
   var sub_category = $('#ss_sub_cate').val();
-  var state = $('#select_state').val();
-  var district = $('#select_dist').val();
+  var state = $('#state_1').val();
+  var district = $('#dist_district').val();
 
   console.log("Category:", category);
   console.log("Sub-Category:", sub_category);
@@ -606,8 +553,8 @@ function updateTable(data) {
 function resetForm() {
   $("#cc_category").val("");
   $("#ss_sub_cate").val("");
-  $("#select_state").val("");
-  $("#select_dist").val("");
+  $("#state_1").val("");
+  $("#dist_district").val("");
   window.location.reload();
 };
 
@@ -676,3 +623,74 @@ function get_sub_category(category_id) {
   });
 }
 category_main3();
+
+
+function category_main_1() {
+  var apiBaseURL = APIBaseURL;
+  var url = apiBaseURL + 'haat_bazar_category';
+  $.ajax({
+      url: url,
+      type: "GET",
+      headers: {
+          'Authorization': 'Bearer ' + localStorage.getItem('token')
+      },
+      success: function(data) {
+          console.log(data);
+          const select = document.getElementById('category1');
+          select.innerHTML = '<option selected disabled value="">Please select an option</option>';
+
+          if (data.allCategory.length > 0) {
+              data.allCategory.forEach(row => {
+                  const option = document.createElement('option');
+                  option.textContent = row.category_name;
+                  option.value = row.id;
+                  select.appendChild(option);
+              });
+          } else {
+              select.innerHTML = '<option>No valid data available</option>';
+          }
+      },
+      error: function(error) {
+          console.error('Error fetching data:', error);
+      }
+  });
+}
+
+function get_sub_category_1(category_id, callback) {
+  console.log("Fetching sub-categories for category ID:", category_id);
+  var apiBaseURL = APIBaseURL;
+  var url = apiBaseURL + 'haat_bazar_sub_category/' + category_id;
+  var select = document.getElementById('sub_category1');
+  select.innerHTML = '<option selected disabled value="">Please select an option</option>';
+  $.ajax({
+      url: url,
+      type: "GET",
+      headers: {
+          'Authorization': 'Bearer ' + localStorage.getItem('token')
+      },
+      success: function(data) {
+          console.log("Sub-category data received:", data);
+          if (data.data.length > 0) {
+              data.data.forEach(row => {
+                  const option = document.createElement('option');
+                  option.textContent = row.sub_category_name;
+                  option.value = row.id;
+                  select.appendChild(option);
+              });
+          } else {
+              const option = document.createElement('option');
+              option.textContent = 'No sub-categories available';
+              option.disabled = true;
+              select.appendChild(option);
+          }
+          // Call the callback function to indicate that sub-category options have been added
+          if (typeof callback === 'function') {
+              callback();
+          }
+      },
+      error: function(error) {
+          console.error('Error fetching sub-categories:', error);
+      }
+  });
+}
+category_main_1();

@@ -48,23 +48,37 @@ function gethaatbazzat() {
         
           var imageNames = data.allData.haat_bazar_data[0].image_names.split(',');
 
-          // Select the carousel container
-          var carouselContainer = $('.swiper-wrapper_buy');
-  
-          // Clear existing slides
-          carouselContainer.empty();
-  
-          // Iterate through the image names and create carousel slides
-          imageNames.forEach(function(imageName) {
-              var imageUrl = "http://tractor-api.divyaltech.com/uploads/haat_bazar_img/" + imageName.trim(); // Update the path
-              var slide = $('<div class="swiper-slide swiper-slide_buy"><img class="img_buy" src="' + imageUrl + '" /></div>');
-              carouselContainer.append(slide);
-          });
-  
-          // Initialize or update the Swiper carousel
-          var mySwiper = new Swiper('.swiper_buy', {
-              // Your Swiper configuration options
-          });
+            // Select the carousel container
+            var carouselContainer = $('.swiper-wrapper_buy');
+
+            // Clear existing slides
+            carouselContainer.empty();
+
+            // Initialize an empty array to store Swiper slides
+            var swiperSlides = [];
+
+            // Iterate through the image names and create carousel slides
+            imageNames.forEach(function(imageName, index) {
+                var imageUrl = "http://tractor-api.divyaltech.com/uploads/haat_bazar_img/" + imageName.trim(); // Update the path
+                var slide = $('<div class="swiper-slide swiper-slide_buy"><img class="img_buy" src="' + imageUrl + '" style="height: 300px;" /></div>'); // Set height here
+                carouselContainer.append(slide);
+                
+                // Push the created slide into the swiperSlides array
+                swiperSlides.push(slide);
+            });
+
+            // Initialize or update the Swiper carousel
+            var mySwiper = new Swiper('.swiper_buy', {
+                // Your Swiper configuration options
+            });
+
+            // Add click event listener to each slide
+            swiperSlides.forEach(function(slide, index) {
+                slide.on('click', function() {
+                    // Slide to the clicked slide
+                    mySwiper.slideTo(index);
+                });
+            });
           },
          
       error: function (error) {
@@ -122,8 +136,8 @@ function storedata(event) {
             
                 $("#used_tractor_callbnt_").modal('hide');
                 var msg = "Added successfully !"
-                $("#errorStatusLoading").modal('show');
-                $("#errorStatusLoading").find('.modal-title').html('<p class="text-center">Congratulation..! Requested Successful</p>');
+                // $("#errorStatusLoading").modal('show');
+                // $("#errorStatusLoading").find('.modal-title').html('<p class="text-center">Congratulation..! Requested Successful</p>');
             
                 $("#errorStatusLoading").find('.modal-body').html(msg);
                 $("#errorStatusLoading").find('.modal-body').html('<img src="assets/images/7efs.gif" style="display:block; margin:0 auto;" class="w-50 text-center" alt="Successfull Request"></img>');
