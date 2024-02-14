@@ -192,69 +192,72 @@ function get_search() {
 get_search();
 
 function add_news(event) {
-  event.preventDefault();
-
-  var image = document.getElementById('image_').files[0]; // Only get the first file
-  var category = $('#brand').val();
-  var headline = $('#headline').val();
-  var content = $('#contant').val();
-  var publisher = $('#publisher').val();
-
-  var apiBaseURL = APIBaseURL;
-  var token = localStorage.getItem('token');
-  var headers = {
-      'Authorization': 'Bearer ' + token
-  };
-
-  // Check if an ID is present in the URL, indicating edit mode
-  var urlParams = new URLSearchParams(window.location.search);
-  var editId = urlParams.get('id');
-  var _method = 'post'; 
-  var url, method;
+    event.preventDefault();
   
-  if (editId_state) {
-      // Update mode
-      _method = 'put';
-      url = apiBaseURL + 'blog_details/' + EditIdmain_ ;
-      method = 'POST'; 
-  } else {
-      // Add mode
-      url = apiBaseURL + 'blog_details';
-      method = 'POST';
+    var image = document.getElementById('image_').files[0]; // Only get the first file
+    var category = $('#brand').val();
+    var headline = $('#headline').val();
+    var content = $('#contant').val();
+    var publisher = $('#publisher').val();
+  
+    console.log("Selected image:", image); // Debugging statement
+  
+    var apiBaseURL = APIBaseURL;
+    var token = localStorage.getItem('token');
+    var headers = {
+        'Authorization': 'Bearer ' + token
+    };
+  
+    // Check if an ID is present in the URL, indicating edit mode
+    var urlParams = new URLSearchParams(window.location.search);
+    var editId = urlParams.get('id');
+    var _method = 'post'; 
+    var url, method;
+    
+    if (editId_state) {
+        // Update mode
+        _method = 'put';
+        url = apiBaseURL + 'blog_details/' + EditIdmain_ ;
+        method = 'POST'; 
+    } else {
+        // Add mode
+        url = apiBaseURL + 'blog_details';
+        method = 'POST';
+    }
+  
+    var data = new FormData();
+  
+    if (image) {
+        data.append("image", image); 
+    }
+    
+    data.append('_method', _method);
+    data.append('category_id', category);
+    data.append('heading', headline);
+    data.append('content', content);
+    data.append('publisher', publisher);
+  
+    console.log("FormData:", data); // Debugging statement
+  
+    $.ajax({
+        url: url,
+        type: method,
+        data: data,
+        headers: headers,
+        processData: false,
+        contentType: false,
+        success: function (result) {
+            console.log(result, "result");
+            console.log("Operation successfully");
+            alert("successfully Inserted..!");
+            $('#staticBackdrop').modal('hide');
+            get_news();
+        },
+        error: function (error) {
+            console.error('Error:', error);
+        }
+    });
   }
-
-  var data = new FormData();
-
-  if (image) {
-      data.append("image_names", image);
-  }
-
-  data.append('_method', _method);
-  data.append('category_id', category);
-  data.append('heading', headline);
-  data.append('content', content);
-  data.append('publisher', publisher);
-
-
-  $.ajax({
-      url: url,
-      type: method,
-      data: data,
-      headers: headers,
-      processData: false,
-      contentType: false,
-      success: function (result) {
-          console.log(result, "result");
-          console.log("Operation successfully");
-          alert("successfully Inserted..!");
-          $('#staticBackdrop').modal('hide');
-          get_news();
-      },
-      error: function (error) {
-          console.error('Error:', error);
-      }
-  });
-}
 
 function get_news() {
     var apiBaseURL = APIBaseURL;

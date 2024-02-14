@@ -161,11 +161,11 @@
                                                 <input type="text" class="form-control" placeholder="" value="2" id="image_type_id" name="price">
                                             </div>
                                         </div>
-                                        <div class="col-12 col-lg-6 col-md-6 col-sm-6" hidden>
+                                        <!-- <div class="col-12 col-lg-6 col-md-6 col-sm-6" hidden>
                                             <div class="form-outline mt-4">
-                                                <input type="text" class="form-control" placeholder="" value="9" id="sub_category_id" name="price">
+                                                <input type="text" class="form-control" placeholder="" value="" id="sub_category_id" name="price">
                                             </div>
-                                        </div>
+                                        </div> -->
                                         <!-- <div class="col-12 col-sm-6 col-md-6 col-lg-6">
                                             <div class="form-outline">
                                                 <label class="form-label" for="category">Category</label>
