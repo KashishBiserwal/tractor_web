@@ -145,7 +145,7 @@
                                         </div>
                                         <div class="col-12 col-lg-6 col-md-6 col-sm-6" hidden>
                                             <div class="form-outline mt-4">
-                                                <input type="text" class="form-control" placeholder="" value="9" id="sub_category_id" name="price">
+                                                <input type="text" class="form-control" placeholder="" value="" id="sub_category_id" name="price">
                                             </div>
                                         </div>
                                         <div class="col-12 col-sm-6 col-md-6 col-lg-6">
@@ -238,22 +238,42 @@
                                       <div class="form-outline mt-2">
                                           <label class="form-label ">State</label>
                                           <select class="form-select py-2" aria-label="Default select example" id="state_" name="state_">
-                                              <option value="">Select State</option>
-                                              <option value="Chattisgarh">Chattisgarh</option>
-                                              <option value="Other">Other</option>
+                                          <option value>Select State</option>
+                                          <option value="Chhattisgarh">Chhattisgarh</option>
+                                          <option value="Maharashtra">Maharashtra</option>
+                                          <option value="Other">Other</option>
                                           </select>
                                       </div>
                                     </div>
-                                      <div class="col-12 col-lg-6 col-sm-5 col-md-6 my-1">
+                                      <!-- <div class="col-12 col-lg-6 col-sm-5 col-md-6 my-1">
                                         <div class="form-outline mt-3">
                                           <label class="form-label ">District</label>
                                           <select class="form-select py-2" aria-label="Default select example" id="dist" name="dist">
-                                            <option value="">Select District</option>
+                                            <option value>Select District</option>
                                             <option value="Raipur">Raipur</option>
                                             <option value="Bilaspur">Bilaspur</option>
                                           </select>
                                         </div>
-                                      </div>
+                                      </div> -->
+                                      <div class="col-12 col-sm-6 col-md-6 col-lg-6 my-1">
+                                        <div class="form-outline mt-3">
+                                            <label class="form-label" for="district">District</label>
+                                            <select class="form-select py-2" aria-label="Default select example" name="dist" id="dist">
+                                                <option value>Select District</option>
+                                                <option value="Raipur">Raipur</option>
+                                                <option value="Bhilai">Bhilai</option>
+                                                <option value="Durg">Durg</option>
+                                                <option value="	Bilaspur">Bilaspur</option>
+                                                <option value="Raigarh">Raigarh</option>
+                                                <option value="Sarguja">Sarguja</option>
+                                                <option value="Surajpur">Surajpur</option>
+                                                <option value="Jagdalpur">Jagdalpur</option>
+                                                <option value="Korba">Korba</option>
+                                                <option value="Dhamtari">Dhamtari</option>
+                                                <option value="Ambikapur">Ambikapur</option>
+                                            </select>
+                                        </div>
+                                    </div>
                                       <div class="col-12 col-lg-6 col-sm-5 col-md-6 my-1">
                                         <div class="form-outline mt-3">
                                           <label class="form-label">Tehsil</label>

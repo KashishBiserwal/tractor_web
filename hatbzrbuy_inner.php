@@ -13,6 +13,7 @@ include 'includes/footertag.php';
     <script src="<?php $baseUrl; ?>model/haatbazar_inner.js"></script>
 </head>
 
+
 <body> <?php
    include 'includes/header.php';
    ?>
@@ -57,7 +58,7 @@ include 'includes/footertag.php';
                             </div>
                         </div>
                     </div>
-                    <div thumbsSlider="" class="swiper mySwiper_buy" style="height:50px; width: 43%;" id="swip_img"></div>
+                    <div thumbsSlider="" class="swiper mySwiper_buy" style="height:75px; width: 43%;" id="swip_img"></div>
                 </div>
                 </div>
                 <div class="col-12 col-sm-6 col-lg-6 col-md-6">
@@ -384,6 +385,5 @@ $(document).ready(function() {
     });
 });
 </script>
-
 
 </html>

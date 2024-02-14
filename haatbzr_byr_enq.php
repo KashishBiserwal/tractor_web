@@ -62,8 +62,8 @@
             <div class="col-12 col-sm-12 col-md-3 col-lg-3">
               <div class="form-outline ">
                 <label class="form-label fw-bold">District</label>
-                <select class="form-select py-2" aria-label="Default select example">
-                    <option selected>Select District</option>
+                <select class="form-select py-2" aria-label="Default select example" id="dist_district">
+                    <option value>Select District</option>
                     <option value="Raipur">Raipur</option>
                   <option value="Bhilai">Bhilai</option>
                   <option value="Durg">Durg</option>
@@ -213,13 +213,17 @@
             <div class="col-12 col-sm-6 col-md-6 col-lg-6 mt-2">
               <div class="form-outline">
                 <label class="form-label" for="first_name">Category</label>
-                <input type="text" id="category1" name="category" class=" data_search form-control input-group-sm py-2" />
+                <!-- <input type="text" id="category1" name="category" class=" data_search form-control input-group-sm py-2" /> -->
+                <select class="form-select py-2 category_cls" aria-label="Default select example" id="category1" name="category" onchange="get_sub_category_1(this.value)">
+                </select>
               </div>
             </div>
             <div class="col-12 col-sm-6 col-md-6 col-lg-6 mt-2">
               <div class="form-outline">
                 <label class="form-label" for="first_name">Sub-category</label>
-                <input type="text" id="sub_category1" name="sub_category1" class=" data_search form-control input-group-sm py-2" />
+                <!-- <input type="text" id="sub_category1" name="sub_category1" class=" data_search form-control input-group-sm py-2" /> -->
+                <select class="form-select py-2 sub_category_cls" aria-label="Default select example" id="sub_category1" name="sub_category1">
+                      </select>
               </div>
             </div>
             <div class="col-12 col-sm-6 col-md-6 col-lg-6 mt-2">
