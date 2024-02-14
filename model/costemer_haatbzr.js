@@ -153,7 +153,7 @@ function displayStep(step) {
 function store(event) {
     event.preventDefault();
     var enquiry_type_id = $('#enquiry_type_id').val();
-    // var sub_category_id = $('#sub_category_id').val();
+    var sub_category_id = $('#sub_category_id').val();
     // var sub_category_id = 9; 
     var image_type_id = 2; 
     var category = $('#category').val();
@@ -179,10 +179,10 @@ function store(event) {
     var data = new FormData();
    
     data.append('enquiry_type_id', enquiry_type_id);
-    data.append('sub_category_id', subcategory);
+    data.append('sub_category_id', sub_category_id);
     data.append('image_type_id', image_type_id);
-    data.append('category', category);
-    data.append('subcategory', subcategory);
+    data.append('category_name', category);
+    data.append('sub_category_id', subcategory);
     data.append('quantity', quantityInput);
     data.append('as_per', unitSelect);
     data.append('price', price);

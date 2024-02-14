@@ -48,59 +48,79 @@ include 'includes/footertag.php';
         <form id="tractor_submit_form" method="POST" class="form-view-inner form-view-overlay bg-light box-shadow p-3" action="" novalidate="novalidate">
             <div class="row justify-content-center">
                 <div class="col-12 col-lg-6 col-md-6 col-sm-6  ">
-                    <div class="mt-2">
+                    <div class=" form-outline mt-2">
                         <label class="form-label text-dark">Brand</label>
-                        <select class="form-control" name="brand" id="brand" onchange="getModel(this.value)" required="">
+                        <select class="form-select" name="brand" id="brand" onchange="getModel(this.value)" required="">
                            
                         </select>
                     </div>
                 </div>
                 <div class="col-12 col-lg-6 col-md-6 col-sm-6  ">
-                    <div class="mt-2">
+                    <div class=" form-outline mt-2">
                         <label class="form-label text-dark">Model</label>
-                        <select class="form-control" name="model" id="model" required="">
+                        <select class="form-select" name="model" id="model_1" required="">
                         </select>
                     </div>
                 </div>
                 <div class="col-12 col-lg-6 col-md-6 col-sm-6 mt-2 ">
-                    <div class="mt-2">
+                    <div class="form-outline mt-2">
                         <label class="form-label text-dark">First Name</label>
                         <input type="text" id="first_name" placeholder="Enter Name" name="first_name" class=" search form-control input-group-sm" />
                     </div>
                 </div>
                 <div class="col-12 col-lg-6 col-md-6 col-sm-6 mt-2 ">
-                    <div class="mt-2">
+                    <div class="form-outline mt-2">
                         <label class="form-label text-dark">Last Name</label>
                         <input type="text" id="last_name" placeholder="Enter Name" name="last_name" class=" search form-control input-group-sm" />
                     </div>
                 </div>
                 <div class="col-12 col-lg-6 col-md-6 col-sm-6 mt-2 ">
-                    <div class=" mt-2">
+                    <div class="form-outline mt-2">
                         <label class="form-label text-dark">Mobile Number</label>
                         <input type="text" id="mobile_no" placeholder="Enter Number"  name="mobile_no" class=" search form-control input-group-sm" />
                     </div>
                 </div>
-                <div class="col-6 col-sm-6">
-                    <div class="mt-2">
+                <div class="col-12 col-lg-6 col-md-6 col-sm-6 mt-2">
+                    <div class=" form-outline mt-2">
                     <label class="form-label text-dark">State</label>
-                        <select class="form-control" name="state" id="state"  required=""><option value="" selected="">Select Brand</option><option value="632">Balod</option><option value="770">Baloda Bazar</option><option value="656">Balrampur</option><option value="436">Bastar</option><option value="675">Bemetra</option><option value="725">Bhatapara</option><option value="735">Bijapur</option><option value="437">Bilaspur</option><option value="438">Dantewada</option><option value="439">Dhamtari</option><option value="440">Durg</option><option value="676">Gariaband</option><option value="441">Janjgir - Champa</option><option value="442">Jashpur</option><option value="769">Kabirdham</option><option value="443">Kanker</option><option value="444">Kawardha</option><option value="693">Kondagaon</option><option value="445">Korba</option><option value="446">Koriya</option><option value="447">Mahasamund</option><option value="664">Mungeli</option><option value="729">Narayanpur</option><option value="755">Pendra</option><option value="448">Raigarh</option><option value="449">Raipur</option><option value="450">Rajnandgaon</option><option value="793">Sakti</option><option value="782">Sarangarh</option><option value="702">Sukma</option><option value="700">Surajpur</option><option value="451">Surguja</option><option value="736">Udaipur</option></select>
+                        <select class="form-select" name="state" id="state"  required="">
+                            <option value>Select State</option>
+                            <option value="Chhattisgarh">Chhattisgarh</option>
+                            <option value="Other">Other</option>
+                        </select>
                         <span class="text-danger"></span>
                     </div>
                 </div>
-                <div class="col-6 col-sm-6">
-                    <div class="mt-2">
+                <div class="col-12 col-lg-6 col-md-6 col-sm-6 mt-2">
+                    <div class=" form-outline mt-2">
                     <label class="form-label text-dark">District</label>
-                        <select class="form-control" name="district" id="district"  required=""><option value="" selected="">Select Brand</option><option value="632">Balod</option><option value="770">Baloda Bazar</option><option value="656">Balrampur</option><option value="436">Bastar</option><option value="675">Bemetra</option><option value="725">Bhatapara</option><option value="735">Bijapur</option><option value="437">Bilaspur</option><option value="438">Dantewada</option><option value="439">Dhamtari</option><option value="440">Durg</option><option value="676">Gariaband</option><option value="441">Janjgir - Champa</option><option value="442">Jashpur</option><option value="769">Kabirdham</option><option value="443">Kanker</option><option value="444">Kawardha</option><option value="693">Kondagaon</option><option value="445">Korba</option><option value="446">Koriya</option><option value="447">Mahasamund</option><option value="664">Mungeli</option><option value="729">Narayanpur</option><option value="755">Pendra</option><option value="448">Raigarh</option><option value="449">Raipur</option><option value="450">Rajnandgaon</option><option value="793">Sakti</option><option value="782">Sarangarh</option><option value="702">Sukma</option><option value="700">Surajpur</option><option value="451">Surguja</option><option value="736">Udaipur</option></select>
+                        <select class="form-select" name="district" id="district"  required="">
+                            <option value>Select District</option>
+                            <option value="Balod">Balod</option>
+                            <option value="Bastar">Bastar</option>
+                            <option value="Bemetara">Bemetara</option>
+                            <option value="Bhatapara">Bhatapara</option>
+                            <option value="Bijapur">Bijapur</option>
+                            <option value="Udaipur">Udaipur</option>
+                        </select>
                         <span class="text-danger"></span>
                     </div>
                 </div>
-                <div class="col-6 col-sm-6">
-                    <div class=" mt-2">
+                <div class="col-12 col-lg-6 col-md-6 col-sm-6 mt-2">
+                    <div class="form-outline mt-2">
                         <label class="form-label text-dark">Tehsil </label>
-                        <input type="text" id="tehsil" placeholder="Enter Tehsil"  name="tehsil" class=" search form-control input-group-sm" />
+                        <select class="form-select" name="tehsil" id="tehsil"  required="">
+                            <option value>Select Tehsil</option>
+                            <option value="Balod">Balod</option>
+                            <option value="Bastar">Bastar</option>
+                            <option value="Bemetara">Bemetara</option>
+                            <option value="Bhatapara">Bhatapara</option>
+                            <option value="Bijapur">Bijapur</option>
+                            <option value="Udaipur">Udaipur</option>
+                        </select>
                     </div>
                 </div> 
-                <div class="col-12">
+                <div class="col-12 mt-3">
                     <button class="tractor_submit form-submit-btn  text-white bg-success w-100 px-3 mt-2 mb-3" id="get_on_road" type="submit">CHECK ON ROAD PRICE</button>
                 </div>
                 <p class="mb-0 text-center">By proceeding ahead you expressly agree to the Tractor Junctions <a href="#" class="text-decoration-none" target="_blank" title="terms and conditions">terms and conditions*</a></p>
@@ -305,4 +325,71 @@ include 'includes/footertag.php';
     include 'includes/footertag.php';
 
     ?>
+
+
+<script>
+  $(document).ready(function () {
+    // Custom method for phone number validation
+    jQuery.validator.addMethod("customPhoneNumber", function(value, element) {
+      return /^[6-9]\d{9}$/.test(value); 
+    }, "Phone number must start with 6 or above");
+
+    // Validate hatbazar form
+    $("#tractor_submit_form").validate({
+      rules: {
+        first_name: {
+          required: true,
+        },
+        last_name: {
+          required: true,
+        },
+        mobile_no: {
+          required: true,
+          minlength: 10,
+          maxlength: 10,
+          digits: true,
+          customPhoneNumber: true
+        },
+        state: {
+          required: true,
+        },
+        district: {
+          required: true,
+        }
+      },
+      messages: {
+        first_name: {
+          required: "This field is required",
+        },
+        last_name: {
+          required: "This field is required",
+        },
+        mobile_no: {
+          required: "This field is required",
+          minlength: "Phone Number must be 10 digits long",
+          maxlength: "Phone Number must be 10 digits long",
+          digits: "Please enter only digits"
+        },
+        state: {
+          required: "This field is required",
+        },
+        district: {
+          required: "This field is required",
+        }
+      },
+      submitHandler: function (form) {
+        alert("Form submitted successfully!");
+      }
+    });
+
+    // On click event for submit button
+    $("#get_on_road").on("click", function () {
+      // Check if tractor_submit_form is valid
+      if ($("#tractor_submit_form").valid()) {
+        alert("Form is valid. Ready to submit!");
+      }
+    });
+  });
+</script>
+
     </html>
