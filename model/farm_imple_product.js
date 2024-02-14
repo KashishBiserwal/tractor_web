@@ -3,7 +3,16 @@ var editId_state = false;
 var id = "";
 $(document).ready(function () {
     $('#save').click(store);
-    ImgUpload();
+    ImgUpload();  
+    $('#search').click(search_data);
+    $("#Reset").click(function () {
+  
+      $("#seach_subcat1").val("");
+      $("#seach_subcat").val("");
+      $("#brand_main").val("");
+      get_product();
+      
+      });
 
 });
 function ImgUpload() {
@@ -88,6 +97,7 @@ function get() {
                     const selectedBrandId = this.value;
                     get_subcategory(selectedBrandId);
                 });
+                
             } else {
                 select.innerHTML = '<option>No valid data available</option>';
             }
@@ -105,8 +115,6 @@ function get() {
 function get_subcategory(id) {
     var apiBaseURL = APIBaseURL;
     var url = apiBaseURL + 'get_implement_sub_cat_by_category_id/' + id;
-    // var url= 'http://tractor-api.divyaltech.com/api/customer/get_implement_sub_cat_by_category_id/'+ id;
-    http://tractor-api.divyaltech.com/api/customer/implement_sub_category_by_id/12
 
     $.ajax({
         url: url,
@@ -216,10 +224,89 @@ function get_subcategory_custom(id) {
 
 get();
 
+function get_search() {
+    var apiBaseURL = APIBaseURL;
+    var url = apiBaseURL + 'get_implement_category';
+    $.ajax({
+        url: url,
+        type: "GET",
+        headers: {
+            'Authorization': 'Bearer ' + localStorage.getItem('token')
+        },
+        success: function (data) {
+            const select = document.getElementById('seach_subcat1'); // Corrected selector
+            select.innerHTML = ''; // Clear previous data
+            $(select).append('<option selected disabled value="">Please select Category</option>');
+
+            if (data.allCategory.length > 0) {
+                data.allCategory.forEach(row => {
+                    const option = document.createElement('option');
+                    option.textContent = row.category_name;
+                    option.value = row.id;
+                    select.appendChild(option);
+                });
+                select.addEventListener('change', function () {
+                    const selectedCategoryId = this.value; // Corrected variable name
+                    get_subcategory_search(selectedCategoryId);
+                });
+                
+            } else {
+                select.innerHTML = '<option>No valid data available</option>';
+            }
+        },
+        error: function (error) {
+            console.error('Error fetching data:', error);
+            var msg = error.responseText; // Use responseText to get error message
+            $("#errorStatusLoading").modal('show');
+            $("#errorStatusLoading").find('.modal-title').html('Error');
+            $("#errorStatusLoading").find('.modal-body').html(msg);
+        }
+    });
+}
+
+// get subcategory in select box
+function get_subcategory_search(id) {
+    var apiBaseURL = APIBaseURL;
+    var url = apiBaseURL + 'get_implement_sub_cat_by_category_id/' + id;
+
+    $.ajax({
+        url: url,
+        type: "GET",
+        headers: {
+            'Authorization': 'Bearer ' + localStorage.getItem('token')
+        },
+        success: function (data) {
+            const select = document.getElementById('seach_subcat'); // Corrected selector
+            select.innerHTML = ''; // Clear previous data
+            $(select).append('<option selected disabled value="">Please select Subcategory</option>'); // Corrected placeholder text
+
+            if (data.implementSubCategoryData.length > 0) {
+                data.implementSubCategoryData.forEach(row => {
+                    const option = document.createElement('option');
+                    option.textContent = row.sub_category_name;
+                    option.value = row.id;
+                    select.appendChild(option);
+                });
+               
+            } else {
+                select.innerHTML = '<option>No valid data available</option>';
+            }
+        },
+        error: function (error) {
+            console.error('Error fetching data:', error);
+            var msg = error.responseText; // Use responseText to get error message
+            $("#errorStatusLoading").modal('show');
+            $("#errorStatusLoading").find('.modal-title').html('Error');
+            $("#errorStatusLoading").find('.modal-body').html(msg);
+        }
+    });
+}
+
+get_search();
+
 // get brand and model
 function get_brand() {
     var url = "http://tractor-api.divyaltech.com/api/customer/get_brand_by_product_id/" + 6;
-    // var url = 'http://tractor-api.divyaltech.com/api/customer/get_all_brands/'+ 6;
     $.ajax({
         url: url,
         type: "GET",
@@ -240,11 +327,7 @@ function get_brand() {
                         select.appendChild(option);
                     });
 
-                    // Add event listener to brand dropdown
-                    // select.addEventListener('change', function() {
-                    //     const selectedBrandId = this.value;
-                    //     get_model(selectedBrandId);
-                    // });
+                
                 } else {
                     select.innerHTML = '<option>No valid data available</option>';
                 }
@@ -255,39 +338,6 @@ function get_brand() {
         }
     });
 }
-
-//   function get_model(brand_id) {
-//     var url = 'http://tractor-api.divyaltech.com/api/customer/get_brand_model/' + brand_id;
-//     $.ajax({
-//         url: url,
-//         type: "GET",
-//         headers: {
-//             'Authorization': 'Bearer ' + localStorage.getItem('token')
-//         },
-//         success: function (data) {
-//             const selects = document.querySelectorAll('#model_main');
-
-//             selects.forEach(select => {
-//                 select.innerHTML = '<option selected disabled value="">Please select an option</option>';
-
-//                 if (data.model.length > 0) {
-//                     data.model.forEach(row => {
-//                         const option = document.createElement('option');
-//                         option.textContent = row.model;
-//                         option.value = row.model;
-//                         console.log(option);
-//                         select.appendChild(option);
-//                     });
-//                 } else {
-//                     select.innerHTML = '<option>No valid data available</option>';
-//                 }
-//             });
-//         },
-//         error: function (error) {
-//             console.error('Error fetching data:', error);
-//         }
-//     });
-//   }
 
 get_brand();
 
@@ -318,7 +368,7 @@ function store(event) {
     var DataArrayJson = JSON.stringify(DataArray);
 
     var brand_id = $('#brand_main').val();
-    var model_main = $('#model_main').val();
+    var model_main = $('#model').val();
     var lookup_type = $('#lookupSelectbox').val();
     var lookup_data_value = $('#lookupSelectbox2').val();
     var id = $('#idUser').val();
@@ -326,7 +376,7 @@ function store(event) {
     var image_names = document.getElementById('image_name').files;
 
     var apiBaseURL = APIBaseURL;
-    var url = apiBaseURL + 'implement_details';
+    // var url = apiBaseURL + 'implement_details';
 
     var token = localStorage.getItem('token');
     var headers = {
@@ -336,22 +386,21 @@ function store(event) {
     // var urlParams = new URLSearchParams(window.location.search);
     //   id = urlParams.get('id');
     // console.log("editId from URL:", editId_stateedit);
-    //   _method = 'POST';
-    //   var url, method;
-    //   console.log('edit state', id);
-    //   var _method = 'post'; 
+      _method = 'POST';
+      var url, method;
+      var _method = 'post'; 
 
-    //   if (id !== '' && id !== null) {
-    //     // Update mode
-    //     _method = 'put';
-    //     url = apiBaseURL + 'implement_sub_category/' + id;
-    //     console.log(url);
-    //     method = 'POST'; 
-    //   } else {
-    //     url = apiBaseURL + 'implement_details';
-    //     console.log('prachi');
-    //     method = 'POST';
-    //   }
+      if (id !== '' && id !== null) {
+        // Update mode
+        _method = 'put';
+        url = apiBaseURL + 'implement_details/' + id;
+        console.log(url);
+        method = 'POST'; 
+      } else {
+        url = apiBaseURL + 'implement_details';
+        console.log('prachi');
+        method = 'POST';
+      }
 
     var data = new FormData();
     for (var i = 0; i < DataArray.length; i++) {
@@ -370,11 +419,11 @@ function store(event) {
     // data.append('implement_data', implementDataJson);
     // data.append('customDataJson', customDataJson);
     // data.append('thumbnail', image);
-    // data.append('_method', _method);
+    data.append('_method', _method);
 
     $.ajax({
         url: url,
-        type: 'POST',
+        type: method,
         data: data,
         headers: headers,
         processData: false,
@@ -391,10 +440,10 @@ function store(event) {
             $("#staticBackdrop1").modal('hide');
             // get_data();
 
-            var alertConfirmation = confirm("Data added successfully. Do you want to reload the page?");
-            if (alertConfirmation) {
-                window.location.reload();
-            }
+            // var alertConfirmation = confirm("Data added successfully. Do you want to reload the page?");
+            // if (alertConfirmation) {
+            //     window.location.reload();
+            // }
         },
         error: function (error) {
             console.error('Error fetching data:', error);
@@ -426,12 +475,12 @@ function get_product() {
                 data.getAllImplements.forEach(row => {
                     let action = `
                         <div class="d-flex">
-                          <button class="btn btn-warning btn-sm text-white mx-1" data-bs-toggle="modal" onclick="fetch_data(${row.id});" data-bs-target="#exampleModal">
+                          <button class="btn btn-warning btn-sm text-white mx-1" data-bs-toggle="modal" onclick="fetch_data(${row.product_id});" data-bs-target="#exampleModal">
                             <i class="fa-solid fa-eye" style="font-size: 11px;"></i></button>
-                          <button class="btn btn-primary btn-sm btn_edit" onclick="fetch_edit_data(${row.id});" data-bs-toggle="modal" data-bs-target="#staticBackdrop" id="yourUniqueIdHere">
+                          <button class="btn btn-primary btn-sm btn_edit" onclick="fetch_edit_data(${row.product_id});" data-bs-toggle="modal" data-bs-target="#staticBackdrop" id="yourUniqueIdHere">
                             <i class="fas fa-edit" style="font-size: 11px;"></i>
                           </button>
-                          <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.id});">
+                          <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.product_id});">
                             <i class="fa fa-trash" style="font-size: 11px;"></i>
                           </button>
                         </div>`;
@@ -478,7 +527,7 @@ get_product();
 
 function fetch_data(userId) {
     var apiBaseURL = APIBaseURL;
-    var url = apiBaseURL + 'get_implement_details_by_id/' + 876; // Use the userId parameter
+    var url = apiBaseURL + 'get_implement_details_by_id/' + userId; // Use the userId parameter
 
     var headers = {
         'Authorization': 'Bearer ' + localStorage.getItem('token')
@@ -554,8 +603,7 @@ function fetch_data(userId) {
 // fetch edit data
 function fetch_edit_data(id) {
     var apiBaseURL = APIBaseURL;
-    var url = apiBaseURL + 'implement_details/' + 267;
-    console.log(url);
+    var url = apiBaseURL + 'get_implement_details_by_id/' + id;
     editId_state = true;
     id = id;
 
@@ -568,38 +616,63 @@ function fetch_edit_data(id) {
         type: 'GET',
         headers: headers,
         success: function (response) {
-            $('#two_field').hide(); // Correct selector
+            var userData = response.getAllImplementsById[0].implements_data[0];
+            $("#lookupSelectbox").replaceWith(`
+    <div class="form-outline">
+        <label for="lookupSelectbox" class="form-label">Category</label>
+        <input type="text" class="form-control py-2" value="${userData.category_name}" id="lookupSelectbox" aria-label="Category" readonly>
+    </div>
+`);
 
-            var Data = response.getAllImplementsById;
-            $('#idUser').val(Data.getAllImplementsById[0].id);
-            $("#lookupSelectbox option").prop("selected", false);
-            $("#lookupSelectbox option[value='" + Data.implement_sub_category[0].category_name + "']").prop("selected", true);
-            $('#lookup_data_value').val(Data.implement_sub_category[0].sub_category_name);
+// Set sub_category_name to #lookupSelectbox2 dropdown
+$("#lookupSelectbox2").replaceWith(`
+    <div class="form-outline">
+        <label for="lookupSelectbox2" class="form-label">Sub-Category</label>
+        <input type="text" class="form-control py-2" value="${response.getAllImplementsById[0].implements_data[0].sub_category_name}" id="lookupSelectbox2" aria-label="Sub-Category" readonly>
+    </div>
+`);
+            $('#two_field').hide(); // Correct selector
+           
+
+            // Set product_id to #idUser input
+            $('#idUser').val(userData.product_id);
+            
+            // Set brand_name to #model input
+            $('#model').val(userData.model);
+            
+            // Set brand_name to #brand_main dropdown
+            $("#brand_main option").prop("selected", false);
+            $("#brand_main option[value='" + userData.brand_name + "']").prop("selected", true);
+            
+            // Set category_name to #lookupSelectbox dropdown
+           
+            
 
             var tableData = $("#fields");
             tableData.html('');
 
-            Data.custom_data.forEach(function (p, index) {
-                var tableRow = `
-                    <div class="row form_field_outer_row">
-                        <div class="form-group col-md-6">
-                            <input type="text" class="form-control w_90" name="mobileb_no[]" value="${p.custom_column_name}" id="mobileb_no_${index + 1}" readOnly />
+            if (response.getAllImplementsById[1][0].implement_custom_data && response.getAllImplementsById[1][0].implement_custom_data.length > 0) {
+                response.getAllImplementsById[1][0].implement_custom_data.forEach(function (p, index) {
+
+                    var customColumnName = Object.keys(p)[0];
+                    var implementColumnName = p[customColumnName];
+
+                    var tableRow = `
+                        <div class="row form_field_outer_row">
+                            <div class="form-group col-md-6">
+                                <input type="text" class="form-control w_90" name="mobileb_no[]" value="${customColumnName}" id="mobileb_no_${index + 1}" readOnly />
+                            </div>
+                            <div class="form-group col-md-4">
+                                <input type="text" class="form-control" name="no_type[]" id="no_type_${index + 1}" placeholder="Enter Value" aria-invalid="false" value="${implementColumnName}" />
+                            </div>
+                           
                         </div>
-                        <div class="form-group col-md-4">
-                            <input type="text" class="form-control" name="no_type[]" id="no_type_${index + 1}" placeholder="Enter Value" aria-invalid="false" value="${p.implement_column_name}" />
-                        </div>
-                        <div class="form-group col-md-2 add_del_btn_outer">
-                            <button class="btn_round remove_node_btn_frm_field delete" data-index="${index + 1}" enable>
-                                <i class="fas fa-trash-alt"></i>
-                            </button>
-                        </div>
-                    </div>
-                `;
-                tableData.append(tableRow);
-            });
+                    `;
+                    tableData.append(tableRow);
+                });
+            }
 
             // Enable all delete buttons
-
 
             // Add event listener for delete buttons
             $(".remove_node_btn_frm_field").on("click", function () {
@@ -653,4 +726,87 @@ function destroy(id) {
         }
     });
 }
+
+
+// search data
+
+function search_data() {
+    var seach_subcat1 = $('#seach_subcat1').val();
+    var seach_subcat = $('#seach_subcat').val();
+    var brand_main = $('#brand_main').val();
+    var paraArr = {
+      'implement_category_id': seach_subcat1,
+      'implement_subcategory_id':seach_subcat,
+      'brand_id':brand_main,
+    };
+  
+    var apiBaseURL = APIBaseURL;
+    var url = apiBaseURL + 'search_for_implement_details';
+    $.ajax({
+        url:url, 
+        type: 'POST',
+        data: paraArr,
+      
+        headers: {
+            'Authorization': 'Bearer ' + localStorage.getItem('token')
+        },
+        success: function (searchData) {
+          updateTable(searchData);
+        },
+        error: function (error) {
+            console.error('Error searching for brands:', error);
+        }
+    });
+  };
+  function updateTable(data) {
+    const tableBody = document.getElementById('data-table');
+
+            if (data.getAllImplements && data.getAllImplements.length > 0) {
+                let tableData = [];
+                let counter = data.getAllImplements.length;
+
+                data.getAllImplements.forEach(row => {
+                    let action = `
+                        <div class="d-flex">
+                          <button class="btn btn-warning btn-sm text-white mx-1" data-bs-toggle="modal" onclick="fetch_data(${row.product_id});" data-bs-target="#exampleModal">
+                            <i class="fa-solid fa-eye" style="font-size: 11px;"></i></button>
+                          <button class="btn btn-primary btn-sm btn_edit" onclick="fetch_edit_data(${row.product_id});" data-bs-toggle="modal" data-bs-target="#staticBackdrop" id="yourUniqueIdHere">
+                            <i class="fas fa-edit" style="font-size: 11px;"></i>
+                          </button>
+                          <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.product_id});">
+                            <i class="fa fa-trash" style="font-size: 11px;"></i>
+                          </button>
+                        </div>`;
+
+                    tableData.push([
+                        counter--,
+                        row.category_name,
+                        row.sub_category_name,
+                        row.brand_name,
+                        row.model,
+                        action
+                    ]);
+
+                });
+
+                $('#example').DataTable().destroy();
+                $('#example').DataTable({
+                    data: tableData,
+                    columns: [
+                        { title: 'S.No.' },
+                        { title: 'Category Name' },
+                        { title: 'Subcategory Name' },
+                        { title: 'Brand' },
+                        { title: 'Model' },
+                        { title: 'Action', orderable: false }
+                    ],
+                    paging: true,
+                    searching: true,
+                });
+            }
+    else {
+        // Display a message if there's no valid data
+        tableBody.innerHTML = '<tr><td colspan="4">No valid data available</td></tr>';
+    }
+  }
 
