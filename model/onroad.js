@@ -53,7 +53,7 @@ function get_model(brand_id) {
         },
         success: function (data) {
             console.log(data);
-            const selects = document.querySelectorAll('#model');
+            const selects = document.querySelectorAll('#model_1');
 
             selects.forEach(select => {
                 select.innerHTML = '<option selected disabled value="">Please select an option</option>';
@@ -81,60 +81,87 @@ get();
 
 function get_on_roadadd(event) {
     event.preventDefault();
-    console.log('jfhfhw');
-     enquiry_type_id = 20;
-    console.log('enquiry_type_id', enquiry_type_id);
+
+    // Validate the form
+    if (!validateForm()) {
+        return; // Stop further execution if form is not valid
+    }
+
+    console.log('Form is valid. Proceeding with AJAX request...');
+
+    // Prepare data to send to the server
+    var enquiry_type_id = 20; // Assuming this is a constant value
     var brand = $('#brand').val();
-    var model = $('#model').val();
+    var model = $('#model_1').val();
     var first_name = $('#first_name').val();
     var last_name = $('#last_name').val();
     var mobile_no = $('#mobile_no').val();
     var state = $('#state').val();
     var tehsil = $('#tehsil').val();
     var district = $('#district').val();
-   
-    // Prepare data to send to the server
+
     var paraArr = {
-        'enquiry_type_id':enquiry_type_id,
-    //'insurance_type_id': insurance_type,
-      'first_name': first_name,
-      'last_name': last_name,
-      'mobile': mobile_no,
-      'brand_id': brand,
-      'model': model,
-      'state': state,
-      'tehsil': tehsil,
-      'district': district,
+        'enquiry_type_id': enquiry_type_id,
+        //'insurance_type_id': insurance_type,
+        'first_name': first_name,
+        'last_name': last_name,
+        'mobile': mobile_no,
+        'brand_id': brand,
+        'model': model,
+        'state': state,
+        'tehsil': tehsil,
+        'district': district,
     };
 
-    // var apiBaseURL =APIBaseURL;
+    // AJAX settings
     var url = 'http://tractor-api.divyaltech.com/api/customer/customer_enquiries';
-    console.log(url);
 
     $.ajax({
-      url: url,
-      type: "POST",
-      data: paraArr,
-      success: function (result) {
-        console.log(result, "result");
-        console.log("Add successfully");
-        
-       var msg = "User Inserted successfully !"
-       $("#errorStatusLoading").modal('show');
-       $("#errorStatusLoading").find('.modal-title').html('<p class="text-center">Congratulation..! Requested Successful</p>');
-    
-       $("#errorStatusLoading").find('.modal-body').html(msg);
-       $("#errorStatusLoading").find('.modal-body').html('<img src="assets/images/successfull.gif" style="display:block; margin:0 auto;" class="w-50 text-center" alt="Successfull Request"></img>');
-       document.getElementById("myform").reset();
-       
-      },
-      error: function (error) {
-        console.error('Error fetching data:', error);
-        var msg = error;
-        $("#errorStatusLoading").modal('show');
-        $("#errorStatusLoading").find('.modal-title').html('<p class="text-center">Process Failed..! Enter Valid Detail</p>');
-        $("#errorStatusLoading").find('.modal-body').html(msg);
-        $("#errorStatusLoading").find('.modal-body').html('<img src="assets/images/comp_3.gif" style="display:block; margin:0 auto;" class="w-50 text-center" alt="Successfull Request"></img>');
-      }
+        url: url,
+        type: "POST",
+        data: paraArr,
+        success: function (result) {
+            console.log(result, "result");
+            console.log("Add successfully");
+            var msg = "User Inserted successfully !"
+            $("#errorStatusLoading").modal('show');
+            $("#errorStatusLoading").find('.modal-title').html('<p class="text-center">Congratulation..! Requested Successful</p>');
+            $("#errorStatusLoading").find('.modal-body').html(msg);
+            $("#errorStatusLoading").find('.modal-body').append('<img src="assets/images/successfull.gif" style="display:block; margin:0 auto;" class="w-50 text-center" alt="Successfull Request"></img>');
+            document.getElementById("tractor_submit_form").reset();
+        },
+        error: function (error) {
+            console.error('Error fetching data:', error);
+            var msg = "Error: " + error.statusText; // Show a meaningful error message
+            $("#errorStatusLoading").modal('show');
+            $("#errorStatusLoading").find('.modal-title').html('<p class="text-center">Process Failed..! Enter Valid Detail</p>');
+            $("#errorStatusLoading").find('.modal-body').html(msg);
+            $("#errorStatusLoading").find('.modal-body').append('<img src="assets/images/comp_3.gif" style="display:block; margin:0 auto;" class="w-50 text-center" alt="Successfull Request"></img>');
+        }
     });
-  }
+}
+
+function validateForm() {
+    // Perform validation on each form field
+    var brand = $('#brand').val();
+    var model = $('#model_1').val();
+    var first_name = $('#first_name').val();
+    var last_name = $('#last_name').val();
+    var mobile_no = $('#mobile_no').val();
+    var state = $('#state').val();
+    var tehsil = $('#tehsil').val();
+    var district = $('#district').val();
+
+    // Example validation: Check if any of the required fields are empty
+    if (!brand || !model || !first_name || !last_name || !mobile_no || !state || !tehsil || !district) {
+        var msg = "Please fill out all required fields.";
+        $("#errorStatusLoading").modal('show');
+        $("#errorStatusLoading").find('.modal-title').html('<p class="text-center">Form Validation Failed</p>');
+        $("#errorStatusLoading").find('.modal-body').html(msg);
+        return false; // Form is not valid
+    }
+
+    // If all validations pass, return true
+    return true;
+}
+

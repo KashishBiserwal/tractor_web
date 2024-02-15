@@ -1,7 +1,7 @@
 var EditIdmain_ = "";
 var editId_state= false;
 $(document).ready(function () {
-
+    ImgUpload();
   $('#Search').click(searchdata);
   $("#Reset").click(function () {
     // Reset filter values
@@ -16,7 +16,7 @@ $(document).ready(function () {
 }); 
   
   $('#submitBtn').click(add_news);
-    ImgUpload();
+   
     $("#form_news_updates").validate({
     
       rules: {
@@ -83,14 +83,15 @@ $(document).ready(function () {
     var imgWrap = "";
 
     $('.upload__inputfile').on('change', function (e) {
-        imgWrap = $(this).closest('.upload__box').find('.upload__img-wrap');
+        var uploadBox = $(this).closest('.upload__box');
+        imgWrap = uploadBox.find('.upload__img-wrap');
         var maxLength = 1; // Allow only one image to be uploaded
 
         var files = e.target.files;
         var filesArr = Array.prototype.slice.call(files);
 
         // Remove previously uploaded images
-        imgWrap.empty();
+        // imgWrap.empty(); // Commented out this line to prevent removing previous images
 
         filesArr.forEach(function (f, index) {
             if (!f.type.match('image.*')) {
@@ -102,8 +103,15 @@ $(document).ready(function () {
             } else {
                 var reader = new FileReader();
                 reader.onload = function (e) {
-                    var html = "<div class='upload__img-box'><div style='background-image: url(" + e.target.result + ")' data-file='" + f.name + "' class='img-bg'><div class='upload__img-close' onclick='removeImage(this)'></div></div></div>";
-                    imgWrap.append(html);
+                    // Check if there's already an image present
+                    if (imgWrap.find('.upload__img-box').length > 0) {
+                        // If an image is already present, replace it
+                        imgWrap.find('.upload__img-box').replaceWith("<div class='upload__img-box'><div style='background-image: url(" + e.target.result + ")' data-file='" + f.name + "' class='img-bg'><div class='upload__img-close' onclick='removeImage(this)'></div></div></div>");
+                    } else {
+                        // Otherwise, append the new image
+                        var html = "<div class='upload__img-box'><div style='background-image: url(" + e.target.result + ")' data-file='" + f.name + "' class='img-bg'><div class='upload__img-close' onclick='removeImage(this)'></div></div></div>";
+                        imgWrap.append(html);
+                    }
                 }
                 reader.readAsDataURL(f);
             }
@@ -116,16 +124,16 @@ function removeImage(ele) {
     // Clear the input field so that the same file can be selected again
     $('.upload__inputfile').val('');
 }
-  // function removeImage(ele){
-  //   console.log("print ele");
-  //     console.log(ele);
-  //     let thisId=ele.id;
-  //     thisId=thisId.split('closeId');
-  //     thisId=thisId[1];
-  //     $("#"+ele.id).remove();
-  //     $(".upload__img-closeDy"+thisId).remove();
+  function removeImage(ele){
+    console.log("print ele");
+      console.log(ele);
+      let thisId=ele.id;
+      thisId=thisId.split('closeId');
+      thisId=thisId[1];
+      $("#"+ele.id).remove();
+      $(".upload__img-closeDy"+thisId).remove();
   
-  //   }
+    }
 
   function get() {
     var apiBaseURL =APIBaseURL;
@@ -193,52 +201,52 @@ get_search();
 
 function add_news(event) {
     event.preventDefault();
-  
-    var image = document.getElementById('image_').files[0]; // Only get the first file
+
     var category = $('#brand').val();
     var headline = $('#headline').val();
     var content = $('#contant').val();
     var publisher = $('#publisher').val();
-  
+    var image = document.getElementById('image_').files[0];
+
     console.log("Selected image:", image); // Debugging statement
-  
+
     var apiBaseURL = APIBaseURL;
     var token = localStorage.getItem('token');
     var headers = {
         'Authorization': 'Bearer ' + token
     };
-  
+
     // Check if an ID is present in the URL, indicating edit mode
     var urlParams = new URLSearchParams(window.location.search);
     var editId = urlParams.get('id');
-    var _method = 'post'; 
+    var _method = 'post';
     var url, method;
-    
+
     if (editId_state) {
         // Update mode
         _method = 'put';
-        url = apiBaseURL + 'blog_details/' + EditIdmain_ ;
-        method = 'POST'; 
+        url = apiBaseURL + 'blog_details/' + EditIdmain_;
+        method = 'POST';
     } else {
         // Add mode
         url = apiBaseURL + 'blog_details';
         method = 'POST';
     }
-  
+
     var data = new FormData();
-  
+
     if (image) {
-        data.append("image", image); 
+        data.append("images[]", image); // Use "image" instead of "image_names" if uploading a single image
     }
-    
+
     data.append('_method', _method);
     data.append('category_id', category);
     data.append('heading', headline);
     data.append('content', content);
     data.append('publisher', publisher);
-  
+
     console.log("FormData:", data); // Debugging statement
-  
+
     $.ajax({
         url: url,
         type: method,
@@ -257,7 +265,8 @@ function add_news(event) {
             console.error('Error:', error);
         }
     });
-  }
+}
+
 
 function get_news() {
     var apiBaseURL = APIBaseURL;
@@ -445,16 +454,16 @@ function destroy(id) {
             if (Data.image_names) {
                 // Check if Data.image_names is an array
                 var imageNamesArray = Array.isArray(Data.image_names) ? Data.image_names : Data.image_names.split(',');
-                var countclass=0;
+                var countclass = 0;
                 imageNamesArray.forEach(function (imageName) {
-                    var imageUrl = 'http://tractor-api.divyaltech.com/uploads/news_img/' + imageName.trim();
+                    var imageUrl = 'http://tractor-api.divyaltech.com/uploads/blog_img/' + imageName.trim();
                     countclass++;
                     var newCard = `
                         <div class="col-6 col-lg-6 col-md-6 col-sm-6 position-relative">
-                        <div class="upload__img-close_button" id="closeId${countclass}" onclick="removeImage(this);"></div>
+                            <div class="upload__img-close_button" id="closeId${countclass}" onclick="removeImage(this);"></div>
                             <div class="brand-main d-flex box-shadow mt-2 text-center shadow upload__img-closeDy${countclass}">
                                 <a class="weblink text-decoration-none text-dark" title="Image">
-                                    <img class="img-fluid w-100 h-100" src="${imageUrl}" alt="Image">
+                                    <img class="custom-image-size" src="${imageUrl}" alt="Image">
                                 </a>
                             </div>
                         </div>`;
