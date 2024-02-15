@@ -64,7 +64,7 @@ function displayTractorCard(productContainer, p) {
         <div class="col-12 col-lg-4 col-sm-4 col-md-4 mt-2 mb-2">
             <div class="success__stry__item shadow h-100">
                 <div class="thumb">
-                    <a href="news_content.php?id=${p.id}">
+                    <a href="farm_subcate_inner.php?id=${p.sub_category_id}">
                         <img src="http://tractor-api.divyaltech.com/uploads/product_img/${images}" class="engineoil_img w-100" style="height:204px; padding:10px 13px;" alt="img">
                     </a>
                 </div>

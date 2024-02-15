@@ -164,13 +164,13 @@ $(document).ready(function() {
                 data.allSubCategory.forEach(row => {
                    // const tableRow = document.createElement('tr');
                    let action = `<div class="d-flex">
-                   <button class="btn btn-warning btn-sm text-white mx-1" data-bs-toggle="modal" onclick="openViewdata(${row.id});" data-bs-target="#view_new_harvester_enq">
+                   <button class="btn btn-warning btn-sm text-white mx-1" data-bs-toggle="modal" onclick="openViewdata(${row.sub_category_id});" data-bs-target="#view_new_harvester_enq">
                                 <i class="fas fa-eye" style="font-size: 11px;"></i>
                     </button>
-                   <button class="btn btn-primary btn-sm btn_edit" onclick="fetch_edit_data(${row.id});" data-bs-toggle="modal" data-bs-target="#staticBackdrop1" id="yourUniqueIdHere">
+                   <button class="btn btn-primary btn-sm btn_edit" onclick="fetch_edit_data(${row.sub_category_id});" data-bs-toggle="modal" data-bs-target="#staticBackdrop1" id="yourUniqueIdHere">
                       <i class="fas fa-edit" style="font-size: 11px;"></i>
                    </button>
-                   <button class="btn btn-danger btn-sm mx-1" id="delete_user" onclick="destroy(${row.id});" style="padding:5px;">
+                   <button class="btn btn-danger btn-sm mx-1" id="delete_user" onclick="destroy(${row.sub_category_id});" style="padding:5px;">
                        <i class="fa fa-trash" style="font-size: 11px;"></i>
                    </button>
                </div>`;
