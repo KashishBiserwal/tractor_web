@@ -45,6 +45,7 @@ function get() {
 
 function get_model(brand_id) {
     var url = 'http://tractor-api.divyaltech.com/api/customer/get_brand_model/' + brand_id;
+    console.log('Requesting models for brand ID:', brand_id); // Debugging statement
     $.ajax({
         url: url,
         type: "GET",
@@ -52,18 +53,18 @@ function get_model(brand_id) {
             'Authorization': 'Bearer ' + localStorage.getItem('token')
         },
         success: function (data) {
-            console.log(data);
+            console.log('Received models data:', data); // Debugging statement
             const selects = document.querySelectorAll('#model_1');
 
             selects.forEach(select => {
                 select.innerHTML = '<option selected disabled value="">Please select an option</option>';
 
-                if (data.model.length > 0) {
+                if (data.model && data.model.length > 0) {
                     data.model.forEach(row => {
                         const option = document.createElement('option');
                         option.textContent = row.model;
-                        option.value = row.id;
-                        console.log(option);
+                        option.value = row.model;
+                        console.log('Adding model:', option); // Debugging statement
                         select.appendChild(option);
                     });
                 } else {
@@ -72,11 +73,10 @@ function get_model(brand_id) {
             });
         },
         error: function (error) {
-            console.error('Error fetching data:', error);
+            console.error('Error fetching model data:', error);
         }
     });
 }
-
 get();
 
 function get_on_roadadd(event) {
@@ -90,7 +90,7 @@ function get_on_roadadd(event) {
     console.log('Form is valid. Proceeding with AJAX request...');
 
     // Prepare data to send to the server
-    var enquiry_type_id = 20; // Assuming this is a constant value
+    var enquiry_type_id = 2; // Assuming this is a constant value
     var brand = $('#brand').val();
     var model = $('#model_1').val();
     var first_name = $('#first_name').val();
@@ -136,7 +136,7 @@ function get_on_roadadd(event) {
             $("#errorStatusLoading").modal('show');
             $("#errorStatusLoading").find('.modal-title').html('<p class="text-center">Process Failed..! Enter Valid Detail</p>');
             $("#errorStatusLoading").find('.modal-body').html(msg);
-            $("#errorStatusLoading").find('.modal-body').append('<img src="assets/images/comp_3.gif" style="display:block; margin:0 auto;" class="w-50 text-center" alt="Successfull Request"></img>');
+            $("#errorStatusLoading").find('.modal-body').append('<img src="assets/images/comp_3.gif" style="display:block; margin:0 auto;" class="w-50 text-center" alt="Failed Request"></img>');
         }
     });
 }

@@ -47,6 +47,11 @@ include 'includes/footertag.php';
       <div class="col-md-8 col-lg-7">
         <form id="tractor_submit_form" method="POST" class="form-view-inner form-view-overlay bg-light box-shadow p-3" action="" novalidate="novalidate">
             <div class="row justify-content-center">
+            <div class="col- col-sm-6 col-lg-6 col-md-6" hidden>
+                    <label class="text-dark"> enquiry<span class="text-danger">*</span></label>
+                        <input type="text" class="form-control py-2" for=""  id="enquiry_type_id" value="2" name="first_name" placeholder="Enter First Name">
+                    <small></small>
+                </div>
                 <div class="col-12 col-lg-6 col-md-6 col-sm-6  ">
                     <div class=" form-outline mt-5">
                         <label class="form-label text-dark">Brand</label>
