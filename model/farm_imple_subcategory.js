@@ -9,14 +9,14 @@ $(document).ready(function() {
         console.log("success");
       });
   
-    $("#Reset").click(function () {
+      $('#Search').click(searchdata1);
+      $("#Reset").click(function () {
     
-      $("#lookup_type").val("");
-      $("#lookup_data").val("");
-      
-      
-  
-    });
+        $("#lookup_type").val("");
+        $("#lookup_data").val("");
+        get_data();
+        
+        });
   
     $('#image').each(function () {
       var imgWrap = "";
@@ -164,13 +164,13 @@ $(document).ready(function() {
                 data.allSubCategory.forEach(row => {
                    // const tableRow = document.createElement('tr');
                    let action = `<div class="d-flex">
-                   <button class="btn btn-warning btn-sm text-white mx-1" data-bs-toggle="modal" onclick="openViewdata(${row.id});" data-bs-target="#view_new_harvester_enq">
+                   <button class="btn btn-warning btn-sm text-white mx-1" data-bs-toggle="modal" onclick="openViewdata(${row.sub_category_id});" data-bs-target="#view_new_harvester_enq">
                                 <i class="fas fa-eye" style="font-size: 11px;"></i>
                     </button>
-                   <button class="btn btn-primary btn-sm btn_edit" onclick="fetch_edit_data(${row.id});" data-bs-toggle="modal" data-bs-target="#staticBackdrop1" id="yourUniqueIdHere">
+                   <button class="btn btn-primary btn-sm btn_edit" onclick="fetch_edit_data(${row.sub_category_id});" data-bs-toggle="modal" data-bs-target="#staticBackdrop1" id="yourUniqueIdHere">
                       <i class="fas fa-edit" style="font-size: 11px;"></i>
                    </button>
-                   <button class="btn btn-danger btn-sm mx-1" id="delete_user" onclick="destroy(${row.id});" style="padding:5px;">
+                   <button class="btn btn-danger btn-sm mx-1" id="delete_user" onclick="destroy(${row.sub_category_id});" style="padding:5px;">
                        <i class="fa fa-trash" style="font-size: 11px;"></i>
                    </button>
                </div>`;
@@ -450,63 +450,6 @@ function store(event) {
     }
   
 
-        // edit and update 
-      //   function fetch_edit_data(id) {
-      //     var apiBaseURL = APIBaseURL;
-      //     var url = apiBaseURL + 'implement_sub_category/' + id;
-      //     console.log(url);
-      
-      //     var headers = {
-      //         'Authorization': 'Bearer ' + localStorage.getItem('token')
-      //     };
-      
-      //     $.ajax({
-      //         url: url,
-      //         type: 'GET',
-      //         headers: headers,
-      //         success: function (response) {
-      //             $('#two_field').hide(); // Correct selector
-      
-      //             var Data = response.allSubCategory;
-      //             var Data2 = response.allSubCategory;
-      //             $('#idUser').val(Data2.custom_data[0].id);
-      //             $("#lookupSelectbox option").prop("selected", false);
-      //             $("#lookupSelectbox option[value='" + Data.implement_sub_category[0].category_name + "']").prop("selected", true);
-      //             $('#lookup_data_value').val(Data.implement_sub_category[0].sub_category_name);
-      
-      //             var tableData = $("#fields");
-      //             tableData.html('');
-      
-      //             Data.custom_data.forEach(function (p, index) {
-      //               var tableRow = `
-      //                   <div class="row form_field_outer_row">
-      //                       <div class="form-group col-md-6">
-      //                           <input type="text" class="form-control w_90" name="mobileb_no[]" value="${p.custom_column_name}" id="mobileb_no_${index + 1}" readOnly />
-      //                       </div>
-      //                       <div class="form-group col-md-4">
-      //                           <input type="text" class="form-control" name="no_type[]" id="no_type_${index + 1}" placeholder="Enter Value" aria-invalid="false" value="${p.implement_column_name}" />
-      //                       </div>
-      //                       <div class="form-group col-md-2 add_del_btn_outer">
-      //                           <button class="btn_round remove_node_btn_frm_field">
-      //                               <i class="fas fa-trash-alt"></i>
-      //                           </button>
-      //                       </div>
-      //                   </div>
-      //               `;
-      //               tableData.append(tableRow);
-      //           });
-      
-      //         },
-      //         error: function (error) {
-      //             console.error('Error fetching user data:', error);
-      //             var msg = error;
-      //             $("#errorStatusLoading").modal('show');
-      //             $("#errorStatusLoading").find('.modal-title').html('Error');
-      //             $("#errorStatusLoading").find('.modal-body').html(msg);
-      //         }
-      //     });
-      // }
-      
       function fetch_edit_data(id) {
         var apiBaseURL = APIBaseURL;
         var url = apiBaseURL + 'implement_sub_category/' + id;
@@ -574,65 +517,100 @@ function store(event) {
             }
         });
     }
-    
-    //  function edit_user() {
-    //   var edit_id = $("#idUser").val();
-    //   var lookup_type = $("#lookupSelectbox1").val();
-    //   var lookup_value = $("#lookup_data_value1").val();
-  
-    //   var paraArr = {
-    //       'lookup_type_id': lookup_type,
-    //       'lookup_data_value': lookup_value,
-    //       'id': edit_id, 
-    //   };
-    
-    //   var apiBaseURL = APIBaseURL;
-    //   var url = apiBaseURL + 'lookup_data/' + edit_id;
-    
-    //   var headers = {
-    //       'Authorization': 'Bearer ' + localStorage.getItem('token')
-    //   };
-    
-    //   $.ajax({
-    //       url: url,
-    //       type: "PUT",
-    //       data: paraArr,
-    //       headers: headers,
-    //       success: function (result) {
-    //           console.log(result, "result");
-    //           // get();
-    //           window.location.reload();
-    //           console.log("updated successfully");
-    //           var msg = "Updated successfully !"
-    //       $("#errorStatusLoading").modal('show');
-    //       $("#errorStatusLoading").find('.modal-title').html('Success');
-    //       $("#errorStatusLoading").find('.modal-body').html(msg);
-    //       },
-    //       error: function (error) {
-    //           console.error('Error fetching data:', error);
-    //           var msg = error;
-    //           $("#errorStatusLoading").modal('show');
-    //           $("#errorStatusLoading").find('.modal-title').html('Error');
-    //           $("#errorStatusLoading").find('.modal-body').html(msg);
-    //       }
-    //   });
-    // } 
-  
 
+    function get_search() {
+      var apiBaseURL = APIBaseURL;
+      var url = apiBaseURL + 'get_implement_category';
+      $.ajax({
+          url: url,
+          type: "GET",
+          headers: {
+              'Authorization': 'Bearer ' + localStorage.getItem('token')
+          },
+          success: function (data) {
+              const select = document.getElementById('lookup_type'); 
+              select.innerHTML = ''; // Clear previous data
+              $(select).append('<option selected disabled value="">Please select Category</option>');
+  
+              if (data.allCategory.length > 0) {
+                  data.allCategory.forEach(row => {
+                      const option = document.createElement('option');
+                      option.textContent = row.category_name;
+                      option.value = row.id;
+                      select.appendChild(option);
+                  });
+                  select.addEventListener('change', function () {
+                      const selectedCategoryId = this.value; // Corrected variable name
+                      get_subcategory_search(selectedCategoryId);
+                  });
+                  
+              } else {
+                  select.innerHTML = '<option>No valid data available</option>';
+              }
+          },
+          error: function (error) {
+              console.error('Error fetching data:', error);
+              var msg = error.responseText; // Use responseText to get error message
+              $("#errorStatusLoading").modal('show');
+              $("#errorStatusLoading").find('.modal-title').html('Error');
+              $("#errorStatusLoading").find('.modal-body').html(msg);
+          }
+      });
+  }
+  
+  // get subcategory in select box
+  function get_subcategory_search(id) {
+      var apiBaseURL = APIBaseURL;
+      var url = apiBaseURL + 'get_implement_sub_cat_by_category_id/' + id;
+  
+      $.ajax({
+          url: url,
+          type: "GET",
+          headers: {
+              'Authorization': 'Bearer ' + localStorage.getItem('token')
+          },
+          success: function (data) {
+              const select = document.getElementById('lookup_data'); // Corrected selector
+              select.innerHTML = ''; // Clear previous data
+              $(select).append('<option selected disabled value="">Please select Subcategory</option>'); // Corrected placeholder text
+  
+              if (data.implementSubCategoryData.length > 0) {
+                  data.implementSubCategoryData.forEach(row => {
+                      const option = document.createElement('option');
+                      option.textContent = row.sub_category_name;
+                      option.value = row.id;
+                      select.appendChild(option);
+                  });
+                 
+              } else {
+                  select.innerHTML = '<option>No valid data available</option>';
+              }
+          },
+          error: function (error) {
+              console.error('Error fetching data:', error);
+              var msg = error.responseText; 
+              $("#errorStatusLoading").modal('show');
+              $("#errorStatusLoading").find('.modal-title').html('Error');
+              $("#errorStatusLoading").find('.modal-body').html(msg);
+          }
+      });
+  }
+  
+  get_search();
        
-  function searchdata() {
+  function searchdata1() {
     console.log("dfghsfg,sdfgdfg");
     var lookup_type = $('#lookup_type').val();
     var lookup_data = $('#lookup_data').val();
   
     var paraArr = {
-      'lookup_type': lookup_type,
-      'lookup_data':lookup_data,
+      'implements_category_id': lookup_type,
+      'implement_sub_category_id':lookup_data,
       
     };
   
     var apiBaseURL = APIBaseURL;
-    var url = apiBaseURL + 'search_for_lookup_data';
+    var url = apiBaseURL + 'search_for_implement_sub_category';
     $.ajax({
         url:url, 
         type: 'POST',
@@ -652,43 +630,49 @@ function store(event) {
   };
   function updateTable(data) {
     const tableBody = document.getElementById('data-table');
-    tableBody.innerHTML = '';
-    let serialNumber = data.allSubCategory.length; 
+            tableBody.innerHTML = ''; // Clear previous data
   
-    if(data.allSubCategory && data.allSubCategory.length > 0) {
-        let tableData = []; 
-        data.allSubCategory.forEach(row => {
-            let action =  `<div class="d-flex">
-            <button class="btn btn-danger btn-sm mx-1" id="delete_user" onclick="destroy(${row.id});" style="padding:5px;">
-                <i class="fa fa-trash" style="font-size: 11px;"></i>
-            </button>
-            <button class="btn btn-primary btn-sm btn_edit" onclick="fetch_edit_data(${row.id});" data-bs-toggle="modal" data-bs-target="#staticBackdrop_2" id="yourUniqueIdHere">
-               <i class="fas fa-edit" style="font-size: 11px;"></i>
-            </button>
-        </div>`;
-            tableData.push([
-              serialNumber--,
-              row.category_name,
-              row.sub_category_name,
-              action
-          ]);
+            if (data.allSubCategory.length > 0) {
+                let serialNumber = data.allSubCategory.length; 
+                let tableData = [];
+                // Loop through the data and create table rows
+                data.allSubCategory.forEach(row => {
+                   // const tableRow = document.createElement('tr');
+                   let action = `<div class="d-flex">
+                   <button class="btn btn-warning btn-sm text-white mx-1" data-bs-toggle="modal" onclick="openViewdata(${row.id});" data-bs-target="#view_new_harvester_enq">
+                                <i class="fas fa-eye" style="font-size: 11px;"></i>
+                    </button>
+                   <button class="btn btn-primary btn-sm btn_edit" onclick="fetch_edit_data(${row.id});" data-bs-toggle="modal" data-bs-target="#staticBackdrop1" id="yourUniqueIdHere">
+                      <i class="fas fa-edit" style="font-size: 11px;"></i>
+                   </button>
+                   <button class="btn btn-danger btn-sm mx-1" id="delete_user" onclick="destroy(${row.id});" style="padding:5px;">
+                       <i class="fa fa-trash" style="font-size: 11px;"></i>
+                   </button>
+               </div>`;
+                 
+                    tableData.push([
+                      serialNumber--,
+                      row.category_name,
+                      row.sub_category_name,
+                      action
+                  ]);
   
-      });
-  
-      $('#example').DataTable().destroy();
-      $('#example').DataTable({
-          data: tableData,
-          columns: [
-            { title: 'ID' },
-            { title: 'Lookup Type' },
-            { title: 'Lookup Data' },
-            { title: 'Action', orderable: false }
-          ],
-          paging: true,
-          searching: false,
-          // ... other options ...
-      });
-    } else {
+                    
+                });
+                $('#example').DataTable().destroy();
+                $('#example').DataTable({
+                        data: tableData,
+                        columns: [
+                          { title: 'ID' },
+                          { title: 'Category Name' },
+                          { title: 'Sub-Category Name' },
+                          { title: 'Action', orderable: false } // Disable ordering for Action column
+                      ],
+                        paging: true,
+                        searching: false,
+                        // ... other options ...
+                    });
+            } else {
         // Display a message if there's no valid data
         tableBody.innerHTML = '<tr><td colspan="4">No valid data available</td></tr>';
     }
@@ -758,52 +742,7 @@ function store(event) {
       });
     });
 
-    // $(document).ready(function () {
-    //   var index = 2;
-    
-    //   $("body").on("click", ".add_new_frm_field_btn", function () {
-    //     console.log("clicked");
-    
-    //     $(".form_field_outer").append(`
-    //       <div class="row form_field_outer_row">
-    //         <div class="form-group col-md-6">
-    //           <input type="text" class="form-control w_90" name="mobileb_no[]" value="CUSTOM_${index}" id="mobileb_no_${index}" readOnly />
-    //         </div>
-    //         <div class="form-group col-md-4">
-    //           <input type="text" class="form-control" name="no_type[]" id="no_type_${index}" placeholder="Enter Value" aria-invalid="false"/>
-    //         </div>
-    //         <div class="form-group col-md-2 add_del_btn_outer">
-    //           <button class="btn_round remove_node_btn_frm_field">
-    //             <i class="fas fa-trash-alt"></i>
-    //           </button>
-    //         </div>
-    //       </div>
-    //     `);
-    
-    //     // Disable delete buttons for all rows except the last one
-    //     $(".form_field_outer .remove_node_btn_frm_field").prop("disabled", true);
-    //     $(".form_field_outer .remove_node_btn_frm_field:last").prop("disabled", false);
-    
-    //     // Increment index for the next row
-    //     index++;
-    //   });
-    
-    //   $("body").on("click", ".remove_node_btn_frm_field", function () {
-    //     // Remove the row
-    //     $(this).closest(".form_field_outer_row").remove();
-    
-    //     // Enable delete buttons for remaining rows except the last one
-    //     $(".form_field_outer .remove_node_btn_frm_field").prop("disabled", true);
-    //     $(".form_field_outer .remove_node_btn_frm_field:last").prop("disabled", false);
-    
-    //     // Disable delete button for the first row if it's the only one
-    //     if ($(".form_field_outer_row").length === 1) {
-    //       $(".form_field_outer .remove_node_btn_frm_field:first").prop("disabled", true);
-    //     }
-    //   });
-    // });
    
-    
     
 
   

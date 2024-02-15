@@ -202,7 +202,7 @@
                   </div>
                 </div>
               </div>
-              <div class="col text-center py-4">
+              <div class="col text-center py-4 mt-5">
                 <a href="popular_tractors.php" class="btn btn-success btn-lg">View all Popular Tractors</a>
               </div>
             </div>
@@ -262,7 +262,7 @@
               <div class="container slider-column">
               <div class="carousel-wrap">
                 <div class="owl-carousel" id="new_harvester"> </div>
-                <div class="col text-center pb-4 mt-2">
+                <div class="col text-center pb-4">
                   <a href="harvester.php" class="btn btn-success px-5">View all New Harvester</a>
                 </div>
               </div>

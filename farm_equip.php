@@ -140,7 +140,7 @@
         <div class="card-body">
         <form action="" id="myform" class="mb-0">
           <div class="row">
-            <div class="col-12 col-sm-12 col-md-3 col-lg-3">
+            <div class="col-12 col-sm-12 col-md-4 col-lg-4">
               <div class="form-outline">
               <label class="form-label">Category</label> 
                 <select class="form-select form-control" id="seach_subcat1" aria-label="Default select example">
@@ -149,7 +149,7 @@
                 </select>
               </div>
             </div>
-            <div class="col-12 col-sm-12 col-md-3 col-lg-3">
+            <div class="col-12 col-sm-12 col-md-4 col-lg-4">
               <div class="form-outline">
               <label class="form-label">Subcategory</label> 
                 <select class="form-select form-control" id="seach_subcat" aria-label="Default select example">
@@ -157,18 +157,18 @@
                 </select>
               </div>
             </div>
-            <div class="col-12 col-sm-12 col-md-3 col-lg-3">
+            <!-- <div class="col-12 col-sm-12 col-md-3 col-lg-3">
               <div class="form-outline">
               <label class="form-label">Brand</label>
                 <select class="form-select form-control" id="brand_main" class="" aria-label="Default select example">
                     
                 </select>
               </div>
-            </div>
+            </div> -->
             
            
             
-            <div class="col-12 col-sm-3 col-md-3 col-lg-3">
+            <div class="col-12 col-sm-4 col-md-4 col-lg-4">
               <div class="text-center">
                 <button type="button" class="btn-success btn mb-0 btn_all" id="search">Search</button>
                 <button type="button" class="btn-success btn mb-0 btn_all" id="Reset">Reset</button>
