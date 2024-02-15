@@ -80,7 +80,7 @@ function category_main3() {
                 data.data.forEach(row => {
                     const option = document.createElement('option');
                     option.textContent = row.sub_category_name;
-                    option.value = row.id;
+                    option.value = row.sub_category_id;
                     select.appendChild(option);
                 });
             } else {
@@ -153,7 +153,7 @@ function displayStep(step) {
 function store(event) {
     event.preventDefault();
     var enquiry_type_id = $('#enquiry_type_id').val();
-    var sub_category_id = $('#sub_category_id').val();
+    // var sub_category_id = $('#sub_category_id').val();
     // var sub_category_id = 9; 
     var image_type_id = 2; 
     var category = $('#category').val();
@@ -179,7 +179,7 @@ function store(event) {
     var data = new FormData();
    
     data.append('enquiry_type_id', enquiry_type_id);
-    data.append('sub_category_id', sub_category_id);
+    // data.append('sub_category_id', sub_category_id);
     data.append('image_type_id', image_type_id);
     data.append('category_name', category);
     data.append('sub_category_id', subcategory);
@@ -218,6 +218,9 @@ function store(event) {
             $("#errorStatusLoading").find('.modal-body').html(msg);
             $("#errorStatusLoading").find('.modal-body').html('<img src="assets/images/7efs.gif" style="display:block; margin:0 auto;" class="w-50 text-center" alt="Successfull Request"></img>');
             console.log('Add successfully');
+            $('#form-step-1')[0].reset();
+            $('#form-step-2')[0].reset();
+            $('#form-step-3')[0].reset();
         },
         error: function (error) {
             console.error('Error fetching data:', error);
