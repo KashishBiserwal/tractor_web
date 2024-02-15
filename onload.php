@@ -48,7 +48,7 @@ include 'includes/footertag.php';
         <form id="tractor_submit_form" method="POST" class="form-view-inner form-view-overlay bg-light box-shadow p-3" action="" novalidate="novalidate">
             <div class="row justify-content-center">
                 <div class="col-12 col-lg-6 col-md-6 col-sm-6  ">
-                    <div class=" form-outline mt-2">
+                    <div class=" form-outline mt-5">
                         <label class="form-label text-dark">Brand</label>
                         <select class="form-select" name="brand" id="brand" onchange="getModel(this.value)" required="">
                            
@@ -56,7 +56,7 @@ include 'includes/footertag.php';
                     </div>
                 </div>
                 <div class="col-12 col-lg-6 col-md-6 col-sm-6  ">
-                    <div class=" form-outline mt-2">
+                    <div class=" form-outline mt-5">
                         <label class="form-label text-dark">Model</label>
                         <select class="form-select" name="model" id="model_1" required="">
                         </select>

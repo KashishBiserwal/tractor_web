@@ -132,7 +132,7 @@ function get_on_roadadd(event) {
         },
         error: function (error) {
             console.error('Error fetching data:', error);
-            var msg = error;
+            var msg = "Error: " + error.statusText; // Show a meaningful error message
             $("#errorStatusLoading").modal('show');
             $("#errorStatusLoading").find('.modal-title').html('<p class="text-center">Process Failed..! Enter Valid Detail</p>');
             $("#errorStatusLoading").find('.modal-body').html(msg);
@@ -144,7 +144,7 @@ function get_on_roadadd(event) {
 function validateForm() {
     // Perform validation on each form field
     var brand = $('#brand').val();
-    var model = $('#model').val();
+    var model = $('#model_1').val();
     var first_name = $('#first_name').val();
     var last_name = $('#last_name').val();
     var mobile_no = $('#mobile_no').val();
@@ -154,18 +154,12 @@ function validateForm() {
 
     // Example validation: Check if any of the required fields are empty
     if (!brand || !model || !first_name || !last_name || !mobile_no || !state || !tehsil || !district) {
-        // If any required field is empty, show an alert or handle it as you prefer
-        // alert('Please fill out all required fields');
+        var msg = "Please fill out all required fields.";
+        $("#errorStatusLoading").modal('show');
+        $("#errorStatusLoading").find('.modal-title').html('<p class="text-center">Form Validation Failed</p>');
+        $("#errorStatusLoading").find('.modal-body').html(msg);
         return false; // Form is not valid
     }
-
-    // If form is valid, directly display the success modal
-    var msg = "Form is valid. Ready to submit!";
-    $("#errorStatusLoading").modal('show');
-    $("#errorStatusLoading").find('.modal-title').html('<p class="text-center">Form Validation Successful</p>');
-    $("#errorStatusLoading").find('.modal-body').html(msg);
-
-    // You can add more validation logic here as needed
 
     // If all validations pass, return true
     return true;
