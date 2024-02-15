@@ -49,7 +49,7 @@ include 'includes/footertag.php';
             <div class="row justify-content-center">
             <div class="col- col-sm-6 col-lg-6 col-md-6" hidden>
                     <label class="text-dark"> enquiry<span class="text-danger">*</span></label>
-                        <input type="text" class="form-control py-2" for=""  id="enquiry_type_id" value="2" name="first_name" placeholder="Enter First Name">
+                        <input type="text" class="form-control py-2" for=""  id="enquiry_type_id" value="20" name="first_name" placeholder="Enter First Name">
                     <small></small>
                 </div>
                 <div class="col-12 col-lg-6 col-md-6 col-sm-6  ">
@@ -88,10 +88,8 @@ include 'includes/footertag.php';
                 <div class="col-12 col-lg-6 col-md-6 col-sm-6 mt-2">
                     <div class=" form-outline mt-2">
                     <label class="form-label text-dark">State</label>
-                        <select class="form-select" name="state" id="state"  required="">
-                            <option value>Select State</option>
-                            <option value="Chhattisgarh">Chhattisgarh</option>
-                            <option value="Other">Other</option>
+                        <select class="form-select" name="state" id="state"  required="" onchange="getDistricts(this.value)">
+                           
                         </select>
                         <span class="text-danger"></span>
                     </div>
@@ -100,13 +98,7 @@ include 'includes/footertag.php';
                     <div class=" form-outline mt-2">
                     <label class="form-label text-dark">District</label>
                         <select class="form-select" name="district" id="district"  required="">
-                            <option value>Select District</option>
-                            <option value="Balod">Balod</option>
-                            <option value="Bastar">Bastar</option>
-                            <option value="Bemetara">Bemetara</option>
-                            <option value="Bhatapara">Bhatapara</option>
-                            <option value="Bijapur">Bijapur</option>
-                            <option value="Udaipur">Udaipur</option>
+                     
                         </select>
                         <span class="text-danger"></span>
                     </div>
@@ -115,13 +107,8 @@ include 'includes/footertag.php';
                     <div class="form-outline mt-2">
                         <label class="form-label text-dark">Tehsil </label>
                         <select class="form-select" name="tehsil" id="tehsil"  required="">
-                            <option value>Select Tehsil</option>
-                            <option value="Balod">Balod</option>
-                            <option value="Bastar">Bastar</option>
-                            <option value="Bemetara">Bemetara</option>
-                            <option value="Bhatapara">Bhatapara</option>
-                            <option value="Bijapur">Bijapur</option>
-                            <option value="Udaipur">Udaipur</option>
+                        
+                          
                         </select>
                     </div>
                 </div> 

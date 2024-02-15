@@ -90,7 +90,8 @@ function get_on_roadadd(event) {
     console.log('Form is valid. Proceeding with AJAX request...');
 
     // Prepare data to send to the server
-    var enquiry_type_id = 2; // Assuming this is a constant value
+    // var enquiry_type_id = 2;
+    var enquiry_type_id = $('#enquiry_type_id').val();
     var brand = $('#brand').val();
     var model = $('#model_1').val();
     var first_name = $('#first_name').val();
@@ -123,20 +124,21 @@ function get_on_roadadd(event) {
         success: function (result) {
             console.log(result, "result");
             console.log("Add successfully");
-            var msg = "User Inserted successfully !"
+            var msg = 'Added successfully !';
             $("#errorStatusLoading").modal('show');
             $("#errorStatusLoading").find('.modal-title').html('<p class="text-center">Congratulation..! Requested Successful</p>');
             $("#errorStatusLoading").find('.modal-body').html(msg);
-            $("#errorStatusLoading").find('.modal-body').append('<img src="assets/images/successfull.gif" style="display:block; margin:0 auto;" class="w-50 text-center" alt="Successfull Request"></img>');
+            $("#errorStatusLoading").find('.modal-body').html('<img src="assets/images/7efs.gif" style="display:block; margin:0 auto;" class="w-50 text-center" alt="Successfull Request"></img>');
+            console.log('Add successfully');
             document.getElementById("tractor_submit_form").reset();
         },
         error: function (error) {
             console.error('Error fetching data:', error);
-            var msg = "Error: " + error.statusText; // Show a meaningful error message
+            var msg = error.statusText;
             $("#errorStatusLoading").modal('show');
             $("#errorStatusLoading").find('.modal-title').html('<p class="text-center">Process Failed..! Enter Valid Detail</p>');
             $("#errorStatusLoading").find('.modal-body').html(msg);
-            $("#errorStatusLoading").find('.modal-body').append('<img src="assets/images/comp_3.gif" style="display:block; margin:0 auto;" class="w-50 text-center" alt="Failed Request"></img>');
+            $("#errorStatusLoading").find('.modal-body').html('<img src="assets/images/comp_3.gif" style="display:block; margin:0 auto;" class="w-50 text-center" alt="Successfull Request"></img>');
         }
     });
 }
@@ -156,7 +158,7 @@ function validateForm() {
     if (!brand || !model || !first_name || !last_name || !mobile_no || !state || !tehsil || !district) {
         var msg = "Please fill out all required fields.";
         $("#errorStatusLoading").modal('show');
-        $("#errorStatusLoading").find('.modal-title').html('<p class="text-center">Form Validation Failed</p>');
+        // $("#errorStatusLoading").find('.modal-title').html('<p class="text-center">Form Validation Failed</p>');
         $("#errorStatusLoading").find('.modal-body').html(msg);
         return false; // Form is not valid
     }
@@ -165,3 +167,131 @@ function validateForm() {
     return true;
 }
 
+
+// function getState() {
+//     // var apiBaseURL = APIBaseURL;
+//     var url = 'http://tractor-api.divyaltech.com/api/admin/state_data';
+//     $.ajax({
+//         url: url,
+//         type: "GET",
+//         headers: {
+//             'Authorization': 'Bearer ' + localStorage.getItem('token')
+//         },
+//         success: function(data) {
+//             console.log(data);
+//             const select = document.getElementById('state');
+//             select.innerHTML = '<option selected disabled value="">Please select an option</option>';
+  
+//             if (data.stateData.length > 0) {
+//                 data.stateData.forEach(row => {
+//                     const option = document.createElement('option');
+//                     option.textContent = row.state_name;
+//                     option.value = row.id;
+//                     select.appendChild(option);
+//                 });
+//             } else {
+//                 select.innerHTML = '<option>No valid data available</option>';
+//             }
+//         },
+//         error: function(error) {
+//             console.error('Error fetching data:', error);
+//         }
+//     });
+//   }
+//   getState();
+
+
+
+function getState() {
+    var url = 'http://tractor-api.divyaltech.com/api/customer/state_data';
+    $.ajax({
+        url: url,
+        type: "GET",
+        headers: {
+            'Authorization': 'Bearer ' + localStorage.getItem('token')
+        },
+        success: function(data) {
+            console.log(data);
+            const select = document.getElementById('state');
+            select.innerHTML = '<option selected disabled value="">Please select a state</option>';
+
+            const stateId = 7; // State ID you want to filter for
+            const filteredState = data.stateData.find(state => state.id === stateId);
+            if (filteredState) {
+                const option = document.createElement('option');
+                option.textContent = filteredState.state_name;
+                option.value = filteredState.id;
+                select.appendChild(option);
+                // Once the state is populated, fetch districts for this state
+                getDistricts(filteredState.id);
+            } else {
+                select.innerHTML = '<option>No valid data available</option>';
+            }
+        },
+        error: function(error) {
+            console.error('Error fetching data:', error);
+        }
+    });
+}
+
+function getDistricts(state_id) {
+    var url = 'http://tractor-api.divyaltech.com/api/customer/get_district_by_state/' + state_id;
+    console.log(url);
+    var select = document.getElementById('district');
+    select.innerHTML = '<option selected disabled value="">Please select a district</option>';
+
+    $.ajax({
+        url: url,
+        type: "GET",
+        headers: {
+            'Authorization': 'Bearer ' + localStorage.getItem('token')
+        },
+        success: function(data) {
+            if (data.districtData.length > 0) {
+                data.districtData.forEach(row => {
+                    const option = document.createElement('option');
+                    option.textContent = row.district_name;
+                    option.value = row.id;
+                    select.appendChild(option);
+                });
+            } else {
+                select.innerHTML = '<option>No districts available for this state</option>';
+            }
+        },
+        error: function(error) {
+            console.error('Error fetching districts:', error);
+        }
+    });
+    
+    $(select).change(function() {
+        var districtId = $(this).val();
+        var tehsilSelect = document.getElementById('tehsil');
+        tehsilSelect.innerHTML = '<option selected disabled value="">Please select a tehsil</option>';
+
+        var tehsilUrl = ' http://tractor-api.divyaltech.com/api/customer/get_tehsil_by_district/' + districtId; 
+        $.ajax({
+            url: tehsilUrl,
+            type: "GET",
+            headers: {
+                'Authorization': 'Bearer ' + localStorage.getItem('token')
+            },
+            success: function(data) {
+                if (data.tehsilData.length > 0) {
+                    data.tehsilData.forEach(row => {
+                        const option = document.createElement('option');
+                        option.textContent = row.tehsil_name;
+                        option.value = row.id;
+                        tehsilSelect.appendChild(option);
+                    });
+                } else {
+                    tehsilSelect.innerHTML = '<option>No tehsils available for this district</option>';
+                }
+            },
+            error: function(error) {
+                console.error('Error fetching tehsils:', error);
+            }
+        });
+    });
+}
+
+getState();
