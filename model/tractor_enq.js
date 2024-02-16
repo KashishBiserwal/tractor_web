@@ -100,77 +100,82 @@ $(document).ready(function(){
 
 //****get data***
 function get_new_tractor() {
-    var apiBaseURL = APIBaseURL;
-    var url = apiBaseURL + 'get_enquiry_for_new_tractor';
-    console.log('dfghjkiuytgf');
-    
-    $.ajax({
-        url: url,
-        type: "GET",
-        headers: {
-            'Authorization': 'Bearer ' + localStorage.getItem('token')
-        },
-        success: function (data) {
-            const tableBody = $('#data-table'); // Use jQuery selector for the table body
-            tableBody.empty(); // Clear previous data
+  var apiBaseURL = APIBaseURL;
+  var url = apiBaseURL + 'get_enquiry_for_new_tractor';
+  console.log('dfghjkiuytgf');
   
-            let serialNumber = 1;
-  
-            if (data.enquiry_data && data.enquiry_data.length > 0) {
-                var table = $('#example').DataTable({
-                    paging: true,
-                    searching: true,
-                    columns: [
-                        { title: 'S.No.' },
-                        { title: 'Date' },
-                        { title: 'Brand' },
-                        { title: 'Model' },
-                        { title: 'Full Name' },
-                        { title: 'Mobile' },
-                        { title: 'State' },
-                        { title: 'District' },
-                        { title: 'Action', orderable: false }
-                    ]
-                });
-  
-                data.enquiry_data.forEach(row => {
-                    const fullName = row.first_name + ' ' + row.last_name;
-  
-                    // Add row to DataTable
-                    table.row.add([
-                        serialNumber,
-                        row.date,
-                        row.brand_name,
-                        row.model,
-                        fullName,
-                        row.mobile,
-                        row.state_name,
-                        row.district_name,
-                        `<div class="d-flex">
-                            <button class="btn btn-warning btn-sm text-white mx-1" data-bs-toggle="modal" onclick="openViewdata(${row.id});" data-bs-target="#view_model_new_tractor">
-                                <i class="fas fa-eye" style="font-size: 11px;"></i>
-                            </button> 
-                            <button class="btn btn-primary btn-sm btn_edit" onclick="fetch_edit_data(${row.id});" data-bs-toggle="modal" data-bs-target="#staticBackdrop2" id="yourUniqueIdHere">
-                            <i class="fas fa-edit" style="font-size: 11px;"></i>
-                        </button>
-                            <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.id});">
-                                <i class="fa fa-trash" style="font-size: 11px;"></i>
-                            </button>
-                        </div>`
-                    ]).draw(false);
-  
-                    serialNumber++;
-                });
-            } else {
-                tableBody.html('<tr><td colspan="6">No valid data available</td></tr>');
-            }
-        },
-        error: function (error) {
-            console.error('Error fetching data:', error);
-        }
-    });
-  }
-  get_new_tractor();
+  $.ajax({
+      url: url,
+      type: "GET",
+      headers: {
+          'Authorization': 'Bearer ' + localStorage.getItem('token')
+      },
+      success: function (data) {
+          const tableBody = $('#data-table'); // Use jQuery selector for the table body
+          tableBody.empty(); // Clear previous data
+
+          let serialNumber = 1;
+
+          if (data.enquiry_data && data.enquiry_data.length > 0) {
+              // Sort data by date in descending order
+              data.enquiry_data.sort((a, b) => new Date(b.date) - new Date(a.date));
+              
+              var table = $('#example').DataTable({
+                  paging: true,
+                  searching: true,
+                  columns: [
+                      { title: 'S.No.' },
+                      { title: 'Date' },
+                      { title: 'Brand' },
+                      { title: 'Model' },
+                      { title: 'Full Name' },
+                      { title: 'Mobile' },
+                      { title: 'State' },
+                      { title: 'District' },
+                      { title: 'Action', orderable: false }
+                  ]
+              });
+
+              data.enquiry_data.forEach(row => {
+                  const fullName = row.first_name + ' ' + row.last_name;
+
+                  // Add row to DataTable
+                  table.row.add([
+                      serialNumber,
+                      row.date,
+                      row.brand_name,
+                      row.model,
+                      fullName,
+                      row.mobile,
+                      row.state_name,
+                      row.district_name,
+                      `<div class="d-flex">
+                          <button class="btn btn-warning btn-sm text-white mx-1" data-bs-toggle="modal" onclick="openViewdata(${row.id});" data-bs-target="#view_model_new_tractor">
+                              <i class="fas fa-eye" style="font-size: 11px;"></i>
+                          </button> 
+                          <button class="btn btn-primary btn-sm btn_edit" onclick="fetch_edit_data(${row.id});" data-bs-toggle="modal" data-bs-target="#staticBackdrop2" id="yourUniqueIdHere">
+                          <i class="fas fa-edit" style="font-size: 11px;"></i>
+                      </button>
+                          <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.id});">
+                              <i class="fa fa-trash" style="font-size: 11px;"></i>
+                          </button>
+                      </div>`
+                  ]).draw(false);
+
+                  serialNumber++;
+              });
+          } else {
+              tableBody.html('<tr><td colspan="6">No valid data available</td></tr>');
+          }
+      },
+      error: function (error) {
+          console.error('Error fetching data:', error);
+      }
+  });
+}
+
+get_new_tractor();
+
 
 // brand 
 function get() {
@@ -447,98 +452,100 @@ function searchdata() {
   var modelselect = $('#mode_l').val();
   var stateselect = $('#stat_e').val();
   var districtselect = $('#dis_t').val();
- 
-console.log(brand_id);
-console.log(brandselect);
-console.log(modelselect);
-console.log(stateselect);
-console.log(districtselect);
+
+  console.log(brand_id);
+  console.log(brandselect);
+  console.log(modelselect);
+  console.log(stateselect);
+  console.log(districtselect);
 
   var paraArr = {
-    'brand_id':brand_id,
-    'brand_id':brandselect,
-    'model':modelselect,
-    'state':stateselect,
-    'district':districtselect,
+      'brand_id': brand_id,
+      'brandselect': brandselect,
+      'model': modelselect,
+      'state': stateselect,
+      'district': districtselect,
   };
 
   var apiBaseURL = APIBaseURL;
   var url = apiBaseURL + 'search_for_new_tractor_enquiry';
   $.ajax({
-      url:url, 
+      url: url,
       type: 'POST',
       data: paraArr,
-    
       headers: {
           'Authorization': 'Bearer ' + localStorage.getItem('token')
       },
-      success: function (searchData) {
-        console.log(searchData,"hello brand");
-        updateTable(searchData);
+      success: function(searchData) {
+          console.log(searchData, "hello brand");
+          updateTable(searchData);
       },
-      error: function (error) {
+      error: function(error) {
           console.error('Error searching for brands:', error);
       }
   });
-};
+}
+
 function updateTable(data) {
-  const tableBody = document.getElementById('data-table');
-  tableBody.innerHTML = '';
-  let serialNumber = 1; 
-  if(data.newTractor && data.newTractor.length > 0) {
-      let tableData = []; 
+  const tableBody = $('#data-table');
+  tableBody.empty(); // Clear previous data
+  let serialNumber = 1;
+
+  if (data.newTractor && data.newTractor.length > 0) {
+      let tableData = [];
       data.newTractor.forEach(row => {
-        const fullName = row.first_name + ' ' + row.last_name;
-          let action =  `<div class="d-flex">
-          <button class="btn btn-warning btn-sm text-white mx-1" data-bs-toggle="modal" onclick="openViewdata(${row.id});" data-bs-target="#view_model_new_tractor">
-              <i class="fas fa-eye" style="font-size: 11px;"></i>
-          </button> 
-          <button class="btn btn-primary btn-sm btn_edit" onclick="fetch_edit_data(${row.id});" data-bs-toggle="modal" data-bs-target="#staticBackdrop2" id="yourUniqueIdHere">
-          <i class="fas fa-edit" style="font-size: 11px;"></i>
-      </button>
-          <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.id});">
-              <i class="fa fa-trash" style="font-size: 11px;"></i>
-          </button>
-      </div>`
-     
+          const fullName = row.first_name + ' ' + row.last_name;
+          let action = `<div class="d-flex">
+              <button class="btn btn-warning btn-sm text-white mx-1" data-bs-toggle="modal" onclick="openViewdata(${row.id});" data-bs-target="#view_model_new_tractor">
+                  <i class="fas fa-eye" style="font-size: 11px;"></i>
+              </button> 
+              <button class="btn btn-primary btn-sm btn_edit" onclick="fetch_edit_data(${row.id});" data-bs-toggle="modal" data-bs-target="#staticBackdrop2" id="yourUniqueIdHere">
+                  <i class="fas fa-edit" style="font-size: 11px;"></i>
+              </button>
+              <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.id});">
+                  <i class="fa fa-trash" style="font-size: 11px;"></i>
+              </button>
+          </div>`;
+
           tableData.push([
-            serialNumber,
-            row.date,
-            row.brand_name,
-            row.model,
-            fullName,
-            row.mobile,
-            row.state_name,
-            row.district_name,
-            action
-        ]);
+              serialNumber,
+              row.date,
+              row.brand_name,
+              row.model,
+              fullName,
+              row.mobile,
+              row.state_name,
+              row.district_name,
+              action
+          ]);
 
-        serialNumber++;
-    });
+          serialNumber++;
+      });
 
-    $('#example').DataTable().destroy();
-    $('#example').DataTable({
-        data: tableData,
-        columns: [
-          { title: 'S.No.' },
-          { title: 'Date' },
-          { title: 'Brand' },
-          { title: 'Model' },
-          { title: 'Full Name' },
-          { title: 'Mobile' },
-          { title: 'State' },
-          { title: 'District' },
-          { title: 'Action', orderable: false }
-        ],
-        paging: true,
-        searching: true,
-        // ... other options ...
-    });
+      $('#example').DataTable().clear().destroy(); // Clear and destroy previous DataTable
+      $('#example').DataTable({
+          data: tableData,
+          columns: [
+              { title: 'S.No.' },
+              { title: 'Date' },
+              { title: 'Brand' },
+              { title: 'Model' },
+              { title: 'Full Name' },
+              { title: 'Mobile' },
+              { title: 'State' },
+              { title: 'District' },
+              { title: 'Action', orderable: false }
+          ],
+          paging: true,
+          searching: true,
+          // ... other options ...
+      });
   } else {
       // Display a message if there's no valid data
-      tableBody.innerHTML = '<tr><td colspan="4">No valid data available</td></tr>';
+      tableBody.html('<tr><td colspan="9">No valid data available</td></tr>');
   }
 }
+
 function resetform(){
   $('#brand_name').val('');
   $('#mode_l').val('');
@@ -569,8 +576,8 @@ function getState() {
               option.textContent = filteredState.state_name;
               option.value = filteredState.id;
               select.appendChild(option);
-              // Once the state is populated, fetch districts for this state
-              getDistricts_1(filteredState.id); // Corrected function call
+
+              getDistricts_1(filteredState.id); 
           } else {
               select.innerHTML = '<option>No valid data available</option>';
           }
