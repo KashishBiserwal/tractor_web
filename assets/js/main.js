@@ -839,6 +839,9 @@ function ImgUpload() {
     });
   });
 
+
+
+
   $('body').on('click', ".upload__img-close", function (e) {
     var file = $(this).parent().data("file");
     for (var i = 0; i < imgArray.length; i++) {
@@ -850,3 +853,6 @@ function ImgUpload() {
     $(this).parent().parent().remove();
   });
 }
+
+
+

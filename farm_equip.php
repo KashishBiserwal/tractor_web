@@ -7,7 +7,11 @@
 <script> var APIBaseURL = "<?php echo $APIBaseURL; ?>";</script>
 <script> var baseUrl = "<?php echo $baseUrl; ?>";</script>
   <script src="<?php $baseUrl; ?>model/farm_imple_product.js"></script>
-   
+   <!-- <script>
+    $('#add_trac').click(function (){
+    $('#product-form')[0].reset();
+});
+   </script> -->
 
 <body class="loaded"> 
 <div class="main-wrapper">
@@ -27,8 +31,8 @@
               </li>
             </ol>
           </nav>
-          <button type="button" id="add_trac" class="btn add_btn btn-success float-right btn_all" data-bs-toggle="modal"  data-bs-target="#staticBackdrop">
-            <i class="fa fa-plus" aria-hidden="true"></i>Add Farm Equipments
+          <button type="button" id="add_trac" class="btn add_btn btn-success float-right btn_all" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+              <i class="fa fa-plus" aria-hidden="true"></i>Add Farm Equipments
           </button>
 
           <!-- Modal -->
@@ -43,7 +47,7 @@
                         <div class="row justify-content-center">
                             <div class="col-lg-10">
                               <h4 class="text-center" style="font-weight:600;">Fill your Details</h4>
-                              <form method="POST">
+                              <form method="POST" id="product-form">
                                 <div class="row justify-content-center">
                                     <div class="col-12 col-sm-6 col-md-6 col-lg-6 mt-3">
                                       <div class="form-outline">
@@ -204,7 +208,7 @@
             <div class="modal-dialog modal-xl modal-dialog-centered">
               <div class="modal-content modal_box">
                 <div class="modal-header modal_head">
-                  <h5 class="modal-title text-white fw-bold" id="staticBackdropLabel"> New Harvester Enquiry Information </h5>
+                  <h5 class="modal-title text-white fw-bold" id="staticBackdropLabel"> New Farm Equipment Information </h5>
                   <button type="button" class="btn-close btn-success" data-bs-dismiss="modal" aria-label="Close"><img src="assets/images/close.png"></button>
                 </div>
                   <div class="modal-body bg-light">

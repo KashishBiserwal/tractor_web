@@ -11,10 +11,15 @@ $(document).ready(function () {
       $("#seach_subcat").val("");
     //   $("#brand_main").val("");
       get_product();
+      $('#add_trac').click(function () {
+        $('#product-form')[0].reset();
+    });
       
       });
 
 });
+
+
 function ImgUpload() {
     var imgWrap = "";
     var imgArray = [];
@@ -71,6 +76,16 @@ function ImgUpload() {
         $(this).parent().parent().remove();
     });
 }
+function removeImage(ele){
+    // console.log("print ele");
+    //   console.log(ele);
+      let thisId=ele.id;
+      thisId=thisId.split('closeId');
+      thisId=thisId[1];
+      $("#"+ele.id).remove();
+      $(".upload__img-closeDy"+thisId).remove();
+  
+    }
 // get category in select box
 function get() {
     var apiBaseURL = APIBaseURL;
@@ -396,7 +411,7 @@ function store(event) {
         data.append('CUSTOM_' + (i + 1), DataArray[i]);
     }
     for (var x = 0; x < image_names.length; x++) {
-        data.append("thumbnail[]", image_names[x]);
+        data.append("images[]", image_names[x]);
         console.log("multiple image", image_names[x]);
     }
     data.append('id', id);
@@ -549,21 +564,24 @@ function fetch_data(userId) {
 
             var productContainer = $("#thumbnail");
             $("#thumbnail").empty();
-
-            if (response.getAllImplementsById[0].implements_data[0].image_names && response.getAllImplementsById[0].implements_data[0].image_names.length > 0) {
-                response.getAllImplementsById[0].implements_data[0].image_names.forEach(function (imageName) {
-                    var newCard = `
-                        <div class="col-6 col-lg-6 col-md-6 col-sm-6">
-                            <div class="brand-main box-shadow mt-2 text-center shadow ">
-                                <a class="weblink text-decoration-none text-dark" title="Old Tractors">
-                                    <img class="img-fluid w-50" src="http://tractor-api.divyaltech.com/uploads/product_img/${imageName}"
-                                        data-src="h" alt="Brand Logo">
-                                </a>
-                            </div>
-                        </div>
-                    `;
-                    // Append the new card to the container
-                    productContainer.append(newCard);
+            if (response.getAllImplementsById.length > 0 && response.getAllImplementsById[0].implements_data.length > 0) {
+                response.getAllImplementsById[0].implements_data.forEach(function (implementData) {
+                    if (implementData.image_names && implementData.image_names.length > 0) {
+                        implementData.image_names.split(',').forEach(function (imageName) {
+                            var newCard = `
+                                <div class="col-6 col-lg-3 col-md-3 col-sm-3">
+                                    <div class="brand-main box-shadow mt-2 text-center shadow ">
+                                        <a class="weblink text-decoration-none text-dark" title="Old Tractors">
+                                            <img class="img-fluid w-100" src="http://tractor-api.divyaltech.com/uploads/product_img/${imageName.trim()}"
+                                                data-src="h" alt="Brand Logo">
+                                        </a>
+                                    </div>
+                                </div>
+                            `;
+                            // Append the new card to the container
+                            productContainer.append(newCard);
+                        });
+                    }
                 });
             }
         },
@@ -611,8 +629,7 @@ function fetch_edit_data(id) {
             
             // Set brand_name to #model input
             $('#model').val(userData.model);
-            // $('#lookupSelectbox').val(userData.category_name);
-            // $('#lookupSelectbox2').val(userData.sub_category_name);
+           
             // Set brand_name to #brand_main dropdown
             $("#brand_main option").prop("selected", false);
             $("#brand_main option[value='" + userData.brand_name + "']").prop("selected", true);
@@ -649,6 +666,33 @@ function fetch_edit_data(id) {
                 </div>
                     `;
                     tableData.append(tableRow);
+                });
+            }
+
+            var productContainer = $("#selectedImagesContainer2");
+            $("#selectedImagesContainer2").empty();
+            if (response.getAllImplementsById.length > 0 && response.getAllImplementsById[0].implements_data.length > 0) {
+                response.getAllImplementsById[0].implements_data.forEach(function (implementData) {
+                    var countclass=0;
+                    if (implementData.image_names && implementData.image_names.length > 0) {
+                        implementData.image_names.split(',').forEach(function (imageName) {
+                            
+                            countclass++;
+                            var imageUrl = 'http://tractor-api.divyaltech.com/uploads/product_img/' + imageName.trim();
+                            var newCard = `
+                            <div class="col-6 col-lg-6 col-md-6 col-sm-6 position-relative">
+                            <div class="upload__img-close_button" id="closeId${countclass}" onclick="removeImage(this);"></div>
+                                <div class="brand-main d-flex box-shadow mt-2 text-center shadow upload__img-closeDy${countclass}">
+                                    <a class="weblink text-decoration-none text-dark" title="Image">
+                                        <img class="img-fluid w-100 h-100" src="${imageUrl}" alt=" Image">
+                                    </a>
+                                </div>
+                            </div>
+                            `;
+                            // Append the new card to the container
+                            productContainer.append(newCard);
+                        });
+                    }
                 });
             }
 

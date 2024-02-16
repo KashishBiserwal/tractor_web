@@ -6,60 +6,25 @@
       include 'includes/headertag.php';
       include 'includes/header.php';
       $id=$_REQUEST['id'];
-      //echo $id;
       include 'includes/footertag.php';
+      
       ?>
-     
-     <script> var CustomerAPIBaseURL = "<?php echo $CustomerAPIBaseURL; ?>";</script>
+     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
+
      <script> var baseUrl = "<?php echo $baseUrl; ?>";</script>
      <script src="<?php $baseUrl; ?>model/farm_subcat_inner.js"></script>
-  
-<style>
-     .gallery {
-  width: 100%;
-  max-width: 620px;
-  margin: 40px auto;
-}
-    .gallery-slider {
-  width: 100%;
-  height: auto;
-  margin: 0 0 10px 0;
-}
-.gallery-slider .swiper-slide {
-  width: auto;
-  height: 300px;
-}
-.gallery-slider .swiper-slide img {
-  display: block;
-  width: auto;
-  height: 100%;
-  margin: 0 auto;
-}
-.gallery-thumbs {
-  width: 100%;
-  padding: 0;
-  overflow: hidden;
-  height: 140px;
-}
-.gallery-thumbs .swiper-slide {
-  width: 100px;
-  height: 100px;
-  text-align: center;
-  overflow: hidden;
-  opacity: 0.5;
-}
-.gallery-thumbs .swiper-slide-active {
-  opacity: 1;
-}
-.gallery-thumbs .swiper-slide img {
-  width: auto;
-  height: 75%;
-}
-.swiper-button-prev:after, .swiper-button-next:after {
 
-    background: transparent;
-    font-size: 25px !important;
+<style>
+   .slick-list{
+    height: 99%;
+   }
+.slider-nav{
+    height: 134px;
+    /* display: flex; */
 }
+
+
 </style>
 
 </head>
@@ -85,17 +50,13 @@
                 <div class="col-12 col-sm-6 col-lg-6 col-md-6" style="position: relative;">
                     <div>
                     <h1 class="fw-bold text-danger pt-3" id="brand_name"></h1>
-                    <div class="gallery">   
-                        <div class="swiper-container gallery-slider">
-                            <div class="swiper-wrapper mySwiper2_data"></div>
-                            <div class="swiper-button-prev"></div>
-                            <div class="swiper-button-next"></div>
+                        <div class="slider slider-for">
+                          
                         </div>
-
-                        <div class="swiper-container gallery-thumbs">
-                            <div class="swiper-wrapper mySwiper_data"></div>
+                        <div class="slider slider-nav">
+                          
                         </div>
-                    </div>
+                        
                     </div>
                 </div>
                 <div class="col-12 col-lg-6 col-md-6 col-sm-6 mt-5" style="z-index: 9; background: #fff;">
@@ -111,32 +72,37 @@
                             </tr>
                             <tr>
                                 <td>
-                                    <h6><i class="fa-solid fa-gas-pump"></i> Model</h6>
+                                    <h6><i class="fa-solid fa-font-awesome"></i> Model</h6>
                                 </td>
                                 <td><p id="model"></p></td>
                             </tr>
                             <tr>
                                 <td>
-                                    <h6><i class="fas fa-bolt"></i>Category</h6>
+                                    <h6> <i class="fa-solid fa-layer-group"></i> Implement Type</h6>
                                 </td>
-                                <td><p> <span id="category"></span></p> </td>
+                                <td><p> <span id="subcategory"></span></p> </td>
                             </tr>
                             <tr>
                                 <td>
-                                    <h6><i class="fas fa-bolt"></i>Sub-Category</h6>
+                                    <h6><i class="fa-solid fa-fill"></i> Category</h6>
                                 </td>
                                 <td>
-                                    <p> <span  id="subcate"></span></p>
+                                    <p> <span  id="category"></span></p>
                                 </td>
                             </tr>
                         </tbody>
                     </table>
                     <div class="row my-3 text-center">
                        
-                        <div class="col-12 col-lg-12 col-md-12 col-sm-12">
+                        <div class="col-12 col-lg-6 col-md-6 col-sm-6">
                             <button type="button" class="btn btn-success text-center w-100" data-bs-toggle="modal" data-bs-target="#staticBackdrop3">
                                 Request Call Back
                             </button>
+                        </div>
+                        <div class="col-12 col-lg-6 col-md-6 col-sm-6">
+                            <a type="button" href="loan.php" class="btn btn-success text-decoration-none text-center w-100">
+                               Apply Loan
+                            </a>
                         </div>
                     </div>
 
@@ -152,7 +118,7 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title" id="staticBackdropLabel"> Request Call Back</h5>
-                        <button type="button" class="btn-close btn-success" data-bs-dismiss="modal" aria-label="Close"><img src="assets/images/close.png"></button>
+                        <button type="button" class="btn-close btn-success" data-bs-dismiss="modal" aria-label="Close"><img src="assets/images/close.png" class="w-25"></button>
                     </div>
                     <!-- MODAL BODY -->
                     <div class="modal-body bg-light">
@@ -161,7 +127,8 @@
             
              <!--    <input type="hidden" id="brand_name">
                 <input type="hidden" id="model_name" > -->
-                <input type="hidden" id="enquiry_type_id" value="12" >
+                <input type="hidden" id="enquiry_type_id" value="6" >
+                <input type="hidden" id="product_id" value="" >
                 
             
          
@@ -216,7 +183,7 @@
 
                 </div> 
                 <div class="text-center my-3">
-                <button type="submit" id="submit_enquiry" class="btn add_btn btn-success w-100 btn_all" onclick="engineoil_enquiry()" data-bs-dismiss="modal">Submit</button>        
+                <button type="submit" id="submit_enquiry" class="btn add_btn btn-success w-100 btn_all" data-bs-dismiss="modal">Submit</button>        
                 </div>        
               </form>           
                     </div>
@@ -293,109 +260,35 @@
 
     <?php   
         include 'includes/footer.php';
-   
+       
     ?> 
-    
-  <!--   <script>
-        $(document).ready(function(){
-          jQuery.validator.addMethod("customPhoneNumber", function(value, element) {
-            return /^[6-9]\d{9}$/.test(value);
-          }, "Phone number must start with 6 or above");
-            $("#engine_oil_btn").click(function () {
-                // setTimeout(() => {
-                //     console.log("validation of Department")
-                // }, 2000);
-                $("form[id='engine_oil_form']").validate({
-                    rules: {
-                        f_name: {
-                            required: true,
-                            minlength: 3
-                        },
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+  
 
-                        eo_name: {
-                            required: true,
-                            minlength: 3
-                        },
-                        eo_number: {
-                            required: true,
-                            minlength: 10,
-                            maxlength:10,
-                            digits: true,
-                            customPhoneNumber: true 
-                        },
-                        eo_state: {
-                            required: true,
-                            // minlength: 3
-                        },
-                        // eo_tehsil: {
-                        //     required: true,
-                        //     // minlength: 3
-                        // }
-                        eo_dist: {
-                            required: true,
-                            // minlength: 3
-                        }
-                    },
-                    messages: {
-                        f_name: {
-                            required: "Enter Your First Name",
-                            minlength: "First Name must be atleast 3 characters long"
-                        },
-                        eo_name: {
-                            required: "Enter Your Last Name",
-                            minlength: "Last Name must be atleast 3 characters long"
-                        },
-                        eo_number: {
-                            required: "Enter Your Phone Number",
-                            minlength: "Phone Number must be of 10 Digit",
-                            maxlength: "Ensure exactly 10 digits of Mobile No.",
-                            digits: "Please enter only digits"
-                        },
-                        eo_state: {
-                            required: "Select Your State",
-                            // minlength: "First Name must be atleast 3 characters long"
-                        },
-                        // eo_tehsil: {
-                        //     required: "Select Your Tehsil",
-                        //     // minlength: "First Name must be atleast 3 characters long"
-                        // }
-                        eo_dist: {
-                            required: "Select Your District",
-                            // minlength: "First Name must be atleast 3 characters long"
-                        }
-                    },
+  <!-- <script>
+  // slick slider
+  $('.slider-for').slick({
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    arrows: false,
+    fade: true,
+    asNavFor: '.slider-nav'
+  });
+  $('.slider-nav').slick({
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    asNavFor: '.slider-for',
+    dots: true,
+    focusOnSelect: true
+  });
 
-                });
-            })
-        });
-  </script> -->
+  $('a[data-slide]').click(function(e) {
+    e.preventDefault();
+    var slideno = $(this).data('slide');
+    $('.slider-nav').slick('slickGoTo', slideno - 1);
+  });
+</script> -->
 
-<script>
-      var slider = new Swiper ('.gallery-slider', {
-    slidesPerView: 1,
-    centeredSlides: true,
-    loop: true,
-    loopedSlides: 1, 
-    navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-    },
-});
-
-var thumbs = new Swiper ('.gallery-thumbs', {
-    slidesPerView: 'auto',
-    spaceBetween: 10,
-    centeredSlides: true,
-    loop: true,
-    slideToClickedSlide: true,
-});
-
-
-slider.controller.control = thumbs;
-thumbs.controller.control = slider;
-
-
-    </script>
-</script>
 </body>
 </html>
