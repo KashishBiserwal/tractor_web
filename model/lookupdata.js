@@ -94,7 +94,7 @@ function get_data() {
           if (data.lookup_data.length > 0) {
               
               let tableData = [];
-              let serialNumber = data.lookup_data[0];
+              let serialNumber = data.lookup_data.length;
               // Loop through the data and create table rows
               data.lookup_data.forEach(row => {
                  // const tableRow = document.createElement('tr');

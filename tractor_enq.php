@@ -48,47 +48,29 @@
             <div class="col-12 col-sm-12 col-md-3 col-lg-3">
               <div class="form-outline">
                 <label class="form-label">Search By Brand</label>
-                <select class="js-select2 form-select form-control mb-0" id="brand_name">
+                <select class="js-select2 form-select form-control mb-0 select_brand" id="brand_name">
                 </select>
               </div>
             </div>
-            <!-- <div class="col-12 col-sm-12 col-md-3 col-lg-3">
-              <div class="form-outline">
-                <label class="form-label"> Brand Name</label>
-                <select class="form-select py-2" aria-label="Default select example" id="bran_d">
-                    <option selected>Select Brand</option>
-                    <option value="1">Mahindra</option>
-                    <option value="2">Swaraj</option>
-                    <option value="3">John Deere</option>
-                </select>
-              </div>
-            </div> -->
             <div class="col-12 col-sm-12 col-md-3 col-lg-3">
               <div class="form-outline ">
                 <label class="form-label">Model</label>
-                    <!-- <select class="form-select py-2" aria-label="Default select example" id="mode_l">
-                    </select> -->
-                    <input type="text" class="form-control" placeholder="" id="mode_l" name="">
+                    <select class="form-select py-2 select_model" aria-label="Default select example" id="mode_l">
+                    </select>
               </div>
             </div>
             <div class="col-12 col-sm-12 col-md-3 col-lg-3">
               <div class="form-outline">
                 <label class="form-label">State</label>
-                <select class="form-select py-2" aria-label="Default select example" id="stat_e">
-                    <option value>Select State</option>
-                    <option value="Chattisgarh">Chattisgarh</option>
-                    <option value="Other">Other</option>
+                <select class="form-select py-2 select-state" aria-label="Default select example" id="stat_e">
+                   
                 </select>
               </div>
             </div>
             <div class="col-12 col-sm-12 col-md-3 col-lg-3">
               <div class="form-outline">
                 <label class="form-label">District</label>
-                <select class="form-select py-2" aria-label="Default select example" id="dis_t">
-                    <option value>Select District</option>
-                    <option value="Raipur">Raipur</option>
-                    <option value="Bilaspur">Bilaspur</option>
-                    <option value="Surajpur">Surajpur</option>
+                <select class="form-select py-2 select-dist" aria-label="Default select example" id="dis_t" >
                 </select>
               </div>
             </div>
@@ -136,40 +118,38 @@
                   <div class="modal-body bg-light">
                     <div class="row ">
                        <div class="col-12">
-                        <table class="table table-striped">
-                        <tbody>
-                        <tr> 
-                            <td>Brand Name-</td>
-                            <td id="bname1"></td>
-                            <td>Model Name-</td>
-                            <td id="mname1"></td>
-                          </tr>
-                         <tr> 
-                            <td>First Name-</td>
-                            <td id="fname1"></td>
-                            <td>Last Name-</td>
-                            <td id="lname1"></td>
-                          </tr>
-                          <tr>
-                           
-                            <td>Mobile Number-</td>
-                            <td id="number1"></td>
-                            <td>Date-</td>
-                            <td id="date_1"></td>
-                          </tr>
-                          <tr>
-                          
-                            <td>State-</td>
-                            <td id="state1"></td>
-                            <td>District-</td>
-                            <td id="dist1"></td>
-                          </tr>
-                          <tr>
-                            <td>Tehsil-</td>
-                            <td id="tehsil1"></td>
-                          </tr>
-                        </tbody>
-                      </table>
+                       <table class="table table-striped">
+                <tbody>
+                    <tr>
+                        <td>Brand Name-</td>
+                        <td id="bname_1"></td>
+                        <td>Model Name-</td>
+                        <td id="mname_1"></td>
+                    </tr>
+                    <tr>
+                        <td>First Name-</td>
+                        <td id="fname_1"></td>
+                        <td>Last Name-</td>
+                        <td id="lname_1"></td>
+                    </tr>
+                    <tr>
+                        <td>Mobile Number-</td>
+                        <td id="number_1"></td>
+                        <td>Date-</td>
+                        <td id="date_1"></td>
+                    </tr>
+                    <tr>
+                        <td>State-</td>
+                        <td id="state_1"></td>
+                        <td>District-</td>
+                        <td id="dist_1"></td>
+                    </tr>
+                    <tr>
+                        <td>Tehsil-</td>
+                        <td id="tehsil_1"></td>
+                    </tr>
+                </tbody>
+            </table>
                     </div>
                   </div>  
                 <div class="modal-footer">
@@ -182,7 +162,7 @@
     </div>
 
  <!-- model edit -->
- <div class="modal fade" id="staticBackdrop2" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"       aria-labelledby="staticBackdropLabel" aria-hidden="true">
+       <div class="modal fade" id="staticBackdrop2" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"       aria-labelledby="staticBackdropLabel" aria-hidden="true">
             <div class="modal-dialog modal-lg modal-dialog-centered">
               <div class="modal-content modal_box">
                 <div class="modal-header modal_head">
@@ -209,18 +189,21 @@
                                                   <input type="text" class="form-control py-2" for="idUser"  id="product_subject_id" value="" name="first_name" placeholder="Enter First Name">
                                           <small></small>
                                         </div>
-                                <!-- <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
+                                     <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
                                       <div class="form-outline">
                                         <label for="name" class="form-label text-dark">Brand Name</label>
-                                        <input type="text" class="form-control" placeholder="" id="brand_name" name="bname">
+                                        <select class="form-select py-2 select_brand" aria-label="Default select example" id="brand_name_1" name="bname">
+                                        </select>
                                       </div>
-                                    </div> -->
-                                    <!-- <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
+                                    </div>
+                                    <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
                                       <div class="form-outline">
                                         <label for="name" class="form-label text-dark">Model Name</label>
-                                        <input type="text" class="form-control" placeholder="" id="model_name" name="mname">
+                                        <select class="form-select py-2 select_model" aria-label="Default select example" id="model_name_1" name="mname">
+                                      </select>
+                                  
                                       </div>
-                                    </div> -->
+                                    </div>
                                  <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
                                       <div class="form-outline mt-3">
                                         <label for="name" class="form-label text-dark">First Name</label>
@@ -246,24 +229,19 @@
                                         <input type="text" class="form-control" placeholder="" id="date" name="date">
                                       </div>
                                     </div>
-                                    <div class="col-12 col-sm-6 col-md-6 col-lg-6">
+                                       <div class="col-12 col-sm-6 col-md-6 col-lg-6">
                                           <div class="form-outline mt-3">
                                              <label class="form-label text-dark">State</label>
-                                              <select class="form-select py-2" aria-label="Default select example" id="state_" name="state_">
-                                                <option value>Select State</option>
-                                                <option value="Chattisgarh">Chattisgarh</option>
-                                                <option value="Other">Other</option>
+                                              <select class="form-select py-2 select-state" aria-label="Default select example" id="state_" name="state_">
+                                      
                                               </select>
                                           </div>
                                         </div>
                                         <div class="col-12 col-sm-6 col-md-6 col-lg-6">
                                           <div class="form-outline mt-3">
                                             <label class="form-label text-dark">District</label>
-                                            <select class="form-select py-2" aria-label="Default select example" id="dist_" name="dist">
-                                              <option value>Select District</option>
-                                              <option value="Raipur">Raipur</option>
-                                              <option value="Bilaspur">Bilaspur</option>
-                                              <option value="Surajpur">Surajpur</option>
+                                            <select class="form-select py-2 select-dist" aria-label="Default select example" id="dist_" name="dist" >
+                                          
                                             </select>
                                           </div>
                                         </div>
@@ -271,10 +249,7 @@
                                           <div class="form-outline mt-3">
                                             <label class="form-label text-dark">Tehsil</label>
                                             <select class="form-select py-2" aria-label="Default select example" id="tehsil_">
-                                              <option value>Select Tehsil</option>
-                                              <option value="Raipur">Raipur</option>
-                                              <option value="Bilaspur">Bilaspur</option>
-                                              <option value="Surajpur">Surajpur</option>
+                                          
                                             </select>
                                           </div>
                                         </div>

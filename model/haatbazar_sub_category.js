@@ -163,7 +163,7 @@ function get_data() {
                 data.allSubCategory.forEach(row => {
                    // const tableRow = document.createElement('tr');
                    let action = `<div class="d-flex">
-                   <button class="btn btn-danger btn-sm mx-1" id="delete_user" onclick="destroy(${row.id});" style="padding:5px;">
+                   <button class="btn btn-danger btn-sm mx-1"  onclick="destroy(${row.id});" style="padding:5px;">
                        <i class="fa fa-trash" style="font-size: 11px;"></i>
                    </button>
                    <button class="btn btn-primary btn-sm btn_edit" onclick="fetch_edit_data(${row.id});" data-bs-toggle="modal" data-bs-target="#staticBackdrop3" id="yourUniqueIdHere">
@@ -340,7 +340,7 @@ function edit_user() {
 
 
 function destroy(id) {
-    console.log(id);
+    console.log(id)
     var apiBaseURL = APIBaseURL;
     var url = apiBaseURL + 'haat_bazar_sub_category/' + id;
     console.log(url);
@@ -363,7 +363,7 @@ function destroy(id) {
       },
       success: function(result) {
         // get_tyre_list();
-        window.location.reload();
+        // window.location.reload();
         console.log("Delete request successful");
         alert("Delete operation successful");
       },
