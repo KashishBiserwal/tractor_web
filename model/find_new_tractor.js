@@ -234,19 +234,14 @@ function displayTractors(tractors) {
                                                     </div>
                                                     <div class="col-12 col-sm-12 col-md-6 col-lg-6">
                                                         <label for="yr_state" class="form-label text-dark fw-bold"> <i class="fa-solid fa-location-dot"></i>  Select State</label>
-                                                        <select class="form-select py-2 " aria-label=".form-select-lg example" id="state" name="state">
-                                                            <option value>Select State</option>
-                                                            <option value="Chhattisgarh">Chhattisgarh</option>
-                                                            <option value="Other">Other</option>
+                                                        <select class="form-select py-2 select_state" aria-label=".form-select-lg example" id="state" name="state">
+                                                            
                                                         </select>
                                                     </div>
                                                 <div class="col-12 col-sm-12 col-md-6 col-lg-6">
                                                     <label for="yr_dist" class="form-label text-dark"><i class="fa-solid fa-location-dot"></i> District</label>
-                                                    <select class="form-select py-2 " aria-label=".form-select-lg example" id="district" name="district">
-                                                        <option value>Select District</option>
-                                                        <option value="Raipur">Raipur</option>
-                                                        <option value="Bilaspur">Bilaspur</option>
-                                                        <option value="Durg">Durg</option>
+                                                    <select class="form-select py-2 select_ditrict" aria-label=".form-select-lg example" id="district" name="district">
+                                                     
                                                     </select>
                                                 </div>
                                                 <div class="col-12 col-sm-6 col-md-6 col-lg-6">
@@ -498,19 +493,14 @@ function appendFilterCard(filterContainer, filter) {
                                         </div>
                                         <div class="col-12 col-sm-12 col-md-6 col-lg-6">
                                             <label for="yr_state" class="form-label text-dark fw-bold"> <i class="fa-solid fa-location-dot"></i>  Select State</label>
-                                            <select class="form-select py-2 " aria-label=".form-select-lg example" id="state" name="state">
-                                                <option value>Select State</option>
-                                                <option value="Chhattisgarh">Chhattisgarh</option>
-                                                <option value="Other">Other</option>
+                                            <select class="form-select py-2 select_state" aria-label=".form-select-lg example" id="state" name="state">
+                                               
                                             </select>
                                         </div>
                                     <div class="col-12 col-sm-12 col-md-6 col-lg-6">
                                         <label for="yr_dist" class="form-label text-dark"><i class="fa-solid fa-location-dot"></i> District</label>
-                                        <select class="form-select py-2 " aria-label=".form-select-lg example" id="district" name="district">
-                                            <option value>Select District</option>
-                                            <option value="Raipur">Raipur</option>
-                                            <option value="Bilaspur">Bilaspur</option>
-                                            <option value="Durg">Durg</option>
+                                        <select class="form-select py-2 select_ditrict" aria-label=".form-select-lg example" id="district" name="district">
+                                            
                                         </select>
                                     </div>
                                     <div class="col-12 col-sm-6 col-md-6 col-lg-6">
@@ -573,3 +563,67 @@ function appendFilterCard(filterContainer, filter) {
     // window.location.reload();
     
   } 
+
+  function getState() {
+    var url = 'http://tractor-api.divyaltech.com/api/customer/state_data';
+    $.ajax({
+        url: url,
+        type: "GET",
+        headers: {
+            'Authorization': 'Bearer ' + localStorage.getItem('token')
+        },
+        success: function(data) {
+            console.log(data);
+            const select = document.getElementsByClassName('select_state');
+            select.innerHTML = '<option selected disabled value="">Please select a state</option>';
+  
+            const stateId = 7; // State ID you want to filter for
+            const filteredState = data.stateData.find(state => state.id === stateId);
+            if (filteredState) {
+                const option = document.createElement('option');
+                option.textContent = filteredState.state_name;
+                option.value = filteredState.id;
+                select.appendChild(option);
+  
+                getDistricts_1(filteredState.id); 
+            } else {
+                select.innerHTML = '<option>No valid data available</option>';
+            }
+        },
+        error: function(error) {
+            console.error('Error fetching data:', error);
+        }
+    });
+  }
+  
+  // Function to populate districts dropdown for search
+  function getDistricts_1(stateId) {
+    var url = 'http://tractor-api.divyaltech.com/api/customer/get_district_by_state/' + stateId;
+    console.log(url);
+    var select1 = document.getElementsByClassName('select_ditrict');
+    select1.innerHTML = '<option selected disabled value="">Please select a district</option>';
+  
+    $.ajax({
+      url: url,
+      type: "GET",
+      headers: {
+          'Authorization': 'Bearer ' + localStorage.getItem('token')
+      },
+      success: function(data) {
+          if (data.districtData.length > 0) {
+              data.districtData.forEach(row => {
+                  const option = document.createElement('option');
+                  option.textContent = row.district_name;
+                  option.value = row.id;
+                  select1.appendChild(option);
+              });
+          } else {
+            select1.innerHTML = '<option>No districts available for this state</option>';
+          }
+      },
+      error: function(error) {
+          console.error('Error fetching districts:', error);
+      }
+    });
+  }
+  getState();
