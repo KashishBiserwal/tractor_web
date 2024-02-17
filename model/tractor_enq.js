@@ -237,7 +237,8 @@ function get_model(brand_id) {
                   data.model.forEach(row => {
                       const option = document.createElement('option');
                       option.textContent = row.model;
-                      option.value = row.id;
+                      option.value = row.model;
+                      // console.log(row.model,'suman');
                       console.log(option);
                       select.appendChild(option);
                   });
@@ -353,10 +354,8 @@ function fetch_edit_data(id) {
           break;
         }
       }
-
-      console.log("User Brand ID:", Data.brand_id);
-      get_model(Data.brand_id);
-
+      
+      get_model(Data.brand_id, Data.model); 
       setSelectedOption('state_', Data.state_id);
       setSelectedOption('dist_', Data.district_id);
       
@@ -453,7 +452,7 @@ function searchdata() {
   var stateselect = $('#stat_e').val();
   var districtselect = $('#dis_t').val();
 
-  console.log(brand_id);
+  // console.log(brand_id);
   console.log(brandselect);
   console.log(modelselect);
   console.log(stateselect);
@@ -461,7 +460,7 @@ function searchdata() {
 
   var paraArr = {
       'brand_id': brand_id,
-      'brandselect': brandselect,
+      'brand_id': brandselect,
       'model': modelselect,
       'state': stateselect,
       'district': districtselect,
