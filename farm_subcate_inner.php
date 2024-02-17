@@ -245,17 +245,19 @@
     <section>
         <div class="container">
             <div class="row py-1 mb-3">
-                <h2 class="fw-bold text-dark text-start mt-4 assured ps-3">Similar Product</h3>
-                <div id="productContainer" class="row"></div>
+                <h2 class="fw-bold text-dark text-start mt-4 assured ps-3">Latest Blog</h3>
+                <div id="similarproduct" class="row"></div>
+
 
                 <div class="col text-center mt-3">
-                    <a href="engine_oil.php" class="btn btn-success btn-lg">View All</a>
+                    <a href="blog.php" class="btn btn-success btn-lg">View All</a>
                 </div>
 
             </div>
 
         </div>
     </section>
+   
 
 
     <?php   
