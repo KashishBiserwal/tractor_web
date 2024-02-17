@@ -188,35 +188,20 @@ include 'includes/headertag.php';
                                         </div>
                                         
                                         <div class="col-12 col-lg-6 col-md-6 col-sm-6 mt-3">
-
-                                        <!-- <div class="upload__box mt-5">
-                                          <div class="upload__btn-box">
-                                            <label >
-                                              <p class="upload__btn ">Upload Thumbnail image</p>
-                                              <input type="file" multiple="" data-max_length="20" class="upload__inputfile" id="image_" name="image_">
-                                            </label>
-                                            <p></p>
-                                          </div>
-                                          <div id="selectedImagesContainer2" class="upload__img-wrap"></div>
-                                        </div> -->
-
-                                          <div class="upload__box mt-5">
-                                            <div class="upload__btn-box text-center">
-                                              <label >
-                                                <p class="upload__btn ">Upload Thumbnail image</p>
-                                                <input type="file" data-max_length="20" name="imgfile" type="file"
-                                                  id="image"
-                                                  ref="fileInput"
-                                                  style="display: none"
-                                                  @change="handleFileInput"
-                                                  accept="image/png, image/jpg, image/jpeg" class="upload__inputfile">
-                                              </label>
+                                          <div class="upload__box m-5">
+                                            <div class="upload__btn-box">
+                                              <label>
+                                                <p class="upload__btn">Upload image</p>
+                                                <input type="file" class="upload__inputfile" id="image" name="image" accept="image/*">
+                                              </label>  
                                             </div>
-                                            <div id="selectedImagesContainer2" class="upload__img-wrap float-start"></div>
+                                            <div id="selectedImagesContainer2" class="upload__img-wrap"></div>
                                           </div>
                                         </div>
+                                      <div class="col-12 text-center">
+                                      <button type="button" class="btn btn-success mt-3 w-25 mb-0 btn_all" id="lookup_data_submit">Submit</button>
                                       </div>
-                                      <button type="button" class="btn btn-success  mt-3 mb-0 btn_all" id="lookup_data_submit">Submit</button>
+                                      
                                     </form>
                                   </div>
                               </div>

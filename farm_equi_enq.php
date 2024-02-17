@@ -36,50 +36,25 @@
       <div class="filter-card mb-2">
         <div class="card-body">
           <div class="row">
-           <div class="col-12 col-sm-12 col-md-3 col-lg-3">
+           <div class="col-12 col-sm-12 col-md-4 col-lg-3">
               <div class="form-outline">
                 <label class="form-label">Brand</label>
                 <select class="form-select py-2" id="brand_search" class="brand" aria-label="Default select example">
-                    <option selected>Select Implement Type</option>
-                    <option value="1">Implement1</option>
-                    <option value="2">Implement2</option>
-                    <option value="3">Implement3</option>
+                 
                 </select>
               </div>
             </div>
-            <div class="col-12 col-sm-12 col-md-3 col-lg-3">
+            <div class="col-12 col-sm-12 col-md-4 col-lg-3">
               <div class="form-outline">
-                <label class="form-label">Category</label>
-                <select class="form-select py-2" class="category" id="model_search" aria-label="Default select example">
-                    
-                </select>
+                <label class="form-label">Model</label>
+                <input type="text" class="form-control py-2" for="idUser"  id="model_search"  name="model_search" >
               </div>
             </div>
-            <div class="col-12 col-sm-12 col-md-3 col-lg-3">
-              <div class="form-outline">
-                <label class="form-label">State</label>
-                <select class="form-select py-2" id="state_search" aria-label="Default select example">
-                    <option value>Select State</option>
-                    <option value="1">Chattisgarh</option>
-                    <option value="2">Other</option>
-                </select>
-              </div>
-            </div>
-            <div class="col-12 col-sm-12 col-md-3 col-lg-3">
-              <div class="form-outline">
-                <label class="form-label">District</label>
-                <select class="form-select py-2" id="district_search" aria-label="Default select example">
-                    <option value>Select District</option>
-                    <option value="1">Raipur</option>
-                    <option value="2">Bilaspur</option>
-                    <option value="3">Surajpur</option>
-                </select>
-              </div>
-            </div>
-            <div class="col-12 my-4">
+           
+            <div class="col-12 col-sm-12 col-md-4 col-lg-3">
               <div class="text-center">
-                <button type="button" class="btn-success btn px-3 pt-2" id="Search">Search</button>
-                <button type="button" class="btn-success btn mx-2 px-3 pt-2" id="Reset">Reset</button>
+                <button type="button" class="btn-success btn px-4 pt-2" id="Search">Search</button>
+                <button type="button" class="btn-success btn mx-2 px-4 pt-2" id="Reset">Reset</button>
               </div>
             </div>
            

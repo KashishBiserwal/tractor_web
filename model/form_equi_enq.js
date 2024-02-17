@@ -2,6 +2,7 @@
   $(document).ready(function(){
    
     get_enquiry();
+    $('#Search').click(search_data);
     get_brand();
     $('#undate_btn').on('click', function(event) {
       $("#form_tyre_list").valid();
@@ -77,7 +78,7 @@
                   'Authorization': 'Bearer ' + localStorage.getItem('token')
               },
               success: function (data) {
-                  const selects = document.querySelectorAll('#brand');
+                  const selects = document.querySelectorAll('#brand_search');
       
                   selects.forEach(select => {
                       select.innerHTML = '<option selected disabled value="">Please select an option</option>';
@@ -318,6 +319,7 @@ function fetch_edit_data(id) {
         success: function (response) {
             var Data = response.getNewImplementEnquiry[0];
             $('#userId').val(Data.customer_id);
+            $('#product_id').val(Data.product_id);
             $('#namef').val(Data.first_name);
             $('#namel').val(Data.last_name);
             $('#number').val(Data.mobile);
@@ -341,7 +343,7 @@ function fetch_edit_data(id) {
   function store(edit_id) {
     var enquiry_type_id = 6;
     var edit_id = $("#userId").val();
-    console.log("id",edit_id);
+    var product_id=$("#product_id").val();
     var first_name = $("#namef").val();
     var last_name = $("#namel").val();
     var mobile = $("#number").val();
@@ -365,6 +367,7 @@ function fetch_edit_data(id) {
         'tehsil': tehsil,
         'customer_id': edit_id,
         'enquiry_type_id': enquiry_type_id,
+        'product_id':product_id,
     };
   
     var apiBaseURL = APIBaseURL;
@@ -392,6 +395,108 @@ function fetch_edit_data(id) {
     });
   }
 
+ 
+  function search_data() {
+    var selectedBrand = $('#brand_search').val();
+    var brand_id = $('#model_search').val();
+    var paraArr = {
+      'brand_id': selectedBrand,
+      'model':brand_id,
+    };
+  
+    var apiBaseURL = APIBaseURL;
+    var url = apiBaseURL + 'search_for_new_implements_enquiry';
+    $.ajax({
+        url:url, 
+        type: 'POST',
+        data: paraArr,
+      
+        headers: {
+            'Authorization': 'Bearer ' + localStorage.getItem('token')
+        },
+        success: function (searchData) {
+          updateTable(searchData);
+        },
+        error: function (error) {
+            console.error('Error searching for brands:', error);
+        }
+    });
+  };
+  function updateTable(data) {
+    const tableBody = document.getElementById('data-table');
+    tableBody.innerHTML = '';
+   
+  
+    if (users.length > 0) {
+      // Initialize serialNumber outside the loop
+      let serialNumber = users.length;
+      let tableData = [];
+
+      users.forEach(row => {
+        
+        const catesub = row.category_name + "/" + row.sub_category_name; // Fixed here
+        const name = row.first_name + " " + row.last_name; // Fixed here
+
+        // Create the action buttons HTML
+        let action = `<div class="float-start">
+                        <button class="btn btn-warning btn-sm text-white mx-1" data-bs-toggle="modal" onclick="openViewdata(${row.customer_id});" data-bs-target="#view_model_tyre"style="padding:5px">
+                            <i class="fas fa-eye" style="font-size: 11px;"></i>
+                        </button> 
+                        <button class="btn btn-primary btn-sm btn_edit" onclick="fetch_edit_data(${row.customer_id});" data-bs-toggle="modal" data-bs-target="#staticBackdrop" id="yourUniqueIdHere"style="padding:5px">
+                        <i class="fas fa-edit" style="font-size: 11px;"></i>
+                    </button>
+                      <button class="btn btn-danger btn-sm" id="delete_user" onclick="destroy(${row.customer_id});" style="padding:5px">
+                          <i class="fa fa-trash" style="font-size: 11px;"></i>
+                      </button>
+                        
+                    </div>`;
+
+        // Push row data as an array into the tableData
+        tableData.push([
+          serialNumber--,
+          row.date,
+          catesub,
+          row.brand_name,
+          row.model,
+          name,
+          row.mobile,
+          row.district_name, 
+          action
+        ]);
+      });
+
+      // Initialize DataTable after preparing the tableData
+      $('#example').DataTable().destroy();
+      $('#example').DataTable({
+        data: tableData,
+        columns: [
+          { title: 'S.No.' },
+          { title: 'Date' },
+          { title: 'Category/Subcategory' },
+          { title: 'Brand' },
+          { title: 'Model' },
+          { title: 'Name' },
+          { title: 'Mobile Number' },
+          { title: 'District' },
+          { title: 'Action', orderable: false } // Disable ordering for Action column
+        ],
+        paging: true,
+        searching: true,
+        // ... other options ...
+      });
+    } else {
+        // Display a message if there's no valid data
+        tableBody.innerHTML = '<tr><td colspan="4">No valid data available</td></tr>';
+    }
+  }
+  
+  function resetform(){
+    $('#brand1').val('');
+    $('#model1').val('');
+    engineOil_add();
+  }
+  
+
   $(document).ready(function () {
     // Initialize DataTable
     var table = $('#example').DataTable({
@@ -411,25 +516,7 @@ function fetch_edit_data(id) {
     });
 
     // Search Button Click Event
-    $("#Search").click(function () {
-        var selectedBrand = $('#brand_name').val();
-        var selectedModel = $('#model').val();
-        var selectedState = $('#state').val();
-        var selectedDistrict = $('#district').val();
+  
 
-        // Perform search
-        table.columns(2).search(selectedBrand).draw();
-        table.columns(3).search(selectedModel).draw();
-        table.columns(6).search(selectedState).draw();
-        table.columns(7).search(selectedDistrict).draw();
-    });
-
-    // Reset Button Click Event
-    $("#Reset").click(function () {
-        // Reset all select options
-        $('#brand_name, #model, #state, #district').val('');
-
-        // Clear search and redraw the table
-        table.search('').columns().search('').draw();
-    });
+    
 });
