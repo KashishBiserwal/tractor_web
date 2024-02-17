@@ -188,29 +188,25 @@ function get() {
       },
       success: function (data) {
           console.log(data);
-          const selects = document.querySelectorAll('.select_brand');
+          const select = document.getElementById('brand_name');
+          select.innerHTML = '<option selected disabled value="">Please select an option</option>';
 
-          selects.forEach(select => {
-              select.innerHTML = '<option selected disabled value="">Please select an option</option>';
+          if (data.brands.length > 0) {
+              data.brands.forEach(row => {
+                  const option = document.createElement('option');
+                  option.textContent = row.brand_name;
+                  option.value = row.id;
+                  select.appendChild(option);
+              });
 
-              if (data.brands.length > 0) {
-                  data.brands.forEach(row => {
-                      const option = document.createElement('option');
-                      option.textContent = row.brand_name;
-                      option.value = row.id;
-                      console.log(option);
-                      select.appendChild(option);
-                  });
-
-                  // Add event listener to brand dropdown
-                  select.addEventListener('change', function() {
-                      const selectedBrandId = this.value;
-                      get_model(selectedBrandId);
-                  });
-              } else {
-                  select.innerHTML = '<option>No valid data available</option>';
-              }
-          });
+              // Add event listener to brand dropdown
+              select.addEventListener('change', function() {
+                  const selectedBrandId = this.value;
+                  get_model(selectedBrandId);
+              });
+          } else {
+              select.innerHTML = '<option>No valid data available</option>';
+          }
       },
       error: function (error) {
           console.error('Error fetching data:', error);
@@ -228,24 +224,20 @@ function get_model(brand_id) {
       },
       success: function (data) {
           console.log(data);
-          const selects = document.querySelectorAll('.select_model');
+          const select = document.getElementById('mode_l');
+          select.innerHTML = '<option selected disabled value="">Please select an option</option>';
 
-          selects.forEach(select => {
-              select.innerHTML = '<option selected disabled value="">Please select an option</option>';
-
-              if (data.model.length > 0) {
-                  data.model.forEach(row => {
-                      const option = document.createElement('option');
-                      option.textContent = row.model;
-                      option.value = row.model;
-                      // console.log(row.model,'suman');
-                      console.log(option);
-                      select.appendChild(option);
-                  });
-              } else {
-                  select.innerHTML = '<option>No valid data available</option>';
-              }
-          });
+          if (data.model.length > 0) {
+              data.model.forEach(row => {
+                  const option = document.createElement('option');
+                  option.textContent = row.model;
+                  option.value = row.model;
+                  console.log(option);
+                  select.appendChild(option);
+              });
+          } else {
+              select.innerHTML = '<option>No valid data available</option>';
+          }
       },
       error: function (error) {
           console.error('Error fetching data:', error);
@@ -254,6 +246,7 @@ function get_model(brand_id) {
 }
 
 get();
+
 
   //****delete data***
 function destroy(id) {
@@ -354,8 +347,9 @@ function fetch_edit_data(id) {
           break;
         }
       }
-      
+      // setSelectedModel('model_name_1', Data.model);
       get_model(Data.brand_id, Data.model); 
+      console.log( Data.model,'sdfgyudfgh');
       setSelectedOption('state_', Data.state_id);
       setSelectedOption('dist_', Data.district_id);
       
@@ -728,3 +722,71 @@ get_By_State();
 
 
 
+function get_1() {
+  var url = 'http://tractor-api.divyaltech.com/api/customer/get_all_brands';
+  $.ajax({
+      url: url,
+      type: "GET",
+      headers: {
+          'Authorization': 'Bearer ' + localStorage.getItem('token')
+      },
+      success: function (data) {
+          console.log(data);
+          const select = document.getElementById('brand_name_1');
+          select.innerHTML = '<option selected disabled value="">Please select an option</option>';
+
+          if (data.brands.length > 0) {
+              data.brands.forEach(row => {
+                  const option = document.createElement('option');
+                  option.textContent = row.brand_name;
+                  option.value = row.id;
+                  select.appendChild(option);
+              });
+
+              // Add event listener to brand dropdown
+              select.addEventListener('change', function() {
+                  const selectedBrandId = this.value;
+                  get_model(selectedBrandId);
+              });
+          } else {
+              select.innerHTML = '<option>No valid data available</option>';
+          }
+      },
+      error: function (error) {
+          console.error('Error fetching data:', error);
+      }
+  });
+}
+
+function get_model(brand_id) {
+  var url = 'http://tractor-api.divyaltech.com/api/customer/get_brand_model/' + brand_id;
+  $.ajax({
+      url: url,
+      type: "GET",
+      headers: {
+          'Authorization': 'Bearer ' + localStorage.getItem('token')
+      },
+      success: function (data) {
+          console.log(data);
+          const select = document.getElementById('model_name_1');
+          select.innerHTML = '<option selected disabled value="">Please select an option</option>';
+
+          if (data.model.length > 0) {
+              data.model.forEach(row => {
+                  const option = document.createElement('option');
+                  option.textContent = row.model;
+                  option.value = row.model;
+                  console.log(option);
+                  select.appendChild(option);
+              });
+          } else {
+              select.innerHTML = '<option>No valid data available</option>';
+          }
+      },
+      error: function (error) {
+          console.error('Error fetching data:', error);
+      }
+  });
+}
+
+get_1();
