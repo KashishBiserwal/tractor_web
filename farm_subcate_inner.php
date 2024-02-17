@@ -205,9 +205,7 @@
                         <table class="table w-100 table-hover table table-striped my-4">
                         <thead>
                             <tr>
-                                        <th scope="col">S.No</th>
-                                        <th scope="col">Specification Name</th>
-                                        <th scope="col">About Specification</th>
+                                       
                                         </tr>
                                     </thead>
                             <tbody id="tableData">

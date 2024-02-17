@@ -73,43 +73,6 @@ $(document).ready(function(){
     });
     });
 
-    // function getbrand(selectId) {
-    //   var apiBaseURL =APIBaseURL;
-    //   var url = apiBaseURL + 'getBrands';
-    //   $.ajax({
-    //       url: url,
-    //       type: "GET",
-    //       headers: {
-    //           'Authorization': 'Bearer ' + localStorage.getItem('token')
-    //       },
-    //       success: function (data) {
-    //           console.log(data);
-    //           const select = document.getElementById(selectId);
-            
-    //           select.innerHTML = '<option selected disabled value="">Please select an option</option>';
-    
-    //           if (data.brands.length > 0) {
-    //               data.brands.forEach(row => {
-    //                   const option = document.createElement('option');
-    //                   option.textContent = row.brand_name;
-    //                   option.value = row.id;
-    //                   select.appendChild(option);
-    //               });
-    //           } else {
-    //               select.innerHTML ='<option>No valid data available</option>';
-    //           }
-        
-    //       },
-    //       error: function (error) {
-    //           console.error('Error fetching data:', error);
-    //           var msg = error;
-    //           $("#errorStatusLoading").modal('show');
-    //           $("#errorStatusLoading").find('.modal-title').html('Error');
-    //           $("#errorStatusLoading").find('.modal-body').html(msg);
-    //       }
-    //   });
-    // }
-
     function getbrand() {
       var apiBaseURL =APIBaseURL;
       var url = apiBaseURL + 'get_tyre_brands';
@@ -230,7 +193,7 @@ function get_tyre_list() {
         const tableBody = $('#data-table'); // Use jQuery selector for the table body
         tableBody.empty(); // Clear previous data
 
-        let serialNumber = 1;
+        let serialNumber = data.customer_details.length;
 
           if (data.customer_details && data.customer_details.length > 0) {
               var table = $('#example').DataTable({
@@ -254,7 +217,7 @@ function get_tyre_list() {
 
                   // Add row to DataTable
                   table.row.add([
-                      serialNumber,
+                      serialNumber--,
                       row.date,
                       row.brand_name,
                       row.tyre_model,
@@ -275,7 +238,6 @@ function get_tyre_list() {
                       </div>`
                   ]).draw(false);
 
-                  serialNumber++;
               });
           } else {
             tableBody.innerHTML = '<tr><td colspan="9">No valid data available</td></tr>';
@@ -288,46 +250,6 @@ function get_tyre_list() {
 }
 
 get_tyre_list();
-
-// function get() {
-//   var url = 'http://tractor-api.divyaltech.com/api/customer/get_all_brands';
-//   $.ajax({
-//       url: url,
-//       type: "GET",
-//       headers: {
-//           'Authorization': 'Bearer ' + localStorage.getItem('token')
-//       },
-//       success: function (data) {
-//           console.log(data);
-//           const selects = document.querySelectorAll('#brand_name');
-
-//           selects.forEach(select => {
-//               select.innerHTML = '<option selected disabled value="">Please select an option</option>';
-
-//               if (data.brands.length > 0) {
-//                   data.brands.forEach(row => {
-//                       const option = document.createElement('option');
-//                       option.textContent = row.brand_name;
-//                       option.value = row.id;
-//                       console.log(option);
-//                       select.appendChild(option);
-//                   });
-
-//                   // Add event listener to brand dropdown
-//                   select.addEventListener('change', function() {
-//                       const selectedBrandId = this.value;
-//                       get_model(selectedBrandId);
-//                   });
-//               } else {
-//                   select.innerHTML = '<option>No valid data available</option>';
-//               }
-//           });
-//       },
-//       error: function (error) {
-//           console.error('Error fetching data:', error);
-//       }
-//   });
-// }
 
 function get_model(brand_id) {
   var url = 'http://tractor-api.divyaltech.com/api/customer/get_tyre_brands/' + brand_id;

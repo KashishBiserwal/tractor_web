@@ -39,7 +39,7 @@
            <div class="col-12 col-sm-12 col-md-3 col-lg-3">
               <div class="form-outline">
                 <label class="form-label">Brand</label>
-                <select class="form-select py-2" id="brand_search" aria-label="Default select example">
+                <select class="form-select py-2" id="brand_search" class="brand" aria-label="Default select example">
                     <option selected>Select Implement Type</option>
                     <option value="1">Implement1</option>
                     <option value="2">Implement2</option>
@@ -50,11 +50,8 @@
             <div class="col-12 col-sm-12 col-md-3 col-lg-3">
               <div class="form-outline">
                 <label class="form-label">Category</label>
-                <select class="form-select py-2" id="model_search" aria-label="Default select example">
-                    <option selected>Select Category</option>
-                    <option value="1">Category-1</option>
-                    <option value="2">Category-2</option>
-                    <option value="3">Category-3</option>
+                <select class="form-select py-2" class="category" id="model_search" aria-label="Default select example">
+                    
                 </select>
               </div>
             </div>
@@ -91,15 +88,18 @@
       </div>
       <!-- Table Card -->
       <div class=" mb-5">
-            <div class="table-responsive">
-              <table id="example" class="table dataTable no-footer py-1" width="100%">
-              
-              <tbody id="data-table">
-              </tbody>
-            </table>
-          </div>
+        <div class="table-responsive">
+          <table id="example" class="table dataTable no-footer py-1" width="100%">
+            <tbody id="data-table">
+              <thead>
+                  <tr>
+                    
+                  </tr>
+                </thead>
+            </tbody>
+          </table>
         </div>
-    </div>
+      </div>
 </section>
       
     
@@ -121,24 +121,24 @@
                         <table class="table table-striped">
                         <tbody>
                         <tr> 
-                            <td>Brand Name-</td>
-                            <td id="bname1"></td>
-                            <td>Model Name-</td>
-                            <td id="mname1"></td>
+                            <td>Category-</td>
+                            <td id="cate1"></td>
+                            <td>Subcategory-</td>
+                            <td id="subcate1"></td>
                           </tr>
-                          <td>First Name-</td>
-                            <td id="First_Name1"></td>
-                            <td>Last Name-</td>
-                            <td id="Last_Name1"></td>
+                          <td>Brand-</td>
+                            <td id="brand1"></td>
+                            <td>Model-</td>
+                            <td id="model1"></td>
                           </tr>
                           <tr>
+                          <td>Name-</td>
+                            <td id="First_Name1"></td>
                             <td>Mobile-</td>
                             <td id="Mobile_1"></td>
-                            <td>Date-</td>
-                            <td id="date_1"></td>
                           </tr>
                           <tr>
-                          
+
                           <td>State-</td>
                             <td id="State_1"></td>
                             <td>District-</td>
@@ -173,61 +173,66 @@
                 <div class="modal-body bg-light">
                     <div class="row justify-content-center">
                         <div class="col-lg-10">
-                           <form id="old_harvester_form"method="post"enctype="multipart/form-data" onsubmit="return false">
+                           <form id="form_tyre_list" method="post"enctype="multipart/form-data" onsubmit="return false">
                                 <div class="row  pt-4">
                                 <div class="col-12 col-lg-6 col-sm-5 col-md-6 my-1" hidden>
                                           <div class="form-outline ">
-                                            <label for="name" class="form-label text-dark">Harvester</label>
+                                            <label for="name" class="form-label text-dark">id</label>
                                             <input type="text" class="form-control" placeholder="" id="userId" name="name">
                                           </div>
                                         </div>
                                         <div class="col- col-sm-6 col-lg-6 col-md-6" hidden>
-                                          <label class="text-dark"> id Name<span class="text-danger">*</span></label>
-                                                  <input type="text" class="form-control py-2" for="idUser"  id="enquiry_type_id" value="10" name="first_name" placeholder="Enter First Name">
+                                          <label class="text-dark"> id enquiry_type_id<span class="text-danger">*</span></label>
+                                                  <input type="text" class="form-control py-2" for="idUser"  id="enquiry_type_id" value="6" name="first_name" placeholder="Enter First Name">
                                           <small></small>
                                         </div>
                                         <div class="col- col-sm-6 col-lg-6 col-md-6" hidden>
-                                          <label class="text-dark"> id Name<span class="text-danger">*</span></label>
-                                                  <input type="text" class="form-control py-2" for="idUser"  id="product_id" value="2" name="first_name" placeholder="Enter First Name">
+                                          <label class="text-dark"> id product_id<span class="text-danger">*</span></label>
+                                                  <input type="text" class="form-control py-2" for="idUser"  id="product_id" name="product_id" placeholder="Enter First Name">
                                           <small></small>
                                         </div>
-                                        <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
+                                        <!-- <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
                                       <div class="form-outline">
-                                        <label for="name" class="form-label text-dark">Brand Name</label>
-                                        <select class="form-select py-2" aria-label="Default select example" id="brand_data" name="brand_data">
-                                               
-                                              </select>
+                                        <label for="name" class="form-label text-dark">Category Name</label>
+                                        <select class="form-select py-2" aria-label="Default select example" class="category" id="category" name="category"></select>
                                       </div>
                                     </div>
                                     <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
                                       <div class="form-outline">
-                                        <label for="name" class="form-label text-dark">Model Name</label>
-                                        <input type="text" class="form-control" placeholder="" id="model_name" name="mname">
+                                        <label for="name" class="form-label text-dark">Subcategory Name</label>
+                                        <select class="form-select py-2" aria-label="Default select example" id="subcategory
+                                      " name="subcategory"></select>
                                       </div>
-                                    </div>
-                                        <div class="col-12 col-lg-6 col-sm-5 col-md-6">
+                                    </div> -->
+                                        <!-- <div class="col-12 col-lg-6 col-sm-5 col-md-6">
                                           <div class="form-outline mt-4">
-                                            <label for="name" class="form-label text-dark">First Name</label>
-                                            <input type="text" class="form-control" placeholder="" id="fnam_e" name="fname">
+                                            <label for="name" class="form-label text-dark">Brand Name</label>
+                                            <select class="form-select py-2" aria-label="Default select example" id="brand" name="brand"></select>
                                           </div>
                                         </div>
                                         <div class="col-12 col-lg-6 col-sm-5 col-md-6">
                                           <div class="form-outline mt-4">
-                                            <label for="name" class="form-label text-dark">Last Name</label>
-                                            <input type="text" class="form-control" placeholder="" id="lnam_e" name="lname">
+                                            <label for="name" class="form-label text-dark">Model Name</label>
+                                            <input type="text" class="form-control" placeholder="" id="model" name="lname">
                                           </div>
-                                        </div>
+                                        </div> -->
                                         <div class="col-12 col-lg-6 col-sm-5 col-md-6 my-1">
                                           <div class="form-outline mt-4">
-                                              <label for="name" class="form-label text-dark">Mobile Number</label>
-                                              <input type="text" class="form-control" placeholder="" id="numbe_r" name="number">
+                                              <label for="name" class="form-label text-dark">First Name</label>
+                                              <input type="text" class="form-control" placeholder="" id="namef" name="number">
                                           </div>
                                         </div>
                                        
                                         <div class="col-12 col-lg-6 col-sm-5 col-md-6 my-1">
                                           <div class="form-outline mt-4">
-                                              <label for="name" class="form-label text-dark">Date</label>
-                                              <input type="text" class="form-control" placeholder="" id="dat_e" name="date">
+                                              <label for="name" class="form-label text-dark">Last Name</label>
+                                              <input type="text" class="form-control" placeholder="" id="namel" name="date">
+                                          </div>
+                                        </div>
+                                        <div class="col-12 col-lg-6 col-sm-5 col-md-6 my-1">
+                                          <div class="form-outline mt-4">
+                                              <label for="name" class="form-label text-dark">Mobile Number</label>
+                                              <input type="text" class="form-control" placeholder="" id="number" name="number">
                                           </div>
                                         </div>
                                         
@@ -267,7 +272,6 @@
                                             </select>
                                           </div>
                                         </div>
-                                      
                                 </div>
                             </form>
                        </div>

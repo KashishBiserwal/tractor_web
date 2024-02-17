@@ -60,6 +60,19 @@ function displayInitialCards(productContainer, p) {
     const brand_model = p.brand_name + " " + p.model;
     var images = p.thumbnail;
     var a = [];
+                // Remove underscores and special characters
+                var cleanedString = p.sub_category_name.replace(/[^\w\s]/gi, '');
+
+                // Add spaces between words in the modified string
+                var spacedString = cleanedString.replace(/_/g, ' ');
+    
+                // Set the modified string to the innerText of the element with id 'subcategory'
+                var subcategoryElement = document.getElementById('subcategory');
+                if (subcategoryElement) {
+                    subcategoryElement.innerText = spacedString;
+                } else {
+                    console.error("Element with id 'subcategory' not found.");
+                }
 
     if (images) {
         if (images.indexOf(',') > -1) {
@@ -86,9 +99,9 @@ var newCard = `
                 margin: 0 auto;">${p.category_name}</p>
             </div>
             <div class="col-lg-6 col-sm-6 col-md-6">
-                <p class="fw-bold text-center py-2"style="background-image: linear-gradient(315deg, #ddd 0%, #f5f7fa 74%);
+                <p class="fw-bold text-center py-2" id="subcategory"style="background-image: linear-gradient(315deg, #ddd 0%, #f5f7fa 74%);
                 font-size: 11px; justify-items: center;
-                margin: 0 auto;">${p.sub_category_name}</p>
+                margin: 0 auto;">${spacedString}</p>
             </div>
         </div>
         <div class="bg-success py-1"><p class="text-white pt-2">Power:${p.hp_category}</p></div>

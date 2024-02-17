@@ -192,14 +192,21 @@ function get_detail() {
             document.getElementById('heading').innerText = implementsData.model;
             document.getElementById('model_name').innerText = implementsData.brand_name;
             document.getElementById('model').innerText = implementsData.model;
-            document.getElementById('subcategory').innerText = implementsData.sub_category_name;
+            // document.getElementById('subcategory').innerText = implementsData.sub_category_name;
+            // Remove underscores and special characters
+            var cleanedString = implementsData.sub_category_name.replace(/[^\w\s]/gi, '');
+
+            // Add spaces between words
+            var spacedString = cleanedString.replace(/_/g, ' ');
+
+            // Set the modified string to the innerText of the element with id 'subcategory'
+            document.getElementById('subcategory').innerText = spacedString;
             document.getElementById('category').innerText = implementsData.category_name;
             document.getElementById('imple_name').innerText = brand_model;
             document.getElementById('product_id').value = implementsData.product_id;
     
             var tableData = $("#tableData");
             tableData.html('');
-            let counter = 1;
     
             if (customData && customData.length > 0) {
                 customData.forEach(function(customColumn) {
@@ -208,12 +215,10 @@ function get_detail() {
     
                     var tableRow = `
                         <tr class="">
-                            <td class="">${counter}</td>
                             <td class="fs-6"><span>${columnName} </span></td>
                             <td class="fs-6"><span>${value}</span></td>
                         </tr>
                     `;
-                    counter++;
                     tableData.append(tableRow);
                 });
             }
@@ -342,6 +347,10 @@ var url = "http://tractor-api.divyaltech.com/api/customer/customer_enquiries";
 
 // similar
 function blog_details_list(allCards) {
+    if (!allCards) {
+        allCards = [];  // Initialize allCards if it's undefined
+    }
+
     var url = 'http://tractor-api.divyaltech.com/api/customer/blog_details';
 
     $.ajax({
@@ -352,23 +361,14 @@ function blog_details_list(allCards) {
             var loadMoreButton = $("#load_moretract");
 
             if (data.blog_details && data.blog_details.length > 0) {
-                // Reverse the order of the cards to display the latest ones first
                 var reversedCards = data.blog_details.slice().reverse();
-                
-                // Update the list of all cards
                 allCards = allCards.concat(reversedCards);
-                
-                // Display the latest 9 cards at the top in the opposite order
-                displayEngineoil(productContainer, reversedCards.slice(0, 4).reverse());
 
-                // Show the "View All" button
+                displayEngineoil(productContainer, reversedCards.slice(0, 4).reverse());
                 loadMoreButton.show();
 
-                // Handle "View All" button click
                 loadMoreButton.click(function() {
-                    // Display all cards in the opposite order
                     displayEngineoil(productContainer, allCards.reverse());
-                    // Hide the "View All" button
                     loadMoreButton.hide();
                 });
             }
@@ -396,27 +396,27 @@ function displayEngineoil(container, engineoil) {
         }
 
         var newCard = `
-            <div class="col-12 col-lg-3 col-sm-3 col-md-3 mt-2 mb-2">
-                <div class="success__stry__item shadow h-100">
-                    <div class="thumb">
-                        <a href="blog_customer_inner.php?id=${p.id}">
-                            <img src="http://tractor-api.divyaltech.com/uploads/blog_img/${a[0]}" class="engineoil_img  w-100" alt="img">
-                        </a>
-                    </div>
-                    <div class="content mb-3 ms-3">
-                        <button type="button" class="btn btn-warning mt-3">${p.blog_category} </button>
-                        <div class="row mt-2">
-                            <p class="fw-bold">${p.heading}</p>
-                        </div>
-                        <div class="row">
-                            <p class="fw-bold"><span>publisher: </span>${p.publisher}</p>
-                        </div>
-                        <a href="blog_customer_inner.php?id=${p.id}" class="text-decoration-none pb-1">
-                            <span class=""> Date/time-${p.date} </span>
-                        </a>
-                    </div>
+        <div class="col-12 col-lg-3 col-sm-3 col-md-3 mt-2 mb-2">
+        <div class="success__stry__item shadow h-100">
+            <div class="thumb">
+                <a href="blog_customer_inner.php?id=${p.id}">
+                    <img src="http://tractor-api.divyaltech.com/uploads/blog_img/${a.length > 0 ? a[0] : ''}" class="engineoil_img w-100" alt="img">
+                </a>
+            </div>
+            <div class="content mb-3 ms-3">
+                <button type="button" class="btn btn-warning mt-3">${p.blog_category} </button>
+                <div class="row mt-2">
+                    <p class="fw-bold">${p.heading}</p>
                 </div>
-            </div>`;
+                <div class="row">
+                    <p class="fw-bold"><span>publisher: </span>${p.publisher}</p>
+                </div>
+                <a href="blog_customer_inner.php?id=${p.id}" class="text-decoration-none pb-1">
+                    <span class=""> Date/time-${p.date} </span>
+                </a>
+            </div>
+        </div>
+    </div>`;
         
         // Use prepend to add the new card at the beginning
         container.prepend(newCard);

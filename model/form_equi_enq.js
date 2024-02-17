@@ -2,94 +2,242 @@
   $(document).ready(function(){
    
     get_enquiry();
-  
+    get_brand();
+    $('#undate_btn').on('click', function(event) {
+      $("#form_tyre_list").valid();
+      store(event);
+    });
       });
+      $("#form_tyre_list").validate({
+    
+        rules: {
+          brand: {
+            required: true,
+          },
+          tyre:{
+            required: true,
+          },
+          tyre_position:{
+            required: true,
+          },
+          tyre_size:{
+            required: true,
+          },
+          tyre_width:{
+            required: true,
+          },
+          category:{
+            required:true, 
+          },
+          _image:{
+            required:true,
+          }
+        },
+    
+        messages:{
+          brand: {
+            required: "This field is required",
+          },
+          tyre:{
+            required: "This field is required",
+          },
+          tyre_position: {
+            required: "This field is required",
+          },
+          tyre_size: {
+            required:"This field is required",
+            maxlength:"Enter only 10 digits",
+            digits: "Please enter only digits"
+          },
+          tyre_width:{
+              required:"This field is required",
+              email:"Please Enter vaild Email",
+            },
+          
+            category: {
+            required: "This field is required",
+          },
+          _image: {
+            required: "This field is required",
+          },
+        },
+        
+        submitHandler: function (form) {
+          alert("Form submitted successfully!");
+        },
+        });
 
 
+        function get_brand() {
+          var url = "http://tractor-api.divyaltech.com/api/customer/get_brand_by_product_id/" + 6;
+          $.ajax({
+              url: url,
+              type: "GET",
+              headers: {
+                  'Authorization': 'Bearer ' + localStorage.getItem('token')
+              },
+              success: function (data) {
+                  const selects = document.querySelectorAll('#brand');
+      
+                  selects.forEach(select => {
+                      select.innerHTML = '<option selected disabled value="">Please select an option</option>';
+      
+                      if (data.brands.length > 0) {
+                          data.brands.forEach(row => {
+                              const option = document.createElement('option');
+                              option.textContent = row.brand_name;
+                              option.value = row.id;
+                              select.appendChild(option);
+                          });
+      
+                      
+                      } else {
+                          select.innerHTML = '<option>No valid data available</option>';
+                      }
+                  });
+              },
+              error: function (error) {
+                  console.error('Error fetching data:', error);
+              }
+          });
+      }
+      
 
 //****get data***
 function get_enquiry() {
-    var apiBaseURL = APIBaseURL;
-    var url = apiBaseURL + 'get_enquiry_data_for_new_implements';
+  var apiBaseURL = APIBaseURL;
+  var url = apiBaseURL + 'get_enquiry_data_for_new_implements';
+  $.ajax({
+    url: url,
+    type: "GET",
+    headers: {
+      'Authorization': 'Bearer ' + localStorage.getItem('token')
+    },
+    success: function (data) {
+      const tableBody = document.getElementById('data-table');
+      tableBody.innerHTML = ''; // Clear previous data
 
-    $.ajax({
-        url: url,
-        type: "GET",
-        headers: {
-            'Authorization': 'Bearer ' + localStorage.getItem('token')
-        },
-        success: function (data) {
-            const tableBody = $('#data-table'); // Use jQuery selector for the table body
-            tableBody.empty(); // Clear previous data
+      let users = data.getNewImplementEnquiry;
 
+      if (users.length > 0) {
+        // Initialize serialNumber outside the loop
+        let serialNumber = users.length;
+        let tableData = [];
 
-            if (data.getNewImplementEnquiry && data.getNewImplementEnquiry.length > 0) {
-                var table = $('#example').DataTable({
-                    paging: true,
-                    searching: true,
-                    columns: [
-                        { title: 'Date' },
-                        { title: 'Category' }, // Corrected column title
-                        { title: 'Brand' },
-                        { title: 'Model' },
-                        { title: 'Full Name' },
-                        { title: 'Mobile' },
-                        { title: 'State' },
-                        { title: 'District' },
-                        { title: 'Action', orderable: false }
-                    ]
-                });
+        users.forEach(row => {
+          
+          const catesub = row.category_name + "/" + row.sub_category_name; // Fixed here
+          const name = row.first_name + " " + row.last_name; // Fixed here
 
-                data.getNewImplementEnquiry.forEach(row => {
-                    const fullName = row.first_name + ' ' + row.last_name;
-                    const formattedDate = new Date(row.date).toLocaleString(); // Format date
+          // Create the action buttons HTML
+          let action = `<div class="float-start">
+                          <button class="btn btn-warning btn-sm text-white mx-1" data-bs-toggle="modal" onclick="openViewdata(${row.customer_id});" data-bs-target="#view_model_tyre"style="padding:5px">
+                              <i class="fas fa-eye" style="font-size: 11px;"></i>
+                          </button> 
+                          <button class="btn btn-primary btn-sm btn_edit" onclick="fetch_edit_data(${row.customer_id});" data-bs-toggle="modal" data-bs-target="#staticBackdrop" id="yourUniqueIdHere"style="padding:5px">
+                          <i class="fas fa-edit" style="font-size: 11px;"></i>
+                      </button>
+                        <button class="btn btn-danger btn-sm" id="delete_user" onclick="destroy(${row.customer_id});" style="padding:5px">
+                            <i class="fa fa-trash" style="font-size: 11px;"></i>
+                        </button>
+                          
+                      </div>`;
 
-                    // Add row to DataTable
-                    table.row.add([
-                        formattedDate,
-                        row.category_name,
-                        row.brand_name, 
-                        row.model,
-                        fullName,
-                        formatMobileNumber(row.mobile), // Format mobile number
-                        row.state_name,
-                        row.district_name,
-                        `<div class="d-flex">
-                            <button class="btn btn-warning btn-sm text-white mx-1" data-bs-toggle="modal" onclick="openViewdata(${row.customer_id});" data-bs-target="#view_model_engine_oil">
-                                <i class="fas fa-eye" style="font-size: 11px;"></i>
-                            </button> 
-                            <button class="btn btn-primary btn-sm btn_edit" onclick="fetch_edit_data(${row.customer_id});" data-bs-toggle="modal" data-bs-target="#staticBackdrop2" id="yourUniqueIdHere">
-                                <i class="fas fa-edit" style="font-size: 11px;"></i>
-                            </button>
-                            <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.customer_id});">
-                                <i class="fa fa-trash" style="font-size: 11px;"></i>
-                            </button>
-                        </div>`
-                    ]).draw(false);
-                });
-            } else {
-                tableBody.html('<tr><td colspan="6">No valid data available</td></tr>');
-            }
-        },
-        error: function (error) {
-            console.error('Error fetching data:', error);
-        }
-    });
+          // Push row data as an array into the tableData
+          tableData.push([
+            serialNumber--,
+            row.date,
+            catesub,
+            row.brand_name,
+            row.model,
+            name,
+            row.mobile,
+            row.district_name, 
+            action
+          ]);
+        });
+
+        // Initialize DataTable after preparing the tableData
+        $('#example').DataTable().destroy();
+        $('#example').DataTable({
+          data: tableData,
+          columns: [
+            { title: 'S.No.' },
+            { title: 'Date' },
+            { title: 'Category/Subcategory' },
+            { title: 'Brand' },
+            { title: 'Model' },
+            { title: 'Name' },
+            { title: 'Mobile Number' },
+            { title: 'District' },
+            { title: 'Action', orderable: false } // Disable ordering for Action column
+          ],
+          paging: true,
+          searching: true,
+          // ... other options ...
+        });
+      } else {
+        tableBody.innerHTML = '<tr><td colspan="7">No valid data available</td></tr>';
+      }
+    },
+    error: function (error) {
+      console.error('Error fetching data:', error);
+      console.error('Error fetching data:', error.status);
+      console.error('Error fetching data:', error.responseJSON.error);
+      if (error.status == '401' && error.responseJSON.error == 'Token expired or invalid') {
+        $("#errorStatusLoading").modal('show');
+        $("#errorStatusLoading").find('.modal-title').html('Error');
+        $("#errorStatusLoading").find('.modal-body').html(error.responseJSON.error);
+        window.location.href = baseUrl + "login.php";
+      }
+      // Display an error message or handle the error as needed
+    }
+  });
 }
+function get_search() {
+  var apiBaseURL = APIBaseURL;
+  var url = apiBaseURL + 'get_implement_category';
+  $.ajax({
+      url: url,
+      type: "GET",
+      headers: {
+          'Authorization': 'Bearer ' + localStorage.getItem('token')
+      },
+      success: function (data) {
+          const select = document.getElementById('brand_search'); // Corrected selector
+          select.innerHTML = ''; // Clear previous data
+          $(select).append('<option selected disabled value="">Please select Category</option>');
 
-// Function to format mobile number as per your requirement
-function formatMobileNumber(mobileNumber) {
-    // Implement your mobile number formatting logic here if needed
-    return mobileNumber;
+          if (data.allCategory.length > 0) {
+              data.allCategory.forEach(row => {
+                  const option = document.createElement('option');
+                  option.textContent = row.category_name;
+                  option.value = row.id;
+                  select.appendChild(option);
+              });
+          } else {
+              select.innerHTML = '<option>No valid data available</option>';
+          }
+      },
+      error: function (error) {
+          console.error('Error fetching data:', error);
+          var msg = error.responseText; // Use responseText to get error message
+          $("#errorStatusLoading").modal('show');
+          $("#errorStatusLoading").find('.modal-title').html('Error');
+          $("#errorStatusLoading").find('.modal-body').html(msg);
+      }
+  });
 }
+get_search();
 
-  
+
+
 
 
   // View data
 function openViewdata(userId) {
     var apiBaseURL = APIBaseURL;
-    var url = apiBaseURL + 'get_engine_oil_enquiry_by_id/' + userId;
+    var url = apiBaseURL + 'get_enquiry_data_for_new_implements_by_id/' + userId;
   
     var headers = {
       'Authorization': 'Bearer ' + localStorage.getItem('token')
@@ -101,18 +249,17 @@ function openViewdata(userId) {
       headers: headers,
     
       success: function(response) {
-        var userData = response.customer_details[0];
-        document.getElementById('bname1').innerText=userData.brand_name;
-        document.getElementById('mname1').innerText=userData.oil_model;
-        document.getElementById('fname1').innerText=userData.first_name;
-        document.getElementById('lname1').innerText=userData.last_name;
-        console.log(userData.last_name);
-        document.getElementById('number1').innerText=userData.mobile;
-        document.getElementById('email_1').innerText=userData.email;
-        document.getElementById('date_1').innerText=userData.date;
-        document.getElementById('state1').innerText=userData.state;
-        document.getElementById('dist1').innerText=userData.district;
-        document.getElementById('tehsil1').innerText=userData.tehsil;
+        var userData = response.getNewImplementEnquiry[0];
+        const name= userData.first_name+" "+userData.last_name;
+        document.getElementById('cate1').innerText=userData.category_name;
+        document.getElementById('subcate1').innerText=userData.sub_category_name;
+        document.getElementById('brand1').innerText=userData.brand_name;
+        document.getElementById('model1').innerText=userData.model;
+        document.getElementById('First_Name1').innerText=name;
+        document.getElementById('Mobile_1').innerText=userData.mobile;
+        document.getElementById('State_1').innerText=userData.state_name;
+        document.getElementById('District_1').innerText=userData.district_name;
+        document.getElementById('Tehsil_1').innerText=userData.tehsil_name;
       },
       error: function(error) {
         console.error('Error fetching user data:', error);
@@ -120,7 +267,7 @@ function openViewdata(userId) {
     });
   }
 
-// **delete***
+ // **delete***
  function destroy(id) {
     var apiBaseURL = APIBaseURL;
     var url = apiBaseURL + 'customer_enquiries/' + id;
@@ -156,14 +303,10 @@ function openViewdata(userId) {
     });
   }
 
-
-   // edit data 
-
+  // edit data 
 function fetch_edit_data(id) {
     var apiBaseURL = APIBaseURL;
-    var url = apiBaseURL + 'get_engine_oil_enquiry_by_id/' + id;
-    console.log(url);
-  
+    var url = apiBaseURL + 'get_enquiry_data_for_new_implements_by_id/' + id;
     var headers = {
         'Authorization': 'Bearer ' + localStorage.getItem('token')
     };
@@ -173,18 +316,20 @@ function fetch_edit_data(id) {
         type: 'GET',
         headers: headers,
         success: function (response) {
-            var Data = response.customer_details[0];
-            $('#idUser').val(Data.id);
-            $('#brand_name').val(Data.brand_name);
-            $('#model_name').val(Data.oil_model);
-            $('#first_name').val(Data.first_name);
-            $('#last_name').val(Data.last_name);
-            $('#mobile').val(Data.mobile);
-            $('#email').val(Data.email);
-            $('#date').val(Data.date);
-            $('#state_').val(Data.state);
-            $('#dist_').val(Data.district);
-            $('#tehsil_').val(Data.tehsil);
+            var Data = response.getNewImplementEnquiry[0];
+            $('#userId').val(Data.customer_id);
+            $('#namef').val(Data.first_name);
+            $('#namel').val(Data.last_name);
+            $('#number').val(Data.mobile);
+            $("#stat_e option").prop("selected", false);
+            $("#stat_e option[value='" + Data.state_id+ "']").prop("selected", true);
+
+            $("#dis_t option").prop("selected", false);
+            $("#dis_t option[value='" + Data.district_id+ "']").prop("selected", true);
+
+            $("#tehsi_l option").prop("selected", false);
+            $("#tehsi_l option[value='" + Data.tehsil_id+ "']").prop("selected", true);
+           
         },
         error: function (error) {
             console.error('Error fetching user data:', error);
@@ -193,21 +338,16 @@ function fetch_edit_data(id) {
   }
   
 
-  function edit_data_id() {
-    var enquiry_type_id = $("#enquiry_type_id").val();
-    var product_id = $("#product_id").val();
-    var edit_id = $("#idUser").val();
-    var brand_name = $("#brand_name").val();
-    var model_name = $("#model_name").val();
-    var first_name = $("#first_name").val();
-    var last_name = $("#last_name").val();
-    var mobile = $("#mobile").val();
-    var email = $("#email").val();
-    var date = $("#date").val();
-    var state = $("#state_").val();
-    var district = $("#dist_").val();
-    var tehsil = $("#tehsil_").val();
-    var _method = 'put';
+  function store(edit_id) {
+    var enquiry_type_id = 6;
+    var edit_id = $("#userId").val();
+    console.log("id",edit_id);
+    var first_name = $("#namef").val();
+    var last_name = $("#namel").val();
+    var mobile = $("#number").val();
+    var state = $("#stat_e").val();
+    var district = $("#dis_t").val();
+    var tehsil = $("#tehsi_l").val();
 
 
     // Validate mobile number
@@ -217,20 +357,14 @@ function fetch_edit_data(id) {
     }
    
     var paraArr = {
-        'brand_name': brand_name,
-        'oil_model': model_name,
         'first_name': first_name,
         'last_name': last_name,
         'mobile': mobile,
-        'email': email,
-        'date': date,
         'state': state,
         'district': district,
         'tehsil': tehsil,
-        'id': edit_id,
+        'customer_id': edit_id,
         'enquiry_type_id': enquiry_type_id,
-        'product_id': product_id,
-        '_method': _method,
     };
   
     var apiBaseURL = APIBaseURL;
@@ -242,15 +376,14 @@ function fetch_edit_data(id) {
  
     $.ajax({
         url: url,
-        type: "POST",
+        type: "PUT",
         data: paraArr,
         headers: headers,
         success: function (result) {
             console.log(result, "result");
-            window.location.reload();
             console.log("updated successfully");
             alert('successfully updated..!');
-            get_new_harvester();
+            get_enquiry();
 
         },
         error: function (error) {
