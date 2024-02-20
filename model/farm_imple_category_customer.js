@@ -58,8 +58,7 @@ function displayInitialCards(productContainer, p) {
     document.getElementById('heading_imple').innerText=p.category_name;
     document.getElementById('title_heading').innerText=p.category_name ;
     const brand_model = p.brand_name + " " + p.model;
-    var images = p.thumbnail;
-    var a = [];
+    
                 // Remove underscores and special characters
                 var cleanedString = p.sub_category_name.replace(/[^\w\s]/gi, '');
 
@@ -67,13 +66,12 @@ function displayInitialCards(productContainer, p) {
                 var spacedString = cleanedString.replace(/_/g, ' ');
     
                 // Set the modified string to the innerText of the element with id 'subcategory'
-                var subcategoryElement = document.getElementById('subcategory');
-                if (subcategoryElement) {
-                    subcategoryElement.innerText = spacedString;
-                } else {
-                    console.error("Element with id 'subcategory' not found.");
-                }
-
+                // var subcategoryElement = document.getElementById('subcategory');
+                // if (subcategoryElement) {
+                //     subcategoryElement.innerText = spacedString;
+                // } 
+                var images = p.image_names;
+                var a = [];
     if (images) {
         if (images.indexOf(',') > -1) {
             a = images.split(',');
