@@ -546,7 +546,7 @@ function updateTable(data) {
             row.brand_name,
             row.model,
             row.purchase_year,
-            row.state,
+            row.state_name,
             action
         ]);
 
@@ -615,14 +615,11 @@ function fetch_edit_data(customer_id) {
       $('#last_name').val(userData.last_name);
       $('#mobile_number').val(userData.mobile);
 
-      $("#state option").prop("selected", false);
-      $("#state option[value='" + userData.state + "']").prop("selected", true);
-
-      $("#district option").prop("selected", false);
-      $("#district option[value='" + userData.district + "']").prop("selected", true);
-
-      $("#tehsil option").prop("selected", false);
-      $("#tehsil option[value='" + userData.tehsil+ "']").prop("selected", true);
+      setSelectedOption('state', Data.state_id);
+          setSelectedOption('district', Data.district_id);
+          
+          // Call function to populate tehsil dropdown based on selected district
+          populateTehsil(Data.district_id, 'tehsil-dropdown', Data.tehsil_id);
 
       $("#brand option").prop("selected", false);
       $("#brand option[value='" +userData.brand_name + "']").prop("selected", true);
@@ -704,9 +701,9 @@ function fetch_data(product_id){
       document.getElementById('first_name2').innerText=data.product[0].first_name;
       document.getElementById('last_name2').innerText=data.product[0].last_name;
       document.getElementById('monile').innerText=data.product[0].mobile;
-      document.getElementById('state2').innerText=data.product[0].state;
-      document.getElementById('district2').innerText=data.product[0].district;
-      document.getElementById('tehsil2').innerText=data.product[0].tehsil;
+      document.getElementById('state2').innerText=data.product[0].state_name;
+      document.getElementById('district2').innerText=data.product[0].district_name;
+      document.getElementById('tehsil2').innerText=data.product[0].tehsil_name;
       document.getElementById('brand1').innerText=data.product[0].brand_name;
       document.getElementById('purchase_year1').innerText=data.product[0].purchase_year;
       document.getElementById('eng_condition').innerText=data.product[0].engine_condition;
@@ -809,3 +806,37 @@ function fetch_data(product_id){
     $('#_image').val('');
     $('#_descriptionimage').val('');
   } 
+  function get_By_State() {
+    var url = 'http://tractor-api.divyaltech.com/api/customer/state_data';
+    $.ajax({
+        url: url,
+        type: "GET",
+        headers: {
+            'Authorization': 'Bearer ' + localStorage.getItem('token')
+        },
+        success: function(data) {
+            console.log(data);
+            const select = document.getElementById('state_name');
+            select.innerHTML = '<option selected disabled value="">Please select a state</option>';
+  
+            const stateId = 7; // State ID you want to filter for
+            const filteredState = data.stateData.find(state => state.id === stateId);
+            if (filteredState) {
+                const option = document.createElement('option');
+                option.textContent = filteredState.state_name;
+                option.value = filteredState.id;
+                select.appendChild(option);
+                // Once the state is populated, fetch districts for this state
+                getDistricts(filteredState.id);
+            } else {
+                select.innerHTML = '<option>No valid data available</option>';
+            }
+        },
+        error: function(error) {
+            console.error('Error fetching data:', error);
+        }
+    });
+  }
+  get_By_State();
+
+  populateDropdownsFromClass('state-dropdown', 'district-dropdown', 'tehsil-dropdown');

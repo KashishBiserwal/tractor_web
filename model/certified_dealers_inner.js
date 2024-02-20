@@ -20,7 +20,7 @@ function getDealerInnerId() {
           console.log(data, 'abc');
 
           // Concatenate district and state
-          var location = data.dealer_enquiry_details[0].district + ', ' + data.dealer_enquiry_details[0].state;
+          var location = data.dealer_enquiry_details[0].district_name + ', ' + data.dealer_enquiry_details[0].state_name;
 
           // Update HTML elements with data
           document.getElementById('brand_main').innerText = data.dealer_enquiry_details[0].brand_name;
@@ -30,8 +30,8 @@ function getDealerInnerId() {
           // document.getElementById('location_1').innerText = location;
           document.getElementById('brand_second').innerText = data.dealer_enquiry_details[0].brand_name;
           document.getElementById('mob_number').innerText = data.dealer_enquiry_details[0].mobile;
-          document.getElementById('mystate').innerText = data.dealer_enquiry_details[0].state;
-          document.getElementById('my_district').innerText = data.dealer_enquiry_details[0].district;
+          document.getElementById('mystate').innerText = data.dealer_enquiry_details[0].state_name;
+          document.getElementById('my_district').innerText = data.dealer_enquiry_details[0].district_name;
           document.getElementById('product_id').value = data.dealer_enquiry_details[0].product_id;
 
          
@@ -483,3 +483,5 @@ function get() {
   });
 }
 get();
+
+populateDropdownsFromClass('state-dropdown', 'district-dropdown', 'tehsil-dropdown');

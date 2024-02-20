@@ -19,6 +19,7 @@ function getOldTractorById() {
         success: function(data) {
         console.log(data, 'abc');
     
+        document.getElementById('brand_main').innerText=data.product[0].brand_name;
         document.getElementById('model_name').innerText=data.product[0].model;
         document.getElementById('hours_driven').innerText=data.product[0].hours_driven;
         // document.getElementById('engine_powerhp').innerText=data.product[0].hp_category;
@@ -313,3 +314,4 @@ function displayupcomingTractors(tractors, new_arr) {
 }
 
 
+populateDropdownsFromClass('state-dropdown', 'district-dropdown', 'tehsil-dropdown');

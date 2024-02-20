@@ -71,7 +71,7 @@ function getOldFarmImplementId() {
         }
     });
 }
-
+populateDropdownsFromClass('state-dropdown', 'district-dropdown', 'tehsil-dropdown');
 // store data throught form
 
 function store(event) {

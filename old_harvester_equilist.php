@@ -8,6 +8,8 @@
    <script> var APIBaseURL = "<?php echo $APIBaseURL; ?>";</script>
    <script> var baseUrl = "<?php echo $baseUrl; ?>";</script>
    <script src="<?php $baseUrl; ?>model/old_harvesteradmin.js"></script>
+   <script src="<?php $baseUrl; ?>model/State_dist_tehsil.js"></script>
+  <script src="<?php $baseUrl; ?>model/state2_dist2.js"></script>
 
 <body class="loaded"> 
 <div class="main-wrapper">
@@ -156,31 +158,25 @@
                                     <div class="col-12 col-sm-6 col-lg-6 col-md-6 mt-3">
                                   <div class="form-outline ">
                                     <label class="form-label text-dark">State</label>
-                                    <select class="form-select form-control" aria-label=".form-select-lg example" id="state" name="state">
-                                        <option value="">Select State</option>
-                                        <option value="Chhattisgarh">Chhattisgarh</option>
-                                        <option value="Others">Others</option>
+                                    <select class="form-select form-control state-dropdown" aria-label=".form-select-lg example" id="state" name="state">
+                                       
                                       </select>
                                   </div>
                                 </div>
                                     <div class="col-12 col-sm-6 col-lg-6 col-md-6 mt-3">
                                   <div class="form-outline ">
                                     <label class="form-label text-dark">District</label>
-                                    <select class="form-select form-control" aria-label=".form-select-lg example" id="district" name="district">
-                                        <option value="">Select Districte</option>
-                                        <option value="Jagdalpur">Jagdalpur</option>
-                                        <option value="Sarguja">Sarguja</option>
+                                    <select class="form-select form-control district-dropdown" aria-label=".form-select-lg example" id="district" name="district">
+                                       
                                       </select>
                                   </div>
                                 </div>
                                     <div class="col-12 col-sm-6 col-lg-6 col-md-6 mt-3">
                                   <div class="form-outline ">
                                     <label class="form-label text-dark">Tehsil</label>
-                                    <select class="form-select form-control" aria-label=".form-select-lg example" id="tehsil" name="tehsil">
-                                        <option value="">Select Tehsil</option>
-                                        <option value="Jagdalpur">Jagdalpur</option>
-                                          <option value="Sarguja">Sarguja</option>
-                                      </select>
+                                    <select class="form-select form-control tehsil-dropdown" aria-label=".form-select-lg example" id="tehsil" name="tehsil">
+                                     
+                                    </select>
                                   </div>
                                 </div>
                                
@@ -227,25 +223,16 @@
             <div class="col-12 col-sm-12 col-md-3 col-lg-3">
               <div class="form-outline">
                 <label class="form-label">State</label>
-                <!-- <input type="text" class="form-control" id="state_name" name="state"> -->
-                <select class="form-select form-control" aria-label="Default select example" id="state_name" name="state">
-                    <option value>Select State</option>
-                    <option value="1">Chattisgarh</option>
-                    <option value="2">Other</option>
+                <select class="form-select form-control state_select" aria-label="Default select example" id="state_name" name="state">
+                
                 </select>
               </div>
             </div>
             <div class="col-12 col-sm-12 col-md-3 col-lg-3">
               <div class="form-outline">
                 <label class="form-label">District</label>
-                <!-- <input type="text" class="form-control" id="district_name" name="district"> -->
-                <select class="form-select form-control" aria-label="Default select example" id="district_name" name="district">
-                    <option value>Select District</option>
-                    <option value="Raipur">Raipur</option>
-                    <option value="Bilaspur">Bilaspur</option>
-                    <option value="Jagdalpur">Jagdalpur</option>
-                    <option value="Sarguja">Sarguja</option>
-                    <option value="Surajpur">Surajpur</option>
+                <select class="form-select form-control district_select" aria-label="Default select example" id="district_name" name="district">
+                  
                 </select>
               </div>
             </div>

@@ -1,4 +1,6 @@
 $(document).ready(function() {
+
+  // populateDropdownsFromClass('state-dropdown', 'district-dropdown', 'tehsil-dropdown');
     getEngineoilList();
     $('#engine_oil_form').submit(engineoil_enquiry);
 
@@ -100,143 +102,149 @@ function displayEngineoil(engineoil) {
     productContainer.html('');
     tableData.html('');
 
-    
     engineoil.forEach(function (p) {
-        console.log(p,"ppp")
-        var images = p.image_names;
-        var a = [];
-
-        if (images) {
-            if (images.indexOf(',') > -1) {
-                a = images.split(',');
-            } else {
-                a = [images];
-            }
-        }
+        var images = p.image_names ? p.image_names.split(',') : [];
+        var imageSrc = images.length > 0 ? `http://tractor-api.divyaltech.com/uploads/engine_oil_img/${images[0]}` : '';
 
         var newCard = `
-        <div class="col-12 col-lg-3 col-sm-3 col-md-3 mt-2 mb-2 px-1 text-decoration-none">           
-        <div class="success__stry__item h-100 shadow text-dark">
-          <div class="thumb">
-              <a href="engine_oil_inner.php?id=${p.id}">
-              <img src="http://tractor-api.divyaltech.com/uploads/engine_oil_img/${a[0]}" class="engineoil_img  w-100" alt="img">
-              </a>
-          </div>
-          <a href="engine_oil_inner.php?id=${p.id}" class=" text-decoration-none text-dark content mb-0">
-            <p class="fs-5 fw-bold px-3 mb-0" >${p.brand_name} </p>
-            <p class=" text-success fw-bold px-3 " style="font-size:12px;">Model: ${p.oil_model}</p>
-              <div class="col-12 px-3">
-                <div class="row">
-                    <div class="col-12 col-lg-6 col-md-6 col-sm-6 engineoil_details pe-1">
-                        <p>Grade ${p.grade}</p>
-                                                                        
+            <div class="col-12 col-lg-3 col-sm-3 col-md-3 mt-2 mb-2 px-1 text-decoration-none">           
+                <div class="success__stry__item h-100 shadow text-dark">
+                    <div class="thumb">
+                        <a href="engine_oil_inner.php?id=${p.id}">
+                            <img src="${imageSrc}" class="engineoil_img w-100" alt="img">
+                        </a>
                     </div>
-                    <div class="col-12 col-lg-6 col-md-6 col-sm-6 engineoil_details ps-1">
-                        <p>Quantity ${p.quantity}L</p>
-                    
-                    </div>                  
+                    <a href="engine_oil_inner.php?id=${p.id}" class="text-decoration-none text-dark content mb-0">
+                        <p class="fs-5 fw-bold px-3 mb-0">${p.brand_name}</p>
+                        <p class="text-success fw-bold px-3" style="font-size:12px;">Model: ${p.oil_model}</p>
+                        <div class="col-12 px-3">
+                            <div class="row">
+                                <div class="col-12 col-lg-6 col-md-6 col-sm-6 engineoil_details pe-1">
+                                    <p>Grade: ${p.grade}</p>
+                                </div>
+                                <div class="col-12 col-lg-6 col-md-6 col-sm-6 engineoil_details ps-1">
+                                    <p>Quantity: ${p.quantity}L</p>
+                                </div>                  
+                            </div>
+                        </div>
+                        <div class="row">
+                            <h3 class="text-center text-dark" style="font-size: 25px;"><i class="fa fa-indian-rupee-sign" style="font-size: 22px;"></i>${p.price}</h3>
+                        </div>  
+                    </a>
+                    <button type="button" class="btn btn-success w-100" data-bs-toggle="modal" data-bs-target="#engineoil_callbnt_${p.id}">Request Call Back</button>
+                </div>              
+            </div>
+
+            <div class="modal fade" id="engineoil_callbnt_${p.id}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header modal_head">
+                            <h5 class="modal-title text-white ms-1" id="staticBackdropLabel">Request Call Back</h5>
+                            <button type="button" class="btn-close btn-success" data-bs-dismiss="modal" aria-label="Close"><img src="assets/images/close.png" class="w-25"></button>
+                        </div>
+                        <!-- MODAL BODY -->
+                        <div class="modal-body bg-white mt-3">
+                            <form id="engine_oil_form_${p.id}" class="engine_oil_form" method="POST" onsubmit="return false">
+                                <div class="row">
+                                    <input type="hidden" id="brandName_${p.id}" value="${p.brand_name}">
+                                    <input type="hidden" id="modelName_${p.id}" value="${p.oil_model}">
+                                   
+                                    <div class="col-12 col-lg-6 col-md-6 col-sm-6 " hidden>
+                                    <label for="name" class="form-label fw-bold text-dark"><i class="fa-duotone fa-chart-pie-simple"></i> Model Name</label>
+                                    <input type="text" class="form-control" placeholder="Enter Your Name" id="enquiry_type_id" value="12" name="iduser">
+                                </div>
+                                    <div class="col-12 col-sm-6 col-md-6 col-lg-6">
+                                        <label for="" class="form-label text-dark fw-bold"> <i class="fa-regular fa-user"></i> First Name</label>
+                                        <input type="text" class="form-control" placeholder="Enter Number" id="firstName" name="firstName">
+                                    </div>
+                                    <div class="col-12 col-sm-6 col-md-6 col-lg-6">
+                                        <label for="" class="form-label text-dark fw-bold"><i class="fa-regular fa-user"></i> Last Name</label>
+                                        <input type="text" class="form-control" placeholder="Enter Number" id="lastName" name="lastName">
+                                    </div>
+                                    <div class="col-12 col-sm-6 col-md-6 col-lg-6">
+                                      <label for="number" class="form-label text-dark fw-bold"><i class="fa fa-phone" aria-hidden="true"></i> Mobile Number</label>
+                                      <input type="text" class="form-control" placeholder="Enter Number" id="mobile_number" name="mobile_number">
+                                      <P class="text-danger">*Please make sure mobile no. must valid</p>
+                                    </div>
+                                    <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-4">
+                                        <div class="form-outline">
+                                            <label for="eo_state_${p.id}" class="form-label text-dark fw-bold"> <i class="fas fa-location"></i> State</label>
+                                            <select class="form-select py-2 state-dropdown" aria-label=".form-select-lg example" id="state_${p.id}" name="state_${p.id}">
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-4">
+                                        <div class="form-outline">
+                                            <label for="eo_dist_${p.id}" class="form-label fw-bold text-dark"><i class="fa-solid fa-location-dot"></i> District</label>
+                                            <select class="form-select py-2 district-dropdown" aria-label=".form-select-lg example" id="district_${p.id}" name="district_${p.id}">
+                                            </select>
+                                        </div>                    
+                                    </div>       
+                                    <div class="col-12 col-sm-6 col-md-6 col-lg-6 mt-4">
+                                        <div class="form-outline">
+                                            <label for="eo_tehsil_${p.id}" class="form-label fw-bold text-dark"> Tehsil</label>
+                                            <select class="form-select py-2 tehsil-dropdown" aria-label=".form-select-lg example" id="Tehsil_${p.id}" name="Tehsil_${p.id}">
+                                                <option value="" selected disabled="">Please select a tehsil</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div> 
+                                <div class="text-center my-3">
+                                    <button type="submit" id="submit_enquiry_${p.id}" class="btn add_btn btn-success w-100 btn_all" onclick="engineoil_enquiry()" data-bs-dismiss="modal">Submit</button>        
+                                </div>        
+                            </form>                             
+                        </div>
+                    </div>
                 </div>
             </div>
-           
-            <div class="row">
-                <h3 class=" text-center text-dark " style="font-size: 25px;"><i class="fa fa-indian-rupee-sign" style="
-                font-size: 22px;
-            "></i>${p.price}</h3>
-                               
-            </div>  
-          </a>
-          <button type="button" class="btn btn-success w-100" data-bs-toggle="modal" data-bs-target="#engineoil_callbnt_${p.id}">Request Call Back</button>
-        </div>              
-      </div>
+        `;
 
-      <div class="modal fade" id="engineoil_callbnt_${p.id}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-      <div class="modal-dialog modal-lg modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-header  modal_head">
-          <h5 class="modal-title text-white ms-1" id="staticBackdropLabel">Request Call Back</h5>
-          <button type="button" class="btn-close btn-success" data-bs-dismiss="modal" aria-label="Close"><img src="assets/images/close.png"></button>
-            </div>
-            <!-- MODAL BODY -->
-            <div class="modal-body bg-white mt-3">
-              <form id="engine_oil_form" method="POST" onsubmit="return false">
-                <div class="row">
-            
-                <input type="hidden" id="brandName" value="${p.brand_name}" >
-                <input type="hidden" id="modelName" value="${p.oil_model}" >
-                <input type="hidden" id="enquiry_type_id" value="12" >
-                
-            
-         
-                  <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                    <div class="form-outline">
-                      <label for="f_name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i> First Name</label>
-                      <input type="text" class="form-control mb-0" placeholder="Enter Your Name" id="firstName" name="firstName">
-                    </div>
-                  </div>
-                  <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                    <div class="form-outline">
-                      <label for="last_name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i> Last Name</label>
-                      <input type="text" class="form-control mb-0" placeholder="Enter Your Name" id="lastName" name="lastName">
-                    </div>
-                  </div>
-                  <div class="col-12 col-sm-6 col-md-6 col-lg-6 mt-4">
-                    <div class="form-outline">
-                      <label for="eo_number" class="form-label text-dark fw-bold"> <i class="fa fa-phone" aria-hidden="true"></i> Phone Number</label>
-                      <input type="text" class="form-control mb-0" placeholder="Enter Number" id="mobile_number" name="mobile_number">
-                    </div>
-                  </div>
-                  <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-4">
-                    <div class="form-outline">
-                      <label for="eo_state" class="form-label text-dark fw-bold"> <i class="fas fa-location"></i> State</label>
-                      <select class="form-select py-2 " aria-label=".form-select-lg example" id="state" name="state">
-                        <option value="" selected disabled=""> </option>  
-                        <option value="1">Chhattisgarh</option>
-                        <option value="2">Other</option>
-                      </select>
-                    </div>
-                  </div>
-                  <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-4">
-                    <div class="form-outline">
-                      <label for="eo_dist" class="form-label fw-bold  text-dark"><i class="fa-solid fa-location-dot"></i> District</label>
-                      <select class="form-select py-2 " aria-label=".form-select-lg example" id="district" name="district">
-                        <option value="" selected disabled=""></option>
-                        <option value="1">Raipur</option>
-                        <option value="2">Bilaspur</option>
-                        <option value="2">Durg</option>
-                      </select>
-                    </div>                    
-                  </div>       
-                  <div class="col-12 col-sm-6 col-md-6 col-lg-6 mt-4">
-                    <div class="form-outline">
-                      <label for="eo_tehsil" class="form-label fw-bold text-dark"> Tehsil</label>
-                      <select class="form-select py-2 " aria-label=".form-select-lg example" id="Tehsil" name="Tehsil">
-                        <option value="" selected disabled=""></option>
-                        <option value="2">Durg</option>
-                      </select>
-                    </div>
-                  </div>
-
-                </div> 
-                <div class="text-center my-3">
-                <button type="submit" id="submit_enquiry" class="btn add_btn btn-success w-100 btn_all" onclick="engineoil_enquiry()" data-bs-dismiss="modal">Submit</button>        
-                </div>        
-              </form>                             
-            </div>
-          </div>
-        </div>
-      </div>
-                    `;
-                
-
-  
-    var myDiv = $('#description_id');
-myDiv.text(myDiv.text().substring(0,120))
         // Append the new card to the container
         productContainer.append(newCard);
-       
-       
+
+        // Populate dropdowns
+        populateDropdowns(p.id);
     });
 }
+
+function populateDropdowns(productId) {
+  var stateId = `state_${productId}`;
+  var districtId = `district_${productId}`;
+  var tehsilId = `Tehsil_${productId}`;
+  var defaultStateId = 7; // Define the default state ID here
+
+var selectYourStateOption = $('<option>').val('').text('Select Your State');
+var chhattisgarhOption = $('<option>').val(defaultStateId).text('Chhattisgarh');
+
+$(`#${stateId}`).empty().append(selectYourStateOption).append(chhattisgarhOption);
+
+  // Fetch district data based on the selected state
+  $.get(`http://tractor-api.divyaltech.com/api/customer/get_district_by_state/${defaultStateId}`, function(data) {
+      var districtSelect = $(`#${districtId}`);
+      districtSelect.empty().append($('<option>').val('').text('Please select a district'));
+      data.districtData.forEach(district => {
+          districtSelect.append($('<option>').val(district.id).text(district.district_name));
+      });
+  });
+
+  // Event listener for district dropdown
+  $(document).on('change', `#${districtId}`, function() {
+      var selectedDistrictId = $(this).val();
+      if (selectedDistrictId) {
+          // Fetch tehsil data based on the selected district
+          $.get(`http://tractor-api.divyaltech.com/api/customer/get_tehsil_by_district/${selectedDistrictId}`, function(data) {
+              var tehsilSelect = $(`#${tehsilId}`);
+              tehsilSelect.empty().append($('<option>').val('').text('Please select a tehsil'));
+              data.tehsilData.forEach(tehsil => {
+                  tehsilSelect.append($('<option>').val(tehsil.id).text(tehsil.tehsil_name));
+              });
+          });
+      }
+  });
+}
+// Call the function to display engine oil cards
+displayEngineoil(/* Pass your engine oil data here */);
+
 
 function engineoil_enquiry() {
     var brandName = $('#brandName').val();
@@ -307,3 +315,106 @@ var url ='http://tractor-api.divyaltech.com/api/customer/customer_enquiries';
 //     console.log("confirm");
 //     console.log("Form submitted successfully");
 //   }
+
+
+
+
+function populateDropdownsFromClass(stateClassName, districtClassName, tehsilClassName) {
+  var url = 'http://tractor-api.divyaltech.com/api/customer/state_data';
+  $.ajax({
+      url: url,
+      type: "GET",
+      headers: {
+          'Authorization': 'Bearer ' + localStorage.getItem('token')
+      },
+      success: function(data) {
+          console.log(data);
+          const stateSelect = document.getElementsByClassName(stateClassName)[0];
+          stateSelect.innerHTML = '<option selected disabled value="">Please select a state</option>';
+
+          const stateId = 7; // State ID you want to filter for
+          const filteredState = data.stateData.find(state => state.id === stateId);
+          if (filteredState) {
+              const option = document.createElement('option');
+              option.textContent = filteredState.state_name;
+              option.value = filteredState.id;
+              stateSelect.appendChild(option);
+              // Once the state is populated, fetch and populate districts immediately
+              getDistricts(filteredState.id, districtClassName, tehsilClassName);
+          } else {
+              stateSelect.innerHTML = '<option>No valid data available</option>';
+          }
+      },
+      error: function(error) {
+          console.error('Error fetching data:', error);
+      }
+  });
+}
+
+function getDistricts(state_id, districtClassName, tehsilClassName) {
+  var url = 'http://tractor-api.divyaltech.com/api/customer/get_district_by_state/' + state_id;
+  console.log(url);
+  var districtSelect = document.getElementsByClassName(districtClassName)[0];
+  districtSelect.innerHTML = '<option selected disabled value="">Please select a district</option>';
+
+  $.ajax({
+      url: url,
+      type: "GET",
+      headers: {
+          'Authorization': 'Bearer ' + localStorage.getItem('token')
+      },
+      success: function(data) {
+          if (data.districtData.length > 0) {
+              data.districtData.forEach(row => {
+                  const option = document.createElement('option');
+                  option.textContent = row.district_name;
+                  option.value = row.id;
+                  districtSelect.appendChild(option);
+              });
+              // If needed, you can fetch and populate tehsils for the default district here
+              // For now, let's leave it blank
+              districtSelect.addEventListener('change', function() {
+                  populateTehsil(districtSelect.value, tehsilClassName);
+              });
+          } else {
+              districtSelect.innerHTML = '<option>No districts available for this state</option>';
+          }
+      },
+      error: function(error) {
+          console.error('Error fetching districts:', error);
+      }
+  });
+}
+
+function populateTehsil(districtId, tehsilClassName, selectedTehsilId) {
+  var url = 'http://tractor-api.divyaltech.com/api/customer/get_tehsil_by_district/' + districtId; 
+  console.log(url);
+  var tehsilSelect = document.getElementsByClassName(tehsilClassName)[0];
+  tehsilSelect.innerHTML = '<option selected disabled value="">Please select a tehsil</option>';
+
+  $.ajax({
+      url: url,
+      type: "GET",
+      headers: {
+          'Authorization': 'Bearer ' + localStorage.getItem('token')
+      },
+      success: function(data) {
+          if (data.tehsilData.length > 0) {
+              data.tehsilData.forEach(row => {
+                  const option = document.createElement('option');
+                  option.textContent = row.tehsil_name;
+                  option.value = row.id;
+                  if (row.id === selectedTehsilId) {
+                      option.selected = true;
+                  }
+                  tehsilSelect.appendChild(option);
+              });
+          } else {
+              tehsilSelect.innerHTML = '<option>No tehsils available for this district</option>';
+          }
+      },
+      error: function(error) {
+          console.error('Error fetching tehsils:', error);
+      }
+  });
+}

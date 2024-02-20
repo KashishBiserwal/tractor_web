@@ -246,30 +246,65 @@ function fetch_edit_data(id) {
             $('#vehicle_no').val(Data.vehicle_registered_num);
             $('#registerd_year').val(Data.registered_year);
 
-            $("#brand_name option").prop("selected", false);
-            $("#brand_name option[value='" + Data.brand_name+ "']").prop("selected", true);
+            // $("#brand_name option").prop("selected", false);
+            // $("#brand_name option[value='" + Data.brand_name+ "']").prop("selected", true);
   
-            $("#model_name option").prop("selected", false);
-            $("#model_name option[value='" +Data.model+ "']").prop("selected", true);
+            // $("#model_name option").prop("selected", false);
+            // $("#model_name option[value='" +Data.model+ "']").prop("selected", true);
   
 
             $("#insurance_type option").prop("selected", false);
             $("#insurance_type option[value='" + Data.insurance_type_name+ "']").prop("selected", true);
+            var brandDropdown = document.getElementById('brand_name');
+            for (var i = 0; i < brandDropdown.options.length; i++) {
+              if (brandDropdown.options[i].text === Data.brand_name) {
+                brandDropdown.selectedIndex = i;
+                break;
+              }
+            }
   
-            $("#state_2 option").prop("selected", false);
-            $("#state_2 option[value='" + Data.state+ "']").prop("selected", true);
+            $('#model_name').empty(); 
+            get_model_1(Data.brand_id); 
+  
+            // Selecting the option in the model dropdown
+            setTimeout(function() { // Wait for the model dropdown to populate
+                $("#model_name option").prop("selected", false);
+                $("#model_name option[value='" + Data.model + "']").prop("selected", true);
+            }, 1000); // Adjust the delay time as needed
+  
+            setSelectedOption('state_2', Data.state_id);
+            setSelectedOption('dist_2', Data.district_id);
             
-            $("#dist_2 option").prop("selected", false);
-            $("#dist_2 option[value='" + Data.district+ "']").prop("selected", true);
-            
-            $("#tehsil_2 option").prop("selected", false);
-            $("#tehsil_2 option[value='" + Data.tehsil+ "']").prop("selected", true);
-        },
-        error: function (error) {
+            // Call function to populate tehsil dropdown based on selected district
+            populateTehsil(Data.district_id, 'tehsil-dropdown', Data.tehsil_id);
+  
+            // setSelectedOption('tehsil-dropdown', Data.tehsil_id);
+          },
+          error: function(error) {
             console.error('Error fetching user data:', error);
+          }
+        });
+      }
+      
+        function setSelectedOption(selectId, value) {
+          var select = document.getElementById(selectId);
+          for (var i = 0; i < select.options.length; i++) {
+            if (select.options[i].value == value) {
+              select.selectedIndex = i;
+              break;
+            }
+          }
         }
-    });
-  }
+        
+        function populateTehsil(selectId, value) {
+          var select = document.getElementById(selectId);
+          for (var i = 0; i < select.options.length; i++) {
+            if (select.options[i].value == value) {
+              select.options[i].selected = true;
+              break;
+            }
+          }
+        }
   
 //   edit form data
 function edit_insurance() {
@@ -492,3 +527,6 @@ function resetform(){
     // get_loan();
     window.location.reload();
 }
+
+populateDropdownsFromClass('state-dropdown', 'district-dropdown', 'tehsil-dropdown');
+populateStateDropdown('state_select', 'district_select');

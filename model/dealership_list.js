@@ -71,7 +71,7 @@ $(document).ready(function () {
     });
 
     $('#add_trac').on('click', function() {
-      get('brand');
+      // get('brand');
     });
     $("#subbtn_").on("click", function () {
    
@@ -185,7 +185,7 @@ $(document).ready(function () {
           }
       });
     }
-//get();
+get('brand');
 
 function add_dealership(event) {
     event.preventDefault();
@@ -297,8 +297,8 @@ function get_dealers() {
                     row.date,
                     row.brand_name,
                     row.dealer_name,
-                    row.state,
-                    row.district,
+                    row.state_name,
+                    row.district_name,
                     action
                 ]);
   
@@ -395,9 +395,9 @@ function destroy(id) {
           document.getElementById('brand_nmae').innerText = data.dealer_details[0].brand_name;
           document.getElementById('email_id').innerText = data.dealer_details[0].email;
           document.getElementById('contact').innerText = data.dealer_details[0].mobile;
-          document.getElementById('state').innerText =data.dealer_details[0].state;
-          document.getElementById('district').innerText = data.dealer_details[0].district;
-          document.getElementById('tehsil_').innerText = data.dealer_details[0].tehsil;
+          document.getElementById('state').innerText =data.dealer_details[0].state_name;
+          document.getElementById('district').innerText = data.dealer_details[0].district_name;
+          document.getElementById('tehsil_').innerText = data.dealer_details[0].tehsil_name;
           document.getElementById('addrss').innerText = data.dealer_details[0].address;
       
           $("#selectedImagesContainer1").empty();
@@ -434,11 +434,11 @@ function destroy(id) {
     var url = apiBaseURL + 'dealer_data/' + id;
     editId_state= true;
     EditIdmain_= id;
-  
+
     var headers = {
         'Authorization': 'Bearer ' + localStorage.getItem('token')
     };
-  
+
     $.ajax({
         url: url,
         type: 'GET',
@@ -446,20 +446,26 @@ function destroy(id) {
         success: function (response) {
             var Data = response.dealer_details[0];
             $('#dname').val(Data.dealer_name);
-            // $('#brand').val(Data.brand_name);
-            $("#brand option").prop("selected", false);
-            $("#brand option[value='" + Data.brand_name + "']").prop("selected", true);
-
             $('#email').val(Data.email);
             $('#cno').val(Data.mobile);
             $('#address').val(Data.address);
-            $('#state_').val(Data.state);
-            $('#dist').val(Data.district);
-            $('#tehsil').val(Data.tehsil);
-  
+
+            // Set selected brand option
+            var brandDropdown = document.getElementById('brand');
+            for (var i = 0; i < brandDropdown.options.length; i++) {
+                if (brandDropdown.options[i].text === Data.brand_name) {
+                    brandDropdown.selectedIndex = i;
+                    break;
+                }
+            }
+            // Set selected state, district, and tehsil options
+            setSelectedOption('state_', Data.state_id);
+            setSelectedOption('dist_', Data.district_id);
+            populateTehsil(Data.district_id, Data.tehsil_id);
+
             // Clear existing images
             $("#selectedImagesContainer").empty();
-  
+
             if (Data.image_names) {
                 // Check if Data.image_names is an array
                 var imageNamesArray = Array.isArray(Data.image_names) ? Data.image_names : Data.image_names.split(',');
@@ -469,7 +475,7 @@ function destroy(id) {
                     countclass++;
                     var newCard = `
                         <div class="col-6 col-lg-6 col-md-6 col-sm-6 position-relative">
-                        <div class="upload__img-close_button" id="closeId${countclass}" onclick="removeImage(this);"></div>
+                            <div class="upload__img-close_button" id="closeId${countclass}" onclick="removeImage(this);"></div>
                             <div class="brand-main d-flex box-shadow mt-2 text-center shadow upload__img-closeDy${countclass}">
                                 <a class="weblink text-decoration-none text-dark" title="Image">
                                     <img class="img-fluid w-100 h-100" src="${imageUrl}" alt=" Image">
@@ -486,7 +492,28 @@ function destroy(id) {
             console.error('Error fetching user data:', error);
         }
     });
-  }
+}
+
+function setSelectedOption(selectId, value) {
+    var select = document.getElementById(selectId);
+    for (var i = 0; i < select.options.length; i++) {
+        if (select.options[i].value == value) {
+            select.selectedIndex = i;
+            break;
+        }
+    }
+}
+
+function populateTehsil(selectId, value) {
+    var select = document.getElementById(selectId);
+    for (var i = 0; i < select.options.length; i++) {
+        if (select.options[i].value == value) {
+            select.options[i].selected = true;
+            break;
+        }
+    }
+}
+
 
   function searchdata(){
     var name = $('#name1').val();
@@ -544,8 +571,8 @@ function destroy(id) {
                     row.date,
                     row.brand_name,
                     row.dealer_name,
-                    row.state,
-                    row.district,
+                    row.state_name,
+                    row.district_name,
                     action
                 ]);
   
@@ -592,3 +619,7 @@ function destroy(id) {
     $('#district_1').val('');
     get_dealers();
   }
+
+  populateDropdownsFromClass('state-dropdown', 'district-dropdown', 'tehsil-dropdown');
+
+populateStateDropdown('state_select', 'district_select');

@@ -7,6 +7,8 @@ include 'includes/footertag.php';
 <script> var APIBaseURL = "<?php echo $APIBaseURL; ?>";</script>
 <script> var baseUrl = "<?php echo $baseUrl; ?>";</script>
 <script src="<?php $baseUrl; ?>model/hire_trac.js"></script>
+<script src="<?php $baseUrl; ?>model/State_dist_tehsil.js"></script>
+   <script src="<?php $baseUrl; ?>model/state2_dist2.js"></script>
 <body class="loaded"> 
 <div class="main-wrapper">
     <div class="app" id="app">
@@ -51,21 +53,16 @@ include 'includes/footertag.php';
             <div class="col-12 col-sm-12 col-md-3 col-lg-3">
               <div class="form-outline">
                 <label class="form-label">State</label>
-                <select class="form-select py-2" aria-label="Default select example" id="state_sct">
-                    <option value>Select State</option>
-                    <option value="Chattisgarh">Chattisgarh</option>
-                    <option value="Other">Other</option>
+                <select class="form-select py-2 state_select" aria-label="Default select example" id="state_sct">
+                   
                 </select>
               </div>
             </div>
             <div class="col-12 col-sm-12 col-md-3 col-lg-3">
               <div class="form-outline">
                 <label class="form-label">District</label>
-                <select class="form-select py-2" aria-label="Default select example" id="district_sct">
-                    <option value>Select District</option>
-                    <option value="Raipur">Raipur</option>
-                    <option value="Bilaspur">Bilaspur</option>
-                    <option value="Surajpur">Surajpur</option>
+                <select class="form-select py-2 district_select" aria-label="Default select example" id="district_sct">
+          
                 </select>
               </div>
             </div>
@@ -117,7 +114,7 @@ include 'includes/footertag.php';
                             <div class="col-lg-10">
                               <h4 class="text-center">Fill your Details</h4>
                             <form id="hire_trac_form">
-                                <div class="row justify-content-center pt-4">
+                                <div class="row pt-4">
                                 <div class="col- col-sm-6 col-lg-6 col-md-6" hidden>
                                   <label class="text-dark"> id Name<span class="text-danger">*</span></label>
                                           <input type="text" class="form-control py-2" for="idUser"  id="idUser" name="first_name" placeholder="Enter First Name">
@@ -174,32 +171,24 @@ include 'includes/footertag.php';
                                     <div class="col-12 col-sm-6 col-md-6 col-lg-6">
                                           <div class="form-outline mt-3">
                                              <label class="form-label text-dark">State</label>
-                                              <select class="form-select py-2" aria-label="Default select example" id="state_" name="state_">
-                                                <option value>Select State</option>
-                                                <option value="Chattisgarh">Chattisgarh</option>
-                                                <option value="Other">Other</option>
+                                              <select class="form-select py-2 state-dropdown" aria-label="Default select example" id="state_" name="state_">
+                                             
                                               </select>
                                           </div>
                                         </div>
                                         <div class="col-12 col-sm-6 col-md-6 col-lg-6">
                                           <div class="form-outline mt-3">
                                             <label class="form-label text-dark">District</label>
-                                            <select class="form-select py-2" aria-label="Default select example" id="dist_" name="dist">
-                                              <option value>Select District</option>
-                                              <option value="Raipur">Raipur</option>
-                                              <option value="Bilaspur">Bilaspur</option>
-                                              <option value="Surajpur">Surajpur</option>
+                                            <select class="form-select py-2 district-dropdown" aria-label="Default select example" id="dist_" name="dist">
+                                           
                                             </select>
                                           </div>
                                         </div>
                                         <div class="col-12 col-sm-6 col-md-6 col-lg-6">
                                           <div class="form-outline mt-3">
                                             <label class="form-label text-dark">Tehsil</label>
-                                            <select class="form-select py-2" aria-label="Default select example" id="tehsil_">
-                                              <option value>Select Tehsil</option>
-                                              <option value="Raipur">Raipur</option>
-                                              <option value="Bilaspur">Bilaspur</option>
-                                              <option value="Surajpur">Surajpur</option>
+                                            <select class="form-select py-2 tehsil-dropdown" aria-label="Default select example" id="tehsil_">
+                                            
                                             </select>
                                           </div>
                                         </div>

@@ -13,6 +13,7 @@
     <script> var APIBaseURL = "<?php echo $APIBaseURL; ?>";</script>
     <script> var baseUrl = "<?php echo $baseUrl; ?>";</script>
     <script src="<?php $baseUrl; ?>model/used_farm_inner.js"></script>
+    <script src="<?php $baseUrl; ?>model/State_dist_tehsil.js"></script>
 <body>
 <?php
    include 'includes/header.php';
@@ -172,24 +173,19 @@
                                         </div>
                                         <div class="col-12 col-sm-12 col-md-6 col-lg-6">
                                             <label for="yr_state" class="form-label text-dark fw-bold" id="state" name="state"> <i class="fas fa-location"></i> State</label>
-                                            <select class="form-select py-2 " aria-label=".form-select-lg example"id="state_form_1" name="state">
-                                                <option value>Select State</option>
-                                                <option value="Chhattisgarh">Chhattisgarh</option>
-                                                <option value="Other">Other</option>
+                                            <select class="form-select py-2 state-dropdown" aria-label=".form-select-lg example"id="state_form_1" name="state">
                                             </select>
                                         </div> 
                                         <div class="col-12 col-sm-12 col-md-6 col-lg-6">
                                             <label class="form-label text-dark"><i class="fa-solid fa-location-dot"></i> District</label>
-                                            <select class="form-select py-2 " aria-label=".form-select-lg example" id="district_form_1"  name="district">
-                                                <option value>Select District</option>
-                                                <option value="Raipur">Raipur</option>
-                                                <option value="Bilaspur">Bilaspur</option>
-                                                <option value="Durg">Durg</option>
+                                            <select class="form-select py-2 district-dropdown" aria-label=".form-select-lg example" id="district_form_1"  name="district">
                                             </select>
                                         </div>
                                         <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-2">
                                             <label for="yr_tehsil" class="form-label text-dark"> Tehsil</label>
-                                            <input type="yr_tehsil" class="form-control" placeholder="Enter Tehsil" id="tehsil" name="tehsil">
+                                            <select class="form-select py-2 tehsil-dropdown" aria-label=".form-select-lg example" id="tehsil" name="tehsil">
+                                            </select>
+                                            <!-- <input type="yr_tehsil" class="form-control" placeholder="Enter Tehsil" id="tehsil" name="tehsil"> -->
                                         </div>
                                         <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-2">
                                             <label for="yr_price" class="form-label text-dark">Price</label>

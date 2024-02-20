@@ -153,8 +153,8 @@
                         row.model,
                         fullName,
                         row.mobile,
-                        row.state,
-                        row.district,
+                        row.state_name,
+                        row.district_name,
                      
                         `<div class="d-flex">
                             <button class="btn btn-warning btn-sm text-white mx-1" data-bs-toggle="modal" onclick="openViewdata(${row.id});" data-bs-target="#view_new_harvester_enq">
@@ -241,9 +241,9 @@ function openViewdata(userId) {
         document.getElementById('number1').innerText=userData.mobile;
         document.getElementById('email_1').innerText=userData.email;
         document.getElementById('date_1').innerText=userData.date;
-        document.getElementById('state1').innerText=userData.state;
-        document.getElementById('dist1').innerText=userData.district;
-        document.getElementById('tehsil1').innerText=userData.tehsil;
+        document.getElementById('state1').innerText=userData.state_name;
+        document.getElementById('dist1').innerText=userData.district_name;
+        document.getElementById('tehsil1').innerText=userData.tehsil_name;
       },
       error: function(error) {
         console.error('Error fetching user data:', error);
@@ -270,33 +270,69 @@ function fetch_edit_data(id) {
             var Data = response.enquiry_data[0];
             $('#userId').val(Data.id);
             // $('#brand_name_1').val(Data.brand_name);
-            $("#brand_name_1 option").prop("selected", false);
-            $("#brand_name_1 option[value='" + Data.brand_name + "']").prop("selected", true);
+            // $("#brand_name_1 option").prop("selected", false);
+            // $("#brand_name_1 option[value='" + Data.brand_name + "']").prop("selected", true);
             $('#model_name').val(Data.model);
             $('#fname_2').val(Data.first_name);
             $('#lname_2').val(Data.last_name);
             $('#number_2').val(Data.mobile);
             $('#email_2').val(Data.email);
             $('#date_2').val(Data.date);
-            // $('#state_2').val(Data.state);
-            // $('#dist_2').val(Data.district);
-            // $('#tehsil_2').val(Data.tehsil);
+            
+          var brandDropdown = document.getElementById('brand_name_1');
+          for (var i = 0; i < brandDropdown.options.length; i++) {
+            if (brandDropdown.options[i].text === Data.brand_name) {
+              brandDropdown.selectedIndex = i;
+              break;
+            }
+          }
 
-            $("#state_2 option").prop("selected", false);
-            $("#state_2 option[value='" + Data.state+ "']").prop("selected", true);
-            
-            $("#dist_2 option").prop("selected", false);
-            $("#dist_2 option[value='" + Data.district+ "']").prop("selected", true);
-            
-            $("#tehsil_2 option").prop("selected", false);
-            $("#tehsil_2 option[value='" + Data.tehsil+ "']").prop("selected", true);
+          $('#model_name').empty(); 
+          get_model_1(Data.brand_id); 
+
+          // Selecting the option in the model dropdown
+          setTimeout(function() { // Wait for the model dropdown to populate
+              $("#model_name option").prop("selected", false);
+              $("#model_name option[value='" + Data.model + "']").prop("selected", true);
+          }, 1000); // Adjust the delay time as needed
+
+          setSelectedOption('state_', Data.state_id);
+          setSelectedOption('dist_', Data.district_id);
+          
+          // Call function to populate tehsil dropdown based on selected district
+          populateTehsil(Data.district_id, 'tehsil-dropdown', Data.tehsil_id);
+
+          // setSelectedOption('tehsil-dropdown', Data.tehsil_id);
         },
-        error: function (error) {
-            console.error('Error fetching user data:', error);
+        error: function(error) {
+          console.error('Error fetching user data:', error);
         }
-    });
-  }
+      });
+    }
+    
+      function setSelectedOption(selectId, value) {
+        var select = document.getElementById(selectId);
+        for (var i = 0; i < select.options.length; i++) {
+          if (select.options[i].value == value) {
+            select.selectedIndex = i;
+            break;
+          }
+        }
+      }
+      
+      function populateTehsil(selectId, value) {
+        var select = document.getElementById(selectId);
+        for (var i = 0; i < select.options.length; i++) {
+          if (select.options[i].value == value) {
+            select.options[i].selected = true;
+            break;
+          }
+        }
+      }
+           
+       
   
+  populateDropdownsFromClass('state-dropdown', 'district-dropdown', 'tehsil-dropdown');
 
   function edit_data_id() {
     var enquiry_type_id = $("#enquiry_type_id").val();
@@ -482,6 +518,8 @@ function get_search() {
 }
 get_search();
 
+populateStateDropdown('state_select', 'district_select');
+
   function searchdata() {
     console.log("dfghsfg,sdfgdfg");
     var brand_id = $('#brand_id1').val();
@@ -550,8 +588,8 @@ get_search();
               row.model,
               fullName,
               row.mobile,
-              row.state,
-              row.district,
+              row.state_name,
+              row.district_name,
               action
           ]);
   

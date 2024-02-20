@@ -10,6 +10,7 @@
     <script> var APIBaseURL = "<?php echo $APIBaseURL; ?>";</script>
     <script> var baseUrl = "<?php echo $baseUrl; ?>";</script>
     <script src="<?php $baseUrl; ?>model/sell_used_farm_imple.js"></script>
+    <script src="<?php $baseUrl; ?>model/State_dist_tehsil.js"></script>
 
 <head>
     <?php
@@ -186,10 +187,6 @@
                                             <div class="form-outline">
                                                 <label for="_category" class="form-label mb-0 text-dark fw-bold">Category</label>
                                                 <select class="form-select py-2 " aria-label=".form-select-lg example" name="_category" id="c_category">
-                                                    <option value="" Selected Disabled=""></option>
-                                                    <option value="1">Raipur</option>
-                                                    <option value="2">Bilaspur</option>
-                                                    <option value="2">Durg</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -197,34 +194,21 @@
                                             <div class="form-outline">
                                                 <label for="_brand" class="form-label mb-0 text-dark fw-bold">Brand</label>
                                                 <select class="form-select py-2 " aria-label=".form-select-lg example" name="_brand" id="brand_1">
-                                                    <!-- <option value="" Selected Disabled=""></option>
-                                                    <option value="1">Raipur</option>
-                                                    <option value="2">Bilaspur</option>
-                                                    <option value="2">Durg</option> -->
                                                 </select>
                                             </div>
                                         </div>
                                         <div class="col-12 col-lg-6 col-md-6 col-sm-6 mb-2 mt-3 ">
                                             <div class="form-outline">
                                                 <label for="m_name" class="form-label mb-0 text-dark fw-bold">Model Name</label>
-                                                <input type="text" class="form-control mb-0" placeholder="Enter Model Name" name="m_name" id="m_name" >
-                                                <!-- <select class="form-select py-2 " aria-label=".form-select-lg example" name="m_name" id="m_name">
-                                                    <option value="" Selected Disabled=""></option>
-                                                    <option value="1">Raipur</option>
-                                                    <option value="2">Bilaspur</option>
-                                                    <option value="2">Durg</option>
-                                                </select> -->
+                                                <select class="form-select py-2 " aria-label=".form-select-lg example" name="m_name" id="m_name">
+                                                </select>
                                             </div>
                                         </div> 
                                         <div class="col-12 col-lg-6 col-md-6 col-sm-6 mb-2 mt-3 ">
                                             <div class="form-outline">
                                                 <label for="p_year" class="form-label mb-0 text-dark fw-bold">Purchase Year</label>
                                                 <select class="form-select py-2 " aria-label=".form-select-lg example" name="p_year" id="p_year">
-                                                    <!-- <option value="" Selected Disabled=""></option>
-                                                    <option value="1">Raipur</option>
-                                                    <option value="2">Bilaspur</option>
-                                                    <option value="2">Durg</option> -->
-                                                </select>
+                                                 </select>
                                             </div>
                                         </div>    
                                         <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-3">
@@ -275,11 +259,6 @@
                                             <div class="form-outline">
                                                 <label for="h_driven" class="form-label mb-0 text-dark fw-bold">Hours Driven</label>
                                                 <select class="form-select py-2 " aria-label=".form-select-lg example" name="h_driven" id="h_driven">
-                                                    <!-- <option value="" Selected Disabled=""></option>
-                                                    <option value="1">0000-1000</option>
-                                                    <option value="2">1001-2000</option>
-                                                    <option value="2">2001-3000</option>
-                                                    <option value="2">3001-4000</option> -->
                                                 </select>
                                             </div>
                                         </div> 
@@ -395,32 +374,25 @@
                                         <div class="col-12 col-sm-12 col-md-6 col-lg-6">
                                         <div class="form-outline mt-3">
                                                 <label for="eo_state" class="form-label text-dark" id="state" name="state"> <i class="fas fa-location"></i> State</label>
-                                                <select class="form-select py-2 " aria-label=".form-select-lg example"id="s_state" name="eo_state">
-                                                    <option  value="" Selected Disabled=""></option>
-                                                    <option value="Chhattisgarh">Chhattisgarh</option>
-                                                    <option value="Other">Other</option>
+                                                <select class="form-select py-2 state-dropdown" aria-label=".form-select-lg example"id="s_state" name="eo_state">
+                                             
                                                 </select>
                                             </div>
                                         </div>
                                         <div class="col-12 col-sm-12 col-md-6 col-lg-6">
                                             <div class="form-outline mt-4">
                                                 <label for="eo_dist" class="form-label text-dark"><i class="fa-solid fa-location-dot"></i> District</label>
-                                                <select class="form-select py-2 " aria-label=".form-select-lg example" name="eo_dist" id="d_dist">
-                                                    <option value="" Selected Disabled=""></option>
-                                                    <option value="Raipur">Raipur</option>
-                                                    <option value="Bilaspur">Bilaspur</option>
-                                                    <option value="Durg">Durg</option>
+                                                <select class="form-select py-2 district-dropdown" aria-label=".form-select-lg example" name="eo_dist" id="d_dist">
+                                              
                                                 </select>
                                             </div>
                                         </div>
                                         <div class="col-12 col-sm-12 col-md-6 col-lg-6">
                                             <div class="form-outline mt-4">
                                                 <label for="eo_tehsil" class="form-label fw-bold text-dark"> Tehsil</label>
-                                                <input type="text" class="form-control mb-0" placeholder="Enter Your Name"  id="t_tehsil" name="eo_tehsil">
-                                                <!-- <select class="form-select py-2 " aria-label=".form-select-lg example" id="eo_tehsil" name="eo_tehsil">
-                                                    <option value="" selected disabled=""></option>
-                                                    <option value="2">Durg</option>
-                                                </select> -->
+                                                <select class="form-select py-2 tehsil-dropdown" aria-label=".form-select-lg example" id="t_tehsil" name="eo_tehsil">
+                                                   
+                                                </select>
                                             </div>
                                         </div>
                                     </div>

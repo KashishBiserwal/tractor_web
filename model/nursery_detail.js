@@ -488,3 +488,6 @@ var url = "http://tractor-api.divyaltech.com/api/customer/customer_enquiries";
         loopFillGroupWithBlank: true // This may help in some cases
     });
 }
+
+
+populateDropdownsFromClass('state-dropdown', 'district-dropdown', 'tehsil-dropdown');

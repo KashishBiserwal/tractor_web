@@ -5,44 +5,77 @@ $(document).ready(function() {
 
 // get brand
 function get() {
-    // var apiBaseURL = APIBaseURL;
-    var url = 'http://tractor-api.divyaltech.com/api/customer/getBrands';
-  
+    var url = 'http://tractor-api.divyaltech.com/api/customer/get_all_brands';
     $.ajax({
-      url: url,
-      type: "GET",
-      headers: {
-        'Authorization': 'Bearer ' + localStorage.getItem('token')
-      },
-      success: function (data) {
-        console.log(data);
-       // select.innerHTML = '<option selected disabled value="">Please select an option</option>';
-        const select = $('#brand_1');
-        select.empty(); // Clear existing options
+        url: url,
+        type: "GET",
+        headers: {
+            'Authorization': 'Bearer ' + localStorage.getItem('token')
+        },
+        success: function (data) {
+            console.log(data);
+            const selects = document.querySelectorAll('#brand_1');
   
-        // Add a default option
-        select.append('<option selected disabled value="">Please select Brand</option>');
+            selects.forEach(select => {
+                select.innerHTML = '<option selected disabled value="">Please select an option</option>';
   
-        // Use an object to keep track of unique brands
-        var uniqueBrands = {};
+                if (data.brands.length > 0) {
+                    data.brands.forEach(row => {
+                        const option = document.createElement('option');
+                        option.textContent = row.brand_name;
+                        option.value = row.id;
+                        console.log(option);
+                        select.appendChild(option);
+                    });
   
-        $.each(data.brands, function (index, brand) {
-          var brand_id = brand.id;
-          var brand_name = brand.brand_name;
+                    // Add event listener to brand dropdown
+                    select.addEventListener('change', function() {
+                        const selectedBrandId = this.value;
+                        get_model(selectedBrandId);
+                    });
+                } else {
+                    select.innerHTML = '<option>No valid data available</option>';
+                }
+            });
+        },
+        error: function (error) {
+            console.error('Error fetching data:', error);
+        }
+    });
+  }
   
-          // Check if the brand ID is not already in the object
-          if (!uniqueBrands[brand_id]) {
-            // Add brand ID to the object
-            uniqueBrands[brand_id] = true;
+  function get_model(brand_id) {
+    var url = 'http://tractor-api.divyaltech.com/api/customer/get_brand_model/' + brand_id;
+    console.log('Requesting models for brand ID:', brand_id); // Debugging statement
+    $.ajax({
+        url: url,
+        type: "GET",
+        headers: {
+            'Authorization': 'Bearer ' + localStorage.getItem('token')
+        },
+        success: function (data) {
+            console.log('Received models data:', data); // Debugging statement
+            const selects = document.querySelectorAll('#m_name');
   
-            // Append the option to the dropdown
-            select.append('<option value="' + brand_id + '">' + brand_name + '</option>');
-          }
-        });
-      },
-      error: function (error) {
-        console.error('Error fetching data:', error);
-      }
+            selects.forEach(select => {
+                select.innerHTML = '<option selected disabled value="">Please select an option</option>';
+  
+                if (data.model && data.model.length > 0) {
+                    data.model.forEach(row => {
+                        const option = document.createElement('option');
+                        option.textContent = row.model;
+                        option.value = row.model;
+                        console.log('Adding model:', option); // Debugging statement
+                        select.appendChild(option);
+                    });
+                } else {
+                    select.innerHTML = '<option>No valid data available</option>';
+                }
+            });
+        },
+        error: function (error) {
+            console.error('Error fetching model data:', error);
+        }
     });
   }
   get();
@@ -206,3 +239,6 @@ function store(event) {
         }
     });
 }
+
+
+populateDropdownsFromClass('state-dropdown', 'district-dropdown', 'tehsil-dropdown');

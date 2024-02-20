@@ -10,6 +10,8 @@
     <script> var APIBaseURL = "<?php echo $APIBaseURL; ?>";</script>
     <script> var baseUrl = "<?php echo $baseUrl; ?>";</script>
     <script src="<?php $baseUrl; ?>model/rent.js"></script>
+    <script src="<?php $baseUrl; ?>model/State_dist_tehsil.js"></script>
+
 <head>
     <?php
    include 'includes/header.php';
@@ -333,11 +335,7 @@
                                     <div class="col-12 col-sm-6 col-md-6 col-lg-6 mt-4">
                                         <div class="form-outline">
                                             <label class="form-label" for="state"> <i class="fas fa-location"></i>State</label>
-                                            <select class="form-select error mb-2 pb-2" id="state_3" name="state" aria-label="Default select example">
-                                                <option value="" selected disabled></option>
-                                                <option value="Chhattisgarh">Chhattisgarh</option>
-                                                <option value="Other">Other</option>
-                                              
+                                            <select class="form-select error mb-2 pb-2 state-dropdown" id="state_3" name="state" aria-label="Default select example">
                                             </select>
                                         </div>
                                     </div>
@@ -345,28 +343,15 @@
                                         <div class="form-outline">
                                             <label class="form-label" for="district">
                                                 <i class="fa-solid fa-location-dot"></i> District</label>
-                                            <select class="form-select error mb-2 pb-2" id="district_2" name="district"
-                                                aria-label="Default select example">
-                                                <option value="" selected disabled></option>
-                                                <option value="raipur">Raipur</option>
-                                                <option value="bilaspur">Bilaspur</option>
-                                                <option value="durg">Durg</option>
-                                               
+                                            <select class="form-select error mb-2 pb-2 district-dropdown" id="district_2" name="district" aria-label="Default select example">
                                             </select>
-                                           
                                         </div>
                                     </div>
                                     <div class="col-12 col-sm-6 col-md-6 col-lg-6 mt-4">
                                         <div class="form-outline">
                                             <label class="form-label" for="tehsil">Tehsil</label>
-                                            <select class="form-select error mb-2 pb-2" id="tehsil_1" name="tehsil"
-                                                aria-label="Default select example">
-                                                <option value="" selected disabled></option>
-                                                <option value="raipur">Raipur</option>
-                                                <option value="bilaspur">Bilaspur</option>
-                                                <option value="durg">Durg</option>
-                                            </select>
-                                          
+                                            <select class="form-select error mb-2 pb-2 tehsil-dropdown" id="tehsil_1" name="tehsil" aria-label="Default select example">
+                                             </select>
                                         </div>
                                     </div>
                                 </div>

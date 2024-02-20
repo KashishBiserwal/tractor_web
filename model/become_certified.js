@@ -186,3 +186,5 @@ function get_search() {
           }
     });
 }
+
+populateDropdownsFromClass('state-dropdown', 'district-dropdown', 'tehsil-dropdown');

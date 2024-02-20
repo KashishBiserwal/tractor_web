@@ -349,3 +349,6 @@ var url ='http://tractor-api.divyaltech.com/api/customer/customer_enquiries';
       }
     });
   }
+
+
+  populateDropdownsFromClass('state-dropdown', 'district-dropdown', 'tehsil-dropdown');

@@ -10,6 +10,8 @@
     <script> var APIBaseURL = "<?php echo $APIBaseURL; ?>";</script>
     <script> var baseUrl = "<?php echo $baseUrl; ?>";</script>
     <script src="<?php $baseUrl; ?>model/sell_used_harvester.js"></script>
+    <script src="<?php $baseUrl; ?>model/State_dist_tehsil.js"></script>
+
 
 <head>
    <?php
@@ -415,32 +417,24 @@
                                         <div class="col-12 col-sm-12 col-md-6 col-lg-6">
                                         <div class="form-outline mt-3">
                                                 <label for="eo_state" class="form-label text-dark" id="state" name="state"> <i class="fas fa-location"></i> State</label>
-                                                <select class="form-select py-2 " aria-label=".form-select-lg example"id="s_state" name="eo_state">
-                                                    <option  value="" Selected Disabled=""></option>
-                                                    <option value="Chhattisgarh">Chhattisgarh</option>
-                                                    <option value="Other">Other</option>
+                                                <select class="form-select py-2 state-dropdown" aria-label=".form-select-lg example"id="s_state" name="eo_state">
+                                                  
                                                 </select>
                                             </div>
                                         </div>
                                         <div class="col-12 col-sm-12 col-md-6 col-lg-6">
                                             <div class="form-outline mt-4">
                                                 <label for="eo_dist" class="form-label text-dark"><i class="fa-solid fa-location-dot"></i> District</label>
-                                                <select class="form-select py-2 " aria-label=".form-select-lg example" name="eo_dist" id="d_dist">eo_dist
-                                                    <option value="" Selected Disabled=""></option>
-                                                    <option value="Raipur">Raipur</option>
-                                                    <option value="Bilaspur">Bilaspur</option>
-                                                    <option value="Durg">Durg</option>
+                                                <select class="form-select py-2 district-dropdown" aria-label=".form-select-lg example" name="eo_dist" id="d_dist">eo_dist
+                                                    
                                                 </select>
                                             </div>
                                         </div>
                                         <div class="col-12 col-sm-12 col-md-6 col-lg-6">
                                             <div class="form-outline mt-4">
                                                 <label for="eo_tehsil" class="form-label fw-bold text-dark"> Tehsil</label>
-                                                <select class="form-select py-2 " aria-label=".form-select-lg example" id="t_tehsil" name="eo_tehsil">
-                                                    <option value="" selected disabled=""></option>
-                                                    <option value="Raipur">Raipur</option>
-                                                    <option value="Bilaspur">Bilaspur</option>
-                                                    <option value="Durg">Durg</option>
+                                                <select class="form-select py-2 tehsil-dropdown" aria-label=".form-select-lg example" id="t_tehsil" name="eo_tehsil">
+                                                    
                                                 </select>
                                             </div>
                                         </div>

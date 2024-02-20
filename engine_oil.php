@@ -14,6 +14,8 @@
     <script src="<?php $baseUrl; ?>model/engineoil.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
+    <script src="<?php $baseUrl; ?>model/State_dist_tehsil.js"></script>
+
 
 <section class="mt-4 pt-5">
     <div class="container mt-5 pt-4">

@@ -453,3 +453,6 @@ var url ='http://tractor-api.divyaltech.com/api/customer/customer_enquiries';
     console.log("confirm");
     console.log("Form submitted successfully");
   }
+
+
+  populateDropdownsFromClass('state-dropdown', 'district-dropdown', 'tehsil-dropdown');

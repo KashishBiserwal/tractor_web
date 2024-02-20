@@ -1,6 +1,6 @@
 $(document).ready(function() {
     console.log("ready!");
-    
+    populateDropdowns();
     $('#filter_tractor').click(filter_search);
 });
 
@@ -135,7 +135,7 @@ $(document).ready(function() {
                                     </div>
                                     <div class="col-12 col-sm-12 col-md-6 col-lg-6">
                                         <label for="yr_state" class="form-label text-dark fw-bold" id="state" name="state"> <i class="fas fa-location"></i> State</label>
-                                        <select class="form-select py-2" aria-label=".form-select-lg example" id="state_form" name="state">
+                                        <select class="form-select py-2 select_state" aria-label=".form-select-lg example" id="state_form" name="state">
                                             <option value>Select State</option>
                                             <option value="Chhattisgarh">Chhattisgarh</option>
                                             <option value="Other">Other</option>
@@ -143,16 +143,16 @@ $(document).ready(function() {
                                     </div>
                                     <div class="col-12 col-sm-12 col-md-6 col-lg-6">
                                         <label class="form-label text-dark"><i class="fa-solid fa-location-dot"></i> District</label>
-                                        <select class="form-select py-2 " aria-label=".form-select-lg example" name="district" id="district_form">
-                                            <option value>Select District</option>
-                                            <option value="Raipur">Raipur</option>
-                                            <option value="Bilaspur">Bilaspur</option>
-                                            <option value="Durg">Durg</option>
+                                        <select class="form-select py-2 select_dist" aria-label=".form-select-lg example" name="district" id="district_form">
+                                            
                                         </select>
                                     </div>
                                     <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-2">
                                         <label for="yr_tehsil" class="form-label text-dark"> Tehsil</label>
-                                        <input type="yr_tehsil" class="form-control" placeholder="Enter Tehsil" id="tehsil" name="tehsil">
+                                        <select class="form-select py-2 select_tehsil" aria-label=".form-select-lg example"  id="tehsil" name="tehsil">
+                                            
+                                        </select>
+                                     
                                     </div>
                                     <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-2">
                                         <label for="yr_price" class="form-label text-dark">Price</label>
@@ -190,6 +190,7 @@ $(document).ready(function() {
         }
     });
 
+   
     getoldTractorList();
   function tractor_enquiry(formId) {
         // Use the formId to get values dynamically

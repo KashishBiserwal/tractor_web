@@ -242,3 +242,6 @@ function harvester_enquiry() {
           }
       });
   }
+
+
+  populateDropdownsFromClass('state-dropdown', 'district-dropdown', 'tehsil-dropdown');

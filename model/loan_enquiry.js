@@ -51,8 +51,8 @@ $(document).ready(function(){
                         row.loan_type_name,
                         fullName,
                         row.mobile,
-                        row.state,
-                        row.district,
+                        row.state_name,
+                        row.district_name,
                         `<div class="d-flex">
                             <button class="btn btn-warning btn-sm text-white mx-1" data-bs-toggle="modal" onclick="openViewdata(${row.id});" data-bs-target="#view_model_nursery_enq">
                                 <i class="fas fa-eye" style="font-size: 11px;"></i>
@@ -363,9 +363,9 @@ function openViewdata(userId) {
         document.getElementById('model1').innerText=userData.model;
         document.getElementById('vehicle').innerText=userData.vehicle_registered_num;
         document.getElementById('regi_no').innerText=userData.registered_year;
-        document.getElementById('state1').innerText=userData.state;
-        document.getElementById('district1').innerText=userData.district;
-        document.getElementById('tehsil1').innerText=userData.tehsil;
+        document.getElementById('state1').innerText=userData.state_name;
+        document.getElementById('district1').innerText=userData.district_name;
+        document.getElementById('tehsil1').innerText=userData.tehsil_name;
         document.getElementById('insurance_type_name1').innerText=userData.insurance_type_name;
       },
       error: function(error) {
@@ -499,3 +499,7 @@ function resetform(){
     // get_loan();
     window.location.reload();
 }
+
+
+populateDropdownsFromClass('state-dropdown', 'district-dropdown', 'tehsil-dropdown');
+populateStateDropdown('state_select', 'district_select');

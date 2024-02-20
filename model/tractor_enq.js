@@ -160,10 +160,13 @@ function get_new_tractor() {
                               <i class="fa fa-trash" style="font-size: 11px;"></i>
                           </button>
                       </div>`
-                  ]).draw(false);
+                  ]).draw(false); // Draw the row immediately
 
                   serialNumber++;
               });
+
+              // Reorder rows so that latest data appears at the top
+              table.order([1, 'desc']).draw();
           } else {
               tableBody.html('<tr><td colspan="6">No valid data available</td></tr>');
           }
@@ -175,6 +178,7 @@ function get_new_tractor() {
 }
 
 get_new_tractor();
+
 
 
 // brand 
@@ -347,7 +351,7 @@ function fetch_edit_data(id) {
           break;
         }
       }
-      // setSelectedModel('model_name_1', Data.model);
+    
       get_model(Data.brand_id, Data.model); 
       console.log( Data.model,'sdfgyudfgh');
       setSelectedOption('state_', Data.state_id);
