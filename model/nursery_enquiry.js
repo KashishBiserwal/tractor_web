@@ -136,8 +136,8 @@ function get_nursery() {
                       row.nursery_name,
                       fullName,
                       row.mobile,
-                      row.state,
-                      row.district,
+                      row.state_name,
+                      row.district_name,
                       `<div class="d-flex">
                           <button class="btn btn-warning btn-sm text-white mx-1" data-bs-toggle="modal" onclick="openViewdata(${row.id});" data-bs-target="#view_model_nursery_enq">
                               <i class="fas fa-eye" style="font-size: 11px;"></i>
@@ -222,9 +222,9 @@ function openViewdata(userId) {
         document.getElementById('number1').innerText=userData.mobile;
         document.getElementById('email_1').innerText=userData.email;
         document.getElementById('date_1').innerText=userData.date;
-        document.getElementById('state1').innerText=userData.state;
-        document.getElementById('dist1').innerText=userData.district;
-        document.getElementById('tehsil1').innerText=userData.tehsil;
+        document.getElementById('state1').innerText=userData.state_name;
+        document.getElementById('dist1').innerText=userData.district_name;
+        document.getElementById('tehsil1').innerText=userData.tehsil_name;
       },
       error: function(error) {
         console.error('Error fetching user data:', error);
@@ -255,24 +255,40 @@ function fetch_edit_data(id) {
           $('#number_2').val(Data.mobile);
           $('#email_2').val(Data.email);
           $('#date_2').val(Data.date);
-          // $('#state_2').val(Data.state);
-          // $('#dist_2').val(Data.district);
-          // $('#tehsil_2').val(Data.tehsil);
+         
 
-          $("#state_2 option").prop("selected", false);
-          $("#state_2 option[value='" + Data.state+ "']").prop("selected", true);
-          
-          $("#dist_2 option").prop("selected", false);
-          $("#dist_2 option[value='" + Data.district+ "']").prop("selected", true);
-          
-          $("#tehsil_2 option").prop("selected", false);
-          $("#tehsil_2 option[value='" + Data.tehsil+ "']").prop("selected", true);
-      },
-      error: function (error) {
+        
+          setSelectedOption('state_2', Data.state_id);
+          setSelectedOption('dist_2', Data.district_id);
+          populateTehsil(Data.district_id, 'tehsil-dropdown', Data.tehsil_id);
+
+          // setSelectedOption('tehsil-dropdown', Data.tehsil_id);
+        },
+        error: function(error) {
           console.error('Error fetching user data:', error);
+        }
+      });
+    }
+    
+      function setSelectedOption(selectId, value) {
+        var select = document.getElementById(selectId);
+        for (var i = 0; i < select.options.length; i++) {
+          if (select.options[i].value == value) {
+            select.selectedIndex = i;
+            break;
+          }
+        }
       }
-  });
-}
+      
+      function populateTehsil(selectId, value) {
+        var select = document.getElementById(selectId);
+        for (var i = 0; i < select.options.length; i++) {
+          if (select.options[i].value == value) {
+            select.options[i].selected = true;
+            break;
+          }
+        }
+      }
 
 // get_hire_tract();
 
@@ -405,8 +421,8 @@ function updateTable(data) {
         row.nursery_name,
         fullName,
         row.mobile,
-        row.state,
-        row.district,
+        row.state_name,
+        row.district_name,
         action
       ]);
 
@@ -484,3 +500,6 @@ function fetchAllData() {
     }
   });
 }
+
+populateDropdownsFromClass('state-dropdown', 'district-dropdown', 'tehsil-dropdown');
+populateStateDropdown('state_select', 'district_select');

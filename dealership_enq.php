@@ -10,6 +10,7 @@
     <script> var APIBaseURL = "<?php echo $APIBaseURL; ?>";</script>
     <script> var baseUrl = "<?php echo $baseUrl; ?>";</script>
     <script src="<?php $baseUrl; ?>model/dealership_enq.js"></script>
+    <script src="<?php $baseUrl; ?>model/State_dist_tehsil.js"></script>
 <body>
 <?php
    include 'includes/header.php';
@@ -78,32 +79,32 @@
                             <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-4">
                                 <div class="form-outline">
                                     <label for="yr_state" class="form-label text-dark fw-bold "> <i class="fas fa-location"></i> State</label>
-                                    <select class="form-select py-2" id="state_s" name="_state"aria-label=".form-select-lg example">
-                                        <option value="" selected disabled=""></option>
+                                    <select class="form-select py-2 state-dropdown" id="state_s" name="_state"aria-label=".form-select-lg example">
+                                        <!-- <option value="" selected disabled=""></option>
                                         <option value="Chhattisgarh">Chhattisgarh</option>
-                                        <option value="Other">Other</option>
+                                        <option value="Other">Other</option> -->
                                     </select>
                                 </div>
                             </div>
                             <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-4">
                                 <div class="form-outline">
                                     <label for="yr_dist" class="form-label text-dark"><i class="fa-solid fa-location-dot"></i> District</label>
-                                    <select class="form-select py-2" id="district_s" name="_district" aria-label=".form-select-lg example">
-                                        <option value="" selected disabled=""></option>
+                                    <select class="form-select py-2 district-dropdown" id="district_s" name="_district" aria-label=".form-select-lg example">
+                                        <!-- <option value="" selected disabled=""></option>
                                         <option value="Raipur">Raipur</option>
                                         <option value="Bilaspur">Bilaspur</option>
-                                        <option value="Durg">Durg</option>
+                                        <option value="Durg">Durg</option> -->
                                     </select>
                                 </div>
                             </div>
                             <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-4">
                                 <div class="form-outline">
                                     <label for="yr_price" class="form-label text-dark"> Tehsil</label>
-                                    <select class="form-select py-2 " id="t_tehsil" name="_tehsil"aria-label=".form-select-lg example">
+                                    <select class="form-select py-2 tehsil-dropdown" id="t_tehsil" name="_tehsil"aria-label=".form-select-lg example">
                                     <option value="" selected disabled=""></option>
-                                        <option value="Raipur">Raipur</option>
+                                        <!-- <option value="Raipur">Raipur</option>
                                         <option value="Bilaspur">Bilaspur</option>
-                                        <option value="Durg">Durg</option>
+                                        <option value="Durg">Durg</option> -->
                                     </select>    
                                 </div>  
                             </div>

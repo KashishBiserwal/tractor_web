@@ -141,8 +141,8 @@
                         row.model,
                          fullName,
                         row.mobile,
-                        row.state,
-                        row.district,
+                        row.state_name,
+                        row.district_name,
                         `<div class="d-flex">
                             <button class="btn btn-warning btn-sm text-white mx-1" data-bs-toggle="modal" onclick="openViewdata(${row.id});" data-bs-target="#view_model_tractor_enq">
                                 <i class="fas fa-eye" style="font-size: 11px;"></i>
@@ -169,50 +169,82 @@
   }
   get_old_tractor();
 
-// brand
-function get_search_brand() {
-  var apiBaseURL = APIBaseURL;
-  var url = apiBaseURL + 'getBrands';
 
+function get() {
+  var url = 'http://tractor-api.divyaltech.com/api/customer/get_all_brands';
   $.ajax({
-    url: url,
-    type: "GET",
-    headers: {
-      'Authorization': 'Bearer ' + localStorage.getItem('token')
-    },
-    success: function (data) {
-      console.log(data);
+      url: url,
+      type: "GET",
+      headers: {
+          'Authorization': 'Bearer ' + localStorage.getItem('token')
+      },
+      success: function (data) {
+          console.log(data);
+          const selects = document.querySelectorAll('#brand_name1');
 
-      const select = $('#brand_name1');
-      select.empty(); // Clear existing options
+          selects.forEach(select => {
+              select.innerHTML = '<option selected disabled value="">Please select an option</option>';
 
-      // Add a default option
-      select.append('<option selected disabled value="">Please select Brand</option>');
+              if (data.brands.length > 0) {
+                  data.brands.forEach(row => {
+                      const option = document.createElement('option');
+                      option.textContent = row.brand_name;
+                      option.value = row.id;
+                      console.log(option);
+                      select.appendChild(option);
+                  });
 
-      // Use an object to keep track of unique brands
-      var uniqueBrands = {};
-
-      $.each(data.brands, function (index, brand) {
-        var brand_id = brand.id;
-        var brand_name = brand.brand_name;
-
-        // Check if the brand ID is not already in the object
-        if (!uniqueBrands[brand_id]) {
-          // Add brand ID to the object
-          uniqueBrands[brand_id] = true;
-
-          // Append the option to the dropdown
-          select.append('<option value="' + brand_id + '">' + brand_name + '</option>');
-        }
-      });
-    },
-    error: function (error) {
-      console.error('Error fetching data:', error);
-    }
+                  // Add event listener to brand dropdown
+                  select.addEventListener('change', function() {
+                      const selectedBrandId = this.value;
+                      get_model(selectedBrandId);
+                  });
+              } else {
+                  select.innerHTML = '<option>No valid data available</option>';
+              }
+          });
+      },
+      error: function (error) {
+          console.error('Error fetching data:', error);
+      }
   });
 }
-get_search_brand();
 
+function get_model(brand_id) {
+  var url = 'http://tractor-api.divyaltech.com/api/customer/get_brand_model/' + brand_id;
+  console.log('Requesting models for brand ID:', brand_id); // Debugging statement
+  $.ajax({
+      url: url,
+      type: "GET",
+      headers: {
+          'Authorization': 'Bearer ' + localStorage.getItem('token')
+      },
+      success: function (data) {
+          console.log('Received models data:', data); // Debugging statement
+          const selects = document.querySelectorAll('#model2');
+
+          selects.forEach(select => {
+              select.innerHTML = '<option selected disabled value="">Please select an option</option>';
+
+              if (data.model && data.model.length > 0) {
+                  data.model.forEach(row => {
+                      const option = document.createElement('option');
+                      option.textContent = row.model;
+                      option.value = row.model;
+                      console.log('Adding model:', option); // Debugging statement
+                      select.appendChild(option);
+                  });
+              } else {
+                  select.innerHTML = '<option>No valid data available</option>';
+              }
+          });
+      },
+      error: function (error) {
+          console.error('Error fetching model data:', error);
+      }
+  });
+}
+get();
 // brand
 function get_search() {
   var apiBaseURL = APIBaseURL;
@@ -253,6 +285,8 @@ function get_search() {
     }
   });
 }
+
+
 get_search();
   // View data
 function openViewdata(userId) {
@@ -276,9 +310,9 @@ function openViewdata(userId) {
         document.getElementById('lname1').innerText=userData.last_name;
         document.getElementById('number1').innerText=userData.mobile;
         document.getElementById('date_1').innerText=userData.date;
-        document.getElementById('state1').innerText=userData.state;
-        document.getElementById('dist2').innerText=userData.district;
-        document.getElementById('tehsil2').innerText=userData.tehsil;
+        document.getElementById('state1').innerText=userData.state_name;
+        document.getElementById('dist2').innerText=userData.district_name;
+        document.getElementById('tehsil2').innerText=userData.tehsil_name;
       },
       error: function(error) {
         console.error('Error fetching user data:', error);
@@ -325,44 +359,81 @@ function destroy(id) {
 // edit data 
 
 function fetch_edit_data(id) {
-    var apiBaseURL = APIBaseURL;
-    var url = apiBaseURL + 'get_enquiry_for_old_tractor_by_id/' + id;
-    console.log(url);
-  
-    var headers = {
-        'Authorization': 'Bearer ' + localStorage.getItem('token')
-    };
-  
-    $.ajax({
-        url: url,
-        type: 'GET',
-        headers: headers,
-        success: function (response) {
-            var Data = response.enquiry_data[0];
-            $('#idUser').val(Data.id);
-            // $('#brand_name').val(Data.brand_name);
-            $("#brand_name option").prop("selected", false);
-            $("#brand_name option[value='" + Data.brand_name + "']").prop("selected", true);
-            $('#model_name').val(Data.model);
-            $('#first_name').val(Data.first_name);
-            $('#last_name').val(Data.last_name);
-            $('#mobile').val(Data.mobile); 
-            $('#date').val(Data.date);
+  var apiBaseURL = APIBaseURL;
+  var url = apiBaseURL + 'get_enquiry_for_old_tractor_by_id/' + id;
+  console.log(url);
 
-            $("#state_ option").prop("selected", false);
-            $("#state_ option[value='" + Data.state + "']").prop("selected", true);
-           
-            $("#dist_ option").prop("selected", false);
-            $("#dist_ option[value='" + Data.district + "']").prop("selected", true);
+  var headers = {
+      'Authorization': 'Bearer ' + localStorage.getItem('token')
+  };
 
-            $("#tehsil_ option").prop("selected", false);
-            $("#tehsil_ option[value='" + Data.tehsil + "']").prop("selected", true);
+  $.ajax({
+      url: url,
+      type: 'GET',
+      headers: headers,
+      success: function (response) {
+          var Data = response.enquiry_data[0];
+          $('#idUser').val(Data.id);
+          // $('#brand_name').val(Data.brand_name);
+        
+          $('#model_name').val(Data.model);
+          $('#first_name').val(Data.first_name);
+          $('#last_name').val(Data.last_name);
+          $('#mobile').val(Data.mobile); 
+          $('#date').val(Data.date);
+          
+         
+          var brandDropdown = document.getElementById('brand_name');
+          for (var i = 0; i < brandDropdown.options.length; i++) {
+            if (brandDropdown.options[i].text === Data.brand_name) {
+              brandDropdown.selectedIndex = i;
+              break;
+            }
+          }
+
+          $('#model_name').empty(); 
+          get_model_1(Data.brand_id); 
+
+          // Selecting the option in the model dropdown
+          setTimeout(function() { // Wait for the model dropdown to populate
+              $("#model_name option").prop("selected", false);
+              $("#model_name option[value='" + Data.model + "']").prop("selected", true);
+          }, 1000); // Adjust the delay time as needed
+
+          setSelectedOption('state_', Data.state_id);
+          setSelectedOption('dist_', Data.district_id);
+          
+          // Call function to populate tehsil dropdown based on selected district
+          populateTehsil(Data.district_id, 'tehsil-dropdown', Data.tehsil_id);
+
+          // setSelectedOption('tehsil-dropdown', Data.tehsil_id);
         },
-        error: function (error) {
-            console.error('Error fetching user data:', error);
+        error: function(error) {
+          console.error('Error fetching user data:', error);
         }
-    });
-  }
+      });
+    }
+    
+      function setSelectedOption(selectId, value) {
+        var select = document.getElementById(selectId);
+        for (var i = 0; i < select.options.length; i++) {
+          if (select.options[i].value == value) {
+            select.selectedIndex = i;
+            break;
+          }
+        }
+      }
+      
+      function populateTehsil(selectId, value) {
+        var select = document.getElementById(selectId);
+        for (var i = 0; i < select.options.length; i++) {
+          if (select.options[i].value == value) {
+            select.options[i].selected = true;
+            break;
+          }
+        }
+      }
+      
 
 // get_hire_tract();
 
@@ -428,7 +499,7 @@ function edit_id() {
       }
   });
 }
-  
+populateDropdownsFromClass('state-dropdown', 'district-dropdown', 'tehsil-dropdown');
 
 
 function searchdata() {
@@ -489,8 +560,8 @@ function updateTable(data) {
             row.model,
             fullName,
             row.mobile,
-            row.state,
-            row.district,
+            row.state_name,
+            row.district_name,
             action
         ]);
 
@@ -532,126 +603,75 @@ function resetform(){
 }
 
 
-
-// Location
-
-function get_state() {
-  var apiBaseURL = APIBaseURL; // Assuming APIBaseURL is defined elsewhere
-  var url = apiBaseURL + 'state_data';
-
+function get_1() {
+  var url = 'http://tractor-api.divyaltech.com/api/customer/get_all_brands';
   $.ajax({
-    url: url,
-    type: "GET",
-    headers: {
-      'Authorization': 'Bearer ' + localStorage.getItem('token')
-    },
-    success: function (data) {
-      console.log(data);
+      url: url,
+      type: "GET",
+      headers: {
+          'Authorization': 'Bearer ' + localStorage.getItem('token')
+      },
+      success: function (data) {
+          console.log(data);
+          const select = document.getElementById('brand_name');
+          select.innerHTML = '<option selected disabled value="">Please select an option</option>';
 
-      const selectState = $('#');
-      selectState.empty(); // Clear existing options
+          if (data.brands.length > 0) {
+              data.brands.forEach(row => {
+                  const option = document.createElement('option');
+                  option.textContent = row.brand_name;
+                  option.value = row.id;
+                  select.appendChild(option);
+              });
 
-      // Add a default option
-      selectState.append('<option selected disabled value="">Please select a state</option>');
-
-      // Loop through stateData array and populate dropdown
-      $.each(data.stateData, function (index, state) {
-        var state_id = state.id;
-        var state_name = state.state_name;
-
-        // Append the option to the dropdown
-        selectState.append('<option value="' + state_id + '">' + state_name + '</option>');
-      });
-
-      // Add event listener for state selection
-      selectState.change(function() {
-        var selectedStateId = $(this).val();
-        if (selectedStateId) {
-          get_districts(selectedStateId);
-        }
-      });
-    },
-    error: function (error) {
-      console.error('Error fetching data:', error);
-    }
+              // Add event listener to brand dropdown
+              select.addEventListener('change', function() {
+                  const selectedBrandId = this.value;
+                  get_model(selectedBrandId);
+              });
+          } else {
+              select.innerHTML = '<option>No valid data available</option>';
+          }
+      },
+      error: function (error) {
+          console.error('Error fetching data:', error);
+      }
   });
 }
 
-function get_districts(stateId) {
-  var apiBaseURL = APIBaseURL; // Assuming APIBaseURL is defined elsewhere
-  var url = apiBaseURL + 'district_data?state_id=' + stateId;
-
+function get_model_1(brand_id, selectedModel) {
+  var url = 'http://tractor-api.divyaltech.com/api/customer/get_brand_model/' + brand_id;
   $.ajax({
-    url: url,
-    type: "GET",
-    headers: {
-      'Authorization': 'Bearer ' + localStorage.getItem('token')
-    },
-    success: function (data) {
-      console.log(data);
+      url: url,
+      type: "GET",
+      headers: {
+          'Authorization': 'Bearer ' + localStorage.getItem('token')
+      },
+      success: function (data) {
+          console.log(data);
+          const select = document.getElementById('model_name');
+          select.innerHTML = '<option selected disabled value="">Please select an option</option>';
 
-      const selectDistrict = $('#');
-      selectDistrict.empty(); // Clear existing options
+          if (data.model.length > 0) {
+              data.model.forEach(row => {
+                  const option = document.createElement('option');
+                  option.textContent = row.model;
+                  option.value = row.model;
+                  select.appendChild(option);
 
-      // Add a default option
-      selectDistrict.append('<option selected disabled value="">Please select a district</option>');
-
-      // Loop through districtData array and populate dropdown
-      $.each(data.districtData, function (index, district) {
-        var district_id = district.id;
-        var district_name = district.district_name;
-
-        // Append the option to the dropdown
-        selectDistrict.append('<option value="' + district_id + '">' + district_name + '</option>');
-      });
-
-      // Add event listener for district selection
-      selectDistrict.change(function() {
-        var selectedDistrictId = $(this).val();
-        if (selectedDistrictId) {
-          get_tehsils(selectedDistrictId);
-        }
-      });
-    },
-    error: function (error) {
-      console.error('Error fetching data:', error);
-    }
+                  // Select the option if it matches the selectedModel
+                  if (row.model === selectedModel) {
+                      option.selected = true;
+                  }
+              });
+          } else {
+              select.innerHTML = '<option>No valid data available</option>';
+          }
+      },
+      error: function (error) {
+          console.error('Error fetching data:', error);
+      }
   });
 }
 
-function get_tehsils(districtId) {
-  var apiBaseURL = APIBaseURL; // Assuming APIBaseURL is defined elsewhere
-  var url = apiBaseURL + 'tehsil_data?district_id=' + districtId;
-
-  $.ajax({
-    url: url,
-    type: "GET",
-    headers: {
-      'Authorization': 'Bearer ' + localStorage.getItem('token')
-    },
-    success: function (data) {
-      console.log(data);
-
-      const selectTehsil = $('#');
-      selectTehsil.empty(); // Clear existing options
-
-      // Add a default option
-      selectTehsil.append('<option selected disabled value="">Please select a tehsil</option>');
-
-      // Loop through tehsilData array and populate dropdown
-      $.each(data.tehsilData, function (index, tehsil) {
-        var tehsil_id = tehsil.id;
-        var tehsil_name = tehsil.tehsil_name;
-
-        // Append the option to the dropdown
-        selectTehsil.append('<option value="' + tehsil_id + '">' + tehsil_name + '</option>');
-      });
-    },
-    error: function (error) {
-      console.error('Error fetching data:', error);
-    }
-  });
-}
-
-// Call the function to populate the state dropdown
-get_state();
+get_1();

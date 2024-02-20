@@ -838,3 +838,8 @@ function destroy(id) {
         $('#year').val('');
         $('#selectedImagesContainer').val('');
       } $('#img_url').val();
+
+
+populateDropdownsFromClass('state-dropdown', 'district-dropdown', 'tehsil-dropdown');
+
+populateStateDropdown('state_select', 'district_select');

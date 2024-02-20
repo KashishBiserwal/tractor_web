@@ -9,6 +9,7 @@ include 'includes/headertag.php';
 <script> var APIBaseURL = "<?php echo $APIBaseURL; ?>";</script>
 <script> var baseUrl = "<?php echo $baseUrl; ?>";</script>
     <script src="<?php $baseUrl; ?>model/old_tractor_list.js"></script>
+    <script src="<?php $baseUrl; ?>model/State_dist_tehsil.js"></script>
 
     <script>
   $(document).ready(function() {
@@ -112,32 +113,32 @@ include 'includes/headertag.php';
                               <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-2">
                                 <div class="form-outline">
                                   <label class="form-label" for="state">State</label>
-                                  <select class="form-select py-2" aria-label="Default select example" id="state" name="state">
-                                    <option selected disabled="" >Select State</option>
+                                  <select class="form-select py-2 state-dropdown" aria-label="Default select example" id="state" name="state">
+                                    <!-- <option selected disabled="" >Select State</option>
                                     <option value="Chhattisgarh">Chhattisgarh</option>
-                                    <option value="Other">Other </option>
+                                    <option value="Other">Other </option> -->
                                   </select>
                                 </div>
                               </div>
                               <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-2">
                                 <div class="form-outline">
                                   <label class="form-label" for="district">District</label>
-                                  <select class="form-select py-2" aria-label="Default select example" name="district" id="district">
-                                    <option selected disabled=""> Select District</option>
+                                  <select class="form-select py-2  district-dropdown" aria-label="Default select example" name="district" id="district">
+                                    <!-- <option selected disabled=""> Select District</option>
                                     <option value="Raigarh">Raigarh</option>
                                     <option value="Sarguja">Sarguja</option>
-                                    <option value="Surajpur">Surajpur</option>
+                                    <option value="Surajpur">Surajpur</option> -->
                                   </select>
                                 </div>
                               </div>
                               <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-2">
                                 <div class="form-outline">
                                   <label class="form-label" for="district">Tehsil</label>
-                                  <select class="form-select py-2" aria-label="Default select example" name="tehsil" id="tehsil">
-                                    <option selected disabled="">Select Tehsil</option>
+                                  <select class="form-select py-2 tehsil-dropdown" aria-label="Default select example" name="tehsil" id="tehsil">
+                                    <!-- <option selected disabled="">Select Tehsil</option>
                                     <option value="Raigarh">Raigarh</option>
                                     <option value="ambikapur">ambikapur</option>
-                                    <option value="chirmiri">chirmiri</option>
+                                    <option value="chirmiri">chirmiri</option> -->
                                   </select>
                                 </div>
                               </div>
@@ -292,7 +293,9 @@ include 'includes/headertag.php';
                 <div class="col-12 col-sm-12 col-md-3 col-lg-3">
                   <div class="form-outline">
                     <label class="form-label">Search by State</label>
-                    <input type="text" id="state_name" name="state" class="form-control" />
+                    <select class="js-select2 form-select form-control mb-0" id="state_name" name="state">
+                      </select>
+                    <!-- <input type="text" id="state_name" name="state" class="form-control" /> -->
                   </div>
                 </div>
                 <!-- <div class="col-12 col-sm-12 col-md-3 col-lg-3">

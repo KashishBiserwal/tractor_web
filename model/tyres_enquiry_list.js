@@ -223,8 +223,8 @@ function get_tyre_list() {
                       row.tyre_model,
                       fullName,
                       row.mobile,
-                      row.state,
-                      row.district,
+                      row.state_name,
+                      row.district_name,
                       `<div class="d-flex">
                           <button class="btn btn-warning btn-sm text-white mx-1" data-bs-toggle="modal" onclick="openViewdata(${row.id});" data-bs-target="#view_model_tyre">
                               <i class="fas fa-eye" style="font-size: 11px;"></i>
@@ -374,9 +374,9 @@ console.log('sumansahu');
       document.getElementById('Last_Name1').innerText=userData.last_name;
       document.getElementById('Mobile_1').innerText=userData.mobile;
       document.getElementById('date_1').innerText=userData.date;
-      document.getElementById('State_1').innerText=userData.state;
-      document.getElementById('District_1').innerText=userData.district;
-      document.getElementById('Tehsil_1').innerText=userData.tehsil;
+      document.getElementById('State_1').innerText=userData.state_name;
+      document.getElementById('District_1').innerText=userData.district_name;
+      document.getElementById('Tehsil_1').innerText=userData.tehsil_name;
     },
     error: function(error) {
       console.error('Error fetching user data:', error);
@@ -404,27 +404,57 @@ console.log('sumansahu');
           var Data = response.customer_details[0];
           $('#userId').val(Data.id);
           // $('#brand_name').val(Data.brand_name);
-          $("#brand_name option").prop("selected", false);
-          $("#brand_name option[value='" + Data.brand_id+ "']").prop("selected", true);
+          // $("#brand_name option").prop("selected", false);
+          // $("#brand_name option[value='" + Data.brand_id+ "']").prop("selected", true);
 
           $('#model_name').val(Data.tyre_model);
           $('#fnam_e').val(Data.first_name);
           $('#lnam_e').val(Data.last_name);
           $('#numbe_r').val(Data.mobile);
           $('#dat_e').val(Data.date);
-          $("#stat_e option").prop("selected", false);
-          $("#stat_e option[value='" + Data.state+ "']").prop("selected", true);
+          var brandDropdown = document.getElementById('brand_data');
+          for (var i = 0; i < brandDropdown.options.length; i++) {
+            if (brandDropdown.options[i].text === Data.brand_name) {
+              brandDropdown.selectedIndex = i;
+              break;
+            }
+          }
 
-          $("#dis_t option").prop("selected", false);
-          $("#dis_t option[value='" + Data.district+ "']").prop("selected", true);
+         
 
-          $('#tehsi_l').val(Data.tehsil);
-      },
-      error: function (error) {
+          setSelectedOption('state_', Data.state_id);
+          setSelectedOption('dist_', Data.district_id);
+          
+          // Call function to populate tehsil dropdown based on selected district
+          populateTehsil(Data.district_id, 'tehsil-dropdown', Data.tehsil_id);
+
+          // setSelectedOption('tehsil-dropdown', Data.tehsil_id);
+        },
+        error: function(error) {
           console.error('Error fetching user data:', error);
+        }
+      });
+    }
+    
+      function setSelectedOption(selectId, value) {
+        var select = document.getElementById(selectId);
+        for (var i = 0; i < select.options.length; i++) {
+          if (select.options[i].value == value) {
+            select.selectedIndex = i;
+            break;
+          }
+        }
       }
-  });
-}
+      
+      function populateTehsil(selectId, value) {
+        var select = document.getElementById(selectId);
+        for (var i = 0; i < select.options.length; i++) {
+          if (select.options[i].value == value) {
+            select.options[i].selected = true;
+            break;
+          }
+        }
+      }
 
 function edit_data_id() {
 var enquiry_type_id = $("#enquiry_type_id").val();
@@ -596,8 +626,8 @@ function updateTable(data) {
             row.tyre_model,
             fullName,
             row.mobile,
-            row.state,
-            row.district,
+            row.state_name,
+            row.district_name,
             action
         ]);
 
@@ -638,3 +668,7 @@ function resetform(){
   window.location.reload(); 
   // get_tyre_list();
 }
+
+
+populateDropdownsFromClass('state-dropdown', 'district-dropdown', 'tehsil-dropdown');
+populateStateDropdown('state_select', 'district_select');

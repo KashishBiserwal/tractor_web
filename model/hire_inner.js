@@ -405,3 +405,6 @@ function get_rent_data() {
         }
         });
     }
+
+
+ populateDropdownsFromClass('state-dropdown', 'district-dropdown', 'tehsil-dropdown');

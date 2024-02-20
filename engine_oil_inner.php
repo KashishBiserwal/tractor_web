@@ -13,6 +13,8 @@
      <script> var CustomerAPIBaseURL = "<?php echo $CustomerAPIBaseURL; ?>";</script>
      <script> var baseUrl = "<?php echo $baseUrl; ?>";</script>
      <script src="<?php $baseUrl; ?>model/engineoil_detail.js"></script>
+     <script src="<?php $baseUrl; ?>model/State_dist_tehsil.js"></script>
+
   
 <style>
      .gallery {
@@ -160,7 +162,7 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title" id="staticBackdropLabel"> Request Call Back</h5>
-                        <button type="button" class="btn-close btn-success" data-bs-dismiss="modal" aria-label="Close"><img src="assets/images/close.png"></button>
+                        <button type="button" class="btn-close btn-success" data-bs-dismiss="modal" aria-label="Close"><img src="assets/images/close.png" class="w-25"></button>
                     </div>
                     <!-- MODAL BODY -->
                     <div class="modal-body bg-light">
@@ -194,30 +196,24 @@
                   <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-4">
                     <div class="form-outline">
                       <label for="eo_state" class="form-label text-dark fw-bold"> <i class="fas fa-location"></i> State</label>
-                      <select class="form-select py-2 " aria-label=".form-select-lg example" id="state" name="state">
-                        <option value="" selected disabled=""> </option>  
-                        <option value="1">Chhattisgarh</option>
-                        <option value="2">Other</option>
+                      <select class="form-select py-2 state-dropdown" aria-label=".form-select-lg example" id="state" name="state">
+                       
                       </select>
                     </div>
                   </div>
                   <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-4">
                     <div class="form-outline">
                       <label for="eo_dist" class="form-label fw-bold  text-dark"><i class="fa-solid fa-location-dot"></i> District</label>
-                      <select class="form-select py-2 " aria-label=".form-select-lg example" id="district" name="district">
-                        <option value="" selected disabled=""></option>
-                        <option value="1">Raipur</option>
-                        <option value="2">Bilaspur</option>
-                        <option value="2">Durg</option>
+                      <select class="form-select py-2 district-dropdown" aria-label=".form-select-lg example" id="district" name="district">
+                      
                       </select>
                     </div>                    
                   </div>       
                   <div class="col-12 col-sm-6 col-md-6 col-lg-6 mt-4">
                     <div class="form-outline">
                       <label for="eo_tehsil" class="form-label fw-bold text-dark"> Tehsil</label>
-                      <select class="form-select py-2 " aria-label=".form-select-lg example" id="Tehsil" name="Tehsil">
-                        <option value="" selected disabled=""></option>
-                        <option value="2">Durg</option>
+                      <select class="form-select py-2 tehsil-dropdown" aria-label=".form-select-lg example" id="Tehsil" name="Tehsil">
+                        
                       </select>
                     </div>
                   </div>

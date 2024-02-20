@@ -7,6 +7,8 @@
   <script> var APIBaseURL = "<?php echo $APIBaseURL; ?>";</script>
   <script> var baseUrl = "<?php echo $baseUrl; ?>";</script>
   <script src="<?php $baseUrl; ?>model/tyres_enquiry_list.js"></script>
+  <script src="<?php $baseUrl; ?>model/State_dist_tehsil.js"></script>
+  <script src="<?php $baseUrl; ?>model/state2_dist2.js"></script>
   
 <body class="loaded"> 
 <div class="main-wrapper">
@@ -62,21 +64,16 @@
             <div class="col-12 col-sm-12 col-md-3 col-lg-3">
               <div class="form-outline">
                 <label class="form-label">State</label>
-                <select class="form-select py-2" aria-label="Default select example"  id="state_1">
-                    <option value>Select State</option>
-                    <option value="Chattisgarh">Chattisgarh</option>
-                    <option value="Other">Other</option>
+                <select class="form-select py-2 state_select" aria-label="Default select example"  id="state_1">
+                 
                 </select>
               </div>
             </div>
             <div class="col-12 col-sm-12 col-md-3 col-lg-3">
               <div class="form-outline">
                 <label class="form-label">District</label>
-                <select class="form-select py-2" aria-label="Default select example" id="district_2">
-                    <option value>Select District</option>
-                    <option value="Raipur">Raipur</option>
-                    <option value="Bilaspur">Bilaspur</option>
-                    <option value="Surajpur">Surajpur</option>
+                <select class="form-select py-2 district_select" aria-label="Default select example" id="district_2">
+                   
                 </select>
               </div>
             </div>
@@ -240,36 +237,24 @@
                                         <div class="col-12 col-lg-6 col-sm-5 col-md-6 my-1">
                                           <div class="form-outline mt-4">
                                              <label class="form-label">State</label>
-                                              <select class="form-select py-2" aria-label="Default select example" id="stat_e" name="state_">
-                                                <option value>Select State</option>
-                                                <option value="Chhattisgarh">Chhattisgarh</option>
-                                                <option value="Other">Other</option>
+                                              <select class="form-select py-2 state-dropdown" aria-label="Default select example" id="state_" name="state_">
+                                              
                                               </select>
                                           </div>
                                         </div>
                                         <div class="col-12 col-lg-6 col-sm-5 col-md-6 my-1">
                                           <div class="form-outline mt-4">
                                             <label class="form-label">District</label>
-                                            <select class="form-select py-2" aria-label="Default select example" id="dis_t" name="dist">
-                                              <option value>Select District</option>
-                                              <option value="Raipur">Raipur</option>
-                                              <option value="Bilaspur">Bilaspur</option>
-                                              <option value="Surajpur">Surajpur</option>
-                                              <option value="Korba">Korba</option>Durg
-                                              <option value="Durg">Durg</option>
+                                            <select class="form-select py-2 district-dropdown" aria-label="Default select example" id="dist_" name="dist">
+                                              
                                             </select>
                                           </div>
                                         </div>
                                         <div class="col-12 col-lg-6 col-sm-5 col-md-6 my-1">
                                           <div class="form-outline mt-4">
                                             <label class="form-label">Tehsil</label>
-                                            <select class="form-select py-2" aria-label="Default select example" id="tehsi_l">
-                                              <option value>Select Tehsil</option>
-                                              <option value="Raipur">Raipur</option>
-                                              <option value="Bilaspur">Bilaspur</option>
-                                              <option value="Surajpur">Surajpur</option>
-                                              <option value="Korba">Korba</option>Durg
-                                              <option value="Durg">Durg</option>
+                                            <select class="form-select py-2 tehsil-dropdown" aria-label="Default select example" id="tehsi_l">
+                                            
                                             </select>
                                           </div>
                                         </div>

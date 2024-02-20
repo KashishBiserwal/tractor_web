@@ -8,6 +8,8 @@ include 'includes/headertag.php';
 <script> var APIBaseURL = "<?php echo $APIBaseURL; ?>";</script>
 <script> var baseUrl = "<?php echo $baseUrl; ?>";</script>
 <script src="<?php $baseUrl; ?>model/nursery.js"></script>
+<script src="<?php $baseUrl; ?>model/State_dist_tehsil.js"></script>
+<script src="<?php $baseUrl; ?>model/state2_dist2.js"></script>
 <style>
 
 </style>
@@ -75,32 +77,24 @@ include 'includes/headertag.php';
                                         <div class="col-12 col-sm-4 col-md-4 col-lg-4">
                                           <div class="form-outline mt-3">
                                              <label class="form-label">State</label>
-                                              <select class="form-select py-2" aria-label="Default select example" id="state_" name="state_">
-                                                <option value>Select State</option>
-                                                <option value="Chattisgarh">Chattisgarh</option>
-                                                <option value="Other">Other</option>
+                                              <select class="form-select py-2 state-dropdown" aria-label="Default select example" id="state_" name="state_">
+                                              
                                               </select>
                                           </div>
                                         </div>
                                         <div class="col-12 col-sm-4 col-md-4 col-lg-4">
                                           <div class="form-outline mt-3">
                                             <label class="form-label">District</label>
-                                            <select class="form-select py-2" aria-label="Default select example" id="dist" name="dist">
-                                              <option value>Select District</option>
-                                              <option value="Raipur">Raipur</option>
-                                              <option value="Bilaspur">Bilaspur</option>
-                                              <option value="Surajpur">Surajpur</option>
+                                            <select class="form-select py-2 district-dropdown" aria-label="Default select example" id="dist" name="dist">
+                                           
                                             </select>
                                           </div>
                                         </div>
                                         <div class="col-12 col-sm-4 col-md-4 col-lg-4">
                                           <div class="form-outline mt-3">
                                             <label class="form-label">Tehsil</label>
-                                            <select class="form-select py-2" aria-label="Default select example" id="tehsil">
-                                              <option value>Select Tehsil</option>
-                                              <option value="Raipur">Raipur</option>
-                                              <option value="Bilaspur">Bilaspur</option>
-                                              <option value="Surajpur">Surajpur</option>
+                                            <select class="form-select py-2 tehsil-dropdown" aria-label="Default select example" id="tehsil">
+                                          
                                             </select>
                                           </div>
                                         </div>
@@ -116,7 +110,7 @@ include 'includes/headertag.php';
                                             <textarea rows="3" cols="70" class="w-100 py-1" minlength="1" maxlength="" id="textarea_d" name="textarea_d"></textarea>
                                           </div>
                                         </div>
-                                        <div class="col-12 col-lg-6 col-md-6 col-sm-6">
+                                        <div class="col-12 col-lg-6 col-md-6 col-sm-6 mt-5">
                                           <div class="upload__box mt-3">
                                             <div class="upload__btn-box text-center">
                                               <label >
@@ -162,24 +156,17 @@ include 'includes/headertag.php';
             <div class="col-12 col-sm-12 col-md-3 col-lg-3">
               <div class="form-outline">
                 <label class="form-label">State</label>
-                <input type="text" id="state_1" name="state_1" class="form-control" />
-              <!--   <select class="form-select py-2" aria-label="Default select example">
-                    <option value>Select State</option>
-                    <option value="">Chattisgarh</option>
-                    <option value="">Other</option>
-                </select> -->
+                <select class="form-select py-2 state_select" aria-label="Default select example"  id="state_1" name="state_1">
+                  
+                </select>
               </div>
             </div>
             <div class="col-12 col-sm-12 col-md-3 col-lg-3">
               <div class="form-outline">
                 <label class="form-label">District</label>
-                <input type="text" id="district_1" name="district_1" class="form-control" />
-              <!--   <select class="form-select py-2" aria-label="Default select example">
-                    <option value>Select District</option>
-                    <option value="">Raipur</option>
-                    <option value="">Bilaspur</option>
-                    <option value="">Surajpur</option>
-                </select> -->
+                <select class="form-select py-2 district_select" aria-label="Default select example" id="district_1" name="district_1">
+                   
+                </select>
               </div>
             </div>
             <div class="col-12 col-sm-12 col-md-3 col-lg-3">
@@ -326,36 +313,28 @@ include 'includes/headertag.php';
                                           </div>
                                         </div>
                                         <div class="col-12 col-sm-4 col-md-4 col-lg-4">
-                                          <div class="form-outline mt-3">
-                                             <label class="form-label">State</label>
-                                              <select class="form-select py-2" aria-label="Default select example" id="state2" name="state_">
-                                                <option value>Select State</option>
-                                                <option value="1">Chattisgarh</option>
-                                                <option value="2">Other</option>
-                                              </select>
-                                          </div>
+                                            <div class="form-outline mt-3">
+                                                <label class="form-label">State</label>
+                                                <select class="form-select py-2" aria-label="Default select example" id="state_" name="state_">
+                                                  
+                                                </select>
+                                            </div>
                                         </div>
                                         <div class="col-12 col-sm-4 col-md-4 col-lg-4">
-                                          <div class="form-outline mt-3">
-                                            <label class="form-label">District</label>
-                                            <select class="form-select py-2" aria-label="Default select example" id="dist2" name="dist">
-                                              <option value>Select District</option>
-                                              <option value="1">Raipur</option>
-                                              <option value="2">Bilaspur</option>
-                                              <option value="3">Surajpur</option>
-                                            </select>
-                                          </div>
+                                            <div class="form-outline mt-3">
+                                                <label class="form-label">District</label>
+                                                <select class="form-select py-2" aria-label="Default select example" id="dist_" name="dist">
+                                                  
+                                                </select>
+                                            </div>
                                         </div>
                                         <div class="col-12 col-sm-4 col-md-4 col-lg-4">
-                                          <div class="form-outline mt-3">
-                                            <label class="form-label">Tehsil</label>
-                                            <select class="form-select py-2" aria-label="Default select example" id="tehsil2">
-                                              <option value>Select Tehsil</option>
-                                              <option value="1">Raipur</option>
-                                              <option value="2">Bilaspur</option>
-                                              <option value="3">Surajpur</option>
-                                            </select>
-                                          </div>
+                                            <div class="form-outline mt-3">
+                                                <label class="form-label">Tehsil</label>
+                                                <select class="form-select py-2" aria-label="Default select example" id="tehsil_" name="tehsil_">
+                                                  
+                                                </select>
+                                            </div>
                                         </div>
                                         <div class="col-12">
                                           <div class="form-outline mt-4">
@@ -369,7 +348,7 @@ include 'includes/headertag.php';
                                             <textarea rows="3" cols="70" class="w-100 py-1" minlength="1" maxlength="" id="textarea_d2" name="textarea_d2"></textarea>
                                           </div>
                                         </div>
-                                        <div class="col-12 col-lg-6 col-md-6 col-sm-6">
+                                        <div class="col-12 col-lg-6 col-md-6 col-sm-6 mt-5">
                                           <div class="upload__box mt-3">
                                             <div class="upload__btn-box text-center">
                                               <label >

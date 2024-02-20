@@ -410,7 +410,7 @@ function store(event) {
                                 <div class="brand-main box-shadow mt-2 text-center shadow ">
                                     <a class="weblink text-decoration-none text-dark" 
                                         title="Old Tractors">
-                                        <img class="img-fluid w-50" src="http://tractor-api.divyaltech.com/uploads/product_img/${b.thumbnail}"
+                                        <img class="img-fluid w-50" src="http://tractor-api.divyaltech.com/uploads/product_img/${b.image_names}"
                                             data-src="h" alt="Brand Logo">
                                     </a>
                                 </div>

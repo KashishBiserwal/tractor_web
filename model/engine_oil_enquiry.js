@@ -154,8 +154,8 @@ function get_engine() {
                         row.oil_model,
                         fullName,
                         row.mobile,
-                        row.state,
-                        row.district,
+                        row.state_name,
+                        row.district_name,
                         `<div class="d-flex">
                             <button class="btn btn-warning btn-sm text-white mx-1" data-bs-toggle="modal" onclick="openViewdata(${row.id});" data-bs-target="#view_model_engine_oil">
                                 <i class="fas fa-eye" style="font-size: 11px;"></i>
@@ -207,9 +207,9 @@ function openViewdata(userId) {
         document.getElementById('number1').innerText=userData.mobile;
         document.getElementById('email_1').innerText=userData.email;
         document.getElementById('date_1').innerText=userData.date;
-        document.getElementById('state1').innerText=userData.state;
-        document.getElementById('dist1').innerText=userData.district;
-        document.getElementById('tehsil1').innerText=userData.tehsil;
+        document.getElementById('state1').innerText=userData.state_name;
+        document.getElementById('dist1').innerText=userData.district_name;
+        document.getElementById('tehsil1').innerText=userData.tehsil_name;
       },
       error: function(error) {
         console.error('Error fetching user data:', error);
@@ -279,15 +279,56 @@ function fetch_edit_data(id) {
             $('#mobile').val(Data.mobile);
             $('#email').val(Data.email);
             $('#date').val(Data.date);
-            $('#state_').val(Data.state);
-            $('#dist_').val(Data.district);
-            $('#tehsil_').val(Data.tehsil);
-        },
-        error: function (error) {
+            // var brandDropdown = document.getElementById('brand_name');
+            // for (var i = 0; i < brandDropdown.options.length; i++) {
+            //   if (brandDropdown.options[i].text === Data.brand_name) {
+            //     brandDropdown.selectedIndex = i;
+            //     break;
+            //   }
+            // }
+  
+            // $('#model_name').empty(); 
+            // get_model_1(Data.brand_id); 
+  
+            // // Selecting the option in the model dropdown
+            // setTimeout(function() { // Wait for the model dropdown to populate
+            //     $("#model_name option").prop("selected", false);
+            //     $("#model_name option[value='" + Data.model + "']").prop("selected", true);
+            // }, 1000); // Adjust the delay time as needed
+  
+            setSelectedOption('state_', Data.state_id);
+            setSelectedOption('dist_', Data.district_id);
+            
+            // Call function to populate tehsil dropdown based on selected district
+            populateTehsil(Data.district_id, 'tehsil-dropdown', Data.tehsil_id);
+  
+            // setSelectedOption('tehsil-dropdown', Data.tehsil_id);
+          },
+          error: function(error) {
             console.error('Error fetching user data:', error);
+          }
+        });
+      }
+      
+        function setSelectedOption(selectId, value) {
+          var select = document.getElementById(selectId);
+          for (var i = 0; i < select.options.length; i++) {
+            if (select.options[i].value == value) {
+              select.selectedIndex = i;
+              break;
+            }
+          }
         }
-    });
-  }
+        
+        function populateTehsil(selectId, value) {
+          var select = document.getElementById(selectId);
+          for (var i = 0; i < select.options.length; i++) {
+            if (select.options[i].value == value) {
+              select.options[i].selected = true;
+              break;
+            }
+          }
+        }
   
 
   function edit_data_id() {
@@ -397,3 +438,7 @@ function fetch_edit_data(id) {
         table.search('').columns().search('').draw();
     });
 });
+
+
+populateDropdownsFromClass('state-dropdown', 'district-dropdown', 'tehsil-dropdown');
+populateStateDropdown('state_select', 'district_select');

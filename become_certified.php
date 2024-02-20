@@ -11,6 +11,7 @@ include 'includes/headertag.php';
 <script> var APIBaseURL = "<?php echo $APIBaseURL; ?>";</script>
 <script> var baseUrl = "<?php echo $baseUrl; ?>";</script>
 <script src="<?php $baseUrl; ?>model/become_certified.js"></script>
+<script src="<?php $baseUrl; ?>model/State_dist_tehsil.js"></script>
 </head>
 
 
@@ -97,32 +98,32 @@ include 'includes/headertag.php';
                                 <div class="col-12 col-sm-6 col-md-6 col-lg-6">
                                     <div class="form-outline mt-3">
                                         <label class="form-label">State</label>
-                                        <select class="form-select py-2" aria-label="Default select example" id="bcd_state" name="state_">
-                                            <option value>Select State</option>
+                                        <select class="form-select py-2 state-dropdown" aria-label="Default select example" id="bcd_state" name="state_">
+                                            <!-- <option value>Select State</option>
                                             <option value="Chhattisgarh">Chhattisgarh</option>
-                                            <option value="Other">Other</option>
+                                            <option value="Other">Other</option> -->
                                         </select>
                                     </div>
                                 </div>
                                 <div class="col-12  col-sm-6 col-md-6 col-lg-6">
                                     <div class="form-outline mt-3">
                                         <label class="form-label">District</label>
-                                        <select class="form-select py-2" aria-label="Default select example" id="bcd_district" name="dist">
-                                            <option value>Select District</option>
+                                        <select class="form-select py-2 district-dropdown" aria-label="Default select example" id="bcd_district" name="dist">
+                                            <!-- <option value>Select District</option>
                                             <option value="Raipur">Raipur</option>
                                             <option value="Bilaspur">Bilaspur</option>
-                                            <option value="Surajpur">Surajpur</option>
+                                            <option value="Surajpur">Surajpur</option> -->
                                         </select>
                                     </div>
                                 </div>
                                 <div class="col-12 col-sm-6 col-md-6 col-lg-6">
                                     <div class="form-outline mt-4">
                                         <label class="form-label">Tehsil</label>
-                                        <select class="form-select py-2" aria-label="Default select example" id="bcd_tehsil">
-                                            <option value>Select Tehsil</option>
+                                        <select class="form-select py-2 tehsil-dropdown" aria-label="Default select example" id="bcd_tehsil">
+                                            <!-- <option value>Select Tehsil</option>
                                             <option value="Raipur">Raipur</option>
                                             <option value="Bilaspur">Bilaspur</option>
-                                            <option value="Surajpur">Surajpur</option>
+                                            <option value="Surajpur">Surajpur</option> -->
                                         </select>
                                     </div>
                                 </div>

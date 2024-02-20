@@ -214,8 +214,8 @@ function get_old_harvester_enqu() {
                         row.model,
                         fullName,
                         row.mobile,
-                        row.state,
-                        row.district,
+                        row.state_name,
+                        row.district_name,
                         `<div class="d-flex">
                             <button class="btn btn-warning btn-sm text-white mx-1" data-bs-toggle="modal" onclick="openViewdata(${row.id});" data-bs-target="#view_old_harvester_enqu">
                                 <i class="fas fa-eye" style="font-size: 11px;"></i>
@@ -381,8 +381,8 @@ function updateTable(data) {
             row.model,
             fullName,
             row.mobile,
-            row.state,
-            row.district,
+            row.state_name,
+            row.district_name,
             action
         ]);
 
@@ -481,9 +481,9 @@ function openViewdata(userId) {
         document.getElementById('Mobile_1').innerText=userData.mobile;
         document.getElementById('email_1').innerText=userData.email;
         document.getElementById('date_1').innerText=userData.date;
-        document.getElementById('State_1').innerText=userData.state;
-        document.getElementById('District_1').innerText=userData.district;
-        document.getElementById('Tehsil_1').innerText=userData.tehsil;
+        document.getElementById('State_1').innerText=userData.state_name;
+        document.getElementById('District_1').innerText=userData.district_name;
+        document.getElementById('Tehsil_1').innerText=userData.tehsil_name;
       },
       error: function(error) {
         console.error('Error fetching user data:', error);
@@ -509,29 +509,64 @@ function fetch_edit_data(id) {
       success: function (response) {
           var Data = response.enquiry_data [0];
           $('#userId').val(Data.id);
-          $('#brand_name1').val(Data.brand_name);
-          console.log(Data.brand_name,'brand');
-          $('#model_name').val(Data.model);
+          // $('#brand_name1').val(Data.brand_name);
+          // console.log(Data.brand_name,'brand');
+          // $('#model_name').val(Data.model);
           $('#fnam_e').val(Data.first_name);
           $('#lnam_e').val(Data.last_name);
           $('#numbe_r').val(Data.mobile);
           $('#emai_l').val(Data.email);
           $('#dat_e').val(Data.date);
-          $("#stat_e option").prop("selected", false);
-          $("#stat_e option[value='" + Data.state+ "']").prop("selected", true);
+          var brandDropdown = document.getElementById('brand_name1');
+          for (var i = 0; i < brandDropdown.options.length; i++) {
+            if (brandDropdown.options[i].text === Data.brand_name) {
+              brandDropdown.selectedIndex = i;
+              break;
+            }
+          }
 
-          $("#dis_t option").prop("selected", false);
-          $("#dis_t option[value='" + Data.district+ "']").prop("selected", true);
+          $('#model_1').empty(); 
+          get_model_1(Data.brand_id); 
 
-          $("#tehsi_l option").prop("selected", false);
-          $("#tehsi_l option[value='" + Data.tehsil+ "']").prop("selected", true);
+          // Selecting the option in the model dropdown
+          setTimeout(function() { // Wait for the model dropdown to populate
+              $("#model_1 option").prop("selected", false);
+              $("#model_1 option[value='" + Data.model + "']").prop("selected", true);
+          }, 1000); // Adjust the delay time as needed
 
-      },
-      error: function (error) {
+          setSelectedOption('state_', Data.state_id);
+          setSelectedOption('dist_', Data.district_id);
+          
+          // Call function to populate tehsil dropdown based on selected district
+          populateTehsil(Data.district_id, 'tehsil-dropdown', Data.tehsil_id);
+
+          // setSelectedOption('tehsil-dropdown', Data.tehsil_id);
+        },
+        error: function(error) {
           console.error('Error fetching user data:', error);
+        }
+      });
+    }
+    
+      function setSelectedOption(selectId, value) {
+        var select = document.getElementById(selectId);
+        for (var i = 0; i < select.options.length; i++) {
+          if (select.options[i].value == value) {
+            select.selectedIndex = i;
+            break;
+          }
+        }
       }
-  });
-}
+      
+      function populateTehsil(selectId, value) {
+        var select = document.getElementById(selectId);
+        for (var i = 0; i < select.options.length; i++) {
+          if (select.options[i].value == value) {
+            select.options[i].selected = true;
+            break;
+          }
+        }
+      }
 
 
 function edit_data_id() {
@@ -596,3 +631,80 @@ $.ajax({
     }
 });
 }
+
+function get_1() {
+  var url = 'http://tractor-api.divyaltech.com/api/customer/get_all_brands';
+  $.ajax({
+      url: url,
+      type: "GET",
+      headers: {
+          'Authorization': 'Bearer ' + localStorage.getItem('token')
+      },
+      success: function (data) {
+          console.log(data);
+          const select = document.getElementById('brand_name1');
+          select.innerHTML = '<option selected disabled value="">Please select an option</option>';
+
+          if (data.brands.length > 0) {
+              data.brands.forEach(row => {
+                  const option = document.createElement('option');
+                  option.textContent = row.brand_name;
+                  option.value = row.id;
+                  select.appendChild(option);
+              });
+
+              // Add event listener to brand dropdown
+              select.addEventListener('change', function() {
+                  const selectedBrandId = this.value;
+                  get_model(selectedBrandId);
+              });
+          } else {
+              select.innerHTML = '<option>No valid data available</option>';
+          }
+      },
+      error: function (error) {
+          console.error('Error fetching data:', error);
+      }
+  });
+}
+
+function get_model_1(brand_id, selectedModel) {
+  var url = 'http://tractor-api.divyaltech.com/api/customer/get_brand_model/' + brand_id;
+  $.ajax({
+      url: url,
+      type: "GET",
+      headers: {
+          'Authorization': 'Bearer ' + localStorage.getItem('token')
+      },
+      success: function (data) {
+          console.log(data);
+          const select = document.getElementById('model_1');
+          select.innerHTML = '<option selected disabled value="">Please select an option</option>';
+
+          if (data.model.length > 0) {
+              data.model.forEach(row => {
+                  const option = document.createElement('option');
+                  option.textContent = row.model;
+                  option.value = row.model;
+                  select.appendChild(option);
+
+                  // Select the option if it matches the selectedModel
+                  if (row.model === selectedModel) {
+                      option.selected = true;
+                  }
+              });
+          } else {
+              select.innerHTML = '<option>No valid data available</option>';
+          }
+      },
+      error: function (error) {
+          console.error('Error fetching data:', error);
+      }
+  });
+}
+
+get_1();
+
+
+populateDropdownsFromClass('state-dropdown', 'district-dropdown', 'tehsil-dropdown');
+populateStateDropdown('state_select', 'district_select');

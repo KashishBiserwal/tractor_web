@@ -551,3 +551,8 @@ function get_implement() {
   }
 
 get_implement();
+
+
+populateDropdownsFromClass('state-dropdown', 'district-dropdown', 'tehsil-dropdown');
+
+populateStateDropdown('state_select', 'district_select');

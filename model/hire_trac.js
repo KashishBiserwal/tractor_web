@@ -131,8 +131,8 @@ $("#dataeditbtn").on("click", function () {
                 row.model,
                 fullName,
                 row.mobile,
-                row.state,
-                row.district,
+                row.state_name,
+                row.district_name,
                 action
             ]);
 
@@ -266,9 +266,9 @@ function openViewdata(userId) {
         document.getElementById('l_name').innerText=userData.last_name;
         document.getElementById('mo_number').innerText=userData.mobile;
         document.getElementById('date_1').innerText=userData.date;
-        document.getElementById('state_1').innerText=userData.state;
-        document.getElementById('dist_1').innerText=userData.district;
-        document.getElementById('tehsil_1').innerText=userData.tehsil;
+        document.getElementById('state_1').innerText=userData.state_name;
+        document.getElementById('dist_1').innerText=userData.district_name;
+        document.getElementById('tehsil_1').innerText=userData.tehsil_name;
         
           // $('#exampleModal').modal('show');
       },
@@ -511,3 +511,8 @@ console.log(row.customer_id);
     tableBody.innerHTML = '<tr><td colspan="4">No valid data available</td></tr>';
 }
 }
+
+
+populateDropdownsFromClass('state-dropdown', 'district-dropdown', 'tehsil-dropdown');
+
+populateStateDropdown('state_select', 'district_select');

@@ -7,6 +7,8 @@
   <script> var APIBaseURL = "<?php echo $APIBaseURL; ?>";</script>
   <script> var baseUrl = "<?php echo $baseUrl; ?>";</script>
   <script src="<?php $baseUrl; ?>model/costemer_haatbzr.js"></script>
+  <script src="<?php $baseUrl; ?>model/State_dist_tehsil.js"></script>
+
 
     <style>
     .step-container {
@@ -342,11 +344,9 @@
                                     <div class="col-12 col-sm-6 col-md-6 col-lg-6 mt-4">
                                         <div class="form-outline">
                                             <label class="form-label" for="state"> <i class="fas fa-location"></i> State</label>
-                                            <select class="form-select error mb-2 pb-2" id="state1" name="state"
+                                            <select class="form-select error mb-2 pb-2 state-dropdown" id="state1" name="state"
                                                 aria-label="Default select example">
-                                                <!-- <option selected></option>
-                                                <option value="Chhattisgarh">Chhattisgarh</option>
-                                                <option value="Others">Others</option> -->
+                                             
                                             </select>
                                         </div>
                                     </div>
@@ -354,14 +354,8 @@
                                     <div class="col-12 col-lg-6 col-md-6 col-sm-6 mt-4">
                                         <div class=" form-outline mt-2">
                                             <label class="form-label text-dark">District</label>
-                                                <select class="form-select" name="district" id="district_1"  required=""onchange="getDistricts_1(this.value)">
-                                                    <!-- <option value>Select District</option>
-                                                    <option value="Balod">Balod</option>
-                                                    <option value="Bastar">Bastar</option>
-                                                    <option value="Bemetara">Bemetara</option>
-                                                    <option value="Bhatapara">Bhatapara</option>
-                                                    <option value="Bijapur">Bijapur</option>
-                                                    <option value="Udaipur">Udaipur</option> -->
+                                                <select class="form-select district-dropdown" name="district" id="district_1"  required="">
+                                              
                                                 </select>
                                                 <span class="text-danger"></span>
                                         </div>
@@ -370,14 +364,8 @@
                                     <div class="col-12 col-lg-6 col-md-6 col-sm-6 mt-4">
                                         <div class="form-outline mt-2">
                                             <label class="form-label text-dark">Tehsil </label>
-                                            <select class="form-select" name="tehsil" id="tehsil1" >
-                                                <!-- <option value>Select Tehsil</option>
-                                                <option value="Balod">Balod</option>
-                                                <option value="Bastar">Bastar</option>
-                                                <option value="Bemetara">Bemetara</option>
-                                                <option value="Bhatapara">Bhatapara</option>
-                                                <option value="Bijapur">Bijapur</option>
-                                                <option value="Udaipur">Udaipur</option> -->
+                                            <select class="form-select tehsil-dropdown" name="tehsil" id="tehsil1" >
+                                               
                                             </select>
                                         </div>
                                     </div> 

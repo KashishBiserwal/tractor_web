@@ -10,7 +10,7 @@
     <script> var APIBaseURL = "<?php echo $APIBaseURL; ?>";</script>
     <script> var baseUrl = "<?php echo $baseUrl; ?>";</script>
     <script src="<?php $baseUrl; ?>model/used_tractor.js"></script>
-
+    <script src="<?php $baseUrl; ?>model/State_dist_tehsil.js"></script>
 <body>
    <?php
    include 'includes/header.php';

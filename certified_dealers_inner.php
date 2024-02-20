@@ -10,6 +10,8 @@ include 'includes/headertag.php';
 <script> var APIBaseURL = "<?php echo $APIBaseURL; ?>";</script>
 <script> var baseUrl = "<?php echo $baseUrl; ?>";</script>
     <script src="<?php $baseUrl; ?>model/certified_dealers_inner.js"></script>
+    <script src="<?php $baseUrl; ?>model/State_dist_tehsil.js"></script>
+
 </head>
 <body>
     <section>
@@ -173,28 +175,20 @@ include 'includes/headertag.php';
                   </div>
                   <div class="col-12 col-sm-12 col-md-6 col-lg-6">
                     <label for="yr_state" class="form-label text-dark fw-bold"> <i class="fas fa-location"></i> State</label>
-                    <select class="form-select py-2" id="_state" name="_state"aria-label=".form-select-lg example">
-                      <option value>Select State</option>
-                      <option value="Chhattisgarh">Chhattisgarh</option>
-                      <option value="Other">Other</option>
+                    <select class="form-select py-2 state-dropdown" id="_state" name="_state"aria-label=".form-select-lg example">
+                     
                     </select>
                   </div>
                   <div class="col-12 col-sm-12 col-md-6 col-lg-6">
                     <label for="yr_dist" class="form-label  fw-bold text-dark"><i class="fa-solid fa-location-dot"></i> District</label>
-                    <select class="form-select py-2" id="_district" name="_district" aria-label=".form-select-lg example">
-                      <option value>Select District</option>
-                      <option value="Raipur">Raipur</option>
-                      <option value="Bilaspur">Bilaspur</option>
-                      <option value="Surajpur">Surajpur</option>
+                    <select class="form-select py-2 district-dropdown" id="_district" name="_district" aria-label=".form-select-lg example">
+                   
                     </select>
                   </div>
                   <div class="col-12 col-sm-12 col-md-6 col-lg-6">
                     <label for="tehsil" class="form-label fw-bold mt-1 text-dark"> Tehsil</label>
-                    <select class="form-select py-2 " id="_tehsil" name="_tehsil"aria-label=".form-select-lg example">
-                        <option value>Select Tehsil</option>
-                        <option value="Raipur">Raipur</option>
-                        <option value="Bilaspur">Bilaspur</option>
-                        <option value="Surajpur">Surajpur</option>                   
+                    <select class="form-select py-2 tehsil-dropdown " id="_tehsil" name="_tehsil"aria-label=".form-select-lg example">
+                      
                     </select>
                   </div>
                   <div class="col-12 col-sm-12 col-md-6 col-lg-6">
