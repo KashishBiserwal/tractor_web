@@ -300,6 +300,7 @@ function openViewdata(userId) {
     
       success: function(response) {
         var userData = response.enquiry_for_insurance_data[0];
+        var policyClaim = userData.previous_policy_claim === 1 ? "Yes" : "No";
         var name = userData.first_name +" "+userData.last_name;
         document.getElementById('last_name2').innerText=name;
         document.getElementById('number').innerText=userData.mobile;
@@ -311,6 +312,7 @@ function openViewdata(userId) {
         document.getElementById('district1').innerText=userData.district_name;
         document.getElementById('tehsil1').innerText=userData.tehsil_name;
         document.getElementById('insurance_type_name1').innerText=userData.insurance_type_name;
+        document.getElementById('policy').innerText = policyClaim;
       },
       error: function(error) {
         console.error('Error fetching user data:', error);

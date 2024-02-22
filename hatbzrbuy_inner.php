@@ -51,16 +51,16 @@ include 'includes/footertag.php';
 
             <div class="row ">
                 <div class="col-12 col-sm-6 col-lg-6 col-md-6">
-                <div>
-                    <div class="swiper swiper_buy mySwiper2_buy">
-                        <div class="swiper-wrapper swiper-wrapper_buy">
-                            <div class=" swiper-slide swiper-slide_buy">
-                                 <!-- <img class="img_buy" src="assets/images/437-1632718440.webp" /> -->
+                    <div>
+                        <div class="swiper swiper_buy mySwiper2_buy">
+                            <div class="swiper-wrapper swiper-wrapper_buy">
+                                <div class=" swiper-slide swiper-slide_buy">
+                                    <!-- <img class="img_buy" src="assets/images/437-1632718440.webp" /> -->
+                                </div>
                             </div>
                         </div>
+                        <div thumbsSlider="" class="swiper mySwiper_buy" style="height:75px; width: 43%;" id="swip_img"></div>
                     </div>
-                    <div thumbsSlider="" class="swiper mySwiper_buy" style="height:75px; width: 43%;" id="swip_img"></div>
-                </div>
                 </div>
                 <div class="col-12 col-sm-6 col-lg-6 col-md-6">
                     <form action="" id="nursery_form" method="post">

@@ -135,6 +135,8 @@ function applyForLoan(event) {
     var state = $('#state').val();
     var tehsil = $('#tehsil').val();
     var district = $('#district').val();
+    var previous_policy_claim = $('input[name="fav_rc"]:checked').val();
+    console.log(previous_policy_claim,'previous_policy_claim');
 
     // Prepare data to send to the server
     var paraArr = {
@@ -149,8 +151,8 @@ function applyForLoan(event) {
         'registered_year': registeredYear,
         'state': state,
         'tehsil': tehsil,
-        'district': district
-       
+        'district': district,
+        'previous_policy_claim': previous_policy_claim
     };
 
     var url = 'http://tractor-api.divyaltech.com/api/customer/customer_enquiries';

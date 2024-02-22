@@ -127,7 +127,7 @@ function add_insurance(event) {
     var state = $('#state').val();
     var tehsil = $('#tehsil').val();
     var district = $('#district').val();
-   
+    var previous_policy_claim = $('input[name="fav_rc"]:checked').val();
     // Prepare data to send to the server
     var paraArr = {
         'enquiry_type_id':enquiry_type_id,
@@ -142,6 +142,7 @@ function add_insurance(event) {
       'state': state,
       'tehsil': tehsil,
       'district': district,
+      'previous_policy_claim': previous_policy_claim,
     };
 
     // var apiBaseURL =APIBaseURL;
