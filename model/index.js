@@ -59,7 +59,7 @@ function getpopularTractorList() {
                             }
                         }
                         
-                        var newCard = ` <div class="swiper-slide success__stry__item  box_shadow  b-t-1 h-100">
+                        var newCard = `<div class="swiper-slide success__stry__item  box_shadow  b-t-1 h-100">
                         <a class="text-decoration-none " href="detail_tractor.php?${p.product_id}">
                         <div class="thumb">
                                <img src="http://tractor-api.divyaltech.com/uploads/product_img/${a[0]}" class="" alt="img" >

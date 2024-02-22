@@ -24,7 +24,7 @@ function get_loan_type() {
                 if (data.loanType.length > 0) {
                     data.loanType.forEach(row => {
                         const option = document.createElement('option');
-                        option.textContent = row.loan_type_name;
+                        option.textContent = row.loan_type_value;
                         option.value = row.id;
                         console.log(option);
                         select.appendChild(option);
@@ -60,7 +60,7 @@ function get() {
                     data.brands.forEach(row => {
                         const option = document.createElement('option');
                         option.textContent = row.brand_name;
-                        option.value = row.id;
+                        option.value = row.brand_id;
                         console.log(option);
                         select.appendChild(option);
                     });

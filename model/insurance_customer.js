@@ -20,7 +20,7 @@ function get_insurance_type() {
                 if (data.insuranceType.length > 0) {
                     data.insuranceType.forEach(row => {
                         const option = document.createElement('option');
-                        option.textContent = row.insurance_type_name;
+                        option.textContent = row.insurance_type_value;
                         option.value = row.id;
                         console.log(option);
                         select.appendChild(option);

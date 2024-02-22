@@ -48,7 +48,7 @@ $(document).ready(function(){
                     // Add row to DataTable
                     table.row.add([
                         serialNumber--,  
-                        row.loan_type_name,
+                        row.loan_type_value,
                         fullName,
                         row.mobile,
                         row.state_name,
@@ -134,7 +134,7 @@ function get_loan_type() {
             if (data.loanType.length > 0) {
                 data.loanType.forEach(row => {
                     const option = $('<option>');
-                    option.text(row.loan_type_name);
+                    option.text(row.loan_type_value);
                     option.val(row.id);
                     // console.log(row.id,'sdfzxczxcxcfv');
                     select.append(option);
@@ -148,8 +148,6 @@ function get_loan_type() {
         }
     });
 }
-
-// Call the function to fetch and populate loan types dropdown
 get_loan_type();
 
 function get_1() {
@@ -169,14 +167,14 @@ function get_1() {
                 data.brands.forEach(row => {
                     const option = document.createElement('option');
                     option.textContent = row.brand_name;
-                    option.value = row.id;
+                    option.value = row.brand_id;
                     select.appendChild(option);
                 });
   
                 // Add event listener to brand dropdown
                 select.addEventListener('change', function() {
                     const selectedBrandId = this.value;
-                    get_model(selectedBrandId);
+                    get_model_1(selectedBrandId);
                 });
             } else {
                 select.innerHTML = '<option>No valid data available</option>';
@@ -188,7 +186,7 @@ function get_1() {
     });
   }
   
-  function get_model_1(brand_id, selectedModel) {
+  function get_model_1(brand_id) {
     var url = 'http://tractor-api.divyaltech.com/api/customer/get_brand_model/' + brand_id;
     $.ajax({
         url: url,
@@ -208,10 +206,7 @@ function get_1() {
                     option.value = row.model;
                     select.appendChild(option);
   
-                    // Select the option if it matches the selectedModel
-                    if (row.model === selectedModel) {
-                        option.selected = true;
-                    }
+                   
                 });
             } else {
                 select.innerHTML = '<option>No valid data available</option>';
@@ -222,10 +217,45 @@ function get_1() {
         }
     });
   }
-  
+
   get_1();
 
 
+
+//   for search
+function get_search1() {
+    var url = 'http://tractor-api.divyaltech.com/api/customer/get_all_brands';
+    $.ajax({
+        url: url,
+        type: "GET",
+        headers: {
+            'Authorization': 'Bearer ' + localStorage.getItem('token')
+        },
+        success: function (data) {
+            console.log(data);
+            const select = document.getElementById('brand_search');
+            select.innerHTML = '<option selected disabled value="">Please select an option</option>';
+  
+            if (data.brands.length > 0) {
+                data.brands.forEach(row => {
+                    const option = document.createElement('option');
+                    option.textContent = row.brand_name;
+                    option.value = row.brand_id;
+                    select.appendChild(option);
+                });
+  
+            } else {
+                select.innerHTML = '<option>No valid data available</option>';
+            }
+        },
+        error: function (error) {
+            console.error('Error fetching data:', error);
+        }
+    });
+  }
+
+  get_search1();
+  
 //****edit fetch****
 function fetch_edit_data(id) {
     var apiBaseURL = APIBaseURL;
@@ -251,7 +281,7 @@ function fetch_edit_data(id) {
 
             var insuranceTypeDropdown = document.getElementById('insurance_type');
             for (var i = 0; i < insuranceTypeDropdown.options.length; i++) {
-                if (insuranceTypeDropdown.options[i].value == Data.loan_type_name) {
+                if (insuranceTypeDropdown.options[i].value == Data.loan_type_id) {
                     insuranceTypeDropdown.selectedIndex = i;
                     break;
                 }
@@ -259,7 +289,7 @@ function fetch_edit_data(id) {
 
             var brandDropdown = document.getElementById('brand_name');
             for (var i = 0; i < brandDropdown.options.length; i++) {
-                if (brandDropdown.options[i].text === Data.brand_name) {
+                if (brandDropdown.options[i].text === Data.brand_id) {
                     brandDropdown.selectedIndex = i;
                     break;
                 }
@@ -274,7 +304,7 @@ function fetch_edit_data(id) {
 
 
             // $("#insurance_type option").prop("selected", false);
-            // $("#insurance_type option[value='" + Data.loan_type_name + "']").prop("selected", true);
+            // $("#insurance_type option[value='" + Data.loan_type_value + "']").prop("selected", true);
 
             setSelectedOption('state_2', Data.state_id);
             setSelectedOption('dist_2', Data.district_id);
@@ -385,7 +415,7 @@ function openViewdata(userId) {
       url: url,
       type: 'GET',
       headers: headers,
-    
+
       success: function(response) {
         var userData = response.Enquiry_for_loan_data[0];
         var name = userData.first_name +" "+userData.last_name;
@@ -398,7 +428,7 @@ function openViewdata(userId) {
         document.getElementById('state1').innerText=userData.state_name;
         document.getElementById('district1').innerText=userData.district_name;
         document.getElementById('tehsil1').innerText=userData.tehsil_name;
-        document.getElementById('insurance_type_name1').innerText=userData.loan_type_name;
+        document.getElementById('insurance_type_name1').innerText=userData.loan_type_value;
       },
       error: function(error) {
         console.error('Error fetching user data:', error);
@@ -491,39 +521,6 @@ function openViewdata(userId) {
 
 
 
-//   function get_search() {
-//     // var url = "<?php echo $APIBaseURL; ?>getBrands";
-//     var apiBaseURL =APIBaseURL;
-//     var url = apiBaseURL + 'getBrands';
-//     $.ajax({
-//         url: url,
-//         type: "GET",
-//         headers: {
-//             'Authorization': 'Bearer' + localStorage.getItem('token')
-//         },
-//         success: function (data) {
-//             console.log(data);
-//             const select = document.getElementById('brand_search');
-//             // select.innerHTML = '';
-//             select.innerHTML = '<option selected disabled value="">Please select an option</option>';
-//             if (data.brands.length > 0) {
-//                 data.brands.forEach(row => {
-//                     const option = document.createElement('option');
-//                     option.value = row.id; 
-//                     option.textContent = row.brand_name;
-//                     select.appendChild(option);
-//                 });
-//             } else {
-//                 select.innerHTML ='<option>No valid data available</option>';
-//             }
-//         },
-//         error: function (error) {
-//             console.error('Error fetching data:', error);
-//         }
-//     });
-// }
-// get_search();
-
 function resetform(){
     $('#brand_search').val();
     $('#state_state').val();
@@ -533,5 +530,5 @@ function resetform(){
 }
 
 
-populateDropdownsFromClass('state-dropdown', 'district-dropdown', 'tehsil-dropdown');
-populateStateDropdown('state_select', 'district_select');
+// populateDropdownsFromClass('state-dropdown', 'district-dropdown', 'tehsil-dropdown');
+// populateStateDropdown('state_select', 'district_select');

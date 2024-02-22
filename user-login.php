@@ -9,7 +9,7 @@
   <script> var APIBaseURL = "<?php echo $APIBaseURL; ?>";</script>
 <script> var baseUrl = "<?php echo $baseUrl; ?>";</script>
 <script src="<?php $baseUrl; ?>model/userlogin.js"></script>
-   ?>
+
 </head>
 
 <div class="container">
@@ -17,7 +17,7 @@
     <div class="loginBox">
         <img src="assets/images/user.webp" class="rounded-circle text-center  user" alt="">
         <div id='sign-in' class=''>
-            <h2 class="request-otp-header text-success">User Login</h3>
+            <h4 class="request-otp-header text-center text-success">User Login</h4>
             <p class="text-dark text-center">Enter your phonr number to receive a one-time password</p>
             <div class="form-group login-label">
             <p class="mt-3 pt-4 text-dark fw-bold">Phone Number*</p>
@@ -31,13 +31,13 @@
         <h3 class="request-otp-header text-success text-center">Enter OTP</h3>
         <div class="form-group login-label">
             <!--<label for="inputnumber">One Time Password</label> -->
-            <p class="mt-3 pt-4 text-dark fw-bold"  for="inputnumber">One Time Password*</p>
+            <p class="mt-3 pt-4 text-dark fw-bold" for="inputnumber">One Time Password*</p>
             <!-- <input type="number" class="form-control input-edit" placeholder='Enter OTP' id="number"> -->
-            <input type="text" name="email" class="text-dark" placeholder="" required>
+            <input type="text" name="email" class="text-dark" placeholder="" id="otp" required>
             <label class="pull-right resend-otp"><a href="" class="text-success">Resend otp</a></label>
         </div>
         <!-- <button type="button" class="btn btn-default btn-lg btn-block request-otp ">Verify</button> -->
-        <input type="submit" name="Verify" class="fw-bold" value="Verify" id=''>
+        <input type="button" name="Verify" class="fw-bold" value="Verify" id='Verify'>
     </div>
 </div>
 </div>

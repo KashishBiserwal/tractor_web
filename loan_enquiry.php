@@ -73,7 +73,7 @@
       <!-- Table Card -->
       <div class=" mb-5">
                             <div class="table-responsive shadow bg-white">
-                                <table id="example" class="table dataTable no-footer py-1" width="100%">
+                                <table id="example" class="table table-striped table-hover table-bordered no-footer dataTable" width="100%">
                                     <thead>
                                         <tr>
                                             <th class="d-none d-md-table-cell text-white">S.No.</th>

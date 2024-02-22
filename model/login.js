@@ -107,36 +107,3 @@ $(function(){
       });
   });
   
-   
-  
-//     $.ajax({
-//       url: url,
-//       type: 'POST',
-//       contentType: 'application/json',
-//       data: JSON.stringify(paraArr),
-//       success: function (result) {
-//         console.log(result, 'login success');
-//         localStorage.setItem('token', result.access_token);
-//         localStorage.setItem('expireIn', result.expires_in);
-//         window.location.href = baseUrl + 'usermanagement.php';
-//       },
-//       error: function (xhr, textStatus, errorThrown) {
-//         console.log(xhr.status, 'error');
-  
-//         if (xhr.status === 401) {
-//           console.log('Invalid credentials');
-//           alert('Please enter valid credentials..!');
-//         } else if (xhr.status === 403) {
-//           console.log('Forbidden: You don\'t have permission to access this resource.');
-//           alert('Forbidden: You don\'t have permission to access this resource.');
-//         } else {
-//           console.log('An error occurred:', textStatus, errorThrown);
-//           alert('An error occurred while processing your request.');
-//         }
-//       },
-//       complete: function () {
-//         // Hide the spinner after the API call is complete
-//         spinner.style.display = 'none';
-//       },
-//     });
-//   }

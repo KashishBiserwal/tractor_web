@@ -10,19 +10,19 @@ $(document).ready(function() {
 });
 
 
-
-
-
 function getInterestedBuyer() {
     var url =  "http://tractor-api.divyaltech.com/api/customer/interested_buyer_list";
-   
+    var headers = {
+        'Authorization': localStorage.getItem('token')
+      };
     
     $.ajax({
       url: url,
       type: "POST",
+      headers: headers,
       success: function (data) {
-          const tableBody = $('#data-table'); // Use jQuery selector for the table body
-          tableBody.empty(); // Clear previous data
+          const tableBody = $('#data-table'); 
+          tableBody.empty(); 
   
   
             if (data.customer_details && data.customer_details.length > 0) {
@@ -65,11 +65,14 @@ function getInterestedBuyer() {
   }
   function getpurchase_requestlist() {
     var url =  "http://tractor-api.divyaltech.com/api/customer/get_purchase_enquiry_data";
-   
+    var headers = {
+        'Headers':  localStorage.getItem('token')
+      };
     
     $.ajax({
       url: url,
       type: "POST",
+      headers:headers,
       success: function (data) {
           const tableBody = $('#data-table'); // Use jQuery selector for the table body
           tableBody.empty(); // Clear previous data
@@ -378,11 +381,14 @@ function getInterestedBuyer() {
 
   function getmylist() {
     var url =  "http://tractor-api.divyaltech.com/api/customer/get_sell_enquiry_data";
-   
+    var headers = {
+        'Headers': localStorage.getItem('token')
+      };
     
     $.ajax({
       url: url,
       type: "POST",
+      headers:headers,
       success: function (data) {
           const tableBody = $('#data-table'); // Use jQuery selector for the table body
           tableBody.empty(); // Clear previous data
@@ -430,14 +436,17 @@ function getInterestedBuyer() {
   function getuserdetail(){
     var url =  "http://tractor-api.divyaltech.com/api/customer/get_customer_personal_info_by_id/21";
    
-    
+    var headers = {
+        'Headers':  + localStorage.getItem('token')
+      };
     $.ajax({
       url: url,
       type: "GET",
+      headers:headers,
       success: function (data) {
         console.log(data,"data")
-          const tableBody = $('#data-table'); // Use jQuery selector for the table body
-          tableBody.empty(); // Clear previous data
+          const tableBody = $('#data-table'); 
+          tableBody.empty(); 
   
   
             if (data.customerData && data.customerData.length > 0) {

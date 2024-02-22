@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <?php
-        include 'includes/header.php';
+        // include 'includes/header.php';
         include 'includes/headertag.php';
         include 'includes/footertag.php';
     ?>
@@ -131,6 +131,9 @@
     </style>
 </head>
 <body>
+    <?php 
+     include 'includes/header.php';
+    ?>
 <section class="mt-130 bg-white">
             <div class="container ">
                 <div class="py-2">

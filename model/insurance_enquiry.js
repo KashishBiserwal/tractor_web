@@ -27,7 +27,7 @@ function get_loan() {
                     columns: [
                         { title: 'S.No.' },
                         { title: 'Date' },
-                        { title: 'Loan Type' },
+                        { title: 'Insurance Type' },
                         { title: 'Brand' },
                         { title: 'Full Name' },
                         { title: 'State' },
@@ -43,11 +43,11 @@ function get_loan() {
                     table.row.add([
                         serialNumber--,
                         row.date,
-                        row.insurance_type_name,
+                        row.insurance_type_value,
                         row.brand_name,
                         fullName,
-                        row.state,
-                        row.district,
+                        row.state_name,
+                        row.district_name,
                         `<div class="d-flex">
                             <button class="btn btn-warning btn-sm text-white mx-1" data-bs-toggle="modal" onclick="openViewdata(${row.id});" data-bs-target="#view_model_nursery_enq">
                                 <i class="fas fa-eye" style="font-size: 11px;"></i>
@@ -128,7 +128,7 @@ function get_insurance_type() {
                 if (data.insuranceType.length > 0) {
                     data.insuranceType.forEach(row => {
                         const option = document.createElement('option');
-                        option.textContent = row.insurance_type_name;
+                        option.textContent = row.insurance_type_value;
                         option.value = row.id;
                         console.log(option);
                         select.appendChild(option);
@@ -145,6 +145,75 @@ function get_insurance_type() {
 }
 get_insurance_type();
 
+function get_1() {
+  var url = 'http://tractor-api.divyaltech.com/api/customer/get_all_brands';
+  $.ajax({
+      url: url,
+      type: "GET",
+      headers: {
+          'Authorization': 'Bearer ' + localStorage.getItem('token')
+      },
+      success: function (data) {
+          console.log(data);
+          const select = document.getElementById('brand_name');
+          select.innerHTML = '<option selected disabled value="">Please select an option</option>';
+
+          if (data.brands.length > 0) {
+              data.brands.forEach(row => {
+                  const option = document.createElement('option');
+                  option.textContent = row.brand_name;
+                  option.value = row.brand_id;
+                  select.appendChild(option);
+              });
+
+              // Add event listener to brand dropdown
+              select.addEventListener('change', function() {
+                  const selectedBrandId = this.value;
+                  get_model_1(selectedBrandId);
+              });
+          } else {
+              select.innerHTML = '<option>No valid data available</option>';
+          }
+      },
+      error: function (error) {
+          console.error('Error fetching data:', error);
+      }
+  });
+}
+
+function get_model_1(brand_id) {
+  var url = 'http://tractor-api.divyaltech.com/api/customer/get_brand_model/' + brand_id;
+  $.ajax({
+      url: url,
+      type: "GET",
+      headers: {
+          'Authorization': 'Bearer ' + localStorage.getItem('token')
+      },
+      success: function (data) {
+          console.log(data);
+          const select = document.getElementById('model_name');
+          select.innerHTML = '<option selected disabled value="">Please select an option</option>';
+
+          if (data.model.length > 0) {
+              data.model.forEach(row => {
+                  const option = document.createElement('option');
+                  option.textContent = row.model;
+                  option.value = row.model;
+                  select.appendChild(option);
+
+                 
+              });
+          } else {
+              select.innerHTML = '<option>No valid data available</option>';
+          }
+      },
+      error: function (error) {
+          console.error('Error fetching data:', error);
+      }
+  });
+}
+
+get_1();
 
 //****edit fetch****
 function fetch_edit_data(id) {
@@ -177,17 +246,34 @@ function fetch_edit_data(id) {
   
 
             $("#insurance_type option").prop("selected", false);
-            $("#insurance_type option[value='" + Data.insurance_type_name+ "']").prop("selected", true);
+            $("#insurance_type option[value='" + Data.insurance_type_id+ "']").prop("selected", true);
 
+            // var brandDropdown = document.getElementById('brand_name');
+            // for (var i = 0; i < brandDropdown.options.length; i++) {
+            //   if (brandDropdown.options[i].text === Data.brand_name) {
+            //     brandDropdown.selectedIndex = i;
+            //     break;
+            //   }
+            // }
             var brandDropdown = document.getElementById('brand_name');
             for (var i = 0; i < brandDropdown.options.length; i++) {
-              if (brandDropdown.options[i].text === Data.brand_name) {
-                brandDropdown.selectedIndex = i;
-                break;
-              }
+                if (brandDropdown.options[i].text === Data.brand_name) {
+                    brandDropdown.selectedIndex = i;
+                    break;
+                }
             }
+
+            //  $("#model_name option").prop("selected", false);
+            // $("#model_name option[value='" +Data.model+ "']").prop("selected", true);
+
+            $('#model_name').empty();
+            get_model_1(Data.brand_id);
+            setTimeout(function () { 
+                $("#model_name option").prop("selected", false);
+                $("#model_name option[value='" + Data.model + "']").prop("selected", true);
+            }, 1000); 
   
-            setSelectedOption('model_name', Data.brand_id);
+            // setSelectedOption('model_name', Data.brand_id);
             setSelectedOption('state_2', Data.state_id);
             setSelectedOption('dist_2', Data.district_id);
             
@@ -310,7 +396,7 @@ function openViewdata(userId) {
         document.getElementById('state1').innerText=userData.state_name;
         document.getElementById('district1').innerText=userData.district_name;
         document.getElementById('tehsil1').innerText=userData.tehsil_name;
-        document.getElementById('insurance_type_name1').innerText=userData.insurance_type_name;
+        document.getElementById('insurance_type_name1').innerText=userData.insurance_type_value;
       },
       error: function(error) {
         console.error('Error fetching user data:', error);
@@ -361,7 +447,7 @@ function openViewdata(userId) {
             columns: [
                 { title: 'S.No.' },
                 { title: 'Date' },
-                { title: 'Loan Type' },
+                { title: 'Insurance Type' },
                 { title: 'Brand' },
                 { title: 'Full Name' },
                 { title: 'State' },
@@ -387,11 +473,11 @@ function openViewdata(userId) {
             table.row.add([
                 serialNumber--,
                 row.date,
-                row.insurance_type_name,
+                row.insurance_type_value,
                 row.brand_name,
                 fullName,
-                row.state,
-                row.district,
+                row.state_name,
+                row.district_name,
                 action
             ]).draw(false);
         });
