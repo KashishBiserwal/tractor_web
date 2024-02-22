@@ -9,7 +9,7 @@
   <script src="<?php $baseUrl; ?>model/insurance_enquiry.js"></script>
   <script src="<?php $baseUrl; ?>model/State_dist_tehsil.js"></script>
   <script src="<?php $baseUrl; ?>model/state2_dist2.js"></script>
-
+  <script src="<?php $baseUrl; ?>model/brand_function.js"></script>
 <body class="loaded"> 
 <div class="main-wrapper">
     <div class="app" id="app">
@@ -121,7 +121,7 @@
                                         </div>
                                         <div class="col-12 col-lg-6 col-sm-5 col-md-6 my-1">
                                           <div class="form-outline ">
-                                            <label for="name" class="form-label text-dark">Loan Type</label>
+                                            <label for="name" class="form-label text-dark">Insurance Type</label>
                                             <select class="form-select error mb-2 pb-2" aria-label="Default select example"
                                               id="insurance_type" name="insurance_type">
                                         
@@ -149,14 +149,14 @@
                                         <div class="col-12 col-lg-6 col-sm-5 col-md-6 my-1">
                                           <div class="form-outline mt-4">
                                               <label for="name" class="form-label text-dark">Brand</label>
-                                             <select class="form-select error mb-2 pb-2" aria-label="Default select example"id="brand_name" name="brand_name">
+                                             <select class="form-select error mb-2 pb-2 brand_select" aria-label="Default select example"id="brand_name" name="brand_name">
                                               </select>
                                           </div>
                                         </div>
                                         <div class="col-12 col-lg-6 col-sm-5 col-md-6 my-1">
                                           <div class="form-outline mt-4">
                                               <label for="name" class="form-label text-dark">Model</label>
-                                              <select class="form-select error mb-2 pb-2" aria-label="Default select example"
+                                              <select class="form-select error mb-2 pb-2 model_select" aria-label="Default select example"
                                               id="model_name" name="model_name">
                                               </select>
                                              
@@ -228,7 +228,7 @@
                         <table class="table table-striped">
                         <tbody>
                          <tr> 
-                         <td>Loan Type-</td>
+                         <td>Insurance Type-</td>
                             <td id="insurance_type_name1"></td>
                             <td>Full Name-</td>
                             <td id="last_name2"></td>

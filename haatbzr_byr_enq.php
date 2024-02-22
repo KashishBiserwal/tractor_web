@@ -7,6 +7,8 @@
 <script> var APIBaseURL = "<?php echo $APIBaseURL; ?>";</script>
 <script> var baseUrl = "<?php echo $baseUrl; ?>";</script>
 <script src="<?php $baseUrl; ?>model/haatbzr_byr_enq.js"></script>
+<script src="<?php $baseUrl; ?>model/State_dist_tehsil.js"></script>
+<script src="<?php $baseUrl; ?>model/state2_dist2.js"></script>
 
 <body class="loaded"> 
 <div class="main-wrapper">
@@ -52,28 +54,16 @@
             <div class="col-12 col-sm-12 col-md-3 col-lg-3">
               <div class="form-outline">
                 <label class="form-label">State</label>
-                <select class="form-select py-2" aria-label="Default select example"  id="state_1">
-                    <option value>Select State</option>
-                    <option value="Chhattisgarh">Chhattisgarh</option>
-                    <option value="Other">Other</option>
+                <select class="form-select py-2 state_select" aria-label="Default select example"  id="state_1">
+                 
                 </select>
               </div>
             </div>
             <div class="col-12 col-sm-12 col-md-3 col-lg-3">
               <div class="form-outline ">
                 <label class="form-label fw-bold">District</label>
-                <select class="form-select py-2" aria-label="Default select example" id="dist_district">
-                    <option value>Select District</option>
-                    <option value="Raipur">Raipur</option>
-                  <option value="Bhilai">Bhilai</option>
-                  <option value="Durg">Durg</option>
-                  <option value="Raigarh">Raigarh</option>
-                  <option value="Sarguja">Sarguja</option>
-                  <option value="Surajpur">Surajpur</option>
-                  <option value="	Jagdalpur">	Jagdalpur</option>
-                  <option value="	Korba">	Korba</option>
-                  <option value="	Dhamtari">	Dhamtari</option>
-                  <option value="	Ambikapur">	Ambikapur</option>	
+                <select class="form-select py-2 district_select" aria-label="Default select example" id="dist_district">
+                 
                 </select>
               </div>
             </div>
@@ -247,49 +237,24 @@
             <div class="col-12 col-sm-6 col-md-6 col-lg-6 mt-2">
                 <div class="form-outline mt-3">
                     <label class="form-label" for="state">State</label>
-                    <select class="form-select py-2" aria-label="Default select example" id="state_" name="state">
-                        <option value>Select State</option>
-                        <option value="Chhattisgarh">Chhattisgarh</option>
-                        <option value="Maharashtra">Maharashtra</option>
-                        <option value="Other">Other</option>
+                    <select class="form-select py-2 state-dropdown" aria-label="Default select example" id="state_" name="state">
+                    
                     </select>
                 </div>
             </div>
             <div class="col-12 col-sm-6 col-md-6 col-lg-6 mt-2">
                 <div class="form-outline mt-3">
                     <label class="form-label" for="district">District</label>
-                    <select class="form-select py-2" aria-label="Default select example" name="district" id="district_1">
-                        <option value>Select District</option>
-                        <option value="Raipur">Raipur</option>
-                        <option value="Bhilai">Bhilai</option>
-                        <option value="Durg">Durg</option>
-                        <option value="	Bilaspur">Bilaspur</option>
-                        <option value="Raigarh">Raigarh</option>
-                        <option value="Sarguja">Sarguja</option>
-                        <option value="Surajpur">Surajpur</option>
-                        <option value="Jagdalpur">Jagdalpur</option>
-                        <option value="Korba">Korba</option>
-                        <option value="Dhamtari">Dhamtari</option>
-                        <option value="Ambikapur">Ambikapur</option>
+                    <select class="form-select py-2  district-dropdown" aria-label="Default select example" name="district" id="district_1">
+                     
                     </select>
                 </div>
             </div>
             <div class="col-12 col-sm-6 col-md-6 col-lg-6 mt-3">
                 <div class="form-outline mt-2">
                     <label class="form-label" for="tehsil">Tehsil</label>
-                    <select class="form-select py-2" aria-label="Default select example" name="tehsil" id="tehsil_1">
-                        <option value>Select Tehsil</option>
-                        <option value="Raipur">Raipur</option>
-                        <option value="Bhilai">Bhilai</option>
-                        <option value="Durg">Durg</option>
-                        <option value="Raigarh">Raigarh</option>
-                        <option value="Sarguja">Sarguja</option>
-                        <option value="Surajpur">Surajpur</option>
-                        <option value="Jagdalpur">Jagdalpur</option>	
-                        <option value="	Bilaspur">Bilaspur</option>
-                        <option value="Korba">Korba</option>
-                        <option value="Dhamtari">Dhamtari</option>
-                        <option value="Ambikapur">Ambikapur</option>
+                    <select class="form-select py-2 tehsil-dropdown" aria-label="Default select example" name="tehsil" id="tehsil_1">
+                     
                     </select>
                 </div>
             </div>

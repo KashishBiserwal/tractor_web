@@ -48,7 +48,7 @@
             <div class="col-12 col-sm-12 col-md-3 col-lg-3">
               <div class="form-outline">
                 <label class="form-label">Search By Brand</label>
-                <select class="js-select2 form-select form-control mb-0" id="brand_name">
+                <select class="js-select2 form-select form-control mb-0" id="brand_search">
                 </select>
               </div>
             </div>
@@ -201,7 +201,9 @@
                                     <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
                                       <div class="form-outline">
                                         <label for="name" class="form-label text-dark">Model Name</label>
-                                        <input type="text" class="form-control" placeholder="" id="model_name" name="mname">
+                                        <select class="js-select2 form-select form-control mb-0" id="model_name" name="mname">
+                                        </select>
+                                        <!-- <input type="text" class="form-control" placeholder="" id="model_name" name="mname"> -->
                                       </div>
                                     </div>
                                         <div class="col-12 col-lg-6 col-sm-5 col-md-6">

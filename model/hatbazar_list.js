@@ -478,8 +478,8 @@ var editId_state= false;
                           row.sub_category_name,
                           fullName,
                           row.mobile,
-                          row.state,
-                          row.district,
+                          row.state_name,
+                          row.district_name,
                           `<div class="d-flex">
                           <button class="btn btn-warning btn-sm text-white mx-1" data-bs-toggle="modal" onclick="fetch_data(${row.haat_bazar_id})" data-bs-target="#view_model_hatbazar"><i class="fas fa-eye" style="font-size: 11px;"></i></button>
 
@@ -576,9 +576,9 @@ function destroy(id) {
           document.getElementById('first_name').innerText = data.allData.haat_bazar_data[0].first_name;
           document.getElementById('last_name').innerText = data.allData.haat_bazar_data[0].last_name;
           document.getElementById('number2').innerText = data.allData.haat_bazar_data[0].mobile;
-          document.getElementById('state').innerText = data.allData.haat_bazar_data[0].state;
-          document.getElementById('district').innerText = data.allData.haat_bazar_data[0].district;
-          document.getElementById('tehsil1').innerText = data.allData.haat_bazar_data[0].tehsil;
+          document.getElementById('state').innerText = data.allData.haat_bazar_data[0].state_name;
+          document.getElementById('district').innerText = data.allData.haat_bazar_data[0].district_name;
+          document.getElementById('tehsil1').innerText = data.allData.haat_bazar_data[0].tehsil_name;
       
           $("#selectedImagesContainer1").empty();
       
@@ -639,9 +639,12 @@ function destroy(id) {
             $('#fname').val(Data.first_name);
             $('#number').val(Data.mobile);
             $('#lname').val(Data.last_name);
-            $('#state_').val(Data.state);
-            $('#dist').val(Data.district);
-            $('#tehsil').val(Data.tehsil);
+          
+
+            setSelectedOption('state_', Data.state_id);
+            setSelectedOption('dist', Data.district_id);
+            
+            populateTehsil(Data.district_id, 'tehsil-dropdown', Data.tehsil_id);
             // var selectedCategoryId = Data.tyre_category_id;
             // $('#category').val(selectedCategoryId).prop('selected', true);
             var categoryDropdown = document.getElementById('c_category');
@@ -698,7 +701,26 @@ function destroy(id) {
         }
     });
   }
-
+  function setSelectedOption(selectId, value) {
+    var select = document.getElementById(selectId);
+    for (var i = 0; i < select.options.length; i++) {
+      if (select.options[i].value == value) {
+        select.selectedIndex = i;
+        break;
+      }
+    }
+  }
+  
+  function populateTehsil(selectId, value) {
+    var select = document.getElementById(selectId);
+    for (var i = 0; i < select.options.length; i++) {
+      if (select.options[i].value == value) {
+        select.options[i].selected = true;
+        break;
+      }
+    }
+  }
+  
 
 //   function get_category() {
 //     var apiBaseURL = APIBaseURL; // Assuming APIBaseURL is defined globally
@@ -893,8 +915,8 @@ function updateTable(data) {
               row.sub_category_name,
               fullName,
               row.mobile,
-              row.state,
-              row.district,
+              row.state_name,
+              row.district_name,
               action
           ]);
       });

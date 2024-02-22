@@ -209,7 +209,7 @@
                                         <label for="name" class="form-label text-dark">Model Name</label>
                                         <select class="form-select py-2 model_select" aria-label="Default select example" id="model_name" name="mname">
                                         </select>
-                                        <!-- <input type="text" class="form-control" placeholder="" id="model_name" name="mname"> -->
+                                 
                                       </div>
                                     </div>
                                  <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
@@ -221,7 +221,7 @@
                                     <div class="ol-12 col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-outline mt-3">
                                             <label class="form-label text-dark"> Last Name</label>
-                                            <input type="text" class="form-control py-2" for="last_name"  id="last_name" name="last_name">
+                                            <input type="text" class="form-control py-2" for="last_name"  id="last_name" name="last2_name">
                                         </div>
                                     </div>
                                     <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">

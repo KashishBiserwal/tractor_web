@@ -253,7 +253,7 @@ function get() {
           'Authorization': 'Bearer ' + localStorage.getItem('token')
       },
       success: function (data) {
-          const selects = document.querySelectorAll('#brand_name');
+          const selects = document.querySelectorAll('#brand_name1');
 
           selects.forEach(select => {
               select.innerHTML = '<option selected disabled value="">Please select an option</option>';
@@ -291,7 +291,7 @@ function get_model(brand_id) {
           'Authorization': 'Bearer ' + localStorage.getItem('token')
       },
       success: function (data) {
-          const selects = document.querySelectorAll('#model_1');
+          const selects = document.querySelectorAll('#model_2');
 
           selects.forEach(select => {
               select.innerHTML = '<option selected disabled value="">Please select an option</option>';
@@ -525,8 +525,8 @@ function fetch_edit_data(id) {
             }
           }
 
-          $('#model_1').empty(); 
-          get_model_1(Data.brand_id); 
+          $('#model_2').empty(); 
+          get_model(Data.brand_id); 
 
           // Selecting the option in the model dropdown
           setTimeout(function() { // Wait for the model dropdown to populate
@@ -570,7 +570,8 @@ function fetch_edit_data(id) {
 
 
 function edit_data_id() {
-var enquiry_type_id = $("#enquiry_type_id").val();
+  var enquiry_type_id =22;
+// var enquiry_type_id = $("#enquiry_type_id").val();
 var product_id = $("#product_id").val();
 var edit_id = $("#userId").val();
 var brand_name = $("#brand_name1").val();
@@ -642,7 +643,7 @@ function get_1() {
       },
       success: function (data) {
           console.log(data);
-          const select = document.getElementById('brand_name1');
+          const select = document.getElementById('brand_name');
           select.innerHTML = '<option selected disabled value="">Please select an option</option>';
 
           if (data.brands.length > 0) {
@@ -678,7 +679,7 @@ function get_model_1(brand_id, selectedModel) {
       },
       success: function (data) {
           console.log(data);
-          const select = document.getElementById('model_1');
+          const select = document.getElementById('model_1model_1');
           select.innerHTML = '<option selected disabled value="">Please select an option</option>';
 
           if (data.model.length > 0) {

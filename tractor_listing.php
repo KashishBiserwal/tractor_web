@@ -66,7 +66,9 @@ include 'includes/footertag.php';
                 </div>
                 <div class="col-12 col-sm-12 col-md-3 col-lg-3">
                     <label class="text-dark fw-bold  mb-2">Search by Model</label>
-                    <input type="text" name="model" id="model" class="form-control">
+                    <select class="form-select" name="model_3" id="model_3">
+                    </select>
+                    <!-- <input type="text" name="model" id="model" class="form-control"> -->
                 </div>
                 <div class="col-12 col-sm-12 col-md-3 col-lg-3">
                     <label class="text-dark fw-bold mb-2">Search by HP</label>

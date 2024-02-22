@@ -146,83 +146,6 @@ function get_insurance_type() {
 get_insurance_type();
 
 
-function get() {
-    var url = 'http://tractor-api.divyaltech.com/api/customer/get_all_brands';
-    $.ajax({
-        url: url,
-        type: "GET",
-        headers: {
-            'Authorization': 'Bearer ' + localStorage.getItem('token')
-        },
-        success: function (data) {
-            console.log(data);
-            const selects = document.querySelectorAll('#brand_name');
-
-            selects.forEach(select => {
-                select.innerHTML = '<option selected disabled value="">Please select an option</option>';
-
-                if (data.brands.length > 0) {
-                    data.brands.forEach(row => {
-                        const option = document.createElement('option');
-                        option.textContent = row.brand_name;
-                        option.value = row.id;
-                        console.log(option);
-                        select.appendChild(option);
-                    });
-
-                    // Add event listener to brand dropdown
-                    select.addEventListener('change', function() {
-                        const selectedBrandId = this.value;
-                        get_model(selectedBrandId);
-                    });
-                } else {
-                    select.innerHTML = '<option>No valid data available</option>';
-                }
-            });
-        },
-        error: function (error) {
-            console.error('Error fetching data:', error);
-        }
-    });
-}
-
-function get_model(brand_id) {
-    var url = 'http://tractor-api.divyaltech.com/api/customer/get_brand_model/' + brand_id;
-    $.ajax({
-        url: url,
-        type: "GET",
-        headers: {
-            'Authorization': 'Bearer ' + localStorage.getItem('token')
-        },
-        success: function (data) {
-            console.log(data);
-            const selects = document.querySelectorAll('#model_name');
-
-            selects.forEach(select => {
-                select.innerHTML = '<option selected disabled value="">Please select an option</option>';
-
-                if (data.model.length > 0) {
-                    data.model.forEach(row => {
-                        const option = document.createElement('option');
-                        option.textContent = row.model;
-                        option.value = row.model;
-                        console.log(option);
-                        select.appendChild(option);
-                    });
-                } else {
-                    select.innerHTML = '<option>No valid data available</option>';
-                }
-            });
-        },
-        error: function (error) {
-            console.error('Error fetching data:', error);
-        }
-    });
-}
-
-get();
-
-
 //****edit fetch****
 function fetch_edit_data(id) {
     var apiBaseURL = APIBaseURL;
@@ -255,6 +178,7 @@ function fetch_edit_data(id) {
 
             $("#insurance_type option").prop("selected", false);
             $("#insurance_type option[value='" + Data.insurance_type_name+ "']").prop("selected", true);
+
             var brandDropdown = document.getElementById('brand_name');
             for (var i = 0; i < brandDropdown.options.length; i++) {
               if (brandDropdown.options[i].text === Data.brand_name) {
@@ -263,15 +187,7 @@ function fetch_edit_data(id) {
               }
             }
   
-            $('#model_name').empty(); 
-            get_model_1(Data.brand_id); 
-  
-            // Selecting the option in the model dropdown
-            setTimeout(function() { // Wait for the model dropdown to populate
-                $("#model_name option").prop("selected", false);
-                $("#model_name option[value='" + Data.model + "']").prop("selected", true);
-            }, 1000); // Adjust the delay time as needed
-  
+            setSelectedOption('model_name', Data.brand_id);
             setSelectedOption('state_2', Data.state_id);
             setSelectedOption('dist_2', Data.district_id);
             
@@ -391,9 +307,9 @@ function openViewdata(userId) {
         document.getElementById('model1').innerText=userData.model;
         document.getElementById('vehicle').innerText=userData.vehicle_registered_num;
         document.getElementById('regi_no').innerText=userData.registered_year;
-        document.getElementById('state1').innerText=userData.state;
-        document.getElementById('district1').innerText=userData.district;
-        document.getElementById('tehsil1').innerText=userData.tehsil;
+        document.getElementById('state1').innerText=userData.state_name;
+        document.getElementById('district1').innerText=userData.district_name;
+        document.getElementById('tehsil1').innerText=userData.tehsil_name;
         document.getElementById('insurance_type_name1').innerText=userData.insurance_type_name;
       },
       error: function(error) {
@@ -530,3 +446,4 @@ function resetform(){
 
 populateDropdownsFromClass('state-dropdown', 'district-dropdown', 'tehsil-dropdown');
 populateStateDropdown('state_select', 'district_select');
+populateBrandDropdown('brand_select', 'model_select');

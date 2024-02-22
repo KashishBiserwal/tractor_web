@@ -136,8 +136,8 @@ $(document).ready(function(){
                       row.sub_category_name,
                       row.first_name,
                       row.mobile,
-                      row.state,
-                      row.district,
+                      row.state_name,
+                      row.district_name,
                       action
                   ]);
 
@@ -216,9 +216,9 @@ function openView(userId) {
         document.getElementById('fname').innerText=userData.first_name;
         document.getElementById('lname').innerText=userData.last_name;
         document.getElementById('mob').innerText=userData.mobile;
-        document.getElementById('state').innerText=userData.state;
-        document.getElementById('dist').innerText=userData.district;
-        document.getElementById('tehsil').innerText=userData.tehsil;
+        document.getElementById('state').innerText=userData.state_name;
+        document.getElementById('dist').innerText=userData.district_name;
+        document.getElementById('tehsil').innerText=userData.tehsil_name;
         document.getElementById('price1').innerText=userData.price;
        
         
@@ -274,10 +274,8 @@ function openView(userId) {
             $('#last_name1').val(userData.last_name);
             $('#mobile_no').val(userData.mobile);
             $('#price').val(userData.price);
-            $("#state_").val(userData.state);
-            $("#district_1").val(userData.district);
-            $("#tehsil_1").val(userData.tehsil);
-
+           
+       
             console.log("User Data:", userData);
 
             // Set category value
@@ -302,13 +300,37 @@ function openView(userId) {
                     }
                 }
             });
+            setSelectedOption('state_', userData.state_id);
+            setSelectedOption('district_1', userData.district_id);
+            
+            // Call function to populate tehsil dropdown based on selected district
+            populateTehsil(userData.district_id, 'tehsil-dropdown', userData.tehsil_id);
         },
         error: function(error) {
             console.error('Error fetching user data:', error);
         }
     });
 }
-      
+function setSelectedOption(selectId, value) {
+  var select = document.getElementById(selectId);
+  for (var i = 0; i < select.options.length; i++) {
+    if (select.options[i].value == value) {
+      select.selectedIndex = i;
+      break;
+    }
+  }
+}
+
+function populateTehsil(selectId, value) {
+  var select = document.getElementById(selectId);
+  for (var i = 0; i < select.options.length; i++) {
+    if (select.options[i].value == value) {
+      select.options[i].selected = true;
+      break;
+    }
+  }
+}
+  
       function edit_data_id(edit_id) {
         console.log(edit_id);
         var edit_id = $("#userId").val();
@@ -516,8 +538,8 @@ function updateTable(data) {
             row.sub_category_name,
             row.first_name,
             row.mobile,
-            row.state,
-            row.district,
+            row.state_name,
+            row.district_name,
             action
           ]);
       });

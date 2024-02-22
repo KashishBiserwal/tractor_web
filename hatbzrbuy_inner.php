@@ -11,6 +11,7 @@ include 'includes/footertag.php';
 <script> var APIBaseURL = "<?php echo $APIBaseURL; ?>";</script>
 <script> var baseUrl = "<?php echo $baseUrl; ?>";</script>
     <script src="<?php $baseUrl; ?>model/haatbazar_inner.js"></script>
+    <script src="<?php $baseUrl; ?>model/State_dist_tehsil.js"></script>
 </head>
 
 
@@ -98,10 +99,8 @@ include 'includes/footertag.php';
                                                 <div class="col-12 col-sm-12 col-md-6 col-lg-6">
                                                     <div class="form-outline mt-4">
                                                         <label for="state" class="form-label "><i class="fas fa-location"></i> State</label>
-                                                        <select class="form-select mb-2 "aria-label=".form-select-lg example" id="state_2"name="state">
-                                                            <option value="" selected disabled>Select State</option>
-                                                            <option value="Chhattisgarh">Chhattisgarh</option>
-                                                            <option value="Other">Other</option>
+                                                        <select class="form-select mb-2 state-dropdown"aria-label=".form-select-lg example" id="state_2"name="state">
+                                                            
                                                         </select>
                                                     </div>
                                                 </div>
@@ -109,22 +108,16 @@ include 'includes/footertag.php';
                                                     <div for="district" class="form-outline mt-4">
                                                         <label class="form-label "><i
                                                                 class="fa-solid fa-location-dot"></i> District</label>
-                                                        <select class="form-select mb-2" aria-label=".form-select-lg example" name="district"id="district">
-                                                            <option value="" selected disabled>Select District</option>
-                                                            <option value="Raipur">Raipur</option>
-                                                            <option value="Bilaspur">Bilaspur</option>
-                                                            <option value="Durg">Durg</option>
+                                                        <select class="form-select mb-2 district-dropdown" aria-label=".form-select-lg example" name="district"id="district">
+                                                        
                                                         </select>
                                                     </div>
                                                 </div>
                                                 <div class="col-12 col-sm-12 col-md-6 col-lg-6 ">
                                                     <div class="form-outline mt-4">
                                                         <label for="tehsil" class="form-label">Tehsil</label>
-                                                        <select class="form-select" aria-label=".form-select-lg example" name="tehsil" id="tehsil">
-                                                            <option value="" selected disabled>Select Tehsil</option>
-                                                            <option value="Raipur">Raipur</option>
-                                                            <option value="Bilaspur">Bilaspur</option>
-                                                            <option value="Durg">Durg</option>
+                                                        <select class="form-select tehsil-dropdown" aria-label=".form-select-lg example" name="tehsil" id="tehsil">
+                                                          
                                                         </select>
                                                     </div>
                                                 </div>

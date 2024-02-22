@@ -64,6 +64,11 @@
                                             <label for="name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i> First Name</label>
                                             <input type="text" class="form-control" placeholder="" id="id" name="fname">
                                         </div>
+                                        <div class="col- col-sm-6 col-lg-6 col-md-6" hidden>
+                                          <label class="text-dark"> id Name<span class="text-danger">*</span></label>
+                                                  <input type="text" class="form-control py-2" for="idUser"  id="enquiry_type_id" value="22" name="first_name" placeholder="Enter First Name">
+                                          <small></small>
+                                        </div>
                                         <div class="col-12 col-lg-6 col-md-6 col-sm-6 " hidden>
                                             <label for="name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i> First Name</label>
                                             <input type="text" class="form-control" placeholder="" id="product_subject_id" name="fname">

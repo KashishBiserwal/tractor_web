@@ -1,10 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
    <?php
-   include 'includes/headertag.php';
-   ?>
+  include 'includes/headertag.php';
+    //include 'includes/headertagadmin.php';
+     include 'includes/footertag.php';
+     
+     ?> 
+    <script> var APIBaseURL = "<?php echo $APIBaseURL; ?>";</script>
+    <script> var baseUrl = "<?php echo $baseUrl; ?>";</script>
+    <script src="<?php $baseUrl; ?>model/tractor_valuation.js"></script>
+    <script src="<?php $baseUrl; ?>model/State_dist_tehsil.js"></script>
+
+
 </head>
 
 <body>
@@ -38,93 +46,86 @@
                 <div class="col-md-8 col-lg-7">
                     <form id="tractor-valuation-form" class="form-view-inner form-view-overlay bg-light box-shadow p-3" action="" method="" >
                         <div class="row justify-content-center">
+                            
                             <div class="col-12 col-sm-12 col-md-6 col-lg-6">
-                                <div class="mt-2">
-                                    <label for="your-name" class=" text-dark float-start">Select Brand</label>
-                                    <select class="form-select form-control" aria-label="Default select example" name="select_brand" id="select_brand">
-                                        <option value>Hindustan</option>
-                                        <option value="1">Mahindra</option>
-                                        <option value="2">Swaraj</option>
-                                        <option value="3">Massey Ferguson</option>
-                                        <option value="4">Sonalika</option>
-                                        <option value="5">Farmtrac</option>
-                                        <option value="6">Eicher</option>
-                                        <option value="7">John Deere</option>
-                                        <option value="8">Powertrac</option>
+                                <div class="form-outline mt-4">
+                                    <label  for="_brand"class="form-label text-dark">Brand</label>
+                                    <select class="form-select py-2 " aria-label=".form-select-lg example" name="_brand" id="b_brand" required>
                                     </select>
                                 </div>
                             </div>
                             <div class="col-12 col-sm-12 col-md-6 col-lg-6">
-                                <div class="mt-2">
-                                    <label for="model" class=" text-dark float-start">Model</label>
-                                    <select class="form-select form-control" aria-label="Default select example" name="model" id="model">
-                                        <option value>select Model</option>
-                                        <option value="1">3055 DI</option>
-                                        <option value="2">3040 DI</option>
-                                        <option value="3">3048 DI</option>
-                                        <option value="4">2035 DI</option>
+                                <div class="form-outline mt-4">
+                                    <label for="_model"class="form-label text-dark">Model</label>
+                                    <select class="form-select py-2 " aria-label=".form-select-lg example" name="_model" id="m_model" required>
                                     </select>
                                 </div>
                             </div>
-                            <div class="col-12 col-sm-12 col-md-6 col-lg-6">
-                                <label for="State" class=" text-dark float-start my-2">State</label>
-                                <select class="form-select form-control" aria-label="Default select example" name="select_state" id="select_state">
-                                    <option value>Select State</option>
-                                    <option value="Assam">Assam</option>
-                                    <option value="Bihar">Bihar</option>
-                                    <option value="Chandigarh">Chandigarh</option>
-                                    <option value="Chhattisgarh">Chhattisgarh</option>
-                                </select>
+                            <div class="col-12 col-lg-6 col-md-6 col-sm-6 mb-2">
+                                <div class="form-outline mt-4">
+                                    <label for="f_name" class="form-label mb-0 text-dark">First Name</label>
+                                    <input type="text" class="form-control mb-0" placeholder="Enter Your Name" id="f_name" name="f_name" required>
+                                </div>
                             </div>
-                            <div class="col-12 col-sm-12 col-md-6 col-lg-6">
-                                <label for="Owners" class=" text-dark float-start my-2">Owners</label>
-                                <select class="form-select form-control" aria-label="Default select example" name="Owners" id="Owners">
+                            <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
+                                <div class="form-outline mt-4">
+                                    <label for="eo_number" class="form-label text-dark">Phone Number</label>
+                                    <input type="text" class="form-control mb-0" placeholder="Enter Number" id="m_number" name="eo_number"  required>
+                                </div>
+                            </div>
+                           <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+                                <div class="form-outline mt-4">
+                                    <label for="Owners" class="form-label text-dark" id="state" name="state">Owners</label>
+                                    <select class="form-select py-2" aria-label=".form-select-lg example"  name="Owners" id="Owners" required>
                                     <option value>Select Owner</option>
-                                    <option value="1st">1st</option>
-                                    <option value="2st">2st</option>
-                                    <option value="3st">3st</option>
-                                    <option value="All">All Above</option>
-                                </select>
+                                        <option value="1st">1st</option>
+                                        <option value="2st">2st</option>
+                                        <option value="3st">3st</option>
+                                        <option value="All">All Above</option>
+                                    </select>
+                                </div>
                             </div>
                             <div class="col-12 col-sm-12 col-md-6 col-lg-6">
-                                 <label for="Manufacture" class=" text-dark float-start  my-2">Manufacture Year</label>
-                                <select class="form-select form-control" aria-label="Default select example" name="Manufacture" id="Manufacture">
-                                    <option value>Select Year</option>
-                                    <option value="2023">2023</option>
-                                    <option value="2022">2022</option>
-                                    <option value="2021">2021</option>
-                                    <option value="2020">2020</option>
-                                    <option value="2018">2018</option>
-                                    <option value="2017">2017</option>
-                                    <option value="2016">2016</option>
-                                    <option value="2015">2015</option>
-                                    <option value="2014">2014</option>
-                                </select>
+                                <div class="form-outline mt-4">
+                                    <label for="Manufacture" class="form-label text-dark" id="state" name="state">Manufacture Year</label>
+                                    <select class="form-select py-2" aria-label=".form-select-lg example" name="Manufacture" id="Manufacture" required>
+                                    </select>
+                                </div>
                             </div>
                             <div class="col-12 col-sm-12 col-md-6 col-lg-6">
-                                <label for="Tyre" class=" text-dark float-start my-2">Tyre Condition</label>
-                                <select class="form-select form-control" aria-label="Default select example" name="Tyre" id="Tyre">
-                                    <option value>Select Tyre Condition</option>
-                                    <option value="10">10%</option>
-                                    <option value="20">20%</option>
-                                    <option value="30">30%</option>
-                                    <option value="40">40%</option>
-                                    <option value="50">50%</option>
-                                    <option value="60">60%</option>
-                                    <option value="70">70%</option>
-                                    <option value="80">80%</option>
-                                    <option value="100">100%</option>
-                                </select>
+                                <div class="form-outline mt-4">
+                                    <label for="Tyre" class="form-label text-dark" id="state" name="state">Tyre Condition</label>
+                                    <select class="form-select py-2" aria-label=".form-select-lg example" name="Tyre" id="Tyre" required>
+                                        <option value>Select Tyre Condition</option>
+                                        <option value="0-25%(poor)">0-25%(poor)</option>
+                                        <option value="25-50%(Average)">25-50%(Average)</option>
+                                        <option value="51-75%(Good)">51-75%(Good)</option>
+                                        <option value="76-100%(Very Good)">76-100%(Very Good)</option>
+                                    </select>
+                                </div>
                             </div>
-                            <div class="col-12 col-lg-6 col-sm-5 col-md-6 my-2">
-                                <label for="Tyre" class=" text-dark float-start  my-2">Name</label>
-                                <input type="text" class="form-control text-dark" placeholder="Enter Name" id="your_name" name="your_name">
+                            <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+                                <div class="form-outline mt-4">
+                                    <label for="eo_state" class="form-label text-dark" id="state" name="state"> State</label>
+                                    <select class="form-select py-2 state-dropdown" aria-label=".form-select-lg example"id="s_state" name="eo_state" required>
+                                    </select>
+                                </div>
                             </div>
-                            <div class="col-12 col-lg-6 col-sm-5 col-md-6 my-2">
-                                <label for="Mobile" class=" text-dark float-start  my-2">Mobile Number</label>
-                                <input type="text" class="form-control text-dark" placeholder="Enter Name" id="Mobile" name="Mobile">
+                            <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+                                <div class="form-outline mt-4">
+                                    <label for="eo_dist" class="form-label text-dark"> District</label>
+                                    <select class="form-select py-2 district-dropdown" aria-label=".form-select-lg example" name="eo_dist" id="d_dist" required>
+                                    </select>
+                                </div>
                             </div>
-                            <div class="col-12 mt-3">
+                            <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+                                <div class="form-outline mt-4">
+                                    <label for="eo_tehsil" class="form-label text-dark"> Tehsil</label>
+                                    <select class="form-select py-2 tehsil-dropdown" aria-label=".form-select-lg example" id="t_tehsil" name="eo_tehsil">
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-12 mt-4">
                                 <button id="tractor_valuation" data-res="<?php echo $sum; ?>" type="button" class="btn-success w-100 fw-bold" data-bs-toggle="modal" data-bs-target="#get_valuation_btn" >Get valuation</button>
                             </div>       
                         </div>
@@ -345,7 +346,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <h1 class="modal-title fs-5" id="exampleModalLabel">Please Verify Your Mobile Numbers</h1>
-        <button type="button" class="btn-close btn-success" data-bs-dismiss="modal" aria-label="Close"><img src="assets/images/close.png"></button>
+        <button type="button" class="btn-close btn-success" data-bs-dismiss="modal" aria-label="Close"><img src="assets/images/close.png" class="w-25"></button>
       </div>
       <div class="modal-body">
         <form>
@@ -378,22 +379,29 @@
     include 'includes/footertag.php';
 
     ?>
+</body>
+</html>
 
-    <script>
-        $(document).ready(function(){
-            $("#tractor_valuation").on('click', function(event) {
-                tractor_valuation();
-        });
-    console.log('testing');
+<script>
+$(document).ready(function(){
+    // Disabling the button initially
+    $('#tractor_valuation').prop('disabled', true);
+
+    // Adding custom validation method for the mobile number
+    jQuery.validator.addMethod("customPhoneNumber", function(value, element) {
+        return /^[6-9]\d{9}$/.test(value); 
+    }, "Please enter a valid mobile number starting with 6 or above");
+
     $('#tractor-valuation-form').validate({
         rules:{
-            select_brand:{
+            _brand:{
                 required:true,
             },
-            model:{
-                required:true,
+            _model:{
+                required: true,
+             
             },
-            select_state:{
+            eo_state:{
                 required:true,
             },
             Owners:{
@@ -405,21 +413,26 @@
             Tyre:{
                 required:true,
             },
-            your_name:{
+            f_name:{
                 required:true,
             },
-            Mobile:{
-                  required:true,
+            m_number:{
+                required:true,
+                minlength: 10,
+                maxlength: 10,
+                digits: true,
+                customPhoneNumber: true 
             }
         },
         messages:{
-            select_brand:{
+            _brand:{
                 required:"This field is required",
             },
-            model:{
+            _model:{
                 required:"This field is required",
+             
             },
-            select_state:{
+            eo_state:{
                 required:"This field is required",
             },
             Owners:{
@@ -431,20 +444,53 @@
             Tyre:{
                 required:"This field is required",
             },
-            your_name:{
+            f_name:{
                 required:"This field is required",
             },
-            Mobile:{
+            m_number:{
                 required:"This field is required",
+                minlength: "Phone Number must be exactly 10 digits",
+                maxlength: "Phone Number must be exactly 10 digits",
+                digits: "Please enter only digits"
             }
         },
+        errorPlacement: function(error, element) {
+            // Displaying error messages
+            error.insertAfter(element);
+        },
+        // Enabling the button when the form is valid
+        success: function(label) {
+            $('#tractor_valuation').prop('disabled', false);
+        },
         submitHandler: function(form) {
-    form.submit();
+            // Open modal when all fields are filled and valid
+            $('#get_valuation_btn').modal('show');
+            return false; // Prevent default form submission
+        }
+    });
+
+    // Opening the model only if all fields are filled and validated
+    $('#tractor_valuation').click(function() {
+        // Checking if the form is valid
+        var formValid = $('#tractor-valuation-form').valid();
+        if (formValid) {
+            // Submit the form programmatically
+            $('#tractor-valuation-form').submit();
         }
     });
 });
-    </script>
-    <script>
+</script>
+
+
+
+
+
+
+
+    <!-- <script>
+          $("#tractor_valuation").on('click', function(event) {
+                tractor_valuation();
+        });
        function tractor_valuation(){
             var brand_id = $('#select_brand').val();
             var brand_id = $('#model').val();
@@ -455,6 +501,4 @@
             var brand_id = $('#your_name').val();
             var brand_id = $('#Mobile').val();
         }
-    </script>
-</body>
-</html>
+    </script> -->
