@@ -96,7 +96,7 @@ function get_model(brand_id) {
                     data.model.forEach(row => {
                         const option = document.createElement('option');
                         option.textContent = row.model;
-                        option.value = row.id;
+                        option.value = row.model;
                         console.log(option);
                         select.appendChild(option);
                     });
@@ -156,12 +156,12 @@ function add_insurance(event) {
         console.log(result, "result");
         console.log("Add successfully");
         
-       var msg = "User Inserted successfully !"
+       var msg = " "
        $("#errorStatusLoading").modal('show');
-       $("#errorStatusLoading").find('.modal-title').html('<p class="text-center">Congratulation..! Requested Successful</p>');
+       $("#errorStatusLoading").find('.modal-title').html('<p class="text-center">Thank you for contacting us. We will get back to you.</p>');
     
        $("#errorStatusLoading").find('.modal-body').html(msg);
-       $("#errorStatusLoading").find('.modal-body').html('<img src="assets/images/successfull.gif" style="display:block; margin:0 auto;" class="w-50 text-center" alt="Successfull Request"></img>');
+    //    $("#errorStatusLoading").find('.modal-body').html('<img src="assets/images/successfull.gif" style="display:block; margin:0 auto;" class="w-50 text-center" alt="Successfull Request"></img>');
        document.getElementById("myform").reset();
        
       },

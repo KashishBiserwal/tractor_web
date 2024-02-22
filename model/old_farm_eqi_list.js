@@ -298,12 +298,6 @@ function fetch_edit_data(id) {
       success: function (response) {
           var Data = response.getOldImplementEnquiry [0];
           $('#idUser').val(Data.id);
-          // $('#brand_name').val(Data.brand_name);
-
-          $("#brand_name option").prop("selected", false);
-          $("#brand_name option[value='" + Data.brand_name+ "']").prop("selected", true);
-          console.log(Data.brand_name,'brand');
-          $('#model_name').val(Data.model);
           $('#first_name').val(Data.first_name);
           $('#last_name').val(Data.last_name);
           $('#mobile').val(Data.mobile);
@@ -314,21 +308,19 @@ function fetch_edit_data(id) {
           
           var brandDropdown = document.getElementById('brand_name');
           for (var i = 0; i < brandDropdown.options.length; i++) {
-            if (brandDropdown.options[i].text === Data.brand_name) {
-              brandDropdown.selectedIndex = i;
-              break;
-            }
+              if (brandDropdown.options[i].text === Data.brand_name) {
+                  brandDropdown.selectedIndex = i;
+                  break;
+              }
           }
-            // Empty and populate the model dropdown
-            $('#model_name').empty(); 
-            get_model_1(Data.brand_id); 
 
-            // Selecting the option in the model dropdown
-            setTimeout(function() { // Wait for the model dropdown to populate
-                $("#model_name option").prop("selected", false);
-                $("#model_name option[value='" + Data.model + "']").prop("selected", true);
-            }, 1000); // Adjust the delay time as needed
-
+          // Empty and populate the model dropdown
+          $('#model_name').empty();
+          get_model_1(Data.brand_id, function() {
+              // Once the models are populated, select the appropriate model
+              $("#model_name option").prop("selected", false);
+              $("#model_name option[value='" + Data.model + "']").prop("selected", true);
+          });
           setSelectedOption('state_', Data.state_id);
           setSelectedOption('dist_', Data.district_id);
           
@@ -366,8 +358,10 @@ function fetch_edit_data(id) {
 
 
 function edit_data_id() {
-var enquiry_type_id = $("#enquiry_type_id").val();
-var product_id = $("#product_id").val();
+// var enquiry_type_id = $("#enquiry_type_id").val();
+var enquiry_type_id =25;
+var product_id = 389;
+// var product_id = $("#product_id").val();
 var edit_id = $("#idUser").val();
 var brand_name = $("#brand_name").val();
 var model_name = $("#model_name").val();

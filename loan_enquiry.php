@@ -125,7 +125,7 @@
                                         </div>
                                         <div class="col-12 col-lg-6 col-sm-5 col-md-6 my-1">
                                           <div class="form-outline ">
-                                            <label for="name" class="form-label text-dark">Insurance Type</label>
+                                            <label for="name" class="form-label text-dark">Loan Type</label>
                                             <select class="form-select error mb-2 pb-2" aria-label="Default select example"
                                               id="insurance_type" name="insurance_type">
                                         
@@ -153,7 +153,6 @@
                                         <div class="col-12 col-lg-6 col-sm-5 col-md-6 my-1">
                                           <div class="form-outline mt-4">
                                               <label for="name" class="form-label text-dark">Brand</label>
-                                              <!-- <input type="text" class="form-control" placeholder="" id="brand_name" name="brand_name"> -->
                                               <select class="form-select error mb-2 pb-2" aria-label="Default select example"
                                               id="brand_name" name="brand_name">
                                         
@@ -163,11 +162,9 @@
                                         <div class="col-12 col-lg-6 col-sm-5 col-md-6 my-1">
                                           <div class="form-outline mt-4">
                                               <label for="name" class="form-label text-dark">Model</label>
-                                              <!-- <input type="text" class="form-control" placeholder="" id="model_name" name="model_name"> -->
                                               <select class="form-select error mb-2 pb-2" aria-label="Default select example"
                                               id="model_name" name="model_name">
-                                        
-                                            </select>
+                                              </select>
                                           </div>
                                         </div>
                                         <div class="col-12 col-lg-6 col-sm-5 col-md-6 my-1">
@@ -176,13 +173,26 @@
                                               <input type="text" class="form-control" placeholder="" id="vehicle_no" name="vehicle_no">
                                           </div>
                                         </div>
-                                        <div class="col-12 col-lg-6 col-sm-5 col-md-6 my-1">
+                                        <!-- <div class="col-12 col-lg-6 col-sm-5 col-md-6 my-1">
                                           <div class="form-outline mt-4">
                                               <label for="name" class="form-label text-dark"> Registered Year</label>
                                               <input type="text" class="form-control" placeholder="" id="registerd_year" name="registerd_year">
                                           </div>
+                                        </div> -->
+                                        <div class="col-12 col-lg-6 col-sm-5 col-md-6 my-1">
+                                          <div class="form-outline mt-4">
+                                            <label class="form-label" for="registeredYear">Registered Year</label>
+                                              <select class="form-select" id="registeredYear" name="registeredYear" required>
+                                                <option value="" selected disabled>Select Year</option>
+                                                 <!-- Assuming the range is from 2008 to 2023 -->
+                                                  <script>
+                                                    for (let year = 2023; year >= 2008; year--) {
+                                                        document.write(`<option value="${year}">${year}</option>`);
+                                                    }
+                                                  </script>
+                                              </select>
+                                          </div>
                                         </div>
-                                        
                                         <div class="col-12 col-lg-6 col-sm-5 col-md-6 my-1">
                                           <div class="form-outline mt-4">
                                              <label class="form-label">State</label>
@@ -236,7 +246,7 @@
                         <table class="table table-striped">
                         <tbody>
                          <tr> 
-                         <td>Insurance Type-</td>
+                         <td>Loan Type-</td>
                             <td id="insurance_type_name1"></td>
                             <td>Full Name-</td>
                             <td id="last_name2"></td>

@@ -202,7 +202,7 @@
                                     <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
                                       <div class="form-outline">
                                         <label for="name" class="form-label text-dark">Model Name</label>
-                                        <select class="form-select py-2" aria-label="Default select example"  id="model_1">
+                                        <select class="form-select py-2" aria-label="Default select example"  id="model_2">
                                         </select>
                                         <!-- <input type="text" class="form-control" placeholder="" id="model_name" name="mname"> -->
                                       </div>

@@ -11,6 +11,7 @@ include 'includes/footertag.php';
 <script> var APIBaseURL = "<?php echo $APIBaseURL; ?>";</script>
 <script> var baseUrl = "<?php echo $baseUrl; ?>";</script>
     <script src="<?php $baseUrl; ?>model/tractor_loan_customer.js"></script>
+    <script src="<?php $baseUrl; ?>model/State_dist_tehsil.js"></script>
 </head>
 <style>
 .form-outline .form-label {
@@ -48,7 +49,7 @@ include 'includes/footertag.php';
    include 'includes/header.php';
    ?>
     <section class=" mt-5 pt-5 bg-light">
-        <div class="container pt-3">
+        <div class="container pt-3 mt-4">
             <div class="py-2">
                 <span class="text-white ">
                     <a href="index.php" class="text-decoration-none header-link px-1">Home <i
@@ -159,28 +160,24 @@ include 'includes/footertag.php';
                                 <div class="col-12 col-sm-6 col-md-4 col-lg-4 mt-4">
                                     <div class="form-outline">
                                         <label class="form-label" for="state">State</label>
-                                        <select class="form-select" id="state" name="state" required>
-                                            <option value="" selected disabled>Select State</option>
-                                            <option value="other">Other</option>
-                                            <option value="Chhattisgarh">Chhattisgarh</option>
+                                        <select class="form-select state-dropdown" id="state" name="state" required>
+                                           
                                         </select>
                                     </div>
                                 </div>
                                 <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-4">
                                     <div class="form-outline">
                                         <label class="form-label" for="district">District</label>
-                                        <select class="form-control" id="district" name="district" required>
-                                            <option value="" selected disabled>Select District</option>
-                                            <option value="raipur">Raipur</option>
-                                            <option value="bilaspur">Bilaspur</option>
+                                        <select class="form-control district-dropdown" id="district" name="district" required>
+                                           
                                         </select>
                                     </div>
                                 </div>
                                 <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-4">
                                     <div class="form-outline">
                                         <label class="form-label " for="tehsil">Tehsil</label>
-                                        <input type="text" class="form-control" id="tehsil" name="tehsil"
-                                             />
+                                        <select class="form-control tehsil-dropdown" id="tehsil" name="tehsil">
+                                       </select>
                                     </div>
                                 </div>
 
@@ -190,7 +187,7 @@ include 'includes/footertag.php';
                                         Conditions*</a>
                                 </p>
                                 <div class="d-grid col-8 mx-auto mb-3">
-                                <button type="button" class="btn btn-success fw-bold" id="apply_loan" onclick="applyForLoan(event)">Apply for Loan</button>
+                                <button type="button" class="btn btn-success fw-bold" id="apply_loan">Apply for Loan</button>
 
                                 </div>
                             </div>
@@ -740,23 +737,23 @@ include 'includes/footertag.php';
     ?>
     <script>
     // JavaScript to handle "Read More" and "Read Less" functionality
-    document.querySelectorAll('.read-more').forEach(function(button, index) {
-        button.addEventListener('click', function() {
-            var moreContent = document.querySelectorAll('.more-content')[index];
-            var buttonText = button.innerText.trim().toLowerCase();
+    // document.querySelectorAll('.read-more').forEach(function(button, index) {
+    //     button.addEventListener('click', function() {
+    //         var moreContent = document.querySelectorAll('.more-content')[index];
+    //         var buttonText = button.innerText.trim().toLowerCase();
 
-            if (buttonText === 'read more') {
-                moreContent.style.display = 'inline';
-                button.innerText = 'Read Less';
-            } else {
-                moreContent.style.display = 'none';
-                button.innerText = 'Read More';
-            }
-        });
-    });
-    </script>
+    //         if (buttonText === 'read more') {
+    //             moreContent.style.display = 'inline';
+    //             button.innerText = 'Read Less';
+    //         } else {
+    //             moreContent.style.display = 'none';
+    //             button.innerText = 'Read More';
+    //         }
+    //     });
+    // });
+    // </script>
 
-    <script>
+    <!-- <script>
     $(document).ready(function() {
         $.validator.addMethod("indianMobile", function(value, element) {
             return this.optional(element) || /^[789]\d{9}$/.test(value);
@@ -819,10 +816,11 @@ include 'includes/footertag.php';
             alert('Thank you for contacting us. We will get back to you.');
         }
     }
+    
 
 
   
-    </script>
+    </script> -->
 
 </body>
 

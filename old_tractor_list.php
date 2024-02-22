@@ -10,6 +10,7 @@ include 'includes/headertag.php';
 <script> var baseUrl = "<?php echo $baseUrl; ?>";</script>
     <script src="<?php $baseUrl; ?>model/old_tractor_list.js"></script>
     <script src="<?php $baseUrl; ?>model/State_dist_tehsil.js"></script>
+    <script src="<?php $baseUrl; ?>model/brand_function.js"></script>
 
     <script>
   $(document).ready(function() {
@@ -110,35 +111,27 @@ include 'includes/headertag.php';
                                   <input type="text" id="mobile_number" name="mobile_number" class=" data_search form-control input-group-sm py-2" />
                                 </div>
                               </div>
-                              <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-2">
+                              <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-4">
                                 <div class="form-outline">
                                   <label class="form-label" for="state">State</label>
                                   <select class="form-select py-2 state-dropdown" aria-label="Default select example" id="state" name="state">
-                                    <!-- <option selected disabled="" >Select State</option>
-                                    <option value="Chhattisgarh">Chhattisgarh</option>
-                                    <option value="Other">Other </option> -->
+                                
                                   </select>
                                 </div>
                               </div>
-                              <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-2">
+                              <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-4">
                                 <div class="form-outline">
                                   <label class="form-label" for="district">District</label>
                                   <select class="form-select py-2  district-dropdown" aria-label="Default select example" name="district" id="district">
-                                    <!-- <option selected disabled=""> Select District</option>
-                                    <option value="Raigarh">Raigarh</option>
-                                    <option value="Sarguja">Sarguja</option>
-                                    <option value="Surajpur">Surajpur</option> -->
+                                
                                   </select>
                                 </div>
                               </div>
-                              <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-2">
+                              <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-4">
                                 <div class="form-outline">
                                   <label class="form-label" for="district">Tehsil</label>
                                   <select class="form-select py-2 tehsil-dropdown" aria-label="Default select example" name="tehsil" id="tehsil">
-                                    <!-- <option selected disabled="">Select Tehsil</option>
-                                    <option value="Raigarh">Raigarh</option>
-                                    <option value="ambikapur">ambikapur</option>
-                                    <option value="chirmiri">chirmiri</option> -->
+                                
                                   </select>
                                 </div>
                               </div>
@@ -146,8 +139,8 @@ include 'includes/headertag.php';
                               <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-2">
                                 <div class="form-outline">
                                   <label class="form-label" for="district">Brand</label>
-                                  <select class="form-select py-2" aria-label="Default select example" name="brand" id="brand">
-                                    <option selected disabled=""></option>
+                                  <select class="form-select py-2 " aria-label="Default select example" name="brand" id="brand">
+                                    
                                   
                                   </select>
                                 </div>
@@ -155,7 +148,11 @@ include 'includes/headertag.php';
                               <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-2">
                                 <div class="form-outline">
                                   <label class="form-label" for="district">Model</label>
-                                  <input type="text" id="model" name="model" class=" data_search form-control input-group-sm py-2" />
+                                  <select class="form-select py-2 " aria-label="Default select example" id="model" name="model">
+                                   
+                                  
+                                  </select>
+                                  <!-- <input type="text" id="model" name="model" class=" data_search form-control input-group-sm py-2" /> -->
                                 </div>
                               </div>
                               <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-2">
@@ -243,12 +240,12 @@ include 'includes/headertag.php';
                                             <div id="selectedImagesContainer" class="upload__img-wrap float-start"></div>
                                           </div>
                               </div>
-                              <div class="col-12 col-sm-8 col-lg-8 col-md-8 mt-4">
+                              <!-- <div class="col-12 col-sm-8 col-lg-8 col-md-8 mt-4">
                                 <div class="form-outline">
                                   <label class="form-label" for="mobile_number">Description</label>
                                   <textarea type="text" id="description" name="description" class=" data_search form-control input-group-sm py-2"></textarea>
                                 </div>
-                              </div>
+                              </div> -->
                               <div class="col-12 col-sm-6 col-lg-6 col-md-6 my-2" hidden>
                                 <div class="form-outline">
                                   <label class="form-label">Product Type</label>
@@ -271,47 +268,39 @@ include 'includes/headertag.php';
           </div>
         </div>
         <div class=" ">
-          <!-- Filter Card -->
           <div class="filter-card mb-2">
             <div class="card-body">
-            <form action="" id="myform" class="mb-0">
-              <div class="row">
-              
-              <div class="col-12 col-sm-12 col-md-3 col-lg-3">
-                <div class="form-outline">
-                      <label class="form-label">Search By Brand</label>
-                      <select class="js-select2 form-select form-control mb-0" id="brand_name">
+              <div class="row" id="myForm">
+                  <div class="col-12 col-sm-12 col-md-4 col-lg-4"hidden>
+                  <div class="form-outline">
+                    <label class="form-label">Search By id</label>
+                      <select class="js-select2 form-select form-control mb-0" id="brand_id">
                       </select>
-                </div>
-              </div>
-                <div class="col-12 col-sm-12 col-md-3 col-lg-3">
-                  <div class="form-outline">
-                    <label class="form-label">Search by Model</label>
-                    <input type="text" id="model_name" name="model" class="form-control" />
                   </div>
                 </div>
                 <div class="col-12 col-sm-12 col-md-3 col-lg-3">
-                  <div class="form-outline">
-                    <label class="form-label">Search by State</label>
-                    <select class="js-select2 form-select form-control mb-0" id="state_name" name="state">
-                      </select>
-                    <!-- <input type="text" id="state_name" name="state" class="form-control" /> -->
-                  </div>
+                    <label class="text-dark fw-bold mb-2">Search By Brand</label>
+                    <select class="form-select brand_select"  id="brand_name">
+                    </select>
                 </div>
-                <!-- <div class="col-12 col-sm-12 col-md-3 col-lg-3">
-                  <div class="form-outline">
-                    <label class="form-label">Search by District</label>
-                    <input type="text"id="district_name"  name="state" class="form-control" />
-                  </div>
-                </div> -->
                 <div class="col-12 col-sm-12 col-md-3 col-lg-3">
-                  <div class=" text-center">
-                    <button type="button" class="btn-success btn mb-0 btn_all" id="search">Search</button>
-                    <button type="button" class="btn-success btn mb-0 btn_all" id="Reset">Reset</button>
+                    <label class="text-dark fw-bold  mb-2">Search by Model</label>
+                    <select class="form-select model_select" id="model_name">
+                    </select>
+                </div>
+                <div class="col-12 col-sm-12 col-md-3 col-lg-3">
+                    <label class="text-dark fw-bold  mb-2">Search by State</label>
+                    <select class="form-select" id="state_name">
+                    </select>
+                </div>
+               
+                <div class="col-12 col-sm-12 col-md-3 col-lg-3 text-center">
+                  <div class="mt-4 pt-1">
+                    <button type="button" class="btn-success btn px-4 py-2"  id="Search" onclick="search_data()">Search</button>
+                    <button type="button" class="btn-success btn btn_all" id="Reset" onclick="resetform()">Reset</button>
                   </div>
                 </div>
               </div>
-            </form>
             </div>
           </div>
           <!-- Table Card -->

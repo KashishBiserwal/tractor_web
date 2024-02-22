@@ -1,5 +1,8 @@
 $(document).ready(function() {
-    $('#apply_loan').click(add_loan);
+    // $('#apply_loan').click(add_loan);
+    $('#apply_loan').on('click', function (event) {
+        applyForLoan(event);
+    });
 });
 
  
@@ -97,7 +100,7 @@ function get_model(brand_id) {
                     data.model.forEach(row => {
                         const option = document.createElement('option');
                         option.textContent = row.model;
-                        option.value = row.id;
+                        option.value = row.model;
                         console.log(option);
                         select.appendChild(option);
                     });
@@ -115,9 +118,12 @@ function get_model(brand_id) {
 get();
 
 
-function add_loan(event) {
+function applyForLoan(event) {
     event.preventDefault();
-    console.log('jfhfhw');
+    console.log('Applying for loan...');
+
+    // Retrieve form data
+    var enquiry_type_id = 15;
     var loanType = $('#loanType').val();
     var firstName = $('#firstName').val();
     var lastName = $('#lastName').val();
@@ -130,24 +136,23 @@ function add_loan(event) {
     var tehsil = $('#tehsil').val();
     var district = $('#district').val();
 
-
     // Prepare data to send to the server
     var paraArr = {
         'enquiry_type_id':enquiry_type_id,
-      'loan_type_id': loanType,
-      'first_name': firstName,
-      'last_name': lastName,
-      'mobile': mobileNo,
-      'brand': brand,
-      'model': model,
-      'vehicle_registered_num': vehicleRegNo,
-      'registered_year': registeredYear,
-      'state': state,
-      'tehsil': tehsil,
-      'district': district,
+        'loan_type_id': loanType,
+        'first_name': firstName,
+        'last_name': lastName,
+        'mobile': mobileNo,
+        'brand_id': brand,
+        'model': model,
+        'vehicle_registered_num': vehicleRegNo,
+        'registered_year': registeredYear,
+        'state': state,
+        'tehsil': tehsil,
+        'district': district
+       
     };
 
-    // var apiBaseURL =APIBaseURL;
     var url = 'http://tractor-api.divyaltech.com/api/customer/customer_enquiries';
     console.log(url);
 
@@ -158,13 +163,15 @@ function add_loan(event) {
       success: function (result) {
         console.log(result, "result");
         console.log("Add successfully");
-        alert("sdfghuj");
-       var msg = "User Inserted successfully !"
+        
+       var msg = " "
        $("#errorStatusLoading").modal('show');
-       $("#errorStatusLoading").find('.modal-title').html('<p class="text-center">Congratulation..! Requested Successful</p>');
+       $("#errorStatusLoading").find('.modal-title').html('<p class="text-center">Thank you for contacting us. We will get back to you.</p>');
     
        $("#errorStatusLoading").find('.modal-body').html(msg);
-       $("#errorStatusLoading").find('.modal-body').html('<img src="assets/images/successfull.gif" style="display:block; margin:0 auto;" class="w-50 text-center" alt="Successfull Request"></img>');
+    //    $("#errorStatusLoading").find('.modal-body').html('<img src="assets/images/successfull.gif" style="display:block; margin:0 auto;" class="w-50 text-center" alt="Successfull Request"></img>');
+       document.getElementById("applicationForm").reset();
+       
       },
       error: function (error) {
         console.error('Error fetching data:', error);
@@ -175,4 +182,6 @@ function add_loan(event) {
         $("#errorStatusLoading").find('.modal-body').html('<img src="assets/images/comp_3.gif" style="display:block; margin:0 auto;" class="w-50 text-center" alt="Successfull Request"></img>');
       }
     });
-  }
+}
+
+  populateDropdownsFromClass('state-dropdown', 'district-dropdown', 'tehsil-dropdown');

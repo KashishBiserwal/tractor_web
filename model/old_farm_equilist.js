@@ -218,7 +218,7 @@ $(document).ready(function(){
               },
               success: function (data) {
                   console.log(data);
-                  const selects = document.querySelectorAll('#brand2');
+                  const selects = document.querySelectorAll('#brand_brand');
       
                   selects.forEach(select => {
                       select.innerHTML = '<option selected disabled value="">Please select an option</option>';
@@ -259,7 +259,7 @@ $(document).ready(function(){
               },
               success: function (data) {
                   console.log('Received models data:', data); // Debugging statement
-                  const selects = document.querySelectorAll('#model2');
+                  const selects = document.querySelectorAll('#model_model');
       
                   selects.forEach(select => {
                       select.innerHTML = '<option selected disabled value="">Please select an option</option>';
@@ -282,82 +282,8 @@ $(document).ready(function(){
               }
           });
       }
+ get();
       
-      get();
-      
-      function get_1() {
-        var url = 'http://tractor-api.divyaltech.com/api/customer/get_all_brands';
-        $.ajax({
-            url: url,
-            type: "GET",
-            headers: {
-                'Authorization': 'Bearer ' + localStorage.getItem('token')
-            },
-            success: function (data) {
-                console.log(data);
-                const select = document.querySelector('.brand-select'); // Using class name
-                select.innerHTML = '<option selected disabled value="">Please select an option</option>';
-    
-                if (data.brands.length > 0) {
-                    data.brands.forEach(row => {
-                        const option = document.createElement('option');
-                        option.textContent = row.brand_name;
-                        option.value = row.id;
-                        select.appendChild(option);
-                    });
-    
-                    // Add event listener to brand dropdown
-                    select.addEventListener('change', function() {
-                        const selectedBrandId = this.value;
-                        get_model_1(selectedBrandId);
-                    });
-                } else {
-                    select.innerHTML = '<option>No valid data available</option>';
-                }
-            },
-            error: function (error) {
-                console.error('Error fetching data:', error);
-            }
-        });
-    }
-    
-    function get_model_1(brand_id) {
-        var url = 'http://tractor-api.divyaltech.com/api/customer/get_brand_model/' + brand_id;
-        $.ajax({
-            url: url,
-            type: "GET",
-            headers: {
-                'Authorization': 'Bearer ' + localStorage.getItem('token')
-            },
-            success: function (data) {
-                console.log(data);
-                const select = document.querySelector('.model-select'); // Using class name
-                select.innerHTML = '<option selected disabled value="">Please select an option</option>';
-    
-                if (data.model.length > 0) {
-                    data.model.forEach(row => {
-                        const option = document.createElement('option');
-                        option.textContent = row.model;
-                        option.value = row.model;
-                        select.appendChild(option);
-    
-                        // Select the option if it matches the selectedModel
-                        if (row.model === selectedModel) {
-                            option.selected = true;
-                        }
-                    });
-                } else {
-                    select.innerHTML = '<option>No valid data available</option>';
-                }
-            },
-            error: function (error) {
-                console.error('Error fetching data:', error);
-            }
-        });
-    }
-    
-    get_1();
-    
 
   function get_category() {
     var apiBaseURL = APIBaseURL;
@@ -480,8 +406,7 @@ function store(event) {
    }
 
 
-// fetch data
-function old_farm_implement() {
+   function old_farm_implement() {
     var apiBaseURL = APIBaseURL;
     var url = apiBaseURL + 'get_old_implements';
     $.ajax({
@@ -497,8 +422,9 @@ function old_farm_implement() {
                 let tableData = [];
                 let counter = 1;
 
-                data.getOldImplement.forEach(row => {
-                  const fullName = row.first_name + ' ' + row.last_name;
+                // Reverse the order of the fetched data array
+                data.getOldImplement.reverse().forEach(row => {
+                    const fullName = row.first_name + ' ' + row.last_name;
                     let action = `
                         <div class="d-flex">
                             <button class="btn btn-warning btn-sm text-white mx-1" data-bs-toggle="modal" onclick="fetch_data(${row.id});" data-bs-target="#old_farm_view">
@@ -527,7 +453,10 @@ function old_farm_implement() {
                     counter++;
                 });
 
+                // Destroy existing DataTable instance
                 $('#example').DataTable().destroy();
+
+                // Reinitialize DataTable with new data
                 $('#example').DataTable({
                     data: tableData,
                     columns: [
@@ -544,7 +473,6 @@ function old_farm_implement() {
                     ],
                     paging: true,
                     searching: true,
-                    
                 });
             } else {
                 tableBody.innerHTML = '<tr><td colspan="9">No valid data available</td></tr>';
@@ -557,6 +485,7 @@ function old_farm_implement() {
 }
 
 old_farm_implement();
+
 
 // view data
 function fetch_data(id){
@@ -690,11 +619,6 @@ function fetch_edit_data(id) {
       $("#category option").prop("selected", false);
       $("#category option[value='" +userData.category_name + "']").prop("selected", true);
 
-      $("#brand option").prop("selected", false);
-      $("#brand option[value='" +userData.brand_name + "']").prop("selected", true);
-
-      $('#model').val(userData.model);
-
       $("#year option").prop("selected", false);
       $("#year option[value='" +userData.purchase_year + "']").prop("selected", true);
 
@@ -709,6 +633,31 @@ function fetch_edit_data(id) {
       $('#state').val(userData.state);
       $('#district').val(userData.district);
       $('#tehsil').val(userData.tehsil);
+
+       
+      var brandDropdown = document.getElementById('brand_brand');
+      for (var i = 0; i < brandDropdown.options.length; i++) {
+        if (brandDropdown.options[i].text === userData.brand_name) {
+          brandDropdown.selectedIndex = i;
+          break;
+        }
+      }
+
+      $('#model_model').empty(); 
+      get_model(userData.brand_id); 
+
+      // Selecting the option in the model dropdown
+      setTimeout(function() { // Wait for the model dropdown to populate
+          $("#model_model option").prop("selected", false);
+          $("#model_model option[value='" + userData.model + "']").prop("selected", true);
+      }, 1000); // Adjust the delay time as needed
+
+      setSelectedOption('state', userData.state_id);
+      setSelectedOption('district', userData.district_id);
+      
+      // Call function to populate tehsil dropdown based on selected district
+      populateTehsil(userData.district_id, 'tehsil-dropdown', userData.tehsil_id);
+
      
       $("#selectedImagesContainer").empty();
   
@@ -720,14 +669,14 @@ function fetch_edit_data(id) {
               var imageUrl = 'http://tractor-api.divyaltech.com/uploads/product_img/' + imageName.trim();
               countclass++;
               var newCard = `
-                  <div class=" position-relative">
-                  <div class="upload__img-close_button" id="closeId${countclass}" onclick="removeImage(this);"></div>
-                      <div class="brand-main d-flex box-shadow mt-2 text-center shadow upload__img-closeDy${countclass}">
-                          <a class="weblink text-decoration-none text-dark" title="Image">
-                              <img class="img-fluid w-100 h-100" src="${imageUrl}" alt=" Image">
-                          </a>
-                      </div>
+              <div class="col-6 col-lg-6 col-md-6 col-sm-6 position-relative">
+              <div class="upload__img-close_button" id="closeId${countclass}" onclick="removeImage(this);"></div>
+                  <div class="brand-main d-flex box-shadow mt-2 text-center shadow upload__img-closeDy${countclass}">
+                      <a class="weblink text-decoration-none text-dark" title="Image">
+                          <img class="img-fluid w-100 h-100" src="${imageUrl}" alt=" Image">
+                      </a>
                   </div>
+              </div>
               `;
               // Append the new image element to the container
               $("#selectedImagesContainer").append(newCard);
@@ -739,7 +688,25 @@ function fetch_edit_data(id) {
     }
   });
 }
+function setSelectedOption(selectId, value) {
+  var select = document.getElementById(selectId);
+  for (var i = 0; i < select.options.length; i++) {
+    if (select.options[i].value == value) {
+      select.selectedIndex = i;
+      break;
+    }
+  }
+}
 
+function populateTehsil(selectId, value) {
+  var select = document.getElementById(selectId);
+  for (var i = 0; i < select.options.length; i++) {
+    if (select.options[i].value == value) {
+      select.options[i].selected = true;
+      break;
+    }
+  }
+}
 
 // delete data
 function destroy(id) {

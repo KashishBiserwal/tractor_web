@@ -10,6 +10,7 @@ include 'includes/footertag.php';
 <script> var APIBaseURL = "<?php echo $APIBaseURL; ?>";</script>
 <script> var baseUrl = "<?php echo $baseUrl; ?>";</script>
     <script src="<?php $baseUrl; ?>model/insurance_customer.js"></script>
+    <script src="<?php $baseUrl; ?>model/State_dist_tehsil.js"></script>
 </head>
 <style>
 .error .form-label {
@@ -164,6 +165,7 @@ include 'includes/footertag.php';
                                     <label class="form-label  " for="registered_year">Registered Year</label>
                                     <select class="form-select error mb-2 pb-2" id="registered_year" name="registered_year"
                                         aria-label="Default select example">
+                                        <option value="" selected disabled>Select Year</option>
                                         <script>
                                             for (let year = 2023; year >= 2008; year--) {
                                                 document.write(`<option value="${year}">${year}</option>`);
@@ -175,32 +177,26 @@ include 'includes/footertag.php';
                             <div class="col-12 col-sm-6 col-md-6 col-lg-4 mt-4">
                                 <div class="form-outline">
                                     <label class="form-label  " for="state">State</label>
-                                    <select class="form-select error mb-2 pb-2" id="state" name="state"
-                                        aria-label="Default select example">
-                                        <option selected></option>
-                                        <option value="1">name1</option>
-                                        <option value="2">name2</option>
-                                        <option value="3">name3</option>
+                                    <select class="form-select error mb-2 pb-2 state-dropdown" id="state" name="state" aria-label="Default select example">
+                                      
                                     </select>
                                 </div>
                             </div>
                             <div class="col-12 col-sm-6 col-md-6 col-lg-4 mt-4">
                                 <div class="form-outline">
                                     <label class="form-label  " for="district">District</label>
-                                    <select class="form-select error mb-2 pb-2" id="district" name="district"
-                                        aria-label="Default select example">
-                                        <option selected></option>
-                                        <option value="1">name1</option>
-                                        <option value="2">name2</option>
-                                        <option value="3">name3</option>
+                                    <select class="form-select error mb-2 pb-2 district-dropdown" id="district" name="district"aria-label="Default select example">
+                                      
                                     </select>
                                 </div>
                             </div>
                             <div class="col-12 col-sm-6 col-md-6 col-lg-4 mt-4">
                                 <div class="form-outline">
                                     <label class="form-label " for="tehsil">Tehsil</label>
-                                    <input type="text" id="tehsil" name="tehsil"
-                                        class=" data_search form-control input-group-sm " />
+                                    <select class="form-select error mb-2 pb-2 tehsil-dropdown" id="tehsil" name="tehsil" aria-label="Default select example">
+                                      
+                                      </select>
+                                    <!-- <input type="text" id="tehsil" name="tehsil" class=" data_search form-control input-group-sm " /> -->
                                 </div>
                             </div>
                             <!-- <div class="col-12">
