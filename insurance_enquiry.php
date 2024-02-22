@@ -247,7 +247,7 @@
                             <td id="vehicle"></td>
                            </tr>
                           <tr>
-                          <td>Registered Number-</td>
+                          <td>Registered Year-</td>
                             <td id="regi_no"></td>
                             <td>State-</td>
                             <td id="state1"></td>
@@ -258,6 +258,10 @@
                           <td id="district1"></td>
                           <td>Tehsil-</td>
                           <td id="tehsil1"></td>
+                          </tr>
+                          <tr>
+                            <td>Claims made in previous policy</td>
+                            <td id="policy"></td>
                           </tr>
                         </tbody>
                       </table>

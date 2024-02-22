@@ -282,72 +282,72 @@ $("#add_harvester").on("click", function () {
 
 });
 function ImgUpload() {
-    var imgWrap = "";
-    var imgArray = [];
+  var imgWrap = "";
+  var imgArray = [];
 
-    $('.upload__inputfile').each(function () {
-      $(this).on('change', function (e) {
-        imgWrap = $(this).closest('.upload__box').find('.upload__img-wrap');
-        var maxLength = $(this).attr('data-max_length');
+  $('.upload__inputfile').each(function () {
+    $(this).on('change', function (e) {
+      imgWrap = $(this).closest('.upload__box').find('.upload__img-wrap');
+      var maxLength = $(this).attr('data-max_length');
 
-        var files = e.target.files;
-        var filesArr = Array.prototype.slice.call(files);
-        var iterator = 0;
-        filesArr.forEach(function (f, index) {
+      var files = e.target.files;
+      var filesArr = Array.prototype.slice.call(files);
+      var iterator = 0;
+      filesArr.forEach(function (f, index) {
 
-          if (!f.type.match('image.*')) {
-            return;
+        if (!f.type.match('image.*')) {
+          return;
+        }
+
+        if (imgArray.length > maxLength) {
+          return false
+        } else {
+          var len = 0;
+          for (var i = 0; i < imgArray.length; i++) {
+            if (imgArray[i] !== undefined) {
+              len++;
+            }
           }
-
-          if (imgArray.length > maxLength) {
-            return false
+          if (len > maxLength) {
+            return false;
           } else {
-            var len = 0;
-            for (var i = 0; i < imgArray.length; i++) {
-              if (imgArray[i] !== undefined) {
-                len++;
-              }
-            }
-            if (len > maxLength) {
-              return false;
-            } else {
-              imgArray.push(f);
+            imgArray.push(f);
 
-              var reader = new FileReader();
-              reader.onload = function (e) {
-                var html = "<div class='upload__img-box'><div style='background-image: url(" + e.target.result + ")' data-number='" + $(".upload__img-close").length + "' data-file='" + f.name + "' class='img-bg'><div class='upload__img-close'></div></div></div>";
-                imgWrap.append(html);
-                iterator++;
-              }
-              reader.readAsDataURL(f);
+            var reader = new FileReader();
+            reader.onload = function (e) {
+              var html = "<div class='upload__img-box'><div style='background-image: url(" + e.target.result + ")' data-number='" + $(".upload__img-close").length + "' data-file='" + f.name + "' class='img-bg'><div class='upload__img-close'></div></div></div>";
+              imgWrap.append(html);
+              iterator++;
             }
+            reader.readAsDataURL(f);
           }
-        });
+        }
       });
     });
+  });
 
-    $('body').on('click', ".upload__img-close", function (e) {
-      var file = $(this).parent().data("file");
-      for (var i = 0; i < imgArray.length; i++) {
-        if (imgArray[i].name === file) {
-          imgArray.splice(i, 1);
-          break;
-        }
+  $('body').on('click', ".upload__img-close", function (e) {
+    var file = $(this).parent().data("file");
+    for (var i = 0; i < imgArray.length; i++) {
+      if (imgArray[i].name === file) {
+        imgArray.splice(i, 1);
+        break;
       }
-      $(this).parent().parent().remove();
-    });
-  }
-
-  function removeImage(ele){
-    console.log("print ele");
-      console.log(ele);
-      let thisId=ele.id;
-      thisId=thisId.split('closeId');
-      thisId=thisId[1];
-      $("#"+ele.id).remove();
-      $(".upload__img-closeDy"+thisId).remove();
-  
     }
+    $(this).parent().parent().remove();
+  });
+}
+
+function removeImage(ele){
+  console.log("print ele");
+    console.log(ele);
+    let thisId=ele.id;
+    thisId=thisId.split('closeId');
+    thisId=thisId[1];
+    $("#"+ele.id).remove();
+    $(".upload__img-closeDy"+thisId).remove();
+
+  }
 
   function get_brand_add() {
     var apiBaseURL =APIBaseURL;
@@ -419,7 +419,7 @@ get_brand_add();
     var hp_power = $('#hp_power').val();
     var air_filter = $('#AIR_FILTER').val();
     var engine = $('#engine').val();
-    var cylinder = $('#TOTAL_CYCLINDER').val();
+    var cylinder = $('#TOTAL_CYLINDER').val();
     var POWER_SOURCE = $('#POWER_SOURCE').val();
     var cutting_bar = $('#cutting_bar').val();
     var cuttingmax_height = $('#cuttingmax_height').val();
@@ -451,7 +451,7 @@ get_brand_add();
     var crops = $('#CROPS_TYPE').val();
     // var image = $('#_image').val();
     var transmission_gears = $('#transmission_gears').val();
-    var image_names = document.getElementById('_image').files;
+    var image_names = document.getElementById('image_name').files;
 
       // Split the string by '+' and trim the whitespace
       var gearsArray = transmission_gears.split('+').map(function(gear) {
@@ -575,7 +575,7 @@ get_brand_add();
  
   function get_harvester() {
     var apiBaseURL = APIBaseURL;
-    var url = apiBaseURL +'harvester';
+    var url = apiBaseURL + 'harvester';
     $.ajax({
         url: url,
         type: "GET",
@@ -583,58 +583,57 @@ get_brand_add();
             'Authorization': 'Bearer ' + localStorage.getItem('token')
         },
         success: function (data) {
-             console.log(data,"datata");
+            console.log(data, "datata");
 
-             const tableBody = document.getElementById('data-table');
-             let tableData = [];
+            const tableBody = document.getElementById('data-table');
+            let tableData = [];
             if (data.product && data.product.length > 0) {
                 // console.log(typeof product);
-           
-                let serialNumber = 1;
-             
+
+                let serialNumber = data.product.length;
                 data.product.forEach(row => {
-                  
-                  let action = ` <div class="d-flex">
-                  <button class="btn btn-warning btn-sm text-white mx-1" data-bs-toggle="modal" onclick="fetch_data(${row.id});" data-bs-target="#view_model_harvester">
-                            <i class="fa-solid fa-eye" style="font-size: 11px;"></i></button>
-                            <button class="btn btn-primary btn-sm btn_edit" onclick="fetch_edit_data(${row.id});" data-bs-toggle="modal" data-bs-target="#staticBackdrop" id="yourUniqueIdHere" style="padding:5px">
-                              <i class="fas fa-edit" style="font-size: 11px;"></i>
-                            </button>
-                  <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.id});">
-                      <i class="fa fa-trash" style="font-size: 11px;"></i>
-                  </button>
-              </div>`;
 
-              tableData.push([
-                serialNumber,
-                row.brand_name,
-                row.model,
-                row.horse_power,
-                row.air_filter,
-                row.crops_type_value,
-                action
-            ]);
+                    let action = ` <div class="d-flex">
+                    <button class="btn btn-warning btn-sm text-white mx-1" data-bs-toggle="modal" onclick="fetch_data(${row.id});" data-bs-target="#view_model_harvester">
+                              <i class="fa-solid fa-eye" style="font-size: 11px;"></i></button>
+                              <button class="btn btn-primary btn-sm btn_edit" onclick="fetch_edit_data(${row.id});" data-bs-toggle="modal" data-bs-target="#staticBackdrop" id="yourUniqueIdHere" style="padding:5px">
+                                <i class="fas fa-edit" style="font-size: 11px;"></i>
+                              </button>
+                    <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.id});">
+                        <i class="fa fa-trash" style="font-size: 11px;"></i>
+                    </button>
+                </div>`;
 
-            serialNumber++;
-          });
-            $('#example').DataTable().destroy();
-            $('#example').DataTable({
+                    tableData.unshift([
+                        serialNumber,
+                        row.brand_name,
+                        row.model,
+                        row.horse_power,
+                        row.air_filter,
+                        row.crops_type_value,
+                        action
+                    ]);
+
+                    serialNumber--;
+                });
+                $('#example').DataTable().destroy();
+                $('#example').DataTable({
                     data: tableData,
                     columns: [
-                      { title: 'S.No.' },
-                      { title: 'Brand' },
-                      { title: 'Model Name' },
-                      { title: 'HP Power' },
-                      { title: 'Air Filter' },
-                      { title: 'Crops' },
-                      { title: 'Action', orderable: false } // Disable ordering for Action column
-                  ],
+                        { title: 'S.No.' },
+                        { title: 'Brand' },
+                        { title: 'Model Name' },
+                        { title: 'HP Power' },
+                        { title: 'Air Filter' },
+                        { title: 'Crops' },
+                        { title: 'Action', orderable: false } // Disable ordering for Action column
+                    ],
                     paging: true,
                     searching: false,
                     // ... other options ...
                 });
             } else {
-              tableBody.innerHTML = '<tr><td colspan="9">No valid data available</td></tr>';
+                tableBody.innerHTML = '<tr><td colspan="9">No valid data available</td></tr>';
             }
         },
         error: function (error) {
@@ -643,6 +642,7 @@ get_brand_add();
     });
 }
 get_harvester();
+
  
 // delete data
 function destroy(id) {
@@ -795,8 +795,8 @@ function destroy(id) {
         var editData = response.product[0];
         $('#id').val(harvesterId);
         $("#brand_name option").prop("selected", false);
-        $("#brand_name option[value='" + editData.brand_name + "']").prop("selected", true);
-
+        $("#brand_name option[value='" + editData.brand_id + "']").prop("selected", true);
+       
         $('#model').val(editData.model);
         $('#rpm').val(editData.engine_rated_rpm);
         $('#hp_power').val(editData.horse_power);
@@ -806,10 +806,10 @@ function destroy(id) {
 
         $('#engine').val(editData.engine);
 
-        $("#TOTAL_CYCLINDER option").prop("selected", false);
-        $("#TOTAL_CYCLINDER option[value='" + editData.total_cyclinder_value + "']").prop("selected", true);
+        $("#TOTAL_CYLINDER option").prop("selected", false);
+        $("#TOTAL_CYLINDER option[value='" + editData.total_cyclinder_id + "']").prop("selected", true);
 
-         
+        // setSelectedOption('TOTAL_CYLINDER', editData.total_cyclinder_value);
         $("#POWER_SOURCE option").prop("selected", false);
         $("#POWER_SOURCE option[value='" + editData.POWER_SOURCE + "']").prop("selected", true);
 
@@ -818,10 +818,10 @@ function destroy(id) {
         $('#cuttingmin_height').val(editData.min_cutting_height);
 
         $("#CUTTER_BAR_HEIGHT_ADJUSTMENT option").prop("selected", false);
-        $("#CUTTER_BAR_HEIGHT_ADJUSTMENT option[value='" + editData.cutter_bar_height_adjustment_value + "']").prop("selected", true);
+        $("#CUTTER_BAR_HEIGHT_ADJUSTMENT option[value='" + editData.cutter_bar_height_adjustment_id + "']").prop("selected", true);
 
         $("#REEL_TYPE option").prop("selected", false);
-        $("#REEL_TYPE option[value='" + editData.reel_type_value + "']").prop("selected", true);
+        $("#REEL_TYPE option[value='" + editData.reel_type_id + "']").prop("selected", true);
 
         $('#reel_dia').val(editData.reel_diameter);
 
@@ -867,38 +867,49 @@ function destroy(id) {
 
         $('#product_type_id').val(editData.product_type_id);
 
-        $("#selectedImagesContainer").empty();
+        $("#selectedImagesContainer2").empty();
 
-           if (editData.image_names) {
-             var imageNamesArray = Array.isArray(editData.image_names) ? editData.image_names : editData.image_names.split(',');
-             console.log('imageNamesArray',imageNamesArray);  
-             var countclass = 0;
-             imageNamesArray.forEach(function (image_names) {
-                 var imageUrl = 'http://tractor-api.divyaltech.com/uploads/product_img/' + image_names.trim();
-            
-                 countclass++;
-                 var newCard = `
-                     <div class="col-12 col-md-6 col-lg-4 position-relative" style="left:6px;">
-                         <div class="upload__img-close_button " id="closeId${countclass}" onclick="removeImage(this);"></div>
-                         <div class="brand-main d-flex box-shadow mt-1 py-2 text-center shadow upload__img-closeDy${countclass}">
-                             <a class="weblink text-decoration-none text-dark" title="Image">
-                                 <img class="img-fluid w-100 h-100" src="${imageUrl}" alt="Image">
-                              </a>
-                          </div>
-                      </div>
-       `;
-       $("#selectedImagesContainer").append(newCard);
-});
+        if (editData.image_names) {
+         $('#image_name').val
+          var imageNamesArray = Array.isArray(editData.image_names) ? editData.image_names : editData.image_names.split(',');
+          console.log('imageNamesArray',imageNamesArray);  
+          var countclass = 0;
+          imageNamesArray.forEach(function (image_names) {
+              var imageUrl = 'http://tractor-api.divyaltech.com/uploads/product_img/' + image_names.trim();
+          
+              countclass++;
+              var newCard = `
+                  <div class="col-12 col-md-2 col-lg-2 position-relative" style="left:6px;">
+                  <div class="upload__img-close_button " id="closeId${countclass}" onclick="removeImage(this);"></div>
+                  <div class="brand-main d-flex box-shadow mt-1 py-2 text-center shadow upload__img-closeDy${countclass}">
+               
+                          <a class="weblink text-decoration-none text-dark" title="Image">
+                              <img class="img-fluid w-100" src="${imageUrl}" alt="Image">
+                           </a>
+                       </div>
+                   </div>
+                `;
+                $("#selectedImagesContainer2").append(newCard);
+           });
   
-  }
-        
-      },
+          }
+        },
       error: function(error) {
         console.error('Error fetching user data:', error);
       }
     });
   }
 
+  function setSelectedOption(selectId, value) {
+    var select = document.getElementById(selectId);
+    for (var i = 0; i < select.options.length; i++) {
+      if (select.options[i].value == value) {
+        select.selectedIndex = i;
+        break;
+      }
+    }
+  }
+  
   // get brand
   function get() {
     var apiBaseURL = APIBaseURL;

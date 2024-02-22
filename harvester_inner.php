@@ -21,10 +21,10 @@
    <?php
    include 'includes/header.php';
    ?>
-
-<section>
+ <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+<section class="bg-light">
     <div class="container mt-5 pt-4">
-        <div class="pt-5">
+        <div class="mt-4">
             <span class="mt-4 pt-4 ">
                 <a href="index.php" class="text-decoration-none header-link px-1">Home <i class="fa-solid fa-chevron-right px-1"></i></a>
                 <span class=""><span class=" header-link  px-1">Harvester <i class="fa-solid fa-chevron-right px-1"></i> </span></span>  
@@ -34,22 +34,22 @@
 </section>
 
 <section>
-    <div class="container">
+    <div class="container mt-2">
         <!-- <h1 class="mt-3" id="model_name">Kartar 4000</h1> -->
         <div class="row">
-            <div class="col-12 col-sm-6 col-lg-6 col-md-6" style="position: relative;">
+            <div class="col-12 col-sm-6 col-lg-6 col-md-6">
                 <div>
-                    <h1 class="fw-bold text-danger pt-3" id="brand_name"></h1>
-                    <div class="gallery">   
-                        <div class="swiper-container gallery-slider">
-                            <div class="swiper-wrapper mySwiper2_data"></div>
-                            <div class="swiper-button-prev"></div>
-                            <div class="swiper-button-next"></div>
-                        </div>
-                        <div class="swiper-container gallery-thumbs">
-                            <div class="swiper-wrapper mySwiper_data"></div>
+                <h4><span  id="brand_name"></span></h4>
+                </div>
+                <div>
+                    <div class="swiper swiper_buy mySwiper2_buy">
+                        <div class="swiper-wrapper swiper-wrapper_buy">
+                            <div class=" swiper-slide swiper-slide_buy">
+                            <!-- <img class="img_buy" src="assets/images/437-1632718440.webp" /> -->
+                            </div>
                         </div>
                     </div>
+                    <div thumbsSlider="" class="swiper mySwiper_buy" style="height:50px; width: 43%;" id="swip_img"></div>
                 </div>
             </div>
             <div class="col-12 col-lg-6 col-md-6 col-sm-6">
@@ -66,11 +66,11 @@
                         </tr>
                         <tr>
                             <td class="fw-bold">Power</td>
-                            <td><span id="hp"></span> HP</td>
+                            <td><span id="hp"></span></td>
                         </tr>
                         <tr>
                             <td class="fw-bold">Cutter Bar – Width</td>
-                            <td> <span id="cutting_width"></span> Feet</td>
+                            <td> <span id="cutting_width"></span></td>
                         </tr>
                         <tr>
                             <td class="fw-bold">No Of Cylinder</td>
@@ -190,7 +190,7 @@
 <section class="mt-3">
     <div class="container">
         <div class="about border-success  border-4 text-dark border-start">
-            <h4 class="text-dark fw-bold text-start ps-3">Specifications For <span class="brand_model"></span></h4>
+            <h4 class="text-dark fw-bold text-start ps-3">Specifications For <span class="brand_model" id="brand_specification"></span></h4>
         </div>
         <h5 class="fw-bold pt-2 ps-2">Engine</h5>
 
@@ -265,7 +265,7 @@
                                 <p class="mb-1 mt-1">Height Adjustment:</p>
                             </div>
                             <div class="col-12 col-lg-7 col-md-7 col-sm-7">
-                                <p class="mb-1 mt-1" id="height_adj"></p>
+                                <p class="mb-1 mt-1" id="height_adj1"></p>
                             </div>
                         </div>
                     </td>                  
@@ -595,36 +595,36 @@
         </table>
 
         <h5 class="fw-bold pt-2 ps-2">Capacity</h5>
-        <table class="table w-75 table-hover table table-striped my-4">
-            <tbody>
-                <tr>
-                    <td class="w-100">
-                        <div class="row w-100">
-                            <div class="col-12 col-lg-5 col-md-5 col-sm-5">
-                                <p class="mb-1 mt-1">Fuel Tank Capacity:</p>
+            <table class="table w-75 table-hover table table-striped my-4">
+                <tbody>
+                    <tr>
+                        <td class="w-100">
+                            <div class="row w-100">
+                                <div class="col-12 col-lg-5 col-md-5 col-sm-5">
+                                    <p class="mb-1 mt-1">Fuel Tank Capacity:</p>
+                                </div>
+                                <div class="col-12 col-lg-7 col-md-7 col-sm-7">
+                                    <p class="mb-1 mt-1" id="fuel_tank"><span id="grain_tank_capacity"> </span> L</p>
+                                </div>
                             </div>
-                            <div class="col-12 col-lg-7 col-md-7 col-sm-7">
-                                <p class="mb-1 mt-1" id="fuel_tank"><span id="grain_tank_capacity"> </span> L</p>
-                            </div>
-                        </div>
-                    </td>                  
-                </tr>
+                        </td>                  
+                    </tr>
 
-                <tr>
-                    <td class="w-100">
-                        <div class="row w-100">
-                            <div class="col-12 col-lg-5 col-md-5 col-sm-5">
-                                <p class="mb-1 mt-1">Paddy:</p>
+                    <tr>
+                        <td class="w-100">
+                            <div class="row w-100">
+                                <div class="col-12 col-lg-5 col-md-5 col-sm-5">
+                                    <p class="mb-1 mt-1">Paddy:</p>
+                                </div>
+                                <div class="col-12 col-lg-7 col-md-7 col-sm-7">
+                                    <p class="mb-1 mt-1" ><span id="grain_tank_capacity1"> </span> Acres/hour(approx)</p>
+                                </div>
                             </div>
-                            <div class="col-12 col-lg-7 col-md-7 col-sm-7">
-                                <p class="mb-1 mt-1" ><span id="grain_tank_capacity"> </span> Acres/hour(approx)</p>
-                            </div>
-                        </div>
-                    </td>                  
-                </tr>
+                        </td>                  
+                    </tr>
 
-            </tbody>
-        </table>
+                </tbody>
+            </table>
 
     </div>
 </section>

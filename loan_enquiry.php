@@ -246,11 +246,10 @@
                         <table class="table table-striped">
                         <tbody>
                          <tr> 
-                         <td>Loan Type-</td>
+                            <td>Loan Type-</td>
                             <td id="insurance_type_name1"></td>
                             <td>Full Name-</td>
                             <td id="last_name2"></td>
-                            
                           </tr>
                           <tr>
                             <td>Mobile Number-</td>
@@ -265,17 +264,20 @@
                             <td id="vehicle"></td>
                            </tr>
                           <tr>
-                          <td>Registered Number-</td>
+                          <td>Registered Year-</td>
                             <td id="regi_no"></td>
                             <td>State-</td>
                             <td id="state1"></td>
-                            
                           </tr>
                           <tr>
-                          <td>District-</td>
-                          <td id="district1"></td>
-                          <td>Tehsil-</td>
-                          <td id="tehsil1"></td>
+                            <td>District-</td>
+                            <td id="district1"></td>
+                            <td>Tehsil-</td>
+                            <td id="tehsil1"></td>
+                          </tr>
+                          <tr>
+                            <td>Claims made in previous policy</td>
+                            <td id="policy_1"></td>
                           </tr>
                         </tbody>
                       </table>

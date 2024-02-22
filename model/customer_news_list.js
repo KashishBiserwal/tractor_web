@@ -17,28 +17,34 @@ function news_details_list() {
         success: function(data) {
             var productContainer = $("#productContainer");
             var loadMoreButton = $("#load_moretract");
-
+        
             if (data.news_details && data.news_details.length > 0) {
                 totalEngineoil = data.news_details.length;
-
+        
                 // Display the initial set of 6 tractors
                 displayEngineoil(data.news_details.slice(0, displayedEngineoil));
-
+        
                 if (totalEngineoil <= displayedEngineoil) {
                     loadMoreButton.hide();
                 } else {
                     loadMoreButton.show();
                 }
-
+        
                 // Handle "Load More Tractors" button click
                 loadMoreButton.click(function() {
                     // Display all tractors
                     displayedEngineoil = totalEngineoil;
                     displayEngineoil(data.news_details);
-
+        
                     // Hide the "Load More Tractors" button
                     loadMoreButton.hide();
                 });
+        
+                // Show latest news card at the top
+                if (data.news_details.length > 0) {
+                    var latestNews = data.news_details[0]; // Assuming the latest news is at index 0
+                    productContainer.prepend(createNewsCard(latestNews));
+                }
             }
         },
         error: function(error) {
@@ -95,7 +101,7 @@ function displayEngineoil(engineoil) {
     var myDiv = $('#description_id');
 myDiv.text(myDiv.text().substring(0,120))
         // Append the new card to the container
-        productContainer.append(newCard);
+        productContainer.prepend(newCard);
        
        
     });

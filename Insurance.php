@@ -65,7 +65,7 @@ include 'includes/footertag.php';
 			?>
     <section class=" mt-5 pt-5 bg-light">
         <div class="container pt-3">
-            <div class="py-2">
+            <div class="py-2 mt-4">
                 <span class="text-white ">
                     <a href="index.php" class="text-decoration-none header-link px-1">Home <i
                             class="fa-solid fa-chevron-right px-1"></i>
@@ -194,11 +194,16 @@ include 'includes/footertag.php';
                                 <div class="form-outline">
                                     <label class="form-label " for="tehsil">Tehsil</label>
                                     <select class="form-select error mb-2 pb-2 tehsil-dropdown" id="tehsil" name="tehsil" aria-label="Default select example">
-                                      
-                                      </select>
-                                    <!-- <input type="text" id="tehsil" name="tehsil" class=" data_search form-control input-group-sm " /> -->
+                                    </select>
                                 </div>
                             </div>
+                            <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-4">
+                                    <label class="pe-3 fs-6 mt-2 text-dark">Claims made in previous policy</label>
+                                    <input type="radio" id="pcy_res" name="fav_rc" value="1">
+                                    <label for="policy" class="text-dark">Yes</label> 
+                                    <input type="radio" id="pcy_no" name="fav_rc" value="0">
+                                    <label for="policy" class="text-dark">No</label>
+                                </div>
                             <!-- <div class="col-12">
                                 <p class=" mt-3 "> Claims Made in Previous Policy</p>
                                 <div class="form-check form-check-inline ">

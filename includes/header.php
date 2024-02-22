@@ -277,38 +277,45 @@
     get_implement();
   });
 
-  function news_category(id)
-  {
-      var url = 'http://tractor-api.divyaltech.com/api/customer/get_news_category';
-      var headers = { 
+  function news_category(id) {
+    var url = 'http://tractor-api.divyaltech.com/api/customer/get_news_category';
+    var headers = { 
         'Authorization': 'Bearer ' + localStorage.getItem('token')
-      };
+    };
 
     $.ajax({
-    url: url,
-    type: "GET",
-    headers: headers,
-    success: function (data) {
-      $("#selectedImagesContainer1").empty();
+        url: url,
+        type: "GET",
+        headers: headers,
+        success: function (data) {
+            $("#selectedImagesContainer1").empty();
 
-      var newCard = data.news_category.map(function(category) {
-        var categoryWithoutSpaces = category.category_name.replace(/\s+/g, '_');
-        return `<li id="${categoryWithoutSpaces}">
-                  <a class="dropdown-item fw-bold" href="${categoryWithoutSpaces.toLowerCase()}.php?category_id=${category.id}">
-                    ${category.category_name}
-                  </a>
-                </li>
-              <hr class="dropdown-divider m-0">`;
-      });
+            // Sort the categories by some criteria (e.g., category ID or any other relevant property)
+            data.news_category.sort(function(a, b) {
+                // Sorting by category ID, change this according to your sorting criteria
+                return a.id - b.id;
+            });
 
-      $("#selectedImagesContainer1").append(newCard.join(''));
-    },
-    error: function (error) {
-      console.error('Error fetching data:', error);
-    }
+            // Take only the first four categories
+            var topFourCategories = data.news_category.slice(0, 4);
+
+            var newCard = topFourCategories.map(function(category) {
+                var categoryWithoutSpaces = category.category_name.replace(/\s+/g, '_');
+                return `<li id="${categoryWithoutSpaces}">
+                            <a class="dropdown-item fw-bold" href="${categoryWithoutSpaces.toLowerCase()}.php?category_id=${category.id}">
+                                ${category.category_name}
+                            </a>
+                        </li>
+                        <hr class="dropdown-divider m-0">`;
+            });
+
+            $("#selectedImagesContainer1").append(newCard.join(''));
+        },
+        error: function (error) {
+            console.error('Error fetching data:', error);
+        }
     });
-  } 
-
+}
   function get_implement() {
   var url = 'http://tractor-api.divyaltech.com/api/customer/get_implement_category';
   var headers = {

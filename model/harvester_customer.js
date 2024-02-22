@@ -1,12 +1,15 @@
+
+var cardsPerPage = 6;
+var allCards = [];
+var cardsDisplayed = 0;
+
 $(document).ready(function() {
     console.log("ready!");
-    
+    get_harvester();
     $('#filter_tractor').click(filter_search);
 });
 
-var cardsPerPage = 6; // Set the initial number of cards per page
-var allCards = []; // Assuming this is a global variable to store all the cards
-var cardsDisplayed = 0; // Track the number of cards displayed
+ 
 
 function get_harvester() {
     var url = "http://tractor-api.divyaltech.com/api/customer/get_new_harvester";
@@ -20,18 +23,19 @@ function get_harvester() {
             productContainer.empty();
 
             if (data.product && data.product.length > 0) {
-                allCards = data.product;
+                // Reverse the order of the cards to display the latest ones first
+                var reversedCards = data.product.slice().reverse();
 
-                allCards.sort(function (a, b) {
-                    return b.customer_id - a.customer_id;
-                });
-
-                // Display the initial set of cards (first 6)
-                allCards.slice(0, cardsPerPage).forEach(function (p) {
-                    appendCard(productContainer, p);
+                // Display the latest cards at the top
+                reversedCards.slice(0, cardsPerPage).forEach(function (p) {
+                    prependCard(productContainer, p);
                     cardsDisplayed++;
                 });
 
+                // Update allCards to store all the cards
+                allCards = reversedCards;
+
+                // Show or hide the "Load More" button based on the number of cards
                 if (allCards.length > cardsPerPage) {
                     $("#loadMoreBtn").show();
                 } else {
@@ -47,7 +51,7 @@ function get_harvester() {
         }
     });
 }
-    function appendCard(container, p) {
+    function prependCard(container, p) {
         var images = p.image_names;
         var a = [];
         const name = p.brand_name +" "+p.model;
@@ -64,7 +68,7 @@ function get_harvester() {
             <a href="harvester_inner.php?product_id=${p.id}" class="h-auto success__stry__item d-flex flex-column text-decoration-none shadow">
                 <div class="thumb">
                     <div>
-                        <img src="http://tractor-api.divyaltech.com/uploads/product_img/${a[0]}" class="object-fit-cover w-100" alt="harvester_img">
+                        <img src="http://tractor-api.divyaltech.com/uploads/product_img/${a[0]}" class=" engineoil_img object-fit-cover w-100" h-100" alt="harvester_img">
                     </div>
                 </div>
                 <div class="position-absolute" >
@@ -97,8 +101,12 @@ function get_harvester() {
     $(document).on('click', '#loadMoreBtn', function () {
         var productContainer = $("#productContainer");
     
-        allCards.slice(cardsDisplayed, cardsDisplayed + cardsPerPage).forEach(function (p) {
-            appendCard(productContainer, p);
+        // Get the next set of cards to display
+        var nextCards = allCards.slice(cardsDisplayed, cardsDisplayed + cardsPerPage);
+    
+        // Display the next set of cards
+        nextCards.forEach(function (p) {
+            prependCard(productContainer, p);
             cardsDisplayed++;
         });
     
@@ -108,7 +116,7 @@ function get_harvester() {
         }
     });
     
-    get_harvester();
+ 
 
 
 var filteredCards = [];

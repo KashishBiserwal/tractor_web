@@ -23,25 +23,25 @@ function getharvesterById() {
         url: url,
         type: "GET",
         success: function(data) {
-            // var minCuttingHeight = data.product[0].min_cutting_height;
-            // var maxCuttingHeight = data.product[0].max_cutting_height;
+            var minCuttingHeight = data.product[0].min_cutting_height;
+            var maxCuttingHeight = data.product[0].max_cutting_height;
             
-            // var concatenatedHeight = minCuttingHeight + ' - ' + maxCuttingHeight;
+            var concatenatedHeight = minCuttingHeight + ' - ' + maxCuttingHeight;
         console.log(data, 'abc');
         document.getElementById('brand_name').innerText=data.product[0].brand_name;
         document.getElementById('brand').innerText=data.product[0].brand_name;
         document.getElementById('model_name').innerText=data.product[0].model;
         document.getElementById('hp').innerText=data.product[0].horse_power;
         document.getElementById('cutting_width').innerText=data.product[0].cutting_bar_width;
-        // document.getElementById('compatible_tractor').innerText=JSON.parse(data.engine_oil_details[0].compatible_model);
         document.getElementById('cylinder').innerText=data.product[0].total_cyclinder_value;
         document.getElementById('power_source').innerText=data.product[0].power_source_value;
         document.getElementById('crop').innerText=data.product[0].crops_type_value;
+        document.getElementById('brand_specification').innerText=data.product[0].brand_name;
         document.getElementById('engine_type').innerText=data.product[0].engine_rated_rpm;
         document.getElementById('no_of_cylinder').innerText=data.product[0].total_cyclinder_value;
         document.getElementById('cooling_system').innerText=data.product[0].cooling_value;
         document.getElementById('cutting_bar_width').innerText=data.product[0].cutting_bar_width;
-        document.getElementById('height_adj').innerText=data.product[0].cutter_bar_height_adjustment_value;
+        document.getElementById('height_adj1').innerText=data.product[0].cutter_bar_height_adjustment_value;
         document.getElementById('cutting_bar_height_max').innerText = concatenatedHeight;
         document.getElementById('reel_type').innerText=data.product[0].reel_type_value;
         document.getElementById('speed_adj').innerText=data.product[0].speed_adjustment_value;
@@ -56,36 +56,40 @@ function getharvesterById() {
         document.getElementById('dia_lenght').innerText=data.product[0].dimension_length;
         document.getElementById('dia_height').innerText=data.product[0].dimension_height;
         document.getElementById('min_ground_clear').innerText=data.product[0].ground_clearance;
-        document.getElementById('fuel_tank').innerText=data.product[0].fuel_tank_capacity;
+        document.getElementById('grain_tank_capacity1').innerText=data.product[0].fuel_tank_capacity;
         document.getElementById('grain_tank_capacity').innerText=data.product[0].total_weight_without_grains;
-            var product = data.product[0];
-            var imageNames = product.image_names.split(',');
-            var carouselContainer = $('.mySwiper2_data');
-            var carouselContainer2 = $('.mySwiper_data');
+        var product = data.product[0];
 
-            carouselContainer.empty();
+        // Split the image names into an array
+        var imageNames = product.image_names.split(',');
 
-            imageNames.forEach(function(imageName) {
-                var imageUrl = "http://tractor-api.divyaltech.com/uploads/product_img/" + imageName.trim(); 
-                var slide = $('<div class="swiper-slide swiper-slide_buy"><img class="img_buy" src="' + imageUrl + '" /></div>');
-                var slide2 = $('<div class="swiper-slide swiper-slide_buy"><img class="img_buy" src="' + imageUrl + '" /></div>');
-                carouselContainer.append(slide);
-                carouselContainer2.append(slide2);
-            });
+        // Select the carousel container
+        var carouselContainer = $('.swiper-wrapper_buy');
 
-           // Initialize or update the Swiper carousel
-            var mySwiper = new Swiper('.mySwiper2_data', {
-              // Your Swiper configuration options
-          });
-          var mySwiper = new Swiper('.mySwiper_data', {
-              // Your Swiper configuration options
-          });
+        // Clear existing slides
+        carouselContainer.empty();
+
+        // Iterate through the image names and create carousel slides
+        imageNames.forEach(function(imageName) {
+            var imageUrl = "http://tractor-api.divyaltech.com/uploads/product_img/" + imageName.trim(); // Update the path
+            var slide = $('<div class="swiper-slide swiper-slide_buy"><img class="img_buy" src="' + imageUrl + '" /></div>');
+            carouselContainer.append(slide);
+        });
+
+        // Initialize or update the Swiper carousel
+        var mySwiper = new Swiper('.swiper_buy', {
+            // Your Swiper configuration options
+        });
+        console.log(data, 'abc');
+
+
         },
         error: function (error) {
             console.error('Error fetching data:', error);
         }
     });
 }
+
 
 function harvester_enquiry() {
     var firstName = $('#f_name').val();

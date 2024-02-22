@@ -417,8 +417,10 @@ function openViewdata(userId) {
       headers: headers,
 
       success: function(response) {
+      
         var userData = response.Enquiry_for_loan_data[0];
         var name = userData.first_name +" "+userData.last_name;
+        var policyClaim = userData.previous_policy_claim === 1 ? "Yes" : "No";
         document.getElementById('last_name2').innerText=name;
         document.getElementById('number').innerText=userData.mobile;
         document.getElementById('brand_id').innerText=userData.brand_name;
@@ -429,6 +431,7 @@ function openViewdata(userId) {
         document.getElementById('district1').innerText=userData.district_name;
         document.getElementById('tehsil1').innerText=userData.tehsil_name;
         document.getElementById('insurance_type_name1').innerText=userData.loan_type_value;
+        document.getElementById('policy_1').innerText = policyClaim;
       },
       error: function(error) {
         console.error('Error fetching user data:', error);

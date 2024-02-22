@@ -1,8 +1,8 @@
 <?php
  $APIBaseURL = 'http://tractor-api.divyaltech.com/api/admin/';
  $CustomerAPIBaseURL = 'http://tractor-api.divyaltech.com/api/customer/';
- $baseUrl = '/tractor-project/tractor-project/';
-// $baseUrl = '/tractor_house/'; 
+//  $baseUrl = '/tractor-project/tractor-project/';
+$baseUrl = '/tractor_house/'; 
 //   $APIBaseURL = "http://192.168.1.41:8000/api/customer/";
 ?>
 <meta charset="UTF-8">

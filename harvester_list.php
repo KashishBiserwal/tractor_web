@@ -7,6 +7,7 @@ include 'includes/footertag.php';
 <script> var APIBaseURL = "<?php echo $APIBaseURL; ?>";</script>
 <script> var baseUrl = "<?php echo $baseUrl; ?>";</script>
   <script src="<?php $baseUrl; ?>model/add_new_harvester.js"></script>
+  <script src="<?php $baseUrl; ?>model/brand_function.js"></script>
 <body class="loaded"> 
 <div class="main-wrapper">
     <div class="app" id="app">
@@ -93,7 +94,7 @@ include 'includes/footertag.php';
                                     <div class="col-12 col-sm-4 col-lg-4 col-md-4 mt-3">
                                       <div class="form-outline">
                                         <label class="form-label">Cylinder</label>
-                                        <select class="form-select form-control" id="TOTAL_CYCLINDER" name="TOTAL_CYCLINDER" aria-label="Default select example">
+                                        <select class="form-select form-control" id="TOTAL_CYLINDER" name="TOTAL_CYCLINDER" aria-label="Default select example">
                                             <option selected disabled>Please select an option</option>
                                         </select>
                                       </div>
@@ -320,18 +321,19 @@ include 'includes/footertag.php';
                                         </select>
                                       </div>
                                     </div>
-                                    <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                                      <div class="upload__box">
-                                        <div class="upload__btn-box text-center">
-                                          <label >
-                                            <p class="upload__btn ">Upload images</p>
-                                            <input type="file" multiple="" data-max_length="20" class="upload__inputfile" id="_image" name="_image">
-                                          </label>
-                                          <!-- <p></p> -->
-                                        </div>
-                                        <div id="selectedImagesContainer" class="upload__img-wrap"></div>
+                                    <div class="col-12 col-lg-6 col-md-6 col-sm-6 mt-5">
+                                      <div class="upload__box text-center">
+                                          <div class="upload__btn-box text-center">
+                                              <label >
+                                                  <p class="upload__btn">Upload images</p>
+                                                  <input type="file" multiple="" data-max_length="20" class="upload__inputfile" id="image_name" name="_image"required>
+                                              </label>
+                                           </div>
+                                          <div class="col-12">
+                                            <div id="selectedImagesContainer2" class="upload__img-wrap float-start"></div>
+                                          </div>
                                       </div>
-                                    </div>
+                                  </div>
                                 </div>
                             </form>
                             </div>
@@ -356,7 +358,7 @@ include 'includes/footertag.php';
             <div class="col-12 col-sm-12 col-md-3 col-lg-3">
               <div class="form-outline">
                 <label class="form-label">Brand</label>
-                <select class="form-select form-control" id="brand_name1" aria-label="Default select example">
+                <select class="form-select form-control " id="brand_name1" aria-label="Default select example">
                    
                 </select>
               </div>
@@ -370,6 +372,9 @@ include 'includes/footertag.php';
             <div class="col-12 col-sm-12 col-md-3 col-lg-3">
               <div class="form-outline">
                 <label class="form-label">Model Name</label>
+                <!-- <select class="form-select form-control "  id="model1" aria-label="Default select example">
+                   
+                   </select> -->
                <input type="text" id="model1" class="form-control">
               </div>
             </div>

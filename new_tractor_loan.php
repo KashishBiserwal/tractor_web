@@ -81,29 +81,25 @@ include 'includes/footertag.php';
                                     <div class="form-outline">
                                         <label class="form-label" for="loanType">Loan Type</label>
                                         <select class="form-select" id="loanType" name="loanType" required>
-                                         
                                         </select>
                                     </div>
                                 </div>
                                 <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-4">
                                     <div class="form-outline">
                                         <label class="form-label" for="firstName">First Name</label>
-                                        <input type="text" class="form-control" id="firstName" name="firstName"
-                                            required />
+                                        <input type="text" class="form-control" id="firstName" name="firstName" required />
                                     </div>
                                 </div>
                                 <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-4" hidden>
                                     <div class="form-outline">
                                         <label class="form-label" for="firstName">First Name</label>
-                                        <input type="text" class="form-control" id="enquiry_type_id" value="15" name=""
-                                            required />
+                                        <input type="text" class="form-control" id="enquiry_type_id" value="15" name="" required />
                                     </div>
                                 </div>
                                 <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-4">
                                     <div class="form-outline">
                                         <label class="form-label" for="lastName">Last Name</label>
-                                        <input type="text" class="form-control" id="lastName" name="lastName"
-                                            required />
+                                        <input type="text" class="form-control" id="lastName" name="lastName" required />
                                     </div>
                                 </div>
                                 <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-4">
@@ -116,7 +112,6 @@ include 'includes/footertag.php';
                                     <div class="form-outline">
                                         <label class="form-label" for="brand">Brand</label>
                                         <select class="form-select" id="brand" name="brand" required>
-                                            
                                         </select>
                                     </div>
                                 </div>
@@ -124,7 +119,6 @@ include 'includes/footertag.php';
                                     <div class="form-outline">
                                         <label class="form-label" for="model">Model</label>
                                         <select class="form-select" id="model" name="model" required>
-                                           
                                         </select>
                                     </div>
                                 </div>
@@ -138,8 +132,7 @@ include 'includes/footertag.php';
                                 <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-4">
                                     <div class="form-outline">
                                         <label class="form-label" for="vehicleRegNo">Vehicle Registered Number</label>
-                                        <input type="text" class="form-control" id="vehicleRegNo" name="vehicleRegNo"
-                                            required />
+                                        <input type="text" class="form-control" id="vehicleRegNo" name="vehicleRegNo" required />
                                     </div>
                                 </div>
 
@@ -161,7 +154,6 @@ include 'includes/footertag.php';
                                     <div class="form-outline">
                                         <label class="form-label" for="state">State</label>
                                         <select class="form-select state-dropdown" id="state" name="state" required>
-                                           
                                         </select>
                                     </div>
                                 </div>
@@ -169,7 +161,6 @@ include 'includes/footertag.php';
                                     <div class="form-outline">
                                         <label class="form-label" for="district">District</label>
                                         <select class="form-control district-dropdown" id="district" name="district" required>
-                                           
                                         </select>
                                     </div>
                                 </div>
@@ -177,10 +168,16 @@ include 'includes/footertag.php';
                                     <div class="form-outline">
                                         <label class="form-label " for="tehsil">Tehsil</label>
                                         <select class="form-control tehsil-dropdown" id="tehsil" name="tehsil">
-                                       </select>
+                                        </select>
                                     </div>
                                 </div>
-
+                                <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-4">
+                                    <label class="pe-3 fs-6 mt-2 text-dark">Claims made in previous policy</label>
+                                    <input type="radio" id="pcy_res" name="fav_rc" value="1">
+                                    <label for="policy" class="text-dark">Yes</label> 
+                                    <input type="radio" id="pcy_no" name="fav_rc" value="0">
+                                    <label for="policy" class="text-dark">No</label>
+                                </div>
                                 <p class="text-center mt-3">By proceeding ahead you expressly agree to the Bharat
                                     Tractors
                                     <a href="privacy_and_policy.php" class="text-decoration-none">Terms &
