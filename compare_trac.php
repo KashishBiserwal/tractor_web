@@ -70,7 +70,7 @@
                     <div class="col-12  text-center"><i class="fas fa-pencil-alt edit_btn btn" id="edit_" onclick="valueblanck()" hidden></i></div>
                   </div>
               </div>
-          </div>
+            </div>
 
           <div class="col-12 col-lg-3 col-sm-3 col-md-3 mt-4 mb-5">
               <div class="success__stry__item shadow h-100">
@@ -103,9 +103,9 @@
                       </div>
                   </div>
               </div>
-          </div>
+            </div>
 
-          <div class="col-12 col-lg-3 col-sm-3 col-md-3 mt-4 mb-5">
+            <div class="col-12 col-lg-3 col-sm-3 col-md-3 mt-4 mb-5">
               <div class="success__stry__item shadow h-100">
                   <div class="thumb">
                       <a href="#">
