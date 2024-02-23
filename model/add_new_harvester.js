@@ -826,30 +826,30 @@ function destroy(id) {
         $('#reel_dia').val(editData.reel_diameter);
 
         $("#REEL_SPEED_CONTROL option").prop("selected", false);
-        $("#REEL_SPEED_CONTROL option[value='" + editData.speed_adjustment_value + "']").prop("selected", true);
+        $("#REEL_SPEED_CONTROL option[value='" + editData.speed_adjustment_id + "']").prop("selected", true);
 
         $('#min_revol').val(editData.min_reel_revolution);
         $('#max_revol').val(editData.max_reel_revolution);
 
         $("#REEL_HEIGHT_ADJUSTMENT option").prop("selected", false);
-        $("#REEL_HEIGHT_ADJUSTMENT option[value='" + editData.reel_height_adjustment_value + "']").prop("selected", true);
+        $("#REEL_HEIGHT_ADJUSTMENT option[value='" + editData.reel_height_adjustment_id + "']").prop("selected", true);
 
         $('#cool_capacity').val(editData.coolant_capacity);
         
         $("#COOLING option").prop("selected", false);
-        $("#COOLING option[value='" + editData.cooling_value + "']").prop("selected", true);
+        $("#COOLING option[value='" + editData.cooling_id + "']").prop("selected", true);
 
         $('#drump_width').val(editData.threshing_drum_width);
         $('#drump_length').val(editData.threshing_drum_length);
         $('#drump_diameter').val(editData.threshing_drum_diameter);  
       
         $("#THRESHING_DRUM_SPEED_ADJUSTMENT option").prop("selected", false);
-        $("#THRESHING_DRUM_SPEED_ADJUSTMENT option[value='" + editData.threshing_drum_speed_adjustment_value + "']").prop("selected", true);
+        $("#THRESHING_DRUM_SPEED_ADJUSTMENT option[value='" + editData.threshing_drum_speed_adjustment_id + "']").prop("selected", true);
 
         $('#clear_concave').val(editData.clearance_concave);
 
         $("#TRANSMISSION_CLUTCH option").prop("selected", false);
-        $("#TRANSMISSION_CLUTCH option[value='" + editData.clutch_type_value + "']").prop("selected", true);
+        $("#TRANSMISSION_CLUTCH option[value='" + editData.clutch_type_id + "']").prop("selected", true);
 
         $('#tank_capa').val(editData.grain_tank_capacity);
         $('#transmission_gears').val(editData.model);
@@ -863,7 +863,7 @@ function destroy(id) {
         $('#ground_clerance').val(editData.ground_clearance);
 
         $("#CROPS_TYPE option").prop("selected", false);
-        $("#CROPS_TYPE option[value='" + editData.crops_type_value + "']").prop("selected", true);
+        $("#CROPS_TYPE option[value='" + editData.crops_type_id + "']").prop("selected", true);
 
         $('#product_type_id').val(editData.product_type_id);
 
