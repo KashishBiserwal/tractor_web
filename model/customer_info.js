@@ -66,13 +66,13 @@ function getInterestedBuyer() {
   function getpurchase_requestlist() {
     var url =  "http://tractor-api.divyaltech.com/api/customer/get_purchase_enquiry_data";
     var headers = {
-        'Headers':  localStorage.getItem('token')
+        'Authorization': localStorage.getItem('token')
       };
     
     $.ajax({
-      url: url,
-      type: "POST",
-      headers:headers,
+        url: url,
+        type: "POST",
+        headers: headers,
       success: function (data) {
           const tableBody = $('#data-table'); // Use jQuery selector for the table body
           tableBody.empty(); // Clear previous data
@@ -382,7 +382,7 @@ function getInterestedBuyer() {
   function getmylist() {
     var url =  "http://tractor-api.divyaltech.com/api/customer/get_sell_enquiry_data";
     var headers = {
-        'Headers': localStorage.getItem('token')
+        'Authorization': localStorage.getItem('token')
       };
     
     $.ajax({
@@ -433,23 +433,28 @@ function getInterestedBuyer() {
     });
   }
 
-  function getuserdetail(){
-    var url =  "http://tractor-api.divyaltech.com/api/customer/get_customer_personal_info_by_id/21";
-   
+  function getuserdetail(id) {
+    var url = "http://tractor-api.divyaltech.com/api/customer/get_customer_personal_info_by_id/" + id;
+
     var headers = {
-        'Headers':  + localStorage.getItem('token')
-      };
+        'Authorization': localStorage.getItem('token')
+    };
+
+    // Make an AJAX GET request to the API
     $.ajax({
-      url: url,
-      type: "GET",
-      headers:headers,
-      success: function (data) {
-        console.log(data,"data")
-          const tableBody = $('#data-table'); 
-          tableBody.empty(); 
-  
-  
+        url: url,
+        type: "GET",
+        headers: headers,
+        success: function (data) {
+            console.log(data, "data");
+
+            // Clear the existing data in the table body
+            const tableBody = $('#data-table');
+            tableBody.empty();
+
+            // Check if customer data exists and has at least one entry
             if (data.customerData && data.customerData.length > 0) {
+                // Populate form fields with customer data
                 document.getElementById('firstname').value = data.customerData[0].first_name;
                 document.getElementById('lastname').value = data.customerData[0].last_name;
                 document.getElementById('phone').value = data.customerData[0].mobile;
@@ -457,15 +462,21 @@ function getInterestedBuyer() {
                 document.getElementById('state').value = data.customerData[0].state;
                 document.getElementById('district').value = data.customerData[0].district;
                 document.getElementById('tehsil').value = data.customerData[0].tehsil;
-              
-            } 
+            }
         },
         error: function (error) {
             console.error('Error fetching data:', error);
         }
     });
+}
 
-  }
+// Get user ID from local storage
+var userId = localStorage.getItem('id');
+
+
+getuserdetail(userId);
+
+
 function edit_personal_detail(){
     $('#firstname').removeAttr("disabled")
     $('#lastname').removeAttr("disabled")
@@ -506,12 +517,15 @@ function edit_detail_customer() {
     var url = "http://tractor-api.divyaltech.com/api/customer/update_customer_personal_info/" + id;
         console.log(url);
       
-      
+        var headers = {
+            'Authorization': localStorage.getItem('token')
+          };
         // Make an AJAX request to the server
         $.ajax({
           url: url,
           type: "PUT",
           data: paraArr,
+          headers:headers,
           success: function (result) {
             console.log(result, "result");
             $("#used_tractor_callbnt_").modal('hide'); 
