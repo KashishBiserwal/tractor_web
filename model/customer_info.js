@@ -469,8 +469,6 @@ function getInterestedBuyer() {
         }
     });
 }
-
-// Get user ID from local storage
 var userId = localStorage.getItem('id');
 
 
