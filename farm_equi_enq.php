@@ -7,6 +7,8 @@
   <script> var APIBaseURL = "<?php echo $APIBaseURL; ?>";</script>
   <script> var baseUrl = "<?php echo $baseUrl; ?>";</script>
   <script src="<?php $baseUrl; ?>model/form_equi_enq.js"></script> 
+  <script src="<?php $baseUrl; ?>model/State_dist_tehsil.js"></script>
+  
 <body class="loaded"> 
  <div class="main-wrapper">
     <div class="app" id="app">
@@ -194,14 +196,13 @@
                                         <div class="col-12 col-lg-6 col-sm-5 col-md-6 my-1">
                                           <div class="form-outline mt-4">
                                               <label for="name" class="form-label text-dark">First Name</label>
-                                              <input type="text" class="form-control" placeholder="" id="namef" name="number">
+                                              <input type="text" class="form-control" placeholder="" id="namef" name="fname">
                                           </div>
                                         </div>
-                                       
                                         <div class="col-12 col-lg-6 col-sm-5 col-md-6 my-1">
                                           <div class="form-outline mt-4">
                                               <label for="name" class="form-label text-dark">Last Name</label>
-                                              <input type="text" class="form-control" placeholder="" id="namel" name="date">
+                                              <input type="text" class="form-control" placeholder="" id="namel" name="last_name">
                                           </div>
                                         </div>
                                         <div class="col-12 col-lg-6 col-sm-5 col-md-6 my-1">
@@ -210,40 +211,24 @@
                                               <input type="text" class="form-control" placeholder="" id="number" name="number">
                                           </div>
                                         </div>
-                                        
                                         <div class="col-12 col-lg-6 col-sm-5 col-md-6 my-1">
                                           <div class="form-outline mt-4">
                                              <label class="form-label">State</label>
-                                              <select class="form-select py-2" aria-label="Default select example" id="stat_e" name="state_">
-                                                <option value>Select State</option>
-                                                <option value="Chhattisgarh">Chhattisgarh</option>
-                                                <option value="Other">Other</option>
+                                              <select class="form-select py-2 state-dropdown"  aria-label="Default select example" id="stat_e" name="state_">
                                               </select>
                                           </div>
                                         </div>
                                         <div class="col-12 col-lg-6 col-sm-5 col-md-6 my-1">
                                           <div class="form-outline mt-4">
                                             <label class="form-label">District</label>
-                                            <select class="form-select py-2" aria-label="Default select example" id="dis_t" name="dist">
-                                              <option value>Select District</option>
-                                              <option value="Raipur">Raipur</option>
-                                              <option value="Bilaspur">Bilaspur</option>
-                                              <option value="Surajpur">Surajpur</option>
-                                              <option value="Korba">Korba</option>Durg
-                                              <option value="Durg">Durg</option>
+                                            <select class="form-select py-2 district-dropdown" aria-label="Default select example" id="dis_t" name="dist">
                                             </select>
                                           </div>
                                         </div>
                                         <div class="col-12 col-lg-6 col-sm-5 col-md-6 my-1">
                                           <div class="form-outline mt-4">
                                             <label class="form-label">Tehsil</label>
-                                            <select class="form-select py-2" aria-label="Default select example" id="tehsi_l">
-                                              <option value>Select Tehsil</option>
-                                              <option value="Raipur">Raipur</option>
-                                              <option value="Bilaspur">Bilaspur</option>
-                                              <option value="Surajpur">Surajpur</option>
-                                              <option value="Korba">Korba</option>Durg
-                                              <option value="Durg">Durg</option>
+                                            <select class="form-select py-2 tehsil-dropdown" aria-label="Default select example" id="tehsi_l">
                                             </select>
                                           </div>
                                         </div>
@@ -268,3 +253,73 @@
 <?php
    include 'includes/footertag.php';
    ?> 
+
+<script>
+$(document).ready(function(){
+   
+  
+  
+   // $('#Search').click(search);
+         jQuery.validator.addMethod("customPhoneNumber", function(value, element) {
+         return /^[6-9]\d{9}$/.test(value); 
+         }, "Phone number must start with 6 or above");
+   
+           
+     $("#form_tyre_list").validate({
+     
+     rules: {
+       fname: {
+         required: true,
+       },
+       last_name:{
+         required: true,
+       },
+       number:{
+         required:true, 
+         maxlength:10,
+         digits: true,
+         customPhoneNumber: true
+       },
+       state_:{
+         required: true,
+       },
+       dist:{
+         required: true,
+       }
+   },
+       messages:{
+       fname: {
+         required: "This field is required",
+       },
+       last_name:{
+         required: "This field is required",
+       },
+       number: {
+         required:"This field is required",
+         maxlength:"Enter only 10 digits",
+         digits: "Please enter only digits"
+       },
+       state_: {
+         required: "This field is required",
+       },
+       dist: {
+         required: "This field is required",
+       },
+     
+     },
+     
+     submitHandler: function (form) {
+       alert("Form submitted successfully!");
+     },
+     });
+ 
+   
+     $("#undate_btn").on("click", function () {
+   
+       $("#form_tyre_list").valid();
+     
+     });
+     
+ 
+   });
+   </script>
