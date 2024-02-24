@@ -41,12 +41,10 @@
                     </div> -->
                 </div>
                 <div class="row my-3">
-                    <div id="productContainer" class="row">
-                    </div>
+                    <div id="productContainer" class="row"></div>
                     <div class="col-12 text-center">
                         <button id="loadMoreBtn" type="button" class="add_btn btn btn-success mt-4 shadow">
                         <i class="fas fa-undo"></i>  Load More Tractor </button>
-                       
                     </div>
                 </div>
             </div>

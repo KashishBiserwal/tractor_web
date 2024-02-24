@@ -1,8 +1,9 @@
+
+
 $(document).ready(function() {
     console.log("ready!");
-    populateDropdowns();
+    // populateDropdowns();
     $('#filter_tractor').click(filter_search);
-});
 
     var cardsPerPage = 6; // Number of cards to show initially
     var cardsDisplayed = 0; // Counter to keep track of the number of cards displayed
@@ -10,7 +11,6 @@ $(document).ready(function() {
 
     function getoldTractorList() {
         var url = "http://tractor-api.divyaltech.com/api/customer/get_old_tractor";
-        
 
         $.ajax({
             url: url,
@@ -48,7 +48,10 @@ $(document).ready(function() {
             }
         });
     }
+
+    // Function to append card
     function appendCard(container, p) {
+        // Your appendCard function here
         var images = p.image_names;
         var a = [];
 
@@ -81,7 +84,7 @@ $(document).ready(function() {
                 </div>
                 <div class=" row">
                     <div class="col-12 ms-2 ">
-                        <p class="" id="district"><span id="engine_powerhp2">${p.brand_name}</span> | <span id="year">${p.purchase_year}</span>| ${p.district}</p>
+                        <p class="" id="district"><span id="engine_powerhp2">${p.brand_name}</span> | <span id="year">${p.purchase_year}</span>| ${p.district_name}</p>
                     </div>
                 </div>
                 <div class="row text-center">
@@ -106,7 +109,7 @@ $(document).ready(function() {
                                     <div class="modal-content">
                                         <div class="modal-header  modal_head">
                                         <h5 class="modal-title text-white ms-1" id="model_form">${p.model}</h5>
-                                        <button type="button" class="btn-close btn-success" data-bs-dismiss="modal" aria-label="Close"><img src="assets/images/close.png"></button>
+                                        <button type="button" class="btn-close btn-success" data-bs-dismiss="modal" aria-label="Close"><img src="assets/images/close.png" class="w-25"></button>
                                         </div>
                                         <!-- MODAL BODY -->
                                         <div class="modal-body">
@@ -133,34 +136,40 @@ $(document).ready(function() {
                                         <label for="number" class="form-label text-dark fw-bold"> <i class="fa fa-phone" aria-hidden="true"></i> Phone Number</label>
                                         <input type="text" class="form-control" placeholder="Enter Number" id="number" name="number">
                                     </div>
-                                    <div class="col-12 col-sm-12 col-md-6 col-lg-6">
-                                        <label for="yr_state" class="form-label text-dark fw-bold" id="state" name="state"> <i class="fas fa-location"></i> State</label>
-                                        <select class="form-select py-2 select_state" aria-label=".form-select-lg example" id="state_form" name="state">
-                                            <option value>Select State</option>
-                                            <option value="Chhattisgarh">Chhattisgarh</option>
-                                            <option value="Other">Other</option>
-                                        </select>
+                                    <div class="col-12 col-sm-6 col-md-6 col-lg-6 mt-4">
+                                        <div class="form-outline">
+                                            <label for="state" class="form-label text-dark fw-bold"> <i class="fas fa-location"></i> State</label>
+                                            <select class="form-select py-2 state-dropdown" aria-label=".form-select-lg example" id="state_form" name="state">
+                                                <!-- Options for state dropdown -->
+                                            </select>
+                                        </div>
                                     </div>
-                                    <div class="col-12 col-sm-12 col-md-6 col-lg-6">
-                                        <label class="form-label text-dark"><i class="fa-solid fa-location-dot"></i> District</label>
-                                        <select class="form-select py-2 select_dist" aria-label=".form-select-lg example" name="district" id="district_form">
-                                            
-                                        </select>
+                                    <div class="col-12 col-sm-6 col-md-6 col-lg-6 mt-4">
+                                        <div class="form-outline">
+                                            <label for="district" class="form-label fw-bold text-dark"><i class="fa-solid fa-location-dot"></i> District</label>
+                                            <select class="form-select py-2 district-dropdown" aria-label=".form-select-lg example" name="district" id="district_form">
+                                                <!-- Options for district dropdown -->
+                                            </select>
+                                        </div>
+                                    </div>       
+                                    <div class="col-12 col-sm-6 col-md-6 col-lg-6 mt-4">
+                                        <div class="form-outline">
+                                            <label for="Tehsil" class="form-label fw-bold text-dark"> Tehsil</label>
+                                            <select class="form-select py-2 tehsil-dropdown" aria-label=".form-select-lg example" id="tehsil" name="tehsil">
+                                                <option value="" selected disabled>Please select a tehsil</option>
+                                                <!-- Options for Tehsil dropdown -->
+                                            </select>
+                                        </div>
                                     </div>
-                                    <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-2">
-                                        <label for="yr_tehsil" class="form-label text-dark"> Tehsil</label>
-                                        <select class="form-select py-2 select_tehsil" aria-label=".form-select-lg example"  id="tehsil" name="tehsil">
-                                            
-                                        </select>
-                                     
+                                  <div class="col-12 col-lg-6 col-sm-5 col-md-6">
+                                    <div class="form-outline mt-4">
+                                        <label for="name" class="form-label text-dark">Price </label>
+                                        <input type="text" class="form-control py-2" placeholder="Enter Price" id="price_form" name="price">
                                     </div>
-                                    <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-2">
-                                        <label for="yr_price" class="form-label text-dark">Price</label>
-                                        <input type="yr_price" class="form-control" placeholder="Enter Price" id="price_form" name="price">
-                                    </div>
+                                  </div>
                                 </div>          
-                            </div> 
-                               <div class="modal-footer">
+                               </div> 
+                                     <div class="modal-footer">
                                                 <button type="submit" id="submit_enquiry" class="btn add_btn btn-success w-100 btn_all" onclick="savedata('${formId}')"
                                                 data-bs-dismiss="modal">Submit</button>
                                                 </div>      
@@ -175,8 +184,11 @@ $(document).ready(function() {
 
              `;
         container.append(newCard);
+        populateDropdowns(p.id);
     }
-    $(document).on('click', '#loadMoreBtn', function(){
+
+    // Load more button click event
+    $(document).on('click', '#loadMoreBtn', function() {
         var productContainer = $("#productContainer");
 
         allCards.slice(cardsDisplayed, cardsDisplayed + cardsPerPage).forEach(function (p) {
@@ -190,7 +202,52 @@ $(document).ready(function() {
         }
     });
 
-   
+    // Initial population
+    getoldTractorList();
+});
+function populateDropdowns() {
+    var stateDropdowns = document.querySelectorAll('.state-dropdown');
+    var districtDropdowns = document.querySelectorAll('.district-dropdown');
+    var tehsilDropdowns = document.querySelectorAll('.tehsil-dropdown');
+
+    var defaultStateId = 7; // Define the default state ID here
+
+    var selectYourStateOption = '<option value="">Select Your State</option>';
+    var chhattisgarhOption = `<option value="${defaultStateId}">Chhattisgarh</option>`;
+
+    stateDropdowns.forEach(function (dropdown) {
+        dropdown.innerHTML = selectYourStateOption + chhattisgarhOption;
+
+        // Fetch district data based on the selected state
+        $.get(`http://tractor-api.divyaltech.com/api/customer/get_district_by_state/${defaultStateId}`, function(data) {
+            var districtSelect = dropdown.closest('.row').querySelector('.district-dropdown');
+            districtSelect.innerHTML = '<option value="">Please select a district</option>';
+            data.districtData.forEach(district => {
+                districtSelect.innerHTML += `<option value="${district.id}">${district.district_name}</option>`;
+            });
+        });
+    });
+
+    // Event listener for district dropdown
+    districtDropdowns.forEach(function (dropdown) {
+        dropdown.addEventListener('change', function() {
+            var selectedDistrictId = this.value;
+            var tehsilSelect = this.closest('.row').querySelector('.tehsil-dropdown');
+            if (selectedDistrictId) {
+                // Fetch tehsil data based on the selected district
+                $.get(`http://tractor-api.divyaltech.com/api/customer/get_tehsil_by_district/${selectedDistrictId}`, function(data) {
+                    tehsilSelect.innerHTML = '<option value="">Please select a tehsil</option>';
+                    data.tehsilData.forEach(tehsil => {
+                        tehsilSelect.innerHTML += `<option value="${tehsil.id}">${tehsil.tehsil_name}</option>`;
+                    });
+                });
+            } else {
+                tehsilSelect.innerHTML = '<option value="">Please select a district first</option>';
+            }
+        });
+    });
+}
+
     getoldTractorList();
   function tractor_enquiry(formId) {
         // Use the formId to get values dynamically

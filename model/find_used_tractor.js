@@ -195,11 +195,57 @@ function store() {
         type: 'POST',
         data: data,
         headers: headers,
-        success: function (result) {
-            console.log(result, "result");
-            console.log("Add successfully");
-            // Show the OTP modal
+        success: function (response) {
+            console.log(response);
+            console.log("Data stored successfully !");
             $('#get_OTP_btn').modal('show');
+    
+            if (response.data.length === 0) {
+                // If data array is empty, display a message or take appropriate action
+                $("#productContainer").html("<p>No data available.</p>");
+            } else {
+                // Iterate through the data array and generate cards for each item
+                response.data.forEach(function (item) {
+                    // Extract necessary data from the item
+                    var images = item.image_names.split(',');
+                    var brandName = item.brand_name;
+                    var model = item.model;
+                    var purchase_year = item.purchase_year;
+                    var hp_category = item.hp_category;
+                    // Generate HTML for the card
+                    var newCard = `
+                        <div class="col-12 col-lg-4 col-md-4 col-sm-4 mb-4">
+                            <div class="success__stry__item shadow h-100 bg-white">
+                                <div class="thumb">
+                                    <div>
+                                        <div class="">
+                                            <img src="http://tractor-api.divyaltech.com/uploads/product_img/${images[0]}" class="object-fit-cover mt-4 p-3 w-100" width="100px" height="200px" alt="img">
+                                        </div>
+                                    </div>
+                                </div>
+                               
+                                <div class="row text-center">
+                                <div class="col-12 col-sm-6 col-md-6 col-lg-6">
+                                <p class="mb-1 fw-bold text-danger">${brandName}</p>
+                                </div>
+                                <div class="col-12 col-sm-6 col-md-6 col-lg-6">
+                                <p class="mb-0 fw-bold text-hover-green">${model}</p>
+                                </div>
+                                <div class="col-12 col-sm-6 col-md-6 col-lg-6">
+                                <p class="mb-0 fw-bold pb-2 text-danger">${hp_category} <span>HP</span></p>
+                                </div>
+                                <div class="col-12 col-sm-6 col-md-6 col-lg-6">
+                                <p class="mb-0 fw-bold pb-2 text-hover-green">${purchase_year}</p>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                    `;
+    
+                    // Append the new card HTML to the product container
+                    $("#productContainer").append(newCard);
+                });
+            }
         },
         error: function (error) {
             console.error('Error fetching data:', error);
@@ -252,7 +298,7 @@ function get_otp() {
 
             // Assuming your model has an ID 'myModal', hide it on success
             $('#otp_form').modal('hide'); // Assuming it's a Bootstrap modal
-
+           
             // Reset input fields
             // document.getElementById('phone').value = ''; 
             // document.getElementById('otp').value = ''; 
@@ -277,3 +323,27 @@ function get_otp() {
         },
     });
 }
+// function displayCard() {
+//     var container = $("#productContainer");
+//     var images = "http://tractor-api.divyaltech.com/uploads/product_img/example.jpg"; // Update with the actual image path
+//     var newCard = `
+//     <div class="col-12 col-lg-4 col-md-4 col-sm-4 mb-4">
+//         <div class="success__stry__item shadow h-100 bg-white">
+//             <div class="thumb">
+//                 <div>
+//                     <div class="">
+//                         <img src="${images}" class="object-fit-cover mt-4 p-3 w-100" width="100px" height="200px" alt="img">
+//                     </div>
+//                 </div>
+//             </div>
+//             <div class="row ms-3">
+//                 <p class="mb-1 fw-bold text-danger">${brandName}</p>
+//                 <p class="mb-0 fw-bold text-hover-green">${model}</p>
+//                 <button type="button" class="fs-6 fw-bold text-success text-start" data-bs-toggle="modal" data-bs-target="#staticBackdrop3">Check Tractor Price</button>
+//             </div>
+//         </div>
+//     </div>
+//         `;
+//     container.html(newCard);
+//     $("#section-2").show(); // Show the section after adding the card
+// }
