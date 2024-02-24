@@ -18,12 +18,12 @@ function getNurseryById() {
         type: "GET",
         success: function(data) {
         console.log(data, 'abc');
-        document.getElementById('district_main').innerText=data.nursery_data[0].district ;
+        document.getElementById('district_main').innerText=data.nursery_data[0].district_name;
         document.getElementById('description').innerText=data.nursery_data[0].description;
         document.getElementById('address').innerText=data.nursery_data[0].address ;
-        document.getElementById('state_1').innerText=data.nursery_data[0].state;
-        document.getElementById('district_1').innerText=data.nursery_data[0].district;
-        document.getElementById('tehsil_1').innerText=data.nursery_data[0].tehsil;
+        document.getElementById('state_1').innerText=data.nursery_data[0].state_name;
+        document.getElementById('district_1').innerText=data.nursery_data[0].district_name;
+        document.getElementById('tehsil_1').innerText=data.nursery_data[0].tehsil_name;
         document.getElementById('number_1').innerText=data.nursery_data[0].mobile;
      
      
@@ -136,7 +136,7 @@ function displaynursery(nursery) {
                 </div>
                 <div class="row text-center">
                     <div class="col-12 text-center">
-                        <p class="fw-bold pe-3">${p.district}, ${p.state}</p>
+                        <p class="fw-bold pe-3">${p.district_name}, ${p.state_name}</p>
                     </div>
                 </div>
             </div>
@@ -346,7 +346,7 @@ var url = "http://tractor-api.divyaltech.com/api/customer/customer_enquiries";
         
 
         var newCard2 = `
-        <div class="col-12 mb-4" id="${cardId}">
+        <div class="col-12 col-lg-12 col-md-12 col-sm-12 mb-12" id="${cardId}">
             <a href="nursery_inner.php?id=${p.id}"
                 class="h-auto success__stry__item text-decoration-none d-flex flex-column shadow ">
                 <div class="thumb">
@@ -364,7 +364,7 @@ var url = "http://tractor-api.divyaltech.com/api/customer/customer_enquiries";
                     </div>
                     <div class="row text-center">
                         <div class="col-12 text-center">
-                            <p class="fw-bold pe-3">${p.district}, ${p.state}</p>
+                            <p class="fw-bold pe-3">${p.district_name}, ${p.state_name}</p>
                         </div>
                     </div>
                 </div>

@@ -594,7 +594,7 @@
             </tbody>
         </table>
 
-        <h5 class="fw-bold pt-2 ps-2">Capacity</h5>
+        <!-- <h5 class="fw-bold pt-2 ps-2">Capacity</h5>
             <table class="table w-75 table-hover table table-striped my-4">
                 <tbody>
                     <tr>
@@ -624,7 +624,7 @@
                     </tr>
 
                 </tbody>
-            </table>
+            </table> -->
 
     </div>
 </section>

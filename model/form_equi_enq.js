@@ -323,14 +323,11 @@ function fetch_edit_data(id) {
             $('#namef').val(Data.first_name);
             $('#namel').val(Data.last_name);
             $('#number').val(Data.mobile);
-            $("#stat_e option").prop("selected", false);
-            $("#stat_e option[value='" + Data.state_id+ "']").prop("selected", true);
-
-            $("#dis_t option").prop("selected", false);
-            $("#dis_t option[value='" + Data.district_id+ "']").prop("selected", true);
-
-            $("#tehsi_l option").prop("selected", false);
-            $("#tehsi_l option[value='" + Data.tehsil_id+ "']").prop("selected", true);
+            setSelectedOption('stat_e', Data.state_id);
+            setSelectedOption('dis_t', Data.district_id);
+            
+            // Call function to populate tehsil dropdown based on selected district
+            populateTehsil(Data.district_id, 'tehsil-dropdown', Data.tehsil_id);
            
         },
         error: function (error) {
@@ -338,12 +335,30 @@ function fetch_edit_data(id) {
         }
     });
   }
+  function setSelectedOption(selectId, value) {
+    var select = document.getElementById(selectId);
+    for (var i = 0; i < select.options.length; i++) {
+      if (select.options[i].value == value) {
+        select.selectedIndex = i;
+        break;
+      }
+    }
+  }
   
+  function populateTehsil(selectId, value) {
+    var select = document.getElementById(selectId);
+    for (var i = 0; i < select.options.length; i++) {
+      if (select.options[i].value == value) {
+        select.options[i].selected = true;
+        break;
+      }
+    }
+  }
 
   function store(edit_id) {
     var enquiry_type_id = 6;
     var edit_id = $("#userId").val();
-    var product_id=$("#product_id").val();
+    var product_id = $("#product_id").val();
     var first_name = $("#namef").val();
     var last_name = $("#namel").val();
     var mobile = $("#number").val();
@@ -351,13 +366,18 @@ function fetch_edit_data(id) {
     var district = $("#dis_t").val();
     var tehsil = $("#tehsi_l").val();
 
-
     // Validate mobile number
     if (!/^[6-9]\d{9}$/.test(mobile)) {
         alert("Mobile number must start with 6 or above and should be 10 digits");
         return; // Exit the function if validation fails
     }
-   
+
+    // Check if any field is empty
+    if (!first_name || !last_name || !mobile || !state || !district || !tehsil || !product_id) {
+        alert("Please fill in all fields");
+        return; // Exit the function if any field is empty
+    }
+
     var paraArr = {
         'first_name': first_name,
         'last_name': last_name,
@@ -367,16 +387,16 @@ function fetch_edit_data(id) {
         'tehsil': tehsil,
         'customer_id': edit_id,
         'enquiry_type_id': enquiry_type_id,
-        'product_id':product_id,
+        'product_id': product_id,
     };
-  
+
     var apiBaseURL = APIBaseURL;
     var url = apiBaseURL + 'customer_enquiries/' + edit_id;
-    
+
     var headers = {
         'Authorization': 'Bearer ' + localStorage.getItem('token')
     };
- 
+
     $.ajax({
         url: url,
         type: "PUT",
@@ -387,13 +407,14 @@ function fetch_edit_data(id) {
             console.log("updated successfully");
             alert('successfully updated..!');
             get_enquiry();
-
+          window.location.reload();
         },
         error: function (error) {
             console.error('Error fetching data:', error);
         }
     });
-  }
+}
+
 
  
   function search_data() {

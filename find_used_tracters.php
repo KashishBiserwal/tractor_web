@@ -61,8 +61,8 @@
             <h5 class="">Fill the form will contact you shortly</h4>
         </div>
     </section>
-    <section class="form-view bg-white pb-4">
-        <div class="container-mid" style="position: relative;">
+    <section class="form-view bg-white pb-4" id="section-1">
+        <div class="container-mid" style="position: relative;" id="an">
             <div class="row justify-content-center">
                 <div class="col-md-8 col-lg-7">
                     <form id="find-used-tractor-form" method="POST" class="form-view-inner form-view-overlay bg-light shadow p-3"
@@ -96,8 +96,6 @@
                                 <div class="form-outline">
                                     <label class="form-label" for="state">State</label>
                                     <select class="form-select mb-2 state-dropdown" id="state" name="state" required>
-                                        <!-- <option value="" selected disabled>Select State</option>
-                                        <option value="chhattisgarh">Chhattisgarh</option> -->
                                     </select>
                                 </div>
                             </div>
@@ -105,8 +103,6 @@
                                 <div class="form-outline">
                                     <label class="form-label" for="district">District</label>
                                     <select class="form-select mb-2 district-dropdown" id="district" name="district" required>
-                                        <!-- <option value="" selected disabled>Select District</option>
-                                        <option value="chhattisgarh">Chhattisgarh</option> -->
                                     </select>
                                 </div>
                             </div>
@@ -115,27 +111,23 @@
                                     <label for="budget" class="form-label">Budget</label>
                                     <select class="form-select mb-2" name="budget" id="budget" required>
                                         <option value="" selected disabled>Select Amount</option>
-                                        <option value="1-2lac">1-2 Lac</option>
-                                        <option value="2-3lac">2-3 Lac</option>
-                                        <option value="3-4lac">3-4 Lac</option>
-                                        <option value="4-5lac">4-5 Lac</option>
-                                        <option value="5lac">>5 Lac</option>
+                                        <option value="1 - 2">1 - 2</option>
+                                        <option value="2 - 3">2 - 3</option>
+                                        <option value="3 - 4">3 - 4</option>
+                                        <option value="4 - 5">4 - 5</option>
+                                        <option value="5 - 6">5 - 6</option>
+                                        <option value="6 - 7">6 - 7</option>
+                                        <option value="7 - 8">7 - 8</option>
+                                        <option value="8 - 9">8 - 9</option>
+                                        <option value="9 - 10">9 - 10</option>
+                                        <option value="10 - 11">10 - 11</option>
                                     </select>
                                 </div>
                             </div>
                             <div class="col-12 mt-3">
                                 <label for="manufacture" class="form-label text-dark ">Manufacture Year</label>
                                 <select id="choices-multiple-remove-button" placeholder="Select Manufacture Year" multiple>
-                                    <!-- <option value="2023">2023</option>
-                                    <option value="2022">2022</option>
-                                    <option value="2021">2021</option>
-                                    <option value="2020">2020</option>
-                                    <option value="2019">2019</option>
-                                    <option value="2018">2018</option>
-                                    <option value="2017">2017</option>
-                                    <option value="2016">2016</option>
-                                    <option value="2015">2015</option> -->
-                                </select>
+                                 </select>
                             </div>
                             <div class="container">
                                 <div id="add_more">
@@ -152,8 +144,6 @@
                                             <div class="form-outline">
                                                 <label for="model" class="form-label">Model</label>
                                                 <select class="form-select mb-2 model_select" name="model[]" id="model_used" required>
-                                                <!-- <option value="2015">2015</option>
-                                                <option value="2015">2016</option> -->
                                                 </select>
                                             </div>
                                         </div>
@@ -165,7 +155,9 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-12 mt-3"><button id="store" type="button" class="btn-success w-100 fw-bold"  data-bs-toggle="modal" data-bs-target="#get_OTP_btn">Get OTP</button></div>
+                            <div class="col-12 mt-3">
+                                <button id="store" type="button" class="btn-success w-100 fw-bold " data-bs-toggle="modal" data-bs-target="#get_OTP_btn" onclick="get_otp()";>Get OTP</button>
+                            </div>
                             <!-- <div class="col-12 mt-3">
                                 <button data-res="<?php echo $sum; ?>" type="button" id="store" class="btn-success w-100 fw-bold"
                                     data-bs-toggle="modal" data-bs-target="#get_OTP_btn">Get OTP</button>
@@ -178,13 +170,23 @@
                             </p>
                         </div>
                 </div>
+
                 </form>
             </div>
         </div>
         </div>
     </section>
-    <!-- OPT Model -->
-    <div class="modal fade" id="get_OTP_btn" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <section style="display: block;" id="section-2">
+        <div class="container" >
+            <div class="row my-3">
+                <div id="productContainer" class="row">
+
+                </div>
+            </div>
+        </div>
+    </section>
+                <!-- OPT Model -->
+                <div class="modal fade" id="get_OTP_btn" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -192,12 +194,15 @@
                     <button type="button" class="btn-close btn-success" data-bs-dismiss="modal" aria-label="Close"><img src="assets/images/close.png"></button>
                 </div>
                 <div class="modal-body">
-                    <form>
+                    <form id="otp_form">
                         <div class=" col-12 input-group">
+                        <!-- <div class="col-12" hidden>
+                                <label for="Mobile" class=" text-dark float-start pl-2">Enter OTP</label>
+                                <input type="text" class="form-control text-dark" placeholder="Enter OTP" id="Mobile"name="Mobile">
+                            </div> -->
                             <div class="col-12">
                                 <label for="Mobile" class=" text-dark float-start pl-2">Enter OTP</label>
-                                <input type="text" class="form-control text-dark" placeholder="Enter OTP" id="Mobile"
-                                    name="Mobile">
+                                <input type="text" class="form-control text-dark" placeholder="Enter OTP" id="otp"name="opt_1">
                             </div>
                             <div class="float-end col-12">
                                 <a href="" class="float-end">Resend OTP</a>
@@ -207,17 +212,12 @@
                 </div>
                 <div class="modal-footer">
                     <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> -->
-                    <button type="button" class="btn btn-success">Verify</button>
+                    <button type="button" class="btn btn-success" id="Verify">Verify</button>
                 </div>
             </div>
         </div>
     </div>
-
-    <section id="section-1">
-        <div class="container" id="my-container">
-<p>sdfgdfgfghj</p>
-        </div>
-    </section>
+   
     <section class="bg-light">
         <div class="container">
             <div class="old_tracter py-3 text-center">
@@ -494,9 +494,9 @@
 
     <script>
     $(document).ready(function() {
-        $.validator.addMethod("indianMobile", function(value, element) {
-            return this.optional(element) || /^[789]\d{9}$/.test(value);
-        }, "Please enter a valid Indian mobile number.");
+       jQuery.validator.addMethod("indianMobile", function(value, element) {
+            return /^[6-9]\d{9}$/.test(value); 
+          }, "Phone number must start with 6 or above");
         $('#find-used-tractor-form').validate({
             rules: {
                 fName: {
@@ -547,6 +547,21 @@
     });
     </script> -->
 
+<!-- <script>
+   function showall() {
+    var section1 = document.getElementById('section-1');
+    var section2 = document.getElementById('section-2');
+
+    if (section1.style.display == 'block') {
+      section1.style.display = 'none';
+      section2.style.display = 'block';
+    } else {
+      section1.style.display = 'block';
+      section2.style.display = 'none';
+    }
+  }
+
+</script> -->
 
 
 </body>

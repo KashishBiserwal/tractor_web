@@ -56,8 +56,8 @@ function getharvesterById() {
         document.getElementById('dia_lenght').innerText=data.product[0].dimension_length;
         document.getElementById('dia_height').innerText=data.product[0].dimension_height;
         document.getElementById('min_ground_clear').innerText=data.product[0].ground_clearance;
-        document.getElementById('grain_tank_capacity1').innerText=data.product[0].fuel_tank_capacity;
-        document.getElementById('grain_tank_capacity').innerText=data.product[0].total_weight_without_grains;
+        // document.getElementById('grain_tank_capacity1').innerText=data.product[0].fuel_tank_capacity;
+        // document.getElementById('grain_tank_capacity').innerText=data.product[0].total_weight_without_grains;
         var product = data.product[0];
 
         // Split the image names into an array

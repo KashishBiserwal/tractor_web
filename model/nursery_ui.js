@@ -1,5 +1,6 @@
 $(document).ready(function() {
-    getnurseryList();
+    var allCards = [];
+    getnurseryList(allCards);
     $('#submit_enquiry').click(nursery_enquiry);
     $('#filter_button').click(filter_search);
     
@@ -47,11 +48,11 @@ $(document).ready(function() {
 
 });
 
-var cardsPerPage = 6; // Number of cards to show initially
-var cardsDisplayed = 0; // Counter to keep track of the number of cards displayed
+var cardsPerPage = 6; 
+var cardsDisplayed = 0; 
 var allCards; //
 
-function getnurseryList() {
+function getnurseryList(allCards) {
     var url = CustomerAPIBaseURL + 'nursery_data';
 
     // Keep track of the total tractors and the currently displayed tractors
@@ -66,24 +67,18 @@ function getnurseryList() {
             var loadMoreButton = $("#load_moretract");
 
             if (data.nursery_data && data.nursery_data.length > 0) {
-                totalEngineoil = data.nursery_data.length;
-
+                // totalEngineoil = data.nursery_data.length;
+                var reversedCards = data.nursery_data.slice().reverse();
                 // Display the initial set of 6 tractors
-                displaynursery(data.nursery_data.slice(0, displayednursery));
+                allCards = allCards.concat(reversedCards);
+                displaynursery(productContainer, reversedCards.slice(0, 9).reverse());
+                loadMoreButton.show();
+               
 
-                if (totalnursery <= displayednursery) {
-                    loadMoreButton.hide();
-                } else {
-                    loadMoreButton.show();
-                }
-
-                // Handle "Load More Tractors" button click
                 loadMoreButton.click(function() {
-                    // Display all tractors
-                    displayednursery = totalnursery;
-                    displaynursery(data.nursery_data);
-
-                    // Hide the "Load More Tractors" button
+                    // Display all cards in the opposite order
+                    displayEngineoil(productContainer, allCards.reverse());
+                    // Hide the "View All" button
                     loadMoreButton.hide();
                 });
             }
@@ -95,26 +90,22 @@ function getnurseryList() {
 }
 
 
-function displaynursery(nursery) {
-    var productContainer = $("#productContainer");
-    var tableData = $("#tableData");
-    // Clear existing content
-    productContainer.html('');
-    tableData.html('');
 
-    
-    nursery.forEach(function (p) {
-        console.log(p,"ppp")
-        var images = p.image_names;
-        var a = [];
-
-        if (images) {
-            if (images.indexOf(',') > -1) {
-                a = images.split(',');
-            } else {
-                a = [images];
-            }
-        }
+        function displaynursery(container, nursery) {
+            // Clear existing content
+            container.html('');
+        
+            nursery.forEach(function (p) {
+                var images = p.image_names;
+                var a = [];
+        
+                if (images) {
+                    if (images.indexOf(',') > -1) {
+                        a = images.split(',');
+                    } else {
+                        a = [images];
+                    }
+                }
         var cardId = `card_${p.product_id}`; // Dynamic ID for the card
         var modalId = `nursery_callbnt_${p.product_id}`; // Dynamic ID for the modal
         var formId = `nursery_enquiry_form_${p.product_id}`; // Dynamic ID for the form
@@ -138,7 +129,7 @@ function displaynursery(nursery) {
                         </div>
                         <div class="row text-center">
                             <div class="col-12 text-center">
-                                <p class="fw-bold pe-3">${p.district}, ${p.state}</p>
+                                <p class="fw-bold pe-3">${p.district_name}, ${p.state_name}</p>
                             </div>
                         </div>
                     </div>
@@ -244,7 +235,7 @@ function displaynursery(nursery) {
 //     var myDiv = $('#description_id');
 // myDiv.text(myDiv.text().substring(0,120))
         // Append the new card to the container
-        productContainer.append(newCard);
+        container.prepend(newCard);
        
        
     });
