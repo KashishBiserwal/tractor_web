@@ -12,122 +12,42 @@
   <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
     <style>
-        .sidebar_profile{
-            background: linear-gradient(-185deg, rgb(63, 81, 181) 19%, rgb(76, 175, 80) 100%);
-            border-top-left-radius: 8px;
-            border-top-right-radius: 8px;
-        }
-        .profile_image img{
-            width: 85px;
-            margin: 0px auto;
-            text-align: center;
-            display: block;
-            padding: 20px 0 10px;
-        }
-        .profile_name p{
-            color:#fff;
-            text-align: center;
-            line-height: 20px;
-        }
-        .btn_all2{
-            color: #fff !important;
-    text-transform: capitalize;
-    padding: 0 10px;
-        }
-        .hr1{
-            border: 1px solid #fff !important;
-    width: 1px;
-    height: 20px !important;
-    background-color: #fff !important;
-    margin: 2px 0 0;
-        }
-        .profile_btn{
-            display: flex;
-    text-align: center;
-    margin: 0 auto;
-    justify-content: center;
-    padding-bottom: 20px;
-        } 
-        .customer_options{
-            border-bottom: 2px solid #dcdcdc;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-        }
-      .customer_options .nav-tabs li{
-          padding: 0; 
-    font-weight: 600 !important;
-    border-right: 2px solid #dcdcdc;
-    background: rgb(74 166 90);
+        body {
+	background: #2E86DE;
+}
 
-      }
-      .customer_options .nav-tabs{
-        background: rgb(74 166 90);
-      }
-      .customer_options .nav-tabs li a{
-        color: #fff;
-    text-decoration: none;
-    font-weight: 600 !important;
-    border: 1px solid rgb(74 166 90);
-        
-      }
-      .customer_options .nav-tabs li a span i{
-        margin: 0 10px;
-      }
-      .customer_options .nav-tabs .nav-link.active, .customer_options .nav-tabs .nav-link:focus, .customer_options .nav-tabs .nav-link:hover {
-        border-color: rgb(74 166 90);
-    border: none;
-    color: #fff;
-    font-weight: 600 !important;
-    border: 1px solid rgb(74 166 90);
-    background: rgb(74 166 90);
-      }
-    
+/* .col-carousel {
+	margin: 70px 0;
+} */
 
+/* owl nav */
+.owl-prev span, .owl-next span {
+	color: #8199A3;
+}
 
+.owl-prev span:hover, 
+.owl-next span:hover {
+	color: #8199A3;
+}
 
-      .sidebar_profile2{
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
-        }
-      .sidebar_profile2 .nav-tabs li{
-      
-        width: 100%;
-      }
-      .sidebar_profile2 .nav-tabs li a{
-        color: #a5a2a2;
-    text-decoration: none;
-    border: none;
-    border-radius: 0;
-    font-weight: 500;
-    padding: 10px;
-        
-      }
-      .sidebar_profile2 .nav-tabs li a span i{
-        margin: 0 10px;
-      }
-      .sidebar_profile2 .nav-tabs .nav-link.active, .sidebar_profile2 .nav-tabs .nav-link:focus, .sidebar_profile2 .nav-tabs .nav-link:hover {
-        border-color: #fff;
-    border: none;
-    color: #a5a2a2;
-    color: #fff;
-    font-weight: 600 !important;
-    background: rgb(74 166 90);
-    font-weight: 500;
-      }
-    #purchase thead th, #mylist thead th, #interested thead th, #purchase_harvester_table thead th,
-    #purchase_tractor_table thead th, #purchase_implements_table thead th, #purchase_nursery_table thead th,
-    #purchase_haatbazar_table thead th, #purchase_tyre_table thead th, #purchase_engineoil_table thead th
-    , #purchase_dealer_table thead th, #purchase_rent_table thead th, #purchase_hire_table thead th{
-        background:rgb(74 166 90);
-      } 
-      .sidebar_profile2 .nav-tabs li:focus-visible {
-        outline: none;
-      }
-      .heading00 button {
-        color: #4caa56;
-    font-size: 20px;
-    padding-top: 3px;
-      }
+.owl-prev, .owl-next {
+	position: absolute;
+	top: 0;
+	height: 100%;
+}
+
+.owl-prev {
+	left: 7px;
+}
+
+.owl-next {
+	right: 7px;
+}
+
+/* removing blue outline from buttons */
+button:focus, button:active {
+   outline: none;
+}
     </style>
 </head>
 <body>
@@ -150,29 +70,8 @@
             </div>
         </section>
         <section>
-            <div class="container-fluid pt-4 bg-light">
+            <div class="container-fluid bg-light">
                 <div class="row w-100">
-                   <!--  <div class="col-3 my-3">
-                        <div class="sidebar_profile pb-2">
-                            <div class="profile_image">
-                                <img src="assets/images/user.png">
-                            </div>
-                            <div class="profile_name">
-                                <p>Welcome!<br> <span style="font-size:20px; font-weight:700;">John Berry<span></p>
-                            </div>
-                         
-                        </div>
-                        <div class="sidebar_profile2 shadow  bg-white">
-                        <ul class="nav nav-tabs"  role="tablist">
-                            <li class="active nav-item"><a class="nav-link" data-bs-toggle="tab" href="#presonal_info"><span><i class="fa-solid fa-image-portrait"></i><span>Personal Information</a></li>
-                            <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#purchase_request"><span><i class="fa-solid fa-cart-shopping"></i><span>Purchase Request</a></li>
-                            <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#my_list"><span><i class="fa-solid fa-bars"></i><span>My List</a></li>
-                            <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#interested_buyers"><span><i class="fa-solid fa-tags"></i><span>Interested Buyers</a></li>
-                            <li class="nav-item"><a class="nav-link" ><span><i class="fa-solid fa-arrow-right-from-bracket"></i><span>Logout</a></li>
-                        </ul>
-                        </div>
-                        
-                    </div> -->
                     <div class="col-12 my-3">
                         <div class="customer_options bg-white">
                             <ul class="nav nav-tabs"  role="tablist">
@@ -210,25 +109,25 @@
                                                 <input type="number" placeholder=" " id="phone"  name="phone" class="form-control" disabled="disabled">
                                             </div>
                                         </div>
-                                        <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-3">
+                                        <!-- <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-3">
                                             <div class="form-outline">
                                                 <label class="form-label">Email</label>
                                                 <input type="email" placeholder=" " id="email"  name="email" class="form-control" disabled="disabled">
                                             </div>
-                                        </div>
-                                        <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-3">
+                                        </div> -->
+                                        <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-3">
                                             <div class="form-outline">
                                                 <label class="form-label">State</label>
                                                 <input type="text" placeholder=" " id="state"  name="state" class="form-control" disabled="disabled">
                                             </div>
                                         </div>
-                                        <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-3">
+                                        <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-3">
                                             <div class="form-outline">
                                                 <label class="form-label">District</label>
                                                 <input type="text" placeholder=" " id="district"  name="district" class="form-control" disabled="disabled">
                                             </div>
                                         </div>
-                                        <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-3">
+                                        <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-3">
                                             <div class="form-outline">
                                                 <label class="form-label">Tehsil</label>
                                                 <input type="text" placeholder=" " id="tehsil"  name="tehsil" class="form-control" disabled="disabled">
@@ -243,72 +142,65 @@
                                 </div>
                             </div>
                             <div id="purchase_request" class="tab-pane shadow bg-white">
-                                <div class="row w-100">
-                                <div class="col-3 my-3">
-                                    <!-- <div class="sidebar_profile pb-2">
-                                        <div class="profile_image">
-                                            <img src="assets/images/user.png">
+                                <div class="w-100">
+                                    <div class=" my-3">
+                                        <div class="col-12 col-carousel py-2">
+                                            <div class="owl-carousel carousel-main">
+                                                <div class="bg-light" id="purchase_tractor"> <a class="nav-link text-center" data-toggle="tab">
+                                                        <span><i class="fa-solid fa-image-portrait"></i></span> Tractor
+                                                    </a>
+                                                </div>
+                                                <div class="bg-light" id="purchase_harvester"><a class="nav-link text-center" data-bs-toggle="tab" ><span><i class="fa-solid fa-cart-shopping"></i><span>Harvester</a></div>
+                                                <div class="bg-light"><a class="nav-link text-center" data-bs-toggle="tab" href="#purchase_haatbazar"><span><i class="fa-solid fa-bars"></i> <span>HaatBazar</a></div>
+                                                <div class="bg-light"><a class="nav-link text-center" data-bs-toggle="tab" href="#purchase_implements"><span><i class="fa-solid fa-tags"></i> <span>Implements</a></div>
+                                                <div class="bg-light"><a class="nav-link text-center" data-bs-toggle="tab" href="#purchase_nursery"><span><i class="fa-solid fa-tags"></i> <span>Nursery</a></div>
+                                                <div class="bg-light"><a class="nav-link text-center" data-bs-toggle="tab" href="#purchase_tyre"><span><i class="fa-solid fa-tags"></i> <span>Tyre</a></div>
+                                                <div class="bg-light"><a class="nav-link text-center" data-bs-toggle="tab" href="#purchase_engineoil"><span><i class="fa-solid fa-tags"></i> <span>Engine Oil</a></div>
+                                                <div class="bg-light"><a class="nav-link text-center" data-bs-toggle="tab" href="#purchase_dealer"><span><i class="fa-solid fa-tags"></i> <span>Dealer</a></div>
+                                                <div class="bg-light"><a class="nav-link text-center" data-bs-toggle="tab" href="#purchase_hire"><span><i class="fa-solid fa-tags"></i> <span>Hire</a></div>
+                                            </div>
                                         </div>
-                                        <div class="profile_name">
-                                            <p>Welcome!<br> <span style="font-size:20px; font-weight:700;">John Berry<span></p>
-                                        </div>
-                                    
-                                    </div> -->
-                                    <div class="sidebar_profile2 mx-3 shadow  bg-white">
-                                    <ul class="nav nav-tabs"  role="tablist">
-                                        <h4 style="padding: 10px 10px; text-align: center; margin: 0 auto; background: #4bab54;  width: 100%; color: #fff; text-transform: uppercase; font-size: 20px;"> Purchase Request</h4>
-                                    <li class="active nav-item"><a class="nav-link" data-bs-toggle="tab" href="#purchase_tractor"><span><i class="fa-solid fa-image-portrait"></i><span>Tractor</a></li>
-                                        <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#purchase_harvester"><span><i class="fa-solid fa-cart-shopping"></i><span>Harvester</a></li>
-                                        <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#purchase_haatbazar"><span><i class="fa-solid fa-bars"></i><span>HaatBazar</a></li>
-                                        <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#purchase_implements"><span><i class="fa-solid fa-tags"></i><span>Implements</a></li>
-                                        <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#purchase_nursery"><span><i class="fa-solid fa-tags"></i><span>Nursery</a></li>
-                                        <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#purchase_tyre"><span><i class="fa-solid fa-tags"></i><span>Tyre</a></li>
-                                        <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#purchase_engineoil"><span><i class="fa-solid fa-tags"></i><span>Engine Oil</a></li>
-                                        <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#purchase_dealer"><span><i class="fa-solid fa-tags"></i><span>Dealer</a></li>
-                                        <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#purchase_rent"><span><i class="fa-solid fa-tags"></i><span>Rent</a></li>
-                                        <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#purchase_hire"><span><i class="fa-solid fa-tags"></i><span>Hire</a></li>
-                                    </ul>
+                                        <!-- <div class="sidebar_profile2 mx-3 shadow  bg-white">
+                                            <ul class="nav nav-tabs"  role="tablist">
+                                                <h4 style="padding: 10px 10px; text-align: center; margin: 0 auto; background: #4bab54;  width: 100%; color: #fff; text-transform: uppercase; font-size: 20px;"> Purchase Request</h4>
+                                                <li class="active nav-item"><a class="nav-link" data-bs-toggle="tab" href="#purchase_tractor"><span><i class="fa-solid fa-image-portrait"></i><span>Tractor</a></li>
+                                                <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#purchase_harvester"><span><i class="fa-solid fa-cart-shopping"></i><span>Harvester</a></li>
+                                                <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#purchase_haatbazar"><span><i class="fa-solid fa-bars"></i><span>HaatBazar</a></li>
+                                                <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#purchase_implements"><span><i class="fa-solid fa-tags"></i><span>Implements</a></li>
+                                                <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#purchase_nursery"><span><i class="fa-solid fa-tags"></i><span>Nursery</a></li>
+                                                <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#purchase_tyre"><span><i class="fa-solid fa-tags"></i><span>Tyre</a></li>
+                                                <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#purchase_engineoil"><span><i class="fa-solid fa-tags"></i><span>Engine Oil</a></li>
+                                                <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#purchase_dealer"><span><i class="fa-solid fa-tags"></i><span>Dealer</a></li>
+                                                <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#purchase_rent"><span><i class="fa-solid fa-tags"></i><span>Rent</a></li>
+                                                <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#purchase_hire"><span><i class="fa-solid fa-tags"></i><span>Hire</a></li>
+                                            </ul>
+                                        </div> -->
                                     </div>
-                                    
-                                </div>
-                               <!--  <div class="customer_options col-9 bg-white">
-                                    <ul class="nav nav-tabs"  role="tablist">
-                                        <li class="active nav-item"><a class="nav-link" data-bs-toggle="tab" href="#"><span><i class="fa-solid fa-image-portrait"></i><span>Tractor</a></li>
-                                        <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#"><span><i class="fa-solid fa-cart-shopping"></i><span>Harvester</a></li>
-                                        <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#"><span><i class="fa-solid fa-bars"></i><span>HaatBazar</a></li>
-                                        <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#"><span><i class="fa-solid fa-tags"></i><span>Implements</a></li>
-                                        <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#"><span><i class="fa-solid fa-tags"></i><span>Nursery</a></li>
-                                        <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#"><span><i class="fa-solid fa-tags"></i><span>Tyre</a></li>
-                                        <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#"><span><i class="fa-solid fa-tags"></i><span>Engine Oil</a></li>
-                                        <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#"><span><i class="fa-solid fa-tags"></i><span>Dealer</a></li>
-                                        <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#"><span><i class="fa-solid fa-tags"></i><span>Rent</a></li>
-                                        <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#"><span><i class="fa-solid fa-tags"></i><span>Hire</a></li>
-                                    </ul>
-                                </div> -->
-                                <div class=" col-9 my-3  bg-white">
+                                <div class=" col-12 my-3  bg-white">
                                     <div class="customer_detail_section bg-white tab-content">
-                                        <div id="purchase_tractor" class="tab-pane active shadow bg-white  p-3">
+                                        <div id="" data-bs-target="purchase_tractor" class="tab-pane active shadow p-3">
                                             <div class="table-responsive b-t-1">
-                                                <table id="purchase_tractor_table" class="table table-striped  table-hover table-bordered  no-footer" width="100%; margin-bottom: 15px;">
-                                                    <thead class="">
-                                                    <tr>
-                                                        <th class="d-none d-md-table-cell text-white ">Request No.</th>
-                                                        <th class="d-none d-md-table-cell text-white">Brand</th>
-                                                        <th class="d-none d-md-table-cell text-white">Model</th>
-                                                        <th class="d-none d-md-table-cell text-white">Name</th>
-                                                        <th class="d-none d-md-table-cell text-white">Mobile Number</th>
-                                                        <th class="d-none d-md-table-cell text-white">Date</th>
-                                                    </tr>
+                                                <table id="purchase_tractor_table" class="table table-striped table-hover table-bordered no-footer" width="100%">
+                                                    <thead class="bg-success">
+                                                        <tr>
+                                                            <th class="d-none d-md-table-cell text-white">Request No.</th>
+                                                            <th class="d-none d-md-table-cell text-white">Brand list</th>
+                                                            <th class="d-none d-md-table-cell text-white">Model</th>
+                                                            <th class="d-none d-md-table-cell text-white">Name</th>
+                                                            <th class="d-none d-md-table-cell text-white">Mobile Number</th>
+                                                            <th class="d-none d-md-table-cell text-white">Date</th>
+                                                        </tr>
                                                     </thead>
                                                     <tbody id="data-table">
+                                                        <!-- Add your table data here -->
                                                     </tbody>
                                                 </table>
                                             </div>
                                         </div>
-                                        <div id="purchase_harvester" class="tab-pane shadow bg-white  p-3">
+                                        <div id="" data-bs-target="purchase_harvester" class="tab-pane shadow bg-white  p-3">
                                             <div class="table-responsive b-t-1">
                                                 <table id="purchase_harvester_table" class="table table-striped  table-hover table-bordered  no-footer" width="100%; margin-bottom: 15px;">
-                                                    <thead class="">
+                                                    <thead class="bg-success">
                                                     <tr>
                                                         <th class="d-none d-md-table-cell text-white ">Request No.</th>
                                                         <th class="d-none d-md-table-cell text-white">Brand</th>
@@ -536,4 +428,15 @@
    
     ?> 
 </body>
-
+<script>
+$('.carousel-main').owlCarousel({
+	items: 5,
+	loop: true,
+	autoplay: false,
+	autoplayTimeout: 3000,
+	margin: 10,
+	nav: true,
+	dots: false,
+	navText: ['<span class="fas fa-chevron-left fa-2x"></span>','<span class="fas fa-chevron-right fa-2x"></span>'],
+})
+</script>

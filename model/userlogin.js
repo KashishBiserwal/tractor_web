@@ -76,14 +76,17 @@ function get_otp() {
             localStorage.setItem('token', result.token);
             localStorage.setItem('mobile', userMobile);
             localStorage.setItem('id', userId);
-
+            // window.location.href = baseUrl + "userProfile.php"; 
+            window.location.href = baseUrl + "userProfile_new.php";
+            document.getElementById("loginButton").style.display = "none"; 
+            document.getElementById("myAccountButton").style.display = "block"; 
             const d = new Date();
             d.setTime(d.getTime() + 60 * 60 * 1000);
             var expires_in = d;
             console.log(expires_in, "expires_in");
             localStorage.setItem('expireIn', expires_in);
             console.log(expires_in, 'expiry timeeeeee');
-            window.location.href = baseUrl + "userProfile.php"; 
+           
         },
         error: function (xhr, textStatus, errorThrown) {
             console.log(xhr.status, 'error');

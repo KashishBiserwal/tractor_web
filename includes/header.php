@@ -33,8 +33,8 @@
                 <a class="nav-link" href="#" style="border-right: 1px solid #fff;">Download App</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="user-login.php">Login</a>
-                <!-- <a class="nav-link" href="userProfile.php">Login</a> -->
+                <a class="nav-link" id="loginButton" style="display: block;" href="user-login.php">Login</a>
+                <a class="nav-link" id="myAccountButton" style="display:none;" href="userProfile.php">My Account</a>
               </li>
             </ul>
           </div>
