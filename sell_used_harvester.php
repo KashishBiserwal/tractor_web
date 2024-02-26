@@ -186,10 +186,7 @@
                                             <div class="form-outline">
                                                 <label for="b_name" class="form-label mb-0 text-dark fw-bold">Brand</label>
                                                 <select class="form-select py-2 " aria-label=".form-select-lg example" name="b_name" id="brand_name">
-                                                    <option value="" Selected Disabled=""></option>
-                                                    <option value="1">Raipur</option>
-                                                    <option value="2">Bilaspur</option>
-                                                    <option value="2">Durg</option>
+                                                   
                                                 </select>
                                             </div>
                                         </div>
@@ -197,10 +194,7 @@
                                             <div class="form-outline">
                                                 <label for="m_name" class="form-label mb-0 text-dark fw-bold">Model</label>
                                                 <select class="form-select py-2 " aria-label=".form-select-lg example" name="m_name" id="model_1">
-                                                    <option value="" Selected Disabled=""></option>
-                                                    <option value="1">Raipur</option>
-                                                    <option value="2">Bilaspur</option>
-                                                    <option value="2">Durg</option>
+                                                   
                                                 </select>
                                             </div>
                                         </div>
@@ -280,10 +274,7 @@
                                             <div class="form-outline">
                                                 <label for="_hours" class="form-label mb-0 text-dark fw-bold"> Hours Driven</label>
                                                 <select class="form-select py-2 " aria-label=".form-select-lg example" name="_hours" id="h_hours">
-                                                    <option value="" Selected Disabled=""></option>
-                                                    <option value="1">Raipur</option>
-                                                    <option value="2">Bilaspur</option>
-                                                    <option value="2">Durg</option>
+                                                   
                                                 </select>
                                             </div>
                                         </div>
@@ -291,10 +282,7 @@
                                             <div class="form-outline">
                                                 <label for="p_year" class="form-label mb-0 text-dark fw-bold"> Purchase Year</label>
                                                 <select class="form-select py-2 " aria-label=".form-select-lg example" name="p_year" id="p_year">
-                                                    <option value="" Selected Disabled=""></option>
-                                                    <option value="1">Raipur</option>
-                                                    <option value="2">Bilaspur</option>
-                                                    <option value="2">Durg</option>
+                                                   
                                                 </select>
                                             </div>
                                         </div>

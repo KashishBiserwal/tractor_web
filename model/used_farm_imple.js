@@ -63,7 +63,7 @@ function appendCard(container, p) {
         }
     }
     const brandmodel = p.brand_name + '  ' + p.model;
-    const location = p.district + '  ' + p.state;
+    const location = p.district_name + '  ' + p.stateused_farm_imple;
 
     var newCard = `
     <div class="col-12 col-lg-4 col-md-4 col-sm-4 mt-3 ">

@@ -485,11 +485,17 @@
 </section>
 <section>
     <div class="container">
-        <div class="text-editor-black  my-3" style="background-color:#fff">
-             <h4><p class="mt-md mt-3 p-2 mb-3 my-3 assured">Related Tractor Trailer </p></h4>
+      
+    <div class="col-12 col-sm-12 col-lg-12 col-md-12">
+        <h3 class="fw-bold">Used <span class="text-success fw-bold">Farm Implements</span> </h3>
+        <div class="row my-3" id="productContainer"></div>
+        <div class="col-12 text-center">
+        <div class="col text-center my-3 pb-5">
+            <a href="used_farm_imple.php" class="btn btn-success btn-lg">View All</a>
         </div>
-        <div class="owl-slider">
-            <div id="carousel_related" class="owl-carousel owl-carousel_related">
+        </div>
+    </div>
+            <!-- <div id="carousel_related" class="owl-carousel owl-carousel_related">
                 <div class="item">
                     <div class="col-md-12 shadow d-flex flex-row">
                         <div class="">
@@ -608,11 +614,10 @@
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    </div>
+            </div> -->
+       
 </section>
-
+      
 <!-- <section class="bg-light">
     <div class="container my-3">
         <div class="home-demo">

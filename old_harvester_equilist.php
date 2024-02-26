@@ -10,6 +10,7 @@
    <script src="<?php $baseUrl; ?>model/old_harvesteradmin.js"></script>
    <script src="<?php $baseUrl; ?>model/State_dist_tehsil.js"></script>
   <script src="<?php $baseUrl; ?>model/state2_dist2.js"></script>
+  <script src="<?php $baseUrl; ?>model/brand_function.js"></script>
 
 <body class="loaded"> 
 <div class="main-wrapper">
@@ -71,14 +72,15 @@
                                   <div class="form-outline ">
                                     <label class="form-label text-dark">Brand</label>
                                     <select class="form-select form-control" aria-label=".form-select-lg example" id="brand" name="brand">
-                                      
-                                      </select>
+                                    </select>
                                   </div>
                                 </div>
                                 <div class="col-12 col-lg-6 col-md-6 col-sm-6 mt-3">
                                   <div class="form-outline ">
                                     <label for="name" class="form-label text-dark">Model Name</label>
-                                    <input type="text" class="form-control" placeholder="Enter Your Model Name" id="model" name="model">
+                                    <select class="form-select form-control" aria-label=".form-select-lg example"  id="model" name="model">
+                                    </select>
+                                    <!-- <input type="text" class="form-control" placeholder="Enter Your Model Name" id="model" name="model"> -->
                                   </div>
                                </div>
                                <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-3">
@@ -203,7 +205,7 @@
             <div class="col-12 col-sm-12 col-md-3 col-lg-3">
               <div class="form-outline">
                 <label class="form-label"> Brand Name</label>
-                <select class="form-select form-control" id="brand2">
+                <select class="form-select form-control brand_select" id="brand2">
                  
                 </select>
               </div>
@@ -211,13 +213,9 @@
             <div class="col-12 col-sm-12 col-md-3 col-lg-3">
               <div class="form-outline ">
                 <label class="form-label">Model</label>
-                <input type="text" class="form-control" id="model_name" name="model">
-                    <!-- <select class="form-select form-control" aria-label="Default select example">
-                        <option selected>Select Model</option>
-                        <option value="1">3032 NX</option>
-                        <option value="2">3030 NX</option>
-                        <option value="3">3230 NX</option>
-                    </select> -->
+                <!-- <input type="text" class="form-control" id="model_name" name="model"> -->
+                    <select class="form-select form-control model_select" aria-label="Default select example"id="model_name" name="model">
+                    </select>
               </div>
             </div>
             <div class="col-12 col-sm-12 col-md-3 col-lg-3">

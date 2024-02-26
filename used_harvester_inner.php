@@ -17,7 +17,7 @@
 <?php
    include 'includes/header.php';
    ?>
-<section class="bg-light mt-5 pt-5">
+<section class="bg-light mt-5 pt-4">
     <div class="container py-2">
         <div class="py-2">
             <span class="my-4 text-white pt-4 ">
@@ -31,25 +31,24 @@
 <section>
     <div class="container">
         <div class="row my-3">
-            <div class="col-12 col-sm-6 col-lg-6 col-md-6" style="position: relative;">
+            <div class="col-12 col-sm-6 col-lg-6 col-md-6">
                 <div>
-                    <h1 class="fw-bold text-danger pt-3" id="brand_model_name"></h1>
-                    <div class="gallery">
-                        <div class="swiper-container gallery-slider">
-                            <div class="swiper-wrapper mySwiper2_data"></div>
-                            <div class="swiper-button-prev"></div>
-                            <div class="swiper-button-next"></div>
-                        </div>
-
-                        <div class="swiper-container gallery-thumbs">
-                            <div class="swiper-wrapper mySwiper_data"></div>
+                <h4></span> <span  id="brand_model_name"></span></h4>
+                </div>
+                <div>
+                    <div class="swiper swiper_buy mySwiper2_buy">
+                        <div class="swiper-wrapper swiper-wrapper_buy">
+                            <div class=" swiper-slide swiper-slide_buy">
+                            <!-- <img class="img_buy" src="assets/images/437-1632718440.webp" /> -->
+                            </div>
                         </div>
                     </div>
+                    <div thumbsSlider="" class="swiper mySwiper_buy" style="height:50px; width: 43%;" id="swip_img"></div>
                 </div>
             </div>
             <div class="col-12 col-sm-6 col-lg-6 col-md-6" style="z-index: 9; background: #fff;">
                  <div class="pirce-section ">
-                    <h5 class="my-2">Price - ₹ 9,50,000</h5>
+                    <h5 class="my-2">₹ <span id="price_main"></span> /-</h5>
                 </div>
           
                 <form action="" method="POST" id="interested-harvester-form" class="outline-solid bg-light">

@@ -69,12 +69,12 @@ function get_old_harvester() {
                                         </div>
                                     </div>  
                                     <div class="col-12 text-center">
-                                        <p class="text-dark fw-bold">Hours : 8001 - 9000</p>
+                                        <p class="text-dark fw-bold">Hours :<span>${p.hours_driven}</span> </p>
                                     </div>  
                                 </div>
                             </div>
                             <div class="col-12">
-                                <button type="button" id="adduser"class="btn-state btn-success w-100 text-decoration-none px-2 w-100"><span>${p.district}</span>, <span><span>${p.state}</span></span></a>
+                                <button type="button" id="adduser"class="btn-state btn-success w-100 text-decoration-none px-2 w-100"><span>${p.district_name}</span>, <span><span>${p.state_name}</span></span></a>
                             </div>
                         </div>
                     </div> 
