@@ -465,82 +465,66 @@ function fetch_edit_data(id) {
     return `${day}-${month}-${year} / ${hours}:${minutes}:${seconds}`;
     }
 
-  function get_old_harvester() {
-    var apiBaseURL = APIBaseURL;
-    var url = apiBaseURL + 'get_old_harvester';
-    $.ajax({
-        url: url,
-        type: "GET",
-        headers: {
-            'Authorization': 'Bearer ' + localStorage.getItem('token')
-        },
-        success: function (data) {
-            // console.log(data);
-
-            const tableBody = document.getElementById('data-table');
-            let serialNumber = 1;
-            let tableData = [];
-
-            if (data.product && data.product.length > 0) {
-                // console.log(typeof product);
-
-                data.product.forEach(row => {
-                  let action = `  <div class="d-flex">
-                  <button class="btn btn-warning text-white btn-sm mx-1" onclick="openViewdata(${row.customer_id})" data-bs-toggle="modal" data-bs-target="#view_old_harvester" id="viewbtn">
-                    <i class="fa fa-eye" style="font-size: 11px;"></i>
-                  </button>
-                  <button class="btn btn-primary btn-sm btn_edit" onclick=" fetch_edit_data(${row.customer_id})" data-bs-toggle="modal" data-bs-target="#staticBackdrop" id="your_edit">
-                    <i class="fas fa-edit" style="font-size: 11px;"></i>
-                  </button>
-                  <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.id});">
-                    <i class="fa fa-trash" style="font-size: 11px;"></i>
-                  </button>
-                </div>`;
+    function get_old_harvester() {
+      var apiBaseURL = APIBaseURL;
+      var url = apiBaseURL + 'get_old_harvester';
+      $.ajax({
+          url: url,
+          type: "GET",
+          headers: {
+              'Authorization': 'Bearer ' + localStorage.getItem('token')
+          },
+          success: function (data) {
+              const tableBody = $('#data-table');
+              let serialNumber = 1;
   
-                  // Push row data as an array into the tableData
-                  tableData.push([
-                    formatDateTime(row.created_at),
-                    row.brand_name,
-                    row.model,
-                    row.purchase_year,
-                    row.state,
-                    row.district,
-                    row.mobile,
-                    action
-                ]);
+              if (data.product && data.product.length > 0) {
+                  // Clear existing table rows
+                  tableBody.empty();
   
-            });
-            // Initialize DataTable after preparing the tableData
-          $('#example').DataTable().destroy();
-          $('#example').DataTable({
-                  data: tableData,
-                  columns: [
-                    { title: 'Date/Time' },
-                    { title: 'Brand' },
-                    { title: 'Model Name' },
-                    { title: 'Year' },
-                    { title: 'State' },
-                    { title: 'district' },
-                    { title: 'Phone Number' },
-                    { title: 'Action', orderable: false } // Disable ordering for Action column
-                ],
-                  paging: true,
-                  searching: false,
-                  // ... other options ...
-              });
-         
-          
-                 
-            } else {
-                tableBody.innerHTML = '<tr><td colspan="9">No valid data available</td></tr>';
-            }
-        },
-        error: function (error) {
-            console.error('Error fetching data:', error);
-        }
-    });
-}
-
+                  // Iterate over the data and prepend rows to the table
+                  for (let i = data.product.length - 1; i >= 0; i--) {
+                      const row = data.product[i];
+                      let action = `<div class="d-flex">
+                          <button class="btn btn-warning text-white btn-sm mx-1" onclick="openViewdata(${row.customer_id})" data-bs-toggle="modal" data-bs-target="#view_old_harvester" id="viewbtn">
+                              <i class="fa fa-eye" style="font-size: 11px;"></i>
+                          </button>
+                          <button class="btn btn-primary btn-sm btn_edit" onclick="fetch_edit_data(${row.customer_id})" data-bs-toggle="modal" data-bs-target="#staticBackdrop" id="your_edit">
+                              <i class="fas fa-edit" style="font-size: 11px;"></i>
+                          </button>
+                          <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.id});">
+                              <i class="fa fa-trash" style="font-size: 11px;"></i>
+                          </button>
+                      </div>`;
+  
+                      // Construct table row
+                      let rowHtml = `<tr>
+                          <td>${formatDateTime(row.created_at)}</td>
+                          <td>${row.brand_name}</td>
+                          <td>${row.model}</td>
+                          <td>${row.purchase_year}</td>
+                          <td>${row.state_name}</td>
+                          <td>${row.district_name}</td>
+                          <td>${row.mobile}</td>
+                          <td>${action}</td>
+                      </tr>`;
+  
+                      // Prepend row to the table
+                      tableBody.prepend(rowHtml);
+                  }
+              } else {
+                  tableBody.html('<tr><td colspan="8">No valid data available</td></tr>');
+              }
+          },
+          error: function (error) {
+              console.error('Error fetching data:', error);
+          }
+      });
+  }
+  
+  
+  
+  
 // delete data
 function destroy(id) {
   console.log(id);
@@ -611,9 +595,9 @@ function destroy(id) {
           document.getElementById('First_Name').innerText = data.product[0].first_name;
           document.getElementById('Last_Name').innerText = data.product[0].last_name;
           document.getElementById('Mobile_1').innerText = data.product[0].mobile;
-          document.getElementById('State_1').innerText = data.product[0].state;
-          document.getElementById('District_1').innerText = data.product[0].district;
-          document.getElementById('Tehsil_1').innerText = data.product[0].tehsil;
+          document.getElementById('State_1').innerText = data.product[0].state_name;
+          document.getElementById('District_1').innerText = data.product[0].district_name;
+          document.getElementById('Tehsil_1').innerText = data.product[0].tehsil_name;
       
           $("#selectedImagesContainer1").empty();
       
@@ -754,71 +738,8 @@ function destroy(id) {
     $('#district_name').val('');
     get_old_harvester();
   }
-  function get() {
-    var apiBaseURL = APIBaseURL;
-    var url = apiBaseURL + 'getBrands';
-    $.ajax({
-      url: url,
-      type: "GET",
-      headers: {
-          'Authorization': 'Bearer ' + localStorage.getItem('token')
-      },
-      success: function (data) {
-          console.log(data);
-          const select = document.getElementById('brand');
-          select.innerHTML = '';
-          select.innerHTML = '<option selected disabled value="">Please select an option</option>';
-          if (data.brands.length > 0) {
-              data.brands.forEach(row => {
-    
-                  const option = document.createElement('option');
-                  option.value = row.id; // You might want to set a value for each option
-                  option.textContent = row.brand_name;
-                  select.appendChild(option);
-              });
-          } else {
-              select.innerHTML ='<option>No valid data available</option>';
-          }
-      },
-      error: function (error) {
-          console.error('Error fetching data:', error);
-      }
-    });
-    }
-    get();
-
-    function get_edit_brand() {
-      var apiBaseURL = APIBaseURL;
-      var url = apiBaseURL + 'getBrands';
-      $.ajax({
-        url: url,
-        type: "GET",
-        headers: {
-            'Authorization': 'Bearer ' + localStorage.getItem('token')
-        },
-        success: function (data) {
-            console.log(data);
-            const select = document.getElementById('brand2');
-            select.innerHTML = '';
-            select.innerHTML = '<option selected disabled value="">Please select an option</option>';
-            if (data.brands.length > 0) {
-                data.brands.forEach(row => {
-      
-                    const option = document.createElement('option');
-                    option.value = row.id; // You might want to set a value for each option
-                    option.textContent = row.brand_name;
-                    select.appendChild(option);
-                });
-            } else {
-                select.innerHTML ='<option>No valid data available</option>';
-            }
-        },
-        error: function (error) {
-            console.error('Error fetching data:', error);
-        }
-      });
-      }
-      get_edit_brand();
+  
+ 
 
       function resetFormFields() {
         $('#name').val('');
@@ -840,6 +761,80 @@ function destroy(id) {
       } $('#img_url').val();
 
 
-populateDropdownsFromClass('state-dropdown', 'district-dropdown', 'tehsil-dropdown');
+      function getbrand() {
+        var url = 'http://tractor-api.divyaltech.com/api/customer/get_all_brands';
+        $.ajax({
+            url: url,
+            type: "GET",
+            headers: {
+                'Authorization': 'Bearer ' + localStorage.getItem('token')
+            },
+            success: function (data) {
+                console.log(data);
+                const selects = document.querySelectorAll('#brand');
+      
+                selects.forEach(select => {
+                    select.innerHTML = '<option selected disabled value="">Please select an option</option>';
+      
+                    if (data.brands.length > 0) {
+                        data.brands.forEach(row => {
+                            const option = document.createElement('option');
+                            option.textContent = row.brand_name;
+                            option.value = row.id;
+                            console.log(option);
+                            select.appendChild(option);
+                        });
+      
+                        // Add event listener to brand dropdown
+                        select.addEventListener('change', function() {
+                            const selectedBrandId = this.value;
+                            get_model(selectedBrandId);
+                        });
+                    } else {
+                        select.innerHTML = '<option>No valid data available</option>';
+                    }
+                });
+            },
+            error: function (error) {
+                console.error('Error fetching data:', error);
+            }
+        });
+      }
+      
+      function get_model(brand_id) {
+        var url = 'http://tractor-api.divyaltech.com/api/customer/get_brand_model/' + brand_id;
+        console.log('Requesting models for brand ID:', brand_id); // Debugging statement
+        $.ajax({
+            url: url,
+            type: "GET",
+            headers: {
+                'Authorization': 'Bearer ' + localStorage.getItem('token')
+            },
+            success: function (data) {
+                console.log('Received models data:', data); // Debugging statement
+                const selects = document.querySelectorAll('#model');
+      
+                selects.forEach(select => {
+                    select.innerHTML = '<option selected disabled value="">Please select an option</option>';
+      
+                    if (data.model && data.model.length > 0) {
+                        data.model.forEach(row => {
+                            const option = document.createElement('option');
+                            option.textContent = row.model;
+                            option.value = row.model;
+                            console.log('Adding model:', option); // Debugging statement
+                            select.appendChild(option);
+                        });
+                    } else {
+                        select.innerHTML = '<option>No valid data available</option>';
+                    }
+                });
+            },
+            error: function (error) {
+                console.error('Error fetching model data:', error);
+            }
+        });
+      }
+      getbrand();
+  
 
-populateStateDropdown('state_select', 'district_select');

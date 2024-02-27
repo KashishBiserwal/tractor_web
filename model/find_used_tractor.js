@@ -1,20 +1,16 @@
 $(document).ready(function () {
       $('#store').click(store);
-    //   $('#Mobile').click(get_otp);
     $('#Verify').click(verifyotp);
-      get();
+  
       get_year_and_hours();
       $('#find-used-tractor-form').submit(function(event) {
         // Prevent the default form submission
         event.preventDefault();
-        
-        // Call the store function to handle form submission
         store();
     });
-    // get_lookup();
     });
 
-    function get() {
+    function get_brands(brandSelect) {
         var url = 'http://tractor-api.divyaltech.com/api/customer/get_all_brands';
         $.ajax({
             url: url,
@@ -22,73 +18,54 @@ $(document).ready(function () {
             headers: {
                 'Authorization': 'Bearer ' + localStorage.getItem('token')
             },
-            success: function (data) {
-                // console.log(data);
-                const selects = document.querySelectorAll('.btand_select');
-      
-                selects.forEach(select => {
-                    select.innerHTML = '<option selected disabled value="">Please select an option</option>';
-      
-                    if (data.brands.length > 0) {
-                        data.brands.forEach(row => {
-                            const option = document.createElement('option');
-                            option.textContent = row.brand_name;
-                            option.value = row.id;
-                            console.log(option);
-                            select.appendChild(option);
-                        });
-      
-                        // Add event listener to brand dropdown
-                        select.addEventListener('change', function() {
-                            const selectedBrandId = this.value;
-                            get_model(selectedBrandId);
-                        });
-                    } else {
-                        select.innerHTML = '<option>No valid data available</option>';
-                    }
-                });
+            success: function(data) {
+                brandSelect.innerHTML = '<option selected disabled value="">Please select a brand</option>';
+    
+                if (data.brands && data.brands.length > 0) {
+                    data.brands.forEach(row => {
+                        var option = document.createElement('option');
+                        option.textContent = row.brand_name;
+                        option.value = row.id;
+                        brandSelect.appendChild(option);
+                    });
+                } else {
+                    brandSelect.innerHTML = '<option>No valid data available</option>';
+                }
             },
-            error: function (error) {
-                console.error('Error fetching data:', error);
+            error: function(error) {
+                console.error('Error fetching brand data:', error);
             }
         });
-      }
-      
-      function get_model(brand_id) {
+    }
+    
+    function get_model(brand_id, modelSelect) {
         var url = 'http://tractor-api.divyaltech.com/api/customer/get_brand_model/' + brand_id;
-        console.log('Requesting models for brand ID:', brand_id); // Debugging statement
         $.ajax({
             url: url,
             type: "GET",
             headers: {
                 'Authorization': 'Bearer ' + localStorage.getItem('token')
             },
-            success: function (data) {
-                console.log('Received models data:', data); // Debugging statement
-                const selects = document.querySelectorAll('.model_select');
-      
-                selects.forEach(select => {
-                    select.innerHTML = '<option selected disabled value="">Please select an option</option>';
-      
-                    if (data.model && data.model.length > 0) {
-                        data.model.forEach(row => {
-                            const option = document.createElement('option');
-                            option.textContent = row.model;
-                            option.value = row.model;
-                            console.log('Adding model:', option); // Debugging statement
-                            select.appendChild(option);
-                        });
-                    } else {
-                        select.innerHTML = '<option>No valid data available</option>';
-                    }
-                });
+            success: function(data) {
+                modelSelect.innerHTML = '<option selected disabled value="">Please select a model</option>';
+    
+                if (data.model && data.model.length > 0) {
+                    data.model.forEach(row => {
+                        var option = document.createElement('option');
+                        option.textContent = row.model;
+                        option.value = row.id; // Assuming model ID should be used as value
+                        modelSelect.appendChild(option);
+                    });
+                } else {
+                    modelSelect.innerHTML = '<option>No valid data available</option>';
+                }
             },
-            error: function (error) {
+            error: function(error) {
                 console.error('Error fetching model data:', error);
             }
         });
-      }
-      get();
+    }
+    
       function get_year_and_hours() {
         var url = 'http://tractor-api.divyaltech.com/api/customer/get_year_and_hours';
         $.ajax({
@@ -122,7 +99,7 @@ $(document).ready(function () {
                     });
                     
                     // Set maximum height for the dropdown to enable scrolling
-                    $('#choices-multiple-remove-button').parent().find('.choices__list.choices__list--multiple').css('max-height', '200px'); // Adjust the height as needed
+                    $('#choices-multiple-remove-button').parent().find('.choices__list.choices__list--multiple').css('max-height', '300px'); // Adjust the height as needed
                 } else {
                     console.error('No years data found in the API response.');
                 }

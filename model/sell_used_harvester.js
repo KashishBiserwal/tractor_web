@@ -96,7 +96,7 @@ function get() {
                     data.model.forEach(row => {
                         const option = document.createElement('option');
                         option.textContent = row.model;
-                        option.value = row.id;
+                        option.value = row.model;
                         console.log(option);
                         select.appendChild(option);
                     });

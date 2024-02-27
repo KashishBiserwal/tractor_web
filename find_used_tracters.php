@@ -127,15 +127,16 @@
                             <div class="col-12 mt-3">
                                 <label for="manufacture" class="form-label text-dark ">Manufacture Year</label>
                                 <select id="choices-multiple-remove-button" placeholder="Select Manufacture Year" multiple>
-                                 </select>
+                                </select>
                             </div>
                             <div class="container">
                                 <div id="add_more">
-                                    <div class=" row">
+                                    <div class="row">
                                         <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-4">
                                             <div class="form-outline">
                                                 <label for="brand" class="form-label">Brand</label>
-                                                <select class="form-select mb-2 btand_select" name="brand[]" id="brand_used" required>
+                                                <select class="form-select mb-2 brand_select" name="brand[]" required>
+                                                    <option selected disabled value="">Please select a brand</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -143,15 +144,14 @@
                                         <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-4">
                                             <div class="form-outline">
                                                 <label for="model" class="form-label">Model</label>
-                                                <select class="form-select mb-2 model_select" name="model[]" id="model_used" required>
+                                                <select class="form-select mb-2 model_select" name="model[]" required>
+                                                    <!-- <option selected disabled value="">Please select a model</option> -->
                                                 </select>
                                             </div>
                                         </div>
                                     </div>
-
                                     <div class="col-12 mt-2">
-                                        <button type="button" class="btn btn-outline-primary btn-sm add-more-btn">Add
-                                            More</button>
+                                        <button type="button" class="btn btn-outline-primary btn-sm add-more-btn">Add More</button>
                                     </div>
                                 </div>
                             </div>
@@ -462,33 +462,69 @@
 
     ?>
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-        var formContainer = document.getElementById('add_more');
-        var addMoreBtn = document.querySelector('.add-more-btn');
-        var maxClones = 2; // Set the maximum number of clones
-        var cloneCount = 0; // Initialize clone count
+ document.addEventListener('DOMContentLoaded', function() {
+    var formContainer = document.getElementById('add_more');
+    var addMoreBtn = document.querySelector('.add-more-btn');
+    var maxClones = 2; // Set the maximum number of clones
+    var cloneCount = 0; // Initialize clone count
 
-        addMoreBtn.addEventListener('click', function() {
-            if (cloneCount < maxClones) { // Check if the limit is reached
-                var clonedFields = formContainer.firstElementChild.cloneNode(true);
+    // Initialize event listeners for the initial brand and model dropdowns
+    var initialBrandSelect = formContainer.querySelector('.brand_select');
+    var initialModelSelect = formContainer.querySelector('.model_select');
 
-                // Clear values in cloned fields
-                var selects = clonedFields.querySelectorAll('select');
-                selects.forEach(function(select) {
-                    select.selectedIndex = 0;
-                });
-
-                formContainer.insertBefore(clonedFields, addMoreBtn.parentNode);
-
-                cloneCount++;
-
-                // Hide the "Add More" button when the limit is reached
-                if (cloneCount === maxClones) {
-                    addMoreBtn.style.display = 'none';
-                }
-            }
-        });
+    initialBrandSelect.addEventListener('change', function() {
+        var selectedBrandId = this.value;
+        get_model(selectedBrandId, initialModelSelect);
+        // Enable model dropdown when a brand is selected
+        initialModelSelect.disabled = false;
     });
+
+    // Disable the initial model dropdown
+    initialModelSelect.disabled = true;
+
+    // Fetch brands for the initial brand dropdown
+    get_brands(initialBrandSelect);
+
+    addMoreBtn.addEventListener('click', function() {
+        if (cloneCount < maxClones) { // Check if the limit is reached
+            var clonedFields = formContainer.firstElementChild.cloneNode(true);
+
+            // Clear values in cloned fields
+            var selects = clonedFields.querySelectorAll('select');
+            selects.forEach(function(select) {
+                select.selectedIndex = 0;
+            });
+
+            formContainer.insertBefore(clonedFields, addMoreBtn.parentNode);
+
+            cloneCount++;
+
+            // Hide the "Add More" button when the limit is reached
+            if (cloneCount === maxClones) {
+                addMoreBtn.style.display = 'none';
+            }
+
+            // Initialize event listeners for brand and model dropdowns in the newly added section
+            var brandSelect = clonedFields.querySelector('.brand_select');
+            var modelSelect = clonedFields.querySelector('.model_select');
+
+            brandSelect.addEventListener('change', function() {
+                var selectedBrandId = this.value;
+                get_model(selectedBrandId, modelSelect);
+                // Enable model dropdown when a brand is selected
+                modelSelect.disabled = false;
+            });
+
+            // Disable the model dropdown initially for the new section
+            modelSelect.disabled = true;
+
+            // Fetch brands for the new brand dropdown
+            get_brands(brandSelect);
+        }
+    });
+});
+
+
     </script>
 
 
@@ -562,6 +598,25 @@
   }
 
 </script> -->
+<script>
+ document.addEventListener('DOMContentLoaded', function() {
+    var selectElement = document.getElementById('choices-multiple-remove-button');
+
+    var choices = new Choices(selectElement, {
+        placeholder: true,
+        placeholderValue: 'Select Manufacture Year',
+        searchEnabled: true,
+        searchChoices: true,
+        removeItemButton: true,
+        itemSelectText: '',
+    });
+
+    // Manually show the dropdown on click
+    selectElement.addEventListener('click', function() {
+        choices.showDropdown();
+    });
+});
+</script>
 
 
 </body>

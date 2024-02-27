@@ -169,7 +169,7 @@ function get_model(brand_id) {
 getBrands();
  
  // fetch data
-function get() {
+ function get() {
   var apiBaseURL = APIBaseURL;
   var url = apiBaseURL + 'get_enquiry_data_for_old_implements';
   console.log(url);
@@ -184,6 +184,9 @@ function get() {
           if (data.getOldImplementEnquiry && data.getOldImplementEnquiry.length > 0) {
               let tableData = [];
               let counter = 1;
+
+              // Reverse the order of data array
+              data.getOldImplementEnquiry.reverse();
 
               data.getOldImplementEnquiry.forEach(row => {
                 const fullName = row.first_name + ' ' + row.last_name;
@@ -313,14 +316,15 @@ function fetch_edit_data(id) {
                   break;
               }
           }
+          $('#model_name').empty(); 
+          get_model_1(Data.brand_id); 
 
-          // Empty and populate the model dropdown
-          $('#model_name').empty();
-          get_model_1(Data.brand_id, function() {
-              // Once the models are populated, select the appropriate model
+          // Selecting the option in the model dropdown
+          setTimeout(function() { // Wait for the model dropdown to populate
               $("#model_name option").prop("selected", false);
               $("#model_name option[value='" + Data.model + "']").prop("selected", true);
-          });
+          }, 1000); // Adjust the delay time as needed
+
           setSelectedOption('state_', Data.state_id);
           setSelectedOption('dist_', Data.district_id);
           
@@ -383,7 +387,7 @@ if (!/^[6-9]\d{9}$/.test(mobile)) {
 }
 
 var paraArr = {
-    'brand_name': brand_name,
+    'brand_id': brand_name,
     'model': model_name,
     'first_name': first_name,
     'last_name': last_name,
@@ -414,7 +418,7 @@ $.ajax({
     headers: headers,
     success: function (result) {
         console.log(result, "result");
-        window.location.reload();
+        // window.location.reload();
         console.log("updated successfully");
         alert('successfully updated..!')
     },
@@ -641,7 +645,7 @@ function get_1() {
   });
 }
 
-function get_model_1(brand_id) {
+function get_model_1(brand_id, callback) {
   var url = 'http://tractor-api.divyaltech.com/api/customer/get_brand_model/' + brand_id;
   $.ajax({
       url: url,
@@ -665,11 +669,15 @@ function get_model_1(brand_id) {
           } else {
               select.innerHTML = '<option>No valid data available</option>';
           }
+
+          // Execute the callback function if provided
+          if (callback && typeof callback === 'function') {
+              callback();
+          }
       },
       error: function (error) {
           console.error('Error fetching data:', error);
       }
   });
 }
-
 get_1();

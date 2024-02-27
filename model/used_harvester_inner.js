@@ -23,7 +23,7 @@ function get_old_harvester_byiD() {
             var brand_model_name = data.product[0].brand_name + ', ' + data.product[0].model;
             var location = data.product[0].district + ', ' + data.product[0].state;
             var name = data.product[0].first_name + ' ' + data.product[0].last_name;
-    
+        document.getElementById('price_main').innerText=data.product[0].price;
         document.getElementById('brand_model_name').innerText=brand_model_name;
         document.getElementById('location').innerText=location;
         document.getElementById('power_source1').innerText=data.product[0].power_source_value;
@@ -33,6 +33,7 @@ function get_old_harvester_byiD() {
         document.getElementById('crop_type').innerText=data.product[0].crops_type_value;
         document.getElementById('brand').innerText=data.product[0].brand_name;
         // document.getElementById('cutting_width').innerText=data.product[0].cutting_width;
+        document.getElementById('hours').innerText=data.product[0].hours_driven;
         document.getElementById('power_source').innerText=data.product[0].power_source_value;
         document.getElementById('year').innerText=data.product[0].purchase_year;
 
@@ -40,35 +41,40 @@ function get_old_harvester_byiD() {
         document.getElementById('first_name').innerText=name;
         document.getElementById('mobile_').innerText=data.product[0].mobile;
         // document.getElementById('email').innerText=data.product[0].email;
-        document.getElementById('district_').innerText=data.product[0].district;
-        document.getElementById('state_').innerText=data.product[0].state;
+        document.getElementById('district_').innerText=data.product[0].district_name;
+        document.getElementById('state_').innerText=data.product[0].state_name;
         document.getElementById('model3').innerText=data.product[0].model;
         document.getElementById('description').innerText = data.product[0].description;
         document.getElementById('product_subject_id').value = data.product[0].product_id;
        
           // Split the image names into an array
-          var imageNames = data.product[0].image_names.split(',');
+          var product = data.product[0];
 
-          // Select the carousel container
-          var carouselContainer = $('.swiper-wrapper_buy');
+        // Split the image names into an array
+        var imageNames = product.image_names.split(',');
 
-          // Clear existing slides
-          carouselContainer.empty();
+        // Select the carousel container
+        var carouselContainer = $('.swiper-wrapper_buy');
 
-          // Iterate through the image names and create carousel slides
-          imageNames.forEach(function(imageName) {
-              var imageUrl = "http://tractor-api.divyaltech.com/uploads/haat_bazar_img/" + imageName.trim(); // Update the path
-              var slide = $('<div class="swiper-slide swiper-slide_buy"><img class="img_buy" src="' + imageUrl + '" /></div>');
-              carouselContainer.append(slide);
-          });
+        // Clear existing slides
+        carouselContainer.empty();
 
-          // Initialize or update the Swiper carousel
-          var mySwiper = new Swiper('.swiper_buy', {
-              // Your Swiper configuration options
-          });
+        // Iterate through the image names and create carousel slides
+        imageNames.forEach(function(imageName) {
+            var imageUrl = "http://tractor-api.divyaltech.com/uploads/product_img/" + imageName.trim(); // Update the path
+            var slide = $('<div class="swiper-slide swiper-slide_buy"><img class="img_buy" src="' + imageUrl + '" /></div>');
+            carouselContainer.append(slide);
+        });
 
-          console.log(data, 'abc');
-      },
+        // Initialize or update the Swiper carousel
+        var mySwiper = new Swiper('.swiper_buy', {
+            // Your Swiper configuration options
+        });
+        console.log(data, 'abc');
+
+
+        },
+
       error: function (error) {
           console.error('Error fetching data:', error);
       }
