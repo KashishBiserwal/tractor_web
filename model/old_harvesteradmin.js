@@ -280,8 +280,8 @@ function store(event) {
   var customer_id = $('#customer_id').val();
   // console.log(customer_id);
   var form_type = $('#form_type').val();
-  var brand = $('#brand').val();
-  var model = $('#model').val();
+  var brand = $('#brand_brand').val();
+  var model = $('#model_model').val();
   var CROPS_TYPE = $('#CROPS_TYPE').val();
   var POWER_SOURCE = $('#POWER_SOURCE').val();
   var hours = $('#hours').val();
@@ -400,7 +400,7 @@ function fetch_edit_data(id) {
       $('#customer_id').val(userData.customer_id);
       $('#CROPS_TYPE').val(userData.crops_type_id);
       $('#POWER_SOURCE').val(userData.power_source_id);
-      // $('#model').val(userData.model);
+      $('#model').val(userData.model);
       $('#hours').val(userData.hours_driven);
       $('#year').val(userData.purchase_year);
       $('#price').val(userData.price);
@@ -409,16 +409,23 @@ function fetch_edit_data(id) {
       $('#lname').val(userData.last_name);
       $('#Mobile').val(userData.mobile);
 
-       var brandDropdown = document.getElementById('brand');
+      var brandDropdown = document.getElementById('brand_brand');
       for (var i = 0; i < brandDropdown.options.length; i++) {
         if (brandDropdown.options[i].text === userData.brand_name) {
           brandDropdown.selectedIndex = i;
           break;
         }
       }
+   
 
-      setSelectedOption('model', userData.brand_id);
+      $('#model_model').empty(); 
+      get_model_1(userData.brand_id); 
+      setTimeout(function() { 
+          $("#model_model option").prop("selected", false);
+          $("#model_model option[value='" + userData.model + "']").prop("selected", true);
+      }, 1000); 
 
+      
       setSelectedOption('state', userData.state_id);
       setSelectedOption('district', userData.district_id);
       
@@ -451,12 +458,17 @@ function fetch_edit_data(id) {
       
     console.log('Fetched data successfully');
       // $('#exampleModal').modal('show'); 
+      $('#brand_brand').on('click', function() {
+      get_1();
+    });
     },
     error: function(error) {
       console.error('Error fetching user data:', error);
     }
   });
 }
+
+
 function setSelectedOption(selectId, value) {
   var select = document.getElementById(selectId);
   for (var i = 0; i < select.options.length; i++) {
@@ -709,74 +721,67 @@ function destroy(id) {
       processData: false,
       contentType: false,
       success: function (data) {
-        console.log('Success:', data.oldTractor);
-        const tableBody = document.getElementById('data-table');
-       
-        let tableData = [];
-  
-        if (data.oldTractor && data.oldTractor.length > 0) {
-            data.oldTractor.forEach(row => {
-               // const tableRow = document.createElement('tr');
-               let action = `  <div class="d-flex">
-               <button class="btn btn-warning text-white btn-sm mx-1" onclick="openViewdata(${row.id})" data-bs-toggle="modal" data-bs-target="#view_old_harvester" id="viewbtn">
-                 <i class="fa fa-eye" style="font-size: 11px;"></i>
-               </button>
-               <button class="btn btn-primary btn-sm btn_edit" onclick=" fetch_edit_data(${row.id})" data-bs-toggle="modal" data-bs-target="#staticBackdrop" id="your_edit">
-                 <i class="fas fa-edit" style="font-size: 11px;"></i>
-               </button>
-               <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.id});">
-                 <i class="fa fa-trash" style="font-size: 11px;"></i>
-               </button>
-             </div>`;
-
-               // Push row data as an array into the tableData
-               tableData.push([
-                 formatDateTime(row.created_at),
-                 row.brand_name,
-                 row.model,
-                 row.purchase_year,
-                 row.state,
-                 row.district,
-                 row.mobile,
-                 action
-             ]);
-
-         });
-         // Initialize DataTable after preparing the tableData
-       $('#example').DataTable().destroy();
-       $('#example').DataTable({
-               data: tableData,
-               columns: [
-                 { title: 'Date/Time' },
-                 { title: 'Brand' },
-                 { title: 'Model Name' },
-                 { title: 'Year' },
-                 { title: 'State' },
-                 { title: 'district' },
-                 { title: 'Phone Number' },
-                 { title: 'Action', orderable: false } // Disable ordering for Action column
-             ],
-               paging: true,
-               searching: false,
-               // ... other options ...
-           });
-      
-       
-              
-         } else {
-             tableBody.innerHTML = '<tr><td colspan="9">No valid data available</td></tr>';
-         }
-    },
-    error: function (error) {
-      const tableBody = document.getElementById('data-table');
-      if(error.status == 400){
-        tableBody.innerHTML = '<tr><td colspan="9">No valid data available</td></tr>';
-      }
-        console.error('Error fetching data:', error);
+        const tableBody = $('#data-table');
     
-    }
+        if (data.product && data.product.length > 0) {
+            let tableData = [];
+            let counter = 1;
+    
+            // Reverse the order of the data array
+            data.product.reverse();
+    
+            // Clear existing table rows
+            tableBody.empty();
+    
+            // Iterate over the data and prepend rows to the table
+            $.each(data.product, function(index, row) {
+                let action = `<div class="d-flex">
+                    <button class="btn btn-warning text-white btn-sm mx-1" onclick="openViewdata(${row.customer_id})" data-bs-toggle="modal" data-bs-target="#view_old_harvester" id="viewbtn">
+                        <i class="fa fa-eye" style="font-size: 11px;"></i>
+                    </button>
+                    <button class="btn btn-primary btn-sm btn_edit" onclick="fetch_edit_data(${row.customer_id})" data-bs-toggle="modal" data-bs-target="#staticBackdrop" id="your_edit">
+                        <i class="fas fa-edit" style="font-size: 11px;"></i>
+                    </button>
+                    <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.id});">
+                        <i class="fa fa-trash" style="font-size: 11px;"></i>
+                    </button>
+                </div>`;
+    
+                // Construct table row
+                let rowHtml = `<tr>
+                    <td>${formatDateTime(row.created_at)}</td>
+                    <td>${row.brand_name}</td>
+                    <td>${row.model}</td>
+                    <td>${row.purchase_year}</td>
+                    <td>${row.state_name}</td>
+                    <td>${row.district_name}</td>
+                    <td>${row.mobile}</td>
+                    <td>${action}</td>
+                </tr>`;
+    
+                // Append row to the beginning of the table
+                tableBody.prepend(rowHtml);
+            });
+    
+            // Destroy existing DataTable instance
+            $('#example').DataTable().destroy();
+    
+            // Reinitialize DataTable with new data
+            $('#example').DataTable({
+                searching: true,
+                ordering: true, // or false, depending on whether you want ordering or not
+                destroy: true // Destroy existing DataTable instances before reinitializing
+            });
+        } else {
+            tableBody.html('<tr><td colspan="8">No valid data available</td></tr>');
+        }
+    },
+    
+      error: function (error) {
+          console.error('Error fetching data:', error);
+      }
   });
-  }
+}
   
   function resetform(){
     $('#brand2').val('');
@@ -807,8 +812,7 @@ function destroy(id) {
         $('#selectedImagesContainer').val('');
       } $('#img_url').val();
 
-
-      function getbrand() {
+      function get_1() {
         var url = 'http://tractor-api.divyaltech.com/api/customer/get_all_brands';
         $.ajax({
             url: url,
@@ -818,29 +822,25 @@ function destroy(id) {
             },
             success: function (data) {
                 console.log(data);
-                const selects = document.querySelectorAll('#brand');
+                const select = document.getElementById('brand_brand');
+                select.innerHTML = '<option selected disabled value="">Please select an option</option>';
       
-                selects.forEach(select => {
-                    select.innerHTML = '<option selected disabled value="">Please select an option</option>';
+                if (data.brands.length > 0) {
+                    data.brands.forEach(row => {
+                        const option = document.createElement('option');
+                        option.textContent = row.brand_name;
+                        option.value = row.id;
+                        select.appendChild(option);
+                    });
       
-                    if (data.brands.length > 0) {
-                        data.brands.forEach(row => {
-                            const option = document.createElement('option');
-                            option.textContent = row.brand_name;
-                            option.value = row.id;
-                            console.log(option);
-                            select.appendChild(option);
-                        });
-      
-                        // Add event listener to brand dropdown
-                        select.addEventListener('change', function() {
-                            const selectedBrandId = this.value;
-                            get_model(selectedBrandId);
-                        });
-                    } else {
-                        select.innerHTML = '<option>No valid data available</option>';
-                    }
-                });
+                    // Add event listener to brand dropdown
+                    select.addEventListener('change', function() {
+                        const selectedBrandId = this.value;
+                        get_model(selectedBrandId);
+                    });
+                } else {
+                    select.innerHTML = '<option>No valid data available</option>';
+                }
             },
             error: function (error) {
                 console.error('Error fetching data:', error);
@@ -848,9 +848,8 @@ function destroy(id) {
         });
       }
       
-      function get_model(brand_id) {
+      function get_model_1(brand_id, selectedModel) {
         var url = 'http://tractor-api.divyaltech.com/api/customer/get_brand_model/' + brand_id;
-        console.log('Requesting models for brand ID:', brand_id); // Debugging statement
         $.ajax({
             url: url,
             type: "GET",
@@ -858,30 +857,30 @@ function destroy(id) {
                 'Authorization': 'Bearer ' + localStorage.getItem('token')
             },
             success: function (data) {
-                console.log('Received models data:', data); // Debugging statement
-                const selects = document.querySelectorAll('#model');
+                console.log(data);
+                const select = document.getElementById('model_model');
+                select.innerHTML = '<option selected disabled value="">Please select an option</option>';
       
-                selects.forEach(select => {
-                    select.innerHTML = '<option selected disabled value="">Please select an option</option>';
+                if (data.model.length > 0) {
+                    data.model.forEach(row => {
+                        const option = document.createElement('option');
+                        option.textContent = row.model;
+                        option.value = row.model;
+                        select.appendChild(option);
       
-                    if (data.model && data.model.length > 0) {
-                        data.model.forEach(row => {
-                            const option = document.createElement('option');
-                            option.textContent = row.model;
-                            option.value = row.model;
-                            console.log('Adding model:', option); // Debugging statement
-                            select.appendChild(option);
-                        });
-                    } else {
-                        select.innerHTML = '<option>No valid data available</option>';
-                    }
-                });
+                        // Select the option if it matches the selectedModel
+                        if (row.model === selectedModel) {
+                            option.selected = true;
+                        }
+                    });
+                } else {
+                    select.innerHTML = '<option>No valid data available</option>';
+                }
             },
             error: function (error) {
-                console.error('Error fetching model data:', error);
+                console.error('Error fetching data:', error);
             }
         });
       }
-      getbrand();
-  
-
+      
+      get_1();

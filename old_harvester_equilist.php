@@ -11,7 +11,89 @@
    <script src="<?php $baseUrl; ?>model/State_dist_tehsil.js"></script>
   <script src="<?php $baseUrl; ?>model/state2_dist2.js"></script>
   <script src="<?php $baseUrl; ?>model/brand_function.js"></script>
+  
+  <style>
+        .upload__inputfile {
+  width: .1px;
+  height: .1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+  }
 
+  .upload__btn {
+  display: inline-block;
+  font-weight: 600;
+  color: #fff;
+  text-align: center;
+  min-width: 150px;
+  padding: 5px;
+  transition: all .3s ease;
+  cursor: pointer;
+  border: 2px solid;
+  background-color:  #198754;
+  border-color:  #198754;
+  border-radius: 10px;
+  line-height: 26px;
+  font-size: 14px;
+  }
+
+  .upload__btn:hover {
+  background-color: unset;
+  color:  #198754;
+  transition: all .3s ease;
+  }
+
+  .upload__btn-box {
+  margin-bottom: 10px;
+  margin-top:-25px;
+  }
+
+  .upload__img-wrap {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .upload__img-box {
+  flex: 0 0 calc(33.333% - 20px); 
+  margin: 0 10px 20px; 
+  position: relative;
+  display: flex;
+    flex-wrap: wrap;
+  }
+
+  .upload__img-close,.upload__img-close_button {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  top: 10px;
+  right: 60px;
+  text-align: center;
+  line-height: 24px;
+  z-index: 1;
+  cursor: pointer;
+  }
+
+  .upload__img-close:after,.upload__img-close_button:after {
+  content: '\2716';
+  font-size: 14px;
+  color: white;
+  }
+  
+
+  .img-bg {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  position: relative;
+  width: 123;
+  height: 125px;
+  }
+      
+    </style>
 <body class="loaded"> 
 <div class="main-wrapper">
     <div class="app" id="app">
@@ -71,14 +153,14 @@
                                 <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-3">
                                   <div class="form-outline ">
                                     <label class="form-label text-dark">Brand</label>
-                                    <select class="form-select form-control" aria-label=".form-select-lg example" id="brand" name="brand">
+                                    <select class="form-select form-control" aria-label=".form-select-lg example" id="brand_brand" name="brand">
                                     </select>
                                   </div>
                                 </div>
                                 <div class="col-12 col-lg-6 col-md-6 col-sm-6 mt-3">
                                   <div class="form-outline ">
                                     <label for="name" class="form-label text-dark">Model Name</label>
-                                    <select class="form-select form-control" aria-label=".form-select-lg example"  id="model" name="model">
+                                    <select class="form-select form-control" aria-label=".form-select-lg example"  id="model_model" name="model">
                                     </select>
                                     <!-- <input type="text" class="form-control" placeholder="Enter Your Model Name" id="model" name="model"> -->
                                   </div>
