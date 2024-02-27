@@ -247,17 +247,17 @@
       </div>
       <!-- Table Card -->
       <div class=" mb-5">
-            <div class="table-responsive shadow bg-white mt-3">
-              <table id="example" class="table table-striped  table-hover table-bordered dataTable no-footer" width="100%; margin-bottom: 15px;">
+          <div class="table-responsive shadow bg-white mt-3">
+            <table id="example" class="table table-striped  table-hover table-bordered dataTable no-footer" width="100%; margin-bottom: 15px;">
                 <thead class="">
                   <tr>
                     <th class="d-none d-md-table-cell text-white">Date</th>
                     <th class="d-none d-md-table-cell text-white">Brand</th>
                     <th class="d-none d-md-table-cell text-white"> Model </th>
                     <th class="d-none d-md-table-cell text-white"> Year </th>
+                    <th class="d-none d-md-table-cell text-white"> Phone Number </th>
                     <th class="d-none d-md-table-cell text-white"> State </th>
                     <th class="d-none d-md-table-cell text-white"> district </th>
-                    <th class="d-none d-md-table-cell text-white"> Phone Number </th>
                     <th class="d-none d-md-table-cell text-white"> Action </th>
                   </tr>
                 </thead>

@@ -398,9 +398,9 @@ function fetch_edit_data(id) {
       var userData = response.product[0];
       // $('#EditIdmain_').val(userData.product_id);
       $('#customer_id').val(userData.customer_id);
-      $("#brand option").prop("selected", false);
-      $("#mySelect option[value='" + userData.brand_name + "']").prop("selected", true);
-      $('#model').val(userData.model);
+      // $("#brand option").prop("selected", false);
+      // $("#mySelect option[value='" + userData.brand_name + "']").prop("selected", true);
+      // $('#model').val(userData.model);
       $("#CROPS_TYPE option").prop("selected", false);
       $("#mySelect option[value='" + userData.crops_type_value + "']").prop("selected", true);
       $("#POWER_SOURCE option").prop("selected", false);
@@ -412,10 +412,28 @@ function fetch_edit_data(id) {
       $('#name').val(userData.first_name);
       $('#lname').val(userData.last_name);
       $('#Mobile').val(userData.mobile);
-      $('#state').val(userData.state);
-      $('#district').val(userData.district);
-      $('#tehsil').val(userData.tehsil);
+       var brandDropdown = document.getElementById('brand');
+      for (var i = 0; i < brandDropdown.options.length; i++) {
+        if (brandDropdown.options[i].text === userData.brand_name) {
+          brandDropdown.selectedIndex = i;
+          break;
+        }
+      }
 
+      $('#model').empty(); 
+      get_model(userData.brand_id); 
+
+      // Selecting the option in the model dropdown
+      setTimeout(function() { // Wait for the model dropdown to populate
+          $("#model option").prop("selected", false);
+          $("#model option[value='" + userData.model + "']").prop("selected", true);
+      }, 1000); // Adjust the delay time as needed
+
+      setSelectedOption('state', userData.state_id);
+      setSelectedOption('district', userData.district_id);
+      
+      // Call function to populate tehsil dropdown based on selected district
+      populateTehsil(userData.district_id, 'tehsil-dropdown', userData.tehsil_id);
       $("#selectedImagesContainer").empty();
 
       if (userData.image_names) {
@@ -449,6 +467,25 @@ function fetch_edit_data(id) {
     }
   });
 }
+function setSelectedOption(selectId, value) {
+  var select = document.getElementById(selectId);
+  for (var i = 0; i < select.options.length; i++) {
+    if (select.options[i].value == value) {
+      select.selectedIndex = i;
+      break;
+    }
+  }
+}
+
+function populateTehsil(selectId, value) {
+  var select = document.getElementById(selectId);
+  for (var i = 0; i < select.options.length; i++) {
+    if (select.options[i].value == value) {
+      select.options[i].selected = true;
+      break;
+    }
+  }
+}
 
   function formatDateTime(originalDateTimeStr) {
     const originalDateTime = new Date(originalDateTimeStr);
@@ -476,15 +513,13 @@ function fetch_edit_data(id) {
           },
           success: function (data) {
               const tableBody = $('#data-table');
-              let serialNumber = 1;
   
               if (data.product && data.product.length > 0) {
                   // Clear existing table rows
                   tableBody.empty();
   
                   // Iterate over the data and prepend rows to the table
-                  for (let i = data.product.length - 1; i >= 0; i--) {
-                      const row = data.product[i];
+                  data.product.forEach(function(row) {
                       let action = `<div class="d-flex">
                           <button class="btn btn-warning text-white btn-sm mx-1" onclick="openViewdata(${row.customer_id})" data-bs-toggle="modal" data-bs-target="#view_old_harvester" id="viewbtn">
                               <i class="fa fa-eye" style="font-size: 11px;"></i>
@@ -511,7 +546,15 @@ function fetch_edit_data(id) {
   
                       // Prepend row to the table
                       tableBody.prepend(rowHtml);
-                  }
+                  });
+  
+                  // Reinitialize DataTable after updating table
+                  $('#example').DataTable({
+                      paging: true,
+                      searching: true,
+                      ordering: true, // or false, depending on whether you want ordering or not
+                      destroy: true // Destroy existing DataTable instances before reinitializing
+                  });
               } else {
                   tableBody.html('<tr><td colspan="8">No valid data available</td></tr>');
               }
@@ -521,6 +564,11 @@ function fetch_edit_data(id) {
           }
       });
   }
+  
+  
+
+  
+  // get_old_harvester();
   
   
   
