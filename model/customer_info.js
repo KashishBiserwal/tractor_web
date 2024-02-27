@@ -29,8 +29,8 @@ function getInterestedBuyer() {
           tableBody.empty(); 
   
   
-            if (data.customer_details && data.customer_details.length > 0) {
-                var table = $('#interested').DataTable({
+            if (data.data.customer_details && data.data.customer_details.length > 0) {
+                var table = $('#purchase_haatbazar_table').DataTable({
                     paging: true,
                     searching: true,
                     columns: [
@@ -43,7 +43,7 @@ function getInterestedBuyer() {
                     ]
                 });
   
-                data.customer_details.forEach(row => {
+                data.data.customer_details.forEach(row => {
                     const fullName = row.first_name + ' ' + row.last_name;
   
                     // Add row to DataTable
@@ -87,7 +87,7 @@ function getInterestedBuyer() {
           tableBody.empty(); // Clear previous data
   
   
-            if (data.tractorEnquiryData && data.tractorEnquiryData.length > 0) {
+            if (data.data.tractorEnquiryData && data.data.tractorEnquiryData.length > 0) {
                 var table = $('#purchase_tractor_table').DataTable({
                     paging: true,
                     searching: true,
@@ -116,7 +116,7 @@ function getInterestedBuyer() {
                     ]).draw(false);
   
                 });
-            } else if (data.harvesterEnquiryData && data.harvesterEnquiryData.length > 0) {
+            } else if (data.data.harvesterEnquiryData && data.data.harvesterEnquiryData.length > 0) {
                 var table = $('#purchase_harvester_table').DataTable({
                     paging: true,
                     searching: true,
@@ -130,7 +130,7 @@ function getInterestedBuyer() {
                     ]
                 });
   
-                data.harvesterEnquiryData.forEach(row => {
+                data.data.harvesterEnquiryData.forEach(row => {
                     const fullName = row.first_name + ' ' + row.last_name;
   
                     // Add row to DataTable
@@ -145,7 +145,7 @@ function getInterestedBuyer() {
                     ]).draw(false);
   
                 });
-            } else if (data.haatBazarEnquiry && data.haatBazarEnquiry.length > 0) {
+            } else if (data.data.haatBazarEnquiry && data.data.haatBazarEnquiry.length > 0) {
                 var table = $('#purchase_haatbazar_table').DataTable({
                     paging: true,
                     searching: true,
@@ -159,7 +159,7 @@ function getInterestedBuyer() {
                     ]
                 });
   
-                data.harvesterEnquiryData.forEach(row => {
+                data.data.harvesterEnquiryData.forEach(row => {
                     const fullName = row.first_name + ' ' + row.last_name;
   
                     // Add row to DataTable
@@ -174,7 +174,7 @@ function getInterestedBuyer() {
                     ]).draw(false);
   
                 });
-            } else if (data.implementEnquiryData && data.implementEnquiryData.length > 0) {
+            } else if (data.data.implementEnquiryData && data.data.implementEnquiryData.length > 0) {
                 var table = $('#purchase_implements_table').DataTable({
                     paging: true,
                     searching: true,
@@ -188,7 +188,7 @@ function getInterestedBuyer() {
                     ]
                 });
   
-                data.implementEnquiryData.forEach(row => {
+                data.data.implementEnquiryData.forEach(row => {
                     const fullName = row.first_name + ' ' + row.last_name;
   
                     // Add row to DataTable
@@ -203,7 +203,7 @@ function getInterestedBuyer() {
                     ]).draw(false);
   
                 });
-            } else if (data.nurseryEnquiryData && data.nurseryEnquiryData.length > 0) {
+            } else if (data.data.nurseryEnquiryData && data.data.nurseryEnquiryData.length > 0) {
                 var table = $('#purchase_nursery_table').DataTable({
                     paging: true,
                     searching: true,
@@ -217,7 +217,7 @@ function getInterestedBuyer() {
                     ]
                 });
   
-                data.nurseryEnquiryData.forEach(row => {
+                data.data.nurseryEnquiryData.forEach(row => {
                     const fullName = row.first_name + ' ' + row.last_name;
   
                     // Add row to DataTable
@@ -232,7 +232,7 @@ function getInterestedBuyer() {
                     ]).draw(false);
   
                 });
-            } else if (data.tyreEnquiryData && data.tyreEnquiryData.length > 0) {
+            } else if (data.data.tyreEnquiryData && data.data.tyreEnquiryData.length > 0) {
                 var table = $('#purchase_tyre_table').DataTable({
                     paging: true,
                     searching: true,
@@ -246,7 +246,7 @@ function getInterestedBuyer() {
                     ]
                 });
   
-                data.tyreEnquiryData.forEach(row => {
+                data.data.tyreEnquiryData.forEach(row => {
                     const fullName = row.first_name + ' ' + row.last_name;
   
                     // Add row to DataTable
@@ -261,7 +261,7 @@ function getInterestedBuyer() {
                     ]).draw(false);
   
                 });
-            } else if (data.engineOilEnquiryData && data.engineOilEnquiryData.length > 0) {
+            } else if (data.data.engineOilEnquiryData && data.data.engineOilEnquiryData.length > 0) {
                 var table = $('#purchase_tyre_table').DataTable({
                     paging: true,
                     searching: true,
@@ -275,7 +275,7 @@ function getInterestedBuyer() {
                     ]
                 });
   
-                data.engineOilEnquiryData.forEach(row => {
+                data.data.engineOilEnquiryData.forEach(row => {
                     const fullName = row.first_name + ' ' + row.last_name;
   
                     // Add row to DataTable
@@ -290,7 +290,7 @@ function getInterestedBuyer() {
                     ]).draw(false);
   
                 });
-            } else if (data.dealerEnquiryData && data.dealerEnquiryData.length > 0) {
+            } else if (data.data.dealerEnquiryData && data.data.dealerEnquiryData.length > 0) {
                 var table = $('#purchase_tyre_table').DataTable({
                     paging: true,
                     searching: true,
@@ -304,7 +304,7 @@ function getInterestedBuyer() {
                     ]
                 });
   
-                data.dealerEnquiryData.forEach(row => {
+                data.data.dealerEnquiryData.forEach(row => {
                     const fullName = row.first_name + ' ' + row.last_name;
   
                     // Add row to DataTable
@@ -319,7 +319,7 @@ function getInterestedBuyer() {
                     ]).draw(false);
   
                 });
-            } else if (data.rentEnquiryData && data.rentEnquiryData.length > 0) {
+            } else if (data.data.rentEnquiryData && data.data.rentEnquiryData.length > 0) {
                 var table = $('#purchase_tyre_table').DataTable({
                     paging: true,
                     searching: true,
@@ -333,7 +333,7 @@ function getInterestedBuyer() {
                     ]
                 });
   
-                data.rentEnquiryData.forEach(row => {
+                data.data.rentEnquiryData.forEach(row => {
                     const fullName = row.first_name + ' ' + row.last_name;
   
                     // Add row to DataTable
@@ -348,7 +348,7 @@ function getInterestedBuyer() {
                     ]).draw(false);
   
                 });
-            } else if (data.hireEnquiryData && data.hireEnquiryData.length > 0) {
+            } else if (data.data.hireEnquiryData && data.data.hireEnquiryData.length > 0) {
                 var table = $('#purchase_tyre_table').DataTable({
                     paging: true,
                     searching: true,
@@ -362,7 +362,7 @@ function getInterestedBuyer() {
                     ]
                 });
   
-                data.hireEnquiryData.forEach(row => {
+                data.data.hireEnquiryData.forEach(row => {
                     const fullName = row.first_name + ' ' + row.last_name;
   
                     // Add row to DataTable
@@ -396,7 +396,6 @@ function getInterestedBuyer() {
         'Authorization': localStorage.getItem('token')
       };
       var mobileNumber = localStorage.getItem('mobile');
-      console.log(mobileNumber);
       var paraArr = {
         'mobile': mobileNumber,
       };
@@ -408,38 +407,37 @@ function getInterestedBuyer() {
       data: paraArr,
 
       success: function (data) {
-          const tableBody = $('#data-table'); 
+        console.log(data,'data');
+          const tableBody = $('#data-table11'); 
           tableBody.empty(); 
   
-            if (data.customer_details && data.customer_details.length > 0) {
-                var table = $('#interested').DataTable({
+            if (data.data.sellHaatBazarEnquiry && data.data.sellHaatBazarEnquiry.length > 0) {
+                var table = $('#list_purchase_haatbazar_table').DataTable({
                     paging: true,
                     searching: true,
                     columns: [
                         { title: 'Type' },
-                        { title: 'Name' },
-                        { title: 'Mobile Number' },
-                        { title: 'Brand' },
-                        { title: 'Model' },
-                        { title: 'State' }
+                        { title: 'date' },
+                        { title: 'Category Name' },
+                        { title: 'Subcategory Name' },
+                        { title: 'Quantity' },
+                        { title: 'price' },
+                       
                     ]
                 });
-  
-                data.customer_details.forEach(row => {
-                    const fullName = row.first_name + ' ' + row.last_name;
-  
+                data.data.sellHaatBazarEnquiry.forEach(row => {
                     // Add row to DataTable
                     table.row.add([
+                        row.request_type,
                         row.date,
-                        row.brand_name,
-                        row.tyre_model,
-                        fullName,
-                        row.mobile,
-                        row.state,
-                        row.district,
+                        row.category_name,
+                        row.sub_category_name,
+                        row.quantity,
+                        row.price,
+                        
                     ]).draw(false);
-  
                 });
+               
             } else {
               tableBody.innerHTML = '<tr><td colspan="9">No valid data available</td></tr>';
             }
@@ -456,12 +454,16 @@ function getInterestedBuyer() {
     var headers = {
         'Authorization': localStorage.getItem('token')
     };
-
+    var mobileNumber = localStorage.getItem('mobile');
+    var paraArr = {
+      'mobile': mobileNumber,
+    };
     // Make an AJAX GET request to the API
     $.ajax({
         url: url,
         type: "GET",
         headers: headers,
+        data: paraArr,
         success: function (data) {
             console.log(data, "data");
 
