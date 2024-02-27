@@ -76,8 +76,8 @@ function get_otp() {
             localStorage.setItem('token', result.token);
             localStorage.setItem('mobile', userMobile);
             localStorage.setItem('id', userId);
-            // window.location.href = baseUrl + "userProfile.php"; 
-            window.location.href = baseUrl + "userProfile_new.php";
+            window.location.href = baseUrl + "userProfile.php"; 
+            // window.location.href = baseUrl + "userProfile_new.php";
             document.getElementById("loginButton").style.display = "none"; 
             document.getElementById("myAccountButton").style.display = "block"; 
             const d = new Date();
