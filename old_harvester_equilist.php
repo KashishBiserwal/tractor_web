@@ -333,6 +333,7 @@
             <table id="example" class="table table-striped  table-hover table-bordered dataTable no-footer" width="100%; margin-bottom: 15px;">
                 <thead class="">
                   <tr>
+                  <th class="d-none d-md-table-cell text-white">S.No.</th>
                     <th class="d-none d-md-table-cell text-white">Date</th>
                     <th class="d-none d-md-table-cell text-white">Brand</th>
                     <th class="d-none d-md-table-cell text-white"> Model </th>

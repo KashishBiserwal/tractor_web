@@ -457,10 +457,7 @@ function fetch_edit_data(id) {
       }
       
     console.log('Fetched data successfully');
-      // $('#exampleModal').modal('show'); 
-      $('#brand_brand').on('click', function() {
-      get_1();
-    });
+   
     },
     error: function(error) {
       console.error('Error fetching user data:', error);
@@ -503,30 +500,101 @@ function populateTehsil(selectId, value) {
 
     return `${day}-${month}-${year} / ${hours}:${minutes}:${seconds}`;
     }
-    function get_old_harvester() {
-      var apiBaseURL = APIBaseURL;
-      var url = apiBaseURL + 'get_old_harvester';
-      $.ajax({
-          url: url,
-          type: "GET",
-          headers: {
-              'Authorization': 'Bearer ' + localStorage.getItem('token')
-          },
-          success: function (data) {
+  //   function get_old_harvester() {
+  //     var apiBaseURL = APIBaseURL;
+  //     var url = apiBaseURL + 'get_old_harvester';
+  //     $.ajax({
+  //         url: url,
+  //         type: "GET",
+  //         headers: {
+  //             'Authorization': 'Bearer ' + localStorage.getItem('token')
+  //         },
+  //         success: function (data) {
+  //           const tableBody = $('#data-table');
+        
+  //           if (data.product && data.product.length > 0) {
+  //               // let tableData = [];
+  //               // let counter = 1;
+        
+  //               // Reverse the order of the data array
+  //               data.product.reverse();
+        
+  //               // Clear existing table rows
+  //               tableBody.empty();
+        
+  //               // Iterate over the data and prepend rows to the table
+  //               $.each(data.product, function(index, row) {
+  //                   let action = `<div class="d-flex">
+  //                       <button class="btn btn-warning text-white btn-sm mx-1" onclick="openViewdata(${row.customer_id})" data-bs-toggle="modal" data-bs-target="#view_old_harvester" id="viewbtn">
+  //                           <i class="fa fa-eye" style="font-size: 11px;"></i>
+  //                       </button>
+  //                       <button class="btn btn-primary btn-sm btn_edit" onclick="fetch_edit_data(${row.customer_id})" data-bs-toggle="modal" data-bs-target="#staticBackdrop" id="your_edit">
+  //                           <i class="fas fa-edit" style="font-size: 11px;"></i>
+  //                       </button>
+  //                       <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.id});">
+  //                           <i class="fa fa-trash" style="font-size: 11px;"></i>
+  //                       </button>
+  //                   </div>`;
+        
+  //                   // Construct table row
+  //                   let rowHtml = `<tr>
+  //                       <td>${formatDateTime(row.created_at)}</td>
+  //                       <td>${row.brand_name}</td>
+  //                       <td>${row.model}</td>
+  //                       <td>${row.purchase_year}</td>
+  //                       <td>${row.state_name}</td>
+  //                       <td>${row.district_name}</td>
+  //                       <td>${row.mobile}</td>
+  //                       <td>${action}</td>
+  //                   </tr>`;
+        
+  //                   // Append row to the beginning of the table
+  //                   tableBody.prepend(rowHtml);
+  //               });
+        
+  //               // Destroy existing DataTable instance
+  //               $('#example').DataTable().destroy();
+        
+  //               // Reinitialize DataTable with new data
+  //               $('#example').DataTable({
+  //                   searching: true,
+  //                   ordering: true, // or false, depending on whether you want ordering or not
+  //                   destroy: true // Destroy existing DataTable instances before reinitializing
+  //               });
+  //           } else {
+  //               tableBody.html('<tr><td colspan="8">No valid data available</td></tr>');
+  //           }
+  //       },
+        
+  //         error: function (error) {
+  //             console.error('Error fetching data:', error);
+  //         }
+  //     });
+  // }
+  
+  
+  
+  function get_old_harvester() {
+    var apiBaseURL = APIBaseURL;
+    var url = apiBaseURL + 'get_old_harvester';
+    $.ajax({
+        url: url,
+        type: "GET",
+        headers: {
+            'Authorization': 'Bearer ' + localStorage.getItem('token')
+        },
+        success: function (data) {
             const tableBody = $('#data-table');
-        
+
             if (data.product && data.product.length > 0) {
-                let tableData = [];
-                let counter = 1;
-        
-                // Reverse the order of the data array
+                // Reverse the order of the data array to show latest added data at the top
                 data.product.reverse();
-        
-                // Clear existing table rows
-                tableBody.empty();
-        
-                // Iterate over the data and prepend rows to the table
-                $.each(data.product, function(index, row) {
+
+                let tableData = [];
+                let counter = 0; // Initialize counter to start from 1
+                data.product.forEach(row => {
+                    counter++; // Increment counter for each row
+
                     let action = `<div class="d-flex">
                         <button class="btn btn-warning text-white btn-sm mx-1" onclick="openViewdata(${row.customer_id})" data-bs-toggle="modal" data-bs-target="#view_old_harvester" id="viewbtn">
                             <i class="fa fa-eye" style="font-size: 11px;"></i>
@@ -538,50 +606,56 @@ function populateTehsil(selectId, value) {
                             <i class="fa fa-trash" style="font-size: 11px;"></i>
                         </button>
                     </div>`;
-        
-                    // Construct table row
-                    let rowHtml = `<tr>
-                        <td>${formatDateTime(row.created_at)}</td>
-                        <td>${row.brand_name}</td>
-                        <td>${row.model}</td>
-                        <td>${row.purchase_year}</td>
-                        <td>${row.state_name}</td>
-                        <td>${row.district_name}</td>
-                        <td>${row.mobile}</td>
-                        <td>${action}</td>
-                    </tr>`;
-        
-                    // Append row to the beginning of the table
-                    tableBody.prepend(rowHtml);
+
+                    tableData.push([
+                      counter,
+                        formatDateTime(row.created_at),
+                        row.brand_name,
+                        row.model,
+                        row.purchase_year,
+                        row.mobile,
+                        row.state_name,
+                        row.district_name,
+                        action
+                    ]);
                 });
-        
+
                 // Destroy existing DataTable instance
                 $('#example').DataTable().destroy();
-        
+
                 // Reinitialize DataTable with new data
                 $('#example').DataTable({
+                    data: tableData,
+                    columns: [
+                      { title: 'S.No' },
+                        { title: 'Date' },
+                        { title: 'Brand' },
+                        { title: 'Model' },
+                        { title: 'Year' },
+                        { title: 'Phone Number' },
+                        { title: 'State' },
+                        { title: 'District' },
+                        { title: 'Action', orderable: false }
+                    ],
+                    paging: true,
                     searching: true,
-                    ordering: true, // or false, depending on whether you want ordering or not
-                    destroy: true // Destroy existing DataTable instances before reinitializing
                 });
             } else {
                 tableBody.html('<tr><td colspan="8">No valid data available</td></tr>');
             }
         },
-        
-          error: function (error) {
-              console.error('Error fetching data:', error);
-          }
-      });
-  }
-  
-  
-  
+        error: function (error) {
+            console.error('Error fetching data:', error);
+        }
+    });
+}
+get_old_harvester();
 
-  
-  // get_old_harvester();
-  
-  
+
+
+
+
+// get_old_harvester();
   
   
 // delete data
@@ -687,101 +761,105 @@ function destroy(id) {
   } 
 
   // search data 
-  function searchdata(){
+  function searchdata() {
     var brand_name = $('#brand2').val();
     var model_name = $('#model_name').val();
     var state = $('#state_name').val();
     var district = $('#district_name').val();
-    
+
     var apiBaseURL = APIBaseURL;
     var url = apiBaseURL + 'search_for_old_harvester';
     var token = localStorage.getItem('token');
-  
+
     var headers = {
         'Authorization': 'Bearer ' + token
     };
-  
-    var data = new FormData();
-    if(brand_name == null){
-      data.append('brand_id', '');
-    }else{
-      data.append('brand_id', brand_name);
-    }
-    
-   
-    data.append('model', model_name);
-    data.append('state', state);
-    data.append('district', district);
-  
+
+    var data = {
+        'brand_id': brand_name,
+        'model': model_name,
+        'state': state,
+        'district': district,
+    };
+
     $.ajax({
-      url: url,
-      type: "POST",
-      data: data,
-      headers: headers,
-      processData: false,
-      contentType: false,
-      success: function (data) {
-        const tableBody = $('#data-table');
-    
-        if (data.product && data.product.length > 0) {
-            let tableData = [];
-            let counter = 1;
-    
-            // Reverse the order of the data array
-            data.product.reverse();
-    
-            // Clear existing table rows
-            tableBody.empty();
-    
-            // Iterate over the data and prepend rows to the table
-            $.each(data.product, function(index, row) {
-                let action = `<div class="d-flex">
-                    <button class="btn btn-warning text-white btn-sm mx-1" onclick="openViewdata(${row.customer_id})" data-bs-toggle="modal" data-bs-target="#view_old_harvester" id="viewbtn">
-                        <i class="fa fa-eye" style="font-size: 11px;"></i>
-                    </button>
-                    <button class="btn btn-primary btn-sm btn_edit" onclick="fetch_edit_data(${row.customer_id})" data-bs-toggle="modal" data-bs-target="#staticBackdrop" id="your_edit">
-                        <i class="fas fa-edit" style="font-size: 11px;"></i>
-                    </button>
-                    <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.id});">
-                        <i class="fa fa-trash" style="font-size: 11px;"></i>
-                    </button>
-                </div>`;
-    
-                // Construct table row
-                let rowHtml = `<tr>
-                    <td>${formatDateTime(row.created_at)}</td>
-                    <td>${row.brand_name}</td>
-                    <td>${row.model}</td>
-                    <td>${row.purchase_year}</td>
-                    <td>${row.state_name}</td>
-                    <td>${row.district_name}</td>
-                    <td>${row.mobile}</td>
-                    <td>${action}</td>
-                </tr>`;
-    
-                // Append row to the beginning of the table
-                tableBody.prepend(rowHtml);
-            });
-    
-            // Destroy existing DataTable instance
-            $('#example').DataTable().destroy();
-    
-            // Reinitialize DataTable with new data
-            $('#example').DataTable({
-                searching: true,
-                ordering: true, // or false, depending on whether you want ordering or not
-                destroy: true // Destroy existing DataTable instances before reinitializing
-            });
-        } else {
-            tableBody.html('<tr><td colspan="8">No valid data available</td></tr>');
+        url: url,
+        type: "POST",
+        data: data,
+        headers: headers,
+        success: function (response) {
+            const tableBody = $('#data-table');
+
+            if (response.oldTractor && response.oldTractor.length > 0) {
+                let tableData = [];
+
+                response.oldTractor.forEach(row => {
+                    let action = `<div class="d-flex">
+                        <button class="btn btn-warning text-white btn-sm mx-1" onclick="openViewdata(${row.customer_id})" data-bs-toggle="modal" data-bs-target="#view_old_harvester" id="viewbtn">
+                            <i class="fa fa-eye" style="font-size: 11px;"></i>
+                        </button>
+                        <button class="btn btn-primary btn-sm btn_edit" onclick="fetch_edit_data(${row.customer_id})" data-bs-toggle="modal" data-bs-target="#staticBackdrop" id="your_edit">
+                            <i class="fas fa-edit" style="font-size: 11px;"></i>
+                        </button>
+                        <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.id});">
+                            <i class="fa fa-trash" style="font-size: 11px;"></i>
+                        </button>
+                    </div>`;
+
+                    tableData.push([
+                        formatDateTime(row.created_at),
+                        row.brand_name,
+                        row.model,
+                        row.purchase_year,
+                        row.mobile,
+                        row.state_name,
+                        row.district_name,
+                        action
+                    ]);
+                });
+
+                // Destroy existing DataTable instance
+                $('#example').DataTable().destroy();
+
+                // Reinitialize DataTable with new data
+                $('#example').DataTable({
+                    data: tableData,
+                    columns: [
+                        { title: 'Date' },
+                        { title: 'Brand' },
+                        { title: 'Model' },
+                        { title: 'Year' },
+                        { title: 'Phone Number' },
+                        { title: 'State' },
+                        { title: 'District' },
+                        { title: 'Action', orderable: false }
+                    ],
+                    paging: true,
+                    searching: true,
+                });
+            } else {
+                // Check if the response is empty or null
+                if (!response || !response.oldTractor) {
+                    tableBody.html('<tr><td colspan="8">No valid data available</td></tr>');
+                } else {
+                    // Response is not empty but the data array is empty
+                    tableBody.html('<tr><td colspan="8">No matching data available</td></tr>');
+                }
+            }
+        },
+        error: function (xhr, status, error) {
+            if (xhr.status === 404) {
+                // Handle 404 error here
+                const tableBody = $('#data-table');
+                tableBody.html('<tr><td colspan="8">No matching data available</td></tr>');
+            } else {
+                console.error('Error fetching data:', error);
+            }
         }
-    },
-    
-      error: function (error) {
-          console.error('Error fetching data:', error);
-      }
-  });
+    });
 }
+
+
   
   function resetform(){
     $('#brand2').val('');
@@ -836,7 +914,7 @@ function destroy(id) {
                     // Add event listener to brand dropdown
                     select.addEventListener('change', function() {
                         const selectedBrandId = this.value;
-                        get_model(selectedBrandId);
+                        get_model_1(selectedBrandId);
                     });
                 } else {
                     select.innerHTML = '<option>No valid data available</option>';
