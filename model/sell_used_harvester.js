@@ -245,4 +245,4 @@ function store(event) {
     });
 }
 
-populateDropdownsFromClass('state-dropdown', 'district-dropdown', 'tehsil-dropdown');
+
