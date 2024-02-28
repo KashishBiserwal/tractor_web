@@ -124,22 +124,21 @@
                             <td id="number1"></td>
                          </tr>
                           <tr>
-                             <td>Email-</td>
-                            <td id="email_1"></td>
+                             <!-- <td>Email-</td>
+                            <td id="email_1"></td> -->
                             <td>Date-</td>
                             <td id="date_1"></td>
+                            <td>State-</td>
+                            <td id="state1"></td>
                            </tr>
                           <tr>
-                          <td>State-</td>
-                            <td id="state1"></td>
+                          
                           <td>District-</td>
                             <td id="dist1"></td>
-                            
-                          </tr>
-                          <tr>
-                          <td>Tehsil-</td>
+                            <td>Tehsil-</td>
                             <td id="tehsil1"></td>
                           </tr>
+                         
                         </tbody>
                       </table>
                     </div>
@@ -205,12 +204,12 @@
                                               <input type="text" class="form-control" placeholder="" id="number_2" name="number">
                                           </div>
                                         </div>
-                                        <div class="col-12 col-lg-6 col-sm-5 col-md-6 my-1">
+                                        <!-- <div class="col-12 col-lg-6 col-sm-5 col-md-6 my-1">
                                           <div class="form-outline mt-4">
                                               <label for="name" class="form-label text-dark">Email</label>
                                               <input type="text" class="form-control" placeholder="" id="email_2" name="email">
                                           </div>
-                                        </div>
+                                        </div> -->
                                         <div class="col-12 col-lg-6 col-sm-5 col-md-6 my-1">
                                           <div class="form-outline mt-4">
                                               <label for="name" class="form-label text-dark">Date</label>

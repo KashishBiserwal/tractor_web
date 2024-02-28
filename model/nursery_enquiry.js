@@ -222,7 +222,7 @@ function openViewdata(userId) {
         document.getElementById('fname1').innerText=userData.first_name;
         document.getElementById('lname1').innerText=userData.last_name;
         document.getElementById('number1').innerText=userData.mobile;
-        document.getElementById('email_1').innerText=userData.email;
+        // document.getElementById('email_1').innerText=userData.email;
         document.getElementById('date_1').innerText=userData.date;
         document.getElementById('state1').innerText=userData.state_name;
         document.getElementById('dist1').innerText=userData.district_name;
@@ -255,7 +255,7 @@ function fetch_edit_data(id) {
           $('#fname_2').val(Data.first_name);
           $('#lname_2').val(Data.last_name);
           $('#number_2').val(Data.mobile);
-          $('#email_2').val(Data.email);
+          // $('#email_2').val(Data.email);
           $('#date_2').val(Data.date);
          
 
@@ -302,7 +302,7 @@ var nursery_name = $("#nursery_name1").val();
 var first_name = $("#fname_2").val();
 var last_name = $("#lname_2").val();
 var mobile = $("#number_2").val();
-var email = $("#email_2").val();
+// var email = $("#email_2").val();
 var date = $("#date_2").val();
 var state = $("#state_2").val();
 var district = $("#dist_2").val();
@@ -362,19 +362,13 @@ function search_data() {
   var district = $('#dist_1').val();
 
   // Create an object to store search parameters
-  var paraArr = {};
+  var paraArr = {
+    // 'brand_id': brand_name,
+    'model': nursery_name,
+    'state': state,
+    'district': district,
+  };
 
-  if (nursery_name.trim() !== '') {
-    paraArr['nursery_name'] = nursery_name.trim();
-  }
-
-  if (state.trim() !== '') {
-    paraArr['state'] = state.trim();
-  }
-
-  if (district.trim() !== '') {
-    paraArr['district'] = district.trim();
-  }
 
   console.log('Search Parameters:', paraArr);
 
@@ -503,5 +497,3 @@ function fetchAllData() {
   });
 }
 
-populateDropdownsFromClass('state-dropdown', 'district-dropdown', 'tehsil-dropdown');
-populateStateDropdown('state_select', 'district_select');

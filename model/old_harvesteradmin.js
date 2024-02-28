@@ -587,13 +587,12 @@ function populateTehsil(selectId, value) {
             const tableBody = $('#data-table');
 
             if (data.product && data.product.length > 0) {
-                // Reverse the order of the data array to show latest added data at the top
                 data.product.reverse();
 
                 let tableData = [];
-                let counter = 0; // Initialize counter to start from 1
+                let counter = 0;
                 data.product.forEach(row => {
-                    counter++; // Increment counter for each row
+                    counter++; 
 
                     let action = `<div class="d-flex">
                         <button class="btn btn-warning text-white btn-sm mx-1" onclick="openViewdata(${row.customer_id})" data-bs-toggle="modal" data-bs-target="#view_old_harvester" id="viewbtn">
@@ -620,10 +619,8 @@ function populateTehsil(selectId, value) {
                     ]);
                 });
 
-                // Destroy existing DataTable instance
                 $('#example').DataTable().destroy();
 
-                // Reinitialize DataTable with new data
                 $('#example').DataTable({
                     data: tableData,
                     columns: [
@@ -866,7 +863,8 @@ function destroy(id) {
     $('#model_name').val('');
     $('#state_name').val('');
     $('#district_name').val('');
-    get_old_harvester();
+    // get_old_harvester();
+    window.location.reload();
   }
   
  

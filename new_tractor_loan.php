@@ -92,7 +92,7 @@ include 'includes/footertag.php';
                                 </div>
                                 <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-4" hidden>
                                     <div class="form-outline">
-                                        <label class="form-label" for="firstName">First Name</label>
+                                        <label class="form-label" for="firstName"> Name</label>
                                         <input type="text" class="form-control" id="enquiry_type_id" value="15" name="" required />
                                     </div>
                                 </div>
@@ -122,13 +122,13 @@ include 'includes/footertag.php';
                                         </select>
                                     </div>
                                 </div>
-                                <!-- <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-4">
+                                <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-4">
                                     <div class="form-outline">
                                         <label class="form-label" for="enterModel">Enter Model</label>
                                         <input type="text" class="form-control" id="enterModel" name="enterModel"
-                                            disabled />
+                                        required />
                                     </div>
-                                </div> -->
+                                </div>
                                 <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-4">
                                     <div class="form-outline">
                                         <label class="form-label" for="vehicleRegNo">Vehicle Registered Number</label>
@@ -732,25 +732,8 @@ include 'includes/footertag.php';
     include 'includes/footertag.php';
 
     ?>
+  
     <script>
-    // JavaScript to handle "Read More" and "Read Less" functionality
-    // document.querySelectorAll('.read-more').forEach(function(button, index) {
-    //     button.addEventListener('click', function() {
-    //         var moreContent = document.querySelectorAll('.more-content')[index];
-    //         var buttonText = button.innerText.trim().toLowerCase();
-
-    //         if (buttonText === 'read more') {
-    //             moreContent.style.display = 'inline';
-    //             button.innerText = 'Read Less';
-    //         } else {
-    //             moreContent.style.display = 'none';
-    //             button.innerText = 'Read More';
-    //         }
-    //     });
-    // });
-    // </script>
-
-    <!-- <script>
     $(document).ready(function() {
         $.validator.addMethod("indianMobile", function(value, element) {
             return this.optional(element) || /^[789]\d{9}$/.test(value);
@@ -783,41 +766,51 @@ include 'includes/footertag.php';
 
 
     });
+</script>
 
-    function updateFormFields() {
-        var loanType = $('#loanType').val();
+<script>
+    $(document).ready(function() {
+        $('#loanType').change(function() {
+            var selectedLoanTypeId = $(this).val();
+            // Disable all fields first
+            $('#firstName, #lastName, #mobileNo, #brand, #model, #state, #district, #tehsil, #enterModel, #vehicleRegNo, #registeredYear').prop('disabled', true);
+            
+            switch (selectedLoanTypeId) {
+                case '1': // New Tractor Loan
+                    $('#firstName, #lastName, #mobileNo, #brand, #model, #state, #district, #tehsil, #registeredYear').prop('disabled', false);
+                    break;
+                case '2':  //Used tractor Loan    
+                    $('#firstName, #lastName, #mobileNo, #brand, #model, #state, #district, #tehsil, #enterModel, #vehicleRegNo, #registeredYear').prop('disabled', false);
+                    break;
+                case '3':  // Loan against     
+                    $('#firstName, #lastName, #mobileNo, #brand, #model, #state, #district, #tehsil, #enterModel, #vehicleRegNo, #registeredYear').prop('disabled', false);
+                    break;  
+                case '4':  //Used harvester Loan    
+                    $('#firstName, #lastName, #mobileNo, #brand, #model, #state, #district, #tehsil, #enterModel, #vehicleRegNo, #registeredYear').prop('disabled', false);
+                    break;
+                case '5': // New harvester Loan
+                $('#firstName, #lastName, #mobileNo, #brand, #model, #state, #district, #tehsil, #registeredYear').prop('disabled', false);
+                    break;
+                case '6':  //Implement Loan    
+                    $('#firstName, #lastName, #mobileNo, #brand, #model, #state, #district, #tehsil, #registeredYear').prop('disabled', false);
+                    break;
+                case '7': // Personal Loan
+                    $('#firstName, #lastName, #mobileNo, #state, #tehsil, #district').prop('disabled', false);
+                    break;
+            
+                default:
+                
+                    break;
+            }
+        });
 
-        $('input, select').prop('disabled', false);
+        $('#registeredYear, #state, #district, #tehsil').change(function() {
+            $('#enterModel').prop('disabled', false);
+            $('#vehicleRegNo').prop('disabled', false);
+        });
+    });
 
-        if (loanType === 'newTractorLoan' || loanType === 'newHarvesterLoan') {
-            $('#enterModel, #vehicleRegNo').prop('disabled', true);
-        } else if (loanType === 'implementLoan') {
-            $('#vehicleRegNo, #registeredYear,#enterModel').prop('disabled', true);
-        } else if (loanType === 'personalLoan') {
-            $('#brand, #model, #enterModel, #registeredYear, #vehicleRegNo').prop('disabled', true);
-        } else if (loanType === 'newHarvesterLoan') {
-            $('#enterModel, #vehicleRegNo').prop('disabled', true);
-        } else if (loanType === 'usedTractorLoan' || loanType === 'loanAgainstTractor' || loanType ===
-            'usedHarvesterLoan') {
-            $('#enterModel').prop('disabled', true);
-        }
-    }
-
-    function updateEnterModelField() {
-        var selectedModel = $('#model').val();
-        $('#enterModel').prop('disabled', selectedModel !== 'other');
-    }
-
-    function applyForLoan() {
-        if ($("#applicationForm").valid()) {
-            alert('Thank you for contacting us. We will get back to you.');
-        }
-    }
-    
-
-
-  
-    </script> -->
+</script>
 
 </body>
 

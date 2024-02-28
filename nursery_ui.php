@@ -11,6 +11,8 @@
 <script> var CustomerAPIBaseURL = "<?php echo $CustomerAPIBaseURL; ?>";</script>
 <script> var baseUrl = "<?php echo $baseUrl; ?>";</script>
     <script src="<?php $baseUrl; ?>model/nursery_ui.js"></script>
+    <script src="<?php $baseUrl; ?>model/State_dist_tehsil.js"></script>
+
 </head>
 
 <body>
@@ -86,62 +88,7 @@
                             
                             </div>
                         </div>
-                    </div>
-                    <!-- <div class="scrollbar mb-3" id="districtFilterContainer">
-                        <div class="force-overflow">
-                            <h5 class=" text-center text-dark fw-bold pt-2">Search By Tehsil</h5>
-                            <div class="HP py-2" style="margin: 0 auto;">
-                                <div class=" d-flex">
-                                    <input type="checkbox" class="checkbox-round ms-3 mt-1 tehsil_checkbox" value="raipur" /><span
-                                        class="ps-2 fs-6">Raipur</span><br />
-                                </div>
-                                <div class=" d-flex">
-                                    <input type="checkbox" class="checkbox-round ms-3 mt-1 tehsil_checkbox" value="Bilaspur" /><span
-                                        class="ps-2 fs-6">Bilaspur</span><br />
-                                </div>
-                                <div class=" d-flex">
-                                    <input type="checkbox" class="checkbox-round ms-3 mt-1 tehsil_checkbox" value="Ambikapur" /><span
-                                        class="ps-2 fs-6">Ambikapur</span><br />
-                                </div>
-                                <div class=" d-flex">
-                                    <input type="checkbox" class="checkbox-round ms-3 mt-1 tehsil_checkbox" value="Raigarh" /><span
-                                        class="ps-2 fs-6">Raigarh</span><br />
-                                </div>
-                                <div class=" d-flex">
-                                    <input type="checkbox" class="checkbox-round ms-3 mt-1 tehsil_checkbox" value="Surajpur" /><span
-                                        class="ps-2 fs-6">Surajpur</span><br />
-                                </div>
-                                <div class=" d-flex">
-                                    <input type="checkbox" class="checkbox-round ms-3 mt-1 tehsil_checkbox" value="Jagdalpur" /><span
-                                        class="ps-2 fs-6">Chirmiri</span><br />
-                                </div>
-                                <div class=" d-flex">
-                                    <input type="checkbox" class="checkbox-round ms-3 mt-1 tehsil_checkbox" value="Korba" /><span
-                                        class="ps-2 fs-6">Korba</span><br />
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                    <!-- <div class=" mb-3" id="">
-                        <div class="force-overflow">
-                            <h5 class=" text-center text-dark fw-bold mb-3">Last Added</h5>
-                            <div class="price py-2 " style="margin: 0 auto;">
-                                <div class=" d-flex">
-                                    <input type="checkbox" class="checkbox-round ms-3 mt-1" value="less_30day" /><span
-                                        class="ps-2 fs-6">Less than 30 days</span><br />
-                                </div>
-                                <div class=" d-flex">
-                                    <input type="checkbox" class="checkbox-round ms-3 mt-1" value="less_30mnth" /><span
-                                        class="ps-2 fs-6">Less than 3 months</span><br />
-                                </div>
-                                <div class=" d-flex">
-                                    <input type="checkbox" class="checkbox-round ms-3 mt-1" value="less_60_mnth" /><span
-                                        class="ps-2 fs-6">Less than 6 months</span><br />
-                                </div>
-                            </div>
-                        </div>
-                    </div> -->
+                    </div>  
                 </div>
             </div>
         </div>

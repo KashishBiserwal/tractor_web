@@ -11,6 +11,8 @@
   <script> var APIBaseURL = "<?php echo $APIBaseURL; ?>";</script>
   <script> var baseUrl = "<?php echo $baseUrl; ?>";</script>
   <script src="<?php $baseUrl; ?>model/hatbazar_buy_customerlist.js"></script>
+  <script src="<?php $baseUrl; ?>model/State_dist_tehsil.js"></script>
+
 </head>
 
 <body>
@@ -46,21 +48,21 @@
                     </div>
                 </div>
 
-                <div class="col-12 col-sm-3 col-lg-3 col-md-3">
-                    <div class=" row mb-3" id="">
-                    <div class="col-12 col-sm-12 col-md-12 col-lg-12">
-                        <div class="row text-center">
-                            <div class="col-6 col-sm-6 col-lg-6 col-md-6 g-1">
-                                <button id="resetButton" type="button" onclick="resetform()" class="add_btn btn btn-success w-75">
-                                    <i class="fas fa-undo"></i> Reset </button>
-                            </div>
-                            <div class="col-6 col-sm-6 col-lg-6 col-md-6 g-1">
-                                <button id="apply_filter_bnt" type="button" class="add_btn btn btn-success w-75">
-                                    <i class="fas fa-filter"></i> Apply Filter</button>
+                    <div class="col-12 col-sm-3 col-lg-3 col-md-3">
+                        <div class=" row mb-3" id="">
+                        <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+                            <div class="row text-center">
+                                <div class="col-6 col-sm-6 col-lg-6 col-md-6 g-1">
+                                    <button id="resetButton" type="button" onclick="resetform()" class="add_btn btn btn-success w-75">
+                                        <i class="fas fa-undo"></i> Reset </button>
+                                </div>
+                                <div class="col-6 col-sm-6 col-lg-6 col-md-6 g-1">
+                                    <button id="apply_filter_bnt" type="button" class="add_btn btn btn-success w-75">
+                                        <i class="fas fa-filter"></i> Apply Filter</button>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
 
                     <div class="scrollbar mb-3" id="filter_district">
                         <div class="force-overflow">
