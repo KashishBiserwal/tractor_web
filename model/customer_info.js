@@ -83,12 +83,15 @@ function getInterestedBuyer() {
         headers: headers,
         data:paraArr,
       success: function (data) {
-          const tableBody = $('.data-table'); // Use jQuery selector for the table body
-          tableBody.empty(); // Clear previous data
-  
+        // const tableBody = $('.data-table'); // Use jQuery selector for the table body
+        // tableBody.empty(); // Clear previous data
+
+        var table;
   
             if (data.data.tractorEnquiryData && data.data.tractorEnquiryData.length > 0) {
-                var table = $('#purchase_tractor_table').DataTable({
+                const tableBody = $('#data-table1'); // Use jQuery selector for the table body
+                tableBody.empty(); 
+                table = $('#purchase_tractor_table').DataTable({
                     paging: true,
                     searching: true,
                     columns: [
@@ -116,7 +119,9 @@ function getInterestedBuyer() {
   
                 });
             } else if (data.data.harvesterEnquiryData && data.data.harvesterEnquiryData.length > 0) {
-                var table = $('#purchase_harvester_table').DataTable({
+                const tableBody = $('#data-table2'); // Use jQuery selector for the table body
+                tableBody.empty();
+                table = $('#purchase_harvester_table').DataTable({
                     paging: true,
                     searching: true,
                     columns: [
@@ -145,6 +150,8 @@ function getInterestedBuyer() {
   
                 });
             } else if (data.data.haatBazarEnquiry && data.data.haatBazarEnquiry.length > 0) {
+                const tableBody = $('#data-table3'); // Use jQuery selector for the table body
+                tableBody.empty();
                 var table = $('#purchase_haatbazar_table').DataTable({
                     paging: true,
                     searching: true,
@@ -159,6 +166,7 @@ function getInterestedBuyer() {
                 });
   
                 data.data.harvesterEnquiryData.forEach(row => {
+                   
                     const fullName = row.first_name + ' ' + row.last_name;
   
                     // Add row to DataTable
@@ -174,6 +182,8 @@ function getInterestedBuyer() {
   
                 });
             } else if (data.data.implementEnquiryData && data.data.implementEnquiryData.length > 0) {
+                const tableBody = $('#data-table4'); // Use jQuery selector for the table body
+                tableBody.empty();
                 var table = $('#purchase_implements_table').DataTable({
                     paging: true,
                     searching: true,
@@ -203,6 +213,8 @@ function getInterestedBuyer() {
   
                 });
             } else if (data.data.nurseryEnquiryData && data.data.nurseryEnquiryData.length > 0) {
+                const tableBody = $('#data-table5'); // Use jQuery selector for the table body
+                tableBody.empty();
                 var table = $('#purchase_nursery_table').DataTable({
                     paging: true,
                     searching: true,
@@ -232,6 +244,8 @@ function getInterestedBuyer() {
   
                 });
             } else if (data.data.tyreEnquiryData && data.data.tyreEnquiryData.length > 0) {
+                const tableBody = $('#data-table6'); // Use jQuery selector for the table body
+                tableBody.empty();
                 var table = $('#purchase_tyre_table').DataTable({
                     paging: true,
                     searching: true,
@@ -246,6 +260,7 @@ function getInterestedBuyer() {
                 });
   
                 data.data.tyreEnquiryData.forEach(row => {
+                   
                     const fullName = row.first_name + ' ' + row.last_name;
   
                     // Add row to DataTable
@@ -261,6 +276,8 @@ function getInterestedBuyer() {
   
                 });
             } else if (data.data.engineOilEnquiryData && data.data.engineOilEnquiryData.length > 0) {
+                const tableBody = $('#data-table7'); // Use jQuery selector for the table body
+                tableBody.empty();
                 var table = $('#purchase_tyre_table').DataTable({
                     paging: true,
                     searching: true,
@@ -275,6 +292,7 @@ function getInterestedBuyer() {
                 });
   
                 data.data.engineOilEnquiryData.forEach(row => {
+                    
                     const fullName = row.first_name + ' ' + row.last_name;
   
                     // Add row to DataTable
@@ -290,6 +308,8 @@ function getInterestedBuyer() {
   
                 });
             } else if (data.data.dealerEnquiryData && data.data.dealerEnquiryData.length > 0) {
+                const tableBody = $('#data-table8'); // Use jQuery selector for the table body
+                tableBody.empty();
                 var table = $('#purchase_tyre_table').DataTable({
                     paging: true,
                     searching: true,
@@ -319,6 +339,8 @@ function getInterestedBuyer() {
   
                 });
             } else if (data.data.hireEnquiryData && data.data.hireEnquiryData.length > 0) {
+                const tableBody = $('#data-table9'); // Use jQuery selector for the table body
+                tableBody.empty();
                 var table = $('#purchase_tyre_table').DataTable({
                     paging: true,
                     searching: true,
@@ -336,16 +358,32 @@ function getInterestedBuyer() {
                     ]).draw(false);
   
                 });
+            } 
+            if (table) {
+                data.data.tractorEnquiryData.forEach(row => {
+                    const tableBody = $('#data-table1'); // Use jQuery selector for the table body
+                tableBody.empty();
+                    const fullName = row.first_name + ' ' + row.last_name;
+
+                    // Add row to DataTable
+                    table.row.add([
+                        row.request_type,
+                        row.date,
+                        row.brand_name,
+                        row.model,
+                        fullName,
+                        row.mobile,
+                    ]).draw(false);
+                });
             } else {
-              tableBody.innerHTML = '<tr><td colspan="9">No valid data available</td></tr>';
+                tableBody.innerHTML = '<tr><td colspan="9">No valid data available</td></tr>';
             }
         },
         error: function (error) {
             console.error('Error fetching data:', error);
         }
     });
-  }
-  
+}
 
   function getmylist() {
     var url =  "http://tractor-api.divyaltech.com/api/customer/get_sell_enquiry_data";
