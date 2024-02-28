@@ -93,7 +93,7 @@ include 'includes/footertag.php';
                                 <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-4" hidden>
                                     <div class="form-outline">
                                         <label class="form-label" for="firstName"> Name</label>
-                                        <input type="text" class="form-control" id="enquiry_type_id" value="15" name="" required />
+                                        <input type="text" class="form-control" id="enquiry_type_id" value="" name="" required />
                                     </div>
                                 </div>
                                 <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-4">
@@ -111,35 +111,35 @@ include 'includes/footertag.php';
                                 <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-4">
                                     <div class="form-outline">
                                         <label class="form-label" for="brand">Brand</label>
-                                        <select class="form-select" id="brand" name="brand" required>
+                                        <select class="form-select" id="brand" name="brand" >
                                         </select>
                                     </div>
                                 </div>
                                 <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-4">
                                     <div class="form-outline">
                                         <label class="form-label" for="model">Model</label>
-                                        <select class="form-select" id="model" name="model" required>
+                                        <select class="form-select" id="model" name="model" >
                                         </select>
                                     </div>
                                 </div>
-                                <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-4">
+                                <!-- <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-4">
                                     <div class="form-outline">
                                         <label class="form-label" for="enterModel">Enter Model</label>
                                         <input type="text" class="form-control" id="enterModel" name="enterModel"
-                                        required />
+                                         />
                                     </div>
-                                </div>
+                                </div> -->
                                 <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-4">
                                     <div class="form-outline">
                                         <label class="form-label" for="vehicleRegNo">Vehicle Registered Number</label>
-                                        <input type="text" class="form-control" id="vehicleRegNo" name="vehicleRegNo" required />
+                                        <input type="text" class="form-control" id="vehicleRegNo" name="vehicleRegNo"  />
                                     </div>
                                 </div>
 
                                 <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-4">
                                     <div class="form-outline">
                                         <label class="form-label" for="registeredYear">Registered Year</label>
-                                        <select class="form-select" id="registeredYear" name="registeredYear" required>
+                                        <select class="form-select" id="registeredYear" name="registeredYear" >
                                             <option value="" selected disabled>Select Year</option>
                                             <!-- Assuming the range is from 2008 to 2023 -->
                                             <script>
@@ -171,13 +171,13 @@ include 'includes/footertag.php';
                                         </select>
                                     </div>
                                 </div>
-                                <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-4">
+                                <!-- <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-4">
                                     <label class="pe-3 fs-6 mt-2 text-dark">Claims made in previous policy</label>
                                     <input type="radio" id="pcy_res" name="fav_rc" value="1">
                                     <label for="policy" class="text-dark">Yes</label> 
                                     <input type="radio" id="pcy_no" name="fav_rc" value="0">
                                     <label for="policy" class="text-dark">No</label>
-                                </div>
+                                </div> -->
                                 <p class="text-center mt-3">By proceeding ahead you expressly agree to the Bharat
                                     Tractors
                                     <a href="privacy_and_policy.php" class="text-decoration-none">Terms &
@@ -735,9 +735,9 @@ include 'includes/footertag.php';
   
     <script>
     $(document).ready(function() {
-        $.validator.addMethod("indianMobile", function(value, element) {
-            return this.optional(element) || /^[789]\d{9}$/.test(value);
-        }, "Please enter a valid Indian mobile number.");
+        jQuery.validator.addMethod("customPhoneNumber", function(value, element) {
+        return /^[6-9]\d{9}$/.test(value); 
+        }, "Phone number must start with 6 or above");
 
         $("#applicationForm").validate({
             rules: {
@@ -745,19 +745,20 @@ include 'includes/footertag.php';
                 firstName: "required",
                 lastName: "required",
                 mobileNo: {
-                    required: true,
+                    required:true, 
+                    maxlength:10,
                     digits: true,
-                    indianMobile: true
+                    customPhoneNumber: true
                 },
-                brand: "required",
-                model: "required",
+                // brand: "required",
+                // model: "required",
                 enterModel: {
-                    required: function(element) {
-                        return $('#model').val() === 'other';
-                    }
+                    // required: function(element) {
+                    //     return $('#model').val() === 'other';
+                    // }
                 },
-                vehicleRegNo: "required",
-                registeredYear: "required",
+                // vehicleRegNo: "required",
+                // registeredYear: "required",
                 state: "required",
                 district: "required"
             },
@@ -804,10 +805,10 @@ include 'includes/footertag.php';
             }
         });
 
-        $('#registeredYear, #state, #district, #tehsil').change(function() {
-            $('#enterModel').prop('disabled', false);
-            $('#vehicleRegNo').prop('disabled', false);
-        });
+        // $('#registeredYear, #state, #district, #tehsil').change(function() {
+        //     $('#enterModel').prop('disabled', false);
+        //     $('#vehicleRegNo').prop('disabled', false);
+        // });
     });
 
 </script>

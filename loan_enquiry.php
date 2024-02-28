@@ -275,10 +275,10 @@
                             <td>Tehsil-</td>
                             <td id="tehsil1"></td>
                           </tr>
-                          <tr>
+                          <!-- <tr>
                             <td>Claims made in previous policy</td>
                             <td id="policy_1"></td>
-                          </tr>
+                          </tr> -->
                         </tbody>
                       </table>
                     </div>

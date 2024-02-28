@@ -120,7 +120,6 @@ function get_model(brand_id) {
 
 getTheBrand();
 
-
 function applyForLoan(event) {
     event.preventDefault();
     console.log('Applying for loan...');
@@ -133,31 +132,31 @@ function applyForLoan(event) {
     var mobileNo = $('#mobileNo').val();
     var brand = $('#brand').val();
     var model = $('#model').val();
-    var enterModel = $('#enterModel').val();
+    // var enterModel = $('#enterModel').val();
     var vehicleRegNo = $('#vehicleRegNo').val();
     var registeredYear = $('#registeredYear').val();
     var state = $('#state').val();
     var tehsil = $('#tehsil').val();
     var district = $('#district').val();
-    var previous_policy_claim = $('input[name="fav_rc"]:checked').val();
-    console.log(previous_policy_claim,'previous_policy_claim');
+    // var previous_policy_claim = $('input[name="fav_rc"]:checked').val();
+    // console.log(previous_policy_claim,'previous_policy_claim');
 
     // Prepare data to send to the server
     var paraArr = {
         'enquiry_type_id':enquiry_type_id,
-        'id': loanType,
+        'loan_type_id': loanType,
         'first_name': firstName,
         'last_name': lastName,
         'mobile': mobileNo,
         'brand_id': brand,
         'model': model,
-        'model': enterModel,
+        // 'model': enterModel,
         'vehicle_registered_num': vehicleRegNo,
         'registered_year': registeredYear,
         'state': state,
         'tehsil': tehsil,
         'district': district,
-        'previous_policy_claim': previous_policy_claim
+        // 'previous_policy_claim': previous_policy_claim
     };
 
     var url = 'http://tractor-api.divyaltech.com/api/customer/customer_enquiries';
@@ -191,3 +190,4 @@ function applyForLoan(event) {
     });
 }
 
+  populateDropdownsFromClass('state-dropdown', 'district-dropdown', 'tehsil-dropdown');
