@@ -203,18 +203,17 @@
                         </div>
                         <div class="table-responsive">
                             <table id="purchase_tractor_table" class="table table-striped table-hover table-bordered no-footer" width="100%">
-                            <thead class="bg-success w-100">
-                                <tr>
-                                <th class="d-none d-md-table-cell text-white">Request No.</th>
-                                <th class="d-none d-md-table-cell text-white">Brand list</th>
-                                <th class="d-none d-md-table-cell text-white">Model</th>
-                                <th class="d-none d-md-table-cell text-white">Name</th>
-                                <th class="d-none d-md-table-cell text-white">Mobile Number</th>
-                                <th class="d-none d-md-table-cell text-white">Date</th>
-                                </tr>
-                            </thead>
-                            <tbody id="data-table1">
-                            </tbody>
+                                <thead class="bg-success w-100">
+                                    <tr class="col-12 w-100">
+                                    <th class="d-none d-md-table-cell text-white">Request No.</th>
+                                    <th class="d-none d-md-table-cell text-white">Brand list</th>
+                                    <th class="d-none d-md-table-cell text-white">Model</th>
+                                    <th class="d-none d-md-table-cell text-white">Seller Name</th>
+                                    <th class="d-none d-md-table-cell text-white">Mobile Number</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="data-table1" class="data-table">
+                                </tbody>
                             </table>
                         </div>
                         <div class="table-responsive">
@@ -226,10 +225,9 @@
                                     <th class="d-none d-md-table-cell text-white">Model</th>
                                     <th class="d-none d-md-table-cell text-white">Name</th>
                                     <th class="d-none d-md-table-cell text-white">Mobile Number</th>
-                                    <th class="d-none d-md-table-cell text-white">Date</th>
                                     </tr>
-                                </thead>
-                                <tbody id="data-table2"></tbody>
+                                </thead> 
+                                <tbody id="data-table2" class="data-table"></tbody>
                                 </table>
                         </div>
                         <div class="table-responsive">
@@ -244,7 +242,7 @@
                                     <th class="d-none d-md-table-cell text-white">Date</th>
                                     </tr>
                                 </thead>
-                                <tbody id="data-table3"></tbody>
+                                <tbody id="data-table3" class="data-table"></tbody>
                                 </table>
                         </div>
                         <div class="table-responsive">
@@ -259,7 +257,7 @@
                                     <th class="d-none d-md-table-cell text-white">Date</th>
                                     </tr>
                                 </thead>
-                                <tbody id="data-table4"></tbody>
+                                <tbody id="data-table4" class="data-table"></tbody>
                                 </table>
                         </div>
                         <div class="table-responsive">
@@ -274,7 +272,7 @@
                                     <th class="d-none d-md-table-cell text-white">Date</th>
                                     </tr>
                                 </thead>
-                                <tbody id="data-table5"></tbody>
+                                <tbody id="data-table5" class="data-table"></tbody>
                             </table>
                         </div>
                         <div class="table-responsive">
@@ -289,7 +287,7 @@
                                     <th class="d-none d-md-table-cell text-white">Date</th>
                                     </tr>
                                 </thead>
-                                <tbody id="data-table6"></tbody>
+                                <tbody id="data-table6" class="data-table"></tbody>
                                 </table>
                         </div>
                         <div class="table-responsive">
@@ -319,22 +317,18 @@
                                     <th class="d-none d-md-table-cell text-white">Date</th>
                                     </tr>
                                 </thead>
-                                <tbody id="data-table8"></tbody>
+                                <tbody id="data-table8" class="data-table"></tbody>
                                 </table>
                         </div>
                         <div class="table-responsive">
                             <table id="purchase_hire_table" class="table table-striped  table-hover table-bordered  no-footer" width="100%; margin-bottom: 15px;">
                                 <thead class="bg-success w-100">
                                 <tr>
-                                    <th class="d-none d-md-table-cell text-white ">Request No.</th>
-                                    <th class="d-none d-md-table-cell text-white">Brand hire</th>
-                                    <th class="d-none d-md-table-cell text-white">Model</th>
-                                    <th class="d-none d-md-table-cell text-white">Name</th>
-                                    <th class="d-none d-md-table-cell text-white">Mobile Number</th>
                                     <th class="d-none d-md-table-cell text-white">Date</th>
+                                    <th class="d-none d-md-table-cell text-white ">Request Type.</th>
                                 </tr>
                                 </thead>
-                                <tbody id="data-table9"></tbody>
+                                <tbody id="data-table9" class="data-table"></tbody>
                             </table>
                         </div>
                     </div>
@@ -375,7 +369,6 @@
                                 <th class="d-none d-md-table-cell text-white">Model</th>
                                 <th class="d-none d-md-table-cell text-white">Name</th>
                                 <th class="d-none d-md-table-cell text-white">Mobile Number</th>
-                                <th class="d-none d-md-table-cell text-white">Date</th>
                                 </tr>
                             </thead>
                             <tbody id="data-table10">

@@ -83,7 +83,7 @@ function getInterestedBuyer() {
         headers: headers,
         data:paraArr,
       success: function (data) {
-          const tableBody = $('#data-table'); // Use jQuery selector for the table body
+          const tableBody = $('.data-table'); // Use jQuery selector for the table body
           tableBody.empty(); // Clear previous data
   
   
@@ -92,27 +92,26 @@ function getInterestedBuyer() {
                     paging: true,
                     searching: true,
                     columns: [
-                        { title: 'Type' },
-                        { title: 'Name' },
-                        { title: 'Mobile Number' },
+                        { title: 'Request Type' },
+                        { title: 'Date' },
                         { title: 'Brand' },
                         { title: 'Model' },
-                        { title: 'State' }
+                        { title: 'Seller Name' },
+                        { title: 'Mobile' },
                     ]
                 });
   
-                data.tractorEnquiryData.forEach(row => {
+                data.data.tractorEnquiryData.forEach(row => {
                     const fullName = row.first_name + ' ' + row.last_name;
   
                     // Add row to DataTable
                     table.row.add([
+                        row.request_type,
                         row.date,
                         row.brand_name,
-                        row.tyre_model,
+                        row.model,
                         fullName,
                         row.mobile,
-                        row.state,
-                        row.district,
                     ]).draw(false);
   
                 });
@@ -319,61 +318,21 @@ function getInterestedBuyer() {
                     ]).draw(false);
   
                 });
-            } else if (data.data.rentEnquiryData && data.data.rentEnquiryData.length > 0) {
-                var table = $('#purchase_tyre_table').DataTable({
-                    paging: true,
-                    searching: true,
-                    columns: [
-                        { title: 'Type' },
-                        { title: 'Name' },
-                        { title: 'Mobile Number' },
-                        { title: 'Brand' },
-                        { title: 'Model' },
-                        { title: 'State' }
-                    ]
-                });
-  
-                data.data.rentEnquiryData.forEach(row => {
-                    const fullName = row.first_name + ' ' + row.last_name;
-  
-                    // Add row to DataTable
-                    table.row.add([
-                        row.date,
-                        row.brand_name,
-                        row.tyre_model,
-                        fullName,
-                        row.mobile,
-                        row.state,
-                        row.district,
-                    ]).draw(false);
-  
-                });
             } else if (data.data.hireEnquiryData && data.data.hireEnquiryData.length > 0) {
                 var table = $('#purchase_tyre_table').DataTable({
                     paging: true,
                     searching: true,
                     columns: [
-                        { title: 'Type' },
-                        { title: 'Name' },
-                        { title: 'Mobile Number' },
-                        { title: 'Brand' },
-                        { title: 'Model' },
-                        { title: 'State' }
+                        { title: 'Date' },
+                        { title: 'Request Type' },
                     ]
                 });
   
                 data.data.hireEnquiryData.forEach(row => {
-                    const fullName = row.first_name + ' ' + row.last_name;
-  
                     // Add row to DataTable
                     table.row.add([
                         row.date,
-                        row.brand_name,
-                        row.tyre_model,
-                        fullName,
-                        row.mobile,
-                        row.state,
-                        row.district,
+                        row.request_type,
                     ]).draw(false);
   
                 });
