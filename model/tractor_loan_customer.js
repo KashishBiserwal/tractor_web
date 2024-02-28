@@ -2,6 +2,9 @@ $(document).ready(function() {
     // $('#apply_loan').click(add_loan);
     $('#apply_loan').on('click', function (event) {
         applyForLoan(event);
+
+
+        
     });
 });
 
@@ -41,8 +44,8 @@ function get_loan_type() {
 }
 get_loan_type();
 
-function get() {
-    var url = 'http://tractor-api.divyaltech.com/api/customer/get_all_brands';
+function getTheBrand() {
+    var url = 'http://tractor-api.divyaltech.com/api/customer/get_brand_for_finance';
     $.ajax({
         url: url,
         type: "GET",
@@ -60,7 +63,7 @@ function get() {
                     data.brands.forEach(row => {
                         const option = document.createElement('option');
                         option.textContent = row.brand_name;
-                        option.value = row.brand_id;
+                        option.value = row.id;
                         console.log(option);
                         select.appendChild(option);
                     });
@@ -115,8 +118,7 @@ function get_model(brand_id) {
     });
 }
 
-get();
-
+getTheBrand();
 
 function applyForLoan(event) {
     event.preventDefault();
@@ -130,13 +132,14 @@ function applyForLoan(event) {
     var mobileNo = $('#mobileNo').val();
     var brand = $('#brand').val();
     var model = $('#model').val();
+    // var enterModel = $('#enterModel').val();
     var vehicleRegNo = $('#vehicleRegNo').val();
     var registeredYear = $('#registeredYear').val();
     var state = $('#state').val();
     var tehsil = $('#tehsil').val();
     var district = $('#district').val();
-    var previous_policy_claim = $('input[name="fav_rc"]:checked').val();
-    console.log(previous_policy_claim,'previous_policy_claim');
+    // var previous_policy_claim = $('input[name="fav_rc"]:checked').val();
+    // console.log(previous_policy_claim,'previous_policy_claim');
 
     // Prepare data to send to the server
     var paraArr = {
@@ -147,12 +150,13 @@ function applyForLoan(event) {
         'mobile': mobileNo,
         'brand_id': brand,
         'model': model,
+        // 'model': enterModel,
         'vehicle_registered_num': vehicleRegNo,
         'registered_year': registeredYear,
         'state': state,
         'tehsil': tehsil,
         'district': district,
-        'previous_policy_claim': previous_policy_claim
+        // 'previous_policy_claim': previous_policy_claim
     };
 
     var url = 'http://tractor-api.divyaltech.com/api/customer/customer_enquiries';

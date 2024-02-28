@@ -46,7 +46,7 @@ $(document).ready(function() {
     });
 
 
-});
+
 
 var cardsPerPage = 6; 
 var cardsDisplayed = 0; 
@@ -184,32 +184,24 @@ function getnurseryList(allCards) {
                                             <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-4">
                                                 <div class="form-outline">
                                                     <label for="eo_state" class="form-label fw-bold"> <i class="fas fa-location"></i> State</label>
-                                                    <select class="form-select py-2 " aria-label=".form-select-lg example" id="state_1" name="state">
-                                                        <option value="" selected disabled=""> </option>  
-                                                        <option value="Chhattisgarh">Chhattisgarh</option>
-                                                        <option value="Other">Other</option>
+                                                    <select class="form-select py-2 state-dropdown" aria-label=".form-select-lg example" id="state_1" name="state">
+                                                       
                                                     </select>
                                                 </div>
                                             </div>
                                             <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-4">
                                                 <div class="form-outline">
                                                     <label for="eo_dist" class="form-label fw-bold"><i class="fa-solid fa-location-dot"></i> District</label>
-                                                    <select class="form-select py-2 " aria-label=".form-select-lg example" id="district_1" name="district">
-                                                        <option value="" selected disabled=""></option>
-                                                        <option value="Raipur">Raipur</option>
-                                                        <option value="Bilaspur">Bilaspur</option>
-                                                        <option value="Durg">Durg</option>
+                                                    <select class="form-select py-2 district-dropdown" aria-label=".form-select-lg example" id="district_1" name="district">
+                                                       
                                                     </select>
                                                 </div>                    
                                             </div>       
                                             <div class="col-12 col-sm-6 col-md-6 col-lg-6 mt-4">
                                                 <div class="form-outline">
                                                     <label for="eo_tehsil" class="form-label fw-bold "> Tehsil</label>
-                                                    <select class="form-select py-2 " aria-label=".form-select-lg example" id="Tehsil_1" name="Tehsil">
-                                                        <option value="" selected disabled=""></option>
-                                                        <option value="Raipur">Raipur</option>
-                                                        <option value="Bilaspur">Bilaspur</option>
-                                                        <option value="Durg">Durg</option>
+                                                    <select class="form-select py-2 tehsil-dropdown" aria-label=".form-select-lg example" id="Tehsil_1" name="Tehsil">
+                                                        
                                                     </select>
                                                 </div>
                                             </div>
@@ -238,6 +230,50 @@ function getnurseryList(allCards) {
         container.prepend(newCard);
        
        
+    });
+}
+});
+
+function populateDropdowns() {
+    var stateDropdowns = document.querySelectorAll('.state-dropdown');
+    var districtDropdowns = document.querySelectorAll('.district-dropdown');
+    var tehsilDropdowns = document.querySelectorAll('.tehsil-dropdown');
+
+    var defaultStateId = 7; // Define the default state ID here
+
+    var selectYourStateOption = '<option value="">Select Your State</option>';
+    var chhattisgarhOption = `<option value="${defaultStateId}">Chhattisgarh</option>`;
+
+    stateDropdowns.forEach(function (dropdown) {
+        dropdown.innerHTML = selectYourStateOption + chhattisgarhOption;
+
+        // Fetch district data based on the selected state
+        $.get(`http://tractor-api.divyaltech.com/api/customer/get_district_by_state/${defaultStateId}`, function(data) {
+            var districtSelect = dropdown.closest('.row').querySelector('.district-dropdown');
+            districtSelect.innerHTML = '<option value="">Please select a district</option>';
+            data.districtData.forEach(district => {
+                districtSelect.innerHTML += `<option value="${district.id}">${district.district_name}</option>`;
+            });
+        });
+    });
+
+    // Event listener for district dropdown
+    districtDropdowns.forEach(function (dropdown) {
+        dropdown.addEventListener('change', function() {
+            var selectedDistrictId = this.value;
+            var tehsilSelect = this.closest('.row').querySelector('.tehsil-dropdown');
+            if (selectedDistrictId) {
+                // Fetch tehsil data based on the selected district
+                $.get(`http://tractor-api.divyaltech.com/api/customer/get_tehsil_by_district/${selectedDistrictId}`, function(data) {
+                    tehsilSelect.innerHTML = '<option value="">Please select a tehsil</option>';
+                    data.tehsilData.forEach(tehsil => {
+                        tehsilSelect.innerHTML += `<option value="${tehsil.id}">${tehsil.tehsil_name}</option>`;
+                    });
+                });
+            } else {
+                tehsilSelect.innerHTML = '<option value="">Please select a district first</option>';
+            }
+        });
     });
 }
 

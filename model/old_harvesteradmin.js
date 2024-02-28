@@ -5,7 +5,7 @@ var editId_state= false;
 jQuery(document).ready(function () {
   // get('brand2');
   $('#add_trac').on('click', function() {
-    resetFormFields();
+    // resetFormFields();
   });
     get_old_harvester();
     ImgUpload();
@@ -587,13 +587,12 @@ function populateTehsil(selectId, value) {
             const tableBody = $('#data-table');
 
             if (data.product && data.product.length > 0) {
-                // Reverse the order of the data array to show latest added data at the top
                 data.product.reverse();
 
                 let tableData = [];
-                let counter = 0; // Initialize counter to start from 1
+                let counter = 0;
                 data.product.forEach(row => {
-                    counter++; // Increment counter for each row
+                    counter++; 
 
                     let action = `<div class="d-flex">
                         <button class="btn btn-warning text-white btn-sm mx-1" onclick="openViewdata(${row.customer_id})" data-bs-toggle="modal" data-bs-target="#view_old_harvester" id="viewbtn">
@@ -620,10 +619,8 @@ function populateTehsil(selectId, value) {
                     ]);
                 });
 
-                // Destroy existing DataTable instance
                 $('#example').DataTable().destroy();
 
-                // Reinitialize DataTable with new data
                 $('#example').DataTable({
                     data: tableData,
                     columns: [
@@ -791,9 +788,11 @@ function destroy(id) {
             const tableBody = $('#data-table');
 
             if (response.oldTractor && response.oldTractor.length > 0) {
+                // let tableData = [];
                 let tableData = [];
-
+                let counter = 0;
                 response.oldTractor.forEach(row => {
+                  counter++;
                     let action = `<div class="d-flex">
                         <button class="btn btn-warning text-white btn-sm mx-1" onclick="openViewdata(${row.customer_id})" data-bs-toggle="modal" data-bs-target="#view_old_harvester" id="viewbtn">
                             <i class="fa fa-eye" style="font-size: 11px;"></i>
@@ -807,13 +806,14 @@ function destroy(id) {
                     </div>`;
 
                     tableData.push([
-                        formatDateTime(row.created_at),
-                        row.brand_name,
-                        row.model,
-                        row.purchase_year,
-                        row.mobile,
-                        row.state_name,
-                        row.district_name,
+                      counter,
+                      formatDateTime(row.created_at),
+                      row.brand_name,
+                      row.model,
+                      row.purchase_year,
+                      row.mobile,
+                      row.state_name,
+                      row.district_name,
                         action
                     ]);
                 });
@@ -825,13 +825,14 @@ function destroy(id) {
                 $('#example').DataTable({
                     data: tableData,
                     columns: [
-                        { title: 'Date' },
-                        { title: 'Brand' },
-                        { title: 'Model' },
-                        { title: 'Year' },
-                        { title: 'Phone Number' },
-                        { title: 'State' },
-                        { title: 'District' },
+                      { title: 'S.No' },
+                      { title: 'Date' },
+                      { title: 'Brand' },
+                      { title: 'Model' },
+                      { title: 'Year' },
+                      { title: 'Phone Number' },
+                      { title: 'State' },
+                      { title: 'District' },
                         { title: 'Action', orderable: false }
                     ],
                     paging: true,
@@ -866,29 +867,30 @@ function destroy(id) {
     $('#model_name').val('');
     $('#state_name').val('');
     $('#district_name').val('');
-    get_old_harvester();
+    // get_old_harvester();
+    window.location.reload();
   }
   
  
 
-      function resetFormFields() {
-        $('#name').val('');
-        $('#lname').val('');
-        $('#Mobile').val('');
-        $('#state').val('');
-        $('#district').val('');
-        $('#tehsil').val('');
-        $('#brand').val('');
-        $('#model').val('');
-        $('#CROPS_TYPE').val('');
-        $('#POWER_SOURCE').val('');
-        $('#price').val('');
-        $('#image').val('');
-        $('#about').val('');
-        $('#hours').val('');
-        $('#year').val('');
-        $('#selectedImagesContainer').val('');
-      } $('#img_url').val();
+      // function resetFormFields() {
+      //   $('#name').val('');
+      //   $('#lname').val('');
+      //   $('#Mobile').val('');
+      //   $('#state').val('');
+      //   $('#district').val('');
+      //   $('#tehsil').val('');
+      //   $('#brand').val('');
+      //   $('#model').val('');
+      //   $('#CROPS_TYPE').val('');
+      //   $('#POWER_SOURCE').val('');
+      //   $('#price').val('');
+      //   $('#image').val('');
+      //   $('#about').val('');
+      //   $('#hours').val('');
+      //   $('#year').val('');
+      //   $('#selectedImagesContainer').val('');
+      // } $('#img_url').val();
 
       function get_1() {
         var url = 'http://tractor-api.divyaltech.com/api/customer/get_all_brands';

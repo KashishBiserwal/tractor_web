@@ -38,7 +38,7 @@ function get_insurance_type() {
 get_insurance_type();
 
 function get() {
-    var url = 'http://tractor-api.divyaltech.com/api/customer/get_all_brands';
+    var url = 'http://tractor-api.divyaltech.com/api/customer/get_brand_for_finance';
     $.ajax({
         url: url,
         type: "GET",
@@ -122,6 +122,7 @@ function add_insurance(event) {
     var mobileNo = $('#mobile_number').val();
     var brand = $('#brand').val();
     var model = $('#model').val();
+    var entermodel = $('#model').val();
     var vehicleRegNo = $('#vehicle_registered_number').val();
     var registeredYear = $('#registered_year').val();
     var state = $('#state').val();
@@ -137,6 +138,7 @@ function add_insurance(event) {
       'mobile': mobileNo,
       'brand_id': brand,
       'model': model,
+      'model': entermodel,
       'vehicle_registered_num': vehicleRegNo,
       'registered_year': registeredYear,
       'state': state,

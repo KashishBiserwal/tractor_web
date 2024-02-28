@@ -150,7 +150,13 @@ include 'includes/footertag.php';
                                     </select>
                                 </div>
                             </div>
-                           
+                            <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-4">
+                                    <div class="form-outline">
+                                        <label class="form-label" for="enterModel">Enter Model</label>
+                                        <input type="text" class="form-control" id="enterModel" name="enterModel"
+                                        required />
+                                    </div>
+                                </div>
                             <div class="col-12 col-sm-6 col-md-6 col-lg-4 mt-4">
                                 <div class="form-outline">
                                     <label class="form-label" for="vehicle_registered_number">Vehicle Registered

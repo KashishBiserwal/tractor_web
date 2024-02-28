@@ -11,72 +11,72 @@ $(document).ready(function(){
   
       });
     //****get data***
-  function get_loan() {
-    var apiBaseURL = APIBaseURL;
-    var url = apiBaseURL + 'loan_data';
+    function get_loan() {
+        var apiBaseURL = APIBaseURL;
+        var url = apiBaseURL + 'loan_data';
     
-    $.ajax({
-        url: url,
-        type: "GET",
-        headers: {
-            'Authorization': 'Bearer ' + localStorage.getItem('token')
-        },
-        success: function (data) {
-            const tableBody = $('#data-table'); // Use jQuery selector for the table body
-            tableBody.empty(); // Clear previous data
-  
-            let serialNumber = data.Enquiry_for_loan_data.length;
-  
-            if (data.Enquiry_for_loan_data && data.Enquiry_for_loan_data.length > 0) {
-                var table = $('#example').DataTable({
-                    paging: true,
-                    searching: true,
-                    columns: [
-                        { title: 'S.No.' },
-                        { title: 'Loan Type' },
-                        { title: 'Full Name' },
-                        { title: 'Mobile' },
-                        { title: 'State' },
-                        { title: 'District' },
-                        { title: 'Action', orderable: false }
-                    ]
-                });
-  
-                data.Enquiry_for_loan_data.forEach(row => {
-                    const fullName = row.first_name + ' ' + row.last_name;
-                
-                    // Add row to DataTable
-                    table.row.add([
-                        serialNumber--,  
-                        row.loan_type_value,
-                        fullName,
-                        row.mobile,
-                        row.state_name,
-                        row.district_name,
-                        `<div class="d-flex">
-                            <button class="btn btn-warning btn-sm text-white mx-1" data-bs-toggle="modal" onclick="openViewdata(${row.id});" data-bs-target="#view_model_nursery_enq">
-                                <i class="fas fa-eye" style="font-size: 11px;"></i>
-                            </button>
-                            <button class="btn btn-primary btn-sm btn_edit" onclick="fetch_edit_data(${row.id});" data-bs-toggle="modal" data-bs-target="#editmodel_nursery_enq" id="yourUniqueIdHere">
-                                <i class="fas fa-edit" style="font-size: 11px;"></i>
-                            </button>
-                            <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.id});">
-                                <i class="fa fa-trash" style="font-size: 11px;"></i>
-                            </button>
-                        </div>`
-                    ]).draw(false);
-                });
-                
-            } else {
-                tableBody.html('<tr><td colspan="6">No valid data available</td></tr>');
+        $.ajax({
+            url: url,
+            type: "GET",
+            headers: {
+                'Authorization': 'Bearer ' + localStorage.getItem('token')
+            },
+            success: function (data) {
+                const tableBody = $('#data-table'); // Use jQuery selector for the table body
+                tableBody.empty(); // Clear previous data
+    
+                let serialNumber = data.Enquiry_for_loan_data.length;
+    
+                if (data.Enquiry_for_loan_data && data.Enquiry_for_loan_data.length > 0) {
+                    var table = $('#example').DataTable({
+                        paging: true,
+                        searching: true,
+                        columns: [
+                            { title: 'S.No.' },
+                            { title: 'Date' },
+                            { title: 'Loan Type' },
+                            { title: 'Name' }, // Change to match table header
+                            { title: 'Phone Number' }, // Change to match table header
+                            { title: 'State' },
+                            { title: 'Action', orderable: false }
+                        ]
+                    });
+    
+                    data.Enquiry_for_loan_data.forEach(row => {
+                        const fullName = row.first_name + ' ' + row.last_name;
+    
+                        // Add row to DataTable
+                        table.row.add([
+                            serialNumber--,
+                            row.date,
+                            row.loan_type_value,
+                            fullName,
+                            row.mobile,
+                            row.state_name,
+                            `<div class="d-flex">
+                                <button class="btn btn-warning btn-sm text-white mx-1" data-bs-toggle="modal" onclick="openViewdata(${row.id});" data-bs-target="#view_model_nursery_enq">
+                                    <i class="fas fa-eye" style="font-size: 11px;"></i>
+                                </button>
+                                <button class="btn btn-primary btn-sm btn_edit" onclick="fetch_edit_data(${row.id});" data-bs-toggle="modal" data-bs-target="#editmodel_nursery_enq" id="yourUniqueIdHere">
+                                    <i class="fas fa-edit" style="font-size: 11px;"></i>
+                                </button>
+                                <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.id});">
+                                    <i class="fa fa-trash" style="font-size: 11px;"></i>
+                                </button>
+                            </div>`
+                        ]).draw(false);
+                    });
+    
+                } else {
+                    tableBody.html('<tr><td colspan="6">No valid data available</td></tr>');
+                }
+            },
+            error: function (error) {
+                console.error('Error fetching data:', error);
             }
-        },
-        error: function (error) {
-            console.error('Error fetching data:', error);
-        }
-    });
-  }
-  get_loan();
+        });
+    }
+    get_loan();
 
 
 
@@ -107,6 +107,7 @@ $(document).ready(function(){
         // window.location.reload();
         console.log("Delete request successful");
         alert("Delete operation successful");
+        window.location.reload();
       },
       error: function(error) {
         console.error('Error fetching data:', error);
@@ -289,7 +290,7 @@ function fetch_edit_data(id) {
 
             var brandDropdown = document.getElementById('brand_name');
             for (var i = 0; i < brandDropdown.options.length; i++) {
-                if (brandDropdown.options[i].text === Data.brand_id) {
+                if (brandDropdown.options[i].text === Data.brand_name) {
                     brandDropdown.selectedIndex = i;
                     break;
                 }
@@ -342,7 +343,7 @@ function fetch_edit_data(id) {
 
 //   edit form data
 function edit_insurance() {
-    var enquiry_type_id = 17;
+    var enquiry_type_id = 15;
     var id = $("#userId").val();
     var first_name = $("#first_name").val();
     var last_name = $("#last_name").val();
@@ -420,7 +421,7 @@ function openViewdata(userId) {
       
         var userData = response.Enquiry_for_loan_data[0];
         var name = userData.first_name +" "+userData.last_name;
-        var policyClaim = userData.previous_policy_claim === 1 ? "Yes" : "No";
+        // var policyClaim = userData.previous_policy_claim === 1 ? "Yes" : "No";
         document.getElementById('last_name2').innerText=name;
         document.getElementById('number').innerText=userData.mobile;
         document.getElementById('brand_id').innerText=userData.brand_name;
@@ -431,7 +432,7 @@ function openViewdata(userId) {
         document.getElementById('district1').innerText=userData.district_name;
         document.getElementById('tehsil1').innerText=userData.tehsil_name;
         document.getElementById('insurance_type_name1').innerText=userData.loan_type_value;
-        document.getElementById('policy_1').innerText = policyClaim;
+        // document.getElementById('policy_1').innerText = policyClaim;
       },
       error: function(error) {
         console.error('Error fetching user data:', error);
