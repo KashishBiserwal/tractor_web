@@ -37,14 +37,14 @@
       <div class="filter-card mb-2">
         <div class="card-body">
           <div class="row">
-          <div class="col-12 col-sm-12 col-md-3 col-lg-3">
+          <!-- <div class="col-12 col-sm-12 col-md-3 col-lg-3">
               <div class="form-outline">
                 <label class="form-label fw-bold"> Brand</label>
                 <select class="form-select error mb-2 pb-2" aria-label="Default select example"id="brand_search" name="insurance_type"> 
                 </select>
              
               </div>
-            </div>
+            </div> -->
             <div class="col-12 col-sm-12 col-md-3 col-lg-3">
               <div class="form-outline">
                 <label class="form-label">State</label>
@@ -81,6 +81,7 @@
                                             <th class="d-none d-md-table-cell text-white">Loan Type </th>
                                             <th class="d-none d-md-table-cell text-white">Name </th>
                                             <th class="d-none d-md-table-cell text-white">Phone Number</th>
+                                            <th class="d-none d-md-table-cell text-white">District</th>
                                             <th class="d-none d-md-table-cell text-white">State</th>
                                             <th class="d-none d-md-table-cell text-white">Action</th>
                                             

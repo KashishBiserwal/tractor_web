@@ -21,7 +21,7 @@ function get_old_harvester_byiD() {
         type: "GET",
         success: function(data) {
             var brand_model_name = data.product[0].brand_name + ', ' + data.product[0].model;
-            var location = data.product[0].district + ', ' + data.product[0].state;
+            var location = data.product[0].district_name + ', ' + data.product[0].state_name;
             var name = data.product[0].first_name + ' ' + data.product[0].last_name;
         document.getElementById('price_main').innerText=data.product[0].price;
         document.getElementById('brand_model_name').innerText=brand_model_name;
@@ -32,50 +32,54 @@ function get_old_harvester_byiD() {
         document.getElementById('price_').innerText=data.product[0].price;
         document.getElementById('crop_type').innerText=data.product[0].crops_type_value;
         document.getElementById('brand').innerText=data.product[0].brand_name;
-        // document.getElementById('cutting_width').innerText=data.product[0].cutting_width;
         document.getElementById('hours').innerText=data.product[0].hours_driven;
         document.getElementById('power_source').innerText=data.product[0].power_source_value;
         document.getElementById('year').innerText=data.product[0].purchase_year;
-
-
         document.getElementById('first_name').innerText=name;
         document.getElementById('mobile_').innerText=data.product[0].mobile;
-        // document.getElementById('email').innerText=data.product[0].email;
         document.getElementById('district_').innerText=data.product[0].district_name;
         document.getElementById('state_').innerText=data.product[0].state_name;
         document.getElementById('model3').innerText=data.product[0].model;
         document.getElementById('description').innerText = data.product[0].description;
         document.getElementById('product_subject_id').value = data.product[0].product_id;
-       
-          // Split the image names into an array
-          var product = data.product[0];
+        document.getElementById('customer_id').value = data.product[0].customer_id;
+        document.getElementById('model').value = data.product[0].model;
 
-        // Split the image names into an array
-        var imageNames = product.image_names.split(',');
+        var imageNames = data.product[0].image_names.split(',');
 
-        // Select the carousel container
-        var carouselContainer = $('.swiper-wrapper_buy');
+            // Select the carousel container
+            var carouselContainer = $('.swiper-wrapper_buy');
 
-        // Clear existing slides
-        carouselContainer.empty();
+            // Clear existing slides
+            carouselContainer.empty();
 
-        // Iterate through the image names and create carousel slides
-        imageNames.forEach(function(imageName) {
-            var imageUrl = "http://tractor-api.divyaltech.com/uploads/product_img/" + imageName.trim(); // Update the path
-            var slide = $('<div class="swiper-slide swiper-slide_buy"><img class="img_buy" src="' + imageUrl + '" /></div>');
-            carouselContainer.append(slide);
-        });
+            // Initialize an empty array to store Swiper slides
+            var swiperSlides = [];
 
-        // Initialize or update the Swiper carousel
-        var mySwiper = new Swiper('.swiper_buy', {
-            // Your Swiper configuration options
-        });
-        console.log(data, 'abc');
+            // Iterate through the image names and create carousel slides
+            imageNames.forEach(function(imageName, index) {
+                var imageUrl = "http://tractor-api.divyaltech.com/uploads/product_img/" + imageName.trim(); // Update the path
+                var slide = $('<div class="swiper-slide swiper-slide_buy"><img class="img_buy mt-2" src="' + imageUrl + '" style="height: 300px;" /></div>'); // Set height here
+                carouselContainer.append(slide);
+                
+                // Push the created slide into the swiperSlides array
+                swiperSlides.push(slide);
+            });
 
+            // Initialize or update the Swiper carousel
+            var mySwiper = new Swiper('.swiper_buy', {
+                // Your Swiper configuration options
+            });
 
-        },
-
-      error: function (error) {
+            // Add click event listener to each slide
+            swiperSlides.forEach(function(slide, index) {
+                slide.on('click', function() {
+                    // Slide to the clicked slide
+                    mySwiper.slideTo(index);
+                });
+            });
+          },
+            error: function (error) {
           console.error('Error fetching data:', error);
       }
   });
@@ -295,15 +299,16 @@ function displayupcomingTractors(tractors, new_arr) {
 function store(event) {
     event.preventDefault();
     console.log('jfhfhw');
-    var enquiry_type_id = 3;
+    var enquiry_type_id = 22;
     var first_name = $('#fname').val();
     var last_name = $('#lname').val();
     var mobile = $('#number').val();
     var state = $('#state_form').val();
     var district = $('#district_form').val();
     var tehsil = $('#tehsil').val();
-    var customer_id = $('#id').val();
+    var customer_id = $('#customer_id').val();
     var product_subject_id = $('#product_subject_id').val();
+    var model = $('#model').val();
   
     // Prepare data to send to the server
     var paraArr = {
@@ -311,6 +316,7 @@ function store(event) {
       'enquiry_type_id':enquiry_type_id,
       'first_name': first_name,
       'last_name':last_name,
+      'model':model,
       'mobile':mobile,   
       'state':state,
       'district':district,
@@ -358,4 +364,3 @@ var url = "http://tractor-api.divyaltech.com/api/customer/customer_enquiries";
   }
 
 
-  populateDropdownsFromClass('state-dropdown', 'district-dropdown', 'tehsil-dropdown');

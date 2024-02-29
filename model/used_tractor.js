@@ -5,7 +5,6 @@ $(document).ready(function() {
     // populateDropdowns();
     $('#filter_tractor').click(filter_search);
     getoldTractorList();
-
   
 
     // Initial population
@@ -205,10 +204,8 @@ $(document).on('click', '#loadMoreBtn', function () {
         cardsDisplayed++;
     });
 
-    // Hide the "Load More" button if all cards are displayed
-    if (cardsDisplayed >= allCards.length) {
-        $("#loadMoreBtn").hide();
-    }
+    // Initial population
+    // getoldTractorList();
 });
 
 function populateDropdowns() {

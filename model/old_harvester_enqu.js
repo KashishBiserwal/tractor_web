@@ -170,78 +170,82 @@ function BackgroundUpload() {
 
 //****get data***
 function get_old_harvester_enqu() {
-    var apiBaseURL = APIBaseURL;
-    var url = apiBaseURL + 'get_enquiry_for_old_harvester';
-    
-    $.ajax({
-        url: url,
-        type: "GET",
-        headers: {
-            'Authorization': 'Bearer ' + localStorage.getItem('token')
-        },
-        success: function (data) {
-            const tableBody = $('#data-table'); // Use jQuery selector for the table body
-            tableBody.empty(); // Clear previous data
+  var apiBaseURL = APIBaseURL;
+  var url = apiBaseURL + 'get_enquiry_for_old_harvester';
+  
+  $.ajax({
+      url: url,
+      type: "GET",
+      headers: {
+          'Authorization': 'Bearer ' + localStorage.getItem('token')
+      },
+      success: function (data) {
+          const tableBody = $('#data-table'); // Use jQuery selector for the table body
+          tableBody.empty(); // Clear previous data
 
-            let serialNumber = 1;
+          let serialNumber = 1;
 
-            if (data.enquiry_data && data.enquiry_data.length > 0) {
-                // Initialize DataTable
-                var table = $('#example').DataTable({
-                    paging: true,
-                    searching: true,
-                    columns: [
-                        { title: 'S.No.' },
-                        { title: 'Date'},
-                        { title: 'Brand'},
-                        { title: 'Model'},
-                        { title: 'Full Name' },
-                        { title: 'Mobile' },
-                        { title: 'State' },
-                        { title: 'District' }, 
-                        { title: 'Action', orderable: false }
-                    ]
-                });
+          if (data.enquiry_data && data.enquiry_data.length > 0) {
+              // Initialize DataTable
+              var table = $('#example').DataTable({
+                  paging: true,
+                  searching: true,
+                  columns: [
+                      { title: 'S.No.' },
+                      { title: 'Date'},
+                      { title: 'Brand'},
+                      { title: 'Model'},
+                      { title: 'Full Name' },
+                      { title: 'Mobile' },
+                      { title: 'State' },
+                      { title: 'District' }, 
+                      { title: 'Action', orderable: false }
+                  ]
+              });
 
-                data.enquiry_data.forEach(row => {
-                    const fullName = row.first_name + ' ' + row.last_name;
+              // Reverse the order of data
+              data.enquiry_data.reverse();
 
-                    // Add row to DataTable
-                    table.row.add([
-                        serialNumber,
-                        row.date,
-                        row.brand_name,
-                        row.model,
-                        fullName,
-                        row.mobile,
-                        row.state_name,
-                        row.district_name,
-                        `<div class="d-flex">
-                            <button class="btn btn-warning btn-sm text-white mx-1" data-bs-toggle="modal" onclick="openViewdata(${row.id});" data-bs-target="#view_old_harvester_enqu">
-                                <i class="fas fa-eye" style="font-size: 11px;"></i>
-                            </button>
-                            <button class="btn btn-primary btn-sm btn_edit" onclick="fetch_edit_data(${row.id});" data-bs-toggle="modal" data-bs-target="#editmodel_old_harvester" id="yourUniqueIdHere">
-                                <i class="fas fa-edit" style="font-size: 11px;"></i>
-                            </button>
-                            <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.id});">
-                                <i class="fa fa-trash" style="font-size: 11px;"></i>
-                            </button>
-                        </div>`
-                    ]).draw(false);
+              data.enquiry_data.forEach(row => {
+                  const fullName = row.first_name + ' ' + row.last_name;
 
-                    serialNumber++;
-                });
-            } else {
-                tableBody.html('<tr><td colspan="7">No valid data available</td></tr>');
-            }
-        },
-        error: function (error) {
-            console.error('Error fetching data:', error);
-        }
-    });
+                  // Add row to DataTable
+                  table.row.add([
+                      serialNumber,
+                      row.date,
+                      row.brand_name,
+                      row.model,
+                      fullName,
+                      row.mobile,
+                      row.state_name,
+                      row.district_name,
+                      `<div class="d-flex">
+                          <button class="btn btn-warning btn-sm text-white mx-1" data-bs-toggle="modal" onclick="openViewdata(${row.id});" data-bs-target="#view_old_harvester_enqu">
+                              <i class="fas fa-eye" style="font-size: 11px;"></i>
+                          </button>
+                          <button class="btn btn-primary btn-sm btn_edit" onclick="fetch_edit_data(${row.id});" data-bs-toggle="modal" data-bs-target="#editmodel_old_harvester" id="yourUniqueIdHere">
+                              <i class="fas fa-edit" style="font-size: 11px;"></i>
+                          </button>
+                          <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.id});">
+                              <i class="fa fa-trash" style="font-size: 11px;"></i>
+                          </button>
+                      </div>`
+                  ]).draw(false);
+
+                  serialNumber++;
+              });
+          } else {
+              tableBody.html('<tr><td colspan="7">No valid data available</td></tr>');
+          }
+      },
+      error: function (error) {
+          console.error('Error fetching data:', error);
+      }
+  });
 }
 
 get_old_harvester_enqu();
+
 
 
 function get() {
@@ -706,6 +710,3 @@ function get_model_1(brand_id, selectedModel) {
 
 get_1();
 
-
-populateDropdownsFromClass('state-dropdown', 'district-dropdown', 'tehsil-dropdown');
-populateStateDropdown('state_select', 'district_select');

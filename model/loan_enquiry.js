@@ -35,8 +35,9 @@ $(document).ready(function(){
                             { title: 'S.No.' },
                             { title: 'Date' },
                             { title: 'Loan Type' },
-                            { title: 'Name' }, // Change to match table header
-                            { title: 'Phone Number' }, // Change to match table header
+                            { title: 'Name' },
+                            { title: 'Phone Number'},
+                            { title: 'District'},
                             { title: 'State' },
                             { title: 'Action', orderable: false }
                         ]
@@ -52,6 +53,7 @@ $(document).ready(function(){
                             row.loan_type_value,
                             fullName,
                             row.mobile,
+                            row.district_name,
                             row.state_name,
                             `<div class="d-flex">
                                 <button class="btn btn-warning btn-sm text-white mx-1" data-bs-toggle="modal" onclick="openViewdata(${row.id});" data-bs-target="#view_model_nursery_enq">
@@ -152,7 +154,7 @@ function get_loan_type() {
 get_loan_type();
 
 function get_1() {
-    var url = 'http://tractor-api.divyaltech.com/api/customer/get_all_brands';
+    var url = 'http://tractor-api.divyaltech.com/api/customer/get_brand_for_finance';
     $.ajax({
         url: url,
         type: "GET",
@@ -160,7 +162,7 @@ function get_1() {
             'Authorization': 'Bearer ' + localStorage.getItem('token')
         },
         success: function (data) {
-            console.log(data);
+            // console.log(data);
             const select = document.getElementById('brand_name');
             select.innerHTML = '<option selected disabled value="">Please select an option</option>';
   
@@ -168,7 +170,8 @@ function get_1() {
                 data.brands.forEach(row => {
                     const option = document.createElement('option');
                     option.textContent = row.brand_name;
-                    option.value = row.brand_id;
+                    option.value = row.id;
+                    // console.log(row.id,);
                     select.appendChild(option);
                 });
   
@@ -187,8 +190,8 @@ function get_1() {
     });
   }
   
-  function get_model_1(brand_id) {
-    var url = 'http://tractor-api.divyaltech.com/api/customer/get_brand_model/' + brand_id;
+  function get_model_1(id) {
+    var url = 'http://tractor-api.divyaltech.com/api/customer/get_brand_model/' + id;
     $.ajax({
         url: url,
         type: "GET",
@@ -225,7 +228,7 @@ function get_1() {
 
 //   for search
 function get_search1() {
-    var url = 'http://tractor-api.divyaltech.com/api/customer/get_all_brands';
+    var url = 'http://tractor-api.divyaltech.com/api/customer/get_brand_for_finance';
     $.ajax({
         url: url,
         type: "GET",
@@ -290,10 +293,10 @@ function fetch_edit_data(id) {
 
             var brandDropdown = document.getElementById('brand_name');
             for (var i = 0; i < brandDropdown.options.length; i++) {
-                if (brandDropdown.options[i].text === Data.brand_name) {
-                    brandDropdown.selectedIndex = i;
-                    break;
-                }
+              if (brandDropdown.options[i].text === Data.brand_name) {
+                brandDropdown.selectedIndex = i;
+                break;
+              }
             }
 
             $('#model_name').empty();
@@ -348,7 +351,7 @@ function edit_insurance() {
     var first_name = $("#first_name").val();
     var last_name = $("#last_name").val();
     var mobile_no = $("#mobile_no").val();
-    var brand_name = $("#brand_name").val();
+    var brand = $("#brand_name").val();
     var model_name = $("#model_name").val();
     var vehicle_no = $("#vehicle_no").val();
     var registerd_year = $("#registerd_year").val();
@@ -369,11 +372,11 @@ function edit_insurance() {
         'first_name': first_name,
         'last_name': last_name,
         'mobile': mobile_no,
-        'brand_id': brand_name,
+        'brand_id': brand,
         'model': model_name,
         'vehicle_registered_num': vehicle_no,
         'registered_year': registerd_year,
-        'insurance_type_id': insurance_type,
+        'loan_type_id': insurance_type,
         'state': state_2,
         'district': dist_2,
         'tehsil': tehsil_2,
@@ -441,88 +444,91 @@ function openViewdata(userId) {
   } 
 
 //   search dataaa
-  function search_data() {
+function search_data() {
     var selectedBrand = $('#brand_search').val();
     var state = $('#state_state').val();
     var district = $('#dist_state').val();
     var paraArr = {
-      'brand_id': selectedBrand,
-      'state':state,
-      'district':district,
+        'brand_id': selectedBrand,
+        'state': state,
+        'district': district,
     };
-  
+
     var apiBaseURL = APIBaseURL;
-    var url = apiBaseURL + 'search_for_insurance_enquiry';
+    var url = apiBaseURL + 'search_for_loan_enquiry';
+    console.log(url,'dfghdfgdfg');
     $.ajax({
-        url:url, 
+        url: url,
         type: 'POST',
         data: paraArr,
-      
+
         headers: {
             'Authorization': 'Bearer ' + localStorage.getItem('token')
         },
-        success: function (searchData) {
-          updateTable(searchData);
+        success: function (data) {
+            const tableBody = $('#data-table'); // Use jQuery selector for the table body
+            
+            // Clear DataTable before adding new rows
+            $('#example').DataTable().clear().draw();
+
+            if (data.Enquiry_for_loan_data && data.Enquiry_for_loan_data.length > 0) {
+                var table = $('#example').DataTable({
+                    paging: true,
+                    searching: true,
+                    columns: [
+                        { title: 'S.No.' },
+                        { title: 'Date' },
+                        { title: 'Loan Type' },
+                        { title: 'Name' },
+                        { title: 'Phone Number' },
+                        { title: 'District' },
+                        { title: 'State' },
+                        { title: 'Action', orderable: false }
+                    ]
+                });
+
+                let serialNumber = 1; // Define serialNumber here
+
+                data.Enquiry_for_loan_data.forEach(row => {
+                    const fullName = row.first_name + ' ' + row.last_name;
+
+                    // Add row to DataTable
+                    table.row.add([
+                        serialNumber++,
+                        row.date,
+                        row.loan_type_value,
+                        fullName,
+                        row.mobile,
+                        row.district_name,
+                        row.state_name,
+                        `<div class="d-flex">
+                        <button class="btn btn-warning btn-sm text-white mx-1" data-bs-toggle="modal" onclick="openViewdata(${row.id});" data-bs-target="#view_model_nursery_enq">
+                            <i class="fas fa-eye" style="font-size: 11px;"></i>
+                        </button>
+                        <button class="btn btn-primary btn-sm btn_edit" onclick="fetch_edit_data(${row.id});" data-bs-toggle="modal" data-bs-target="#editmodel_nursery_enq" id="yourUniqueIdHere">
+                            <i class="fas fa-edit" style="font-size: 11px;"></i>
+                        </button>
+                        <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.id});">
+                            <i class="fa fa-trash" style="font-size: 11px;"></i>
+                        </button>
+                    </div>`
+                    ]).draw(false);
+                });
+            } else {
+                tableBody.html('<tr><td colspan="6">No valid data available</td></tr>');
+            }
         },
-        error: function (error) {
-            console.error('Error searching for brands:', error);
+        error: function (xhr, status, error) {
+            if (xhr.status === 404) {
+                // Handle 404 error here
+                const tableBody = $('#data-table');
+                tableBody.html('<tr><td colspan="8">No matching data available</td></tr>');
+            } else {
+                console.error('Error fetching data:', error);
+            }
         }
     });
-  };
-  function updateTable(data) {
-    const tableBody = $('#data-table');
-    tableBody.empty();
-
-    if (data.enquiry_for_insurance_data && data.enquiry_for_insurance_data.length > 0) {
-        let serialNumber = data.enquiry_for_insurance_data.length;
-
-        // Initialize DataTable outside the loop
-        var table = $('#example').DataTable({
-            paging: true,
-            searching: true,
-            columns: [
-                { title: 'S.No.' },
-                { title: 'Date' },
-                { title: 'Loan Type' },
-                { title: 'Brand' },
-                { title: 'Full Name' },
-                { title: 'State' },
-                { title: 'District' },
-                { title: 'Action', orderable: false }
-            ]
-        });
-
-        data.enquiry_for_insurance_data.forEach(row => {
-            const fullName = row.first_name + ' ' + row.last_name;
-            let action = `<div class="d-flex">
-                <button class="btn btn-warning btn-sm text-white mx-1" data-bs-toggle="modal" onclick="openViewdata(${row.id});" data-bs-target="#view_model_nursery_enq">
-                    <i class="fas fa-eye" style="font-size: 11px;"></i>
-                </button>
-                <button class="btn btn-primary btn-sm btn_edit" onclick="fetch_edit_data(${row.id});" data-bs-toggle="modal" data-bs-target="#editmodel_nursery_enq" id="yourUniqueIdHere">
-                    <i class="fas fa-edit" style="font-size: 11px;"></i>
-                </button>
-                <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.id});">
-                    <i class="fa fa-trash" style="font-size: 11px;"></i>
-                </button>
-            </div>`;
-
-            table.row.add([
-                serialNumber--,
-                row.date,
-                row.insurance_type_name,
-                row.brand_name,
-                fullName,
-                row.state,
-                row.district,
-                action
-            ]).draw(false);
-        });
-    } else {
-        // Display a message if there's no valid data
-        tableBody.html('<tr><td colspan="8">No valid data available</td></tr>');
-    }
 }
-
 
 
 function resetform(){
@@ -533,6 +539,3 @@ function resetform(){
     window.location.reload();
 }
 
-
-// populateDropdownsFromClass('state-dropdown', 'district-dropdown', 'tehsil-dropdown');
-// populateStateDropdown('state_select', 'district_select');

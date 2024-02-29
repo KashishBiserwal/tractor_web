@@ -284,7 +284,10 @@ function get_news() {
                 let tableData = [];
                 let counter = 1;
 
-                data.blog_details.forEach(row => {
+                // Reverse the order of the data
+                let reversedData = data.blog_details.slice().reverse();
+                
+                reversedData.forEach(row => {
                     let action = `
                         <div class="d-flex">
                           <button class="btn btn-warning btn-sm text-white mx-1" data-bs-toggle="modal" onclick="fetch_data(${row.id});" data-bs-target="#exampleModal">
@@ -329,8 +332,9 @@ function get_news() {
             console.error('Error fetching data:', error);
         }
     });
-  }
-  get_news();
+}
+get_news();
+
 
 
   // **delete***
