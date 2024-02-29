@@ -24,6 +24,27 @@
 
 
     <style>
+        .step-container {
+            position: relative;
+            text-align: center;
+            transform: translateY(-43%);
+        }
+
+        .step-circle {
+            width: 20px;
+            height: 22px;
+            border-radius: 50%;
+            background-color: #4a80d2;
+            color: #4a80d2;
+            /* border: 6px solid #007bff; */
+            line-height: 30px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 10px;
+            cursor: pointer;
+        }
         .upload__inputfile {
   width: .1px;
   height: .1px;

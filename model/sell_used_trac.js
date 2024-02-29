@@ -60,7 +60,7 @@ function get() {
                     data.model.forEach(row => {
                         const option = document.createElement('option');
                         option.textContent = row.model;
-                        option.value = row.id;
+                        option.value = row.model;
                         console.log(option);
                         select.appendChild(option);
                     });
@@ -137,7 +137,7 @@ function store(event) {
     var product_type_id = 1; 
     var brand_name = $('#b_brand').val();
     var model = $('#m_model').val();
-    var horse_driven = $('#h_hours').val();
+    var horse_driven = $('#h_driven').val();
     var purchase_year = $('#p_year').val();
     var engine_condition = $('#engine_condition').val();
     var tyre_condition = $('#tyre_condition').val();
@@ -207,6 +207,8 @@ function store(event) {
             $("#errorStatusLoading").find('.modal-body').html(msg);
             $("#errorStatusLoading").find('.modal-body').html('<img src="assets/images/7efs.gif" style="display:block; margin:0 auto;" class="w-50 text-center" alt="Successfull Request"></img>');
             console.log('Add successfully');
+            // document.getElementById("myForm").reset();
+          
         },
         error: function (error) {
             console.error('Error fetching data:', error);
@@ -219,4 +221,3 @@ function store(event) {
     });
 }
 
-populateDropdownsFromClass('state-dropdown', 'district-dropdown', 'tehsil-dropdown');

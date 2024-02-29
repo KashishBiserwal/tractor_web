@@ -69,82 +69,85 @@
         margin: 0;
         }
 
-        .upload__box {
-        /* padding: 40px; */
-        width: 20;
-        margin-left: 187px;
-        }
+         .upload__inputfile {
+  width: .1px;
+  height: .1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+  }
 
-        .upload__inputfile {
-        width: .1px;
-        height: .1px;
-        opacity: 0;
-        overflow: hidden;
-        position: absolute;
-        z-index: -1;
-        }
+  .upload__btn {
+  display: inline-block;
+  font-weight: 600;
+  color: #fff;
+  text-align: center;
+  min-width: 150px;
+  padding: 5px;
+  transition: all .3s ease;
+  cursor: pointer;
+  border: 2px solid;
+  background-color:  #198754;
+  border-color:  #198754;
+  border-radius: 10px;
+  line-height: 26px;
+  font-size: 14px;
+  }
 
-        .upload__btn {
-        display: inline-block;
-        font-weight: 600;
-        color: #fff;
-        text-align: center;
-        min-width: 150px;
-        padding: 5px;
-        transition: all .3s ease;
-        cursor: pointer;
-        border: 2px solid;
-        background-color:  #198754;
-        border-color:  #198754;
-        border-radius: 10px;
-        line-height: 26px;
-        font-size: 14px;
-        }
+  .upload__btn:hover {
+  background-color: unset;
+  color:  #198754;
+  transition: all .3s ease;
+  }
 
-        .upload__btn:hover {
-        background-color: unset;
-        color:  #198754;
-        transition: all .3s ease;
-        }
+  .upload__btn-box {
+  margin-bottom: 10px;
+  margin-top:-25px;
+  }
 
-        .upload__btn-box {
-        margin-bottom: 10px;
-        margin-top:-25px;
-        width: 150px;
-        margin-left: -240px;
-        }
+  .upload__img-wrap {
+    display: flex;
+    flex-wrap: wrap;
+  }
 
-        /* .upload__img-wrap {
-        display: flex;
-        flex-wrap:nowrap;
-        } */
+  .upload__img-box {
+  flex: 0 0 calc(33.333% - 20px); 
+  margin: 0 10px 20px; 
+  position: relative;
+  display: flex;
+    flex-wrap: wrap;
+  }
 
-        /* .upload__img-box {
-        flex: 0 0 calc(33.333% - 20px); 
-        margin: 0 -77px 4px; 
-        position: relative;
-        } */
-            /* 
-        .upload__img-close {
-        width: 24px;
-        height: 24px;
-        border-radius: 50%;
-        background-color: rgba(0, 0, 0, 0.5);
-        position: absolute;
-        top: 10px;
-        right: 10px;
-        text-align: center;
-        line-height: 24px;
-        z-index: 1;
-        cursor: pointer;
-        } */
+  .upload__img-close,.upload__img-close_button {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  top: 10px;
+  right: 60px;
+  text-align: center;
+  line-height: 24px;
+  z-index: 1;
+  cursor: pointer;
+  }
 
-        .upload__img-close:after {
-        content: '\2716';
-        font-size: 14px;
-        color: white;
-        }
+  .upload__img-close:after,.upload__img-close_button:after {
+  content: '\2716';
+  font-size: 14px;
+  color: white;
+  }
+  
 
+  .img-bg {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  position: relative;
+  width: 160px;
+  height: 125px;
+  }
         body {
             font-family: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", Helvetica, Arial, sans-serif; 
         }
@@ -327,9 +330,9 @@
                                                 <label for="_model"class="form-label text-dark">Model</label>
                                                 <select class="form-select py-2 " aria-label=".form-select-lg example" name="_model" id="m_model" required>
                                                     <option value="" selected-disabled=""></option>
-                                                    <option value="1">MU4501 2WD</option>
+                                                    <!-- <option value="1">MU4501 2WD</option>
                                                     <option value="2">MU5501</option>
-                                                    <option value="2">A211N-OP</option>
+                                                    <option value="2">A211N-OP</option> -->
                                                 </select>
                                             </div>
                                         </div>
@@ -348,7 +351,7 @@
                                             <div class="form-outline my-2">
                                                 <label for="_e_con" class="form-label text-dark">Engine Condition</label>
                                                 <select class="form-select py-2 " aria-label=".form-select-lg example" name="_e_con" id="engine_condition" required>
-                                                    <option value="" selected-disabled=""></option>
+                                                    <option value="">Select Engine Condition</option>
                                                     <option value="0-25%(poor)">0-25%(poor)</option>
                                                     <option value="25-50%(Average)">25-50%(Average)</option>
                                                     <option value="51-75%(Good)">51-75%(Good)</option>
@@ -360,7 +363,7 @@
                                             <div class="form-outline my-2">
                                                 <label for="_t_con"class="form-label text-dark">Tyre Condition</label>
                                                 <select class="form-select py-2 " aria-label=".form-select-lg example" name="_t_con" id="tyre_condition" required>
-                                                    <option value="" selected-disabled=""></option>
+                                                    <option value="">Select Tyre Condition</option>
                                                     <option value="0-25%(poor)">0-25%(poor)</option>
                                                     <option value="25-50%(Average)">25-50%(Average)</option>
                                                     <option value="51-75%(Good)">51-75%(Good)</option>
@@ -372,7 +375,7 @@
                                             <div class="form-outline my-2">
                                                 <label for="_h_driven"class="form-label text-dark">Hours driven</label>
                                                 <select class="form-select py-2 " aria-label=".form-select-lg example" name="_h_driven" id="h_driven" required>
-                                                    <option value="" selected-disabled=""></option>
+                                                    <option value=""></option>
                                                     <option value="1">Less then 1000</option>
                                                     <option value="2">1001-2000</option>
                                                     <option value="2">2001-3000</option>
@@ -451,8 +454,8 @@
                                                 <input type="file" multiple="" data-max_length="3" class="upload__inputfile" id="f_file" name="_file">
                                             </label>
                                         </div>
-                                        <div class="col-sm-6">
-                                            <div class="upload__img-wrap"></div>
+                                        <div class="col-sm-12">
+                                            <div class="upload__img-wrap" style="display:flex; flex-wrap:wrap;"></div>
                                         </div>
                                     </div>
                                     <!-- <input type="file" id="_file" multiple="" class="w-100 pb-0 mb-auto" name="_file" required> -->
@@ -941,83 +944,64 @@
         
     </script>
 
-    <script>
+<script>
         $(document).ready(function () {
-        // Function to display a specific step
+            // Function to display a specific step
             function displayStep(stepNumber) {
-            if (stepNumber >= 1 && stepNumber <= 3) {
-                $(".mul_stp_frm").hide();
-                $("#form-step-" + stepNumber).show();
-                updateProgressBar(stepNumber); // Update the progress bar for the given step
+                if (stepNumber >= 1 && stepNumber <= 4) {
+                    $(".mul_stp_frm").hide();
+                    $("#form-step-" + stepNumber).show();
+                    updateProgressBar(stepNumber); // Update the progress bar for the given step
+                }
             }
-        }
 
-        // Function to check if all three forms are valid
-        function areAllFormsValid() {
-            var formsValid = true;
+            // Function to check if all three forms are valid
+            function areAllFormsValid() {
+                var formsValid = true;
 
-            $("form").each(function () {
-                if (!$(this).valid()) {
-                    formsValid = false;
-                    return false; // Break out of the loop if any form is invalid
+                $("form").each(function () {
+                    if (!$(this).valid()) {
+                        formsValid = false;
+                        return false; // Break out of the loop if any form is invalid
+                    }
+                });
+
+                return formsValid;
+            }
+
+            // Function to reset all forms
+            function resetForms() {
+                $("form").each(function () {
+                    this.reset(); // Reset each form
+                });
+
+                // Additional reset for specific fields in the third form
+                $("#form-step-3 input[type='file']").val(''); // Reset file inputs in form-step-3
+            }
+
+            // Function to update the progress bar based on the current step
+            function updateProgressBar(stepNumber) {
+                var progressPercentage = ((stepNumber - 1) / 3) * 100; // Assuming 3 steps, calculating the progress percentage
+                $(".progress-bar").css("width", progressPercentage + "%");
+            }
+
+            // Function to reset forms, display step, and show success message
+            $("#sell_used_trac_btn").click(function () {
+                if (areAllFormsValid()) {
+                    resetForms(); // Reset forms if valid
+                    displayStep(1); // Show the first form after resetting
+                    showSuccessMessage(); // Show success message after form submission
                 }
             });
 
-            return formsValid;
-        }
-
-        // Function to reset all forms
-        function resetForms() {
-            $("form").each(function () {
-                this.reset(); // Reset each form
-            });
-    }
-
-            // Additional reset for specific fields in the third form
-            $("#form-step-3 input[type='file']").val(''); // Reset file inputs in form-step-3
-        }
-
-        // Function to update the progress bar based on the current step
-        function updateProgressBar(stepNumber) {
-            var progressPercentage = ((stepNumber - 1) / 2) * 100; // Assuming 3 steps, calculating the progress percentage
-            $(".progress-bar").css("width", progressPercentage + "%");
-        }
-        .mine
-
-    // Function to update the progress bar based on the current step
-    function updateProgressBar(stepNumber) {
-        var progressPercentage = ((stepNumber - 1) / 2) * 100; // Assuming 3 steps, calculating the progress percentage
-        $(".progress-bar").css("width", progressPercentage + "%");
-    });
-
-    // Function to show confirmation box and reset forms
-    $("#sell_used_trac_btn").click(function () {
-        if (areAllFormsValid()) {
-            // Check if all three forms are valid before showing the confirmation box
-            if (window.confirm("Are you sure you want to submit?")) {
-                resetForms(); // Reset forms if confir
-        // Function to reset forms, display step, and show success message
-        $("#sell_used_trac_btn").click(function () {
-            if (areAllFormsValid()) {
-                resetForms(); // Reset forms if valid
-
-                displayStep(1); // Show the first form after resetting
-            }
+            // Function to show success message after form submission using SweetAlert
+            // function showSuccessMessage() {
+            //     Swal.fire({
+            //         title: "Congratulations!",
+            //         text: "Your form is submitted successfully!",
+            //         icon: "success"
+            //     });
+            // }
         });
-    }
-        // Function to show success message after form submission using SweetAlert
-        function showSuccessMessage() {
-            Swal.fire({
-                title: "Congratulations!",
-                text: "Your form is submitted successfully!",
-                icon: "success"
-            });
-        }
-    }
-      });
-    
-
     </script>
-
-    // Existing code...
   
