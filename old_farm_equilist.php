@@ -28,7 +28,7 @@
               </li>
             </ol>
           </nav>
-          <button type="button" id="add_trac" class="btn add_btn btn-success float-right add_trac" data-bs-toggle="modal"  data-bs-target="#staticBackdrop">
+          <button type="button" id="add_trac" class="btn add_btn btn-success float-right add_trac" data-bs-toggle="modal"  data-bs-target="#staticBackdrop" onclick="resetFormFields()">
               <i class="fa fa-plus" aria-hidden="true"></i> Add Old Farm Implements
           </button>
 
@@ -82,9 +82,7 @@
                                   <div class="form-outline">
                                     <label class="form-label text-dark">Purchase Year</label>
                                     <select class="form-select form-control" aria-label=".form-select-lg example" id="year" name="year">
-                                      <option value="">Select Purchase Year</option>
-                                      <option value="2020">2020</option>
-                                       <option value="2021">2021</option>
+                                    
                                     </select>
                                   </div>
                                 </div>
@@ -93,9 +91,8 @@
                                   <div class="form-outline">
                                     <label class="form-label text-dark">Hours Drive</label>
                                     <select class="form-select form-control " aria-label=".form-select-lg example" id="hours_driven" name="hours">
-                                      <option value="">Select Hours Drive</option>
-                                      <option value="1">1</option>
-                                      <option value="2">2</option>
+                                      
+                                
                                     </select>
                                     </select>
                                   </div>
@@ -122,7 +119,7 @@
                                             <input type="file" multiple="" data-max_length="20" class="upload__inputfile" id="_image" name="_image">
                                           </label>
                                         </div>
-                                        <div id="selectedImagesContainer" class="upload__img-wrap"></div>
+                                        <div id="selectedImagesContainer" class="upload__img-wrap w-50 h-50"></div>
                                       </div>
                                         </div>
                                   <h5 class="fw-bold mt-4 ">Personal Information</h5>

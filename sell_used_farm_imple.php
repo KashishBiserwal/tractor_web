@@ -57,49 +57,86 @@
         margin: 0;
         }
 
-        .upload__box {
-        /* padding: 40px; */
-        width: 20;
-        }
-
         .upload__inputfile {
-        width: .1px;
-        height: .1px;
-        opacity: 0;
-        overflow: hidden;
-        position: absolute;
-        z-index: -1;
-        }
+  width: .1px;
+  height: .1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+  }
 
-        .upload__btn {
-        display: inline-block;
-        font-weight: 600;
-        color: #fff;
-        text-align: center;
-        min-width: 150px;
-        padding: 5px;
-        transition: all .3s ease;
-        cursor: pointer;
-        border: 2px solid;
-        background-color:  #198754;
-        border-color:  #198754;
-        border-radius: 10px;
-        line-height: 26px;
-        font-size: 14px;
-        }
+  .upload__btn {
+  display: inline-block;
+  font-weight: 600;
+  color: #fff;
+  text-align: center;
+  min-width: 150px;
+  padding: 5px;
+  transition: all .3s ease;
+  cursor: pointer;
+  border: 2px solid;
+  background-color:  #198754;
+  border-color:  #198754;
+  border-radius: 10px;
+  line-height: 26px;
+  font-size: 14px;
+  }
 
-        .upload__btn:hover {
-        background-color: unset;
-        color:  #198754;
-        transition: all .3s ease;
-        }
+  .upload__btn:hover {
+  background-color: unset;
+  color:  #198754;
+  transition: all .3s ease;
+  }
 
-        .upload__img-close:after {
-        content: '\2716';
-        font-size: 14px;
-        color: white;
-        }
+  .upload__btn-box {
+  margin-bottom: 10px;
+  margin-top:-25px;
+  }
 
+  .upload__img-wrap {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .upload__img-box {
+  flex: 0 0 calc(33.333% - 20px); 
+  margin: 0 10px 20px; 
+  position: relative;
+  display: flex;
+    flex-wrap: wrap;
+  }
+
+  .upload__img-close,.upload__img-close_button {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  top: 10px;
+  right: 60px;
+  text-align: center;
+  line-height: 24px;
+  z-index: 1;
+  cursor: pointer;
+  }
+
+  .upload__img-close:after,.upload__img-close_button:after {
+  content: '\2716';
+  font-size: 14px;
+  color: white;
+  }
+  
+
+  .img-bg {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  position: relative;
+  width: 160px;
+  height: 125px;
+  }
+     
         body {
             font-family: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", Helvetica, Arial, sans-serif; 
         }      
@@ -303,7 +340,7 @@
                             <div class="step step-3">
                                 <!-- Step 3 form fields here -->
                                 <p class="text-center mb-4">Implement Images</p>
-                                <div class="col-12 col-sm-12 col-md-12 col-lg-12 mb-0 m-0 p-1">
+                                <div class="col-12 col-sm-12 col-md-12 col-lg-12">
                                     <div class="upload__box">
                                         <div class="upload__btn-box">
                                             <label>
@@ -311,7 +348,7 @@
                                                 <input type="file" multiple="" data-max_length="3" class="upload__inputfile" id="m_file" name="_file">
                                             </label>
                                         </div>
-                                        <div class="col-sm-6">
+                                        <div class="col-sm-12" style="display:flex; flex-wrap:wrap;">
                                             <div class="upload__img-wrap"></div>
                                         </div>
                                     </div>

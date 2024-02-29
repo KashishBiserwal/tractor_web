@@ -229,7 +229,7 @@ include 'includes/headertag.php';
                                   <input type="text" id="price_old" name="price_old" class=" data_search form-control input-group-sm py-2" />
                                 </div>
                               </div>
-                              <div class="col-12 col-lg-6 col-md-6 col-sm-6 row">
+                              <!-- <div class="col-12 col-lg-6 col-md-6 col-sm-6 row">
                               <div class="upload__box ">
                                             <div class="upload__btn-box text-center mt-3">
                                               <label >
@@ -237,15 +237,20 @@ include 'includes/headertag.php';
                                                 <input type="file" multiple="" data-max_length="20" class="upload__inputfile" id="_image" name="_image">
                                               </label>
                                             </div>
-                                            <div id="selectedImagesContainer" class="upload__img-wrap float-start"></div>
+                                            <div id="selectedImagesContainer" class="upload__img-wrap"></div>
                                           </div>
-                              </div>
-                              <!-- <div class="col-12 col-sm-8 col-lg-8 col-md-8 mt-4">
-                                <div class="form-outline">
-                                  <label class="form-label" for="mobile_number">Description</label>
-                                  <textarea type="text" id="description" name="description" class=" data_search form-control input-group-sm py-2"></textarea>
-                                </div>
                               </div> -->
+                              <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
+                                  <div class="upload__box ">
+                                     <div class="upload__btn-box text-center mt-3">
+                                      <label >
+                                        <p class="upload__btn ">Upload images</p>
+                                        <input type="file" multiple="" data-max_length="20" class="upload__inputfile" id="_image" name="_image">
+                                      </label>
+                                    </div>
+                                    <div id="selectedImagesContainer" class="upload__img-wrap"></div>
+                                  </div>
+                                </div>
                               <div class="col-12 col-sm-6 col-lg-6 col-md-6 my-2" hidden>
                                 <div class="form-outline">
                                   <label class="form-label">Product Type</label>

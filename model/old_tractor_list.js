@@ -71,21 +71,21 @@ $(document).ready(function() {
   function ImgUpload() {
     var imgWrap = "";
     var imgArray = [];
-
+  
     $('.upload__inputfile').each(function () {
       $(this).on('change', function (e) {
         imgWrap = $(this).closest('.upload__box').find('.upload__img-wrap');
         var maxLength = $(this).attr('data-max_length');
-
+  
         var files = e.target.files;
         var filesArr = Array.prototype.slice.call(files);
         var iterator = 0;
         filesArr.forEach(function (f, index) {
-
+  
           if (!f.type.match('image.*')) {
             return;
           }
-
+  
           if (imgArray.length > maxLength) {
             return false
           } else {
@@ -99,7 +99,7 @@ $(document).ready(function() {
               return false;
             } else {
               imgArray.push(f);
-
+  
               var reader = new FileReader();
               reader.onload = function (e) {
                 var html = "<div class='upload__img-box'><div style='background-image: url(" + e.target.result + ")' data-number='" + $(".upload__img-close").length + "' data-file='" + f.name + "' class='img-bg'><div class='upload__img-close'></div></div></div>";
@@ -112,7 +112,7 @@ $(document).ready(function() {
         });
       });
     });
-
+  
     $('body').on('click', ".upload__img-close", function (e) {
       var file = $(this).parent().data("file");
       for (var i = 0; i < imgArray.length; i++) {
@@ -125,7 +125,6 @@ $(document).ready(function() {
     });
   }
 
-
   function removeImage(ele){
     console.log("print ele");
       console.log(ele);
@@ -136,7 +135,6 @@ $(document).ready(function() {
       $(".upload__img-closeDy"+thisId).remove();
   
     }
-
     function getbrand() {
       var url = 'http://tractor-api.divyaltech.com/api/customer/get_all_brands';
       $.ajax({
@@ -649,29 +647,30 @@ function fetch_edit_data(customer_id) {
       }, 1000); // Adjust the delay time as needed
 
       // Selected Images
-      $("#selectedImagesContainer").empty();
+  // Empty the selectedImagesContainer only if there are no images to append
+if (!$("#selectedImagesContainer").children().length && userData.image_names) {
+  var imageNamesArray = Array.isArray(userData.image_names) ? userData.image_names : userData.image_names.split(',');
+   
+  var countclass = 0;
+  imageNamesArray.forEach(function (image_names) {
+      var imageUrl = 'http://tractor-api.divyaltech.com/uploads/product_img/' + image_names.trim();
+      countclass++;
+      var newCard = `
+          <div class="col-12 col-md-6 col-lg-4 position-relative">
+              <div class="upload__img-close_button" id="closeId${countclass}" onclick="removeImage(this);"></div>
+              <div class="brand-main d-flex box-shadow mt-1 py-2 text-center shadow upload__img-closeDy${countclass}">
+                  <a class="weblink text-decoration-none text-dark" title="Tyre Image">
+                      <img class="img-fluid w-100 h-100" id="img_url" src="${imageUrl}" alt="Tyre Image">
+                  </a>
+              </div>
+          </div>
+      `;
 
-      if (userData.image_names) {
-        // Check if userData.image_names is an array
-        var imageNamesArray = Array.isArray(userData.image_names) ? userData.image_names : userData.image_names.split(',');
-        var countclass = 0;
-        imageNamesArray.forEach(function(imageName) {
-          var imageUrl = 'http://tractor-api.divyaltech.com/uploads/product_img/' + imageName.trim();
-          countclass++;
-          var newCard = `
-                  <div class="col-6 col-lg-6 col-md-6 col-sm-6 position-relative">
-                  <div class="upload__img-close_button" id="closeId${countclass}" onclick="removeImage(this);"></div>
-                      <div class="brand-main d-flex box-shadow mt-2 text-center shadow upload__img-closeDy${countclass}">
-                          <a class="weblink text-decoration-none text-dark" title="Image">
-                              <img class="img-fluid w-100 h-100" src="${imageUrl}" alt=" Image">
-                          </a>
-                      </div>
-                  </div>
-              `;
-          // Append the new image element to the container
-          $("#selectedImagesContainer").append(newCard);
-        });
-      }
+      // Append the new image element to the container
+      $("#selectedImagesContainer").append(newCard);
+  });
+}
+
     },
     error: function(error) {
       console.error('Error fetching user data:', error);
@@ -804,27 +803,36 @@ function fetch_data(product_id){
   }
 
 
-  function resetFormFields() {
-    $('#first_name').val('');
-    $('#last_name').val('');
-    $('#mobile_number').val('');
-    $('#state').val('');
-    $('#district').val('');
-    $('#tehsil').val('');
-    $('#brand').val('');
-    $('#model').val('');
-    $('#purchase_year').val('');
-    $('#condition').val('');
-    $('#tyrecondition').val('');
-    $('#hours_driven').val('');
-    $('input[name="fav_rc"]:checked').val('');
-    $('#rc_num').val('');
-    $('#price_old').val('');
-    $('input[name="fav_language"]:checked').val('');
-    $('input[name="fav_language1"]:checked').val('');
-    $('#_image').val('');
-    $('#_descriptionimage').val('');
-  } 
+  // function resetFormFields() {
+  //   $('#first_name').val('');
+  //   $('#last_name').val('');
+  //   $('#mobile_number').val('');
+  //   $('#state').val('');
+  //   $('#district').val('');
+  //   $('#tehsil').val('');
+  //   $('#brand').val('');
+  //   $('#model').val('');
+  //   $('#purchase_year').val('');
+  //   $('#condition').val('');
+  //   $('#tyrecondition').val('');
+  //   $('#hours_driven').val('');
+  //   $('input[name="fav_rc"]:checked').val('');
+  //   $('#rc_num').val('');
+  //   $('#price_old').val('');
+  //   $('input[name="fav_language"]:checked').val('');
+  //   $('input[name="fav_language1"]:checked').val('');
+  //   $('#_image').val('');
+  //   $('#_descriptionimage').val('');
+  // } 
+
+   
+  function resetFormFields(){
+    document.getElementById("old_tract").reset();
+    document.getElementById("_image").value = '';
+    document.getElementById("selectedImagesContainer").innerHTML = '';
+   
+}
+
   function get_By_State() {
     var url = 'http://tractor-api.divyaltech.com/api/customer/state_data';
     $.ajax({
@@ -858,6 +866,4 @@ function fetch_data(product_id){
   }
   get_By_State();
 
-  populateDropdownsFromClass('state-dropdown', 'district-dropdown', 'tehsil-dropdown');
-
-  populateBrandDropdown('brand_select', 'model_select');
+  
