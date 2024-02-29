@@ -4,7 +4,7 @@ $(document).ready(function() {
     console.log("ready!");
     // populateDropdowns();
     $('#filter_tractor').click(filter_search);
-
+    getoldTractorList();
     var cardsPerPage = 6; // Number of cards to show initially
     var cardsDisplayed = 0; // Counter to keep track of the number of cards displayed
     var allCards; // Variable to store all cards
@@ -203,7 +203,7 @@ $(document).ready(function() {
     });
 
     // Initial population
-    getoldTractorList();
+    // getoldTractorList();
 });
 function populateDropdowns() {
     var stateDropdowns = document.querySelectorAll('.state-dropdown');
@@ -248,7 +248,7 @@ function populateDropdowns() {
     });
 }
 
-    getoldTractorList();
+    // getoldTractorList();
   function tractor_enquiry(formId) {
         // Use the formId to get values dynamically
         var enquiry_type_id = $(`#${formId} #enquiry_type_id`).val();

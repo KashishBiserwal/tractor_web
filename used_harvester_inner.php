@@ -32,20 +32,20 @@
     <div class="container">
         <div class="row my-3">
             <div class="col-12 col-sm-6 col-lg-6 col-md-6">
-                <div>
+            <div>
                 <h4></span> <span  id="brand_model_name"></span></h4>
                 </div>
-                <div>
-                    <div class="swiper swiper_buy mySwiper2_buy">
-                        <div class="swiper-wrapper swiper-wrapper_buy">
-                            <div class=" swiper-slide swiper-slide_buy">
-                            <!-- <img class="img_buy" src="assets/images/437-1632718440.webp" /> -->
+                    <div>
+                        <div class="swiper swiper_buy mySwiper2_buy">
+                            <div class="swiper-wrapper swiper-wrapper_buy">
+                                <div class=" swiper-slide swiper-slide_buy">
+                                    <!-- <img class="img_buy" src="assets/images/437-1632718440.webp" /> -->
+                                </div>
                             </div>
                         </div>
+                        <div thumbsSlider="" class="swiper mySwiper_buy" style="height:75px; width: 43%;" id="swip_img"></div>
                     </div>
-                    <div thumbsSlider="" class="swiper mySwiper_buy" style="height:50px; width: 43%;" id="swip_img"></div>
                 </div>
-            </div>
             <div class="col-12 col-sm-6 col-lg-6 col-md-6" style="z-index: 9; background: #fff;">
                  <div class="pirce-section ">
                     <h5 class="my-2">₹ <span id="price_main"></span> /-</h5>
@@ -61,7 +61,7 @@
                                     <div class="row px-3 ">
                                         <div class="col-12 col-lg-6 col-md-6 col-sm-6 " hidden>
                                             <label for="name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i> First Name</label>
-                                            <input type="text" class="form-control" placeholder="" id="id" name="fname">
+                                            <input type="text" class="form-control" placeholder="" id="customer_id" name="fname">
                                         </div>
                                         <div class="col- col-sm-6 col-lg-6 col-md-6" hidden>
                                           <label class="text-dark"> id Name<span class="text-danger">*</span></label>
@@ -71,6 +71,10 @@
                                         <div class="col-12 col-lg-6 col-md-6 col-sm-6 " hidden>
                                             <label for="name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i> First Name</label>
                                             <input type="text" class="form-control" placeholder="" id="product_subject_id" name="fname">
+                                        </div>
+                                        <div class="col-12 col-lg-6 col-md-6 col-sm-6 " hidden>
+                                            <label for="name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i>Model</label>
+                                            <input type="text" class="form-control" placeholder="" id="model" name="model">
                                         </div>
                                         <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
                                             <label for="name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i> First Name</label>

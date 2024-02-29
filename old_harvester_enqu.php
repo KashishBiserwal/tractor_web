@@ -92,8 +92,8 @@
                     <tr>
                         <th class="d-none d-md-table-cell text-white">S.No.</th>
                         <th class="d-none d-md-table-cell text-white">Date </th>
-                        <th class="d-none d-md-table-cell text-white">Brand </th>
-                        <th class="d-none d-md-table-cell text-white">Model </th>
+                        <th class="d-none d-md-table-cell text-white">Brand</th>
+                        <th class="d-none d-md-table-cell text-white">Model</th>
                         <th class="d-none d-md-table-cell text-white">Name</th>
                         <th class="d-none d-md-table-cell text-white">Mobile Number</th>
                         <th class="d-none d-md-table-cell text-white">State </th>
@@ -106,7 +106,7 @@
             </table>
         </div>
       </div>
-    </div>
+   
    </section>
    <div class="modal fade" id="view_old_harvester_enqu" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
             <div class="modal-dialog modal-lg modal-dialog-centered">
