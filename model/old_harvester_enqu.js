@@ -257,7 +257,7 @@ function get() {
           'Authorization': 'Bearer ' + localStorage.getItem('token')
       },
       success: function (data) {
-          const selects = document.querySelectorAll('#brand_name1');
+          const selects = document.querySelectorAll('#brand_name');
 
           selects.forEach(select => {
               select.innerHTML = '<option selected disabled value="">Please select an option</option>';
@@ -295,7 +295,7 @@ function get_model(brand_id) {
           'Authorization': 'Bearer ' + localStorage.getItem('token')
       },
       success: function (data) {
-          const selects = document.querySelectorAll('#model_2');
+          const selects = document.querySelectorAll('#model_1model_1');
 
           selects.forEach(select => {
               select.innerHTML = '<option selected disabled value="">Please select an option</option>';
@@ -483,7 +483,6 @@ function openViewdata(userId) {
         document.getElementById('First_Name1').innerText=userData.first_name;
         document.getElementById('Last_Name1').innerText=userData.last_name;
         document.getElementById('Mobile_1').innerText=userData.mobile;
-        document.getElementById('email_1').innerText=userData.email;
         document.getElementById('date_1').innerText=userData.date;
         document.getElementById('State_1').innerText=userData.state_name;
         document.getElementById('District_1').innerText=userData.district_name;
@@ -529,14 +528,14 @@ function fetch_edit_data(id) {
             }
           }
 
-          $('#model_2').empty(); 
-          get_model(Data.brand_id); 
+         $('#model_2').empty(); 
+          get_model_1(Data.brand_id); 
 
           // Selecting the option in the model dropdown
           setTimeout(function() { // Wait for the model dropdown to populate
-              $("#model_1 option").prop("selected", false);
-              $("#model_1 option[value='" + Data.model + "']").prop("selected", true);
-          }, 1000); // Adjust the delay time as needed
+              $("#model_2 option").prop("selected", false);
+              $("#model_2 option[value='" + Data.model + "']").prop("selected", true);
+          }, 1000);
 
           setSelectedOption('state_', Data.state_id);
           setSelectedOption('dist_', Data.district_id);
@@ -647,7 +646,7 @@ function get_1() {
       },
       success: function (data) {
           console.log(data);
-          const select = document.getElementById('brand_name');
+          const select = document.getElementById('brand_name1');
           select.innerHTML = '<option selected disabled value="">Please select an option</option>';
 
           if (data.brands.length > 0) {
@@ -683,7 +682,7 @@ function get_model_1(brand_id, selectedModel) {
       },
       success: function (data) {
           console.log(data);
-          const select = document.getElementById('model_1model_1');
+          const select = document.getElementById('model_2');
           select.innerHTML = '<option selected disabled value="">Please select an option</option>';
 
           if (data.model.length > 0) {

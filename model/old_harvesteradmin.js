@@ -964,3 +964,11 @@ function destroy(id) {
       }
       
       get_1();
+
+
+       
+      function resetFormFields(){
+        document.getElementById("old_form").reset();
+        document.getElementById("image").value = ''; // Clear the value of the image input
+        document.getElementById("selectedImagesContainer").innerHTML = ''; // Optionally, clear any displayed images
+    }

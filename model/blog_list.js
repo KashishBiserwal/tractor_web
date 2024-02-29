@@ -13,8 +13,9 @@ $(document).ready(function () {
 
     // Trigger the searchdata function after resetting filters
     searchdata();
+    changeModalText();
 }); 
-  
+
   $('#submitBtn').click(add_news);
    
     $("#form_news_updates").validate({
@@ -292,9 +293,10 @@ function get_news() {
                         <div class="d-flex">
                           <button class="btn btn-warning btn-sm text-white mx-1" data-bs-toggle="modal" onclick="fetch_data(${row.id});" data-bs-target="#exampleModal">
                             <i class="fa-solid fa-eye" style="font-size: 11px;"></i></button>
-                          <button class="btn btn-primary btn-sm btn_edit" onclick="fetch_edit_data(${row.id});" data-bs-toggle="modal" data-bs-target="#staticBackdrop" id="yourUniqueIdHere">
+                            <button class="btn btn-primary btn-sm btn_edit" onclick="fetch_edit_data(${row.id}); changeModalText();" data-bs-toggle="modal" data-bs-target="#staticBackdrop" id="yourUniqueIdHere">
                             <i class="fas fa-edit" style="font-size: 11px;"></i>
                           </button>
+                          
                           <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.id});">
                             <i class="fa fa-trash" style="font-size: 11px;"></i>
                           </button>
@@ -426,7 +428,9 @@ function destroy(id) {
             console.error('Error fetching data:', error);
         }
     });
+   
   }
+
 
   function fetch_edit_data(id) {
     var apiBaseURL = APIBaseURL;
@@ -445,8 +449,16 @@ function destroy(id) {
         success: function (response) {
             var Data = response.blog_details[0];
             // $('#brand').val(Data.brand_name);
-            $("#brand option").prop("selected", false);
-            $("#brand option[value='" + Data.blog_category + "']").prop("selected", true);
+            // $("#brand option").prop("selected", false);
+            // $("#brand option[value='" + Data.blog_category + "']").prop("selected", true);
+
+            var categoryDropdown = document.getElementById('brand');
+            for (var i = 0; i < categoryDropdown.options.length; i++) {
+                if (categoryDropdown.options[i].text === Data.blog_category) {
+                    categoryDropdown.selectedIndex = i;
+                    break;
+                }
+            }
 
             $('#headline').val(Data.heading);
             $('#contant').val(Data.content);
@@ -480,6 +492,8 @@ function destroy(id) {
             console.error('Error fetching user data:', error);
         }
     });
+    
+    
   }
 
 // search data
@@ -514,64 +528,107 @@ function searchdata() {
       processData: false,
       contentType: false,
       success: function (data) {
-          console.log('Success:', data.blog_details);
-          const tableBody = document.getElementById('data-table');
-
-          let tableData = [];
-          let counter = 1;
-          if (data.blog_details && data.blog_details.length > 0) {
-              data.blog_details.forEach(row => {
-                  let action = `
-                      <div class="d-flex">
-                          <button class="btn btn-warning btn-sm text-white mx-1" data-bs-toggle="modal" onclick="fetch_data(${row.id});" data-bs-target="#exampleModal">
-                              <i class="fa-solid fa-eye" style="font-size: 11px;"></i>
-                          </button>
-                          <button class="btn btn-primary btn-sm btn_edit" onclick="fetch_edit_data(${row.id});" data-bs-toggle="modal" data-bs-target="#staticBackdrop" id="yourUniqueIdHere">
-                              <i class="fas fa-edit" style="font-size: 11px;"></i>
-                          </button>
-                          <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.id});">
-                              <i class="fa fa-trash" style="font-size: 11px;"></i>
-                          </button>
-                      </div>`;
-
-                  // Push row data as an array into the tableData
-                  tableData.push([
-                      counter,
-                      row.date,
-                      row.blog_category,
-                      row.heading,
-                      action
-                  ]);
-
-                  counter++;
-              });
-
-              // Initialize DataTable after preparing the tableData
-              $('#example').DataTable().destroy();
-              $('#example').DataTable({
-                  data: tableData,
-                  columns: [
-                      { title: 'S.No.' },
-                      { title: 'Date' },
-                      { title: 'Blog Category' },
-                      { title: 'Blog Headline' },
-                      { title: 'Action', orderable: false }
-                  ],
-                  paging: true,
-                  searching: false,
-                  // ... other options ...
-              });
-          } else {
-              tableBody.innerHTML = '<tr><td colspan="5">No valid data available</td></tr>';
-          }
-      },
-      error: function (error) {
-          const tableBody = document.getElementById('data-table');
-          if (error.status == 400) {
-              tableBody.innerHTML = '<tr><td colspan="5">No valid data available</td></tr>';
-          }
-          console.error('Error fetching data:', error);
-      }
+        console.log('Success:', data.blog_details);
+        const tableBody = document.getElementById('data-table');
+        let tableData = [];
+        let counter = 1;
+    
+        if (data.blog_details && data.blog_details.length > 0) {
+            data.blog_details.forEach(row => {
+                let action = `
+                    <div class="d-flex">
+                        <button class="btn btn-warning btn-sm text-white mx-1" data-bs-toggle="modal" onclick="fetch_data(${row.id});" data-bs-target="#exampleModal">
+                            <i class="fa-solid fa-eye" style="font-size: 11px;"></i>
+                        </button>
+                        <button class="btn btn-primary btn-sm btn_edit" onclick="fetch_edit_data(${row.id});" data-bs-toggle="modal" data-bs-target="#staticBackdrop" id="yourUniqueIdHere">
+                            <i class="fas fa-edit" style="font-size: 11px;"></i>
+                        </button>
+                        <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.id});">
+                            <i class="fa fa-trash" style="font-size: 11px;"></i>
+                        </button>
+                    </div>`;
+    
+                // Push row data as an array into the tableData
+                tableData.push([
+                    counter,
+                    row.date,
+                    row.blog_category,
+                    row.heading,
+                    action
+                ]);
+    
+                counter++;
+            });
+    
+            // Initialize DataTable after preparing the tableData
+            $('#example').DataTable().destroy();
+            $('#example').DataTable({
+                data: tableData,
+                columns: [
+                    { title: 'S.No.' },
+                    { title: 'Date' },
+                    { title: 'Blog Category' },
+                    { title: 'Blog Headline' },
+                    { title: 'Action', orderable: false }
+                ],
+                paging: true,
+                searching: false,
+                // ... other options ...
+            });
+        } else {
+            tableBody.innerHTML = '<tr><td colspan="5">No valid data available</td></tr>';
+        }
+    },
+    error: function (error) {
+        const tableBody = document.getElementById('data-table');
+        if (error.status == 404) {
+            tableBody.innerHTML = '<tr><td colspan="5">No valid data available</td></tr>';
+            $('#example_paginate').hide();
+        } else {
+            console.error('Error fetching data:', error);
+            tableBody.innerHTML = '<tr><td colspan="5">Error fetching data</td></tr>';
+        }
+    }
   });
 }
 
+function resetFormFields(){
+    document.getElementById("form_news_updates").reset();
+    document.getElementById("add_trac").innerHTML = 'Add Blog';
+    document.getElementById("image_").value = ''; // Clear the value of the image input
+    document.getElementById("selectedImagesContainer2").innerHTML = ''; // Optionally, clear any displayed images
+}
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    var myModal = document.getElementById('staticBackdrop');
+    myModal.addEventListener('hidden.bs.modal', function () {
+      var modalTitle = document.getElementById('staticBackdropLabel');
+      modalTitle.innerText = 'Add Blog'; 
+    });
+  });
+
+
+  var isEditClicked = false; 
+
+  function changeModalText() {
+    var modalTitle = document.getElementById('staticBackdropLabel');
+    modalTitle.innerText = 'Update Blog';
+  }
+
+  function editButtonClicked() {
+    isEditClicked = true; 
+  }
+
+  function resetIsEditClicked() {
+    isEditClicked = false; 
+  }
+  // Function to handle the add button click
+  function addButtonClicked() {
+    if (isEditClicked) {
+      changeModalText('Update Blog'); 
+    } else {
+      changeModalText('Add Blog'); 
+    }
+    resetIsEditClicked(); 
+  }
