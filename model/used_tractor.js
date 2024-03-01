@@ -67,7 +67,7 @@ $(document).ready(function() {
         var formId = `contact-seller-call_${p.product_id}`; // Dynamic ID for the form
 
         var newCard = `
-    <div class="col-12 col-lg-4 col-md-4 col-sm-4 mb-4" id="${cardId}">
+        <div class="col-12 col-lg-4 col-md-4 col-sm-4 mb-4" id="${cardId}">
         <div class="h-auto success__stry__item d-flex flex-column shadow ">
             <div class="thumb">
                 <a href="farmtrac_60.php?product_id=${p.customer_id}">

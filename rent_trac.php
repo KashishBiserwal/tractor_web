@@ -307,7 +307,7 @@
             </div>
             <div class="col-12 my-5">
               <div class="text-center">
-                <button type="button" class="btn-success btn px-3 pt-2" id="Search">Search</button>
+                <button type="button" class="btn-success btn px-3 pt-2" id="Search" >Search</button>
                 <button type="button" class="btn-success btn mx-2 px-3 pt-2" id="Reset">Reset</button>
               </div>
             </div>
