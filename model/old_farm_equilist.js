@@ -234,7 +234,7 @@ $(document).ready(function(){
               // Add event listener to brand dropdown
               select.addEventListener('change', function() {
                   const selectedBrandId = this.value;
-                  get_model(selectedBrandId);
+                  get_model_1(selectedBrandId);
               });
           } else {
               select.innerHTML = '<option>No valid data available</option>';
@@ -323,10 +323,10 @@ function store(event) {
      console.log('image',image_names);
      var EditIdmain_ = $('#EditIdmain_').val();
      var category = $('#category').val();
-     var brand = $('#brand').val();
-     var model = $('#model').val();
+     var brand = $('#brand_brand').val();
+     var model = $('#model_model').val();
      var year = $('#year').val();
-     var hours_driven = $('#hours').val();
+     var hours_driven = $('#hours_driven').val();
      var price= $('#price').val();
      var description = $('#about').val();
      var first_name = $('#name').val();

@@ -68,24 +68,26 @@ $(document).ready(function() {
       });
   });
 
+ 
+
   function ImgUpload() {
     var imgWrap = "";
     var imgArray = [];
-  
+
     $('.upload__inputfile').each(function () {
       $(this).on('change', function (e) {
         imgWrap = $(this).closest('.upload__box').find('.upload__img-wrap');
         var maxLength = $(this).attr('data-max_length');
-  
+
         var files = e.target.files;
         var filesArr = Array.prototype.slice.call(files);
         var iterator = 0;
         filesArr.forEach(function (f, index) {
-  
+
           if (!f.type.match('image.*')) {
             return;
           }
-  
+
           if (imgArray.length > maxLength) {
             return false
           } else {
@@ -99,7 +101,7 @@ $(document).ready(function() {
               return false;
             } else {
               imgArray.push(f);
-  
+
               var reader = new FileReader();
               reader.onload = function (e) {
                 var html = "<div class='upload__img-box'><div style='background-image: url(" + e.target.result + ")' data-number='" + $(".upload__img-close").length + "' data-file='" + f.name + "' class='img-bg'><div class='upload__img-close'></div></div></div>";
@@ -112,7 +114,7 @@ $(document).ready(function() {
         });
       });
     });
-  
+
     $('body').on('click', ".upload__img-close", function (e) {
       var file = $(this).parent().data("file");
       for (var i = 0; i < imgArray.length; i++) {
@@ -124,17 +126,19 @@ $(document).ready(function() {
       $(this).parent().parent().remove();
     });
   }
-
-  function removeImage(ele){
-    console.log("print ele");
-      console.log(ele);
-      let thisId=ele.id;
-      thisId=thisId.split('closeId');
-      thisId=thisId[1];
-      $("#"+ele.id).remove();
-      $(".upload__img-closeDy"+thisId).remove();
   
-    }
+    function removeImage(ele){
+      console.log("print ele");
+        console.log(ele);
+        let thisId=ele.id;
+        thisId=thisId.split('closeId');
+        thisId=thisId[1];
+        $("#"+ele.id).remove();
+        $(".upload__img-closeDy"+thisId).remove();
+    
+      }
+
+
     function getbrand() {
       var url = 'http://tractor-api.divyaltech.com/api/customer/get_all_brands';
       $.ajax({
@@ -371,7 +375,7 @@ function store(event) {
           if(result.length){
          //   get_tractor_list();
          }
-         // alert('successfully inserted..!')
+         alert('successfully inserted..!')
        },
        error: function (error) {
          console.error('Error fetching data:', error);
@@ -474,94 +478,95 @@ get_tractor_list();
 
 
 
-
-function search_data() {
-  var selectedBrand = $('#brand_name').val();
- // var brand_id = $('#brand_id').val();
-  var model = $('#model_name').val();
-  var district = $('#district_name').val();
-  var state = $('#state_name').val();
-  console.log(selectedBrand,"brand named");
-  console.log('model name',model);
-  var paraArr = {
-    'brand_id': selectedBrand,
-   // 'id':brand_id,
-    'model':model,
-    'state':state,
-    'district':district,
-  };
-
-  var apiBaseURL = APIBaseURL;
-  var url = apiBaseURL + 'search_for_old_tractor';
-  $.ajax({
-      url:url, 
-      type: 'POST',
-      data: paraArr,
-    
-      headers: {
-          'Authorization': 'Bearer ' + localStorage.getItem('token')
-      },
-      success: function (searchData) {
-        updateTable(searchData);
-      },
-      error: function (error) {
-          console.error('Error searching for brands:', error);
-      }
-  });
-};
 function updateTable(data) {
-  const tableBody = document.getElementById('data-table');
-  tableBody.innerHTML = '';
-  let serialNumber = data.product.length; 
+  const tableBody = $('#data-table');
+  tableBody.empty();
 
-  if(data.oldTractor && data.oldTractor.length > 0) {
-      let tableData = []; 
-      data.oldTractor.forEach(row => {
-          let action = ` <div class="d-flex">
+  if (data && data.oldTractor && data.oldTractor.length > 0) {
+    let serialNumber = data.oldTractor.length;
+    let tableData = [];
+
+    data.oldTractor.forEach((row, index) => {
+      let action = `
+        <div class="d-flex">
           <button class="btn btn-warning btn-sm text-white mx-1" data-bs-toggle="modal" onclick="fetch_data(${row.customer_id});" data-bs-target="#exampleModal">
-          <i class="fa-solid fa-eye" style="font-size: 11px;"></i></button>
+            <i class="fa-solid fa-eye" style="font-size: 11px;"></i>
+          </button>
           <button class="btn btn-primary btn-sm btn_edit" onclick="fetch_edit_data(${row.customer_id});" data-bs-toggle="modal" data-bs-target="#staticBackdrop" id="yourUniqueIdHere" style="padding:5px">
             <i class="fas fa-edit" style="font-size: 11px;"></i>
           </button>
           <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.customer_id});" style="padding:5px">
             <i class="fa fa-trash" style="font-size: 11px;"></i>
           </button>
-      </div>`;
-// console.log(row.customer_id);
-          tableData.push([
-            serialNumber--,
-            formatDateTime(row.date),
-            row.brand_name,
-            row.model,
-            row.purchase_year,
-            row.state_name,
-            action
-        ]);
+        </div>`;
 
-        // serialNumber++;
+      tableData.push([
+        serialNumber - index, // Decrement serial number here
+        formatDateTime(row.date),
+        row.brand_name,
+        row.model,
+        row.purchase_year,
+        row.state_name,
+        action
+      ]);
     });
 
     $('#example').DataTable().destroy();
     $('#example').DataTable({
-        data: tableData,
-        columns: [
-            { title: 'S.No.' },
-            { title: 'Date' },
-            { title: 'Brand' },
-            { title: 'Model' },
-            { title: 'Purchase Year'},
-            { title: 'State' },
-            { title: 'Action', orderable: true }
-        ],
-        paging: true,
-        searching: false,
-        // ... other options ...
+      data: tableData,
+      columns: [
+        { title: 'S.No.' },
+        { title: 'Date' },
+        { title: 'Brand' },
+        { title: 'Model' },
+        { title: 'Purchase Year' },
+        { title: 'State' },
+        { title: 'Action', orderable: true }
+      ],
+      paging: true,
+      searching: false,
+      // ... other options ...
     });
   } else {
-      // Display a message if there's no valid data
-      tableBody.innerHTML = '<tr><td colspan="4">No valid data available</td></tr>';
+    const errorMessage = (data && data.error && data.error.message) ? data.error.message : 'No valid data available';
+    tableBody.html(`<tr><td colspan="7">${errorMessage}</td></tr>`);
   }
 }
+
+function search_data() {
+  const selectedBrand = $('#brand_name').val();
+  const model = $('#model_name').val();
+  const state = $('#state_name').val();
+  const paraArr = {
+    'brand_id': selectedBrand,
+    'model': model,
+    'state': state,
+  };
+
+  const apiBaseURL = APIBaseURL;
+  const url = apiBaseURL + 'search_for_old_tractor';
+  $.ajax({
+    url: url,
+    type: 'POST',
+    data: paraArr,
+    headers: {
+      'Authorization': 'Bearer ' + localStorage.getItem('token')
+    },
+    success: function (searchData) {
+      updateTable(searchData);
+    },
+    error: function (xhr, status, error) {
+      const tableBody = $('#data-table');
+      if (xhr.status === 404) {
+        tableBody.html('<tr><td colspan="7">No valid data available</td></tr>');
+      } else {
+        console.error('Error searching for brands:', error);
+        tableBody.html('<tr><td colspan="7">Error fetching data</td></tr>');
+      }
+    }
+  });
+}
+
 
 
 function removeImage(ele){
@@ -646,38 +651,35 @@ function fetch_edit_data(customer_id) {
           $("#model option[value='" + userData.model + "']").prop("selected", true);
       }, 1000); // Adjust the delay time as needed
 
-      // Selected Images
-  // Empty the selectedImagesContainer only if there are no images to append
-if (!$("#selectedImagesContainer").children().length && userData.image_names) {
-  var imageNamesArray = Array.isArray(userData.image_names) ? userData.image_names : userData.image_names.split(',');
-   
-  var countclass = 0;
-  imageNamesArray.forEach(function (image_names) {
-      var imageUrl = 'http://tractor-api.divyaltech.com/uploads/product_img/' + image_names.trim();
-      countclass++;
-      var newCard = `
-          <div class="col-12 col-md-6 col-lg-4 position-relative">
-              <div class="upload__img-close_button" id="closeId${countclass}" onclick="removeImage(this);"></div>
-              <div class="brand-main d-flex box-shadow mt-1 py-2 text-center shadow upload__img-closeDy${countclass}">
-                  <a class="weblink text-decoration-none text-dark" title="Tyre Image">
-                      <img class="img-fluid w-100 h-100" id="img_url" src="${imageUrl}" alt="Tyre Image">
-                  </a>
-              </div>
-          </div>
-      `;
+      $("#selectedImagesContainer").empty();
+      if (userData.image_names) {
+        var imageNamesArray = Array.isArray(userData.image_names) ? userData.image_names : userData.image_names.split(',');
+        
+        var countclass=0;
+        imageNamesArray.forEach(function (image_names) {
+            var imageUrl = 'http://tractor-api.divyaltech.com/uploads/product_img/' + image_names.trim();
+            countclass++;
+            var newCard = `
+                <div class="col-12 col-md-6 col-lg-4 position-relative">
+                <div class="upload__img-close_button " id="closeId${countclass}" onclick="removeImage(this);"></div>
+                    <div class="brand-main d-flex box-shadow mt-1 py-2 text-center shadow upload__img-closeDy${countclass}">
+                        <a class="weblink text-decoration-none text-dark" title="Tyre Image">
+                          <img class="img-fluid w-100 h-100" id="img_url" src="${imageUrl}" alt="Tyre Image">
+                        </a>
+                    </div>
+                </div>
+            `;
 
-      // Append the new image element to the container
-      $("#selectedImagesContainer").append(newCard);
-  });
-}
-
+            // Append the new image element to the container
+            $("#selectedImagesContainer").append(newCard);
+        });
+      }
     },
     error: function(error) {
       console.error('Error fetching user data:', error);
     }
   });
 }
-
 function setSelectedOption(selectId, value) {
   var select = document.getElementById(selectId);
   for (var i = 0; i < select.options.length; i++) {
@@ -734,31 +736,27 @@ function fetch_data(product_id){
       document.getElementById('price12').innerText=data.product[0].price;
       
       $("#selectedImagesContainer-old").empty();
-  
       if (data.product[0].image_names) {
-          var imageNamesArray = Array.isArray(data.product[0].image_names) ? data.product[0].image_names : data.product[0].image_names.split(',');
-           
-          var countclass=0;
-          imageNamesArray.forEach(function (image_names) {
-              var imageUrl = 'http://tractor-api.divyaltech.com/uploads/product_img/' + image_names.trim();
-              countclass++;
-              var newCard = `
-                  <div class="col-12 col-md-3 col-lg-3 col-sm-3">
-                  <div class="" id="closeId${countclass}"></div>
-                      <div class="brand-main d-flex box-shadow mt-1 py-2 w-75 text-center shadow upload__img-closeDy${countclass}">
-                          <a class="weblink text-decoration-none text-dark" title="Tyre Image">
-                              <img class="img-fluid w-100 h-100" src="${imageUrl}" alt="Tyre Image">
-                          </a>
-                      </div>
-                  </div>
-              `;
-      
-              // Append the new image element to the container
-              $("#selectedImagesContainer-old").append(newCard);
-          });
-  
-  
-      }
+        var imageNamesArray = Array.isArray(data.product[0].image_names) ? data.product[0].image_names : data.product[0].image_names.split(',');
+
+        imageNamesArray.forEach(function (imageName) {
+            var imageUrl = 'http://tractor-api.divyaltech.com/uploads/product_img/' + imageName.trim();
+
+            var newCard = `
+                <div class="col-6 col-lg-6 col-md-6 col-sm-6">
+                    <div class="brand-main d-flex box-shadow   mt-2 text-center shadow">
+                        <a class="weblink text-decoration-none text-dark" title="Image">
+                            <img class="img-fluid w-100 h-100 " src="${imageUrl}" alt="Image">
+                        </a>
+                    </div>
+                </div>
+            `;
+
+            $("#selectedImagesContainer-old").append(newCard);
+        });
+    }
+    
+    
   },
   error: function (error) {
   console.error('Error fetching data:', error);

@@ -8,7 +8,7 @@ include 'includes/headertag.php';
    ?> 
   <script> var APIBaseURL = "<?php echo $APIBaseURL; ?>";</script>
   <script> var baseUrl = "<?php echo $baseUrl; ?>";</script>
-  <script src="<?php $baseUrl; ?>model/mahindra_brand.js"></script>
+  <script src="<?php $baseUrl; ?>model/all_brand.js"></script>
   <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
 
@@ -20,12 +20,21 @@ include 'includes/headertag.php';
    
 
 
- 
+   <section class="mt-5 pt-5 bg-light">
+    <div class="container">
+        <div class="mt-5">
+            <span class="mt-4 text-white">
+                <a href="index.php" class="text-decoration-none header-link px-1">Home <i class="fa-solid fa-chevron-right px-1"></i></a>
+                <span class="text-decoration-none text-dark px-1" id="brand_section">All Brands <i class="fa-solid fa-chevron-right px-1"></i></span>
+              
+            </span>
+        </div>
+    </div>
+</section>
 
 
 
-
-    <section class="about bg-white mt-100 ">
+   <section class="about bg-white mt-2 ">
         <div class="container-fullwidth">
             <div class="lecture_heading ">
                 <h3 class="my-4 pt-5">TRACTORS BY BRAND</h3>

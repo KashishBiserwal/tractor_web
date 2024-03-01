@@ -157,17 +157,19 @@ include 'includes/footertag.php';
                                         </select>
                                     </div>
                                 </div>
-                                <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-4">
+                               
+                                <div class="col-12 col-sm-6 col-md-4 col-lg-4 mt-4">
                                     <div class="form-outline">
                                         <label class="form-label" for="district">District</label>
-                                        <select class="form-control district-dropdown" id="district" name="district" required>
+                                        <select class="form-select district-dropdown"  id="district" name="district" required>
                                         </select>
                                     </div>
                                 </div>
-                                <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-4">
+                             
+                                <div class="col-12 col-sm-6 col-md-4 col-lg-4 mt-4">
                                     <div class="form-outline">
-                                        <label class="form-label " for="tehsil">Tehsil</label>
-                                        <select class="form-control tehsil-dropdown" id="tehsil" name="tehsil">
+                                        <label class="form-label" for="tehsil">Tehsil</label>
+                                        <select class="form-select tehsil-dropdown" id="tehsil" name="tehsil">>
                                         </select>
                                     </div>
                                 </div>

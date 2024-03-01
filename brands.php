@@ -9,16 +9,17 @@ include 'includes/headertag.php';
   <script> var APIBaseURL = "<?php echo $APIBaseURL; ?>";</script>
   <script> var baseUrl = "<?php echo $baseUrl; ?>";</script>
   <script src="<?php $baseUrl; ?>model/mahindra_brand.js"></script>
+
   <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
-
+    <script src="<?php $baseUrl; ?>model/State_dist_tehsil.js"></script>
 <body>
    <?php
    include 'includes/header.php';
    ?>
    <!-- Banner Here -->
    
-   <section class="bg-cover bg-overlay" style="background-image: url('assets/images/mahindra-oja-tractors-homepage-desktop-1920x600.webp')">
+   <!-- <section class="bg-cover bg-overlay" style="background-image: url('assets/images/mahindra-oja-tractors-homepage-desktop-1920x600.webp')">
         <div class="container-fullwidth position-relative mt-5 pt-5">
             <div class="py-4"></div>
             <div class="py-5"></div>
@@ -28,7 +29,7 @@ include 'includes/headertag.php';
                         <div class="row  w-100 float-start">
                             <div class="col-12 col-sm-12 col-xxl-6 col-xl-6 col-lg-6">
                                 <div class="banner__content float-start" id="slider_head">
-                                    <!-- <h1 class="d3 mb-0 text-white display-5 fw-bold">Mahindra </h1> -->
+                                  
                                     
                                     <div>
                                     
@@ -43,7 +44,19 @@ include 'includes/headertag.php';
             <div class="py-5"></div>
             <div class="py-3"></div>
         </div>
-   </section>
+   </section> -->
+   <section class="mt-5 pt-5">
+    <div class="container">
+        <div class="mt-5">
+            <span class="mt-4 text-white">
+                <a href="index.php" class="text-decoration-none header-link px-1">Home <i class="fa-solid fa-chevron-right px-1"></i></a>
+                <span class="text-decoration-none text-dark px-1" id="brand_section">Brand <i class="fa-solid fa-chevron-right px-1"></i></span>
+                <span class=" text-danger" id="separated_brand"></span> <!-- Corrected ID -->
+            </span>
+        </div>
+    </div>
+</section>
+
 <section class="bg-light pb-4">
     <div class="container-fullwidth ">
         <div class="row">
@@ -76,12 +89,12 @@ include 'includes/headertag.php';
         </div>
 
         <div class="col text-center my-3  py-3">
-            <a href="#" class="btn btn-success btn-lg">View All Used Mahindra Tractors</a>
+            <a href="used_tractor.php" class="btn btn-success btn-lg" id="view_all_used_tractor">View All Used Tractors</a>
         </div>
     </section>
 
     <!-- Mahindra Tractor Implements -->
-    <section class="bg-light">
+    <!-- <section class="bg-light">
         <div class="container-fullwidth">
         <div id="old_implement"></div>
         <div class="row">
@@ -94,7 +107,7 @@ include 'includes/headertag.php';
                 <a href="#" class="btn btn-success btn-lg ">View All Tractor Implements</a>
             </div>
         </div>
-    </section>
+    </section> -->
 
   <!--  Mahindra Tractor Dealers & Service Centers-->
     <section>

@@ -60,8 +60,8 @@ function formatDateTime(originalDateTimeStr) {
                         row.brand_name,
                         row.model,
                         row.purchase_year,
-                        row.state,
-                        row.district,
+                        row.state_name,
+                        row.district_name,
                         action
                     ]);
                 });
@@ -277,61 +277,61 @@ function store(event) {
 
     var enquiry_type_id = 18;
     var added_by = 1;
-    var brand_name = $('#brand').val();
-    var Model_name = $('#model').val();
-    var purchase_year = $('#year').val();
-    var working_radius = $('#workarea_').val();
-    var textarea = $('#textarea_d').val();
     var first_name = $('#myfname').val();
     var last_name = $('#mylname').val();
     var mobile = $('#mynumber').val();
     var state = $('#state_state').val();
     var district = $('#dist_district').val();
     var tehsil = $('#tehsil_t').val();
+    var brand_id = $('#brand').val(); // Assuming this is the correct ID for brand
+    var model = $('#model').val(); // Assuming this is the correct ID for model
+    var purchase_year = $('#year').val();
+    var working_radius = $('#workarea_').val();
+    var message = $('#textarea_d').val();
+
+    var implement_type_id = [];
+    $('select[name="imp_type_id[]"]').each(function() {
+        implement_type_id.push($(this).val());
+    });
+
+    var rate = [];
+    $('input[name="implement_rate[]"]').each(function() {
+        rate.push($(this).val());
+    });
+
+    var rate_per = [];
+    $('select[name="rate_per[]"]').each(function() {
+        rate_per.push($(this).val());
+    });
+
+    var images = [];
+    var impImageFiles = document.getElementById('impImage_0').files;
+    for (var i = 0; i < impImageFiles.length; i++) {
+        images.push(impImageFiles[i]);
+    }
 
     var data = new FormData();
 
-    // Append form fields to FormData object
     data.append('enquiry_type_id', enquiry_type_id);
     data.append('added_by', added_by);
-    data.append('brand_id', brand_name);
-    data.append('model', Model_name);
-    data.append('purchase_year', purchase_year);
-    data.append('working_radius', working_radius);
-    data.append('message', textarea);
     data.append('first_name', first_name);
     data.append('last_name', last_name);
     data.append('mobile', mobile);
     data.append('state', state);
     data.append('district', district);
     data.append('tehsil', tehsil);
-// 'brand_id': JSON.stringify(selectedBrand),
-    // Append impType array
-            var implementTypeIds = [];
-        $('select[name="imp_type_id"]').each(function() {
-            implementTypeIds.push($(this).val());
-        });
-        data.append('implement_type_id', JSON.stringify(implementTypeIds));
+    data.append('brand_id', brand_id);
+    data.append('model', model);
+    data.append('purchase_year', purchase_year);
+    data.append('working_radius', working_radius);
+    data.append('message', message);
+    data.append('implement_type_id', JSON.stringify(implement_type_id));
+    data.append('rate', JSON.stringify(rate));
+    data.append('rate_per', JSON.stringify(rate_per));
 
-        // Append implement_rent array
-        var rates = [];
-        $('input[name="implement_rate"]').each(function() {
-            rates.push($(this).val());
-        });
-        data.append('rate', JSON.stringify(rates));
-
-        // Append impRatePer array
-        var ratePers = [];
-        $('select[name="rate_per"]').each(function() {
-            ratePers.push($(this).val());
-        });
-        data.append('rate_per', JSON.stringify(ratePers));
-
-        // Append images
-        var impImageFiles = document.getElementById('impImage_0').files;
-        for (var i = 0; i < impImageFiles.length; i++) {
-            data.append('images[]', impImageFiles[i]);
-        }
+    for (var j = 0; j < images.length; j++) {
+        data.append('images[]', images[j]);
+    }
 
     var apiBaseURL = 'http://tractor-api.divyaltech.com/api/admin/';
     var token = localStorage.getItem('token');
@@ -361,6 +361,8 @@ function store(event) {
         }
     });
 }
+
+
 // Trigger the store function when the form is submitted
 $('#rent_list_form_').submit(store);
 
@@ -456,8 +458,8 @@ function destroy(id) {
                     data.model.forEach(row => {
                         const option = document.createElement('option');
                         option.textContent = row.model;
-                        option.value = row.id;
-                        console.log(option);
+                        option.value = row.model;
+                        // console.log(option);
                         select.appendChild(option);
                     });
                 } else {
@@ -552,7 +554,3 @@ function get_implement() {
 
 get_implement();
 
-
-populateDropdownsFromClass('state-dropdown', 'district-dropdown', 'tehsil-dropdown');
-
-populateStateDropdown('state_select', 'district_select');

@@ -581,59 +581,64 @@ document.addEventListener("DOMContentLoaded", function() {
     <!-- SCRIPT FOR THE DISPLAY & HIDE -->
 
     <script>
-    $(document).ready(function() {
-        var currentStep = 1;
-        var updateProgressBar;
+ $(document).ready(function() {
+    var totalSteps = 3; // Total number of steps
+    var currentStep = 1;
+    var updateProgressBar;
 
-        function displayStep(stepNumber) {
-            if (stepNumber >= 1 && stepNumber <= 3) {
-                $(".mul_stp_frm").hide();
-                $("#form-step-" + stepNumber).show();
-                currentStep = stepNumber;
-                updateProgressBar();
+    function displayStep(stepNumber) {
+        if (stepNumber >= 1 && stepNumber <= totalSteps) {
+            $(".mul_stp_frm").hide();
+            $("#form-step-" + stepNumber).show();
+            currentStep = stepNumber;
+            updateProgressBar();
+        }
+    }
+
+    $(".next-step").click(function(event) {
+        event.preventDefault();
+        var currentStepForm = $("#form-step-" + currentStep);
+
+        if (currentStepForm.valid()) {
+            currentStepForm.hide();
+            currentStep++;
+            if (currentStep > totalSteps) {
+                // Handle reaching the last step
+                // You might want to submit the form or perform other actions here
+                return;
+            }
+            $("#form-step-" + currentStep).show();
+            updateProgressBar();
+        }
+    });
+
+    $(".prev-step").click(function(event) {
+        event.preventDefault();
+        currentStep--;
+        displayStep(currentStep);
+    });
+
+    updateProgressBar = function() {
+        var progressPercentage = ((currentStep - 1) / (totalSteps - 1)) * 100;
+        $(".progress-bar").css("width", progressPercentage + "%");
+    };
+
+    $(".step-circle").click(function() {
+        var stepNumber = parseInt($(this).text());
+
+        if (stepNumber > currentStep) {
+            var currentStepForm = $("#form-step-" + currentStep);
+            if (!currentStepForm.valid()) {
+                return;
             }
         }
 
-        $(".next-step").click(function(event) {
-            event.preventDefault();
-            var currentStepForm = $("#form-step-" + currentStep);
-
-            if (currentStepForm.valid()) {
-                currentStepForm.hide();
-                currentStep++;
-                $("#form-step-" + currentStep).show();
-                updateProgressBar();
-            }
-        });
-
-        $(".prev-step").click(function(event) {
-            event.preventDefault();
-            currentStep--;
-            displayStep(currentStep);
-        });
-
-        updateProgressBar = function() {
-            var progressPercentage = ((currentStep - 1) / 2) * 100;
-            $(".progress-bar").css("width", progressPercentage + "%");
-        };
-
-        $(".step-circle").click(function() {
-            var stepNumber = parseInt($(this).text());
-
-            if (stepNumber > currentStep) {
-                var currentStepForm = $("#form-step-" + currentStep);
-                if (!currentStepForm.valid()) {
-                    return;
-                }
-            }
-
-            displayStep(stepNumber);
-        });
-
-        displayStep(1);
+        displayStep(stepNumber);
     });
 
- 
+    displayStep(1);
+});
+
     </script>
 
 
@@ -668,9 +673,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
         });
 
-
-
-        $.validator.addMethod("letterswithspaces", function(value, element) {
+         $.validator.addMethod("letterswithspaces", function(value, element) {
             return this.optional(element) || /^[a-zA-Z\s]*$/.test(value);
         }, "Only alphabets and spaces are allowed");
     });
@@ -841,26 +844,26 @@ function step1_form() {
     console.log(arry);
 }
 
-// function step2_form(a) {
-//     var index = 1;
-//     var implement = $(`#implement${a.index}`).val();
-//     var rate = $(`#rate${a.index}`).val();
-//     var ratePer = $(`#ratePer${a.index}`).val();
-//     var imageInput = $(`#imageInput${a.index}`).val();
+function step2_form(a) {
+    var index = 1;
+    var implement = $(`#implement${a.index}`).val();
+    var rate = $(`#rate${a.index}`).val();
+    var ratePer = $(`#ratePer${a.index}`).val();
+    var imageInput = $(`#imageInput${a.index}`).val();
 
-//     console.log(implement, rate, ratePer, imageInput);
+    console.log(implement, rate, ratePer, imageInput);
 
-//     // Push values into the array
-//     arry.push({
-//         implement: implement,
-//         rate: rate,
-//         ratePer: ratePer,
-//         imageInput: imageInput,
-//     });
+    // Push values into the array
+    arry.push({
+        implement: implement,
+        rate: rate,
+        ratePer: ratePer,
+        imageInput: imageInput,
+    });
     
-//     index++;
-//     console.log(arry);
-// }
+    index++;
+    console.log(arry);
+}
 
 
 var index = 1;

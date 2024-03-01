@@ -352,8 +352,16 @@ function fetch_edit_data(id) {
         }
       }
     
-      get_model(Data.brand_id, Data.model); 
-      console.log( Data.model,'sdfgyudfgh');
+      $('#model_name_1').empty(); 
+      get_model(Data.brand_id); 
+
+          // Selecting the option in the model dropdown
+          setTimeout(function() { // Wait for the model dropdown to populate
+              $("#model_name_1 option").prop("selected", false);
+              $("#model_name_1 option[value='" + Data.model + "']").prop("selected", true);
+          }, 1000); // Adjust the delay time as needed
+      // get_model(Data.brand_id, Data.model); 
+      // console.log( Data.model,'sdfgyudfgh');
       setSelectedOption('state_', Data.state_id);
       setSelectedOption('dist_', Data.district_id);
       
