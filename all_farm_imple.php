@@ -29,16 +29,16 @@
 <section >
     <div class="container mt-3">
         <div class="row">
-        <div class="col-12 col-sm-9 col-lg-9 col-md-9">  
+        <div class="col-12 ">  
                 <div id="productContainer" class="row py-1">  </div>
                 <h5 id="noDataMessage" class="text-center mt-4 text-danger" style="display: none;">
                 <img src="assets/images/404.gif" class="w-25" alt=""></br>Data not found..!</h5>
                 <div class="col text-center mt-3 pb-3">
-                    <button id="load_moretract" type="button" class=" btn add_btn btn-success"><i class="fas fa-undo"></i>View All</button>
+                    <!-- <button id="load_moretract" type="button" class=" btn add_btn btn-success"><i class="fas fa-undo"></i>View All</button> -->
                 </div>
             </div>
             
-            <div class="col-12 col-sm-3 col-lg-3 col-md-3">
+            <!-- <div class="col-12 col-sm-3 col-lg-3 col-md-3">
                 <div class=" row mb-3" id="">
                     <div class="col-12 col-sm-12 col-md-12 col-lg-12">
                         <div class=" row text-center">
@@ -59,7 +59,6 @@
                     <div class="force-overflow">
                     <h5 class=" ps-1 text-dark fw-bold  pt-2">Search By Brand</h5>
                         <div class="HP py-2">
-                            <!-- <input type="checkbox" class="text-align-center ms-3" value=""/><span> This is checkbox </span><br /> -->
                             <input type="checkbox" class="checkbox-round ms-3" value="Mahindra"/><span class="ps-2 fs-6">Mahindra (97)</span><br />
                             <input type="checkbox" class="checkbox-round ms-3" value="Farmtrac"/><span class="ps-2 fs-6">Farmtrac (21)</span><br />
                             <input type="checkbox" class="checkbox-round ms-3" value="Swaraj"/><span class="ps-2 fs-6">Swaraj (19)</span><br />
@@ -77,7 +76,7 @@
                     <div class="force-overflow">
                     <h5 class=" ps-1 text-dark fw-bold  pt-2">Types</h5>
                         <div class="HP py-2">
-                            <!-- <input type="checkbox" class="text-align-center ms-3" value=""/><span> This is checkbox </span><br /> -->
+                          
                             <input type="checkbox" class="checkbox-round ms-3" value="Mahindra"/><span class="ps-2 fs-6">Rotavator (185)</span><br />
                             <input type="checkbox" class="checkbox-round ms-3" value="Farmtrac"/><span class="ps-2 fs-6">Tractor Mounted Sprayer (78)</span><br />
                             <input type="checkbox" class="checkbox-round ms-3" value="Swaraj"/><span class="ps-2 fs-6">Plough (65)</span><br />
@@ -95,7 +94,6 @@
                     <div class="force-overflow">
                     <h5 class=" ps-1 text-dark fw-bold  pt-2">Categories</h5>
                         <div class="HP py-2">
-                            <!-- <input type="checkbox" class="text-align-center ms-3" value=""/><span> This is checkbox </span><br /> -->
                             <input type="checkbox" class="checkbox-round ms-3" value="Mahindra"/><span class="ps-2 fs-6">Tillage (485)</span><br />
                             <input type="checkbox" class="checkbox-round ms-3" value="Farmtrac"/><span class="ps-2 fs-6">Seeding And Planting (122)</span><br />
                             <input type="checkbox" class="checkbox-round ms-3" value="Swaraj"/><span class="ps-2 fs-6">Crop Protection (109)</span><br />
@@ -109,7 +107,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
         </div>
     </div>
 </section>
