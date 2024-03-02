@@ -8,10 +8,12 @@
 </head>
 
 <body>
-   <?php
+<?php
    include 'includes/header.php';
    ?>
-
+<script> var CustomerAPIBaseURL = "<?php echo $CustomerAPIBaseURL; ?>";</script>
+    <script> var baseUrl = "<?php echo $baseUrl; ?>";</script>
+    <script src="<?php $baseUrl; ?>model/all_farm_imple.js"></script>
 <section class="mt-5 pt-5">
     <div class="container pt-4">
         <div class="mt-3">
@@ -27,42 +29,12 @@
 <section >
     <div class="container mt-3">
         <div class="row">
-            <div class="col-12 col-sm-9 col-lg-9 col-md-9">
-                <h3 class="">Tractor <span class="text-success fw-bold"> Implements</span> </h3>
-                <div class="row my-5">
-                    <div class="col-12 col-lg-4 col-md-4 col-sm-4 my-3 ">
-                        <div class=" success__stry__item d-flex flex-column shadow ">
-                            <div class="thumb">
-                                <a href="#">
-                                    <div class="ratio ratio-16x9">
-                                        <img src="assets/images/grizo-j-type-33-1692966584.webp" class="object-fit-cover " alt="img">
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="content d-flex flex-column flex-grow-1 ">
-                                <div class="caption text-center">
-                                    <a href="#" class="text-decoration-none text-dark">
-                                        <p class="pt-3"><strong class="series_tractor_strong text-center h4 fw-bold ">Grizo J Type</strong></p>
-                                    </a>      
-                                </div>
-                                <div class="row text-center">
-                                    <div class="col-6">
-                                        <p class="fw-bold ps-2 text-dark">By Agrizone</p>
-                                    </div>
-                                    <div class="col-6">
-                                        <p class="fw-bold pe-2 text-dark">Tillage</p>
-                                    </div>
-                                </div>
-                                <div class=" bg-success">
-                                    <p class="text-white text-center pt-2">Power : 35 & Above</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 text-center ">
-                    <button id="adduser" type="button" class="add_btn btn-success">
-                    <i class="fas fa-undo"></i>  Load More  </button>
+        <div class="col-12 col-sm-9 col-lg-9 col-md-9">  
+                <div id="productContainer" class="row py-1">  </div>
+                <h5 id="noDataMessage" class="text-center mt-4 text-danger" style="display: none;">
+                <img src="assets/images/404.gif" class="w-25" alt=""></br>Data not found..!</h5>
+                <div class="col text-center mt-3 pb-3">
+                    <button id="load_moretract" type="button" class=" btn add_btn btn-success"><i class="fas fa-undo"></i>View All</button>
                 </div>
             </div>
             
