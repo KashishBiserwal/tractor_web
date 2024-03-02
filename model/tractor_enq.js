@@ -353,7 +353,7 @@ function fetch_edit_data(id) {
       }
     
       $('#model_name_1').empty(); 
-      get_model(Data.brand_id); 
+      get_model_1(Data.brand_id); 
 
           // Selecting the option in the model dropdown
           setTimeout(function() { // Wait for the model dropdown to populate
@@ -770,7 +770,7 @@ function get_1() {
   });
 }
 
-function get_model(brand_id) {
+function get_model_1(brand_id, selectedModel) {
   var url = 'http://tractor-api.divyaltech.com/api/customer/get_brand_model/' + brand_id;
   $.ajax({
       url: url,
@@ -788,8 +788,12 @@ function get_model(brand_id) {
                   const option = document.createElement('option');
                   option.textContent = row.model;
                   option.value = row.model;
-                  console.log(option);
                   select.appendChild(option);
+
+                  // Select the option if it matches the selectedModel
+                  if (row.model === selectedModel) {
+                      option.selected = true;
+                  }
               });
           } else {
               select.innerHTML = '<option>No valid data available</option>';

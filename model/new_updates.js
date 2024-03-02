@@ -67,6 +67,14 @@ $(document).ready(function () {
    
   });
 
+
+  function resetFormFields(){
+    document.getElementById("form_news_updates").reset();
+    document.getElementById("image_").value = '';
+    document.getElementById("selectedImagesContainer2").innerHTML = '';
+   
+}
+
   function ImgUpload() {
     var imgWrap = "";
     var imgArray = [];
@@ -266,72 +274,84 @@ function add_news(event) {
 }
 
 // get dealers
+// Assuming you have your tableData declared somewhere before your success function
+
 function get_news() {
-    var apiBaseURL = APIBaseURL;
-    var url = apiBaseURL + 'news_details';
-    $.ajax({
-        url: url,
-        type: "GET",
-        headers: {
-            'Authorization': 'Bearer ' + localStorage.getItem('token')
-        },
-        success: function (data) {
-            const tableBody = document.getElementById('data-table');
+  var apiBaseURL = APIBaseURL;
+  var url = apiBaseURL + 'news_details';
+  $.ajax({
+      url: url,
+      type: "GET",
+      headers: {
+          'Authorization': 'Bearer ' + localStorage.getItem('token')
+      },
+      success: function (data) {
+          console.log("Data fetched:", data); // Check if data is successfully fetched
 
-            if (data.news_details && data.news_details.length > 0) {
-                let tableData = [];
-                let counter = 1;
+          const tableBody = $('#example tbody');
 
-                data.news_details.forEach(row => {
-                    let action = `
-                        <div class="d-flex">
+          if (data.news_details && data.news_details.length > 0) {
+              let tableData = [];
+              let counter = 1;
+
+              data.news_details.forEach(row => {
+                  let action = `
+                      <div class="d-flex">
                           <button class="btn btn-warning btn-sm text-white mx-1" data-bs-toggle="modal" onclick="fetch_data(${row.id});" data-bs-target="#exampleModal">
-                            <i class="fa-solid fa-eye" style="font-size: 11px;"></i>
+                              <i class="fa-solid fa-eye" style="font-size: 11px;"></i>
                           </button>
                           <button class="btn btn-primary btn-sm btn_edit" onclick="fetch_edit_data(${row.id});" data-bs-toggle="modal" data-bs-target="#staticBackdrop" id="yourUniqueIdHere">
-                            <i class="fas fa-edit" style="font-size: 11px;"></i>
+                              <i class="fas fa-edit" style="font-size: 11px;"></i>
                           </button>
                           <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.id});">
-                            <i class="fa fa-trash" style="font-size: 11px;"></i>
+                              <i class="fa fa-trash" style="font-size: 11px;"></i>
                           </button>
-                        </div>`;
+                      </div>`;
 
-                    tableData.push([
-                        counter,
-                        // formatDateTime(row.date),
-                        row.date,
-                        row.news_category,
-                        row.news_headline,
-                        action
-                    ]);
+                  tableData.push([
+                      counter,
+                      row.date,
+                      row.news_category,
+                      row.news_headline,
+                      action
+                  ]);
 
-                    counter++;
-                });
+                  counter++;
+              });
 
-                $('#example').DataTable().destroy();
-                $('#example').DataTable({
-                    data: tableData,
-                    columns: [
-                        { title: 'S.No.' },
-                        { title: 'Date' },
-                        { title: 'News Category' },
-                        { title: 'News Headline' },
-                        { title: 'Action', orderable: false }
-                    ],
-                    paging: true,
-                    searching: true,
-                    // ... other options ...
-                });
-            } else {
-                tableBody.innerHTML = '<tr><td colspan="9">No valid data available</td></tr>';
-            }
-        },
-        error: function (error) {
-            console.error('Error fetching data:', error);
-        }
-    });
-  }
-  get_news();
+              // Reverse the tableData array to show the latest data at the top
+              tableData.reverse();
+
+              console.log("Reversed tableData:", tableData); // Check if the tableData is correctly reversed
+
+              // Clear existing table data
+              tableBody.empty();
+
+              // Append the new rows at the beginning of the table
+              tableData.forEach(row => {
+                  tableBody.prepend('<tr>' + row.map(cell => `<td>${cell}</td>`).join('') + '</tr>');
+              });
+
+              // Reinitialize the DataTable
+              $('#example').DataTable().destroy();
+              $('#example').DataTable({
+                  paging: true,
+                  searching: true,
+                  // ... other options ...
+              });
+          } else {
+              tableBody.html('<tr><td colspan="5">No valid data available</td></tr>');
+          }
+      },
+
+      error: function (error) {
+          console.error('Error fetching data:', error);
+      }
+  });
+}
+
+get_news();
+
 
   function search_data() {
     console.log("dfghsfg,sdfgdfg");

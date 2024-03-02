@@ -78,7 +78,7 @@
       </div>
       <div class="col-12 text-center mt-3 pt-2 ">
                             <button id="load_moretract" type="button" class="add_btn btn btn-success px-2">
-                                <i class="fas fa-undo"></i> Load More Tractors</button>
+                                <i class="fas fa-undo"></i> Load More Implements</button>
                         </div>
       </div>
     </section>

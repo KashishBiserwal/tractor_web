@@ -313,5 +313,3 @@ function displayupcomingTractors(tractors, new_arr) {
     });
 }
 
-
-populateDropdownsFromClass('state-dropdown', 'district-dropdown', 'tehsil-dropdown');

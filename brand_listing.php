@@ -44,7 +44,7 @@
           </nav>
           
 
-          <button type="button" id="add_trac" class="btn add_btn btn-success float-right btn_all" data-bs-toggle="modal"  data-bs-target="#staticBackdrop">
+          <button type="button" id="add_trac" class="btn add_btn btn-success float-right btn_all" data-bs-toggle="modal"  data-bs-target="#staticBackdrop" onclick="resetFormFields();">
             <i class="fa fa-plus" aria-hidden="true"></i>Add New Brand
           </button>
 
@@ -897,6 +897,16 @@ $(document).ready(function () {
 }
 
 
-
+function resetFormFields(){
+    document.getElementById("form").reset();
+    document.getElementById("brand_img").value = '';
+    document.getElementById("banner_image").innerHTML = '';
+    
+    // Resetting checkboxes
+    var checkboxes = document.getElementsByClassName('product_type_checkbox');
+    for(var i=0; i<checkboxes.length; i++){
+        checkboxes[i].checked = false;
+    }
+}
   </script>
 </body>
