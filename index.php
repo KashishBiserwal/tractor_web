@@ -218,7 +218,7 @@
                       </div>
                     </div>
                   </div>
-                  <div class="col text-center pb-4">
+                  <div class="col text-center pb-4 mt-5 pt-2">
                     <a href="latest_tractor.php" class="btn btn-success btn-lg">View all Latest Tractors</a>
                   </div>
                 </div>
@@ -235,7 +235,7 @@
                       </div>
                     </div>
                   </div>
-                  <div class="col text-center pb-4">
+                  <div class="col text-center pb-4 mt-5 pt-2">
                     <a href="upcoming_tractors.php" class="btn btn-success btn-lg">View all Upcoming Tractors</a>
                   </div>
                 </div>
@@ -454,7 +454,7 @@
         <h3 class="mt-5 pt-4 display-6 fw-bold">
           <spna class="text-success">Mini </spna> Tractors
         </h3>
-        <p>Mini tractor price range starts from <strong> Rs. 2.45 Lakh to Rs. 9.21 Lakh*</strong>. </p>
+        <!-- <p>Mini tractor price range starts from <strong> Rs. 2.45 Lakh to Rs. 9.21 Lakh*</strong>. </p> -->
         <div class="row ">
           <div class="col-12 ">
             <div class="position-relative " id="proj_swip">
@@ -572,7 +572,7 @@
       </div>
     </section>
     <!-- nwes -->
-    <section>
+    <!-- <section>
       <div class="container mt-4 pt-3 ">
         <h3 class="display-6 fw-bold  my-3 ">Our Latest <span class="text-success">News & Update</span>
         </h3>
@@ -937,7 +937,7 @@
           </div>
         </div>
       </div>
-    </section>
+    </section> -->
     <!-- about tractor junction -->
     <section class="about bg-light">
       <div class="container">

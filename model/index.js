@@ -65,7 +65,7 @@ function getpopularTractorList() {
                                <img src="http://tractor-api.divyaltech.com/uploads/product_img/${a[0]}" class="" alt="img" >
                          </div>
                         <div class="new-tractor-content text-center b-t-1">
-                            <h5 class="fw-bold mt-2 text-decoration-none text-dark">${p.brand_name} ${p.model}</h5>
+                            <h6 class="fw-bold mt-2 text-decoration-none text-dark">${p.brand_name} ${p.model}</h6>
                          
                         
                             <p  class="text-dark text-decoration-none  mt-2 mb-0">From: ₹${p.starting_price}-${p.ending_price} lac*</p>
@@ -131,7 +131,7 @@ function getUpcomingTractorList() {
                                <img src="http://tractor-api.divyaltech.com/uploads/product_img/${a[0]}" class="" alt="img" >
                          </div>
                         <div class="new-tractor-content text-center b-t-1">
-                            <h5 class="fw-bold mt-2 text-decoration-none text-dark">${p.brand_name} ${p.model}</h5>
+                            <h6 class="fw-bold mt-2 text-decoration-none text-dark">${p.brand_name} ${p.model}</h6>
                          
                         
                             <p  class="text-dark text-decoration-none mt-2  mb-0">From: ₹${p.starting_price}-${p.ending_price} lac*</p>
@@ -197,7 +197,7 @@ function getminiTractorList() {
                                <img src="http://tractor-api.divyaltech.com/uploads/product_img/${a[0]}" class="" alt="img" >
                          </div>
                         <div class="new-tractor-content text-center b-t-1">
-                            <h5 class="fw-bold mt-2 text-decoration-none text-dark">${p.brand_name} ${p.model}</h5>
+                            <h6 class="fw-bold mt-2 text-decoration-none text-dark">${p.brand_name} ${p.model}</h6>
                          
                         
                             <p  class="text-dark text-decoration-none mt-2  mb-0">From: ₹${p.starting_price}-${p.ending_price} lac*</p>
@@ -265,7 +265,7 @@ function getLatestTractorList() {
                                                        <img src="http://tractor-api.divyaltech.com/uploads/product_img/${a[0]}" class="" alt="img" >
                                                  </div>
                                                 <div class="new-tractor-content text-center b-t-1">
-                                                    <h5 class="fw-bold mt-2 text-decoration-none text-dark">${p.brand_name} ${p.model}</h5>
+                                                    <h6 class="fw-bold mt-2 text-decoration-none text-dark">${p.brand_name} ${p.model}</h6>
                                                  
                                                 
                                                     <p  class="text-dark text-decoration-none mt-2  mb-0">From: ₹${p.starting_price}-${p.ending_price} lac*</p>
@@ -326,7 +326,7 @@ function get_harvester() {
                 </div>
               </a>
               <div class="harvester_content_section mt-3 text-center">
-                <a href="harvester_inner.php?product_id=${p.id}" class="text-decoration-none fw-bold text-dark"><h5 class="text-dark">${p.brand_name} ${p.model}</h5></a>
+                <a href="harvester_inner.php?product_id=${p.id}" class="text-decoration-none fw-bold text-dark"><h6 class="text-dark">${p.brand_name} ${p.model}</h6></a>
                 <div class="row w-100">
                   <div class="col-6 p-0"> <p class="mb-0" style="font-size: 14px;">${p.horse_power} Hp</p></div>
                   <div class="col-6 p-0"> <p class="mb-0" style="font-size: 14px;">${p.crops_type_value}</p></div>
@@ -414,9 +414,9 @@ function get_oldharvester() {
                 </div>
               </a>
               <div class="harvester_content_section mt-3 text-center">
-                <a href="used_harvester_inner.php?id=${p.id}" class="text-decoration-none fw-bold text-dark"><h5 class="text-dark">${p.brand_name} ${p.model}</h5></a>
+                <a href="used_harvester_inner.php?id=${p.id}" class="text-decoration-none fw-bold text-dark"><h6 class="text-dark">${p.brand_name} ${p.model}</h6></a>
                 <div class="row w-100">
-                  <div class="col-6 p-0"> <p class="mb-0" style="font-size: 14px;">${p.horse_power} Hp</p></div>
+                  <div class="col-6 p-0"> <p class="mb-0" style="font-size: 14px;"><span>Hours Driven: </span>${p.hours_driven}</p></div>
                   <div class="col-6 p-0"> <p class="mb-0" style="font-size: 14px;">${p.crops_type_value}</p></div>
                 </div>
                 <button type="button" class="add_btn btn-success w-100 mt-3"><i class="fa-regular fa-handshake"></i> Get on Road Price</button>
