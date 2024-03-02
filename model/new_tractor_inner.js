@@ -4,6 +4,7 @@ $(document).ready(function() {
     getProductById();
     get_allbrand();
     getpopularTractorList();
+    $('#submit_enquiry').click(store);
 });
 
 function getProductById() {
@@ -72,7 +73,7 @@ function getProductById() {
         document.getElementById('power_take_off_type_rpm').innerText=data.product.allProductData[0].power_take_off_rpm;
         document.getElementById('transmission_reverse').innerText=data.product.allProductData[0].transmission_reverse;
         document.getElementById('wheel_drive').innerText=data.product.allProductData[0].wheel_drive_value;
-
+        document.getElementById('product_id').value = data.product.allProductData[0].product_id;
             var product = data.product.allProductData[0];
 
             var imageNames = product.image_names.split(',');
@@ -332,6 +333,73 @@ function displayPopularTractors(tractors, new_arr) {
 
             // Append the new card to the container
             productContainer.append(newCard);
+        }
+    });
+}
+
+
+function store(event) {
+    event.preventDefault();
+    console.log('jfhfhw');
+    var enquiry_type_id = $('#enquiry_type_id').val();
+    var product_type_id = $('#product_type_id').val()
+    var product_id = $('#product_id').val();
+    var first_name = $('#firstName').val();
+    var last_name = $('#lastName').val();
+    var mobile = $('#mobile_number').val();
+    var state = $('#state').val();
+    var district = $('#district').val();
+    var tehsil = $('#Tehsil').val();
+    console.log('jfhfhw',product_id);
+   
+    // Prepare data to send to the server
+    var paraArr = {
+      'product_id':product_id,
+      'enquiry_type_id':enquiry_type_id,
+      'product_type_id': product_type_id,
+      'first_name': first_name,
+      'last_name':last_name,
+      'mobile':mobile,
+      'state':state,
+      'district':district,
+      'tehsil':tehsil,
+ 
+    };
+    console.log(paraArr);
+    var url = 'http://tractor-api.divyaltech.com/api/customer/customer_enquiries';
+
+    var token = localStorage.getItem('token');
+    var headers = {
+        'Authorization': 'Bearer ' + token
+    };
+    $.ajax({
+        url: url,
+        type: 'POST',
+        data: paraArr,
+        // headers: headers, // Remove headers if not needed
+        success: function(result) {
+            console.log(result, "result");
+            // $(`#${formId}`).closest('.modal').modal('hide');
+            $("#used_tractor_callbnt_").modal('hide');
+            var msg = "Added successfully !"
+            $("#errorStatusLoading").modal('show');
+            $("#errorStatusLoading").find('.modal-title').html('<p class="text-center">Congratulation..! Requested Successful</p>');
+
+            $("#errorStatusLoading").find('.modal-body').html(msg);
+            $("#errorStatusLoading").find('.modal-body').html('<img src="assets/images/7efs.gif" style="display:block; margin:0 auto;" class="w-50 text-center" alt="Successfull Request"></img>');
+
+            // getOldTractorById();
+            console.log("Add successfully");
+            resetForm(formId);
+        },
+        error: function(error) {
+            console.error('Error fetching data:', error);
+            var msg = error;
+            $("#errorStatusLoading").modal('show');
+            $("#errorStatusLoading").find('.modal-title').html('<p class="text-center">Process Failed..! Enter Valid Detail</p>');
+            $("#errorStatusLoading").find('.modal-body').html(msg);
+            $("#errorStatusLoading").find('.modal-body').html('<img src="assets/images/comp_3.gif" style="display:block; margin:0 auto;" class="w-50 text-center" alt="Successfull Request"></img>');
+            //
         }
     });
 }

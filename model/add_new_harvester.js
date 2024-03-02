@@ -361,7 +361,7 @@ function removeImage(ele){
         success: function (data) {
             const select = document.getElementById('brand');
             select.innerHTML = '';
-          
+            select.innerHTML = '<option selected disabled value="">Please select an option</option>';
             if (data.brands.length > 0) {
                 data.brands.forEach(row => {
                     const option = document.createElement('option');
@@ -794,8 +794,8 @@ function destroy(id) {
       success: function(response) {
         var editData = response.product[0];
         $('#id').val(harvesterId);
-        $("#brand_name option").prop("selected", false);
-        $("#brand_name option[value='" + editData.brand_id + "']").prop("selected", true);
+        // $("#brand_name option").prop("selected", false);
+        // $("#brand_name option[value='" + editData.brand_id + "']").prop("selected", true);
        
         $('#model').val(editData.model);
         $('#rpm').val(editData.engine_rated_rpm);
@@ -867,6 +867,13 @@ function destroy(id) {
 
         $('#product_type_id').val(editData.product_type_id);
 
+        var brandDropdown = document.getElementById('brand');
+        for (var i = 0; i < brandDropdown.options.length; i++) {
+          if (brandDropdown.options[i].text === editData.brand_name) {
+            brandDropdown.selectedIndex = i;
+            break;
+          }
+        }
         $("#selectedImagesContainer2").empty();
 
         if (editData.image_names) {
@@ -1043,40 +1050,46 @@ function resetform(){
 }
 
 
-function resetFormFields() {
-  $('#brand').val('');
-  $('#model').val('');
-  $('#rpm').val('');
-  $('#hp_power').val('');
-  $('#AIR_FILTER').val('');
-  $('#TOTAL_CYCLINDER').val('');
-  $('#POWER_SOURCE').val('');
-  $('#cutting_bar').val('');
-  $('#cuttingmax_height').val('');
-  $('#cuttingmin_height').val('');
-  $('#CUTTER_BAR_HEIGHT_ADJUSTMENT').val('');
-  $('#REEL_TYPE').val('');
-  $('#reel_dia').val('');
-  $('#REEL_SPEED_CONTROL').val('');
-  $('#min_revol').val('');
-  $('#max_revol').val('');
-  $('#REEL_HEIGHT_ADJUSTMENT').val('');
-  $('#COOLING').val('');
-  $('#cool_capacity').val('');
-  $('#drump_width').val('');
-  $('#drump_length').val('');
-  $('#drump_diameter').val('');
-  $('#THRESHING_DRUM_SPEED_ADJUSTMENT').val('');
-  $('#clear_concave').val('');
-  $('#tank_capa').val('');
-  $('#transmission_gears').val('');
-  $('#tyre_sizerear').val('');
-  $('#total_weight_without_grains').val('');
-  $('#dia_length').val('');
-  $('#dia_height').val('');
-  $('#dia_width').val('');
-  $('#ground_clerance').val('');
-  $('#CROPS_TYPE').val('');
-  $('#_image').val('');
-  $('#selectedImagesContainer').val('').css('display', 'none');
-} 
+// function resetFormFields() {
+//   $('#brand').val('');
+//   $('#model').val('');
+//   $('#rpm').val('');
+//   $('#hp_power').val('');
+//   $('#AIR_FILTER').val('');
+//   $('#TOTAL_CYCLINDER').val('');
+//   $('#POWER_SOURCE').val('');
+//   $('#cutting_bar').val('');
+//   $('#cuttingmax_height').val('');
+//   $('#cuttingmin_height').val('');
+//   $('#CUTTER_BAR_HEIGHT_ADJUSTMENT').val('');
+//   $('#REEL_TYPE').val('');
+//   $('#reel_dia').val('');
+//   $('#REEL_SPEED_CONTROL').val('');
+//   $('#min_revol').val('');
+//   $('#max_revol').val('');
+//   $('#REEL_HEIGHT_ADJUSTMENT').val('');
+//   $('#COOLING').val('');
+//   $('#cool_capacity').val('');
+//   $('#drump_width').val('');
+//   $('#drump_length').val('');
+//   $('#drump_diameter').val('');
+//   $('#THRESHING_DRUM_SPEED_ADJUSTMENT').val('');
+//   $('#clear_concave').val('');
+//   $('#tank_capa').val('');
+//   $('#transmission_gears').val('');
+//   $('#tyre_sizerear').val('');
+//   $('#total_weight_without_grains').val('');
+//   $('#dia_length').val('');
+//   $('#dia_height').val('');
+//   $('#dia_width').val('');
+//   $('#ground_clerance').val('');
+//   $('#CROPS_TYPE').val('');
+//   $('#_image').val('');
+//   $('#selectedImagesContainer').val('').css('display', 'none');
+// } 
+function resetFormFields(){
+  document.getElementById("harvester_form").reset();
+  document.getElementById("image_name").value = '';
+  document.getElementById("selectedImagesContainer2").innerHTML = '';
+ 
+}

@@ -1,12 +1,14 @@
+
+var allDealers = [];
 $(document).ready(function() {
     // $('#submit_enquiry').click(store);
     console.log("ready!");
     getbrands();
     getTractorList();
     getusedTractorList();
-    getoldimplementList();
-  
-
+    // getoldimplementList();
+   
+    get_certifieddealers();
     $("#contact-seller-call").validate({
         rules: {
             brandName: {
@@ -57,7 +59,84 @@ $(document).ready(function() {
         return value !== param;
     }, "Value must not equal {0}");
 
-
+    function get_certifieddealers() {
+        var url = 'http://tractor-api.divyaltech.com/api/customer/dealer_data';
+    
+        $.ajax({
+            url: url,
+            type: "GET",
+            success: function(data) {
+                if (data.dealer_details && data.dealer_details.length > 0) {
+                    // Reverse the order of the cards to display the latest ones first
+                    var reversedDealers = data.dealer_details.slice().reverse();
+                    
+                    // Update the list of all dealers
+                    allDealers = allDealers.concat(reversedDealers);
+                    
+                    // Display the latest 8 dealers at the top in the opposite order
+                    displaydealer(reversedDealers.slice(0, 8).reverse());
+    
+                    // Show the "Load More" button if there are remaining dealers
+                    if (data.dealer_details.length > 8) {
+                        $("#load_moretract").show();
+                    }
+    
+                    // Handle "Load More" button click
+                    $("#load_moretract").click(function() {
+                        // Display all dealers in the opposite order
+                        displaydealer(allDealers.reverse());
+                        // Hide the "Load More" button
+                        $("#load_moretract").hide();
+                    });
+                }
+            },
+            error: function(error) {
+                console.error('Error fetching data:', error);
+            }
+        });
+    }
+    
+    function displaydealer(dealers) {
+        var productContainer = $("#productContainer_dealer");
+    
+        // Clear existing content
+        productContainer.html('');
+    
+        dealers.forEach(function (dealer) {
+            var images = dealer.image_names ? dealer.image_names.split(',')[0] : '';
+    
+            var newCard = `
+                <div class="col-12 col-sm-3 col-md-3 col-lg-3 px-2 py-3 h-100">
+                    <div class="h-auto success__stry__item d-flex flex-column shadow">
+                        <div class="thumb">
+                            <a href="certified_dealers_inner.php?id=${dealer.id}">
+                                <div class="ratio ratio-16x9">
+                                    <img src="http://tractor-api.divyaltech.com/uploads/dealer_img/${images}" class="object-fit-cover" alt="img">
+                                </div>
+                            </a>
+                        </div>
+                        <div class="position-absolute">
+                            <p class="rounded-pill bg-warning text-center px-2 mt-1">Certified</p>
+                        </div>
+                        <div>
+                            <a href="certified_dealers_inner.php?id=${dealer.id}" class="text-decoration-none text-dark">
+                                <h6 class="fw-bold text-center mt-3">${dealer.dealer_name}</h6>
+                            </a>
+                            <div class="col-12 col-lg-12 col-md-12 col-sm-12">
+                                <p class="text-center text-dark fw-bold">${dealer.brand_name} <span>Dealer</span></p>
+                            </div>
+                            <div class="justify-content-center d-flex">
+                                <button type="button" class="btn btn-success w-100">Rangareddy, Telangana</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+    
+            // Use prepend to add the new card at the beginning
+            productContainer.prepend(newCard);
+        });
+    }
 // Function to get the value of a query parameter from the URL
 function getQueryParam(parameterName) {
     const urlParams = new URLSearchParams(window.location.search);
@@ -179,6 +258,7 @@ function displayTractors(productContainer, tractors) {
                 a = [images];
             }
         }
+        
         var cardId = `card_${p.product_id}`; // Dynamic ID for the card
         var modalId = `used_tractor_callbnt_${p.product_id}`; // Dynamic ID for the modal
         var formId = `contact-seller-call_${p.product_id}`;
@@ -425,113 +505,89 @@ function getusedTractorList() {
         success: function(data) {
             console.log(data, 'xyz');
             var productContainer2 = $("#productContainer2");
-             var used_tractor = $("#used_tractor");
-      
+            var used_tractor = $("#used_tractor");
+            var viewAllButton = $("#view_all_used_tractor"); // Get the view all button by ID
+
             if (data.product && data.product.length > 0) {
-              
-                 var brandid = [];
+                var brandid = [];
                 for (var j = 0; j < data.product.length; j++) {
-                    if(data.product[j].brand_id == Id){
-                    var model = data.product[j].brand_name;
-                   
+                    if (data.product[j].brand_id == Id) {
+                        var model = data.product[j].brand_name;
                     }
                 }
                 brandid.push(model);
-                var used_tractor_heading = ` <h3 class="mb-0 py-4 text-uppercase">Used ${brandid[0]} Tractors</h3>`;
+                var used_tractor_heading = `<h3 class="mb-0 py-4 text-uppercase">Used ${brandid[0]} Tractors</h3>`;
                 used_tractor.append(used_tractor_heading);
-                data.product.forEach(function (p) {
-                    if(p.brand_id == Id){
-                   
-                            
-                    var images = p.image_names;
-                    var a = [];
 
-                    if (images) {
-                        if (images.indexOf(',') > -1) {
-                            a = images.split(',');
-                        } else {
-                            a = [images];
+                var cardCount = 0;
+                data.product.forEach(function(p) {
+                    if (p.brand_id == Id) {
+                        var images = p.image_names;
+                        var a = [];
+                        if (images) {
+                            if (images.indexOf(',') > -1) {
+                                a = images.split(',');
+                            } else {
+                                a = [images];
+                            }
                         }
-                    }
-                  
-                 
-                   
-                  
-                   
-                    var newCard2 = `
-                    <div class="item px-2 py-3 h-100 ">
-                        <div class="h-auto success__stry__item box_shadow b-t-1">
-                            <div class="thumb">
-                                <a href="used_tractor.php">
-                                    <div class="p-3 ratio ratio-16x9">
-                                        <img src="http://tractor-api.divyaltech.com/uploads/product_img/${a[0]}" class="object-fit-cover  "  alt="img">
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="content d-flex flex-column flex-grow-1 mx-3">
-                                <a href="#" class="text-decoration-none text-dark">
-                                    <h4 class=" mt-3" style="font-size: 20px;">${p.brand_name} ${p.model}</h4>
-                                </a>
-                                <p class="mb-1">${p.district}, ${p.state}</p>
-        
-                                
-        
-                                <div class="row mt-1 w-100 mx-auto">
-                                    <div class="col-6 col-lg-6 col-md-6 col-sm-6 ps-0">
-                                        <p class="mb-1"> <i class="fas fa-bolt"></i> ${p.hp_category} HP</p>
-                                    </div>
-                                    
-                                    <div class="col-12 col-lg-6 col-md-6 col-sm-6 pe-0">
-                                        <button class="btn btn-success p-1" style=" font-size: 12px;  text-align: right; float: right; ">Great Deal <i class="fa fa-thumbs-up" aria-hidden="true"></i></button>
-                                    </div>
+
+                        var newCard2 = `
+                        <div class="col-12 col-lg-3 col-md-3 col-sm-3 mb-3 mt-4">
+                            <div class="h-auto success__stry__item box_shadow b-t-1">
+                                <div class="thumb">
+                                    <a href="farmtrac_60.php?product_id=${p.customer_id}">
+                                        <div class="p-3 ratio ratio-16x9">
+                                            <img src="http://tractor-api.divyaltech.com/uploads/product_img/${a[0]}" class="object-fit-cover  "  alt="img">
+                                        </div>
+                                    </a>
                                 </div>
-                                <a href="# " class="text-dark flex-grow-1 text-decoration-none">
-                                    <p>Price: ₹ ${p.price}*</p>
-                                </a>
-                               
+                                <div class="content d-flex flex-column flex-grow-1 mx-3">
+                                    <a href="farmtrac_60.php?product_id=${p.customer_id}" class="text-decoration-none text-dark">
+                                        <h4 class=" mt-3" style="font-size: 20px;">${p.brand_name} ${p.model}</h4>
+                                    </a>
+                                    <p class="mb-1">${p.district_name}, ${p.state_name}</p>
+                                    <div class="row mt-1 w-100 mx-auto">
+                                        <div class="col-6 col-lg-6 col-md-6 col-sm-6 ps-0">
+                                            <p class="mb-1"> <i class="fas fa-bolt"></i> ${p.hp_category} HP</p>
+                                        </div>
+                                        <div class="col-12 col-lg-6 col-md-6 col-sm-6 pe-0">
+                                            <button class="btn btn-success p-1" style=" font-size: 12px;  text-align: right; float: right; ">Great Deal <i class="fa fa-thumbs-up" aria-hidden="true"></i></button>
+                                        </div>
+                                    </div>
+                                    <a href="farmtrac_60.php?product_id=${p.customer_id}" class="text-dark flex-grow-1 text-decoration-none">
+                                        <p>Price: ₹ ${p.price}*</p>
+                                    </a>
+                                </div>
                             </div>
-                        </div>
-                    </div>`;
+                        </div>`;
 
-                    // Append the new card to the container
-                    productContainer2.append(newCard2);
-                  
-                }
-            
-                });
-            
-
-              
-             
-            }
-
-            $('#productContainer2').owlCarousel({
-                items:4,
-                    loop: true,
-                    margin: 10,
-                    responsiveClass: true,
-                    responsive: {
-                        0: {
-                            items: 1,
-                            nav: false
-                        },
-                        600: {
-                            items: 3,
-                            nav: false
-                        },
-                        1000: {
-                            items: 4,
-                            nav: false,
-                            loop: false
+                        // Append the new card to the container if less than 4 cards
+                        if (cardCount < 4) {
+                            productContainer2.append(newCard2);
+                            cardCount++;
                         }
                     }
-            })
+                });
+
+                // If there are more than 4 cards and the "View All" button exists, show it
+                if (data.product.length > 4 && viewAllButton.length > 0) {
+                    viewAllButton.show();
+                }
+            }
         },
-        error: function (error) {
+        error: function(error) {
             console.error('Error fetching data:', error);
         }
     });
 }
+
+
+
+
+
+
+
 
 // function getoldimplementList() {
 //     var urlParams = new URLSearchParams(window.location.search);
@@ -639,4 +695,3 @@ function getusedTractorList() {
 //         }
 //     });
 // }
-
