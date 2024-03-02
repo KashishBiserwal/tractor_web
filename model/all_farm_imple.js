@@ -70,12 +70,12 @@ function displayEngineoil(container, engineoil) {
                     <div class="content d-flex flex-column flex-grow-1 ">
                         <div class="caption text-center">
                             <a href="#" class="text-decoration-none text-dark">
-                                <p class="pt-3"><strong class="series_tractor_strong text-center h4 fw-bold ">Grizo J Type</strong></p>
+                                <p class="pt-3"><strong class="series_tractor_strong text-center h4 fw-bold ">${p.category_name}</strong></p>
                             </a>      
                         </div>
                         <div class="row text-center">
                             <div class="col-6">
-                                <p class="fw-bold ps-2 text-dark">By Agrizone</p>
+                                <p class="fw-bold ps-2 text-dark">${p.category_name}</p>
                             </div>
                             <div class="col-6">
                                 <p class="fw-bold pe-2 text-dark">Tillage</p>
