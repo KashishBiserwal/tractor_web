@@ -272,48 +272,66 @@ function fetch_edit_data(customer_id) {
 }
 
 function store(event) {
-    console.log('run store function');
     event.preventDefault();
 
     var enquiry_type_id = 18;
-    var added_by = 1;
+    // var added_by = 1;
     var first_name = $('#myfname').val();
     var last_name = $('#mylname').val();
     var mobile = $('#mynumber').val();
     var state = $('#state_state').val();
     var district = $('#dist_district').val();
     var tehsil = $('#tehsil_t').val();
-    var brand_id = $('#brand').val(); // Assuming this is the correct ID for brand
-    var model = $('#model').val(); // Assuming this is the correct ID for model
+    var brand_id = $('#brand').val();
+    var model = $('#model').val();
+    console.log('model',model);
     var purchase_year = $('#year').val();
     var working_radius = $('#workarea_').val();
     var message = $('#textarea_d').val();
 
+    // var implement_type_id = [];
+    // $('select[name="imp_type_id[]"]').each(function() {
+    //     implement_type_id.push($(this).val());
+    // });
+
+    // var rate = [];
+    // $('input[name="implement_rate[]"]').each(function() {
+    //     rate.push($(this).val());
+    // });
+
+    // var rate_per = [];
+    // $('select[name="rate_per[]"]').each(function() {
+    //     rate_per.push($(this).val());
+    // });
     var implement_type_id = [];
-    $('select[name="imp_type_id[]"]').each(function() {
-        implement_type_id.push($(this).val());
-    });
+$('.implement-type-select').each(function() {
+    implement_type_id.push($(this).val());
+});
 
-    var rate = [];
-    $('input[name="implement_rate[]"]').each(function() {
-        rate.push($(this).val());
-    });
+var rate = [];
+$('.implement-rate-input').each(function() {
+    rate.push($(this).val());
+});
 
-    var rate_per = [];
-    $('select[name="rate_per[]"]').each(function() {
-        rate_per.push($(this).val());
-    });
+var rate_per = [];
+$('.rate-per-select').each(function() {
+    rate_per.push($(this).val());
+});
 
+    // var images = [];
+    // var impImageFiles = document.getElementById('impImage_0').files;
+    // for (var i = 0; i < impImageFiles.length; i++) {
+    //     images.push(impImageFiles[i]);
+    // }
     var images = [];
-    var impImageFiles = document.getElementById('impImage_0').files;
-    for (var i = 0; i < impImageFiles.length; i++) {
-        images.push(impImageFiles[i]);
-    }
+for (var i = 0; i < impImageFiles.length; i++) {
+    images.push(impImageFiles[i]);
+}
 
     var data = new FormData();
 
     data.append('enquiry_type_id', enquiry_type_id);
-    data.append('added_by', added_by);
+    // data.append('added_by', added_by);
     data.append('first_name', first_name);
     data.append('last_name', last_name);
     data.append('mobile', mobile);
