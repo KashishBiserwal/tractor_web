@@ -138,72 +138,7 @@
         </div>
     </section>
 
-    <div class="modal fade" id="staticBackdrop3" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg modal-dialog-centered">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title ms-1" id="staticBackdropLabel">Request Call Back</h5>
-              <button type="button" class="btn-close btn-success" data-bs-dismiss="modal" aria-label="Close"><img src="assets/images/close.png" class="w-25"></button>
-            </div>
-            <!-- MODAL BODY -->
-            <div class="modal-body">
-            <form id="inner_brand_form" method="POST" onsubmit="return false">
-                <div class="row">
-                    <div class="col-12 col-lg-6 col-md-6 col-sm-6 " hidden>
-                         <label for="name" class="form-label fw-bold text-dark"><i class="fa-duotone fa-chart-pie-simple"></i></label>
-                        <input type="text" class="form-control" placeholder="Enter Your Name" id="product_id" value="" name="">
-                    </div>
-                    <div class="col-12 col-lg-6 col-md-6 col-sm-6 " hidden>
-                         <label for="name" class="form-label fw-bold text-dark"><i class="fa-duotone fa-chart-pie-simple"></i> Model Name</label>
-                        <input type="text" class="form-control" placeholder="Enter Your Name" id="enquiry_type_id" value="2" name="iduser">
-                    </div>
-                    <div class="col-12 col-lg-6 col-md-6 col-sm-6 " hidden>
-                        <label for="name" class="form-label fw-bold text-dark"><i class="fa-duotone fa-chart-pie-simple"></i> Model Name</label>
-                        <input type="text" class="form-control" placeholder="Enter Your Name" id="product_type_id" value="2" name="iduser">
-                    </div>
-                    <div class="col-12 col-sm-6 col-md-6 col-lg-6">
-                        <label for="" class="form-label text-dark fw-bold"> <i class="fa-regular fa-user"></i> First Name</label>
-                         <input type="text" class="form-control" placeholder="Enter Number" id="firstName" name="firstName">
-                    </div>
-                    <div class="col-12 col-sm-6 col-md-6 col-lg-6">
-                        <label for="" class="form-label text-dark fw-bold"><i class="fa-regular fa-user"></i> Last Name</label>
-                        <input type="text" class="form-control" placeholder="Enter Number" id="lastName" name="lastName">
-                    </div>
-                    <div class="col-12 col-sm-6 col-md-6 col-lg-6">
-                        <label for="number" class="form-label text-dark fw-bold"><i class="fa fa-phone" aria-hidden="true"></i> Mobile Number</label>
-                        <input type="text" class="form-control" placeholder="Enter Number" id="mobile_number" name="mobile_number">
-                        <p class="text-danger">*Please make sure mobile no. must valid</p>
-                    </div>
-                     <div class="col-12 col-sm-6 col-md-6 col-lg-6 mt-4">
-                        <div class="form-outline">
-                            <label for="state" class="form-label text-dark fw-bold"> <i class="fas fa-location"></i> State</label>
-                            <select class="form-select py-2 state-dropdown" aria-label=".form-select-lg example" id="state" name="state">
-                            </select>
-                        </div>
-                    </div>
-                    <div class="col-12 col-sm-6 col-md-6 col-lg-6 mt-4">
-                        <div class="form-outline">
-                            <label for="district" class="form-label fw-bold text-dark"><i class="fa-solid fa-location-dot"></i> District</label>
-                            <select class="form-select py-2 district-dropdown" aria-label=".form-select-lg example" id="district" name="district">
-                           </select>
-                        </div>
-                    </div>       
-                    <div class="col-12 col-sm-6 col-md-6 col-lg-6 mt-4">
-                        <div class="form-outline">
-                            <label for="Tehsil" class="form-label fw-bold text-dark"> Tehsil</label>
-                            <select class="form-select py-2 tehsil-dropdown" aria-label=".form-select-lg example" id="Tehsil" name="Tehsil">
-                             </select>
-                        </div>
-                    </div>
-                <div class="modal-footer">
-                    <button type="submit" id="submit_enquiry" class="btn add_btn btn-success w-100 btn_all" onclick="savedata('${formId}')" data-bs-dismiss="modal">Submit</button>
-                </div>      
-            </form>                                           
-            </div>
-          </div>
-        </div>
-      </div>
-
+   
     <section class="bg-light">
         <div class="container">
             <div class="row pt-4">
@@ -797,6 +732,71 @@
     include 'includes/footertag.php';
 
     ?>
+ <div class="modal fade" id="staticBackdrop3" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title ms-1" id="staticBackdropLabel">Request Call Back</h5>
+              <button type="button" class="btn-close btn-success" data-bs-dismiss="modal" aria-label="Close"><img src="assets/images/close.png" class="w-25"></button>
+            </div>
+            <!-- MODAL BODY -->
+            <div class="modal-body">
+            <form id="inner_brand_form" method="POST" onsubmit="return false">
+                <div class="row">
+                    <div class="col-12 col-lg-6 col-md-6 col-sm-6 " hidden>
+                         <label for="name" class="form-label fw-bold text-dark"><i class="fa-duotone fa-chart-pie-simple"></i></label>
+                        <input type="text" class="form-control" placeholder="Enter Your Name" id="product_id" value="" name="">
+                    </div>
+                    <div class="col-12 col-lg-6 col-md-6 col-sm-6 " hidden>
+                         <label for="name" class="form-label fw-bold text-dark"><i class="fa-duotone fa-chart-pie-simple"></i> Model Name</label>
+                        <input type="text" class="form-control" placeholder="Enter Your Name" id="enquiry_type_id" value="2" name="iduser">
+                    </div>
+                    <div class="col-12 col-lg-6 col-md-6 col-sm-6 " hidden>
+                        <label for="name" class="form-label fw-bold text-dark"><i class="fa-duotone fa-chart-pie-simple"></i> Model Name</label>
+                        <input type="text" class="form-control" placeholder="Enter Your Name" id="product_type_id" value="2" name="iduser">
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-6 col-lg-6">
+                        <label for="" class="form-label text-dark fw-bold"> <i class="fa-regular fa-user"></i> First Name</label>
+                         <input type="text" class="form-control" placeholder="Enter Number" id="firstName" name="firstName">
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-6 col-lg-6">
+                        <label for="" class="form-label text-dark fw-bold"><i class="fa-regular fa-user"></i> Last Name</label>
+                        <input type="text" class="form-control" placeholder="Enter Number" id="lastName" name="lastName">
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-6 col-lg-6">
+                        <label for="number" class="form-label text-dark fw-bold"><i class="fa fa-phone" aria-hidden="true"></i> Mobile Number</label>
+                        <input type="text" class="form-control" placeholder="Enter Number" id="mobile_number" name="mobile_number">
+                        <p class="text-danger">*Please make sure mobile no. must valid</p>
+                    </div>
+                     <div class="col-12 col-sm-6 col-md-6 col-lg-6 mt-4">
+                        <div class="form-outline">
+                            <label for="state" class="form-label text-dark fw-bold"> <i class="fas fa-location"></i> State</label>
+                            <select class="form-select py-2 state-dropdown" aria-label=".form-select-lg example" id="state" name="state">
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-6 col-lg-6 mt-4">
+                        <div class="form-outline">
+                            <label for="district" class="form-label fw-bold text-dark"><i class="fa-solid fa-location-dot"></i> District</label>
+                            <select class="form-select py-2 district-dropdown" aria-label=".form-select-lg example" id="district" name="district">
+                           </select>
+                        </div>
+                    </div>       
+                    <div class="col-12 col-sm-6 col-md-6 col-lg-6 mt-4">
+                        <div class="form-outline">
+                            <label for="Tehsil" class="form-label fw-bold text-dark"> Tehsil</label>
+                            <select class="form-select py-2 tehsil-dropdown" aria-label=".form-select-lg example" id="Tehsil" name="Tehsil">
+                             </select>
+                        </div>
+                    </div>
+                <div class="modal-footer">
+                    <button type="submit" id="submit_enquiry" class="btn add_btn btn-success w-100 btn_all" onclick="savedata('${formId}')" data-bs-dismiss="modal">Submit</button>
+                </div>      
+            </form>                                           
+            </div>
+          </div>
+        </div>
+      </div>
 
 </html>
 

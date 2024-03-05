@@ -248,10 +248,10 @@
                                                  </select>
                                             </div>
                                         </div>    
-                                        <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-3">
+                                        <div class="col-12 col-lg-6 col-md-6 col-sm-6 mb-2 mt-3">
                                             <div class="form-outline">
-                                                <label for="_price" class="form-label mb-0 text-dark fw-bold"> Price</label>
-                                                <input type="text" class="form-control mb-0" placeholder="Enter Price" id="p_price" name="_price"  oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');">
+                                                <label for="f_name" class="form-label mb-0 text-dark">Price</label>
+                                                <input type="text" class="form-control" placeholder="Enter price" id="p_price" name="p_price" inputmode="decimal" >
                                             </div>
                                         </div> 
                                     </div>
@@ -500,7 +500,9 @@
     include 'includes/footertag.php';
 
 ?>
-
+   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/jquery.validate.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/5.0.6/jquery.inputmask.min.js"></script>
     <!-- SCRIPT FOR THE DISPLAY & HIDE -->
     <script>
         $(document).ready(function () {
@@ -560,54 +562,69 @@
 
     <!-- SCRIPT FOR THE VALIDATION OF 1st FORM -->
     <script>
-        $(document).ready(function(){
-
-            $.validator.addMethod("validPrice", function(value, element) {
-      
-      const cleanedValue = value.replace(/,/g, '');
-
-      return /^\d+$/.test(cleanedValue);
-    }, "Please enter a valid price (digits and commas only)");
-
-            $("form[id='form-step-1']").validate({
-                rules: {
-                    _category: {
-                        required: true
-                    },
-                    _brand: {
-                        required: true
-                    },
-                    m_name: {
-                        required: true
-                    },
-                    p_year: {
-                        required: true
-                    },
-                    _price: {
-                        required: true,
-                        validPrice: true,
-                    }
-                },
-                messages: {
-                    _category: {
-                        required: "Select Your Category"
-                    },
-                    _brand: {
-                        required: "Select Brand Name"
-                    },
-                    m_name: {
-                        required: "Select Model Name"
-                    },
-                    p_year: {
-                        required: "Select Purchase Year"
-                    },
-                    _price: {
-                        required: "Enter Price Of Harvester",
-                        validPrice: "Please enter a valid price",
-                    }                   
-                },
-            });
+    
+    $(document).ready(function(){
+        $('#p_price').inputmask({
+            alias: 'numeric',
+            groupSeparator: ',',
+            autoGroup: true,
+            digits: 2,
+            digitsOptional: false,
+            placeholder: '0',
+            onBeforeMask: function (value, opts) {
+                // Remove commas before applying input mask
+                return value.replace(/\,/g,'');
+            },
         });
+
+        // Set cursor position to the beginning of the input field
+        var input = document.getElementById('p_price');
+        input.focus();
+        input.setSelectionRange(0, 0);
+
+        // Set text alignment to left
+        input.style.textAlign = 'left';
+
+        // Validate the form
+        $("form[id='form-step-1']").validate({
+            rules: {
+                _category: {
+                    required: true
+                },
+                _brand: {
+                    required: true
+                },
+                m_name: {
+                    required: true
+                },
+                p_year: {
+                    required: true
+                },
+                p_price: {
+                    required: true,
+                }
+            },
+            messages: {
+                _category: {
+                    required: "Select Your Category"
+                },
+                _brand: {
+                    required: "Select Brand Name"
+                },
+                m_name: {
+                    required: "Select Model Name"
+                },
+                p_year: {
+                    required: "Select Purchase Year"
+                },
+                p_price: {
+                    required: "Enter Price Of Harvester",
+                }                   
+            },
+        });
+    });
+</script>
+
     </script>
 
 

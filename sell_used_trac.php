@@ -151,6 +151,7 @@
         body {
             font-family: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", Helvetica, Arial, sans-serif; 
         }
+    
     </style>
 </head>
 
@@ -259,12 +260,13 @@
                                         </div>
                                         <div class="col-12 col-sm-12 col-md-6 col-lg-6">
                                         <div class="form-outline mt-3">
-                                                <label for="eo_state" class="form-label text-dark" id="state" name="state"> <i class="fas fa-location"></i> State</label>
+                                                <label for="eo_state" class="form-label text-dark"> <i class="fas fa-location"></i> State</label>
                                                 <select class="form-select py-2 state-dropdown" aria-label=".form-select-lg example"id="s_state" name="eo_state" required>
                                                     
                                                 </select>
                                             </div>
                                         </div>
+                                        
                                         <div class="col-12 col-sm-12 col-md-6 col-lg-6">
                                             <div class="form-outline mt-4">
                                                 <label for="eo_dist" class="form-label text-dark"><i class="fa-solid fa-location-dot"></i> District</label>
@@ -463,7 +465,7 @@
                                 <div class="col-12 col-lg-6 col-md-6 col-sm-6 mb-2 mt-1">
                                             <div class="form-outline">
                                                 <label for="f_name" class="form-label mb-0 text-dark">Price</label>
-                                                <input type="text" class="form-control mb-0" placeholder="Enter Price"  id="p_price" name="_price"  required>
+                                                <input type="text" class="form-control" placeholder="Enter price" id="p_price" name="p_price" inputmode="decimal" >
                                             </div>
                                         </div>
                                         <div class="col-12 col-sm-12 col-md-12 col-lg-12 mt-3">
@@ -658,6 +660,9 @@
 
 
     <!-- SCRIPT FOR THE DISPLAY & HIDE -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/jquery.validate.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/5.0.6/jquery.inputmask.min.js"></script>
 
 
     <script>
@@ -847,33 +852,62 @@
 
     <!-- SCRIPT FOR THE VALIDATION OF 3rd FORM -->
     <script>
-        $(document).ready(function(){
-            $("form[id='form-step-3']").validate({
-                rules: {
-                    _file: {
-                        required: true,
-                    },
-                    about: {
-                        required: true,
-                    },
-                    _td_duration: {
-                        required: true,
-                    }
-                },
-                messages: {
-                    _file: {
-                        required: "Upload minimum 1 or maximum 4 image",
-                    },
-                    about: {
-                        required: "This Field is required",
-                    },
-                    _td_duration: {
-                        required: "Select your time duration",
-                    } 
+   $(document).ready(function(){
+    // Add input masking to the price field
+    $('#p_price').inputmask({
+        alias: 'numeric',
+        groupSeparator: ',',
+        autoGroup: true,
+        digits: 2,
+        digitsOptional: false,
+        placeholder: '0',
+        onBeforeMask: function (value, opts) {
+            // Remove commas before applying input mask
+            return value.replace(/\,/g,'');
+        },
+    });
 
-                },
-            });
-        });
+    // Set cursor position to the beginning of the input field
+    var input = document.getElementById('p_price');
+    input.focus();
+    input.setSelectionRange(0, 0);
+
+    // Set text alignment to left
+    input.style.textAlign = 'left';
+
+    // Validate the form
+    $("form[id='form-step-3']").validate({
+        rules: {
+            _file: {
+                required: true,
+            },
+            about: {
+                required: true,
+            },
+            _td_duration: {
+                required: true,
+            },
+            p_price:{
+                required: true,
+            }
+        },
+        messages: {
+            _file: {
+                required: "Upload minimum 1 or maximum 4 image",
+            },
+            about: {
+                required: "This Field is required",
+            },
+            _td_duration: {
+                required: "Select your time duration",
+            } ,
+            p_price:{
+                required: "This Field is required",
+            }
+        },
+    });
+});
+
     </script>
 
     <!-- SCRIPT FOR THE VALIDATION OF IAMGE UPLOAD -->

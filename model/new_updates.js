@@ -141,41 +141,42 @@ $(document).ready(function () {
       $(".upload__img-closeDy"+thisId).remove();
   
     }
-
-  function get() {
-    var apiBaseURL =APIBaseURL;
-    var url = apiBaseURL + 'news_category';
-    $.ajax({
-        url: url,
-        type: "GET",
-        headers: {
-            'Authorization': 'Bearer ' + localStorage.getItem('token')
-        },
-        success: function (data) {
-            console.log(data);
-            const select = document.getElementById('brand');
-            select.innerHTML = '<option selected disabled value="">Please select an option</option>';
-
-            if (data.news_category.length > 0) {
-                data.news_category.forEach(row => {
-                    const option = document.createElement('option');
-                    option.textContent = row.category_name;
-                    option.value = row.id;
-                    select.appendChild(option);
-                });
-            } else {
-                select.innerHTML ='<option>No valid data available</option>';
-            }
-        },
-        error: function (error) {
-            console.error('Error fetching data:', error);
-        }
-    });
-}
-get();
+    function get() {
+      var apiBaseURL = APIBaseURL;
+      var url = apiBaseURL + 'news_category';
+      $.ajax({
+          url: url,
+          type: "GET",
+          headers: {
+              'Authorization': 'Bearer ' + localStorage.getItem('token')
+          },
+          success: function (data) {
+              console.log(data);
+              const select = document.getElementById('brand');
+              select.innerHTML = '<option selected disabled value="">Please select an option</option>';
+    
+              if (data.news_category.length > 0) {
+                  // Limiting categories to index 0 to 3
+                  for (let i = 0; i < Math.min(data.news_category.length, 4); i++) {
+                      const row = data.news_category[i];
+                      const option = document.createElement('option');
+                      option.textContent = row.category_name;
+                      option.value = row.id;
+                      select.appendChild(option);
+                  }
+              } else {
+                  select.innerHTML = '<option>No valid data available</option>';
+              }
+          },
+          error: function (error) {
+              console.error('Error fetching data:', error);
+          }
+      });
+    }
+    get();
 
 function get_search() {
-  var apiBaseURL =APIBaseURL;
+  var apiBaseURL = APIBaseURL;
   var url = apiBaseURL + 'news_category';
   $.ajax({
       url: url,
@@ -189,14 +190,16 @@ function get_search() {
           select.innerHTML = '<option selected disabled value="">Please select an option</option>';
 
           if (data.news_category.length > 0) {
-              data.news_category.forEach(row => {
+              // Limiting categories to index 0 to 3
+              for (let i = 0; i < Math.min(data.news_category.length, 4); i++) {
+                  const row = data.news_category[i];
                   const option = document.createElement('option');
                   option.textContent = row.category_name;
                   option.value = row.id;
                   select.appendChild(option);
-              });
+              }
           } else {
-              select.innerHTML ='<option>No valid data available</option>';
+              select.innerHTML = '<option>No valid data available</option>';
           }
       },
       error: function (error) {
@@ -205,6 +208,7 @@ function get_search() {
   });
 }
 get_search();
+
 
 function add_news(event) {
     event.preventDefault();

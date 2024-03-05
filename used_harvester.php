@@ -135,23 +135,11 @@
                         </div>
                     </div>
                 </div> -->
-                <div class="scrollbar mb-3" id=" my-2">
+                <div class="scrollbar mb-3" id="my-2">
                     <div class="force-overflow">
-                    <h5 class=" ps-1 text-dark fw-bold  pt-2">Search By Year</h5>
-                        <div class="HP py-2">
-                            <!-- <input type="checkbox" class="text-align-center ms-3" value=""/><span> This is checkbox </span><br /> -->
-                            <input type="checkbox" class="checkbox-round mt-1 ms-3" value="2021"/><span class="ps-2 fs-6">2021</span><br />
-                            <input type="checkbox" class="checkbox-round mt-1 ms-3" value="2020"/><span class="ps-2 fs-6">2020</span><br />
-                            <input type="checkbox" class="checkbox-round mt-1 ms-3" value="2019"/><span class="ps-2 fs-6">2019</span><br />
-                            <input type="checkbox" class="checkbox-round mt-1 ms-3" value="2018"/><span class="ps-2 fs-6">2018 </span><br />
-                            <input type="checkbox" class="checkbox-round mt-1 ms-3" value="2017"/><span class="ps-2 fs-6">2017</span><br />
-                            <input type="checkbox" class="checkbox-round mt-1 ms-3" value="2016"/><span class="ps-2 fs-6">2016</span><br />
-                            <input type="checkbox" class="checkbox-round mt-1 ms-3" value="2015"/><span class="ps-2 fs-6">2015</span><br />
-                            <input type="checkbox" class="checkbox-round mt-1 ms-3" value="2014"/><span class="ps-2 fs-6">2006</span><br />
-                            <input type="checkbox" class="checkbox-round mt-1 ms-3" value="2013"/><span class="ps-2 fs-6">2005</span><br />
-                            <input type="checkbox" class="checkbox-round mt-1 ms-3" value="2012"/><span class="ps-2 fs-6">2009</span><br />
-                            
-
+                        <h5 class="ps-1 text-dark fw-bold pt-2">Search By Year</h5>
+                        <div class="HP py-2" id="P_year">
+                            <!-- Checkboxes will be dynamically added here -->
                         </div>
                     </div>
                 </div>

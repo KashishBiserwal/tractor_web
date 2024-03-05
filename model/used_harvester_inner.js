@@ -20,6 +20,14 @@ function get_old_harvester_byiD() {
         url: url,
         type: "GET",
         success: function(data) {
+
+            var fullMobileNumber = data.product[0].mobile;
+            var mobileString = fullMobileNumber.toString();
+            var lastFourDigits = mobileString.substring(mobileString.length - 4);
+            var maskedPart = 'xxxxxx'.padStart(mobileString.length - 4, 'x');
+            var maskedMobileNumber = maskedPart + lastFourDigits;
+
+
             var brand_model_name = data.product[0].brand_name + ', ' + data.product[0].model;
             var location = data.product[0].district_name + ', ' + data.product[0].state_name;
             var name = data.product[0].first_name + ' ' + data.product[0].last_name;
@@ -36,7 +44,8 @@ function get_old_harvester_byiD() {
         document.getElementById('power_source').innerText=data.product[0].power_source_value;
         document.getElementById('year').innerText=data.product[0].purchase_year;
         document.getElementById('first_name').innerText=name;
-        document.getElementById('mobile_').innerText=data.product[0].mobile;
+        // document.getElementById('mobile_').innerText=data.product[0].mobile;
+        document.getElementById('mobile_').innerText=maskedMobileNumber;
         document.getElementById('district_').innerText=data.product[0].district_name;
         document.getElementById('state_').innerText=data.product[0].state_name;
         document.getElementById('model3').innerText=data.product[0].model;
@@ -340,15 +349,36 @@ var url = "http://tractor-api.divyaltech.com/api/customer/customer_enquiries";
         console.log(result, "result");
      
         $("#used_tractor_callbnt_").modal('hide'); 
-        var msg = "Added successfully !"
-        $("#errorStatusLoading").modal('show');    
-        $("#errorStatusLoading").find('.modal-title').html('<p class="text-center">Congratulation..! Requested Successful</p>');
+        // var msg = "Added successfully !"
+        // $("#errorStatusLoading").modal('show');    
+        // $("#errorStatusLoading").find('.modal-title').html('<p class="text-center">Congratulation..! Requested Successful</p>');
      
-        $("#errorStatusLoading").find('.modal-body').html(msg);
-        $("#errorStatusLoading").find('.modal-body').html('<img src="assets/images/7efs.gif" style="display:block; margin:0 auto;" class="w-50 text-center" alt="Successfull Request"></img>');
-      
-        // getOldTractorById();
-        console.log("Add successfully");
+        // $("#errorStatusLoading").find('.modal-body').html(msg);
+        // $("#errorStatusLoading").find('.modal-body').html('<img src="assets/images/7efs.gif" style="display:block; margin:0 auto;" class="w-50 text-center" alt="Successfull Request"></img>');
+        var msg = "Added successfully !";
+
+        $("#errorStatusLoading").modal('hide');
+        $("#get_OTP_btn").modal('show');
+
+        var modalBodyContent = `
+            <div class="col-12">
+                <label for="Mobile" class="text-dark float-start pl-2">Enter OTP</label>
+                <input type="text" class="form-control text-dark" placeholder="Enter OTP" id="otp" name="opt_1">
+            </div>
+            <div class="float-end col-12">
+                <a href="" class="float-end">Resend OTP</a>
+            </div>
+        `;
+        $("#get_OTP_btn").find('.modal-body').html(modalBodyContent);
+
+            console.log("Add successfully");
+            $("#Verify").click(function() {
+                // Hide the OTP modal
+                $("#get_OTP_btn").modal('hide');
+
+                // Show the Contact Seller modal
+                $("#staticBackdrop").modal('show');
+            });
       
       },
       error: function (error) {

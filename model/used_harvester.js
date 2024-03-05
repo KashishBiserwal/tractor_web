@@ -161,14 +161,14 @@ function get_old_harvester() {
                         },
                         success: function(data) {
                             console.log("District data:", data);
-                
+                            
                             const checkboxContainer = $('#district_dist');
                             checkboxContainer.empty(); // Clear existing checkboxes
-                
+                            
                             if (data && data.districtData && data.districtData.length > 0) {
                                 data.districtData.forEach(district => {
-                                    var checkboxHtml = '<input type="checkbox" class="checkbox-round mt-1 ms-3 district_checkbox" value="' + district.id + '"/>' +
-                                        '<span class="ps-2 fs-6">' + district.district_name + '</span> <br/>';
+                                    var checkboxHtml = '<input type="checkbox" class="checkbox-round mt-1 ms-3 district_checkbox" value="' + district.id + '" id="district_' + district.id + '"/>' +
+                                        '<label for="district_' + district.id + '" class="ps-2 fs-6">' + district.district_name + '</label> <br/>';
                                     checkboxContainer.append(checkboxHtml);
                                 });
                             } else {
@@ -180,7 +180,6 @@ function get_old_harvester() {
                         }
                     });
                 }
-                
                 // Call the get function to start fetching state data
                 get();
                 
@@ -217,7 +216,37 @@ function get_old_harvester() {
                 }
                 get_barnd();
 
-
+                function get_year_and_hours() {
+                    var url = 'http://tractor-api.divyaltech.com/api/customer/get_year_and_hours';
+                    $.ajax({
+                        url: url,
+                        type: "GET",
+                        headers: {
+                            'Authorization': 'Bearer ' + localStorage.getItem('token')
+                        },
+                        success: function(data) {
+                            console.log(data);
+                            var selectYearContainer = $("#P_year");
+                            selectYearContainer.empty(); // Clear existing content
+                            
+                            // Checkboxes for years
+                            if (data.getYears && data.getYears.length > 0) {
+                                data.getYears.forEach(year => {
+                                    var checkboxHtml = '<input type="checkbox" class="checkbox-round mt-1 ms-3 year_checkbox" value="' + year + '"/>' +
+                                        '<span class="ps-2 fs-6">' + year + '</span><br />';
+                                    selectYearContainer.append(checkboxHtml);
+                                });
+                            } else {
+                                selectYearContainer.html('<p>No years available</p>');
+                            }
+                        },
+                        error: function(error) {
+                            console.error('Error fetching data:', error);
+                        }
+                    });
+                }
+                
+                get_year_and_hours();
 
                 var filteredCards = [];
                 var cardsDisplayed = 0;

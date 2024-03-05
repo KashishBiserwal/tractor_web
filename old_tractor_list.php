@@ -240,7 +240,11 @@ include 'includes/headertag.php';
                                             <div id="selectedImagesContainer" class="upload__img-wrap"></div>
                                           </div>
                               </div> -->
-                              <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
+                              <div class="col-12 col-sm-8 col-md-8 col-lg-8 mt-3">
+                                  <label for="a_hrvst" class="form-label text-dark  fw-bold">Description</label>
+                                  <textarea class="form-control" rows="3" placeholder="Leave a comment here (max 200 words)" name="about" id="about" onkeydown="return /[a-zA-Z\s]/i.test(event.key)"  oninput="limitWords(this, 200)"></textarea>
+                              </div>
+                              <div class="col-12 col-lg-4 col-md-4 col-sm-4 mt-5 ">
                                   <div class="upload__box ">
                                      <div class="upload__btn-box text-center mt-3">
                                       <label >

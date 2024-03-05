@@ -4,8 +4,11 @@ $(document).ready(function() {
     console.log("ready!");
     // populateDropdowns();
     $('#filter_tractor').click(filter_search);
+    $('#submit_enquiry').click(get_otp);
     getoldTractorList();
-  
+    var cardsPerPage = 6; 
+    var cardsDisplayed = 0;
+    var allCards; 
 
     // Initial population
     // getoldTractorList();
@@ -14,7 +17,6 @@ $(document).ready(function() {
 var cardsPerPage = 6;
 var allCards = [];
 var cardsDisplayed = 0;
-
 function getoldTractorList() {
     var url = "http://tractor-api.divyaltech.com/api/customer/get_old_tractor";
 
@@ -87,27 +89,47 @@ function appendCard(container, p) {
                     <p class="pt-3"><strong class="series_tractor_strong text-center h4 fw-bold ">${p.model}</strong></p>
                 </a>      
             </div>
-            <div class=" row">
-                <div class="col-12 ms-2 ">
-                    <p class="" id="district"><span id="engine_powerhp2">${p.brand_name}</span> | <span id="year">${p.purchase_year}</span>| ${p.district_name}</p>
+            <div class="content d-flex flex-column flex-grow-1 ">
+                <div class="caption text-center">
+                    <a href="farmtrac_60.php?product_id=${p.customer_id}" class="text-decoration-none text-dark">
+                        <p class="pt-3"><strong class="series_tractor_strong text-center  h5 fw-bold ">${p.model}</strong></p>
+                    </a>      
+                </div>
+                <div class=" row text-center">
+                    <div class="col-12 col-sm-6 col-md-6 col-lg-6">
+                        <p class="fw-bold "><span id="engine_powerhp2">${p.brand_name}</p>
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-6 col-lg-6">
+                    <p class="fw-bold ">Year: <span id="year">${p.purchase_year}</p>
+                    </div>
+                   
+                </div>
+               
+                <div class="row text-center">
+                    <div class="col-12 col-sm-6 col-md-6 col-lg-6">
+                        <p class="fw-bold py-2" style="background-image: linear-gradient(315deg, #ddd 0%, #f5f7fa 74%);
+                        font-size: 12px; justify-items: center;
+                        margin: 0 auto;">Price: ₹<span id="price">${p.price}</p>
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-6 col-lg-6">
+                        <p class="fw-bold pe-2 py-2" style="background-image: linear-gradient(315deg, #ddd 0%, #f5f7fa 74%);
+                        font-size: 12px; justify-items: center;
+                        margin: 0 auto;">Great Deal  <i class="fa-regular fa-thumbs-up"></i></p>
+                    </div>
+                </div>
+                <div class=" row text-center mt-3">
+                <div class="col-10 justify-center m-auto">
+                    <p class="fw-bold text-truncate" id="district">${p.district_name}<span id="year"></span>, ${p.state_name}</p>
                 </div>
             </div>
-            <div class="row text-center">
-                <div class="col-12 col-sm-6 col-md-6 col-lg-6">
-                    <p class="fw-bold ">Price: ₹<span id="price">${p.price}</p>
-                </div>
-                <div class="col-12 col-sm-6 col-md-6 col-lg-6">
-                    <p class="fw-bold pe-2">Great Deal  <i class="fa-regular fa-thumbs-up"></i></p>
-                </div>
             </div>
-        </div>
-        <div class=" row state_btn">
-           
-            <div class="col-12">
-            <button type="button" class="add_btn btn-success w-100" data-bs-toggle="modal" data-bs-target="#${modalId}">
-            <i class="fa-regular fa-handshake mx-1"></i>Contact Seller
-            </button>
-                        </div>
+            <div class=" row state_btn">
+               
+                <div class="col-12">
+                <button type="button" class="add_btn btn-success w-100" data-bs-toggle="modal" data-bs-target="#${modalId}">
+                <i class="fa-regular fa-handshake mx-1"></i>Contact Seller
+                </button>
+                            </div>
 
                         <div class="modal fade" id="${modalId}" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                             <div class="modal-dialog modal-lg modal-dialog-centered">
@@ -180,6 +202,46 @@ function appendCard(container, p) {
                                             </div>      
                                         </form>                             
                                     </div>
+                                    <div class="col-12 col-sm-6 col-md-6 col-lg-6 mt-4">
+                                        <div class="form-outline">
+                                            <label for="state" class="form-label text-dark fw-bold"> <i class="fas fa-location"></i> State</label>
+                                            <select class="form-select py-2 state-dropdown" aria-label=".form-select-lg example" id="state_form" name="state">
+                                                <!-- Options for state dropdown -->
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-sm-6 col-md-6 col-lg-6 mt-4">
+                                        <div class="form-outline">
+                                            <label for="district" class="form-label fw-bold text-dark"><i class="fa-solid fa-location-dot"></i> District</label>
+                                            <select class="form-select py-2 district-dropdown" aria-label=".form-select-lg example" name="district" id="district_form">
+                                                <!-- Options for district dropdown -->
+                                            </select>
+                                        </div>
+                                    </div>       
+                                    <div class="col-12 col-sm-6 col-md-6 col-lg-6 mt-4">
+                                        <div class="form-outline">
+                                            <label for="Tehsil" class="form-label fw-bold text-dark"> Tehsil</label>
+                                            <select class="form-select py-2 tehsil-dropdown" aria-label=".form-select-lg example" id="tehsil" name="tehsil">
+                                                <option value="" selected disabled>Please select a tehsil</option>
+                                                <!-- Options for Tehsil dropdown -->
+                                            </select>
+                                        </div>
+                                    </div>
+                                  <div class="col-12 col-lg-6 col-sm-5 col-md-6">
+                                    <div class="form-outline mt-4">
+                                        <label for="name" class="form-label text-dark">Price </label>
+                                        <input type="text" class="form-control py-2" placeholder="Enter Price" id="price_form" name="price">
+                                    </div>
+                                  </div>
+                                </div>          
+                               </div> 
+                                     <div class="modal-footer">
+                                                <button type="submit" id="submit_enquiry" class="btn add_btn btn-success w-100 btn_all" onclick="savedata('${formId}')"
+                                                data-bs-dismiss="modal";>Submit</button>
+                                                </div>      
+                                            </form>                             
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -250,7 +312,10 @@ function populateDropdowns() {
         });
     });
 }
-
+function savedata(formId) {
+    tractor_enquiry(formId);
+    console.log("Form submitted successfully");
+  }
     // getoldTractorList();
   function tractor_enquiry(formId) {
         // Use the formId to get values dynamically
@@ -268,7 +333,7 @@ function populateDropdowns() {
   
     // Prepare data to send to the server
     var paraArr = {
-      'product_id':product_id,
+      'product_id':product_id, 
       'enquiry_type_id':enquiry_type_id,
       'first_name': first_name,
       'last_name':last_name,
@@ -284,7 +349,8 @@ function populateDropdowns() {
 //   var url = apiBaseURL + 'customer_enquiries';
 var url = "http://tractor-api.divyaltech.com/api/customer/customer_enquiries";
     console.log(url);
-  
+    
+
   
     // Make an AJAX request to the server
     $.ajax({
@@ -293,18 +359,32 @@ var url = "http://tractor-api.divyaltech.com/api/customer/customer_enquiries";
       data: paraArr,
       success: function (result) {
         console.log(result, "result");
-        
         $("#used_tractor_callbnt_").modal('hide'); 
-        var msg = "Added successfully !"
-        $("#errorStatusLoading").modal('show');    
-        $("#errorStatusLoading").find('.modal-title').html('<p class="text-center">Congratulation..! Requested Successful</p>');
-     
-        $("#errorStatusLoading").find('.modal-body').html(msg);
-        $("#errorStatusLoading").find('.modal-body').html('<img src="assets/images/7efs.gif" style="display:block; margin:0 auto;" class="w-50 text-center" alt="Successfull Request"></img>');
-      
-        // getOldTractorById();
-        console.log("Add successfully");
-      
+        var msg = "Added successfully !";
+        // $('#get_OTP_btn').modal('show');
+        $("#errorStatusLoading").modal('hide');
+        $("#get_OTP_btn").modal('show');
+
+        // var modalBodyContent = `
+        //     <div class="col-12">
+               
+        //         <label for="Mobile" class="text-dark float-start pl-2">Enter OTP</label>
+        //         <input type="text" class="form-control text-dark" placeholder="Enter OTP" id="otp" name="opt_1">
+        //     </div>
+        //     <div class="float-end col-12">
+        //         <a href="" class="float-end">Resend OTP</a>
+        //     </div>
+        // `;
+        // $("#get_OTP_btn").find('.modal-body').html(modalBodyContent);
+
+        // console.log("Add successfully");
+        // $("#Verify").click(function() {
+        //     // Hide the OTP modal
+        //     $("#get_OTP_btn").modal('hide');
+
+        //     // Show the Contact Seller modal
+        //     $("#staticBackdrop").modal('show');
+        // });
       },
       error: function (error) {
         console.error('Error fetching data:', error);
@@ -318,15 +398,97 @@ var url = "http://tractor-api.divyaltech.com/api/customer/customer_enquiries";
     });
   }
 
-  function savedata(formId) {
-    tractor_enquiry(formId);
-    console.log("Form submitted successfully");
-  }
+ 
+ 
+
+  function get_otp() {
+    var phone = $('#number').val();
+    console.log();
+    var url = "http://tractor-api.divyaltech.com/api/customer/customer_login";
+ 
+    var paraArr = {
+        'mobile': phone
+    };
+
+    $.ajax({
+        url: url,
+        type: "POST",
+        data: paraArr,
+        success: function (result) {
+            console.log(result, "result");
+            // Handle success here, e.g., display a message to the user
+            alert("OTP sent successfully!");
+        },
+        error: function (error) {
+            console.error('Error fetching data:', error);
+            // Handle errors here, e.g., display an error message to the user
+            alert("Failed to send OTP. Please try again later.");
+        }
+    });
+}
+
+
+  function verifyotp() {
+    var mobile = document.getElementById('number').value;
+    var otp = document.getElementById('otp').value;
+
+    var paraArr = {
+        'otp': otp,
+        'mobile': mobile,
+    }
+    var url = 'http://tractor-api.divyaltech.com/api/customer/verify_otp';
+    $.ajax({
+        url: url,
+        type: "POST",
+        data: paraArr,
+        success: function (result) {
+            console.log(result);
+
+            // Assuming your model has an ID 'myModal', hide it on success
+            $('#otp_form').modal('hide'); // Assuming it's a Bootstrap modal
+           
+            // Reset input fields
+            // document.getElementById('phone').value = ''; 
+            // document.getElementById('otp').value = ''; 
+
+            // Access data field in the response
+        }, 
+        error: function (xhr, textStatus, errorThrown) {
+            console.log(xhr.status, 'error');
+            if (xhr.status === 401) {
+                console.log('Invalid credentials');
+                var htmlcontent = `<p>Invalid credentials!</p>`;
+                document.getElementById("error_message").innerHTML = htmlcontent;
+            } else if (xhr.status === 403) {
+                console.log('Forbidden: You don\'t have permission to access this resource.');
+                var htmlcontent = ` <p> You don't have permission to access this resource.</p>`;
+                document.getElementById("error_message").innerHTML = htmlcontent;
+            } else {
+                console.log('An error occurred:', textStatus, errorThrown);
+                var htmlcontent = `<p>An error occurred while processing your request.</p>`;
+                document.getElementById("error_message").innerHTML = htmlcontent;
+            }
+        },
+    });
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // search cards by hp, brand, price, state, district
 function get() {
     // var apiBaseURL = CustomerAPIBaseURL;
-    var url = 'http://tractor-api.divyaltech.com/api/customer/get_brands';
+    var url = 'http://tractor-api.divyaltech.com/api/customer/get_brand_for_finance';
 
     $.ajax({
         url: url,
@@ -356,6 +518,103 @@ function get() {
     });
 }
 get();
+
+function getState() {
+    var url = 'http://tractor-api.divyaltech.com/api/customer/state_data';
+    $.ajax({
+        url: url,
+        type: "GET",
+        headers: {
+            'Authorization': 'Bearer ' + localStorage.getItem('token')
+        },
+        success: function(data) {
+            console.log("State data:", data);
+
+            const checkboxContainer = $('#state_state');
+            checkboxContainer.empty(); // Clear existing checkboxes
+            
+            const stateId = 7; // Replace 7 with the desired state ID
+            const filteredState = data.stateData.find(state => state.id === stateId);
+            if (filteredState) {
+                var checkboxHtml = '<input type="checkbox" class="checkbox-round mt-1 ms-3 state_checkbox" value="' + filteredState.id + '"/>' +
+                    '<span class="ps-2 fs-6">' + filteredState.state_name + '</span> <br/>';
+                checkboxContainer.append(checkboxHtml);
+                // Call getDistricts with the stateId
+                getDistricts(stateId);
+            } else {
+                checkboxContainer.html('<p>No valid data available</p>');
+            }
+        },
+        error: function(error) {
+            console.error('Error fetching state data:', error);
+        }
+    });
+}
+
+function getDistricts(stateId) {
+    var url = 'http://tractor-api.divyaltech.com/api/customer/get_district_by_state/' + stateId;
+    $.ajax({
+        url: url,
+        type: "GET",
+        headers: {
+            'Authorization': 'Bearer ' + localStorage.getItem('token')
+        },
+        success: function(data) {
+            console.log("District data:", data);
+            
+            const checkboxContainer = $('#get_distrcit'); // Corrected ID
+            checkboxContainer.empty(); // Clear existing checkboxes
+            
+            if (data && data.districtData && data.districtData.length > 0) {
+                data.districtData.forEach(district => {
+                    var checkboxHtml = '<input type="checkbox" class="checkbox-round mt-1 ms-3 district_checkbox" value="' + district.id + '" id="district_' + district.id + '"/>' +
+                        '<label for="district_' + district.id + '" class="ps-2 fs-6">' + district.district_name + '</label> <br/>';
+                    checkboxContainer.append(checkboxHtml);
+                });
+            } else {
+                checkboxContainer.html('<p>No districts available for this state</p>');
+            }
+        },
+        error: function(error) {
+            console.error('Error fetching districts:', error);
+        }
+    });
+}
+
+getState();
+
+
+function get_year_and_hours() {
+    var url = 'http://tractor-api.divyaltech.com/api/customer/get_year_and_hours';
+    $.ajax({
+        url: url,
+        type: "GET",
+        headers: {
+            'Authorization': 'Bearer ' + localStorage.getItem('token')
+        },
+        success: function(data) {
+            console.log(data);
+            var selectYearContainer = $("#P_year");
+            selectYearContainer.empty(); // Clear existing content
+            
+            // Checkboxes for years
+            if (data.getYears && data.getYears.length > 0) {
+                data.getYears.forEach(year => {
+                    var checkboxHtml = '<input type="checkbox" class="checkbox-round mt-1 ms-3 year_checkbox" value="' + year + '"/>' +
+                        '<span class="ps-2 fs-6">' + year + '</span><br />';
+                    selectYearContainer.append(checkboxHtml);
+                });
+            } else {
+                selectYearContainer.html('<p>No years available</p>');
+            }
+        },
+        error: function(error) {
+            console.error('Error fetching data:', error);
+        }
+    });
+}
+
+get_year_and_hours();
 
 var filteredCards = [];
 var cardsDisplayed = 0;
@@ -424,8 +683,8 @@ function appendFilterCard(filterContainer, filter) {
         var modalId = `used_tractor_callbnt_${p.product_id}`; // Dynamic ID for the modal
         var formId = `contact-seller-call_${p.product_id}`; // Dynamic ID for the form
 
-        var newCard = `
-    <div class="col-12 col-lg-4 col-md-4 col-sm-4 mb-4" id="${cardId}">
+        var newCard =  `
+        <div class="col-12 col-lg-4 col-md-4 col-sm-4 mb-4" id="${cardId}">
         <div class="h-auto success__stry__item d-flex flex-column shadow ">
             <div class="thumb">
                 <a href="farmtrac_60.php?product_id=${p.customer_id}">
@@ -437,29 +696,43 @@ function appendFilterCard(filterContainer, filter) {
             <div class="content d-flex flex-column flex-grow-1 ">
                 <div class="caption text-center">
                     <a href="farmtrac_60.php?product_id=${p.customer_id}" class="text-decoration-none text-dark">
-                        <p class="pt-3"><strong class="series_tractor_strong text-center h4 fw-bold ">${p.model}</strong></p>
+                        <p class="pt-3"><strong class="series_tractor_strong text-center  h5 fw-bold ">${p.model}</strong></p>
                     </a>      
                 </div>
-                <div class=" row">
-                    <div class="col-12 ms-2 ">
-                        <p class="" id="district"><span id="engine_powerhp2">${p.brand_name}</span> | <span id="year">${p.purchase_year}</span>| ${p.district}</p>
+                <div class=" row text-center">
+                    <div class="col-12 col-sm-6 col-md-6 col-lg-6">
+                        <p class="fw-bold "><span id="engine_powerhp2">${p.brand_name}</p>
                     </div>
+                    <div class="col-12 col-sm-6 col-md-6 col-lg-6">
+                    <p class="fw-bold ">Year: <span id="year">${p.purchase_year}</p>
+                    </div>
+                   
                 </div>
+               
                 <div class="row text-center">
                     <div class="col-12 col-sm-6 col-md-6 col-lg-6">
-                        <p class="fw-bold ">Price: ₹<span id="price">${p.price}</p>
+                        <p class="fw-bold py-2" style="background-image: linear-gradient(315deg, #ddd 0%, #f5f7fa 74%);
+                        font-size: 12px; justify-items: center;
+                        margin: 0 auto;">Price: ₹<span id="price">${p.price}</p>
                     </div>
                     <div class="col-12 col-sm-6 col-md-6 col-lg-6">
-                        <p class="fw-bold pe-2">Great Deal  <i class="fa-regular fa-thumbs-up"></i></p>
+                        <p class="fw-bold pe-2 py-2" style="background-image: linear-gradient(315deg, #ddd 0%, #f5f7fa 74%);
+                        font-size: 12px; justify-items: center;
+                        margin: 0 auto;">Great Deal  <i class="fa-regular fa-thumbs-up"></i></p>
                     </div>
                 </div>
+                <div class=" row text-center mt-3">
+                <div class="col-10 justify-center m-auto">
+                    <p class="fw-bold text-truncate" id="district">${p.district_name}<span id="year"></span>, ${p.state_name}</p>
+                </div>
+            </div>
             </div>
             <div class=" row state_btn">
                
                 <div class="col-12">
                 <button type="button" class="add_btn btn-success w-100" data-bs-toggle="modal" data-bs-target="#${modalId}">
                 <i class="fa-regular fa-handshake mx-1"></i>Contact Seller
-            </button>
+                </button>
                             </div>
 
                             <div class="modal fade" id="${modalId}" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -467,7 +740,7 @@ function appendFilterCard(filterContainer, filter) {
                                     <div class="modal-content">
                                         <div class="modal-header  modal_head">
                                         <h5 class="modal-title text-white ms-1" id="model_form">${p.model}</h5>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        <button type="button" class="btn-close btn-success" data-bs-dismiss="modal" aria-label="Close"><img src="assets/images/close.png" class="w-25"></button>
                                         </div>
                                         <!-- MODAL BODY -->
                                         <div class="modal-body">
@@ -494,50 +767,51 @@ function appendFilterCard(filterContainer, filter) {
                                         <label for="number" class="form-label text-dark fw-bold"> <i class="fa fa-phone" aria-hidden="true"></i> Phone Number</label>
                                         <input type="text" class="form-control" placeholder="Enter Number" id="number" name="number">
                                     </div>
-                                    <div class="col-12 col-sm-12 col-md-6 col-lg-6">
-                                        <label for="yr_state" class="form-label text-dark fw-bold" id="state" name="state"> <i class="fas fa-location"></i> State</label>
-                                        <select class="form-select py-2" aria-label=".form-select-lg example" id="state_form" name="state">
-                                            <option value>Select State</option>
-                                            <option value="Chhattisgarh">Chhattisgarh</option>
-                                            <option value="Other">Other</option>
-                                        </select>
+                                    <div class="col-12 col-sm-6 col-md-6 col-lg-6 mt-4">
+                                        <div class="form-outline">
+                                            <label for="state" class="form-label text-dark fw-bold"> <i class="fas fa-location"></i> State</label>
+                                            <select class="form-select py-2 state-dropdown" aria-label=".form-select-lg example" id="state_form" name="state">
+                                                <!-- Options for state dropdown -->
+                                            </select>
+                                        </div>
                                     </div>
-                                    <div class="col-12 col-sm-12 col-md-6 col-lg-6">
-                                        <label class="form-label text-dark"><i class="fa-solid fa-location-dot"></i> District</label>
-                                        <select class="form-select py-2 " aria-label=".form-select-lg example" name="district" id="district_form">
-                                            <option value>Select District</option>
-                                            <option value="Raipur">Raipur</option>
-                                            <option value="Bilaspur">Bilaspur</option>
-                                            <option value="Durg">Durg</option>
-                                        </select>
+                                    <div class="col-12 col-sm-6 col-md-6 col-lg-6 mt-4">
+                                        <div class="form-outline">
+                                            <label for="district" class="form-label fw-bold text-dark"><i class="fa-solid fa-location-dot"></i> District</label>
+                                            <select class="form-select py-2 district-dropdown" aria-label=".form-select-lg example" name="district" id="district_form">
+                                                <!-- Options for district dropdown -->
+                                            </select>
+                                        </div>
+                                    </div>       
+                                    <div class="col-12 col-sm-6 col-md-6 col-lg-6 mt-4">
+                                        <div class="form-outline">
+                                            <label for="Tehsil" class="form-label fw-bold text-dark"> Tehsil</label>
+                                            <select class="form-select py-2 tehsil-dropdown" aria-label=".form-select-lg example" id="tehsil" name="tehsil">
+                                                <option value="" selected disabled>Please select a tehsil</option>
+                                                <!-- Options for Tehsil dropdown -->
+                                            </select>
+                                        </div>
                                     </div>
-                                    <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-2">
-                                        <label for="yr_tehsil" class="form-label text-dark"> Tehsil</label>
-                                        <input type="yr_tehsil" class="form-control" placeholder="Enter Tehsil" id="tehsil" name="tehsil">
+                                  <div class="col-12 col-lg-6 col-sm-5 col-md-6">
+                                    <div class="form-outline mt-4">
+                                        <label for="name" class="form-label text-dark">Price </label>
+                                        <input type="text" class="form-control py-2" placeholder="Enter Price" id="price_form" name="price">
                                     </div>
-                                    <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-2">
-                                        <label for="yr_price" class="form-label text-dark">Price</label>
-                                        <input type="yr_price" class="form-control" placeholder="Enter Price" id="price_form" name="price">
-                                    </div>
-                                    
-                                    
+                                  </div>
                                 </div>          
-                                                </div> 
-                                            
-                                
-                                                <div class="modal-footer">
+                               </div> 
+                                     <div class="modal-footer">
                                                 <button type="submit" id="submit_enquiry" class="btn add_btn btn-success w-100 btn_all" onclick="savedata('${formId}')"
-                                                data-bs-dismiss="modal">Submit</button>
+                                                data-bs-dismiss="modal";>Submit</button>
                                                 </div>      
                                             </form>                             
                                         </div>
                                     </div>
                                 </div>
                             </div>
-            </div>
-        </div>
-    </div>
-
+                         </div>
+                    </div>
+                </div>
         `;
         container.append(newCard);
     }
