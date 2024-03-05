@@ -89,13 +89,7 @@ function appendCard(container, p) {
                     <p class="pt-3"><strong class="series_tractor_strong text-center h4 fw-bold ">${p.model}</strong></p>
                 </a>      
             </div>
-            <div class="content d-flex flex-column flex-grow-1 ">
-                <div class="caption text-center">
-                    <a href="farmtrac_60.php?product_id=${p.customer_id}" class="text-decoration-none text-dark">
-                        <p class="pt-3"><strong class="series_tractor_strong text-center  h5 fw-bold ">${p.model}</strong></p>
-                    </a>      
-                </div>
-                <div class=" row text-center">
+           <div class=" row text-center">
                     <div class="col-12 col-sm-6 col-md-6 col-lg-6">
                         <p class="fw-bold "><span id="engine_powerhp2">${p.brand_name}</p>
                     </div>
