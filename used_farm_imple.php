@@ -32,12 +32,13 @@
             <div class="col-12 col-sm-9 col-lg-9 col-md-9">
                 <h3 class="fw-bold">Used <span class="text-success fw-bold">Farm Implements</span> </h3>
               
-                <div class="row my-3" id="productContainer"></div>
-                <div class="col-12 text-center">
+                <div class="row my-3">
+                    <div id="productContainer" class="row "></div>
+                    <div class="col-12 text-center">
                         <button id="loadMoreBtn" type="button" class="add_btn btn btn-success mt-4 shadow">
                         <i class="fas fa-undo"></i>  Load More Tractor </button>
-                       
                     </div>
+                </div>
             </div>
             
             <div class="col-12 col-sm-3 col-lg-3 col-md-3">

@@ -198,7 +198,7 @@
                                         </div>
                                         <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-3">
                                             <div class="get-loan text-center ">
-                                                <a href="#" class="btn border-success text-success w-100">Get Loan</a>
+                                                <a href="new_tractor_loan.php" class="btn border-success text-success w-100">Get Loan</a>
                                             </div>
                                         </div>
                                     </div>
@@ -302,9 +302,9 @@
                 </div>
                 <table class="table1 w-100 table-hover table table-striped my-4">
                      <tbody>
-                        <tr>
-                        <td class="table-data">Name</td>
-                        <td class="table-data" id="name"></td>
+                        <tr class="col-12">
+                        <td class="table-data col-6" >Name</td>
+                        <td class="table-data col-6" id="name"></td>
                         </tr>
                         <tr>
                         <td class="table-data">Mobile Number</td>
@@ -316,11 +316,11 @@
                         </tr> -->
                         <tr>
                         <td class="table-data">District</td>
-                        <td class="table-data"  id="district_1"></td>
+                        <td class="table-data" id="district_8"></td>
                         </tr>
                         <tr>
                         <td class="table-data">State</td>
-                        <td class="table-data" id="state_1"></td>
+                        <td class="table-data" id="state_8"></td>
                         </tr>
                     </tbody>
                 </table>
@@ -732,6 +732,73 @@
 
 
 
+    <div class="modal fade" id="get_OTP_btn" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header bg-success">
+                    <h1 class="modal-title fs-5 text-white" id="exampleModalLabel">Verify Your OTP</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><img src="assets/images/close.png" class=" w-100"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="otp_form">
+                        <div class=" col-12 input-group">
+                        <!-- <div class="col-12" hidden>
+                                <label for="Mobile" class=" text-dark float-start pl-2">Enter OTP</label>
+                                <input type="text" class="form-control text-dark" placeholder="Enter OTP" id="Mobile"name="Mobile">
+                            </div> -->
+                            <div class="col-12">
+                                <label for="Mobile" class=" text-dark float-start pl-2">Enter OTP</label>
+                                <input type="text" class="form-control text-dark" placeholder="Enter OTP" id="otp"name="opt_1">
+                            </div>
+                            <div class="float-end col-12">
+                                <a href="" class="float-end">Resend OTP</a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> -->
+                    <button type="button" class="btn btn-success" id="Verify">Verify</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+                                                    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                                    <div class="modal-dialog modal-lg modal-dialog-centered">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <h5 class="modal-title" id="staticBackdropLabel">Contact
+                                                                    Seller</h5>
+                                                                    <button type="button" class="btn-close btn-success" data-bs-dismiss="modal" aria-label="Close"><img src="assets/images/close.png"class="w-25"></button>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                <div class="model-cont">
+                                                                    <h4 class="text-center text-danger">Seller Information</h3>
+                                                                        <div class="row px-3 py-2">
+                                                                            <div
+                                                                                class="col-12  col-sm-12 col-md-6 col-lg-6 ">
+                                                                                <label for="slr_name"class="form-label fw-bold text-dark"><i class="fa-regular fa-user"></i>
+                                                                                    Seller Name</label>
+                                                                                <input type="text" class="form-control" id="slr_name">
+                                                                            </div>
+                                                                            <div
+                                                                                class="col-12 col-sm-12 col-md-6 col-lg-6  ">
+                                                                                <label for="number"class="form-label text-dark fw-bold"><i class="fa fa-phone"aria-hidden="true"></i>
+                                                                                    Phone Number</label>
+                                                                                <input type="text" class="form-control" id="mob_num">
+                                                                            </div>
+                                                                        </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                                <button type="button"  id="got_it_btn "class="btn btn-secondary"data-bs-dismiss="modal">Close</button>
+                                                                <!-- <button type="button" class="btn btn-danger" id="got_it_btn">Got It</button> -->
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
 
 <?php 
  include 'includes/footertag.php'; 

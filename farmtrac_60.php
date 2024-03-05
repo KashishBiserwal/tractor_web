@@ -20,7 +20,12 @@
    include 'includes/header.php';
 
    ?>
-<section class="bg-light mt-5 pt-5">
+   <style>
+    .t-condition {
+        font-size: 12px; /* Adjust the font size as per your requirement */
+    }
+</style>
+<section class="bg-light mt-4 pt-5">
     <div class="container py-2">
         <div class="py-2 mt-3">
             <span class="my-4 text-white pt-4 ">
@@ -39,19 +44,20 @@
                 <div>
                 <h4> <span id="brand_main"></span> <span  id="model_name"></span></h4>
                 </div>
-                <div>
-                    <div class="swiper swiper_buy mySwiper2_buy">
-                        <div class="swiper-wrapper swiper-wrapper_buy">
-                            <div class=" swiper-slide swiper-slide_buy">
-                            <!-- <img class="img_buy" src="assets/images/437-1632718440.webp" /> -->
+                    <div>
+                        <div class="swiper swiper_buy mySwiper2_buy">
+                            <div class="swiper-wrapper swiper-wrapper_buy">
+                                <div class=" swiper-slide swiper-slide_buy">
+                                    <!-- <img class="img_buy" src="assets/images/437-1632718440.webp" /> -->
+                                </div>
                             </div>
                         </div>
+                        <div thumbsSlider="" class="swiper mySwiper_buy" style="height:75px; width: 43%;" id="swip_img"></div>
                     </div>
-                    <div thumbsSlider="" class="swiper mySwiper_buy" style="height:50px; width: 43%;" id="swip_img"></div>
-                </div>
             </div>
-            
+           
             <div class="col-12 col-sm-6 col-lg-6 col-md-6">
+            <h5 class="my-2">₹ <span id="price_main"></span> /-</h5>
             <h5 class="text-black fw-bold text-center ">Are You Intrested in this Tractor?</h5>
                 <form action="" id="used_farm_inner_from" class="outline-solid bg-light">
                     <div class="row my-3">
@@ -105,10 +111,14 @@
                                     </div>
                                     <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-3">
                                         <div class="">
-                                        <input type="submit" value="Contact Seller" id="contact_seller" class="btn btn-success w-100"> 
+                                        <input type="submit" value="Contact Seller" id="contact_seller" class="btn btn-success w-100"  data-bs-toggle="modal" data-bs-target="#"> 
                                         </div>
                                     </div>
-                                    
+                                    <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-3">
+                                            <div class="get-loan text-center ">
+                                                <a href="new_tractor_loan.php" class="btn border-success text-success w-100">Get Loan</a>
+                                            </div>
+                                        </div>
                                 </div>
                             </div>
                         </div>
@@ -152,7 +162,7 @@
                             </div>
                             <div class="col-12">
                                 <h6 class="tyre-condition text-center fw-bold m-1 text-dark">Tyre Conditons</h6>
-                                <p class="t-condition text-center" id="tyre_condition"></p>
+                                <p class="t-condition text-center mt-1" id="tyre_condition"></p>
                             </div>
                         </div>
                     </div>
@@ -163,7 +173,7 @@
                             </div>
                             <div class="col-12">
                                 <h6 class="engine-condition text-center fw-bold m-1 text-dark">Engine Conditions</h6>
-                                <p class="t-condition text-center"id="engine_condition"></p>
+                                <p class="t-condition text-center mt-1"id="engine_condition"></p>
                             </div>
                         </div>
                     </div>
@@ -226,9 +236,9 @@
                 </div>
                 <table class="table1 w-100 table-hover table table-striped my-4">
                      <tbody>
-                        <tr>
-                        <td class="table-data">Name</td>
-                        <td class="table-data" id="name"></td>
+                        <tr  class="col-12">
+                        <td class="table-data col-6">Name</td>
+                        <td class="table-data col-6" id="name"></td>
                         </tr>
                         <tr>
                         <td class="table-data">Mobile Number</td>
@@ -406,6 +416,42 @@
         </div>
     </div>
 </section>
+
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="get_OTP_btn" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header bg-success">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Verify Your OTP</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><img src="assets/images/close.png" class=" w-100"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="otp_form">
+                        <div class=" col-12 input-group">
+                        <!-- <div class="col-12" hidden>
+                                <label for="Mobile" class=" text-dark float-start pl-2">Enter OTP</label>
+                                <input type="text" class="form-control text-dark" placeholder="Enter OTP" id="Mobile"name="Mobile">
+                            </div> -->
+                            <div class="col-12">
+                                <label for="Mobile" class=" text-dark float-start pl-2">Enter OTP</label>
+                                <input type="text" class="form-control text-dark" placeholder="Enter OTP" id="otp"name="opt_1">
+                            </div>
+                            <div class="float-end col-12">
+                                <a href="" class="float-end">Resend OTP</a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> -->
+                    <button type="button" class="btn btn-success" id="Verify">Verify</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
 <?php 
  include 'includes/footertag.php'; 

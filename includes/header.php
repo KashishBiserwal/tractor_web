@@ -88,15 +88,15 @@
               <ul class="dropdown-menu p-0">
                 <!-- <li><a class="dropdown-item fw-bold  py-2" href="certified_used_tractor.php">Certified Used Tractors</a></li>
                <hr class="dropdown-divider m-0"> -->
-                <li><a class="dropdown-item fw-bold  py-1" href="used_tractor.php">Used Tractors</a></li>
+                <li><a class="dropdown-item fw-bold  py-2" href="used_tractor.php">Used Tractors</a></li>
                <hr class="dropdown-divider m-0">
-                <li><a class="dropdown-item fw-bold  py-1" href="used_farm_imple.php">Used Farm Implements</a></li>
+                <li><a class="dropdown-item fw-bold  py-2" href="used_farm_imple.php">Used Farm Implements</a></li>
                <hr class="dropdown-divider m-0">
-                <li><a class="dropdown-item fw-bold py-1" href="used_harvester.php">Used Harvester</a></li>
+                <li><a class="dropdown-item fw-bold py-2" href="used_harvester.php">Used Harvester</a></li>
                <hr class="dropdown-divider m-0">
-                <li><a class="dropdown-item  fw-bold py-1" href="tractor_valuation.php">Tractor valuation</a></li>
+                <li><a class="dropdown-item  fw-bold py-2" href="tractor_valuation.php">Tractor valuation</a></li>
                <hr class="dropdown-divider m-0">
-                <li><a class="dropdown-item  fw-bold py-1" href="find_used_tracters.php">Find Used Tractor</a></li>
+                <li><a class="dropdown-item  fw-bold py-2" href="find_used_tracters.php">Find Used Tractor</a></li>
               </ul>
             </li>
            <hr class="dropdown-divider m-0">
@@ -105,11 +105,11 @@
                 Sell Used
               </a>
               <ul class="dropdown-menu p-0">
-                <li><a class="dropdown-item fw-bold  py-1" href="sell_used_trac.php">Sell Used Tractor</a></li>
+                <li><a class="dropdown-item fw-bold  py-2" href="sell_used_trac.php">Sell Used Tractor</a></li>
                <hr class="dropdown-divider m-0">
-                <li><a class="dropdown-item fw-bold  py-1" href="sell_used_farm_imple.php">Used Farm Implements</a></li>
+                <li><a class="dropdown-item fw-bold  py-2" href="sell_used_farm_imple.php">Used Farm Implements</a></li>
                <hr class="dropdown-divider m-0">
-                <li><a class="dropdown-item fw-bold  py-1" href="sell_used_harvester.php">Used Harvester</a></li>
+                <li><a class="dropdown-item fw-bold  py-2" href="sell_used_harvester.php">Used Harvester</a></li>
               </ul>
             </li>
            <hr class="dropdown-divider m-0">
@@ -118,9 +118,9 @@
                 Rent & Hire
               </a>
               <ul class="dropdown-menu p-0">
-                <li><a class="dropdown-item fw-bold  py-1" href="rent.php">Rent Tractor</a></li>
+                <li><a class="dropdown-item fw-bold  py-2" href="rent.php">Rent Tractor</a></li>
                <hr class="dropdown-divider m-0">
-                <li><a class="dropdown-item fw-bold  py-1" href="hire.php">Hire tractor</a></li>
+                <li><a class="dropdown-item fw-bold  py-2" href="hire.php">Hire tractor</a></li>
               </ul>
             </li>
           </ul>

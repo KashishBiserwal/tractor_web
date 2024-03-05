@@ -12,6 +12,15 @@
     <script src="<?php $baseUrl; ?>model/used_tractor.js"></script>
     <script src="<?php $baseUrl; ?>model/State_dist_tehsil.js"></script>
 <body>
+<style>
+    .text-truncate {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+   
+    }
+    </style>
+
    <?php
    include 'includes/header.php';
    ?>
@@ -41,7 +50,7 @@
                     </div> -->
                 </div>
                 <div class="row my-3">
-                    <div id="productContainer" class="row"></div>
+                    <div id="productContainer" class="row "></div>
                     <div class="col-12 text-center">
                         <button id="loadMoreBtn" type="button" class="add_btn btn btn-success mt-4 shadow">
                         <i class="fas fa-undo"></i>  Load More Tractor </button>
@@ -70,10 +79,29 @@
                             <h5 class=" ps-3 text-dark fw-bold mb-3">Search By Budget</h5>
                             <input type="checkbox" class="checkbox-round mt-1 ms-3 budget_checkbox" value="0 - 3"/><span class="ps-2 fs-6"> 0 Lakh - 3 Lakh</span><br />
                             <input type="checkbox" class="checkbox-round mt-1 ms-3 budget_checkbox" value="3 - 6"/><span class="ps-2 fs-6"> 3 Lakh - 6 Lakh</span><br />
-                            <input type="checkbox" class="checkbox-round mt-1 ms-3 budget_checkbox" value="6 - 9"/><span class="ps-2 fs-6"> 9 Lakh - 9 Lakh</span><br />
+                            <input type="checkbox" class="checkbox-round mt-1 ms-3 budget_checkbox" value="6 - 9"/><span class="ps-2 fs-6"> 6 Lakh - 9 Lakh</span><br />
+                            <input type="checkbox" class="checkbox-round mt-1 ms-3 budget_checkbox" value="6 - 9"/><span class="ps-2 fs-6"> 9 Lakh - 12 Lakh</span><br />
                         </div>
                     </div>
                 </div>
+                <div class="scrollbar mb-3" id="">
+                        <div class="force-overflow">
+                            <h5 class="ps-1 text-dark fw-bold pt-2">Search By Brand</h5>
+                            <div class="HP py-2" id="checkboxContainer"></div>
+                        </div>
+                    </div>
+                    <!-- <div class="scrollbar mb-3" id=" my-2">
+                        <div class="force-overflow">
+                            <h5 class=" ps-1 text-dark fw-bold  pt-2">Search By State</h5>
+                            <div class="HP py-2" id="state_state" style=" height: 78px;"></div>
+                        </div>
+                    </div>
+                    <div class="scrollbar mb-3" id=" my-2">
+                        <div class="force-overflow">
+                            <h5 class=" ps-1 text-dark fw-bold  pt-2">Search By District</h5>
+                            <div class="HP py-2" id="get_distrcit" style=" height: 78px;"></div>
+                        </div>
+                    </div> -->
                 <div class="scrollbar mb-3" id="">
                     <div class="force-overflow">
                     <h5 class=" ps-1 text-dark fw-bold pt-2">Search By HP</h5>
@@ -94,16 +122,14 @@
                         </div>
                     </div>
                 </div>
-                <div class="scrollbar mb-3" id="">
+                <div class="scrollbar mb-3" id="my-2">
                     <div class="force-overflow">
-                            <h5 class="ps-1 text-dark fw-bold pt-2">Search By Brand</h5>
-                            <div class="HP py-2" id="checkboxContainer">
-                            </div>
+                        <h5 class="ps-1 text-dark fw-bold pt-2">Search By Year</h5>
+                        <div class="HP py-2" id="P_year">
+                            <!-- Checkboxes will be dynamically added here -->
                         </div>
                     </div>
                 </div>
-                
-              
             </div>
         </div>
     </div>
@@ -170,9 +196,67 @@
     </div>
 </section>
 
+    <div class="modal fade" id="get_OTP_btn" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header bg-success">
+                    <h1 class="modal-title fs-5 text-white" id="exampleModalLabel">Verify Your OTP</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><img src="assets/images/close.png" class=" w-100"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="otp_form">
+                        <div class=" col-12 input-group">
+                        <div class="col-12" hidden>
+                                <label for="Mobile" class=" text-dark float-start pl-2">Munber</label>
+                                <input type="text" class="form-control text-dark" placeholder="Enter OTP" id="Mobile"name="Mobile">
+                            </div>
+                            <div class="col-12">
+                                <label for="Mobile" class=" text-dark float-start pl-2">Enter OTP</label>
+                                <input type="text" class="form-control text-dark" placeholder="Enter OTP" id="otp"name="opt_1">
+                            </div>
+                            <div class="float-end col-12">
+                                <a href="" class="float-end">Resend OTP</a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> -->
+                    <button type="button" class="btn btn-success" id="Verify">Verify</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
-
-
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Contact Seller</h5>
+                    <button type="button" class="btn-close btn-success" data-bs-dismiss="modal" aria-label="Close"><img src="assets/images/close.png"class="w-25"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="model-cont">
+                        <h4 class="text-center text-danger">Seller Information</h3>
+                        <div class="row px-3 py-2">
+                            <div class="col-12  col-sm-12 col-md-6 col-lg-6 ">
+                                <label for="slr_name"class="form-label fw-bold text-dark"><i class="fa-regular fa-user"></i>Seller Name</label>
+                                <input type="text" class="form-control" id="slr_name">
+                            </div>
+                            <div class="col-12 col-sm-12 col-md-6 col-lg-6  ">
+                                <label for="number"class="form-label text-dark fw-bold"><i class="fa fa-phone"aria-hidden="true"></i>Phone Number</label>
+                                <input type="text" class="form-control" id="mob_num">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button"  id="got_it_btn "class="btn btn-secondary"data-bs-dismiss="modal">Close</button>
+                    <!-- <button type="button" class="btn btn-danger" id="got_it_btn">Got It</button> -->
+                </div>
+            </div>
+        </div>
+    </div>
 
 <?php
     include 'includes/footer.php';

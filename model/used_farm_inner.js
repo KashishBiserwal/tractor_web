@@ -20,8 +20,13 @@ function getOldFarmImplementId() {
         success: function(data) {
             console.log(data, 'abc');
 
+            var fullMobileNumber = data.getOldImplement[0].mobile;
+            var mobileString = fullMobileNumber.toString();
+            var lastFourDigits = mobileString.substring(mobileString.length - 4);
+            var maskedPart = 'xxxxxx'.padStart(mobileString.length - 4, 'x');
+            var maskedMobileNumber = maskedPart + lastFourDigits;
             // Concatenate district and state
-            var location = data.getOldImplement[0].district + ', ' + data.getOldImplement[0].state;
+            var location = data.getOldImplement[0].district_name + ', ' + data.getOldImplement[0].state_name;
 
             // Update HTML elements with data
             document.getElementById('model_name').innerText = data.getOldImplement[0].model;
@@ -30,15 +35,17 @@ function getOldFarmImplementId() {
             document.getElementById('purchase_year').innerText = data.getOldImplement[0].purchase_year;
             document.getElementById('location_1').innerText = location;
             document.getElementById('model_name2').innerText = data.getOldImplement[0].model;
+            // document.getElementById('Power_powerhp').innerText = data.getOldImplement[0].model;
             document.getElementById('brand_name').innerText = data.getOldImplement[0].brand_name;
             document.getElementById('model_name_3').innerText = data.getOldImplement[0].model;
             document.getElementById('category_1').innerText = data.getOldImplement[0].category_name;
             document.getElementById('price_1').innerText = data.getOldImplement[0].price;
             document.getElementById('model_name4').innerText=data.getOldImplement[0].model;
             document.getElementById('name').innerText = data.getOldImplement[0].first_name;
-            document.getElementById('mobile').innerText = data.getOldImplement[0].mobile;
-            document.getElementById('district_1').innerText = data.getOldImplement[0].district_name;
-            document.getElementById('state_1').innerText = data.getOldImplement[0].state_name;
+            document.getElementById('mobile').innerText = maskedMobileNumber;
+            // document.getElementById('mobile').innerText = data.getOldImplement[0].mobile;
+            document.getElementById('district_8').innerText = data.getOldImplement[0].district_name;
+            document.getElementById('state_8').innerText = data.getOldImplement[0].state_name;
             document.getElementById('description').innerText = data.getOldImplement[0].description;
             document.getElementById('model4').innerText = data.getOldImplement[0].model;
             document.getElementById('product_id').value = data.getOldImplement[0].product_id;
@@ -117,15 +124,30 @@ var url = "http://tractor-api.divyaltech.com/api/customer/customer_enquiries";
         console.log(result, "result");
         
         $("#used_tractor_callbnt_").modal('hide'); 
-        var msg = "Added successfully !"
-        $("#errorStatusLoading").modal('show');    
-        $("#errorStatusLoading").find('.modal-title').html('<p class="text-center">Congratulation..! Requested Successful</p>');
-     
-        $("#errorStatusLoading").find('.modal-body').html(msg);
-        $("#errorStatusLoading").find('.modal-body').html('<img src="assets/images/7efs.gif" style="display:block; margin:0 auto;" class="w-50 text-center" alt="Successfull Request"></img>');
-      
-        // getOldTractorById();
+        var msg = "Added successfully !";
+
+        $("#errorStatusLoading").modal('hide');
+        $("#get_OTP_btn").modal('show');
+
+        var modalBodyContent = `
+            <div class="col-12">
+                <label for="Mobile" class="text-dark float-start pl-2">Enter OTP</label>
+                <input type="text" class="form-control text-dark" placeholder="Enter OTP" id="otp" name="opt_1">
+            </div>
+            <div class="float-end col-12">
+                <a href="" class="float-end">Resend OTP</a>
+            </div>
+        `;
+        $("#get_OTP_btn").find('.modal-body').html(modalBodyContent);
+
         console.log("Add successfully");
+        $("#Verify").click(function() {
+            // Hide the OTP modal
+            $("#get_OTP_btn").modal('hide');
+
+            // Show the Contact Seller modal
+            $("#staticBackdrop").modal('show');
+        });
       
       },
       error: function (error) {

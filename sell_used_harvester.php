@@ -224,12 +224,12 @@
                                         <div class="col-12 col-lg-6 col-md-6 col-sm-6 mb-2 mt-3 ">
                                             <div class="form-outline">
                                                 <label for="c_width" class="form-label mb-0 text-dark fw-bold">Cutting Width</label>
-                                                <input type="text" class="form-control mb-0" placeholder="Enter Cutting width" name="c_width" id="c_width">
-                                                <!-- <select class="form-select py-2 " aria-label=".form-select-lg example" name="c_width" id="c_width"> -->
-                                                    <!-- <option value="" Selected Disabled=""></option>
-                                                    <option value="1">Raipur</option>
-                                                    <option value="2">Bilaspur</option>
-                                                    <option value="2">Durg</option> -->
+                                                <!-- <input type="text" class="form-control mb-0" placeholder="Enter Cutting width" name="c_width" id="c_width"> -->
+                                                <select class="form-select py-2 " aria-label=".form-select-lg example" name="c_width" id="c_width">
+                                                    <option value="">Select Cutting Width</option>
+                                                    <option value="1-7 feets">1-7 feets</option>
+                                                    <option value="8-14 feets">8-14 feets</option>
+                                                    <option value="Above 14 feets">Above 14 feets</option>
                                                 </select>
                                             </div>
                                         </div> 
@@ -309,10 +309,16 @@
                                                 </select>
                                             </div>
                                         </div>
-                                        <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-3">
+                                        <!-- <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-3">
                                             <div class="form-outline">
                                                 <label for="_price" class="form-label mb-0 text-dark fw-bold"> Price</label>
-                                                <input type="text" class="form-control mb-0" placeholder="Enter Price" id="p_price" name="_price"  oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');">
+                                                <input type="text" class="form-control mb-0" placeholder="Enter Price" id="p_price" name="p_price"  inputmode="decimal">
+                                            </div>
+                                        </div> -->
+                                        <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-3">
+                                            <div class="form-outline">
+                                                <label for="f_name" class="form-label mb-0 text-dark">Price</label>
+                                                <input type="text" class="form-control" placeholder="Enter price" id="p_price" name="p_price" inputmode="decimal" >
                                             </div>
                                         </div>
                                         <div class="col-12 col-sm-12 col-md-12 col-lg-12 mt-3">
@@ -601,7 +607,9 @@
 
 ?>
 
-
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/jquery.validate.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/5.0.6/jquery.inputmask.min.js"></script>
     <!-- SCRIPT FOR THE DISPLAY & HIDE -->
     <script>
         $(document).ready(function () {
@@ -702,41 +710,59 @@
 
     <!-- SCRIPT FOR THE VALIDATION OF 2nd FORM -->
     <script>
-        $(document).ready(function(){
-            $("form[id='form-step-2']").validate({
-                rules: {
-                    _hours: {
-                        required: true
-                    },
-                    p_year: {
-                        required: true
-                    },
-                    _price: {
-                        required: true,
-                        maxlength:7
-                    },
-                    a_hrvst: {
-                        required: true
-                    }
-                },
-                messages: {
-                    _hours: {
-                        required: "Select Hours Driven"
-                    },
-                    p_year: {
-                        required:"Select Purchase Year"
-                    },
-                    _price: {
-                        required: "Enter Price Of Harvester",
-                        maxlength: "Price can't be more than 99,99,999"
-                    },
-                    a_hrvst: {
-                        required: "Description About Your Harvester"
-                    }                     
-                },
-            });
+    $(document).ready(function(){
+        $('#p_price').inputmask({
+            alias: 'numeric',
+            groupSeparator: ',',
+            autoGroup: true,
+            digits: 2,
+            digitsOptional: false,
+            placeholder: '0',
+            onBeforeMask: function (value, opts) {
+                // Replace any non-comma characters with commas
+                return value.replace(/[^,]/g, ',');
+            },
         });
-    </script>
+        var input = document.getElementById('p_price');
+            input.focus();
+            input.setSelectionRange(0, 0);
+
+    // Set text alignment to left
+    input.style.textAlign = 'left';
+        // Validate the form
+        $("form[id='form-step-2']").validate({
+            rules: {
+                _hours: {
+                    required: true
+                },
+                p_year: {
+                    required: true
+                },
+                p_price:{
+                required: true,
+                 },
+                a_hrvst: {
+                    required: true
+                }
+            },
+            messages: {
+                _hours: {
+                    required: "Select Hours Driven"
+                },
+                p_year: {
+                    required:"Select Purchase Year"
+                },
+                p_price:{
+                required: "This Field is required",
+                },
+                a_hrvst: {
+                    required: "Description About Your Harvester"
+                }                     
+            },
+        });
+    });
+</script>
+
 
     <!-- SCRIPT FOR THE VALIDATION OF 3rd FORM -->
     <script>

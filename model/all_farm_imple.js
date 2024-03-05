@@ -63,7 +63,7 @@ function displayEngineoil(container, engineoil) {
             <div class="col-12 col-lg-4 col-sm-4 col-md-4 mt-2 mb-2">
                 <div class="success__stry__item shadow h-100">
                     <div class="thumb">
-                        <a href="blog_customer_inner.php?id=${p.id}">
+                        <a href="">
                             <img src="http://tractor-api.divyaltech.com/uploads/blog_img/${a[0]}" class="engineoil_img  w-100" alt="img">
                         </a>
                     </div>

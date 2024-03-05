@@ -18,15 +18,23 @@ function getOldTractorById() {
         type: "GET",
         success: function(data) {
         console.log(data, 'abc');
-    
+        var fullMobileNumber = data.product[0].mobile;
+        var mobileString = fullMobileNumber.toString();
+        var lastFourDigits = mobileString.substring(mobileString.length - 4);
+        var maskedPart = 'xxxxxx'.padStart(mobileString.length - 4, 'x');
+        var maskedMobileNumber = maskedPart + lastFourDigits;
+        
+        var noc = data.product === 1 ? "Yes" : "No";
+        var rc_number = data.product === 1 ? "Yes" : "No";
         document.getElementById('brand_main').innerText=data.product[0].brand_name;
+        document.getElementById('price_main').innerText=data.product[0].price;
         document.getElementById('model_name').innerText=data.product[0].model;
         document.getElementById('hours_driven').innerText=data.product[0].hours_driven;
-        // document.getElementById('engine_powerhp').innerText=data.product[0].hp_category;
+        document.getElementById('engine_powerhp').innerText=data.product[0].hp_category;
         document.getElementById('tyre_condition').innerText=data.product[0].tyre_condition;
         document.getElementById('engine_condition').innerText=data.product[0].engine_condition;
-        document.getElementById('noc').innerText=data.product[0].noc;
-        document.getElementById('rc_number').innerText=data.product[0].rc_number;
+        document.getElementById('noc').innerText=noc;
+        document.getElementById('rc_number').innerText=rc_number;
         document.getElementById('model_name2').innerText=data.product[0].model;
         document.getElementById('model_name4').innerText=data.product[0].model;
         document.getElementById('brand_name').innerText=data.product[0].brand_name;
@@ -36,38 +44,48 @@ function getOldTractorById() {
         document.getElementById('tyre2').innerText=data.product[0].tyre_condition;
         document.getElementById('engine2').innerText=data.product[0].engine_condition;
         document.getElementById('name').innerText=data.product[0].first_name;
-        document.getElementById('mobile').innerText=data.product[0].mobile;
-        document.getElementById('district').innerText=data.product[0].district;
-        document.getElementById('state_td').innerText=data.product[0].state;
+        document.getElementById('mobile').innerText = maskedMobileNumber;
+        document.getElementById('district').innerText=data.product[0].district_name;
+        document.getElementById('state_td').innerText=data.product[0].state_name;
         document.getElementById('description').innerText=data.product[0].description;
+        // document.getElementById('description_22').innerText=data.product[0].description;
         document.getElementById('model4').innerText=data.product[0].model;
         document.getElementById('product_id').value = data.product[0].product_id;
         // $('#product_id').val();
 
-        var product = data.product[0];
+        var imageNames = data.product[0].image_names.split(',');
 
-        // Split the image names into an array
-        var imageNames = product.image_names.split(',');
+            // Select the carousel container
+            var carouselContainer = $('.swiper-wrapper_buy');
 
-        // Select the carousel container
-        var carouselContainer = $('.swiper-wrapper_buy');
+            // Clear existing slides
+            carouselContainer.empty();
 
-        // Clear existing slides
-        carouselContainer.empty();
+            // Initialize an empty array to store Swiper slides
+            var swiperSlides = [];
 
-        // Iterate through the image names and create carousel slides
-        imageNames.forEach(function(imageName) {
-            var imageUrl = "http://tractor-api.divyaltech.com/uploads/product_img/" + imageName.trim(); // Update the path
-            var slide = $('<div class="swiper-slide swiper-slide_buy"><img class="img_buy" src="' + imageUrl + '" /></div>');
-            carouselContainer.append(slide);
-        });
+            // Iterate through the image names and create carousel slides
+            imageNames.forEach(function(imageName, index) {
+                var imageUrl = "http://tractor-api.divyaltech.com/uploads/product_img/" + imageName.trim(); // Update the path
+                var slide = $('<div class="swiper-slide swiper-slide_buy"><img class="img_buy mt-2" src="' + imageUrl + '" style="height: 300px;" /></div>'); // Set height here
+                carouselContainer.append(slide);
+                
+                // Push the created slide into the swiperSlides array
+                swiperSlides.push(slide);
+            });
 
-        // Initialize or update the Swiper carousel
-        var mySwiper = new Swiper('.swiper_buy', {
-            // Your Swiper configuration options
-        });
-        console.log(data, 'abc');
+            // Initialize or update the Swiper carousel
+            var mySwiper = new Swiper('.swiper_buy', {
+                // Your Swiper configuration options
+            });
 
+            // Add click event listener to each slide
+            swiperSlides.forEach(function(slide, index) {
+                slide.on('click', function() {
+                    // Slide to the clicked slide
+                    mySwiper.slideTo(index);
+                });
+            });
 
         },
         error: function (error) {

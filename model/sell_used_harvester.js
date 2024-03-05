@@ -41,7 +41,7 @@ function get_lookup() {
 
   
 function get() {
-    var url = 'http://tractor-api.divyaltech.com/api/customer/get_all_brands';
+    var url = 'http://tractor-api.divyaltech.com/api/customer/get_brand_for_finance';
     $.ajax({
         url: url,
         type: "GET",
@@ -128,10 +128,14 @@ function get() {
             hours_select.empty(); // Clear existing options
             hours_select.append('<option selected disabled="" value="">Please select an option</option>'); 
             console.log(data, 'ok');
-            for (var k = 0; k < data.getHoursDriven.length; k++){
+            for (var k = 0; k < data.getHoursDriven.length; k++) {
                 var optionText = data.getHoursDriven[k].start + " - " + data.getHoursDriven[k].end;
-                hours_select.append('<option value="' + k + '">' + optionText + '</option>');
-            } 
+                // Adding space before hyphen for the first option
+                if (k === 0) {
+                    optionText = "\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0" + optionText; // Unicode for non-breaking space
+                }
+                hours_select.append('<option value="' + k + '"' + (k === 0 ? ' style="margin-left: 30px;"'  :  '') + '>' + optionText + '</option>');
+            }
   
             var select_year = $("#p_year");
             select_year.empty(); // Clear existing options

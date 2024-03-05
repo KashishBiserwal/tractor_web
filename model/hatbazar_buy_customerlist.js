@@ -3,7 +3,7 @@ $(document).ready(function() {
     getTractorList();
     $('#apply_filter_bnt').click(filter_search);
 
-
+  
 
 function getTractorList() {
     var url = "http://tractor-api.divyaltech.com/api/customer/get_haat_bazar";
@@ -18,7 +18,9 @@ function getTractorList() {
         success: function(data) {
             var productContainer = $("#productContainer");
             var loadMoreButton = $("#load_more");
-
+            // var name = data.allData.haat_bazar_data[0].first_name + ', ' + data.allData.haat_bazar_data[0].last_name;
+            document.getElementById('slr_name').value = data.allData.haat_bazar_data[0].first_name;
+            document.getElementById('mob_num').value = data.allData.haat_bazar_data[0].mobile;
             if (data.allData.haat_bazar_data && data.allData.haat_bazar_data.length > 0) {
                 haat_bazar_data = data.allData.haat_bazar_data.length;
 
@@ -268,16 +270,18 @@ function submit_enquiry(formId) {
             console.log(result, "result");
             // $(`#${formId}`).closest('.modal').modal('hide');
             $("#used_tractor_callbnt_").modal('hide'); 
-            var msg = "Added successfully !"
-            $("#errorStatusLoading").modal('show');    
-            $("#errorStatusLoading").find('.modal-title').html('<p class="text-center">Congratulation..! Requested Successful</p>');
+            // var msg = "Added successfully !"
+            // $("#errorStatusLoading").modal('show');    
+            // $("#errorStatusLoading").find('.modal-title').html('<p class="text-center">Congratulation..! Requested Successful</p>');
          
-            $("#errorStatusLoading").find('.modal-body').html(msg);
-            $("#errorStatusLoading").find('.modal-body').html('<img src="assets/images/7efs.gif" style="display:block; margin:0 auto;" class="w-50 text-center" alt="Successfull Request"></img>');
+            // $("#errorStatusLoading").find('.modal-body').html(msg);
+            // $("#errorStatusLoading").find('.modal-body').html('<img src="assets/images/7efs.gif" style="display:block; margin:0 auto;" class="w-50 text-center" alt="Successfull Request"></img>');
           
             // getOldTractorById();
             console.log("Add successfully");
             resetForm(formId);
+            $('#staticBackdrop').modal('show');
+
           },
           error: function (error) {
             console.error('Error fetching data:', error);
