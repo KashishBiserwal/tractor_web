@@ -5,6 +5,7 @@ $(document).ready(function() {
     getOldFarmImplementId();
     getpopularTractorList();
     getupcomimgTractorList();
+    $('#Verify').click(verifyotp);
 });
 
 function getOldFarmImplementId() {
@@ -29,13 +30,14 @@ function getOldFarmImplementId() {
             var location = data.getOldImplement[0].district_name + ', ' + data.getOldImplement[0].state_name;
 
             // Update HTML elements with data
+            var fullname = data.getOldImplement[0].first_name + ' ' + data.getOldImplement[0].last_name;
             document.getElementById('model_name').innerText = data.getOldImplement[0].model;
             document.getElementById('original_price').innerText = data.getOldImplement[0].price;
             document.getElementById('hours_driven').innerText = data.getOldImplement[0].hours_driven;
             document.getElementById('purchase_year').innerText = data.getOldImplement[0].purchase_year;
             document.getElementById('location_1').innerText = location;
             document.getElementById('model_name2').innerText = data.getOldImplement[0].model;
-            // document.getElementById('Power_powerhp').innerText = data.getOldImplement[0].model;
+            document.getElementById('Power_powerhp').innerText = data.getOldImplement[0].category_name;
             document.getElementById('brand_name').innerText = data.getOldImplement[0].brand_name;
             document.getElementById('model_name_3').innerText = data.getOldImplement[0].model;
             document.getElementById('category_1').innerText = data.getOldImplement[0].category_name;
@@ -49,7 +51,8 @@ function getOldFarmImplementId() {
             document.getElementById('description').innerText = data.getOldImplement[0].description;
             document.getElementById('model4').innerText = data.getOldImplement[0].model;
             document.getElementById('product_id').value = data.getOldImplement[0].product_id;
-
+            document.getElementById('slr_name').value = fullname;
+            document.getElementById('mob_num').value = data.getOldImplement[0].mobile;
             // Split the image names into an array
             var imageNames = data.getOldImplement[0].image_names.split(',');
 
@@ -127,28 +130,9 @@ var url = "http://tractor-api.divyaltech.com/api/customer/customer_enquiries";
         var msg = "Added successfully !";
 
         $("#errorStatusLoading").modal('hide');
-        $("#get_OTP_btn").modal('show');
-
-        var modalBodyContent = `
-            <div class="col-12">
-                <label for="Mobile" class="text-dark float-start pl-2">Enter OTP</label>
-                <input type="text" class="form-control text-dark" placeholder="Enter OTP" id="otp" name="opt_1">
-            </div>
-            <div class="float-end col-12">
-                <a href="" class="float-end">Resend OTP</a>
-            </div>
-        `;
-        $("#get_OTP_btn").find('.modal-body').html(modalBodyContent);
-
-        console.log("Add successfully");
-        $("#Verify").click(function() {
-            // Hide the OTP modal
-            $("#get_OTP_btn").modal('hide');
-
-            // Show the Contact Seller modal
-            $("#staticBackdrop").modal('show');
-        });
-      
+       
+        $('#get_OTP_btn').modal('show');
+        get_otp();
       },
       error: function (error) {
         console.error('Error fetching data:', error);
@@ -161,7 +145,76 @@ var url = "http://tractor-api.divyaltech.com/api/customer/customer_enquiries";
       }
     });
   }
+  function get_otp() {
+    var phone = $('#number').val();
+    var url = "http://tractor-api.divyaltech.com/api/customer/customer_login";
+ 
+    var paraArr = {
+     'mobile': phone,
+   };
+   //  var token = localStorage.getItem('token');
+   //   var headers = {
+   //   'Headers': 'Bearer ' + token
+   //   };
+    $.ajax({
+      url: url,
+      type: "POST",
+      data: paraArr,
+     //  headers: headers,
+      success: function (result) {
+        console.log(result, "result");
+       
+      },
+      error: function (error) {
+        console.error('Error fetching data:', error);
+      }
+    });
+  }
 
+
+  function verifyotp() {
+    var mobile = document.getElementById('number').value;
+    var otp = document.getElementById('otp').value;
+
+    var paraArr = {
+        'otp': otp,
+        'mobile': mobile,
+    }
+    var url = 'http://tractor-api.divyaltech.com/api/customer/verify_otp';
+    $.ajax({
+        url: url,
+        type: "POST",
+        data: paraArr,
+        success: function (result) {
+            console.log(result);
+
+            // Assuming your model has an ID 'myModal', hide it on success
+            $('#get_OTP_btn').modal('hide'); // Assuming it's a Bootstrap modal
+            $('#staticBackdrop').modal('show');
+            // Reset input fields
+            // document.getElementById('phone').value = ''; 
+            // document.getElementById('otp').value = ''; 
+
+            // Access data field in the response
+        }, 
+        error: function (xhr, textStatus, errorThrown) {
+            console.log(xhr.status, 'error');
+            if (xhr.status === 401) {
+                console.log('Invalid credentials');
+                var htmlcontent = `<p>Invalid credentials!</p>`;
+                document.getElementById("error_message").innerHTML = htmlcontent;
+            } else if (xhr.status === 403) {
+                console.log('Forbidden: You don\'t have permission to access this resource.');
+                var htmlcontent = ` <p> You don't have permission to access this resource.</p>`;
+                document.getElementById("error_message").innerHTML = htmlcontent;
+            } else {
+                console.log('An error occurred:', textStatus, errorThrown);
+                var htmlcontent = `<p>An error occurred while processing your request.</p>`;
+                document.getElementById("error_message").innerHTML = htmlcontent;
+            }
+        },
+    });
+}
   
 function getpopularTractorList() {
     var url = "http://tractor-api.divyaltech.com/api/customer/get_new_tractor";
@@ -369,51 +422,58 @@ function getusedfarmimplement() {
         function appendCard(container, p) {
             var images = p.image_names;
             var a = [];
-
+        
             if (images) {
-                if (images.indexOf(',') > -1) {
-                    a = images.split(',');
+                if (Array.isArray(images)) {
+                    a = images;
                 } else {
-                    a = [images];
+                    if (images.indexOf(',') > -1) {
+                        a = images.split(',');
+                    } else {
+                        a = [images];
+                    }
                 }
             }
+        
             const brandmodel = p.brand_name + '  ' + p.model;
             const location = p.district_name + '  ' + p.stateused_farm_imple;
-
+        
             var newCard = `
-            <div class="col-12 col-lg-12 col-md-12 col-sm-4 mt-3 ">
-                <div class="h-auto success__stry__item d-flex flex-column shadow ">
-                    <div class="thumb">
-                        <a href="used_farm_inner.php?id=${p.id}">
-                            <div class="ratio ratio-16x9">
-                                <img src='http://tractor-api.divyaltech.com/uploads/product_img/${a[0]}' class="object-fit-cover " alt="${p.description}">
-                            </div>
-                        </a>
-                    </div>
-                    <div class="content d-flex flex-column flex-grow-1 ">
-                        <div class="caption text-center">
-                            <a href="used_farm_inner.php?id="${p.id}" class="text-decoration-none text-dark">
-                                <p class="pt-3"><strong class="series_tractor_strong text-center h4 fw-bold ">${brandmodel}</strong></p>
-                            </a>      
-                        </div>
-                        <div class="power text-center mt-2">
-                            <div class="row ">
-                                <div class="col-12 col-lg-6 col-md-6 col-sm-6"><p class="text-success ps-2"><span>Price:- </span>${p.price}</p></div>
-                                <div class="col-12 col-lg-6 col-md-6 col-sm-6" style="padding-right: 32px;">
-                                     <p id="adduser" type="" class="btn-success">
-                                     <i class="fa-solid fa-clock"></i> ${p.hours_driven}</p>
+                <div class="col-12 col-lg-3 col-md-3 col-sm-3 mt-3">
+                    <div class="h-auto success__stry__item d-flex flex-column shadow">
+                        <div class="thumb">
+                            <a href="used_farm_inner.php?id=${p.id}">
+                                <div class="ratio ratio-16x9">
+                                    <img src='http://tractor-api.divyaltech.com/uploads/product_img/${a[0]}' class="object-fit-cover" alt="${p.description}">
                                 </div>
-                            </div>    
+                            </a>
+                        </div>
+                        <div class="content d-flex flex-column flex-grow-1">
+                            <div class="caption text-center">
+                                <a href="used_farm_inner.php?id=${p.id}" class="text-decoration-none text-dark">
+                                    <p class="pt-3"><strong class="series_tractor_strong text-center h4 fw-bold">${brandmodel}</strong></p>
+                                </a>      
+                            </div>
+                            <div class="power text-center mt-2">
+                                <div class="row">
+                                    <div class="col-12 col-lg-6 col-md-6 col-sm-6"><p class="text-success ps-2"><span>Price:- </span>${p.price}</p></div>
+                                    <div class="col-12 col-lg-6 col-md-6 col-sm-6" style="padding-right: 32px;">
+                                        <p id="adduser" type="" class="">
+                                            <i class="fa-solid fa-clock"></i> ${p.hours_driven}
+                                        </p>
+                                    </div>
+                                </div>    
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <button type="button" id="adduser"class="btn-state state btn-success text-decoration-none px-2 w-100">${location}</a>
                         </div>
                     </div>
-                    <div class="col-12">
-                        <button type="button" id="adduser"class="btn-state state btn-success text-decoration-none px-2 w-100">${location}</a>
-                    </div>
-                </div>
-            </div>`;
+                </div>`;
             // Append the new card to the container
             container.append(newCard);
         }
+        
 
         function initializeOwlCarousel() {
             $('#productContainer').owlCarousel({

@@ -54,6 +54,9 @@
                     <div class="col-12 text-center">
                         <!-- <button id="loadMoreBtn" type="button" class="add_btn btn btn-success mt-4 shadow">
                         <i class="fas fa-undo"></i>  Load More Tractor </button> -->
+                         <h5 id="noDataMessage" class="text-center mt-4 text-danger" style="display: none;">
+                         <img src="assets/images/404.gif" class="w-25" alt=""></br>Data not found..!</h5>
+
                         <button type="submit" id="loadMoreBtn" class="btn btn-success shadow px-5 w-40">Load More</button> 
                     </div>
                 </div>
@@ -264,6 +267,16 @@
     include 'includes/footertag.php';
 
     ?>
+
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/jquery.validate.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/5.0.6/jquery.inputmask.min.js"></script>
+
+
+
+
+
     <script>
  $(document).ready(function(){
     console.log('testing');

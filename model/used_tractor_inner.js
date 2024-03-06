@@ -5,6 +5,7 @@ $(document).ready(function() {
     getOldTractorById();
     getpopularTractorList();
     getupcomimgTractorList();
+    $('#Verify').click(verifyotp);
 });
 
 function getOldTractorById() {
@@ -26,6 +27,7 @@ function getOldTractorById() {
         
         var noc = data.product === 1 ? "Yes" : "No";
         var rc_number = data.product === 1 ? "Yes" : "No";
+        var fullname = data.product[0].first_name + ' ' + data.product[0].last_name;
         document.getElementById('brand_main').innerText=data.product[0].brand_name;
         document.getElementById('price_main').innerText=data.product[0].price;
         document.getElementById('model_name').innerText=data.product[0].model;
@@ -51,6 +53,10 @@ function getOldTractorById() {
         // document.getElementById('description_22').innerText=data.product[0].description;
         document.getElementById('model4').innerText=data.product[0].model;
         document.getElementById('product_id').value = data.product[0].product_id;
+
+        
+        document.getElementById('slr_name').value = fullname;
+        document.getElementById('mob_num').value = data.product[0].mobile;
         // $('#product_id').val();
 
         var imageNames = data.product[0].image_names.split(',');
@@ -143,13 +149,14 @@ var url = "http://tractor-api.divyaltech.com/api/customer/customer_enquiries";
         //     }
         // });
         $("#used_tractor_callbnt_").modal('hide'); 
-        var msg = "Added successfully !"
-        $("#errorStatusLoading").modal('show');    
-        $("#errorStatusLoading").find('.modal-title').html('<p class="text-center">Congratulation..! Requested Successful</p>');
+        $('#get_OTP_btn').modal('show');
+        // var msg = "Added successfully !"
+        // $("#errorStatusLoading").modal('show');    
+        // $("#errorStatusLoading").find('.modal-title').html('<p class="text-center">Congratulation..! Requested Successful</p>');
      
-        $("#errorStatusLoading").find('.modal-body').html(msg);
-        $("#errorStatusLoading").find('.modal-body').html('<img src="assets/images/7efs.gif" style="display:block; margin:0 auto;" class="w-50 text-center" alt="Successfull Request"></img>');
-      
+        // $("#errorStatusLoading").find('.modal-body').html(msg);
+        // $("#errorStatusLoading").find('.modal-body').html('<img src="assets/images/7efs.gif" style="display:block; margin:0 auto;" class="w-50 text-center" alt="Successfull Request"></img>');
+        get_otp();
         // getOldTractorById();
         console.log("Add successfully");
       
@@ -166,6 +173,77 @@ var url = "http://tractor-api.divyaltech.com/api/customer/customer_enquiries";
     });
   }
 
+
+  function get_otp() {
+    var phone = $('#number').val();
+    var url = "http://tractor-api.divyaltech.com/api/customer/customer_login";
+ 
+    var paraArr = {
+     'mobile': phone,
+   };
+   //  var token = localStorage.getItem('token');
+   //   var headers = {
+   //   'Headers': 'Bearer ' + token
+   //   };
+    $.ajax({
+      url: url,
+      type: "POST",
+      data: paraArr,
+     //  headers: headers,
+      success: function (result) {
+        console.log(result, "result");
+       
+      },
+      error: function (error) {
+        console.error('Error fetching data:', error);
+      }
+    });
+  }
+
+
+  function verifyotp() {
+    var mobile = document.getElementById('number').value;
+    var otp = document.getElementById('otp').value;
+
+    var paraArr = {
+        'otp': otp,
+        'mobile': mobile,
+    }
+    var url = 'http://tractor-api.divyaltech.com/api/customer/verify_otp';
+    $.ajax({
+        url: url,
+        type: "POST",
+        data: paraArr,
+        success: function (result) {
+            console.log(result);
+
+            // Assuming your model has an ID 'myModal', hide it on success
+            $('#get_OTP_btn').modal('hide'); // Assuming it's a Bootstrap modal
+            $('#staticBackdrop').modal('show');
+            // Reset input fields
+            // document.getElementById('phone').value = ''; 
+            // document.getElementById('otp').value = ''; 
+
+            // Access data field in the response
+        }, 
+        error: function (xhr, textStatus, errorThrown) {
+            console.log(xhr.status, 'error');
+            if (xhr.status === 401) {
+                console.log('Invalid credentials');
+                var htmlcontent = `<p>Invalid credentials!</p>`;
+                document.getElementById("error_message").innerHTML = htmlcontent;
+            } else if (xhr.status === 403) {
+                console.log('Forbidden: You don\'t have permission to access this resource.');
+                var htmlcontent = ` <p> You don't have permission to access this resource.</p>`;
+                document.getElementById("error_message").innerHTML = htmlcontent;
+            } else {
+                console.log('An error occurred:', textStatus, errorThrown);
+                var htmlcontent = `<p>An error occurred while processing your request.</p>`;
+                document.getElementById("error_message").innerHTML = htmlcontent;
+            }
+        },
+    });
+}
 
 function getpopularTractorList() {
     var url = "http://tractor-api.divyaltech.com/api/customer/get_new_tractor";

@@ -37,8 +37,7 @@ var originalData = [];
 function getTractorList() {
 console.log('kjhskdjf');
 var apiBaseURL = APIBaseURL;
-var url = apiBaseURL + 'get_new_tractor';
-
+var url = apiBaseURL + 'get_new_tractor_for_admin';
 $.ajax({
 url: url,
 type: 'GET',

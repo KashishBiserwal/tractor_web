@@ -6,7 +6,7 @@ $(document).ready(function() {
 });
 
 function all_implement(allCards) {
-    var url = 'http://tractor-api.divyaltech.com/api/customer/get_implement_category';
+    var url = 'http://tractor-api.divyaltech.com/api/customer/all_implement_details';
 
     $.ajax({
         url: url,
@@ -15,9 +15,9 @@ function all_implement(allCards) {
             var productContainer = $("#productContainer");
             var loadMoreButton = $("#load_moretract");
 
-            if (data.allCategory && data.allCategory.length > 0) {
+            if (data.getAllImplements && data.getAllImplements.length > 0) {
                 // Reverse the order of the cards to display the latest ones first
-                var reversedCards = data.allCategory.slice().reverse();
+                var reversedCards = data.getAllImplements.slice().reverse();
                 
                 // Update the list of all cards
                 allCards = allCards.concat(reversedCards);
@@ -63,14 +63,14 @@ function displayEngineoil(container, engineoil) {
             <div class="col-12 col-lg-4 col-sm-4 col-md-4 mt-2 mb-2">
                 <div class="success__stry__item shadow h-100">
                     <div class="thumb">
-                        <a href="">
-                            <img src="http://tractor-api.divyaltech.com/uploads/blog_img/${a[0]}" class="engineoil_img  w-100" alt="img">
+                        <a href="farm_subcate_inner.php?id=${p.product_id}">
+                            <img src="http://tractor-api.divyaltech.com/uploads/product_img/${a[0]}" class="engineoil_img  w-100" alt="img">
                         </a>
                     </div>
                     <div class="content d-flex flex-column flex-grow-1 ">
                         <div class="caption text-center">
                             <a href="#" class="text-decoration-none text-dark">
-                                <p class="pt-3"><strong class="series_tractor_strong text-center h4 fw-bold ">${p.category_name}</strong></p>
+                                <p class="pt-3"><strong class="series_tractor_strong text-center h6 fw-bold ">${p.sub_category_name}</strong></p>
                             </a>      
                         </div>
                         <div class="row text-center">
@@ -78,7 +78,7 @@ function displayEngineoil(container, engineoil) {
                                 <p class="fw-bold ps-2 text-dark">${p.category_name}</p>
                             </div>
                             <div class="col-6">
-                                <p class="fw-bold pe-2 text-dark">Tillage</p>
+                                <p class="fw-bold pe-2 text-dark">${p.brand_name}</p>
                             </div>
                         </div>
                         <div class=" bg-success">

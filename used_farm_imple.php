@@ -14,6 +14,14 @@
    <?php
    include 'includes/header.php';
    ?>
+   <style>
+     .text-truncate {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+   
+    }
+   </style>
 
 <section class="mt-5 pt-5 bg-light">
     <div class="container">

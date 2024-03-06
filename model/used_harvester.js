@@ -75,12 +75,12 @@ function get_old_harvester() {
                                 <div class="caption text-center">
                                     <a href="used_harvester_inner.php?id=${p.customer_id}" class="text-decoration-none text-dark">
                                   
-                                        <p class="pt-1"><strong class="series_tractor_strong text-center h6 fw-bold "><span>${p.brand_name}</span> <span>${p.model}</span></strong></p>
+                                        <p class="pt-1"><strong class="series_tractor_strong text-center h6 fw-bold text-truncate "><span>${p.brand_name}</span> <span>${p.model}</span></strong></p>
                                     </a>      
                                 </div>
                                 <div class="power text-center">
                                     <div class="row ">
-                                        <div class="col-12 col-lg-6 col-md-6 col-sm-6"><p class="text-success ps-2">Price : ₹ <span>${p.price}</span></p></div>
+                                        <div class="col-12 col-lg-6 col-md-6 col-sm-6"><p class="text-success text-truncate ps-2">Price : ₹ <span>${p.price}</span></p></div>
                                         <div class="col-12 col-lg-6 col-md-6 col-sm-6" style="padding-right: 32px;">
                                              <p id="adduser" type="" class=" rounded-3"> Year : <span>${p.purchase_year}</span></p>
                                         </div>
@@ -91,7 +91,7 @@ function get_old_harvester() {
                                 </div>
                             </div>
                             <div class="col-12">
-                                <button type="button" id="adduser"class="btn-state btn-success w-100 text-decoration-none px-2 w-100"><span>${p.district_name}</span>, <span><span>${p.state_name}</span></span></a>
+                                <button type="button" id="adduser"class="btn-state btn-success w-100 text-decoration-none px-2 w-100 text-truncate"><span>${p.district_name}</span>, <span><span>${p.state_name}</span></span></a>
                             </div>
                         </div>
                     </div> 
@@ -185,7 +185,7 @@ function get_old_harvester() {
                 
                 function get_barnd() {
                     // var apiBaseURL = CustomerAPIBaseURL;
-                    var url = 'http://tractor-api.divyaltech.com/api/customer/get_brands';
+                    var url = 'http://tractor-api.divyaltech.com/api/customer/get_brand_for_finance';
                 
                     $.ajax({
                         url: url,
@@ -231,6 +231,8 @@ function get_old_harvester() {
                             
                             // Checkboxes for years
                             if (data.getYears && data.getYears.length > 0) {
+                                // Reverse the array of years to display latest year at the top
+                                data.getYears.reverse();
                                 data.getYears.forEach(year => {
                                     var checkboxHtml = '<input type="checkbox" class="checkbox-round mt-1 ms-3 year_checkbox" value="' + year + '"/>' +
                                         '<span class="ps-2 fs-6">' + year + '</span><br />';
@@ -245,7 +247,6 @@ function get_old_harvester() {
                         }
                     });
                 }
-                
                 get_year_and_hours();
 
                 var filteredCards = [];
@@ -257,6 +258,7 @@ function get_old_harvester() {
                     var checkboxes2 = $(".state_checkbox:checked");
                     var checkboxesBrand = $(".brand_checkbox:checked");
                     var checkboxesdist = $(".district_checkbox:checked");
+                    var checkboxesYear = $(".year_checkbox:checked");
 
                     var selectedCheckboxValues = checkboxes.map(function () {
                         return $(this).val();
@@ -272,12 +274,16 @@ function get_old_harvester() {
                     var selectedDistrict = checkboxesdist.map(function () {
                         return $(this).val();
                     }).get();
+                    var selectedYear = checkboxesYear.map(function () {
+                        return $(this).val();
+                    }).get();
                 
                     var paraArr = {
                         'brand_id': JSON.stringify(selectedBrand),
                         'price_ranges': JSON.stringify(selectedCheckboxValues),
                         'state': JSON.stringify(selectedCheckboxValues2),
                         'district': JSON.stringify(selectedDistrict),
+                        'purchase_year': JSON.stringify(selectedYear),
                     };
                 
                     var url = 'http://tractor-api.divyaltech.com/api/customer/get_old_harvester_by_filter';

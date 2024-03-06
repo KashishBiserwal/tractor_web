@@ -41,8 +41,8 @@
                 </div>
             </div>
             <div class="col-12 col-sm-3 col-lg-3 col-md-3">
-                <div class=" row mb-3" id="">
-                <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+                    <div class=" row mb-3" id="">
+                        <div class="col-12 col-sm-12 col-md-12 col-lg-12">
                             <div class=" row text-center">
                                 <div class="col-12 col-sm-6 col-lg-6 col-md-6">
                                     <button id="reset_tractor" type="button" onclick="resetform()" class="add_btn btn btn-success w-100">
@@ -54,27 +54,16 @@
                                 </div>
                             </div>
                         </div>
-                </div>
-                    <!-- <div class="scrollbar mb-3" id="filter_district">
+                    </div>
+                    <div class="scrollbar mb-3" id=" my-2">
                         <div class="force-overflow">
-                            <h5 class=" ps-1 text-dark fw-bold pt-2">Search By Category</h5>
-                            <div class="HP py-2">
-                                
-                                <input type="checkbox" class="checkbox-round mt-1 ms-3 select_state" value="Tractor News" /><span class="ps-2 fs-6">Tractor News</span><br />
-                                <input type="checkbox" class="checkbox-round mt-1 ms-3 select_state" value="Agriculture News" /><span class="ps-2 fs-6">Agriculture News</span><br />
-                                <input type="checkbox" class="checkbox-round mt-1 ms-3 select_state" value="Sarkari Yojna" /><span class="ps-2 fs-6">Sarkari Yojna</span><br />
+                            <h5 class=" ps-1 text-dark fw-bold  pt-2">Search By Category</h5>
+                            <div class="HP py-2" id="checkboxContainer">
                             </div>
                         </div>
-                    </div> -->
-                    <div class="scrollbar mb-3" id=" my-2">
-                    <div class="force-overflow">
-                        <h5 class=" ps-1 text-dark fw-bold  pt-2">Search By Category</h5>
-                        <div class="HP py-2" id="checkboxContainer">
-                        </div>
-                    </div>
+                   </div>
                 </div>
-        </div>
-    </div>
+           </div>
 </section>
 
 <?php

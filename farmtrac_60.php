@@ -111,7 +111,7 @@
                                     </div>
                                     <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-3">
                                         <div class="">
-                                        <input type="submit" value="Contact Seller" id="contact_seller" class="btn btn-success w-100"  data-bs-toggle="modal" data-bs-target="#"> 
+                                        <input type="submit" value="Contact Seller" id="contact_seller" class="btn btn-success w-100"  data-bs-toggle="modal" data-bs-target="get_OTP_btn"> 
                                         </div>
                                     </div>
                                     <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-3">
@@ -453,14 +453,68 @@
         </div>
     </div>
 
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Contact Seller</h5>
+                    <button type="button" class="btn-close btn-success" data-bs-dismiss="modal" aria-label="Close"><img src="assets/images/close.png"class="w-25"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="model-cont">
+                        <h4 class="text-center text-danger">Seller Information</h3>
+                        <div class="row px-3 py-2">
+                            <div class="col-12  col-sm-12 col-md-6 col-lg-6 ">
+                                <label for="slr_name"class="form-label fw-bold text-dark"><i class="fa-regular fa-user"></i>Seller Name</label>
+                                <input type="text" class="form-control" id="slr_name">
+                            </div>
+                            <div class="col-12 col-sm-12 col-md-6 col-lg-6  ">
+                                <label for="number"class="form-label text-dark fw-bold"><i class="fa fa-phone"aria-hidden="true"></i>Phone Number</label>
+                                <input type="text" class="form-control" id="mob_num">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button"  id="got_it_btn "class="btn btn-secondary"data-bs-dismiss="modal">Close</button>
+                    <!-- <button type="button" class="btn btn-danger" id="got_it_btn">Got It</button> -->
+                </div>
+            </div>
+        </div>
+    </div>
+
 <?php 
  include 'includes/footertag.php'; 
  include 'includes/footer.php';
 ?> 
-
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/jquery.validate.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/5.0.6/jquery.inputmask.min.js"></script>
 <script>
 $(document).ready(function(){
     console.log('testing');
+
+    $('#price').inputmask({
+        alias: 'numeric',
+        groupSeparator: ',',
+        autoGroup: true,
+        digits: 2,
+        digitsOptional: false,
+        placeholder: '0',
+        onBeforeMask: function (value, opts) {
+            // Remove commas before applying input mask
+            return value.replace(/\,/g,'');
+        },
+    });
+
+    // Set cursor position to the beginning of the input field
+    var input = document.getElementById('price');
+    input.focus();
+    input.setSelectionRange(0, 0);
+
+    // Set text alignment to left
+    input.style.textAlign = 'left';
+
     $('#used_farm_inner_from').validate({
         rules:{
             fname:{
