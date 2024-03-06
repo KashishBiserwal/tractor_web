@@ -193,7 +193,7 @@
                                         </div>
                                         <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-3">
                                             <div class="">
-                                            <input type="submit" value="Contact Seller" id="contact_seller" class="btn btn-success w-100"> 
+                                            <input type="submit" value="Contact Seller" id="contact_seller" class="btn btn-success w-100"data-bs-toggle="modal" data-bs-target="get_OTP_btn"> 
                                             </div>
                                         </div>
                                         <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-3">
@@ -222,8 +222,8 @@
                                 <img src="assets/images/engine.png" width="50" height="50" alt="">
                             </div>
                             <div class="col-12">
-                                <h6 class="engine_ text-center fw-bold fs-6 m-1 text-dark">Power Source</h6>
-                                <p class="engine_name text-center"><span id="Power_powerhp"></span>N/A</p>
+                                <h6 class="engine_ text-center fw-bold fs-6 m-1 text-dark">Category</h6>
+                                <p class="engine_name text-center fs-6"><span id="Power_powerhp"></span></p>
                             </div>
                         </div>
                     </div>
@@ -804,15 +804,41 @@
  include 'includes/footertag.php'; 
  include 'includes/footer.php';
 ?> 
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/jquery.validate.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/5.0.6/jquery.inputmask.min.js"></script>
+
 <script>
 $(document).ready(function(){
     console.log('testing');
-    $.validator.addMethod("validPrice", function(value, element) {
-      
-      const cleanedValue = value.replace(/,/g, '');
+    $('#price').inputmask({
+        alias: 'numeric',
+        groupSeparator: ',',
+        autoGroup: true,
+        digits: 2,
+        digitsOptional: false,
+        placeholder: '0',
+        onBeforeMask: function (value, opts) {
+            // Remove commas before applying input mask
+            return value.replace(/\,/g,'');
+        },
+    });
 
-      return /^\d+$/.test(cleanedValue);
-    }, "Please enter a valid price (digits and commas only)");
+    // Set cursor position to the beginning of the input field
+    var input = document.getElementById('price');
+    input.focus();
+    input.setSelectionRange(0, 0);
+
+    // Set text alignment to left
+    input.style.textAlign = 'left';
+
+    // $.validator.addMethod("validPrice", function(value, element) {
+      
+    //   const cleanedValue = value.replace(/,/g, '');
+
+    //   return /^\d+$/.test(cleanedValue);
+    // }, "Please enter a valid price (digits and commas only)");
     $('#interested-form').validate({
         rules:{
             fname:{
@@ -835,7 +861,7 @@ $(document).ready(function(){
             },
             price:{
                 required:true,
-                validPrice: true,
+                // validPrice: true,
             }
         },
         messages:{
@@ -859,7 +885,7 @@ $(document).ready(function(){
             },
             price:{
                 required:"This field is required",
-                validPrice: "Please enter a valid price",
+                // validPrice: "Please enter a valid price",
             }
         },
         submitHandler: function(form) {

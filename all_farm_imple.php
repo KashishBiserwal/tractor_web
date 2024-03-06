@@ -29,12 +29,12 @@
 <section >
     <div class="container mt-3">
         <div class="row">
-        <div class="col-12 ">  
-                <div id="productContainer" class="row py-1">  </div>
+            <div class="col-12 ">  
+                <div id="productContainer" class="row py-1"></div>
                 <h5 id="noDataMessage" class="text-center mt-4 text-danger" style="display: none;">
                 <img src="assets/images/404.gif" class="w-25" alt=""></br>Data not found..!</h5>
                 <div class="col text-center mt-3 pb-3">
-                    <!-- <button id="load_moretract" type="button" class=" btn add_btn btn-success"><i class="fas fa-undo"></i>View All</button> -->
+                    <button id="load_moretract" type="button" class=" btn add_btn btn-success"><i class="fas fa-undo"></i>View All</button>
                 </div>
             </div>
             

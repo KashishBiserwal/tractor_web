@@ -2,7 +2,8 @@ $(document).ready(function() {
     console.log("ready!");
     getTractorList();
     $('#apply_filter_bnt').click(filter_search);
-
+    // $('#Verify').click(verifyotp);
+    $('#submit_enquiry').click(get_otp);
   
 
 function getTractorList() {
@@ -94,7 +95,7 @@ function displaylist(productContainer, tractors, append) {
                             </div>
                         </div>
                         <div class="col-12">
-                            <p class=" text-center" id="district"><span id="engine_powerhp2"></span> ${p.district},<span id="year"> ${p.state}</span></p>
+                            <p class=" text-center" id="district"><span id="engine_powerhp2"></span> ${p.district_name},<span id="year"> ${p.state_name}</span></p>
                         </div>
                         <div class="col-12">
                             <button type="button" class="add_btn btn-success w-100" data-bs-toggle="modal" data-bs-target="#${modalId}" data-product-id="${p.product_id}">
@@ -106,7 +107,7 @@ function displaylist(productContainer, tractors, append) {
                             <div class="modal-dialog modal-lg modal-dialog-centered">
                               <div class="modal-content">
                                 <div class="modal-header  modal_head">
-                                  <h5 class="modal-title text-white ms-1" id="staticBackdropLabel">${p.model}</h5>
+                                  <h5 class="modal-title text-white ms-1" id="staticBackdropLabel">${p.category_name}</h5>
                                   <button type="button" class="btn-close btn-success" data-bs-dismiss="modal" aria-label="Close"><img src="assets/images/close.png"></button>
                                 </div>
                               
@@ -233,6 +234,10 @@ function savedata(formId) {
     console.log("Form submitted successfully");
 }
 
+function openOTPModal() {
+    $('#get_OTP_btn').modal('show');
+}
+
 function submit_enquiry(formId) {
     var enquiry_type_id = $(`#${formId} #enquiry_type_id`).val();
     var product_id = 30;  // You may need to adjust this based on your logic
@@ -268,19 +273,12 @@ function submit_enquiry(formId) {
         // headers: headers, // Remove headers if not needed
         success: function (result) {
             console.log(result, "result");
-            // $(`#${formId}`).closest('.modal').modal('hide');
             $("#used_tractor_callbnt_").modal('hide'); 
-            // var msg = "Added successfully !"
-            // $("#errorStatusLoading").modal('show');    
-            // $("#errorStatusLoading").find('.modal-title').html('<p class="text-center">Congratulation..! Requested Successful</p>');
-         
-            // $("#errorStatusLoading").find('.modal-body').html(msg);
-            // $("#errorStatusLoading").find('.modal-body').html('<img src="assets/images/7efs.gif" style="display:block; margin:0 auto;" class="w-50 text-center" alt="Successfull Request"></img>');
-          
-            // getOldTractorById();
+            get_otp();
+            openOTPModal();
+            
             console.log("Add successfully");
-            resetForm(formId);
-            $('#staticBackdrop').modal('show');
+            // resetForm(formId);
 
           },
           error: function (error) {
@@ -294,6 +292,67 @@ function submit_enquiry(formId) {
           }
     });
 }
+
+function get_otp() {
+    var phone = $('#mobile_number').val(); // Corrected ID
+    var url = "http://tractor-api.divyaltech.com/api/customer/customer_login";
+
+    var paraArr = {
+        'mobile': phone,
+    };
+
+    $.ajax({
+        url: url,
+        type: "POST",
+        data: paraArr,
+        success: function (result) {
+            console.log(result, "result");
+        },
+        error: function (error) {
+            console.error('Error fetching data:', error);
+        }
+    });
+}
+
+function veriyotp() {
+    var mobile = document.getElementById('mobile_number').value;
+    var otp = document.getElementById('otp').value;
+
+    var paraArr = {
+        'otp': otp,
+        'mobile': mobile,
+    }
+
+    var url = 'http://tractor-api.divyaltech.com/api/customer/verify_otp';
+    
+    $.ajax({
+        url: url,
+        type: "POST",
+        data: paraArr,
+        success: function (result) {
+            console.log(result);
+            $('#get_OTP_btn').modal('hide');
+            $('#staticBackdrop').modal('show');
+            // resetForm();
+        }, 
+        error: function (xhr, textStatus, errorThrown) {
+            console.log(xhr.status, 'error');
+            var errorMessage = '';
+
+            if (xhr.status === 401) {
+                errorMessage = 'Invalid credentials';
+            } else if (xhr.status === 403) {
+                errorMessage = 'Forbidden: You don\'t have permission to access this resource.';
+            } else {
+                errorMessage = 'An error occurred while processing your request.';
+            }
+
+            $('#error_message').html('<p>' + errorMessage + '</p>'); // Display error message
+        },
+    });
+}
+
+
 
 function getCategories() {
     var url = 'http://tractor-api.divyaltech.com/api/customer/haat_bazar_category';

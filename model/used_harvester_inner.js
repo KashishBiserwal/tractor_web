@@ -5,6 +5,7 @@ $(document).ready(function() {
     get_old_harvester_byiD();
     getpopularTractorList();
     getupcomimgTractorList();
+    $('#Verify').click(verifyotp);
     
 });
 
@@ -26,7 +27,7 @@ function get_old_harvester_byiD() {
             var lastFourDigits = mobileString.substring(mobileString.length - 4);
             var maskedPart = 'xxxxxx'.padStart(mobileString.length - 4, 'x');
             var maskedMobileNumber = maskedPart + lastFourDigits;
-
+            var fullname = data.product[0].first_name + ' ' + data.product[0].last_name;
 
             var brand_model_name = data.product[0].brand_name + ', ' + data.product[0].model;
             var location = data.product[0].district_name + ', ' + data.product[0].state_name;
@@ -54,6 +55,8 @@ function get_old_harvester_byiD() {
         document.getElementById('customer_id').value = data.product[0].customer_id;
         document.getElementById('model').value = data.product[0].model;
 
+        document.getElementById('slr_name').value = fullname;
+        document.getElementById('mob_num').value = data.product[0].mobile;
         var imageNames = data.product[0].image_names.split(',');
 
             // Select the carousel container
@@ -359,26 +362,7 @@ var url = "http://tractor-api.divyaltech.com/api/customer/customer_enquiries";
 
         $("#errorStatusLoading").modal('hide');
         $("#get_OTP_btn").modal('show');
-
-        var modalBodyContent = `
-            <div class="col-12">
-                <label for="Mobile" class="text-dark float-start pl-2">Enter OTP</label>
-                <input type="text" class="form-control text-dark" placeholder="Enter OTP" id="otp" name="opt_1">
-            </div>
-            <div class="float-end col-12">
-                <a href="" class="float-end">Resend OTP</a>
-            </div>
-        `;
-        $("#get_OTP_btn").find('.modal-body').html(modalBodyContent);
-
-            console.log("Add successfully");
-            $("#Verify").click(function() {
-                // Hide the OTP modal
-                $("#get_OTP_btn").modal('hide');
-
-                // Show the Contact Seller modal
-                $("#staticBackdrop").modal('show');
-            });
+        get_otp();
       
       },
       error: function (error) {
@@ -393,4 +377,73 @@ var url = "http://tractor-api.divyaltech.com/api/customer/customer_enquiries";
     });
   }
 
+  function get_otp() {
+    var phone = $('#number').val();
+    var url = "http://tractor-api.divyaltech.com/api/customer/customer_login";
+ 
+    var paraArr = {
+     'mobile': phone,
+   };
+   //  var token = localStorage.getItem('token');
+   //   var headers = {
+   //   'Headers': 'Bearer ' + token
+   //   };
+    $.ajax({
+      url: url,
+      type: "POST",
+      data: paraArr,
+     //  headers: headers,
+      success: function (result) {
+        console.log(result, "result");
+       
+      },
+      error: function (error) {
+        console.error('Error fetching data:', error);
+      }
+    });
+  }
 
+
+  function verifyotp() {
+    var mobile = document.getElementById('number').value;
+    var otp = document.getElementById('otp').value;
+
+    var paraArr = {
+        'otp': otp,
+        'mobile': mobile,
+    }
+    var url = 'http://tractor-api.divyaltech.com/api/customer/verify_otp';
+    $.ajax({
+        url: url,
+        type: "POST",
+        data: paraArr,
+        success: function (result) {
+            console.log(result);
+
+            // Assuming your model has an ID 'myModal', hide it on success
+            $('#get_OTP_btn').modal('hide'); // Assuming it's a Bootstrap modal
+            $('#staticBackdrop').modal('show');
+            // Reset input fields
+            // document.getElementById('phone').value = ''; 
+            // document.getElementById('otp').value = ''; 
+
+            // Access data field in the response
+        }, 
+        error: function (xhr, textStatus, errorThrown) {
+            console.log(xhr.status, 'error');
+            if (xhr.status === 401) {
+                console.log('Invalid credentials');
+                var htmlcontent = `<p>Invalid credentials!</p>`;
+                document.getElementById("error_message").innerHTML = htmlcontent;
+            } else if (xhr.status === 403) {
+                console.log('Forbidden: You don\'t have permission to access this resource.');
+                var htmlcontent = ` <p> You don't have permission to access this resource.</p>`;
+                document.getElementById("error_message").innerHTML = htmlcontent;
+            } else {
+                console.log('An error occurred:', textStatus, errorThrown);
+                var htmlcontent = `<p>An error occurred while processing your request.</p>`;
+                document.getElementById("error_message").innerHTML = htmlcontent;
+            }
+        },
+    });
+}

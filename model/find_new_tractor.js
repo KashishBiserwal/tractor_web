@@ -2,7 +2,9 @@
 $(document).ready(function() {
     console.log("ready!");
     getTractorList();
-    populateDropdownsFromClass('state-dropdown', 'district-dropdown', 'tehsil-dropdown');
+    $('#submit_enquiry').click(get_otp);
+    // $('#Verify').click(verifyotp);
+    // populateDropdownsFromClass('state-dropdown', 'district-dropdown', 'tehsil-dropdown');
     $('#filter_tractor').click(filter_search);
 
     $("#contact-seller-call").validate({
@@ -56,16 +58,9 @@ $(document).ready(function() {
     }, "Value must not equal {0}");
 
  
-
-
-
-function model_click(){
-    get();
-  }
-
   function get() {
     // var apiBaseURL = CustomerAPIBaseURL;
-    var url = 'http://tractor-api.divyaltech.com/api/customer/get_brands';
+    var url = 'http://tractor-api.divyaltech.com/api/customer/get_brand_for_finance';
 
     $.ajax({
         url: url,
@@ -94,9 +89,58 @@ function model_click(){
         }
     });
 }
+
 get();
 
 
+
+function getTractorList() {
+    var url = "http://tractor-api.divyaltech.com/api/customer/get_new_tractor";
+
+    // Keep track of the total tractors and the currently displayed tractors
+    var totalTractors = 0;
+    var displayedTractors = 6; // Initially display 6 tractors
+
+    $.ajax({
+        url: url,
+        type: "GET",
+        success: function(data) {
+            var productContainer = $("#productContainer");
+            var loadMoreButton = $("#load_moretract");
+            var fullname = data.product.allProductData[0].first_name + ' ' + data.product[0].last_name;
+            document.getElementById('slr_name').value = fullname;
+            document.getElementById('mob_num').value = data.product.allProductData[0].mobile;
+            if (data.product.allProductData && data.product.allProductData.length > 0) {
+                // Sort the array in descending order based on product_id
+                data.product.allProductData.sort(function(a, b) {
+                    return b.product_id - a.product_id;
+                });
+              
+                // Display the initial set of 6 tractors
+                displayTractors(data.product.allProductData.slice(0, displayedTractors));
+
+                if (totalTractors <= displayedTractors) {
+                    loadMoreButton.hide();
+                } else {
+                    loadMoreButton.show();
+                }
+
+                // Handle "Load More Tractors" button click
+                loadMoreButton.click(function() {
+                    // Display all tractors
+                    displayedTractors = totalTractors;
+                    displayTractors(data.product.allProductData);
+
+                    // Hide the "Load More Tractors" button
+                    loadMoreButton.show();
+                });
+            }
+        },
+        error: function(error) {
+            console.error('Error fetching data:', error);
+        }
+    });
+}
 
 function getTractorList() {
     var url = "http://tractor-api.divyaltech.com/api/customer/get_new_tractor";
@@ -120,6 +164,10 @@ function getTractorList() {
                 // Display the initial set of 6 tractors
                 displayTractors(data.product.allProductData.slice(0, displayedTractors));
 
+                // Update the total number of tractors
+                totalTractors = data.product.allProductData.length;
+
+                // Check if there are more tractors to display
                 if (totalTractors <= displayedTractors) {
                     loadMoreButton.hide();
                 } else {
@@ -128,12 +176,15 @@ function getTractorList() {
 
                 // Handle "Load More Tractors" button click
                 loadMoreButton.click(function() {
-                    // Display all tractors
-                    displayedTractors = totalTractors;
-                    displayTractors(data.product.allProductData);
+                    // Increase the number of displayed tractors
+                    displayedTractors += 6;
+                    // Display the next set of tractors
+                    displayTractors(data.product.allProductData.slice(0, displayedTractors));
 
-                    // Hide the "Load More Tractors" button
-                    loadMoreButton.hide();
+                    // Check if all tractors have been displayed
+                    if (displayedTractors >= totalTractors) {
+                        loadMoreButton.hide();
+                    }
                 });
             }
         },
@@ -142,7 +193,6 @@ function getTractorList() {
         }
     });
 }
-
 
 function displayTractors(tractors) {
     var productContainer = $("#productContainer");
@@ -178,9 +228,9 @@ function displayTractors(tractors) {
                             </a>
                         </div>
                         <div class="content d-flex flex-column flex-grow-1">
-                            <div class="caption text-center">
+                            <div class="caption text-center text-truncate">
                                 <a href="detail_tractor.php?product_id=${p.product_id}" class="text-decoration-none text-dark">
-                                    <p class="pt-3"><strong class="series_tractor_strong text-center h4 fs-6 fw-bold "><span>${p.brand_name}</span> <span>${p.model}</strong></p>
+                                    <p class="pt-3"><strong class="series_tractor_strong text-center h4 fs-6 fw-bold  "><span>${p.brand_name}</span> <span>${p.model}</strong></p>
                                 </a>      
                             </div>
                             <div class="power text-center mt-2">
@@ -335,6 +385,10 @@ function populateDropdowns() {
     });
 }
 
+function openOTPModal() {
+    $('#get_OTP_btn').modal('show');
+}
+
 function tractor_enquiry(formId) {
     var product_id = $(`#${formId} #product_id`).val();
     var firstName = $(`#${formId} #firstName`).val();
@@ -375,11 +429,8 @@ var url ='http://tractor-api.divyaltech.com/api/customer/customer_enquiries';
     $("#used_tractor_callbnt_").modal('hide'); 
     var msg = "Added successfully !"
     $("#errorStatusLoading").modal('show');    
-    $("#errorStatusLoading").find('.modal-title').html('<p class="text-center">Congratulation..! Requested Successful</p>');
- 
-    $("#errorStatusLoading").find('.modal-body').html(msg);
-    $("#errorStatusLoading").find('.modal-body').html('<img src="assets/images/successfull.gif" style="display:block; margin:0 auto;" class="w-50 text-center" alt="Successfull Request"></img>');
-    // $("#errorStatusLoading").find('.modal-body').html('sdfghj');
+        get_otp();
+        openOTPModal();
   
   
       },
@@ -395,7 +446,70 @@ var url ='http://tractor-api.divyaltech.com/api/customer/customer_enquiries';
     });
   }
  
+  function get_otp() {
+    var phone = $('#mobile_number').val();
+    var url = "http://tractor-api.divyaltech.com/api/customer/customer_login";
+ 
+    var paraArr = {
+     'mobile': phone,
+   };
+   //  var token = localStorage.getItem('token');
+   //   var headers = {
+   //   'Headers': 'Bearer ' + token
+   //   };
+    $.ajax({
+      url: url,
+      type: "POST",
+      data: paraArr,
+     //  headers: headers,
+      success: function (result) {
+        console.log(result, "result");
+       
+      },
+      error: function (error) {
+        console.error('Error fetching data:', error);
+      }
+    });
+  }
 
+
+  function verifyotp() {
+    var mobile = document.getElementById('mobile_number').value;
+    var otp = document.getElementById('otp').value;
+
+    var paraArr = {
+        'otp': otp,
+        'mobile': mobile,
+    }
+    var url = 'http://tractor-api.divyaltech.com/api/customer/verify_otp';
+    $.ajax({
+        url: url,
+        type: "POST",
+        data: paraArr,
+        success: function (result) {
+            console.log(result);
+            $('#get_OTP_btn').modal('hide');
+            $('#staticBackdrop').modal('show');
+           
+        }, 
+        error: function (xhr, textStatus, errorThrown) {
+            console.log(xhr.status, 'error');
+            if (xhr.status === 401) {
+                console.log('Invalid credentials');
+                var htmlcontent = `<p>Invalid credentials!</p>`;
+                document.getElementById("error_message").innerHTML = htmlcontent;
+            } else if (xhr.status === 403) {
+                console.log('Forbidden: You don\'t have permission to access this resource.');
+                var htmlcontent = ` <p> You don't have permission to access this resource.</p>`;
+                document.getElementById("error_message").innerHTML = htmlcontent;
+            } else {
+                console.log('An error occurred:', textStatus, errorThrown);
+                var htmlcontent = `<p>An error occurred while processing your request.</p>`;
+                document.getElementById("error_message").innerHTML = htmlcontent;
+            }
+        },
+    });
+}
   function savedata(formId){
     tractor_enquiry(formId);
     console.log("Form submitted successfully");
@@ -407,26 +521,28 @@ var cardsDisplayed = 0;
 var cardsPerPage = 6; 
 
 function filter_search() {
-    var checkboxes = $(".budget_checkbox:checked");
+    // var checkboxes = $(".budget_checkbox:checked");
     var checkboxes2 = $(".hp_checkbox:checked");
     var checkboxesBrand = $(".brand_checkbox:checked");
 
-    var selectedCheckboxValues = checkboxes.map(function () {
-        return $(this).val();
-    }).get();
+
+    // var selectedCheckboxValues = checkboxes.map(function () {
+    //     return $(this).val();
+    // }).get();
 
     var selectedCheckboxValues2 = checkboxes2.map(function () {
         return $(this).val();
     }).get();
-
+console.log(selectedCheckboxValues2);
     var selectedBrand = checkboxesBrand.map(function () {
         return $(this).val();
     }).get();
 
+    
     var paraArr = {
         'brand_id': JSON.stringify(selectedBrand),
-        'price_ranges': JSON.stringify(selectedCheckboxValues),
         'horse_power_ranges': JSON.stringify(selectedCheckboxValues2),
+        
     };
 
     var url = 'http://tractor-api.divyaltech.com/api/customer/get_new_tractor_by_price_brand_hp';
@@ -479,9 +595,9 @@ function appendFilterCard(filterContainer, filter) {
                 </a>
             </div>
             <div class="content d-flex flex-column flex-grow-1">
-                <div class="caption text-center">
+                <div class="caption text-center text-truncate">
                     <a href="detail_tractor.php?product_id=${p.product_id}" class="text-decoration-none text-dark">
-                        <p class="pt-3"><strong class="series_tractor_strong text-center h6 fw-bold ">${p.model}</strong></p>
+                        <p class="pt-3"><strong class="series_tractor_strong text-center h4 fs-6 fw-bold  "><span>${p.brand_name}</span> <span>${p.model}</strong></p>
                     </a>      
                 </div>
                 <div class="power text-center mt-2">
@@ -505,7 +621,7 @@ function appendFilterCard(filterContainer, filter) {
                         <div class="modal-content">
                             <div class="modal-header  modal_head">
                             <h5 class="modal-title text-white ms-1" id="staticBackdropLabel">${p.model}</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            <button type="button" class="btn-close btn-success" data-bs-dismiss="modal" aria-label="Close"><img src="assets/images/close.png"></button>
                             </div>
                             <!-- MODAL BODY -->
                             <div class="modal-body">
@@ -536,26 +652,24 @@ function appendFilterCard(filterContainer, filter) {
                                         </div>
                                         <div class="col-12 col-sm-12 col-md-6 col-lg-6">
                                             <label for="yr_state" class="form-label text-dark fw-bold"> <i class="fa-solid fa-location-dot"></i>  Select State</label>
-                                            <select class="form-select py-2 state-dropdown" aria-label=".form-select-lg example" id="" name="state">
-                                               
+                                            <select class="form-select py-2 state-dropdown" aria-label=".form-select-lg example" id="state" name="state">
+                                                
                                             </select>
                                         </div>
                                     <div class="col-12 col-sm-12 col-md-6 col-lg-6">
                                         <label for="yr_dist" class="form-label text-dark"><i class="fa-solid fa-location-dot"></i> District</label>
-                                        <select class="form-select py-2 district-dropdown" aria-label=".form-select-lg example" id="" name="district">
-                                            
+                                        <select class="form-select py-2 district-dropdown" aria-label=".form-select-lg example" id="district" name="district">
+                                         
                                         </select>
                                     </div>
                                     <div class="col-12 col-sm-6 col-md-6 col-lg-6">
                                         <label for="yr_price" class="form-label text-dark">Tehsil</label>
-                                        <select class="form-select py-2  tehsil-dropdown" aria-label=".form-select-lg example" id="" name="Tehsil">
-                                                     
+                                        <select class="form-select py-2 tehsil-dropdown" aria-label=".form-select-lg example" id="Tehsil" name="Tehsil">
+                                         
                                         </select>
-                                     </div>                          
+                                    </div>                          
                                     </div> 
-                                
-                    
-                                    <div class="modal-footer">
+                                <div class="modal-footer">
                                     <button type="submit" id="submit_enquiry" class="btn add_btn btn-success w-100 btn_all" onclick="savedata('${formId}')" data-bs-dismiss="modal">Submit</button>
                                     <!-- <a class="btn  text-primary" data-dismiss="modal">Ok</a> -->
                                     </div>      
@@ -703,3 +817,69 @@ function getDistricts(state_id) {
 }
 
 getState();
+
+
+
+function get() {
+    var url = 'http://tractor-api.divyaltech.com/api/customer/state_data';
+    $.ajax({
+        url: url,
+        type: "GET",
+        headers: {
+            'Authorization': 'Bearer ' + localStorage.getItem('token')
+        },
+        success: function(data) {
+            console.log("State data:", data);
+
+            const checkboxContainer = $('#state_state');
+            checkboxContainer.empty(); // Clear existing checkboxes
+            
+            const stateId = 7; // Replace 7 with the desired state ID
+            const filteredState = data.stateData.find(state => state.id === stateId);
+            if (filteredState) {
+                var checkboxHtml = '<input type="checkbox" class="checkbox-round mt-1 ms-3 state_checkbox" value="' + filteredState.id + '"/>' +
+                    '<span class="ps-2 fs-6">' + filteredState.state_name + '</span> <br/>';
+                checkboxContainer.append(checkboxHtml);
+                // Call getDistricts with the stateId
+                get_By_Districts(stateId);
+            } else {
+                checkboxContainer.html('<p>No valid data available</p>');
+            }
+        },
+        error: function(error) {
+            console.error('Error fetching state data:', error);
+        }
+    });
+}
+
+function get_By_Districts(stateId) {
+    var url = 'http://tractor-api.divyaltech.com/api/customer/get_district_by_state/' + stateId;
+    $.ajax({
+        url: url,
+        type: "GET",
+        headers: {
+            'Authorization': 'Bearer ' + localStorage.getItem('token')
+        },
+        success: function(data) {
+            console.log("District data:", data);
+            
+            const checkboxContainer = $('#district_dist');
+            checkboxContainer.empty(); // Clear existing checkboxes
+            
+            if (data && data.districtData && data.districtData.length > 0) {
+                data.districtData.forEach(district => {
+                    var checkboxHtml = '<input type="checkbox" class="checkbox-round mt-1 ms-3 district_checkbox" value="' + district.id + '" id="district_' + district.id + '"/>' +
+                        '<label for="district_' + district.id + '" class="ps-2 fs-6">' + district.district_name + '</label> <br/>';
+                    checkboxContainer.append(checkboxHtml);
+                });
+            } else {
+                checkboxContainer.html('<p>No districts available for this state</p>');
+            }
+        },
+        error: function(error) {
+            console.error('Error fetching districts:', error);
+        }
+    });
+}
+// Call the get function to start fetching state data
+get();

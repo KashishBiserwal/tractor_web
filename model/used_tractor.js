@@ -6,9 +6,16 @@ $(document).ready(function() {
     $('#filter_tractor').click(filter_search);
     $('#submit_enquiry').click(get_otp);
     getoldTractorList();
-    var cardsPerPage = 6; 
-    var cardsDisplayed = 0;
-    var allCards; 
+    // var cardsPerPage = 6; 
+    // var cardsDisplayed = 0;
+    // var allCards; 
+    $('#Verify').click(verifyotp);
+    
+    
+    // Set cursor position to the beginning of the input field
+
+
+
 
     // Initial population
     // getoldTractorList();
@@ -27,7 +34,9 @@ function getoldTractorList() {
             var productContainer = $("#productContainer");
             // Clear the existing content in the container
             productContainer.empty();
-
+            var fullname = data.product[0].first_name + ' ' + data.product[0].last_name;
+            document.getElementById('slr_name').value = fullname;
+            document.getElementById('mob_num').value = data.product[0].mobile;
             if (data.product && data.product.length > 0) {
                 // Reverse the order of the cards to display the latest ones first
                 var reversedCards = data.product.slice().reverse();
@@ -177,7 +186,7 @@ function appendCard(container, p) {
                                     <div class="form-outline">
                                         <label for="Tehsil" class="form-label fw-bold text-dark"> Tehsil</label>
                                         <select class="form-select py-2 tehsil-dropdown" aria-label=".form-select-lg example" id="tehsil" name="tehsil">
-                                            <option value="" selected disabled>Please select a tehsil</option>
+                                            
                                             <!-- Options for Tehsil dropdown -->
                                         </select>
                                     </div>
@@ -185,7 +194,7 @@ function appendCard(container, p) {
                               <div class="col-12 col-lg-6 col-sm-5 col-md-6">
                                 <div class="form-outline mt-4">
                                     <label for="name" class="form-label text-dark">Price </label>
-                                    <input type="text" class="form-control py-2" placeholder="Enter Price" id="price_form" name="price">
+                                    <input type="text" class="form-control price_form py-2" placeholder="Enter Price" id="price_form" name="price">
                                 </div>
                               </div>
                             </div>          
@@ -196,45 +205,7 @@ function appendCard(container, p) {
                                             </div>      
                                         </form>                             
                                     </div>
-                                    <div class="col-12 col-sm-6 col-md-6 col-lg-6 mt-4">
-                                        <div class="form-outline">
-                                            <label for="state" class="form-label text-dark fw-bold"> <i class="fas fa-location"></i> State</label>
-                                            <select class="form-select py-2 state-dropdown" aria-label=".form-select-lg example" id="state_form" name="state">
-                                                <!-- Options for state dropdown -->
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="col-12 col-sm-6 col-md-6 col-lg-6 mt-4">
-                                        <div class="form-outline">
-                                            <label for="district" class="form-label fw-bold text-dark"><i class="fa-solid fa-location-dot"></i> District</label>
-                                            <select class="form-select py-2 district-dropdown" aria-label=".form-select-lg example" name="district" id="district_form">
-                                                <!-- Options for district dropdown -->
-                                            </select>
-                                        </div>
-                                    </div>       
-                                    <div class="col-12 col-sm-6 col-md-6 col-lg-6 mt-4">
-                                        <div class="form-outline">
-                                            <label for="Tehsil" class="form-label fw-bold text-dark"> Tehsil</label>
-                                            <select class="form-select py-2 tehsil-dropdown" aria-label=".form-select-lg example" id="tehsil" name="tehsil">
-                                                <option value="" selected disabled>Please select a tehsil</option>
-                                                <!-- Options for Tehsil dropdown -->
-                                            </select>
-                                        </div>
-                                    </div>
-                                  <div class="col-12 col-lg-6 col-sm-5 col-md-6">
-                                    <div class="form-outline mt-4">
-                                        <label for="name" class="form-label text-dark">Price </label>
-                                        <input type="text" class="form-control py-2" placeholder="Enter Price" id="price_form" name="price">
-                                    </div>
-                                  </div>
-                                </div>          
-                               </div> 
-                                     <div class="modal-footer">
-                                                <button type="submit" id="submit_enquiry" class="btn add_btn btn-success w-100 btn_all" onclick="savedata('${formId}')"
-                                                data-bs-dismiss="modal";>Submit</button>
-                                                </div>      
-                                            </form>                             
-                                        </div>
+                            
                                     </div>
                                 </div>
                             </div>
@@ -246,6 +217,26 @@ function appendCard(container, p) {
          `;
     container.append(newCard);
     populateDropdowns(p.id);
+    $('.price_form').inputmask({
+        alias: 'numeric',
+        groupSeparator: ',',
+        autoGroup: true,
+        digits: 2,
+        digitsOptional: false,
+        placeholder: '0',
+        onBeforeMask: function (value, opts) {
+            // Remove commas before applying input mask
+            return value.replace(/\,/g,'');
+        },
+    });
+
+    // Set cursor position to the beginning of each input field
+    $('.price_form').each(function() {
+        var input = this;
+        input.focus();
+        input.setSelectionRange(0, 0);
+        input.style.textAlign = 'left';
+    });
 }
 
 $(document).on('click', '#loadMoreBtn', function () {
@@ -264,52 +255,16 @@ $(document).on('click', '#loadMoreBtn', function () {
     // getoldTractorList();
 });
 
-function populateDropdowns() {
-    var stateDropdowns = document.querySelectorAll('.state-dropdown');
-    var districtDropdowns = document.querySelectorAll('.district-dropdown');
-    var tehsilDropdowns = document.querySelectorAll('.tehsil-dropdown');
 
-    var defaultStateId = 7; // Define the default state ID here
-
-    var selectYourStateOption = '<option value="">Select Your State</option>';
-    var chhattisgarhOption = `<option value="${defaultStateId}">Chhattisgarh</option>`;
-
-    stateDropdowns.forEach(function (dropdown) {
-        dropdown.innerHTML = selectYourStateOption + chhattisgarhOption;
-
-        // Fetch district data based on the selected state
-        $.get(`http://tractor-api.divyaltech.com/api/customer/get_district_by_state/${defaultStateId}`, function(data) {
-            var districtSelect = dropdown.closest('.row').querySelector('.district-dropdown');
-            districtSelect.innerHTML = '<option value="">Please select a district</option>';
-            data.districtData.forEach(district => {
-                districtSelect.innerHTML += `<option value="${district.id}">${district.district_name}</option>`;
-            });
-        });
-    });
-
-    // Event listener for district dropdown
-    districtDropdowns.forEach(function (dropdown) {
-        dropdown.addEventListener('change', function() {
-            var selectedDistrictId = this.value;
-            var tehsilSelect = this.closest('.row').querySelector('.tehsil-dropdown');
-            if (selectedDistrictId) {
-                // Fetch tehsil data based on the selected district
-                $.get(`http://tractor-api.divyaltech.com/api/customer/get_tehsil_by_district/${selectedDistrictId}`, function(data) {
-                    tehsilSelect.innerHTML = '<option value="">Please select a tehsil</option>';
-                    data.tehsilData.forEach(tehsil => {
-                        tehsilSelect.innerHTML += `<option value="${tehsil.id}">${tehsil.tehsil_name}</option>`;
-                    });
-                });
-            } else {
-                tehsilSelect.innerHTML = '<option value="">Please select a district first</option>';
-            }
-        });
-    });
-}
 function savedata(formId) {
     tractor_enquiry(formId);
     console.log("Form submitted successfully");
   }
+
+  function openOTPModal() {
+    $('#get_OTP_btn').modal('show');
+}
+
     // getoldTractorList();
   function tractor_enquiry(formId) {
         // Use the formId to get values dynamically
@@ -357,28 +312,9 @@ var url = "http://tractor-api.divyaltech.com/api/customer/customer_enquiries";
         var msg = "Added successfully !";
         // $('#get_OTP_btn').modal('show');
         $("#errorStatusLoading").modal('hide');
-        $("#get_OTP_btn").modal('show');
-
-        // var modalBodyContent = `
-        //     <div class="col-12">
-               
-        //         <label for="Mobile" class="text-dark float-start pl-2">Enter OTP</label>
-        //         <input type="text" class="form-control text-dark" placeholder="Enter OTP" id="otp" name="opt_1">
-        //     </div>
-        //     <div class="float-end col-12">
-        //         <a href="" class="float-end">Resend OTP</a>
-        //     </div>
-        // `;
-        // $("#get_OTP_btn").find('.modal-body').html(modalBodyContent);
-
-        // console.log("Add successfully");
-        // $("#Verify").click(function() {
-        //     // Hide the OTP modal
-        //     $("#get_OTP_btn").modal('hide');
-
-        //     // Show the Contact Seller modal
-        //     $("#staticBackdrop").modal('show');
-        // });
+        // $("#get_OTP_btn_").modal('show');
+        get_otp();
+        openOTPModal();
       },
       error: function (error) {
         console.error('Error fetching data:', error);
@@ -394,32 +330,31 @@ var url = "http://tractor-api.divyaltech.com/api/customer/customer_enquiries";
 
  
  
-
   function get_otp() {
     var phone = $('#number').val();
-    console.log();
     var url = "http://tractor-api.divyaltech.com/api/customer/customer_login";
  
     var paraArr = {
-        'mobile': phone
-    };
-
+     'mobile': phone,
+   };
+   //  var token = localStorage.getItem('token');
+   //   var headers = {
+   //   'Headers': 'Bearer ' + token
+   //   };
     $.ajax({
-        url: url,
-        type: "POST",
-        data: paraArr,
-        success: function (result) {
-            console.log(result, "result");
-            // Handle success here, e.g., display a message to the user
-            alert("OTP sent successfully!");
-        },
-        error: function (error) {
-            console.error('Error fetching data:', error);
-            // Handle errors here, e.g., display an error message to the user
-            alert("Failed to send OTP. Please try again later.");
-        }
+      url: url,
+      type: "POST",
+      data: paraArr,
+     //  headers: headers,
+      success: function (result) {
+        console.log(result, "result");
+       
+      },
+      error: function (error) {
+        console.error('Error fetching data:', error);
+      }
     });
-}
+  }
 
 
   function verifyotp() {
@@ -439,8 +374,8 @@ var url = "http://tractor-api.divyaltech.com/api/customer/customer_enquiries";
             console.log(result);
 
             // Assuming your model has an ID 'myModal', hide it on success
-            $('#otp_form').modal('hide'); // Assuming it's a Bootstrap modal
-           
+            $('#get_OTP_btn').modal('hide'); // Assuming it's a Bootstrap modal
+            $('#staticBackdrop').modal('show');
             // Reset input fields
             // document.getElementById('phone').value = ''; 
             // document.getElementById('otp').value = ''; 
@@ -577,7 +512,6 @@ function getDistricts(stateId) {
 
 getState();
 
-
 function get_year_and_hours() {
     var url = 'http://tractor-api.divyaltech.com/api/customer/get_year_and_hours';
     $.ajax({
@@ -593,6 +527,8 @@ function get_year_and_hours() {
             
             // Checkboxes for years
             if (data.getYears && data.getYears.length > 0) {
+                // Reverse the array of years to display latest year at the top
+                data.getYears.reverse();
                 data.getYears.forEach(year => {
                     var checkboxHtml = '<input type="checkbox" class="checkbox-round mt-1 ms-3 year_checkbox" value="' + year + '"/>' +
                         '<span class="ps-2 fs-6">' + year + '</span><br />';
@@ -607,7 +543,6 @@ function get_year_and_hours() {
         }
     });
 }
-
 get_year_and_hours();
 
 var filteredCards = [];
@@ -648,34 +583,79 @@ function filter_search() {
         success: function (searchData) {
             var filterContainer = $("#productContainer");
             filterContainer.empty();
+            filteredCards = searchData.product; // Update filteredCards with the search results
 
-            searchData.product.forEach(function (filter) {
-                appendFilterCard(filterContainer, filter);
-            });
-
-         
+            if (filteredCards.length > 0) {
+                // Display the filtered cards if there are search results
+                displayFilteredCards();
+                $("#noDataMessage").hide(); // Hide the message if data is found
+                $("#loadMoreBtn").show();
+            } else {
+                // Show the "Data not found" message if there are no search results
+                $("#noDataMessage").show();
+                $("#loadMoreBtn").hide(); // Hide the "Load More" button
+            }
         },
-        error: function (error) {
-            console.error('Error searching for brands:', error);
+        error: function (jqXHR, textStatus, errorThrown) {
+            console.error('Error searching for blog details:', errorThrown);
+            // Check if the error status is 404 (Not Found)
+            if (jqXHR.status === 404) {
+                // Hide all cards and show the "Data not found" message
+                $("#productContainer").empty();
+                $("#noDataMessage").show();
+                $("#noDataMessage").hide();
+            }
         }
     });
 }
 
-function appendFilterCard(filterContainer, filter) {
-    function appendCard(container, p) {
-        var images = p.image_names;
-        var a = [];
+function displayFilteredCards() {
+    var productContainer = $("#productContainer");
+    cardsDisplayed = 0; // Reset cardsDisplayed to 0
+    
+    // Display the first set of filtered cards
+    filteredCards.slice(cardsDisplayed, cardsDisplayed + cardsPerPage).forEach(function (filter) {
+        appendFilterCard(productContainer, filter);
+        cardsDisplayed++;
+    });
+    
+    // Hide the "Load More" button if all filtered cards are displayed
+    if (cardsDisplayed >= filteredCards.length) {
+        $("#loadMoreBtn").hide();
+    }
+}
 
-        if (images) {
-            if (images.indexOf(',') > -1) {
-                a = images.split(',');
-            } else {
-                a = [images];
-            }
+// Load more button functionality
+$(document).on('click', '#loadMoreBtn', function () {
+    var productContainer = $("#productContainer");
+    
+    // Display the next set of filtered cards when the "Load More" button is clicked
+    filteredCards.slice(cardsDisplayed, cardsDisplayed + cardsPerPage).forEach(function (filter) {
+        appendFilterCard(productContainer, filter);
+        cardsDisplayed++;
+    });
+
+    // Hide the "Load More" button if all filtered cards are displayed
+    if (cardsDisplayed >= filteredCards.length) {
+        $("#loadMoreBtn").hide();
+    }
+});
+
+function appendFilterCard(filterContainer, p) {
+    // Function to append each filtered card to the container
+    var images = p.image_names;
+    var a = [];
+
+    if (images) {
+        if (images.indexOf(',') > -1) {
+            a = images.split(',');
+        } else {
+            a = [images];
         }
-        var cardId = `card_${p.product_id}`; // Dynamic ID for the card
-        var modalId = `used_tractor_callbnt_${p.product_id}`; // Dynamic ID for the modal
-        var formId = `contact-seller-call_${p.product_id}`; // Dynamic ID for the form
+    }
+    var cardId = `card_${p.product_id}`; // Dynamic ID for the card
+    var modalId = `used_tractor_callbnt_${p.product_id}`; // Dynamic ID for the modal
+    var formId = `contact-seller-call_${p.product_id}`; // Dynamic ID for the form
 
         var newCard =  `
         <div class="col-12 col-lg-4 col-md-4 col-sm-4 mb-4" id="${cardId}">
@@ -807,33 +787,9 @@ function appendFilterCard(filterContainer, filter) {
                     </div>
                 </div>
         `;
-        container.append(newCard);
-    }
 
-    function displayNextSet() {
-        var productContainer = $("#productContainer");
-    
-        // Display the next set of filtered cards
-        filteredCards.slice(cardsDisplayed, cardsDisplayed + cardsPerPage).forEach(function (p) {
-            appendCard(productContainer, p);
-            cardsDisplayed++;
-        });
-    
-        // Hide the "Load More" button if all filtered cards are displayed
-        if (cardsDisplayed >= filteredCards.length) {
-            $("#loadMoreBtn").hide();
-        }
-    }
-    
-    $(document).on('click', '#loadMoreBtn', function () {
-        // Display the next set of filtered cards when the "Load More" button is clicked
-        displayNextSet();
-    });
-
-    appendCard(filterContainer, filter);
-    displayNextSet();
+    filterContainer.append(newCard);
 }
-
 
   function resetform(){
     $('.brand_checkbox').val('');
@@ -847,3 +803,49 @@ function appendFilterCard(filterContainer, filter) {
     window.location.reload();
     
   }
+
+
+
+
+  function populateDropdowns() {
+    var stateDropdowns = document.querySelectorAll('.state-dropdown');
+    var districtDropdowns = document.querySelectorAll('.district-dropdown');
+    var tehsilDropdowns = document.querySelectorAll('.tehsil-dropdown');
+
+    var defaultStateId = 7; // Define the default state ID here
+
+    var selectYourStateOption = '<option value="">Select Your State</option>';
+    var chhattisgarhOption = `<option value="${defaultStateId}">Chhattisgarh</option>`;
+
+    stateDropdowns.forEach(function (dropdown) {
+        dropdown.innerHTML = selectYourStateOption + chhattisgarhOption;
+
+        // Fetch district data based on the selected state
+        $.get(`http://tractor-api.divyaltech.com/api/customer/get_district_by_state/${defaultStateId}`, function(data) {
+            var districtSelect = dropdown.closest('.row').querySelector('.district-dropdown');
+            districtSelect.innerHTML = '<option value="">Please select a district</option>';
+            data.districtData.forEach(district => {
+                districtSelect.innerHTML += `<option value="${district.id}">${district.district_name}</option>`;
+            });
+        });
+    });
+
+    // Event listener for district dropdown
+    districtDropdowns.forEach(function (dropdown) {
+        dropdown.addEventListener('change', function() {
+            var selectedDistrictId = this.value;
+            var tehsilSelect = this.closest('.row').querySelector('.tehsil-dropdown');
+            if (selectedDistrictId) {
+                // Fetch tehsil data based on the selected district
+                $.get(`http://tractor-api.divyaltech.com/api/customer/get_tehsil_by_district/${selectedDistrictId}`, function(data) {
+                    tehsilSelect.innerHTML = '<option value="">Please select a tehsil</option>';
+                    data.tehsilData.forEach(tehsil => {
+                        tehsilSelect.innerHTML += `<option value="${tehsil.id}">${tehsil.tehsil_name}</option>`;
+                    });
+                });
+            } else {
+                tehsilSelect.innerHTML = '<option value="">Please select a district first</option>';
+            }
+        });
+    });
+}
