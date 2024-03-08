@@ -182,6 +182,7 @@ function store(event) {
     var horse_driven = $('#h_hours').val();
     var purchase_year = $('#p_year').val();
     var price = $('#p_price').val();
+    price = price.replace(/[\,\.\s]/g, '');
     var about_harvester = $('#a_hrvst').val();
     var first_name = $('#f_name').val();
     var last_name = $('#l_name').val();

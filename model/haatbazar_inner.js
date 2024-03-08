@@ -72,7 +72,7 @@ $(document).ready(function() {
             var cardId = `card_${p.product_id}`; // Dynamic ID for the card
             var modalId = `used_tractor_callbnt_${p.product_id}`; // Dynamic ID for the modal
             var formId = `contact-seller-call${p.product_id}`; // Dynamic ID for the form
-            
+            var formattedPrice = formatPriceWithCommas(p.price);
             var newCard = `
                 <div class="col-12 col-lg-3 col-md-3 col-sm-3 mb-3" id="${cardId}">
                     <div class="h-auto success__stry__item d-flex flex-column shadow">
@@ -95,12 +95,12 @@ $(document).ready(function() {
                                     <div class="col-12 col-lg-6 col-md-6 col-sm-6"><p class="text-dark ps-2"> ${p.category_name}</p></div>
                                     <div class="col-12 col-lg-6 col-md-6 col-sm-6" style="padding-right: 32px;">
                                         <p class="text-success ps-2"><i class="fa fa-inr" aria-hidden="true"></i>
-                                        ${p.price}/<span>  ${p.as_per}</span></p>
+                                        ${formattedPrice}/<span>  ${p.as_per}</span></p>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-12">
-                                <p class=" text-center" id="district"><span id="engine_powerhp2"></span> ${p.district_name},<span id="year"> ${p.state_name}</span></p>
+                            <div class="col-12 justify-contant-cente">
+                                <p class=" text-center text-truncate" id="district"><span id="engine_powerhp2"></span> ${p.district_name},<span id="year"> ${p.state_name}</span></p>
                             </div>
                             <div class="col-12">
                                 <button type="button" class="add_btn btn-success w-100" data-bs-toggle="modal" data-bs-target="#${modalId}" data-product-id="${p.product_id}">
@@ -231,7 +231,16 @@ $(document).ready(function() {
         });
     }
 
-
+    function formatPriceWithCommas(price) {
+        // Check if the price is not a number
+        if (isNaN(price)) {
+            return price; // Return the original value if it's not a number
+        }
+        
+        // Format the price with commas in Indian format
+        return new Intl.NumberFormat('en-IN').format(price);
+    }
+    
 
 function gethaatbazzat() {
   console.log(window.location)
@@ -256,13 +265,16 @@ function gethaatbazzat() {
           var lastFourDigits = mobileString.substring(mobileString.length - 4);
           var maskedPart = 'xxxxxx'.padStart(mobileString.length - 4, 'x');
           var maskedMobileNumber = maskedPart + lastFourDigits;
+          var formattedPrice = parseFloat(data.allData.haat_bazar_data[0].price).toLocaleString('en-IN');
 
           document.getElementById('Sub_category_main').innerText = data.allData.haat_bazar_data[0].sub_category_name; 
-          document.getElementById('original_price').innerText = data.allData.haat_bazar_data[0].price;   
+          document.getElementById('original_price').innerText = formattedPrice;   
+          document.getElementById('per').innerText = data.allData.haat_bazar_data[0].as_per;  
           document.getElementById('category_name_1').innerText = data.allData.haat_bazar_data[0].category_name;
           document.getElementById('sucategory_name').innerText = data.allData.haat_bazar_data[0].sub_category_name;
           document.getElementById('quantity').innerText = data.allData.haat_bazar_data[0].quantity;
-          document.getElementById('price_as').innerText = data.allData.haat_bazar_data[0].price;
+          document.getElementById('price_as').innerText = formattedPrice;
+          document.getElementById('Per_price').innerText = data.allData.haat_bazar_data[0].as_per;
           document.getElementById('description_1').innerText = data.allData.haat_bazar_data[0].about;
           // document.getElementById('description').innerText = location;
           document.getElementById('first_name').innerText = data.allData.haat_bazar_data[0].first_name;

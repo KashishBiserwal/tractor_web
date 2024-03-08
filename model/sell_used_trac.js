@@ -153,6 +153,7 @@ function store(event) {
     var district = $('#d_dist').val();
     var tehsil = $('#t_tehsil').val();
     var price = $('#p_price').val();
+    price = price.replace(/[\,\.\s]/g, '');
     var about = $('#about').val();
     // var want_to_sell = $('#td_duration').val();
     var rc = $('#rc_num').val();

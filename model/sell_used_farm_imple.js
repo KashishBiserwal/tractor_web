@@ -177,6 +177,7 @@ function store(event) {
     var model = $('#m_name').val();
     var purchase_year = $('#p_year').val();
     var price = $('#p_price').val();
+    price = price.replace(/[\,\.\s]/g, '');
     var horse_driven = $('#h_driven').val();
     var about_implement = $('#a_imple').val();
     var first_name = $('#f_name').val();

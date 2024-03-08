@@ -356,26 +356,19 @@
 
    <script>
 $(document).ready(function(){
-    $('#price').inputmask({
-        alias: 'numeric',
-        groupSeparator: ',',
-        autoGroup: true,
-        digits: 2,
-        digitsOptional: false,
-        placeholder: '0',
-        onBeforeMask: function (value, opts) {
-            // Remove commas before applying input mask
-            return value.replace(/\,/g,'');
-        },
-    });
+    $('#price').on('input', function() {
+            var value = $(this).val().replace(/\D/g, ''); // Remove non-digit characters
+            var formattedValue = Number(value).toLocaleString('en-IN'); // Format using Indian numbering system
+            $(this).val(formattedValue);
+        });
 
-    // Set cursor position to the beginning of the input field
-    var input = document.getElementById('price');
-    input.focus();
-    input.setSelectionRange(0, 0);
+        // Set cursor position to the beginning of the input field
+        var input = document.getElementById('price');
+        input.focus();
+        input.setSelectionRange(0, 0);
 
-    // Set text alignment to left
-    input.style.textAlign = 'left';
+        // Set text alignment to left
+        input.style.textAlign = 'left';
     // $.validator.addMethod("validPrice", function(value, element) {
       
     //   const cleanedValue = value.replace(/,/g, '');

@@ -14,10 +14,21 @@
     <script> var baseUrl = "<?php echo $baseUrl; ?>";</script>
     <script src="<?php $baseUrl; ?>model/used_farm_inner.js"></script>
     <script src="<?php $baseUrl; ?>model/State_dist_tehsil.js"></script>
+
+    <style>
+    .text-truncate {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+   
+    }
+    </style>
 <body>
 <?php
    include 'includes/header.php';
    ?>
+
+
 <section class="bg-light mt-5 pt-2">
     <div class="container py-2">
         <div class="py-2 mt-3">
@@ -812,26 +823,19 @@
 <script>
 $(document).ready(function(){
     console.log('testing');
-    $('#price').inputmask({
-        alias: 'numeric',
-        groupSeparator: ',',
-        autoGroup: true,
-        digits: 2,
-        digitsOptional: false,
-        placeholder: '0',
-        onBeforeMask: function (value, opts) {
-            // Remove commas before applying input mask
-            return value.replace(/\,/g,'');
-        },
-    });
+    $('#price').on('input', function() {
+            var value = $(this).val().replace(/\D/g, ''); // Remove non-digit characters
+            var formattedValue = Number(value).toLocaleString('en-IN'); // Format using Indian numbering system
+            $(this).val(formattedValue);
+        });
 
-    // Set cursor position to the beginning of the input field
-    var input = document.getElementById('price');
-    input.focus();
-    input.setSelectionRange(0, 0);
+        // Set cursor position to the beginning of the input field
+        var input = document.getElementById('price');
+        input.focus();
+        input.setSelectionRange(0, 0);
 
-    // Set text alignment to left
-    input.style.textAlign = 'left';
+        // Set text alignment to left
+        input.style.textAlign = 'left';
 
     // $.validator.addMethod("validPrice", function(value, element) {
       

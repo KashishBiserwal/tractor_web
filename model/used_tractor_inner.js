@@ -8,6 +8,8 @@ $(document).ready(function() {
     $('#Verify').click(verifyotp);
 });
 
+
+
 function getOldTractorById() {
     console.log(window.location)
     var urlParams = new URLSearchParams(window.location.search);
@@ -24,12 +26,12 @@ function getOldTractorById() {
         var lastFourDigits = mobileString.substring(mobileString.length - 4);
         var maskedPart = 'xxxxxx'.padStart(mobileString.length - 4, 'x');
         var maskedMobileNumber = maskedPart + lastFourDigits;
-        
+        var formattedPrice = parseFloat(data.product[0].price).toLocaleString('en-IN');
         var noc = data.product === 1 ? "Yes" : "No";
         var rc_number = data.product === 1 ? "Yes" : "No";
         var fullname = data.product[0].first_name + ' ' + data.product[0].last_name;
         document.getElementById('brand_main').innerText=data.product[0].brand_name;
-        document.getElementById('price_main').innerText=data.product[0].price;
+        document.getElementById('price_main').innerText= formattedPrice;
         document.getElementById('model_name').innerText=data.product[0].model;
         document.getElementById('hours_driven').innerText=data.product[0].hours_driven;
         document.getElementById('engine_powerhp').innerText=data.product[0].hp_category;
@@ -113,6 +115,7 @@ function store(event) {
     var district = $('#district_form').val();
     var tehsil = $('#tehsil').val();
     var price = $('#price').val();
+    price = price.replace(/[\,\.\s]/g, '');
     var product_id = $('#product_id').val();
     console.log('jfhfhw',product_id);
   

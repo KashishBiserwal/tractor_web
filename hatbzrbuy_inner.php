@@ -13,7 +13,14 @@ include 'includes/footertag.php';
     <script src="<?php $baseUrl; ?>model/haatbazar_inner.js"></script>
     <script src="<?php $baseUrl; ?>model/State_dist_tehsil.js"></script>
 </head>
-
+<style>
+    .text-truncate {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+   
+    }
+    </style>
 
 <body> <?php
    include 'includes/header.php';
@@ -44,7 +51,7 @@ include 'includes/footertag.php';
                     </div>
                     <div class="col-12 col-lg-6 ">
                         <h4 class="fw-bold text-danger">Are You Intrested In This Harvest ?</h4>
-                        <h5>Price:- <span id="original_price"></span> /-</h5>
+                        <h5>Price:- <span id="original_price"></span>/<span id="per"></span></h5>
                     </div>
                 </div>
             </div>
@@ -229,8 +236,8 @@ include 'includes/footertag.php';
                         <td class="table-data" id="quantity"></td>
                     </tr>
                     <tr>
-                        <td class="table-data">Price (as per kg):</td>
-                        <td class="table-data" id="price_as"><span> /- </span></td>
+                        <td class="table-data">Price as per: <span id="Per_price"></span></td>
+                        <td class="table-data" id="price_as"><span>/</span></td>
                     </tr>
                     <tr>
                         <td class="table-data">About</td>
@@ -371,32 +378,22 @@ include 'includes/footertag.php';
 </script> -->
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/jquery.validate.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/5.0.6/jquery.inputmask.min.js"></script>
 <script>
-$(document).ready(function() {
-    
-    $('#price').inputmask({
-        alias: 'numeric',
-        groupSeparator: ',',
-        autoGroup: true,
-        digits: 2,
-        digitsOptional: false,
-        placeholder: '0',
-        onBeforeMask: function (value, opts) {
-            // Remove commas before applying input mask
-            return value.replace(/\,/g,'');
-        },
-    });
 
-    // Set cursor position to the beginning of the input field
-    var input = document.getElementById('price');
-    input.focus();
-    input.setSelectionRange(0, 0);
+    $(document).ready(function() {
+        $('#price').on('input', function() {
+            var value = $(this).val().replace(/\D/g, ''); // Remove non-digit characters
+            var formattedValue = Number(value).toLocaleString('en-IN'); // Format using Indian numbering system
+            $(this).val(formattedValue);
+        });
 
-    // Set text alignment to left
-    input.style.textAlign = 'left';
+        // Set cursor position to the beginning of the input field
+        var input = document.getElementById('price');
+        input.focus();
+        input.setSelectionRange(0, 0);
 
+        // Set text alignment to left
+        input.style.textAlign = 'left';
     jQuery.validator.addMethod("customPhoneNumber", function(value, element) {
         return /^[6-9]\d{9}$/.test(value); 
     }, "Phone number must start with 6 or above");

@@ -1,14 +1,21 @@
 
-
-  $(document).ready(function() {
+$(document).ready(function() {
     console.log("ready!");
+
+    // Event listener registration
     $('#btn_submit').click(store);
+    $('#quantityInput').on('input', calculateTotalPrice);
+    $('#unitSelect').on('change', calculateTotalPrice);
+    $('#price').on('input', calculateTotalPrice);
+
+    // Call the calculateTotalPrice function initially to calculate the total price
+    calculateTotalPrice();
 
     function calculateTotalPrice() {
-        var quantity = parseFloat(document.getElementById('quantityInput').value) || 0;
-        var unit = document.getElementById('unitSelect').value;
-        var price = parseFloat(document.getElementById('price').value) || 0;
-    
+        var quantity = parseFloat($('#quantityInput').val()) || 0;
+        var unit = $('#unitSelect').val();
+        var price = parseFloat($('#price').val().replace(/,/g, '')) || 0; // Remove commas before parsing
+
         var unitConversion = {
             'Each': 1,
             'gram': 1,
@@ -16,22 +23,27 @@
             'Quintal': 1,
             'Ton': 1,
             'Pack': 1,
-         
         };
-    
+
         var total = quantity * price * unitConversion[unit];
-    
-        document.getElementById('tprice').value = total.toFixed(2);
+
+        // Format the total price with commas in Indian format
+        var formattedTotal = formatPriceWithCommas(total);
+
+        $('#tprice').val(formattedTotal);
     }
-    
-    document.getElementById('quantityInput').addEventListener('input', calculateTotalPrice);
-    document.getElementById('unitSelect').addEventListener('change', calculateTotalPrice);
-    document.getElementById('price').addEventListener('input', calculateTotalPrice);
-    
-    
+
+    // Function to format price with commas
+    function formatPriceWithCommas(price) {
+        // Check if the price is not a number
+        if (isNaN(price)) {
+            return price; // Return the original value if it's not a number
+        }
+
+        // Convert price to string and add commas
+        return price.toLocaleString('en-IN', { maximumFractionDigits: 2 });
+    }
 });
-
-
 function category_main3() {
     // var apiBaseURL = APIBaseURL;
     var url =  'http://tractor-api.divyaltech.com/api/customer/haat_bazar_category';
@@ -161,13 +173,15 @@ function store(event) {
     var quantityInput = $('#quantityInput').val();
     var unitSelect = $('#unitSelect').val();
     var price = $('#price').val();
+    price = price.replace(/[\,\.\s]/g, '');
     var tprice = $('#tprice').val();
+    tprice = price.replace(/[\,\.\s]/g, '');
     var aboutharvest = $('#aboutharvest').val();
     var first_name = $('#fname1').val();
     var last_name = $('#lname1').val();
     var mobile = $('#number1').val();
     var state = $('#state1').val();
-    var district = $('#district1').val();
+    var district = $('#district_1').val();
     var tehsil = $('#tehsil1').val();
     var image_names = document.getElementById('imageInput').files;
 
