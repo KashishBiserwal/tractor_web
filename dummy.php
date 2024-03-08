@@ -389,7 +389,12 @@
 
 ?>
 
-<script>
+
+<!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/jquery.validate.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/5.0.6/jquery.inputmask.min.js"></script> -->
+
+<!-- <script>
     $(document).ready(function () {
         // Sample data (replace with your actual data)+
         var stateData = {
@@ -431,7 +436,7 @@
             }
         });
     });
-</script>
+</script> -->
 
 <script>
     $(document).ready(function () {
@@ -702,6 +707,41 @@
         });
     }
     </script>
+
+    <script>
+         $(document).ready(function() {
+        $('#price').on('input', function() {
+            var value = $(this).val().replace(/\D/g, ''); // Remove non-digit characters
+            var formattedValue = Number(value).toLocaleString('en-IN'); // Format using Indian numbering system
+            $(this).val(formattedValue);
+        });
+
+        // Set cursor position to the beginning of the input field
+        var input = document.getElementById('price');
+        input.focus();
+        input.setSelectionRange(0, 0);
+
+        // Set text alignment to left
+        input.style.textAlign = 'left';
+});
+    </script>
+    <!-- <script>
+         $(document).ready(function() {
+        $('#tprice').on('input', function() {
+            var value = $(this).val().replace(/\D/g, ''); // Remove non-digit characters
+            var formattedValue = Number(value).toLocaleString('en-IN'); // Format using Indian numbering system
+            $(this).val(formattedValue);
+        });
+
+        // Set cursor position to the beginning of the input field
+        var input = document.getElementById('tprice');
+        input.focus();
+        input.setSelectionRange(0, 0);
+
+        // Set text alignment to left
+        input.style.textAlign = 'left';
+});
+    </script> -->
 </body>
 
 </html>

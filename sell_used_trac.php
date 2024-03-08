@@ -852,28 +852,21 @@
 
     <!-- SCRIPT FOR THE VALIDATION OF 3rd FORM -->
     <script>
-   $(document).ready(function(){
-    // Add input masking to the price field
-    $('#p_price').inputmask({
-        alias: 'numeric',
-        groupSeparator: ',',
-        autoGroup: true,
-        digits: 2,
-        digitsOptional: false,
-        placeholder: '0',
-        onBeforeMask: function (value, opts) {
-            // Remove commas before applying input mask
-            return value.replace(/\,/g,'');
-        },
-    });
+   
+    $(document).ready(function() {
+        $('#p_price').on('input', function() {
+            var value = $(this).val().replace(/\D/g, ''); // Remove non-digit characters
+            var formattedValue = Number(value).toLocaleString('en-IN'); // Format using Indian numbering system
+            $(this).val(formattedValue);
+        });
 
-    // Set cursor position to the beginning of the input field
-    var input = document.getElementById('p_price');
-    input.focus();
-    input.setSelectionRange(0, 0);
+        // Set cursor position to the beginning of the input field
+        var input = document.getElementById('p_price');
+        input.focus();
+        input.setSelectionRange(0, 0);
 
-    // Set text alignment to left
-    input.style.textAlign = 'left';
+        // Set text alignment to left
+        input.style.textAlign = 'left';
 
     // Validate the form
     $("form[id='form-step-3']").validate({

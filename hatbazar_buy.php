@@ -14,7 +14,14 @@
   <script src="<?php $baseUrl; ?>model/State_dist_tehsil.js"></script>
 
 </head>
-
+<style>
+    .text-truncate {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+   
+    }
+    </style>
 <body>
     <?php
    include 'includes/header.php';
@@ -38,13 +45,13 @@
             <div class="row">
                 <div class="col-12 col-sm-9 col-lg-9 col-md-9">
                     <h3 class="py-2">Buy Your Item From <span class="text-success fw-bold">Haatbazar</span> </h3>
-                    <div class="row my-4" id="productContainer">
-                      
-                      
-
-                    </div>
-                    <div class="col-12 text-center mb-4">
-                       <button class="btn btn-success btn-lg" id="load_more">Load more</button>
+                    <div class="row my-3">
+                        <div class="row my-4" id="productContainer"></div>
+                            <h5 id="noDataMessage" class="text-center mt-4 text-danger" style="display: none;">
+                            <img src="assets/images/404.gif" class="w-25" alt=""></br>Data not found..!</h5>
+                        <div class="col-12 text-center mb-4">
+                            <button class="btn btn-success btn-lg" id="load_more">Load more</button>
+                        </div>
                     </div>
                 </div>
 
@@ -64,35 +71,21 @@
                         </div>
                     </div>
 
-                    <div class="scrollbar mb-3" id="filter_district">
+                    <div class="scrollbar mb-3" id=" my-2">
                         <div class="force-overflow">
-                            <h5 class=" ps-1 text-dark fw-bold pt-2">Search By State</h5>
-                            <div class="HP py-2">
-                                
-                                <!-- <input type="checkbox" class="text-align-center ms-3" value=""/><span> This is checkbox </span><br /> -->
-                                <input type="checkbox" class="checkbox-round mt-1 ms-3 select_state" value="Chhattisgarh" /><span class="ps-2 fs-6">Chhattisgarh</span><br />
-                                <input type="checkbox" class="checkbox-round mt-1 ms-3 select_state" value="Other" /><span class="ps-2 fs-6">Other</span><br />
+                            <h5 class=" ps-1 text-dark fw-bold  pt-2">Search By State</h5>
+                            <div class="HP py-2" id="state_state" style=" height: 78px;">
                             </div>
                         </div>
                     </div>
-                    <div class="scrollbar mb-3" id="filter_district">
-                       <div class="force-overflow">
-                        <h5 class=" ps-1 text-dark fw-bold pt-2">Search By District</h5>
-                            <div class="HP py-2">
-                                
-                                <!-- <input type="checkbox" class="text-align-center ms-3" value=""/><span> This is checkbox </span><br /> -->
-                                <input type="checkbox" class="checkbox-round ms-3 mt-1 select_district" value="raipur" /><span class="ps-2 fs-6">Raipur</span><br />
-                                <input type="checkbox" class="checkbox-round ms-3 mt-1 select_district" value="Bilaspur" /><span class="ps-2 fs-6">Bilaspur</span><br />
-                                <input type="checkbox" class="checkbox-round ms-3 mt-1 select_district" value="Ambikapur" /><span class="ps-2 fs-6">Ambikapur</span><br />
-                                <input type="checkbox" class="checkbox-round ms-3 mt-1 select_district" value="Raigarh" /><span class="ps-2 fs-6">Raigarh</span><br />
-                                <input type="checkbox" class="checkbox-round ms-3 mt-1 select_district" value="Surajpur" /><span class="ps-2 fs-6">Surajpur</span><br />
-                                <input type="checkbox" class="checkbox-round ms-3 mt-1 select_district" value="Jagdalpur" /><span class="ps-2 fs-6">Chirmiri</span><br />
-                                <input type="checkbox" class="checkbox-round ms-3 mt-1 select_district" value="Korba" /><span class="ps-2 fs-6">Korba</span><br />
-                            
+                    <div class="scrollbar mb-3" id="district_container">
+                        <div class="force-overflow">
+                            <h5 class="ps-1 text-dark fw-bold pt-2">Search By District</h5>
+                            <div class="HP py-2" id="get_dist">
+                                <!-- District checkboxes will be appended here -->
                             </div>
                         </div>
                     </div>
-                  
                     <div class="scrollbar mb-3" id="category_filter">
                              <div class="force-overflow">
                                 <h5 class="ps-1 text-dark fw-bold pt-2">Search By category</h5>
@@ -138,7 +131,7 @@
                 </div>
                 <div class="modal-footer">
                     <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> -->
-                    <button type="button" class="btn btn-success" id="Verify"onclick="verifyotp()">Verify</button>
+                    <button type="button" class="btn btn-success" id="Verify"onclick="verifyotp()" >Verify</button>
                 </div>
             </div>
         </div>

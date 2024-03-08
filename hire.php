@@ -58,8 +58,9 @@ include 'includes/headertag.php';
                 <div class="col-12 col-sm-9 col-lg-9 col-md-9">
                     <h3 class="pb-3 fw-bold">Search<span class="text-success fw-bold"> Rental Tractors In INDIA</span>
                     </h3>
-                    <div class="row" id="productContainer">
-                    </div>
+                    <div class="row" id="productContainer"></div>
+                         <h5 id="noDataMessage" class="text-center mt-4 text-danger" style="display: none;">
+                         <img src="assets/images/404.gif" class="w-25" alt=""></br>Data not found..!</h5>
                     <div class="col-12 text-center mt-3 pt-2 ">
                     <button id="loadMoreBtn" type="button" class="add_btn btn btn-success mt-4 shadow">
                         <i class="fas fa-undo"></i>  Load More Tractor </button>
@@ -69,12 +70,12 @@ include 'includes/headertag.php';
                 <div class="col-12 col-sm-3 col-lg-3 col-md-3">
                 <div class=" row mb-3" id="">
                         <div class="col-12 col-sm-12 col-md-12 col-lg-12">
-                            <div class=" row text-center">
-                                <div class="col-12 col-sm-6 col-lg-6 col-md-6">
+                        <div class=" row text-center">
+                                <div class="col-12 col-sm-6 col-lg-6 col-md-6 pe-5">
                                     <button onclick="resetform()" type="button" onclick="resetform()" class="add_btn btn btn-success w-100">
                                     <i class="fas fa-undo"></i>  Reset </button>
                                 </div>
-                                <div class="col-12 col-sm-6 col-lg-6 col-md-6 pe-2">
+                                <div class="col-12 col-sm-6 col-lg-6 col-md-6 pe-5">
                                     <button id="filter_tractor"  type="button" class="add_btn btn btn-success w-100">
                                     <i class="fas fa-filter"></i>  Apply Filter </button>
                                 </div>
@@ -82,41 +83,43 @@ include 'includes/headertag.php';
                         </div>
                     </div>
 
-                    <div class=" mb-3" id="">
+                <div class=" mb-3" id="">
                     <div class="force-overflow">
                         <div class="price py-2 ">
                             <h5 class=" ps-3 text-dark fw-bold mb-3">Search By Budget</h5>
                             <input type="checkbox" class="checkbox-round mt-1 ms-3 budget_checkbox" value="0 - 3"/><span class="ps-2 fs-6"> 0 Lakh - 3 Lakh</span><br />
                             <input type="checkbox" class="checkbox-round mt-1 ms-3 budget_checkbox" value="3 - 6"/><span class="ps-2 fs-6"> 3 Lakh - 6 Lakh</span><br />
-                            <input type="checkbox" class="checkbox-round mt-1 ms-3 budget_checkbox" value="6 - 9"/><span class="ps-2 fs-6"> 9 Lakh - 9 Lakh</span><br />
+                            <input type="checkbox" class="checkbox-round mt-1 ms-3 budget_checkbox" value="6 - 9"/><span class="ps-2 fs-6"> 6 Lakh - 9 Lakh</span><br />
+                            <input type="checkbox" class="checkbox-round mt-1 ms-3 budget_checkbox" value="9 - 12"/><span class="ps-2 fs-6"> 9 Lakh - 12 Lakh</span><br />
                         </div>
                     </div>
                 </div>
                 <div class="scrollbar mb-3" id="">
-                    <div class="force-overflow">
-                    <h5 class=" ps-1 text-dark fw-bold pt-2">Search By HP</h5>
-                        <div class="HP py-2">
-                            
-                            <!-- <input type="checkbox" class="text-align-center ms-3" value=""/><span> This is checkbox </span><br /> -->
-                            <input type="checkbox" class="checkbox-round mt-1 ms-3 hp_checkbox" value="0 - 20"/><span class="ps-2 fs-6">0 HP - 20 HP</span><br />
-                            <input type="checkbox" class="checkbox-round mt-1 ms-3 hp_checkbox" value="21 - 30"/><span class="ps-2 fs-6">21 HP - 30 HP</span><br />
-                            <input type="checkbox" class="checkbox-round mt-1 ms-3 hp_checkbox" value="31 - 40"/><span class="ps-2 fs-6">31 HP - 40 HP</span><br />
-                            <input type="checkbox" class="checkbox-round mt-1 ms-3 hp_checkbox" value="41 - 50"/><span class="ps-2 fs-6">41 HP - 50 HP</span><br />
-                            <input type="checkbox" class="checkbox-round mt-1 ms-3 hp_checkbox" value="51 - 60"/><span class="ps-2 fs-6">51 HP - 60 HP</span><br />
-                            <input type="checkbox" class="checkbox-round mt-1 ms-3 hp_checkbox" value="61 - 70"/><span class="ps-2 fs-6">61 HP - 70 HP</span><br />
-                            <input type="checkbox" class="checkbox-round mt-1 ms-3 hp_checkbox" value="71 - 80"/><span class="ps-2 fs-6">71 HP - 80 HP</span><br />
-                            <input type="checkbox" class="checkbox-round mt-1 ms-3 hp_checkbox" value="81 - 90"/><span class="ps-2 fs-6">81 HP - 90 HP</span><br />
-                            <input type="checkbox" class="checkbox-round mt-1 ms-3 hp_checkbox" value="91 - 100"/><span class="ps-2 fs-6">91 HP - 100 HP</span><br />
-                            <input type="checkbox" class="checkbox-round mt-1 ms-3 hp_checkbox" value="101 - 110"/><span class="ps-2 fs-6">101 HP - 110 HP</span><br />
-                            <input type="checkbox" class="checkbox-round mt-1 ms-3 hp_checkbox" value="111 - 120"/><span class="ps-2 fs-6">111 HP - 120 HP</span><br />
-                        </div>
-                    </div>
-                </div>
-                <div class="scrollbar mb-3" id="">
-                    <div class="force-overflow">
+                        <div class="force-overflow">
                             <h5 class="ps-1 text-dark fw-bold pt-2">Search By Brand</h5>
-                            <div class="HP py-2" id="checkboxContainer">
-                            </div>
+                            <div class="HP py-2" id="checkboxContainer"></div>
+                        </div>
+                    </div>
+                    <div class="scrollbar mb-3" id=" my-2">
+                    <div class="force-overflow">
+                        <h5 class=" ps-1 text-dark fw-bold  pt-2">Search By State</h5>
+                        <div class="HP py-2" id="state_state" style=" height: 78px;">
+                        </div>
+                    </div>
+                </div>
+                <div class="scrollbar mb-3" id="district_container">
+                    <div class="force-overflow">
+                        <h5 class="ps-1 text-dark fw-bold pt-2">Search By District</h5>
+                        <div class="HP py-2" id="get_dist">
+                            <!-- District checkboxes will be appended here -->
+                        </div>
+                    </div>
+                </div>
+                <div class="scrollbar mb-3" id="my-2">
+                    <div class="force-overflow">
+                        <h5 class="ps-1 text-dark fw-bold pt-2">Search By Year</h5>
+                        <div class="HP py-2" id="P_year">
+                            <!-- Checkboxes will be dynamically added here -->
                         </div>
                     </div>
                 </div>
@@ -189,6 +192,9 @@ include 'includes/headertag.php';
     include 'includes/footer.php';
 
     ?>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/jquery.validate.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/5.0.6/jquery.inputmask.min.js"></script>
     <script>
     $(document).ready(function() {
         $.validator.addMethod("indianMobile", function(value, element) {

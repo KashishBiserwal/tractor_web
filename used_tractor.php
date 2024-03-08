@@ -57,7 +57,7 @@
                          <h5 id="noDataMessage" class="text-center mt-4 text-danger" style="display: none;">
                          <img src="assets/images/404.gif" class="w-25" alt=""></br>Data not found..!</h5>
 
-                        <button type="submit" id="loadMoreBtn" class="btn btn-success shadow px-5 w-40">Load More</button> 
+                        <button type="button" id="loadMoreBtn" class="btn btn-success shadow px-5 w-40">Load More</button> 
                     </div>
                 </div>
             </div>
@@ -84,7 +84,7 @@
                             <input type="checkbox" class="checkbox-round mt-1 ms-3 budget_checkbox" value="0 - 3"/><span class="ps-2 fs-6"> 0 Lakh - 3 Lakh</span><br />
                             <input type="checkbox" class="checkbox-round mt-1 ms-3 budget_checkbox" value="3 - 6"/><span class="ps-2 fs-6"> 3 Lakh - 6 Lakh</span><br />
                             <input type="checkbox" class="checkbox-round mt-1 ms-3 budget_checkbox" value="6 - 9"/><span class="ps-2 fs-6"> 6 Lakh - 9 Lakh</span><br />
-                            <input type="checkbox" class="checkbox-round mt-1 ms-3 budget_checkbox" value="6 - 9"/><span class="ps-2 fs-6"> 9 Lakh - 12 Lakh</span><br />
+                            <input type="checkbox" class="checkbox-round mt-1 ms-3 budget_checkbox" value="9 - 12"/><span class="ps-2 fs-6"> 9 Lakh - 12 Lakh</span><br />
                         </div>
                     </div>
                 </div>
@@ -94,24 +94,25 @@
                             <div class="HP py-2" id="checkboxContainer"></div>
                         </div>
                     </div>
-                    <!-- <div class="scrollbar mb-3" id=" my-2">
-                        <div class="force-overflow">
-                            <h5 class=" ps-1 text-dark fw-bold  pt-2">Search By State</h5>
-                            <div class="HP py-2" id="state_state" style=" height: 78px;"></div>
+                    <div class="scrollbar mb-3" id=" my-2">
+                    <div class="force-overflow">
+                        <h5 class=" ps-1 text-dark fw-bold  pt-2">Search By State</h5>
+                        <div class="HP py-2" id="state_state" style=" height: 78px;">
                         </div>
                     </div>
-                    <div class="scrollbar mb-3" id=" my-2">
-                        <div class="force-overflow">
-                            <h5 class=" ps-1 text-dark fw-bold  pt-2">Search By District</h5>
-                            <div class="HP py-2" id="get_distrcit" style=" height: 78px;"></div>
+                </div>
+                <div class="scrollbar mb-3" id="district_container">
+                    <div class="force-overflow">
+                        <h5 class="ps-1 text-dark fw-bold pt-2">Search By District</h5>
+                        <div class="HP py-2" id="get_dist">
+                            <!-- District checkboxes will be appended here -->
                         </div>
-                    </div> -->
-                <div class="scrollbar mb-3" id="">
+                    </div>
+                </div>
+                <!-- <div class="scrollbar mb-3" id="">
                     <div class="force-overflow">
                     <h5 class=" ps-1 text-dark fw-bold pt-2">Search By HP</h5>
                         <div class="HP py-2">
-                            
-                            <!-- <input type="checkbox" class="text-align-center ms-3" value=""/><span> This is checkbox </span><br /> -->
                             <input type="checkbox" class="checkbox-round mt-1 ms-3 hp_checkbox" value="0 - 20"/><span class="ps-2 fs-6">0 HP - 20 HP</span><br />
                             <input type="checkbox" class="checkbox-round mt-1 ms-3 hp_checkbox" value="21 - 30"/><span class="ps-2 fs-6">21 HP - 30 HP</span><br />
                             <input type="checkbox" class="checkbox-round mt-1 ms-3 hp_checkbox" value="31 - 40"/><span class="ps-2 fs-6">31 HP - 40 HP</span><br />
@@ -125,7 +126,7 @@
                             <input type="checkbox" class="checkbox-round mt-1 ms-3 hp_checkbox" value="111 - 120"/><span class="ps-2 fs-6">111 HP - 120 HP</span><br />
                         </div>
                     </div>
-                </div>
+                </div> -->
                 <div class="scrollbar mb-3" id="my-2">
                     <div class="force-overflow">
                         <h5 class="ps-1 text-dark fw-bold pt-2">Search By Year</h5>

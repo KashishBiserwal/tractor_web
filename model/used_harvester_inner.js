@@ -28,17 +28,17 @@ function get_old_harvester_byiD() {
             var maskedPart = 'xxxxxx'.padStart(mobileString.length - 4, 'x');
             var maskedMobileNumber = maskedPart + lastFourDigits;
             var fullname = data.product[0].first_name + ' ' + data.product[0].last_name;
-
+            var formattedPrice = parseFloat(data.product[0].price).toLocaleString('en-IN');
             var brand_model_name = data.product[0].brand_name + ', ' + data.product[0].model;
             var location = data.product[0].district_name + ', ' + data.product[0].state_name;
             var name = data.product[0].first_name + ' ' + data.product[0].last_name;
-        document.getElementById('price_main').innerText=data.product[0].price;
+        document.getElementById('price_main').innerText= formattedPrice;
         document.getElementById('brand_model_name').innerText=brand_model_name;
         document.getElementById('location').innerText=location;
         document.getElementById('power_source1').innerText=data.product[0].power_source_value;
         document.getElementById('hour').innerText=data.product[0].hours_driven;
         document.getElementById('year1').innerText=data.product[0].purchase_year;
-        document.getElementById('price_').innerText=data.product[0].price;
+        document.getElementById('price_').innerText=formattedPrice;
         document.getElementById('crop_type').innerText=data.product[0].crops_type_value;
         document.getElementById('brand').innerText=data.product[0].brand_name;
         document.getElementById('hours').innerText=data.product[0].hours_driven;
@@ -318,6 +318,8 @@ function store(event) {
     var state = $('#state_form').val();
     var district = $('#district_form').val();
     var tehsil = $('#tehsil').val();
+    var price = $('#price').val();
+    price = price.replace(/[\,\.\s]/g, '');
     var customer_id = $('#customer_id').val();
     var product_subject_id = $('#product_subject_id').val();
     var model = $('#model').val();
@@ -333,6 +335,7 @@ function store(event) {
       'state':state,
       'district':district,
       'tehsil':tehsil,
+      'price':price,
       'enquiry_type_id':enquiry_type_id,
       'product_id':product_subject_id,
     };

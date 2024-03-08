@@ -4,7 +4,7 @@ $(document).ready(function() {
     $('#apply_filter_bnt').click(filter_search);
     // $('#Verify').click(verifyotp);
     $('#submit_enquiry').click(get_otp);
-  
+    getDistricts(7);
 
 function getTractorList() {
     var url = "http://tractor-api.divyaltech.com/api/customer/get_haat_bazar";
@@ -25,10 +25,8 @@ function getTractorList() {
             if (data.allData.haat_bazar_data && data.allData.haat_bazar_data.length > 0) {
                 haat_bazar_data = data.allData.haat_bazar_data.length;
 
-                // Reverse the order of the cards to display the latest ones first
                 var reversedCards = data.allData.haat_bazar_data.slice().reverse();
                 
-                // Display the latest 6 cards at the top
                 displaylist(productContainer, reversedCards.slice(0, displayedTractors).reverse());
 
                 if (haat_bazar_data <= displayedTractors) {
@@ -36,12 +34,10 @@ function getTractorList() {
                 } else {
                     loadMoreButton.show();
                 }
-
-                // Handle "Load More Tractors" button click
                 loadMoreButton.click(function() {
-                    // Append the remaining tractors after the existing ones
+                 
                     displaylist(productContainer, reversedCards.slice(displayedTractors).reverse(), true);
-                    // Hide the "Load More Tractors" button
+                   
                     loadMoreButton.hide();
                 });
             }
@@ -51,9 +47,18 @@ function getTractorList() {
         }
     });
 }
-
+function formatPriceWithCommas(price) {
+    // Check if the price is not a number
+    if (isNaN(price)) {
+        return price; // Return the original value if it's not a number
+    }
+    
+    // Format the price with commas in Indian format
+    return new Intl.NumberFormat('en-IN').format(price);
+}
 function displaylist(productContainer, tractors, append) {
     tractors.forEach(function(p) {
+        var data = p.haat_bazar_id;
         var images = p.image_names;
         var a = [];
 
@@ -64,45 +69,44 @@ function displaylist(productContainer, tractors, append) {
                 a = [images];
             }
         }  
-        var cardId = `card_${p.product_id}`; // Dynamic ID for the card
-        var modalId = `used_tractor_callbnt_${p.product_id}`; // Dynamic ID for the modal
-        var formId = `contact-seller-call${p.product_id}`; // Dynamic ID for the form
-        
+        var cardId = `card_${data}`;  // Dynamic ID for the card
+        var modalId = `used_tractor_callbnt_${data}`; // Dynamic ID for the modal
+        var formId = `contact-seller-call${data}`; // Dynamic ID for the form
+        var formattedPrice = formatPriceWithCommas(p.price);
         var newCard = `
             <div class="col-12 col-lg-4 col-md-4 col-sm-4 mb-3" id="${cardId}">
                 <div class="h-auto success__stry__item d-flex flex-column shadow">
-                 
-                    <div class="thumb">
-                    <a href="hatbzrbuy_inner.php?id=${p.haat_bazar_id}">
-                        <div class="ratio ratio-16x9">
-                            <img src="http://tractor-api.divyaltech.com/uploads/haat_bazar_img/${a[0]}" class="object-fit-cover " alt="${p.description}">
-                        </div>
-                    </a>
-                </div>
+                   <div class="thumb">
+                        <a href="hatbzrbuy_inner.php?id=${p.haat_bazar_id}">
+                            <div class="ratio ratio-16x9">
+                                <img src="http://tractor-api.divyaltech.com/uploads/haat_bazar_img/${a[0]}" class="object-fit-cover " alt="${p.description}">
+                            </div>
+                        </a>
+                    </div>
                     <div class="content d-flex flex-column flex-grow-1">
                         <div class="caption text-center">
                             <a href="hatbzrbuy_inner.php?id=${p.haat_bazar_id}" class="text-decoration-none text-dark">
-                                <p class="pt-3"><strong class="series_tractor_strong text-center h4 fw-bold ">${p.sub_category_name}</strong></p>
+                                <p class="pt-3"><strong class="series_tractor_strong text-center h6 fw-bold ">${p.sub_category_name}</strong></p>
                             </a>
                         </div>
-                        <div class="power text-center mt-2">
+                        <div class="power text-center">
                             <div class="row">
                                 <div class="col-12 col-lg-6 col-md-6 col-sm-6"><p class="text-dark ps-2"> ${p.category_name}</p></div>
                                 <div class="col-12 col-lg-6 col-md-6 col-sm-6" style="padding-right: 32px;">
                                     <p class="text-success ps-2"><i class="fa fa-inr" aria-hidden="true"></i>
-                                    ${p.price}/<span>  ${p.as_per}</span></p>
+                                    ${formattedPrice}/<span>  ${p.as_per}</span></p>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-12">
-                            <p class=" text-center" id="district"><span id="engine_powerhp2"></span> ${p.district_name},<span id="year"> ${p.state_name}</span></p>
+                        <div class="col-12 justify-contant-center">
+                            <p class=" text-center text-truncate" id="district"><span id="engine_powerhp2"></span> ${p.district_name},<span id="year"> ${p.state_name}</span></p>
                         </div>
                         <div class="col-12">
                             <button type="button" class="add_btn btn-success w-100" data-bs-toggle="modal" data-bs-target="#${modalId}" data-product-id="${p.product_id}">
                                 <i class="fa-regular fa-handshake"></i> Contact Seller
                             </button>
                         </div>
-
+                    </div>
                         <div class="modal fade" id="${modalId}" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                             <div class="modal-dialog modal-lg modal-dialog-centered">
                               <div class="modal-content">
@@ -165,7 +169,6 @@ function displaylist(productContainer, tractors, append) {
                                 </div>
                             </div>
                         </div>
-                    </div>
                 </div>
             </div>
         `;
@@ -314,7 +317,7 @@ function get_otp() {
     });
 }
 
-function veriyotp() {
+function verifyotp() {
     var mobile = document.getElementById('mobile_number').value;
     var otp = document.getElementById('otp').value;
 
@@ -322,32 +325,38 @@ function veriyotp() {
         'otp': otp,
         'mobile': mobile,
     }
-
     var url = 'http://tractor-api.divyaltech.com/api/customer/verify_otp';
-    
     $.ajax({
         url: url,
         type: "POST",
         data: paraArr,
         success: function (result) {
             console.log(result);
-            $('#get_OTP_btn').modal('hide');
+
+            // Assuming your model has an ID 'myModal', hide it on success
+            $('#get_OTP_btn').modal('hide'); // Assuming it's a Bootstrap modal
             $('#staticBackdrop').modal('show');
-            // resetForm();
+            // Reset input fields
+            // document.getElementById('phone').value = ''; 
+            // document.getElementById('otp').value = ''; 
+
+            // Access data field in the response
         }, 
         error: function (xhr, textStatus, errorThrown) {
             console.log(xhr.status, 'error');
-            var errorMessage = '';
-
             if (xhr.status === 401) {
-                errorMessage = 'Invalid credentials';
+                console.log('Invalid credentials');
+                var htmlcontent = `<p>Invalid credentials!</p>`;
+                document.getElementById("error_message").innerHTML = htmlcontent;
             } else if (xhr.status === 403) {
-                errorMessage = 'Forbidden: You don\'t have permission to access this resource.';
+                console.log('Forbidden: You don\'t have permission to access this resource.');
+                var htmlcontent = ` <p> You don't have permission to access this resource.</p>`;
+                document.getElementById("error_message").innerHTML = htmlcontent;
             } else {
-                errorMessage = 'An error occurred while processing your request.';
+                console.log('An error occurred:', textStatus, errorThrown);
+                var htmlcontent = `<p>An error occurred while processing your request.</p>`;
+                document.getElementById("error_message").innerHTML = htmlcontent;
             }
-
-            $('#error_message').html('<p>' + errorMessage + '</p>'); // Display error message
         },
     });
 }
@@ -419,10 +428,14 @@ function getSubCategories() {
 
 getSubCategories();
 
+var filteredCards = [];
+var cardsDisplayed = 0;
+var cardsPerPage = 6; 
 
+// Function to perform search/filter action
 function filter_search() {
-    var select_state = $(".select_state:checked");
-    var select_district = $(".select_district:checked");
+    var select_state = $(".state_checkbox:checked");
+    var select_district = $(".district_checkbox:checked");
     var category_checkbox = $(".category_checkbox:checked");
     var sub_category_checkbox = $(".sub_category_checkbox:checked");
 
@@ -460,126 +473,123 @@ function filter_search() {
             var filterContainer = $("#productContainer");
             filterContainer.empty();
 
-            searchData.allData.haat_bazar_data.forEach(function (filter) {
-                appendFilterCard(filterContainer, filter);
-            });
+            // Update filteredCards with the new filtered data
+            filteredCards = searchData.allData.haat_bazar_data;
 
-         
+            // Reset cardsDisplayed to 0
+            cardsDisplayed = 0;
+
+            // Call appendFilterCard to display the filtered cards
+            appendFilterCard(filterContainer, searchData);
+
         },
         error: function (error) {
             console.error('Error searching for brands:', error);
         }
     });
 }
+
+// Function to append filtered cards to the container
 function appendFilterCard(filterContainer, filter) {
+    console.log("Filter:", filter); // Debugging: Check filter data
+
     function appendCard(container, p) {
-        var images = p.image_names;
-        var a = [];
+        var data = p.haat_bazar_id;
+        var images = p.image_names ? p.image_names.split(',') : [];
+        var firstImage = images.length > 0 ? images[0] : ""; // Retrieve the first image if available
 
-        if (images) {
-            if (images.indexOf(',') > -1) {
-                a = images.split(',');
-            } else {
-                a = [images];
-            }
-        }
-
-        var cardId = `card_${p.product_id}`; // Dynamic ID for the card
-        var modalId = `used_tractor_callbnt_${p.product_id}`; // Dynamic ID for the modal
-        var formId = `contact-seller-call${p.product_id}`; // Dynamic ID for the form
+        var cardId = `card_${data}`; // Dynamic ID for the card
+        var modalId = `used_tractor_callbnt_${data}`; // Dynamic ID for the modal
+        var formId = `contact-seller-call${data}`; // Dynamic ID for the form
+        
         
         var newCard = `
         <div class="col-12 col-lg-4 col-md-4 col-sm-4 mb-3" id="${cardId}">
-            <div class="h-auto success__stry__item d-flex flex-column shadow">
-             
-                <div class="thumb">
-                <a href="hatbzrbuy_inner.php?id=${p.haat_bazar_id}">
-                    <div class="ratio ratio-16x9">
-                        <img src="http://tractor-api.divyaltech.com/uploads/haat_bazar_img/${a[0]}" class="object-fit-cover " alt="${p.description}">
-                    </div>
-                </a>
-            </div>
-                <div class="content d-flex flex-column flex-grow-1">
-                    <div class="caption text-center">
-                        <a href="hatbzrbuy_inner.php?id=${p.haat_bazar_id}" class="text-decoration-none text-dark">
-                            <p class="pt-3"><strong class="series_tractor_strong text-center h4 fw-bold ">${p.sub_category_name}</strong></p>
+                <div class="h-auto success__stry__item d-flex flex-column shadow">
+                   <div class="thumb">
+                        <a href="hatbzrbuy_inner.php?id=${p.haat_bazar_id}">
+                            <div class="ratio ratio-16x9">
+                                <img src="http://tractor-api.divyaltech.com/uploads/haat_bazar_img/${firstImage}" class="object-fit-cover " alt="${p.description}">
+                            </div>
                         </a>
                     </div>
-                    <div class="power text-center mt-2">
-                        <div class="row">
-                            <div class="col-12 col-lg-6 col-md-6 col-sm-6"><p class="text-dark ps-2"> ${p.category_name}</p></div>
-                            <div class="col-12 col-lg-6 col-md-6 col-sm-6" style="padding-right: 32px;">
-                                <p class="text-success ps-2"><i class="fa fa-inr" aria-hidden="true"></i>
-                                ${p.price}/<span>  ${p.as_per}</span></p>
+                    <div class="content d-flex flex-column flex-grow-1">
+                        <div class="caption text-center">
+                            <a href="hatbzrbuy_inner.php?id=${p.haat_bazar_id}" class="text-decoration-none text-dark">
+                                <p class="pt-3"><strong class="series_tractor_strong text-center h6 fw-bold ">${p.sub_category_name}</strong></p>
+                            </a>
+                        </div>
+                        <div class="power text-center">
+                            <div class="row">
+                                <div class="col-12 col-lg-6 col-md-6 col-sm-6"><p class="text-dark ps-2"> ${p.category_name}</p></div>
+                                <div class="col-12 col-lg-6 col-md-6 col-sm-6" style="padding-right: 32px;">
+                                    <p class="text-success ps-2"><i class="fa fa-inr" aria-hidden="true"></i>
+                                    ${p.price}/<span>  ${p.as_per}</span></p>
+                                </div>
                             </div>
                         </div>
+                        <div class="col-12 justify-contant-center">
+                            <p class=" text-center text-truncate" id="district"><span id="engine_powerhp2"></span> ${p.district_name},<span id="year"> ${p.state_name}</span></p>
+                        </div>
+                        <div class="col-12">
+                            <button type="button" class="add_btn btn-success w-100" data-bs-toggle="modal" data-bs-target="#${modalId}" data-product-id="${p.product_id}">
+                                <i class="fa-regular fa-handshake"></i> Contact Seller
+                            </button>
+                        </div>
                     </div>
-                    <div class="col-12">
-                        <p class=" text-center" id="district"><span id="engine_powerhp2"></span> ${p.district},<span id="year"> ${p.state}</span></p>
-                    </div>
-                    <div class="col-12">
-                        <button type="button" class="add_btn btn-success w-100" data-bs-toggle="modal" data-bs-target="#${modalId}" data-product-id="${p.product_id}">
-                            <i class="fa-regular fa-handshake"></i> Contact Seller
-                        </button>
-                    </div>
-
-                    <div class="modal fade" id="${modalId}" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                        <div class="modal-dialog modal-lg modal-dialog-centered">
-                          <div class="modal-content">
-                            <div class="modal-header  modal_head">
-                              <h5 class="modal-title text-white ms-1" id="staticBackdropLabel">${p.model}</h5>
-                              <button type="button" class="btn-close btn-success" data-bs-dismiss="modal" aria-label="Close"><img src="assets/images/close.png"></button>
-                            </div>
-                          
-                                <!-- MODAL BODY -->
-                                <div class="modal-body">
-                                    <form id="${formId}" method="POST" onsubmit="return false">
-                                        <div class="row">
-                                            <div class="col-12 col-lg-6 col-md-6 col-sm-6 " hidden>
-                                                <label for="name" class="form-label fw-bold text-dark"><i class="fa-duotone fa-chart-pie-simple"></i> Model Name</label>
-                                                <input type="text" class="form-control" placeholder="Enter Your Name" id="enquiry_type_id" value="8" name="iduser">
-                                            </div>
-                                            <div class="col-12 col-lg-6 col-md-6 col-sm-6 " hidden>
-                                            <label for="name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i> product_id</label>
-                                            <input type="text" class="form-control" id="product_id" value="${p.product_id}" hidden> 
-                                            </div>
-                                            <div class="col-12 col-sm-6 col-md-6 col-lg-6">
-                                                <label for="" class="form-label text-dark fw-bold"> <i class="fa-regular fa-user"></i> First Name</label>
-                                                <input type="text" class="form-control" placeholder="Enter Number" id="firstName" name="firstName">
-                                            </div>
-                                            <div class="col-12 col-sm-6 col-md-6 col-lg-6">
-                                                <label for="" class="form-label text-dark fw-bold"><i class="fa-regular fa-user"></i> Last Name</label>
-                                                <input type="text" class="form-control" placeholder="Enter Number" id="lastName" name="lastName">
-                                            </div>
-                                            <div class="col-12 col-sm-6 col-md-6 col-lg-6">
-                                                <label for="number" class="form-label text-dark fw-bold"><i class="fa fa-phone" aria-hidden="true"></i> Mobile Number</label>
-                                                <input type="text" class="form-control" placeholder="Enter Number" id="mobile_number" name="mobile_number">
-                                                <p class="text-danger">*Please make sure mobile no. must be valid</p>
-                                            </div>
-                                            <div class="col-12 col-sm-12 col-md-6 col-lg-6">
-                                                <label for="yr_state" class="form-label text-dark fw-bold"> <i class="fa-solid fa-location-dot"></i>  Select State</label>
-                                                <select class="form-select py-2 " aria-label=".form-select-lg example" id="state" name="state">
-                                                    <option value>Select State</option>
-                                                    <option value="Chhattisgarh">Chhattisgarh</option>
-                                                    <option value="Other">Other</option>
+                        <div class="modal fade" id="${modalId}" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-lg modal-dialog-centered">
+                              <div class="modal-content">
+                                <div class="modal-header  modal_head">
+                                  <h5 class="modal-title text-white ms-1" id="staticBackdropLabel">${p.category_name}</h5>
+                                  <button type="button" class="btn-close btn-success" data-bs-dismiss="modal" aria-label="Close"><img src="assets/images/close.png"></button>
+                                </div>
+                              
+                                    <!-- MODAL BODY -->
+                                    <div class="modal-body">
+                                        <form id="${formId}" method="POST" onsubmit="return false">
+                                            <div class="row">
+                                                <div class="col-12 col-lg-6 col-md-6 col-sm-6 " hidden>
+                                                    <label for="name" class="form-label fw-bold text-dark"><i class="fa-duotone fa-chart-pie-simple"></i> Model Name</label>
+                                                    <input type="text" class="form-control" placeholder="Enter Your Name" id="enquiry_type_id" value="8" name="iduser">
+                                                </div>
+                                                <div class="col-12 col-lg-6 col-md-6 col-sm-6 " hidden>
+                                                <label for="name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i> product_id</label>
+                                                <input type="text" class="form-control" id="product_id" value="${p.product_id}" hidden> 
+                                                </div>
+                                                <div class="col-12 col-sm-6 col-md-6 col-lg-6">
+                                                    <label for="" class="form-label text-dark fw-bold"> <i class="fa-regular fa-user"></i> First Name</label>
+                                                    <input type="text" class="form-control" placeholder="Enter Number" id="firstName" name="firstName">
+                                                </div>
+                                                <div class="col-12 col-sm-6 col-md-6 col-lg-6">
+                                                    <label for="" class="form-label text-dark fw-bold"><i class="fa-regular fa-user"></i> Last Name</label>
+                                                    <input type="text" class="form-control" placeholder="Enter Number" id="lastName" name="lastName">
+                                                </div>
+                                                <div class="col-12 col-sm-6 col-md-6 col-lg-6">
+                                                    <label for="number" class="form-label text-dark fw-bold"><i class="fa fa-phone" aria-hidden="true"></i> Mobile Number</label>
+                                                    <input type="text" class="form-control" placeholder="Enter Number" id="mobile_number" name="mobile_number">
+                                                    <p class="text-danger">*Please make sure mobile no. must be valid</p>
+                                                </div>
+                                                <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+                                                    <label for="yr_state" class="form-label text-dark fw-bold"> <i class="fa-solid fa-location-dot"></i>  Select State</label>
+                                                    <select class="form-select py-2 state-dropdown" aria-label=".form-select-lg example" id="state" name="state">
+                                                      
+                                                    </select>
+                                                </div>
+                                                <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+                                                    <label for="yr_dist" class="form-label text-dark"><i class="fa-solid fa-location-dot"></i> District</label>
+                                                    <select class="form-select py-2 district-dropdown" aria-label=".form-select-lg example" id="district_1" name="district">
+                                                       
+                                                    </select>
+                                                </div>
+                                                <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+                                                <label for="yr_dist" class="form-label text-dark"><i class="fa-solid fa-location-dot"></i>Tehsil</label>
+                                                <select class="form-select py-2 tehsil-dropdown" aria-label=".form-select-lg example" id="Tehsil" name="Tehsil">
+                                                   
                                                 </select>
                                             </div>
-                                            <div class="col-12 col-sm-12 col-md-6 col-lg-6">
-                                                <label for="yr_dist" class="form-label text-dark"><i class="fa-solid fa-location-dot"></i> District</label>
-                                                <select class="form-select py-2 " aria-label=".form-select-lg example" id="district_1" name="district">
-                                                    <option value>Select District</option>
-                                                    <option value="Raipur">Raipur</option>
-                                                    <option value="Bilaspur">Bilaspur</option>
-                                                    <option value="Durg">Durg</option>
-                                                </select>
                                             </div>
-                                            <div class="col-12 col-sm-6 col-md-6 col-lg-6">
-                                                <label for="yr_price" class="form-label text-dark">Tehsil</label>
-                                                <input type="text" class="form-control" placeholder="Enter Your Tehsil" id="Tehsil" name="Tehsil">
-                                            </div>
-                                        </div>
-
-                                        <div class="modal-footer">
+                                            <div class="modal-footer">
                                             <button type="submit" id="submit_enquiry" class="btn add_btn btn-success w-100 btn_all" onclick="savedata('${formId}')" data-bs-dismiss="modal">Submit</button>
                                             <!-- <a class="btn  text-primary" data-dismiss="modal">Ok</a> -->
                                         </div>
@@ -588,37 +598,30 @@ function appendFilterCard(filterContainer, filter) {
                             </div>
                         </div>
                     </div>
-                </div>
             </div>
         </div>
-    `;
+`;
 
-        container.append(newCard);
-    }
-
-    function displayNextSet() {
-        var productContainer = $("#productContainer");
-    
-        // Display the next set of filtered cards
-        filteredCards.slice(cardsDisplayed, cardsDisplayed + cardsPerPage).forEach(function (p) {
-            appendCard(productContainer, p);
-            cardsDisplayed++;
-        });
-    
-        // Hide the "Load More" button if all filtered cards are displayed
-        if (cardsDisplayed >= filteredCards.length) {
-            $("#loadMoreBtn").hide();
-        }
-    }
-    
-    $(document).on('click', '#loadMoreBtn', function () {
-        // Display the next set of filtered cards when the "Load More" button is clicked
-        displayNextSet();
-    });
-
-    appendCard(filterContainer, filter);
-    displayNextSet();
+    container.append(newCard);
 }
+
+// Extract haat_bazar_data from the filter object
+var haat_bazar_data = filter.allData.haat_bazar_data;
+
+console.log("Filtered Data:", haat_bazar_data); // Debugging: Check filtered data
+
+// Display filtered cards
+if (haat_bazar_data && haat_bazar_data.length > 0) {
+    var productContainer = $("#productContainer");
+    haat_bazar_data.forEach(function(p) {
+        appendCard(productContainer, p);
+    });
+} else {
+    // Handle case when no data is available
+    console.log("No data available to display.");
+}
+}
+
 function resetform(){
     $('.select_state').val('');
     $('.select_district').val('');
@@ -633,3 +636,68 @@ function resetform(){
     window.location.reload();
     
   }
+
+
+  function getState() {
+    var url = 'http://tractor-api.divyaltech.com/api/customer/state_data';
+    $.ajax({
+        url: url,
+        type: "GET",
+        headers: {
+            'Authorization': 'Bearer ' + localStorage.getItem('token')
+        },
+        success: function(data) {
+            console.log("State data:", data);
+
+            const checkboxContainer = $('#state_state');
+            checkboxContainer.empty(); // Clear existing checkboxes
+            
+            const stateId = 7; // Replace 7 with the desired state ID
+            const filteredState = data.stateData.find(state => state.id === stateId);
+            if (filteredState) {
+                var checkboxHtml = '<input type="checkbox" class="checkbox-round mt-1 ms-3 state_checkbox" value="' + filteredState.id + '"/>' +
+                    '<span class="ps-2 fs-6">' + filteredState.state_name + '</span> <br/>';
+                checkboxContainer.append(checkboxHtml);
+                // Call getDistricts with the stateId
+                ge_tDistricts(stateId);
+            } else {
+                checkboxContainer.html('<p>No valid data available</p>');
+            }
+        },
+        error: function(error) {
+            console.error('Error fetching state data:', error);
+        }
+    });
+}
+
+function ge_tDistricts(stateId) {
+    var url = 'http://tractor-api.divyaltech.com/api/customer/get_district_by_state/' + stateId;
+    $.ajax({
+        url: url,
+        type: "GET",
+        headers: {
+            'Authorization': 'Bearer ' + localStorage.getItem('token')
+        },
+        success: function(data) {
+            console.log("District data:", data);
+            
+            const checkboxContainer = $('#get_dist');
+            checkboxContainer.empty(); // Clear existing checkboxes
+            
+            if (data && data.districtData && data.districtData.length > 0) {
+                data.districtData.forEach(district => {
+                    var checkboxHtml = '<input type="checkbox" class="checkbox-round mt-1 ms-3 district_checkbox" value="' + district.id + '" id="district_' + district.id + '"/>' +
+                        '<label for="district_' + district.id + '" class="ps-2 fs-6">' + district.district_name + '</label> <br/>';
+                    checkboxContainer.append(checkboxHtml);
+                });
+            } else {
+                checkboxContainer.html('<p>No districts available for this state</p>');
+            }
+        },
+        error: function(error) {
+            console.error('Error fetching districts:', error);
+        }
+    });
+}
+// Call the get function to start fetching state data
+getState();

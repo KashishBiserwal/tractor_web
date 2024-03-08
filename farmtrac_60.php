@@ -493,27 +493,19 @@
 <script>
 $(document).ready(function(){
     console.log('testing');
+    $('#price').on('input', function() {
+            var value = $(this).val().replace(/\D/g, ''); // Remove non-digit characters
+            var formattedValue = Number(value).toLocaleString('en-IN'); // Format using Indian numbering system
+            $(this).val(formattedValue);
+        });
 
-    $('#price').inputmask({
-        alias: 'numeric',
-        groupSeparator: ',',
-        autoGroup: true,
-        digits: 2,
-        digitsOptional: false,
-        placeholder: '0',
-        onBeforeMask: function (value, opts) {
-            // Remove commas before applying input mask
-            return value.replace(/\,/g,'');
-        },
-    });
+        // Set cursor position to the beginning of the input field
+        var input = document.getElementById('price');
+        input.focus();
+        input.setSelectionRange(0, 0);
 
-    // Set cursor position to the beginning of the input field
-    var input = document.getElementById('price');
-    input.focus();
-    input.setSelectionRange(0, 0);
-
-    // Set text alignment to left
-    input.style.textAlign = 'left';
+        // Set text alignment to left
+        input.style.textAlign = 'left';
 
     $('#used_farm_inner_from').validate({
         rules:{

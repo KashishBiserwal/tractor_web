@@ -489,7 +489,7 @@ var url ='http://tractor-api.divyaltech.com/api/customer/customer_enquiries';
         success: function (result) {
             console.log(result);
             $('#get_OTP_btn').modal('hide');
-            $('#staticBackdrop').modal('show');
+            // $('#staticBackdrop').modal('show');
            
         }, 
         error: function (xhr, textStatus, errorThrown) {

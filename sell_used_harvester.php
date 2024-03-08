@@ -711,24 +711,19 @@
     <!-- SCRIPT FOR THE VALIDATION OF 2nd FORM -->
     <script>
     $(document).ready(function(){
-        $('#p_price').inputmask({
-            alias: 'numeric',
-            groupSeparator: ',',
-            autoGroup: true,
-            digits: 2,
-            digitsOptional: false,
-            placeholder: '0',
-            onBeforeMask: function (value, opts) {
-                // Replace any non-comma characters with commas
-                return value.replace(/[^,]/g, ',');
-            },
+        $('#p_price').on('input', function() {
+            var value = $(this).val().replace(/\D/g, ''); // Remove non-digit characters
+            var formattedValue = Number(value).toLocaleString('en-IN'); // Format using Indian numbering system
+            $(this).val(formattedValue);
         });
-        var input = document.getElementById('p_price');
-            input.focus();
-            input.setSelectionRange(0, 0);
 
-    // Set text alignment to left
-    input.style.textAlign = 'left';
+        // Set cursor position to the beginning of the input field
+        var input = document.getElementById('p_price');
+        input.focus();
+        input.setSelectionRange(0, 0);
+
+        // Set text alignment to left
+        input.style.textAlign = 'left';
         // Validate the form
         $("form[id='form-step-2']").validate({
             rules: {

@@ -8,6 +8,16 @@ $(document).ready(function() {
     $('#filter_tractor').click(filter_search);
 });
 
+function formatPriceWithCommas(price) {
+    // Check if the price is not a number
+    if (isNaN(price)) {
+        return price; // Return the original value if it's not a number
+    }
+    
+    // Format the price with commas in Indian format
+    return new Intl.NumberFormat('en-IN').format(price);
+}
+
 function get_old_harvester() {
     var url = "http://tractor-api.divyaltech.com/api/customer/get_old_harvester";
    
@@ -60,6 +70,7 @@ function get_old_harvester() {
                 a = [images];
             }
         }
+                    var formattedPrice = formatPriceWithCommas(p.price);
                     var newCard = `
                     <div class="col-12 col-lg-4 col-md-4 col-sm-4 mt-3 ">
 
@@ -80,7 +91,7 @@ function get_old_harvester() {
                                 </div>
                                 <div class="power text-center">
                                     <div class="row ">
-                                        <div class="col-12 col-lg-6 col-md-6 col-sm-6"><p class="text-success text-truncate ps-2">Price : ₹ <span>${p.price}</span></p></div>
+                                        <div class="col-12 col-lg-6 col-md-6 col-sm-6"><p class="text-success text-truncate ps-2">Price : ₹ <span>${formattedPrice}</span></p></div>
                                         <div class="col-12 col-lg-6 col-md-6 col-sm-6" style="padding-right: 32px;">
                                              <p id="adduser" type="" class=" rounded-3"> Year : <span>${p.purchase_year}</span></p>
                                         </div>
@@ -91,7 +102,7 @@ function get_old_harvester() {
                                 </div>
                             </div>
                             <div class="col-12">
-                                <button type="button" id="adduser"class="btn-state btn-success w-100 text-decoration-none px-2 w-100 text-truncate"><span>${p.district_name}</span>, <span><span>${p.state_name}</span></span></a>
+                                <button type="button" id="adduser"class="btn-state btn-success w-100 text-decoration-none text-truncate px-2 w-100 text-truncate"><span>${p.district_name}</span>, <span><span>${p.state_name}</span></span></a>
                             </div>
                         </div>
                     </div> 
@@ -260,10 +271,15 @@ function get_old_harvester() {
                     var checkboxesdist = $(".district_checkbox:checked");
                     var checkboxesYear = $(".year_checkbox:checked");
 
-                    var selectedCheckboxValues = checkboxes.map(function () {
+                    var selectedCheckboxValues = checkboxes.map(function() {
                         return $(this).val();
                     }).get();
                 
+                    // Modify to handle comma-separated values
+                    var selectedCheckboxValuesFormatted = selectedCheckboxValues.map(function(value) {
+                        return value.replace(/,/g, ''); // Remove commas from values
+                    });
+
                     var selectedCheckboxValues2 = checkboxes2.map(function () {
                         return $(this).val();
                     }).get();
@@ -280,7 +296,7 @@ function get_old_harvester() {
                 
                     var paraArr = {
                         'brand_id': JSON.stringify(selectedBrand),
-                        'price_ranges': JSON.stringify(selectedCheckboxValues),
+                        'price_ranges': JSON.stringify(selectedCheckboxValuesFormatted),
                         'state': JSON.stringify(selectedCheckboxValues2),
                         'district': JSON.stringify(selectedDistrict),
                         'purchase_year': JSON.stringify(selectedYear),
@@ -318,6 +334,7 @@ function get_old_harvester() {
                     });
                 }
                 function appendFilterCard(filterContainer, filter) {
+                    var formattedPrice = formatPriceWithCommas(filter.price);
                     var newCard = `
                         <div class="col-12 col-lg-4 col-md-4 col-sm-4 mt-3 ">
                             <div class="h-auto success__stry__item d-flex flex-column shadow">
@@ -336,7 +353,7 @@ function get_old_harvester() {
                                     </div>
                                     <div class="power text-center">
                                         <div class="row ">
-                                            <div class="col-12 col-lg-6 col-md-6 col-sm-6"><p class="text-success ps-2">Price : ₹ <span>${filter.price}</span></p></div>
+                                            <div class="col-12 col-lg-6 col-md-6 col-sm-6"><p class="text-success text-truncate ps-2">Price : ₹ <span>${formattedPrice}</span></p></div>
                                             <div class="col-12 col-lg-6 col-md-6 col-sm-6" style="padding-right: 32px;">
                                                  <p id="adduser" type="" class=" rounded-3"> Year : <span>${filter.purchase_year}</span></p>
                                             </div>
@@ -347,7 +364,7 @@ function get_old_harvester() {
                                     </div>
                                 </div>
                                 <div class="col-12">
-                                    <button type="button" id="adduser"class="btn-state btn-success w-100 text-decoration-none px-2 w-100"><span>${filter.district_name}</span>, <span><span>${filter.state_name}</span></span></a>
+                                    <button type="button" id="adduser"class="btn-state btn-success w-100 text-decoration-none text-truncate px-2 w-100"><span>${filter.district_name}</span>, <span><span>${filter.state_name}</span></span></a>
                                 </div>
                             </div>
                         </div>`;

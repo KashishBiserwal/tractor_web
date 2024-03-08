@@ -26,13 +26,13 @@ function getOldFarmImplementId() {
             var lastFourDigits = mobileString.substring(mobileString.length - 4);
             var maskedPart = 'xxxxxx'.padStart(mobileString.length - 4, 'x');
             var maskedMobileNumber = maskedPart + lastFourDigits;
-            // Concatenate district and state
+            var formattedPrice = parseFloat(data.getOldImplement[0].price).toLocaleString('en-IN');
             var location = data.getOldImplement[0].district_name + ', ' + data.getOldImplement[0].state_name;
 
             // Update HTML elements with data
             var fullname = data.getOldImplement[0].first_name + ' ' + data.getOldImplement[0].last_name;
             document.getElementById('model_name').innerText = data.getOldImplement[0].model;
-            document.getElementById('original_price').innerText = data.getOldImplement[0].price;
+            document.getElementById('original_price').innerText = formattedPrice;
             document.getElementById('hours_driven').innerText = data.getOldImplement[0].hours_driven;
             document.getElementById('purchase_year').innerText = data.getOldImplement[0].purchase_year;
             document.getElementById('location_1').innerText = location;
@@ -41,7 +41,7 @@ function getOldFarmImplementId() {
             document.getElementById('brand_name').innerText = data.getOldImplement[0].brand_name;
             document.getElementById('model_name_3').innerText = data.getOldImplement[0].model;
             document.getElementById('category_1').innerText = data.getOldImplement[0].category_name;
-            document.getElementById('price_1').innerText = data.getOldImplement[0].price;
+            document.getElementById('price_1').innerText = formattedPrice;
             document.getElementById('model_name4').innerText=data.getOldImplement[0].model;
             document.getElementById('name').innerText = data.getOldImplement[0].first_name;
             document.getElementById('mobile').innerText = maskedMobileNumber;
@@ -96,7 +96,7 @@ function store(event) {
     var district = $('#district_form_1').val();
     var tehsil = $('#tehsil').val();
     var price = $('#price').val();
-   
+    price = price.replace(/[\,\.\s]/g, '');
     console.log('jfhfhw',product_id);
   
     // Prepare data to send to the server
@@ -451,7 +451,7 @@ function getusedfarmimplement() {
                         <div class="content d-flex flex-column flex-grow-1">
                             <div class="caption text-center">
                                 <a href="used_farm_inner.php?id=${p.id}" class="text-decoration-none text-dark">
-                                    <p class="pt-3"><strong class="series_tractor_strong text-center h4 fw-bold">${brandmodel}</strong></p>
+                                    <p class="pt-3"><strong class="series_tractor_strong text-center text-truncate h6 fw-bold">${brandmodel}</strong></p>
                                 </a>      
                             </div>
                             <div class="power text-center mt-2">
@@ -465,8 +465,8 @@ function getusedfarmimplement() {
                                 </div>    
                             </div>
                         </div>
-                        <div class="col-12">
-                            <button type="button" id="adduser"class="btn-state state btn-success text-decoration-none px-2 w-100">${location}</a>
+                        <div class="col-12 contant-justify-center">
+                            <button type="button" id="adduser"class="btn-state state btn-success text-decoration-none text-truncate px-2 w-100">${location}</a>
                         </div>
                     </div>
                 </div>`;

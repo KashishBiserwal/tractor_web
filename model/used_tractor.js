@@ -16,14 +16,16 @@ $(document).ready(function() {
 
 
 
-
+    getDistricts(7);
     // Initial population
     // getoldTractorList();
 });
-
 var cardsPerPage = 6;
 var allCards = [];
 var cardsDisplayed = 0;
+
+
+
 function getoldTractorList() {
     var url = "http://tractor-api.divyaltech.com/api/customer/get_old_tractor";
 
@@ -39,16 +41,13 @@ function getoldTractorList() {
             document.getElementById('mob_num').value = data.product[0].mobile;
             if (data.product && data.product.length > 0) {
                 // Reverse the order of the cards to display the latest ones first
-                var reversedCards = data.product.slice().reverse();
+                allCards = data.product.slice().reverse();
 
                 // Display the latest cards at the top
-                reversedCards.slice(0, cardsPerPage).forEach(function (p) {
+                allCards.slice(0, cardsPerPage).forEach(function (p) {
                     appendCard(productContainer, p);
                     cardsDisplayed++;
                 });
-
-                // Update allCards to store all the cards
-                allCards = reversedCards;
 
                 // Show or hide the "Load More" button based on the number of cards
                 if (allCards.length > cardsPerPage) {
@@ -66,6 +65,16 @@ function getoldTractorList() {
         }
     });
 }
+function formatPriceWithCommas(price) {
+    // Check if the price is not a number
+    if (isNaN(price)) {
+        return price; // Return the original value if it's not a number
+    }
+    
+    // Format the price with commas in Indian format
+    return new Intl.NumberFormat('en-IN').format(price);
+}
+
 function appendCard(container, p) {
     // Your appendCard function here
     var images = p.image_names;
@@ -81,7 +90,8 @@ function appendCard(container, p) {
     var cardId = `card_${p.product_id}`; // Dynamic ID for the card
     var modalId = `used_tractor_callbnt_${p.product_id}`; // Dynamic ID for the modal
     var formId = `contact-seller-call_${p.product_id}`; // Dynamic ID for the form
-
+    var formattedPrice = formatPriceWithCommas(p.price);
+ 
     var newCard = `
 <div class="col-12 col-lg-4 col-md-4 col-sm-4 mb-4" id="${cardId}">
     <div class="h-auto success__stry__item d-flex flex-column shadow ">
@@ -95,12 +105,12 @@ function appendCard(container, p) {
         <div class="content d-flex flex-column flex-grow-1 ">
             <div class="caption text-center">
                 <a href="farmtrac_60.php?product_id=${p.customer_id}" class="text-decoration-none text-dark">
-                    <p class="pt-3"><strong class="series_tractor_strong text-center h4 fw-bold ">${p.model}</strong></p>
+                    <p class="pt-3"><strong class="series_tractor_strong text-center text-truncate h5 fw-bold ">${p.model}</strong></p>
                 </a>      
             </div>
            <div class=" row text-center">
                     <div class="col-12 col-sm-6 col-md-6 col-lg-6">
-                        <p class="fw-bold "><span id="engine_powerhp2">${p.brand_name}</p>
+                        <p class="fw-bold text-truncate contant-justify-center"><span id="engine_powerhp2">${p.brand_name}</p>
                     </div>
                     <div class="col-12 col-sm-6 col-md-6 col-lg-6">
                     <p class="fw-bold ">Year: <span id="year">${p.purchase_year}</p>
@@ -112,7 +122,7 @@ function appendCard(container, p) {
                     <div class="col-12 col-sm-6 col-md-6 col-lg-6">
                         <p class="fw-bold py-2" style="background-image: linear-gradient(315deg, #ddd 0%, #f5f7fa 74%);
                         font-size: 12px; justify-items: center;
-                        margin: 0 auto;">Price: ₹<span id="price">${p.price}</p>
+                        margin: 0 auto;">Price: ₹<span id="price">${formattedPrice}</p>
                     </div>
                     <div class="col-12 col-sm-6 col-md-6 col-lg-6">
                         <p class="fw-bold pe-2 py-2" style="background-image: linear-gradient(315deg, #ddd 0%, #f5f7fa 74%);
@@ -121,18 +131,17 @@ function appendCard(container, p) {
                     </div>
                 </div>
                 <div class=" row text-center mt-3">
-                <div class="col-10 justify-center m-auto">
-                    <p class="fw-bold text-truncate" id="district">${p.district_name}<span id="year"></span>, ${p.state_name}</p>
+                    <div class="col-10 justify-center m-auto">
+                        <p class="fw-bold text-truncate" id="district">${p.district_name}<span id="year"></span>, ${p.state_name}</p>
+                    </div>
                 </div>
             </div>
-            </div>
             <div class=" row state_btn">
-               
-                <div class="col-12">
-                <button type="button" class="add_btn btn-success w-100" data-bs-toggle="modal" data-bs-target="#${modalId}">
-                <i class="fa-regular fa-handshake mx-1"></i>Contact Seller
-                </button>
-                            </div>
+               <div class="col-12">
+                    <button type="button" class="add_btn btn-success w-100" data-bs-toggle="modal" data-bs-target="#${modalId}">
+                        <i class="fa-regular fa-handshake mx-1"></i>Contact Seller
+                    </button>
+                </div>
 
                         <div class="modal fade" id="${modalId}" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                             <div class="modal-dialog modal-lg modal-dialog-centered">
@@ -217,18 +226,11 @@ function appendCard(container, p) {
          `;
     container.append(newCard);
     populateDropdowns(p.id);
-    $('.price_form').inputmask({
-        alias: 'numeric',
-        groupSeparator: ',',
-        autoGroup: true,
-        digits: 2,
-        digitsOptional: false,
-        placeholder: '0',
-        onBeforeMask: function (value, opts) {
-            // Remove commas before applying input mask
-            return value.replace(/\,/g,'');
-        },
-    });
+     $('.price_form').on('input', function() {
+            var value = $(this).val().replace(/\D/g, ''); // Remove non-digit characters
+            var formattedValue = Number(value).toLocaleString('en-IN'); // Format using Indian numbering system
+            $(this).val(formattedValue);
+        });
 
     // Set cursor position to the beginning of each input field
     $('.price_form').each(function() {
@@ -239,21 +241,23 @@ function appendCard(container, p) {
     });
 }
 
-$(document).on('click', '#loadMoreBtn', function () {
+function loadMoreCards() {
     var productContainer = $("#productContainer");
-
-    // Get the next set of cards to display
-    var nextCards = allCards.slice(cardsDisplayed, cardsDisplayed + cardsPerPage);
-
-    // Display the next set of cards
-    nextCards.forEach(function (p) {
-        prependCard(productContainer, p);
-        cardsDisplayed++;
+    var remainingCards = allCards.slice(cardsDisplayed); // Get the remaining cards
+    var cardsToDisplay = remainingCards.slice(0, cardsPerPage); // Take only the next batch of cards
+    cardsToDisplay.forEach(function (p) {
+        appendCard(productContainer, p);
     });
+    // Update cardsDisplayed after displaying the new cards
+    cardsDisplayed += cardsToDisplay.length;
 
-    // Initial population
-    // getoldTractorList();
-});
+    // Show or hide the "Load More" button based on whether there are more cards to display
+    if (cardsDisplayed >= allCards.length) {
+        $("#loadMoreBtn").hide();
+    }
+}
+
+$(document).on('click', '#loadMoreBtn', loadMoreCards);
 
 
 function savedata(formId) {
@@ -276,6 +280,7 @@ function savedata(formId) {
         var district = $(`#${formId} #district_form`).val();
         var tehsil = $(`#${formId} #tehsil`).val();
         var price = $(`#${formId} #price_form`).val();
+        price = price.replace(/[\,\.\s]/g, '');
         var product_id = $(`#${formId} #product_id`).val();
         var model_form = $(`#${formId} #model_form`).val();
 
@@ -401,21 +406,8 @@ var url = "http://tractor-api.divyaltech.com/api/customer/customer_enquiries";
     });
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 // search cards by hp, brand, price, state, district
-function get() {
+function getBrand() {
     // var apiBaseURL = CustomerAPIBaseURL;
     var url = 'http://tractor-api.divyaltech.com/api/customer/get_brand_for_finance';
 
@@ -446,7 +438,7 @@ function get() {
         }
     });
 }
-get();
+getBrand();
 
 function getState() {
     var url = 'http://tractor-api.divyaltech.com/api/customer/state_data';
@@ -469,7 +461,7 @@ function getState() {
                     '<span class="ps-2 fs-6">' + filteredState.state_name + '</span> <br/>';
                 checkboxContainer.append(checkboxHtml);
                 // Call getDistricts with the stateId
-                getDistricts(stateId);
+                ge_tDistricts(stateId);
             } else {
                 checkboxContainer.html('<p>No valid data available</p>');
             }
@@ -480,7 +472,7 @@ function getState() {
     });
 }
 
-function getDistricts(stateId) {
+function ge_tDistricts(stateId) {
     var url = 'http://tractor-api.divyaltech.com/api/customer/get_district_by_state/' + stateId;
     $.ajax({
         url: url,
@@ -491,7 +483,7 @@ function getDistricts(stateId) {
         success: function(data) {
             console.log("District data:", data);
             
-            const checkboxContainer = $('#get_distrcit'); // Corrected ID
+            const checkboxContainer = $('#get_dist');
             checkboxContainer.empty(); // Clear existing checkboxes
             
             if (data && data.districtData && data.districtData.length > 0) {
@@ -509,7 +501,7 @@ function getDistricts(stateId) {
         }
     });
 }
-
+// Call the get function to start fetching state data
 getState();
 
 function get_year_and_hours() {
@@ -549,27 +541,48 @@ var filteredCards = [];
 var cardsDisplayed = 0;
 var cardsPerPage = 6; 
 
+
+function formatPrice(price) {
+    // Remove commas if present, and parse as float
+    return parseFloat(price.replace(/,/g, '') || 0);
+}
+
 function filter_search() {
     var checkboxes = $(".budget_checkbox:checked");
-    var checkboxes2 = $(".hp_checkbox:checked");
+    var checkboxesState = $(".state_checkbox:checked");
+    var checkboxesdist = $(".district_checkbox:checked");
     var checkboxesBrand = $(".brand_checkbox:checked");
+    var checkboxesYear = $(".year_checkbox:checked");
 
-    var selectedCheckboxValues = checkboxes.map(function () {
+    var selectedCheckboxValues = checkboxes.map(function() {
         return $(this).val();
     }).get();
 
-    var selectedCheckboxValues2 = checkboxes2.map(function () {
+    // Modify to handle comma-separated values
+    var selectedCheckboxValuesFormatted = selectedCheckboxValues.map(function(value) {
+        return value.replace(/,/g, ''); // Remove commas from values
+    });
+
+    var selectedState = checkboxesState.map(function() {
         return $(this).val();
     }).get();
-
-    var selectedBrand = checkboxesBrand.map(function () {
+    var selectedDistrict = checkboxesdist.map(function() {
+        return $(this).val();
+    }).get();
+    var selectedBrand = checkboxesBrand.map(function() {
+        return $(this).val();
+    }).get();
+    var selectedYear = checkboxesYear.map(function() {
         return $(this).val();
     }).get();
 
     var paraArr = {
         'brand_id': JSON.stringify(selectedBrand),
-        'price_ranges': JSON.stringify(selectedCheckboxValues),
-        'horse_power_ranges': JSON.stringify(selectedCheckboxValues2),
+        'state': JSON.stringify(selectedState),
+        'district': JSON.stringify(selectedDistrict),
+        'price_ranges': JSON.stringify(selectedCheckboxValuesFormatted), // Use the modified array here
+        // 'horse_power_ranges': JSON.stringify(selectedCheckboxState),
+        'purchase_year': JSON.stringify(selectedYear),
     };
 
     var url = 'http://tractor-api.divyaltech.com/api/customer/get_old_tractor_by_filter';
@@ -580,7 +593,7 @@ function filter_search() {
         headers: {
             'Authorization': 'Bearer ' + localStorage.getItem('token')
         },
-        success: function (searchData) {
+        success: function(searchData) {
             var filterContainer = $("#productContainer");
             filterContainer.empty();
             filteredCards = searchData.product; // Update filteredCards with the search results
@@ -596,7 +609,7 @@ function filter_search() {
                 $("#loadMoreBtn").hide(); // Hide the "Load More" button
             }
         },
-        error: function (jqXHR, textStatus, errorThrown) {
+        error: function(jqXHR, textStatus, errorThrown) {
             console.error('Error searching for blog details:', errorThrown);
             // Check if the error status is 404 (Not Found)
             if (jqXHR.status === 404) {
@@ -608,7 +621,6 @@ function filter_search() {
         }
     });
 }
-
 function displayFilteredCards() {
     var productContainer = $("#productContainer");
     cardsDisplayed = 0; // Reset cardsDisplayed to 0
@@ -642,7 +654,7 @@ $(document).on('click', '#loadMoreBtn', function () {
 });
 
 function appendFilterCard(filterContainer, p) {
-    // Function to append each filtered card to the container
+ 
     var images = p.image_names;
     var a = [];
 
@@ -656,7 +668,7 @@ function appendFilterCard(filterContainer, p) {
     var cardId = `card_${p.product_id}`; // Dynamic ID for the card
     var modalId = `used_tractor_callbnt_${p.product_id}`; // Dynamic ID for the modal
     var formId = `contact-seller-call_${p.product_id}`; // Dynamic ID for the form
-
+    var formattedPrice = formatPriceWithCommas(p.price);
         var newCard =  `
         <div class="col-12 col-lg-4 col-md-4 col-sm-4 mb-4" id="${cardId}">
         <div class="h-auto success__stry__item d-flex flex-column shadow ">
@@ -687,7 +699,7 @@ function appendFilterCard(filterContainer, p) {
                     <div class="col-12 col-sm-6 col-md-6 col-lg-6">
                         <p class="fw-bold py-2" style="background-image: linear-gradient(315deg, #ddd 0%, #f5f7fa 74%);
                         font-size: 12px; justify-items: center;
-                        margin: 0 auto;">Price: ₹<span id="price">${p.price}</p>
+                        margin: 0 auto;">Price: ₹<span id="price">${formattedPrice}</p>
                     </div>
                     <div class="col-12 col-sm-6 col-md-6 col-lg-6">
                         <p class="fw-bold pe-2 py-2" style="background-image: linear-gradient(315deg, #ddd 0%, #f5f7fa 74%);
@@ -789,6 +801,23 @@ function appendFilterCard(filterContainer, p) {
         `;
 
     filterContainer.append(newCard);
+}
+function filterAndDisplayCards() {
+    var filteredPrices = filteredCards.map(function(card) {
+        return formatPrice(card.price);
+    });
+
+    // Iterate through filtered cards
+    filteredCards.forEach(function(card) {
+        var price = formatPrice(card.price);
+        var formattedPriceWithoutCommas = removeCommasFromPrice(card.price);
+
+        // Modify the comparison logic to handle both cases
+        if (filteredPrices.includes(price) || filteredPrices.includes(formattedPriceWithoutCommas)) {
+            // Display the card
+            appendFilterCard($("#productContainer"), card);
+        }
+    });
 }
 
   function resetform(){
