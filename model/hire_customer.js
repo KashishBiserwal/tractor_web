@@ -1,6 +1,7 @@
 $(document).ready(function() {
     console.log("ready!");
-    
+    $('#submit_enquiry').click(get_otp);
+    $('#Verify').click(verifyotp);
     $('#filter_tractor').click(filter_search);
     // $('#button_hire').click(enquiry_form)
 });
@@ -16,7 +17,6 @@ function formatPriceWithCommas(price) {
     // Format the price with commas in Indian format
     return new Intl.NumberFormat('en-IN').format(price);
 }
-
 var cardsPerPage = 6; // Number of cards to show initially
 var cardsDisplayed = 0; // Counter to keep track of the number of cards displayed
 var abc = [];
@@ -30,8 +30,10 @@ function getHiretractor() {
         type: "GET",
         success: function (response) {
             var productContainer = $("#productContainer");
-            productContainer.empty();
-
+            // productContainer.empty();
+            var fullname = response.rent_details.data1[0].first_name + ' ' + response.rent_details.data1[0].last_name;
+            document.getElementById('slr_name').value=fullname;
+            document.getElementById('mob_num').value = response.rent_details.data1[0].mobile;
             abc = response.rent_details.data1.map(t1 => ({...t1, ...response.rent_details.data2.find(t2 => t2.customer_id === t1.id)}));
 
             // Display the initial set of cards
@@ -50,10 +52,9 @@ function getHiretractor() {
     });
 }
 
-// Function to display the next six cards
 function displayNextSixCards(container) {
-    var startIndex = Math.max(0, abc.length - cardsDisplayed - cardsPerPage); // Start index to slice from
-    var endIndex = abc.length - cardsDisplayed; // End index to slice to
+    var startIndex = Math.max(0, abc.length - cardsDisplayed - cardsPerPage); 
+    var endIndex = abc.length - cardsDisplayed; 
     var cardsToDisplay = abc.slice(startIndex, endIndex);
     cardsToDisplay.reverse().forEach(function (p) {
         appendCard(container, p);
@@ -72,19 +73,12 @@ function displayNextSixCards(container) {
                 a = [images];
             }
         }
-        var cardId = `card_${p.product_id}`; // Dynamic ID for the card
-        var modalId = `used_tractor_callbnt_${p.product_id}`; // Dynamic ID for the modal
-        var formId = `contact-seller-call_${p.product_id}`; // Dynamic ID for the form
-
+        var cardId = `card_${p.id}`;
+        var modalId = `used_tractor_callbnt_${p.id}`; 
+        var formId = `contact-seller-call_${p.id}`; 
+        var formattedPrice = formatPriceWithCommas(p.price);
         var images = p.images;
-        // var rates = p.rates;
-        // var ratesArray = p.rates ? p.rates.split(',') : [];
-        // var ratePersArray = p.rate_pers ? p.rate_pers.split(',') : [];
-        var formattedPrice = formatPriceWithCommas(p.rate);
-        // var rateDisplay = ratesArray.length > 0 ? `${ratesArray[0]}/${ratePersArray[0] || ''}` : '';
-        // var rentMappingIds = p.rent_mapping_ids;
-        // var district = p.district || '';
-        // var state = p.state || '';
+
         var newCard = `
         <div class="col-12 col-lg-4 col-md-6 col-sm-6 mb-3" id="${cardId}">
         <div class="h-auto success__stry__item d-flex flex-column shadow ">
@@ -162,24 +156,18 @@ function displayNextSixCards(container) {
                                     </div>
                                     <div class="col-12 col-sm-12 col-md-6 col-lg-6">
                                         <label for="yr_state" class="form-label text-dark fw-bold" id="state" name="state"> <i class="fas fa-location"></i> State</label>
-                                        <select class="form-select py-2" aria-label=".form-select-lg example" id="state_form" name="state">
-                                            <option value>Select State</option>
-                                            <option value="chhattisgarh">Chhattisgarh</option>
-                                            <option value="other">Other</option>
+                                        <select class="form-select py-2 state-dropdown" aria-label=".form-select-lg example" id="state_form" name="state">
                                         </select>
                                     </div>
                                     <div class="col-12 col-sm-12 col-md-6 col-lg-6">
                                         <label class="form-label text-dark"><i class="fa-solid fa-location-dot"></i> District</label>
-                                        <select class="form-select py-2 " aria-label=".form-select-lg example" name="district" id="district_form">
-                                            <option value>Select District</option>
-                                            <option value="raipur">Raipur</option>
-                                            <option value="bilaspur">Bilaspur</option>
-                                            <option value="durg">Durg</option>
+                                        <select class="form-select py-2 district-dropdown" aria-label=".form-select-lg example" name="district" id="district_form">
                                         </select>
                                     </div>
-                                    <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-2">
-                                        <label for="yr_tehsil" class="form-label text-dark"> Tehsil</label>
-                                        <input type="yr_tehsil" class="form-control" placeholder="Enter Tehsil" id="tehsil" name="tehsil">
+                                    <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+                                        <label class="form-label text-dark mt-2"> Tehsil</label>
+                                        <select class="form-select py-2 tehsil-dropdown" aria-label=".form-select-lg example" Tehsil" id="tehsil" name="tehsil">
+                                        </select>
                                     </div>
                                     <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-2">
                                         <label for="yr_price" class="form-label text-dark">Price</label>
@@ -205,6 +193,7 @@ function displayNextSixCards(container) {
 
              `;
         container.append(newCard);
+        populateDropdowns(p.id);
         $('.price_form').on('input', function() {
             var value = $(this).val().replace(/\D/g, ''); // Remove non-digit characters
             var formattedValue = Number(value).toLocaleString('en-IN'); // Format using Indian numbering system
@@ -234,6 +223,14 @@ function displayNextSixCards(container) {
 
 
 
+    function savedata(formId) {
+        tractor_enquiry(formId);
+        console.log("Form submitted successfully");
+      }
+
+      function openOTPModal() {
+        $('#get_OTP_btn').modal('show');
+    }
 
   function tractor_enquiry(formId) {
         // Use the formId to get values dynamically
@@ -275,52 +272,110 @@ var url = "http://tractor-api.divyaltech.com/api/customer/customer_enquiries";
   
     // Make an AJAX request to the server
     $.ajax({
-      url: url,
-      type: "POST",
-      data: paraArr,
-      success: function (result) {
-        console.log(result, "result");
-        
-        $("#used_tractor_callbnt_").modal('hide'); 
-        var msg = "Added successfully !"
-        $("#errorStatusLoading").modal('show');    
-        $("#errorStatusLoading").find('.modal-title').html('<p class="text-center">Congratulation..! Requested Successful</p>');
-     
-        $("#errorStatusLoading").find('.modal-body').html(msg);
-        $("#errorStatusLoading").find('.modal-body').html('<img src="assets/images/7efs.gif" style="display:block; margin:0 auto;" class="w-50 text-center" alt="Successfull Request"></img>');
-      
-        // getOldTractorById();
-        console.log("Add successfully");
-      
-      },
-      error: function (error) {
-        console.error('Error fetching data:', error);
-        var msg = error;
-        $("#errorStatusLoading").modal('show');
-        $("#errorStatusLoading").find('.modal-title').html('<p class="text-center">Process Failed..! Enter Valid Detail</p>');
-        $("#errorStatusLoading").find('.modal-body').html(msg);
-        $("#errorStatusLoading").find('.modal-body').html('<img src="assets/images/comp_3.gif" style="display:block; margin:0 auto;" class="w-50 text-center" alt="Successfull Request"></img>');
-       
+        url: url,
+        type: "POST",
+        data: paraArr,
+        success: function (result) {
+          console.log(result, "result");
+          $("#used_tractor_callbnt_").modal('hide'); 
+          var msg = "Added successfully !";
+          // $('#get_OTP_btn').modal('show');
+          $("#errorStatusLoading").modal('hide');
+          // $("#get_OTP_btn_").modal('show');
+          get_otp(mobile); // Pass mobile number to get_otp function
+          openOTPModal();
+        },
+        error: function (error) {
+          console.error('Error fetching data:', error);
+          var msg = error;
+          $("#errorStatusLoading").modal('show');
+          $("#errorStatusLoading").find('.modal-title').html('<p class="text-center">Process Failed..! Enter Valid Detail</p>');
+          $("#errorStatusLoading").find('.modal-body').html(msg);
+          $("#errorStatusLoading").find('.modal-body').html('<img src="assets/images/comp_3.gif" style="display:block; margin:0 auto;" class="w-50 text-center" alt="Successfull Request"></img>');
+          // 
+        }
+      });
+    }
+  
+    function get_otp(phone) {
+      var url = "http://tractor-api.divyaltech.com/api/customer/customer_login";
+   
+      var paraArr = {
+          'mobile': phone,
+      };
+  
+      $.ajax({
+          url: url,
+          type: "POST",
+          data: paraArr,
+          success: function (result) {
+              console.log(result, "result");
+  
+              // Once OTP is received, store mobile number in hidden field within modal
+              $('#Mobile').val(phone);
+  
+          },
+          error: function (error) {
+              console.error('Error fetching data:', error);
+          }
+      });
+  }
+  
+  function verifyotp() {
+      var mobile = document.getElementById('Mobile').value;
+      var otp = document.getElementById('otp').value;
+  
+      var paraArr = {
+          'otp': otp,
+          'mobile': mobile,
       }
-    });
+      var url = 'http://tractor-api.divyaltech.com/api/customer/verify_otp';
+      $.ajax({
+          url: url,
+          type: "POST",
+          data: paraArr,
+          success: function (result) {
+              console.log(result);
+  
+              // Assuming your model has an ID 'myModal', hide it on success
+              $('#get_OTP_btn').modal('hide'); // Assuming it's a Bootstrap modal
+              $('#staticBackdrop').modal('show');
+              // Reset input fields
+              // document.getElementById('phone').value = ''; 
+              // document.getElementById('otp').value = ''; 
+  
+              // Access data field in the response
+          }, 
+          error: function (xhr, textStatus, errorThrown) {
+              console.log(xhr.status, 'error');
+              if (xhr.status === 401) {
+                  console.log('Invalid credentials');
+                  var htmlcontent = `<p>Invalid credentials!</p>`;
+                  document.getElementById("error_message").innerHTML = htmlcontent;
+              } else if (xhr.status === 403) {
+                  console.log('Forbidden: You don\'t have permission to access this resource.');
+                  var htmlcontent = ` <p> You don't have permission to access this resource.</p>`;
+                  document.getElementById("error_message").innerHTML = htmlcontent;
+              } else {
+                  console.log('An error occurred:', textStatus, errorThrown);
+                  var htmlcontent = `<p>An error occurred while processing your request.</p>`;
+                  document.getElementById("error_message").innerHTML = htmlcontent;
+              }
+          },
+      });
   }
 
-  function savedata(formId) {
-    tractor_enquiry(formId);
-    console.log("Form submitted successfully");
-  }
+ 
 
 // search cards by hp, brand, price, state, district
-
-
-var cardsPerPage = 6; // Number of cards to show initially
-var cardsDisplayed = 0; // Counter to keep track of the number of cards displayed
-var abc = []; 
-
 function formatPrice(price) {
     // Remove commas if present, and parse as float
     return parseFloat(price.replace(/,/g, '') || 0);
 }
+
+var cardsPerPage = 6;
+var cardsDisplayed = 0; 
+var abc = []; 
 
 function filter_search() {
     var checkboxes = $(".budget_checkbox:checked");
@@ -355,11 +410,9 @@ function filter_search() {
         'brand_id': JSON.stringify(selectedBrand),
         'state': JSON.stringify(selectedState),
         'district': JSON.stringify(selectedDistrict),
-        'price_ranges': JSON.stringify(selectedCheckboxValuesFormatted), // Use the modified array here
-        // 'horse_power_ranges': JSON.stringify(selectedCheckboxState),
+        'price_ranges': JSON.stringify(selectedCheckboxValuesFormatted), 
         'purchase_year': JSON.stringify(selectedYear),
     };
-
 
     var url = 'http://tractor-api.divyaltech.com/api/customer/get_old_tractor_by_filter';
     $.ajax({
@@ -373,17 +426,24 @@ function filter_search() {
             var filterContainer = $("#productContainer");
             filterContainer.empty();
 
-            searchData.product.forEach(function (filter) {
-                appendFilterCard(filterContainer, filter);
-            });
-
-         
+            if (searchData.product.length === 0) {
+                // Show message if no data found
+                $("#noDataMessage").show();
+                $("#loadMoreBtn").hide();
+            } else {
+                searchData.product.forEach(function (filter) {
+                    appendFilterCard(filterContainer, filter);
+                });
+                $("#noDataMessage").hide();
+                $("#loadMoreBtn").show();
+            }
         },
         error: function (error) {
             console.error('Error searching for brands:', error);
         }
     });
 }
+
 
 function appendFilterCard(filterContainer, filter) {
     function appendCard(container, p) {
@@ -397,9 +457,9 @@ function appendFilterCard(filterContainer, filter) {
                 a = [images];
             }
         }
-        var cardId = `card_${p.product_id}`; // Dynamic ID for the card
-        var modalId = `used_tractor_callbnt_${p.product_id}`; // Dynamic ID for the modal
-        var formId = `contact-seller-call_${p.product_id}`; // Dynamic ID for the form
+        var cardId = `card_${p.id}`; // Dynamic ID for the card
+        var modalId = `used_tractor_callbnt_${p.id}`; // Dynamic ID for the modal
+        var formId = `contact-seller-call_${p.id}`; // Dynamic ID for the form
 
         var images = p.images;
        
@@ -481,24 +541,18 @@ function appendFilterCard(filterContainer, filter) {
                                     </div>
                                     <div class="col-12 col-sm-12 col-md-6 col-lg-6">
                                         <label for="yr_state" class="form-label text-dark fw-bold" id="state" name="state"> <i class="fas fa-location"></i> State</label>
-                                        <select class="form-select py-2" aria-label=".form-select-lg example" id="state_form" name="state">
-                                            <option value>Select State</option>
-                                            <option value="chhattisgarh">Chhattisgarh</option>
-                                            <option value="other">Other</option>
+                                        <select class="form-select py-2 state-dropdown" aria-label=".form-select-lg example" id="state_form" name="state">
                                         </select>
                                     </div>
                                     <div class="col-12 col-sm-12 col-md-6 col-lg-6">
                                         <label class="form-label text-dark"><i class="fa-solid fa-location-dot"></i> District</label>
-                                        <select class="form-select py-2 " aria-label=".form-select-lg example" name="district" id="district_form">
-                                            <option value>Select District</option>
-                                            <option value="raipur">Raipur</option>
-                                            <option value="bilaspur">Bilaspur</option>
-                                            <option value="durg">Durg</option>
+                                        <select class="form-select py-2 district-dropdown" aria-label=".form-select-lg example" name="district" id="district_form">
                                         </select>
                                     </div>
-                                    <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-2">
-                                        <label for="yr_tehsil" class="form-label text-dark"> Tehsil</label>
-                                        <input type="yr_tehsil" class="form-control" placeholder="Enter Tehsil" id="tehsil" name="tehsil">
+                                    <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+                                        <label class="form-label text-dark mt-2"> Tehsil</label>
+                                        <select class="form-select py-2 tehsil-dropdown" aria-label=".form-select-lg example" Tehsil" id="tehsil" name="tehsil">
+                                        </select>
                                     </div>
                                     <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-2">
                                         <label for="yr_price" class="form-label text-dark">Price</label>
@@ -523,46 +577,29 @@ function appendFilterCard(filterContainer, filter) {
     </div>
 
              `;
-        container.append(newCard);
-    }
-
-    function displayNextSet() {
-        // var productContainer = $("#productContainer");
-    
-        // // Display the next set of filtered cards
-        // filteredCards.slice(cardsDisplayed, cardsDisplayed + cardsPerPage).forEach(function (p) {
-        //     appendCard(productContainer, p);
-        //     cardsDisplayed++;
-        // });
-    
-        // // Hide the "Load More" button if all filtered cards are displayed
-        // if (cardsDisplayed >= filteredCards.length) {
-        //     $("#loadMoreBtn").hide();
-        // }
-        var productContainer = $("#productContainer");
-    
-        var remainingCards = abc.length - cardsDisplayed;
-        var cardsToAppend = Math.min(cardsPerPage, remainingCards);
-    
-        for (var i = cardsDisplayed; i < cardsDisplayed + cardsToAppend; i++) {
-            appendCard(productContainer, abc[i]);
+             filterContainer.append(newCard);
+            }
+            
+            $(document).on('click', '#loadMoreBtn', function () {
+                var productContainer = $("#productContainer");
+                displayNextSet(productContainer);
+            });
+            
+            function displayNextSet(productContainer) {
+                var remainingCards = abc.length - cardsDisplayed;
+                var cardsToAppend = Math.min(cardsPerPage, remainingCards);
+            
+                for (var i = cardsDisplayed; i < cardsDisplayed + cardsToAppend; i++) {
+                    appendFilterCard(productContainer, abc[i]);
+                }
+            
+                cardsDisplayed += cardsToAppend;
+            
+                if (cardsDisplayed >= abc.length) {
+                    $("#loadMoreBtn").hide();
+                }
+            }
         }
-    
-        cardsDisplayed += cardsToAppend;
-    
-        if (cardsDisplayed >= abc.length) {
-            $("#loadMoreBtn").hide();
-        }
-    }
-    
-    $(document).on('click', '#loadMoreBtn', function () {
-        // Display the next set of filtered cards when the "Load More" button is clicked
-        displayNextSet();
-    });
-
-    appendCard(filterContainer, filter);
-    displayNextSet();
-}
 
 
   function resetform(){
@@ -707,3 +744,48 @@ function get_year_and_hours() {
     });
 }
 get_year_and_hours();
+
+
+
+function populateDropdowns() {
+    var stateDropdowns = document.querySelectorAll('.state-dropdown');
+    var districtDropdowns = document.querySelectorAll('.district-dropdown');
+    var tehsilDropdowns = document.querySelectorAll('.tehsil-dropdown');
+
+    var defaultStateId = 7; // Define the default state ID here
+
+    var selectYourStateOption = '<option value="">Select Your State</option>';
+    var chhattisgarhOption = `<option value="${defaultStateId}">Chhattisgarh</option>`;
+
+    stateDropdowns.forEach(function (dropdown) {
+        dropdown.innerHTML = selectYourStateOption + chhattisgarhOption;
+
+        // Fetch district data based on the selected state
+        $.get(`http://tractor-api.divyaltech.com/api/customer/get_district_by_state/${defaultStateId}`, function(data) {
+            var districtSelect = dropdown.closest('.row').querySelector('.district-dropdown');
+            districtSelect.innerHTML = '<option value="">Please select a district</option>';
+            data.districtData.forEach(district => {
+                districtSelect.innerHTML += `<option value="${district.id}">${district.district_name}</option>`;
+            });
+        });
+    });
+
+    // Event listener for district dropdown
+    districtDropdowns.forEach(function (dropdown) {
+        dropdown.addEventListener('change', function() {
+            var selectedDistrictId = this.value;
+            var tehsilSelect = this.closest('.row').querySelector('.tehsil-dropdown');
+            if (selectedDistrictId) {
+                // Fetch tehsil data based on the selected district
+                $.get(`http://tractor-api.divyaltech.com/api/customer/get_tehsil_by_district/${selectedDistrictId}`, function(data) {
+                    tehsilSelect.innerHTML = '<option value="">Please select a tehsil</option>';
+                    data.tehsilData.forEach(tehsil => {
+                        tehsilSelect.innerHTML += `<option value="${tehsil.id}">${tehsil.tehsil_name}</option>`;
+                    });
+                });
+            } else {
+                tehsilSelect.innerHTML = '<option value="">Please select a district first</option>';
+            }
+        });
+    });
+}

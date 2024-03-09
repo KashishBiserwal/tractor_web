@@ -98,15 +98,13 @@
                 <div class="scrollbar mb-3" id=" my-2">
                     <div class="force-overflow">
                         <h5 class=" ps-1 text-dark fw-bold  pt-2">Search By State</h5>
-                        <div class="HP py-2" id="state_state" style=" height: 78px;">
-                        </div>
+                        <div class="HP py-2" id="state_state" style=" height: 78px;"></div>
                     </div>
                 </div>
                 <div class="scrollbar mb-3" id=" my-2">
                     <div class="force-overflow">
                         <h5 class=" ps-1 text-dark fw-bold  pt-2">Search By District</h5>
-                        <div class="HP py-2" id="district_dist">
-                        </div>
+                        <div class="HP py-2" id="district_dist"></div>
                     </div>
                 </div>
                      

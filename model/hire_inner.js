@@ -317,6 +317,15 @@ function get_rent_data() {
     }
   
    // get_rent_data();
+   function formatPriceWithCommas(price) {
+    // Check if the price is not a number
+    if (isNaN(price)) {
+        return price; // Return the original value if it's not a number
+    }
+    
+    // Format the price with commas in Indian format
+    return new Intl.NumberFormat('en-IN').format(price);
+}
 
 
 
@@ -344,23 +353,42 @@ function get_rent_data() {
                             a = [images];
                         }
                     }
+                    var formattedPrice = formatPriceWithCommas(p.price);
                     var newCard = `
                     <div class="item box_shadow b-t-1">
-                  <a  href="used_harvester_inner.php?id=${p.customer_id}" class="text-decoration-none fw-bold">
-                    <div class="harvester_img_section">
-                      <img src="http://tractor-api.divyaltech.com/uploads/product_img/${a[0]}" alt="">
-                      <div href="#" class="over-layer"><i class="fa fa-link"></i></div>
+                    <div class="h-auto success__stry__item d-flex flex-column shadow">
+                    <div class="thumb">
+                        <a href="used_harvester_inner.php?id=${p.customer_id}">
+                            <div class="ratio ratio-16x9">
+                                <img src="http://tractor-api.divyaltech.com/uploads/product_img/${a[0]}" class="object-fit-cover " alt="img">
+                            </div>
+                        </a>
                     </div>
-                  </a>
-                  <div class="harvester_content_section mt-3 text-center">
-                    <a href="used_harvester_inner.php?id=${p.customer_id}" class="text-decoration-none fw-bold text-dark"><h5 class="text-dark">${p.brand_name} ${p.model}</h5></a>
-                    <div class="row w-100">
-                      <div class="col-6 p-0"> <p class="mb-0" style="font-size: 14px;">${p.horse_power} Hp</p></div>
-                      <div class="col-6 p-0"> <p class="mb-0" style="font-size: 14px;">${p.crops_type_value}</p></div>
+                    <div class="content d-flex flex-column flex-grow-1 ">
+                        <div class="caption text-center">
+                            <a href="used_harvester_inner.php?id=${p.customer_id}" class="text-decoration-none text-dark">
+                          
+                                <p class="pt-1"><strong class="series_tractor_strong text-center h6 fw-bold text-truncate "><span>${p.brand_name}</span> <span>${p.model}</span></strong></p>
+                            </a>      
+                        </div>
+                        <div class="power text-center">
+                            <div class="row ">
+                                <div class="col-12 col-lg-6 col-md-6 col-sm-6"><p class="text-success text-truncate ps-2">Price : ₹ <span>${formattedPrice}</span></p></div>
+                                <div class="col-12 col-lg-6 col-md-6 col-sm-6" style="padding-right: 32px;">
+                                     <p id="adduser" type="" class=" rounded-3"> Year : <span>${p.purchase_year}</span></p>
+                                </div>
+                            </div>  
+                            <div class="col-12 text-center">
+                                <p class="text-dark fw-bold">Hours :<span>${p.hours_driven}</span> </p>
+                            </div>  
+                        </div>
                     </div>
-                    <a type="button" href="used_harvester_inner.php?id=${p.customer_id}" class="add_btn text-decoration-none btn-success w-100 mt-3"><i class="fa-regular fa-handshake"></i> Get on Road Price</a>
-                  </div>
-                   
+                    <div class="col-12">
+                        <a href="used_harvester_inner.php?id=${p.customer_id}" id="adduser"class="btn-state btn w-100 btn-success text-decoration-none text-white text-truncate p-2 text-truncate"><span>${p.district_name}</span>, <span><span>${p.state_name}</span></span>
+                        </a>
+                    </div>
+
+                </div>
               
                 </div>
                     `;

@@ -1,9 +1,10 @@
 $(document).ready(function() {
     var allCards = [];
-    getnurseryList(allCards);
+    // getnurseryList(allCards);
     $('#submit_enquiry').click(nursery_enquiry);
     $('#filter_button').click(filter_search);
-    
+    $('#Verify').click(verifyotp);
+    nursery_details_list(allCards);
     $("#nursery_enquiry_form").validate({
         rules: {
             product_id: {
@@ -46,50 +47,47 @@ $(document).ready(function() {
     });
 
 
-
-
-var cardsPerPage = 6; 
-var cardsDisplayed = 0; 
-var allCards; //
-
-function getnurseryList(allCards) {
-    var url = CustomerAPIBaseURL + 'nursery_data';
-
-    // Keep track of the total tractors and the currently displayed tractors
-    var totalnursery = 0;
-    var displayednursery = 6; // Initially display 6 tractors
-
-    $.ajax({
-        url: url,
-        type: "GET",
-        success: function(data) {
-            var productContainer = $("#productContainer");
-            var loadMoreButton = $("#load_moretract");
-
-            if (data.nursery_data && data.nursery_data.length > 0) {
-                // totalEngineoil = data.nursery_data.length;
-                var reversedCards = data.nursery_data.slice().reverse();
-                // Display the initial set of 6 tractors
-                allCards = allCards.concat(reversedCards);
-                displaynursery(productContainer, reversedCards.slice(0, 9).reverse());
-                loadMoreButton.show();
-               
-
-                loadMoreButton.click(function() {
-                    // Display all cards in the opposite order
-                    displayEngineoil(productContainer, allCards.reverse());
-                    // Hide the "View All" button
-                    loadMoreButton.hide();
-                });
+    function nursery_details_list(allCards) {
+        var url = 'http://tractor-api.divyaltech.com/api/customer/nursery_data';
+    
+        $.ajax({
+            url: url,
+            type: "GET",
+            success: function(data) {
+                var productContainer = $("#productContainer");
+                var loadMoreButton = $("#loadMoreBtn");
+                var fullname = data.nursery_data[0].first_name + ' ' + data.nursery_data[0].last_name;
+                document.getElementById('slr_name').value=fullname;
+                document.getElementById('mob_num').value = data.nursery_data[0].mobile;
+                if (data.nursery_data && data.nursery_data.length > 0) {
+                    // Reverse the order of the cards to display the latest ones first
+                    var reversedCards = data.nursery_data.slice().reverse();
+                    
+                    // Update the list of all cards
+                    allCards = allCards.concat(reversedCards);
+                    
+                    // Display the latest 9 cards at the top in the opposite order
+                    displaynursery(productContainer, reversedCards.slice(0, 6).reverse());
+    
+                    // Show the "View All" button
+                    loadMoreButton.show();
+    
+                    // Handle "View All" button click
+                    loadMoreButton.click(function() {
+                        // Display all cards in the opposite order
+                        displaynursery(productContainer, allCards.reverse());
+                        // Hide the "View All" button
+                        loadMoreButton.hide();
+                    });
+                }
+            },
+            error: function(error) {
+                console.error('Error fetching data:', error);
             }
-        },
-        error: function(error) {
-            console.error('Error fetching data:', error);
-        }
-    });
-}
+        });
+    }
 
-
+    
 
         function displaynursery(container, nursery) {
             // Clear existing content
@@ -106,9 +104,9 @@ function getnurseryList(allCards) {
                         a = [images];
                     }
                 }
-        var cardId = `card_${p.product_id}`; // Dynamic ID for the card
-        var modalId = `nursery_callbnt_${p.product_id}`; // Dynamic ID for the modal
-        var formId = `nursery_enquiry_form_${p.product_id}`; // Dynamic ID for the form
+        var cardId = `card_${p.id}`; // Dynamic ID for the card
+        var modalId = `nursery_callbnt_${p.id}`; // Dynamic ID for the modal
+        var formId = `nursery_enquiry_form_${p.id}`; // Dynamic ID for the form
         
         var newCard = `
             <div class="col-12 col-lg-4 col-md-4 col-sm-4 mb-4" id="${cardId}">
@@ -124,12 +122,12 @@ function getnurseryList(allCards) {
                     <div class="content d-flex flex-column flex-grow-1 ">
                         <div class="power text-center mt-3">
                             <div class="col-12">
-                                <p class="text-success fw-bold">${p.nursery_name}</p>
+                                <p class="text-success fw-bold text-truncate">${p.nursery_name}</p>
                             </div>
                         </div>
                         <div class="row text-center">
                             <div class="col-12 text-center">
-                                <p class="fw-bold pe-3">${p.district_name}, ${p.state_name}</p>
+                                <p class="fw-bold pe-3 text-truncate">${p.district_name}, ${p.state_name}</p>
                             </div>
                         </div>
                     </div>
@@ -166,13 +164,13 @@ function getnurseryList(allCards) {
                                             <div class="col-12 col-lg-6 col-md-6 col-sm-6">
                                                 <div class="form-outline">
                                                     <label for="f_name" class="form-label fw-bold"> <i class="fa-regular fa-user"></i> First Name</label>
-                                                    <input type="text" class="form-control mb-0" placeholder="Enter Your Name" id="first_name_1" name="firstName">
+                                                    <input type="text" class="form-control mb-0" placeholder="Enter Your Name" onkeydown="return /[a-zA-Z]/i.test(event.key)" id="first_name_1" name="firstName">
                                                 </div>
                                             </div>
                                             <div class="col-12 col-lg-6 col-md-6 col-sm-6">
                                                 <div class="form-outline">
                                                     <label for="last_name" class="form-label fw-bold"> <i class="fa-regular fa-user"></i> Last Name</label>
-                                                    <input type="text" class="form-control mb-0" placeholder="Enter Your Name" id="last_Name_1" name="lastName">
+                                                    <input type="text" class="form-control mb-0" placeholder="Enter Your Name" onkeydown="return /[a-zA-Z]/i.test(event.key)"  id="last_Name_1" name="lastName">
                                                 </div>
                                             </div>
                                             <div class="col-12 col-sm-6 col-md-6 col-lg-6 mt-4">
@@ -228,7 +226,7 @@ function getnurseryList(allCards) {
 // myDiv.text(myDiv.text().substring(0,120))
         // Append the new card to the container
         container.prepend(newCard);
-       
+        populateDropdowns(p.id);
        
     });
 }
@@ -286,12 +284,19 @@ function savedata(formId) {
     console.log("Form submitted successfully");
 }
 
+function openOTPModal() {
+    $('#get_OTP_btn').modal('show');
+}
+
 function nursery_enquiry(formId) {
+    // Get mobile number from the form
+    var mobile_number = $(`#${formId} #mobile_number_1`).val();
+
+    // Send nursery enquiry request
     var enquiry_type_id = $(`#${formId} #enquiry_type_id`).val();
     var product_id = 3;  // You may need to adjust this based on your logic
     var first_name = $(`#${formId} #first_name_1`).val();
     var last_name = $(`#${formId} #last_Name_1`).val();
-    var mobile_number = $(`#${formId} #mobile_number_1`).val();
     var state = $(`#${formId} #state_1`).val();
     var district = $(`#${formId} #district_1`).val();
     var tehsil = $(`#${formId} #Tehsil_1`).val();
@@ -322,56 +327,176 @@ function nursery_enquiry(formId) {
         // headers: headers, // Remove headers if not needed
         success: function (result) {
             console.log(result, "result");
-            // $(`#${formId}`).closest('.modal').modal('hide');
             $("#used_tractor_callbnt_").modal('hide'); 
-            var msg = "Added successfully !"
-            $("#errorStatusLoading").modal('show');    
-            $("#errorStatusLoading").find('.modal-title').html('<p class="text-center">Congratulation..! Requested Successful</p>');
-         
-            $("#errorStatusLoading").find('.modal-body').html(msg);
-            $("#errorStatusLoading").find('.modal-body').html('<img src="assets/images/7efs.gif" style="display:block; margin:0 auto;" class="w-50 text-center" alt="Successfull Request"></img>');
-          
-            // getOldTractorById();
-            console.log("Add successfully");
-            resetForm(formId);
-          },
-          error: function (error) {
+            var msg = "Added successfully !";
+            $("#errorStatusLoading").modal('hide');
+            get_otp(mobile_number); // Pass mobile number to get_otp function
+            openOTPModal();
+        },
+        error: function (error) {
             console.error('Error fetching data:', error);
             var msg = error;
             $("#errorStatusLoading").modal('show');
             $("#errorStatusLoading").find('.modal-title').html('<p class="text-center">Process Failed..! Enter Valid Detail</p>');
             $("#errorStatusLoading").find('.modal-body').html(msg);
             $("#errorStatusLoading").find('.modal-body').html('<img src="assets/images/comp_3.gif" style="display:block; margin:0 auto;" class="w-50 text-center" alt="Successfull Request"></img>');
-            // 
-          }
+        }
     });
 }
 
+function get_otp(phone) {
+    var url = "http://tractor-api.divyaltech.com/api/customer/customer_login";
+ 
+    var paraArr = {
+        'mobile': phone,
+    };
+
+    $.ajax({
+        url: url,
+        type: "POST",
+        data: paraArr,
+        success: function (result) {
+            console.log(result, "result");
+
+            // Once OTP is received, store mobile number in hidden field within modal
+            $('#Mobile').val(phone);
+
+        },
+        error: function (error) {
+            console.error('Error fetching data:', error);
+        }
+    });
+}
+
+  function verifyotp() {
+    var mobile = document.getElementById('Mobile').value;
+    var otp = document.getElementById('otp').value;
+
+    var paraArr = {
+        'otp': otp,
+        'mobile': mobile,
+    }
+    var url = 'http://tractor-api.divyaltech.com/api/customer/verify_otp';
+    $.ajax({
+        url: url,
+        type: "POST",
+        data: paraArr,
+        success: function (result) {
+            console.log(result);
+
+            // Assuming your model has an ID 'myModal', hide it on success
+            $('#get_OTP_btn').modal('hide'); // Assuming it's a Bootstrap modal
+            $('#staticBackdrop').modal('show');
+            // Reset input fields
+            // document.getElementById('phone').value = ''; 
+            // document.getElementById('otp').value = ''; 
+
+            // Access data field in the response
+        }, 
+        error: function (xhr, textStatus, errorThrown) {
+            console.log(xhr.status, 'error');
+            if (xhr.status === 401) {
+                console.log('Invalid credentials');
+                var htmlcontent = `<p>Invalid credentials!</p>`;
+                document.getElementById("error_message").innerHTML = htmlcontent;
+            } else if (xhr.status === 403) {
+                console.log('Forbidden: You don\'t have permission to access this resource.');
+                var htmlcontent = ` <p> You don't have permission to access this resource.</p>`;
+                document.getElementById("error_message").innerHTML = htmlcontent;
+            } else {
+                console.log('An error occurred:', textStatus, errorThrown);
+                var htmlcontent = `<p>An error occurred while processing your request.</p>`;
+                document.getElementById("error_message").innerHTML = htmlcontent;
+            }
+        },
+    });
+}
 //   function savedata(){
 //     nursery_enquiry();
 //     console.log("confirm");
 //     console.log("Form submitted successfully");
 //   }
+function getState() {
+    var url = 'http://tractor-api.divyaltech.com/api/customer/state_data';
+    $.ajax({
+        url: url,
+        type: "GET",
+        headers: {
+            'Authorization': 'Bearer ' + localStorage.getItem('token')
+        },
+        success: function(data) {
+            console.log("State data:", data);
 
+            const checkboxContainer = $('#state_state');
+            checkboxContainer.empty(); // Clear existing checkboxes
+            
+            const stateId = 7; // Replace 7 with the desired state ID
+            const filteredState = data.stateData.find(state => state.id === stateId);
+            if (filteredState) {
+                var checkboxHtml = '<input type="checkbox" class="checkbox-round mt-1 ms-3 state_checkbox" value="' + filteredState.id + '"/>' +
+                    '<span class="ps-2 fs-6">' + filteredState.state_name + '</span> <br/>';
+                checkboxContainer.append(checkboxHtml);
+                // Call getDistricts with the stateId
+                ge_tDistricts(stateId);
+            } else {
+                checkboxContainer.html('<p>No valid data available</p>');
+            }
+        },
+        error: function(error) {
+            console.error('Error fetching state data:', error);
+        }
+    });
+}
+
+function ge_tDistricts(stateId) {
+    var url = 'http://tractor-api.divyaltech.com/api/customer/get_district_by_state/' + stateId;
+    $.ajax({
+        url: url,
+        type: "GET",
+        headers: {
+            'Authorization': 'Bearer ' + localStorage.getItem('token')
+        },
+        success: function(data) {
+            console.log("District data:", data);
+            
+            const checkboxContainer = $('#get_dist');
+            checkboxContainer.empty(); // Clear existing checkboxes
+            
+            if (data && data.districtData && data.districtData.length > 0) {
+                data.districtData.forEach(district => {
+                    var checkboxHtml = '<input type="checkbox" class="checkbox-round mt-1 ms-3 district_checkbox" value="' + district.id + '" id="district_' + district.id + '"/>' +
+                        '<label for="district_' + district.id + '" class="ps-2 fs-6">' + district.district_name + '</label> <br/>';
+                    checkboxContainer.append(checkboxHtml);
+                });
+            } else {
+                checkboxContainer.html('<p>No districts available for this state</p>');
+            }
+        },
+        error: function(error) {
+            console.error('Error fetching districts:', error);
+        }
+    });
+}
+// Call the get function to start fetching state data
+getState();
 var filteredCards = [];
 var cardsDisplayed = 0;
 var cardsPerPage = 6;
 
 function filter_search() {
-    var checkboxes = $(".select_state:checked");
-    var checkboxes2 = $(".select_district:checked");
+    var checkboxesState = $(".state_checkbox:checked");
+    var checkboxesdist = $(".district_checkbox:checked");
 
-    var selectedCheckboxValues = checkboxes.map(function () {
+    var selectedState = checkboxesState.map(function () {
         return $(this).val();
     }).get();
-
-    var selectedCheckboxValues2 = checkboxes2.map(function () {
+    var selectedDistrict = checkboxesdist.map(function () {
         return $(this).val();
     }).get();
 
     var paraArr = {
-        'state': JSON.stringify(selectedCheckboxValues),
-        'district': JSON.stringify(selectedCheckboxValues2),
+        'state': JSON.stringify(selectedState),
+        'district': JSON.stringify(selectedDistrict),
     };
 
     console.log(paraArr);
@@ -388,14 +513,29 @@ function filter_search() {
             var filterContainer = $("#productContainer");
             filterContainer.empty();
 
-            searchData.nursery_data.forEach(function (filter) {
-                appendFilterCard(filterContainer, filter);
-            });
-
-         
+            if (searchData.nursery_data.length > 0) {
+                searchData.nursery_data.forEach(function (filter) {
+                    appendFilterCard(filterContainer, filter);
+                });
+                $("#noDataMessage").hide();
+                $("#noDataMessage img").hide();
+                $("#loadMoreBtn").hide(); // Hide the load more button when filtered data is displayed
+            } else {
+                $("#productContainer").empty();
+                $("#noDataMessage").show();
+                $("#noDataMessage img").show();
+                $("#loadMoreBtn").hide();
+            }
         },
-        error: function (error) {
-            console.error('Error searching for brands:', error);
+        error: function (jqXHR, textStatus, errorThrown) {
+            console.error('Error searching for brands:', errorThrown);
+
+            if (jqXHR.status === 400 || jqXHR.status === 404) { // Corrected logical OR operator
+                $("#productContainer").empty();
+                $("#noDataMessage").show();
+                $("#noDataMessage img").show();
+                $("#loadMoreBtn").hide();
+            }
         }
     });
 }
@@ -411,40 +551,40 @@ function appendFilterCard(filterContainer, filter) {
                 a = [images];
             }
         }
-        var cardId = `card_${p.product_id}`; // Dynamic ID for the card
-        var modalId = `nursery_callbnt_${p.product_id}`; // Dynamic ID for the modal
-        var formId = `nursery_enquiry_form_${p.product_id}`; // Dynamic ID for the form
+        var cardId = `card_${p.id}`; // Dynamic ID for the card
+        var modalId = `nursery_callbnt_${p.id}`; // Dynamic ID for the modal
+        var formId = `nursery_enquiry_form_${p.id}`; // Dynamic ID for the form
         
         var newCard = `
-            <div class="col-12 col-lg-4 col-md-4 col-sm-4 mb-4" id="${cardId}">
-                <a href="nursery_inner.php?id=${p.id}"
-                    class="h-auto success__stry__item text-decoration-none d-flex flex-column shadow ">
-                    <div class="thumb">
-                        <div>
-                            <div class="ratio ratio-16x9">
-                                <img src="http://tractor-api.divyaltech.com/uploads/nursery_img/${a[0]}" class="object-fit-cover " alt="img">
-                            </div>
-                        </div>
+        <div class="col-12 col-lg-4 col-md-4 col-sm-4 mb-4" id="${cardId}">
+        <a href="nursery_inner.php?id=${p.id}"
+            class="h-auto success__stry__item text-decoration-none d-flex flex-column shadow ">
+            <div class="thumb">
+                <div>
+                    <div class="ratio ratio-16x9">
+                        <img src="http://tractor-api.divyaltech.com/uploads/nursery_img/${a[0]}" class="object-fit-cover " alt="img">
                     </div>
-                    <div class="content d-flex flex-column flex-grow-1 ">
-                        <div class="power text-center mt-3">
-                            <div class="col-12">
-                                <p class="text-success fw-bold">${p.nursery_name}</p>
-                            </div>
-                        </div>
-                        <div class="row text-center">
-                            <div class="col-12 text-center">
-                                <p class="fw-bold pe-3">${p.district}, ${p.state}</p>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-                <div class="col-12 btn-success">
-                    <button type="button" class="btn btn-success py-2 w-100" data-bs-toggle="modal"
-                        data-bs-target="#${modalId}"><i class="fa-solid fa-phone"></i>
-                        Contact Nursery
-                    </button>
                 </div>
+            </div>
+            <div class="content d-flex flex-column flex-grow-1 ">
+                <div class="power text-center mt-3">
+                    <div class="col-12">
+                        <p class="text-success fw-bold">${p.nursery_name}</p>
+                    </div>
+                </div>
+                <div class="row text-center">
+                    <div class="col-12 text-center">
+                        <p class="fw-bold pe-3 text-truncate">${p.district_name}, ${p.state_name}</p>
+                    </div>
+                </div>
+            </div>
+        </a>
+        <div class="col-12 btn-success">
+            <button type="button" class="btn btn-success py-2 w-100" data-bs-toggle="modal"
+                data-bs-target="#${modalId}"><i class="fa-solid fa-phone"></i>
+                Contact Nursery
+            </button>
+        </div>
         
                 <!-- Modal -->
                 <div class="modal fade" id="${modalId}" data-bs-backdrop="static"
@@ -471,13 +611,13 @@ function appendFilterCard(filterContainer, filter) {
                                             <div class="col-12 col-lg-6 col-md-6 col-sm-6">
                                                 <div class="form-outline">
                                                     <label for="f_name" class="form-label fw-bold"> <i class="fa-regular fa-user"></i> First Name</label>
-                                                    <input type="text" class="form-control mb-0" placeholder="Enter Your Name" id="first_name_1" name="firstName">
+                                                    <input type="text" class="form-control mb-0" placeholder="Enter Your Name" onkeydown="return /[a-zA-Z]/i.test(event.key)" id="first_name_1" name="firstName">
                                                 </div>
                                             </div>
                                             <div class="col-12 col-lg-6 col-md-6 col-sm-6">
                                                 <div class="form-outline">
                                                     <label for="last_name" class="form-label fw-bold"> <i class="fa-regular fa-user"></i> Last Name</label>
-                                                    <input type="text" class="form-control mb-0" placeholder="Enter Your Name" id="last_Name_1" name="lastName">
+                                                    <input type="text" class="form-control mb-0" placeholder="Enter Your Name" onkeydown="return /[a-zA-Z]/i.test(event.key)" id="last_Name_1" name="lastName">
                                                 </div>
                                             </div>
                                             <div class="col-12 col-sm-6 col-md-6 col-lg-6 mt-4">
@@ -532,6 +672,7 @@ function appendFilterCard(filterContainer, filter) {
             </div>
         `;
         container.append(newCard);
+        populateDropdowns(p.id);
     }
 
    
@@ -569,3 +710,36 @@ function appendFilterCard(filterContainer, filter) {
     window.location.reload();
     
   }
+
+
+  function get() {
+    var url = 'http://tractor-api.divyaltech.com/api/customer/state_data';
+    $.ajax({
+        url: url,
+        type: "GET",
+        headers: {
+            'Authorization': 'Bearer ' + localStorage.getItem('token')
+        },
+        success: function(data) {
+            console.log("State data:", data);
+
+            const checkboxContainer = $('#state_state');
+            checkboxContainer.empty(); // Clear existing checkboxes
+            
+            const stateId = 7; // Replace 7 with the desired state ID
+            const filteredState = data.stateData.find(state => state.id === stateId);
+            if (filteredState) {
+                var checkboxHtml = '<input type="checkbox" class="checkbox-round mt-1 ms-3 state_checkbox" value="' + filteredState.id + '"/>' +
+                    '<span class="ps-2 fs-6">' + filteredState.state_name + '</span> <br/>';
+                checkboxContainer.append(checkboxHtml);
+                // Call getDistricts with the stateId
+                getDistricts(stateId);
+            } else {
+                checkboxContainer.html('<p>No valid data available</p>');
+            }
+        },
+        error: function(error) {
+            console.error('Error fetching state data:', error);
+        }
+    });
+}
