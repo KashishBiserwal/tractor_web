@@ -246,11 +246,11 @@
                         <div class="row px-3 py-2">
                             <div class="col-12  col-sm-12 col-md-6 col-lg-6 ">
                                 <label for="slr_name"class="form-label fw-bold text-dark"><i class="fa-regular fa-user"></i>Seller Name</label>
-                                <input type="text" class="form-control" id="slr_name">
+                                <input type="text" class="form-control" id="saller_name">
                             </div>
                             <div class="col-12 col-sm-12 col-md-6 col-lg-6  ">
                                 <label for="number"class="form-label text-dark fw-bold"><i class="fa fa-phone"aria-hidden="true"></i>Phone Number</label>
-                                <input type="text" class="form-control" id="mob_num">
+                                <input type="text" class="form-control" id="mobile_num">
                             </div>
                         </div>
                     </div>

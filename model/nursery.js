@@ -261,58 +261,59 @@ function store(event) {
                   'Authorization': 'Bearer ' + localStorage.getItem('token')
               },
               success: function (data) {
-                const tableBody = document.getElementById('data-table');
-                let serialNumber = 1;
-                let tableData = [];
+                  const tableBody = document.getElementById('data-table');
+                  let serialNumber = 1;
+                  let tableData = [];
       
                   if (data.nursery_data && data.nursery_data.length > 0) {
-                      data.nursery_data.forEach(row => {
-                        let action = `   <div class="d-flex">
-                        <button class="btn btn-warning text-white btn-sm mx-1" onclick="openViewdata(${row.product_id})" data-bs-toggle="modal" data-bs-target="#view_model_nursery" id="viewbtn">
-                            <i class="fa fa-eye" style="font-size: 11px;"></i>
-                        </button>
-                        <button class="btn btn-primary btn-sm btn_edit" onclick=" fetch_edit_data_nursery(${row.id})" data-bs-toggle="modal" data-bs-target="#editmodel" id="your_UniqueId">
-                            <i class="fas fa-edit" style="font-size: 11px;"></i>
-                        </button>
-                        <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.id})">
-                            <i class="fa fa-trash" style="font-size: 11px;"></i>
-                        </button>
-                    </div>`;
-        
-                        // Push row data as an array into the tableData
-                        tableData.push([
-                          serialNumber,
-                          row.nursery_name,
-                          row.mobile,
-                          row.state,
-                          row.district,
-                          action
-                      ]);
-        
-                      serialNumber++;
-                  });
-        
-                  // Initialize DataTable after preparing the tableData
-                  $('#example').DataTable().destroy();
-                  $('#example').DataTable({
+                      // Reverse the data array to show the latest added data at the top
+                      data.nursery_data.reverse().forEach(row => {
+                          let action = `<div class="d-flex">
+                              <button class="btn btn-warning text-white btn-sm mx-1" onclick="openViewdata(${row.id})" data-bs-toggle="modal" data-bs-target="#view_model_nursery" id="viewbtn">
+                                  <i class="fa fa-eye" style="font-size: 11px;"></i>
+                              </button>
+                              <button class="btn btn-primary btn-sm btn_edit" onclick="fetch_edit_data_nursery(${row.id})" data-bs-toggle="modal" data-bs-target="#editmodel" id="your_UniqueId">
+                                  <i class="fas fa-edit" style="font-size: 11px;"></i>
+                              </button>
+                              <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.id})">
+                                  <i class="fa fa-trash" style="font-size: 11px;"></i>
+                              </button>
+                          </div>`;
+      
+                          // Push row data as an array into the tableData
+                          tableData.push([
+                              serialNumber,
+                              row.nursery_name,
+                              row.mobile,
+                              row.state_name,
+                              row.district_name,
+                              action
+                          ]);
+      
+                          serialNumber++;
+                      });
+      
+                      // Initialize DataTable after preparing the tableData
+                      $('#example').DataTable().destroy();
+                      $('#example').DataTable({
                           data: tableData,
                           columns: [
-                            { title: 'S.No.' },
-                            { title: 'Name' },
-                            { title: 'Phone Number' },
-                            { title: 'State' },
-                            { title: 'District' },
-                            { title: 'Action', orderable: false } // Disable ordering for Action column
-                        ],
+                              { title: 'S.No.' },
+                              { title: 'Name' },
+                              { title: 'Phone Number' },
+                              { title: 'State' },
+                              { title: 'District' },
+                              { title: 'Action', orderable: false } // Disable ordering for Action column
+                          ],
                           paging: true,
                           searching: false,
                           // ... other options ...
                       });
-                 
+      
                   } else {
-                      tableBody.innerHTML = '<tr><td colspan="9">No valid data available</td></tr>';
+                      tableBody.innerHTML = '<tr><td colspan="6">No valid data available</td></tr>';
                   }
-                        
+      
               },
               error: function (error) {
                   console.error('Error fetching data:', error);
@@ -321,6 +322,7 @@ function store(event) {
       }
       
       nursery_data();
+      
       
 // delete
 function destroy(id) {
@@ -359,9 +361,9 @@ function destroy(id) {
 }
 
 // View data
-function openViewdata(userId) {
+function openViewdata(Id) {
   var apiBaseURL = APIBaseURL;
-  var url = apiBaseURL + 'nursery_data/' + userId;
+  var url = apiBaseURL + 'nursery_data/' + Id;
 
   var headers = {
     'Authorization': 'Bearer ' + localStorage.getItem('token')
@@ -379,9 +381,9 @@ function openViewdata(userId) {
       document.getElementById('fname1').innerText=userData.first_name;
       document.getElementById('lname1').innerText=userData.last_name;
       document.getElementById('number1').innerText=userData.mobile;
-      document.getElementById('state1').innerText=userData.state;
-      document.getElementById('dist1').innerText=userData.district;
-      document.getElementById('tehsil1').innerText=userData.tehsil;
+      document.getElementById('state1').innerText=userData.state_name;
+      document.getElementById('dist1').innerText=userData.district_name;
+      document.getElementById('tehsil1').innerText=userData.tehsil_name;
       document.getElementById('loc1').innerText=userData.address;
       document.getElementById('textarea').innerText=userData.description;
       
@@ -577,7 +579,7 @@ function edit_data_id(id){
       if (data.nursery && data.nursery.length > 0) {
           data.nursery.forEach(row => {
             let action = `   <div class="d-flex">
-            <button class="btn btn-warning text-white btn-sm mx-1" onclick="openViewdata(${row.product_id})" data-bs-toggle="modal" data-bs-target="#view_model_nursery" id="viewbtn">
+            <button class="btn btn-warning text-white btn-sm mx-1" onclick="openViewdata(${row.id})" data-bs-toggle="modal" data-bs-target="#view_model_nursery" id="viewbtn">
                 <i class="fa fa-eye" style="font-size: 11px;"></i>
             </button>
             <button class="btn btn-primary btn-sm btn_edit" onclick=" fetch_edit_data_nursery(${row.id})" data-bs-toggle="modal" data-bs-target="#editmodel" id="your_UniqueId">
@@ -593,8 +595,8 @@ function edit_data_id(id){
               serialNumber,
               row.nursery_name,
               row.mobile,
-              row.state,
-              row.district,
+              row.state_name,
+              row.district_name,
               action
           ]);
 

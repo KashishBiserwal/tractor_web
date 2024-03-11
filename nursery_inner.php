@@ -52,15 +52,15 @@
                 <h4 id="district_main"></h4>
                 </div>
                 <div>
-                    <div class="swiper swiper_buy mySwiper2_buy">
-                        <div class="swiper-wrapper swiper-wrapper_buy">
-                            <div class=" swiper-slide swiper-slide_buy">
-                                 <!-- <img class="img_buy" src="assets/images/437-1632718440.webp" /> -->
+                        <div class="swiper swiper_buy mySwiper2_buy">
+                            <div class="swiper-wrapper swiper-wrapper_buy">
+                                <div class=" swiper-slide swiper-slide_buy">
+                                    <!-- <img class="img_buy" src="assets/images/437-1632718440.webp" /> -->
+                                </div>
                             </div>
                         </div>
+                        <div thumbsSlider="" class="swiper mySwiper_buy" style="height:75px; width: 43%;" id="swip_img"></div>
                     </div>
-                    <div thumbsSlider="" class="swiper mySwiper_buy" style="height:50px; width: 43%;" id="swip_img"></div>
-                </div>
             </div>
                 <div class="col-12 col-sm-6 col-lg-6 col-md-6">
                     <form action="" id="nursery_form" class="bg-light shadow " method="post">
@@ -212,114 +212,149 @@
             </table>
         </div>
     </section>
+
+    <div class="modal fade" id="get_OTP_btn_inner" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header bg-success">
+                    <h1 class="modal-title fs-5 text-white" id="exampleModalLabel">Verify Your OTP</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><img src="assets/images/close.png" class=" w-100"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="otp_form">
+                        <div class=" col-12 input-group">
+                        <div class="col-12" hidden>
+                                <label for="Mobile" class=" text-dark float-start pl-2">Munber</label>
+                                <input type="text" class="form-control text-dark" placeholder="Enter OTP" id="Mobile_2"name="Mobile">
+                            </div>
+                            <div class="col-12">
+                                <label for="Mobile" class=" text-dark float-start pl-2">Enter OTP</label>
+                                <input type="text" class="form-control text-dark" placeholder="Enter OTP" id="otp_2"name="opt_1">
+                            </div>
+                            <div class="float-end col-12">
+                                <a href="" class="float-end">Resend OTP</a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> -->
+                    <button type="button" class="btn btn-success" id="Verify_inner">Verify</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="staticBackdrop_inner" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Contact Seller</h5>
+                    <button type="button" class="btn-close btn-success" data-bs-dismiss="modal" aria-label="Close"><img src="assets/images/close.png"class="w-25"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="model-cont">
+                        <h4 class="text-center text-danger">Seller Information</h3>
+                        <div class="row px-3 py-2">
+                            <div class="col-12  col-sm-12 col-md-6 col-lg-6 ">
+                                <label for="slr_name"class="form-label fw-bold text-dark"><i class="fa-regular fa-user"></i>Seller Name</label>
+                                <input type="text" class="form-control" id="slr_name_1">
+                            </div>
+                            <div class="col-12 col-sm-12 col-md-6 col-lg-6  ">
+                                <label for="number"class="form-label text-dark fw-bold"><i class="fa fa-phone"aria-hidden="true"></i>Phone Number</label>
+                                <input type="text" class="form-control" id="mob_num_1">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button"  id="got_it_btn_1 "class="btn btn-secondary"data-bs-dismiss="modal">Close</button>
+                    <!-- <button type="button" class="btn btn-danger" id="got_it_btn">Got It</button> -->
+                </div>
+            </div>
+        </div>
+    </div>
+
 <section class="mt-3">
         <div class="container">
             <h2 class="fw-bold text-dark text-start mt-4 assured ps-3">Similar Product</h3>
                 <div id="productContainer" class="row">
-                  <!--   <div class="col-12 col-lg-3 col-md-3 col-sm-3 mb-4">
-                        <div class="h-auto success__stry__item d-flex flex-column text-decoration-none shadow ">
-                            <div class="thumb">
-                                <div>
-                                    <a href="#" class="ratio ratio-16x9">
-                                        <img src="assets/images/navaneet-farms-nursery-puttur-44.webp"
-                                            class="object-fit-cover " alt="img">
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="content d-flex flex-column flex-grow-1 ">
-                                <div class="power text-center mt-3">
-                                    <div class="col-12">
-                                        <p class="text-success fw-bold">Nursery Name</p>
-                                    </div>
-                                </div>
-                                <div class="row text-center">
-                                    <div class="col-12 text-center">
-                                        <p class="fw-bold pe-3 text-primary">Raipur,Chhattisgarh</p>
-                                    </div>
-                                </div>
-                                <div class="col-12 btn-success">
-                                    <button type="button" class="btn btn-success py-2 w-100" data-bs-toggle="modal"
-                                        data-bs-target="#staticBackdrop"><i class="fa-solid fa-phone"></i>
-                                        Contact Nursery
-                                    </button>
-                                </div>
-
-                              
-                                <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static"
-                                    data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel"
-                                    aria-hidden="true">
-                                    <div class="modal-dialog modal-lg modal-dialog-centered">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title text-danger" id="staticBackdropLabel">Contact
-                                                    Nursery</h5>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                    aria-label="Close"></button>
-                                            </div>
-                                            <div class="modal-body">
-                                                <div class="model-cont">
-                                                    <h4 class="text-center text-danger">Request to Call</h3>
-                                                        <div class="row px-3 py-2">
-                                                            <div class="col-12  col-sm-12 col-md-6 col-lg-6 ">
-                                                                <label for="slr_name"
-                                                                    class="form-label fw-bold text-dark"> Seller
-                                                                    Name</label>
-                                                                <input type="text" class="form-control" id="slr_name">
-                                                            </div>
-                                                            <div class="col-12 col-sm-12 col-md-6 col-lg-6  ">
-                                                                <label for="number"
-                                                                    class="form-label text-dark fw-bold"> Phone
-                                                                    Number</label>
-                                                                <input type="text" class="form-control" id="number">
-                                                            </div>
-                                                            <div class="col-12 col-sm-12 col-md-6 col-lg-6  ">
-                                                                <label for="number"
-                                                                    class="form-label text-dark fw-bold"> State</label>
-                                                                <select class="form-select py-2 "
-                                                                    aria-label=".form-select-lg example">
-                                                                    <option selected>Select State</option>
-                                                                    <option value="1">Chhattisgarh</option>
-                                                                    <option value="2">Other</option>
-                                                                </select>
-                                                            </div>
-                                                            <div class="col-12 col-sm-12 col-md-6 col-lg-6  ">
-                                                                <label for="number"
-                                                                    class="form-label text-dark fw-bold">
-                                                                    District</label>
-                                                                <select class="form-select py-2 "
-                                                                    aria-label=".form-select-lg example">
-                                                                    <option selected>Select District</option>
-                                                                    <option value="1">Mungeli</option>
-                                                                    <option value="2">Durg</option>
-                                                                </select>
-                                                            </div>
-                                                        </div>
-                                                </div>
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary"
-                                                    data-bs-dismiss="modal">Close</button>
-                                                <button type="button" class="btn btn-danger">Request</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div> -->
-                 
-                </div>
+                 </div>
         </div>
         <div class="col text-center my-3 pb-5">
             <a href="nursery_ui.php" class="btn btn-success btn-lg">View All</a>
         </div>
     </section>
 
+    
+<!-- Modal -->
+<div class="modal fade" id="get_OTP_btn" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header bg-success">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Verify Your OTP</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><img src="assets/images/close.png" class=" w-100"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="otp_form">
+                        <div class=" col-12 input-group">
+                        <!-- <div class="col-12" hidden>
+                                <label for="Mobile" class=" text-dark float-start pl-2">Enter OTP</label>
+                                <input type="text" class="form-control text-dark" placeholder="Enter OTP" id="Mobile"name="Mobile">
+                            </div> -->
+                            <div class="col-12">
+                                <label for="Mobile" class=" text-dark float-start pl-2">Enter OTP</label>
+                                <input type="text" class="form-control text-dark" placeholder="Enter OTP" id="otp"name="opt_1">
+                            </div>
+                            <div class="float-end col-12">
+                                <a href="" class="float-end">Resend OTP</a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> -->
+                    <button type="button" class="btn btn-success" id="Verify">Verify</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Contact Seller</h5>
+                    <button type="button" class="btn-close btn-success" data-bs-dismiss="modal" aria-label="Close"><img src="assets/images/close.png"class="w-25"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="model-cont">
+                        <h4 class="text-center text-danger">Seller Information</h3>
+                        <div class="row px-3 py-2">
+                            <div class="col-12  col-sm-12 col-md-6 col-lg-6 ">
+                                <label for="slr_name"class="form-label fw-bold text-dark"><i class="fa-regular fa-user"></i>Seller Name</label>
+                                <input type="text" class="form-control" id="slr_name">
+                            </div>
+                            <div class="col-12 col-sm-12 col-md-6 col-lg-6  ">
+                                <label for="number"class="form-label text-dark fw-bold"><i class="fa fa-phone"aria-hidden="true"></i>Phone Number</label>
+                                <input type="text" class="form-control" id="mob_num">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button"  id="got_it_btn "class="btn btn-secondary"data-bs-dismiss="modal">Close</button>
+                    <!-- <button type="button" class="btn btn-danger" id="got_it_btn">Got It</button> -->
+                </div>
+            </div>
+        </div>
+    </div>
+
     <?php
     include 'includes/footer.php';
     include 'includes/footertag.php';
     ?>
-
+  
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 
 

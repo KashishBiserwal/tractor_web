@@ -108,13 +108,13 @@ include 'includes/headertag.php';
                             
                             <!-- <input type="checkbox" class="text-align-center ms-3" value=""/><span> This is checkbox </span><br /> -->
                             <!-- <input type="checkbox" class="checkbox-round mt-1 ms-3 hp_checkbox" name="checkbox1" value="0 - 20"/><lable class="ps-2 mt-0 fs-6" for="checkbox1">0 HP - 20 HP</lable><br/> -->
-                            <input type="checkbox" class=" checkbox-round mt-1 ms-3 hp_checkbox" id="vehicle1" name="vehicle1" value="0 - 20"><label for="vehicle1" class="fs-6 ps-2">0 HP - 20 HP</label><br>
+                            <input type="checkbox" class="checkbox-round mt-1 ms-3 hp_checkbox" id="vehicle1" name="vehicle1" value="0 - 20"><label for="vehicle1" class="fs-6 ps-2">0 HP - 20 HP</label><br>
                             <input type="checkbox" class="checkbox-round mt-1 ms-3 hp_checkbox" id="vehicle2" value="21 - 30"/><label class="ps-2 fs-6" for="vehicle2">21 HP - 30 HP</label><br />
                             <input type="checkbox" class="checkbox-round mt-1 ms-3 hp_checkbox" id="vehicle3" value="21 - 30"/><label class="ps-2 fs-6" for="vehicle3">21 HP - 30 HP</label><br />
                             <input type="checkbox" class="checkbox-round mt-1 ms-3 hp_checkbox" id="vehicle4" value="31 - 40"/><lable class="ps-2 mt-0 fs-6" for="vehicle4">31 HP - 40 HP</lable><br />
                             <input type="checkbox" class="checkbox-round mt-1 ms-3 hp_checkbox" id="vehicle5" value="41 - 50"/><lable class="ps-2 mt-0 fs-6" for="vehicle5">41 HP - 50 HP</lable><br />
                             <input type="checkbox" class="checkbox-round mt-1 ms-3 hp_checkbox" id="vehicle6" value="51 - 60"/><lable class="ps-2 mt-0  fs-6" for="vehicle6">51 HP - 60 HP</lable><br />
-                            <input type="checkbox" class="checkbox-round mt-1 ms-3 hp_checkbox" value="61 - 70" id="vehicle7"/><lable class="ps-2 mt-0 fs-6" for="vehicle7">61 HP - 75 HP</lable><br />
+                            <input type="checkbox" class="checkbox-round mt-1 ms-3 hp_checkbox" id="vehicle7" value="61 - 70"/><lable class="ps-2 mt-0 fs-6" for="vehicle7">61 HP - 75 HP</lable><br />
                             <input type="checkbox" class="checkbox-round mt-1 ms-3 hp_checkbox" id="vehicle8" value="71 - 80"/><lable class="ps-2 mt-0 fs-6" for="vehicle8">Above 75 Hp </lable><br />
                         </div>
                     </div>

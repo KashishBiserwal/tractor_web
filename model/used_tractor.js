@@ -33,12 +33,14 @@ function getoldTractorList() {
         url: url,
         type: "GET",
         success: function (data) {
-            var productContainer = $("#productContainer");
-            // Clear the existing content in the container
-            productContainer.empty();
             var fullname = data.product[0].first_name + ' ' + data.product[0].last_name;
-            document.getElementById('slr_name').value = fullname;
-            document.getElementById('mob_num').value = data.product[0].mobile;
+            document.getElementById('saller_name').value=fullname;
+            document.getElementById('mobile_num').value = data.product[0].mobile;
+            var productContainer = $("#productContainer");
+            
+          
+            // productContainer.empty();
+            
             if (data.product && data.product.length > 0) {
                 // Reverse the order of the cards to display the latest ones first
                 allCards = data.product.slice().reverse();
@@ -165,11 +167,11 @@ function appendCard(container, p) {
                                 </div>
                                 <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
                                     <label for="name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i> First Name</label>
-                                    <input type="text" class="form-control" placeholder="Enter Your Name" id="fname" name="fname">
+                                    <input type="text" class="form-control" placeholder="Enter Your Name" onkeydown="return /[a-zA-Z]/i.test(event.key)" id="fname" name="fname">
                                 </div>
                                 <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
                                     <label for="name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i> Last Name</label>
-                                    <input type="text" class="form-control" placeholder="Enter Your Name" id="lname" name="lname">
+                                    <input type="text" class="form-control" placeholder="Enter Your Name" onkeydown="return /[a-zA-Z]/i.test(event.key)" id="lname" name="lname">
                                 </div>
                                 <div class="col-12 ">
                                     <label for="number" class="form-label text-dark fw-bold"> <i class="fa fa-phone" aria-hidden="true"></i> Phone Number</label>
@@ -318,7 +320,7 @@ var url = "http://tractor-api.divyaltech.com/api/customer/customer_enquiries";
         // $('#get_OTP_btn').modal('show');
         $("#errorStatusLoading").modal('hide');
         // $("#get_OTP_btn_").modal('show');
-        get_otp();
+        get_otp(mobile); // Pass mobile number to get_otp function
         openOTPModal();
       },
       error: function (error) {
@@ -333,37 +335,32 @@ var url = "http://tractor-api.divyaltech.com/api/customer/customer_enquiries";
     });
   }
 
- 
- 
-  function get_otp() {
-    var phone = $('#number').val();
+  function get_otp(phone) {
     var url = "http://tractor-api.divyaltech.com/api/customer/customer_login";
  
     var paraArr = {
-     'mobile': phone,
-   };
-   //  var token = localStorage.getItem('token');
-   //   var headers = {
-   //   'Headers': 'Bearer ' + token
-   //   };
+        'mobile': phone,
+    };
+
     $.ajax({
-      url: url,
-      type: "POST",
-      data: paraArr,
-     //  headers: headers,
-      success: function (result) {
-        console.log(result, "result");
-       
-      },
-      error: function (error) {
-        console.error('Error fetching data:', error);
-      }
+        url: url,
+        type: "POST",
+        data: paraArr,
+        success: function (result) {
+            console.log(result, "result");
+
+            // Once OTP is received, store mobile number in hidden field within modal
+            $('#Mobile').val(phone);
+
+        },
+        error: function (error) {
+            console.error('Error fetching data:', error);
+        }
     });
-  }
+}
 
-
-  function verifyotp() {
-    var mobile = document.getElementById('number').value;
+function verifyotp() {
+    var mobile = document.getElementById('Mobile').value;
     var otp = document.getElementById('otp').value;
 
     var paraArr = {
@@ -405,7 +402,6 @@ var url = "http://tractor-api.divyaltech.com/api/customer/customer_enquiries";
         },
     });
 }
-
 // search cards by hp, brand, price, state, district
 function getBrand() {
     // var apiBaseURL = CustomerAPIBaseURL;
@@ -743,11 +739,11 @@ function appendFilterCard(filterContainer, p) {
                                     </div>
                                     <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
                                         <label for="name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i> First Name</label>
-                                        <input type="text" class="form-control" placeholder="Enter Your Name" id="fname" name="fname">
+                                        <input type="text" class="form-control" placeholder="Enter Your Name" onkeydown="return /[a-zA-Z]/i.test(event.key)" id="fname" name="fname">
                                     </div>
                                     <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
                                         <label for="name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i> Last Name</label>
-                                        <input type="text" class="form-control" placeholder="Enter Your Name" id="lname" name="lname">
+                                        <input type="text" class="form-control" placeholder="Enter Your Name" onkeydown="return /[a-zA-Z]/i.test(event.key)" id="lname" name="lname">
                                     </div>
                                     <div class="col-12 ">
                                         <label for="number" class="form-label text-dark fw-bold"> <i class="fa fa-phone" aria-hidden="true"></i> Phone Number</label>

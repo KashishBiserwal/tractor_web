@@ -9,8 +9,7 @@ $(document).ready(function() {
 function getHireTracById() {
     console.log('tyufhghfjghyfjkh');
     var urlParams = new URLSearchParams(window.location.search);
-    var Id = urlParams.get('id');
-    console.log(Id,'fghjfdghjkdfghjfgh');
+    var Id = urlParams.get('customer_id');
     var url = 'http://tractor-api.divyaltech.com/api/customer/get_rent_data_by_id/' + Id;
    
     $.ajax({
@@ -60,8 +59,8 @@ function getHireTracById() {
 
 function storedata() {
     var enquiry_type_id = 19;
-    var model = $('#model_form').val(); 
-    var brand_name = $('#brand_name_form').val();  
+    var model = $('#model').val(); 
+    var brand_name = $('#brand_name').val();  
     var product_id = $('#product_id').val();  
     var first_name = $('#first_name').val();
     var last_name = $('#last_name').val();
@@ -92,38 +91,96 @@ function storedata() {
     };
     $.ajax({
         url: url,
-        type: 'POST',  
+        type: "POST",
         data: paraArr,
-        // headers: headers, // Remove headers if not needed
         success: function (result) {
-            console.log(result, "result");
-            $("#used_tractor_callbnt_").modal('hide'); 
-            var msg = "Added successfully !"
-            $("#errorStatusLoading").modal('show');    
-            $("#errorStatusLoading").find('.modal-title').html('<p class="text-center">Congratulation..! Requested Successful</p>');
-            $("#errorStatusLoading").find('.modal-body').html(msg);
-            $("#errorStatusLoading").find('.modal-body').html('<img src="assets/images/7efs.gif" style="display:block; margin:0 auto;" class="w-50 text-center" alt="Successfull Request"></img>');
-            $("#staticBackdrop").modal('hide');
-            
-            // Reload the page after 2 seconds (adjust the time)
-            setTimeout(function () {
-                window.location.reload();
-            }, 2000);
+          console.log(result, "result");
+          $("#used_tractor_callbnt_").modal('hide'); 
+          var msg = "Added successfully !";
+          // $('#get_OTP_btn').modal('show');
+          $("#errorStatusLoading").modal('hide');
+          $('#get_OTP_btn').modal('show');
+          get_otp(mobile); // Pass mobile number to get_otp function
+        
         },
-          error: function (error) {
-            console.error('Error fetching data:', error);
-            var msg = error;
-            $("#errorStatusLoading").modal('show');
-            $("#errorStatusLoading").find('.modal-title').html('<p class="text-center">Process Failed..! Enter Valid Detail</p>');
-            $("#errorStatusLoading").find('.modal-body').html(msg);
-            $("#errorStatusLoading").find('.modal-body').html('<img src="assets/images/comp_3.gif" style="display:block; margin:0 auto;" class="w-50 text-center" alt="Successfull Request"></img>');
-            // 
-
-          }
-          
-          
-    });
+        error: function (error) {
+          console.error('Error fetching data:', error);
+          var msg = error;
+          $("#errorStatusLoading").modal('show');
+          $("#errorStatusLoading").find('.modal-title').html('<p class="text-center">Process Failed..! Enter Valid Detail</p>');
+          $("#errorStatusLoading").find('.modal-body').html(msg);
+          $("#errorStatusLoading").find('.modal-body').html('<img src="assets/images/comp_3.gif" style="display:block; margin:0 auto;" class="w-50 text-center" alt="Successfull Request"></img>');
+          // 
+        }
+      });
 }
+ function get_otp(phone) {
+      var url = "http://tractor-api.divyaltech.com/api/customer/customer_login";
+   
+      var paraArr = {
+          'mobile': phone,
+      };
+  
+      $.ajax({
+          url: url,
+          type: "POST",
+          data: paraArr,
+          success: function (result) {
+              console.log(result, "result");
+  
+              // Once OTP is received, store mobile number in hidden field within modal
+              $('#Mobile').val(phone);
+  
+          },
+          error: function (error) {
+              console.error('Error fetching data:', error);
+          }
+      });
+  }
+  
+  function verifyotp() {
+      var mobile = document.getElementById('Mobile').value;
+      var otp = document.getElementById('otp').value;
+  
+      var paraArr = {
+          'otp': otp,
+          'mobile': mobile,
+      }
+      var url = 'http://tractor-api.divyaltech.com/api/customer/verify_otp';
+      $.ajax({
+          url: url,
+          type: "POST",
+          data: paraArr,
+          success: function (result) {
+              console.log(result);
+  
+              // Assuming your model has an ID 'myModal', hide it on success
+              $('#get_OTP_btn').modal('hide'); // Assuming it's a Bootstrap modal
+              $('#staticBackdrop').modal('show');
+              // Reset input fields
+              // document.getElementById('phone').value = ''; 
+              // document.getElementById('otp').value = ''; 
+  
+              // Access data field in the response
+          }, 
+          error: function (xhr, textStatus, errorThrown) {
+              console.log(xhr.status, 'error');
+              if (xhr.status === 401) {
+                  console.log('Invalid credentials');
+                  var htmlcontent = `<p>Invalid credentials!</p>`;
+                  document.getElementById("error_message").innerHTML = htmlcontent;
+              } else if (xhr.status === 403) {
+                  console.log('Forbidden: You don\'t have permission to access this resource.');
+                  var htmlcontent = ` <p> You don't have permission to access this resource.</p>`;
+                  document.getElementById("error_message").innerHTML = htmlcontent;
+              } else {
+                  console.log('An error occurred:', textStatus, errorThrown);
+                  var htmlcontent = `<p>An error occurred while processing your request.</p>`;
+                  document.getElementById("error_message").innerHTML = htmlcontent;
+              }
+          },
+      });
+  }
 
 function get_rent_data() {
     var url = "http://tractor-api.divyaltech.com/api/customer/get_rent_data";
@@ -317,6 +374,15 @@ function get_rent_data() {
     }
   
    // get_rent_data();
+   function formatPriceWithCommas(price) {
+    // Check if the price is not a number
+    if (isNaN(price)) {
+        return price; // Return the original value if it's not a number
+    }
+    
+    // Format the price with commas in Indian format
+    return new Intl.NumberFormat('en-IN').format(price);
+}
 
 
 
@@ -344,23 +410,42 @@ function get_rent_data() {
                             a = [images];
                         }
                     }
+                    var formattedPrice = formatPriceWithCommas(p.price);
                     var newCard = `
                     <div class="item box_shadow b-t-1">
-                  <a  href="used_harvester_inner.php?id=${p.customer_id}" class="text-decoration-none fw-bold">
-                    <div class="harvester_img_section">
-                      <img src="http://tractor-api.divyaltech.com/uploads/product_img/${a[0]}" alt="">
-                      <div href="#" class="over-layer"><i class="fa fa-link"></i></div>
+                    <div class="h-auto success__stry__item d-flex flex-column shadow">
+                    <div class="thumb">
+                        <a href="used_harvester_inner.php?id=${p.customer_id}">
+                            <div class="ratio ratio-16x9">
+                                <img src="http://tractor-api.divyaltech.com/uploads/product_img/${a[0]}" class="object-fit-cover " alt="img">
+                            </div>
+                        </a>
                     </div>
-                  </a>
-                  <div class="harvester_content_section mt-3 text-center">
-                    <a href="used_harvester_inner.php?id=${p.customer_id}" class="text-decoration-none fw-bold text-dark"><h5 class="text-dark">${p.brand_name} ${p.model}</h5></a>
-                    <div class="row w-100">
-                      <div class="col-6 p-0"> <p class="mb-0" style="font-size: 14px;">${p.horse_power} Hp</p></div>
-                      <div class="col-6 p-0"> <p class="mb-0" style="font-size: 14px;">${p.crops_type_value}</p></div>
+                    <div class="content d-flex flex-column flex-grow-1 ">
+                        <div class="caption text-center">
+                            <a href="used_harvester_inner.php?id=${p.customer_id}" class="text-decoration-none text-dark">
+                          
+                                <p class="pt-1"><strong class="series_tractor_strong text-center h6 fw-bold text-truncate "><span>${p.brand_name}</span> <span>${p.model}</span></strong></p>
+                            </a>      
+                        </div>
+                        <div class="power text-center">
+                            <div class="row ">
+                                <div class="col-12 col-lg-6 col-md-6 col-sm-6"><p class="text-success text-truncate ps-2">Price : ₹ <span>${formattedPrice}</span></p></div>
+                                <div class="col-12 col-lg-6 col-md-6 col-sm-6" style="padding-right: 32px;">
+                                     <p id="adduser" type="" class=" rounded-3"> Year : <span>${p.purchase_year}</span></p>
+                                </div>
+                            </div>  
+                            <div class="col-12 text-center">
+                                <p class="text-dark fw-bold">Hours :<span>${p.hours_driven}</span> </p>
+                            </div>  
+                        </div>
                     </div>
-                    <a type="button" href="used_harvester_inner.php?id=${p.customer_id}" class="add_btn text-decoration-none btn-success w-100 mt-3"><i class="fa-regular fa-handshake"></i> Get on Road Price</a>
-                  </div>
-                   
+                    <div class="col-12">
+                        <a href="used_harvester_inner.php?id=${p.customer_id}" id="adduser"class="btn-state btn w-100 btn-success text-decoration-none text-white text-truncate p-2 text-truncate"><span>${p.district_name}</span>, <span><span>${p.state_name}</span></span>
+                        </a>
+                    </div>
+
+                </div>
               
                 </div>
                     `;

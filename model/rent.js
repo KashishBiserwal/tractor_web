@@ -5,7 +5,7 @@ $(document).ready(function() {
 
 
 function get() {
-    var url = 'http://tractor-api.divyaltech.com/api/customer/get_all_brands';
+    var url = 'http://tractor-api.divyaltech.com/api/customer/get_brand_for_finance';
     $.ajax({
         url: url,
         type: "GET",
@@ -13,7 +13,7 @@ function get() {
             'Authorization': 'Bearer ' + localStorage.getItem('token')
         },
         success: function (data) {
-            const selects = document.querySelectorAll('#brand_main');
+            const selects = document.querySelectorAll('#brand');
   
             selects.forEach(select => {
                 select.innerHTML = '<option selected disabled value="">Please select an option</option>';
@@ -125,7 +125,7 @@ function get() {
         success: function(data) {
             console.log(data);
 
-            const select = $('#implement_type');
+            const select = $('#impType_0');
             select.empty(); // Clear existing options
 
             // Add a default option
@@ -166,25 +166,25 @@ function store(event) {
 
     var enquiry_type_id = $('#enquiry_type_id').val();
     var added_by = 1;
-    var brand_name = $('#brand_main').val();
+    var brand_name = $('#brand').val();
     var model = $('#model_main').val();
     var year = $('#year_main').val();
     var workingRadius = $('#workingRadius').val();
-    var implement_type = $('#implement_type').val();
-    var rate = $('#rate').val();
-    var ratePer = $('#ratePer').val();
-    var first_name = $('#firstname_1').val();
-    var last_name = $('#lastname_1').val();
-    var mobile = $('#phone_number').val();
-    var state = $('#state_3').val();
-    var district = $('#district_2').val();
-    var tehsil = $('#tehsil_1').val();
-    var image_names = document.getElementById('imageInput').files;
+    // var implement_type = $('#impType_0').val();
+    // var rate = $('#implement_rent').val();
+    // var ratePer = $('#impRatePer_0').val();
+    var first_name = $('#myfname').val();
+    var last_name = $('#mylname').val();
+    var mobile = $('#mynumber').val();
+    var state = $('#state_state').val();
+    var district = $('#dist_district').val();
+    var tehsil = $('#tehsil_t').val();
+    var image_names = document.getElementById('impImage_0').files; // Assuming impImage_0 is your image input field
 
     // Convert implement_type, rate, and ratePer to JSON strings
-    var implementTypeArray = JSON.stringify($('#implement_type').val());
-    var rateArray = JSON.stringify($('#rate').val());
-    var ratePerArray = JSON.stringify($('#ratePer').val());
+    var implementTypeArray = JSON.stringify($('#impType_0').val());
+    var rateArray = JSON.stringify($('#implement_rent').val());
+    var ratePerArray = JSON.stringify($('#impRatePer_0').val());
 
     // Create an object with all the form data
     var formData = {
@@ -236,5 +236,3 @@ function store(event) {
         }
     });
 }
-
-
