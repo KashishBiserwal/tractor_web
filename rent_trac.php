@@ -76,7 +76,7 @@
                   <div class="row justify-content-center">
                     <div class="col-lg-10">
                       <h4 class="text-center">Fill your Details</h4>
-                      <form id="rent_list_form_">
+                        <form id="rent_list_form_">
                               <div class="row justify-content-center pt-4">
                               <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-2" hidden>
                                 <div class="form-outline">

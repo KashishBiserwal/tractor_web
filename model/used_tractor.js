@@ -33,10 +33,12 @@ function getoldTractorList() {
         url: url,
         type: "GET",
         success: function (data) {
+            var fullname = data.product[0].first_name + ' ' + data.product[0].last_name;
+            document.getElementById('saller_name').value=fullname;
+            document.getElementById('mobile_num').value = data.product[0].mobile;
             var productContainer = $("#productContainer");
-            // var fullname = data.product[0].first_name + ' ' + data.product[0].last_name;
-            document.getElementById('slr_name').innerText = data.product[0].first_name;
-            document.getElementById('mob_num').innerText = data.product[0].mobile;
+            
+          
             // productContainer.empty();
             
             if (data.product && data.product.length > 0) {

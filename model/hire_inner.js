@@ -9,8 +9,7 @@ $(document).ready(function() {
 function getHireTracById() {
     console.log('tyufhghfjghyfjkh');
     var urlParams = new URLSearchParams(window.location.search);
-    var Id = urlParams.get('id');
-    console.log(Id,'fghjfdghjkdfghjfgh');
+    var Id = urlParams.get('customer_id');
     var url = 'http://tractor-api.divyaltech.com/api/customer/get_rent_data_by_id/' + Id;
    
     $.ajax({
@@ -60,8 +59,8 @@ function getHireTracById() {
 
 function storedata() {
     var enquiry_type_id = 19;
-    var model = $('#model_form').val(); 
-    var brand_name = $('#brand_name_form').val();  
+    var model = $('#model').val(); 
+    var brand_name = $('#brand_name').val();  
     var product_id = $('#product_id').val();  
     var first_name = $('#first_name').val();
     var last_name = $('#last_name').val();
@@ -92,38 +91,96 @@ function storedata() {
     };
     $.ajax({
         url: url,
-        type: 'POST',  
+        type: "POST",
         data: paraArr,
-        // headers: headers, // Remove headers if not needed
         success: function (result) {
-            console.log(result, "result");
-            $("#used_tractor_callbnt_").modal('hide'); 
-            var msg = "Added successfully !"
-            $("#errorStatusLoading").modal('show');    
-            $("#errorStatusLoading").find('.modal-title').html('<p class="text-center">Congratulation..! Requested Successful</p>');
-            $("#errorStatusLoading").find('.modal-body').html(msg);
-            $("#errorStatusLoading").find('.modal-body').html('<img src="assets/images/7efs.gif" style="display:block; margin:0 auto;" class="w-50 text-center" alt="Successfull Request"></img>');
-            $("#staticBackdrop").modal('hide');
-            
-            // Reload the page after 2 seconds (adjust the time)
-            setTimeout(function () {
-                window.location.reload();
-            }, 2000);
+          console.log(result, "result");
+          $("#used_tractor_callbnt_").modal('hide'); 
+          var msg = "Added successfully !";
+          // $('#get_OTP_btn').modal('show');
+          $("#errorStatusLoading").modal('hide');
+          $('#get_OTP_btn').modal('show');
+          get_otp(mobile); // Pass mobile number to get_otp function
+        
         },
-          error: function (error) {
-            console.error('Error fetching data:', error);
-            var msg = error;
-            $("#errorStatusLoading").modal('show');
-            $("#errorStatusLoading").find('.modal-title').html('<p class="text-center">Process Failed..! Enter Valid Detail</p>');
-            $("#errorStatusLoading").find('.modal-body').html(msg);
-            $("#errorStatusLoading").find('.modal-body').html('<img src="assets/images/comp_3.gif" style="display:block; margin:0 auto;" class="w-50 text-center" alt="Successfull Request"></img>');
-            // 
-
-          }
-          
-          
-    });
+        error: function (error) {
+          console.error('Error fetching data:', error);
+          var msg = error;
+          $("#errorStatusLoading").modal('show');
+          $("#errorStatusLoading").find('.modal-title').html('<p class="text-center">Process Failed..! Enter Valid Detail</p>');
+          $("#errorStatusLoading").find('.modal-body').html(msg);
+          $("#errorStatusLoading").find('.modal-body').html('<img src="assets/images/comp_3.gif" style="display:block; margin:0 auto;" class="w-50 text-center" alt="Successfull Request"></img>');
+          // 
+        }
+      });
 }
+ function get_otp(phone) {
+      var url = "http://tractor-api.divyaltech.com/api/customer/customer_login";
+   
+      var paraArr = {
+          'mobile': phone,
+      };
+  
+      $.ajax({
+          url: url,
+          type: "POST",
+          data: paraArr,
+          success: function (result) {
+              console.log(result, "result");
+  
+              // Once OTP is received, store mobile number in hidden field within modal
+              $('#Mobile').val(phone);
+  
+          },
+          error: function (error) {
+              console.error('Error fetching data:', error);
+          }
+      });
+  }
+  
+  function verifyotp() {
+      var mobile = document.getElementById('Mobile').value;
+      var otp = document.getElementById('otp').value;
+  
+      var paraArr = {
+          'otp': otp,
+          'mobile': mobile,
+      }
+      var url = 'http://tractor-api.divyaltech.com/api/customer/verify_otp';
+      $.ajax({
+          url: url,
+          type: "POST",
+          data: paraArr,
+          success: function (result) {
+              console.log(result);
+  
+              // Assuming your model has an ID 'myModal', hide it on success
+              $('#get_OTP_btn').modal('hide'); // Assuming it's a Bootstrap modal
+              $('#staticBackdrop').modal('show');
+              // Reset input fields
+              // document.getElementById('phone').value = ''; 
+              // document.getElementById('otp').value = ''; 
+  
+              // Access data field in the response
+          }, 
+          error: function (xhr, textStatus, errorThrown) {
+              console.log(xhr.status, 'error');
+              if (xhr.status === 401) {
+                  console.log('Invalid credentials');
+                  var htmlcontent = `<p>Invalid credentials!</p>`;
+                  document.getElementById("error_message").innerHTML = htmlcontent;
+              } else if (xhr.status === 403) {
+                  console.log('Forbidden: You don\'t have permission to access this resource.');
+                  var htmlcontent = ` <p> You don't have permission to access this resource.</p>`;
+                  document.getElementById("error_message").innerHTML = htmlcontent;
+              } else {
+                  console.log('An error occurred:', textStatus, errorThrown);
+                  var htmlcontent = `<p>An error occurred while processing your request.</p>`;
+                  document.getElementById("error_message").innerHTML = htmlcontent;
+              }
+          },
+      });
+  }
 
 function get_rent_data() {
     var url = "http://tractor-api.divyaltech.com/api/customer/get_rent_data";

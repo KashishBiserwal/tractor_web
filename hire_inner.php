@@ -66,7 +66,22 @@
     <section class="mt-2">
         <div class="container">
             <div class="row">
-                <div class="col-12 col-sm-6 col-lg-6 col-md-6" style="position: relative;">
+            <div class="col-12 col-sm-6 col-lg-6 col-md-6">
+                <div>
+                <h4 id="brand_name"></h4>
+                </div>
+                <div>
+                        <div class="swiper swiper_buy mySwiper2_buy">
+                            <div class="swiper-wrapper swiper-wrapper_buy">
+                                <div class=" swiper-slide swiper-slide_buy">
+                                    <!-- <img class="img_buy" src="assets/images/437-1632718440.webp" /> -->
+                                </div>
+                            </div>
+                        </div>
+                        <div thumbsSlider="" class="swiper mySwiper_buy" style="height:75px; width: 43%;" id="swip_img"></div>
+                    </div>
+            </div>
+                <!-- <div class="col-12 col-sm-6 col-lg-6 col-md-6" style="position: relative;">
                     <div>
                         <h1 class="fw-bold text-danger pt-3" id="brand_name"></h1>
                         <div class="gallery">   
@@ -81,7 +96,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> -->
                 <div class="col-12 col-sm-6 col-lg-6 col-md-6" >
                     <h5 class="text-black fw-bold text-center "></h5>
                     <div class="power">
@@ -132,87 +147,77 @@
                                     data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel"
                                     aria-hidden="true">
                                     <div class="modal-dialog modal-lg modal-dialog-centered">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h4 class="modal-title text-dark fw-bold" id="model_name_2"></h4>
-                                                    <button type="button" class="btn-close btn-success" data-bs-dismiss="modal" aria-label="Close"><img src="assets/images/close.png"></button>
-                                            </div>
-                                            <div class="modal-body">
-                                                <div class="model-cont">
-                                                    <form id="hire_inner" name="hire_inner" method="post">
-            
-                                                        <div class="row">
-                                                            <div class="col-12 col-lg-6 col-md-6 col-sm-6 " hidden>
-                                                                <label for="name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i> enquiryName</label>
-                                                                <input type="text" class="form-control" placeholder="Enter Your Name" id="enquiry_type_id" value="19" name="fname">
-                                                            </div>
-                                                            <div class="col-12 col-lg-6 col-md-6 col-sm-6 " hidden>
-                                                                <label for="name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i> product_id</label>
-                                                                <input type="text" class="form-control" id="product_id" value="">
-                                                            </div>
-                                                            <div class="col-12 col-lg-6 col-md-6 col-sm-6 " hidden>
-                                                                <label for="name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i> model</label>
-                                                                <input type="text" class="form-control" id="model_form" value="">
-                                                            </div>
-                                                            <div class="col-12 col-lg-6 col-md-6 col-sm-6 " hidden>
-                                                                <label for="name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i> brand</label>
-                                                                <input type="text" class="form-control" id="brand_name_form" value="">
-                                                            </div>
-                                                            <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-4">
-                                                                <div class="form-outline">
-                                                                    <label class="form-label" for="first_name"><i
-                                                                            class="fa-regular fa-user"></i> First Name</label>
-                                                                    <input type="text" id="first_name" name="first_name" class=" data_search form-control input-group-sm py-2" />
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-4">
-                                                                <div class="form-outline">
-                                                                    <label class="form-label" for="last_name"><i class="fa-regular fa-user"></i> Last Name</label>
-                                                                    <input type="text" id="last_name" name="last_name"class=" data_search form-control input-group-sm py-2" />
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-4">
-                                                                <div class="form-outline">
-                                                                    <label class="form-label" for="mobile_number">Mobile Number</label>
-                                                                    <input type="text" id="mobile_number"name="mobile_number" class=" data_search form-control input-group-sm py-2" />
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-4">
-                                                                <div class="form-outline">
-                                                                    <label class="form-label" for="state"> <i class="fas fa-location"></i> State</label>
-                                                                    <select class="form-select py-2 state-dropdown" aria-label="Default select example" id="the_state"name="state">
-                                                                  
-                                                                    </select>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-4">
-                                                                <div class="form-outline">
-                                                                    <label class="form-label" for="district"><i class="fa-solid fa-location-dot"></i>District</label>
-                                                                    <select class="form-select py-2 district-dropdown"aria-label="Default select example"name="district" id="the_district">
-                                                                   
-                                                                    </select>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-4">
-                                                                <div class="form-outline">
-                                                                    <label class="form-label"for="tehsil">Tehsil</label>
-                                                                    <select class="form-select py-2 tehsil-dropdown" aria-label="Default select example"name="tehsil" id="the_tehsil">
-                                                                    
-                                                                    </select>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </form>
-                                                </div>
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary"data-bs-dismiss="modal">Close</button>
-                                                <button type="button" class="btn btn-danger"id="button_hire">Request</button>
-                                            </div>
+                                    <div class="modal-content">
+                                        <div class="modal-header modal_head">
+                                        <h5 class="modal-title text-white ms-1" id="">Generate Enquiry</h5>
+                                        <button type="button" class="btn-close btn-success" data-bs-dismiss="modal" aria-label="Close"><img src="assets/images/close.png" class="w-25"></button>
                                         </div>
-                                    </div>
+                                    <div class="modal-body">
+                                        <div class="model-cont">
+                                                <form id="hire_inner" method="POST" onsubmit="return false">
+                                            <div class="row">
+                                            <div class="row px-3 ">
+                                <div class="col-12 col-lg-6 col-md-6 col-sm-6 " hidden>
+                                    <label for="name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i> enquiryName</label>
+                                    <input type="text" class="form-control" placeholder="Enter Your Name" id="enquiry_type_id" value="19" name="fname">
                                 </div>
+                                <div class="col-12 col-lg-6 col-md-6 col-sm-6 " hidden>
+                                    <label for="name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i> product_id</label>
+                                    <input type="text" class="form-control" id="product_id" value="${p.id}" hidden> 
                                 </div>
+                                <div class="col-12 col-lg-6 col-md-6 col-sm-6 "hidden>
+                                    <label for="name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i> First Name</label>
+                                    <input type="text" class="form-control" placeholder="Enter Your Name" value="${p.brand_name}" id="brand_name" name="">
+                                </div>
+                                <div class="col-12 col-lg-6 col-md-6 col-sm-6 "hidden>
+                                    <label for="name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i> First Name</label>
+                                    <input type="text" class="form-control" placeholder="Enter Your Name" value="${p.model}" id="model" name="">
+                                </div>
+                                <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
+                                    <label for="name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i> First Name</label>
+                                    <input type="text" class="form-control" placeholder="Enter Your Name" id="first_name" name="fname">
+                                </div>
+                                <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
+                                    <label for="name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i> Last Name</label>
+                                    <input type="text" class="form-control" placeholder="Enter Your Name" id="last_name" name="lname">
+                                </div>
+                                <div class="col-12 ">
+                                    <label for="number" class="form-label text-dark fw-bold"> <i class="fa fa-phone" aria-hidden="true"></i> Phone Number</label>
+                                    <input type="text" class="form-control" placeholder="Enter Number" id="mobile_number" name="number">
+                                    <p class="text-danger">*please provide valid Phone Number.</p>
+                                </div>
+                                <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+                                    <label for="yr_state" class="form-label text-dark fw-bold" id="the_state" name="state"> <i class="fas fa-location"></i> State</label>
+                                    <select class="form-select py-2 state-dropdown" aria-label=".form-select-lg example" id="state_form" name="state">
+                                    </select>
+                                </div>
+                                <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+                                    <label class="form-label text-dark"><i class="fa-solid fa-location-dot"></i> District</label>
+                                    <select class="form-select py-2 district-dropdown" aria-label=".form-select-lg example" name="district" id="the_district">
+                                    </select>
+                                </div>
+                                <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+                                    <label class="form-label text-dark mt-2"> Tehsil</label>
+                                    <select class="form-select py-2 tehsil-dropdown" aria-label=".form-select-lg example"  id="the_tehsil" name="tehsil">
+                                    </select>
+                                </div>
+                                <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-2">
+                                    <label for="yr_price" class="form-label text-dark">Price</label>
+                                    <input type="yr_price" class="form-control price_form" placeholder="Enter Price" id="price_form" name="price">
+                                </div>
+                            </div>          
+                        </div>
+                        <div class="modal-footer">
+                        <button type="submit" id="button_hire" class="btn add_btn btn-success w-100 btn_all" onclick="savedata('${formId}')"
+                        data-bs-dismiss="modal">Submit</button>
+                        </div>      
+                        </form>    
+                       </div>
+                    </div>
+                </div>
+                </div>
+                </div>
+                </div>
 
                                 
                             </div>
@@ -278,6 +283,68 @@
             <div class="col-12 col-lg-4 col-md-4 col-sm-4 py-2">
                 <a href="certified_dealers.php" id="adduser" class="btn btn-outline-success text-decoration-none border-2 py-2 px-3 w-100">
                     <i class="fas fa-bolt"></i>DEALERSHIP</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="get_OTP_btn" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header bg-success">
+                    <h1 class="modal-title fs-5 text-white" id="exampleModalLabel">Verify Your OTP</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><img src="assets/images/close.png" class=" w-100"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="otp_form">
+                        <div class=" col-12 input-group">
+                        <div class="col-12" hidden>
+                                <label for="Mobile" class=" text-dark float-start pl-2">Munber</label>
+                                <input type="text" class="form-control text-dark" placeholder="Enter OTP" id="Mobile"name="Mobile">
+                            </div>
+                            <div class="col-12">
+                                <label for="Mobile" class=" text-dark float-start pl-2">Enter OTP</label>
+                                <input type="text" class="form-control text-dark" placeholder="Enter OTP" id="otp"name="opt_1">
+                            </div>
+                            <div class="float-end col-12">
+                                <a href="" class="float-end">Resend OTP</a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> -->
+                    <button type="button" class="btn btn-success" id="Verify">Verify</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Contact Seller</h5>
+                    <button type="button" class="btn-close btn-success" data-bs-dismiss="modal" aria-label="Close"><img src="assets/images/close.png"class="w-25"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="model-cont">
+                        <h4 class="text-center text-danger">Seller Information</h3>
+                        <div class="row px-3 py-2">
+                            <div class="col-12  col-sm-12 col-md-6 col-lg-6 ">
+                                <label for="slr_name"class="form-label fw-bold text-dark"><i class="fa-regular fa-user"></i>Seller Name</label>
+                                <input type="text" class="form-control" id="slr_name">
+                            </div>
+                            <div class="col-12 col-sm-12 col-md-6 col-lg-6  ">
+                                <label for="number"class="form-label text-dark fw-bold"><i class="fa fa-phone"aria-hidden="true"></i>Phone Number</label>
+                                <input type="text" class="form-control" id="mob_num">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button"  id="got_it_btn "class="btn btn-secondary"data-bs-dismiss="modal">Close</button>
+                    <!-- <button type="button" class="btn btn-danger" id="got_it_btn">Got It</button> -->
+                </div>
             </div>
         </div>
     </div>
