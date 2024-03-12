@@ -3,7 +3,8 @@ $(document).ready(function() {
     $('#button_nursery').click(storedata);
     getTractorList();
     gethaatbazzat();
-
+    $('#Verify').click(verifyotp);
+    $('#Verify_inner').click(verifyotp_otp);
     // getProductById();
     // get_allbrand();
     // getpopularTractorList();
@@ -27,6 +28,8 @@ $(document).ready(function() {
                 // var name = data.allData.haat_bazar_data[0].first_name + ', ' + data.allData.haat_bazar_data[0].last_name;
                 document.getElementById('slr_name').value = data.allData.haat_bazar_data[0].first_name;
                 document.getElementById('mob_num').value = data.allData.haat_bazar_data[0].mobile;
+                document.getElementById('slr_name_card').value = data.allData.haat_bazar_data[0].first_name;
+                document.getElementById('mob_num_card').value = data.allData.haat_bazar_data[0].mobile;
                 if (data.allData.haat_bazar_data && data.allData.haat_bazar_data.length > 0) {
                     haat_bazar_data = data.allData.haat_bazar_data.length;
     
@@ -336,12 +339,12 @@ function storedata(event) {
     event.preventDefault();
 
     // Validate the form
-    if ($('#nursery_form').valid()) {
+ 
         var enquiry_type_id = $('#enquiry_type_id').val();
         var product_id = 30;
         var first_name = $('#fname').val();
         var last_name = $('#lname').val();
-        var mobile = $('#number').val();
+        var mobile_no = $('#number_number').val();
         var state = $('#state_2').val();
         var district = $('#district').val();
         var tehsil = $('#tehsil').val();
@@ -354,7 +357,7 @@ function storedata(event) {
             'enquiry_type_id': enquiry_type_id,
             'first_name': first_name,
             'last_name': last_name,
-            'mobile': mobile,
+            'mobile': mobile_no,
             'state': state,
             'district': district,
             'tehsil': tehsil,
@@ -379,13 +382,8 @@ function storedata(event) {
                 $("#used_tractor_callbnt_").modal('hide');
                
                 // Open the model_seller_contact modal after clicking "Got It" in the alert
-                $("#errorStatusLoading").on('hidden.bs.modal', function() {
-                    $('#model_seller_contact').modal('show');
-                });
                 $('#get_OTP_btn').modal('show');
-                console.log("Add successfully");
-
-                get_otp();
+                get_otp_1(mobile_no);
             },
             error: function(error) {
                 console.error('Error fetching data:', error);
@@ -397,12 +395,10 @@ function storedata(event) {
             }
         });
     }
-}
 
-function get_otp() {
-    var phone = $('#number').val(); // Corrected ID
+function get_otp_1(phone) {
     var url = "http://tractor-api.divyaltech.com/api/customer/customer_login";
-
+ 
     var paraArr = {
         'mobile': phone,
     };
@@ -413,6 +409,10 @@ function get_otp() {
         data: paraArr,
         success: function (result) {
             console.log(result, "result");
+
+            // Once OTP is received, store mobile number in hidden field within modal
+            $('#mobile_verify').val(phone);
+
         },
         error: function (error) {
             console.error('Error fetching data:', error);
@@ -421,39 +421,45 @@ function get_otp() {
 }
 
 function verifyotp() {
-    var mobile = document.getElementById('number').value;
+    var mobile = document.getElementById('mobile_verify').value;
     var otp = document.getElementById('otp').value;
 
     var paraArr = {
         'otp': otp,
         'mobile': mobile,
     }
-
     var url = 'http://tractor-api.divyaltech.com/api/customer/verify_otp';
-    
     $.ajax({
         url: url,
         type: "POST",
         data: paraArr,
         success: function (result) {
             console.log(result);
-            $('#get_OTP_btn').modal('hide');
-            $('#staticBackdrop2').modal('show');
 
+            // Assuming your model has an ID 'myModal', hide it on success
+            $('#get_OTP_btn').modal('hide'); // Assuming it's a Bootstrap modal
+            $('#staticBackdrop').modal('show');
+            // Reset input fields
+            // document.getElementById('phone').value = ''; 
+            // document.getElementById('otp').value = ''; 
+
+            // Access data field in the response
         }, 
         error: function (xhr, textStatus, errorThrown) {
             console.log(xhr.status, 'error');
-            var errorMessage = '';
-
             if (xhr.status === 401) {
-                errorMessage = 'Invalid credentials';
+                console.log('Invalid credentials');
+                var htmlcontent = `<p>Invalid credentials!</p>`;
+                document.getElementById("error_message").innerHTML = htmlcontent;
             } else if (xhr.status === 403) {
-                errorMessage = 'Forbidden: You don\'t have permission to access this resource.';
+                console.log('Forbidden: You don\'t have permission to access this resource.');
+                var htmlcontent = ` <p> You don't have permission to access this resource.</p>`;
+                document.getElementById("error_message").innerHTML = htmlcontent;
             } else {
-                errorMessage = 'An error occurred while processing your request.';
+                console.log('An error occurred:', textStatus, errorThrown);
+                var htmlcontent = `<p>An error occurred while processing your request.</p>`;
+                document.getElementById("error_message").innerHTML = htmlcontent;
             }
-
-            $('#error_message').html('<p>' + errorMessage + '</p>'); // Display error message
         },
     });
 }
@@ -522,7 +528,7 @@ function submit_enquiry(formId) {
             console.log(result, "result");
             $("#used_tractor_callbnt_").modal('hide'); 
             // $('#get_OTP_btn1').modal('show');
-            get_otp_1();
+            get_otp(mobile_number);
 
             openOTPModal();
             
@@ -543,35 +549,33 @@ function submit_enquiry(formId) {
 }
 
 
-function get_otp_1() {
-    var phone = $('#mobile_number').val();
+function get_otp(phone) {
     var url = "http://tractor-api.divyaltech.com/api/customer/customer_login";
  
     var paraArr = {
-     'mobile': phone,
-   };
-   //  var token = localStorage.getItem('token');
-   //   var headers = {
-   //   'Headers': 'Bearer ' + token
-   //   };
+        'mobile': phone,
+    };
+
     $.ajax({
-      url: url,
-      type: "POST",
-      data: paraArr,
-     //  headers: headers,
-      success: function (result) {
-        console.log(result, "result");
-       
-      },
-      error: function (error) {
-        console.error('Error fetching data:', error);
-      }
+        url: url,
+        type: "POST",
+        data: paraArr,
+        success: function (result) {
+            console.log(result, "result");
+
+            // Once OTP is received, store mobile number in hidden field within modal
+            $('#Mobile_2').val(phone);
+
+        },
+        error: function (error) {
+            console.error('Error fetching data:', error);
+        }
     });
-  }
+}
 
 
   function verifyotp_otp() {
-    var mobile = document.getElementById('mobile_number').value;
+    var mobile = document.getElementById('Mobile_2').value;
     var otp = document.getElementById('otp_1').value;
 
     var paraArr = {
@@ -589,7 +593,7 @@ function get_otp_1() {
             console.log(result);
             console.log($('#model_saller')); 
             $('#get_OTP_btn1').modal('hide');
-            $('#model_saller').modal('show');
+            $('#staticBackdrop_cards').modal('show');
             // resetForm();
             
         }, 

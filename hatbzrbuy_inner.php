@@ -8,10 +8,12 @@ include 'includes/headertagadmin.php';
 include 'includes/footertag.php';
 
 ?> 
-<script> var APIBaseURL = "<?php echo $APIBaseURL; ?>";</script>
+<script> var CustomerAPIBaseURL = "<?php echo $CustomerAPIBaseURL; ?>";</script>
+     <script> var APIBaseURL = "<?php echo $APIBaseURL; ?>";</script>
 <script> var baseUrl = "<?php echo $baseUrl; ?>";</script>
     <script src="<?php $baseUrl; ?>model/haatbazar_inner.js"></script>
     <script src="<?php $baseUrl; ?>model/State_dist_tehsil.js"></script>
+   
 </head>
 <style>
     .text-truncate {
@@ -70,7 +72,7 @@ include 'includes/footertag.php';
                     </div>
                 </div>
                 <div class="col-12 col-sm-6 col-lg-6 col-md-6">
-                    <form action="" id="nursery_form" method="post">
+                    <form action="" id="haatbazar_form" method="post">
                         <div class="row my-3">
                             <div class="col-12 justify-content-center bg-light">
                                 <div class="d-flex flex-md-row px-3  flex-column-reverse">
@@ -88,26 +90,26 @@ include 'includes/footertag.php';
                                                 <div class="col-12 col-lg-6 col-md-6 col-sm-6 mt-4">
                                                     <div class="form-outline">
                                                         <label for="fname" class="form-label "><i class="fa-regular fa-user"></i> First Name</label>
-                                                        <input type="text" class="form-control" id="fname" onkeydown="return /[a-zA-Z]/i.test(event.key)" name="fname">
+                                                        <input type="text" class="form-control" id="fname" onkeydown="return /[a-zA-Z]/i.test(event.key)" name="fname" required>
                                                     </div>
                                                 </div>
                                                 <div class="col-12 col-lg-6 col-md-6 col-sm-6 mt-4">
                                                     <div class="form-outline">
                                                         <label for="lname" class="form-label "><i class="fa-regular fa-user"></i> Last Name</label>
-                                                        <input type="text" class="form-control" onkeydown="return /[a-zA-Z]/i.test(event.key)" id="lname" name="lname">
+                                                        <input type="text" class="form-control" onkeydown="return /[a-zA-Z]/i.test(event.key)" id="lname" name="lname" required>
                                                     </div>
                                                 </div>
                                                 <div class="col-12 col-lg-6 col-md-6 col-sm-6">
                                                     <div class="form-outline mt-4">
                                                         <label for="phone" class="form-label "><i class="fa fa-phone"aria-hidden="true"></i> Mobile Number</label>
-                                                        <input type="text" class="form-control" placeholder="Enter Number" id="number" name="number">
-                                                        <!-- <input type="text" class="form-control" id="phone" name="phone"> -->
+                                                        <input type="text" class="form-control" placeholder="Enter Number" id="number_number" name="number_number" required>
+
                                                     </div>
                                                 </div>
                                                 <div class="col-12 col-sm-12 col-md-6 col-lg-6">
                                                     <div class="form-outline mt-4">
                                                         <label for="state" class="form-label "><i class="fas fa-location"></i> State</label>
-                                                        <select class="form-select mb-2 state-dropdown"aria-label=".form-select-lg example" id="state_2"name="state">
+                                                        <select class="form-select mb-2 state-dropdown"aria-label=".form-select-lg example" id="state_2"name="state" required>
                                                             
                                                         </select>
                                                     </div>
@@ -116,7 +118,7 @@ include 'includes/footertag.php';
                                                     <div for="district" class="form-outline mt-4">
                                                         <label class="form-label "><i
                                                                 class="fa-solid fa-location-dot"></i> District</label>
-                                                        <select class="form-select mb-2 district-dropdown" aria-label=".form-select-lg example" name="district"id="district">
+                                                        <select class="form-select mb-2 district-dropdown" aria-label=".form-select-lg example" name="district"id="district" required>
                                                         
                                                         </select>
                                                     </div>
@@ -124,7 +126,7 @@ include 'includes/footertag.php';
                                                 <div class="col-12 col-sm-12 col-md-6 col-lg-6 ">
                                                     <div class="form-outline mt-4">
                                                         <label for="tehsil" class="form-label">Tehsil</label>
-                                                        <select class="form-select tehsil-dropdown" aria-label=".form-select-lg example" name="tehsil" id="tehsil">
+                                                        <select class="form-select tehsil-dropdown" aria-label=".form-select-lg example" name="tehsil" id="tehsil" required>
                                                           
                                                         </select>
                                                     </div>
@@ -132,7 +134,7 @@ include 'includes/footertag.php';
                                                 <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
                                                     <div class="form-outline mt-4">
                                                         <label for="price" class="form-label ">Price</label>
-                                                        <input type="text" class="form-control" id="price" name="price">
+                                                        <input type="text" class="form-control" id="price" name="price" required>
                                                     </div>
                                                 </div>
                                                 <div class="col-12 col-sm-12 col-md-6 col-lg-12 mt-4 p-2">
@@ -167,7 +169,7 @@ include 'includes/footertag.php';
                         <div class=" col-12 input-group">
                         <div class="col-12" hidden>
                                 <label for="Mobile" class=" text-dark float-start pl-2">Enter OTP</label>
-                                <input type="text" class="form-control text-dark" placeholder="Enter OTP" id="Mobile"name="Mobile">
+                                <input type="text" class="form-control text-dark" placeholder="Enter OTP" id="mobile_verify"name="Mobile">
                             </div>
                             <div class="col-12">
                                 <label for="Mobile" class=" text-dark float-start pl-2">Enter OTP</label>
@@ -181,38 +183,37 @@ include 'includes/footertag.php';
                 </div>
                 <div class="modal-footer">
                     <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> -->
-                    <button type="button" class="btn btn-success" id="Verify" data-bs-toggle="modal" data-bs-target="staticBackdrop2" onclick="verifyotp()">Verify</button>
+                    <button type="button" class="btn btn-success" id="Verify">Verify</button>
                 </div>
             </div>
         </div>
     </div>
-    <div class="modal fade" id="get_OTP_btn1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
+
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
             <div class="modal-content">
-                <div class="modal-header bg-success">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Verify Your OTP</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><img src="assets/images/close.png" class=" w-100"></button>
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Contact Seller</h5>
+                    <button type="button" class="btn-close btn-success" data-bs-dismiss="modal" aria-label="Close"><img src="assets/images/close.png"class="w-25"></button>
                 </div>
                 <div class="modal-body">
-                    <form id="otp_form">
-                        <div class=" col-12 input-group">
-                        <div class="col-12" hidden>
-                                <label for="Mobile" class=" text-dark float-start pl-2">Enter OTP</label>
-                                <input type="text" class="form-control text-dark" placeholder="Enter OTP" id="Mobile"name="Mobile">
+                    <div class="model-cont">
+                        <h4 class="text-center text-danger">Seller Information</h3>
+                        <div class="row px-3 py-2">
+                            <div class="col-12  col-sm-12 col-md-6 col-lg-6 ">
+                                <label for="slr_name"class="form-label fw-bold text-dark"><i class="fa-regular fa-user"></i>Seller Name</label>
+                                <input type="text" class="form-control" id="slr_name">
                             </div>
-                            <div class="col-12">
-                                <label for="Mobile" class=" text-dark float-start pl-2">Enter OTP</label>
-                                <input type="text" class="form-control text-dark" placeholder="Enter OTP" id="otp_1"name="opt_1">
-                            </div>
-                            <div class="float-end col-12">
-                                <a href="" class="float-end">Resend OTP</a>
+                            <div class="col-12 col-sm-12 col-md-6 col-lg-6  ">
+                                <label for="number"class="form-label text-dark fw-bold"><i class="fa fa-phone"aria-hidden="true"></i>Phone Number</label>
+                                <input type="text" class="form-control" id="mob_num">
                             </div>
                         </div>
-                    </form>
+                    </div>
                 </div>
                 <div class="modal-footer">
-                    <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> -->
-                    <button type="button" class="btn btn-success" id="Verify" data-bs-toggle="modal" data-bs-target="model_saller" onclick="verifyotp_otp()">Verify</button>
+                    <button type="button"  id="got_it_btn "class="btn btn-secondary"data-bs-dismiss="modal">Close</button>
+                    <!-- <button type="button" class="btn btn-danger" id="got_it_btn">Got It</button> -->
                 </div>
             </div>
         </div>
@@ -293,89 +294,119 @@ include 'includes/footertag.php';
     include 'includes/footertag.php';
 
     ?>
+
+<div class="modal fade" id="get_OTP_btn1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header bg-success">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Verify Your OTP</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><img src="assets/images/close.png" class=" w-100"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="otp_form">
+                        <div class=" col-12 input-group">
+                        <div class="col-12" hidden>
+                                <label for="Mobile" class=" text-dark float-start pl-2">Enter OTP</label>
+                                <input type="text" class="form-control text-dark" placeholder="Enter OTP" id="Mobile_2"name="Mobile">
+                            </div>
+                            <div class="col-12">
+                                <label for="Mobile" class=" text-dark float-start pl-2">Enter OTP</label>
+                                <input type="text" class="form-control text-dark" placeholder="Enter OTP" id="otp_1"name="opt_1">
+                            </div>
+                            <div class="float-end col-12">
+                                <a href="" class="float-end">Resend OTP</a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> -->
+                    <button type="button" class="btn btn-success" id="Verify_inner" data-bs-toggle="modal" data-bs-target="model_saller" onclick="verifyotp_otp()">Verify</button>
+                </div>
+            </div>
+        </div>
+    </div>
     <!-- model for contact seller -->
-    <div class="modal fade" id="staticBackdrop2" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-                                                    aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                                                    <div class="modal-dialog modal-lg modal-dialog-centered">
-                                                        <div class="modal-content">
-                                                            <div class="modal-header">
-                                                                <h5 class="modal-title" id="staticBackdropLabel">Contact
-                                                                    Seller</h5>
-                                                                    <button type="button" class="btn-close btn-success" data-bs-dismiss="modal" aria-label="Close"><img src="assets/images/close.png"></button>
-                                                            </div>
-                                                            <div class="modal-body">
-                                                                <div class="model-cont">
-                                                                    <h4 class="text-center text-danger">Seller Information</h3>
-                                                                        <div class="row px-3 py-2">
-                                                                            <div
-                                                                                class="col-12  col-sm-12 col-md-6 col-lg-6 ">
-                                                                                <label for="slr_name"class="form-label fw-bold text-dark"><i class="fa-regular fa-user"></i>
-                                                                                    Seller Name</label>
-                                                                                <input type="text" class="form-control" id="slr_name">
-                                                                            </div>
-                                                                            <div
-                                                                                class="col-12 col-sm-12 col-md-6 col-lg-6  ">
-                                                                                <label for="number"class="form-label text-dark fw-bold"><i class="fa fa-phone"aria-hidden="true"></i>
-                                                                                    Phone Number</label>
-                                                                                <input type="text" class="form-control" id="mob_num">
-                                                                            </div>
-                                                                        </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="modal-footer">
-                                                                <button type="button"  id="got_it_btn "class="btn btn-secondary"data-bs-dismiss="modal">Close</button>
-                                                                <!-- <button type="button" class="btn btn-danger" id="got_it_btn">Got It</button> -->
-                                                            </div>
-                                                        </div>
-                                                </div>
-
-  
-    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-<!-- <script>
-         $(document).ready(function() {
-        $.validator.addMethod("indianMobile", function(value, element) {
-            return this.optional(element) || /^[789]\d{9}$/.test(value);
-        }, "Please enter a valid Indian mobile number.");
-
-        $("#nursery_form").validate({
-            rules: {
-                fname: {
-                    required: true,
-                    minlength: 2,
-                },
-
-                lname: {
-                    required: true,
-                    minlength: 2,
-                },
-                phone: {
-                    required: true,
-                    digits: true, // Allow only digits
-                    indianMobile: true,
+    <div class="modal fade" id="staticBackdrop_cards" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Contact
+                        Seller</h5>
+                        <button type="button" class="btn-close btn-success" data-bs-dismiss="modal" aria-label="Close"><img src="assets/images/close.png"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="model-cont">
+                        <h4 class="text-center text-danger">Seller Information</h3>
+                            <div class="row px-3 py-2">
+                                <div
+                                    class="col-12  col-sm-12 col-md-6 col-lg-6 ">
+                                    <label for="slr_name"class="form-label fw-bold text-dark"><i class="fa-regular fa-user"></i>
+                                        Seller Name</label>
+                                    <input type="text" class="form-control" id="slr_name_card">
+                                </div>
+                                <div
+                                    class="col-12 col-sm-12 col-md-6 col-lg-6  ">
+                                    <label for="number"class="form-label text-dark fw-bold"><i class="fa fa-phone"aria-hidden="true"></i>
+                                        Phone Number</label>
+                                    <input type="text" class="form-control" id="mob_num_card">
+                                </div>
+                            </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button"  id="got_it_btn "class="btn btn-secondary"data-bs-dismiss="modal">Close</button>
+                     <!-- <button type="button" class="btn btn-danger" id="got_it_btn">Got It</button> -->
+                </div>
+            </div>
+    </div>
 
 
-                },
-                state: "required",
-                district: "required",
-                price: "required",
+    <!-- <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script> -->
+    <script>
+$(document).ready(function() {
+    $.validator.addMethod("indianMobile", function(value, element) {
+        return this.optional(element) || /^[789]\d{9}$/.test(value);
+    }, "Please enter a valid Indian mobile number.");
 
+    $("#haatbazar_form").validate({
+        rules: {
+            fname: {
+                required: true,
             },
-
-
-
-
-        });
-
-
-        $('#button_nursery').on('click', function() {
-            $('#nursery_form').valid();
-        });
-
-
-
-
+            lname: {
+                required: true,
+            },
+            number_number: {
+                required: true,
+                digits: true,
+                indianMobile: true,
+            },
+            state: "required",
+            district: "required",
+            price: "required",
+        },
+        messages: {
+            fname: {
+                required: 'This field is required',
+            },
+            lname: {
+                required: 'This field is required',
+            },
+            number_number: {
+                required: 'This field is required',
+                digits: 'Please enter only digits',
+                indianMobile: 'Please enter a valid Indian mobile number',
+            },
+        }
     });
-</script> -->
+
+    $('#button_nursery').on('click', function() {
+        $('#haatbazar_form').valid();
+    });
+});
+</script>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
@@ -394,80 +425,7 @@ include 'includes/footertag.php';
 
         // Set text alignment to left
         input.style.textAlign = 'left';
-    jQuery.validator.addMethod("customPhoneNumber", function(value, element) {
-        return /^[6-9]\d{9}$/.test(value); 
-    }, "Phone number must start with 6 or above");
-
-    // $.validator.addMethod("validPrice", function(value, element) {
-    //     const cleanedValue = value.replace(/,/g, '');
-    //     return /^\d+$/.test(cleanedValue);
-    // }, "Please enter a valid price (digits and commas only)");
-
-    $('#nursery_form').validate({
-        rules: {
-            fname: {
-                required: true,
-                minlength: 2,
-            },
-            lname: {
-                required: true,
-                minlength: 2,
-            },
-            phone: {
-                required: true,
-                minlength: 10,
-                maxlength: 10,
-                digits: true,
-                customPhoneNumber: true // Custom validation method
-            },
-            state: "required",
-            district: "required",
-            tehsil: "required",
-            price: {
-                required: true,
-                // validPrice: true // Custom validation method for price
-            },
-        },
-        messages: {
-            fname: {
-                required: "Please enter your first name.",
-                minlength: "First name must be at least 2 characters long."
-            },
-            lname: {
-                required: "Please enter your last name.",
-                minlength: "Last name must be at least 2 characters long."
-            },
-            phone: {
-                required: "This field is required",
-                minlength: "Phone Number must be of 10 Digit long",
-                maxlength: "Enter only 10 digits",
-                digits: "Please enter only digits"
-            },
-            state: "Please select your state.",
-            district: "Please select your district.",
-            tehsil: "Please select your tehsil.",
-            price: "Please enter the price."
-        },
-        errorElement: "div",
-        errorPlacement: function(error, element) {
-            // Add the `invalid-feedback` class to the error element
-            error.addClass("invalid-feedback");
-
-            if (element.prop("type") === "checkbox") {
-                error.insertAfter(element.parent("label"));
-            } else {
-                error.insertAfter(element);
-            }
-        },
-      
-    });
-
-    // Event listener for opening the modal
-    $('#button_nursery').click(function() {
-        if ($('#nursery_form').valid()) {
-            $('#get_OTP_btn').modal('show');
-        }
-    });
+   
 });
 </script>
 <script>

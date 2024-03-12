@@ -232,9 +232,11 @@ function store(event) {
             $("#errorStatusLoading").find('.modal-body').html(msg);
             $("#errorStatusLoading").find('.modal-body').html('<img src="assets/images/7efs.gif" style="display:block; margin:0 auto;" class="w-50 text-center" alt="Successfull Request"></img>');
             console.log('Add successfully');
-            $('#form-step-1')[0].reset();
-            $('#form-step-2')[0].reset();
-            $('#form-step-3')[0].reset();
+    
+            // Close modal and reload page after the modal is closed
+            $('#errorStatusLoading').on('hidden.bs.modal', function () {
+                window.location.reload();
+            });
         },
         error: function (error) {
             console.error('Error fetching data:', error);
@@ -245,6 +247,7 @@ function store(event) {
             $("#errorStatusLoading").find('.modal-body').html('<img src="assets/images/comp_3.gif" style="display:block; margin:0 auto;" class="w-50 text-center" alt="Successfull Request"></img>');
         }
     });
+    
 }
 
 

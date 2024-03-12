@@ -212,7 +212,7 @@ function harvester_enquiry() {
                       // slider_head.append(silder_heading);
                   });
   
-                  // Initialize Owl Carousel after adding cards
+                //   Initialize Owl Carousel after adding cards
                   productContainer.owlCarousel({
                       items:3,
                       loop: true,

@@ -90,7 +90,7 @@ function store(event) {
     var enquiry_type_id = $('#enquiry_type_id').val();
     var first_name = $('#fname').val();
     var last_name = $('#lname').val();
-    var mobile = $('#phone').val();
+    var mobile_no = $('#phone_number').val();
     var state = $('#state').val();
     var district = $('#district').val();
     var tehsil = $('#tehsil').val();
@@ -99,7 +99,7 @@ function store(event) {
       'enquiry_type_id':enquiry_type_id,
       'first_name': first_name,
       'last_name':last_name,
-      'mobile':mobile,
+      'mobile':mobile_no,
       'state':state,
       'district':district,
       'tehsil':tehsil,
@@ -121,7 +121,7 @@ var url = "http://tractor-api.divyaltech.com/api/customer/customer_enquiries";
        
         $("#used_tractor_callbnt_").modal('hide'); 
         $('#get_OTP_btn').modal('show');
-        get_otp();
+        get_otp_1(mobile_no);
       
       },
       error: function (error) {
@@ -136,36 +136,32 @@ var url = "http://tractor-api.divyaltech.com/api/customer/customer_enquiries";
     });
   }
 
-
-  function get_otp() {
-    var phone = $('#phone').val();
+  function get_otp_1(phone) {
     var url = "http://tractor-api.divyaltech.com/api/customer/customer_login";
  
     var paraArr = {
-     'mobile': phone,
-   };
-   //  var token = localStorage.getItem('token');
-   //   var headers = {
-   //   'Headers': 'Bearer ' + token
-   //   };
+        'mobile': phone,
+    };
+
     $.ajax({
-      url: url,
-      type: "POST",
-      data: paraArr,
-     //  headers: headers,
-      success: function (result) {
-        console.log(result, "result");
-       
-      },
-      error: function (error) {
-        console.error('Error fetching data:', error);
-      }
+        url: url,
+        type: "POST",
+        data: paraArr,
+        success: function (result) {
+            console.log(result, "result");
+
+            // Once OTP is received, store mobile number in hidden field within modal
+            $('#mobile_verify').val(phone);
+
+        },
+        error: function (error) {
+            console.error('Error fetching data:', error);
+        }
     });
-  }
+}
 
-
-  function verifyotp() {
-    var mobile = document.getElementById('phone').value;
+function verifyotp() {
+    var mobile = document.getElementById('mobile_verify').value;
     var otp = document.getElementById('otp').value;
 
     var paraArr = {

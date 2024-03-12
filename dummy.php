@@ -439,57 +439,57 @@
 </script> -->
 
 <script>
-    $(document).ready(function () {
-    var currentStep = 1;
-    var updateProgressBar;
+        $(document).ready(function () {
+            var currentStep = 1;
+            var updateProgressBar;
 
-    function displayStep(stepNumber) {
-        if (stepNumber >= 1 && stepNumber <= 3) {
-            $(".mul_stp_frm").hide();
-            $("#form-step-" + stepNumber).show();
-            currentStep = stepNumber;
-            updateProgressBar();
-        }
-    }
-
-    $(".next-step").click(function (event) {
-        event.preventDefault();
-        var currentStepForm = $("#form-step-" + currentStep);
-
-        if (currentStepForm.valid()) {
-            currentStepForm.hide();
-            currentStep++;
-            $("#form-step-" + currentStep).show();
-            updateProgressBar();
-        }
-    });
-
-    $(".prev-step").click(function (event) {
-        event.preventDefault();
-        currentStep--;
-        displayStep(currentStep);
-    });
-
-    updateProgressBar = function () {
-        var progressPercentage = ((currentStep - 1) / 2) * 100;
-        $(".progress-bar").css("width", progressPercentage + "%");
-    };
-
-    $(".step-circle").click(function () {
-        var stepNumber = parseInt($(this).text());
-
-        if (stepNumber > currentStep) {
-            var currentStepForm = $("#form-step-" + currentStep);
-            if (!currentStepForm.valid()) {
-                return;
+            function displayStep(stepNumber) {
+                if (stepNumber >= 1 && stepNumber <= 3) {
+                    $(".mul_stp_frm").hide();
+                    $("#form-step-" + stepNumber).show();
+                    currentStep = stepNumber;
+                    updateProgressBar();
+                }
             }
-        }
 
-        displayStep(stepNumber);
-    });
-    displayStep(1);
-});
+            $(".next-step").click(function (event) {
+                event.preventDefault();
+                var currentStepForm = $("#form-step-" + currentStep);
 
+                if (currentStepForm.valid()) {
+                    currentStepForm.hide();
+                    currentStep++;
+                    $("#form-step-" + currentStep).show();
+                    updateProgressBar();
+                }
+            });
+
+            $(".prev-step").click(function (event) {
+                event.preventDefault();
+                currentStep--;
+                displayStep(currentStep);
+            });
+
+            updateProgressBar = function () {
+                var progressPercentage = ((currentStep - 1) / 2) * 100;
+                $(".progress-bar").css("width", progressPercentage + "%");
+            };
+
+            $(".step-circle").click(function () {
+                var stepNumber = parseInt($(this).text());
+
+                if (stepNumber > currentStep) {
+                    var currentStepForm = $("#form-step-" + currentStep);
+                    if (!currentStepForm.valid()) {
+                        return;
+                    }
+                }
+
+                displayStep(stepNumber);
+            });
+
+            displayStep(1);
+        });
     </script>
  <script>
         $(document).ready(function(){
@@ -725,23 +725,87 @@
         input.style.textAlign = 'left';
 });
     </script>
-    <!-- <script>
-         $(document).ready(function() {
-        $('#tprice').on('input', function() {
-            var value = $(this).val().replace(/\D/g, ''); // Remove non-digit characters
-            var formattedValue = Number(value).toLocaleString('en-IN'); // Format using Indian numbering system
-            $(this).val(formattedValue);
+ <script>
+$(document).ready(function () {
+    // Function to display a specific step
+    function displayStep(stepNumber) {
+        if (stepNumber >= 1 && stepNumber <= 3) {
+            $(".mul_stp_frm").hide();
+            $("#form-step-" + stepNumber).show();
+            updateProgressBar(stepNumber); // Update the progress bar for the given step
+        }
+    }
+
+    // Function to check if all three forms are valid
+    function areAllFormsValid() {
+        var formsValid = true;
+
+        $("form").each(function () {
+            if (!$(this).valid()) {
+                formsValid = false;
+                return false; // Break out of the loop if any form is invalid
+            }
         });
 
-        // Set cursor position to the beginning of the input field
-        var input = document.getElementById('tprice');
-        input.focus();
-        input.setSelectionRange(0, 0);
+        return formsValid;
+    }
 
-        // Set text alignment to left
-        input.style.textAlign = 'left';
+    // Function to reset all forms
+    function resetForms() {
+        $("form").each(function () {
+            this.reset(); // Reset each form
+        });
+
+        // Clear uploaded images
+        $("#form-step-2 .upload__img-wrap").empty();
+    }
+
+    // Function to update the progress bar based on the current step
+    function updateProgressBar(stepNumber) {
+        var progressPercentage = ((stepNumber - 1) / 3) * 100; // Assuming 3 steps, calculating the progress percentage
+        $(".progress-bar").css("width", progressPercentage + "%");
+    }
+
+    // Function to reset forms, display step, and show success message
+    $("#btn_submit").click(function () {
+        if (areAllFormsValid()) {
+            resetForms(); // Reset forms if valid
+            displayStep(1); // Show the first form after resetting
+            showSuccessMessage(); // Show success message after form submission
+            $(".progress-bar").css("width", "0%"); // Reset progress bar
+        }
+    });
+
+    // Function to show success message after form submission
+    function showSuccessMessage() {
+        // Display your success message here
+    }
+
+    // Function to handle clicking on step circles
+    $(".step-circle").click(function () {
+        var stepNumber = parseInt($(this).text());
+        displayStep(stepNumber);
+    });
+
+    // Function to handle clicking on next button
+    $(".next-step").click(function () {
+        var currentStep = $(this).closest(".step");
+        var nextStep = currentStep.next(".step");
+        if (nextStep.length > 0) {
+            displayStep(parseInt(nextStep.attr("data-step"))); // Display the next step
+        }
+    });
+
+    // Function to handle clicking on previous button
+    $(".prev-step").click(function () {
+        var currentStep = $(this).closest(".step");
+        var prevStep = currentStep.prev(".step");
+        if (prevStep.length > 0) {
+            displayStep(parseInt(prevStep.attr("data-step"))); // Display the previous step
+        }
+    });
 });
-    </script> -->
+</script>
 </body>
 
 </html>
