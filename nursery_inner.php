@@ -96,7 +96,7 @@
                                                 <div class="col-12 col-lg-6 col-md-6 col-sm-12 mt-4">
                                                     <div class="form-outline ">
                                                         <label for="phone" class="form-label "><i class="fa fa-phone" aria-hidden="true"></i> Phone Number</label>
-                                                        <input type="tel" class="form-control" id="phone" name="phone">
+                                                        <input type="tel" class="form-control" id="phone_number" name="phone">
                                                     </div>
                                                 </div>
 
@@ -174,15 +174,13 @@
 
     <section>
         <div class="container">
-        <div class="my-4">
+            <div class="my-4">
                     <div class="text-editor-black my-4 " style="background-color:#fff">
                         <h4><p class="mt-md mt-4 p-2 mb-3 my-4 assured"><span id="model4"></span> About Nursety</p></h4>
                     </div>
                     <p id="description"></p>
                     
                 </div>
-            <!-- <h3 class="text-danger assured ps-3">About Nursery</h3> -->
-            
             <table class="table w-100 table-hover table table-striped my-4  ">
                 <tbody>
                     <tr>
@@ -223,7 +221,7 @@
                 <div class="modal-body">
                     <form id="otp_form">
                         <div class=" col-12 input-group">
-                        <div class="col-12" hidden>
+                            <div class="col-12" hidden>
                                 <label for="Mobile" class=" text-dark float-start pl-2">Munber</label>
                                 <input type="text" class="form-control text-dark" placeholder="Enter OTP" id="Mobile_2"name="Mobile">
                             </div>
@@ -238,7 +236,6 @@
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> -->
                     <button type="button" class="btn btn-success" id="Verify_inner">Verify</button>
                 </div>
             </div>
@@ -269,7 +266,6 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button"  id="got_it_btn_1 "class="btn btn-secondary"data-bs-dismiss="modal">Close</button>
-                    <!-- <button type="button" class="btn btn-danger" id="got_it_btn">Got It</button> -->
                 </div>
             </div>
         </div>
@@ -298,10 +294,10 @@
                 <div class="modal-body">
                     <form id="otp_form">
                         <div class=" col-12 input-group">
-                        <!-- <div class="col-12" hidden>
+                        <div class="col-12" hidden>
                                 <label for="Mobile" class=" text-dark float-start pl-2">Enter OTP</label>
-                                <input type="text" class="form-control text-dark" placeholder="Enter OTP" id="Mobile"name="Mobile">
-                            </div> -->
+                                <input type="text" class="form-control text-dark" placeholder="Enter OTP" id="mobile_verify"name="Mobile">
+                            </div>
                             <div class="col-12">
                                 <label for="Mobile" class=" text-dark float-start pl-2">Enter OTP</label>
                                 <input type="text" class="form-control text-dark" placeholder="Enter OTP" id="otp"name="opt_1">

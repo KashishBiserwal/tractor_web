@@ -183,13 +183,20 @@ function store(event) {
     data.append('state', state);
     data.append('district', district);
     data.append('tehsil', tehsil);
-    data.append('vehicle_registered_num', rc);
     data.append('rc_number', rc_number);
     data.append('finance', finance);
-    data.append('noc', nocAvailable);
     data.append('price', price);
     data.append('description', about);
 
+    // Append RC Number field only if the value is not "No"
+    if (rc_number !== "0") {
+        data.append('vehicle_registered_num', rc);
+    }
+
+    // Append NOC Available field only if Financed is set to "Yes"
+    if (finance !== "0") {
+        data.append('noc', nocAvailable);
+    }
 
     // Append each image to the FormData object
     for (var x = 0; x < image_names.length; x++) {
@@ -213,7 +220,10 @@ function store(event) {
             $("#errorStatusLoading").find('.modal-body').html(msg);
             $("#errorStatusLoading").find('.modal-body').html('<img src="assets/images/7efs.gif" style="display:block; margin:0 auto;" class="w-50 text-center" alt="Successfull Request"></img>');
             console.log('Add successfully');
-            // document.getElementById("myForm").reset();
+            
+            $('#errorStatusLoading').on('hidden.bs.modal', function () {
+                window.location.reload();
+            });
           
         },
         error: function (error) {
@@ -226,4 +236,3 @@ function store(event) {
         }
     });
 }
-

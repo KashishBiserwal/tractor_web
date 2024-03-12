@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-
+<head>
    <?php
   include 'includes/headertag.php';
     //include 'includes/headertagadmin.php';
