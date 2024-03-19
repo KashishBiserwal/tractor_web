@@ -197,9 +197,7 @@ function get_subcategory_custom(id) {
             tableData.html('');
 
             Data.custom_data.forEach(function (p, index) {
-                var tableRow = `
-                
-                    <div class="row form_field_outer_row">
+                var tableRow = `<div class="row form_field_outer_row">
                         <div class="form-group col-md-4">
                             <input type="text" class="form-control w_90" name="mobileb_no[]" value="${p.custom_column_name}" id="mobileb_no_${index + 1}" readOnly />
                         </div>
@@ -299,7 +297,7 @@ function get_subcategory_search(id) {
                 data.implementSubCategoryData.forEach(row => {
                     const option = document.createElement('option');
                     option.textContent = row.sub_category_name;
-                    option.value = row.sub_category_id;
+                    option.value = row.id;
                     select.appendChild(option);
                 });
                
@@ -755,80 +753,88 @@ function destroy(id) {
 function search_data() {
     var seach_subcat1 = $('#seach_subcat1').val();
     var seach_subcat = $('#seach_subcat').val();
-    // var brand_main = $('#brand_main').val();
+    
+    // Logging the values for debugging
+    console.log("Category ID:", seach_subcat1);
+    console.log("Subcategory ID:", seach_subcat);
+    
     var paraArr = {
-      'implement_category_id': seach_subcat1,
-      'implement_subcategory_id':seach_subcat,
-    //   'brand_id':brand_main,
+        'implement_category_id': seach_subcat1,
+        'implement_subcategory_id': seach_subcat,
     };
   
     var apiBaseURL = APIBaseURL;
     var url = apiBaseURL + 'search_for_implement_details';
     $.ajax({
-        url:url, 
+        url: url,
         type: 'POST',
         data: paraArr,
-      
         headers: {
             'Authorization': 'Bearer ' + localStorage.getItem('token')
         },
         success: function (searchData) {
-          updateTable(searchData);
+            console.log("Search Data:", searchData); // Logging the received data
+            updateTable(searchData);
         },
-        error: function (error) {
-            console.error('Error searching for brands:', error);
+        error: function (xhr, status, error) {
+            if (xhr.status === 404) {
+                $('#example').DataTable().clear().draw(); // Clear existing table data
+                $('#data-table').html('<tr><td colspan="5">No valid data available</td></tr>'); // Display "No valid data available" message
+            } else {
+                console.error('Error searching for brands:', error);
+            }
         }
     });
-  };
-  function updateTable(data) {
+}
+function updateTable(data) {
     const tableBody = document.getElementById('data-table');
 
-            if (data.getAllImplements && data.getAllImplements.length > 0) {
-                let tableData = [];
-                let counter = data.getAllImplements.length;
+    if (data.getAllImplements && data.getAllImplements.length > 0) {
+        let tableData = [];
+        let counter = data.getAllImplements.length;
 
-                data.getAllImplements.forEach(row => {
-                    let action = `
-                        <div class="d-flex">
-                          <button class="btn btn-warning btn-sm text-white mx-1" data-bs-toggle="modal" onclick="fetch_data(${row.product_id});" data-bs-target="#exampleModal">
-                            <i class="fa-solid fa-eye" style="font-size: 11px;"></i></button>
-                          <button class="btn btn-primary btn-sm btn_edit" onclick="fetch_edit_data(${row.product_id});" data-bs-toggle="modal" data-bs-target="#staticBackdrop" id="yourUniqueIdHere">
-                            <i class="fas fa-edit" style="font-size: 11px;"></i>
-                          </button>
-                          <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.product_id});">
-                            <i class="fa fa-trash" style="font-size: 11px;"></i>
-                          </button>
-                        </div>`;
+        data.getAllImplements.forEach(row => {
+            let action = `
+                <div class="d-flex">
+                    <button class="btn btn-warning btn-sm text-white mx-1" data-bs-toggle="modal" onclick="fetch_data(${row.product_id});" data-bs-target="#exampleModal">
+                        <i class="fa-solid fa-eye" style="font-size: 11px;"></i>
+                    </button>
+                    <button class="btn btn-primary btn-sm btn_edit" onclick="fetch_edit_data(${row.product_id});" data-bs-toggle="modal" data-bs-target="#staticBackdrop" id="yourUniqueIdHere">
+                        <i class="fas fa-edit" style="font-size: 11px;"></i>
+                    </button>
+                    <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.product_id});">
+                        <i class="fa fa-trash" style="font-size: 11px;"></i>
+                    </button>
+                </div>`;
 
-                    tableData.push([
-                        counter--,
-                        row.category_name,
-                        row.sub_category_name,
-                        row.brand_name,
-                        row.model,
-                        action
-                    ]);
+            tableData.push([
+                counter--,
+                row.category_name,
+                row.sub_category_name,
+                row.brand_name,
+                row.model,
+                action
+            ]);
 
-                });
+        });
 
-                $('#example').DataTable().destroy();
-                $('#example').DataTable({
-                    data: tableData,
-                    columns: [
-                        { title: 'S.No.' },
-                        { title: 'Category Name' },
-                        { title: 'Subcategory Name' },
-                        { title: 'Brand' },
-                        { title: 'Model' },
-                        { title: 'Action', orderable: false }
-                    ],
-                    paging: true,
-                    searching: true,
-                });
-            }
-    else {
+        $('#example').DataTable().destroy();
+        $('#example').DataTable({
+            data: tableData,
+            columns: [
+                { title: 'S.No.' },
+                { title: 'Category Name' },
+                { title: 'Subcategory Name' },
+                { title: 'Brand' },
+                { title: 'Model' },
+                { title: 'Action', orderable: false }
+            ],
+            paging: true,
+            searching: true,
+        });
+    } else {
         // Display a message if there's no valid data
-        tableBody.innerHTML = '<tr><td colspan="4">No valid data available</td></tr>';
+        tableBody.innerHTML = '<tr><td colspan="6">No valid data available</td></tr>';
     }
-  }
+}
 

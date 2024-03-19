@@ -14,13 +14,13 @@ include 'includes/headertag.php';
 
 </head>
 <body>
-    <section>
-      <div class="container mt-5 pt-4">
+    <section class="bg-light mt-3">
+      <div class="container mt-4 pt-4">
         <div class="mt-5 pt-5">
           <span class="mt-4 pt-4 ">
           <a href="index.php" class="text-decoration-none header-link px-1">Home <i class="fa-solid fa-chevron-right px-1"></i></a>
           <a href="certified_dealers.php" class="text-decoration-none header-link px-1">Certified Dealers <i class="fa-solid fa-chevron-right px-1"></i></a>
-          <span class="text-dark" id="">Ratna Automotive Pvt. Ltd.</span>
+          <span class="text-dark" id=""></span>
         </div>
       </div>
     </section>
@@ -211,24 +211,55 @@ include 'includes/headertag.php';
     </section>
 
     <!-- BRAND SIMILAR TRACTOR -->
-<section class="bg-light pb-4">
+<!-- <section class="bg-light pb-4">
     <div class="container-fullwidth ">
         <div class="row">
-            <!-- <h1 class=" mt-5">Popular Mahindra Tractors</h1> -->
             <div id="popular_tractor"></div>
             <div id="productContainer" class="row"></div>
                 
 		
 		</div>
         <div class="col-12 text-center mt-3 pt-2 ">
-            <button id="load_moretract" type="button" class=" btn add_btn btn-success">
+            <button id="load_moretract" type="button" class=" btn add_btn btn-success p-1">
             <i class="fas fa-undo"></i>  Load More tractors</button>
          </div>
     </div>
-</section>  
+</section>   -->
+<section>
+      <div class="container">
+      <div>
+      <h4><p class="mt-md mt-3 p-2 mb-5 my-3 assured"> Populer Tractor </p></h4>
+      </div>
+            <div class="section slider-section">
+              <div class="container slider-column">
+              <div class="carousel-wrap">
+                <div class="owl-carousel" id="New_Populer_Tractor"> </div>
+                <div class="col text-center pb-4">
+                  <a href=".php" class="btn btn-success px-5">Load More tractors</a>
+                </div>
+              </div>
+            </div>
+            </div>
+            </section>
 
     <!-- TRACTOR IMPLEMENTS CAROUSEL -->
-  <section>
+    <section>
+      <div class="container">
+      <div>
+      <h4><p class="mt-md mt-3 p-2 mb-5 my-3 assured">Tractor Implements</p></h4>
+      </div>
+            <div class="section slider-section">
+              <div class="container slider-column">
+              <div class="carousel-wrap">
+                <div class="owl-carousel" id="New_Tractor_Implements"> </div>
+                <div class="col text-center pb-4">
+                  <a href=".php" class="btn btn-success px-5">View all Tractor Implements</a>
+                </div>
+              </div>
+            </div>
+            </div>
+            </section>
+  <!-- <section>
     <div class="container">
       <div class="text-editor-black  my-3" style="background-color:#fff">
         <h4><p class="mt-md mt-3 p-2 mb-5 my-3 assured">Tractor Implements</p></h4>
@@ -407,7 +438,7 @@ include 'includes/headertag.php';
         </div>
       </div>
     </div>
-  </section>
+  </section> -->
 
   <?php
     include 'includes/footer.php';

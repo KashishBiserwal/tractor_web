@@ -123,7 +123,7 @@ function get_sub_category(category_id) {
               data.data.forEach(row => {
                   const option = document.createElement('option');
                   option.textContent = row.sub_category_name;
-                  option.value = row.id;
+                  option.value = row.sub_category_id;
                   select.appendChild(option);
               });
           } else {
@@ -163,13 +163,13 @@ function get_data() {
                 data.allSubCategory.forEach(row => {
                    // const tableRow = document.createElement('tr');
                    let action = `<div class="d-flex">
-                   <button class="btn btn-danger btn-sm mx-1"  onclick="destroy(${row.id});" style="padding:5px;">
+                    <button class="btn btn-primary btn-sm btn_edit" onclick="fetch_edit_data(${row.sub_category_id})" data-bs-toggle="modal" data-bs-target="#staticBackdrop3">
+                        <i class="fas fa-edit" style="font-size: 11px;"></i>
+                    </button>
+                    <button class="btn btn-danger btn-sm mx-1"  onclick="destroy(${row.sub_category_id});" style="padding:5px;">
                        <i class="fa fa-trash" style="font-size: 11px;"></i>
-                   </button>
-                   <button class="btn btn-primary btn-sm btn_edit" onclick="fetch_edit_data(${row.id});" data-bs-toggle="modal" data-bs-target="#staticBackdrop3" id="yourUniqueIdHere">
-                      <i class="fas fa-edit" style="font-size: 11px;"></i>
-                   </button>
-               </div>`;
+                    </button>
+                    </div>`;
                  
                     tableData.push([
                       serialNumber--,
@@ -264,24 +264,20 @@ function store_subcategory(event) {
     var apiBaseURL = APIBaseURL;
     var url = apiBaseURL + 'haat_bazar_sub_category_by_id/' + id; 
     console.log(url);
-  
+
     var headers = {
         'Authorization': 'Bearer ' + localStorage.getItem('token')
     };
-  
+
     $.ajax({
         url: url,
         type: 'GET',
         headers: headers,
         success: function (response) {
-          // console.log('sdfgh'); 
             var Data = response.data[0];
-            $('#idUser').val(Data.id);
-            // $('#category_id').val(Data.category_id);
+            $('#idUser').val(Data.userId);
             $('#category_2').val(Data.category_id);
             $('#sub_category_1').val(Data.sub_category_name);
-            // console.log(Data.name);
-            
         },
         error: function (error) {
             console.error('Error fetching user data:', error);
@@ -291,51 +287,49 @@ function store_subcategory(event) {
             $("#errorStatusLoading").find('.modal-body').html(msg);
         }
     });
-  }
+}
 
 function edit_user() {
-    var edit_id = $("#idUser").val();
-//   var category = $("#category_id").val();
-  var category_id = $("#category_2").val();
-  var sub_category_name = $("#sub_category_1").val();
+    var edit_id = $("#idUser").val(); // Retrieve user ID from a hidden field
+    var category_id = $("#category_2").val(); // Retrieve category ID from the select input
+    var sub_category_name = $("#sub_category_1").val(); // Retrieve sub-category name from the input field
 
-  var paraArr = {
-      'category_id': category_id,
-    //   'category_id': category,
-      'sub_category_name': sub_category_name,
-      'id': edit_id, 
-  };
+    var paraArr = {
+        'category_id': category_id,
+        'sub_category_name': sub_category_name,
+        'id': edit_id, 
+    };
 
-  var apiBaseURL = APIBaseURL;
-  var url = apiBaseURL + 'haat_bazar_sub_category/' + edit_id;
+    var apiBaseURL = APIBaseURL;
+    var url = apiBaseURL + 'haat_bazar_sub_category/' + edit_id;
 
-  var headers = {
-      'Authorization': 'Bearer ' + localStorage.getItem('token')
-  };
+    var headers = {
+        'Authorization': 'Bearer ' + localStorage.getItem('token')
+    };
 
-  $.ajax({
-      url: url,
-      type: "PUT",
-      data: paraArr,
-      headers: headers,
-      success: function (result) {
-          console.log(result, "result");
-          // get();
-          window.location.reload();
-          console.log("updated successfully");
-          var msg = "Updated successfully !"
-      $("#errorStatusLoading").modal('show');
-      $("#errorStatusLoading").find('.modal-title').html('Success');
-      $("#errorStatusLoading").find('.modal-body').html(msg);
-      },
-      error: function (error) {
-          console.error('Error fetching data:', error);
-          var msg = error;
-          $("#errorStatusLoading").modal('show');
-          $("#errorStatusLoading").find('.modal-title').html('Error');
-          $("#errorStatusLoading").find('.modal-body').html(msg);
-      }
-  });
+    $.ajax({
+        url: url,
+        type: "PUT",
+        data: paraArr,
+        headers: headers,
+        success: function (result) {
+            console.log(result, "result");
+            // Reload the page or perform any necessary action upon successful update
+            window.location.reload();
+            console.log("updated successfully");
+            var msg = "Updated successfully !"
+            $("#errorStatusLoading").modal('show');
+            $("#errorStatusLoading").find('.modal-title').html('Success');
+            $("#errorStatusLoading").find('.modal-body').html(msg);
+        },
+        error: function (error) {
+            console.error('Error fetching data:', error);
+            var msg = error;
+            $("#errorStatusLoading").modal('show');
+            $("#errorStatusLoading").find('.modal-title').html('Error');
+            $("#errorStatusLoading").find('.modal-body').html(msg);
+        }
+    });
 }
 
 
@@ -421,12 +415,12 @@ function updateTable(data) {
         let tableData = [];
         data.data.forEach(row => {
             let action = `<div class="d-flex">
-                <button class="btn btn-danger btn-sm mx-1" id="delete_user" onclick="destroy(${row.id});" style="padding:5px;">
-                    <i class="fa fa-trash" style="font-size: 11px;"></i>
-                </button>
-                <button class="btn btn-primary btn-sm btn_edit" onclick="fetch_edit_data(${row.id});" data-bs-toggle="modal" data-bs-target="#staticBackdrop3" id="yourUniqueIdHere">
-                    <i class="fas fa-edit" style="font-size: 11px;"></i>
-                </button>
+            <button class="btn btn-primary btn-sm btn_edit" onclick="fetch_edit_data(${row.sub_category_id})" data-bs-toggle="modal" data-bs-target="#staticBackdrop3">
+                <i class="fas fa-edit" style="font-size: 11px;"></i>
+            </button>
+            <button class="btn btn-danger btn-sm mx-1"  onclick="destroy(${row.sub_category_id});" style="padding:5px;">
+               <i class="fa fa-trash" style="font-size: 11px;"></i>
+            </button>
             </div>`;
             tableData.push([
                 serialNumber,

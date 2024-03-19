@@ -107,13 +107,13 @@
         <div class="modal fade" id="staticBackdrop3" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
             <div class="modal-dialog modal-lg modal-dialog-centered">
                 <div class="modal-content">
-                    <div class="modal-header">
+                    <div class="modal-header bg-success">
                         <h5 class="modal-title ms-1" id="staticBackdropLabel">Request Call Back</h5>
                         <button type="button" class="btn-close btn-success" data-bs-dismiss="modal" aria-label="Close"><img class="w-25" src="assets/images/close.png"></button>
                     </div>
 
                     <!-- MODAL BODY -->
-                    <div class="modal-body">
+                    <div class="modal-body mt-2">
                         <form id="engine_oil_form" class="bg-light"action="">
                             <div class="row">
                                 <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
@@ -138,31 +138,31 @@
                                 <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-3">
                                     <div class="form-outline">
                                         <label for="eo_state" class="form-label text-dark fw-bold"> <i class="fas fa-location"></i> State</label>
-                                        <select class="form-select py-2 state-dropdown" aria-label=".form-select-lg example" id="state" name="eo_state">
-                                     
+                                        <select class="form-select py-2 " aria-label=".form-select-lg example" id="state" name="eo_state">
+                                           <option value="Chhattisgarh">Chhattisgarh</option>
                                         </select>
                                     </div>
                                 </div>
                                 <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-4">
                                     <div class="form-outline">
                                         <label for="eo_dist" class="form-label fw-bold  text-dark"><i class="fa-solid fa-location-dot"></i> District</label>
-                                        <select class="form-select py-2 district-dropdown" aria-label=".form-select-lg example" id="district" name="eo_dist">
-                                           
+                                        <select class="form-select py-2 " aria-label=".form-select-lg example" id="district" name="eo_dist">
+                                           <option value="Bemetara">Bemetara</option>
                                         </select>
                                     </div>
                                 </div>                           
                                 <div class="col-12 col-sm-6 col-md-6 col-lg-6 mt-4">
                                     <div class="form-outline">
                                         <label for="eo_tehsil" class="form-label fw-bold text-dark"> Tehsil</label>
-                                        <select class="form-select py-2 tehsil-dropdown" aria-label=".form-select-lg example" id="Tehsil" name="eo_tehsil">
-                                      
+                                        <select class="form-select py-2 " aria-label=".form-select-lg example" id="Tehsil" name="eo_tehsil">
+                                            <option value="Bemetara">Bemetara</option>
                                         </select>
                                     </div>
                                 </div>
 
                             </div> 
                             <div class="text-center my-3">
-                                <button type="submit" id="enquiry" class="btn btn-success px-5 w-40">Submit</button>         
+                                <button type="submit" id="enquiry" class="btn btn-success px-5 w-40 mt-2">Submit</button>         
                             </div>        
                         </form>                             
                     </div>
@@ -631,44 +631,38 @@
 
 
         <!-- CARDS SIMILAR HARVETER -->
-        <section>
+<section>
          <div class="container ">
             <h2 class="fw-bold text-dark text-start mt-4 assured ps-3">Similar Harvesters</h3>
-            <div class="row" id="productContainerharvester">
-                <!-- <div class="col-12 col-lg-3 col-md-3 col-sm-3 mb-4">
-                    <a href="harvester_inner.php" class="h-auto success__stry__item d-flex flex-column text-decoration-none shadow ">
-                        <div class="thumb">
-                            <div>
-                                <img src="assets/images/40009999.webp" class="object-fit-cover w-100" alt="img">
-                            </div>
-                        </div>
-                        <div class="content d-flex flex-column flex-grow-1 ">
-                            <div class="power text-center mt-3">
-                                <div class="row text-center">
-                                    <div class="col-12 text-center">
-                                        <p class="fw-bold pe-3 text-primary">Kartar 4000</p>
-                                    </div>
-                                </div>
-                                <div class="row ">
-                                   <div class="col-12 "><p class="text-dark ps-2">Cutting Width : 14 Feet</p></div>
-                                        
-                                </div>    
-                            </div>
-                        </div>
-                        <div class="col-12 btn-success">
-                            <button type="button" class="btn btn-success py-2 w-100"></i> 
-                                Power : 101 HP
-                            </button>
-                        </div>
-                    </a>
-                </div> -->
-            </div>
-         </div>
+            <div class="section slider-section">
+              <div class="container slider-column">
+              <div class="carousel-wrap">
+            <div class="owl-carousel" id="productContainerharvester"></div>
+       
          <div class="col text-center my-3 pb-5">
             <a href="harvester.php" class="btn btn-success btn-lg">View All Harvester</a>
         </div>
-    </section>
-
+        </div>
+            </div>
+            </div>
+</section>
+<!-- <section>
+    <div class="container">
+        <div>
+            <h4><p class="mt-md mt-3 p-2 mb-5 my-3 assured">Similar Harvesters</p></h4>
+        </div>
+        <div class="section slider-section">
+            <div class="container slider-column">
+               <div class="carousel-wrap">
+                    <div class="owl-carousel" id="productContainerharvester"> </div>
+                    <div class="col text-center pb-4">
+                    <a href="harvester.php" class="btn btn-success px-5">View All Harvester</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+ </section> -->
 
     <?php
         include 'includes/footer.php';

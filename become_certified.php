@@ -18,6 +18,139 @@ include 'includes/headertag.php';
     <?php
    include 'includes/header.php';
    ?>
+   <style>
+        /* #container {
+        max-width: 550px;  
+        } */
+
+        .step-container {
+            position: relative;
+            text-align: center;
+            transform: translateY(-43%);
+        }
+
+        .step-circle {
+            width: 20px;
+            height: 22px;
+            border-radius: 50%;
+            background-color: #4a80d2;
+            color: #4a80d2;
+            /* border: 6px solid #007bff; */
+            line-height: 30px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 10px;
+            cursor: pointer;
+        }
+
+        /* .step-line {
+            position: absolute;
+            top: 16px;
+            left: 50px;
+            width: calc(100% - 100px);
+            height: 2px;
+            background-color: #007bff;
+            z-index: -1;
+        } */
+        
+        html * {
+        box-sizing: border-box;
+        }
+        .mul_stp_frm{
+            overflow-x: hidden;
+        }
+
+        
+        p {
+        margin: 0;
+        }
+
+         .upload__inputfile {
+  width: .1px;
+  height: .1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+  }
+
+  .upload__btn {
+  display: inline-block;
+  font-weight: 600;
+  color: #fff;
+  text-align: center;
+  min-width: 150px;
+  padding: 5px;
+  transition: all .3s ease;
+  cursor: pointer;
+  border: 2px solid;
+  background-color:  #198754;
+  border-color:  #198754;
+  border-radius: 10px;
+  line-height: 26px;
+  font-size: 14px;
+  }
+
+  .upload__btn:hover {
+  background-color: unset;
+  color:  #198754;
+  transition: all .3s ease;
+  }
+
+  .upload__btn-box {
+  margin-bottom: 10px;
+  margin-top:-25px;
+  }
+
+  .upload__img-wrap {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .upload__img-box {
+  flex: 0 0 calc(33.333% - 20px); 
+  margin: 0 10px 20px; 
+  position: relative;
+  display: flex;
+    flex-wrap: wrap;
+  }
+
+  .upload__img-close,.upload__img-close_button {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  top: 10px;
+  right: 60px;
+  text-align: center;
+  line-height: 24px;
+  z-index: 1;
+  cursor: pointer;
+  }
+
+  .upload__img-close:after,.upload__img-close_button:after {
+  content: '\2716';
+  font-size: 14px;
+  color: white;
+  }
+  
+
+  .img-bg {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  position: relative;
+  width: 160px;
+  height: 125px;
+  }
+        body {
+            font-family: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", Helvetica, Arial, sans-serif; 
+        }
+    
+    </style>
 <body>
     <section>
         <div class="container mt-5 pt-4">
@@ -127,19 +260,19 @@ include 'includes/headertag.php';
                                         </select>
                                     </div>
                                 </div>
-                                <div class="col-12 col-sm-6 col-md-6 col-lg-6">
-                                    <div class="upload__box mt-5">
+                                <div class="col-12 col-sm-6 col-md-6 col-lg-6 mt-0 mb-0 m-0 p-1">
+                                    <div class="upload__box">
                                         <div class="upload__btn-box">
                                             <label>
-                                                <p class="upload__btn w-100">Upload images</p>
+                                                <p class="upload__btn w-100 m-5">Upload images</p>
                                                 <input type="file" multiple="" data-max_length="3" class="upload__inputfile" id="f_file" name="_file">
                                             </label>
                                         </div>
-                                        <div class="col-sm-6">
-                                            <div class="upload__img-wrap"></div>
+                                        <div class="col-sm-12">
+                                            <div class="upload__img-wrap" style="display:flex; flex-wrap:wrap;"></div>
                                         </div>
                                     </div>
-                                    <!-- <input type="file" id="_file" class="w-100 pb-0 mb-auto" name="_file" required> -->
+                                    <!-- <input type="file" id="_file" multiple="" class="w-100 pb-0 mb-auto" name="_file" required> -->
                                 </div>
                                 <div class="text-center my-3">
                                     <button type="button" id="become_delership_enq_btn" class="btn btn-success mt-1 px-5 w-100 ">Submit</button>         

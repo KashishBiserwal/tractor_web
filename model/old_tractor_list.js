@@ -68,7 +68,12 @@ $(document).ready(function() {
       });
   });
 
- 
+  function formatPriceWithCommas(price) {
+    if (isNaN(price)) {
+        return price; 
+    }
+     return price.toLocaleString('en-IN', { maximumFractionDigits: 2 });
+}
 
   function ImgUpload() {
     var imgWrap = "";
@@ -300,6 +305,7 @@ function store(event) {
       }
     //  var nocAvailable = $('input[name="fav_language1"]:checked').val();
      var price= $('#price_old').val();
+     price = price.replace(/[\,\.\s]/g, '');
      var description = $('#description').val();
  
     
@@ -334,7 +340,7 @@ function store(event) {
        console.log("multiple image", image_names[x]);
      }
     //  data.append('product_id',EditIdmain_);
-     data.append('customer_id',customer_id);
+       data.append('customer_id',customer_id);
        data.append('form_type',form_type);
        data.append('_method',_method);
        data.append('product_type_id', product_type_id);
@@ -598,7 +604,7 @@ function fetch_edit_data(customer_id) {
     headers: headers,
     success: function(response) {
       var userData = response.product[0];
-
+      var formattedPrice = parseFloat(userData.price).toLocaleString('en-IN');
       $('#customer_id').val(userData.customer_id);
       $('#enquiry_type_id').val(userData.enquiry_type_id);
       $('#image_type_id').val(userData.image_type_id);
@@ -607,7 +613,7 @@ function fetch_edit_data(customer_id) {
       $('#first_name').val(userData.first_name);
       $('#last_name').val(userData.last_name);
       $('#mobile_number').val(userData.mobile);
-      $('#price_old').val(userData.price);
+      $('#price_old').val(formattedPrice);
       // $('#description').val(userData.description);
       $("#purchase_year option").prop("selected", false);
       $("#purchase_year option[value='" + userData.purchase_year + "']").prop("selected", true);
@@ -630,10 +636,22 @@ function fetch_edit_data(customer_id) {
       $('#product_type_id').val(userData.product_type);
       $('#rc_num').val(userData.vehicle_registered_num);
       $('input[name="fav_rc"]').filter('[value="' + userData.rc_number + '"]').prop('checked', true);
+      console.log('userData.rc_number:', userData.rc_number);
       $('input[name="fav_language1"]').filter('[value="' + userData.noc + '"]').prop('checked', true);
       $('input[name="fav_language"]').filter('[value="' + userData.finance + '"]').prop('checked', true);
 
+      if (userData.rc_number == 1) {
+        $('.rc-num-container').removeClass('hidden');
+        $('#rc_num').val(userData.vehicle_registered_num);
+      } else {
+        $('.rc-num-container').addClass('hidden');
+      }
 
+      if (userData.finance == 1) {
+        $('#nocDiv').show();
+      } else {
+        $('#nocDiv').hide();
+      }
       var brandDropdown = document.getElementById('brand');
       for (var i = 0; i < brandDropdown.options.length; i++) {
         if (brandDropdown.options[i].text === userData.brand_name) {
@@ -703,7 +721,6 @@ function populateTehsil(selectId, value) {
 // view data
 function fetch_data(product_id){
   // alert(product_id);
-  console.log(window.location)
   var urlParams = new URLSearchParams(window.location.search);
   
   var productId = product_id;
@@ -717,7 +734,7 @@ function fetch_data(product_id){
       type: "GET",
       headers: headers,
       success: function(data) {
-      console.log(data, 'abc');
+      var formattedPrice = parseFloat(data.product[0].price).toLocaleString('en-IN');
       document.getElementById('first_name2').innerText=data.product[0].first_name;
       document.getElementById('last_name2').innerText=data.product[0].last_name;
       document.getElementById('monile').innerText=data.product[0].mobile;
@@ -733,7 +750,7 @@ function fetch_data(product_id){
       document.getElementById('model1').innerText=data.product[0].model;
       document.getElementById('noc_available').innerText=data.product[0].noc;
       document.getElementById('Finance_veh').innerText=data.product[0].vehicle_registered_num;
-      document.getElementById('price12').innerText=data.product[0].price;
+      document.getElementById('price12').innerText= formattedPrice;
       
       $("#selectedImagesContainer-old").empty();
       if (data.product[0].image_names) {
@@ -832,6 +849,8 @@ function fetch_data(product_id){
 }
 
   function get_By_State() {
+    // var apiBaseURL =  $CustomerAPIBaseURL;
+    // var url = apiBaseURL + 'state_data';
     var url = 'http://tractor-api.divyaltech.com/api/customer/state_data';
     $.ajax({
         url: url,
@@ -840,7 +859,6 @@ function fetch_data(product_id){
             'Authorization': 'Bearer ' + localStorage.getItem('token')
         },
         success: function(data) {
-            console.log(data);
             const select = document.getElementById('state_name');
             select.innerHTML = '<option selected disabled value="">Please select a state</option>';
   
@@ -864,4 +882,5 @@ function fetch_data(product_id){
   }
   get_By_State();
 
-  
+ 
+

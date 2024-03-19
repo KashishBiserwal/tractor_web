@@ -97,7 +97,7 @@ $(document).ready(function() {
                                 <div class="row">
                                     <div class="col-12 col-lg-6 col-md-6 col-sm-6"><p class="text-dark ps-2"> ${p.category_name}</p></div>
                                     <div class="col-12 col-lg-6 col-md-6 col-sm-6" style="padding-right: 32px;">
-                                        <p class="text-success ps-2"><i class="fa fa-inr" aria-hidden="true"></i>
+                                        <p class="text-success ps-2 text-truncate"><i class="fa fa-inr" aria-hidden="true"></i>
                                         ${formattedPrice}/<span>  ${p.as_per}</span></p>
                                     </div>
                                 </div>
@@ -349,6 +349,7 @@ function storedata(event) {
         var district = $('#district').val();
         var tehsil = $('#tehsil').val();
         var price = $('#price').val();
+        price = price.replace(/[\,\.\s]/g, '');
         console.log('jfhfhw', product_id);
 
         // Prepare data to send to the server

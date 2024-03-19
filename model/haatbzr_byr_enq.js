@@ -194,7 +194,15 @@ function destroy(id) {
     }
   });
 }
-
+function formatPriceWithCommas(price) {
+  // Check if the price is not a number
+  if (isNaN(price)) {
+      return price; // Return the original value if it's not a number
+  }
+  
+  // Format the price with commas in Indian format
+  return new Intl.NumberFormat('en-IN').format(price);
+}
       // View data
 function openView(userId) {
     var apiBaseURL = APIBaseURL;
@@ -210,7 +218,9 @@ function openView(userId) {
       headers: headers,
     
       success: function(response) {
+        
         var userData = response.haatBazarData[0];
+        var formattedPrice = parseFloat(userData.price).toLocaleString('en-IN');
         document.getElementById('category').innerText=userData.category_name;
         document.getElementById('sub_category').innerText=userData.sub_category_name;
         document.getElementById('fname').innerText=userData.first_name;
@@ -219,7 +229,7 @@ function openView(userId) {
         document.getElementById('state').innerText=userData.state_name;
         document.getElementById('dist').innerText=userData.district_name;
         document.getElementById('tehsil').innerText=userData.tehsil_name;
-        document.getElementById('price1').innerText=userData.price;
+        document.getElementById('price1').innerText= formattedPrice;
        
         
         // $("#selectedImagesContainer1").empty();
@@ -268,12 +278,14 @@ function openView(userId) {
         headers: headers,
         success: function(response) {
             var userData = response.haatBazarData[0];
+            var formattedPrice = parseFloat(userData.price).toLocaleString('en-IN');
             $('#userId').val(userData.haat_bazar_id);
             $('#username').val(userData.haat_bazar_id);
             $('#first_name1').val(userData.first_name);
             $('#last_name1').val(userData.last_name);
             $('#mobile_no').val(userData.mobile);
-            $('#price').val(userData.price);
+            
+            $('#price').val(formattedPrice);
            
        
             console.log("User Data:", userData);
@@ -347,7 +359,7 @@ function populateTehsil(selectId, value) {
         var district = $('#district_1').val();
         var tehsil = $('#tehsil_1').val();
         var price = $('#price').val();
-
+        price = price.replace(/[\,\.\s]/g, '');
         var apiBaseURL = APIBaseURL;
         var url = apiBaseURL + 'haat_bazar/' + edit_id;
         var token = localStorage.getItem('token');
@@ -629,7 +641,7 @@ function get_sub_category(category_id) {
               data.data.forEach(row => {
                   const option = document.createElement('option');
                   option.textContent = row.sub_category_name;
-                  option.value = row.id;
+                  option.value = row.sub_category_id;
                   select.appendChild(option);
               });
           } else {

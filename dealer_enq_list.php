@@ -16,7 +16,7 @@
     include 'includes/left_nav.php';
     include 'includes/header_admin.php';
     ?>
-   <section style="padding: 0 15px;">
+<section style="padding: 0 15px;">
     <div class="">
       <div class="container">
         <div class="card-body d-flex align-items-center justify-content-between page_title">
@@ -32,103 +32,84 @@
       </div>
     </div>
     <div class="container">
-      <!-- Filter Card -->
+    <!-- Filter Card -->
       <div class="filter-card mb-2">
-        <div class="card-body">
-          <div class="row">
-          
-            <!-- <div class="col-12 col-sm-12 col-md-3 col-lg-3">
-                <div class="form-outline">
-                      <label class="form-label">Search By Brand</label>
-                      <select class="js-select2 form-select form-control mb-0" id="brand_name_1">
-                      </select>
-                </div>
-              </div> -->
-            <div class="col-12 col-sm-12 col-md-3 col-lg-3">
-              <div class="form-outline">
-                <label class="form-label">State</label>
-                <select class="form-select py-2 state_select" aria-label="Default select example"  id="state_1">
-                   
-                </select>
+          <div class="card-body">
+              <div class="row">
+                  <div class="col-12 col-sm-12 col-md-3 col-lg-3">
+                      <div class="form-outline">
+                          <label class="form-label">State</label>
+                          <select class="form-select py-2 state_select" aria-label="Default select example" id="state_1"></select>
+                      </div>
+                  </div>
+                  <div class="col-12 col-sm-12 col-md-3 col-lg-3">
+                      <div class="form-outline">
+                          <label class="form-label fw-bold">District</label>
+                          <select class="form-select py-2 district_select" aria-label="Default select example" id="district_1"></select>
+                      </div>
+                  </div>
+                  <div class="col-12 col-sm-12 col-md-3 col-lg-3">
+                      <div class="text-center">
+                          <button type="button" class="btn-success btn px-3 py-2" id="Search" onclick="searchdata()">Search</button>
+                          <button type="button" class="btn-success btn mx-2 px-3 py-2" id="Reset">Reset</button>
+                      </div>
+                  </div>
               </div>
-            </div>
-            <div class="col-12 col-sm-12 col-md-3 col-lg-3">
-              <div class="form-outline ">
-                <label class="form-label fw-bold">District</label>
-                <select class="form-select py-2 district_select" aria-label="Default select example" id="district_1">
-                 
-                </select>
-              </div>
-            </div>
-           
-            <div class="col-12 col-sm-12 col-md-3 col-lg-3">
-              <div class="text-center">
-                <button type="button" class="btn-success btn px-3 py-2 " id="Search" onclick="searchdata()">Search</button>
-                <button type="button" class="btn-success btn mx-2 px-3 py-2  " id="Reset" >Reset</button>
-              </div>
-            </div>
           </div>
         </div>
-      </div>
-      <!-- Table Card -->
-    <nav class="">
-    <div class="nav nav-tabs w-50" id="nav-tab" role="tablist">
-        <a class="nav-link active px-5 py-3 h5 fw-bold text-dark py-2" type="button" id="dealers_certifide_target" data-bs-toggle="tab" data-bs-target="#table_data1" role="tab" aria-controls="nav-home" aria-selected="true">Certified</a>
-        <a class="nav-link px-5 py-3 h5 fw-bold text-dark" id="dealers_normal_target" type="button" data-bs-toggle="tab" data-bs-target="#table_data2" role="tab" aria-controls="nav-contact" aria-selected="false">Normal</a>
-    </div>
-</nav>
-
-
-<div class=" mb-5">
-    <div class="tab-content">
-
-            <!-- for particular enquiry table -->
-        <div class="tab-pane fade show active" id="table_data1" role="tabpanel">
-            <div class="table-responsive shadow bg-white mt-2">
-                <table id="example" class="table table-striped table-hover dataTable no-footer py-1" width="100%">
-                    <thead>
-                        <tr>
-                            <th class="d-none d-md-table-cell text-white">S.No.</th>
-                            <th class="d-none d-md-table-cell text-white">Date </th>
-                            <!-- <th class="d-none d-md-table-cell text-white">Dealer Name </th> -->
-                            <th class="d-none d-md-table-cell text-white">Brand</th>
-                            <th class="d-none d-md-table-cell text-white">Name </th>
-                            <th class="d-none d-md-table-cell text-white">Phone number</th>
-                            <th class="d-none d-md-table-cell text-white">State</th>
-                            <th class="d-none d-md-table-cell text-white">District</th>
-                            <th class="d-none d-md-table-cell text-white">Action</th>
-                        </tr>
-                    </thead>
-                    <tbody id="data-table">
-                    </tbody>
-                </table>
+        <!-- Table Card -->
+        <nav class="">
+            <div class="nav nav-tabs w-50" id="nav-tab" role="tablist">
+                <a class="nav-link active px-5 py-3 h5 fw-bold text-dark py-2" type="button" id="dealers_certifide_target" data-bs-toggle="tab" data-bs-target="#table_data1" role="tab" aria-controls="nav-home" aria-selected="true">Certified</a>
+                <a class="nav-link px-5 py-3 h5 fw-bold text-dark" id="dealers_normal_target" type="button" data-bs-toggle="tab" data-bs-target="#table_data2" role="tab" aria-controls="nav-contact" aria-selected="false">Normal</a>
             </div>
-        </div>
-
-
-        <!-- for normal enquiry table -->
-        <div class="tab-pane fade show active" id="table_data2" role="tabpanel">
-            <div class="table-responsive shadow bg-white mt-2">
-                <table id="example2" class="table table-striped table-hover dataTable no-footer py-1" width="100%">
-                    <thead>
-                        <tr class="bg-success">
-                            <th class="d-none d-md-table-cell text-white">S.No.</th>
-                            <th class="d-none d-md-table-cell text-white">Date </th>
-                            <th class="d-none d-md-table-cell text-white">Brand</th>
-                            <th class="d-none d-md-table-cell text-white">Name </th>
-                            <th class="d-none d-md-table-cell text-white">Phone number</th>
-                            <th class="d-none d-md-table-cell text-white">State</th>
-                            <th class="d-none d-md-table-cell text-white">District</th>
-                            <th class="d-none d-md-table-cell text-white">Action</th>
-                        </tr>
-                    </thead>
-                    <tbody id="data-table2">
-                    </tbody>
-                </table>
+        </nav>
+        <div class="mb-5">
+            <div class="tab-content">
+                <!-- for particular enquiry table -->
+                <div class="tab-pane fade show active" id="table_data1" role="tabpanel">
+                    <div class="table-responsive shadow bg-white mt-2">
+                        <table id="example" class="table table-striped table-hover dataTable no-footer py-1" width="100%">
+                            <thead>
+                                <tr>
+                                    <th class="d-none d-md-table-cell text-white">S.No.</th>
+                                    <th class="d-none d-md-table-cell text-white">Date</th>
+                                    <th class="d-none d-md-table-cell text-white">Brand</th>
+                                    <th class="d-none d-md-table-cell text-white">Name</th>
+                                    <th class="d-none d-md-table-cell text-white">Phone number</th>
+                                    <th class="d-none d-md-table-cell text-white">State</th>
+                                    <th class="d-none d-md-table-cell text-white">District</th>
+                                    <th class="d-none d-md-table-cell text-white">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody id="data-table"></tbody>
+                        </table>
+                    </div>
+                </div>
+                <!-- for normal enquiry table -->
+                <div class="tab-pane fade" id="table_data2" role="tabpanel">
+                    <div class="table-responsive shadow bg-white mt-2">
+                        <table id="example2" class="table table-striped table-hover dataTable no-footer py-1" width="100%">
+                            <thead>
+                                <tr class="bg-success">
+                                    <th class="d-none d-md-table-cell text-white">S.No.</th>
+                                    <th class="d-none d-md-table-cell text-white">Date</th>
+                                    <th class="d-none d-md-table-cell text-white">Brand</th>
+                                    <th class="d-none d-md-table-cell text-white">Name</th>
+                                    <th class="d-none d-md-table-cell text-white">Phone number</th>
+                                    <th class="d-none d-md-table-cell text-white">State</th>
+                                    <th class="d-none d-md-table-cell text-white">District</th>
+                                    <th class="d-none d-md-table-cell text-white">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody id="data-table2"></tbody>
+                        </table>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-</div>
+ 
 </section>
 
 

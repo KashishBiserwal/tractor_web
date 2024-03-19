@@ -60,7 +60,7 @@
                                 <div class=" ml-2">
                                     <div class="row px-3 ">
                                         <div class="col-12 col-lg-6 col-md-6 col-sm-6 " hidden>
-                                            <label for="name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i> First Name</label>
+                                            <label for="name" class="form-label  text-dark"> <i class="fa-regular fa-user"></i> First Name</label>
                                             <input type="text" class="form-control" placeholder="" id="customer_id" name="fname">
                                         </div>
                                         <div class="col- col-sm-6 col-lg-6 col-md-6" hidden>
@@ -69,27 +69,27 @@
                                           <small></small>
                                         </div>
                                         <div class="col-12 col-lg-6 col-md-6 col-sm-6 " hidden>
-                                            <label for="name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i> First Name</label>
+                                            <label for="name" class="form-label  text-dark"> <i class="fa-regular fa-user"></i> First Name</label>
                                             <input type="text" class="form-control" placeholder="" id="product_subject_id" name="fname">
                                         </div>
                                         <div class="col-12 col-lg-6 col-md-6 col-sm-6 " hidden>
-                                            <label for="name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i>Model</label>
+                                            <label for="name" class="form-label  text-dark"> <i class="fa-regular fa-user"></i>Model</label>
                                             <input type="text" class="form-control" placeholder="" id="model" name="model">
                                         </div>
                                         <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
-                                            <label for="name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i> First Name</label>
+                                            <label for="name" class="form-label  text-dark"> <i class="fa-regular fa-user"></i> First Name</label>
                                             <input type="text" class="form-control" placeholder="Enter Your First Name" id="fname" name="fname">
                                         </div>
                                         <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
-                                            <label for="name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i> Last Name</label>
+                                            <label for="name" class="form-label  text-dark"> <i class="fa-regular fa-user"></i> Last Name</label>
                                             <input type="text" class="form-control" placeholder="Enter Your Last Name" id="lname" name="lname">
                                         </div>
                                         <div class="col-12 ">
-                                            <label for="number" class="form-label text-dark fw-bold"> <i class="fa fa-phone" aria-hidden="true"></i> Phone Number</label>
+                                            <label for="number" class="form-label text-dark "> <i class="fa fa-phone" aria-hidden="true"></i> Phone Number</label>
                                             <input type="text" class="form-control" placeholder="Enter Number" id="number" name="number">
                                         </div>
                                         <div class="col-12 col-sm-12 col-md-6 col-lg-6">
-                                        <label for="yr_state" class="form-label text-dark fw-bold"  name="state"> <i class="fas fa-location"></i> State</label>
+                                        <label for="yr_state" class="form-label text-dark "  name="state"> <i class="fas fa-location"></i> State</label>
                                         <select class="form-select py-2 state-dropdown" aria-label=".form-select-lg example" id="state_form" name="state">
                                            
                                         </select>

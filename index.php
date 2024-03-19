@@ -28,6 +28,13 @@
     margin-bottom: 0;
     text-transform: uppercase;
 }
+
+.text-truncate {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+   
+    }
 </style>
 <script> var APIBaseURL = "<?php echo $APIBaseURL; ?>";</script>
   <script> var baseUrl = "<?php echo $baseUrl; ?>";</script>
@@ -256,7 +263,7 @@
           
           </div>
         </nav>
-        <div class="tab-content  justify-content-center" >
+        <div class="tab-content justify-content-center" >
           <div role="tabpanel" class="tab-pane fade show active" id="premium" aria-labelledby="premium-tab">
             <section class="section slider-section">
               <div class="container slider-column">
@@ -571,373 +578,48 @@
         </div>
       </div>
     </section>
-    <!-- nwes -->
-    <!-- <section>
-      <div class="container mt-4 pt-3 ">
-        <h3 class="display-6 fw-bold  my-3 ">Our Latest <span class="text-success">News & Update</span>
-        </h3>
-        <nav class="my-4 pt-3">
-          <div class="nav nav-tabs mb-3 " id="nav-tab" role="tablist">
-            <button class="nav-link active px-5 py-3 h5  mx-2 fw-bold text-dark" id="nav-all-tab" data-bs-toggle="tab" data-bs-target="#nav-all" type="button" role="tab" aria-controls="nav-all" aria-selected="true">All News</button>
-            <button class="nav-link px-5 py-3 h5  mx-2 fw-bold text-dark" id="nav-tractor-tab" data-bs-toggle="tab" data-bs-target="#nav-tractor" type="button" role="tab" aria-controls="nav-tractor" aria-selected="false">Tractor News</button>
-            <button class="nav-link px-5 py-3 h5  mx-2 fw-bold text-dark" id="nav-agri-tab" data-bs-toggle="tab" data-bs-target="#nav-agri" type="button" role="tab" aria-controls="nav-agri" aria-selected="false">Agriculture News</button>
-            <button class="nav-link px-5 py-3 h5 mx-2 fw-bold text-dark" id="nav-sarkari-tab" data-bs-toggle="tab" data-bs-target="#nav-sarkari" type="button" role="tab" aria-controls="nav-sarkari" aria-selected="false">Sarkari Yojna News</button>
+  
+    <!-- Nwes & Blog-->
+    <section>
+      <div class="container">
+        <h3 class=" py-4 display-6 fw-bold">Our Latest<span class="text-success">News & Blog</span></h3>
+        <nav class="mb-3">
+          <div class="nav nav-tabs " id="nav-tab" role="tablist">
+            <a class="nav-link active px-5 py-3 h5 fw-bold text-dark py-2" type="button" id="news-tab" data-bs-toggle="tab" data-bs-target="#premium_news" role="tab" aria-controls="premium" aria-selected="true">All News</a>
+            <a class="nav-link px-5 py-3 h5 fw-bold text-dark" id="latest-blog-tab" type="button" data-bs-toggle="tab" data-bs-target="#premium_blog" role="tab" aria-controls="latest" aria-selected="false">Blog</a>
+          
           </div>
         </nav>
-        <div class="tab-content p-3 " id="nav-tabContent">
-          <div class="tab-pane fade active show" id="nav-all" role="tabpanel" aria-labelledby="nav-all-tab">
-            <div class="row">
-              <div class="col-lg-6 px-5 my-3">
-                <div class="row align-items-center bg-white shadow rounded-3">
-                  <div class="col-lg-4 col-12 col-sm-4 col-lg-4">
-                    <a href="#" class="">
-                      <img src="assets/images/tractor-1693984999.webp" class="w-100 rounded-3 newsimg " alt="">
-                    </a>
-                  </div>
-                  <div class="col-lg-8 pt-4">
-                    <a href="#" class="text-decoration-none text-dark">
-                      <h5 class="news-head"> Mahindra OJA Tractors Launch Date Confirmed</h5>
-                    </a>
-                    <p>
-                      <i class="fa fa-calendar" aria-hidden="true"></i> 06 Sep 2023
-                    </p>
-                    <p class="text-success">tractor</p>
-                  </div>
+        <div class="tab-content justify-content-center" >
+          <div role="tabpanel" class="tab-pane fade show active" id="premium_news" aria-labelledby="news-tab">
+            <section class="section slider-section">
+              <div class="container slider-column">
+              <div class="carousel-wrap">
+                <div class="owl-carousel" id="all_news"> </div>
+                <div class="col text-center pb-4">
+                  <a href="all_news.php" class="btn btn-success px-5">View all News</a>
                 </div>
               </div>
-              <div class="col-lg-6 px-5  my-3 ">
-                <div class="row align-items-center bg-white shadow rounded-3">
-                  <div class="col-lg-4 col-12 col-sm-4 col-lg-4">
-                    <a href="#" class="">
-                      <img src="assets/images/tractor-1693830307.webp" class="w-100 rounded-3 newsimg" alt="">
-                    </a>
-                  </div>
-                  <div class="col-lg-8 pt-4">
-                    <a href="#" class="text-decoration-none text-dark">
-                      <h5 class="news-head"> Retail Tractors Sales Report August 2023: Tract</h5>
-                    </a>
-                    <p>
-                      <i class="fa fa-calendar" aria-hidden="true"></i> 06 Sep 2023
-                    </p>
-                    <p class="text-success">tractor</p>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-6 px-5 my-3  ">
-                <div class="row align-items-center bg-white shadow rounded-3">
-                  <div class="col-lg-4 col-12 col-sm-4 col-lg-4">
-                    <a href="#" class="">
-                      <img src="assets/images/agriculture-1693463723.webp" class="w-100 rounded-3 newsimg " alt="">
-                    </a>
-                  </div>
-                  <div class="col-lg-8 pt-4">
-                    <a href="#" class="text-decoration-none text-dark">
-                      <h5 class="news-head"> मुनाफे की गारंटी : इन तीन पेड़ों से होगी करोड़ों रुपए की </h5>
-                    </a>
-                    <p>
-                      <i class="fa fa-calendar" aria-hidden="true"></i> 31 aug 2023
-                    </p>
-                    <p class="text-success">Agriculture</p>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-6 px-5 my-3 ">
-                <div class="row align-items-center bg-white shadow rounded-3">
-                  <div class="col-lg-4 col-12 col-sm-4 col-lg-4">
-                    <a href="#" class="">
-                      <img src="assets/images/agriculture-1693304057.webp" class="w-100 rounded-3 newsimg " alt="">
-                    </a>
-                  </div>
-                  
-                  <div class="col-lg-8 pt-4">
-                    <a href="#" class="text-decoration-none text-dark">
-                      <h5 class="news-head">प्रधानमंत्री उज्जवला योजना : 75 लाख नए रसोई गैस कनेक्श</h5>
-                    </a>
-                    <p>
-                      <i class="fa fa-calendar" aria-hidden="true"></i> 05 sep 2023
-                    </p>
-                    <p class="text-success">Sarkari Yojna</p>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-6 px-5 my-3 ">
-                <div class="row align-items-center bg-white shadow rounded-3">
-                  <div class="col-lg-4 col-12 col-sm-4 col-lg-4">
-                    <a href="#" class="">
-                      <img src="assets/images/sarkari-yojana-1693906918.webp" class="w-100 rounded-3 newsimg " alt="">
-                    </a>
-                  </div>
-                  <div class="col-lg-8 pt-4">
-                    <a href="#" class="text-decoration-none text-dark">
-                      <h5 class="news-head">किसानों को फ्री में मिल रहा है ट्यूबवैल कनेक्शन, यहां करें आ</h5>
-                    </a>
-                    <p>
-                      <i class="fa fa-calendar" aria-hidden="true"></i> 06 sep 2023
-                    </p>
-                    <p class="text-success">Sarkari Yojna</p>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-6 px-5 my-3  ">
-                <div class="row align-items-center bg-white shadow rounded-3">
-                  <div class="col-lg-4 col-12 col-sm-4 col-lg-4">
-                    <a href="#" class="">
-                      <img src="assets/images/agriculture-1693463723.webp" class="w-100 rounded-3 newsimg " alt="">
-                    </a>
-                  </div>
-                  <div class="col-lg-8 pt-4">
-                    <a href="#" class="text-decoration-none text-dark">
-                      <h5 class="news-head"> मुनाफे की गारंटी : इन तीन पेड़ों से होगी करोड़ों रुपए की </h5>
-                    </a>
-                    <p>
-                      <i class="fa fa-calendar" aria-hidden="true"></i> 31 aug 2023
-                    </p>
-                    <p class="text-success">Agriculture</p>
-                  </div>
-                </div>
-              </div>
-            </div>
+            </section>
           </div>
-          <div class="tab-pane fade" id="nav-tractor" role="tabpanel" aria-labelledby="nav-tractor-tab">
-            <div class="row">
-              <div class="col-lg-6 px-4 mt-3  ">
-                <div class="row align-items-center bg-white shadow rounded-3">
-                  <div class="col-lg-4 col-12 col-sm-4 col-lg-4">
-                    <a href="#" class="">
-                      <img src="assets/images/tractor-1693984999.webp" class="w-100 rounded-3 newsimg " alt="">
-                    </a>
-                  </div>
-                  <div class="col-lg-8 py-4 ">
-                    <a href="#" class="text-decoration-none text-dark">
-                      <h5 class="news-head"> Mahindra OJA Tractors Launch Date Confirmed</h5>
-                    </a>
-                    <p>
-                      <i class="fa fa-calendar" aria-hidden="true"></i> 06 Sep 2023
-                    </p>
-                    <button class=" btn btn-success px-2">read more</button>
-                  </div>
+          <div role="tabpanel" class="tab-pane fade" id="premium_blog" aria-labelledby="latest-blog-tab">
+            <section class="section slider-section">
+              <div class="container slider-column">
+              <div class="carousel-wrap">
+                <div class="owl-carousel" id="blog">
+              
                 </div>
               </div>
-              <div class="col-lg-6 px-4  my-3 ">
-                <div class="row align-items-center bg-white shadow rounded-3">
-                  <div class="col-lg-4 col-12 col-sm-4 col-lg-4">
-                    <a href="#" class="">
-                      <img src="assets/images/tractor-1693830307.webp" class="w-100 rounded-3 newsimg " alt="">
-                    </a>
-                  </div>
-                  <div class="col-lg-8 py-4">
-                    <a href="#" class="text-decoration-none text-dark">
-                      <h5 class="news-head"> Retail Tractors Sales Report August 2023: Tract</h5>
-                    </a>
-                    <p>
-                      <i class="fa fa-calendar" aria-hidden="true"></i> 06 Sep 2023
-                    </p>
-                    <button class=" btn btn-success px-2">read more</button>
-                  </div>
+                <div class="col text-center pb-4">
+                  <a href="blog.php" class="btn btn-success px-5">View all Blog </a>
                 </div>
               </div>
-              <div class="col-lg-6 px-4  my-3 ">
-                <div class="row align-items-center bg-white shadow rounded-3">
-                  <div class="col-lg-4 col-12 col-sm-4 col-lg-4">
-                    <a href="#" class="">
-                      <img src="assets/images/tractor-1693915991.webp" class="w-100 rounded-3 newsimg " alt="">
-                    </a>
-                  </div>
-                  <div class="col-lg-8 py-4">
-                    <a href="#" class="text-decoration-none text-dark">
-                      <h5 class="news-head"> Retail Tractors Sales Report August 2023: </h5>
-                    </a>
-                    <p>
-                      <i class="fa fa-calendar" aria-hidden="true"></i> 5 Sep 2023
-                    </p>
-                    <button class=" btn btn-success px-2">read more</button>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-6 px-4  my-3 ">
-                <div class="row align-items-center bg-white shadow rounded-3">
-                  <div class="col-lg-4 col-12 col-sm-4 col-lg-4">
-                    <a href="#" class="">
-                      <img src="assets/images/tractor-1693830823.jpg" class="w-100 rounded-3 newsimg " alt="">
-                    </a>
-                  </div>
-                  <div class="col-lg-8 py-4">
-                    <a href="#" class="text-decoration-none text-dark">
-                      <h5 class="news-head">Swaraj Tractor airs TV Ad with Brand Ambassad</h5>
-                    </a>
-                    <p>
-                      <i class="fa fa-calendar" aria-hidden="true"></i> 3 Sep 2023
-                    </p>
-                    <button class=" btn btn-success px-2">read more</button>
-                  </div>
-                </div>
-              </div>
-              <div class="col text-center mt-3 ">
-                <a href="#" class="btn btn-success btn-lg">View More News</a>
-              </div>
-            </div>
+            </section>
           </div>
-          <div class="tab-pane fade" id="nav-agri" role="tabpanel" aria-labelledby="nav-agri-tab">
-            <div class="row">
-              <div class="col-lg-6 px-4 mt-3">
-                <div class="row align-items-center bg-white shadow rounded-3">
-                  <div class="col-lg-4 col-12 col-sm-4 col-lg-4">
-                    <a href="#" class="">
-                      <img src="assets/images/agriculture-1693559298.webp" class="w-100 rounded-3 newsimg " alt="">
-                    </a>
-                  </div>
-                  <div class="col-lg-8 py-4">
-                    <a href="#" class="text-decoration-none text-dark">
-                      <h5 class="news-head">गन्ने के लाल सड़न रोग पर नियंत्रण के उपाय के नियंत्रण..</h5>
-                    </a>
-                    <p>
-                      <i class="fa fa-calendar" aria-hidden="true"></i> 02 Sep 2023
-                    </p>
-                    <button class=" btn btn-success px-2">read more</button>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-6 px-4  my-3 ">
-                <div class="row align-items-center bg-white shadow rounded-3">
-                  <div class="col-lg-4 col-12 col-sm-4 col-lg-4">
-                    <a href="#" class="">
-                      <img src="assets/images/agriculture-1693463723.webp" class="w-100 rounded-3 newsimg " alt="">
-                    </a>
-                  </div>
-                  <div class="col-lg-8 py-4">
-                    <a href="#" class="text-decoration-none text-dark">
-                      <h5 class="news-head"> मुनाफे की गारंटी : इन तीन पेड़ों से होगी करोड़ों रुपए की </h5>
-                    </a>
-                    <p>
-                      <i class="fa fa-calendar" aria-hidden="true"></i>31 Aug 2023
-                    </p>
-                    <button class=" btn btn-success px-2">read more</button>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-6 px-4  my-3 ">
-                <div class="row align-items-center bg-white shadow rounded-3">
-                  <div class="col-lg-4 col-12 col-sm-4 col-lg-4">
-                    <a href="#" class="">
-                      <img src="assets/images/agriculture-1693398206.jfif" class="w-100 rounded-3 newsimg " alt="">
-                    </a>
-                  </div>
-                  <div class="col-lg-8 py-4">
-                    <a href="#" class="text-decoration-none text-dark">
-                      <h5 class="news-head"> 1053.59 लाख हेक्टेयर पहुंची खरीफ की बुआई, पिछले </h5>
-                    </a>
-                    <p>
-                      <i class="fa fa-calendar" aria-hidden="true"></i>30 Aug 2023
-                    </p>
-                    <button class=" btn btn-success px-2">read more</button>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-6 px-4  my-3 ">
-                <div class="row align-items-center bg-white shadow rounded-3">
-                  <div class="col-lg-4 col-12 col-sm-4 col-lg-4">
-                    <a href="#" class="">
-                      <img src="assets/images/agriculture-1693304057.webp" class="w-100 rounded-3 newsimg " alt="">
-                    </a>
-                  </div>
-                  <div class="col-lg-8 py-4">
-                    <a href="#" class="text-decoration-none text-dark">
-                      <h5 class="news-head">कम बारिश की स्थिति में मूंगफली की पैदावार बढ़ाने के वैज्ञानि</h5>
-                    </a>
-                    <p>
-                      <i class="fa fa-calendar" aria-hidden="true"></i> 29 Aug 2023
-                    </p>
-                    <button class=" btn btn-success px-2">read more</button>
-                  </div>
-                </div>
-              </div>
-              <div class="col text-center mt-3 ">
-                <a href="#" class="btn btn-success btn-lg">View More News</a>
-              </div>
-            </div>
-          </div>
-          <div class="tab-pane fade" id="nav-sarkari" role="tabpanel" aria-labelledby="nav-sarkari-tab">
-            <div class="row">
-              <div class="col-lg-6 px-4 mt-3">
-                <div class="row align-items-center bg-white shadow rounded-3">
-                  <div class="col-lg-4 col-12 col-sm-4 col-lg-4">
-                    <a href="#" class="">
-                      <img src="assets/images/sarkari-yojana-1693915364.webp" class="w-100 rounded-3 newsimg " alt="">
-                    </a>
-                  </div>
-                  <div class="col-lg-8 py-4">
-                    <a href="#" class="text-decoration-none text-dark">
-                      <h5 class="news-head">प्रधानमंत्री उज्जवला योजना : 75 लाख नए रसोई गैस कने..</h5>
-                    </a>
-                    <p>
-                      <i class="fa fa-calendar" aria-hidden="true"></i> 02 Sep 2023
-                    </p>
-                    <button class=" btn btn-success px-2">read more</button>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-6 px-4  my-3 ">
-                <div class="row align-items-center bg-white shadow rounded-3">
-                  <div class="col-lg-4 col-12 col-sm-4 col-lg-4">
-                    <a href="#" class="">
-                      <img src="assets/images/sarkari-yojana-1693912507.webp" class="w-100 rounded-3 newsimg " alt="">
-                    </a>
-                  </div>
-                  <div class="col-lg-8 py-4">
-                    <a href="#" class="text-decoration-none text-dark">
-                      <h5 class="news-head"> खुशखबरी : घर की मरम्मत के लिए मिलेंगे 70 हजार रुपए, आ </h5>
-                    </a>
-                    <p>
-                      <i class="fa fa-calendar" aria-hidden="true"></i>05 Sep 2023
-                    </p>
-                    <button class=" btn btn-success px-2">read more</button>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-6 px-4  my-3 ">
-                <div class="row align-items-center bg-white shadow rounded-3">
-                  <div class="col-lg-4 col-12 col-sm-4 col-lg-4">
-                    <a href="#" class="">
-                      <img src="assets/images/sarkari-yojana-1693906918.webp" class="w-100 rounded-3 newsimg " alt="">
-                    </a>
-                  </div>
-                  <div class="col-lg-8 py-4">
-                    <a href="#" class="text-decoration-none text-dark">
-                      <h5 class="news-head">किसानों को फ्री में मिल रहा है ट्यूबवैल कनेक्शन, यहां करें </h5>
-                    </a>
-                    <p>
-                      <i class="fa fa-calendar" aria-hidden="true"></i>30 Aug 2023
-                    </p>
-                    <button class=" btn btn-success px-2">read more</button>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-6 px-4  my-3 ">
-                <div class="row align-items-center bg-white shadow rounded-3">
-                  <div class="col-lg-4 col-12 col-sm-4 col-lg-4">
-                    <a href="#" class="">
-                      <img src="assets/images/sarkari-yojana-1693827304.webp" class="w-100 rounded-3 newsimg " alt="">
-                    </a>
-                  </div>
-                  <div class="col-lg-8 py-4">
-                    <a href="#" class="text-decoration-none text-dark">
-                      <h5 class="news-head">फ्री मोबाइल योजना की तीसरी लिस्ट तैयार, ऐसे चेक करें लिस्ट</h5>
-                    </a>
-                    <p>
-                      <i class="fa fa-calendar" aria-hidden="true"></i> 5 sep 2023
-                    </p>
-                    <button class=" btn btn-success px-2">read more</button>
-                  </div>
-                </div>
-              </div>
-              <div class="col text-center mt-3 ">
-                <a href="#" class="btn btn-success btn-lg">View More News</a>
-              </div>
-            </div>
-          </div>
+        
         </div>
       </div>
-    </section> -->
+    </section>
     <!-- about tractor junction -->
     <section class="about bg-light">
       <div class="container">

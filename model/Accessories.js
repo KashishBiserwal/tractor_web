@@ -78,44 +78,46 @@ function get_data() {
           'Authorization': 'Bearer ' + localStorage.getItem('token')
       },
       success: function (data) {
-          const tableBody = document.getElementById('data-table');
-          tableBody.innerHTML = ''; // Clear previous data
-
-          if (data.product.length > 0) {
-              let tableData = [];
-              let counter = 1; // Initialize counter for serial numbers
-
-              data.product.forEach(row => {
-                  let action = `<div class="d-flex">
-                                  <button class="btn btn-primary text-white btn-sm mx-1"  onclick="fetch_edit_data(${row.id});" data-bs-toggle="modal" data-bs-target="#staticBackdrop_1" id="yourUniqueIdHere" style="padding:5px">
-                                  <i class="fas fa-edit" style="font-size: 11px;"></i></button>
-                                  <button class="btn btn-danger btn-sm mx-1" id="delete_user" onclick="destroy(${row.id});" style="padding:5px">
-                                  <i class="fa fa-trash" style="font-size: 11px;"></i></button>
-                              </div>`;
-
-                  tableData.push([
-                      counter++, // Increment counter for serial numbers
-                      row.accessory,
-                      action
-                  ]);
-              });
-
-              $('#example').DataTable().destroy();
-              $('#example').DataTable({
-                  data: tableData,
-                  columns: [
-                      { title: 'S.No.' },
-                      { title: 'Accessories Name' },
-                      { title: 'Action', orderable: false } // Disable ordering for Action column
-                  ],
-                  paging: true,
-                  searching: false,
-                  // ... other options ...
-              });
-          } else {
-              tableBody.innerHTML = '<tr><td colspan="3">No valid data available</td></tr>';
-          }
-      },
+        const tableBody = document.getElementById('data-table');
+        tableBody.innerHTML = ''; // Clear previous data
+    
+        if (data.product.length > 0) {
+            let tableData = [];
+            let counter = 1; // Initialize counter for serial numbers
+    
+            // Reverse the data array to display the latest data first
+            data.product.reverse().forEach(row => {
+                let action = `<div class="d-flex">
+                                <button class="btn btn-primary text-white btn-sm mx-1"  onclick="fetch_edit_data(${row.id});" data-bs-toggle="modal" data-bs-target="#staticBackdrop_1" id="yourUniqueIdHere" style="padding:5px">
+                                <i class="fas fa-edit" style="font-size: 11px;"></i></button>
+                                <button class="btn btn-danger btn-sm mx-1" id="delete_user" onclick="destroy(${row.id});" style="padding:5px">
+                                <i class="fa fa-trash" style="font-size: 11px;"></i></button>
+                            </div>`;
+    
+                tableData.push([
+                    counter++, // Increment counter for serial numbers
+                    row.accessory,
+                    action
+                ]);
+            });
+    
+            $('#example').DataTable().destroy();
+            $('#example').DataTable({
+                data: tableData,
+                columns: [
+                    { title: 'S.No.' },
+                    { title: 'Accessories Name' },
+                    { title: 'Action', orderable: false } // Disable ordering for Action column
+                ],
+                paging: true,
+                searching: false,
+                // ... other options ...
+            });
+        } else {
+            tableBody.innerHTML = '<tr><td colspan="3">No valid data available</td></tr>';
+        }
+    },
+    
       error: function (error) {
           console.error('Error fetching data:', error);
           // Display an error message or handle the error as needed

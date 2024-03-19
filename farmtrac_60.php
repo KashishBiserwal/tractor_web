@@ -27,11 +27,11 @@
 </style>
 <section class="bg-light mt-4 pt-5">
     <div class="container py-2">
-        <div class="py-2 mt-3">
+        <div class="py-1 mt-4">
             <span class="my-4 text-white pt-4 ">
                 <a href="index.php" class="text-decoration-none header-link px-1">Home <i class="fa-solid fa-chevron-right px-1"></i></a>
-                    <span class=""><a href="#" class="text-decoration-none header-link  px-1">Used tractor<i class="fa-solid fa-chevron-right px-1"></i> </a></span>
-                    <span class="text-dark">Farmtrac Used Tractor</span>
+                    <span class=""><a href="#" class="text-decoration-none text-dark px-1">Used tractor</a></span>
+                    <!-- <span class="text-dark">Used Tractor</span> -->
             </span> 
         </div>
     </div>
@@ -67,27 +67,27 @@
                             <div class=" ml-2">
                                 <div class="row px-3 ">
                                     <div class="col-12 col-lg-6 col-md-6 col-sm-6 " hidden>
-                                        <label for="name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i> enquiryName</label>
+                                        <label for="name" class="form-label  text-dark"> <i class="fa-regular fa-user"></i> enquiryName</label>
                                         <input type="text" class="form-control" placeholder="Enter Your Name" id="enquiry_type_id" value="21" name="fname">
                                     </div>
                                     <div class="col-12 col-lg-6 col-md-6 col-sm-6 " hidden>
-                                        <label for="name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i> product_id</label>
+                                        <label for="name" class="form-label  text-dark"> <i class="fa-regular fa-user"></i> product_id</label>
                                         <input type="text" class="form-control" id="product_id" value="">
                                     </div>
                                     <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
-                                        <label for="name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i> First Name</label>
+                                        <label for="name" class="form-label  text-dark"> <i class="fa-regular fa-user"></i> First Name</label>
                                         <input type="text" class="form-control" placeholder="Enter Your Name" id="fname" name="fname">
                                     </div>
                                     <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
-                                        <label for="name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i> Last Name</label>
+                                        <label for="name" class="form-label  text-dark"> <i class="fa-regular fa-user"></i> Last Name</label>
                                         <input type="text" class="form-control" placeholder="Enter Your Name" id="lname" name="lname">
                                     </div>
                                     <div class="col-12 ">
-                                        <label for="number" class="form-label text-dark fw-bold"> <i class="fa fa-phone" aria-hidden="true"></i> Phone Number</label>
+                                        <label for="number" class="form-label text-dark "> <i class="fa fa-phone" aria-hidden="true"></i> Phone Number</label>
                                         <input type="text" class="form-control" placeholder="Enter Number" id="number" name="number">
                                     </div>
                                     <div class="col-12 col-sm-12 col-md-6 col-lg-6">
-                                        <label for="yr_state" class="form-label text-dark fw-bold" id="state" name="state"> <i class="fas fa-location"></i> State</label>
+                                        <label for="yr_state" class="form-label text-dark " id="state" name="state"> <i class="fas fa-location"></i> State</label>
                                         <select class="form-select py-2 state-dropdown" aria-label=".form-select-lg example" id="state_form" name="state">
                                           
                                         </select>
@@ -195,7 +195,7 @@
                             </div>
                             <div class="col-12">
                                 <h6 class="financier_ text-center fw-bold fs-6 m-1 text-dark">RC</h6>
-                                <p class="financier_no text-center" id="rc_number">Yes</p>
+                                <p class="financier_no text-center" id="rc_number"></p>
                             </div>
                         </div>
                     </div>

@@ -12,6 +12,8 @@ $(document).ready(function() {
  
 
 function get_harvester() {
+    // var apiBaseURL = CustomerAPIBaseURL;
+    // var url = apiBaseURL + 'get_new_harvester';
     var url = "http://tractor-api.divyaltech.com/api/customer/get_new_harvester";
 
     $.ajax({

@@ -300,7 +300,7 @@ var url = apiBaseURL + "deleteUser/" + id;
     },
     success: function(result) {
      // window.location.reload();
-      get();
+      // get();
       console.log("Delete request successful");
       var msg = "User Deleted successfully !"
         $("#errorStatusLoading").modal('show');
@@ -338,6 +338,8 @@ function fetch_edit_data(userId) {
       $('#mobile1').val(userData.mobile);
       $('#email1').val(userData.email);
       console.log(userData.email);
+      $('#emaipassword_editl1').val(userData.password);
+      $('#password_confirmation_edit').val(userData.password_confirmation);
       $('#user_type1').val(userData.user_type);
       $('#status1').val(userData.status);
       $('#idUser').val(userData.id);

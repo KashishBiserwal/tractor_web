@@ -1,5 +1,5 @@
 <?php
-include 'includes/headertag.php';
+  include 'includes/headertag.php';
    include 'includes/headertagadmin.php';
    include 'includes/footertag.php';
    
@@ -444,3 +444,20 @@ include 'includes/headertag.php';
    
    </script>
                        
+  <script>
+     $(document).ready(function() {
+      $('#price_old').on('input', function() {
+            var value = $(this).val().replace(/\D/g, ''); // Remove non-digit characters
+            var formattedValue = Number(value).toLocaleString('en-IN'); // Format using Indian numbering system
+            $(this).val(formattedValue);
+        });
+
+        // Set cursor position to the beginning of the input field
+        var input = document.getElementById('price_old');
+        input.focus();
+        input.setSelectionRange(0, 0);
+
+        // Set text alignment to left
+        input.style.textAlign = 'left';
+    });
+  </script>

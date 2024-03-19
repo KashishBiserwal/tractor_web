@@ -23,7 +23,7 @@
     
     <section class="mt-5 pt-5 bg-light">
         <div class="container-fullwidth py-3 mt-2">
-            <div class="">
+            <div class="pt-3">
                 <span class="mt-5 text-white pt-5 ">
                     <a href="index.php" class="text-decoration-none header-link px-1">Home <i
                             class="fa-solid fa-chevron-right px-1"></i></a><span class="text-dark">Nursery</span>
@@ -40,7 +40,7 @@
                         <h5 id="noDataMessage" class="text-center mt-4 text-danger" style="display: none;">
                         <img src="assets/images/404.gif" class="w-25" alt=""></br>Data not found..!</h5>
                     <div class="col-12 text-center mb-4">
-                        <button id="loadMoreBtn"  type="button" class="add_btn btn-success btn btn-lg"><i class="fas fa-undo"></i> Load More </button>
+                        <button id="loadMoreBtn"  type="button" class="add_btn btn-success btn btn-lg p-1"><i class="fas fa-undo"></i> Load More </button>
                     </div>
                 </div>
                 <div class="col-12 col-sm-3 col-lg-3 col-md-3">

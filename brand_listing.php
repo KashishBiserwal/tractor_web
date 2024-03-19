@@ -67,11 +67,11 @@
                                         
                                         <div class="col- col-sm-6 col-lg-6 col-md-6">
                                           <label class="text-dark"> Brand Name<span class="text-danger">*</span></label>
-                                          <input type="text" class="form-control py-2" id="brand_name" placeholder="Enter brand">
+                                          <input type="text" class="form-control py-2" id="brand_name" placeholder="Enter brand" required>
                                        
                                         </div>
                                        
-                                        <div class="col-12 col-sm-4 col-lg-4 col-md-4 ps-3">
+                                        <!-- <div class="col-12 col-sm-4 col-lg-4 col-md-4 ps-3">
                                           <div class="background__box mt-4 pt-1">
                                                 <div class="background__btn-box ">
                                                     <label class="background__btn">
@@ -87,16 +87,29 @@
                                                     <div class="background__img-wrap"></div>
                                                 </div>
                                           </div>
+                                        </div> -->
+                  
+                                        <div class="col-12 col-lg-6 col-md-6 col-sm-6">
+                                          <div class="upload__box mt-5">
+                                            <div class="upload__btn-box text-center">
+                                              <label >
+                                                <p class="upload__btn ">Upload images</p>
+                                                <input type="file" multiple="" data-max_length="20" class="upload__inputfile" id="banner_image" name="banner_image" required>
+                                              </label>
+                                            </div>
+                                            <div id="selectedImagesContainer" class="upload__img-wrap row" required></div>
+                                          </div>
                                         </div>
+                                    
                                         <div class="col-12 col-sm-12 col-lg-12 col-md-12 mt-3">
                                                         <label for="name" class="text-dark fw-bold">Select Product Type</label>
-                                                        <div id="type_name" name="type_name"></div>
+                                                        <div id="type_name" name="type_name" required></div>
                                                     </div>
-                                        <div class="col-12 col-sm-2 col-lg-2 col-md-2 ">
+                                        <!-- <div class="col-12 col-sm-2 col-lg-2 col-md-2 ">
                                             <div class="float-left mt-4 pt-2">
                                                 <button class="btn px-4 bg-success text-white" id="save">Submit</button>
                                             </div>
-                                        </div>
+                                        </div> -->
                                       </div>
                                   </div>
                               </form>
@@ -105,7 +118,7 @@
                     </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-secondary px-3" data-bs-dismiss="modal">Close</button>
-                 
+                  <button class="btn px-4 bg-success text-white" id="save">Submit</button>
                 </div>
               </div>
             </div>
@@ -170,51 +183,45 @@
                 <h5 class="modal-title" id="staticBackdropLabel">Update Brand</h5>
                 <button type="button" class="btn-close btn-success" data-bs-dismiss="modal" aria-label="Close"><img src="assets/images/close.png"></button>
               </div>
-              <div class="modal-body">
-              <h4 class="text-center">Fill your Brand Details</h4>
-                <form action="" method="POST"  class="" id="formmodel">
-                  <div class="">
-                                    <div class="">
-                                      <div class="row">
-                                      <div class="col- col-sm-6 col-lg-6 col-md-6 mt-3" hidden >
-                                      <div class="form-outline">
-                                          <label class="form-label"> id Name<span class="text-danger">*</span></label>
-                                                  <input type="text" class="form-control py-2" for="idUser"  id="idUser">
-                                          <small></small>
-                                        </div>
+                <div class="modal-body">
+                  <h4 class="text-center">Fill your Brand Details</h4>
+                  <form action="" method="POST"  class="" id="formmodel">
+                    <div class="">
+                      <div class="">
+                        <div class="row">
+                          <div class="col- col-sm-6 col-lg-6 col-md-6 mt-3" hidden >
+                            <div class="form-outline">
+                              <label class="form-label"> id Name<span class="text-danger">*</span></label>
+                                <input type="text" class="form-control py-2" for="idUser"  id="idUser">
+                                <small></small>
+                            </div>
+                          </div>
+                          <div class="col- col-sm-6 col-lg-6 col-md-6">
+                            <label class="text-dark"> Brand Name<span class="text-danger">*</span></label>
+                              <input type="text" class="form-control py-2" id="brand_name1" placeholder="Enter brand">
+                              <small></small>
+                          </div>
+                          <div class="col-12 col-sm-4 col-lg-4 col-md-4 ps-3">
+                            <div class="background__box mt-4 pt-1">
+                              <div class="background__btn-box ">
+                                <label class="background__btn">
+                                <p class="text-white bg-success p-2 rounded">Upload images</p>
+                                <input type="file" id="brand_img1" data-max_length="20"name="brand_img"  ref="fileInput"style="display: none"
+                                @change="handleFileInput"accept="image/png, image/jpg, image/jpeg" class="background__inputfile" id="banner_image">
+                                <small></small>
+                                </label>
                               </div>
-                                        <div class="col- col-sm-6 col-lg-6 col-md-6">
-                                          <label class="text-dark"> Brand Name<span class="text-danger">*</span></label>
-                                          <input type="text" class="form-control py-2" id="brand_name1" placeholder="Enter brand">
-                                          <small></small>
-                                        </div>
-                                       
-                                        <div class="col-12 col-sm-4 col-lg-4 col-md-4 ps-3">
-                                        <div class="background__box mt-4 pt-1">
-                                                <div class="background__btn-box ">
-                                                    <label class="background__btn">
-                                                    <p class="text-white bg-success p-2 rounded">Upload images</p>
-                                                        <input type="file" id="brand_img1" data-max_length="20"name="brand_img"  ref="fileInput"
-                                                        style="display: none"
-                                                        @change="handleFileInput"
-                                                        accept="image/png, image/jpg, image/jpeg" class="background__inputfile" id="banner_image">
-                                                        <small></small>
-                                                    </label>
-                                                </div>
-                                                <div class="">
-                                                    <div class="background__img-wrap"  id="selectedImagesContainer2"></div>
-                                                </div>
-                                          </div>
-                                        </div>
-
-                                        <div class="col-12 col-sm-12 col-lg-12 col-md-12 mt-3">
-                                                        <label for="name" class="text-dark fw-bold">Select Product Type</label>
-                                                        <div id="type_name1" name="type_name1"></div>
-                                                    </div>
-                        
-                                        
-                                      </div>
-                  </div>
+                              <div class="">
+                              <div class="background__img-wrap"  id="selectedImagesContainer2"></div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-12 col-sm-12 col-lg-12 col-md-12 mt-3">
+                          <label for="name" class="text-dark fw-bold">Select Product Type</label>
+                          <div id="type_name1" name="type_name1"></div>
+                        </div>
+                      </div>
+                    </div>
                 </form>
               </div>
               <div class="modal-footer">
@@ -223,17 +230,9 @@
               </div>
             </div>
           </div>
-
-
-
         </div>
-
-
-        
-
-
-    </div>
-   </section>
+      </div>
+    </section>
       
    
           <!-- model view -->
@@ -279,6 +278,46 @@
 <?php
    
    ?> 
+<script>
+  $(document).ready(function() {
+    $("#form").validate({
+      rules: {
+        brand_name: {
+          required: true,
+        },
+        brand_img: {
+          required: true,
+        },
+        type_name:{
+          required: true,
+        }
+      },
+      messages: {
+        brand_name: {
+          required: 'This field is required',
+        },
+        banner_image: {
+          required: 'This field is required',
+        },
+        type_name:{
+          required: 'This field is required',
+        }
+      },
+      submitHandler: function(form) {
+        // This function will be called when the form is valid
+        alert('Form is valid!'); // You can replace this with your submission logic
+      }
+    });
+
+    // Listen for click event on the submit button
+    $("#save").click(function() {
+      // Trigger form validation manually
+      $("#form").valid();
+    });
+  });
+</script>
+
+
    <script>
      $(document).ready(function() {
       // $('#Reset').on('click', function() {
@@ -353,51 +392,60 @@ get_product_type('type_name');
     function store(event) {
     event.preventDefault();
     console.log('jfhfhw');
-    var brand_name = document.getElementById('brand_name').value;
-    var brand_img = document.getElementById('brand_img').files[0];
-    var selectedCheckboxes = $('.product_type_checkbox:checked');
-    var type_name = [];
 
-    selectedCheckboxes.each(function () {
-        type_name.push($(this).val());
-    });
+    // Manually trigger form validation
+    var form = $('#form');
+    form.validate();
 
-    console.log(type_name, "type_name");
+    if (form.valid()) {
+        var brand_name = document.getElementById('brand_name').value;
+        var brand_img = document.getElementById('brand_img').files[0];
+        var selectedCheckboxes = $('.product_type_checkbox:checked');
+        var type_name = [];
 
-    // Convert the array to a JSON string
-    var type_name_json = JSON.stringify(type_name);
+        selectedCheckboxes.each(function () {
+            type_name.push($(this).val());
+        });
 
-    var formData = new FormData();
-    formData.append('brand_name', brand_name);
-    formData.append('brand_img', brand_img);
-    formData.append('product_type_id', type_name_json);
+        console.log(type_name, "type_name");
 
-    var url = "<?php echo $APIBaseURL; ?>storeBrands";
-    console.log(url);
-    var token = localStorage.getItem('token');
-    var headers = {
-        'Authorization': 'Bearer ' + token
-    };
+        // Convert the array to a JSON string
+        var type_name_json = JSON.stringify(type_name);
 
-    $.ajax({
-        url: url,
-        type: "POST",
-        data: formData,
-        processData: false,
-        contentType: false,
-        headers: headers,
-        success: function (result) {
-            console.log(result, "result");
-            window.location.href = "<?php echo $baseUrl; ?>brand_listing.php";
-            console.log("Add successfully");
-            alert('successfully inserted..!');
-        },
-        error: function (error) {
-            console.error('Error fetching data:', error);
-        }
-    });
+        var formData = new FormData();
+        formData.append('brand_name', brand_name);
+        formData.append('brand_img', brand_img);
+        formData.append('product_type_id', type_name_json);
+
+        var url = "<?php echo $APIBaseURL; ?>storeBrands";
+        console.log(url);
+        var token = localStorage.getItem('token');
+        var headers = {
+            'Authorization': 'Bearer ' + token
+        };
+
+        $.ajax({
+            url: url,
+            type: "POST",
+            data: formData,
+            processData: false,
+            contentType: false,
+            headers: headers,
+            success: function (result) {
+                console.log(result, "result");
+                window.location.href = "<?php echo $baseUrl; ?>brand_listing.php";
+                console.log("Add successfully");
+                alert('successfully inserted..!');
+            },
+            error: function (error) {
+                console.error('Error fetching data:', error);
+            }
+        });
+    } else {
+        // Form validation failed, do not proceed with form submission
+        console.log('Form validation failed.');
+    }
 }
-
 // fetch data
 function get() {
     var url = "<?php echo $APIBaseURL; ?>getBrands";
@@ -601,8 +649,6 @@ function edit_brand(){
       }
     });
 }
-
-
 function fetch_data(id) {
   console.log(id,"id")
     console.log(window.location)

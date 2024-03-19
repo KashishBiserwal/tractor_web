@@ -104,12 +104,161 @@ $(document).ready(function(){
   
       });
       
-
+      
+    //   var table1 = $('#example').DataTable({
+    //     paging: true,
+    //     searching: true,
+    //     columns: [
+    //         { title: 'S.No.' },
+    //         { title: 'Date' },
+    //         { title: 'Brand' },
+    //         { title: 'Full Name' },
+    //         { title: 'Mobile' },
+    //         { title: 'State' },
+    //         { title: 'District' },
+    //         { title: 'Action', orderable: false }
+    //     ]
+    // });
+    
+    // // Initialize DataTable for the second table (example2)
+    // var table2 = $('#example2').DataTable({
+    //     paging: true,
+    //     searching: true,
+    //     columns: [
+    //         { title: 'S.No.' },
+    //         { title: 'Date' },
+    //         { title: 'Brand' },
+    //         { title: 'Full Name' },
+    //         { title: 'Mobile' },
+    //         { title: 'State' },
+    //         { title: 'District' },
+    //         { title: 'Action', orderable: false }
+    //     ]
+    // });
+    
+    // // Your AJAX functions to populate data into the DataTables
+    // function get_dealers() {
+    //     var apiBaseURL = APIBaseURL;
+    //     var url = apiBaseURL + 'get_dealer_enquiry_data_for_particular_dealer'; 
+    
+    //     $.ajax({
+    //         url: url,
+    //         type: "GET",
+    //         headers: {
+    //             'Authorization': 'Bearer ' + localStorage.getItem('token')
+    //         },
+    //         success: function (data) {
+    //             // Clear table before populating with new data
+    //             table1.clear().draw();
+    
+    //             let serialNumber = 1;
+    //             if (data.dealer_enquiry_details_for_particular_data && data.dealer_enquiry_details_for_particular_data.length > 0) {
+    //                 // Reverse the order of data
+    //                 data.dealer_enquiry_details_for_particular_data.reverse();
+    
+    //                 // Construct data array for DataTable
+    //                 let tableData = data.dealer_enquiry_details_for_particular_data.map(row => [
+    //                     serialNumber++,
+    //                     row.date,
+    //                     row.brand_name,
+    //                     row.first_name + ' ' + row.last_name,
+    //                     row.mobile,
+    //                     row.state_name,
+    //                     row.district_name,
+    //                     `<div class="d-flex">
+    //                         <button class="btn btn-warning btn-sm text-white mx-1" data-bs-toggle="modal" onclick="openViewdatacertifed(${row.id});" data-bs-target="#view_model_dealer_1">
+    //                             <i class="fas fa-eye" style="font-size: 11px;"></i>
+    //                         </button> 
+    //                         <button class="btn btn-primary btn-sm btn_edit" onclick="fetch_edit_data_2(${row.id});" data-bs-toggle="modal" data-bs-target="#edit_dealers_certifed" id="yourUniqueIdHere">
+    //                             <i class="fas fa-edit" style="font-size: 11px;"></i>
+    //                         </button>
+    //                         <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.id});">
+    //                             <i class="fa fa-trash" style="font-size: 11px;"></i>
+    //                         </button>
+    //                     </div>`
+    //                 ]);
+    
+    //                 // Add data to DataTable
+    //                 table1.rows.add(tableData).draw();
+    //             } else {
+    //                 // If no data available, show message
+    //                 $('#example tbody').html('<tr><td colspan="8">No valid data available</td></tr>');
+    //             }
+    //         },
+    //         error: function (error) {
+    //             console.error('Error fetching data:', error);
+    //         }
+    //     });
+    // }
+    
+    // // Call the function to load data into the DataTable
+    // get_dealers();
+    
+    // // Similarly, define function and call for the second table (example2)
+    // function get_dealers_normal() {
+    //     var apiBaseURL = APIBaseURL;
+    //     var url = apiBaseURL + 'get_dealer_enquiry_data'; 
+    
+    //     $.ajax({
+    //         url: url,
+    //         type: "GET",
+    //         headers: {
+    //             'Authorization': 'Bearer ' + localStorage.getItem('token')
+    //         },
+    //         success: function (data) {
+    //             // Clear table before populating with new data
+    //             table2.clear().draw();
+    
+    //             let serialNumber = 1;
+    
+    //             if (data.dealer_enquiry_details && data.dealer_enquiry_details.length > 0) {
+    //                 // Reverse the data array to display latest data first
+    //                 data.dealer_enquiry_details.reverse();
+    
+    //                 // Construct data array for DataTable
+    //                 let tableData = data.dealer_enquiry_details.map(row => [
+    //                     serialNumber++,
+    //                     row.date,
+    //                     row.brand_name,
+    //                     row.first_name + ' ' + row.last_name,
+    //                     row.mobile,
+    //                     row.state_name,
+    //                     row.district_name,
+    //                     `<div class="d-flex">
+    //                         <button class="btn btn-warning btn-sm text-white mx-1" data-bs-toggle="modal" onclick="openViewdata(${row.id});" data-bs-target="#view_model_dealer">
+    //                             <i class="fas fa-eye" style="font-size: 11px;"></i>
+    //                         </button> 
+    //                         <button class="btn btn-primary btn-sm btn_edit" onclick="fetch_edit_data(${row.id});" data-bs-toggle="modal" data-bs-target="#edit_dealers" id="yourUniqueIdHere">
+    //                             <i class="fas fa-edit" style="font-size: 11px;"></i>
+    //                         </button>
+    //                         <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.id});">
+    //                             <i class="fa fa-trash" style="font-size: 11px;"></i>
+    //                         </button>
+    //                     </div>`
+    //                 ]);
+    
+    //                 // Add data to DataTable
+    //                 table2.rows.add(tableData).draw();
+    //             } else {
+    //                 // If no data available, show message
+    //                 $('#example2 tbody').html('<tr><td colspan="8">No valid data available</td></tr>');
+    //             }
+    //         },
+    //         error: function (error) {
+    //             console.error('Error fetching data:', error);
+    //         }
+    //     });
+    // }
+    
+    // // Call the function to load data into the DataTable
+    // get_dealers_normal();
+      
+  
 
 //****get data***
 function get_dealers() {
   var apiBaseURL = APIBaseURL;
-  var url = apiBaseURL + 'get_dealer_enquiry_data_for_particular_dealer'; // Adjust the API endpoint for Certified data
+  var url = apiBaseURL + 'get_dealer_enquiry_data_for_particular_dealer'; 
   console.log('dfghjkiuytgf');
 
   $.ajax({
@@ -966,5 +1115,4 @@ function populateTehsils(district_id) {
   });
 }
 
-populateStateDropdown('state_select', 'district_select');
-populateDropdownsFromClass('state-dropdown', 'district-dropdown', 'tehsil-dropdown');
+

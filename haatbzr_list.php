@@ -118,7 +118,7 @@
                     </div>
                   </div>
                 </div> -->
-                <button type="button" id="add_trac" class="btn add_btn bg-success" data-bs-toggle="modal"  data-bs-target="#staticBackdrop">
+                <button type="button" id="add_trac" class="btn add_btn bg-success" onclick="resetFormFields()" data-bs-toggle="modal"  data-bs-target="#staticBackdrop">
                   <i class="fa fa-plus" aria-hidden="true"></i> Haatbazaar Items
                 </button>
                 <!-- modal -->
@@ -167,21 +167,21 @@
                                       </div>
 
                                       <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-4">
-                                          <div class="input-group">
-                                              <input type="number" id="quantityInput" class="form-control text-black height-same" placeholder="Quantity" aria-label="Text input with dropdown button" name="quantity">
-                                              <select type="button" id="unitSelect" name="unit" class="btn border border-secondary-2 h-25 dropdown-toggle height-same" data-bs-toggle="dropdown">
-                                                  <ul class="dropdown-menu">
-                                                      <option class="dropdown-item" value="">Select Unit</option>
-                                                      <option class="dropdown-item" value="Each">Each</option>
-                                                      <option class="dropdown-item" value="gram">gram</option>
-                                                      <option class="dropdown-item" value="Kg">Kg</option>
-                                                      <option class="dropdown-item" value="Quintal">Quintal</option>
-                                                      <option class="dropdown-item" value="Ton">Ton</option>
-                                                      <option class="dropdown-item" value="Pack">Pack</option>
-                                                      <!-- <option class="dropdown-item" value="Unit">Unit</option> -->
-                                                  </ul>
-                                              </select>
-                                          </div>
+                                        <div class="input-group">
+                                          <input type="number" id="quantityInput" class="form-control text-black height-same" placeholder="Quantity" aria-label="Text input with dropdown button" name="quantity">
+                                            <select type="button" id="unitSelect" name="unit" class="btn border border-secondary-2 h-25 dropdown-toggle height-same" data-bs-toggle="dropdown">
+                                              <ul class="dropdown-menu">
+                                                <option class="dropdown-item unitSelect" value="">Select Unit</option>
+                                                <option class="dropdown-item unitSelect" value="Each">Each</option>
+                                                <option class="dropdown-item unitSelect" value="gram">gram</option>
+                                                <option class="dropdown-item unitSelect" value="Kg">Kg</option>
+                                                <option class="dropdown-item unitSelect" value="Quintal">Quintal</option>
+                                                <option class="dropdown-item unitSelect" value="Ton">Ton</option>
+                                                <option class="dropdown-item unitSelect" value="Pack">Pack</option>
+                                                <!-- <option class="dropdown-item" value="Unit">Unit</option> -->
+                                              </ul>
+                                            </select>
+                                        </div>
                                       </div>
 
                                       <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
@@ -433,3 +433,20 @@
 </body>
 
 
+<script>
+         $(document).ready(function() {
+        $('#price').on('input', function() {
+            var value = $(this).val().replace(/\D/g, ''); // Remove non-digit characters
+            var formattedValue = Number(value).toLocaleString('en-IN'); // Format using Indian numbering system
+            $(this).val(formattedValue);
+        });
+
+        // Set cursor position to the beginning of the input field
+        var input = document.getElementById('price');
+        input.focus();
+        input.setSelectionRange(0, 0);
+
+        // Set text alignment to left
+        input.style.textAlign = 'left';
+});
+    </script>

@@ -36,7 +36,7 @@ include 'includes/headertag.php';
                 <h3 class="pb-3">Popular  <span class="text-success fw-bold">Tractors in India</span> </h3>
                 <div id="productContainer" class="row"></div>
                 <div class="col-12 text-center mt-3 pt-2 ">
-                <button id="load_moretract" type="button" class=" btn add_btn btn-success">
+                <button id="load_moretract" type="button" class=" btn add_btn btn-success p-1">
                     <i class="fas fa-undo"></i>  Load More tractors</button>
                 </div>
             </div>
@@ -46,11 +46,11 @@ include 'includes/headertag.php';
                     <div class="col-12 col-sm-12 col-md-12 col-lg-12">
                         <div class=" row text-center">
                             <div class="col-12 col-sm-5 col-lg-5 col-md-5">
-                            <button id="" type="button" onclick="resetform()" class="add_btn btn btn-success">
+                            <button id="" type="button" onclick="resetform()" class="add_btn btn btn-success w-100">
                             <i class="fas fa-undo"></i>  Reset</button>
                             </div>
                            <div class="col-12 col-sm-7 col-lg-7 col-md-7 ">
-                                <button id="filter_tractor" type="button" class=" btn add_btn btn-success">
+                                <button id="filter_tractor" type="button" class=" btn add_btn btn-success p-1">
                                 <i class="fas fa-filter"></i>Apply Filter</button>
                            </div>
                             

@@ -163,18 +163,20 @@ function get_search() {
         processData: false,
         contentType: false,
         success: function (result) {
-            console.log(result, 'result');
-            $("#used_tractor_callbnt_").modal('hide');
-            var msg = 'Added successfully !';
-            $("#errorStatusLoading").modal('show');
-            $("#errorStatusLoading").find('.modal-title').html('<p class="text-center">Congratulation..! Requested Successful</p>');
-            $("#errorStatusLoading").find('.modal-body').html(msg);
-            $("#errorStatusLoading").find('.modal-body').html('<img src="assets/images/7efs.gif" style="display:block; margin:0 auto;" class="w-50 text-center" alt="Successfull Request"></img>');
-            console.log('Add successfully');
-            document.getElementById("become_dealership_enq_from").reset();
-            // document.getElementById("f_file").reset();
-        },
-
+          console.log(result, 'result');
+          $("#used_tractor_callbnt_").modal('hide');
+          var msg = 'Added successfully !';
+          $("#errorStatusLoading").modal('show');
+          $("#errorStatusLoading").find('.modal-title').html('<p class="text-center">Congratulation..! Requested Successful</p>');
+          $("#errorStatusLoading").find('.modal-body').html(msg);
+          $("#errorStatusLoading").find('.modal-body').html('<img src="assets/images/7efs.gif" style="display:block; margin:0 auto;" class="w-50 text-center" alt="Successfull Request"></img>');
+          console.log('Add successfully');
+          
+          $('#errorStatusLoading').on('hidden.bs.modal', function () {
+              window.location.reload();
+          });
+        
+      },
         error: function (error) {
             console.error('Error fetching data:', error);
             var msg = error.statusText;
@@ -182,6 +184,9 @@ function get_search() {
             $("#errorStatusLoading").find('.modal-title').html('<p class="text-center">Process Failed..! Enter Valid Detail</p>');
             $("#errorStatusLoading").find('.modal-body').html(msg);
             $("#errorStatusLoading").find('.modal-body').html('<img src="assets/images/comp_3.gif" style="display:block; margin:0 auto;" class="w-50 text-center" alt="Successfull Request"></img>');
+            $('#errorStatusLoading').on('hidden.bs.modal', function () {
+              window.location.reload();
+          });
             document.getElementById("become_dealership_enq_from").reset();
           }
     });

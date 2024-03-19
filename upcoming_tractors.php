@@ -36,7 +36,7 @@ include 'includes/headertag.php';
                     
                 </div>
                 <div class="col-12 text-center mt-3 pt-2">
-                <button id="load_moretract" type="button" class=" btn add_btn btn-success">
+                <button id="load_moretract" type="button" class=" btn add_btn btn-success p-1">
                     <i class="fas fa-undo"></i>  Load More tractors</button>
                 </div>
             </div>
@@ -50,7 +50,7 @@ include 'includes/headertag.php';
                                 <i class="fas fa-undo"></i>  Reset </button>
                             </div>
                            <div class="col-12 col-sm-6 col-lg-6 col-md-6 pe-2">
-                                <button id="filter_tractor" type="button" class=" btn add_btn btn-success">
+                                <button id="filter_tractor" type="button" class=" btn add_btn btn-success p-1">
                                 <i class="fas fa-filter"></i>Apply Filter</button>
                            </div>
                             

@@ -719,7 +719,7 @@ function appendFilterCard(filterContainer, filter) {
     $('.budget_checkbox:checked').prop('checked', false);
     $('.hp_checkbox:checked').prop('checked', false);
     
-    // window.location.reload();
+    window.location.reload();
     
   } 
 
@@ -790,7 +790,7 @@ function getDistricts(state_id) {
         var tehsilSelect = document.getElementById('Tehsil_5');
         tehsilSelect.innerHTML = '<option selected disabled value="">Please select a tehsil</option>';
 
-        var tehsilUrl = ' http://tractor-api.divyaltech.com/api/customer/get_tehsil_by_district/' + districtId; 
+        var tehsilUrl = 'http://tractor-api.divyaltech.com/api/customer/get_tehsil_by_district/' + districtId; 
         $.ajax({
             url: tehsilUrl,
             type: "GET",

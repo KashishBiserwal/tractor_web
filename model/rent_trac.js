@@ -38,9 +38,11 @@ function formatDateTime(originalDateTimeStr) {
                 let mergedData = response.rent_details.data1.map(t1 => ({...t1, ...response.rent_details.data2.find(t2 => t2.customer_id === t1.id)}));
 
                 let tableData = [];
-                let counter = mergedData.length;
+                let counter = 0; // Initialize counter here
 
                 mergedData.forEach(row => {
+                    counter++; // Increment counter for each row
+
                     let action = `
                         <div class="d-flex">
                             <button class="btn btn-warning btn-sm text-white mx-1" data-bs-toggle="modal" onclick="fetch_data(${row.id});" data-bs-target="#rent_view_model">
@@ -55,7 +57,7 @@ function formatDateTime(originalDateTimeStr) {
                         </div>`;
 
                     tableData.push([
-                        counter,
+                        counter, // Use counter as serial number
                         formatDateTime(row.date),
                         row.brand_name,
                         row.model,
@@ -93,67 +95,67 @@ function formatDateTime(originalDateTimeStr) {
 }
 
 
+
 // view data
 function fetch_data(product_id){
-    // alert(product_id);
-    console.log(window.location)
     var urlParams = new URLSearchParams(window.location.search);
     
     var productId = product_id;
     var apiBaseURL = APIBaseURL;
     var url = apiBaseURL + 'rent_data/' + productId;
     var headers = {
-    'Authorization': 'Bearer ' + localStorage.getItem('token')
+        'Authorization': 'Bearer ' + localStorage.getItem('token')
     };
     $.ajax({
         url: url,
         type: "GET",
         headers: headers,
         success: function(data) {
-        console.log(data, 'abc');
-        document.getElementById('brand1').innerText=data.rent_details.data1[0].brand_name;
-        document.getElementById('model1').innerText=data.rent_details.data1[0].model;
-        document.getElementById('first_name2').innerText=data.rent_details.data1[0].first_name;
-        document.getElementById('last_name2').innerText=data.rent_details.data1[0].last_name;
-        document.getElementById('monile').innerText=data.rent_details.data1[0].mobile;
-        document.getElementById('date_2').innerText=data.rent_details.data1[0].date;
-        document.getElementById('purchase_year1').innerText=data.rent_details.data1[0].purchase_year;
-        document.getElementById('state2').innerText=data.rent_details.data1[0].state;
-        document.getElementById('district2').innerText=data.rent_details.data1[0].district;
-        document.getElementById('tehsil2').innerText=data.rent_details.data1[0].tehsil;
-       
-       $("#selectedImagesContainer-old").empty();
+            console.log(data, 'abc');
+            if (data.rent_details.data1.length > 0) {
+                var rentData = data.rent_details.data1[0];
+                document.getElementById('brand1').innerText = rentData.brand_name;
+                document.getElementById('model1').innerText = rentData.model;
+                document.getElementById('first_name2').innerText = rentData.first_name;
+                document.getElementById('last_name2').innerText = rentData.last_name;
+                document.getElementById('monile').innerText = rentData.mobile;
+                document.getElementById('date_2').innerText = rentData.date;
+                document.getElementById('purchase_year1').innerText = rentData.purchase_year;
+                document.getElementById('state2').innerText = rentData.state;
+                document.getElementById('district2').innerText = rentData.district;
+                document.getElementById('tehsil2').innerText = rentData.tehsil;
+                
+                $("#selectedImagesContainer-old").empty();
     
-        if (data.rent_details.data2[0].images) {
-            var imageNamesArray = Array.isArray(data.rent_details.data2[0].images) ? data.rent_details.data2[0].images : data.rent_details.data2[0].images.split(',');
-             
-            var countclass=0;
-            imageNamesArray.forEach(function (images) {
-                var imageUrl = 'http://tractor-api.divyaltech.com/uploads/rent_img/' + images.trim();
-                countclass++;
-                var newCard = `
-                    <div class="col-12 col-md-3 col-lg-3 col-sm-3">
-                    <div class="" id="closeId${countclass}"></div>
-                        <div class="brand-main d-flex box-shadow mt-1 py-2 w-75 text-center shadow upload__img-closeDy${countclass}">
-                            <a class="weblink text-decoration-none text-dark" title="Tyre Image">
-                                <img class="img-fluid w-100 h-100" src="${imageUrl}" alt="Tyre Image">
-                            </a>
-                        </div>
-                    </div>
-                `;
-        
-                // Append the new image element to the container
-                $("#selectedImagesContainer-old").append(newCard);
-            });
-    
-    
+                if (rentData.images) {
+                    var imageNamesArray = Array.isArray(rentData.images) ? rentData.images : rentData.images.split(',');
+                     
+                    imageNamesArray.forEach(function (image, index) {
+                        var imageUrl = 'http://tractor-api.divyaltech.com/uploads/rent_img/' + image.trim();
+                        var newCard = `
+                            <div class="col-12 col-md-3 col-lg-3 col-sm-3">
+                                <div class="" id="closeId${index}"></div>
+                                <div class="brand-main d-flex box-shadow mt-1 py-2 w-75 text-center shadow upload__img-closeDy${index}">
+                                    <a class="weblink text-decoration-none text-dark" title="Tyre Image">
+                                        <img class="img-fluid w-100 h-100" src="${imageUrl}" alt="Tyre Image">
+                                    </a>
+                                </div>
+                            </div>
+                        `;
+                
+                        // Append the new image element to the container
+                        $("#selectedImagesContainer-old").append(newCard);
+                    });
+                }
+            } else {
+                console.error('No data found');
+            }
+        },
+        error: function (error) {
+            console.error('Error fetching data:', error);
         }
-    },
-    error: function (error) {
-    console.error('Error fetching data:', error);
-    }
     });
-    }
+}
 
 
     
@@ -289,44 +291,29 @@ function store(event) {
     var working_radius = $('#workarea_').val();
     var message = $('#textarea_d').val();
 
-    // var implement_type_id = [];
-    // $('select[name="imp_type_id[]"]').each(function() {
-    //     implement_type_id.push($(this).val());
-    // });
-
-    // var rate = [];
-    // $('input[name="implement_rate[]"]').each(function() {
-    //     rate.push($(this).val());
-    // });
-
-    // var rate_per = [];
-    // $('select[name="rate_per[]"]').each(function() {
-    //     rate_per.push($(this).val());
-    // });
     var implement_type_id = [];
-$('.implement-type-select').each(function() {
+$('.implement-type-input').each(function() {
     implement_type_id.push($(this).val());
 });
 
 var rate = [];
 $('.implement-rate-input').each(function() {
-    rate.push($(this).val());
+    var rateValue = $(this).val().replace(/[\,\.\s]/g, ''); 
+    rate.push(rateValue);
 });
 
 var rate_per = [];
-$('.rate-per-select').each(function() {
+$('.implement-unit-input').each(function() {
     rate_per.push($(this).val());
 });
 
-    // var images = [];
-    // var impImageFiles = document.getElementById('impImage_0').files;
-    // for (var i = 0; i < impImageFiles.length; i++) {
-    //     images.push(impImageFiles[i]);
-    // }
-    var images = [];
+var images = [];
+var impImageFiles = document.getElementsByClassName('image-file-input');
 for (var i = 0; i < impImageFiles.length; i++) {
-    images.push(impImageFiles[i]);
+    images.push(impImageFiles[i].files[0]);
 }
+  
+
 
     var data = new FormData();
 
@@ -351,17 +338,17 @@ for (var i = 0; i < impImageFiles.length; i++) {
         data.append('images[]', images[j]);
     }
 
-    var apiBaseURL = 'http://tractor-api.divyaltech.com/api/admin/';
+   
     var token = localStorage.getItem('token');
     var headers = {
         'Authorization': 'Bearer ' + token
     };
 
-    var url = apiBaseURL + 'customer_enquiries'; // Endpoint URL
+    // var url = apiBaseURL + 'customer_enquiries'; 
     var method = 'POST';
 
     $.ajax({
-        url: url,
+        url: 'http://tractor-api.divyaltech.com/api/admin/customer_enquiries',
         type: method,
         data: data,
         headers: headers,
@@ -382,7 +369,7 @@ for (var i = 0; i < impImageFiles.length; i++) {
 
 
 // Trigger the store function when the form is submitted
-$('#rent_list_form_').submit(store);
+// $('#rent_list_form_').submit(store);
 
   
 
@@ -572,3 +559,18 @@ function get_implement() {
 
 get_implement();
 
+function resetFormFields(){
+    document.getElementById("rent_list_form_").reset(); // Reset the entire form
+    
+    // Reset each image input and its preview
+    var imageInputs = document.getElementsByClassName("image-file-input");
+    for (var i = 0; i < imageInputs.length; i++) {
+        imageInputs[i].value = ''; 
+        
+        var imagePreviewId = "impImagePreview_" + i; // Get the corresponding image preview ID
+        document.getElementById(imagePreviewId).setAttribute("src", ""); 
+        
+        var imageIcon = document.getElementById("impImagePreview_" + i).previousElementSibling; // Get the image icon element
+        imageIcon.style.display = "block"; // Set the display property to "block" to show the image icon
+    }
+}

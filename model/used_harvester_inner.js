@@ -97,9 +97,6 @@ function get_old_harvester_byiD() {
   });
 }
 
-
-
-
   // get new popular tractor
 
   function getpopularTractorList() {
@@ -221,11 +218,6 @@ function displayPopularTractors(tractors, new_arr) {
         }
     });
 }
-
-
-
-
-
 
 function getupcomimgTractorList() {
     var url = "http://tractor-api.divyaltech.com/api/customer/get_new_tractor";

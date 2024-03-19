@@ -295,10 +295,12 @@ function get_news() {
           const tableBody = $('#example tbody');
 
           if (data.news_details && data.news_details.length > 0) {
-              let tableData = [];
               let counter = 1;
 
-              data.news_details.forEach(row => {
+              // Clear existing table data
+              tableBody.empty();
+
+              data.news_details.reverse().forEach(row => {
                   let action = `
                       <div class="d-flex">
                           <button class="btn btn-warning btn-sm text-white mx-1" data-bs-toggle="modal" onclick="fetch_data(${row.id});" data-bs-target="#exampleModal">
@@ -312,28 +314,17 @@ function get_news() {
                           </button>
                       </div>`;
 
-                  tableData.push([
-                      counter,
-                      row.date,
-                      row.news_category,
-                      row.news_headline,
-                      action
-                  ]);
-
+                  // Create a new row and append it to the table body
+                  let newRow = `<tr>
+                      <td>${counter}</td>
+                      <td>${row.date}</td>
+                      <td>${row.news_category}</td>
+                      <td>${row.news_headline}</td>
+                      <td>${action}</td>
+                  </tr>`;
+                  
+                  tableBody.prepend(newRow); // Prepend the new row to the table body
                   counter++;
-              });
-
-              // Reverse the tableData array to show the latest data at the top
-              tableData.reverse();
-
-              console.log("Reversed tableData:", tableData); // Check if the tableData is correctly reversed
-
-              // Clear existing table data
-              tableBody.empty();
-
-              // Append the new rows at the beginning of the table
-              tableData.forEach(row => {
-                  tableBody.prepend('<tr>' + row.map(cell => `<td>${cell}</td>`).join('') + '</tr>');
               });
 
               // Reinitialize the DataTable
@@ -357,100 +348,106 @@ function get_news() {
 get_news();
 
 
+
+function formatDateTime(originalDateTimeStr) {
+  const originalDateTime = new Date(originalDateTimeStr);
+
+  const pad = (num) => (num < 10 ? '0' : '') + num;
+
+  const day = pad(originalDateTime.getDate());
+  const month = pad(originalDateTime.getMonth() + 1);
+  const year = originalDateTime.getFullYear();
+  const hours = pad(originalDateTime.getHours());
+  const minutes = pad(originalDateTime.getMinutes());
+  const seconds = pad(originalDateTime.getSeconds());
+
+  return `${day}-${month}-${year} / ${hours}:${minutes}:${seconds}`;
+  }
+
   function search_data() {
     console.log("dfghsfg,sdfgdfg");
-    var news_category_id = $('#news_category_id').val();
+    // var news_category_id = $('#news_category_id').val();
+    var category_name = $('#category_name').val();
     var head_search = $('#head_search').val();
     var paraArr = {
-      'news_category_id': news_category_id,
-      // 'category_name':category_name,
-      'news_headline':head_search,
+        // 'news_category_id': news_category_id,
+        'news_category_id': category_name,
+        'news_headline': head_search,
     };
-  
+    console.log(paraArr);
     var apiBaseURL = APIBaseURL;
     var url = apiBaseURL + 'search_for_news';
     $.ajax({
-        url:url, 
+        url: url,
         type: 'POST',
         data: paraArr,
-      
         headers: {
             'Authorization': 'Bearer ' + localStorage.getItem('token')
         },
         success: function (searchData) {
-          console.log(searchData,"hello brand");
-          updateTable(searchData);
+            console.log(searchData, "hello brand");
+            updateTable(searchData);
         },
-        error: function (error) {
-            console.error('Error searching for brands:', error);
+        error: function (xhr, status, error) {
+            if (xhr.status === 404) {
+                $('#example').DataTable().clear().draw(); // Clear existing table data
+                $('#data-table').html('<tr><td colspan="5">No valid data available</td></tr>'); // Display "No valid data available" message
+            } else {
+                console.error('Error searching for brands:', error);
+            }
         }
     });
-  };
-  
-  function formatDateTime(originalDateTimeStr) {
-    const originalDateTime = new Date(originalDateTimeStr);
+};
 
-    const pad = (num) => (num < 10 ? '0' : '') + num;
-
-    const day = pad(originalDateTime.getDate());
-    const month = pad(originalDateTime.getMonth() + 1);
-    const year = originalDateTime.getFullYear();
-    const hours = pad(originalDateTime.getHours());
-    const minutes = pad(originalDateTime.getMinutes());
-    const seconds = pad(originalDateTime.getSeconds());
-
-    return `${day}-${month}-${year} / ${hours}:${minutes}:${seconds}`;
-    }
-  function updateTable(data) {
+function updateTable(data) {
     const tableBody = document.getElementById('data-table');
-    tableBody.innerHTML = '';
-    let counter = 1; 
-  
-    if(data.newsDetails && data.newsDetails.length > 0) {
-        let tableData = []; 
+    let counter = 1;
+
+    if (data.newsDetails && data.newsDetails.length > 0) {
+        let tableData = [];
         data.newsDetails.forEach(row => {
-            let action = ` <div class="d-flex">
-                      <button class="btn btn-warning btn-sm text-white mx-1" data-bs-toggle="modal" onclick="fetch_data(${row.id});" data-bs-target="#exampleModal">
-                         <i class="fa-solid fa-eye" style="font-size: 11px;"></i>
-                      </button>
-                      <button class="btn btn-primary btn-sm btn_edit" onclick="fetch_edit_data(${row.id});" data-bs-toggle="modal" data-bs-target="#staticBackdrop" id="yourUniqueIdHere">
-                        <i class="fas fa-edit" style="font-size: 11px;"></i>
-                      </button>
-                      <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.id});">
-                        <i class="fa fa-trash" style="font-size: 11px;"></i>
-                      </button>
-                    </div>`;
-          tableData.push([
-            counter,
-            // formatDateTime(row.date),
-            formatDateTime(row.created_at),
-            row.news_content,
-            row.news_headline,
-            action
-        ]);
+            let action = `
+            <div class="d-flex">
+                <button class="btn btn-warning btn-sm text-white mx-1" data-bs-toggle="modal" onclick="fetch_data(${row.id});" data-bs-target="#exampleModal">
+                    <i class="fa-solid fa-eye" style="font-size: 11px;"></i>
+                </button>
+                <button class="btn btn-primary btn-sm btn_edit" onclick="fetch_edit_data(${row.id});" data-bs-toggle="modal" data-bs-target="#staticBackdrop" id="yourUniqueIdHere">
+                    <i class="fas fa-edit" style="font-size: 11px;"></i>
+                </button>
+                <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.id});">
+                    <i class="fa fa-trash" style="font-size: 11px;"></i>
+                </button>
+            </div>`;
+            tableData.push([
+                counter,
+                row.date,
+                row.news_category,
+                row.news_headline,
+                action
+            ]);
+            counter++;
+        });
+        $('#example').DataTable().destroy();
 
-        counter++;
-    });
+        $('#example').DataTable({
+            data: tableData,
+            columns: [
+                { title: 'S.No.' },
+                { title: 'Date' },
+                { title: 'News Category' },
+                { title: 'News Headline' },
+                { title: 'Action', orderable: false }
+            ],
+            paging: true,
+            searching: true,
+        });
 
-    $('#example').DataTable().destroy();
-    $('#example').DataTable({
-        data: tableData,
-        columns: [
-            { title: 'S.No.' },
-            { title: 'Date' },
-            { title: 'News Category' },
-            { title: 'News Headline' },
-            { title: 'Action', orderable: false }
-        ],
-        paging: true,
-        searching: true,
-        // ... other options ...
-    });
+        $('#data-table').find('td[colspan="5"]').parent().remove(); // Remove "No valid data available" row if present
     } else {
-        // Display a message if there's no valid data
-        tableBody.innerHTML = '<tr><td colspan="4">No valid data available</td></tr>';
+        $('#example').DataTable().clear().draw();
+        tableBody.innerHTML = '<tr><td colspan="5">No valid data available</td></tr>';
     }
-  }
+}
 
   function resetForm() {
     // $('#category_name').val('');
