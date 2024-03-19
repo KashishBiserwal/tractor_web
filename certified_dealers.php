@@ -15,6 +15,7 @@
 <script> var CustomerAPIBaseURL = "<?php echo $CustomerAPIBaseURL; ?>";</script>
     <script> var baseUrl = "<?php echo $baseUrl; ?>";</script>
     <script src="<?php $baseUrl; ?>model/certified_dealers.js"></script>
+    <script src="<?php $baseUrl; ?>model/state2_dist2.js"></script>
   <section class="bg-light pt-2">
     <div class="container mt-5 pt-4">
       <div class="mt-5 py-2">
@@ -42,43 +43,40 @@
                 <div class="col-12 col-md-4 col-sm-4 col-lg-4 mt-4">
                   <div class="form-outline">
                     <label for="_brand" class="form-label fw-bold text-dark">Brand</label>
-                    <select class="form-select form-select-sm" id="_brand" name="_brand">
-                      <option value="" selected="" disabled=""></option>
-                      <option value="1">Mahindra</option>
-                      <option value="2">Swaraj</option>
-                      <option value="3">Powertrac</option>
+                    <select class="form-select form-select-sm" id="b_brand" name="_brand">
+                    
                     </select>
                   </div>
                 </div>
                 <div class="col-12 col-lg-4 col-md-4 col-sm-4 mt-4">
                   <div class="form-outline">
                     <label for="_state" class="form-label text-dark fw-bold">State</label>
-                    <select class="form-select form-select-sm" id="_state" name="_state">
-                      <option value="" selected="" disabled=""></option>
-                      <option value="1">Chhattisgarh</option>
-                      <option value="2">Other</option>
+                    <select class="form-select form-select-sm state_select" id="_state" name="_state">
+                 
                     </select>
                   </div>
                 </div>
                 <div class="col-12 col-lg-4 col-md-4 col-sm-4 mt-4">
                   <div class="form-outline">
                     <label for="_district" class="form-label fw-bold text-dark">District</label>
-                    <select class="form-select form-select-sm" id="_district" name="_district">
-                      <option value="" selected="" disabled=""></option>
-                      <option value="1">Raipur</option>
-                      <option value="2">Bilaspur</option>
-                      <option value="3">Durg</option>
+                    <select class="form-select form-select-sm district_select" id="_district" name="_district">
+                     
                     </select>
                   </div>
                 </div>
                 <div class=" mt-3">
                   <div class="row g-3">
-                    <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                      <button type="button" id="dealership_enq_btn" class="btn btn-success w-100">Search Dealer</button>
+                    <div class="col-12 col-lg-5 col-md-5 col-sm-5">
+                      <button type="button" id="dealership_enq_btn" class="btn btn-success w-100"onclick="searchdata()">Search Dealer</button>
                     </div>
                     <div class="col-12 col-lg-6 col-md-6 col-sm-6">
                       <a href="become_certified.php" class="btn btn-success w-100">Become Certified Dealer</a>
                     </div>
+                    <div class="col-12 col-lg-1 col-md-1 col-sm-1">
+                      <button type="button" id="Reset" class="btn btn-success w-100 add_btn"onclick="resetform()"><i class="fas fa-undo w-20px h-20px"></i></button>
+                      <!-- <button type="button" class="btn-success btn mx-2 px-4 pt-2" id="Reset" onclick="resetform()">Reset</button> -->
+                    </div>
+                    
                   </div>
                 </div>
               </div>
@@ -88,21 +86,12 @@
       </div>
     </section>
 
-    <section style="display: block;" id="section-2">
-        <div class="container" >
-            <div class="row my-3">
-                <div id="productContainer1" class="row">
-                  <p>pending work</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-  <!-- CERTIFIED DEALER CARDS -->
-  <section>
+  <section id="section-2">
     <div class="container mt-5" style="float:start;">
       <h3 class="">Recent Certified Dealers</h3>
       <div id="productContainer" class="row "></div>
+          <h5 id="noDataMessage" class="text-center mt-4 text-danger" style="display: none;">
+          <img src="assets/images/404.gif" class="w-25" alt=""></br>Data not found..!</h5>
       <div class="col-12 text-center mb-4">
           <button id="load_moretract"  type="button" class="add_btn btn-success btn btn-lg p-1">
           <i class="fas fa-undo"></i> Load More </button>

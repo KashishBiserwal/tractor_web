@@ -114,7 +114,7 @@
                                 class="fa-solid fa-chevron-right px-1"></i>
                         </span>
                     </span>
-                    <span class="text-dark">All Loan</span>
+                    <span class="text-dark">Rent</span>
                 </span>
             </div>
         </div>

@@ -242,14 +242,18 @@ function store(event) {
     event.preventDefault();
 
     var enquiry_type_id = $('#enquiry_type_id').val();
-    var added_by = 1;
+    // var added_by = 0;
+    var brand_name = $('#brand').val();
+    var model = $('#model_main').val();
+    var year = $('#year_main').val();
+    var workingRadius = $('#workingRadius').val();
     var first_name = $('#myfname').val();
     var last_name = $('#mylname').val();
     var mobile = $('#mynumber').val();
     var state = $('#state_state').val();
     var district = $('#dist_district').val();
     var tehsil = $('#tehsil_t').val();
-
+    var about = $('#textarea_d').val();
     var implementTypeArray = [];
     var rateArray = [];
     var ratePerArray = [];
@@ -280,15 +284,19 @@ function store(event) {
     var formData = new FormData();
 
     // Append form data
-    formData.append('added_by', added_by);
+    // formData.append('added_by', added_by);
     formData.append('enquiry_type_id', enquiry_type_id);
+    formData.append('brand_id', brand_name);
+    formData.append('model', model);
     formData.append('first_name', first_name);
     formData.append('last_name', last_name);
+    formData.append('purchase_year', year);
+    formData.append('working_radius', workingRadius);
     formData.append('mobile', mobile);
     formData.append('state', state);
     formData.append('district', district);
     formData.append('tehsil', tehsil);
-
+    formData.append('message', about);
     // Append arrays as JSON strings
     formData.append('implement_type_id', JSON.stringify(implementTypeArray));
     formData.append('rate', JSON.stringify(rateArray));
@@ -301,7 +309,7 @@ function store(event) {
 
     // Make an AJAX request to the server
     $.ajax({
-        url: 'http://192.168.1.12:9000/api/customer/customer_enquiries',
+        url: 'http://tractor-api.divyaltech.com/api/customer/customer_enquiries',
         type: 'POST',
         data: formData,
         processData: false,

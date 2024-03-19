@@ -620,6 +620,4 @@ function populateTehsil(selectId, value) {
     get_dealers();
   }
 
-  populateDropdownsFromClass('state-dropdown', 'district-dropdown', 'tehsil-dropdown');
-
-populateStateDropdown('state_select', 'district_select');
+ 

@@ -76,7 +76,7 @@ function displayNextSixCards(container) {
         var cardId = `card_${p.customer_id}`;
         var modalId = `used_tractor_callbnt_${p.customer_id}`; 
         var formId = `contact-seller-call_${p.customer_id}`; 
-        var formattedPrice = formatPriceWithCommas(p.price);
+        var formattedPrice = formatPriceWithCommas(p.rate);
         var images = p.images;
 
         var newCard = `
@@ -382,7 +382,7 @@ function filter_search() {
     var checkboxesState = $(".state_checkbox:checked");
     var checkboxesdist = $(".district_checkbox:checked");
     var checkboxesBrand = $(".brand_checkbox:checked");
-    var checkboxesYear = $(".year_checkbox:checked");
+    // var checkboxesYear = $(".year_checkbox:checked");
 
     var selectedCheckboxValues = checkboxes.map(function() {
         return $(this).val();
@@ -402,19 +402,19 @@ function filter_search() {
     var selectedBrand = checkboxesBrand.map(function() {
         return $(this).val();
     }).get();
-    var selectedYear = checkboxesYear.map(function() {
-        return $(this).val();
-    }).get();
+    // var selectedYear = checkboxesYear.map(function() {
+    //     return $(this).val();
+    // }).get();
 
     var paraArr = {
         'brand_id': JSON.stringify(selectedBrand),
         'state': JSON.stringify(selectedState),
         'district': JSON.stringify(selectedDistrict),
         'price_ranges': JSON.stringify(selectedCheckboxValuesFormatted),
-        'purchase_year': JSON.stringify(selectedYear),
+        // 'purchase_year': JSON.stringify(selectedYear),
     };
 
-    var url = 'http://tractor-api.divyaltech.com/api/customer/get_old_tractor_by_filter';
+    var url = 'http://tractor-api.divyaltech.com/api/customer/filter_for_rent_enquiry';
     $.ajax({
         url: url,
         type: 'POST',
@@ -425,16 +425,31 @@ function filter_search() {
         success: function(searchData) {
             var filterContainer = $("#productContainer");
             filterContainer.empty();
-            filteredCards = searchData.product; // Update filtered cards
-
-            if (filteredCards.length === 0) {
+            // Combine data1 and data2 into one array
+            if (searchData.rent_details && searchData.rent_details.data1 && searchData.rent_details.data2) {
+                var data1 = searchData.rent_details.data1;
+                var data2 = searchData.rent_details.data2;
+    
+                // Merge data1 and data2 based on customer_id
+                data1.forEach(function(item1) {
+                    var match = data2.find(function(item2) {
+                        return item2.customer_id === item1.id;
+                    });
+                    if (match) {
+                        var mergedItem = { ...item1, ...match };
+                        allData.push(mergedItem);
+                    }
+                });
+            }
+    
+            if (allData.length === 0) {
                 // Show message if no data found
                 $("#noDataMessage").show();
                 $("#loadMoreBtn").hide();
             } else {
                 // Display first set of filtered cards
                 cardsDisplayed = 0;
-                displayNextSet();
+                displayNextSet(allData);
                 $("#noDataMessage").hide();
                 $("#loadMoreBtn").show();
             }
@@ -442,25 +457,26 @@ function filter_search() {
         error: function(error) {
             console.error('Error searching for brands:', error);
         }
-    });
+    })
 }
 
 function appendFilterCard(filterContainer, p) {
     var images = p.images;
-    var a = [];
+        var a = [];
 
-    if (images) {
-        if (images.indexOf(',') > -1) {
-            a = images.split(',');
-        } else {
-            a = [images];
+        if (images) {
+            if (images.indexOf(',') > -1) {
+                a = images.split(',');
+            } else {
+                a = [images];
+            }
         }
-    }
-    var cardId = `card_${p.customer_id}`; // Dynamic ID for the card
-    var modalId = `used_tractor_callbnt_${p.customer_id}`; // Dynamic ID for the modal
-    var formId = `contact-seller-call_${p.customer_id}`; // Dynamic ID for the form
-
+    var cardId = `card_${p.customer_id}`;
+    var modalId = `used_tractor_callbnt_${p.customer_id}`; 
+    var formId = `contact-seller-call_${p.customer_id}`; 
     var formattedPrice = formatPriceWithCommas(p.rate);
+    var images = p.images;
+
     var newCard = `
     <div class="col-12 col-lg-4 col-md-6 col-sm-6 mb-3" id="${cardId}">
     <div class="h-auto success__stry__item d-flex flex-column shadow ">
@@ -594,7 +610,7 @@ function displayNextSet() {
 
 // Load more button click event
 $(document).on('click', '#loadMoreBtn', function() {
-    displayNextSet();
+    displayNextSet(allData);
 });
 
 

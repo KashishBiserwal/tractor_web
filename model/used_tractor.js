@@ -17,7 +17,6 @@ var allCards = [];
 var cardsDisplayed = 0;
 
 
-var apiBaseURL =  $CustomerAPIBaseURL;
 function getoldTractorList() {
     var url = "http://tractor-api.divyaltech.com/api/customer/get_old_tractor";
     

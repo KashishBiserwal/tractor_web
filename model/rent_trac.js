@@ -36,6 +36,9 @@ function formatDateTime(originalDateTimeStr) {
 
             if (response.rent_details && response.rent_details.data1 && response.rent_details.data1.length > 0) {
                 let mergedData = response.rent_details.data1.map(t1 => ({...t1, ...response.rent_details.data2.find(t2 => t2.customer_id === t1.id)}));
+                
+                // Reverse the order of mergedData
+                mergedData.reverse();
 
                 let tableData = [];
                 let counter = 0; // Initialize counter here
@@ -98,7 +101,7 @@ function formatDateTime(originalDateTimeStr) {
 
 // view data
 function fetch_data(product_id){
-    var urlParams = new URLSearchParams(window.location.search);
+    // var urlParams = new URLSearchParams(window.location.search);
     
     var productId = product_id;
     var apiBaseURL = APIBaseURL;
@@ -273,87 +276,177 @@ function fetch_edit_data(customer_id) {
     });
 }
 
+// function store(event) {
+//     event.preventDefault();
+
+//     var enquiry_type_id = 18;
+//     // var added_by = 1;
+//     var first_name = $('#myfname').val();
+//     var last_name = $('#mylname').val();
+//     var mobile = $('#mynumber').val();
+//     var state = $('#state_state').val();
+//     var district = $('#dist_district').val();
+//     var tehsil = $('#tehsil_t').val();
+//     var brand_id = $('#brand').val();
+//     var model_1 = $('#model_get').val();
+//     console.log('model',model_1);
+//     var purchase_year = $('#year').val();
+//     var working_radius = $('#workarea_').val();
+//     var message = $('#textarea_d').val();
+
+//     var implement_type_id = [];
+// $('.implement-type-input').each(function() {
+//     implement_type_id.push($(this).val());
+// });
+
+// var rate = [];
+// $('.implement-rate-input').each(function() {
+//     var rateValue = $(this).val().replace(/[\,\.\s]/g, ''); 
+//     rate.push(rateValue);
+// });
+
+// var rate_per = [];
+// $('.implement-unit-input').each(function() {
+//     rate_per.push($(this).val());
+// });
+
+// var images = [];
+// var impImageFiles = document.getElementsByClassName('image-file-input');
+// for (var i = 0; i < impImageFiles.length; i++) {
+//     images.push(impImageFiles[i].files[0]);
+// }
+  
+
+
+//     var data = new FormData();
+
+//     data.append('enquiry_type_id', enquiry_type_id);
+//     // data.append('added_by', added_by);
+//     data.append('first_name', first_name);
+//     data.append('last_name', last_name);
+//     data.append('mobile', mobile);
+//     data.append('state', state);
+//     data.append('district', district);
+//     data.append('tehsil', tehsil);
+//     data.append('brand_id', brand_id);
+//     data.append('model', model_1);
+//     data.append('purchase_year', purchase_year);
+//     data.append('working_radius', working_radius);
+//     data.append('message', message);
+//     data.append('implement_type_id', JSON.stringify(implement_type_id));
+//     data.append('rate', JSON.stringify(rate));
+//     data.append('rate_per', JSON.stringify(rate_per));
+
+//     for (var j = 0; j < images.length; j++) {
+//         data.append('images[]', images[j]);
+//     }
+
+   
+//     var token = localStorage.getItem('token');
+//     var headers = {
+//         'Authorization': 'Bearer ' + token
+//     };
+
+//     // var url = apiBaseURL + 'customer_enquiries'; 
+//     var method = 'POST';
+
+//     $.ajax({
+//         url: 'http://tractor-api.divyaltech.com/api/admin/customer_enquiries',
+//         type: method,
+//         data: data,
+//         headers: headers,
+//         processData: false,
+//         contentType: false, // Set content type to false for FormData
+//         success: function(result) {
+//             console.log(result, "result");
+//             if (result.length) {
+//                 // Do something
+//             }
+//             alert('successfully inserted..!')
+//         },
+//         error: function(error) {
+//             console.error('Error fetching data:', error);
+//         }
+//     });
+// }
+
+
 function store(event) {
     event.preventDefault();
 
-    var enquiry_type_id = 18;
-    // var added_by = 1;
+    var enquiry_type_id = $('#enquiry_type_id').val();
+    // var added_by = 0;
+    var brand_name = $('#brand').val();
+    var model = $('#model_main').val();
+    var year = $('#year_main').val();
+    var workingRadius = $('#workingRadius').val();
     var first_name = $('#myfname').val();
     var last_name = $('#mylname').val();
     var mobile = $('#mynumber').val();
     var state = $('#state_state').val();
     var district = $('#dist_district').val();
     var tehsil = $('#tehsil_t').val();
-    var brand_id = $('#brand').val();
-    var model = $('#model').val();
-    console.log('model',model);
-    var purchase_year = $('#year').val();
-    var working_radius = $('#workarea_').val();
-    var message = $('#textarea_d').val();
+    var about = $('#textarea_d').val();
+    var implementTypeArray = [];
+    var rateArray = [];
+    var ratePerArray = [];
+    var imageFilesArray = [];
 
-    var implement_type_id = [];
-$('.implement-type-input').each(function() {
-    implement_type_id.push($(this).val());
-});
+    // Iterate over each row in the table body
+    $('#rentTractorTable tbody tr').each(function(index) {
+        var row = $(this);
 
-var rate = [];
-$('.implement-rate-input').each(function() {
-    var rateValue = $(this).val().replace(/[\,\.\s]/g, ''); 
-    rate.push(rateValue);
-});
+        var implement_type = row.find('.implement-type-input').val();
+        var rate = row.find('.implement-rate-input').val();
+        rate = rate.replace(/[\,\.\s]/g, '');
+        var ratePer = row.find('.implement-unit-input').val();
+        var image_names = row.find('.image-file-input')[0].files; // Assuming image input field class is .image-file-input
 
-var rate_per = [];
-$('.implement-unit-input').each(function() {
-    rate_per.push($(this).val());
-});
+        // Push data into arrays
+        implementTypeArray.push(implement_type);
+        rateArray.push(rate);
+        ratePerArray.push(ratePer);
 
-var images = [];
-var impImageFiles = document.getElementsByClassName('image-file-input');
-for (var i = 0; i < impImageFiles.length; i++) {
-    images.push(impImageFiles[i].files[0]);
-}
-  
+        // Push each image file to imageFilesArray
+        for (var i = 0; i < image_names.length; i++) {
+            imageFilesArray.push(image_names[i]);
+        }
+    });
 
+    // Create a FormData object
+    var formData = new FormData();
 
-    var data = new FormData();
+    // Append form data
+    // formData.append('added_by', added_by);
+    formData.append('enquiry_type_id', enquiry_type_id);
+    formData.append('brand_id', brand_name);
+    formData.append('model', model);
+    formData.append('first_name', first_name);
+    formData.append('last_name', last_name);
+    formData.append('purchase_year', year);
+    formData.append('working_radius', workingRadius);
+    formData.append('mobile', mobile);
+    formData.append('state', state);
+    formData.append('district', district);
+    formData.append('tehsil', tehsil);
+    formData.append('message', about);
+    // Append arrays as JSON strings
+    formData.append('implement_type_id', JSON.stringify(implementTypeArray));
+    formData.append('rate', JSON.stringify(rateArray));
+    formData.append('rate_per', JSON.stringify(ratePerArray));
 
-    data.append('enquiry_type_id', enquiry_type_id);
-    // data.append('added_by', added_by);
-    data.append('first_name', first_name);
-    data.append('last_name', last_name);
-    data.append('mobile', mobile);
-    data.append('state', state);
-    data.append('district', district);
-    data.append('tehsil', tehsil);
-    data.append('brand_id', brand_id);
-    data.append('model', model);
-    data.append('purchase_year', purchase_year);
-    data.append('working_radius', working_radius);
-    data.append('message', message);
-    data.append('implement_type_id', JSON.stringify(implement_type_id));
-    data.append('rate', JSON.stringify(rate));
-    data.append('rate_per', JSON.stringify(rate_per));
-
-    for (var j = 0; j < images.length; j++) {
-        data.append('images[]', images[j]);
+    // Append each image file
+    for (var i = 0; i < imageFilesArray.length; i++) {
+        formData.append('images[]', imageFilesArray[i]);
     }
 
-   
-    var token = localStorage.getItem('token');
-    var headers = {
-        'Authorization': 'Bearer ' + token
-    };
-
-    // var url = apiBaseURL + 'customer_enquiries'; 
-    var method = 'POST';
-
+    // Make an AJAX request to the server
     $.ajax({
-        url: 'http://tractor-api.divyaltech.com/api/admin/customer_enquiries',
-        type: method,
-        data: data,
-        headers: headers,
+        url: 'http://tractor-api.divyaltech.com/api/customer/customer_enquiries',
+        type: 'POST',
+        data: formData,
         processData: false,
-        contentType: false, // Set content type to false for FormData
+        contentType: false,
         success: function(result) {
             console.log(result, "result");
             if (result.length) {
@@ -366,12 +459,6 @@ for (var i = 0; i < impImageFiles.length; i++) {
         }
     });
 }
-
-
-// Trigger the store function when the form is submitted
-// $('#rent_list_form_').submit(store);
-
-  
 
 function destroy(id) {
     var apiBaseURL = APIBaseURL;
@@ -407,8 +494,8 @@ function destroy(id) {
   }
 
 
-  function get() {
-    var url = 'http://tractor-api.divyaltech.com/api/customer/get_all_brands';
+  function get() { 
+    var url = 'http://tractor-api.divyaltech.com/api/customer/get_brand_for_finance';
     $.ajax({
         url: url,
         type: "GET",
@@ -454,7 +541,7 @@ function destroy(id) {
             'Authorization': 'Bearer ' + localStorage.getItem('token')
         },
         success: function (data) {
-            const selects = document.querySelectorAll('#model');
+            const selects = document.querySelectorAll('#model_main');
   
             selects.forEach(select => {
                 select.innerHTML = '<option selected disabled value="">Please select an option</option>';
@@ -464,7 +551,7 @@ function destroy(id) {
                         const option = document.createElement('option');
                         option.textContent = row.model;
                         option.value = row.model;
-                        // console.log(option);
+                        console.log(option);
                         select.appendChild(option);
                     });
                 } else {
@@ -479,13 +566,11 @@ function destroy(id) {
   }
   
   get();
-
-
   
-function get_year_and_hours() {
+  function get_year_and_hours() {
     console.log('initsfd')
-    var apiBaseURL = APIBaseURL;
-    var url = apiBaseURL + 'get_year_and_hours';
+    // var apiBaseURL = APIBaseURL;
+    var url = 'http://tractor-api.divyaltech.com/api/customer/get_year_and_hours';
     $.ajax({
         url: url,
         type: "GET",
@@ -493,8 +578,7 @@ function get_year_and_hours() {
             'Authorization': 'Bearer ' + localStorage.getItem('token')
         },
         success: function (data) {
-          
-            var select_year = $("#year");
+            var select_year = $("#year_main");
             select_year.empty(); // Clear existing options
             select_year.append('<option selected disabled="" value="">Please select an option</option>'); 
   
@@ -518,46 +602,47 @@ function get_year_and_hours() {
   
   get_year_and_hours();
 
-
-function get_implement() {
+  function implementget() {
     var url = 'http://tractor-api.divyaltech.com/api/customer/get_implement_category';
+
     $.ajax({
         url: url,
         type: "GET",
         headers: {
             'Authorization': 'Bearer ' + localStorage.getItem('token')
         },
-        success: function (data) {
-            const selects = document.querySelectorAll('#impType_0');
-  
-            selects.forEach(select => {
-                select.innerHTML = '<option selected disabled value="">Please select an option</option>';
-  
-                if (data.allCategory.length > 0) {
-                    data.allCategory.forEach(row => {
-                        const option = document.createElement('option');
-                        option.textContent = row.category_name;
-                        option.value = row.id;
-                        select.appendChild(option);
-                    });
-  
-                    // Add event listener to brand dropdown
-                    select.addEventListener('change', function() {
-                        const selectedBrandId = this.value;
-                        get_model(selectedBrandId);
-                    });
-                } else {
-                    select.innerHTML = '<option>No valid data available</option>';
+        success: function(data) {
+            console.log(data);
+
+            const select = $('#impType_0');
+            select.empty(); // Clear existing options
+
+            // Add a default option
+            select.append('<option selected disabled value="">Please select Implement Type</option>');
+
+            // Use an object to keep track of unique categories
+            var uniqueCategories = {};
+
+            $.each(data.allCategory, function(index, category) {
+                var implement_type = category.id;
+                var category_name = category.category_name;
+
+                // Check if the category ID is not already in the object
+                if (!uniqueCategories[implement_type]) {
+                    // Add category ID to the object
+                    uniqueCategories[implement_type] = true;
+
+                    // Append the option to the dropdown
+                    select.append('<option value="' + implement_type + '">' + category_name + '</option>');
                 }
             });
         },
-        error: function (error) {
+        error: function(error) {
             console.error('Error fetching data:', error);
         }
     });
-  }
-
-get_implement();
+}
+implementget();
 
 function resetFormFields(){
     document.getElementById("rent_list_form_").reset(); // Reset the entire form

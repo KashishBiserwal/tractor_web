@@ -76,50 +76,40 @@
                   <div class="row justify-content-center">
                     <div class="col-lg-10">
                       <h4 class="text-center">Fill your Details</h4>
-                        <form id="rent_list_form_">
-                              <div class="row justify-content-center pt-4">
-                              <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-2" hidden>
-                                <div class="form-outline">
-                                <input type="text" id="enquiry_type_id" name="" value="18" class=" data_search form-control input-group-sm py-2" />
-                                </div>
-                              </div>
-                              <div class="col-12 col-lg-6 col-md-6 col-sm-6 " hidden>
-                                        <label for="name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i> product type id</label>
-                                        <input type="text" class="form-control" id="added_by" value="">
+                      <form id="rent_list_form_">
+                            <div class="row justify-content-center pt-4">
+                                <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-2" hidden>
+                                    <div class="form-outline">
+                                        <input type="text" id="enquiry_type_id" name="" value="18" class=" data_search form-control input-group-sm py-2" />
                                     </div>
-                              <!-- <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-2" hidden>
-                                <div class="form-outline">
-                                  <input type="text" id="customer_id" name="" value="" class=" data_search form-control input-group-sm py-2" />
                                 </div>
-                              </div> -->
-                              <!-- <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-2" hidden>
-                                <div class="form-outline">
-                                <input type="text" id="implement_type_id" name="" value="" class=" data_search form-control input-group-sm py-2" />
-                                </div>
-                              </div> -->
-                                <div class="col-12 col-sm-4 col-md-4 col-lg-4">
-                                  <div class="form-outline">
-                                    <label class="form-label">Brand</label>
-                                    <select class="form-select" aria-label="Default select example"id="brand" name="brand">
-                                
-                                    </select>
-                                  </div>
+                                <div class="col-12 col-lg-6 col-md-6 col-sm-6 " hidden>
+                                    <label for="name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i> product type id</label>
+                                    <input type="text" class="form-control" id="added_by" value="">
                                 </div>
                                 <div class="col-12 col-sm-4 col-md-4 col-lg-4">
-                                  <div class="form-outline">
-                                    <label class="form-label">Model</label>
-                                    <select class="form-select" aria-label="Default select example"id="model" name="model">
-                                
-                                    </select>
-                                  </div>
+                                    <div class="form-outline">
+                                        <label class="form-label text-dark">Brand</label>
+                                        <select class="form-select" aria-label="Default select example"id="brand" name="brand">
+                                        
+                                        </select>
+                                    </div>
                                 </div>
                                 <div class="col-12 col-sm-4 col-md-4 col-lg-4">
-                                  <div class="form-outline">
-                                    <label class="form-label">Year</label>
-                                    <select class="form-select" aria-label="Default select example"id="year" name="year">
-                            
-                                    </select>
-                                  </div>
+                                    <div class="form-outline">
+                                        <label class="form-label text-dark">Model</label>
+                                        <select class="form-select" aria-label="Default select example"id="model_main" name="model">
+                                         
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-sm-4 col-md-4 col-lg-4">
+                                    <div class="form-outline">
+                                        <label class="form-label text-dark">Year</label>
+                                        <select class="form-select" aria-label="Default select example"id="year_main" name="year">
+                                    
+                                        </select>
+                                    </div>
                                 </div>
                                 <div class="table-responsive my-3">
                                     <table id="rentTractorTable" class="table table-sm">
@@ -137,15 +127,15 @@
                                             <tr>
                                                 <td>1</td> 
                                                 <td>
-                                                    <div class="card upload-img-wrap" onclick="triggerFileInput('impImage_0')">
+                                                    <div class="card upload-img-wrap" onclick="triggerFileInput('impImage_0')" style="height:38px;">
                                                         <i class="fas fa-image m-auto" style="cursor: pointer;" onclick="triggerFileInput('impImage_0')"></i>
-                                                        <img id="impImagePreview_0" src=""  style="max-width: 100%; max-height: 100%; display: none;" class="images">
+                                                        <img id="impImagePreview_0" src="" alt="Image Preview" style="max-width: 100%; max-height: 100%; display: none;" class="images">
                                                     </div>
-                                                    <input type="file" name="imp_0" id="impImage_0" class="image-file-input" accept="image/*" style="display: none;" onclick="displayImagePreview(this, 'impImagePreview_0')" required="" onchange="displayImagePreview(this, 'impImagePreview_0')">
+                                                    <input type="file" name="imp_0" id="impImage_0" class="image-file-input" accept="image/*" style="display: none;" onclick="displayImagePreview(this, 'impImagePreview_0')"  onchange="displayImagePreview(this, 'impImagePreview_0')"required>
                                                 </td>
                                                 <td>
                                                     <div class="select-wrap">
-                                                        <select name="imp_type_id[]" id="impType_0" class="form-control implement-type-input">
+                                                        <select name="imp_type_id[]" id="impType_0" class="form-control implement-type-input" >
                                                         <option value>Select</option>
                                                         <option value="type1">Type 1</option>
                                                         <option value="type2">Type 2</option>
@@ -153,7 +143,7 @@
                                                     </div>
                                                 </td>
                                                 <td>
-                                                     <input type="text" name="implement_rate[]" id="implement_rent" class="form-control implement-rate-input" maxlength="10" placeholder="e.g- 1500">
+                                                     <input type="text" name="implement_rate[]" id="implement_rent" class="form-control implement-rate-input" maxlength="10" placeholder="e.g- 1,500">
                                                 </td>
                                                 <td>
                                                     <div class="select-wrap">
@@ -183,63 +173,63 @@
                                     </table>
                                 </div>
                                 <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
-                                  <div class="form-outline mt-2">
-                                    <label class="form-label text-dark">Working Area</label>
-                                    <textarea rows="3" cols="70" class="w-100 p-2"  id="workarea_" name="textarea_"></textarea>
-                                  </div>
+                                    <div class="form-outline">
+                                        <label class="form-label text-dark">Working Area</label>
+                                        <textarea rows="2" cols="70" class="w-100 p-2"  id="workingRadius" name="textarea_"></textarea>
+                                    </div>
                                 </div>
                                 <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
-                                  <div class="form-outline mt-2">
-                                    <label class="form-label text-dark">Description</label>
-                                    <textarea rows="3" cols="70" class="w-100 p-2"  id="textarea_d" name="textarea_d"></textarea>
-                                  </div>
+                                    <div class="form-outline">
+                                        <label class="form-label text-dark">Description</label>
+                                        <textarea rows="2" cols="70" class="w-100 p-2"  id="textarea_d" name="textarea_d"></textarea>
+                                    </div>
                                 </div>
                                 <div class="text-center">
-                                  <h4 class="pb-2 mt-2">Personal Information</h4>
+                                    <h5 class="pb-2 mt-2">Personal Information</h5>
+                                </div>
+                                <div class="col-12 col-lg-6 col-sm-5 col-md-6">
+                                    <div class="form-outline mt-3">
+                                        <label for="name" class="form-label text-dark">First Name</label>
+                                        <input type="text" class="form-control" placeholder="" id="myfname" name="fname">
+                                    </div>
+                                </div>
+                                <div class="col-12 col-lg-6 col-sm-5 col-md-6">
+                                    <div class="form-outline mt-3">
+                                        <label for="name" class="form-label text-dark">Last Name</label>
+                                        <input type="text" class="form-control" placeholder="" id="mylname" name="lname">
+                                    </div>
                                 </div>
                                 <div class="col-12 col-lg-6 col-sm-5 col-md-6 my-1">
-                                  <div class="form-outline mt-3">
-                                    <label for="name" class="form-label text-dark">First Name</label>
-                                    <input type="text" class="form-control" placeholder="" id="myfname" name="fname">
-                                  </div>
+                                    <div class="form-outline mt-2">
+                                        <label for="name" class="form-label text-dark">Mobile Number</label>
+                                        <input type="text" class="form-control" placeholder="" id="mynumber" name="number">
+                                    </div>
                                 </div>
-                                <div class="col-12 col-lg-6 col-sm-5 col-md-6 my-1">
-                                  <div class="form-outline mt-3">
-                                    <label for="name" class="form-label text-dark">Last Name</label>
-                                    <input type="text" class="form-control" placeholder="" id="mylname" name="lname">
-                                  </div>
+                                <div class="col-12 col-lg-6 col-sm-5 col-md-6">
+                                    <div class="form-outline mt-2">
+                                        <label class="form-label text-dark">State</label>
+                                        <select class="form-select py-2 state-dropdown" aria-label="Default select example" id="state_state" name="state_">
+                                         
+                                        </select>
+                                    </div>
                                 </div>
-                                <div class="col-12 col-lg-6 col-sm-5 col-md-6 my-1">
-                                  <div class="form-outline mt-2">
-                                    <label for="name" class="form-label text-dark">Mobile Number</label>
-                                    <input type="text" class="form-control" placeholder="" id="mynumber" name="number">
-                                  </div>
+                                <div class="col-12 col-lg-6 col-sm-5 col-md-6">
+                                    <div class="form-outline mt-3">
+                                        <label class="form-label text-dark">District</label>
+                                        <select class="form-select py-2 district-dropdown" aria-label="Default select example" id="dist_district" name="dist">
+                                          
+                                        </select>
+                                    </div>
                                 </div>
-                                <div class="col-12 col-lg-6 col-sm-5 col-md-6 my-1">
-                                  <div class="form-outline mt-2">
-                                    <label class="form-label ">State</label>
-                                    <select class="form-select py-2 state-dropdown" aria-label="Default select example" id="state_state" name="state_">
-                                  
-                                  </select>
-                                  </div>
+                                <div class="col-12 col-lg-6 col-sm-5 col-md-6 ">
+                                    <div class="form-outline mt-3">
+                                        <label class="form-label text-dark">Tehsil</label>
+                                        <select class="form-select py-2 tehsil-dropdown" aria-label="Default select example" id="tehsil_t">
+                                         
+                                        </select>
+                                    </div>
                                 </div>
-                                <div class="col-12 col-lg-6 col-sm-5 col-md-6 my-1">
-                                  <div class="form-outline mt-3">
-                                    <label class="form-label ">District</label>
-                                    <select class="form-select py-2 district-dropdown" aria-label="Default select example" id="dist_district" name="dist">
-                                   
-                                    </select>
-                                  </div>
-                                </div>
-                                <div class="col-12 col-lg-6 col-sm-5 col-md-6 my-1">
-                                  <div class="form-outline mt-3">
-                                    <label class="form-label">Tehsil</label>
-                                    <select class="form-select py-2 tehsil-dropdown" aria-label="Default select example" id="tehsil_t">
-                                   
-                                    </select>
-                                  </div>
-                                </div>
-                              </div>
+                            </div>
                         </form>
                     </div>
                   </div>
