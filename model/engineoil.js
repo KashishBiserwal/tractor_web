@@ -52,8 +52,8 @@ $(document).ready(function() {
 
 
 function getEngineoilList() {
-    var url = CustomerAPIBaseURL + 'engine_oil';
-
+    // var url = CustomerAPIBaseURL + 'engine_oil';
+    var url ='http://tractor-api.divyaltech.com/api/customer/engine_oil';
     // Keep track of the total tractors and the currently displayed tractors
     var totalEngineoil = 0;
     var displayedEngineoil = 8; // Initially display 6 tractors

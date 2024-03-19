@@ -133,6 +133,14 @@ jQuery(document).ready(function () {
    });
   });
 
+  function formatPriceWithCommas(price) {
+    if (isNaN(price)) {
+        return price; 
+    }
+     return price.toLocaleString('en-IN', { maximumFractionDigits: 2 });
+}
+
+
   function ImgUpload() {
     var imgWrap = "";
     var imgArray = [];
@@ -287,6 +295,7 @@ function store(event) {
   var hours = $('#hours').val();
   var year = $('#year').val();
   var price = $('#price').val();
+  price = price.replace(/[\,\.\s]/g, '');
   var image = document.getElementById('image').files;
   var about = $('#about').val();
   var name = $('#name').val();
@@ -396,6 +405,7 @@ function fetch_edit_data(id) {
     headers: headers,
     success: function(response) {
       var userData = response.product[0];
+      var formattedPrice = parseFloat(userData.price).toLocaleString('en-IN');
       // $('#EditIdmain_').val(userData.product_id);
       $('#customer_id').val(userData.customer_id);
       $('#CROPS_TYPE').val(userData.crops_type_id);
@@ -403,7 +413,7 @@ function fetch_edit_data(id) {
       $('#model').val(userData.model);
       $('#hours').val(userData.hours_driven);
       $('#year').val(userData.purchase_year);
-      $('#price').val(userData.price);
+      $('#price').val(formattedPrice);
       $('#about').val(userData.description);
       $('#name').val(userData.first_name);
       $('#lname').val(userData.last_name);
@@ -713,14 +723,14 @@ function destroy(id) {
         headers: headers,
         success: function (data) {
           console.log(data, 'abc');
+          var formattedPrice = parseFloat(data.product[0].price).toLocaleString('en-IN');
           document.getElementById('brand_name').innerText = data.product[0].brand_name;
           document.getElementById('model_name_1').innerText = data.product[0].model;
           document.getElementById('CROPS_TYPE_1').innerText = data.product[0].crops_type_value;
           document.getElementById('POWER_SOURCE_1').innerText = data.product[0].power_source_value;
           document.getElementById('hours_1').innerText =data.product[0].hours_driven;
           document.getElementById('year_1').innerText = data.product[0].purchase_year;
-          document.getElementById('Price_1').innerText = data.product[0].price;
-          console.log(data.product[0].price);
+          document.getElementById('Price_1').innerText = formattedPrice;
           document.getElementById('About_1').innerText = data.product[0].description;
           document.getElementById('First_Name').innerText = data.product[0].first_name;
           document.getElementById('Last_Name').innerText = data.product[0].last_name;

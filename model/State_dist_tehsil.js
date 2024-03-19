@@ -1,3 +1,6 @@
+
+
+   
 function populateDropdownsFromClass(stateClassName, districtClassName, tehsilClassName) {
     var url = 'http://tractor-api.divyaltech.com/api/customer/state_data';
     $.ajax({

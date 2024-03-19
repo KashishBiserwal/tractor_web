@@ -723,7 +723,7 @@
 
         // Set text alignment to left
         input.style.textAlign = 'left';
-});
+    });
     </script>
  <script>
 $(document).ready(function () {

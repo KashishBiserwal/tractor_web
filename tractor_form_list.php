@@ -778,3 +778,38 @@ $button.addEventListener('click', (e) => {
     
 
 </script>
+<script>
+         $(document).ready(function() {
+        $('#starting_price').on('input', function() {
+            var value = $(this).val().replace(/\D/g, ''); // Remove non-digit characters
+            var formattedValue = Number(value).toLocaleString('en-IN'); // Format using Indian numbering system
+            $(this).val(formattedValue);
+        });
+
+        // Set cursor position to the beginning of the input field
+        var input = document.getElementById('starting_price');
+        input.focus();
+        input.setSelectionRange(0, 0);
+
+        // Set text alignment to left
+        input.style.textAlign = 'left';
+});
+    </script>
+
+<script>
+         $(document).ready(function() {
+        $('#ending_price').on('input', function() {
+            var value = $(this).val().replace(/\D/g, ''); // Remove non-digit characters
+            var formattedValue = Number(value).toLocaleString('en-IN'); // Format using Indian numbering system
+            $(this).val(formattedValue);
+        });
+
+        // Set cursor position to the beginning of the input field
+        var input = document.getElementById('ending_price');
+        input.focus();
+        input.setSelectionRange(0, 0);
+
+        // Set text alignment to left
+        input.style.textAlign = 'left';
+});
+    </script>

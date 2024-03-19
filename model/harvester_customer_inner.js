@@ -174,7 +174,7 @@ function harvester_enquiry() {
                       }
                       // var silder_heading = ` <h1 class="d3 mb-0 text-white display-5 fw-bold">${p.brand_name}</h1>`;
                       var newCard = `
-                      <div class="col-12 col-lg-4 col-md-4 col-sm-4 mb-4">
+                      <div class="div class="item box_shadow b-t-1">
                       <a href="harvester_inner.php?product_id=${p.id}" class="h-auto success__stry__item d-flex flex-column text-decoration-none shadow">
                           <div class="thumb">
                               <div>
@@ -194,7 +194,6 @@ function harvester_enquiry() {
                               </div>
                                   <div class="row ">
                                       <div class="col-12 "><p class="text-dark ps-2">Cutting Width : ${p.cutting_bar_width} Feet</p></div>
-                                      
                                   </div>    
                               </div>
                           </div>
@@ -244,3 +243,95 @@ function harvester_enquiry() {
 
 
 
+//   function getpopularTractorList() {
+//     var url = "http://192.168.1.12:9000/api/customer/get_new_tractor";
+
+//     $.ajax({
+//         url: url,
+//         type: "GET",
+//         success: function(data) {
+//             console.log(data, 'abc');
+//             var productContainer = $("#productContainerharvester");
+//             // var slider_head = $("#slider_head");
+
+//             if (data.product && data.product.length > 0) {
+//                 data.product.forEach(function (p) {
+                   
+                       
+//                       var images = p.image_names;
+//                       var a = [];
+  
+//                       if (images) {
+//                           if (images.indexOf(',') > -1) {
+//                               a = images.split(',');
+//                           } else {
+//                               a = [images];
+//                           }
+//                       }
+//                         var newCard = `<div class="item box_shadow b-t-1">
+//                         <a href="harvester_inner.php?product_id=${p.id}" class="h-auto success__stry__item d-flex flex-column text-decoration-none shadow">
+//                         <div class="thumb">
+//                             <div>
+//                                 <img src="http://tractor-api.divyaltech.com/uploads/product_img/${a[0]}" class="object-fit-cover w-100" alt="harvester_img">
+//                             </div>
+//                         </div>
+//                         <div class="position-absolute" >
+//                             <p  style="font-size:13px;" class="rounded-pill bg-success text-white ms-1 text-center px-2 mt-1">Self Propelled</p>
+//                         </div>
+//                         <div class="content d-flex flex-column flex-grow-1 ">
+                            
+//                             <div class="power text-center mt-3">
+//                             <div class="row text-center">
+//                                 <div class="col-12 text-center">
+//                                     <p class="fw-bold pe-3 text-primary">${p.id}</p>
+//                                 </div>
+//                             </div>
+//                                 <div class="row ">
+//                                     <div class="col-12 "><p class="text-dark ps-2">Cutting Width : ${p.cutting_bar_width} Feet</p></div>
+                                    
+//                                 </div>    
+//                             </div>
+//                         </div>
+//                         <div class="col-12 btn-success">
+//                             <button type="button" class="btn btn-success py-2 w-100"></i> 
+//                             Power : ${p.horse_power} HP
+//                             </button>
+//                         </div>
+//                     </a>
+//                         </div>`;
+//                         productContainer.append(newCard);
+                    
+//                 });
+
+//                 // Initialize Owl Carousel after appending the new cards
+//                 productContainer.owlCarousel({
+//                     items: 4,
+//                     loop: true,
+//                     margin: 10,
+//                     nav: true, // Enable navigation
+//                     autoplay: true, // Enable auto-play
+//                     autoplayTimeout: 3000,
+//                     responsiveClass: true,
+//                     responsive: {
+//                         0: {
+//                             items: 1,
+//                             nav: false
+//                         },
+//                         600: {
+//                             items: 3,
+//                             nav: false
+//                         },
+//                         1000: {
+//                             items: 4,
+//                             nav: true,
+//                             loop: false
+//                         }
+//                     }
+//                 });
+//             }
+//         },
+//         error: function(error) {
+//             console.error('Error fetching data:', error);
+//         }
+//     });
+// }

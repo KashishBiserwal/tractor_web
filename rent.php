@@ -126,7 +126,7 @@
             <img src="assets/images/rent.jpg" alt="reload img" class="w-100" style="height:358px;">
             <div class="container-mid">
                 <div class="row justify-content-center loan_form bg-light">
-                    <h2 class="text-dark text-center fw-bold mt-3 mb-0">Rent Your Tractors and Implements</h2>
+                    <h4 class="text-dark text-center fw-bold mt-3 mb-0">Rent Your Tractors and Implements</h4>
                         <form id="rent_list_form_">
                             <div class="row justify-content-center pt-4">
                                 <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-2" hidden>
@@ -140,22 +140,25 @@
                                 </div>
                                 <div class="col-12 col-sm-4 col-md-4 col-lg-4">
                                     <div class="form-outline">
-                                        <label class="form-label">Brand</label>
+                                        <label class="form-label text-dark">Brand</label>
                                         <select class="form-select" aria-label="Default select example"id="brand" name="brand">
+                                        
                                         </select>
                                     </div>
                                 </div>
                                 <div class="col-12 col-sm-4 col-md-4 col-lg-4">
                                     <div class="form-outline">
-                                        <label class="form-label">Model</label>
+                                        <label class="form-label text-dark">Model</label>
                                         <select class="form-select" aria-label="Default select example"id="model_main" name="model">
+                                         
                                         </select>
                                     </div>
                                 </div>
                                 <div class="col-12 col-sm-4 col-md-4 col-lg-4">
                                     <div class="form-outline">
-                                        <label class="form-label">Year</label>
+                                        <label class="form-label text-dark">Year</label>
                                         <select class="form-select" aria-label="Default select example"id="year_main" name="year">
+                                    
                                         </select>
                                     </div>
                                 </div>
@@ -191,14 +194,14 @@
                                                     </div>
                                                 </td>
                                                 <td>
-                                                     <input type="text" name="implement_rate[]" id="implement_rent" class="form-control implement-rate-input" maxlength="10" placeholder="e.g- 1500">
+                                                     <input type="text" name="implement_rate[]" id="implement_rent" class="form-control implement-rate-input" maxlength="10" placeholder="e.g- 1,500">
                                                 </td>
                                                 <td>
                                                     <div class="select-wrap">
                                                         <select name="rate_per[]" id="impRatePer_0" class="form-control implement-unit-input">
                                                         <option value="">Select</option>
-                                                        <option value="per1">Acer</option>
-                                                        <option value="per2">Hour</option>
+                                                        <option value="Acer">Acer</option>
+                                                        <option value="Hour">Hour</option>
                                                         </select>
                                                     </div>
                                                 </td>
@@ -221,27 +224,27 @@
                                     </table>
                                 </div>
                                 <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
-                                    <div class="form-outline mt-2">
+                                    <div class="form-outline">
                                         <label class="form-label text-dark">Working Area</label>
-                                        <textarea rows="3" cols="70" class="w-100 p-2"  id="workingRadius" name="textarea_"></textarea>
+                                        <textarea rows="2" cols="70" class="w-100 p-2"  id="workingRadius" name="textarea_"></textarea>
                                     </div>
                                 </div>
                                 <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
-                                    <div class="form-outline mt-2">
+                                    <div class="form-outline">
                                         <label class="form-label text-dark">Description</label>
-                                        <textarea rows="3" cols="70" class="w-100 p-2"  id="textarea_d" name="textarea_d"></textarea>
+                                        <textarea rows="2" cols="70" class="w-100 p-2"  id="textarea_d" name="textarea_d"></textarea>
                                     </div>
                                 </div>
                                 <div class="text-center">
-                                    <h4 class="pb-2 mt-2">Personal Information</h4>
+                                    <h5 class="pb-2 mt-2">Personal Information</h5>
                                 </div>
-                                <div class="col-12 col-lg-6 col-sm-5 col-md-6 my-1">
+                                <div class="col-12 col-lg-6 col-sm-5 col-md-6">
                                     <div class="form-outline mt-3">
                                         <label for="name" class="form-label text-dark">First Name</label>
                                         <input type="text" class="form-control" placeholder="" id="myfname" name="fname">
                                     </div>
                                 </div>
-                                <div class="col-12 col-lg-6 col-sm-5 col-md-6 my-1">
+                                <div class="col-12 col-lg-6 col-sm-5 col-md-6">
                                     <div class="form-outline mt-3">
                                         <label for="name" class="form-label text-dark">Last Name</label>
                                         <input type="text" class="form-control" placeholder="" id="mylname" name="lname">
@@ -253,24 +256,27 @@
                                         <input type="text" class="form-control" placeholder="" id="mynumber" name="number">
                                     </div>
                                 </div>
-                                <div class="col-12 col-lg-6 col-sm-5 col-md-6 my-1">
+                                <div class="col-12 col-lg-6 col-sm-5 col-md-6">
                                     <div class="form-outline mt-2">
-                                        <label class="form-label ">State</label>
+                                        <label class="form-label text-dark">State</label>
                                         <select class="form-select py-2 state-dropdown" aria-label="Default select example" id="state_state" name="state_">
+                                         
                                         </select>
                                     </div>
                                 </div>
-                                <div class="col-12 col-lg-6 col-sm-5 col-md-6 my-1">
+                                <div class="col-12 col-lg-6 col-sm-5 col-md-6">
                                     <div class="form-outline mt-3">
-                                        <label class="form-label ">District</label>
+                                        <label class="form-label text-dark">District</label>
                                         <select class="form-select py-2 district-dropdown" aria-label="Default select example" id="dist_district" name="dist">
+                                          
                                         </select>
                                     </div>
                                 </div>
-                                <div class="col-12 col-lg-6 col-sm-5 col-md-6 my-1">
+                                <div class="col-12 col-lg-6 col-sm-5 col-md-6 ">
                                     <div class="form-outline mt-3">
-                                        <label class="form-label">Tehsil</label>
+                                        <label class="form-label text-dark">Tehsil</label>
                                         <select class="form-select py-2 tehsil-dropdown" aria-label="Default select example" id="tehsil_t">
+                                         
                                         </select>
                                     </div>
                                 </div>
@@ -361,7 +367,7 @@
 
     <section>
         <div class="container">
-            <h4 class="fw-bold assured px-2">Quick Links</h4>
+            <h4 class="fw-bold assured px-2 mt-2">Quick Links</h4>
             <div class="row my-4">
                 <div class="col-12 col-lg-4 col-md-4 col-sm-4 py-2">
                     <a href="#" id="adduser" class="btn btn-outline-success text-decoration-none border-2 p-2 w-100">
@@ -874,9 +880,9 @@ document.addEventListener("DOMContentLoaded", function() {
     <!-- SCRIPT FOR THE VALIDATION OF 3rd FORM -->
     <script>
     $(document).ready(function() {
-        $.validator.addMethod("indianMobile", function(value, element) {
-            return this.optional(element) || /^[789]\d{9}$/.test(value);
-        }, "Please enter a valid Indian mobile number.");
+        // $.validator.addMethod("indianMobile", function(value, element) {
+        //     return this.optional(element) || /^[789]\d{9}$/.test(value);
+        // }, "Please enter a valid Indian mobile number.");
         $("form[id='form-step-3']").validate({
             rules: {
                 fname: {
@@ -1061,35 +1067,15 @@ document.addEventListener("DOMContentLoaded", function() {
 
 </script> -->
 
-<script>
-            function formatAndSetArrayValue(element) {
-    var value = $(element).val().replace(/\D/g, ''); // Remove non-digit characters
-    var formattedValue = Number(value).toLocaleString('en-IN'); // Format using Indian numbering system
-    $(element).val(formattedValue);
 
-    // Update corresponding array element with the formatted value
-    var arrayIndex = $(element).closest('tr').index(); // Get the index of the row
-    $('input[name="implement_rate[]"]').eq(arrayIndex).val(value); // Update the array with the formatted value
-}
-
-// Initialize formatting for existing elements
-$('.implement-rate-input').each(function(index, element) {
-    formatAndSetArrayValue(element);
-});
-
-// Event listener for input event to handle dynamic changes
-$('.implement-rate-input').on('input', function() {
-    formatAndSetArrayValue(this);
-});
-</script>
 <script>
      $(document).ready(function () {
 
 
 
-    jQuery.validator.addMethod("customPhoneNumber", function(value, element) {
-            return /^[6-9]\d{9}$/.test(value); 
-          }, "Phone number must start with 6 or above");
+    // jQuery.validator.addMethod("customPhoneNumber", function(value, element) {
+    //         return /^[6-9]\d{9}$/.test(value); 
+    //       }, "Phone number must start with 6 or above");
 
     $("#rent_list_form_").validate({
       // Specify validation rules
@@ -1369,7 +1355,37 @@ $('.implement-rate-input').on('input', function() {
    
 </script>
 
+<!-- <script>
+    $(document).ready(function() {
+        $('.implement-rate-input').on('input', function() {
+            var value = $(this).val().replace(/\D/g, ''); 
+            var formattedValue = Number(value).toLocaleString('en-IN');
+            $(this).val(formattedValue);
+        });
 
+        var input = document.getElementById('implement-rate-input');
+        input.focus();
+        input.setSelectionRange(0, 0);
+        input.style.textAlign = 'left';
+    });
+</script> -->
+<script>
+    $(document).ready(function() {
+        // Event listener for dynamically added rows
+        $(document).on('input', '.implement-rate-input', function() {
+            var value = $(this).val().replace(/\D/g, ''); 
+            var formattedValue = Number(value).toLocaleString('en-IN');
+            $(this).val(formattedValue);
+        });
+
+        // Event listener for the initial row
+        $('.implement-rate-input').on('input', function() {
+            var value = $(this).val().replace(/\D/g, ''); 
+            var formattedValue = Number(value).toLocaleString('en-IN');
+            $(this).val(formattedValue);
+        });
+    });
+</script>
 </body>
 
 </html>

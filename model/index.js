@@ -7,10 +7,12 @@ $(document).ready(function() {
     getminiTractorList();
     get_harvester();
     get_oldharvester();
+    get_All_News();
+    get_blog();
 });
 
 function getsearchdata() {
-    var url = "http://127.0.0.1:8000/api/customer/get_new_tractor_by_price_brand_hp";
+    var url = "http://tractor-api.divyaltech.com/api/customer/get_new_tractor_by_price_brand_hp";
     console.log(url);
 
     $.ajax({
@@ -340,11 +342,6 @@ function get_harvester() {
         
                 // Append the new card to the container
                 productContainer.append(newCard);
-
-                
-                
-
-              
             });
 
             productContainer.owlCarousel({
@@ -428,6 +425,88 @@ function get_oldharvester() {
         
                 // Append the new card to the container
                 productContainer.append(newCard);
+            });
+
+            productContainer.owlCarousel({
+                items:4,
+                loop: true,
+                margin: 10,
+                nav: true, // Enable navigation
+                autoplay: true, // Enable auto-play
+                autoplayTimeout: 3000,
+                responsiveClass: true,
+                responsive: {
+                    0: {
+                        items: 1,
+                        nav: false
+                    },
+                    600: {
+                        items: 3,
+                        nav: false
+                    },
+                    1000: {
+                        items: 4,
+                        nav: true,
+                        loop: false
+                    }
+                }
+            });
+        }
+    },
+    error: function(error) {
+        console.error('Error fetching data:', error);
+    }
+    });
+}
+
+function get_All_News() {
+    var url = "http://tractor-api.divyaltech.com/api/customer/news_details";
+    
+
+    $.ajax({
+        url: url,
+        type: "GET",
+        success: function (data) {
+        console.log(data, "harvster data")
+
+        if (data.news_details && data.news_details.length > 0) {
+           
+            var productContainer = $("#all_news");
+            data.news_details.forEach(function (p) {
+                var images = p.image_names;
+                var a = [];
+        
+                if (images) {
+                    if (images.indexOf(',') > -1) {
+                        a = images.split(',');
+                    } else {
+                        a = [images];
+                    }
+                }
+                var newCard = `
+                
+                <div class="item box_shadow b-t-1">
+                    <div class="thumb">
+                        <a href="news_content.php?id=${p.id}">
+                            <img src="http://tractor-api.divyaltech.com/uploads/news_img/${a[0]}" class="engineoil_img  w-100" alt="img">
+                        </a>
+                    </div>
+                    <div class="content mb-3 ms-3">
+                        <a href="news_content.php?id=${p.id}">
+                        <button type="button" class="btn btn-warning mt-3">${p.news_category} </button>
+                        </a>  
+                        <div class="row mt-2">
+                            <p class="fw-bold">${p.news_headline}</p>
+                        </div>
+                        <div class="row">
+                            <p class="fw-bold"><span>Date/time: </span>${p.date}</p>
+                        </div>
+                    </div>
+                </div>
+            `;
+        
+                // Append the new card to the container
+                productContainer.append(newCard);
 
                 
                 
@@ -467,3 +546,94 @@ function get_oldharvester() {
     });
 }
 
+
+function get_blog() {
+    var url = "http://tractor-api.divyaltech.com/api/customer/blog_details";
+    
+
+    $.ajax({
+        url: url,
+        type: "GET",
+        success: function (data) {
+        console.log(data, "harvster data")
+
+        if (data.blog_details && data.blog_details.length > 0) {
+           
+            var productContainer = $("#blog");
+            data.blog_details.forEach(function (p) {
+                var images = p.image_names;
+                var a = [];
+        
+                if (images) {
+                    if (images.indexOf(',') > -1) {
+                        a = images.split(',');
+                    } else {
+                        a = [images];
+                    }
+                }
+                var newCard = `
+                
+                <div class="item box_shadow b-t-1">
+                    <div class="thumb">
+                        <a href="blog_customer_inner.php?id=${p.id}">
+                            <img src="http://tractor-api.divyaltech.com/uploads/blog_img/${a[0]}" class="engineoil_img  w-100" alt="img">
+                       </a> </a>
+                    </div>
+                    <div class="content mb-3 ms-3">
+                    <a href="blog_customer_inner.php?id=${p.id}">
+                        <button type="button" class="btn btn-warning mt-3">${p.blog_category} </button>
+                        </a>
+                        <div class="row mt-2">
+                            <p class="fw-bold text-truncate">${p.heading}</p>
+                        </div>
+                        <div class="row">
+                            <p class="fw-bold"><span>publisher: </span>${p.publisher}</p>
+                        </div>
+                        <div class="row">
+                            <p class="fw-bold"><span>Date/time: </span>${p.date}</p>
+                        </div>
+                        
+                    </div>
+                </div>
+            `;
+        
+                // Append the new card to the container
+                productContainer.append(newCard);
+
+                
+                
+
+              
+            });
+
+            productContainer.owlCarousel({
+                items:4,
+                loop: true,
+                margin: 10,
+                nav: true, // Enable navigation
+                autoplay: true, // Enable auto-play
+                autoplayTimeout: 3000,
+                responsiveClass: true,
+                responsive: {
+                    0: {
+                        items: 1,
+                        nav: false
+                    },
+                    600: {
+                        items: 3,
+                        nav: false
+                    },
+                    1000: {
+                        items: 4,
+                        nav: true,
+                        loop: false
+                    }
+                }
+            });
+        }
+    },
+    error: function(error) {
+        console.error('Error fetching data:', error);
+    }
+    });
+}

@@ -60,7 +60,7 @@
               </li>
             </ol>
           </nav>
-          <button type="button" id="add_trac" class="btn add_btn btn-success float-right" data-bs-toggle="modal"  data-bs-target="#staticBackdrop">
+          <button type="button" id="add_trac" class="btn add_btn btn-success float-right p-1" data-bs-toggle="modal"  data-bs-target="#staticBackdrop" onclick="resetFormFields()">
               <i class="fa fa-plus" aria-hidden="true"></i> Add Rent Tractor
           </button>
 
@@ -101,10 +101,7 @@
                                   <div class="form-outline">
                                     <label class="form-label">Brand</label>
                                     <select class="form-select" aria-label="Default select example"id="brand" name="brand">
-                                      <!-- <option value>Select Brand</option>
-                                      <option value="1">Mahindra</option>
-                                      <option value="2">Swaraj</option>
-                                      <option value="3">John deere</option> -->
+                                
                                     </select>
                                   </div>
                                 </div>
@@ -112,10 +109,7 @@
                                   <div class="form-outline">
                                     <label class="form-label">Model</label>
                                     <select class="form-select" aria-label="Default select example"id="model" name="model">
-                                      <!-- <option value>Select Model</option>
-                                      <option value="1">Mahindra</option>
-                                      <option value="2">Swaraj</option>
-                                      <option value="3">John deere</option> -->
+                                
                                     </select>
                                   </div>
                                 </div>
@@ -123,10 +117,7 @@
                                   <div class="form-outline">
                                     <label class="form-label">Year</label>
                                     <select class="form-select" aria-label="Default select example"id="year" name="year">
-                                      <!-- <option value>Select Year</option>
-                                      <option value="1">2020</option>
-                                      <option value="2">2021</option>
-                                      <option value="3">2022</option> -->
+                            
                                     </select>
                                   </div>
                                 </div>
@@ -148,7 +139,7 @@
                                                 <td>
                                                     <div class="card upload-img-wrap" onclick="triggerFileInput('impImage_0')">
                                                         <i class="fas fa-image m-auto" style="cursor: pointer;" onclick="triggerFileInput('impImage_0')"></i>
-                                                        <img id="impImagePreview_0" src="" alt="Image Preview" style="max-width: 100%; max-height: 100%; display: none;" class="images">
+                                                        <img id="impImagePreview_0" src=""  style="max-width: 100%; max-height: 100%; display: none;" class="images">
                                                     </div>
                                                     <input type="file" name="imp_0" id="impImage_0" class="image-file-input" accept="image/*" style="display: none;" onclick="displayImagePreview(this, 'impImagePreview_0')" required="" onchange="displayImagePreview(this, 'impImagePreview_0')">
                                                 </td>
@@ -168,8 +159,8 @@
                                                     <div class="select-wrap">
                                                         <select name="rate_per[]" id="impRatePer_0" class="form-control implement-unit-input">
                                                         <option value="">Select</option>
-                                                        <option value="per1">Acer</option>
-                                                        <option value="per2">Hour</option>
+                                                        <option value="Acer">Acer</option>
+                                                        <option value="Hour">Hour</option>
                                                         </select>
                                                     </div>
                                                 </td>
@@ -228,7 +219,8 @@
                                   <div class="form-outline mt-2">
                                     <label class="form-label ">State</label>
                                     <select class="form-select py-2 state-dropdown" aria-label="Default select example" id="state_state" name="state_">
-                                    </select>
+                                  
+                                  </select>
                                   </div>
                                 </div>
                                 <div class="col-12 col-lg-6 col-sm-5 col-md-6 my-1">
@@ -243,7 +235,7 @@
                                   <div class="form-outline mt-3">
                                     <label class="form-label">Tehsil</label>
                                     <select class="form-select py-2 tehsil-dropdown" aria-label="Default select example" id="tehsil_t">
-                                      
+                                   
                                     </select>
                                   </div>
                                 </div>
@@ -694,3 +686,20 @@
    
 </script>
 
+<script>
+    $(document).ready(function() {
+        // Event listener for dynamically added rows
+        $(document).on('input', '.implement-rate-input', function() {
+            var value = $(this).val().replace(/\D/g, ''); 
+            var formattedValue = Number(value).toLocaleString('en-IN');
+            $(this).val(formattedValue);
+        });
+
+        // Event listener for the initial row
+        $('.implement-rate-input').on('input', function() {
+            var value = $(this).val().replace(/\D/g, ''); 
+            var formattedValue = Number(value).toLocaleString('en-IN');
+            $(this).val(formattedValue);
+        });
+    });
+</script>

@@ -163,27 +163,27 @@
                                 <div class=" ml-2">
                                     <div class="row px-3 ">
                                         <div class="col-12 col-lg-6 col-md-6 col-sm-6 " hidden>
-                                            <label for="name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i> enquiryName</label>
+                                            <label for="name" class="form-label  text-dark"> <i class="fa-regular fa-user"></i> enquiryName</label>
                                             <input type="text" class="form-control" placeholder="Enter Your Name" id="enquiry_type_id" value="25" name="fname">
                                         </div>
                                         <div class="col-12 col-lg-6 col-md-6 col-sm-6 " hidden>
-                                            <label for="name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i> product_id</label>
+                                            <label for="name" class="form-label  text-dark"> <i class="fa-regular fa-user"></i> product_id</label>
                                             <input type="text" class="form-control" id="product_id" value="">
                                         </div>
                                         <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
-                                            <label for="name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i> First Name</label>
+                                            <label for="name" class="form-label  text-dark"> <i class="fa-regular fa-user"></i> First Name</label>
                                             <input type="text" class="form-control" placeholder="Enter Your Name" id="fname" name="fname">
                                         </div>
                                         <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
-                                            <label for="name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i> Last Name</label>
+                                            <label for="name" class="form-label  text-dark"> <i class="fa-regular fa-user"></i> Last Name</label>
                                             <input type="text" class="form-control" placeholder="Enter Your Name" id="lname" name="lname">
                                         </div>
                                         <div class="col-12 col-sm-12 col-md-12 col-lg-12 ">
-                                            <label for="number" class="form-label text-dark fw-bold"> <i class="fa fa-phone" aria-hidden="true"></i> Phone Number</label>
+                                            <label for="number" class="form-label text-dark "> <i class="fa fa-phone" aria-hidden="true"></i> Phone Number</label>
                                             <input type="text" class="form-control" placeholder="Enter Number" id="number" name="number">
                                         </div>
                                         <div class="col-12 col-sm-12 col-md-6 col-lg-6">
-                                            <label for="yr_state" class="form-label text-dark fw-bold" id="state" name="state"> <i class="fas fa-location"></i> State</label>
+                                            <label for="yr_state" class="form-label text-dark " id="state" name="state"> <i class="fas fa-location"></i> State</label>
                                             <select class="form-select py-2 state-dropdown" aria-label=".form-select-lg example"id="state_form_1" name="state">
                                             </select>
                                         </div> 
@@ -353,146 +353,24 @@
                     <div id="productContainerpopular" class="row"></div>
                     <div class="text-center"><button id="load_more" class="btn btn-success">Load More</button></div>
 
-                    <!-- <div class="tractor-list mb-3 box-shadow grey-bg d-flex flex-row shadow p-1">
-                    <div class="tractor-list-left text-center">
-                            <a href="popular_tractors.php" class="weblink">
-                            <img src="assets/images/450-1630737775.webp" width="100" height="70" alt="">
-                            </a>
-                        </div>
-                    <div class="px-2 tractor-list-right d-flex flex-column justify-cintent-center">
-                            <a href="popular_tractors.php" class="text-decoration-none"><p class="mb-1">farmtrac 242 DI </p></a>
-                            <p class="tractor-list-info mb-0 boldfont">
-                                <span class=" bg-light m-1"style=" font-size: 0.9rem;">40 HP</span>
-                                <span class=" bg-light m-1"style=" font-size: 0.9rem;">WD</span>
-                            </p>
-                    </div>
-                    </div>
-                    <div class="tractor-list mb-3 box-shadow grey-bg d-flex flex-row shadow p-1">
-                    <div class="tractor-list-left text-center">
-                            <a href="#" class="weblink">
-                            <img src="assets/images/450-1630737775.webp" width="100" height="70" alt="">
-                            </a>
-                        </div>
-                    <div class="px-2 tractor-list-right d-flex flex-column justify-cintent-center">
-                            <a href="#" class="text-decoration-none"><p class="mb-1">farmtrac 242 DI </p></a>
-                            <p class="tractor-list-info mb-0 boldfont">
-                                <span class=" bg-light m-1"style=" font-size: 0.9rem;">40 HP</span>
-                                <span class=" bg-light m-1"style=" font-size: 0.9rem;">WD</span>
-                            </p>
-                    </div>
-                    </div>
-                    <div class="tractor-list mb-3 box-shadow grey-bg d-flex flex-row shadow p-1">
-                    <div class="tractor-list-left text-center">
-                            <a href="#" class="weblink">
-                            <img src="assets/images/450-1630737775.webp" width="100" height="70" alt="">
-                            </a>
-                        </div>
-                    <div class="px-2 tractor-list-right d-flex flex-column justify-cintent-center">
-                            <a href="#" class="text-decoration-none"><p class="mb-1">farmtrac 242 DI </p></a>
-                            <p class="tractor-list-info mb-0 boldfont">
-                                <span class="bg-light m-1" style=" font-size: 0.9rem;">40 HP</span>
-                                <span class="bg-light m-1" style=" font-size: 0.9rem;">WD</span>
-                            </p>
-                    </div>
-                    </div>
-                    <div class="tractor-list mb-3 box-shadow grey-bg d-flex flex-row shadow p-1">
-                    <div class="tractor-list-left text-center">
-                            <a href="#" class="weblink">
-                            <img src="assets/images/450-1630737775.webp" width="100" height="70" alt="">
-                            </a>
-                        </div>
-                    <div class="px-2 tractor-list-right d-flex flex-column justify-cintent-center">
-                            <a href="#" class="text-decoration-none"><p class="mb-1">farmtrac 242 DI </p></a>
-                            <p class="tractor-list-info mb-0 boldfont m-2">
-                                <span class="bg-light" style=" font-size: 0.9rem;">40 HP</span>
-                                <span class="bg-light"style=" font-size: 0.9rem;">WD</span>
-                            </p>
-                    </div>
-                    </div> -->
+                   
                      <div class="sticky my-3">
                         <div class="popular_used_tractor mb-3">
                             <h4>New Upcoming Tractors</h4>
                         </div>
-                <div class="popular-used-tractor">
-                    <div class="row">
-                    <div id="productContainerupcoming" class="row"></div>
-                    <div class="col-12 text-center ">
-                    <button id="load_btn" type="button" class="btn btn-success">
-                        <i class="fas fa-undo"></i> Load More
-                    </button>
-                    </div>
-                        <!-- <div class="row">
-                            <div class="used-tractor mb-3 d-flex flex-row shadow p-2" style="background-color:#fff">
-                                <div class="text-center">
-                                    <a href="#" class="weblink">
-                                    <img src="assets/images/450-1630737775.webp" width="100" height="100" alt="" style=" border-radius: 10px;">
-                                    </a>
-                                </div>
-                                <div class="px-2 d-flex flex-column justify-cintent-center">
-                                <a href="#" class="text-decoration-none"><p class="mb-1">farmtrac 242 DI </p></a>
-                                    <p class="trac">
-                                        <span class="bg-light">40 HP</span>
-                                        <span class="bg-light">WD</span>
-                                    </p>
-                                <div class="">
-                                    <a href="#"><img src="assets/images/index_trac_files/park-solid_phone-call.svg"width="15" height="15" alt="phone-call-icon">Call Now</span></a>
-                                </div>
+                    <div class="popular-used-tractor">
+                        <div class="row">
+                            <div id="productContainerupcoming" class="row"></div>
+                            <div class="col-12 text-center ">
+                                <button id="load_btn" type="button" class="btn btn-success">
+                                    <i class="fas fa-undo"></i> Load More
+                                </button>
                             </div>
                         </div>
-                    <div class="used-tractor mb-3 d-flex flex-row shadow p-2" style="background-color:#fff">
-                            <div class="text-center">
-                                <a href="#" class="weblink">
-                                <img src="assets/images/450-1630737775.webp" width="100" height="100" alt="" style=" border-radius: 10px;">
-                                </a>
-                            </div>
-                            <div class="px-2 d-flex flex-column justify-cintent-center">
-                            <a href="#" class="text-decoration-none"><p class="mb-1">farmtrac 242 DI </p></a>
-                                <p class="trac">
-                                    <span class="bg-light m-1"style=" font-size: 0.9rem;">40 HP</span>
-                                    <span class="bg-light m-1"style=" font-size: 0.9rem;">WD</span>
-                                </p>
-                            <div class="">
-                                <a href="#"><img src="assets/images/index_trac_files/park-solid_phone-call.svg"width="15" height="15" alt="phone-call-icon">Call Now</span></a>
-                            </div>
-                    </div>
-                    </div>
-                    <div class="used-tractor mb-3 d-flex flex-row shadow p-2" style="background-color:#fff">
-                            <div class="text-center">
-                                <a href="#" class="weblink">
-                                <img src="assets/images/450-1630737775.webp" width="100" height="100" alt="" style=" border-radius: 10px;">
-                                </a>
-                            </div>
-                            <div class="px-2 d-flex flex-column justify-cintent-center">
-                            <a href="#" class="text-decoration-none"><p class="mb-1">farmtrac 242 DI </p></a>
-                                <p class="trac">
-                                    <span class="bg-light"style=" font-size: 0.9rem;">40 HP</span>
-                                    <span class="bg-light"style=" font-size: 0.9rem;">WD</span>
-                                </p>
-                            <div class="">
-                                <a href="#"><img src="assets/images/index_trac_files/park-solid_phone-call.svg"width="15" height="15" alt="phone-call-icon">Call Now</span></a>
-                            </div>
-                    </div>
-                    </div>
-                    <div class="used-tractor mb-3 d-flex flex-row shadow p-2" style="background-color:#fff">
-                            <div class="text-center">
-                                <a href="#" class="weblink">
-                                <img src="assets/images/450-1630737775.webp" width="100" height="100" alt="" style=" border-radius: 10px;">
-                                </a>
-                            </div>
-                            <div class="px-2 d-flex flex-column justify-cintent-center">
-                            <a href="#" class="text-decoration-none"><p class="mb-1">farmtrac 242 DI </p></a>
-                                <p class="trac">
-                                    <span class="bg-light"style=" font-size: 0.9rem;">40 HP</span>
-                                    <span class="bg-light"style=" font-size: 0.9rem;">WD</span>
-                                </p>
-                            <div class="">
-                                <a href="#"><img src="assets/images/index_trac_files/park-solid_phone-call.svg"width="15" height="15" alt="phone-call-icon">Call Now</span></a>
-                            </div>
-                    </div>
                     </div>
                 </div>
-        </div>
-    </div> -->
+            </div>
+                        
 </section>
 <section>
     <div class="container">
@@ -506,126 +384,7 @@
         </div>
         </div>
     </div>
-            <!-- <div id="carousel_related" class="owl-carousel owl-carousel_related">
-                <div class="item">
-                    <div class="col-md-12 shadow d-flex flex-row">
-                        <div class="">
-                            <a href="#"><img class="img-fluid" src="assets/images/tractor-trolley-374.jpg"></a>
-                            <div class="text-center">
-                                <a href="#" title="Mahendra Yuvo 265 DI" class="weblink" tabindex="0">
-                                    <p class="para h5 pt-2">Mourya 265 DI</p>
-                                </a>
-                                <p class="mt-2 nb-0"> Price <b>₹</b> 5,00,000</p>
-                                <p class=""><span class="text-center">Hours:N/A</span></p>
-                            </div>
-                            <div class="col-12">
-                                <span><a href="#" class="btn price-bnt btn-success w-100 ">Get On Road Price</a></span>
-                            </div>
-                        </div>
-                    </div>
-                 </div>
-                <div class="item">
-                    <div class="col-md-12 shadow d-flex flex-row">
-                        <div class="">
-                            <a href="#"><img class="img-fluid" src="assets/images/tractor-trolley-374.jpg"></a>
-                            <div class="text-center">
-                                <a href="#" title="Mahendra Yuvo 265 DI" class="weblink" tabindex="0">
-                                    <p class="para h5 pt-2">Mourya 2013</p>
-                                </a>
-                                <p class="mt-2 nb-0"> Price <b>₹</b> 5,00,000</p>
-                                <p class=""><span class="text-center">Hours:N/A</span></p>
-                            </div>
-                            <div class="col-12">
-                                <span><a href="#" class="btn price-bnt btn-success w-100 ">Get On Road Price</a></span>
-                            </div>
-                        </div>
-                    </div>
-                 </div>
-                <div class="item">
-                    <div class="col-md-12 shadow d-flex flex-row">
-                        <div class="">
-                            <a href="#"><img class="img-fluid" src="assets/images/tractor-trolley-374.jpg"></a>
-                            <div class="text-center">
-                                <a href="#" title="Mahendra Yuvo 265 DI" class="weblink" tabindex="0">
-                                    <p class="para h5 pt-2">Mahendra Yuvo 265 DI</p>
-                                </a>
-                                <p class="mt-2 nb-0"> Price <b>₹</b> 5,00,000</p>
-                                <p class=""><span class="text-center">Hours:N/A</span></p>
-                            </div>
-                            <div class="col-12">
-                                <span><a href="#" class="btn price-bnt btn-success w-100 ">Get On Road Price</a></span>
-                            </div>
-                        </div>
-                    </div>
-                 </div>
-                <div class="item">
-                    <div class="col-md-12 shadow d-flex flex-row">
-                        <div class="">
-                            <a href="#"><img class="img-fluid" src="assets/images/tractor-trolley-374.jpg"></a>
-                            <div class="text-center">
-                                <a href="#" title="Mahendra Yuvo 265 DI" class="weblink" tabindex="0">
-                                    <p class="para h5 pt-2">Mahendra Yuvo 265 DI</p>
-                                </a>
-                                <p class="mt-2 nb-0">Price <b>₹</b> 5,00,000</p>
-                                <p class=""><span class="text-center">Hours:N/A</span></p>
-                            </div>
-                            <div class="col-12">
-                                <span><a href="#" class="btn price-bnt btn-success w-100 ">Get On Road Price</a></span>
-                            </div>
-                        </div>
-                    </div>
-                 </div>
-                <div class="item">
-                    <div class="col-md-12 shadow d-flex flex-row">
-                        <div class="">
-                            <a href="#"><img class="img-fluid" src="assets/images/tractor-trolley-374.jpg"></a>
-                            <div class="text-center">
-                                <a href="#" title="Mahendra Yuvo 265 DI" class="weblink" tabindex="0">
-                                    <p class="para h5 pt-2">Mahendra Yuvo 265 DI</p>
-                                </a>
-                                <p class="mt-2 nb-0"> Price <b>₹</b> 5,00,000</p>
-                                <p class=""><span class="text-center">Hours:N/A</span></p>
-                            </div>
-                            <div class="col-12">
-                                <span><a href="#" class="btn price-bnt btn-success w-100 ">Get On Road Price</a></span>
-                            </div>
-                        </div>
-                    </div>
-                 </div>
-                <div class="item">
-                    <div class="col-md-12 shadow d-flex flex-row">
-                        <div class="">
-                            <a href="#"><img class="img-fluid" src="assets/images/tractor-trolley-374.jpg"></a>
-                            <div class="text-center">
-                                <a href="#" title="Mahendra Yuvo 265 DI" class="weblink" tabindex="0">
-                                    <p class="para h5 pt-2">Sonalika</p>
-                                </a>
-                                <p class="mt-2 nb-0"> Price <b>₹</b> 5,00,000</p>
-                                <p class=""><span class="text-center">Hours:N/A</span></p>
-                            </div>
-                            <div class="">
-                                <span><a href="#" class="btn price-bnt btn-success w-100 ">Get On Road Price</a></span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="col-md-12 shadow d-flex flex-row">
-                        <div class="">
-                            <a href="#"><img class="img-fluid" src="assets/images/tractor-trolley-374.jpg"></a>
-                            <div class="text-center">
-                                    <a href="#" title="Mahendra Yuvo 265 DI" class="weblink" tabindex="0">
-                                    <p class="para h5 pt-2">Mourya 2013</p></a>
-                                    <p class="mt-2 nb-0">Price <b>₹</b> 5,00,000</p>
-                                    <p class=""><span class="text-center">Hours:N/A</span></p>
-                            </div>
-                            <div class="">
-                                    <span><a href="#" class="btn price-bnt btn-success w-100 ">Get On Road Price</a></span>
-                            </div>  
-                        </div>
-                    </div>
-                </div>
-            </div> -->
+            
        
 </section>
       

@@ -39,7 +39,7 @@ include 'includes/footertag.php';
               </nav>
 
               <!-- Add new tractor -->
-              <a href="tractor_form_list.php" type="button"  class="btn add_btn btn-success float-right" onclick="resetFormFields();" >
+              <a href="tractor_form_list.php" type="button"  class="btn add_btn btn-success float-right p-1" onclick="resetFormFields();" >
                 <i class="fa fa-plus" aria-hidden="true"></i>Add New tractor
               </a>
 
@@ -156,15 +156,15 @@ include 'includes/footertag.php';
     </div>
   </div>
 </body>
-<div class="modal fade" id="editAdminbtn" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="staticBackdropLabel">Modal title</h1>
-        <button type="button" class="btn-close btn-success" data-bs-dismiss="modal" aria-label="Close"><img src="assets/images/close.png"></button>
-      </div>
-      <div class="modal-body">
-      <form id="add_tractor_form" method="post" enctype="multipart/form-data" onsubmit="return false">
+              <div class="modal fade" id="editAdminbtn" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h1 class="modal-title fs-5" id="staticBackdropLabel">Modal title</h1>
+                      <button type="button" class="btn-close btn-success" data-bs-dismiss="modal" aria-label="Close"><img src="assets/images/close.png"></button>
+                    </div>
+                      <div class="modal-body">
+                        <form id="add_tractor_form" method="post" enctype="multipart/form-data" onsubmit="return false">
                             <div class="row justify-content-center pt-4">
                               <h5 class="fw-bold">Listing</h5>
                               <div class="col-12 col-sm-6 col-lg-6 col-md-6 mt-2">
@@ -176,11 +176,11 @@ include 'includes/footertag.php';
                                 </div>
                               </div>
                               <div  class="col-12 col-sm-6 col-lg-6 col-md-6 mt-2">
-                                      <div class="form-outline">
-                                        <label class="form-label">Model Name</label>
-                                        <input type="text" name="model" id="model" class="form-control">
-                                      </div>
-                                    </div>
+                                <div class="form-outline">
+                                  <label class="form-label">Model Name</label>
+                                  <input type="text" name="model" id="model" class="form-control">
+                                </div>
+                              </div>
                               <div class="col-12 col-sm-6 col-lg-6 col-md-6 my-2" hidden>
                                 <div class="form-outline">
                                   <label class="form-label">Product Type</label>
@@ -198,7 +198,6 @@ include 'includes/footertag.php';
                                   <label class="form-label">No. of Cylinder</label>
                                   <select class="form-select py-2" id="TOTAL_CYCLINDER" aria-label="Default select example">
                                     <option selected disabled="" value="">Please select an option</option>
-                                   
                                   </select>
                                 </div>
                               </div>
@@ -466,14 +465,14 @@ include 'includes/footertag.php';
                             </div>
                             <button type="button" id="save" class="btn btn-success fw-bold px-3">Submit</button>
                           </form>
-                      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Understood</button>
-      </div>
-    </div>
-  </div>
-</div>
+                        </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                      <button type="button" class="btn btn-primary">Understood</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
 
 <div class="modal fade" id="viewModal_btn" tabindex="-1" role="dialog" aria-labelledby="viewModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-xl" role="document">

@@ -347,7 +347,6 @@ function fetch_edit_data(id) {
     var tehsil = $("#tehsil_").val();
     var _method = 'put';
 
-
     // Validate mobile number
     if (!/^[6-9]\d{9}$/.test(mobile)) {
         alert("Mobile number must start with 6 or above and should be 10 digits");
@@ -428,17 +427,10 @@ function fetch_edit_data(id) {
         table.columns(6).search(selectedState).draw();
         table.columns(7).search(selectedDistrict).draw();
     });
-
-    // Reset Button Click Event
     $("#Reset").click(function () {
-        // Reset all select options
         $('#brand_name, #model, #state, #district').val('');
-
-        // Clear search and redraw the table
         table.search('').columns().search('').draw();
     });
 });
 
 
-populateDropdownsFromClass('state-dropdown', 'district-dropdown', 'tehsil-dropdown');
-populateStateDropdown('state_select', 'district_select');

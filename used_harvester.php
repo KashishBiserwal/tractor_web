@@ -28,7 +28,7 @@
    ?>
 
 <section class="mt-5 pt-5 bg-light">
-    <div class="container py-3">
+    <div class="container ">
         <div class="mt-5">
             <span class="mt-4 text-white pt-3 ">
                 <a href="index.php" class="text-decoration-none header-link px-1">Home <i class="fa-solid fa-chevron-right px-1"></i></a>
@@ -72,7 +72,7 @@
                                 </div>
                                 <div class="col-12 col-sm-6 col-lg-6 col-md-6 pe-2">
                                     <button id="filter_tractor" type="button" class="add_btn btn btn-success w-100">
-                                    <i class="fas fa-filter"></i>Apply Filter</button>
+                                    <i class="fas fa-filter"></i> Apply Filter</button>
                                 </div>
                             </div>
                         </div>

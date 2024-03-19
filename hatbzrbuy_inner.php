@@ -278,7 +278,7 @@ include 'includes/footertag.php';
     <section class="mt-3">
         <div class="container">
             <h2 class="fw-bold text-dark text-start mt-4 assured ps-3">Similar Product</h3>
-                <div id="productContainer" class="row">
+                <div id="productContainer" class="row mt-3">
                 
                  
                 </div>
@@ -383,9 +383,9 @@ $(document).ready(function() {
                 digits: true,
                 indianMobile: true,
             },
-            state: "required",
-            district: "required",
-            price: "required",
+            state: true,
+            district: true,
+            price: true,
         },
         messages: {
             fname: {

@@ -287,8 +287,8 @@
                           <tr>
                             <td>Mobile Number-</td>
                             <td id="mobile"></td>
-                            <td>Email-</td>
-                            <td id="email_2"></td>
+                            <td>Price-</td>
+                            <td id="price_2"></td>
                           </tr>
                           <tr>
                             <td>Date-</td>
@@ -331,3 +331,20 @@
 </div>
 </div>
 </body>
+<script>
+     $(document).ready(function() {
+      $('#price').on('input', function() {
+            var value = $(this).val().replace(/\D/g, ''); // Remove non-digit characters
+            var formattedValue = Number(value).toLocaleString('en-IN'); // Format using Indian numbering system
+            $(this).val(formattedValue);
+        });
+
+        // Set cursor position to the beginning of the input field
+        var input = document.getElementById('price');
+        input.focus();
+        input.setSelectionRange(0, 0);
+
+        // Set text alignment to left
+        input.style.textAlign = 'left';
+    });
+  </script>

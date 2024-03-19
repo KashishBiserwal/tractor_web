@@ -181,6 +181,12 @@ $('#add_trac').on('click', function() {
     });
   });
  
+  function formatPriceWithCommas(price) {
+    if (isNaN(price)) {
+        return price; 
+    }
+     return price.toLocaleString('en-IN', { maximumFractionDigits: 2 });
+}
   
 function engineOil_add() {
   var apiBaseURL = APIBaseURL;
@@ -345,6 +351,7 @@ function store(event) {
   var grade = $('#grade').val();
   var qualtity = $('#qualtity').val();
   var price = $('#price').val();
+  price = price.replace(/[\,\.\s]/g, '');
   var ass =  JSON.stringify(compatibleModel);
   console.log("model select : ",compatibleModel);
   var description = $('#textarea_').val();
@@ -463,11 +470,12 @@ function fetch_data(id) {
       headers: headers,
       success: function (data) {
         console.log(data, 'abc');
+        var formattedPrice = parseFloat(data.engine_oil_details[0].price).toLocaleString('en-IN');
         document.getElementById('brand_name2').innerText = data.engine_oil_details[0].brand_name;
         document.getElementById('model2').innerText = data.engine_oil_details[0].oil_model;
         document.getElementById('quantity').innerText = data.engine_oil_details[0].quantity;
         document.getElementById('grade11').innerText = data.engine_oil_details[0].grade;
-        document.getElementById('price_11').innerText = data.engine_oil_details[0].price;
+        document.getElementById('price_11').innerText = formattedPrice;
         var compatibleModel = data.engine_oil_details[0].compatible_model;
         document.getElementById('compatible').innerText = Array.isArray(compatibleModel) ? compatibleModel.join(', ') : compatibleModel || 'N/A';
         document.getElementById('descrption').innerText = data.engine_oil_details[0].description;
@@ -594,11 +602,11 @@ function fetch_edit_data(id) {
       headers: headers,
       success: function (response) {
           var Data = response.engine_oil_details [0];
+          var formattedPrice = parseFloat(Data.price).toLocaleString('en-IN');
           $('#idUser').val(Data.id);
           console.log(Data.brand_name,"Data.brand_name");
           var brandName = Data.brand_name.trim(); // Remove leading/trailing spaces if any
 
-          // Loop through the options to find and select the matching one
           $('#brand_1 option').each(function() {
             var optionText = $(this).text().trim();
         
@@ -610,7 +618,7 @@ function fetch_edit_data(id) {
           $('#model_1').val(Data.oil_model);
           $('#grade_1').val(Data.grade);
           $('#qualtity_1').val(Data.quantity);
-          $('#price_1').val(Data.price);
+          $('#price_1').val(formattedPrice);
           var compatibleModels = JSON.parse(Data.compatible_model);
 
           // Loop through each value in the compatible_model array
@@ -676,6 +684,7 @@ function edit_user(id){
   var grade = $('#grade_1').val();
   var qualtity = $('#qualtity_1').val();
   var price = $('#price_1').val();
+  price = price.replace(/[\,\.\s]/g, '');
   var ass = JSON.stringify($('#ass_list_1').val());
   var description = $('#textarea_1').val();
  

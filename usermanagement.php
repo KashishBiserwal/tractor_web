@@ -232,6 +232,21 @@ include 'includes/headertag.php';
                                   <small></small>
                                 </div>
                                 </div>
+                                <div class="col- col-sm-6 col-lg-6 col-md-6 mt-3">
+                                <div class="form-outline">
+                                  <label class="form-label">Password<span class="text-danger">*</span></label>
+                                  <input type="text" class="form-control" id="password_edit"name="password" for="password"  >
+                                  <small></small>
+                                </div>
+                                </div>
+                              <div class="col- col-sm-6 col-lg-6 col-md-6 mt-3">
+                              <div class="form-outline">
+                                <label class="form-label">Confirm Password<span class="text-danger">*</span></label>
+                                <input type="text" class="form-control py-2" id="password_confirmation_edit" name="password_confirmation" for="password_confirmation" >
+                                <small></small>
+                                <div class="form-text confirm-message"></div>
+                              </div>
+                              </div>
                               <div class="col- col-sm-6 col-lg-6 col-md-6 mt-3">
                               <div class="form-outline">
                                 <label class="form-label">User Type<span class="text-danger">*</span></label>

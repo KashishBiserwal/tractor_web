@@ -17,7 +17,7 @@
     <script src="<?php $baseUrl; ?>model/State_dist_tehsil.js"></script>
 
 
-<section class="mt-4 pt-5">
+<section class="mt-4 pt-5 bg-light">
     <div class="container mt-5 pt-4">
         <div class="">
             <span class="mt-5 text-white pt-5 ">
@@ -35,7 +35,7 @@
           <h1 class="mt-2 mb-3">Engine Oil</h1>
           <div id="productContainer" class="row"></div>
           <div class="col text-center mt-3">
-            <button id="load_moretract" type="button" class=" btn add_btn btn-success"><i class="fas fa-undo"></i>View All</button>
+            <button id="load_moretract" type="button" class=" btn add_btn btn-success p-2"><i class="fas fa-undo"></i>View All</button>
           </div>
                             
         </div>

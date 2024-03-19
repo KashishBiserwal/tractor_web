@@ -6,16 +6,8 @@ $(document).ready(function() {
     $('#filter_tractor').click(filter_search);
     $('#submit_enquiry').click(get_otp);
     getoldTractorList();
-    // var cardsPerPage = 6; 
-    // var cardsDisplayed = 0;
-    // var allCards; 
     $('#Verify').click(verifyotp);
     
-    
-    // Set cursor position to the beginning of the input field
-
-
-
     getDistricts(7);
     // Initial population
     // getoldTractorList();
@@ -25,10 +17,12 @@ var allCards = [];
 var cardsDisplayed = 0;
 
 
-
+var apiBaseURL =  $CustomerAPIBaseURL;
 function getoldTractorList() {
     var url = "http://tractor-api.divyaltech.com/api/customer/get_old_tractor";
-
+    
+// var apiBaseURL =  $CustomerAPIBaseURL;
+//     var url = apiBaseURL + '/get_old_tractor';
     $.ajax({
         url: url,
         type: "GET",
@@ -42,23 +36,19 @@ function getoldTractorList() {
             // productContainer.empty();
             
             if (data.product && data.product.length > 0) {
-                // Reverse the order of the cards to display the latest ones first
                 allCards = data.product.slice().reverse();
 
-                // Display the latest cards at the top
                 allCards.slice(0, cardsPerPage).forEach(function (p) {
                     appendCard(productContainer, p);
                     cardsDisplayed++;
                 });
 
-                // Show or hide the "Load More" button based on the number of cards
                 if (allCards.length > cardsPerPage) {
                     $("#loadMoreBtn").show();
                 } else {
                     $("#loadMoreBtn").hide();
                 }
             } else {
-                // Hide the "Load More" button if there are no cards
                 $("#loadMoreBtn").hide();
             }
         },
@@ -68,17 +58,14 @@ function getoldTractorList() {
     });
 }
 function formatPriceWithCommas(price) {
-    // Check if the price is not a number
     if (isNaN(price)) {
-        return price; // Return the original value if it's not a number
+        return price; 
     }
     
-    // Format the price with commas in Indian format
     return new Intl.NumberFormat('en-IN').format(price);
 }
 
 function appendCard(container, p) {
-    // Your appendCard function here
     var images = p.image_names;
     var a = [];
 
@@ -89,9 +76,9 @@ function appendCard(container, p) {
             a = [images];
         }
     }
-    var cardId = `card_${p.product_id}`; // Dynamic ID for the card
-    var modalId = `used_tractor_callbnt_${p.product_id}`; // Dynamic ID for the modal
-    var formId = `contact-seller-call_${p.product_id}`; // Dynamic ID for the form
+    var cardId = `card_${p.product_id}`; 
+    var modalId = `used_tractor_callbnt_${p.product_id}`; 
+    var formId = `contact-seller-call_${p.product_id}`; 
     var formattedPrice = formatPriceWithCommas(p.price);
  
     var newCard = `
@@ -301,7 +288,7 @@ function savedata(formId) {
       'model':model_form,
     };
    
-  var apiBaseURL =APIBaseURL;
+//   var apiBaseURL =  $CustomerAPIBaseURL;
 //   var url = apiBaseURL + 'customer_enquiries';
 var url = "http://tractor-api.divyaltech.com/api/customer/customer_enquiries";
     console.log(url);
@@ -336,6 +323,8 @@ var url = "http://tractor-api.divyaltech.com/api/customer/customer_enquiries";
   }
 
   function get_otp(phone) {
+    // var apiBaseURL =  $CustomerAPIBaseURL;
+    // var url = apiBaseURL + 'customer_login';
     var url = "http://tractor-api.divyaltech.com/api/customer/customer_login";
  
     var paraArr = {
@@ -367,6 +356,8 @@ function verifyotp() {
         'otp': otp,
         'mobile': mobile,
     }
+    // var apiBaseURL =  $CustomerAPIBaseURL;
+    // var url = apiBaseURL + 'verify_otp';
     var url = 'http://tractor-api.divyaltech.com/api/customer/verify_otp';
     $.ajax({
         url: url,
@@ -404,7 +395,8 @@ function verifyotp() {
 }
 // search cards by hp, brand, price, state, district
 function getBrand() {
-    // var apiBaseURL = CustomerAPIBaseURL;
+    // var apiBaseURL =  $CustomerAPIBaseURL;
+    // var url = apiBaseURL + 'get_brand_for_finance';
     var url = 'http://tractor-api.divyaltech.com/api/customer/get_brand_for_finance';
 
     $.ajax({
@@ -437,6 +429,8 @@ function getBrand() {
 getBrand();
 
 function getState() {
+    // var apiBaseURL =  $CustomerAPIBaseURL;
+    // var url = apiBaseURL + 'state_data';
     var url = 'http://tractor-api.divyaltech.com/api/customer/state_data';
     $.ajax({
         url: url,
@@ -469,6 +463,8 @@ function getState() {
 }
 
 function ge_tDistricts(stateId) {
+    // var apiBaseURL =  $CustomerAPIBaseURL;
+    // var url = apiBaseURL + 'get_district_by_state/' + stateId;
     var url = 'http://tractor-api.divyaltech.com/api/customer/get_district_by_state/' + stateId;
     $.ajax({
         url: url,
@@ -501,6 +497,8 @@ function ge_tDistricts(stateId) {
 getState();
 
 function get_year_and_hours() {
+    // var apiBaseURL =  $CustomerAPIBaseURL;
+    // var url = apiBaseURL + 'get_year_and_hours'
     var url = 'http://tractor-api.divyaltech.com/api/customer/get_year_and_hours';
     $.ajax({
         url: url,
@@ -580,8 +578,9 @@ function filter_search() {
         // 'horse_power_ranges': JSON.stringify(selectedCheckboxState),
         'purchase_year': JSON.stringify(selectedYear),
     };
-
-    var url = 'http://tractor-api.divyaltech.com/api/customer/get_old_tractor_by_filter';
+    var apiBaseURL =  $CustomerAPIBaseURL;
+    var url = apiBaseURL + 'get_old_tractor_by_filter'
+    // var url = 'http://tractor-api.divyaltech.com/api/customer/get_old_tractor_by_filter';
     $.ajax({
         url: url,
         type: 'POST',

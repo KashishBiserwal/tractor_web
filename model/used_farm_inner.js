@@ -131,8 +131,6 @@ function getOldFarmImplementId() {
             var maskedMobileNumber = maskedPart + lastFourDigits;
             var formattedPrice = parseFloat(data.getOldImplement[0].price).toLocaleString('en-IN');
             var location = data.getOldImplement[0].district_name + ', ' + data.getOldImplement[0].state_name;
-
-            // Update HTML elements with data
             var fullname = data.getOldImplement[0].first_name + ' ' + data.getOldImplement[0].last_name;
             document.getElementById('model_name').innerText = data.getOldImplement[0].model;
             document.getElementById('original_price').innerText = formattedPrice;
@@ -148,7 +146,6 @@ function getOldFarmImplementId() {
             document.getElementById('model_name4').innerText=data.getOldImplement[0].model;
             document.getElementById('name').innerText = data.getOldImplement[0].first_name;
             document.getElementById('mobile').innerText = maskedMobileNumber;
-            // document.getElementById('mobile').innerText = data.getOldImplement[0].mobile;
             document.getElementById('district_8').innerText = data.getOldImplement[0].district_name;
             document.getElementById('state_8').innerText = data.getOldImplement[0].state_name;
             document.getElementById('description').innerText = data.getOldImplement[0].description;

@@ -21,7 +21,7 @@
    include 'includes/header.php';
    ?>
 
-<section class="mt-5 pt-5">
+<section class="mt-5 pt-5 bg-light">
     <div class="container">
         <div class=" mt-4 pt-4">
             <span class="text-white pt-4 ">

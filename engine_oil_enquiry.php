@@ -95,8 +95,8 @@
                     <th class="d-none d-md-table-cell text-white">Date</th>
                     <th class="d-none d-md-table-cell text-white">Brand</th>
                     <th class="d-none d-md-table-cell text-white">Model</th>
-                    <th class="d-none d-md-table-cell text-white">Name </th>
-                    <th class="d-none d-md-table-cell text-white">Phone number</th>
+                    <th class="d-none d-md-table-cell text-white">Full Name </th>
+                    <th class="d-none d-md-table-cell text-white">Mobile</th>
                     <th class="d-none d-md-table-cell text-white">State</th>
                     <th class="d-none d-md-table-cell text-white">District</th>
                     <th class="d-none d-md-table-cell text-white">Action</th>

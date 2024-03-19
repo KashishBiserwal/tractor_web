@@ -12,15 +12,24 @@
     <script src="<?php $baseUrl; ?>model/dealership_enq.js"></script>
     <script src="<?php $baseUrl; ?>model/State_dist_tehsil.js"></script>
 <body>
+<style>
+    .text-truncate {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+   
+    }
+    </style>
 <?php
    include 'includes/header.php';
    ?>
     <section class=" mt-5 pt-5 bg-light">
-        <div class="container pt-5">
-            <div class="py-2">
+        <div class="container pt-5 py-1">
+            <div class="">
                 <span class="text-white ">
                     <a href="index.php" class="text-decoration-none header-link px-1">Home <i class="fa-solid fa-chevron-right px-1"></i></a>
-                        <span class=""><span class="text-dark header-link  px-1">Dealership Enquiry<i class="fa-solid fa-chevron-right px-1"></i> </span></span> 
+                        <span class=""><span class="text-dark header-link  px-1">Dealership Enquiry</span></span> 
+                        <!-- <i class="fa-solid fa-chevron-right px-1"></i>  -->
                 </span> 
             </div>
         </div>
@@ -45,37 +54,55 @@
                     <form id="dealership_enq_from" class="form-view-inner form-view-overlay bg-light box-shadow p-3" action="" method="" >
                         <div class="row justify-content-center">
                            <div class="col-12 col-lg-6 col-md-6 col-sm-6 " hidden>
-                                <label for="name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i> enquiryName</label>
+                                <label for="name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i>enquiryName</label>
                                 <input type="text" class="form-control" placeholder="Enter Your Name" id="enquiry_type_id" value="14" name="fname">
                             </div>
                             <div class="col-12 col-lg-6 col-md-6 col-sm-6 " hidden>
                                 <label for="name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i> product id</label>
                                 <input type="text" class="form-control" id="product_id" value="">
                             </div>
-                            <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+                            <!-- <div class="col-12 col-sm-12 col-md-6 col-lg-6">
                                 <div class="mt-2">
                                     <div class="form-outline">
                                         <label class="form-label text-dark" style="background:#fcfcfc54;"><i class="fa-regular fa-user"></i> First Name</label>
                                         <input type="text" class="form-control mb-0" id="f_name_1" name="f_name">
                                     </div>
                                 </div>
-                            </div>
-                            <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+                            </div> -->
+                            <div class="col-12 col-lg-6 col-md-6 col-sm-6 mb-2 mt-3 ">
+                                            <div class="form-outline">
+                                                <label for="f_name" class="form-label mb-0 text-dark"> <i class="fa-regular fa-user"></i> First Name</label>
+                                                <input type="text" class="form-control mb-0" placeholder="Enter Your Name"  id="f_name_1" name="f_name" required>
+                                            </div>
+                                        </div>
+                            <!-- <div class="col-12 col-sm-12 col-md-6 col-lg-6">
                                 <div class="mt-2">
                                     <div class="form-outline">
                                         <label class="form-label text-dark" style="background:transparent;"><i class="fa-regular fa-user"></i> Last Name</label>
                                         <input type="text" class="form-control mb-0" id="l_name_1" name="l_name">                                
                                     </div>
                                 </div>
-                            </div>
-                            <div class="col-12 col-lg-12 col-md-12 col-sm-12 mt-3">
+                            </div> -->
+                            <div class="col-12 col-lg-6 col-md-6 col-sm-6 mb-2 mt-3">
+                                            <div class="form-outline">
+                                                <label for="eo_name" class="form-label text-dark"> <i class="fa-regular fa-user"></i> Last Name</label>
+                                                <input type="text" class="form-control mb-0" placeholder="Enter Your Name"  id="l_name_1" name="l_name" required>
+                                            </div>
+                                        </div>
+                            <!-- <div class="col-12 col-lg-12 col-md-12 col-sm-12 mt-3">
                             <div class="form-outline">    
                                 <div class="mt-2">
                                         <label class="form-label text-dark"style="background:transparent;"> <i class="fa fa-phone" aria-hidden="true"></i> Mobile Number</label>
                                         <input type="text" class="form-control mb-0" id="mob_num" name="mob_num" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');">
                                     </div>
                                 </div>
-                            </div>
+                            </div> -->
+                            <div class="col-12 col-lg-12 col-md-12 col-sm-12 mt-3">
+                                            <div class="form-outline mt-3">
+                                                <label for="eo_number" class="form-label text-dark"> <i class="fa fa-phone" aria-hidden="true"></i> Phone Number</label>
+                                                <input type="text" class="form-control mb-0" placeholder="Enter Number" id="mob_num" name="mob_num" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" required>
+                                            </div>
+                                        </div>
                             <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-4">
                                 <div class="form-outline">
                                     <label for="yr_state" class="form-label text-dark fw-bold "> <i class="fas fa-location"></i> State</label>
@@ -129,8 +156,47 @@
             </div>
         </div>
     </section>
-        
     <section>
+      <div class="container">
+        <h3 class=" py-4 display-6 fw-bold">Harvester in <span class="text-success">2023</span></h3>
+        <nav class="mb-3">
+          <div class="nav nav-tabs " id="nav-tab" role="tablist">
+            <a class="nav-link active px-5 py-3 h5 fw-bold text-dark py-2" type="button" id="premium-tab" data-bs-toggle="tab" data-bs-target="#premium" role="tab" aria-controls="premium" aria-selected="true">New Harvester</a>
+            <a class="nav-link px-5 py-3 h5 fw-bold text-dark" id="latest-tab" type="button" data-bs-toggle="tab" data-bs-target="#latest" role="tab" aria-controls="latest" aria-selected="false">Old Harvester</a>
+          
+          </div>
+        </nav>
+        <div class="tab-content justify-content-center" >
+          <div role="tabpanel" class="tab-pane fade show active" id="premium" aria-labelledby="premium-tab">
+            <section class="section slider-section">
+              <div class="container slider-column">
+              <div class="carousel-wrap">
+                <div class="owl-carousel" id="new_harvester"> </div>
+                <div class="col text-center pb-4 mt-3">
+                  <a href="harvester.php" class="btn btn-success px-5">View all New Harvester</a>
+                </div>
+              </div>
+            </section>
+          </div>
+          <div role="tabpanel" class="tab-pane fade" id="latest" aria-labelledby="latest-tab">
+            <section class="section slider-section">
+              <div class="container slider-column">
+              <div class="carousel-wrap">
+                <div class="owl-carousel" id="old_harvester">
+              
+                </div>
+              </div>
+                <div class="col text-center pb-4">
+                  <a href="used_harvester.php" class="btn btn-success px-5">View all Old Harvester</a>
+                </div>
+              </div>
+            </section>
+          </div>
+        
+        </div>
+      </div>
+    </section>
+    <!-- <section>
         <div class="container">
             <div class="row">
                 <h1 class=" mt-5">Popular Mahindra Tractors</h1>
@@ -167,178 +233,12 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-12 col-sm-6 col-md-3 col-lg-4 px-2 py-3 h-100">
-                    <div class="h-auto success__stry__item d-flex flex-column shadow ">
-                        <div class="thumb">
-                            <a href="#">
-                                <div class="ratio ratio-16x9">
-                                    <img src="assets/images/mahindra-oja-3140-4wd-1692164169.webp" class="object-fit-cover " alt="img">
-                                </div>
-                            </a>
-                        </div>
-                        <div class="content d-flex flex-column flex-grow-1 ">
-
-                            <a href="#" class="text-decoration-none text-dark">
-                                <h4 class="fw-bold mt-3 mx-3">Mahindra Oja 3140 4WD</h3>
-                            </a>
-                            <div class="row mt-1 ps-1">
-                                <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                                    <p class=" ps-3"> <i class="fas fa-bolt"></i> 40 HP</p>
-                                </div>
-                                <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                                    <!-- <p class="pe-5 me-4"> <i class="fa fa-cog" aria-hidden="true"></i>  CC </p> -->
-                                </div>
-                            </div>
-                            <a href="#" class="text-decoration-none text-dark pb-3  fw-bold">
-                                <span class="p-3">
-                                    Get On Road price
-                                </span>
-                                <span class="icon">
-                                    <i class="fa-solid fa-chevron-right"></i>
-                                </span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 col-sm-6 col-md-3 col-lg-4 px-2 py-3 h-100">
-                    <div class="h-auto success__stry__item d-flex flex-column shadow ">
-                        <div class="thumb">
-                            <a href="#">
-                                <div class="ratio ratio-16x9">
-                                    <img src="assets/images/mahindra-oja-2121-4wd-1692163509.webp" class="object-fit-cover" alt="img">
-                                </div>
-                            </a>
-                        </div>
-                        <div class="content d-flex flex-column flex-grow-1 ">
-
-                            <a href="#" class="text-decoration-none text-dark">
-                                <h4 class="fw-bold mt-3 mx-3">Mahindra OJA 2121 4WD</h3>
-                            </a>
-                            <div class="row mt-1 ps-1">
-                                <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                                    <p class=" ps-3"> <i class="fas fa-bolt"></i> 21 HP</p>
-                                </div>
-                                <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                                    <!-- <p class="pe-5 me-4"> <i class="fa fa-cog" aria-hidden="true"></i>  3531 CC </p> -->
-                                </div>
-                            </div>
-                            <a href="#" class="text-decoration-none text-dark pb-3  fw-bold">
-                                <span class="p-3">
-                                    Get On Road price
-                                </span>
-                                <span class="icon">
-                                    <i class="fa-solid fa-chevron-right"></i>
-                                </span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 col-sm-6 col-md-3 col-lg-4 px-2 py-3 h-100">
-                    <div class="h-auto success__stry__item d-flex flex-column shadow ">
-                        <div class="thumb">
-                            <a href="#">
-                                <div class="ratio ratio-16x9">
-                                    <img src="assets/images/275-di-tu-1632206550.webp" class="object-fit-cover " alt="img">
-                                </div>
-                            </a>
-                        </div>
-                        <div class="content d-flex flex-column flex-grow-1 ">
-
-                            <a href="#" class="text-decoration-none text-dark">
-                                <h4 class="fw-bold mt-3 mx-3">Mahindra 275 DI TU</h3>
-                            </a>
-                            <div class="row mt-1 ps-1">
-                                <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                                    <p class=" ps-3"> <i class="fas fa-bolt"></i> 39 HP</p>
-                                </div>
-                                <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                                    <p class="pe-5 me-4"> <i class="fa fa-cog" aria-hidden="true"></i>  2048 CC </p>
-                                </div>
-                            </div>
-                            <a href="#" class="text-decoration-none text-dark pb-3  fw-bold">
-                                <span class="p-3">
-                                    Get On Road price
-                                </span>
-                                <span class="icon">
-                                    <i class="fa-solid fa-chevron-right"></i>
-                                </span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 col-sm-6 col-md-3 col-lg-4 px-2 py-3 h-100">
-                    <div class="h-auto success__stry__item d-flex flex-column shadow ">
-                        <div class="thumb">
-                            <a href="#">
-                                <div class="ratio ratio-16x9">
-                                    <img src="assets/images/arjun-novo-605-di-i-1632207718.webp" class="object-fit-cover " alt="img">
-                                </div>
-                            </a>
-                        </div>
-                        <div class="content d-flex flex-column flex-grow-1 ">
-
-                            <a href="#" class="text-decoration-none text-dark">
-                                <h4 class="fw-bold mt-3 mx-3">Mahindra Yuvo 575 DI 4WD</h3>
-                            </a>
-                            <div class="row mt-1 ps-1">
-                                <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                                    <p class=" ps-3"> <i class="fas fa-bolt"></i> 45 HP</p>
-                                </div>
-                                <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                                    <p class="pe-5 me-4"> <i class="fa fa-cog" aria-hidden="true"></i>  2979 CC </p>
-                                </div>
-                            </div>
-                            <a href="#" class="text-decoration-none text-dark pb-3  fw-bold">
-                                <span class="p-3">
-                                    Get On Road price
-                                </span>
-                                <span class="icon">
-                                    <i class="fa-solid fa-chevron-right"></i>
-                                </span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-12 col-sm-6 col-md-3 col-lg-4 px-2 py-3 h-100">
-                    <div class="h-auto success__stry__item d-flex flex-column shadow ">
-                        <div class="thumb">
-                            <a href="#">
-                                <div class="ratio ratio-16x9">
-                                    <img src="assets/images/265-di-xp-plus-1632206429.webp" class="object-fit-cover" alt="img">
-                                </div>
-                            </a>
-                        </div>
-                        <div class="content d-flex flex-column flex-grow-1 ">
-
-                            <a href="#" class="text-decoration-none text-dark">
-                                <h4 class="fw-bold mt-3 mx-3">Mahindra 265 DI XP Plus</h3>
-                            </a>
-                            <div class="row mt-1 ps-1">
-                                <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                                    <p class=" ps-3"> <i class="fas fa-bolt"></i> 33 HP</p>
-                                </div>
-                                <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                                    <p class="pe-5 me-4"> <i class="fa fa-cog" aria-hidden="true"></i>  2048 CC </p>
-                                </div>
-                            </div>
-                            <a href="#" class="text-decoration-none text-dark pb-3 fw-bold">
-                                <span class="p-3">
-                                    Get On Road price
-                                </span>
-                                <span class="icon">
-                                    <i class="fa-solid fa-chevron-right"></i>
-                                </span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+             </div>
             <div class="col text-center my-3">
                 <a href="#" class="btn btn-success btn-lg">Load More Tractors</a>
             </div>
         </div>
-    </section>
+    </section> -->
 
     <!-- WHY BECOME A DEALER -->
     <section>

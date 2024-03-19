@@ -50,7 +50,7 @@ include 'includes/headertag.php';
                         <a href="index.php" class="text-decoration-none header-link px-1">Home <i
                                 class="fa-solid fa-chevron-right px-1"></i></a>
 
-                        <span class="text-dark p"> Popular Tractor</span>
+                        <span class="text-dark p"> Tractor Tyres </span>
                     </span>
                 </div>
             </div>
@@ -65,7 +65,7 @@ include 'includes/headertag.php';
                         <div id="productContainer" class="row">
                         </div>
                         <div class="col-12 text-center mt-3 pt-2 ">
-                            <button id="load_moretract" type="button" class="add_btn btn btn-success">
+                            <button id="load_moretract" type="button" class="add_btn btn btn-success p-1">
                                 <i class="fas fa-undo"></i> Load More Tyres</button>
                         </div>
                     </div>
@@ -74,12 +74,12 @@ include 'includes/headertag.php';
                     <div class=" row mb-3" id="">
                         <div class="col-12 col-sm-12 col-md-12 col-lg-12">
                             <div class=" row text-center">
-                                <div class="col-12 col-sm-6 col-lg-6 col-md-6 g-1">
-                                    <button id="adduser" type="button" class="add_btn btn btn-success">
+                                <div class="col-12 col-sm-6 col-lg-6 col-md-6">
+                                    <button id="adduser" type="button" class="add_btn btn btn-success w-100">
                                         <i class="fas fa-undo"></i> Reset </button>
                                 </div>
-                                <div class="col-12 col-sm-6 col-lg-6 col-md-6 g-1">
-                                    <button id="adduser" type="button" class="add_btn btn btn-success">
+                                <div class="col-12 col-sm-6 col-lg-6 col-md-6">
+                                    <button id="adduser" type="button" class="add_btn btn btn-success w-100">
                                         <i class="fas fa-filter"></i> Apply Filter </button>
                                 </div>
 

@@ -3,6 +3,8 @@
 $(document).ready(function() {
     console.log("ready!");
     $('#delership_enq_btn').click(store);
+    get_oldharvester();
+    get_harvester();
 });
 
 
@@ -103,4 +105,166 @@ function store(event) {
     });
 }
 
-populateDropdownsFromClass('state-dropdown', 'district-dropdown', 'tehsil-dropdown');
+function get_harvester() {
+    var url = "http://192.168.1.12:9000/api/customer/get_new_harvester";
+    
+
+    $.ajax({
+        url: url,
+        type: "GET",
+        success: function (data) {
+        console.log(data, "harvster data")
+
+        if (data.product && data.product.length > 0) {
+           
+            var productContainer = $("#new_harvester");
+            data.product.forEach(function (p) {
+                var images = p.image_names;
+                var a = [];
+        
+                if (images) {
+                    if (images.indexOf(',') > -1) {
+                        a = images.split(',');
+                    } else {
+                        a = [images];
+                    }
+                }
+                var newCard = `
+                <div class="item box_shadow b-t-1">
+              <a  href="harvester_inner.php?product_id=${p.id}" class="text-decoration-none fw-bold">
+                <div class="harvester_img_section">
+                  <img src="http://tractor-api.divyaltech.com/uploads/product_img/${a[0]}" alt="">
+                  <div href="harvester_inner.php?product_id=${p.id}" class="over-layer"><i class="fa fa-link"></i></div>
+                </div>
+              </a>
+              <div class="harvester_content_section mt-3 text-center">
+                <a href="harvester_inner.php?product_id=${p.id}" class="text-decoration-none fw-bold text-dark"><h6 class="text-dark">${p.brand_name} ${p.model}</h6></a>
+                <div class="row w-100">
+                  <div class="col-6 p-0"> <p class="mb-0" style="font-size: 14px;">${p.horse_power} Hp</p></div>
+                  <div class="col-6 p-0"> <p class="mb-0" style="font-size: 14px;">${p.crops_type_value}</p></div>
+                </div>
+                <button type="button" class="add_btn btn-success w-100 mt-3"><i class="fa-regular fa-handshake"></i> Get on Road Price</button>
+              </div>
+               
+          
+            </div>
+                `;
+        
+                // Append the new card to the container
+                productContainer.append(newCard);
+            });
+
+            productContainer.owlCarousel({
+                items:4,
+                loop: true,
+                margin: 10,
+                nav: true, // Enable navigation
+                autoplay: true, // Enable auto-play
+                autoplayTimeout: 3000,
+                responsiveClass: true,
+                responsive: {
+                    0: {
+                        items: 1,
+                        nav: false
+                    },
+                    600: {
+                        items: 3,
+                        nav: false
+                    },
+                    1000: {
+                        items: 4,
+                        nav: true,
+                        loop: false
+                    }
+                }
+            });
+        }
+    },
+    error: function(error) {
+        console.error('Error fetching data:', error);
+    }
+    });
+}
+
+
+
+function get_oldharvester() {
+    var url = "http://192.168.1.12:9000/api/customer/get_old_harvester";
+    
+
+    $.ajax({
+        url: url,
+        type: "GET",
+        success: function (data) {
+        console.log(data, "harvster data")
+
+        if (data.product && data.product.length > 0) {
+           
+            var productContainer = $("#old_harvester");
+            data.product.forEach(function (p) {
+                var images = p.image_names;
+                var a = [];
+        
+                if (images) {
+                    if (images.indexOf(',') > -1) {
+                        a = images.split(',');
+                    } else {
+                        a = [images];
+                    }
+                }
+                var newCard = `
+                <div class="item box_shadow b-t-1">
+              <a  href="used_harvester_inner.php?id=${p.id}" class="text-decoration-none fw-bold">
+                <div class="harvester_img_section">
+                  <img src="http://tractor-api.divyaltech.com/uploads/product_img/${a[0]}" alt="">
+                  <div href="used_harvester_inner.php?id=${p.id}" class="over-layer"><i class="fa fa-link"></i></div>
+                </div>
+              </a>
+              <div class="harvester_content_section mt-3 text-center">
+                <a href="used_harvester_inner.php?id=${p.id}" class="text-decoration-none fw-bold text-dark"><h6 class="text-dark">${p.brand_name} ${p.model}</h6></a>
+                <div class="row w-100">
+                  <div class="col-6 p-0"> <p class="mb-0" style="font-size: 14px; "><span>Hours Driven: </span>${p.hours_driven}</p></div>
+                  <div class="col-6 p-0"> <p class="mb-0" style="font-size: 14px;">${p.crops_type_value}</p></div>
+                </div>
+                <button type="button" class="add_btn btn-success w-100 mt-3"><i class="fa-regular fa-handshake"></i> Get on Road Price</button>
+              </div>
+               
+          
+            </div>
+                `;
+        
+                // Append the new card to the container
+                productContainer.append(newCard);
+            });
+
+            productContainer.owlCarousel({
+                items:4,
+                loop: true,
+                margin: 10,
+                nav: true, // Enable navigation
+                autoplay: true, // Enable auto-play
+                autoplayTimeout: 3000,
+                responsiveClass: true,
+                responsive: {
+                    0: {
+                        items: 1,
+                        nav: false
+                    },
+                    600: {
+                        items: 3,
+                        nav: false
+                    },
+                    1000: {
+                        items: 4,
+                        nav: true,
+                        loop: false
+                    }
+                }
+            });
+        }
+    },
+    error: function(error) {
+        console.error('Error fetching data:', error);
+    }
+    });
+}

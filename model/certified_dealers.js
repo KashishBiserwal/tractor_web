@@ -2,6 +2,8 @@ var allDealers = []; // Array to hold all dealers
 
 $(document).ready(function() {
     get_certifieddealers();
+
+    $('#dealership_enq_btn').click(search);
 });
 
 function get_certifieddealers() {
@@ -80,5 +82,84 @@ function displaydealer(dealers) {
 
         // Use prepend to add the new card at the beginning
         productContainer.prepend(newCard);
+    });
+}
+
+
+
+function search() {
+    var url = 'http://192.168.1.12:9000/api/customer/customer_enquiries';
+    var token = localStorage.getItem('token');
+    var headers = {
+        'Authorization': 'Bearer ' + token
+    };
+
+    var brandId = $('#_brand').val(); // Get selected brand ID
+    var stateId = $('#_state').val(); // Get selected state ID
+    var districtId = $('#_district').val(); // Get selected district ID
+
+    var data = {
+        brand_id: brandId,
+        state_id: stateId,
+        district_id: districtId
+    };
+    $.ajax({
+        url: url,
+        type: 'POST',
+        data: data,
+        headers: headers,
+        success: function (response) {
+            console.log(response);
+            console.log("Data stored successfully !");
+    
+            if (response.data.length === 0) {
+                // If data array is empty, display a message or take appropriate action
+                $("#productContainer1").html("<p>No data available.</p>");
+            } else {
+                // Iterate through the data array and generate cards for each item
+                response.data.forEach(function (item) {
+                    // Extract necessary data from the item
+                    var images = item.image_names.split(',');
+                    var brandName = item.brand_name;
+                    var model = item.model;
+                    var purchase_year = item.purchase_year;
+                    var hp_category = item.hp_category;
+                    // Generate HTML for the card
+                    var newCard = `
+                    <div class="col-12 col-sm-3 col-md-3 col-lg-3 px-2 py-3 h-100">
+                    <div class="h-auto success__stry__item d-flex flex-column shadow">
+                        <div class="thumb">
+                            <a href="certified_dealers_inner.php?id=${dealer.id}">
+                                <div class="ratio ratio-16x9">
+                                    <img src="http://tractor-api.divyaltech.com/uploads/dealer_img/${images}" class="object-fit-cover" alt="img">
+                                </div>
+                            </a>
+                        </div>
+                        <div class="position-absolute">
+                            <p class="rounded-pill bg-warning text-center px-2 mt-1">Certified</p>
+                        </div>
+                        <div>
+                            <a href="certified_dealers_inner.php?id=${dealer.id}" class="text-decoration-none text-dark">
+                                <h6 class="fw-bold text-center mt-3">${dealer.dealer_name}</h6>
+                            </a>
+                            <div class="col-12 col-lg-12 col-md-12 col-sm-12">
+                                <p class="text-center text-dark fw-bold">${dealer.brand_name} <span>Dealer</span></p>
+                            </div>
+                            <div class="justify-content-center d-flex">
+                                <button type="button" class="btn btn-success w-100">Rangareddy, Telangana</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                    `;
+    
+                    // Append the new card HTML to the product container
+                    $("#productContainer1").append(newCard);
+                });
+            }
+        },
+        error: function (error) {
+            console.error('Error fetching data:', error);
+        }
     });
 }

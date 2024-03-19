@@ -18,6 +18,13 @@ $(document).ready(function () {
 });
 });
 
+function formatPriceWithCommas(price) {
+  if (isNaN(price)) {
+      return price; 
+  }
+   return price.toLocaleString('en-IN', { maximumFractionDigits: 2 });
+}
+
 function formatDateTime(originalDateTimeStr) {
 const originalDateTime = new Date(originalDateTimeStr);
 
@@ -75,8 +82,9 @@ success: function (data) {
 
       let tableData = [];
                 let counter = data.product.allProductData.length;
-
+                
                 data.product.allProductData.forEach(row => {
+                  var formattedPrice = parseFloat(row.ending_price).toLocaleString('en-IN');
                     let action = `
                         <div class="d-flex">
                         <button class="btn btn-warning text-white btn-sm mx-1" onclick="openView(${row.product_id})" data-bs-toggle="modal" data-bs-target="#viewModal_btn" id="viewbtn">
@@ -95,7 +103,7 @@ success: function (data) {
                           row.model,
                           row.wheel_drive_value,
                           row.hp_category,
-                          row.ending_price,
+                          formattedPrice,
                           action
                         ]);
                     // counter++;
@@ -166,6 +174,7 @@ success: function (data) {
                   let counter = data.newTractor.allProductData.length;
           
                   data.newTractor.allProductData.forEach(row => {
+                    var formattedPrice = parseFloat(row.ending_price).toLocaleString('en-IN');
                       let action = `<div class="float-start">
                           <button class="btn btn-warning text-white btn-sm mx-1" onclick="openView(${row.product_id})" data-bs-toggle="modal" data-bs-target="#viewModal_btn" id="viewbtn">
                               <i class="fa fa-eye" style="font-size: 11px;"></i>
@@ -185,7 +194,7 @@ success: function (data) {
                           row.model,
                           row.wheel_drive_value,
                           row.hp_category,
-                          row.ending_price,
+                          formattedPrice,
                           action
                       ]);
                       // counter++;
@@ -371,6 +380,13 @@ function destroy(id) {
   });
 }
 
+function formatPriceWithCommas(price) {
+  if (isNaN(price)) {
+      return price; 
+  }
+   return new Intl.NumberFormat('en-IN').format(price);
+}
+
 // *********View data******
 
 function openView(product_id){
@@ -393,6 +409,8 @@ $.ajax({
     headers: headers,
     success: function(data) {
     console.log(data, 'abc');
+    var formattedPrice = parseFloat(data.product.allProductData[0].starting_price).toLocaleString('en-IN');
+    var formattedPrice1 = parseFloat(data.product.allProductData[0].ending_price).toLocaleString('en-IN');
     document.getElementById('brand_').innerText=data.product.allProductData[0].brand_name;
     document.getElementById('model_').innerText=data.product.allProductData[0].model;
     document.getElementById('hp_').innerText=data.product.allProductData[0].hp_category;
@@ -401,8 +419,8 @@ $.ajax({
     document.getElementById('Gear_Box_Forward_1').innerText=data.product.allProductData[0].gear_box_forward;
     document.getElementById('Gear_Box_Reverse_1').innerText=data.product.allProductData[0].gear_box_reverse;
     document.getElementById('brakes_1').innerText=data.product.allProductData[0].brake_value;
-    document.getElementById('Starting_Price_1').innerText=data.product.allProductData[0].starting_price;
-    document.getElementById('Ending_Price_1').innerText=data.product.allProductData[0].ending_price;
+    document.getElementById('Starting_Price_1').innerText= formattedPrice;
+    document.getElementById('Ending_Price_1').innerText= formattedPrice1;
     document.getElementById('Warranty_1').innerText=data.product.allProductData[0].warranty;
     document.getElementById('Select_Tractor_Type_1').innerText=data.product.accessory_and_tractor_type[0].tractor_type_name;
     document.getElementById('capacity_cc_1').innerText=data.product.allProductData[0].engine_capacity_cc;

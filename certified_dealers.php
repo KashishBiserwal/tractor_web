@@ -15,12 +15,12 @@
 <script> var CustomerAPIBaseURL = "<?php echo $CustomerAPIBaseURL; ?>";</script>
     <script> var baseUrl = "<?php echo $baseUrl; ?>";</script>
     <script src="<?php $baseUrl; ?>model/certified_dealers.js"></script>
-  <section class="bg-light">
+  <section class="bg-light pt-2">
     <div class="container mt-5 pt-4">
       <div class="mt-5 py-2">
         <span class="">
           <a href="index.php" class="text-decoration-none header-link px-1">Home <i class="fa-solid fa-chevron-right px-1"></i></a>
-          <span class=""><span class=" header-link  px-1">Certified Dealers</span></span>
+          <span class=""><span class="px-1 text-dark">Certified Dealers</span></span>
         </span> 
       </div>
     </div>
@@ -33,7 +33,7 @@
     </section>
 
     <!-- FORM --> 
-    <section class="form-view bg-white pb-4">
+    <section class="form-view bg-white pb-4" id="section-1">
       <div class="container ms-5" style="position: relative;margin-top:-145px;">
         <div class="row">
           <div class="col-md-8 col-lg-8 col-sm-8">
@@ -74,7 +74,7 @@
                 <div class=" mt-3">
                   <div class="row g-3">
                     <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                      <button type="submit" id="dealership_enq_btn" class="btn btn-success w-100">Search Dealer</button>
+                      <button type="button" id="dealership_enq_btn" class="btn btn-success w-100">Search Dealer</button>
                     </div>
                     <div class="col-12 col-lg-6 col-md-6 col-sm-6">
                       <a href="become_certified.php" class="btn btn-success w-100">Become Certified Dealer</a>
@@ -88,7 +88,15 @@
       </div>
     </section>
 
-   
+    <section style="display: block;" id="section-2">
+        <div class="container" >
+            <div class="row my-3">
+                <div id="productContainer1" class="row">
+                  <p>pending work</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
   <!-- CERTIFIED DEALER CARDS -->
   <section>
@@ -96,7 +104,7 @@
       <h3 class="">Recent Certified Dealers</h3>
       <div id="productContainer" class="row "></div>
       <div class="col-12 text-center mb-4">
-          <button id="load_moretract"  type="button" class="add_btn btn-success btn btn-lg">
+          <button id="load_moretract"  type="button" class="add_btn btn-success btn btn-lg p-1">
           <i class="fas fa-undo"></i> Load More </button>
         </div>
     </div>

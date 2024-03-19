@@ -203,7 +203,7 @@ getbrand_edit();
   
   
             if (data.tyre_details && data.tyre_details.length > 0){
-                data.tyre_details.forEach(row => {
+                data.tyre_details.reverse().forEach(row => {
                    // const tableRow = document.createElement('tr');
                     let action = `  <div class="d-flex">
                     <button class="btn btn-warning btn-sm text-white mx-1" data-bs-toggle="modal" onclick="fetch_data(${row.id});" data-bs-target="#exampleModal" style="padding: 5px;"><i class="fas fa-eye" style="font-size: 11px;"></i></button>
@@ -558,17 +558,23 @@ function ImgUpload() {
   }
   
   
-  function resetFormFields() {
-    $('#brand').val('');
-    $('#tyre').val('');
-    $('#tyre_position').val('');
-    $('#category').val('');
-    $('#tyre_diameter').val('');
-    $('#tyre_width').val('');
-    $('#selectedImagesContainer').val('');
-    $('#EditIdmain_').val('');
-  } 
+  // function resetFormFields() {
+  //   $('#brand').val('');
+  //   $('#tyre').val('');
+  //   $('#tyre_position').val('');
+  //   $('#category').val('');
+  //   $('#tyre_diameter').val('');
+  //   $('#tyre_width').val('');
+  //   $('#selectedImagesContainer').val('');
+  //   $('#EditIdmain_').val('');
+  // } 
 
+  function resetFormFields(){
+    document.getElementById("form_tyre_list").reset();
+    document.getElementById("image").value = '';
+    document.getElementById("selectedImagesContainer").innerHTML = '';
+   
+}
 
   // search data
   function search_data() {  
@@ -602,9 +608,7 @@ function ImgUpload() {
     var tableBody = document.getElementById('data-table');
           let serialNumber = 1;
           let tableData = [];
-  
-  
-            if (data.tyreData && data.tyreData.length > 0){
+               if (data.tyreData && data.tyreData.length > 0){
                 data.tyreData.forEach(row => {
                    // const tableRow = document.createElement('tr');
                     let action = `  <div class="d-flex">
@@ -662,4 +666,3 @@ function resetform(){
   
 }
 
-   

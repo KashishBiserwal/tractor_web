@@ -34,21 +34,17 @@ include 'includes/headertag.php';
 
 
 
-   <section class="about bg-white mt-2 ">
-        <div class="container-fullwidth">
-            <div class="lecture_heading ">
-                <h3 class="my-4 pt-5">TRACTORS BY BRAND</h3>
-            </div>
-            <div class="mt-4 pb-5">
-                <div class="row allbrands" id="brandContainer">
-                    
-                    
-                </div>
-              
-            </div>
-
-        </div>
-    </section>
+<section class="about bg-white mt-2 ">
+  <div class="container-fullwidth">
+    <div class="lecture_heading ">
+      <h3 class="my-4 pt-5">TRACTORS BY BRAND</h3>
+    </div>
+    <div class="mt-4 pb-5">
+      <div class="row allbrands" id="brandContainer">
+      </div>
+    </div>
+  </div>
+</section>
 
     <section class="bybudget position-relative bg-light">
       <div class="container  ">
@@ -169,7 +165,7 @@ include 'includes/headertag.php';
                     <i class="fas fa-tractor trac_icon fs-2  mt-3"></i>
                   </div>
                   <p class="text-center fw-bold mt-3">Tractors</p>
-                  <h5 class="text-center pb-3"> Under 46-50 HP</h5>
+                  <h5 class="text-center pb-3">Under 46-50 HP</h5>
                 </a>
               </div>
             </div>

@@ -181,7 +181,9 @@ function store(event) {
     var gear_box_reverse = $('#gear_box_reverse').val();
     var BRAKE_TYPE = $('#BRAKE_TYPE').val();
     var starting_price = $('#starting_price').val();
+    starting_price = starting_price.replace(/[\,\.\s]/g, '');
     var  ending_price= $('#ending_price').val();
+    ending_price = ending_price.replace(/[\,\.\s]/g, '');
     var  warranty= $('#warranty').val();
     var tractor_type_id = JSON.stringify(selectedCheckboxValues);
     console.log(selectedCheckboxValues);
@@ -344,7 +346,8 @@ function store(event) {
       success: function(response) {
         var editData = response.product.allProductData[0];
         var editData2 = response.product.accessory_and_tractor_type[0];
-        
+        var formattedPrice = parseFloat(editData.starting_price).toLocaleString('en-IN');
+        var formattedPrice1 = parseFloat(editData.ending_price).toLocaleString('en-IN');
         // console.log(response,'editData123');
         // var selectedAccessories = response.product.accessory_and_tractor_type[0];
         // var accessoryIds = selectedAccessories.accessory_id.split(',');
@@ -371,8 +374,8 @@ function store(event) {
         $("#BRAKE_TYPE option").prop("selected", false);
         $("#BRAKE_TYPE option[value='" + editData.brake_type_id + "']").prop("selected", true);
 
-        $('#starting_price').val(editData.starting_price);
-        $('#ending_price').val(editData.ending_price);
+        $('#starting_price').val(formattedPrice);
+        $('#ending_price').val(formattedPrice1);
         $('#warranty').val(editData.warranty);
 
         // var tractorTypeIdToCheck = editData2.tractor_type_id;

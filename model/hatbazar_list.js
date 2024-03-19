@@ -8,29 +8,39 @@ var editId_state= false;
     $('#save_btn').click(hatbazar_add);
    
  
+    $('#quantityInput').on('input', calculateTotalPrice);
+    $('#unitSelect').on('change', calculateTotalPrice);
+    $('#price').on('input', calculateTotalPrice);
+
+    // Call the calculateTotalPrice function initially to calculate the total price
+    calculateTotalPrice();
+
     function calculateTotalPrice() {
-      var quantity = parseFloat(document.getElementById('quantityInput').value) || 0;
-      var unit = document.getElementById('unitSelect').value;
-      var price = parseFloat(document.getElementById('price').value) || 0;
-  
-      var unitConversion = {
-          'Each': 1,
-          'gram': 1,
-          'Kg': 1,
-          'Quintal': 1,
-          'Ton': 1,
-          'Pack': 1,
-          
-      };
-  
-      var total = quantity * price * unitConversion[unit];
-  
-      document.getElementById('tprice').value = total.toFixed(2);
-  }
-  
-  document.getElementById('quantityInput').addEventListener('input', calculateTotalPrice);
-  document.getElementById('unitSelect').addEventListener('change', calculateTotalPrice);
-  document.getElementById('price').addEventListener('input', calculateTotalPrice);
+        var quantity = parseFloat($('#quantityInput').val()) || 0;
+        var unit = $('#unitSelect').val();
+        var price = parseFloat($('#price').val().replace(/,/g, '')) || 0; // Remove commas before parsing
+
+        var unitConversion = {
+            'Each': 1,
+            'gram': 1,
+            'Kg': 1,
+            'Quintal': 1,
+            'Ton': 1,
+            'Pack': 1,
+        };
+
+        var total = quantity * price * unitConversion[unit];
+
+        var formattedTotal = formatPriceWithCommas(total);
+        $('#tprice').val(formattedTotal);
+    }
+
+    function formatPriceWithCommas(price) {
+        if (isNaN(price)) {
+            return price; 
+        }
+         return price.toLocaleString('en-IN', { maximumFractionDigits: 2 });
+    }
   
   //category form
     $("#category_details").validate({
@@ -350,7 +360,9 @@ var editId_state= false;
          var unitSelect = $('#unitSelect').val();
          var quantityInput = $('#quantityInput').val();
          var price = $('#price').val();
+         price = price.replace(/[\,\.\s]/g, '');
          var tprice = $('#tprice').val();
+         tprice = price.replace(/[\,\.\s]/g, '');
          var textarea_ = $('#textarea_').val();
          var fname = $('#fname').val();
          var lname = $('#lname').val();
@@ -566,11 +578,12 @@ function destroy(id) {
         headers: headers,
         success: function (data) {
           console.log(data, 'abc');
+          var formattedPrice = parseFloat(data.allData.haat_bazar_data[0].price).toLocaleString('en-IN');
           document.getElementById('category').innerText = data.allData.category_name[0].haat_bazar_category_name;
           document.getElementById('subcategory').innerText = data.allData.haat_bazar_data[0].sub_category_name;
           document.getElementById('quantity').innerText = data.allData.haat_bazar_data[0].quantity;
           // document.getElementById('as_per').innerText = data.allData.haat_bazar_data[0].as_per;
-          document.getElementById('Total_price').innerText =data.allData.haat_bazar_data[0].price;
+          document.getElementById('Total_price').innerText = formattedPrice;
           // document.getElementById('dist1').innerText =data.allData.haat_bazar_data[0].district;
           document.getElementById('textarea').innerText = data.allData.haat_bazar_data[0].about;
           document.getElementById('first_name').innerText = data.allData.haat_bazar_data[0].first_name;
@@ -628,19 +641,28 @@ function destroy(id) {
         success: function (response) {
             var Data = response.allData.haat_bazar_data[0];
             // var dta= response.allData.category_name[0];
-            
+            var formattedPrice = parseFloat(Data.price).toLocaleString('en-IN');
             $('#c_category').val(Data.category_name);
             $('#sub_cate').val(Data.sub_category_name);
             $('#quantityInput').val(Data.quantity);
-            $('#unitSelect').val(Data.as_per);
-            $('#price').val(Data.price);
+            // $('#unitSelect').val(Data.as_per);
+            $('#price').val(formattedPrice);
             $('#tprice').val(Data.total_price);
             $('#textarea_').val(Data.about);
             $('#fname').val(Data.first_name);
             $('#number').val(Data.mobile);
             $('#lname').val(Data.last_name);
           
+            var selectElement = document.getElementById('unitSelect');
+              var options = selectElement.options;
+              var valueToSelect = Data.as_per;
 
+              for (var i = 0; i < options.length; i++) {
+                  if (options[i].value === valueToSelect) {
+                      options[i].selected = true;
+                      break;
+                  }
+              }
             setSelectedOption('state_', Data.state_id);
             setSelectedOption('dist', Data.district_id);
             

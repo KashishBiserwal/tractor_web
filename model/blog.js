@@ -68,16 +68,18 @@ function displayEngineoil(container, engineoil) {
                         </a>
                     </div>
                     <div class="content mb-3 ms-3">
+                        <a href="blog_customer_inner.php?id=${p.id}">
                         <button type="button" class="btn btn-warning mt-3">${p.blog_category} </button>
+                        </a>
                         <div class="row mt-2">
                             <p class="fw-bold">${p.heading}</p>
                         </div>
                         <div class="row">
                             <p class="fw-bold"><span>publisher: </span>${p.publisher}</p>
                         </div>
-                        <a href="blog_customer_inner.php?id=${p.id}" class="text-decoration-none pb-1">
-                            <span class=""> Date/time-${p.date} </span>
-                        </a>
+                        <div class="row">
+                            <p class="fw-bold"><span>Date/time: </span>${p.date}</p>
+                        </div>
                     </div>
                 </div>
             </div>`;

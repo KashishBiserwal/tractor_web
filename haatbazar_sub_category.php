@@ -132,7 +132,7 @@ include 'includes/headertag.php';
       
 
                <!-- modal -->
-               <div class="modal fade" id="staticBackdrop3" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal fade" id="staticBackdrop3" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                   <div class="modal-dialog  modal-dialog-centered">
                     <div class="modal-content modal_box">
                       <div class="modal-header modal_head">
@@ -153,7 +153,7 @@ include 'includes/headertag.php';
                                             <div class="col-12" hidden>
                                                 <div class="form-outline mt-4">
                                                     <label for="name" class="form-label text-dark">Enter Sub-Category</label>
-                                                    <input type="text" class="form-control" placeholder="" value="2" id="category_id" name="sub_categor">
+                                                    <input type="text" class="form-control" placeholder="" value="2" id="category_id_1" name="sub_categor">
                                                 </div>
                                             </div>
                                             <div class="col-12 mt-3">

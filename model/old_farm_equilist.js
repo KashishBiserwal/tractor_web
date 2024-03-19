@@ -138,6 +138,12 @@ $(document).ready(function(){
   
     });
 
+    function formatPriceWithCommas(price) {
+      if (isNaN(price)) {
+          return price; 
+      }
+       return price.toLocaleString('en-IN', { maximumFractionDigits: 2 });
+  }
 
     function ImgUpload() {
       var imgWrap = "";
@@ -211,7 +217,7 @@ $(document).ready(function(){
        
       
  function get() {
-  var url = 'http://tractor-api.divyaltech.com/api/customer/get_all_brands';
+  var url = 'http://192.168.1.12:9000/api/customer/get_all_brands';
   $.ajax({
       url: url,
       type: "GET",
@@ -247,7 +253,7 @@ $(document).ready(function(){
 }
 
 function get_model_1(brand_id, selectedModel) {
-  var url = 'http://tractor-api.divyaltech.com/api/customer/get_brand_model/' + brand_id;
+  var url = 'http://192.168.1.12:9000/api/customer/get_brand_model/' + brand_id;
   $.ajax({
       url: url,
       type: "GET",
@@ -328,6 +334,7 @@ function store(event) {
      var year = $('#year').val();
      var hours_driven = $('#hours_driven').val();
      var price= $('#price').val();
+     price = price.replace(/[\,\.\s]/g, '');
      var description = $('#about').val();
      var first_name = $('#name').val();
      var last_name = $('#lname').val();
@@ -499,12 +506,13 @@ function fetch_data(id){
       headers: headers,
       success: function(data) {
       console.log(data, 'abc');
+      var formattedPrice = parseFloat(data.getOldImplement[0].price).toLocaleString('en-IN');
       document.getElementById('brand_2').innerText=data.getOldImplement[0].brand_name;
       document.getElementById('model_2').innerText=data.getOldImplement[0].model;
       document.getElementById('first_name2').innerText=data.getOldImplement[0].first_name;
       document.getElementById('last_name2').innerText=data.getOldImplement[0].last_name;
       document.getElementById('mobile').innerText=data.getOldImplement[0].mobile;
-      document.getElementById('email_2').innerText=data.getOldImplement[0].email;
+      document.getElementById('price_2').innerText= formattedPrice;
       document.getElementById('date_2').innerText=data.getOldImplement[0].date;
       document.getElementById('year_2').innerText=data.getOldImplement[0].purchase_year;
       document.getElementById('state_2').innerText=data.getOldImplement[0].state_name;
@@ -607,6 +615,7 @@ function fetch_edit_data(id) {
     headers: headers,
     success: function(response) {
       var userData = response.getOldImplement[0];
+      var formattedPrice = parseFloat(userData.price).toLocaleString('en-IN');
       $('#EditIdmain_').val(userData.id);
       $('#enquiry_type_id').val(userData.enquiry_type_id);
       $('#image_type_id').val(userData.image_type_id);
@@ -622,7 +631,7 @@ function fetch_edit_data(id) {
       $("#hours_driven option").prop("selected", false);
       $("#hours_driven option[value='" +userData.hours_driven + "']").prop("selected", true);
 
-      $('#price').val(userData.price);
+      $('#price').val(formattedPrice);
       $('#about').val(userData.description);
       $('#name').val(userData.first_name);
       $('#lname').val(userData.last_name);
