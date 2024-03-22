@@ -98,6 +98,8 @@ $(document).ready(function() {
                 }
             },
             error: function(error) {
+
+                
                 console.error('Error fetching data:', error);
             }
         });
