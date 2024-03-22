@@ -59,6 +59,7 @@ $(document).ready(function() {
                 var fullname = data.nursery_data[0].first_name + ' ' + data.nursery_data[0].last_name;
                 document.getElementById('slr_name').value=fullname;
                 document.getElementById('mob_num').value = data.nursery_data[0].mobile;
+                // document.getElementById('mob_num').value = data.nursery_data[0].mobile;
                 if (data.nursery_data && data.nursery_data.length > 0) {
                     // Reverse the order of the cards to display the latest ones first
                     var reversedCards = data.nursery_data.slice().reverse();
@@ -104,9 +105,9 @@ $(document).ready(function() {
                         a = [images];
                     }
                 }
-        var cardId = `card_${p.id}`; // Dynamic ID for the card
-        var modalId = `nursery_callbnt_${p.id}`; // Dynamic ID for the modal
-        var formId = `nursery_enquiry_form_${p.id}`; // Dynamic ID for the form
+        var cardId = `card_${p.id}`; 
+        var modalId = `nursery_callbnt_${p.id}`;
+        var formId = `nursery_enquiry_form_${p.id}`; 
         
         var newCard = `
             <div class="col-12 col-lg-4 col-md-4 col-sm-4 mb-4" id="${cardId}">
@@ -158,9 +159,13 @@ $(document).ready(function() {
                                                 <input type="text" class="form-control" placeholder="Enter Your Name" id="enquiry_type_id" value="11" name="fname">
                                             </div>
                                             <div class="col-12 col-lg-6 col-md-6 col-sm-6 " hidden>
-                                                <label for="name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i> product_id</label>
-                                                <input type="text" class="form-control" id="product_id" value="${p.product_id}" hidden> 
+                                                <label for="name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i>product_id</label>
+                                                <input type="text" class="form-control" id="product_id" value="${p.id}"> 
                                             </div>
+                                            <div class="col-12 col-lg-6 col-md-6 col-sm-6 " hidden>
+                                            <label for="name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i>Nursery name</label>
+                                            <input type="text" class="form-control" id="nursery_name" value="${p.nursery_name}"> 
+                                        </div>
                                             <div class="col-12 col-lg-6 col-md-6 col-sm-6">
                                                 <div class="form-outline">
                                                     <label for="f_name" class="form-label fw-bold"> <i class="fa-regular fa-user"></i> First Name</label>
@@ -294,13 +299,13 @@ function nursery_enquiry(formId) {
 
     // Send nursery enquiry request
     var enquiry_type_id = $(`#${formId} #enquiry_type_id`).val();
-    var product_id = 3;  // You may need to adjust this based on your logic
+    var product_id = $(`#${formId} #product_id`).val();
     var first_name = $(`#${formId} #first_name_1`).val();
     var last_name = $(`#${formId} #last_Name_1`).val();
     var state = $(`#${formId} #state_1`).val();
     var district = $(`#${formId} #district_1`).val();
     var tehsil = $(`#${formId} #Tehsil_1`).val();
-
+    var nursery_name = $(`#${formId} #nursery_name`).val();
     var paraArr = {
         'enquiry_type_id': enquiry_type_id,
         'product_id': product_id,
@@ -310,6 +315,7 @@ function nursery_enquiry(formId) {
         'state': state,
         'district': district,
         'tehsil': tehsil,
+        'nursery_name': nursery_name,
     };
 
     var url = 'http://tractor-api.divyaltech.com/api/customer/customer_enquiries';

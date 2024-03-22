@@ -77,7 +77,7 @@
                                         </div>
                                         <div class="col-12 col-lg-6 col-md-6 col-sm-6 " hidden>
                                             <label for="name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i> product_id</label>
-                                            <input type="text" class="form-control" id="product_id" value="">
+                                            <input type="text" class="form-control" id="product_id" value="40">
                                         </div>
                                                 <div class="col-12 col-lg-6 col-md-6 col-sm-12 mt-4">
                                                     <div class="form-outline">

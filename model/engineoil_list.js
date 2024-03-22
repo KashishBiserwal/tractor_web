@@ -188,6 +188,7 @@ $('#add_trac').on('click', function() {
      return price.toLocaleString('en-IN', { maximumFractionDigits: 2 });
 }
   
+
 function engineOil_add() {
   var apiBaseURL = APIBaseURL;
   var url = apiBaseURL + 'engine_oil';
@@ -198,103 +199,66 @@ function engineOil_add() {
           'Authorization': 'Bearer ' + localStorage.getItem('token')
       },
       success: function (data) {
-          const tableBody = document.getElementById('data-table');
+          const tableBody = $('#data-table');
           let serialNumber = 1;
           let tableData = [];
 
           if (data.engine_oil_details && data.engine_oil_details.length > 0) {
-              data.engine_oil_details.forEach(row => {
-                //  const tableRow = document.createElement('tr');
-                let action = `   <div class="d-flex">
-                <button class="btn btn-warning btn-sm text-white mx-1" data-bs-toggle="modal" onclick="fetch_data(${row.id});" data-bs-target="#exampleModal" style="padding:5px">
-              <i class="fa-solid fa-eye" style="font-size: 11px;"></i></button>
-                    <button class="btn btn-primary btn-sm btn_edit" onclick="fetch_edit_data(${row.id});" data-bs-toggle="modal" data-bs-target="#staticBackdrop_1" id="yourUniqueIdHere" style="padding:5px">
-                        <i class="fas fa-edit" style="font-size: 11px;"></i>
-                    </button>
-                    <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.id});" style="padding:5px">
-                        <i class="fa fa-trash" style="font-size: 11px;"></i>
-                    </button>
-                </div>`;
+              // Reverse the order of the data
+              data.engine_oil_details.reverse().forEach(row => {
+                  let action = `<div class="d-flex">
+                      <button class="btn btn-warning btn-sm text-white mx-1" data-bs-toggle="modal" onclick="fetch_data(${row.id});" data-bs-target="#exampleModal" style="padding:5px">
+                          <i class="fa-solid fa-eye" style="font-size: 11px;"></i>
+                      </button>
+                      <button class="btn btn-primary btn-sm btn_edit" onclick="fetch_edit_data(${row.id});" data-bs-toggle="modal" data-bs-target="#staticBackdrop_1" id="yourUniqueIdHere" style="padding:5px">
+                          <i class="fas fa-edit" style="font-size: 11px;"></i>
+                      </button>
+                      <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.id});" style="padding:5px">
+                          <i class="fa fa-trash" style="font-size: 11px;"></i>
+                      </button>
+                  </div>`;
 
-                // Push row data as an array into the tableData
-                tableData.push([
-                  serialNumber,
-                  row.brand_name,
-                  row.oil_model,
-                  row.quantity,
-                  action
-              ]);
+                  // Push row data as an array into the tableData
+                  tableData.push([
+                      serialNumber,
+                      row.brand_name,
+                      row.oil_model,
+                      row.quantity,
+                      action
+                  ]);
 
-              serialNumber++;
-          });
+                  serialNumber++;
+              });
 
-          // Initialize DataTable after preparing the tableData
-          $('#example').DataTable().destroy();
-          $('#example').DataTable({
+              // Initialize DataTable after preparing the tableData
+              $('#example').DataTable().destroy();
+              $('#example').DataTable({
                   data: tableData,
                   columns: [
-                    { title: 'S.No.' },
-                    { title: 'Brand' },
-                    { title: 'Model Name' },
-                    { title: 'Quantity' },
-                    { title: 'Action', orderable: false } // Disable ordering for Action column
-                ],
+                      { title: 'S.No.' },
+                      { title: 'Brand' },
+                      { title: 'Model Name' },
+                      { title: 'Quantity' },
+                      { title: 'Action', orderable: false } // Disable ordering for Action column
+                  ],
                   paging: true,
                   searching: false,
                   // ... other options ...
               });
-         
+
           } else {
-              tableBody.innerHTML = '<tr><td colspan="9">No valid data available</td></tr>';
+              tableBody.html('<tr><td colspan="5">No valid data available</td></tr>');
           }
       },
       error: function (error) {
           console.error('Error fetching data:', error);
-          var msg = error;
-          $("#errorStatusLoading").modal('show');
-          $("#errorStatusLoading").find('.modal-title').html('Error');
-          $("#errorStatusLoading").find('.modal-body').html(msg);
+
       }
   });
 }
 engineOil_add();
 
-// function get_engine_oil() {
-//   // var url = "<?php echo $APIBaseURL; ?>getBrands";
-//   var apiBaseURL =APIBaseURL;
-//   var url = apiBaseURL + 'engine_oil';
-//   console.log(url);
 
-//   $.ajax({
-//       url: url,
-
-//       type: "GET",
-//       headers: {
-//           'Authorization': 'Bearer ' + localStorage.getItem('token')
-
-//       },
-//       success: function (data) {
-//           console.log(data);
-//           const select = document.getElementById('brand');
-//           // select.innerHTML = '';
-
-//           if (data.engine_oil_details.length > 0) {
-//               data.engine_oil_details.forEach(row => {
-//                   const option = document.createElement('option');
-//                   option.value = row.id; // You might want to set a value for each option
-//                   option.textContent = row.brand_name;
-//                   select.appendChild(option);
-//               });
-//           } else {
-//               select.innerHTML ='<option>No valid data available</option>';
-//           }
-//       },
-//       error: function (error) {
-//           console.error('Error fetching data:', error);
-//       }
-//   });
-// }
-// get_engine_oil();
 function get(selectId) {
   var apiBaseURL =APIBaseURL;
   var url = apiBaseURL + 'get_brand_by_product_id/' + 7;
@@ -624,18 +588,10 @@ function fetch_edit_data(id) {
           // Loop through each value in the compatible_model array
           if (Array.isArray(compatibleModels)) {
               compatibleModels.forEach(function(model) {
-                  // Loop through each option in the multiselect field
-                  $('#ass_list_1 option').each(function() {
-                      var optionValue = $(this).val();
-                      // If the option value matches the model value, mark it as selected
-                      if (optionValue === model) {
-                          $(this).prop('selected', true);
-                      }
-                  });
+                  // Find and select the corresponding option in the multiselect field
+                  $('#ass_list_1 option[value="' + model + '"]').prop('selected', true);
               });
           }
-          
-          // Trigger change event to update the multiselect field display
           $('#ass_list_1').trigger('change');
           // $('#ass_list_1').val(Data.compatible_model);
           $('#textarea_1').val(Data.description);
@@ -830,3 +786,129 @@ function resetform(){
   $('#model1').val('');
   engineOil_add();
 }
+
+
+
+function get() {
+  var url = 'http://tractor-api.divyaltech.com/api/customer/get_oil_brands';
+
+  $.ajax({
+    url: url,
+    type: "GET",
+    headers: {
+      'Authorization': 'Bearer ' + localStorage.getItem('token')
+    },
+    success: function (data) {
+      console.log(data);
+
+      const select = $('#brand1');
+      select.empty(); // Clear existing options
+
+      // Add a default option
+      select.append('<option selected disabled value="">Please select Brand</option>');
+
+      // Use an object to keep track of unique brands
+      var uniqueBrands = {};
+
+      $.each(data.brands, function (index, brand) {
+        var brand_id = brand.id;
+        var brand_name = brand.brand_name;
+
+        // Check if the brand ID is not already in the object
+        if (!uniqueBrands[brand_id]) {
+          // Add brand ID to the object
+          uniqueBrands[brand_id] = true;
+
+          // Append the option to the dropdown
+          select.append('<option value="' + brand_id + '">' + brand_name + '</option>');
+        }
+      });
+    },
+    error: function (error) {
+      console.error('Error fetching data:', error);
+    }
+  });
+}
+get();
+function get1() {
+  var url = 'http://tractor-api.divyaltech.com/api/customer/get_oil_brands';
+
+  $.ajax({
+    url: url,
+    type: "GET",
+    headers: {
+      'Authorization': 'Bearer ' + localStorage.getItem('token')
+    },
+    success: function (data) {
+      console.log(data);
+
+      const select = $('#brand');
+      select.empty(); // Clear existing options
+
+      // Add a default option
+      select.append('<option selected disabled value="">Please select Brand</option>');
+
+      // Use an object to keep track of unique brands
+      var uniqueBrands = {};
+
+      $.each(data.brands, function (index, brand) {
+        var brand_id = brand.id;
+        var brand_name = brand.brand_name;
+
+        // Check if the brand ID is not already in the object
+        if (!uniqueBrands[brand_id]) {
+          // Add brand ID to the object
+          uniqueBrands[brand_id] = true;
+
+          // Append the option to the dropdown
+          select.append('<option value="' + brand_id + '">' + brand_name + '</option>');
+        }
+      });
+    },
+    error: function (error) {
+      console.error('Error fetching data:', error);
+    }
+  });
+}
+get1();
+function get2() {
+  var url = 'http://tractor-api.divyaltech.com/api/customer/get_oil_brands';
+
+  $.ajax({
+    url: url,
+    type: "GET",
+    headers: {
+      'Authorization': 'Bearer ' + localStorage.getItem('token')
+    },
+    success: function (data) {
+      console.log(data);
+
+      const select = $('#brand_1');
+      select.empty(); // Clear existing options
+
+      // Add a default option
+      select.append('<option selected disabled value="">Please select Brand</option>');
+
+      // Use an object to keep track of unique brands
+      var uniqueBrands = {};
+
+      $.each(data.brands, function (index, brand) {
+        var brand_id = brand.id;
+        var brand_name = brand.brand_name;
+
+        // Check if the brand ID is not already in the object
+        if (!uniqueBrands[brand_id]) {
+          // Add brand ID to the object
+          uniqueBrands[brand_id] = true;
+
+          // Append the option to the dropdown
+          select.append('<option value="' + brand_id + '">' + brand_name + '</option>');
+        }
+      });
+    },
+    error: function (error) {
+      console.error('Error fetching data:', error);
+    }
+  });
+}
+get2();

@@ -14,6 +14,12 @@
   .negative-margin {
     margin-top: -10px !important; /* Adjust this value as needed */
   }
+  .text-truncate {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+   
+    }
 </style>
 
 <body>

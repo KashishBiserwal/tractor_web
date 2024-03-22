@@ -4,54 +4,58 @@ $(document).ready(function() {
     get_rent_data();
     getHireTracById();
     get_oldharvester();
-
+    $('#Verify').click(verifyotp);
+    
 });
 function getHireTracById() {
-    console.log('tyufhghfjghyfjkh');
+
     var urlParams = new URLSearchParams(window.location.search);
-    var Id = urlParams.get('customer_id');
+    var Id = urlParams.get('id');
     var url = 'http://tractor-api.divyaltech.com/api/customer/get_rent_data_by_id/' + Id;
-   
     $.ajax({
         url: url,
         type: "GET",
         success: function(data) {
-        var brand_model = data.rent_details.data1[0].brand_name + " " + data.rent_details.data1[0].model;
-        var full_name = data.rent_details.data1[0].first_name + " " + data.rent_details.data1[0].last_name;
-        document.getElementById('brand_name').innerText= brand_model;
-        document.getElementById('name_first').innerText= full_name;
-        document.getElementById('set_dist').innerText=data.rent_details.data1[0].district ;
-        document.getElementById('set_state').innerText=data.rent_details.data1[0].state;
-        document.getElementById('power_hp').innerText=data.rent_details.data2[0].rate + "/-";
-        document.getElementById('engine_cc').innerText= " per "+  data.rent_details.data2[0].rate_per;
-        document.getElementById('brand_name_form').innerText= data.rent_details.data1[0].brand_name;
-        document.getElementById('model_form').innerText= data.rent_details.data1[0].model;
-     
-     
-        var product = data.rent_details.data2[0];
-            var imageNames = product.images.split(',');
-            var carouselContainer = $('.mySwiper2_data');
-            var carouselContainer2 = $('.mySwiper_data');
+            // Processing data on successful response
+            var brand_model = data.rent_details.data1[0].brand_name + " " + data.rent_details.data1[0].model;
+            var full_name = data.rent_details.data1[0].first_name + " " + data.rent_details.data1[0].last_name;
+            var fullname = data.rent_details.data1[0].first_name + " " + data.rent_details.data1[0].last_name;
+            // Setting data to specific HTML elements
+            document.getElementById('brand_name1').innerText = brand_model;
+            document.getElementById('name_first').innerText = full_name;
+            document.getElementById('set_dist').innerText = data.rent_details.data1[0].district_name;
+            document.getElementById('set_state').innerText = data.rent_details.data1[0].state_name;
+            document.getElementById('power_hp').innerText = data.rent_details.data2[0].rate + "/-";
+            document.getElementById('engine_cc').innerText = " per " + data.rent_details.data2[0].rate_per;
+            document.getElementById('customer_id').value = data.rent_details.data2[0].customer_id;
+            document.getElementById('brand_name_brand').innerText = data.rent_details.data1[0].brand_name;
+            document.getElementById('model_form').innerText = data.rent_details.data1[0].model;
+            document.getElementById('slr_name').value = fullname;
+            document.getElementById('mob_num').value = data.rent_details.data1[0].mobile;
+            // Extracting image names from data
+            var imageNames = data.rent_details.data2[0].images.split(',');
 
+            // Selecting the carousel container
+            var carouselContainer = $('.swiper-wrapper_buy');
+
+            // Clearing existing slides
             carouselContainer.empty();
 
+            // Iterating through image names to create carousel slides
             imageNames.forEach(function(imageName) {
-                var imageUrl = "http://tractor-api.divyaltech.com/uploads/rent_img/" + imageName.trim(); 
+                var imageUrl = "http://tractor-api.divyaltech.com/uploads/rent_img/" + imageName.trim();
                 var slide = $('<div class="swiper-slide swiper-slide_buy"><img class="img_buy" src="' + imageUrl + '" /></div>');
-                var slide2 = $('<div class="swiper-slide swiper-slide_buy"><img class="img_buy" src="' + imageUrl + '" /></div>');
                 carouselContainer.append(slide);
-                carouselContainer2.append(slide2);
             });
 
-           // Initialize or update the Swiper carousel
-            var mySwiper = new Swiper('.mySwiper2_data', {
-              // Your Swiper configuration options
-          });
-          var mySwiper = new Swiper('.mySwiper_data', {
-              
-          });
+            // Initializing or updating the Swiper carousel
+            var mySwiper = new Swiper('.swiper_buy', {
+                // Your Swiper configuration options
+            });
+
         },
-        error: function (error) {
+        error: function(error) {
+            // Error handling
             console.error('Error fetching data:', error);
         }
     });
@@ -59,27 +63,29 @@ function getHireTracById() {
 
 function storedata() {
     var enquiry_type_id = 19;
-    var model = $('#model').val(); 
-    var brand_name = $('#brand_name').val();  
-    var product_id = $('#product_id').val();  
+    // var model = $('#model_form').val(); 
+    // var brand = $('#brand_name_brand').val();  
+    var customer_id = $('#customer_id').val();  
     var first_name = $('#first_name').val();
     var last_name = $('#last_name').val();
     var mobile_number = $('#mobile_number').val();
-    var state = $('#the_state').val();
+    var state = $('#state_form').val();
     var district = $('#the_district').val();
     var tehsil = $('#the_tehsil').val();
-
+    var price = $('#price_form').val();
+    price = price.replace(/[\,\.\s]/g, '');
     var paraArr = {
-        'model': model,
-        'brand_name': brand_name,
+        // 'model': model,
+        // 'brand_id': brand,
         'enquiry_type_id': enquiry_type_id,
-        'product_id': product_id,
+        'product_id': customer_id,
         'first_name': first_name,
         'last_name': last_name,
         'mobile': mobile_number,
         'state': state,
         'district': district,
         'tehsil': tehsil,
+        'price': price,
     };
 
     var url = 'http://tractor-api.divyaltech.com/api/customer/customer_enquiries';
@@ -100,7 +106,7 @@ function storedata() {
           // $('#get_OTP_btn').modal('show');
           $("#errorStatusLoading").modal('hide');
           $('#get_OTP_btn').modal('show');
-          get_otp(mobile); // Pass mobile number to get_otp function
+          get_otp(); // Pass mobile number to get_otp function
         
         },
         error: function (error) {
@@ -114,74 +120,76 @@ function storedata() {
         }
       });
 }
- function get_otp(phone) {
-      var url = "http://tractor-api.divyaltech.com/api/customer/customer_login";
-   
-      var paraArr = {
-          'mobile': phone,
-      };
-  
-      $.ajax({
-          url: url,
-          type: "POST",
-          data: paraArr,
-          success: function (result) {
-              console.log(result, "result");
-  
-              // Once OTP is received, store mobile number in hidden field within modal
-              $('#Mobile').val(phone);
-  
-          },
-          error: function (error) {
-              console.error('Error fetching data:', error);
-          }
-      });
-  }
-  
-  function verifyotp() {
-      var mobile = document.getElementById('Mobile').value;
-      var otp = document.getElementById('otp').value;
-  
-      var paraArr = {
-          'otp': otp,
-          'mobile': mobile,
+function get_otp() {
+    var phone = $('#mobile_number').val();
+    var url = "http://tractor-api.divyaltech.com/api/customer/customer_login";
+ 
+    var paraArr = {
+     'mobile': phone,
+   };
+   //  var token = localStorage.getItem('token');
+   //   var headers = {
+   //   'Headers': 'Bearer ' + token
+   //   };
+    $.ajax({
+      url: url,
+      type: "POST",
+      data: paraArr,
+     //  headers: headers,
+      success: function (result) {
+        console.log(result, "result");
+       
+      },
+      error: function (error) {
+        console.error('Error fetching data:', error);
       }
-      var url = 'http://tractor-api.divyaltech.com/api/customer/verify_otp';
-      $.ajax({
-          url: url,
-          type: "POST",
-          data: paraArr,
-          success: function (result) {
-              console.log(result);
-  
-              // Assuming your model has an ID 'myModal', hide it on success
-              $('#get_OTP_btn').modal('hide'); // Assuming it's a Bootstrap modal
-              $('#staticBackdrop').modal('show');
-              // Reset input fields
-              // document.getElementById('phone').value = ''; 
-              // document.getElementById('otp').value = ''; 
-  
-              // Access data field in the response
-          }, 
-          error: function (xhr, textStatus, errorThrown) {
-              console.log(xhr.status, 'error');
-              if (xhr.status === 401) {
-                  console.log('Invalid credentials');
-                  var htmlcontent = `<p>Invalid credentials!</p>`;
-                  document.getElementById("error_message").innerHTML = htmlcontent;
-              } else if (xhr.status === 403) {
-                  console.log('Forbidden: You don\'t have permission to access this resource.');
-                  var htmlcontent = ` <p> You don't have permission to access this resource.</p>`;
-                  document.getElementById("error_message").innerHTML = htmlcontent;
-              } else {
-                  console.log('An error occurred:', textStatus, errorThrown);
-                  var htmlcontent = `<p>An error occurred while processing your request.</p>`;
-                  document.getElementById("error_message").innerHTML = htmlcontent;
-              }
-          },
-      });
+    });
   }
 
+
+  function verifyotp() {
+    var mobile = document.getElementById('mobile_number').value;
+    var otp = document.getElementById('otp').value;
+
+    var paraArr = {
+        'otp': otp,
+        'mobile': mobile,
+    }
+    var url = 'http://tractor-api.divyaltech.com/api/customer/verify_otp';
+    $.ajax({
+        url: url,
+        type: "POST",
+        data: paraArr,
+        success: function (result) {
+            console.log(result);
+
+            // Assuming your model has an ID 'myModal', hide it on success
+            $('#get_OTP_btn').modal('hide'); // Assuming it's a Bootstrap modal
+            $('#staticBackdrop1').modal('show');
+            // Reset input fields
+            // document.getElementById('phone').value = ''; 
+            // document.getElementById('otp').value = ''; 
+
+            // Access data field in the response
+        }, 
+        error: function (xhr, textStatus, errorThrown) {
+            console.log(xhr.status, 'error');
+            if (xhr.status === 401) {
+                console.log('Invalid credentials');
+                var htmlcontent = `<p>Invalid credentials!</p>`;
+                document.getElementById("error_message").innerHTML = htmlcontent;
+            } else if (xhr.status === 403) {
+                console.log('Forbidden: You don\'t have permission to access this resource.');
+                var htmlcontent = ` <p> You don't have permission to access this resource.</p>`;
+                document.getElementById("error_message").innerHTML = htmlcontent;
+            } else {
+                console.log('An error occurred:', textStatus, errorThrown);
+                var htmlcontent = `<p>An error occurred while processing your request.</p>`;
+                document.getElementById("error_message").innerHTML = htmlcontent;
+            }
+        },
+    });
+}
 function get_rent_data() {
     var url = "http://tractor-api.divyaltech.com/api/customer/get_rent_data";
 

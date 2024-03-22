@@ -1,8 +1,8 @@
 $(document).ready(function() {
     console.log("ready!");
     $('#delership_enq_btn').click(store);
-    getdealerId();
     getDealerInnerId();
+    
     getTractorList();
     get_blog();
     getpopularTractorList();
@@ -13,7 +13,8 @@ function getDealerInnerId() {
   var urlParams = new URLSearchParams(window.location.search);
   var customer_id = urlParams.get('id');
   console.log(customer_id,'sdfghjksdfghjk');
-  var url = 'http://tractor-api.divyaltech.com/api/customer/get_dealer_enquiry_data_by_id/' + customer_id;
+
+  var url = 'http://tractor-api.divyaltech.com/api/customer/dealer_data/' + customer_id;
   
   $.ajax({    
       url: url,
@@ -21,23 +22,18 @@ function getDealerInnerId() {
       success: function(data) {
           console.log(data, 'abc');
 
-          // Concatenate district and state
-          var location = data.dealer_enquiry_details[0].district_name + ', ' + data.dealer_enquiry_details[0].state_name;
-
-          // Update HTML elements with data
-          document.getElementById('brand_main').innerText = data.dealer_enquiry_details[0].brand_name;
-         
+          var location = data.dealer_details[0].district_name + ', ' + data.dealer_details[0].state_name;
+          document.getElementById('brand_main').innerText = data.dealer_details[0].brand_name;
+          document.getElementById('brand_second').innerText = data.dealer_details[0].brand_name;
           document.getElementById('location').innerText = location;
-          document.getElementById('email_id').innerText = data.dealer_enquiry_details[0].email;
-          // document.getElementById('location_1').innerText = location;
-          document.getElementById('brand_second').innerText = data.dealer_enquiry_details[0].brand_name;
-          document.getElementById('mob_number').innerText = data.dealer_enquiry_details[0].mobile;
-          document.getElementById('mystate').innerText = data.dealer_enquiry_details[0].state_name;
-          document.getElementById('my_district').innerText = data.dealer_enquiry_details[0].district_name;
-          document.getElementById('product_id').value = data.dealer_enquiry_details[0].product_id;
+          document.getElementById('email_id').innerText = data.dealer_details[0].email;
+          document.getElementById('mob_number').innerText = data.dealer_details[0].mobile;
+          document.getElementById('mystate').innerText = data.dealer_details[0].state_name;
+          document.getElementById('mydistrict').innerText = data.dealer_details[0].district_name;
+          document.getElementById('product_id').value = data.dealer_details[0].id;
 
          
-          var imageNames = data.dealer_enquiry_details[0].image_names.split(',');
+          var imageNames = data.dealer_details[0].image_names.split(',');
 
           var carouselContainer = $('.swiper-wrapper_buy');
 
@@ -244,7 +240,7 @@ function displayTractors(tractors) {
   });
       // Append the new card to the container
       productContainer.append(newCard);
-      tableData.append(tableRow);
+    //   tableData.append(tableRow);
       // hp_wise.append(tablerow_hp);
      
   });
@@ -392,60 +388,60 @@ var url = "http://tractor-api.divyaltech.com/api/customer/customer_enquiries"
     });
   }
 
-  function getdealerId() {
-    console.log(window.location)
-    var urlParams = new URLSearchParams(window.location.search);
-    var Id = urlParams.get('id');
-    var url = "http://tractor-api.divyaltech.com/api/customer/dealer_data/" + Id;
-     console.log(url);
-    $.ajax({
-        url: url,
-        type: "GET",
-        success: function(data) {
-        console.log(data, 'abc');
-        /* document.getElementById('brand_name').innerText=data.engine_oil_details[0].brand_name ;
-        document.getElementById('model_name').innerText=data.engine_oil_details[0].oil_model;
-        document.getElementById('grade').innerText=data.engine_oil_details[0].grade;
-        document.getElementById('quantity').innerText=data.engine_oil_details[0].quantity;
-        document.getElementById('price').innerText=data.engine_oil_details[0].price;
-        // document.getElementById('compatible_tractor').innerText=JSON.parse(data.engine_oil_details[0].compatible_model);
-        document.getElementById('description').innerText=data.engine_oil_details[0].description;
+//   function getdealerId() {
+//     console.log(window.location)
+//     var urlParams = new URLSearchParams(window.location.search);
+//     var Id = urlParams.get('id');
+//     var url = "http://tractor-api.divyaltech.com/api/customer/dealer_data/" + Id;
+//      console.log(url);
+//     $.ajax({
+//         url: url,
+//         type: "GET",
+//         success: function(data) {
+//         console.log(data, 'abc');
+//         document.getElementById('brand_name').innerText=data.engine_oil_details[0].brand_name ;
+//         document.getElementById('model_name').innerText=data.engine_oil_details[0].oil_model;
+//         document.getElementById('grade').innerText=data.engine_oil_details[0].grade;
+//         document.getElementById('quantity').innerText=data.engine_oil_details[0].quantity;
+//         document.getElementById('price').innerText=data.engine_oil_details[0].price;
+//         // document.getElementById('compatible_tractor').innerText=JSON.parse(data.engine_oil_details[0].compatible_model);
+//         document.getElementById('description').innerText=data.engine_oil_details[0].description;
      
-            var product = data.engine_oil_details[0];
-            var imageNames = product.image_names.split(',');
-            var carouselContainer = $('.mySwiper2_data');
-            var carouselContainer2 = $('.mySwiper_data');
+//             var product = data.engine_oil_details[0];
+//             var imageNames = product.image_names.split(',');
+//             var carouselContainer = $('.mySwiper2_data');
+//             var carouselContainer2 = $('.mySwiper_data');
 
-            carouselContainer.empty();
+//             carouselContainer.empty();
 
-            imageNames.forEach(function(imageName) {
-                var imageUrl = "http://tractor-api.divyaltech.com/uploads/engine_oil_img/" + imageName.trim(); 
-                var slide = $('<div class="swiper-slide swiper-slide_buy"><img class="img_buy" src="' + imageUrl + '" /></div>');
-                var slide2 = $('<div class="swiper-slide swiper-slide_buy"><img class="img_buy" src="' + imageUrl + '" /></div>');
-                carouselContainer.append(slide);
-                carouselContainer2.append(slide2);
-            });
+//             imageNames.forEach(function(imageName) {
+//                 var imageUrl = "http://tractor-api.divyaltech.com/uploads/engine_oil_img/" + imageName.trim(); 
+//                 var slide = $('<div class="swiper-slide swiper-slide_buy"><img class="img_buy" src="' + imageUrl + '" /></div>');
+//                 var slide2 = $('<div class="swiper-slide swiper-slide_buy"><img class="img_buy" src="' + imageUrl + '" /></div>');
+//                 carouselContainer.append(slide);
+//                 carouselContainer2.append(slide2);
+//             });
 
-           // Initialize or update the Swiper carousel
-            var mySwiper = new Swiper('.mySwiper2_data', {
-              // Your Swiper configuration options
-          });
-          var mySwiper = new Swiper('.mySwiper_data', {
-              // Your Swiper configuration options
-          }); */
-        },
-        error: function (error) {
-            console.error('Error fetching data:', error);
-        }
-    });
-}
+//            // Initialize or update the Swiper carousel
+//             var mySwiper = new Swiper('.mySwiper2_data', {
+//               // Your Swiper configuration options
+//           });
+//           var mySwiper = new Swiper('.mySwiper_data', {
+//               // Your Swiper configuration options
+//           }); 
+//         },
+//         error: function (error) {
+//             console.error('Error fetching data:', error);
+//         }
+//     });
+// }
 
 
 
 // get brand
 function get() {
-  var apiBaseURL = APIBaseURL;
-  var url = apiBaseURL + 'getBrands';
+ 
+  var url = 'http://tractor-api.divyaltech.com/api/customer/get_brand_for_finance';
 
   $.ajax({
     url: url,
@@ -488,7 +484,7 @@ get();
 
 
 function get_blog() {
-    var url = "http://192.168.1.12:9000/api/customer/blog_details";
+    var url = "http://tractor-api.divyaltech.com/api/customer/get_new_harvester";
     
 
     $.ajax({
@@ -497,10 +493,10 @@ function get_blog() {
         success: function (data) {
         console.log(data, "harvster data")
 
-        if (data.blog_details && data.blog_details.length > 0) {
+        if (data.product && data.product.length > 0) {
            
             var productContainer = $("#New_Tractor_Implements");
-            data.blog_details.forEach(function (p) {
+            data.product.forEach(function (p) {
                 var images = p.image_names;
                 var a = [];
         
@@ -514,26 +510,35 @@ function get_blog() {
                 var newCard = `
                 
                 <div class="item box_shadow b-t-1">
-                    <div class="thumb">
-                        <a href="blog_customer_inner.php?id=${p.id}">
-                            <img src="http://tractor-api.divyaltech.com/uploads/blog_img/${a[0]}" class="engineoil_img  w-100" alt="img">
-                       </a> </a>
+                <a href="harvester_inner.php?product_id=${p.id}" class="h-auto success__stry__item d-flex flex-column text-decoration-none shadow">
+                <div class="thumb">
+                    <div>
+                        <img src="http://tractor-api.divyaltech.com/uploads/product_img/${a[0]}" class=" engineoil_img object-fit-cover w-100" h-100" alt="harvester_img">
                     </div>
-                    <div class="content mb-3 ms-3">
-                    <a href="blog_customer_inner.php?id=${p.id}">
-                        <button type="button" class="btn btn-warning mt-3">${p.blog_category} </button>
-                        </a>
-                        <div class="row mt-2">
-                            <p class="fw-bold text-truncate">${p.heading}</p>
+                </div>
+                <div class="position-absolute" >
+                    <p  style="font-size:13px;" class="rounded-pill bg-success text-white ms-1 text-center px-2 mt-1">Self Propelled</p>
+                </div>
+                <div class="content d-flex flex-column flex-grow-1 ">
+                    
+                    <div class="power text-center mt-3">
+                    <div class="row text-center">
+                        <div class="col-12 text-center">
+                            <p class="fw-bold pe-3 text-primary">${name}</p>
                         </div>
-                        <div class="row">
-                            <p class="fw-bold"><span>publisher: </span>${p.publisher}</p>
-                        </div>
-                        <div class="row">
-                            <p class="fw-bold"><span>Date/time: </span>${p.date}</p>
-                        </div>
-                        
                     </div>
+                        <div class="row ">
+                            <div class="col-12 "><p class="text-dark ps-2">Cutting Width : ${p.cutting_bar_width} Feet</p></div>
+                            
+                        </div>    
+                    </div>
+                </div>
+                <div class="col-12 btn-success">
+                    <button type="button" class="btn btn-success py-2 w-100"></i> 
+                    Power : ${p.horse_power} HP
+                    </button>
+                </div>
+            </a>
                 </div>
             `;
         
@@ -581,7 +586,7 @@ function get_blog() {
 
 
 function getpopularTractorList() {
-    var url = "http://192.168.1.12:9000/api/customer/get_new_tractor";
+    var url = "http://tractor-api.divyaltech.com/api/customer/get_new_tractor";
 
     $.ajax({
         url: url,
@@ -619,7 +624,7 @@ function getpopularTractorList() {
                                     <img src="http://tractor-api.divyaltech.com/uploads/product_img/${a[0]}" class="" alt="img">
                                 </div>
                                 <div class="new-tractor-content text-center b-t-1">
-                                    <h6 class="fw-bold mt-2 text-decoration-none text-dark">${p.brand_name} ${p.model}</h6>
+                                    <h6 class="fw-bold mt-2 text-decoration-none text-dark text-truncate">${p.brand_name} ${p.model}</h6>
                                     <p class="text-dark text-decoration-none mt-2 mb-0">From: ₹${p.starting_price}-${p.ending_price} lac*</p>
                                     <div class=" bg-success w-100 p-2">
                                     <a class="text-decoration-none text-white bg-success w-100" href="onload.php?${p.product_id}">

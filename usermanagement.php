@@ -193,85 +193,89 @@ include 'includes/headertag.php';
                   <!-- <button type="button" class="btn-close btn-success" data-bs-dismiss="modal" aria-label="Close"></button>-->
                 </div>
                   <div class="modal-body">
-                      <form action="" method="POST"  class="" id="">
+                        <form action="" method="POST"  class="" id="">
                           <div class="">
                             <div class="card-body">
                               <div class="row">
-                              <div class="col- col-sm-6 col-lg-6 col-md-6 mt-3" hidden>
-                              <div class="form-outline">
-                                  <label class="form-label"> id Name<span class="text-danger">*</span></label>
-                                          <input type="text" class="form-control py-2" for="idUser"  id="idUser" name="first_name" placeholder="Enter First Name">
-                                  <small></small>
-                                </div>
-                              </div>
-                                <div class="col- col-sm-6 col-lg-6 col-md-6 mt-3">
-                                <div class="form-outline">
-                                  <label class="form-label"> First Name<span class="text-danger">*</span></label>
-                                  <input type="text" class="form-control" for="first_name" prachi="" id="first_name1" name="first_name" >
-                                  <small></small>
-                                </div>
+                                <div class="col- col-sm-6 col-lg-6 col-md-6 mt-3" hidden>
+                                  <div class="form-outline">
+                                    <label class="form-label"> id Name<span class="text-danger">*</span></label>
+                                            <input type="text" class="form-control py-2" for="idUser"  id="idUser" name="first_name" placeholder="Enter First Name">
+                                    <small></small>
+                                  </div>
                                 </div>
                                 <div class="col- col-sm-6 col-lg-6 col-md-6 mt-3">
-                                <div class="form-outline">
-                                  <label class="form-label" for="last_name"> Last Name<span class="text-danger">*</span></label>
-                                  <input type="text" class="form-control"  name="last_name"   id="last_name1" >
-                                  <small></small>
-                                </div>
-                                </div>
-                                <div class="col- col-sm-6 col-lg-6 col-md-6 mt-3">
-                                <div class="form-outline">
-                                  <label class="form-label">Contact Number<span class="text-danger">*</span></label>
-                                  <input type="text" class="form-control"  name="mobile" for="mobile" id="mobile1">
-                                  <small></small>
-                                </div>
+                                  <div class="form-outline">
+                                    <label class="form-label"> First Name<span class="text-danger">*</span></label>
+                                    <input type="text" class="form-control" for="first_name" prachi="" id="first_name1" name="first_name" >
+                                    <small></small>
+                                  </div>
                                 </div>
                                 <div class="col- col-sm-6 col-lg-6 col-md-6 mt-3">
-                                <div class="form-outline">
-                                  <label class="form-label">Email ID<span class="text-danger">*</span></label>
-                                  <input type="text" class="form-control" id="email1" name="email" for="email1">
-                                  <small></small>
-                                </div>
+                                  <div class="form-outline">
+                                    <label class="form-label" for="last_name"> Last Name<span class="text-danger">*</span></label>
+                                    <input type="text" class="form-control"  name="last_name"   id="last_name1" >
+                                    <small></small>
+                                  </div>
                                 </div>
                                 <div class="col- col-sm-6 col-lg-6 col-md-6 mt-3">
-                                <div class="form-outline">
-                                  <label class="form-label">Password<span class="text-danger">*</span></label>
-                                  <input type="text" class="form-control" id="password_edit"name="password" for="password"  >
-                                  <small></small>
+                                  <div class="form-outline">
+                                    <label class="form-label">Contact Number<span class="text-danger">*</span></label>
+                                    <input type="text" class="form-control"  name="mobile" for="mobile" id="mobile1">
+                                    <small></small>
+                                  </div>
                                 </div>
+                                <div class="col- col-sm-6 col-lg-6 col-md-6 mt-3">
+                                  <div class="form-outline">
+                                    <label class="form-label">Email ID<span class="text-danger">*</span></label>
+                                    <input type="text" class="form-control" id="email1" name="email" for="email1">
+                                    <small></small>
+                                  </div>
                                 </div>
-                              <div class="col- col-sm-6 col-lg-6 col-md-6 mt-3">
-                              <div class="form-outline">
-                                <label class="form-label">Confirm Password<span class="text-danger">*</span></label>
-                                <input type="text" class="form-control py-2" id="password_confirmation_edit" name="password_confirmation" for="password_confirmation" >
-                                <small></small>
-                                <div class="form-text confirm-message"></div>
-                              </div>
-                              </div>
-                              <div class="col- col-sm-6 col-lg-6 col-md-6 mt-3">
-                              <div class="form-outline">
-                                <label class="form-label">User Type<span class="text-danger">*</span></label>
-                                <select class="form-select" aria-label="Default select example" name="user_type" id="user_type1">
-                                  <option value>Select User</option>
-                                  <option value="0" >Admin</option>
-                                  <option value="1">User</option>
-                                </select>
-                              </div>
-                              </div>
-                              <div class="col-12 col-sm-6 col-md-6 col-lg-6 mt-3">
-                              <div class="form-outline">
-                                <label class="form-label"> State<span class="text-danger">*</span></label>
-                                <select class="form-select" aria-label="Default select example"  name="status" id="status1">
-                                  <option value>Select Status</option>
-                                  <option value="0">Active</option>
-                                  <option value="1">In Active</option>
-                                </select>
-                              </div>
-                              </div>
-                          
+                                <div class="col- col-sm-6 col-lg-6 col-md-6 mt-3">
+                                  <div class="form-outline">
+                                    <label class="form-label">User Type<span class="text-danger">*</span></label>
+                                    <select class="form-select" aria-label="Default select example" name="user_type" id="user_type1">
+                                      <option value>Select User</option>
+                                      <option value="0" >Admin</option>
+                                      <option value="1">User</option>
+                                    </select>
+                                  </div>
+                                </div>
+                                <div class="col-12 col-sm-6 col-md-6 col-lg-6 mt-3">
+                                  <div class="form-outline">
+                                    <label class="form-label"> State<span class="text-danger">*</span></label>
+                                    <select class="form-select" aria-label="Default select example"  name="status" id="status1">
+                                      <option value>Select Status</option>
+                                      <option value="0">Active</option>
+                                      <option value="1">In Active</option>
+                                    </select>
+                                  </div>
+                                </div>
+                              <!-- <div class="row">
+                                <div class="col-12 mt-3 text-right">
+                                  <a href="#" id="forgetPasswordLink">Forget Password</a>
+                                </div>
+                                <div class="col- col-sm-6 col-lg-6 col-md-6 mt-3" id="newPasswordContainer" style="display: none;">
+                                  <div class="form-outline">
+                                      <label class="form-label">New Password<span class="text-danger">*</span></label>
+                                      <input type="password" class="form-control" id="password_edit" name="password" for="password">
+                                      <small></small>
+                                  </div>
+                                </div>
+                                <div class="col- col-sm-6 col-lg-6 col-md-6 mt-3" id="confirmPasswordContainer" style="display: none;">
+                                  <div class="form-outline">
+                                    <label class="form-label">Confirm Password<span class="text-danger">*</span></label>
+                                    <input type="password" class="form-control py-2" id="password_confirmation_edit" name="password_confirmation" for="password_confirmation">
+                                    <small></small>
+                                    <div class="form-text confirm-message"></div>
+                                  </div>
+                                </div>
+                              </div> -->
+                            </div>
                           </div>
-                        </div>
-                      </form>
-                  </div>
+                        </form>
+                      </div>
                   <div class="modal-footer">
                     <button type="button" class="btn btn-secondary  mb-0 btn_all" data-dismiss="modal">Close</button>
                     <button type="button" class="btn btn-success  mb-0 btn_all" id="dataedit" data-dismiss="modal" >Save changes</button>
@@ -478,5 +482,11 @@ function resetForm() {
     }
 </script>
 
-  
+<!-- <script>
+    document.getElementById('forgetPasswordLink').addEventListener('click', function(event) {
+        event.preventDefault(); // Prevents default link behavior (navigating to href)
+        document.getElementById('newPasswordContainer').style.display = 'block'; // Display New Password field
+        document.getElementById('confirmPasswordContainer').style.display = 'block'; // Display Confirm Password field
+    });
+</script> -->
 

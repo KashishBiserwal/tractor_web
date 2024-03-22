@@ -44,10 +44,11 @@ include 'includes/footertag.php';
               </div>
             </div>
             <div class="col-12 col-sm-12 col-md-3 col-lg-3">
-              <div class="form-outline ">
+              <div class="form-outline">
                 <label class="form-label">Model</label>
-                <input type="text" class="form-control" placeholder="" id="model_sct" name="model_sct">
+                <select class="form-select form-control"  id="model_sct" name="model_sct" aria-label="Default select example">
                    
+                </select>
               </div>
             </div>
             <div class="col-12 col-sm-12 col-md-3 col-lg-3">
@@ -82,22 +83,22 @@ include 'includes/footertag.php';
             <div class="table-responsive">
               <table id="example" class="table table-striped brand_table  table-hover table-bordered  no-footer" width="100%; margin-bottom: 15px;">
                 <thead class="">
-                                        <tr>
-                                            <th class="d-none d-md-table-cell text-white">S.No.</th>
-                                            <th class="d-none d-md-table-cell text-white">Date/Time</th>
-                                            <th class="d-none d-md-table-cell text-white">Brand</th>
-                                            <th class="d-none d-md-table-cell text-white">Model</th>
-                                            <th class="d-none d-md-table-cell text-white">Full Name</th>
-                                            <th class="d-none d-md-table-cell text-white">Phone Number </th>
-                                            <th class="d-none d-md-table-cell text-white">State </th>
-                                            <th class="d-none d-md-table-cell text-white">District</th>
-                                            <th class="d-none d-md-table-cell text-white">Action</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody id="data-table">
-                                    </tbody>
-                                </table>
-                            </div>
+                    <tr>
+                        <th class="d-none d-md-table-cell text-white">S.No.</th>
+                        <th class="d-none d-md-table-cell text-white">Date/Time</th>
+                        <th class="d-none d-md-table-cell text-white">Brand</th>
+                        <th class="d-none d-md-table-cell text-white">Model</th>
+                        <th class="d-none d-md-table-cell text-white">Full Name</th>
+                        <th class="d-none d-md-table-cell text-white">Phone Number </th>
+                        <th class="d-none d-md-table-cell text-white">State </th>
+                        <th class="d-none d-md-table-cell text-white">District</th>
+                        <th class="d-none d-md-table-cell text-white">Action</th>
+                    </tr>
+              </thead>
+              <tbody id="data-table">
+              </tbody>
+            </table>
+        </div>
       </div>
     </div>
    </section>
@@ -137,12 +138,19 @@ include 'includes/footertag.php';
                                     </select>
                                   </div>
                                 </div>
-                                    <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
+                                <div class="col-12 col-sm-6 col-lg-6 col-md-6">
+                                  <div class="form-outline">
+                                    <label class="form-label">Model</label>
+                                    <select class="form-select py-2" id="model_1" name="model_1" aria-label="Default select example" required>
+                                    </select>
+                                  </div>
+                                </div>
+                                    <!-- <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
                                       <div class="form-outline">
                                         <label for="name" class="form-label text-dark">Model</label>
                                         <input type="text" class="form-control" placeholder="" value="" id="model_1" name="model_1">
                                       </div>
-                                    </div>
+                                    </div> -->
                                  <div class="col-12 col-lg-6 col-md-6 col-sm-6 mt-3 ">
                                       <div class="form-outline">
                                         <label for="name" class="form-label text-dark">First Name</label>
@@ -248,6 +256,14 @@ include 'includes/footertag.php';
                           <td>Tehsil-</td>
                             <td id="tehsil_1"></td>
                           </tr>
+                          <!-- <tr>
+                            <td>Upload images-</td>
+                              <td colspan="3">
+                                  <div class="col-12">
+                                      <div id="selectedImagesContainer" class="upload__img-wrap row"></div>
+                                  </div>
+                              </td>
+                          </tr> -->
                         </tbody>
                       </table>
                     </div>

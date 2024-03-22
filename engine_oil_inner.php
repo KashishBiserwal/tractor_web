@@ -167,62 +167,64 @@
                     <!-- MODAL BODY -->
                     <div class="modal-body bg-light">
                     <form id="engine_oil_form" method="POST" onsubmit="return false">
-                <div class="row">
-            
-             <!--    <input type="hidden" id="brand_name">
-                <input type="hidden" id="model_name" > -->
-                <input type="hidden" id="enquiry_type_id" value="12" >
-                
-            
-         
-                  <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                    <div class="form-outline">
-                      <label for="f_name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i> First Name</label>
-                      <input type="text" class="form-control mb-0" placeholder="Enter Your Name" id="firstName" name="firstName">
-                    </div>
-                  </div>
-                  <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                    <div class="form-outline">
-                      <label for="last_name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i> Last Name</label>
-                      <input type="text" class="form-control mb-0" placeholder="Enter Your Name" id="lastName" name="lastName">
-                    </div>
-                  </div>
-                  <div class="col-12 col-sm-6 col-md-6 col-lg-6 mt-4">
-                    <div class="form-outline">
-                      <label for="eo_number" class="form-label text-dark fw-bold"> <i class="fa fa-phone" aria-hidden="true"></i> Phone Number</label>
-                      <input type="text" class="form-control mb-0" placeholder="Enter Number" id="mobile_number" name="mobile_number">
-                    </div>
-                  </div>
-                  <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-4">
-                    <div class="form-outline">
-                      <label for="eo_state" class="form-label text-dark fw-bold"> <i class="fas fa-location"></i> State</label>
-                      <select class="form-select py-2 state-dropdown" aria-label=".form-select-lg example" id="state" name="state">
-                       
-                      </select>
-                    </div>
-                  </div>
-                  <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-4">
-                    <div class="form-outline">
-                      <label for="eo_dist" class="form-label fw-bold  text-dark"><i class="fa-solid fa-location-dot"></i> District</label>
-                      <select class="form-select py-2 district-dropdown" aria-label=".form-select-lg example" id="district" name="district">
-                      
-                      </select>
-                    </div>                    
-                  </div>       
-                  <div class="col-12 col-sm-6 col-md-6 col-lg-6 mt-4">
-                    <div class="form-outline">
-                      <label for="eo_tehsil" class="form-label fw-bold text-dark"> Tehsil</label>
-                      <select class="form-select py-2 tehsil-dropdown" aria-label=".form-select-lg example" id="Tehsil" name="Tehsil">
-                        
-                      </select>
-                    </div>
-                  </div>
+                        <div class="row">
+                            <div class="col- col-sm-6 col-lg-6 col-md-6" hidden>
+                                <label class="text-dark"> id Name<span class="text-danger">*</span></label>
+                                    <input type="text" class="form-control py-2" for="idUser"  id="enquiry_type_id" value="12" name="first_name" placeholder="Enter First Name">
+                                <small></small>
+                            </div>
+                            <div class="col-12 col-lg-6 col-md-6 col-sm-6 " hidden>
+                                            <label for="name" class="form-label  text-dark"> <i class="fa-regular fa-user"></i> product</label>
+                                            <input type="text" class="form-control" placeholder="" id="product_subject_id" name="fname">
+                                        </div>
+                            <div class="col-12 col-lg-6 col-md-6 col-sm-6">
+                                <div class="form-outline">
+                                <label for="f_name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i> First Name</label>
+                                <input type="text" class="form-control mb-0" placeholder="Enter Your Name" id="firstName" name="firstName">
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-6 col-md-6 col-sm-6">
+                                <div class="form-outline">
+                                <label for="last_name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i> Last Name</label>
+                                <input type="text" class="form-control mb-0" placeholder="Enter Your Name" id="lastName" name="lastName">
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm-6 col-md-6 col-lg-6 mt-4">
+                                <div class="form-outline">
+                                <label for="eo_number" class="form-label text-dark fw-bold"> <i class="fa fa-phone" aria-hidden="true"></i> Phone Number</label>
+                                <input type="text" class="form-control mb-0" placeholder="Enter Number" id="mobile_number" name="mobile_number">
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-4">
+                                <div class="form-outline">
+                                <label for="eo_state" class="form-label text-dark fw-bold"> <i class="fas fa-location"></i> State</label>
+                                <select class="form-select py-2 state-dropdown" aria-label=".form-select-lg example" id="state" name="state">
+                                
+                                </select>
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-4">
+                                <div class="form-outline">
+                                <label for="eo_dist" class="form-label fw-bold  text-dark"><i class="fa-solid fa-location-dot"></i> District</label>
+                                <select class="form-select py-2 district-dropdown" aria-label=".form-select-lg example" id="district" name="district">
+                                
+                                </select>
+                                </div>                    
+                            </div>       
+                            <div class="col-12 col-sm-6 col-md-6 col-lg-6 mt-4">
+                                <div class="form-outline">
+                                <label for="eo_tehsil" class="form-label fw-bold text-dark"> Tehsil</label>
+                                <select class="form-select py-2 tehsil-dropdown" aria-label=".form-select-lg example" id="Tehsil" name="Tehsil">
+                                    
+                                </select>
+                                </div>
+                            </div>
 
-                </div> 
-                <div class="text-center my-3">
-                <button type="submit" id="submit_enquiry" class="btn add_btn btn-success w-100 btn_all" onclick="engineoil_enquiry()" data-bs-dismiss="modal">Submit</button>        
-                </div>        
-              </form>           
+                            </div> 
+                            <div class="text-center my-3">
+                            <button type="submit" id="submit_enquiry" class="btn add_btn btn-success w-100 btn_all" onclick="engineoil_enquiry_1()" data-bs-dismiss="modal">Submit</button>        
+                            </div>        
+                    </form>           
                     </div>
                 </div>
             </div>

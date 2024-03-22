@@ -405,3 +405,64 @@ function edit_user(){
 }
 
 
+// function edit_user(){
+//   var edit_id = $("#idUser").val();
+//   var first_name = $("#first_name1").val();
+//   var last_name = $("#last_name1").val();
+//   var email = $("#email1").val();
+//   var mobile = $("#mobile1").val();
+//   var status = $("#status1").val();
+//   var user_type1 = $("#user_type1").val();
+//   var newPassword = $("#password_edit").val(); // Get new password
+//   var confirmPassword = $("#password_confirmation_edit").val(); // Get confirmed password
+
+//   if (newPassword.trim() !== confirmPassword.trim()) {
+//       console.log("Passwords do not match!");
+//       return; // Prevent form submission if passwords do not match
+//   }
+
+//   var paraArr = {
+//       'first_name': first_name,
+//       'last_name': last_name,
+//       'email': email,
+//       'mobile': mobile,
+//       'user_type': user_type1,
+//       'id': edit_id,
+//       'status':status,
+//   };
+
+//   // Include password data if provided
+//   if (newPassword.trim() !== '') {
+//       paraArr['password'] = newPassword;
+//       paraArr['password_confirmation'] = confirmPassword;
+//   }
+
+//   var apiBaseURL = APIBaseURL;
+//   var url = apiBaseURL + 'updateUser/' + edit_id;
+
+//   var headers = {
+//       'Authorization': 'Bearer ' + localStorage.getItem('token')
+//   };
+//   $.ajax({
+//       url: url,
+//       type: "PUT",
+//       data: paraArr,
+//       headers: headers,
+//       success: function (result) {
+//           console.log(result, "result");
+//           get();
+//           console.log("updated successfully");
+//           var msg = "User Updated successfully !"
+//           $("#errorStatusLoading").modal('show');
+//           $("#errorStatusLoading").find('.modal-title').html('Success');
+//           $("#errorStatusLoading").find('.modal-body').html(msg);
+//       },
+//       error: function (error) {
+//           console.error('Error fetching data:', error);
+//           var msg = error;
+//           $("#errorStatusLoading").modal('show');
+//           $("#errorStatusLoading").find('.modal-title').html('Error');
+//           $("#errorStatusLoading").find('.modal-body').html(msg);
+//       }
+//   });
+// }

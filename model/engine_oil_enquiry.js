@@ -109,6 +109,8 @@
 
 
 //****get data***
+var table; // Declare table variable outside the function scope
+
 function get_engine() {
     var apiBaseURL = APIBaseURL;
     var url = apiBaseURL + 'get_engine_oil_enquiry_data';
@@ -126,23 +128,30 @@ function get_engine() {
   
             let serialNumber = 1;
   
-            if (data.customer_details && data.customer_details.length > 0) {
-                var table = $('#example').DataTable({
-                    paging: true,
-                    searching: true,
-                    columns: [
-                        { title: 'S.No.' },
-                        { title: 'Date' },
-                        { title: 'Brand' },
-                        { title: 'Model' },
-                        { title: 'Full Name' },
-                        { title: 'Mobile' },
-                        { title: 'State' },
-                        { title: 'District' },
-                        { title: 'Action', orderable: false }
-                    ]
-                });
+            if ($.fn.DataTable.isDataTable('#example')) {
+                $('#example').DataTable().clear().destroy(); // Clear and destroy DataTable instance
+            }
+
+            table = $('#example').DataTable({
+                paging: true,
+                searching: true,
+                columns: [
+                    { title: 'S.No.' },
+                    { title: 'Date' },
+                    { title: 'Brand' },
+                    { title: 'Model' },
+                    { title: 'Full Name' },
+                    { title: 'Mobile' },
+                    { title: 'State' },
+                    { title: 'District' },
+                    { title: 'Action', orderable: false }
+                ]
+            });
+
+            // Reverse the data array to display the latest data at the top
+            data.customer_details.reverse();
   
+            if (data.customer_details && data.customer_details.length > 0) {
                 data.customer_details.forEach(row => {
                     const fullName = row.first_name + ' ' + row.last_name;
   
@@ -179,10 +188,11 @@ function get_engine() {
             console.error('Error fetching data:', error);
         }
     });
-  }
-  
-  get_engine();
+}
 
+get_engine();
+
+  
   // View data
 function openViewdata(userId) {
     var apiBaseURL = APIBaseURL;
@@ -205,7 +215,7 @@ function openViewdata(userId) {
         document.getElementById('lname1').innerText=userData.last_name;
         console.log(userData.last_name);
         document.getElementById('number1').innerText=userData.mobile;
-        document.getElementById('email_1').innerText=userData.email;
+        // document.getElementById('email_1').innerText=userData.email;
         document.getElementById('date_1').innerText=userData.date;
         document.getElementById('state1').innerText=userData.state_name;
         document.getElementById('dist1').innerText=userData.district_name;
@@ -272,30 +282,21 @@ function fetch_edit_data(id) {
         success: function (response) {
             var Data = response.customer_details[0];
             $('#idUser').val(Data.id);
-            $('#brand_name').val(Data.brand_name);
+            // $('#brand_name').val(Data.brand_name);
             $('#model_name').val(Data.oil_model);
             $('#first_name').val(Data.first_name);
             $('#last_name').val(Data.last_name);
             $('#mobile').val(Data.mobile);
             $('#email').val(Data.email);
             $('#date').val(Data.date);
-            // var brandDropdown = document.getElementById('brand_name');
-            // for (var i = 0; i < brandDropdown.options.length; i++) {
-            //   if (brandDropdown.options[i].text === Data.brand_name) {
-            //     brandDropdown.selectedIndex = i;
-            //     break;
-            //   }
-            // }
-  
-            // $('#model_name').empty(); 
-            // get_model_1(Data.brand_id); 
-  
-            // // Selecting the option in the model dropdown
-            // setTimeout(function() { // Wait for the model dropdown to populate
-            //     $("#model_name option").prop("selected", false);
-            //     $("#model_name option[value='" + Data.model + "']").prop("selected", true);
-            // }, 1000); // Adjust the delay time as needed
-  
+             
+          var brandDropdown = document.getElementById('brand_name');
+          for (var i = 0; i < brandDropdown.options.length; i++) {
+            if (brandDropdown.options[i].text === Data.brand_name) {
+              brandDropdown.selectedIndex = i;
+              break;
+            }
+          }
             setSelectedOption('state_', Data.state_id);
             setSelectedOption('dist_', Data.district_id);
             
@@ -434,3 +435,194 @@ function fetch_edit_data(id) {
 });
 
 
+function search_data() {
+  var brand = $('#brand_name_search').val();
+  var model = $('#model_search').val();
+  var state = $('#state_search').val();
+  var district = $('#district_search').val();
+
+  // Create an object to store search parameters
+  var paraArr = {
+    'brand_id': brand,
+    'model': model,
+    'state': state,
+    'district': district,
+  };
+
+
+  console.log('Search Parameters:', paraArr);
+
+  var apiBaseURL = APIBaseURL;
+  var url = apiBaseURL + 'search_for_engine_oil_enquiry';
+
+  $.ajax({
+    url: url,
+    type: 'POST',
+    data: paraArr,
+    headers: {
+      'Authorization': 'Bearer ' + localStorage.getItem('token')
+    },
+    success: function (searchData) {
+      console.log('API Response:', searchData); // Log API response for debugging
+      updateTable(searchData);
+    },
+    error: function (error) {
+      console.error('Error searching for brands:', error);
+  
+      if (error.status === 400) {
+        // Display a message in the table when no valid data is available
+        updateTable({ nurseryEnquiry: [] });
+      } else {
+        // Handle other errors as needed
+      }
+    }
+  });
+}
+
+// Update table function
+function updateTable(data) {
+  const tableBody = document.getElementById('data-table');
+  tableBody.innerHTML = '';
+  let serialNumber = 1;
+
+  if (data.nurseryEnquiry && data.nurseryEnquiry.length > 0) {
+    let tableData = [];
+    data.nurseryEnquiry.forEach(row => {
+      const fullName = row.first_name + ' ' + row.last_name;
+      const action = buildActionButtons(row.id);
+
+      tableData.push([
+        serialNumber,
+        row.date,
+        row.brand_name,
+        row.oil_model,
+        fullName,
+        row.mobile,
+        row.state_name,
+        row.district_name,
+        action
+      ]);
+
+      serialNumber++;
+    });
+
+    $('#example').DataTable().destroy();
+    $('#example').DataTable({
+      data: tableData,
+      columns: [
+        { title: 'S.No.' },
+        { title: 'Date' },
+        { title: 'Brand' },
+        { title: 'Model' },
+        { title: 'Full Name' },
+        { title: 'Mobile' },
+        { title: 'State' },
+        { title: 'District' },
+        { title: 'Action', orderable: false }
+      ],
+      paging: true,
+      searching: false,
+      // ... other options ...
+    });
+  } else {
+    tableBody.innerHTML = '<tr><td colspan="8">No valid data available</td></tr>';
+    
+  }
+ 
+}
+function buildActionButtons(id) {
+  return `<div class="d-flex">
+<button class="btn btn-warning btn-sm text-white mx-1" data-bs-toggle="modal" onclick="openViewdata(${row.id});" data-bs-target="#view_model_engine_oil">
+    <i class="fas fa-eye" style="font-size: 11px;"></i>
+</button> 
+<button class="btn btn-primary btn-sm btn_edit" onclick="fetch_edit_data(${row.id});" data-bs-toggle="modal" data-bs-target="#staticBackdrop2" id="yourUniqueIdHere">
+<i class="fas fa-edit" style="font-size: 11px;"></i>
+</button>
+<button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.id});">
+    <i class="fa fa-trash" style="font-size: 11px;"></i>
+</button>
+</div>`
+}
+function get_oil() {
+  var url = 'http://tractor-api.divyaltech.com/api/customer/get_oil_brands';
+
+  $.ajax({
+    url: url,
+    type: "GET",
+    headers: {
+      'Authorization': 'Bearer ' + localStorage.getItem('token')
+    },
+    success: function (data) {
+      console.log(data);
+
+      const select = $('#brand_name_search');
+      select.empty(); // Clear existing options
+
+      // Add a default option
+      select.append('<option selected disabled value="">Please select Brand</option>');
+
+      // Use an object to keep track of unique brands
+      var uniqueBrands = {};
+
+      $.each(data.brands, function (index, brand) {
+        var brand_id = brand.id;
+        var brand_name = brand.brand_name;
+
+        // Check if the brand ID is not already in the object
+        if (!uniqueBrands[brand_id]) {
+          // Add brand ID to the object
+          uniqueBrands[brand_id] = true;
+
+          // Append the option to the dropdown
+          select.append('<option value="' + brand_id + '">' + brand_name + '</option>');
+        }
+      });
+    },
+    error: function (error) {
+      console.error('Error fetching data:', error);
+    }
+  });
+}
+get_oil();
+
+function get_oilUpdate() {
+  var url = 'http://tractor-api.divyaltech.com/api/customer/get_oil_brands';
+
+  $.ajax({
+    url: url,
+    type: "GET",
+    headers: {
+      'Authorization': 'Bearer ' + localStorage.getItem('token')
+    },
+    success: function (data) {
+      console.log(data);
+
+      const select = $('#brand_name');
+      select.empty(); // Clear existing options
+
+      // Add a default option
+      select.append('<option selected disabled value="">Please select Brand</option>');
+
+      // Use an object to keep track of unique brands
+      var uniqueBrands = {};
+
+      $.each(data.brands, function (index, brand) {
+        var brand_id = brand.id;
+        var brand_name = brand.brand_name;
+
+        // Check if the brand ID is not already in the object
+        if (!uniqueBrands[brand_id]) {
+          // Add brand ID to the object
+          uniqueBrands[brand_id] = true;
+
+          // Append the option to the dropdown
+          select.append('<option value="' + brand_id + '">' + brand_name + '</option>');
+        }
+      });
+    },
+    error: function (error) {
+      console.error('Error fetching data:', error);
+    }
+  });
+}
+get_oilUpdate();

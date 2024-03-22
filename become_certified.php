@@ -158,7 +158,7 @@ include 'includes/headertag.php';
                 <span class="mt-4 pt-4 ">
                 <a href="index.php" class="text-decoration-none header-link px-1">Home <i class="fa-solid fa-chevron-right px-1"></i></a>
                 <a href="certified_dealers.php" class="text-decoration-none header-link px-1">Certified Dealers <i class="fa-solid fa-chevron-right px-1"></i></a>
-                <span class="text-dark">Become Certified Dealer</span>
+                <!-- <span class="text-dark">Become Certified Dealer</span> -->
             </div>
         </div>
     </section>
