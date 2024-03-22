@@ -114,75 +114,68 @@ function displayNextSixCards(container) {
                 </div>
             </div>
             <div class="modal fade" id="${modalId}" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                                <div class="modal-dialog modal-lg modal-dialog-centered">
-                                    <div class="modal-content">
-                                        <div class="modal-header modal_head">
-                                        <h5 class="modal-title text-white ms-1" id="">Generate Enquiry</h5>
-                                        <button type="button" class="btn-close btn-success" data-bs-dismiss="modal" aria-label="Close"><img src="assets/images/close.png" class="w-25"></button>
-                                        </div>
-                                        <!-- MODAL BODY -->
-                                        <div class="modal-body">
-                                        <form id="${formId}" method="POST" onsubmit="return false">
-                                                <div class="row">
-                                                <div class="row px-3 ">
-                                    <div class="col-12 col-lg-6 col-md-6 col-sm-6 " hidden>
-                                        <label for="name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i> enquiryName</label>
-                                        <input type="text" class="form-control" placeholder="Enter Your Name" id="enquiry_type_id" value="19" name="fname">
-                                    </div>
-                                    <div class="col-12 col-lg-6 col-md-6 col-sm-6 " hidden>
-                                        <label for="name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i> product_id</label>
-                                        <input type="text" class="form-control" id="product_id" value="${p.customer_id}" hidden> 
-                                    </div>
-                                    <div class="col-12 col-lg-6 col-md-6 col-sm-6 "hidden>
-                                        <label for="name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i> First Name</label>
-                                        <input type="text" class="form-control" placeholder="Enter Your Name" value="${p.brand_name}" id="brand_name" name="">
-                                    </div>
-                                    <div class="col-12 col-lg-6 col-md-6 col-sm-6 "hidden>
-                                        <label for="name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i> First Name</label>
-                                        <input type="text" class="form-control" placeholder="Enter Your Name" value="${p.model}" id="model" name="">
-                                    </div>
-                                    <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
-                                        <label for="name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i> First Name</label>
-                                        <input type="text" class="form-control" placeholder="Enter Your Name" id="fname" name="fname">
-                                    </div>
-                                    <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
-                                        <label for="name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i> Last Name</label>
-                                        <input type="text" class="form-control" placeholder="Enter Your Name" id="lname" name="lname">
-                                    </div>
-                                    <div class="col-12 ">
-                                        <label for="number" class="form-label text-dark fw-bold"> <i class="fa fa-phone" aria-hidden="true"></i> Phone Number</label>
-                                        <input type="text" class="form-control" placeholder="Enter Number" id="number" name="number">
-                                        <p class="text-danger">*please provide valid Phone Number.</p>
-                                    </div>
-                                    <div class="col-12 col-sm-12 col-md-6 col-lg-6">
-                                        <label for="yr_state" class="form-label text-dark fw-bold" id="state" name="state"> <i class="fas fa-location"></i> State</label>
-                                        <select class="form-select py-2 state-dropdown" aria-label=".form-select-lg example" id="state_form" name="state">
-                                        </select>
-                                    </div>
-                                    <div class="col-12 col-sm-12 col-md-6 col-lg-6">
-                                        <label class="form-label text-dark"><i class="fa-solid fa-location-dot"></i> District</label>
-                                        <select class="form-select py-2 district-dropdown" aria-label=".form-select-lg example" name="district" id="district_form">
-                                        </select>
-                                    </div>
-                                    <div class="col-12 col-sm-12 col-md-6 col-lg-6">
-                                        <label class="form-label text-dark mt-2"> Tehsil</label>
-                                        <select class="form-select py-2 tehsil-dropdown" aria-label=".form-select-lg example" Tehsil" id="tehsil" name="tehsil">
-                                        </select>
-                                    </div>
-                                    <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-2">
-                                        <label for="yr_price" class="form-label text-dark">Price</label>
-                                        <input type="yr_price" class="form-control price_form" placeholder="Enter Price" id="price_form" name="price">
-                                    </div>
-                                </div>          
-                            </div>
-                            <div class="modal-footer">
-                            <button type="submit" id="submit_enquiry" class="btn add_btn btn-success w-100 btn_all" onclick="savedata('${formId}')"
-                            data-bs-dismiss="modal">Submit</button>
-                            </div>      
-                            </form>                             
-                            </div>
-                            </div>
+                <div class="modal-dialog modal-lg modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header modal_head">
+                            <h5 class="modal-title text-white ms-1" id="">Generate Enquiry</h5>
+                                <button type="button" class="btn-close btn-success" data-bs-dismiss="modal" aria-label="Close"><img src="assets/images/close.png" class="w-25"></button>
                                 </div>
+                                <!-- MODAL BODY -->
+                                <div class="modal-body">
+                                    <form id="${formId}" method="POST" onsubmit="return false">
+                                        <div class="row">
+                                            <div class="row px-3 ">
+                                                <div class="col-12 col-lg-6 col-md-6 col-sm-6 " hidden>
+                                                    <label for="name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i> enquiryName</label>
+                                                    <input type="text" class="form-control" placeholder="Enter Your Name" id="enquiry_type_id" value="19" name="fname">
+                                                </div>
+                                                <div class="col-12 col-lg-6 col-md-6 col-sm-6 " hidden>
+                                                    <label for="name" class="form-label fw-bold text-dark"><i class="fa-regular fa-user"></i> product_id</label>
+                                                    <input type="text" class="form-control" id="id" value="${p.customer_id}"> 
+                                                </div>
+                                              
+                                                <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
+                                                    <label for="name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i> First Name</label>
+                                                    <input type="text" class="form-control" placeholder="Enter Your Name" id="fname" name="fname">
+                                                </div>
+                                                <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
+                                                    <label for="name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i> Last Name</label>
+                                                    <input type="text" class="form-control" placeholder="Enter Your Name" id="lname" name="lname">
+                                                </div>
+                                                <div class="col-12 ">
+                                                    <label for="number" class="form-label text-dark fw-bold"> <i class="fa fa-phone" aria-hidden="true"></i> Phone Number</label>
+                                                    <input type="text" class="form-control" placeholder="Enter Number" id="number" name="number">
+                                                    <p class="text-danger">*please provide valid Phone Number.</p>
+                                                </div>
+                                                <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+                                                    <label for="yr_state" class="form-label text-dark fw-bold" id="state" name="state"> <i class="fas fa-location"></i> State</label>
+                                                    <select class="form-select py-2 state-dropdown" aria-label=".form-select-lg example" id="state_form" name="state">
+                                                    </select>
+                                                </div>
+                                                <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+                                                    <label class="form-label text-dark"><i class="fa-solid fa-location-dot"></i> District</label>
+                                                    <select class="form-select py-2 district-dropdown" aria-label=".form-select-lg example" name="district" id="district_form">
+                                                    </select>
+                                                </div>
+                                                <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+                                                    <label class="form-label text-dark mt-2"> Tehsil</label>
+                                                    <select class="form-select py-2 tehsil-dropdown" aria-label=".form-select-lg example" Tehsil" id="tehsil" name="tehsil">
+                                                    </select>
+                                                </div>
+                                                <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-2">
+                                                    <label for="yr_price" class="form-label text-dark">Price</label>
+                                                    <input type="yr_price" class="form-control price_form" placeholder="Enter Price" id="price_form" name="price">
+                                                </div>
+                                            </div>          
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="submit" id="submit_enquiry" class="btn add_btn btn-success w-100 btn_all" onclick="savedata('${formId}')"
+                                            data-bs-dismiss="modal">Submit</button>
+                                        </div>      
+                                    </form>                             
+                                </div>
+                            </div>
+                            </div>
                             </div>
                         </div>
                     </div>
@@ -243,15 +236,14 @@ function displayNextSixCards(container) {
         var tehsil = $(`#${formId} #tehsil`).val();
         var price = $(`#${formId} #price_form`).val();
         price = price.replace(/[\,\.\s]/g, '');
-        var product_id = $(`#${formId} #product_id`).val();
-        var model = $(`#${formId} #model`).val();
-        var brand_name = $(`#${formId} #brand_name`).val();
+        var product_id = $(`#${formId} #id`).val();
+    
 
 
   
     // Prepare data to send to the server
     var paraArr = {
-      'product_subject_id':product_id,
+      'product_id':product_id,
       'enquiry_type_id':enquiry_type_id,
       'first_name': first_name,
       'last_name':last_name,
@@ -260,8 +252,8 @@ function displayNextSixCards(container) {
       'district':district,
       'tehsil':tehsil,
       'price':price,
-      'model':model,
-      'brand_name':brand_name,
+     
+   
     };
    
   var apiBaseURL =APIBaseURL;

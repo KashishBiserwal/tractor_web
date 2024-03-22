@@ -265,21 +265,24 @@ function add_dealership(event) {
 
 // get dealers
 function get_dealers() {
-    var apiBaseURL = APIBaseURL;
-    var url = apiBaseURL + 'dealer_data';
-    $.ajax({
-        url: url,
-        type: "GET",
-        headers: {
-            'Authorization': 'Bearer ' + localStorage.getItem('token')
-        },
-        success: function (data) {
+  var apiBaseURL = APIBaseURL;
+  var url = apiBaseURL + 'dealer_data';
+  $.ajax({
+      url: url,
+      type: "GET",
+      headers: {
+          'Authorization': 'Bearer ' + localStorage.getItem('token')
+      },
+      success: function (data) {
           const tableBody = document.getElementById('data-table');
           let serialNumber = 1;
           let tableData = [];
-  
-            if (data.dealer_details && data.dealer_details.length > 0) {
-                data.dealer_details.forEach(row => {
+
+          if (data.dealer_details && data.dealer_details.length > 0) {
+              // Reverse the order of dealer_details array
+              data.dealer_details.reverse();
+
+              data.dealer_details.forEach(row => {
                   let action = ` <div class="d-flex">
                   <button class="btn btn-warning btn-sm text-white mx-1" data-bs-toggle="modal" onclick="fetch_data(${row.id});" data-bs-target="#view_model_dealers" style="padding:5px;">
                   <i class="fa-solid fa-eye" style="font-size: 11px;"></i></button>
@@ -290,26 +293,26 @@ function get_dealers() {
                           <i class="fa fa-trash" style="font-size: 11px;"></i>
                       </button>
                   </div>`;
-  
+
                   // Push row data as an array into the tableData
                   tableData.push([
-                    serialNumber,
-                    row.date,
-                    row.brand_name,
-                    row.dealer_name,
-                    row.state_name,
-                    row.district_name,
-                    action
-                ]);
-  
-                serialNumber++;
-            });
-  
-            // Initialize DataTable after preparing the tableData
-            $('#example').DataTable().destroy();
-            $('#example').DataTable({
-                    data: tableData,
-                    columns: [
+                      serialNumber,
+                      row.date,
+                      row.brand_name,
+                      row.dealer_name,
+                      row.state_name,
+                      row.district_name,
+                      action
+                  ]);
+
+                  serialNumber++;
+              });
+
+              // Initialize DataTable after preparing the tableData
+              $('#example').DataTable().destroy();
+              $('#example').DataTable({
+                  data: tableData,
+                  columns: [
                       { title: 'S.No.' },
                       { title: 'Date' },
                       { title: 'Brand' },
@@ -318,21 +321,22 @@ function get_dealers() {
                       { title: 'District' },
                       { title: 'Action', orderable: false } // Disable ordering for Action column
                   ],
-                    paging: true,
-                    searching: false,
-                    // ... other options ...
-                });
-                 
-            } else {
-                tableBody.innerHTML = '<tr><td colspan="9">No valid data available</td></tr>';
-            }
-        },
-        error: function (error) {
-            console.error('Error fetching data:', error);
-        }
-    });
-  }
-  get_dealers();
+                  paging: true,
+                  searching: false,
+                  // ... other options ...
+              });
+          } else {
+              tableBody.innerHTML = '<tr><td colspan="7">No valid data available</td></tr>';
+          }
+      },
+      error: function (error) {
+          console.error('Error fetching data:', error);
+      }
+  });
+}
+
+get_dealers();
+
 
 
   // **delete***

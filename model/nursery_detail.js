@@ -87,6 +87,7 @@ function getNurseryById() {
 function store(event) {
     event.preventDefault();
     console.log('jfhfhw');
+    var product_id = $('#product_id').val();
     var enquiry_type_id = $('#enquiry_type_id').val();
     var first_name = $('#fname').val();
     var last_name = $('#lname').val();
@@ -96,6 +97,7 @@ function store(event) {
     var tehsil = $('#tehsil').val();
     // Prepare data to send to the server
     var paraArr = {
+      'product_id':product_id,
       'enquiry_type_id':enquiry_type_id,
       'first_name': first_name,
       'last_name':last_name,

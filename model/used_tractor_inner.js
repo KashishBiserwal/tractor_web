@@ -54,11 +54,11 @@ function getOldTractorById() {
         document.getElementById('description').innerText=data.product[0].description;
         // document.getElementById('description_22').innerText=data.product[0].description;
         document.getElementById('model4').innerText=data.product[0].model;
-        document.getElementById('product_id').value = data.product[0].product_id;
+        document.getElementById('product_id').innerText = data.product[0].product_id;
 
         
-        document.getElementById('slr_name').value = fullname;
-        document.getElementById('mob_num').value = data.product[0].mobile;
+        document.getElementById('slr_name').innerText = fullname;
+        document.getElementById('mob_num').innerText = data.product[0].mobile;
         // $('#product_id').val();
 
         var imageNames = data.product[0].image_names.split(',');

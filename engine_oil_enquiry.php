@@ -41,7 +41,7 @@
             <div class="col-12 col-sm-12 col-md-3 col-lg-3">
               <div class="form-outline">
                 <label class="form-label"> Brand Name</label>
-                <select class="form-select py-2" aria-label="Default select example" id="brand_name">
+                <select class="form-select py-2" aria-label="Default select example" id="brand_name_search">
                     <option selected>Select Brand</option>
                     <option value="1">Mahindra</option>
                     <option value="2">Swaraj</option>
@@ -52,7 +52,7 @@
             <div class="col-12 col-sm-12 col-md-3 col-lg-3">
               <div class="form-outline ">
                 <label class="form-label">Model</label>
-                    <select class="form-select py-2" aria-label="Default select example" id="model">
+                    <select class="form-select py-2" aria-label="Default select example" id="model_search">
                         <option selected>Select Model</option>
                         <option value="1">3032 NX</option>
                         <option value="2">3030 NX</option>
@@ -63,7 +63,7 @@
             <div class="col-12 col-sm-12 col-md-3 col-lg-3">
               <div class="form-outline">
                 <label class="form-label">State</label>
-                <select class="form-select py-2 state_select" aria-label="Default select example" id="state">
+                <select class="form-select py-2 state_select" aria-label="Default select example" id="state_search">
                    
                 </select>
               </div>
@@ -71,14 +71,14 @@
             <div class="col-12 col-sm-12 col-md-3 col-lg-3">
               <div class="form-outline">
                 <label class="form-label">District</label>
-                <select class="form-select py-2 district_select" aria-label="Default select example" id="district">
+                <select class="form-select py-2 district_select" aria-label="Default select example" id="district_search">
                   
                 </select>
               </div>
             </div>
             <div class="col-12 my-4">
               <div class="text-center">
-                <button type="button" class="btn-success btn px-3 pt-2" id="Search">Search</button>
+                <button type="button" class="btn-success btn px-3 pt-2" id="Search" onclick="search_data()">Search</button>
                 <button type="button" class="btn-success btn mx-2 px-3 pt-2" id="Reset">Reset</button>
               </div>
             </div>
@@ -138,19 +138,20 @@
                            
                             <td>Mobile Number-</td>
                             <td id="number1"></td>
-                            <td>Email-</td>
-                            <td id="email_1"></td>
+                            <!-- <td>Email-</td>
+                            <td id="email_1"></td> -->
+                            <td>Date-</td>
+                            <td id="date_1"></td>
                           </tr>
                           <tr>
-                          <td>Date-</td>
-                            <td id="date_1"></td>
+                          
                             <td>State-</td>
                             <td id="state1"></td>
-                            
+                            <td>District-</td>
+                            <td id="dist1"></td>
                           </tr>
                           <tr>
-                          <td>District-</td>
-                            <td id="dist1"></td>
+                   
                             <td>Tehsil-</td>
                             <td id="tehsil1"></td>
                           </tr>
@@ -195,12 +196,13 @@
                                           <input type="text" class="form-control py-2" for="idUser"  id="enquiry_type_id" value="12" name="first_name" placeholder="Enter First Name">
                                   <small></small>
                                 </div>
-                                <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
-                                      <div class="form-outline">
-                                        <label for="name" class="form-label text-dark">Brand Name</label>
-                                        <input type="text" class="form-control" placeholder="" id="brand_name" name="bname">
-                                      </div>
-                                    </div>
+                                    <div class="col-12 col-sm-6 col-lg-6 col-md-6">
+                                  <div class="form-outline">
+                                    <label class="form-label">Brand</label>
+                                    <select class="form-select py-2" id="brand_name" name="bname" aria-label="Default select example" required>
+                                    </select>
+                                  </div>
+                                </div>
                                     <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
                                       <div class="form-outline">
                                         <label for="name" class="form-label text-dark">Model Name</label>
@@ -225,12 +227,12 @@
                                         <input type="text" class="form-control" placeholder="" id="mobile" name="mobile">
                                       </div>
                                     </div>
-                                    <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
+                                    <!-- <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
                                       <div class="form-outline mt-3">
                                         <label for="name" class="form-label text-dark">Email</label>
                                         <input type="text" class="form-control" placeholder="" id="email" name="email">
                                       </div>
-                                    </div>
+                                    </div> -->
                                     <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
                                       <div class="form-outline mt-3">
                                         <label for="name" class="form-label text-dark">Date</label>

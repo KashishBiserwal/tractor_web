@@ -13,6 +13,14 @@ include 'includes/headertag.php';
     <script src="<?php $baseUrl; ?>model/State_dist_tehsil.js"></script>
 
 </head>
+<style>
+    .text-truncate {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+   
+    }
+    </style>
 <body>
     <section class="bg-light mt-3">
       <div class="container mt-4 pt-4">
@@ -153,7 +161,7 @@ include 'includes/headertag.php';
                   </div>
                   <div class="col-12 col-lg-6 col-md-6 col-sm-6 " hidden>
                     <label for="name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i> product_id</label>
-                    <input type="text" class="form-control" id="product_id" value="13">
+                    <input type="text" class="form-control" id="product_id" value="">
                   </div>
                   <div class="col-12 col-sm-12 col-md-6 col-lg-6">
                     <div class="mt-2">
@@ -228,6 +236,22 @@ include 'includes/headertag.php';
 <section>
       <div class="container">
       <div>
+      <h4><p class="mt-md mt-3 p-2 mb-5 my-3 assured">Harvester</p></h4>
+      </div>
+            <div class="section slider-section">
+              <div class="container slider-column">
+              <div class="carousel-wrap">
+                <div class="owl-carousel" id="New_Tractor_Implements"> </div>
+                <div class="col text-center pb-4">
+                  <a href="harvester.php" class="btn btn-success px-5">View all Harvester</a>
+                </div>
+              </div>
+            </div>
+            </div>
+            </section>
+<section>
+      <div class="container">
+      <div>
       <h4><p class="mt-md mt-3 p-2 mb-5 my-3 assured"> Populer Tractor </p></h4>
       </div>
             <div class="section slider-section">
@@ -235,7 +259,7 @@ include 'includes/headertag.php';
               <div class="carousel-wrap">
                 <div class="owl-carousel" id="New_Populer_Tractor"> </div>
                 <div class="col text-center pb-4">
-                  <a href=".php" class="btn btn-success px-5">Load More tractors</a>
+                  <a href="popular_tractors.php" class="btn btn-success px-5">Load More tractors</a>
                 </div>
               </div>
             </div>
@@ -243,22 +267,7 @@ include 'includes/headertag.php';
             </section>
 
     <!-- TRACTOR IMPLEMENTS CAROUSEL -->
-    <section>
-      <div class="container">
-      <div>
-      <h4><p class="mt-md mt-3 p-2 mb-5 my-3 assured">Tractor Implements</p></h4>
-      </div>
-            <div class="section slider-section">
-              <div class="container slider-column">
-              <div class="carousel-wrap">
-                <div class="owl-carousel" id="New_Tractor_Implements"> </div>
-                <div class="col text-center pb-4">
-                  <a href=".php" class="btn btn-success px-5">View all Tractor Implements</a>
-                </div>
-              </div>
-            </div>
-            </div>
-            </section>
+   
   <!-- <section>
     <div class="container">
       <div class="text-editor-black  my-3" style="background-color:#fff">

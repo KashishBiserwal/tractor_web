@@ -74,14 +74,14 @@ function get_harvester() {
                     </div>
                 </div>
                 <div class="position-absolute" >
-                    <p  style="font-size:13px;" class="rounded-pill bg-success text-white ms-1 text-center px-2 mt-1">Self Propelled</p>
+                    <p  style="font-size:13px;" class="rounded-pill bg-success text-white ms-1 text-center px-2 mt-1">${p.power_source_value}</p>
                 </div>
                 <div class="content d-flex flex-column flex-grow-1 ">
                     
                     <div class="power text-center mt-3">
                     <div class="row text-center">
                         <div class="col-12 text-center">
-                            <p class="fw-bold pe-3 text-primary">${name}</p>
+                            <p class="fw-bold pe-3 text-primary text-truncate">${name}</p>
                         </div>
                     </div>
                         <div class="row ">
@@ -129,6 +129,7 @@ function filter_search() {
     var checkboxes = $(".budget_checkbox:checked");
     var checkboxes2 = $(".hp_checkbox:checked");
     var checkboxesBrand = $(".brand_checkbox:checked");
+    var checkboxesPower = $(".checkbox_power:checked");
 
     var selectedCheckboxValues = checkboxes.map(function () {
         return $(this).val();
@@ -141,14 +142,17 @@ function filter_search() {
     var selectedBrand = checkboxesBrand.map(function () {
         return $(this).val();
     }).get();
-
+    var selectedPower = checkboxesPower.map(function () {
+        return $(this).val();
+    }).get();
     var paraArr = {
         'brand_id': JSON.stringify(selectedBrand),
         'price_ranges': JSON.stringify(selectedCheckboxValues),
         'horse_power_ranges': JSON.stringify(selectedCheckboxValues2),
+        'power_source_value': JSON.stringify(selectedPower),
     };
 
-    var url = 'http://tractor-api.divyaltech.com/api/customer/get_old_tractor_by_filter';
+    var url = 'http://tractor-api.divyaltech.com/api/customer/get_new_harvester_by_filter';
     $.ajax({
         url: url,
         type: 'POST',
@@ -196,14 +200,14 @@ function appendFilterCard(filterContainer, filter) {
        
         var newCard = `
         <div class="col-12 col-lg-4 col-md-4 col-sm-4 mb-4">
-        <a href="harvester_inner.php?product_id=${p.product_id}" class="h-auto success__stry__item d-flex flex-column text-decoration-none shadow ">
+        <a href="harvester_inner.php?product_id=${p.id}" class="h-auto success__stry__item d-flex flex-column text-decoration-none shadow">
             <div class="thumb">
                 <div>
-                    <img src="http://tractor-api.divyaltech.com/uploads/product_img/${a[0]}" class="object-fit-cover w-100" alt="harvester_img">
+                    <img src="http://tractor-api.divyaltech.com/uploads/product_img/${a[0]}" class=" engineoil_img object-fit-cover w-100" h-100" alt="harvester_img">
                 </div>
             </div>
             <div class="position-absolute" >
-                <p  style="font-size:13px;" class="rounded-pill bg-success text-white ms-1 text-center px-2 mt-1">Self Propelled</p>
+                <p  style="font-size:13px;" class="rounded-pill bg-success text-white ms-1 text-center px-2 mt-1">${p.power_source_value}</p>
             </div>
             <div class="content d-flex flex-column flex-grow-1 ">
                 
@@ -279,7 +283,7 @@ function get_lookup() {
             for (var i = 0; i < filteredData.length; i++) {
                 var checkboxId = "powerSourceCheckbox" + i;
                 var label = '<label for="' + checkboxId + '" class="ps-2 fs-6" style="margin-top:-8px;">' + filteredData[i].lookup_data_value + '</label><br />';
-                var checkbox = '<input type="checkbox"  id="' + checkboxId + '" class="checkbox-round mt-1 ms-3 " value="' + filteredData[i].id + '"/>';
+                var checkbox = '<input type="checkbox"  id="' + checkboxId + '" class="checkbox-round  mt-1 ms-3 checkbox_power " value="' + filteredData[i].id + '"/>';
 
                 powerSourceDiv.append('<div class="d-flex"   >' + checkbox + label + '</div>');
             }

@@ -52,7 +52,7 @@
    include 'includes/header.php';
    ?>
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
-    <section class="mt-5 pt-5">
+    <section class="mt-5 pt-5 bg-light">
         <div class="container pt-5">
             <div class="">
                 <span class="mt-5 text-white pt-5 ">
@@ -68,18 +68,18 @@
             <div class="row">
             <div class="col-12 col-sm-6 col-lg-6 col-md-6">
                 <div>
-                <h4 id="brand_name"></h4>
+                <h4 id="brand_name1"></h4>
                 </div>
                 <div>
-                        <div class="swiper swiper_buy mySwiper2_buy">
-                            <div class="swiper-wrapper swiper-wrapper_buy">
-                                <div class=" swiper-slide swiper-slide_buy">
-                                    <!-- <img class="img_buy" src="assets/images/437-1632718440.webp" /> -->
-                                </div>
+                    <div class="swiper swiper_buy mySwiper2_buy">
+                        <div class="swiper-wrapper swiper-wrapper_buy">
+                            <div class=" swiper-slide swiper-slide_buy">
+                                 <!-- <img class="img_buy" src="assets/images/437-1632718440.webp" /> -->
                             </div>
                         </div>
-                        <div thumbsSlider="" class="swiper mySwiper_buy" style="height:75px; width: 43%;" id="swip_img"></div>
                     </div>
+                    <div thumbsSlider="" class="swiper mySwiper_buy" style="height:50px; width: 43%;" id="swip_img"></div>
+                </div>
             </div>
                 <!-- <div class="col-12 col-sm-6 col-lg-6 col-md-6" style="position: relative;">
                     <div>
@@ -162,16 +162,16 @@
                                     <input type="text" class="form-control" placeholder="Enter Your Name" id="enquiry_type_id" value="19" name="fname">
                                 </div>
                                 <div class="col-12 col-lg-6 col-md-6 col-sm-6 " hidden>
-                                    <label for="name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i> product_id</label>
-                                    <input type="text" class="form-control" id="product_id" value="${p.id}" hidden> 
+                                            <label for="name" class="form-label  text-dark"> <i class="fa-regular fa-user"></i> customer_id</label>
+                                            <input type="text" class="form-control" id="customer_id" value="">
+                                        </div>
+                                <div class="col-12 col-lg-6 col-md-6 col-sm-6 "hidden>
+                                    <label for="name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i>brand_name</label>
+                                    <input type="text" class="form-control" placeholder="Enter Your Name"  id="brand_name_brand" name="">
                                 </div>
                                 <div class="col-12 col-lg-6 col-md-6 col-sm-6 "hidden>
-                                    <label for="name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i> First Name</label>
-                                    <input type="text" class="form-control" placeholder="Enter Your Name" value="${p.brand_name}" id="brand_name" name="">
-                                </div>
-                                <div class="col-12 col-lg-6 col-md-6 col-sm-6 "hidden>
-                                    <label for="name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i> First Name</label>
-                                    <input type="text" class="form-control" placeholder="Enter Your Name" value="${p.model}" id="model" name="">
+                                    <label for="name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i>model</label>
+                                    <input type="text" class="form-control" placeholder="Enter Your Name"  id="model_form" name="">
                                 </div>
                                 <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
                                     <label for="name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i> First Name</label>
@@ -208,8 +208,7 @@
                             </div>          
                         </div>
                         <div class="modal-footer">
-                        <button type="submit" id="button_hire" class="btn add_btn btn-success w-100 btn_all" onclick="savedata('${formId}')"
-                        data-bs-dismiss="modal">Submit</button>
+                        <button type="submit" id="button_hire" class="btn add_btn btn-success w-100 btn_all"data-bs-dismiss="modal">Submit</button>
                         </div>      
                         </form>    
                        </div>
@@ -319,7 +318,7 @@
         </div>
     </div>
 
-    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal fade" id="staticBackdrop1" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
@@ -356,6 +355,21 @@
 
     <script>
     $(document).ready(function() {
+
+        $('#price_form').on('input', function() {
+            var value = $(this).val().replace(/\D/g, ''); // Remove non-digit characters
+            var formattedValue = Number(value).toLocaleString('en-IN'); // Format using Indian numbering system
+            $(this).val(formattedValue);
+        });
+
+        // Set cursor position to the beginning of the input field
+        var input = document.getElementById('price_form');
+        input.focus();
+        input.setSelectionRange(0, 0);
+
+        // Set text alignment to left
+        input.style.textAlign = 'left';
+
         $.validator.addMethod("indianMobile", function(value, element) {
             return this.optional(element) || /^[789]\d{9}$/.test(value);
         }, "Please enter a valid Indian mobile number.");

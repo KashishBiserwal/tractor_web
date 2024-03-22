@@ -252,29 +252,23 @@
             <div class="col-12 col-sm-12 col-md-3 col-lg-3">
               <div class="form-outline">
                 <label class="form-label"> Brand Name</label>
-                <select class="form-select py-2" aria-label="Default select example">
-                    <option value>Select Brand</option>
-                    <option value="1">Mahindra</option>
-                    <option value="2">Swaraj</option>
-                    <option value="3">John Deere</option>
+                <select class="form-select py-2" aria-label="Default select example" id="brandsearch">
+               
                 </select>
               </div>
             </div>
             <div class="col-12 col-sm-12 col-md-3 col-lg-3">
               <div class="form-outline ">
                 <label class="form-label">Model</label>
-                    <select class="form-select py-2" aria-label="Default select example">
-                        <option value>Select Model</option>
-                        <option value="1">3032 NX</option>
-                        <option value="2">3030 NX</option>
-                        <option value="3">3230 NX</option>
+                    <select class="form-select py-2" aria-label="Default select example" id="modelsearch">
+                    
                     </select>
               </div>
             </div>
             <div class="col-12 col-sm-12 col-md-3 col-lg-3">
               <div class="form-outline">
                 <label class="form-label">State</label>
-                <select class="form-select py-2 state_select" aria-label="Default select example">
+                <select class="form-select py-2 state_select" aria-label="Default select example" id="state_sct">
                   
                 </select>
               </div>
@@ -282,7 +276,7 @@
             <div class="col-12 col-sm-12 col-md-3 col-lg-3">
               <div class="form-outline">
                 <label class="form-label">District</label>
-                <select class="form-select py-2 district_select" aria-label="Default select example">
+                <select class="form-select py-2 district_select" aria-label="Default select example" id="district_sct">
                  
                 </select>
               </div>
@@ -307,10 +301,10 @@
                 <th class="d-none d-md-table-cell text-white">Brand</th>
                 <th class="d-none d-md-table-cell text-white">Model</th>
                 <th class="d-none d-md-table-cell text-white">Name</th>
-                <th class="d-none d-md-table-cell text-white">Phone Number</th>
+                <th class="d-none d-md-table-cell text-white">Purchase Year</th>
                 <th class="d-none d-md-table-cell text-white">State</th>
                 <th class="d-none d-md-table-cell text-white">District</th>
-                <!-- <th class="d-none d-md-table-cell text-white">Action</th> -->
+                <th class="d-none d-md-table-cell text-white">Action</th>
               </tr>
             </thead>
             <tbody id="data-table">
@@ -334,7 +328,7 @@
                        <div class="col-12">
                         <table class="table table-striped">
                         <tbody>
-                        <tr>
+                          <tr>
                             <td>Brand-</td>
                             <td id="brand1"></td> 
                             <td>Model-</td>

@@ -49,51 +49,60 @@ $(document).ready(function() {
     });
 
 
-
-
-function getEngineoilList() {
-    // var url = CustomerAPIBaseURL + 'engine_oil';
-    var url ='http://tractor-api.divyaltech.com/api/customer/engine_oil';
-    // Keep track of the total tractors and the currently displayed tractors
-    var totalEngineoil = 0;
-    var displayedEngineoil = 8; // Initially display 6 tractors
-
-    $.ajax({
-        url: url,
-        type: "GET",
-        success: function(data) {
-            var productContainer = $("#productContainer");
-            var loadMoreButton = $("#load_moretract");
-
-            if (data.engine_oil_details && data.engine_oil_details.length > 0) {
-                totalEngineoil = data.engine_oil_details.length;
-
-                // Display the initial set of 6 tractors
-                displayEngineoil(data.engine_oil_details.slice(0, displayedEngineoil));
-
-                if (totalEngineoil <= displayedEngineoil) {
-                    loadMoreButton.hide();
-                } else {
-                    loadMoreButton.show();
-                }
-
-                // Handle "Load More Tractors" button click
-                loadMoreButton.click(function() {
-                    // Display all tractors
-                    displayedEngineoil = totalEngineoil;
-                    displayEngineoil(data.engine_oil_details);
-
-                    // Hide the "Load More Tractors" button
-                    loadMoreButton.hide();
-                });
-            }
-        },
-        error: function(error) {
-            console.error('Error fetching data:', error);
+    function formatPriceWithCommas(price) {
+        // Check if the price is not a number
+        if (isNaN(price)) {
+            return price; // Return the original value if it's not a number
         }
-    });
-}
+        
+        // Format the price with commas in Indian format
+        return new Intl.NumberFormat('en-IN').format(price);
+    }
 
+    function getEngineoilList() {
+        var url = 'http://tractor-api.divyaltech.com/api/customer/engine_oil';
+        var totalEngineoil = 0;
+        var displayedEngineoil = 8;
+    
+        $.ajax({
+            url: url,
+            type: "GET",
+            success: function(data) {
+                var productContainer = $("#productContainer");
+                var loadMoreButton = $("#load_moretract");
+    
+                if (data.engine_oil_details && data.engine_oil_details.length > 0) {
+                    totalEngineoil = data.engine_oil_details.length;
+    
+                    // Reverse the order of the engine oil items to display the latest ones first
+                    data.engine_oil_details.reverse();
+    
+                    // Display the initial set of 6 engine oil items
+                    displayEngineoil(data.engine_oil_details.slice(0, displayedEngineoil));
+    
+                    if (totalEngineoil <= displayedEngineoil) {
+                        loadMoreButton.hide();
+                    } else {
+                        loadMoreButton.show();
+                    }
+    
+                    // Handle "Load More Engine Oil" button click
+                    loadMoreButton.click(function() {
+                        // Display all engine oil items
+                        displayedEngineoil = totalEngineoil;
+                        displayEngineoil(data.engine_oil_details);
+    
+                        // Hide the "Load More Engine Oil" button
+                        loadMoreButton.hide();
+                    });
+                }
+            },
+            error: function(error) {
+                console.error('Error fetching data:', error);
+            }
+        });
+    }
+    
 
 function displayEngineoil(engineoil) {
     var productContainer = $("#productContainer");
@@ -105,9 +114,13 @@ function displayEngineoil(engineoil) {
     engineoil.forEach(function (p) {
         var images = p.image_names ? p.image_names.split(',') : [];
         var imageSrc = images.length > 0 ? `http://tractor-api.divyaltech.com/uploads/engine_oil_img/${images[0]}` : '';
+        var cardId = `card_${p.id}`; 
 
+        var modalId = `engineoil_callbnt_${p.id}`;
+        var formId = `engine_oil_form_${p.id}`; 
+        var formattedPrice = formatPriceWithCommas(p.price);
         var newCard = `
-            <div class="col-12 col-lg-3 col-sm-3 col-md-3 mt-2 mb-2 px-1 text-decoration-none">           
+            <div class="col-12 col-lg-3 col-sm-3 col-md-3 mt-2 mb-2 px-1 text-decoration-none" id=${cardId}>           
                 <div class="success__stry__item h-100 shadow text-dark">
                     <div class="thumb">
                         <a href="engine_oil_inner.php?id=${p.id}">
@@ -128,14 +141,14 @@ function displayEngineoil(engineoil) {
                             </div>
                         </div>
                         <div class="row">
-                            <h3 class="text-center text-dark" style="font-size: 25px;"><i class="fa fa-indian-rupee-sign" style="font-size: 22px;"></i>${p.price}</h3>
+                            <h3 class="text-center text-dark" style="font-size: 25px;"><i class="fa fa-indian-rupee-sign" style="font-size: 22px;"></i>${formattedPrice}</h3>
                         </div>  
                     </a>
-                    <button type="button" class="btn btn-success w-100" data-bs-toggle="modal" data-bs-target="#engineoil_callbnt_${p.id}">Request Call Back</button>
+                    <button type="button" class="btn btn-success w-100" data-bs-toggle="modal" data-bs-target="#${modalId}">Request Call Back</button>
                 </div>              
             </div>
 
-            <div class="modal fade" id="engineoil_callbnt_${p.id}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal fade" id="${modalId}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                 <div class="modal-dialog modal-lg modal-dialog-centered">
                     <div class="modal-content">
                         <div class="modal-header modal_head">
@@ -144,11 +157,15 @@ function displayEngineoil(engineoil) {
                         </div>
                         <!-- MODAL BODY -->
                         <div class="modal-body bg-white mt-3">
-                        <form id="engine_oil_form_${p.id}" class="engine_oil_form" method="POST" onsubmit="return false">
+                        <form id="${formId}" class="engine_oil_form" method="POST" onsubmit="return false">
                         <div class="row">
                             <input type="hidden" id="brandName" value="${p.brand_name}">
                             <input type="hidden" id="modelName" value="${p.oil_model}">
                             <input type="hidden" id="enquiry_type_id" value="12" name="iduser">
+                            <div class="col-12 col-lg-6 col-md-6 col-sm-6 " hidden>
+                            <label for="name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i>product_id</label>
+                            <input type="text" class="form-control" id="product_id" value="${p.id}"> 
+                        </div>
                             <div class="col-12 col-sm-6 col-md-6 col-lg-6">
                                 <label for="firstName" class="form-label text-dark fw-bold"> <i class="fa-regular fa-user"></i> First Name</label>
                                 <input type="text" class="form-control" placeholder="Enter First Name" id="firstName" name="firstName">
@@ -189,7 +206,7 @@ function displayEngineoil(engineoil) {
                             </div>
                         </div> 
                         <div class="text-center my-3">
-                            <button type="submit" id="submit_enquiry_${p.id}" class="btn add_btn btn-success w-100 btn_all" onclick="engineoil_enquiry()">Submit</button>        
+                            <button type="submit" id="submit_enquiry_${p.id}" class="btn add_btn btn-success w-100 btn_all" onclick="savedata('${formId}')">Submit</button>        
                         </div>        
                     </form>                           
                         </div>
@@ -205,6 +222,8 @@ function displayEngineoil(engineoil) {
         populateDropdowns(p.id);
     });
 }
+
+
 
 });
 function populateDropdowns() {
@@ -250,17 +269,22 @@ function populateDropdowns() {
     });
 }
 
-
-function engineoil_enquiry() {
-    var brandName = $('#brandName').val();
-    var modelName = $('#modelName').val();
-    var firstName = $('#firstName').val();
-    var lastName = $('#lastName').val();
-    var mobile_number = $('#mobile_number').val();
-    var state = $('#state').val();
-    var district = $('#district').val();
-    var Tehsil = $('#Tehsil').val();
-    var enquiry_type_id =$('#enquiry_type_id').val();
+function savedata(formId) {
+    engineoil_enquiry(formId);
+    console.log("Form submitted successfully");
+}
+function engineoil_enquiry(formId) {
+    var brandName = $(`#${formId} #brandName`).val();
+    var modelName = $(`#${formId} #modelName`).val();
+    var firstName = $(`#${formId} #firstName`).val();
+    var lastName = $(`#${formId} #lastName`).val();
+    var mobile_number = $(`#${formId} #mobile_number`).val();
+    var state = $(`#${formId} #state`).val();
+    var district = $(`#${formId} #district`).val();
+    var Tehsil = $(`#${formId} #Tehsil`).val();
+    var enquiry_type_id =$(`#${formId} #enquiry_type_id`).val();
+    var product_id =$(`#${formId} #product_id`).val();
+    // product_id = 2;
     var paraArr = {
       'brand_name': brandName,
       'model': modelName,
@@ -271,6 +295,7 @@ function engineoil_enquiry() {
       'district': district,
       'tehsil': Tehsil,
       'enquiry_type_id':enquiry_type_id,
+      'product_id':product_id,
     };
     // console.log(paraArr);
   
@@ -423,3 +448,38 @@ function populateTehsil(districtId, tehsilClassName, selectedTehsilId) {
       }
   });
 }
+
+
+function getBrand() {
+    // var apiBaseURL =  $CustomerAPIBaseURL;
+    // var url = apiBaseURL + 'get_brand_for_finance';
+    var url = 'http://tractor-api.divyaltech.com/api/customer/get_oil_brands ';
+
+    $.ajax({
+        url: url,
+        type: "GET",
+        headers: {
+            'Authorization': 'Bearer ' + localStorage.getItem('token')
+        },
+        success: function (data) {
+            console.log(data);
+
+            const checkboxContainer = $('#checkboxContainer');
+            checkboxContainer.empty(); // Clear existing checkboxes
+
+            // Loop through the data and add checkboxes
+            $.each(data.brands, function (index, brand) {
+                var brand_id = brand.id;
+                var brand_name = brand.brand_name;
+                var checkboxHtml = '<input type="checkbox" class="checkbox-round mt-1 ms-3 brand_checkbox" value="' + brand_id + '"/>' +
+                    '<span class="ps-2 fs-6">' + brand_name + '</span> <br/>';
+
+                checkboxContainer.append(checkboxHtml);
+            });
+        },
+        error: function (error) {
+            console.error('Error fetching data:', error);
+        }
+    });
+}
+getBrand();

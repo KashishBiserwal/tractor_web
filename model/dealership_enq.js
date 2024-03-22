@@ -106,7 +106,7 @@ function store(event) {
 }
 
 function get_harvester() {
-    var url = "http://192.168.1.12:9000/api/customer/get_new_harvester";
+    var url = "http://tractor-api.divyaltech.com/api/customer/get_new_harvester";
     
 
     $.ajax({
@@ -189,7 +189,7 @@ function get_harvester() {
 
 
 function get_oldharvester() {
-    var url = "http://192.168.1.12:9000/api/customer/get_old_harvester";
+    var url = "http://tractor-api.divyaltech.com/api/customer/get_old_harvester";
     
 
     $.ajax({

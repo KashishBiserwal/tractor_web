@@ -520,16 +520,26 @@ var filteredCards = [];
 var cardsDisplayed = 0;
 var cardsPerPage = 6; 
 
+function formatPrice(price) {
+    // Remove commas if present, and parse as float
+    return parseFloat(price.replace(/,/g, '') || 0);
+}
 function filter_search() {
     // var checkboxes = $(".budget_checkbox:checked");
     var checkboxes2 = $(".hp_checkbox:checked");
     var checkboxesBrand = $(".brand_checkbox:checked");
+    var checkboxes = $(".budget_checkbox:checked");
+    var checkboxesState = $(".state_checkbox:checked");
+    var checkboxesdist = $(".district_checkbox:checked");
 
+    var selectedCheckboxValues = checkboxes.map(function() {
+        return $(this).val();
+    }).get();
 
-    // var selectedCheckboxValues = checkboxes.map(function () {
-    //     return $(this).val();
-    // }).get();
-
+    // Modify to handle comma-separated values
+    var selectedCheckboxValuesFormatted = selectedCheckboxValues.map(function(value) {
+        return value.replace(/,/g, ''); // Remove commas from values
+    });
     var selectedCheckboxValues2 = checkboxes2.map(function () {
         return $(this).val();
     }).get();
@@ -538,11 +548,19 @@ console.log(selectedCheckboxValues2);
         return $(this).val();
     }).get();
 
-    
+    var selectedState = checkboxesState.map(function() {
+        return $(this).val();
+    }).get();
+    var selectedDistrict = checkboxesdist.map(function() {
+        return $(this).val();
+    }).get();
+
     var paraArr = {
         'brand_id': JSON.stringify(selectedBrand),
         'horse_power_ranges': JSON.stringify(selectedCheckboxValues2),
-        
+        'price_ranges': JSON.stringify(selectedCheckboxValuesFormatted),
+        'state': JSON.stringify(selectedState),
+        'district': JSON.stringify(selectedDistrict),
     };
 
     var url = 'http://tractor-api.divyaltech.com/api/customer/get_new_tractor_by_price_brand_hp';

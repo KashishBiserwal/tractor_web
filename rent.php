@@ -1249,7 +1249,6 @@ document.addEventListener("DOMContentLoaded", function() {
                 newRow.find('td:last').html('<button type="button" class="btn btn-danger" title="Remove Row" onclick="removeRow(this)"><i class="fas fa-minus"></i></button>');
 
                 $('#rentTractorTable tbody').append(newRow);
-               // updateSerialNumbers();
             }
         });
 
@@ -1353,22 +1352,12 @@ document.addEventListener("DOMContentLoaded", function() {
           return isValidRow;
         }
    
+   
 </script>
 
-<!-- <script>
-    $(document).ready(function() {
-        $('.implement-rate-input').on('input', function() {
-            var value = $(this).val().replace(/\D/g, ''); 
-            var formattedValue = Number(value).toLocaleString('en-IN');
-            $(this).val(formattedValue);
-        });
-
-        var input = document.getElementById('implement-rate-input');
-        input.focus();
-        input.setSelectionRange(0, 0);
-        input.style.textAlign = 'left';
-    });
-</script> -->
+<script>
+ 
+</script>
 <script>
     $(document).ready(function() {
         // Event listener for dynamically added rows

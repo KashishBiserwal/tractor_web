@@ -3,6 +3,7 @@ var editId_state= false;
 $(document).ready(function() {
     $('#sub_btn_').click(store);
   get_rent_tractor_list();
+  $('#Search').click(search_data);
    
 });
 
@@ -61,9 +62,10 @@ function formatDateTime(originalDateTimeStr) {
 
                     tableData.push([
                         counter, // Use counter as serial number
-                        formatDateTime(row.date),
+                        row.date,
                         row.brand_name,
                         row.model,
+                        row.first_name,
                         row.purchase_year,
                         row.state_name,
                         row.district_name,
@@ -79,6 +81,7 @@ function formatDateTime(originalDateTimeStr) {
                         { title: 'Date/Time' },
                         { title: 'Brand' },
                         { title: 'Model' },
+                        { title: 'Name' },
                         { title: 'Purchase Year' },
                         { title: 'State' },
                         { title: 'district' },
@@ -98,26 +101,25 @@ function formatDateTime(originalDateTimeStr) {
 }
 
 
-
 // view data
-function fetch_data(product_id){
-    // var urlParams = new URLSearchParams(window.location.search);
-    
+function fetch_data(product_id) {
     var productId = product_id;
-    var apiBaseURL = APIBaseURL;
-    var url = apiBaseURL + 'rent_data/' + productId;
+    var url =  'http://tractor-api.divyaltech.com/api/customer/get_rent_data/' + productId;
+    console.log(url);
     var headers = {
         'Authorization': 'Bearer ' + localStorage.getItem('token')
     };
+
     $.ajax({
         url: url,
         type: "GET",
         headers: headers,
         success: function(data) {
             console.log(data, 'abc');
-            if (data.rent_details.data1.length > 0) {
+            if (data.rent_details && data.rent_details.data1 && data.rent_details.data1.length > 0) {
                 var rentData = data.rent_details.data1[0];
                 document.getElementById('brand1').innerText = rentData.brand_name;
+                console.log(rentData.brand_name);
                 document.getElementById('model1').innerText = rentData.model;
                 document.getElementById('first_name2').innerText = rentData.first_name;
                 document.getElementById('last_name2').innerText = rentData.last_name;
@@ -154,12 +156,47 @@ function fetch_data(product_id){
                 console.error('No data found');
             }
         },
-        error: function (error) {
+        error: function(error) {
             console.error('Error fetching data:', error);
         }
     });
 }
 
+
+// function fetch_data(product_id){
+    
+//     var productId = product_id;
+//     var apiBaseURL = APIBaseURL;
+//     var url = apiBaseURL + 'rent_data/' + productId;
+//     var headers = {
+//         'Authorization': 'Bearer ' + localStorage.getItem('token')
+//     };
+  
+//     $.ajax({
+//       url: url,
+//       type: 'GET',
+//       headers: headers,
+    
+//       success: function(response) {
+//         var userData = response.rent_details.data1[0];
+//         document.getElementById('brand1').innerText=userData.brand_name;
+//         document.getElementById('model1').innerText=userData.model;
+//         document.getElementById('first_name2').innerText=userData.first_name;
+//         document.getElementById('last_name2').innerText=userData.last_name;
+//         document.getElementById('monile').innerText=userData.mobile;
+//         document.getElementById('date_2').innerText=userData.date;
+//         document.getElementById('purchase_year1').innerText=userData.purchase_year;
+//         document.getElementById('state2').innerText=userData.state_name;
+//         document.getElementById('district2').innerText=userData.district_name;
+//         document.getElementById('tehsil2').innerText=userData.tehsil_name;
+        
+//           // $('#exampleModal').modal('show');
+//       },
+//       error: function(error) {
+//         console.error('Error fetching user data:', error);
+//       }
+//     });
+//   }
 
     
 // fetch edit data
@@ -236,36 +273,28 @@ function fetch_edit_data(customer_id) {
             
                     // Create a new 'img' element
                     var newImage = document.createElement('img');
-                    newImage.className = 'img-fluid w-100 h-100'; // Add classes for styling
-                    newImage.src = imageUrl; // Set the image source
-                    newImage.alt = 'Image'; // Set the alt attribute
+                    newImage.className = 'img-fluid w-100 h-100'; 
+                    newImage.src = imageUrl; 
+                    newImage.alt = 'Image'; 
             
-                    // Create a new 'a' element to wrap the image
                     var newAnchor = document.createElement('a');
                     newAnchor.className = 'weblink text-decoration-none text-dark';
-                    newAnchor.title = 'Image'; // Set the title attribute
-                    newAnchor.appendChild(newImage); // Append the image to the anchor element
+                    newAnchor.title = 'Image'; 
+                    newAnchor.appendChild(newImage); 
             
-                    // Create a new 'div' element to contain the image
                     var newDiv = document.createElement('div');
-                    newDiv.className = 'brand-main d-flex box-shadow mt-2 text-center shadow upload__img-closeDy'; // Add classes for styling
-                    newDiv.appendChild(newAnchor); // Append the anchor element to the div
-            
-                    // Create a new 'div' for the close button
+                    newDiv.className = 'brand-main d-flex box-shadow mt-2 text-center shadow upload__img-closeDy';
+                    newDiv.appendChild(newAnchor); 
                     var closeButton = document.createElement('div');
                     closeButton.className = 'upload__img-close_button';
-                    closeButton.id = 'closeId' + index; // Set a unique ID for the close button
+                    closeButton.id = 'closeId' + index; 
                     closeButton.onclick = function() {
-                        removeImage(this); // Add onclick event to remove the image
+                        removeImage(this); 
                     };
-                    newDiv.appendChild(closeButton); // Append the close button to the div
-            
-                    // Create a new 'div' for the column
+                    newDiv.appendChild(closeButton); 
                     var newColumnDiv = document.createElement('div');
-                    newColumnDiv.className = 'col-6 col-lg-6 col-md-6 col-sm-6 position-relative'; // Add classes for styling
-                    newColumnDiv.appendChild(newDiv); // Append the image container to the column
-            
-                    // Append the column to the 'selectedImagesContainer'
+                    newColumnDiv.className = 'col-6 col-lg-6 col-md-6 col-sm-6 position-relative';
+                    newColumnDiv.appendChild(newDiv); 
                     document.getElementById('selectedImagesContainer').appendChild(newColumnDiv);
                 });
             }
@@ -275,101 +304,6 @@ function fetch_edit_data(customer_id) {
         }
     });
 }
-
-// function store(event) {
-//     event.preventDefault();
-
-//     var enquiry_type_id = 18;
-//     // var added_by = 1;
-//     var first_name = $('#myfname').val();
-//     var last_name = $('#mylname').val();
-//     var mobile = $('#mynumber').val();
-//     var state = $('#state_state').val();
-//     var district = $('#dist_district').val();
-//     var tehsil = $('#tehsil_t').val();
-//     var brand_id = $('#brand').val();
-//     var model_1 = $('#model_get').val();
-//     console.log('model',model_1);
-//     var purchase_year = $('#year').val();
-//     var working_radius = $('#workarea_').val();
-//     var message = $('#textarea_d').val();
-
-//     var implement_type_id = [];
-// $('.implement-type-input').each(function() {
-//     implement_type_id.push($(this).val());
-// });
-
-// var rate = [];
-// $('.implement-rate-input').each(function() {
-//     var rateValue = $(this).val().replace(/[\,\.\s]/g, ''); 
-//     rate.push(rateValue);
-// });
-
-// var rate_per = [];
-// $('.implement-unit-input').each(function() {
-//     rate_per.push($(this).val());
-// });
-
-// var images = [];
-// var impImageFiles = document.getElementsByClassName('image-file-input');
-// for (var i = 0; i < impImageFiles.length; i++) {
-//     images.push(impImageFiles[i].files[0]);
-// }
-  
-
-
-//     var data = new FormData();
-
-//     data.append('enquiry_type_id', enquiry_type_id);
-//     // data.append('added_by', added_by);
-//     data.append('first_name', first_name);
-//     data.append('last_name', last_name);
-//     data.append('mobile', mobile);
-//     data.append('state', state);
-//     data.append('district', district);
-//     data.append('tehsil', tehsil);
-//     data.append('brand_id', brand_id);
-//     data.append('model', model_1);
-//     data.append('purchase_year', purchase_year);
-//     data.append('working_radius', working_radius);
-//     data.append('message', message);
-//     data.append('implement_type_id', JSON.stringify(implement_type_id));
-//     data.append('rate', JSON.stringify(rate));
-//     data.append('rate_per', JSON.stringify(rate_per));
-
-//     for (var j = 0; j < images.length; j++) {
-//         data.append('images[]', images[j]);
-//     }
-
-   
-//     var token = localStorage.getItem('token');
-//     var headers = {
-//         'Authorization': 'Bearer ' + token
-//     };
-
-//     // var url = apiBaseURL + 'customer_enquiries'; 
-//     var method = 'POST';
-
-//     $.ajax({
-//         url: 'http://tractor-api.divyaltech.com/api/admin/customer_enquiries',
-//         type: method,
-//         data: data,
-//         headers: headers,
-//         processData: false,
-//         contentType: false, // Set content type to false for FormData
-//         success: function(result) {
-//             console.log(result, "result");
-//             if (result.length) {
-//                 // Do something
-//             }
-//             alert('successfully inserted..!')
-//         },
-//         error: function(error) {
-//             console.error('Error fetching data:', error);
-//         }
-//     });
-// }
-
 
 function store(event) {
     event.preventDefault();
@@ -494,7 +428,7 @@ function destroy(id) {
   }
 
 
-  function get() { 
+  function getBrandAdd() { 
     var url = 'http://tractor-api.divyaltech.com/api/customer/get_brand_for_finance';
     $.ajax({
         url: url,
@@ -519,7 +453,7 @@ function destroy(id) {
                     // Add event listener to brand dropdown
                     select.addEventListener('change', function() {
                         const selectedBrandId = this.value;
-                        get_model(selectedBrandId);
+                        get_Brandmodel(selectedBrandId);
                     });
                 } else {
                     select.innerHTML = '<option>No valid data available</option>';
@@ -532,7 +466,7 @@ function destroy(id) {
     });
   }
   
-  function get_model(brand_id) {
+  function get_Brandmodel(brand_id) {
     var url = 'http://tractor-api.divyaltech.com/api/customer/get_brand_model/' + brand_id;
     $.ajax({
         url: url,
@@ -565,7 +499,7 @@ function destroy(id) {
     });
   }
   
-  get();
+  getBrandAdd();
   
   function get_year_and_hours() {
     console.log('initsfd')
@@ -659,3 +593,186 @@ function resetFormFields(){
         imageIcon.style.display = "block"; // Set the display property to "block" to show the image icon
     }
 }
+function getSearchBrand() { 
+    var url = 'http://tractor-api.divyaltech.com/api/customer/get_brand_for_finance';
+    $.ajax({
+        url: url,
+        type: "GET",
+        headers: {
+            'Authorization': 'Bearer ' + localStorage.getItem('token')
+        },
+        success: function (data) {
+            const selects = document.querySelectorAll('#brandsearch');
+  
+            selects.forEach(select => {
+                select.innerHTML = '<option selected disabled value="">Please select an option</option>';
+  
+                if (data.brands.length > 0) {
+                    data.brands.forEach(row => {
+                        const option = document.createElement('option');
+                        option.textContent = row.brand_name;
+                        option.value = row.id;
+                        select.appendChild(option);
+                    });
+  
+                    // Add event listener to brand dropdown
+                    select.addEventListener('change', function() {
+                        const selectedBrandId = this.value;
+                        get_model(selectedBrandId);
+                    });
+                } else {
+                    select.innerHTML = '<option>No valid data available</option>';
+                }
+            });
+        },
+        error: function (error) {
+            console.error('Error fetching data:', error);
+        }
+    });
+  }
+  
+  function get_model(brand_id) {
+    var url = 'http://tractor-api.divyaltech.com/api/customer/get_brand_model/' + brand_id;
+    $.ajax({
+        url: url,
+        type: "GET",
+        headers: {
+            'Authorization': 'Bearer ' + localStorage.getItem('token')
+        },
+        success: function (data) {
+            const selects = document.querySelectorAll('#modelsearch');
+  
+            selects.forEach(select => {
+                select.innerHTML = '<option selected disabled value="">Please select an option</option>';
+  
+                if (data.model.length > 0) {
+                    data.model.forEach(row => {
+                        const option = document.createElement('option');
+                        option.textContent = row.model;
+                        option.value = row.model;
+                        console.log(option);
+                        select.appendChild(option);
+                    });
+                } else {
+                    select.innerHTML = '<option>No valid data available</option>';
+                }
+            });
+        },
+        error: function (error) {
+            console.error('Error fetching data:', error);
+        }
+    });
+  }
+  
+  getSearchBrand();
+
+
+  function search_data() {
+
+    var selectedBrand = $('#brandsearch').val();
+    var model = $('#modelsearch').val();
+    var state = $('#state_sct').val();
+    var district = $('#district_sct').val();
+  
+    var paraArr = {
+      'brand_id': selectedBrand,
+      'model':model,
+      'state':state,
+      'district':district,
+    };
+  
+    var apiBaseURL = APIBaseURL;
+    var url = apiBaseURL + 'search_for_rent_enquiry';
+    $.ajax({
+        url:url, 
+        type: 'POST',
+        data: paraArr,
+      
+        headers: {
+            'Authorization': 'Bearer ' + localStorage.getItem('token')
+        },
+        success: function (searchData) {
+          console.log(searchData,"hello brand");
+          updateTable(searchData);
+        },
+        error: function (error) {
+            console.error('Error searching for brands:', error);
+        }
+    });
+  };
+  function updateTable(data) {
+    console.log('Received data:', data);
+
+    const tableBody = document.getElementById('data-table');
+    console.log('Table body:', tableBody);
+
+    tableBody.innerHTML = '';
+    let serialNumber = 1;
+
+    if (data.rent_details && Object.keys(data.rent_details).length > 0) {
+        let tableData = [];
+        Object.values(data.rent_details).forEach(row => {
+            console.log('Processing row:', row);
+
+            let formattedDate = row.date ? formatDateTime(row.date) : 'Invalid Date';
+            console.log('Formatted date:', formattedDate);
+
+            let action = `<div class="d-flex">
+                <button class="btn btn-warning btn-sm text-white mx-1" data-bs-toggle="modal" onclick="fetch_data(${row.id});" data-bs-target="#rent_view_model">
+                    <i class="fa-solid fa-eye" style="font-size: 11px;"></i>
+                </button>
+                <button class="btn btn-primary btn-sm btn_edit" onclick="fetch_edit_data(${row.id});" data-bs-toggle="modal" data-bs-target="#staticBackdrop" id="yourUniqueIdHere" style="padding:5px">
+                    <i class="fas fa-edit" style="font-size: 11px;"></i>
+                </button>
+                <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.id});" style="padding:5px">
+                    <i class="fa fa-trash" style="font-size: 11px;"></i>
+                </button>
+            </div>`;
+            console.log('Action:', action);
+
+            tableData.push([
+                serialNumber,
+                formattedDate,
+                row.brand_name,
+                row.model,
+                row.first_name,
+                row.purchase_year || '', 
+                row.state_name || '',
+                row.district_name || '', 
+                action
+            ]);
+
+            serialNumber++;
+        });
+
+        console.log('Table data:', tableData);
+
+        $('#example').DataTable().destroy();
+        console.log('Destroyed previous DataTable');
+
+        $('#example').DataTable({
+            data: tableData,
+            columns: [
+                { title: 'S.No.' },
+                { title: 'Date/Time' },
+                { title: 'Brand' },
+                { title: 'Model' },
+                { title: 'Name' },
+                { title: 'Purchase Year' },
+                { title: 'State' },
+                { title: 'District' },
+                { title: 'Action', orderable: true }
+            ],
+            paging: true,
+            searching: false
+        });
+
+        console.log('Initialized new DataTable');
+    } else {
+        // Display a message if there's no valid data
+        tableBody.innerHTML = '<tr><td colspan="9">No valid data available</td></tr>';
+        console.log('No valid data available');
+    }
+}
+
+

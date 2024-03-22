@@ -525,7 +525,7 @@ function destroy(id) {
       
                   var newCard = `
                       <div class="col-6 col-lg-6 col-md-6 col-sm-6">
-                          <div class="brand-main d-flex box-shadow   mt-2 text-center shadow">
+                          <div class="brand-main d-flex box-shadow   mt-2 text-center shadow w-50 h-75">
                               <a class="weblink text-decoration-none text-dark" title="Image">
                                   <img class="img-fluid w-100 h-100 " src="${imageUrl}" alt="Image">
                               </a>
