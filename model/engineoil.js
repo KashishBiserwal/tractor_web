@@ -86,7 +86,6 @@ $(document).ready(function() {
                         loadMoreButton.show();
                     }
     
-                    // Handle "Load More Engine Oil" button click
                     loadMoreButton.click(function() {
                         // Display all engine oil items
                         displayedEngineoil = totalEngineoil;
