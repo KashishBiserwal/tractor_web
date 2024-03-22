@@ -172,10 +172,10 @@
                                         </tfoot>
                                     </table>
                                 </div>
-                                <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
+                                <div class="col-12 col-lg-6 col-md-6 col-sm-6">
                                     <div class="form-outline">
-                                        <label class="form-label text-dark">Working Area</label>
-                                        <textarea rows="2" cols="70" class="w-100 p-2"  id="workingRadius" name="textarea_"></textarea>
+                                        <label class="form-label text-dark" for="workingRadius">Working Area</label>
+                                        <textarea rows="2" cols="70" class="w-100 p-2" id="workingRadius" name="textarea_" oninput="this.value = this.value.replace(/[^0-9]/g, '')"></textarea>
                                     </div>
                                 </div>
                                 <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
@@ -504,9 +504,13 @@
     }
    
     function removeRow(button) {
-        $(button).closest('tr').remove();
-       // updateSerialNumbers();
+    var $clickedRow = $(button).closest('tr');
+    
+    // Check if the clicked row is not the first row
+    if ($clickedRow.index() !== 0) {
+        $clickedRow.remove();
     }
+}
 
     function updateSerialNumbers() {
     $('#rentTractorTable tbody tr').each(function (index) {
@@ -568,10 +572,6 @@
             }
         });
 
-        $(document).on("click", ".btn-danger", function () {
-            $(this).closest("tr").remove();
-            //updateSerialNumbers();
-        });
 
 
         $("#rentTractorTable").on("submit", function (e) {
