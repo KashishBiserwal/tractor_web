@@ -315,6 +315,7 @@ function openViewdata(userId) {
         document.getElementById('state_1').innerText=userData.state_name;
         document.getElementById('dist_1').innerText=userData.district_name;
         document.getElementById('tehsil_1').innerText=userData.tehsil_name;
+
         
           // $('#exampleModal').modal('show');
       },
@@ -342,6 +343,7 @@ function openViewdata(userId) {
         success: function (response) {
             var Data = response.hire_details[0];
             $('#idUser').val(Data.id);
+            $('#product_id').val(Data.product_subject_id);
             // $("#brand_name_1 option").prop("selected", false);
             // $("#brand_name_1 option[value='" + Data.brand_name + "']").prop("selected", true);
             // $('#model_1').val(Data.model);
@@ -403,7 +405,7 @@ function openViewdata(userId) {
 
 function edit_user() {
     var enquiry_type_id = $("#enquiry_type_id").val();
-  var product_type_id = $("#product_subject_id").val();
+  var product_id = $("#product_id").val();
   var edit_id = $("#idUser").val();
   var brand_name = $("#brand_name_1").val();
   var model_name = $("#model_1").val();
@@ -414,7 +416,7 @@ function edit_user() {
   var state = $("#state_").val();
   var district = $("#dist_").val();
   var tehsil = $("#tehsil_").val();
-
+  var _method = 'put';
   // Validate mobile number
   if (!/^[6-9]\d{9}$/.test(mobile)) {
       alert("Mobile number must start with 6 or above and should be 10 digits");
@@ -432,7 +434,9 @@ function edit_user() {
       'tehsil': tehsil,
       'id': edit_id,
       'enquiry_type_id': enquiry_type_id,
-      'product_subject_id': product_type_id,
+      'product_id': product_id,
+      '_method': _method,
+   
   };
 
   var apiBaseURL = APIBaseURL;
@@ -444,7 +448,7 @@ function edit_user() {
 
   $.ajax({
       url: url,
-      type: "PUT",
+      type: "POST",
       data: paraArr,
       headers: headers,
       success: function (result) {
@@ -603,7 +607,7 @@ function edit_user() {
   
 
   function get_1() {
-    var url = 'http://tractor-api.divyaltech.com/api/customer/get_all_brands';
+    var url = 'http://tractor-api.divyaltech.com/api/customer/get_brand_for_finance';
     $.ajax({
         url: url,
         type: "GET",

@@ -138,24 +138,24 @@
                                 <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-3">
                                     <div class="form-outline">
                                         <label for="eo_state" class="form-label text-dark fw-bold"> <i class="fas fa-location"></i> State</label>
-                                        <select class="form-select py-2 " aria-label=".form-select-lg example" id="state" name="eo_state">
-                                           <option value="Chhattisgarh">Chhattisgarh</option>
+                                        <select class="form-select py-2 state-dropdown" aria-label=".form-select-lg example" id="state" name="eo_state">
+                                        
                                         </select>
                                     </div>
                                 </div>
                                 <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-4">
                                     <div class="form-outline">
                                         <label for="eo_dist" class="form-label fw-bold  text-dark"><i class="fa-solid fa-location-dot"></i> District</label>
-                                        <select class="form-select py-2 " aria-label=".form-select-lg example" id="district" name="eo_dist">
-                                           <option value="Bemetara">Bemetara</option>
+                                        <select class="form-select py-2 district-dropdown" aria-label=".form-select-lg example" id="district" name="eo_dist">
+                                        
                                         </select>
                                     </div>
                                 </div>                           
                                 <div class="col-12 col-sm-6 col-md-6 col-lg-6 mt-4">
                                     <div class="form-outline">
                                         <label for="eo_tehsil" class="form-label fw-bold text-dark"> Tehsil</label>
-                                        <select class="form-select py-2 " aria-label=".form-select-lg example" id="Tehsil" name="eo_tehsil">
-                                            <option value="Bemetara">Bemetara</option>
+                                        <select class="form-select py-2 tehsil-dropdown" aria-label=".form-select-lg example" id="Tehsil" name="eo_tehsil">
+                                          
                                         </select>
                                     </div>
                                 </div>
@@ -194,7 +194,7 @@
         </div>
         <h5 class="fw-bold pt-2 ps-2">Engine</h5>
 
-        <table class="table w-75 table-hover table table-striped my-4">
+        <table class="table w-100 table-hover table table-striped my-4">
             
             <tbody>
           
@@ -241,7 +241,7 @@
         </table>
 
         <h5 class="fw-bold pt-2 ps-2">CUTTER BAR</h5>
-        <table class="table w-75 table-hover table table-striped my-4">
+        <table class="table w-100 table-hover table table-striped my-4">
             
             <tbody>
 
@@ -288,7 +288,7 @@
         </table>
 
         <h5 class="fw-bold pt-2 ps-2">REEL</h5>
-        <table class="table w-75 table-hover table table-striped my-4">
+        <table class="table w-100 table-hover table table-striped my-4">
             
             <tbody>
 
@@ -335,7 +335,7 @@
         </table>
 
         <h5 class="fw-bold pt-2 ps-2">Thresher Drum</h5>
-        <table class="table w-75 table-hover table table-striped my-4">
+        <table class="table w-100 table-hover table table-striped my-4">
             
             <tbody>
 
@@ -395,7 +395,7 @@
         </table>    
 
         <h5 class="fw-bold pt-2 ps-2">Concave</h5>
-        <table class="table w-75 table-hover table table-striped my-4">
+        <table class="table w-100 table-hover table table-striped my-4">
             
             <tbody>
                 <tr>
@@ -505,7 +505,7 @@
         </table> -->
 
         <h5 class="fw-bold pt-2 ps-2">Tyre Size</h5>
-        <table class="table w-75 table-hover table table-striped my-4">
+        <table class="table w-100 table-hover table table-striped my-4">
             <tbody>
                 <tr>
                     <td class="w-100">
@@ -537,7 +537,7 @@
         </table>
 
         <h5 class="fw-bold pt-2 ps-2">Dimensions</h5>
-        <table class="table w-75 table-hover table table-striped my-4">
+        <table class="table w-100 table-hover table table-striped my-4">
             <tbody>
                 <tr>
                     <td class="w-100">
@@ -631,7 +631,7 @@
 
 
         <!-- CARDS SIMILAR HARVETER -->
-<section>
+<!-- <section>
          <div class="container ">
             <h2 class="fw-bold text-dark text-start mt-4 assured ps-3">Similar Harvesters</h3>
             <div class="section slider-section">
@@ -645,7 +645,7 @@
         </div>
             </div>
             </div>
-</section>
+</section> -->
 <!-- <section>
     <div class="container">
         <div>

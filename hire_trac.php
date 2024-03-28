@@ -117,7 +117,7 @@ include 'includes/footertag.php';
                             <form id="hire_trac_form">
                                 <div class="row pt-4">
                                 <div class="col- col-sm-6 col-lg-6 col-md-6" hidden>
-                                  <label class="text-dark"> id Name<span class="text-danger">*</span></label>
+                                  <label class="text-dark">updateSerialNumbers<span class="text-danger">*</span></label>
                                           <input type="text" class="form-control py-2" for="idUser"  id="idUser" name="first_name" placeholder="Enter First Name">
                                   <small></small>
                                 </div>  <div class="col- col-sm-6 col-lg-6 col-md-6" hidden>
@@ -128,7 +128,7 @@ include 'includes/footertag.php';
                                 <div class="col-12 col-lg-6 col-md-6 col-sm-6 mt-3" hidden>
                                   <div class="form-outline ">
                                     <label for="name" class="form-label text-dark">Product id</label>
-                                    <input type="text" class="form-control" placeholder="Enter Your Model Name" value="" id="product_type_id" name="product_type_id">
+                                    <input type="text" class="form-control" placeholder="Enter Your Model Name" value="" id="product_id" name="product_type_id">
                                   </div>
                                 </div>
                                 <div class="col-12 col-sm-6 col-lg-6 col-md-6">

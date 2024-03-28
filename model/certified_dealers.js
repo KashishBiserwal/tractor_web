@@ -72,9 +72,9 @@ function displaydealer(dealers) {
                         <div class="col-12 col-lg-12 col-md-12 col-sm-12">
                             <p class="text-center text-dark fw-bold">${dealer.brand_name} <span>Dealer</span></p>
                         </div>
-                        <div class="justify-content-center d-flex">
-                            <button type="button" class="btn btn-success w-100">Rangareddy, Telangana</button>
-                        </div>
+                        <div class="col-12">
+                                <button type="button" id="adduser"class="btn-state btn-success w-100 text-decoration-none text-truncate px-2 w-100 text-truncate"><span>${dealer.district_name}</span>, <span><span>${dealer.state_name}</span></span></a>
+                            </div>
                     </div>
                 </div>
             </div>
@@ -99,8 +99,8 @@ function searchdata() {
 
     var data = {
         brand_id: brandId,
-        state_id: stateId,
-        district_id: districtId
+        state: stateId,
+        district: districtId
     };
     
     $.ajax({
@@ -140,9 +140,9 @@ function searchdata() {
                                     <div class="col-12 col-lg-12 col-md-12 col-sm-12">
                                         <p class="text-center text-dark fw-bold">${dealer.brand_name} <span>Dealer</span></p>
                                     </div>
-                                    <div class="justify-content-center d-flex">
-                                        <button type="button" class="btn btn-success w-100">Rangareddy, Telangana</button>
-                                    </div>
+                                    <div class="col-12">
+                                <button type="button" id="adduser"class="btn-state btn-success w-100 text-decoration-none text-truncate px-2 w-100 text-truncate"><span>${dealer.district_name}</span>, <span><span>${dealer.state_name}</span></span></a>
+                            </div>
                                 </div>
                             </div>
                         </div>

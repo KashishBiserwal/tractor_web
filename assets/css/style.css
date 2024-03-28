@@ -101,7 +101,7 @@ margin-top: 130px
     /* background-color: lightsalmon; */
     /* color: #fff; */
     color: #026c05;
-    background: white;
+    /* background: white; */
     margin-left: 0.125em;
   }
  
@@ -448,7 +448,6 @@ ul{
   background: #fff;
 }
 
-
 /* Add indicator arrow for the active tab */
 @media (min-width: 992px) {
   .nav-pills-custom .nav-link::before {
@@ -468,7 +467,12 @@ ul{
 .nav-pills-custom .nav-link.active::before {
   opacity: 1;
 }
-
+#myAccountDropdown .dropdown-toggle {
+  color: #fff;
+  font-weight: 700;
+  font-size: 14px;
+  padding: 0 14px;
+}
 /* upcoming event */
 .upcom-img{
   width: 430px;

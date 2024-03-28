@@ -152,8 +152,8 @@ $(document).ready(function () {
 
 // get brand
 function get() {
-    var apiBaseURL = APIBaseURL;
-    var url = apiBaseURL + 'getBrands';
+    // var apiBaseURL = APIBaseURL;
+    var url = 'http://tractor-api.divyaltech.com/api/customer/get_brand_for_finance';
   
     $.ajax({
       url: url,

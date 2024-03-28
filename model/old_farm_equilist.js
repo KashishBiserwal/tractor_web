@@ -217,7 +217,7 @@ $(document).ready(function(){
        
       
  function get() {
-  var url = 'http://192.168.1.12:9000/api/customer/get_all_brands';
+  var url = 'http://tractor-api.divyaltech.com/api/customer/get_brand_for_finance';
   $.ajax({
       url: url,
       type: "GET",
@@ -253,7 +253,7 @@ $(document).ready(function(){
 }
 
 function get_model_1(brand_id, selectedModel) {
-  var url = 'http://192.168.1.12:9000/api/customer/get_brand_model/' + brand_id;
+  var url = 'http://tractor-api.divyaltech.com/api/customer/get_brand_model/' + brand_id;
   $.ajax({
       url: url,
       type: "GET",

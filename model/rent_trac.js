@@ -104,7 +104,7 @@ function formatDateTime(originalDateTimeStr) {
 // view data
 function fetch_data(product_id) {
     var productId = product_id;
-    var url =  'http://tractor-api.divyaltech.com/api/customer/get_rent_data/' + productId;
+    var url =  'http://tractor-api.divyaltech.com/api/customer/rent_data/' + productId;
     console.log(url);
     var headers = {
         'Authorization': 'Bearer ' + localStorage.getItem('token')
@@ -224,8 +224,8 @@ function fetch_edit_data(customer_id) {
 
             // Populate form fields with merged data
             var userData = mergedData[0];
-
-            $('#customer_id').val(userData.customer_id);
+            $('#idUser').val(userData.id);
+            // $('#customer_id').val(userData.customer_id);
             $('#enquiry_type_id').val(userData.enquiry_type_id);
             // $('#implement_type_id').val(userData.implement_type_id);
             $('#impType_0').val(userData.implement_category);

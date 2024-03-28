@@ -2,7 +2,7 @@
   $(document).ready(function(){
     // $('#Search_btn').click(search_data);
     $('#engine_subbtn').click(edit_data_id);
-    
+    $('#Search').click(searchdata);
           jQuery.validator.addMethod("customPhoneNumber", function(value, element) {
           return /^[6-9]\d{9}$/.test(value); 
           }, "Phone number must start with 6 or above");
@@ -397,152 +397,135 @@ function fetch_edit_data(id) {
     });
   }
 
-  $(document).ready(function () {
-    // Initialize DataTable
-    var table = $('#example').DataTable({
-        paging: true,
-        searching: true,
-        columns: [
-            { title: 'S.No.' },
-            { title: 'Date' },
-            { title: 'Brand' },
-            { title: 'Model' },
-            { title: 'Full Name' },
-            { title: 'Mobile' },
-            { title: 'State' },
-            { title: 'District' },
-            { title: 'Action', orderable: false }
-        ]
-    });
-
+  // $(document).ready(function () {
+  //   // Initialize DataTable
+  //   var table = $('#example').DataTable({
+  //       paging: true,
+  //       searching: true,
+  //       columns: [
+  //           { title: 'S.No.' },
+  //           { title: 'Date' },
+  //           { title: 'Brand' },
+  //           { title: 'Model' },
+  //           { title: 'Full Name' },
+  //           { title: 'Mobile' },
+  //           { title: 'State' },
+  //           { title: 'District' },
+  //           { title: 'Action', orderable: false }
+  //       ]
+  //   });
+  // });
     // Search Button Click Event
-    $("#Search").click(function () {
-        var selectedBrand = $('#brand_name').val();
-        var selectedModel = $('#model').val();
-        var selectedState = $('#state').val();
-        var selectedDistrict = $('#district').val();
+//     $("#Search").click(function () {
+//         var selectedBrand = $('#brand_name').val();
+//         var selectedModel = $('#model').val();
+//         var selectedState = $('#state').val();
+//         var selectedDistrict = $('#district').val();
 
-        // Perform search
-        table.columns(2).search(selectedBrand).draw();
-        table.columns(3).search(selectedModel).draw();
-        table.columns(6).search(selectedState).draw();
-        table.columns(7).search(selectedDistrict).draw();
-    });
-    $("#Reset").click(function () {
-        $('#brand_name, #model, #state, #district').val('');
-        table.search('').columns().search('').draw();
-    });
-});
+//         // Perform search
+//         table.columns(2).search(selectedBrand).draw();
+//         table.columns(3).search(selectedModel).draw();
+//         table.columns(6).search(selectedState).draw();
+//         table.columns(7).search(selectedDistrict).draw();
+//     });
+//     $("#Reset").click(function () {
+//         $('#brand_name, #model, #state, #district').val('');
+//         table.search('').columns().search('').draw();
+//     });
+// });
 
 
-function search_data() {
-  var brand = $('#brand_name_search').val();
-  var model = $('#model_search').val();
-  var state = $('#state_search').val();
-  var district = $('#district_search').val();
-
-  // Create an object to store search parameters
-  var paraArr = {
-    'brand_id': brand,
-    'model': model,
-    'state': state,
-    'district': district,
+function searchdata() {
+  console.log("dfghsfg,sdfgdfg");
+  var brandselect = $('#brand_name_search').val();
+  var modelselect = $('#model_search').val();
+  var stateselect = $('#state_search').val();
+  var districtselect = $('#district_search').val();
+    var paraArr = {
+    'brand_id':brandselect,
+    'model':modelselect,
+    'state':stateselect,
+    'district':districtselect,
   };
-
-
-  console.log('Search Parameters:', paraArr);
-
   var apiBaseURL = APIBaseURL;
   var url = apiBaseURL + 'search_for_engine_oil_enquiry';
-
   $.ajax({
-    url: url,
-    type: 'POST',
-    data: paraArr,
-    headers: {
-      'Authorization': 'Bearer ' + localStorage.getItem('token')
-    },
-    success: function (searchData) {
-      console.log('API Response:', searchData); // Log API response for debugging
-      updateTable(searchData);
-    },
-    error: function (error) {
-      console.error('Error searching for brands:', error);
-  
-      if (error.status === 400) {
-        // Display a message in the table when no valid data is available
-        updateTable({ nurseryEnquiry: [] });
-      } else {
-        // Handle other errors as needed
+      url:url, 
+      type: 'POST',
+      data: paraArr,
+    
+      headers: {
+          'Authorization': 'Bearer ' + localStorage.getItem('token')
+      },
+      success: function (searchData) {
+        console.log(searchData,"hello brand");
+        updateTable(searchData);
+      },
+      error: function (error) {
+          console.error('Error searching for brands:', error);
       }
-    }
   });
-}
-
-// Update table function
+};
 function updateTable(data) {
   const tableBody = document.getElementById('data-table');
   tableBody.innerHTML = '';
-  let serialNumber = 1;
+  let serialNumber = 1; 
+  if(data.engineOilData && data.engineOilData.length > 0) {
+      let tableData = []; 
+      data.engineOilData.forEach(row => {
+        const fullName = row.first_name + ' ' + row.last_name;
+          let action =     `<div class="d-flex">
+          <button class="btn btn-warning btn-sm text-white mx-1" data-bs-toggle="modal" onclick="openViewdata(${row.id});" data-bs-target="#view_model_engine_oil">
+              <i class="fas fa-eye" style="font-size: 11px;"></i>
+          </button> 
+          <button class="btn btn-primary btn-sm btn_edit" onclick="fetch_edit_data(${row.id});" data-bs-toggle="modal" data-bs-target="#staticBackdrop2" id="yourUniqueIdHere">
+          <i class="fas fa-edit" style="font-size: 11px;"></i>
+      </button>
+          <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.id});">
+              <i class="fa fa-trash" style="font-size: 11px;"></i>
+          </button>
+      </div>`
+     
+          tableData.push([
+            serialNumber,
+            row.date,
+            row.brand_name,
+            row.oil_model,
+            fullName,
+            row.mobile,
+            row.state_name,
+            row.district_name,
+            action
+        ]);
 
-  if (data.nurseryEnquiry && data.nurseryEnquiry.length > 0) {
-    let tableData = [];
-    data.nurseryEnquiry.forEach(row => {
-      const fullName = row.first_name + ' ' + row.last_name;
-      const action = buildActionButtons(row.id);
-
-      tableData.push([
-        serialNumber,
-        row.date,
-        row.brand_name,
-        row.oil_model,
-        fullName,
-        row.mobile,
-        row.state_name,
-        row.district_name,
-        action
-      ]);
-
-      serialNumber++;
+        serialNumber++;
     });
 
     $('#example').DataTable().destroy();
     $('#example').DataTable({
-      data: tableData,
-      columns: [
-        { title: 'S.No.' },
-        { title: 'Date' },
-        { title: 'Brand' },
-        { title: 'Model' },
-        { title: 'Full Name' },
-        { title: 'Mobile' },
-        { title: 'State' },
-        { title: 'District' },
-        { title: 'Action', orderable: false }
-      ],
-      paging: true,
-      searching: false,
-      // ... other options ...
+        data: tableData,
+        columns: [
+          { title: 'S.No.' },
+          { title: 'Date' },
+          { title: 'Brand' },
+          { title: 'Model' },
+          { title: 'Full Name' },
+          { title: 'Mobile' },
+          { title: 'State' },
+          { title: 'District' },
+          { title: 'Action', orderable: false }
+        ],
+        paging: true,
+        searching: true,
+        // ... other options ...
     });
   } else {
-    tableBody.innerHTML = '<tr><td colspan="8">No valid data available</td></tr>';
-    
+      // Display a message if there's no valid data
+      tableBody.innerHTML = '<tr><td colspan="4">No valid data available</td></tr>';
   }
- 
 }
-function buildActionButtons(id) {
-  return `<div class="d-flex">
-<button class="btn btn-warning btn-sm text-white mx-1" data-bs-toggle="modal" onclick="openViewdata(${row.id});" data-bs-target="#view_model_engine_oil">
-    <i class="fas fa-eye" style="font-size: 11px;"></i>
-</button> 
-<button class="btn btn-primary btn-sm btn_edit" onclick="fetch_edit_data(${row.id});" data-bs-toggle="modal" data-bs-target="#staticBackdrop2" id="yourUniqueIdHere">
-<i class="fas fa-edit" style="font-size: 11px;"></i>
-</button>
-<button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.id});">
-    <i class="fa fa-trash" style="font-size: 11px;"></i>
-</button>
-</div>`
-}
+
+
 function get_oil() {
   var url = 'http://tractor-api.divyaltech.com/api/customer/get_oil_brands';
 

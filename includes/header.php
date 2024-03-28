@@ -13,18 +13,15 @@
       <div class="collapse navbar-collapse col-sm-9 pe-0" id="collapsibleNavbar" style="    justify-content: end;">
         <div class="row w-100">
           <div class="col-sm-8">
-       <form class="mb-0 navserach">
-        <div class="row w-100">
-        <div class="col-sm-9 pe-0">
-                <input class="form-control mb-0" type="text" placeholder="Search">
-              </div> 
-              <div class="col-sm-3 ps-0">
-              <button class="btn btn-primary" type="button"><i class="fa-solid fa-magnifying-glass" style="font-size: 24px;"></i></button>
-              </div> 
-        </div>
-              
-              
-              
+            <form class="mb-0 navserach">
+              <div class="row w-100">
+                <div class="col-sm-9 pe-0">
+                  <input class="form-control mb-0" type="text" placeholder="Search">
+                </div> 
+                <div class="col-sm-3 ps-0">
+                  <button class="btn btn-primary" type="button"><i class="fa-solid fa-magnifying-glass" style="font-size: 24px;"></i></button>
+                </div> 
+              </div>
             </form> 
           </div>
           <div class="col-sm-4">
@@ -268,7 +265,27 @@
 <?php 
  include 'includes/footertag.php';
 ?>
+<script>
+  // Check if user is logged in
+  // Assume a variable loggedIn is set to true if user is logged in
+  var loggedIn = true; // Example, replace this with your actual condition to check if user is logged in
 
+  // Check if user is logged in and change the link text accordingly
+  window.onload = function() {
+    var loginButton = document.getElementById("loginButton");
+    var myAccountButton = document.getElementById("myAccountButton");
+
+    if (loggedIn) {
+      // User is logged in, hide login button and show my account button
+      loginButton.style.display = "none";
+      myAccountButton.style.display = "block";
+    } else {
+      // User is not logged in, show login button and hide my account button
+      loginButton.style.display = "block";
+      myAccountButton.style.display = "none";
+    }
+  };
+</script>
 
 <script>
   $(document).ready(function(){
@@ -411,3 +428,65 @@ function get_brands() {
                     <li id="agricultureNews"><a class="dropdown-item fw-bold" href="agri_news.php">Agriculture News</a></li>
                    <hr class="dropdown-divider m-0">
                     <li id="sarkariNews"><a class="dropdown-item fw-bold" href="sarkari_news.php">Sarkari Yojana news</a></li> -->
+
+
+
+
+                    <!-- <div class="col-sm-4">
+                <ul class="navbar-nav float-end">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" style="border-right: 1px solid #fff;">Download App</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="loginButton" href="user-login.php">Login</a>
+                        <div id="myAccountDropdown" class="dropdown" style="display: none;">
+                            <button class="nav-link dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                My Account
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="background-color: #fff;">
+                                <a class="dropdown-item text-dark" href="#" onclick="logout()">Logout</a>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div> -->
+
+<!-- 
+            <script>
+    var loggedIn = true; // Change this to false if the user is logged out
+
+    window.onload = function() {
+        updateUI();
+    };
+
+    function updateUI() {
+        var loginButton = document.getElementById("loginButton");
+        var myAccountDropdown = document.getElementById("myAccountDropdown");
+
+        if (loggedIn) {
+            // User is logged in, hide login button and show my account dropdown
+            loginButton.style.display = "none";
+            myAccountDropdown.style.display = "block";
+        } else {
+            // User is not logged in, show login button and hide my account dropdown
+            loginButton.style.display = "block";
+            myAccountDropdown.style.display = "none";
+        }
+    }
+
+    function logout() {
+        // Perform logout actions here
+
+        // Clear token (example: remove from local storage)
+        localStorage.removeItem('token');
+
+        // Update loggedIn status
+        loggedIn = false;
+
+        // Update UI
+        updateUI();
+
+        // Redirect to index page after logout
+        window.location.href = 'index.php'; // Redirect to index page
+    }
+</script> -->

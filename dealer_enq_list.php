@@ -9,6 +9,7 @@
   <script src="<?php $baseUrl; ?>model/dealers_enq.js"></script>
   <script src="<?php $baseUrl; ?>model/State_dist_tehsil.js"></script>
   <script src="<?php $baseUrl; ?>model/state2_dist2.js"></script>
+
 <body class="loaded"> 
 <div class="main-wrapper">
     <div class="app" id="app">
@@ -18,44 +19,43 @@
     ?>
 <section style="padding: 0 15px;">
     <div class="">
-      <div class="container">
-        <div class="card-body d-flex align-items-center justify-content-between page_title">
-          <nav aria-label="breadcrumb">
-            <ol class="breadcrumb my-0 ms-2">
-              
-              <li class="breadcrumb-item">
-                <span>Dealers Enquiry List</span>
-              </li>
-            </ol>
-          </nav>
+        <div class="container">
+            <div class="card-body d-flex align-items-center justify-content-between page_title">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb my-0 ms-2">
+                        <li class="breadcrumb-item">
+                            <span>Dealers Enquiry List</span>
+                        </li>
+                    </ol>
+                </nav>
+            </div>
         </div>
-      </div>
     </div>
     <div class="container">
-    <!-- Filter Card -->
-      <div class="filter-card mb-2">
-          <div class="card-body">
-              <div class="row">
-                  <div class="col-12 col-sm-12 col-md-3 col-lg-3">
-                      <div class="form-outline">
-                          <label class="form-label">State</label>
-                          <select class="form-select py-2 state_select" aria-label="Default select example" id="state_1"></select>
-                      </div>
-                  </div>
-                  <div class="col-12 col-sm-12 col-md-3 col-lg-3">
-                      <div class="form-outline">
-                          <label class="form-label fw-bold">District</label>
-                          <select class="form-select py-2 district_select" aria-label="Default select example" id="district_1"></select>
-                      </div>
-                  </div>
-                  <div class="col-12 col-sm-12 col-md-3 col-lg-3">
-                      <div class="text-center">
-                          <button type="button" class="btn-success btn px-3 py-2" id="Search" onclick="searchdata()">Search</button>
-                          <button type="button" class="btn-success btn mx-2 px-3 py-2" id="Reset">Reset</button>
-                      </div>
-                  </div>
-              </div>
-          </div>
+        <!-- Filter Card -->
+        <div class="filter-card mb-2">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-12 col-sm-12 col-md-3 col-lg-3">
+                        <div class="form-outline">
+                            <label class="form-label">State</label>
+                            <select class="form-select py-2 state_select" aria-label="Default select example" id="state_1"></select>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-12 col-md-3 col-lg-3">
+                        <div class="form-outline">
+                            <label class="form-label fw-bold">District</label>
+                            <select class="form-select py-2 district_select" aria-label="Default select example" id="district_1"></select>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-12 col-md-3 col-lg-3">
+                        <div class="text-center">
+                            <button type="button" class="btn-success btn px-3 py-2" id="Search" onclick="searchdata()">Search</button>
+                            <button type="button" class="btn-success btn mx-2 px-3 py-2" id="Reset">Reset</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
         <!-- Table Card -->
         <nav class="">
@@ -109,9 +109,7 @@
             </div>
         </div>
     </div>
- 
 </section>
-
 
    <!-- model edit  table 2 normal enquiry -->
         <div class="modal fade" id="view_model_dealer" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -127,6 +125,8 @@
                         <table class="table table-striped">
                         <tbody>
                          <tr> 
+                         <td>Brand-</td>
+                            <td id="brand_particuler"></td>
                          <tr> 
                            
                             <td>First Name-</td>

@@ -255,13 +255,22 @@ include 'includes/footertag.php';
 
             <div class="col mb-4">
                 <div class="card">
-                    <img src="assets\images\bajaj.jpeg" class="card-img-top cards" alt="Company 6">
+                    <img src="assets/images/KOTAK MAHINDRA.png" class="card-img-top cards" alt="Company 6">
                     <div class="card-body">
-                        <h5 class="card-title text-center">Bajaj Allianz</h5>
+                        <h5 class="card-title text-center">Kotak Mahindra</h5>
                     </div>
                 </div>
             </div>
-
+            <div class="col mb-4">
+                <div class="card">
+                    <div class="">
+                    <img src="assets/images/HDB.png" class="card-img-top cards" alt="Company 6">
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title text-center">Kotak Mahindra</h5>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 

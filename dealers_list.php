@@ -28,7 +28,7 @@
               </li>
             </ol>
           </nav>
-          <button type="button" id="add_trac" class="btn add_btn btn-success float-right" data-bs-toggle="modal"  data-bs-target="#staticBackdrop">
+          <button type="button" id="add_trac" class="btn add_btn btn-success float-right p-2" data-bs-toggle="modal"  data-bs-target="#staticBackdrop">
               <i class="fa fa-plus" aria-hidden="true"></i> Add New Dealers
           </button>
 
@@ -157,7 +157,7 @@
             <div class="col-12 col-sm-12 col-md-3 col-lg-3">
               <div class="form-outline">
                 <label class="form-label">State</label>
-                <select class="form-select py-2 state_select" aria-label="Default select example">
+                <select class="form-select py-2 state_select" aria-label="Default select example" id="search_state">
                   
                 </select>
               </div>
@@ -165,7 +165,7 @@
             <div class="col-12 col-sm-12 col-md-3 col-lg-3">
               <div class="form-outline">
                 <label class="form-label">District</label>
-                <select class="form-select py-2 district_select" aria-label="Default select example">
+                <select class="form-select py-2 district_select" aria-label="Default select example" id="search_dist">
                     
                 </select>
               </div>

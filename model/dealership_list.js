@@ -1,7 +1,7 @@
 var EditIdmain_ = "";
 var editId_state= false;
 $(document).ready(function () {
-  get('brand1');
+  // get('brand1');
     $('#subbtn_').click(add_dealership);
     ImgUpload();
     $("#dealer_list_form").validate({
@@ -464,8 +464,10 @@ function destroy(id) {
             }
             // Set selected state, district, and tehsil options
             setSelectedOption('state_', Data.state_id);
-            setSelectedOption('dist_', Data.district_id);
-            populateTehsil(Data.district_id, Data.tehsil_id);
+            setSelectedOption('dist', Data.district_id);
+            
+            // Call function to populate tehsil dropdown based on selected district
+            populateTehsil(Data.district_id, 'tehsil-dropdown', Data.tehsil_id);
 
             // Clear existing images
             $("#selectedImagesContainer").empty();
@@ -517,106 +519,102 @@ function populateTehsil(selectId, value) {
         }
     }
 }
+  
 
+function searchdata() {
+  var selectedBrand = $('#brand1').val();
+  var model = $('#name1').val();
+  var state = $('#search_state').val();
+  var district = $('#search_dist').val();
 
-  function searchdata(){
-    var name = $('#name1').val();
-    var brand_name = $('#brand1').val();
-    var district = $('#district_1').val();
-    
-    var apiBaseURL = APIBaseURL;
-    var url = apiBaseURL + 'search_for_dealer';
-    var token = localStorage.getItem('token');
-  
-    var headers = {
-        'Authorization': 'Bearer ' + token
-    };
-  
-    var data = new FormData();
-    if(brand_name == null){
-      data.append('brand_id', '');
-    }else{
-      data.append('brand_id', brand_name);
-    }
-    
-   
-    data.append('dealer_name', name);
-    data.append('district', district);
-  
-    $.ajax({
-      url: url,
-      type: "POST",
-      data: data,
-      headers: headers,
-      processData: false,
-      contentType: false,
-      success: function (data) {
-        console.log('Success:', data.engineOilData);
-        const tableBody = document.getElementById('data-table');
-        let serialNumber = 1;
-        let tableData = [];
-  
-        if (data.dealerData && data.dealerData.length > 0) {
-            data.dealerData.forEach(row => {
-              let action = ` <div class="d-flex">
-                  <button class="btn btn-warning btn-sm text-white mx-1" data-bs-toggle="modal" onclick="fetch_data(${row.id});" data-bs-target="#view_model_dealers" style="padding:5px;">
-                  <i class="fa-solid fa-eye" style="font-size: 11px;"></i></button>
-                      <button class="btn btn-primary btn-sm btn_edit" onclick="fetch_edit_data(${row.id});" data-bs-toggle="modal" data-bs-target="#staticBackdrop" id="yourUniqueIdHere" style="padding:5px;">
-                          <i class="fas fa-edit" style="font-size: 11px;"></i>
-                      </button>
-                      <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.id});" style="padding:5px;">
-                          <i class="fa fa-trash" style="font-size: 11px;"></i>
-                      </button>
-                  </div>`;
-  
-                  // Push row data as an array into the tableData
-                  tableData.push([
-                    serialNumber,
-                    row.date,
-                    row.brand_name,
-                    row.dealer_name,
-                    row.state_name,
-                    row.district_name,
-                    action
-                ]);
-  
-                serialNumber++;
-            });
-  
-            // Initialize DataTable after preparing the tableData
-            $('#example').DataTable().destroy();
-            $('#example').DataTable({
-                    data: tableData,
-                    columns: [
-                      { title: 'S.No.' },
-                      { title: 'Date' },
-                      { title: 'Brand' },
-                      { title: 'Dealer Name' },
-                      { title: 'State' },
-                      { title: 'District' },
-                      { title: 'Action', orderable: false } // Disable ordering for Action column
-                  ],
-                    paging: true,
-                    searching: false,
-                    // ... other options ...
-                });
-                 
-       
-        } else {
-            tableBody.innerHTML = '<tr><td colspan="9">No valid data available</td></tr>';
-        }
+  var paraArr = {
+    'brand_id': selectedBrand,
+    'dealer_name': model,
+    'state': state,
+    'district': district,
+  };
+
+  var apiBaseURL = APIBaseURL;
+  var url = apiBaseURL + 'search_for_dealer';
+  $.ajax({
+    url: url,
+    type: 'POST',
+    data: paraArr,
+    headers: {
+      'Authorization': 'Bearer ' + localStorage.getItem('token')
     },
-    error: function (error) {
-      const tableBody = document.getElementById('data-table');
-      if(error.status == 400){
-        tableBody.innerHTML = '<tr><td colspan="9">No valid data available</td></tr>';
+    success: function(searchData) {
+      console.log(searchData, "hello brand");
+      updateTable(searchData);
+    },
+    error: function(xhr, status, error) {
+      if (xhr.status === 404) {
+        // Handle 404 error
+        console.error('404 Not Found:', error);
+        $('#example').DataTable().clear().draw(); // Clear the table
+        $('#data-table').html('<tr><td colspan="9">No valid data available</td></tr>'); // Show message
+      } else {
+        console.error('Error searching for brands:', error);
       }
-        console.error('Error fetching data:', error);
-    
     }
   });
+};
+
+function updateTable(data) {
+  const tableBody = document.getElementById('data-table');
+  tableBody.innerHTML = '';
+  let serialNumber = 1;
+
+  if (data.dealerData && data.dealerData.length > 0) {
+    let tableData = [];
+    data.dealerData.forEach(row => {
+      const fullName = row.first_name + ' ' + row.last_name;
+      let action = ` <div class="d-flex">
+      <button class="btn btn-warning btn-sm text-white mx-1" data-bs-toggle="modal" onclick="fetch_data(${row.id});" data-bs-target="#view_model_dealers" style="padding:5px;">
+      <i class="fa-solid fa-eye" style="font-size: 11px;"></i></button>
+          <button class="btn btn-primary btn-sm btn_edit" onclick="fetch_edit_data(${row.id});" data-bs-toggle="modal" data-bs-target="#staticBackdrop" id="yourUniqueIdHere" style="padding:5px;">
+              <i class="fas fa-edit" style="font-size: 11px;"></i>
+          </button>
+          <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.id});" style="padding:5px;">
+              <i class="fa fa-trash" style="font-size: 11px;"></i>
+          </button>
+      </div>`;
+      console.log(row.customer_id);
+      tableData.push([
+        serialNumber,
+        row.date,
+        row.brand_name,
+        row.dealer_name,
+        row.state_name,
+        row.district_name,
+        action
+      ]);
+
+      serialNumber++;
+    });
+
+    $('#example').DataTable().destroy();
+    $('#example').DataTable({
+      data: tableData,
+      columns: [
+        { title: 'S.No.' },
+        { title: 'Date' },
+        { title: 'Brand' },
+        { title: 'Dealer Name' },
+        { title: 'State' },
+        { title: 'District' },
+        { title: 'Action', orderable: false }
+      ],
+      paging: true,
+      searching: false,
+      // ... other options ...
+    });
+  } else {
+    // Display a message if there's no valid data
+    tableBody.innerHTML = '<tr><td colspan="9">No valid data available</td></tr>';
   }
-  
+}
+
   function resetform(){
     $('#brand1').val('');
     $('#name1').val('');
@@ -624,4 +622,41 @@ function populateTehsil(selectId, value) {
     get_dealers();
   }
 
- 
+  function get_1() {
+    var url = 'http://tractor-api.divyaltech.com/api/customer/get_brand_for_finance';
+    $.ajax({
+        url: url,
+        type: "GET",
+        headers: {
+            'Authorization': 'Bearer ' + localStorage.getItem('token')
+        },
+        success: function (data) {
+            console.log(data);
+            const select = document.getElementById('brand1');
+            select.innerHTML = '<option selected disabled value="">Please select an option</option>';
+  
+            if (data.brands.length > 0) {
+                data.brands.forEach(row => {
+                    const option = document.createElement('option');
+                    option.textContent = row.brand_name;
+                    option.value = row.id;
+                    select.appendChild(option);
+                });
+  
+                // Add event listener to brand dropdown
+                select.addEventListener('change', function() {
+                    const selectedBrandId = this.value;
+                    get_model(selectedBrandId);
+                });
+            } else {
+                select.innerHTML = '<option>No valid data available</option>';
+            }
+        },
+        error: function (error) {
+            console.error('Error fetching data:', error);
+        }
+    });
+  }
+  get_1()
+
+  

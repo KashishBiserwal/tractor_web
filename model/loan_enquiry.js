@@ -461,40 +461,25 @@ function search_data() {
         url: url,
         type: 'POST',
         data: paraArr,
-
         headers: {
             'Authorization': 'Bearer ' + localStorage.getItem('token')
         },
         success: function (data) {
             const tableBody = $('#data-table'); // Use jQuery selector for the table body
-            
+            const dataTable = $('#example').DataTable();
+
             // Clear DataTable before adding new rows
-            $('#example').DataTable().clear().draw();
+            dataTable.clear().draw();
 
             if (data.Enquiry_for_loan_data && data.Enquiry_for_loan_data.length > 0) {
-                var table = $('#example').DataTable({
-                    paging: true,
-                    searching: true,
-                    columns: [
-                        { title: 'S.No.' },
-                        { title: 'Date' },
-                        { title: 'Loan Type' },
-                        { title: 'Name' },
-                        { title: 'Phone Number' },
-                        { title: 'District' },
-                        { title: 'State' },
-                        { title: 'Action', orderable: false }
-                    ]
-                });
-
                 let serialNumber = 1; // Define serialNumber here
 
                 data.Enquiry_for_loan_data.forEach(row => {
                     const fullName = row.first_name + ' ' + row.last_name;
 
                     // Add row to DataTable
-                    table.row.add([
-                        serialNumber++,
+                    dataTable.row.add([
+                        serialNumber--,
                         row.date,
                         row.loan_type_value,
                         fullName,
@@ -502,16 +487,16 @@ function search_data() {
                         row.district_name,
                         row.state_name,
                         `<div class="d-flex">
-                        <button class="btn btn-warning btn-sm text-white mx-1" data-bs-toggle="modal" onclick="openViewdata(${row.id});" data-bs-target="#view_model_nursery_enq">
-                            <i class="fas fa-eye" style="font-size: 11px;"></i>
-                        </button>
-                        <button class="btn btn-primary btn-sm btn_edit" onclick="fetch_edit_data(${row.id});" data-bs-toggle="modal" data-bs-target="#editmodel_nursery_enq" id="yourUniqueIdHere">
-                            <i class="fas fa-edit" style="font-size: 11px;"></i>
-                        </button>
-                        <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.id});">
-                            <i class="fa fa-trash" style="font-size: 11px;"></i>
-                        </button>
-                    </div>`
+                            <button class="btn btn-warning btn-sm text-white mx-1" data-bs-toggle="modal" onclick="openViewdata(${row.id});" data-bs-target="#view_model_nursery_enq">
+                                <i class="fas fa-eye" style="font-size: 11px;"></i>
+                            </button>
+                            <button class="btn btn-primary btn-sm btn_edit" onclick="fetch_edit_data(${row.id});" data-bs-toggle="modal" data-bs-target="#editmodel_nursery_enq" id="yourUniqueIdHere">
+                                <i class="fas fa-edit" style="font-size: 11px;"></i>
+                            </button>
+                            <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.id});">
+                                <i class="fa fa-trash" style="font-size: 11px;"></i>
+                            </button>
+                        </div>`
                     ]).draw(false);
                 });
             } else {
@@ -529,6 +514,7 @@ function search_data() {
         }
     });
 }
+
 
 
 function resetform(){
