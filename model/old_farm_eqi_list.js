@@ -100,7 +100,7 @@
  
 // brand 
 function getBrands() {
-  var url = 'http://tractor-api.divyaltech.com/api/customer/get_all_brands';
+  var url = 'http://tractor-api.divyaltech.com/api/customer/get_brand_for_finance';
   $.ajax({
       url: url,
       type: "GET",
@@ -324,7 +324,6 @@ function fetch_edit_data(id) {
               $("#model_name option").prop("selected", false);
               $("#model_name option[value='" + Data.model + "']").prop("selected", true);
           }, 1000); // Adjust the delay time as needed
-
           setSelectedOption('state_', Data.state_id);
           setSelectedOption('dist_', Data.district_id);
           
@@ -610,7 +609,7 @@ function resetform(){
 
 
 function get_1() {
-  var url = 'http://tractor-api.divyaltech.com/api/customer/get_all_brands';
+  var url = 'http://tractor-api.divyaltech.com/api/customer/get_brand_for_finance';
   $.ajax({
       url: url,
       type: "GET",

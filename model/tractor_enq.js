@@ -183,7 +183,7 @@ get_new_tractor();
 
 // brand 
 function get() {
-  var url = 'http://tractor-api.divyaltech.com/api/customer/get_all_brands';
+  var url = 'http://tractor-api.divyaltech.com/api/customer/get_brand_for_finance';
   $.ajax({
       url: url,
       type: "GET",
@@ -735,7 +735,7 @@ get_By_State();
 
 
 function get_1() {
-  var url = 'http://tractor-api.divyaltech.com/api/customer/get_all_brands';
+  var url = 'http://tractor-api.divyaltech.com/api/customer/get_brand_for_finance';
   $.ajax({
       url: url,
       type: "GET",

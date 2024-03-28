@@ -83,6 +83,11 @@
                                         <input type="text" id="enquiry_type_id" name="" value="18" class=" data_search form-control input-group-sm py-2" />
                                     </div>
                                 </div>
+                                <div class="col- col-sm-6 col-lg-6 col-md-6" hidden>
+                                  <label class="text-dark">User<span class="text-danger">*</span></label>
+                                          <input type="text" class="form-control py-2" for="idUser"  id="idUser" name="first_name" placeholder="Enter First Name">
+                                  <small></small>
+                                </div>  
                                 <div class="col-12 col-lg-6 col-md-6 col-sm-6 " hidden>
                                     <label for="name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i> product type id</label>
                                     <input type="text" class="form-control" id="added_by" value="">

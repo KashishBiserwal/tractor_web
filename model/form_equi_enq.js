@@ -3,6 +3,7 @@
    
     get_enquiry();
     $('#Search').click(search_data);
+    $('#Reset').click(resetform);
     get_brand();
     $('#undate_btn').on('click', function(event) {
       $("#form_tyre_list").valid();
@@ -133,13 +134,13 @@ function get_enquiry() {
           // Create the action buttons HTML
           let action = `<div class="float-start">
                           <button class="btn btn-warning btn-sm text-white mx-1" data-bs-toggle="modal" onclick="openViewdata(${row.customer_id});" data-bs-target="#view_model_tyre"style="padding:5px">
-                              <i class="fas fa-eye" style="font-size: 11px;"></i>
+                              <i class="fas fa-eye" style="font-size: 10px;"></i>
                           </button> 
                           <button class="btn btn-primary btn-sm btn_edit" onclick="fetch_edit_data(${row.customer_id});" data-bs-toggle="modal" data-bs-target="#staticBackdrop" id="yourUniqueIdHere"style="padding:5px">
-                          <i class="fas fa-edit" style="font-size: 11px;"></i>
+                          <i class="fas fa-edit" style="font-size: 10px;"></i>
                       </button>
                         <button class="btn btn-danger btn-sm" id="delete_user" onclick="destroy(${row.customer_id});" style="padding:5px">
-                            <i class="fa fa-trash" style="font-size: 11px;"></i>
+                            <i class="fa fa-trash" style="font-size: 10px;"></i>
                         </button>
                           
                       </div>`;
@@ -416,105 +417,109 @@ function fetch_edit_data(id) {
 }
 
 
- 
-  function search_data() {
-    var selectedBrand = $('#brand_search').val();
-    var brand_id = $('#model_search').val();
-    var paraArr = {
-      'brand_id': selectedBrand,
-      'model':brand_id,
-    };
-  
-    var apiBaseURL = APIBaseURL;
-    var url = apiBaseURL + 'search_for_new_implements_enquiry';
-    $.ajax({
-        url:url, 
-        type: 'POST',
-        data: paraArr,
-      
-        headers: {
-            'Authorization': 'Bearer ' + localStorage.getItem('token')
-        },
-        success: function (searchData) {
-          updateTable(searchData);
-        },
-        error: function (error) {
-            console.error('Error searching for brands:', error);
-        }
-    });
+function search_data() {
+  var selectedBrand = $('#brand_search').val();
+  var brand_id = $('#model_search').val();
+  var paraArr = {
+    'brand_id': selectedBrand,
+    'model':brand_id,
   };
-  function updateTable(data) {
-    const tableBody = document.getElementById('data-table');
-    tableBody.innerHTML = '';
-   
-  
-    if (users.length > 0) {
-      // Initialize serialNumber outside the loop
-      let serialNumber = users.length;
-      let tableData = [];
 
-      users.forEach(row => {
-        
-        const catesub = row.category_name + "/" + row.sub_category_name; // Fixed here
-        const name = row.first_name + " " + row.last_name; // Fixed here
+  var apiBaseURL = APIBaseURL;
+  var url = apiBaseURL + 'search_for_new_implements_enquiry';
+  $.ajax({
+      url: url, 
+      type: 'POST',
+      data: paraArr,
+      headers: {
+          'Authorization': 'Bearer ' + localStorage.getItem('token')
+      },
+      success: function (searchData) {
+        updateTable(searchData.newImplements); // Assuming 'newImplements' is the correct key for your data
+      },
+      error: function (xhr, status, error) {
+          if(xhr.status == 404) {
+              updateTable([]); // Pass an empty array to updateTable function
+          } else {
+              console.error('Error searching for brands:', error);
+          }
+      }
+  });
+};
 
-        // Create the action buttons HTML
-        let action = `<div class="float-start">
-                        <button class="btn btn-warning btn-sm text-white mx-1" data-bs-toggle="modal" onclick="openViewdata(${row.customer_id});" data-bs-target="#view_model_tyre"style="padding:5px">
-                            <i class="fas fa-eye" style="font-size: 11px;"></i>
-                        </button> 
-                        <button class="btn btn-primary btn-sm btn_edit" onclick="fetch_edit_data(${row.customer_id});" data-bs-toggle="modal" data-bs-target="#staticBackdrop" id="yourUniqueIdHere"style="padding:5px">
-                        <i class="fas fa-edit" style="font-size: 11px;"></i>
+function updateTable(data) {
+  const tableBody = document.getElementById('data-table');
+  tableBody.innerHTML = '';
+
+  if (data.length > 0) {
+    // Initialize serialNumber outside the loop
+    let serialNumber = data.length;
+    let tableData = [];
+
+    data.forEach(row => {
+      
+      const catesub = row.category_name + "/" + row.sub_category_name; // Fixed here
+      const name = row.first_name + " " + row.last_name; // Fixed here
+
+      // Create the action buttons HTML
+      let action = `<div class="float-start">
+                      <button class="btn btn-warning btn-sm text-white mx-1" data-bs-toggle="modal" onclick="openViewdata(${row.customer_id});" data-bs-target="#view_model_tyre"style="padding:5px">
+                          <i class="fas fa-eye" style="font-size: 10px;"></i>
+                      </button> 
+                      <button class="btn btn-primary btn-sm btn_edit" onclick="fetch_edit_data(${row.customer_id});" data-bs-toggle="modal" data-bs-target="#staticBackdrop" id="yourUniqueIdHere"style="padding:5px">
+                      <i class="fas fa-edit" style="font-size: 10px;"></i>
+                  </button>
+                    <button class="btn btn-danger btn-sm" id="delete_user" onclick="destroy(${row.customer_id});" style="padding:5px">
+                        <i class="fa fa-trash" style="font-size: 10px;"></i>
                     </button>
-                      <button class="btn btn-danger btn-sm" id="delete_user" onclick="destroy(${row.customer_id});" style="padding:5px">
-                          <i class="fa fa-trash" style="font-size: 11px;"></i>
-                      </button>
-                        
-                    </div>`;
+                      
+                  </div>`;
 
-        // Push row data as an array into the tableData
-        tableData.push([
-          serialNumber--,
-          row.date,
-          catesub,
-          row.brand_name,
-          row.model,
-          name,
-          row.mobile,
-          row.district_name, 
-          action
-        ]);
-      });
+      // Push row data as an array into the tableData
+      tableData.push([
+        serialNumber--,
+        row.date,
+        catesub,
+        row.brand_name,
+        row.model,
+        name,
+        row.mobile,
+        row.district_name, 
+        action
+      ]);
+    });
 
-      // Initialize DataTable after preparing the tableData
-      $('#example').DataTable().destroy();
-      $('#example').DataTable({
-        data: tableData,
-        columns: [
-          { title: 'S.No.' },
-          { title: 'Date' },
-          { title: 'Category/Subcategory' },
-          { title: 'Brand' },
-          { title: 'Model' },
-          { title: 'Name' },
-          { title: 'Mobile Number' },
-          { title: 'District' },
-          { title: 'Action', orderable: false } // Disable ordering for Action column
-        ],
-        paging: true,
-        searching: true,
-        // ... other options ...
-      });
-    } else {
-        // Display a message if there's no valid data
-        tableBody.innerHTML = '<tr><td colspan="4">No valid data available</td></tr>';
-    }
+    // Initialize DataTable after preparing the tableData
+    $('#example').DataTable().destroy();
+    $('#example').DataTable({
+      data: tableData,
+      columns: [
+        { title: 'S.No.' },
+        { title: 'Date' },
+        { title: 'Category/Subcategory' },
+        { title: 'Brand' },
+        { title: 'Model' },
+        { title: 'Name' },
+        { title: 'Mobile Number' },
+        { title: 'District' },
+        { title: 'Action', orderable: false } // Disable ordering for Action column
+      ],
+      paging: true,
+      searching: true,
+      // ... other options ...
+    });
+  } else {
+      // Display a message if there's no valid data
+      tableBody.innerHTML = '<tr><td colspan="9">No valid data available</td></tr>';
   }
-  
+}
+
+
   function resetform(){
     $('#brand1').val('');
     $('#model1').val('');
-    engineOil_add();
+    // engineOil_add();
+    window.location.reload();
   }
   
 

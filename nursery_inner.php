@@ -357,7 +357,7 @@
     <script>
     $(document).ready(function() {
         $.validator.addMethod("indianMobile", function(value, element) {
-            return this.optional(element) || /^[789]\d{9}$/.test(value);
+            return this.optional(element) || /^[6789]\d{9}$/.test(value);
         }, "Please enter a valid Indian mobile number.");
 
         $("#nursery_form").validate({

@@ -174,17 +174,17 @@
                             <form id="old_tractor_form">
                                 <div class="row  pt-4">
                                 <div class="col- col-sm-6 col-lg-6 col-md-6" hidden>
-                                  <label class="text-dark"> id Name<span class="text-danger">*</span></label>
+                                  <label class="text-dark">User<span class="text-danger">*</span></label>
                                           <input type="text" class="form-control py-2" for="idUser"  id="idUser" name="first_name" placeholder="Enter First Name">
                                   <small></small>
                                 </div>  
                                 <div class="col- col-sm-6 col-lg-6 col-md-6" hidden>
-                                  <label class="text-dark"> id Name<span class="text-danger">*</span></label>
+                                  <label class="text-dark">enquiry_type_id<span class="text-danger">*</span></label>
                                           <input type="text" class="form-control py-2" for="idUser"  id="enquiry_type_id" value="21" name="first_name" placeholder="Enter First Name">
                                   <small></small>
                                 </div>
                                 <div class="col- col-sm-6 col-lg-6 col-md-6" hidden>
-                                          <label class="text-dark"> id Name<span class="text-danger">*</span></label>
+                                          <label class="text-dark">product<span class="text-danger">*</span></label>
                                                   <input type="text" class="form-control py-2" for="idUser"  id="product_id" value="307" name="first_name" placeholder="Enter First Name">
                                           <small></small>
                                         </div>

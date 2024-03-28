@@ -407,7 +407,7 @@ function openViewdata(userId) {
   } 
 
 //   search dataaa
-  function search_data() {
+function search_data() {
     var selectedBrand = $('#brand_search').val();
     var state = $('#state_state').val();
     var district = $('#dist_state').val();
@@ -420,44 +420,33 @@ function openViewdata(userId) {
     var apiBaseURL = APIBaseURL;
     var url = apiBaseURL + 'search_for_insurance_enquiry';
     $.ajax({
-        url:url, 
+        url: url, 
         type: 'POST',
         data: paraArr,
-      
         headers: {
             'Authorization': 'Bearer ' + localStorage.getItem('token')
         },
         success: function (searchData) {
           updateTable(searchData);
         },
-        error: function (error) {
-            console.error('Error searching for brands:', error);
+        error: function (xhr, status, error) {
+            if (xhr.status === 404) {
+                updateTable([]); // Pass an empty array to updateTable function
+            } else {
+                console.error('Error searching for insurance:', error);
+            }
         }
     });
-  };
-  function updateTable(data) {
+}
+
+function updateTable(data) {
+    const table = $('#example').DataTable();
+    table.clear().draw(); // Clear table data before adding new rows
+
     const tableBody = $('#data-table');
     tableBody.empty();
 
-    if (data.enquiry_for_insurance_data && data.enquiry_for_insurance_data.length > 0) {
-        let serialNumber = data.enquiry_for_insurance_data.length;
-
-        // Initialize DataTable outside the loop
-        var table = $('#example').DataTable({
-            paging: true,
-            searching: true,
-            columns: [
-                { title: 'S.No.' },
-                { title: 'Date' },
-                { title: 'Insurance Type' },
-                { title: 'Brand' },
-                { title: 'Full Name' },
-                { title: 'State' },
-                { title: 'District' },
-                { title: 'Action', orderable: false }
-            ]
-        });
-
+    if (data && data.enquiry_for_insurance_data && data.enquiry_for_insurance_data.length > 0) {
         data.enquiry_for_insurance_data.forEach(row => {
             const fullName = row.first_name + ' ' + row.last_name;
             let action = `<div class="d-flex">
@@ -473,7 +462,7 @@ function openViewdata(userId) {
             </div>`;
 
             table.row.add([
-                serialNumber--,
+                '',
                 row.date,
                 row.insurance_type_value,
                 row.brand_name,
@@ -489,12 +478,9 @@ function openViewdata(userId) {
     }
 }
 
-
-
   function get_search() {
     // var url = "<?php echo $APIBaseURL; ?>getBrands";
-    var apiBaseURL =APIBaseURL;
-    var url = apiBaseURL + 'getBrands';
+    var url = 'http://tractor-api.divyaltech.com/api/customer/get_brand_for_finance';
     $.ajax({
         url: url,
         type: "GET",

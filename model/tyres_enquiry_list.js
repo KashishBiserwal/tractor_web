@@ -386,7 +386,6 @@ console.log('sumansahu');
 
 
  // edit data 
-
  function fetch_edit_data(id) {
   var apiBaseURL = APIBaseURL;
   var url = apiBaseURL + 'get_tyre_enquiry_by_id/' + id;
@@ -403,24 +402,11 @@ console.log('sumansahu');
       success: function (response) {
           var Data = response.customer_details[0];
           $('#userId').val(Data.id);
-          // $('#brand_name').val(Data.brand_name);
-          // $("#brand_name option").prop("selected", false);
-          // $("#brand_name option[value='" + Data.brand_id+ "']").prop("selected", true);
-
           $('#model_name').val(Data.tyre_model);
           $('#fnam_e').val(Data.first_name);
           $('#lnam_e').val(Data.last_name);
           $('#numbe_r').val(Data.mobile);
           $('#dat_e').val(Data.date);
-          var brandDropdown = document.getElementById('brand_data');
-          for (var i = 0; i < brandDropdown.options.length; i++) {
-            if (brandDropdown.options[i].text === Data.brand_name) {
-              brandDropdown.selectedIndex = i;
-              break;
-            }
-          }
-
-         
 
           setSelectedOption('state_', Data.state_id);
           setSelectedOption('dist_', Data.district_id);
@@ -428,33 +414,42 @@ console.log('sumansahu');
           // Call function to populate tehsil dropdown based on selected district
           populateTehsil(Data.district_id, 'tehsil-dropdown', Data.tehsil_id);
 
-          // setSelectedOption('tehsil-dropdown', Data.tehsil_id);
-        },
-        error: function(error) {
+          // Clear and Populate brand dropdown
+          clearBrandDropdown();
+          populateBrandDropdown(Data.brand_name);
+      },
+      error: function (error) {
           console.error('Error fetching user data:', error);
-        }
-      });
-    }
-    
-      function setSelectedOption(selectId, value) {
-        var select = document.getElementById(selectId);
-        for (var i = 0; i < select.options.length; i++) {
-          if (select.options[i].value == value) {
-            select.selectedIndex = i;
-            break;
-          }
-        }
       }
-      
-      function populateTehsil(selectId, value) {
-        var select = document.getElementById(selectId);
-        for (var i = 0; i < select.options.length; i++) {
-          if (select.options[i].value == value) {
-            select.options[i].selected = true;
-            break;
-          }
-        }
+  });
+}
+
+function clearBrandDropdown() {
+  $('#brand_data').empty(); // Clear existing options
+}
+
+function populateBrandDropdown(selectedBrand) {
+  var brandDropdown = document.getElementById('brand_data');
+  var option = document.createElement('option');
+  option.text = selectedBrand;
+  brandDropdown.add(option); // Add selected brand to the dropdown
+}
+
+function setSelectedOption(selectId, value) {
+  var select = document.getElementById(selectId);
+  for (var i = 0; i < select.options.length; i++) {
+      if (select.options[i].value == value) {
+          select.selectedIndex = i;
+          break;
       }
+  }
+}
+
+function populateTehsil(districtId, selectId, selectedTehsil) {
+  // Assuming you have a function to fetch and populate tehsils based on districtId
+  // populateTehsilDropdown(districtId, selectId, selectedTehsil);
+}
+
 
 function edit_data_id() {
 var enquiry_type_id = $("#enquiry_type_id").val();
