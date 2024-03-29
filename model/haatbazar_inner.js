@@ -286,7 +286,7 @@ function gethaatbazzat() {
           document.getElementById('state_1').innerText = data.allData.haat_bazar_data[0].state_name;
           document.getElementById('district_1').innerText = data.allData.haat_bazar_data[0].district_name;
           document.getElementById('tehsil_1').innerText = data.allData.haat_bazar_data[0].tehsil_name;
-          document.getElementById('product_id').value = data.allData.haat_bazar_data[0].product_id;
+          document.getElementById('product_id').value = data.allData.haat_bazar_data[0].haat_bazar_id;
           document.getElementById('slr_name').value = data.allData.haat_bazar_data[0].first_name;
           document.getElementById('mob_num').value = data.allData.haat_bazar_data[0].mobile;
         //   document.getElementById('slr_name1').value = data.allData.haat_bazar_data[0].first_name;
@@ -341,7 +341,7 @@ function storedata(event) {
     // Validate the form
  
         var enquiry_type_id = $('#enquiry_type_id').val();
-        var product_id = 30;
+        var product_id = $('#product_id').val();
         var first_name = $('#fname').val();
         var last_name = $('#lname').val();
         var mobile_no = $('#number_number').val();

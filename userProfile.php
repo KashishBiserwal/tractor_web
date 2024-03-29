@@ -61,6 +61,15 @@
 #purchase_engineoil_table_info {
     display: none;
 }
+
+#my_list .table-responsive table,
+    #my_list .table-responsive table tbody,
+    #my_list .table-responsive table thead,
+    #my_list .table-responsive table tr,
+    #my_list .table-responsive table th,
+    #my_list .table-responsive table td {
+        width: 100%;
+    }
     </style>
   </head>
   <body> <?php 
@@ -245,8 +254,8 @@
                                     <tr>
                                         <th class="d-none d-md-table-cell text-white">Request Type</th>
                                         <th class="d-none d-md-table-cell text-white">Date</th>
-                                        <th class="d-none d-md-table-cell text-white">Brand</th>
-                                        <th class="d-none d-md-table-cell text-white">Model</th>
+                                        <th class="d-none d-md-table-cell text-white">Category Name</th>
+                                        <th class="d-none d-md-table-cell text-white">Sub Sategory Name</th>
                                         <th class="d-none d-md-table-cell text-white">Name</th>
                                         <th class="d-none d-md-table-cell text-white">Mobile Number</th>
                                     </tr>
@@ -375,7 +384,7 @@
                             </a>  
                         </div>
                     </div>
-                    <div class="table-responsive" id="list_purchase_tractor_table_wrapper">
+                    <div class="table-responsive">
                         <table id="list_purchase_tractor_table" class="table table-striped table-hover table-bordered no-footer w-100">
                             <thead class="bg-success">
                                 <tr>
@@ -391,7 +400,7 @@
                             </tbody>
                         </table>
                     </div>
-                    <div class="table-responsive" id="list_purchase_harvest_table_wrapper">
+                    <div class="table-responsive">
                         <table id="list_purchase_harvest_table" class="table table-striped table-hover table-bordered no-footer" width="100%">
                             <thead class="bg-success w-100">
                                 <tr>
@@ -407,7 +416,7 @@
                             </tbody>
                         </table>
                     </div>
-                    <div class="table-responsive" id="list_purchase_imple_table_wrapper">
+                    <div class="table-responsive">
                         <table id="list_purchase_imple_table" class="table table-striped table-hover table-bordered no-footer" width="100%">
                             <thead class="bg-success w-100">
                                 <tr>
@@ -423,7 +432,7 @@
                             </tbody>
                         </table>
                     </div>
-                    <div class="table-responsive" id="list_purchase_haatbazar_table_wrapper">
+                    <div class="table-responsive">
                         <table id="list_purchase_haatbazar_table" class="table table-striped table-hover table-bordered no-footer" width="100%; margin-bottom: 15px;">
                             <thead class="bg-success w-100">
                                 <tr>
@@ -464,9 +473,7 @@
       </div>
       <!-- </div> -->
     </section> 
-        <?php   
-        include 'includes/footer.php';
-        ?>
+     
   </body>
   <script>
     $('.carousel-main').owlCarousel({
