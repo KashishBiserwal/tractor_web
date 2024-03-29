@@ -35,12 +35,12 @@ function getInterestedBuyer() {
           tableBody.empty(); 
   
   
-            if (data.data.customer_details && data.data.customer_details.length > 0) {
+            if (data.data.tractor_harvester_implements && data.data.tractor_harvester_implements.length > 0) {
                 var table = $('#interested').DataTable({
                     paging: true,
                     searching: true,
                     columns: [
-                        { title: 'Type' },
+                        { title: 'Request Type' },
                         { title: 'Name' },
                         { title: 'Mobile Number' },
                         { title: 'Brand' },
@@ -49,7 +49,7 @@ function getInterestedBuyer() {
                     ]
                 });
   
-                data.data.customer_details.forEach(row => {
+                data.data.tractor_harvester_implements.forEach(row => {
                     const fullName = row.first_name + ' ' + row.last_name;
   
                     // Add row to DataTable
@@ -426,7 +426,6 @@ $(document).ready(function() {
         });
     }
 
-    // Define an event listener for tab clicks
     $('.nav-link').on('click', function() {
         var tableIdToShow = $(this).attr('href');
         if (!$(tableIdToShow).closest('.table-responsive').is(':visible')) {
@@ -434,16 +433,10 @@ $(document).ready(function() {
             $('.table-responsive').hide();
             // Show the corresponding table
             $(tableIdToShow).closest('.table-responsive').show();
-            // If the table is not yet initialized, initialize it
-            if (!$(tableIdToShow).hasClass('initialized')) {
-                // Mark the table as initialized
-                $(tableIdToShow).addClass('initialized');
-                // Find the corresponding configuration
-                var config = tables.find(table => table.tableId === tableIdToShow);
-                if (config) {
-                    // Populate the table with data
-                    populateDataTable(config.tableId, config.dataKey, config.columns);
-                }
+            // Initialize and populate the table
+            var config = tables.find(table => table.tableId === tableIdToShow);
+            if (config) {
+                populateDataTable(config.tableId, config.dataKey, config.columns);
             }
         }
     });

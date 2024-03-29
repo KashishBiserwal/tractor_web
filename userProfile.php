@@ -61,15 +61,6 @@
 #purchase_engineoil_table_info {
     display: none;
 }
-
-#my_list .table-responsive table,
-    #my_list .table-responsive table tbody,
-    #my_list .table-responsive table thead,
-    #my_list .table-responsive table tr,
-    #my_list .table-responsive table th,
-    #my_list .table-responsive table td {
-        width: 100%;
-    }
     </style>
   </head>
   <body> <?php 
@@ -359,7 +350,7 @@
                     </div>
                 </div>
             
-                <div id="my_list" class="tab-pane w-100">
+                <!-- <div id="my_list" class="tab-pane w-100">
                     <div class="col-12 col-carousel py-2">
                         <div class="owl-carousel carousel-main">
                             <a class="nav-link text-center bg-light" href="#list_purchase_tractor_table">
@@ -448,14 +439,107 @@
                             </tbody>
                         </table>
                     </div>
+                </div> -->
+
+
+                <div id="my_list" class="tab-pane w-100">
+                    <div class="col-12 col-carousel py-2">
+                        <div class="owl-carousel carousel-main">
+                            <a class="nav-link text-center bg-light" href="#list_purchase_tractor_table">
+                                <span>
+                                    <i class="fa-solid fa-image-portrait"></i>
+                                </span> Tractor
+                            </a>
+                            <a class="nav-link bg-light text-center" href="#list_purchase_harvest_table">
+                                <span>
+                                    <i class="fa-solid fa-cart-shopping"></i>
+                                </span> Harvester 
+                            </a>
+                            <a class="nav-link bg-light text-center" href="#list_purchase_imple_table">
+                                <span>
+                                    <i class="fa-solid fa-tags"></i>
+                                    <span> Implements
+                            </a>
+                            <a class="nav-link bg-light text-center" href="#list_purchase_haatbazar_table">
+                                <span>
+                                    <i class="fa-solid fa-bars"></i>
+                                    <span>HaatBazar
+                            </a>  
+                        </div>
+                    </div>
+                    <div class="table-responsive">
+                        <table id="list_purchase_tractor_table" class="table table-striped table-hover table-bordered no-footer w-100">
+                            <thead class="bg-success">
+                                <tr>
+                                    <th class="d-none d-md-table-cell text-white">Request No.</th>
+                                    <th class="d-none d-md-table-cell text-white">Date</th>
+                                    <th class="d-none d-md-table-cell text-white">Brand list</th>
+                                    <th class="d-none d-md-table-cell text-white">Model</th>
+                                    <th class="d-none d-md-table-cell text-white">purchase year</th>
+                                    <th class="d-none d-md-table-cell text-white">price</th>
+                                </tr>
+                            </thead>
+                            <tbody id="data-table10">
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="table-responsive">
+                        <table id="list_purchase_harvest_table" class="table table-striped table-hover table-bordered no-footer" width="100%">
+                            <thead class="bg-success w-100">
+                                <tr>
+                                    <th class="d-none d-md-table-cell text-white">Request No.</th>
+                                    <th class="d-none d-md-table-cell text-white">Date</th>
+                                    <th class="d-none d-md-table-cell text-white">Brand list</th>
+                                    <th class="d-none d-md-table-cell text-white">Model</th>
+                                    <th class="d-none d-md-table-cell text-white">purchase year</th>
+                                    <th class="d-none d-md-table-cell text-white">price</th>
+                                </tr>
+                            </thead>
+                            <tbody id="data-table12">
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="table-responsive">
+                        <table id="list_purchase_imple_table" class="table table-striped table-hover table-bordered no-footer" width="100%">
+                            <thead class="bg-success w-100">
+                                <tr>
+                                    <th class="d-none d-md-table-cell text-white">Request No.</th>
+                                    <th class="d-none d-md-table-cell text-white">Date</th>
+                                    <th class="d-none d-md-table-cell text-white">Brand list</th>
+                                    <th class="d-none d-md-table-cell text-white">Model</th>
+                                    <th class="d-none d-md-table-cell text-white">purchase year</th>
+                                    <th class="d-none d-md-table-cell text-white">price</th>
+                                </tr>
+                            </thead>
+                            <tbody id="data-table22">
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="table-responsive">
+                        <table id="list_purchase_haatbazar_table" class="table table-striped table-hover table-bordered no-footer" width="100%; margin-bottom: 15px;">
+                            <thead class="bg-success w-100">
+                                <tr>
+                                    <th class="d-none d-md-table-cell text-white">Request No.</th>
+                                    <th class="d-none d-md-table-cell text-white">Date</th>
+                                    <th class="d-none d-md-table-cell text-white">Category</th>
+                                    <th class="d-none d-md-table-cell text-white">Subcategory</th>
+                                    <th class="d-none d-md-table-cell text-white">Price</th>
+                                    <th class="d-none d-md-table-cell text-white">Quantity</th>
+                                </tr>
+                            </thead>
+                            <tbody id="data-table11">
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
+
                 <div id="interested_buyers" class="tab-pane">
                     <div class=" mb-5 shadow bg-white p-3">
                         <div class="table-responsive">
-                        <table id="interested" class="table table-striped  table-hover table-bordered  no-footer" width="100%; margin-bottom: 15px;">
+                           <table id="interested" class="table table-striped  table-hover table-bordered  no-footer" width="100%; margin-bottom: 15px;">
                             <thead class="bg-success">
                             <tr>
-                                <th class="d-none d-md-table-cell text-white ">Type</th>
+                                <th class="d-none d-md-table-cell text-white "> Request Type</th>
                                 <th class="d-none d-md-table-cell text-white ">Name</th>
                                 <th class="d-none d-md-table-cell text-white ">Mobile Number</th>
                                 <th class="d-none d-md-table-cell text-white">Brand</th>
