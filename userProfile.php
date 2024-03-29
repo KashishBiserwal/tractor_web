@@ -379,7 +379,7 @@
                         <table id="list_purchase_tractor_table" class="table table-striped table-hover table-bordered no-footer w-100">
                             <thead class="bg-success">
                                 <tr>
-                                    <th class="d-none d-md-table-cell text-white">Request No.</th>
+                                    <th class="d-none d-md-table-cell text-white">Request Type</th>
                                     <th class="d-none d-md-table-cell text-white">Date</th>
                                     <th class="d-none d-md-table-cell text-white">Brand list</th>
                                     <th class="d-none d-md-table-cell text-white">Model</th>
@@ -395,7 +395,7 @@
                         <table id="list_purchase_harvest_table" class="table table-striped table-hover table-bordered no-footer" width="100%">
                             <thead class="bg-success w-100">
                                 <tr>
-                                    <th class="d-none d-md-table-cell text-white">Request No.</th>
+                                    <th class="d-none d-md-table-cell text-white">Request Type</th>
                                     <th class="d-none d-md-table-cell text-white">Date</th>
                                     <th class="d-none d-md-table-cell text-white">Brand list</th>
                                     <th class="d-none d-md-table-cell text-white">Model</th>
@@ -411,7 +411,7 @@
                         <table id="list_purchase_imple_table" class="table table-striped table-hover table-bordered no-footer" width="100%">
                             <thead class="bg-success w-100">
                                 <tr>
-                                <th class="d-none d-md-table-cell text-white">Request No.</th>
+                                <th class="d-none d-md-table-cell text-white">Request Type</th>
                                     <th class="d-none d-md-table-cell text-white">Date</th>
                                     <th class="d-none d-md-table-cell text-white">Brand list</th>
                                     <th class="d-none d-md-table-cell text-white">Model</th>
@@ -427,7 +427,7 @@
                         <table id="list_purchase_haatbazar_table" class="table table-striped table-hover table-bordered no-footer" width="100%; margin-bottom: 15px;">
                             <thead class="bg-success w-100">
                                 <tr>
-                                <th class="d-none d-md-table-cell text-white">Request No.</th>
+                                <th class="d-none d-md-table-cell text-white">Request Type</th>
                                 <th class="d-none d-md-table-cell text-white">Date</th>
                                 <th class="d-none d-md-table-cell text-white">Category</th>
                                 <th class="d-none d-md-table-cell text-white">Subcategory</th>
@@ -445,7 +445,7 @@
                 <div id="my_list" class="tab-pane w-100">
                     <div class="col-12 col-carousel py-2">
                         <div class="owl-carousel carousel-main">
-                            <a class="nav-link text-center bg-light" href="#list_purchase_tractor_table">
+                            <a class="nav-link text-center bg-light" id="listTEactor" href="#list_purchase_tractor_table">
                                 <span>
                                     <i class="fa-solid fa-image-portrait"></i>
                                 </span> Tractor
@@ -470,8 +470,8 @@
                     <div class="table-responsive">
                         <table id="list_purchase_tractor_table" class="table table-striped table-hover table-bordered no-footer w-100">
                             <thead class="bg-success">
-                                <tr>
-                                    <th class="d-none d-md-table-cell text-white">Request No.</th>
+                            <tr>
+                                    <th class="d-none d-md-table-cell text-white">Request Type</th>
                                     <th class="d-none d-md-table-cell text-white">Date</th>
                                     <th class="d-none d-md-table-cell text-white">Brand list</th>
                                     <th class="d-none d-md-table-cell text-white">Model</th>
@@ -487,7 +487,7 @@
                         <table id="list_purchase_harvest_table" class="table table-striped table-hover table-bordered no-footer" width="100%">
                             <thead class="bg-success w-100">
                                 <tr>
-                                    <th class="d-none d-md-table-cell text-white">Request No.</th>
+                                    <th class="d-none d-md-table-cell text-white">Request Type</th>
                                     <th class="d-none d-md-table-cell text-white">Date</th>
                                     <th class="d-none d-md-table-cell text-white">Brand list</th>
                                     <th class="d-none d-md-table-cell text-white">Model</th>
@@ -503,7 +503,7 @@
                         <table id="list_purchase_imple_table" class="table table-striped table-hover table-bordered no-footer" width="100%">
                             <thead class="bg-success w-100">
                                 <tr>
-                                    <th class="d-none d-md-table-cell text-white">Request No.</th>
+                                    <th class="d-none d-md-table-cell text-white">Request Type</th>
                                     <th class="d-none d-md-table-cell text-white">Date</th>
                                     <th class="d-none d-md-table-cell text-white">Brand list</th>
                                     <th class="d-none d-md-table-cell text-white">Model</th>
@@ -519,7 +519,7 @@
                         <table id="list_purchase_haatbazar_table" class="table table-striped table-hover table-bordered no-footer" width="100%; margin-bottom: 15px;">
                             <thead class="bg-success w-100">
                                 <tr>
-                                    <th class="d-none d-md-table-cell text-white">Request No.</th>
+                                    <th class="d-none d-md-table-cell text-white">Request Type</th>
                                     <th class="d-none d-md-table-cell text-white">Date</th>
                                     <th class="d-none d-md-table-cell text-white">Category</th>
                                     <th class="d-none d-md-table-cell text-white">Subcategory</th>
@@ -532,14 +532,13 @@
                         </table>
                     </div>
                 </div>
-
                 <div id="interested_buyers" class="tab-pane">
                     <div class=" mb-5 shadow bg-white p-3">
                         <div class="table-responsive">
-                           <table id="interested" class="table table-striped  table-hover table-bordered  no-footer" width="100%; margin-bottom: 15px;">
+                        <table id="interested" class="table table-striped  table-hover table-bordered  no-footer" width="100%; margin-bottom: 15px;">
                             <thead class="bg-success">
                             <tr>
-                                <th class="d-none d-md-table-cell text-white "> Request Type</th>
+                                <th class="d-none d-md-table-cell text-white ">Type</th>
                                 <th class="d-none d-md-table-cell text-white ">Name</th>
                                 <th class="d-none d-md-table-cell text-white ">Mobile Number</th>
                                 <th class="d-none d-md-table-cell text-white">Brand</th>
