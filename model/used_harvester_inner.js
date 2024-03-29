@@ -51,7 +51,8 @@ function get_old_harvester_byiD() {
         document.getElementById('state_').innerText=data.product[0].state_name;
         document.getElementById('model3').innerText=data.product[0].model;
         document.getElementById('description').innerText = data.product[0].description;
-        document.getElementById('product_subject_id').value = data.product[0].product_id;
+        document.getElementById('product_subject_id').value = productId;
+        console.log('get-id', productId);
         document.getElementById('customer_id').value = data.product[0].customer_id;
         document.getElementById('model').value = data.product[0].model;
 

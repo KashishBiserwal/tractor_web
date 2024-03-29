@@ -8,6 +8,7 @@ $(document).ready(function() {
     getpurchase_Nursery();
     getpurchase_Tyre();
     getpurchase_Dealer();
+    getpurchase_haatbazar();
     // getmylistTractor();
     // getmylistHarvester();
     // getmylistImplement();
@@ -79,9 +80,9 @@ function getInterestedBuyer() {
 
     if (data && data.length > 0) {
         var tableConfig = {
-            paging: !isEngineOilTable, // Show paging only if it's not the engine oil table
-            searching: !isEngineOilTable, // Show search only if it's not the engine oil table
-            lengthChange: !isEngineOilTable, // Show "Show [n] entries" dropdown only if it's not the engine oil table
+            paging: !isEngineOilTable,
+            searching: !isEngineOilTable, 
+            lengthChange: !isEngineOilTable, 
             columns: [
                 { title: 'Request Type', data: 'request_type' },
                 { title: 'Date', data: 'date' },
@@ -112,7 +113,6 @@ $(document).ready(function() {
         { tableId: '#purchase_tractor_table', dataKey: 'tractorEnquiryData', isEngineOilTable: false },
         { tableId: '#purchase_harvester_table', dataKey: 'harvesterEnquiryData', isEngineOilTable: false },
         { tableId: '#purchase_implements_table', dataKey: 'implementEnquiryData', isEngineOilTable: false },
-        { tableId: '#purchase_haatbazar_table', dataKey: 'haatBazarEnquiry', isEngineOilTable: false },
         { tableId: '#purchase_engineoil_table', dataKey: 'engineOilEnquiryData', isEngineOilTable: true },
         { tableId: '#purchase_hire_table', dataKey: 'hireEnquiryData', isEngineOilTable: false },
         // Add more tables as needed
@@ -146,7 +146,62 @@ $(document).ready(function() {
         }
     });
 });
+function getpurchase_haatbazar() {
+    var url = "http://tractor-api.divyaltech.com/api/customer/get_purchase_enquiry_data";
+    var headers = {
+        'Authorization': localStorage.getItem('token')
+    };
+    var mobileNumber = localStorage.getItem('mobile');
+    var paraArr = {
+        'mobile': mobileNumber,
+    };
 
+    $.ajax({
+        url: url,
+        type: "POST",
+        headers: headers,
+        data: paraArr,
+        success: function (data) {
+            var table;
+
+            if (data.data.haatBazarEnquiry && data.data.haatBazarEnquiry.length > 0) {
+                const tableBody = $('#data-table5'); // Use jQuery selector for the table body
+                tableBody.empty();
+                table = $('#purchase_haatbazar_table').DataTable({
+                    paging: true,
+                    searching: true,
+                    columns: [
+                        { title: 'Request Type' },
+                        { title: 'Date' },
+                        { title: 'Category Name' },
+                        { title: 'Sub Sategory Name' },
+                        { title: 'Name' },
+                        { title: 'Mobile Number' },
+                    ]
+                });
+
+                data.data.haatBazarEnquiry.forEach(row => {
+                    const fullName = row.first_name + ' ' + row.last_name;
+
+                    // Add row to DataTable
+                    table.row.add([
+                        row.request_type,
+                        row.date,
+                        row.category_name,
+                        row.sub_category_name,
+                        fullName,
+                        row.mobile,
+                    ]).draw(false);
+
+                });
+
+            }
+        },
+        error: function (error) {
+            console.error('Error fetching data:', error);
+        }
+    });
+}
 
 function getpurchase_Nursery() {
     var url = "http://tractor-api.divyaltech.com/api/customer/get_purchase_enquiry_data";
@@ -320,7 +375,273 @@ function getpurchase_Dealer() {
         }
     });
 }
-//   function getpurchase_requestlist() {
+
+$(document).ready(function() {
+    // Define function to populate data table
+    function populateDataTable(tableId, dataKey, columns) {
+        var url = "http://tractor-api.divyaltech.com/api/customer/get_sell_enquiry_data";
+        var headers = {
+            'Authorization': localStorage.getItem('token')
+        };
+        var mobileNumber = localStorage.getItem('mobile');
+        var paraArr = {
+            'mobile': mobileNumber,
+        };
+
+        $.ajax({
+            url: url,
+            type: "POST",
+            headers: headers,
+            data: paraArr,
+            success: function(data) {
+                console.log(data, 'data');
+                const tableBody = $(tableId + ' tbody');
+                tableBody.empty();
+
+                if (data.data && data.data[dataKey] && data.data[dataKey].length > 0) {
+                    var tableConfig = {
+                        paging: true,
+                        searching: true,
+                        lengthChange: false,
+                        columns: columns
+                    };
+
+                    // Remove the default search input
+                    $(tableId + '_filter').remove();
+
+                    var table = $(tableId).DataTable(tableConfig);
+
+                    data.data[dataKey].forEach(row => {
+                        // Add row to DataTable
+                        table.row.add(row).draw(false);
+                    });
+
+                } else {
+                    tableBody.html('<tr><td colspan="' + columns.length + '">No valid data available</td></tr>');
+                }
+            },
+            error: function(error) {
+                console.error('Error fetching data:', error);
+            }
+        });
+    }
+
+    // Define an event listener for tab clicks
+    $('.nav-link').on('click', function() {
+        var tableIdToShow = $(this).attr('href');
+        if (!$(tableIdToShow).closest('.table-responsive').is(':visible')) {
+            // Hide all tables
+            $('.table-responsive').hide();
+            // Show the corresponding table
+            $(tableIdToShow).closest('.table-responsive').show();
+            // If the table is not yet initialized, initialize it
+            if (!$(tableIdToShow).hasClass('initialized')) {
+                // Mark the table as initialized
+                $(tableIdToShow).addClass('initialized');
+                // Find the corresponding configuration
+                var config = tables.find(table => table.tableId === tableIdToShow);
+                if (config) {
+                    // Populate the table with data
+                    populateDataTable(config.tableId, config.dataKey, config.columns);
+                }
+            }
+        }
+    });
+
+    // Define tables configuration
+    var tables = [{
+            tableId: '#list_purchase_tractor_table',
+            dataKey: 'sellTractorData',
+            columns: [
+                { data: 'request_type' },
+                { data: 'date' },
+                { data: 'brand_name' },
+                { data: 'model' },
+                { data: 'purchase_year' },
+                { data: 'price' }
+            ]
+        },
+        {
+            tableId: '#list_purchase_harvest_table',
+            dataKey: 'sellHarvesterData',
+            columns: [
+                { data: 'request_type' },
+                { data: 'date' },
+                { data: 'brand_name' },
+                { data: 'model' },
+                { data: 'purchase_year' },
+                { data: 'price' }
+            ]
+        },
+        {
+            tableId: '#list_purchase_imple_table',
+            dataKey: 'sellImplementData',
+            columns: [
+                { data: 'request_type' },
+                { data: 'date' },
+                { data: 'brand_name' },
+                { data: 'model' },
+                { data: 'purchase_year' },
+                { data: 'price' }
+            ]
+        },
+        {
+            tableId: '#list_purchase_haatbazar_table',
+            dataKey: 'sellHaatBazarEnquiry',
+            columns: [
+                { data: 'request_type' },
+                { data: 'date' },
+                { data: 'category_name' },
+                { data: 'sub_category_name' },
+                { data: 'quantity' },
+                { data: 'price' }
+            ]
+        }
+    ];
+
+    // Initially, hide all tables except the first one
+    $('.table-responsive').hide();
+    $(tables[0].tableId).closest('.table-responsive').show();
+});
+
+
+  
+  function getuserdetail(id) {
+    var url = "http://tractor-api.divyaltech.com/api/customer/get_customer_personal_info_by_id/" + id;
+
+    var headers = {
+        'Authorization': localStorage.getItem('token')
+    };
+    var mobileNumber = localStorage.getItem('mobile');
+    var paraArr = {
+      'mobile': mobileNumber,
+    };
+    // Make an AJAX GET request to the API
+    $.ajax({
+        url: url,
+        type: "GET",
+        headers: headers,
+        data: paraArr,
+        success: function (data) {
+            console.log(data, "data");
+
+            // Clear the existing data in the table body
+            const tableBody = $('#data-table');
+            tableBody.empty();
+
+            // Check if customer data exists and has at least one entry
+            if (data.customerData && data.customerData.length > 0) {
+                // Populate form fields with customer data
+                document.getElementById('firstname').value = data.customerData[0].first_name;
+                document.getElementById('lastname').value = data.customerData[0].last_name;
+                document.getElementById('phone').value = data.customerData[0].mobile;
+                // document.getElementById('email').value = data.customerData[0].email;
+                document.getElementById('state').value = data.customerData[0].state_name;
+                document.getElementById('district').value = data.customerData[0].district_name;   
+                document.getElementById('tehsil').value = data.customerData[0].tehsil_name;
+            }
+        },
+        error: function (error) {
+            console.error('Error fetching data:', error);
+        }
+    });
+}
+var userId = localStorage.getItem('id');
+
+
+getuserdetail(userId);
+
+
+function edit_personal_detail(){
+    $('#firstname').removeAttr("disabled")
+    $('#lastname').removeAttr("disabled")
+    $('#phone').removeAttr("disabled")
+    // $('#email').removeAttr("disabled")
+    $('#state').removeAttr("disabled")
+    $('#district').removeAttr("disabled")
+    $('#tehsil').removeAttr("disabled")
+    $(".edit_presonal_detail_btn").show();
+}
+
+
+function edit_detail_customer() {
+        // event.preventDefault();
+        console.log('jfhfhw');
+        var first_name = $('#firstname').val();
+        var id = "21";
+        var last_name = $('#lastname').val();
+        var mobile = $('#phone').val();
+        // var email = $('#email').val();
+        var state = $('#state').val();
+        var district = $('#district').val();
+        var tehsil = $('#tehsil').val();
+      
+        // Prepare data to send to the server
+        var paraArr = {
+            'id':id,
+          'first_name': first_name,
+          'last_name':last_name,
+        //   'email':email,
+          'mobile':mobile,
+          'state':state,
+          'district':district,
+          'tehsil':tehsil,
+        };
+       
+    //   var url = apiBaseURL + 'customer_enquiries';
+    var url = "http://tractor-api.divyaltech.com/api/customer/update_customer_personal_info/" + id;
+        console.log(url);
+      
+        var headers = {
+            'Authorization': localStorage.getItem('token')
+          };
+        //   var mobileNumber = localStorage.getItem('mobile');
+        //   var paraArr = {
+        //     'mobile': mobileNumber,
+        //   };
+        $.ajax({
+          url: url,
+          type: "PUT",
+          data: paraArr,
+          headers:headers,
+          success: function (result) {
+            console.log(result, "result");
+            $("#used_tractor_callbnt_").modal('hide'); 
+            var msg = "Added successfully !"
+            $("#errorStatusLoading").modal('show');    
+            $("#errorStatusLoading").find('.modal-title').html('<p class="text-center">Congratulation..! Requested Successful</p>');
+         
+            $("#errorStatusLoading").find('.modal-body').html(msg);
+            $("#errorStatusLoading").find('.modal-body').html('<img src="assets/images/7efs.gif" style="display:block; margin:0 auto;" class="w-50 text-center" alt="Successfull Request"></img>');
+          
+            // getOldTractorById();
+            console.log("Add successfully");
+            $('#firstname').attr('disabled');
+            $('#lastname').attr("disabled")
+            $('#phone').attr("disabled")
+            // $('#email').attr("disabled")
+            $('#state').attr("disabled")
+            $('#district').attr("disabled")
+            $('#tehsil').attr("disabled")
+            $(".edit_presonal_detail_btn").hide();
+           // location.reload();
+           getuserdetail();
+          },
+          error: function (error) {
+            console.error('Error fetching data:', error);
+            var msg = error;
+            $("#errorStatusLoading").modal('show');
+            $("#errorStatusLoading").find('.modal-title').html('<p class="text-center">Process Failed..! Enter Valid Detail</p>');
+            $("#errorStatusLoading").find('.modal-body').html(msg);
+            $("#errorStatusLoading").find('.modal-body').html('<img src="assets/images/comp_3.gif" style="display:block; margin:0 auto;" class="w-50 text-center" alt="Successfull Request"></img>');
+           
+          }
+        });
+      
+  }
+
+
+  //   function getpurchase_requestlist() {
 //     var url =  "http://tractor-api.divyaltech.com/api/customer/get_purchase_enquiry_data";
 //     var headers = {
 //         'Authorization': localStorage.getItem('token')
@@ -635,475 +956,3 @@ function getpurchase_Dealer() {
 //         }
 //     });
 // }
-
-
-function populateDataTable(tableId, dataKey, columns) {
-    var url = "http://tractor-api.divyaltech.com/api/customer/get_sell_enquiry_data";
-
-    var headers = {
-        'Authorization': localStorage.getItem('token')
-    };
-    var mobileNumber = localStorage.getItem('mobile');
-    var paraArr = {
-        'mobile': mobileNumber,
-    };
-
-    $.ajax({
-        url: url,
-        type: "POST",
-        headers: headers,
-        data: paraArr,
-
-        success: function (data) {
-            console.log(data, 'data');
-            const tableBody = $(tableId + ' tbody');
-            tableBody.empty();
-
-            if (data.data && data.data[dataKey] && data.data[dataKey].length > 0) {
-                var tableConfig = {
-                    paging: true,
-                    searching: false,
-                    lengthChange: false,
-                    columns: columns
-                };
-
-                // Remove the default search input
-                $(tableId + '_filter').remove();
-
-                var table = $(tableId).DataTable(tableConfig);
-
-                data.data[dataKey].forEach(row => {
-                    // Add row to DataTable
-                    table.row.add(row).draw(false);
-                });
-
-            } else {
-                tableBody.html('<tr><td colspan="' + columns.length + '">No valid data available</td></tr>');
-            }
-        },
-        error: function (error) {
-            console.error('Error fetching data:', error);
-        }
-    });
-}
-
-$(document).ready(function() {
-    var tables = [
-        { tableId: '#list_purchase_tractor_table', dataKey: 'sellTractorData', columns: [
-            { data: 'request_type' },
-            { data: 'date' },
-            { data: 'brand_name' },
-            { data: 'model' },
-            { data: 'purchase_year' },
-            { data: 'price' }
-        ]},
-        { tableId: '#list_purchase_harvest_table', dataKey: 'sellHarvesterData', columns: [
-            { data: 'request_type' },
-            { data: 'date' },
-            { data: 'brand_name' },
-            { data: 'model' },
-            { data: 'purchase_year' },
-            { data: 'price' }
-        ]},
-        { tableId: '#list_purchase_imple_table', dataKey: 'sellImplementData', columns: [
-            { data: 'request_type' },
-            { data: 'date' },
-            { data: 'brand_name' },
-            { data: 'model' },
-            { data: 'purchase_year' },
-            { data: 'price' }
-        ]},
-        { tableId: '#list_purchase_haatbazar_table', dataKey: 'sellHaatBazarEnquiry', columns: [
-            { data: 'request_type' },
-            { data: 'date' },
-            { data: 'category_name' },
-            { data: 'sub_category_name' },
-            { data: 'quantity' },
-            { data: 'price' }
-        ]}
-    ];
-
-    tables.forEach(function(table) {
-        populateDataTable(table.tableId, table.dataKey, table.columns);
-    });
-});
-
-  
-  function getuserdetail(id) {
-    var url = "http://tractor-api.divyaltech.com/api/customer/get_customer_personal_info_by_id/" + id;
-
-    var headers = {
-        'Authorization': localStorage.getItem('token')
-    };
-    var mobileNumber = localStorage.getItem('mobile');
-    var paraArr = {
-      'mobile': mobileNumber,
-    };
-    // Make an AJAX GET request to the API
-    $.ajax({
-        url: url,
-        type: "GET",
-        headers: headers,
-        data: paraArr,
-        success: function (data) {
-            console.log(data, "data");
-
-            // Clear the existing data in the table body
-            const tableBody = $('#data-table');
-            tableBody.empty();
-
-            // Check if customer data exists and has at least one entry
-            if (data.customerData && data.customerData.length > 0) {
-                // Populate form fields with customer data
-                document.getElementById('firstname').value = data.customerData[0].first_name;
-                document.getElementById('lastname').value = data.customerData[0].last_name;
-                document.getElementById('phone').value = data.customerData[0].mobile;
-                // document.getElementById('email').value = data.customerData[0].email;
-                document.getElementById('state').value = data.customerData[0].state_name;
-                document.getElementById('district').value = data.customerData[0].district_name;   
-                document.getElementById('tehsil').value = data.customerData[0].tehsil_name;
-            }
-        },
-        error: function (error) {
-            console.error('Error fetching data:', error);
-        }
-    });
-}
-var userId = localStorage.getItem('id');
-
-
-getuserdetail(userId);
-
-
-function edit_personal_detail(){
-    $('#firstname').removeAttr("disabled")
-    $('#lastname').removeAttr("disabled")
-    $('#phone').removeAttr("disabled")
-    // $('#email').removeAttr("disabled")
-    $('#state').removeAttr("disabled")
-    $('#district').removeAttr("disabled")
-    $('#tehsil').removeAttr("disabled")
-    $(".edit_presonal_detail_btn").show();
-}
-
-
-function edit_detail_customer() {
-        // event.preventDefault();
-        console.log('jfhfhw');
-        var first_name = $('#firstname').val();
-        var id = "21";
-        var last_name = $('#lastname').val();
-        var mobile = $('#phone').val();
-        // var email = $('#email').val();
-        var state = $('#state').val();
-        var district = $('#district').val();
-        var tehsil = $('#tehsil').val();
-      
-        // Prepare data to send to the server
-        var paraArr = {
-            'id':id,
-          'first_name': first_name,
-          'last_name':last_name,
-        //   'email':email,
-          'mobile':mobile,
-          'state':state,
-          'district':district,
-          'tehsil':tehsil,
-        };
-       
-    //   var url = apiBaseURL + 'customer_enquiries';
-    var url = "http://tractor-api.divyaltech.com/api/customer/update_customer_personal_info/" + id;
-        console.log(url);
-      
-        var headers = {
-            'Authorization': localStorage.getItem('token')
-          };
-        //   var mobileNumber = localStorage.getItem('mobile');
-        //   var paraArr = {
-        //     'mobile': mobileNumber,
-        //   };
-        $.ajax({
-          url: url,
-          type: "PUT",
-          data: paraArr,
-          headers:headers,
-          success: function (result) {
-            console.log(result, "result");
-            $("#used_tractor_callbnt_").modal('hide'); 
-            var msg = "Added successfully !"
-            $("#errorStatusLoading").modal('show');    
-            $("#errorStatusLoading").find('.modal-title').html('<p class="text-center">Congratulation..! Requested Successful</p>');
-         
-            $("#errorStatusLoading").find('.modal-body').html(msg);
-            $("#errorStatusLoading").find('.modal-body').html('<img src="assets/images/7efs.gif" style="display:block; margin:0 auto;" class="w-50 text-center" alt="Successfull Request"></img>');
-          
-            // getOldTractorById();
-            console.log("Add successfully");
-            $('#firstname').attr('disabled');
-            $('#lastname').attr("disabled")
-            $('#phone').attr("disabled")
-            // $('#email').attr("disabled")
-            $('#state').attr("disabled")
-            $('#district').attr("disabled")
-            $('#tehsil').attr("disabled")
-            $(".edit_presonal_detail_btn").hide();
-           // location.reload();
-           getuserdetail();
-          },
-          error: function (error) {
-            console.error('Error fetching data:', error);
-            var msg = error;
-            $("#errorStatusLoading").modal('show');
-            $("#errorStatusLoading").find('.modal-title').html('<p class="text-center">Process Failed..! Enter Valid Detail</p>');
-            $("#errorStatusLoading").find('.modal-body').html(msg);
-            $("#errorStatusLoading").find('.modal-body').html('<img src="assets/images/comp_3.gif" style="display:block; margin:0 auto;" class="w-50 text-center" alt="Successfull Request"></img>');
-           
-          }
-        });
-      
-  }
-
-  
-
-  // function getmylistTractor() {
-//     var url = "http://tractor-api.divyaltech.com/api/customer/get_sell_enquiry_data";
-
-//     var headers = {
-//         'Authorization': localStorage.getItem('token')
-//     };
-//     var mobileNumber = localStorage.getItem('mobile');
-//     var paraArr = {
-//         'mobile': mobileNumber,
-//     };
-
-//     $.ajax({
-//         url: url,
-//         type: "POST",
-//         headers: headers,
-//         data: paraArr,
-
-//         success: function (data) {
-//             console.log(data, 'data');
-//             const tableBody = $('#data-table10');
-//             tableBody.empty();
-
-//             if (data.data.sellTractorData && data.data.sellTractorData.length > 0) {
-//                 var table = $('#list_purchase_tractor_table').DataTable({
-//                     paging: true,
-//                     searching: false, // Disable search
-//                     lengthChange: false, // Disable "Show X entries" dropdown
-//                     columns: [
-//                         { title: 'Request Type.' },
-//                         { title: 'Date' },
-//                         { title: 'Brand list' },
-//                         { title: 'Model' },
-//                         { title: 'purchase year' },
-//                         { title: 'price' }
-//                     ]
-//                 });
-
-//                 // Remove the default search input
-//                 $('#list_purchase_tractor_table_filter').remove();
-
-//                 data.data.sellTractorData.forEach(row => {
-//                     // Add row to DataTable
-//                     table.row.add([
-//                         row.request_type,
-//                         row.date,
-//                         row.brand_name,
-//                         row.model,
-//                         row.purchase_year,
-//                         row.price
-//                     ]).draw(false);
-//                 });
-
-//             } else {
-//                 tableBody.html('<tr><td colspan="6">No valid data available</td></tr>');
-//             }
-//         },
-//         error: function (error) {
-//             console.error('Error fetching data:', error);
-//         }
-//     });
-// }
-//   function getmylistHarvester() {
-//     var url =  "http://tractor-api.divyaltech.com/api/customer/get_sell_enquiry_data";
-
-//     var headers = {
-//         'Authorization': localStorage.getItem('token')
-//     };
-//     var mobileNumber = localStorage.getItem('mobile');
-//     var paraArr = {
-//         'mobile': mobileNumber,
-//     };
-
-//     $.ajax({
-//         url: url,
-//         type: "POST",
-//         headers: headers,
-//         data: paraArr,
-
-//         success: function (data) {
-//             console.log(data,'data');
-//             const tableBody = $('#data-table12');
-//             tableBody.empty(); 
-
-//             if (data.data.sellHarvesterData && data.data.sellHarvesterData.length > 0) {
-//                 var table = $('#list_purchase_harvest_table').DataTable({
-//                     paging: true,
-//                     searching: false, // Disable search
-//                     lengthChange: false, // Disable "Show X entries" dropdown
-//                     columns: [
-//                         { title: 'Request Type.' },
-//                         { title: 'Date' },
-//                         { title: 'Brand list' },
-//                         { title: 'Model' },
-//                         { title: 'purchase year' },
-//                         { title: 'price' }
-//                     ]
-//                 });
-
-//                 // Remove the default search input
-//                 $('#list_purchase_harvest_table_filter').remove();
-
-//                 data.data.sellHarvesterData.forEach(row => {
-//                     // Add row to DataTable
-//                     table.row.add([
-//                         row.request_type,
-//                         row.date,
-//                         row.brand_name,
-//                         row.model,
-//                         row.purchase_year,
-//                         row.price
-//                     ]).draw(false);
-//                 });
-
-//             } else {
-//                 tableBody.html('<tr><td colspan="6">No valid data available</td></tr>');
-//             }
-//         },
-//         error: function (error) {
-//             console.error('Error fetching data:', error);
-//         }
-//     });
-// }
-// function getmylistImplement() {
-//     var url =  "http://tractor-api.divyaltech.com/api/customer/get_sell_enquiry_data";
-
-    
-//     var headers = {
-//         'Authorization': localStorage.getItem('token')
-//       };
-//       var mobileNumber = localStorage.getItem('mobile');
-//       var paraArr = {
-//         'mobile': mobileNumber,
-//       };
-    
-//     $.ajax({
-//       url: url,
-//       type: "POST",
-//       headers:headers,
-//       data: paraArr,
-
-//       success: function (data) {
-//         console.log(data,'data');
-//           const tableBody = $('#data-table22'); 
-//           tableBody.empty(); 
-  
-//             if (data.data.sellImplementData && data.data.sellImplementData.length > 0) {
-//                 var table = $('#list_purchase_imple_table').DataTable({
-//                     paging: true,
-//                     searching: false, // Disable search
-//                     lengthChange: false,
-//                     columns: [
-//                         { title: 'Request Type.' },
-//                         { title: 'Date' },
-//                         { title: 'Brand list' },
-//                         { title: 'Model' },
-//                         { title: 'purchase year' },
-//                         { title: 'price' }
-                       
-//                     ]
-//                 });
-//                 data.data.sellImplementData.forEach(row => {
-//                     // Add row to DataTable
-//                     table.row.add([
-//                         row.request_type,
-//                         row.date,
-//                         row.brand_name,
-//                         row.model,
-//                         row.purchase_year,
-//                         row.price
-                        
-//                     ]).draw(false);
-//                 });
-               
-//             } else {
-//               tableBody.innerHTML = '<tr><td colspan="9">No valid data available</td></tr>';
-//             }
-//         },
-//         error: function (error) {
-//             console.error('Error fetching data:', error);
-//         }
-//     });
-//   }
-//  function getmylist() {
-//     var url =  "http://tractor-api.divyaltech.com/api/customer/get_sell_enquiry_data";
-
-    
-//     var headers = {
-//         'Authorization': localStorage.getItem('token')
-//       };
-//       var mobileNumber = localStorage.getItem('mobile');
-//       var paraArr = {
-//         'mobile': mobileNumber,
-//       };
-    
-//     $.ajax({
-//       url: url,
-//       type: "POST",
-//       headers:headers,
-//       data: paraArr,
-
-//       success: function (data) {
-//         console.log(data,'data');
-//           const tableBody = $('#data-table11'); 
-//           tableBody.empty(); 
-  
-//             if (data.data.sellHaatBazarEnquiry && data.data.sellHaatBazarEnquiry.length > 0) {
-//                 var table = $('#list_purchase_haatbazar_table').DataTable({
-//                     paging: true,
-//                     searching: false, // Disable search
-//                     lengthChange: false,
-//                     columns: [
-//                         { title: 'Type' },
-//                         { title: 'date' },
-//                         { title: 'Category Name' },
-//                         { title: 'Subcategory Name' },
-//                         { title: 'Quantity' },
-//                         { title: 'price' },
-                       
-//                     ]
-//                 });
-//                 data.data.sellHaatBazarEnquiry.forEach(row => {
-//                     // Add row to DataTable
-//                     table.row.add([
-//                         row.request_type,
-//                         row.date,
-//                         row.category_name,
-//                         row.sub_category_name,
-//                         row.quantity,
-//                         row.price,
-                        
-//                     ]).draw(false);
-//                 });
-               
-//             } else {
-//               tableBody.innerHTML = '<tr><td colspan="9">No valid data available</td></tr>';
-//             }
-//         },
-//         error: function (error) {
-//             console.error('Error fetching data:', error);
-//         }
-//     });
-//   }

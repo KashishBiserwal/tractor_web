@@ -5,7 +5,7 @@ $(document).ready(function() {
     // $('#Verify').click(verifyotp);
     $('#submit_enquiry').click(get_otp);
     getDistricts(7);
-
+  
 function getTractorList() {
     var url = "http://tractor-api.divyaltech.com/api/customer/get_haat_bazar";
 
@@ -125,7 +125,7 @@ function displaylist(productContainer, tractors, append) {
                                                 </div>
                                                 <div class="col-12 col-lg-6 col-md-6 col-sm-6 " hidden>
                                                 <label for="name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i> product_id</label>
-                                                <input type="text" class="form-control" id="product_id" value="${p.product_id}" hidden> 
+                                                <input type="text" class="form-control" id="product_id" value="${p.haat_bazar_id}" hidden> 
                                                 </div>
                                                 <div class="col-12 col-sm-6 col-md-6 col-lg-6">
                                                     <label for="" class="form-label text-dark fw-bold"> <i class="fa-regular fa-user"></i> First Name</label>
@@ -179,7 +179,7 @@ function displaylist(productContainer, tractors, append) {
         } else {
             productContainer.prepend(newCard);
         }
-
+        populateDropdowns(p.id);
         // Add event listener for modal opening
     });
 }
@@ -243,7 +243,7 @@ function openOTPModal() {
 
 function submit_enquiry(formId) {
     var enquiry_type_id = $(`#${formId} #enquiry_type_id`).val();
-    var product_id = 30;  // You may need to adjust this based on your logic
+    var product_id = $(`#${formId} #product_id`).val();
     var first_name = $(`#${formId} #firstName`).val();
     var last_name = $(`#${formId} #lastName`).val();
     var mobile_number = $(`#${formId} #mobile_number`).val();
@@ -277,7 +277,7 @@ function submit_enquiry(formId) {
         success: function (result) {
             console.log(result, "result");
             $("#used_tractor_callbnt_").modal('hide'); 
-            get_otp();
+            get_otp(mobile_number);
             openOTPModal();
             
             console.log("Add successfully");
@@ -295,11 +295,11 @@ function submit_enquiry(formId) {
           }
     });
 }
-
-function get_otp() {
-    var phone = $('#mobile_number').val(); // Corrected ID
+function get_otp(phone) {
+    // var apiBaseURL =  $CustomerAPIBaseURL;
+    // var url = apiBaseURL + 'customer_login';
     var url = "http://tractor-api.divyaltech.com/api/customer/customer_login";
-
+ 
     var paraArr = {
         'mobile': phone,
     };
@@ -310,6 +310,10 @@ function get_otp() {
         data: paraArr,
         success: function (result) {
             console.log(result, "result");
+
+            // Once OTP is received, store mobile number in hidden field within modal
+            $('#Mobile').val(phone);
+
         },
         error: function (error) {
             console.error('Error fetching data:', error);
@@ -318,13 +322,15 @@ function get_otp() {
 }
 
 function verifyotp() {
-    var mobile = document.getElementById('mobile_number').value;
+    var mobile = document.getElementById('Mobile').value;
     var otp = document.getElementById('otp').value;
 
     var paraArr = {
         'otp': otp,
         'mobile': mobile,
     }
+    // var apiBaseURL =  $CustomerAPIBaseURL;
+    // var url = apiBaseURL + 'verify_otp';
     var url = 'http://tractor-api.divyaltech.com/api/customer/verify_otp';
     $.ajax({
         url: url,
@@ -360,7 +366,6 @@ function verifyotp() {
         },
     });
 }
-
 
 
 function getCategories() {
