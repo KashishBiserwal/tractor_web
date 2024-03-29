@@ -35,12 +35,12 @@ function getInterestedBuyer() {
           tableBody.empty(); 
   
   
-            if (data.data.customer_details && data.data.customer_details.length > 0) {
+            if (data.data.tractor_harvester_implements && data.data.tractor_harvester_implements.length > 0) {
                 var table = $('#interested').DataTable({
                     paging: true,
                     searching: true,
                     columns: [
-                        { title: 'Type' },
+                        { title: 'Request Type' },
                         { title: 'Name' },
                         { title: 'Mobile Number' },
                         { title: 'Brand' },
@@ -49,7 +49,7 @@ function getInterestedBuyer() {
                     ]
                 });
   
-                data.data.customer_details.forEach(row => {
+                data.data.tractor_harvester_implements.forEach(row => {
                     const fullName = row.first_name + ' ' + row.last_name;
   
                     // Add row to DataTable
@@ -378,7 +378,7 @@ function getpurchase_Dealer() {
 
 $(document).ready(function() {
     // Define function to populate data table
-    function populateDataTable(tableId, dataKey, columns) {
+    function populateDataTable(tableId, dataKey, columns, isPagingEnabled, isSearchingEnabled) {
         var url = "http://tractor-api.divyaltech.com/api/customer/get_sell_enquiry_data";
         var headers = {
             'Authorization': localStorage.getItem('token')
@@ -398,17 +398,19 @@ $(document).ready(function() {
                 const tableBody = $(tableId + ' tbody');
                 tableBody.empty();
 
+                // Destroy DataTable instance if it already exists
+                if ($.fn.DataTable.isDataTable(tableId)) {
+                    $(tableId).DataTable().destroy();
+                }
+
+                var tableConfig = {
+                    paging: isPagingEnabled,
+                    searching: isSearchingEnabled,
+                    lengthChange: false,
+                    columns: columns
+                };
+
                 if (data.data && data.data[dataKey] && data.data[dataKey].length > 0) {
-                    var tableConfig = {
-                        paging: true,
-                        searching: true,
-                        lengthChange: false,
-                        columns: columns
-                    };
-
-                    // Remove the default search input
-                    $(tableId + '_filter').remove();
-
                     var table = $(tableId).DataTable(tableConfig);
 
                     data.data[dataKey].forEach(row => {
@@ -426,28 +428,6 @@ $(document).ready(function() {
         });
     }
 
-    // Define an event listener for tab clicks
-    $('.nav-link').on('click', function() {
-        var tableIdToShow = $(this).attr('href');
-        if (!$(tableIdToShow).closest('.table-responsive').is(':visible')) {
-            // Hide all tables
-            $('.table-responsive').hide();
-            // Show the corresponding table
-            $(tableIdToShow).closest('.table-responsive').show();
-            // If the table is not yet initialized, initialize it
-            if (!$(tableIdToShow).hasClass('initialized')) {
-                // Mark the table as initialized
-                $(tableIdToShow).addClass('initialized');
-                // Find the corresponding configuration
-                var config = tables.find(table => table.tableId === tableIdToShow);
-                if (config) {
-                    // Populate the table with data
-                    populateDataTable(config.tableId, config.dataKey, config.columns);
-                }
-            }
-        }
-    });
-
     // Define tables configuration
     var tables = [{
             tableId: '#list_purchase_tractor_table',
@@ -459,7 +439,9 @@ $(document).ready(function() {
                 { data: 'model' },
                 { data: 'purchase_year' },
                 { data: 'price' }
-            ]
+            ],
+            isPagingEnabled: true,
+            isSearchingEnabled: true
         },
         {
             tableId: '#list_purchase_harvest_table',
@@ -471,7 +453,9 @@ $(document).ready(function() {
                 { data: 'model' },
                 { data: 'purchase_year' },
                 { data: 'price' }
-            ]
+            ],
+            isPagingEnabled: true,
+            isSearchingEnabled: true
         },
         {
             tableId: '#list_purchase_imple_table',
@@ -483,7 +467,9 @@ $(document).ready(function() {
                 { data: 'model' },
                 { data: 'purchase_year' },
                 { data: 'price' }
-            ]
+            ],
+            isPagingEnabled: true,
+            isSearchingEnabled: true
         },
         {
             tableId: '#list_purchase_haatbazar_table',
@@ -495,14 +481,30 @@ $(document).ready(function() {
                 { data: 'sub_category_name' },
                 { data: 'quantity' },
                 { data: 'price' }
-            ]
+            ],
+            isPagingEnabled: true,
+            isSearchingEnabled: true
         }
     ];
 
+    // Populate all tables with data initially
+    tables.forEach(function(config) {
+        populateDataTable(config.tableId, config.dataKey, config.columns, config.isPagingEnabled, config.isSearchingEnabled);
+    });
+
+    // Click event handler for nav links
+    $('.nav-link').on('click', function() {
+        var tableIdToShow = $(this).attr('href');
+        // Hide all tables
+        $('.table-responsive').hide();
+        // Show the corresponding table
+        $(tableIdToShow).closest('.table-responsive').show();
+    });
+
     // Initially, hide all tables except the first one
     $('.table-responsive').hide();
-    $(tables[0].tableId).closest('.table-responsive').show();
 });
+
 
 
   
