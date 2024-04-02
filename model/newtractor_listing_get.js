@@ -270,7 +270,7 @@ success: function (data) {
 // get();
 
 function get() {
-  var url = 'http://tractor-api.divyaltech.com/api/customer/get_brand_for_finance';
+  var url = "http://tractor-api.divyaltech.com/api/customer/get_brand_by_product_id/" + 2;
   $.ajax({
       url: url,
       type: "GET",

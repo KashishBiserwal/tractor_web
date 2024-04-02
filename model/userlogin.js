@@ -71,7 +71,7 @@ function verifyotp() {
       console.log(userId, 'User ID');
       console.log(userMobile, 'User Mobile');
 
-      localStorage.setItem('token', result.token);
+      localStorage.setItem('token_customer', result.token);
       localStorage.setItem('mobile', userMobile);
       localStorage.setItem('id', userId);
 

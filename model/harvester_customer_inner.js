@@ -2,7 +2,8 @@ $(document).ready(function() {
     console.log("ready!");
     getharvesterById();
     // getharvesterList();
- $('#enquiry').click(harvester_enquiry);
+ $('#enquiry').click(storedata);
+ $('#Verify').click(verifyotp);
 });
 
 
@@ -55,6 +56,7 @@ function getharvesterById() {
         document.getElementById('dia_lenght').innerText=data.product[0].dimension_length;
         document.getElementById('dia_height').innerText=data.product[0].dimension_height;
         document.getElementById('min_ground_clear').innerText=data.product[0].ground_clearance;
+        document.getElementById('product_id').value=data.product[0].id;
         // document.getElementById('grain_tank_capacity1').innerText=data.product[0].fuel_tank_capacity;
         // document.getElementById('grain_tank_capacity').innerText=data.product[0].total_weight_without_grains;
         var product = data.product[0];
@@ -89,60 +91,188 @@ function getharvesterById() {
     });
 }
 
+function storedata(event) {
+    event.preventDefault();
 
-function harvester_enquiry() {
-    var firstName = $('#f_name').val();
-    var lastName = $('#last_name').val();
-    var mobile_number = $('#mobile_number').val();
-    var state = $('#state').val();
-    var district = $('#district').val();
-    var Tehsil = $('#Tehsil').val();
-    // Assuming you have an input field for enquiry_type_id with the ID 'enquiry_type_id'
-    var enquiry_type_id = $('#enquiry_type_id').val(); 
+    // Validate the form
+ 
+        var enquiry_type_id = $('#enquiry_type_id').val();
+        var product_id = $('#product_id').val();
+        var first_name = $('#f_name').val();
+        var last_name = $('#lastName').val();
+        var mobile_no = $('#mobile_number').val();
+        var state = $('#state').val();
+        var district = $('#district').val();
+        var tehsil = $('#Tehsil').val();
+        console.log('jfhfhw', product_id);
 
+        // Prepare data to send to the server
+        var paraArr = {
+            'product_id': product_id,
+            'enquiry_type_id': enquiry_type_id,
+            'first_name': first_name,
+            'last_name': last_name,
+            'mobile': mobile_no,
+            'state': state,
+            'district': district,
+            'tehsil': tehsil,
+        };
+
+        var apiBaseURL = APIBaseURL;
+        var url = "http://tractor-api.divyaltech.com/api/customer/customer_enquiries";
+        console.log(url);
+
+        // Make an AJAX request to the server
+        $.ajax({
+            url: url,
+            type: "POST",
+            data: paraArr,
+            success: function(result) {
+                console.log(result, "result");
+            
+                // Reset the form
+                // $('#nursery_form')[0].reset();
+            
+                $("#staticBackdrop3").modal('hide');
+               
+                // Open the model_seller_contact modal after clicking "Got It" in the alert
+                $('#get_OTP_btn').modal('show');
+                get_otp_1(mobile_no);
+            },
+            error: function(error) {
+                console.error('Error fetching data:', error);
+                var msg = error;
+                $("#errorStatusLoading").modal('show');
+                $("#errorStatusLoading").find('.modal-title').html('<p class="text-center">Process Failed..! Enter Valid Detail</p>');
+                $("#errorStatusLoading").find('.modal-body').html(msg);
+                $("#errorStatusLoading").find('.modal-body').html('<img src="assets/images/comp_3.gif" style="display:block; margin:0 auto;" class="w-50 text-center" alt="Successfull Request"></img>');
+            }
+        });
+    }
+
+function get_otp_1(phone) {
+    var url = "http://tractor-api.divyaltech.com/api/customer/customer_login";
+ 
     var paraArr = {
-        'first_name': firstName,
-        'last_name': lastName,
-        'mobile': mobile_number,
-        'state': state,
-        'district': district,
-        'tehsil': Tehsil,
-        'enquiry_type_id': enquiry_type_id,
+        'mobile': phone,
     };
 
-    var url = 'http://tractor-api.divyaltech.com/api/customer/customer_enquiries';
-    console.log(url);
-
-    var token = localStorage.getItem('token');
-    var headers = {
-        'Authorization': 'Bearer ' + token
-    };
     $.ajax({
         url: url,
         type: "POST",
         data: paraArr,
-        headers: headers,
-        success: function(result) {
+        success: function (result) {
             console.log(result, "result");
-            console.log("Add successfully");
-            $("#used_tractor_callbnt_").modal('hide');
-            var msg = "Added successfully !"
-            $("#errorStatusLoading").modal('show');
-            $("#errorStatusLoading").find('.modal-title').html('<p class="text-center">Congratulation..! Requested Successful</p>');
 
-            $("#errorStatusLoading").find('.modal-body').html(msg);
-            $("#errorStatusLoading").find('.modal-body').html('<img src="assets/images/successfull.gif" style="display:block; margin:0 auto;" class="w-50 text-center" alt="Successfull Request"></img>');
+            // Once OTP is received, store mobile number in hidden field within modal
+            $('#mobile_verify').val(phone);
+
         },
-        error: function(error) {
+        error: function (error) {
             console.error('Error fetching data:', error);
-            var msg = error;
-            $("#errorStatusLoading").modal('show');
-            $("#errorStatusLoading").find('.modal-title').html('<p class="text-center">Process Failed..! Enter Valid Detail</p>');
-            $("#errorStatusLoading").find('.modal-body').html(msg);
-            $("#errorStatusLoading").find('.modal-body').html('<img src="assets/images/comp_3.gif" style="display:block; margin:0 auto;" class="w-50 text-center" alt="Successfull Request"></img>');
         }
     });
 }
+
+function verifyotp() {
+    var mobile = document.getElementById('mobile_verify').value;
+    var otp = document.getElementById('otp').value;
+
+    var paraArr = {
+        'otp': otp,
+        'mobile': mobile,
+    }
+    var url = 'http://tractor-api.divyaltech.com/api/customer/verify_otp';
+    $.ajax({
+        url: url,
+        type: "POST",
+        data: paraArr,
+        success: function (result) {
+            console.log(result);
+
+            // Assuming your model has an ID 'myModal', hide it on success
+            $('#get_OTP_btn').modal('hide'); // Assuming it's a Bootstrap modal
+            // $('#staticBackdrop').modal('show');
+            // Reset input fields
+            // document.getElementById('phone').value = ''; 
+            // document.getElementById('otp').value = ''; 
+
+            // Access data field in the response
+        }, 
+        error: function (xhr, textStatus, errorThrown) {
+            console.log(xhr.status, 'error');
+            if (xhr.status === 401) {
+                console.log('Invalid credentials');
+                var htmlcontent = `<p>Invalid credentials!</p>`;
+                document.getElementById("error_message").innerHTML = htmlcontent;
+            } else if (xhr.status === 403) {
+                console.log('Forbidden: You don\'t have permission to access this resource.');
+                var htmlcontent = ` <p> You don't have permission to access this resource.</p>`;
+                document.getElementById("error_message").innerHTML = htmlcontent;
+            } else {
+                console.log('An error occurred:', textStatus, errorThrown);
+                var htmlcontent = `<p>An error occurred while processing your request.</p>`;
+                document.getElementById("error_message").innerHTML = htmlcontent;
+            }
+        },
+    });
+}
+
+// function harvester_enquiry() {
+//     var firstName = $('#f_name').val();
+//     var lastName = $('#lastName').val();
+//     var mobile_number = $('#mobile_number').val();
+//     var state = $('#state').val();
+//     var district = $('#district').val();
+//     var Tehsil = $('#Tehsil').val();
+//     var enquiry_type_id = $('#enquiry_type_id').val(); 
+//     var product_subject_id = $('#product_subject_id').val();
+//     console.log(product_subject_id);
+//     var paraArr = {
+//         'first_name': firstName,
+//         'last_name': lastName,
+//         'mobile': mobile_number,
+//         'state': state,
+//         'district': district,
+//         'tehsil': Tehsil,
+//         'enquiry_type_id': enquiry_type_id,
+//         'product_id': product_subject_id,
+//     };
+// console.log(paraArr,'asdfxsdfgdfgfgh');
+
+//     var url = 'http://tractor-api.divyaltech.com/api/customer/customer_enquiries';
+//     console.log(url);
+
+//     var token = localStorage.getItem('token');
+//     var headers = {
+//         'Authorization': 'Bearer ' + token
+//     };
+//     $.ajax({
+//         url: url,
+//         type: "POST",
+//         data: paraArr,
+//         headers: headers,
+//         success: function(result) {
+//             console.log(result, "result");
+//             console.log("Add successfully");
+//             $("#used_tractor_callbnt_").modal('hide');
+//             var msg = "Added successfully !"
+//             $("#errorStatusLoading").modal('show');
+//             $("#errorStatusLoading").find('.modal-title').html('<p class="text-center">Congratulation..! Requested Successful</p>');
+
+//             $("#errorStatusLoading").find('.modal-body').html(msg);
+//             $("#errorStatusLoading").find('.modal-body').html('<img src="assets/images/successfull.gif" style="display:block; margin:0 auto;" class="w-50 text-center" alt="Successfull Request"></img>');
+//         },
+//         error: function(error) {
+//             console.error('Error fetching data:', error);
+//             var msg = error;
+//             $("#errorStatusLoading").modal('show');
+//             $("#errorStatusLoading").find('.modal-title').html('<p class="text-center">Process Failed..! Enter Valid Detail</p>');
+//             $("#errorStatusLoading").find('.modal-body').html(msg);
+//             $("#errorStatusLoading").find('.modal-body').html('<img src="assets/images/comp_3.gif" style="display:block; margin:0 auto;" class="w-50 text-center" alt="Successfull Request"></img>');
+//         }
+//     });
+// }
 
 
 //      function getharvesterList() {

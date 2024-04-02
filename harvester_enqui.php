@@ -135,18 +135,18 @@
                            
                             <td>Mobile Number-</td>
                             <td id="number1"></td>
-                            <td>Email-</td>
-                            <td id="email_1"></td>
+                            <td>Date-</td>
+                            <td id="date_1"></td>
                           </tr>
                           <tr>
-                          <td>Date-</td>
-                            <td id="date_1"></td>
+                          
                             <td>State-</td>
                             <td id="state1"></td>
+                            <td>District-</td>
+                            <td id="dist1"></td>
                           </tr>
                           <tr>
-                          <td>District-</td>
-                            <td id="dist1"></td>
+                          
                             <td>Tehsil-</td>
                             <td id="tehsil1"></td>
                           </tr>
@@ -174,7 +174,7 @@
                     <div class="row justify-content-center">
                         <div class="col-lg-10">
                            <form id="new_harvester_form"method="post"enctype="multipart/form-data" onsubmit="return false">
-                                <div class="row justify-content-center pt-4">
+                                <div class="row  pt-4">
                                 <div class="col-12 col-lg-6 col-sm-5 col-md-6 my-1" hidden>
                                           <div class="form-outline ">
                                             <label for="name" class="form-label text-dark">Harvester</label>
@@ -224,12 +224,12 @@
                                               <input type="text" class="form-control" placeholder="" id="number_2" name="number">
                                           </div>
                                         </div>
-                                        <div class="col-12 col-lg-6 col-sm-5 col-md-6 my-1">
+                                        <!-- <div class="col-12 col-lg-6 col-sm-5 col-md-6 my-1">
                                           <div class="form-outline mt-4">
                                               <label for="name" class="form-label text-dark">Email</label>
                                               <input type="text" class="form-control" placeholder="" id="email_2" name="email">
                                           </div>
-                                        </div>
+                                        </div> -->
                                         <div class="col-12 col-lg-6 col-sm-5 col-md-6 my-1">
                                           <div class="form-outline mt-4">
                                               <label for="name" class="form-label text-dark">Date</label>
