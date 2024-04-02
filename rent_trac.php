@@ -60,9 +60,10 @@
               </li>
             </ol>
           </nav>
-          <button type="button" id="add_trac" class="btn add_btn btn-success float-right p-1" data-bs-toggle="modal"  data-bs-target="#staticBackdrop" onclick="resetFormFields()">
-              <i class="fa fa-plus" aria-hidden="true"></i> Add Rent Tractor
-          </button>
+          <button type="button" id="add_trac" class="btn add_btn btn-success float-right p-1" data-bs-toggle="modal"  data-bs-target="#staticBackdrop" onclick="resetFormFields(true);">
+    <i class="fa fa-plus" aria-hidden="true"></i> Add Rent Tractor
+</button>
+
 
           <!-- Modal -->
           <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -130,37 +131,37 @@
                                         </thead>
                                         <tbody>
                                             <tr>
-                                                <td>1</td> 
+                                                <td>1</td>
                                                 <td>
                                                     <div class="card upload-img-wrap" onclick="triggerFileInput('impImage_0')" style="height:38px;">
                                                         <i class="fas fa-image m-auto" style="cursor: pointer;" onclick="triggerFileInput('impImage_0')"></i>
                                                         <img id="impImagePreview_0" src="" alt="Image Preview" style="max-width: 100%; max-height: 100%; display: none;" class="images">
                                                     </div>
-                                                    <input type="file" name="imp_0" id="impImage_0" class="image-file-input" accept="image/*" style="display: none;" onclick="displayImagePreview(this, 'impImagePreview_0')"  onchange="displayImagePreview(this, 'impImagePreview_0')"required>
+                                                    <input type="file" name="imp_0" id="impImage_0" class="image-file-input" accept="image/*" style="display: none;" onchange="displayImagePreview(this, 'impImagePreview_0')" required>
                                                 </td>
                                                 <td>
                                                     <div class="select-wrap">
-                                                        <select name="imp_type_id[]" id="impType_0" class="form-control implement-type-input" >
-                                                        <option value>Select</option>
-                                                        <option value="type1">Type 1</option>
-                                                        <option value="type2">Type 2</option>
+                                                        <select name="imp_type_id[]" id="impType_0" class="form-control implement-type-input">
+                                                            <option value>Select</option>
+                                                            <option value="type1">Type 1</option>
+                                                            <option value="type2">Type 2</option>
                                                         </select>
                                                     </div>
                                                 </td>
                                                 <td>
-                                                     <input type="text" name="implement_rate[]" id="implement_rent" class="form-control implement-rate-input" maxlength="10" placeholder="e.g- 1,500">
+                                                    <input type="text" name="implement_rate[]" id="implement_rent_0" class="form-control implement-rate-input" maxlength="10" placeholder="e.g- 1,500">
                                                 </td>
                                                 <td>
                                                     <div class="select-wrap">
                                                         <select name="rate_per[]" id="impRatePer_0" class="form-control implement-unit-input">
-                                                        <option value="">Select</option>
-                                                        <option value="Acer">Acer</option>
-                                                        <option value="Hour">Hour</option>
+                                                            <option value="">Select</option>
+                                                            <option value="Acer">Acer</option>
+                                                            <option value="Hour">Hour</option>
                                                         </select>
                                                     </div>
                                                 </td>
                                                 <td>
-                                                    <button type="button" class="btn btn-danger" title="Remove Row" onclick="removeRow(this)">
+                                                    <button type="button" class="btn btn-danger remove-button" title="Remove Row" onclick="removeRow(this)">
                                                         <i class="fas fa-minus"></i>
                                                     </button>
                                                 </td>
@@ -170,7 +171,7 @@
                                             <tr>
                                                 <td colspan="6" align="right">
                                                     <button type="button" class="btn btn-success" title="Add Row" id="addRentTractorRowBtn">
-                                                    <i class="fas fa-plus"></i>
+                                                        <i class="fas fa-plus"></i>
                                                     </button>
                                                 </td>
                                             </tr>
@@ -483,128 +484,18 @@
     });
    
   });
+  </script>
+  <script>
     function triggerFileInput(inputId) {
         $('#' + inputId).trigger('click');
     }
 
     function displayImagePreview(input, previewId) {
-    var fileInput = $(input);
-    var preview = $("#" + previewId);
-    var currentRow = fileInput.closest("tr");
-
-    if (fileInput.get(0).files.length > 0) {
-        var reader = new FileReader();
-
-        reader.onload = function (e) {
-            preview.attr('src', e.target.result);
-            preview.show();
-            currentRow.find('.fas.fa-image').hide();
-        };
-
-        reader.readAsDataURL(fileInput.get(0).files[0]);
-    } else {
-        preview.hide();
-        currentRow.find('.fas.fa-image').show();
-    }
-    }
-   
-    function removeRow(button) {
-    var $clickedRow = $(button).closest('tr');
-    
-    // Check if the clicked row is not the first row
-    if ($clickedRow.index() !== 0) {
-        $clickedRow.remove();
-    }
-}
-
-    function updateSerialNumbers() {
-    $('#rentTractorTable tbody tr').each(function (index) {
-        var rowNumber = index + 1;
-        $(this).find('td:first').text(rowNumber);
-
-        var newImageId = 'impImage_' + rowNumber;
-        var newPreviewId = 'impImagePreview_' + rowNumber;
-
-        $(this).find('.fas.fa-image').attr('onclick', "triggerFileInput('" + newImageId + "')");
-        $(this).find('.image-file-input').attr('id', newImageId);
-        $(this).find('img').attr('id', newPreviewId).attr('src', '').hide();
-        $(this).find('.upload-img-wrap').attr('onclick', 'triggerFileInput(\'' + newImageId + '\')');
-    });
-    }
-
-   
-      $("#addRentTractorRowBtn").click(function () {
-            var isValidFirstRow = validateRow($("#rentTractorTable tbody tr").length - 1);
-
-            if (isValidFirstRow) {
-                var newIndex = $("#rentTractorTable tbody tr").length;
-
-                var newRow = $("#rentTractorTable tbody tr:last").clone();
-                newRow.find("input, select").each(function () {
-                    var originalId = $(this).attr("id");
-                    var originalName = $(this).attr("name");
-
-                    var index = parseInt(originalId.split("_")[1]);
-                    var newId = originalId.split("_")[0] + "_" + newIndex;
-                    var newName = originalName.split("_")[0] + "_" + newIndex;
-                    $(this).attr("id", newId);
-                    $(this).attr("name", newName);
-
-                    if ($(this).is("input")) {
-                        $(this).val("");
-                    } else if ($(this).is("select")) {
-                        $(this).val($(this).find("option:first").val());
-                    }
-                    $(this).removeClass("is-invalid");
-                    $(this).next(".invalid-feedback").remove();
-                });
-
-                var newImageId = 'impImage_' + newIndex;
-                var newPreviewId = 'impImagePreview_' + newIndex;
-               // $('.fas.fa-image').show();
-                newRow.find('.fas.fa-image').attr('onclick', "triggerFileInput('" + newImageId + "')");
-                newRow.find('.image-file-input').attr('id', newImageId);
-                newRow.find('img').attr('id', newPreviewId).hide();
-                newRow.find('.image-file-input').attr('onclick', "displayImagePreview(this, '" + newPreviewId + "')");
-                newRow.find('.image-file-input').attr('onchange', "displayImagePreview(this, '" + newPreviewId + "')");
-                newRow.find('.upload-img-wrap').attr('onclick', 'triggerFileInput(\'' + newImageId + '\')');
-
-                newRow.find('td:first').text(newIndex + 1);
-                newRow.find('td:last').html('<button type="button" class="btn btn-danger" title="Remove Row" onclick="removeRow(this)"><i class="fas fa-minus"></i></button>');
-
-                $('#rentTractorTable tbody').append(newRow);
-               // updateSerialNumbers();
-            }
-        });
-
-
-
-        $("#rentTractorTable").on("submit", function (e) {
-            var isValidForm = true;
-
-            $("#rentTractorTable tbody tr").each(function (index) {
-                if (!validateRow(index)) {
-                    isValidForm = false;
-                    return false;
-                }
-            });
-
-            if (!isValidForm) {
-                e.preventDefault();
-            }
-        });
-
-        $("#rentTractorTable").on("input change", ".image-file-input, .implement-type-input, .implement-rate-input, .implement-unit-input", function () {
-            validateRow($(this).closest("tr").index());
-        });
-            
-        function displayImagePreview(input, previewId) {
-        var fileInput = input;
+        var fileInput = $(input);
         var preview = $("#" + previewId);
-        var currentRow = $(input).closest("tr");
-        var rowIndex = currentRow.index();
+        var currentRow = fileInput.closest("tr");
 
-        if (fileInput.files.length > 0) {
+        if (fileInput.get(0).files.length > 0) {
             var reader = new FileReader();
 
             reader.onload = function (e) {
@@ -613,68 +504,156 @@
                 currentRow.find('.fas.fa-image').hide();
             };
 
-            reader.readAsDataURL(fileInput.files[0]);
+            reader.readAsDataURL(fileInput.get(0).files[0]);
         } else {
             preview.hide();
             currentRow.find('.fas.fa-image').show();
         }
-      }
+    }
 
-        function validateRow(rowIndex) {
-            var isValidRow = true;
-            var row = $("#rentTractorTable tbody tr:eq(" + rowIndex + ")");
-            row.find('.is-invalid').removeClass('is-invalid');
-            row.find('.invalid-feedback').remove();
+    $("#addRentTractorRowBtn").click(function () {
+    // Validate the last row before adding a new one
+    var lastRowIndex = $("#rentTractorTable tbody tr").length - 1;
+    var isValidLastRow = validateRow(lastRowIndex);
 
-            var imageInput = row.find(".image-file-input");
-            var currentRowIndex = row.index();
+    if (isValidLastRow) {
+        var newIndex = $("#rentTractorTable tbody tr").length;
 
-            displayImagePreview(imageInput.get(0), 'impImagePreview_' + currentRowIndex);
+        var newRow = $("#rentTractorTable tbody tr:last").clone();
 
-            if (imageInput.prop("required") && !imageInput.get(0).files.length) {
-                isValidRow = false;
-                imageInput.addClass("is-invalid");
-                imageInput.after("<div class='invalid-feedback'>This field is required.</div>");
-            } else {
-                imageInput.removeClass("is-invalid");
-                imageInput.next(".invalid-feedback").remove();
+        newRow.find("input, select").each(function () {
+            var originalId = $(this).attr("id");
+            var originalName = $(this).attr("name");
+
+            var index = parseInt(originalId.split("_")[1]);
+            var newId = originalId.split("_")[0] + "_" + newIndex;
+            var newName = originalName.split("_")[0] + "_" + newIndex;
+            $(this).attr("id", newId);
+            $(this).attr("name", newName);
+
+            if ($(this).is("input")) {
+                $(this).val("");
+            } else if ($(this).is("select")) {
+                $(this).val($(this).find("option:first").val());
             }
+            $(this).removeClass("is-invalid");
+            $(this).next(".invalid-feedback").remove();
+        });
 
-            var implementTypeField = row.find(".implement-type-input");
-            if (implementTypeField.val() === "Select" || implementTypeField.val() === "") {
-                isValidRow = false;
-                implementTypeField.addClass("is-invalid");
-                implementTypeField.after("<div class='invalid-feedback'>This field is required.</div>");
-            } else {
-                implementTypeField.removeClass("is-invalid");
-            }
+        var newImageId = 'impImage_' + newIndex;
+        var newPreviewId = 'impImagePreview_' + newIndex;
 
-            row.find(".implement-rate-input").each(function (index) {
-                var rate = parseFloat($(this).val());
-                if (isNaN(rate) || rate <= 0) {
-                    isValidRow = false;
-                    $(this).addClass("is-invalid");
-                    $(this).after("<div class='invalid-feedback'>This field is required.</div>");
-                } else {
-                    $(this).removeClass("is-invalid");
-                }
-            });
+        newRow.find('.fas.fa-image').attr('onclick', "triggerFileInput('" + newImageId + "')");
+        newRow.find('.image-file-input').attr('id', newImageId);
+        newRow.find('img').attr('id', newPreviewId).hide();
+        newRow.find('.image-file-input').attr('onclick', "displayImagePreview(this, '" + newPreviewId + "')");
+        newRow.find('.image-file-input').attr('onchange', "displayImagePreview(this, '" + newPreviewId + "')");
+        newRow.find('.upload-img-wrap').attr('onclick', 'triggerFileInput(\'' + newImageId + '\')');
 
-            row.find(".implement-unit-input").each(function (index) {
-                if ($(this).val() === "") {
-                    isValidRow = false;
-                    $(this).addClass("is-invalid");
-                    $(this).after("<div class='invalid-feedback'>This field is required.</div>");
-                } else {
-                    $(this).removeClass("is-invalid");
-                }
-            });
-
-          return isValidRow;
+        newRow.find('td:first').text(newIndex + 1);
+      
+        if (newIndex === 0) {
+            newRow.find('.remove-button').hide();
+        } else {
+            newRow.find('.remove-button').show();
         }
-   
+
+        $('#rentTractorTable tbody').append(newRow);
+            }
+        });
+
+
+    $("#rentTractorTable").on("submit", function (e) {
+        var isValidForm = true;
+
+        $("#rentTractorTable tbody tr").each(function (index) {
+            if (!validateRow(index)) {
+                isValidForm = false;
+                return false;
+            }
+        });
+
+        if (!isValidForm) {
+            e.preventDefault();
+        }
+    });
+
+    $("#rentTractorTable").on("input change", ".image-file-input, .implement-type-input, .implement-rate-input, .implement-unit-input", function () {
+        validateRow($(this).closest("tr").index());
+    });
+
+    function validateRow(rowIndex) {
+    var isValidRow = true;
+    var row = $("#rentTractorTable tbody tr:eq(" + rowIndex + ")");
+    row.find('.is-invalid').removeClass('is-invalid');
+    row.find('.invalid-feedback').remove();
+
+    var imageInput = row.find(".image-file-input");
+    var currentRowIndex = row.index();
+
+    displayImagePreview(imageInput.get(0), 'impImagePreview_' + currentRowIndex);
+
+    if (imageInput.prop("required") && !imageInput.get(0).files.length) {
+        isValidRow = false;
+        imageInput.addClass("is-invalid");
+        imageInput.after("<div class='invalid-feedback'>This field is required.</div>");
+    } else {
+        imageInput.removeClass("is-invalid");
+        imageInput.next(".invalid-feedback").remove();
+    }
+
+    var implementTypeField = row.find(".implement-type-input");
+    if (implementTypeField.val() === "Select" || implementTypeField.val() === "") {
+        isValidRow = false;
+        implementTypeField.addClass("is-invalid");
+        implementTypeField.after("<div class='invalid-feedback'>This field is required.</div>");
+    } else {
+        implementTypeField.removeClass("is-invalid");
+    }
+
+    row.find(".implement-rate-input").each(function (index) {
+        var rate = parseFloat($(this).val());
+        if (isNaN(rate) || rate <= 0) {
+            isValidRow = false;
+            $(this).addClass("is-invalid");
+            $(this).after("<div class='invalid-feedback'>This field is required.</div>");
+        } else {
+            $(this).removeClass("is-invalid");
+        }
+    });
+
+    row.find(".implement-unit-input").each(function (index) {
+        if ($(this).val() === "") {
+            isValidRow = false;
+            $(this).addClass("is-invalid");
+            $(this).after("<div class='invalid-feedback'>This field is required.</div>");
+        } else {
+            $(this).removeClass("is-invalid");
+        }
+    });
+    if (rowIndex === 0) {
+        row.find('.remove-button').hide();
+    }
+
+    return isValidRow;
+   }
+  function removeRow(button) {
+        $(button).closest('tr').remove(); 
+    }
+    $("#addRentTractorRowBtn").click(function () {
+    });
 </script>
 
+<script>
+  function removeRow(button) {
+    var $clickedRow = $(button).closest('tr');
+    
+    // Check if the clicked row is not the first row
+    if ($clickedRow.index() !== 0) {
+        $clickedRow.remove();
+    }
+}
+</script>
 <script>
     $(document).ready(function() {
         // Event listener for dynamically added rows

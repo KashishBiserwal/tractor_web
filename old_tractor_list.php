@@ -289,12 +289,12 @@
                 </div>
                 <div class="col-12 col-sm-12 col-md-3 col-lg-3">
                     <label class="text-dark fw-bold mb-2">Search By Brand</label>
-                    <select class="form-select brand_select"  id="brand_name">
+                    <select class="form-select"  id="brand_name">
                     </select>
                 </div>
                 <div class="col-12 col-sm-12 col-md-3 col-lg-3">
                     <label class="text-dark fw-bold  mb-2">Search by Model</label>
-                    <select class="form-select model_select" id="model_name">
+                    <select class="form-select" id="model_name">
                     </select>
                 </div>
                 <div class="col-12 col-sm-12 col-md-3 col-lg-3">

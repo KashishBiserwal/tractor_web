@@ -221,7 +221,7 @@
                     ]
                 });
   
-                data.enquiry_data.forEach(row => {
+                data.enquiry_data.reverse().forEach(row => {
                    
                   const fullName = row.first_name + ' ' + row.last_name;
                     // Add row to DataTable
@@ -318,7 +318,7 @@ function openViewdata(userId) {
         document.getElementById('fname1').innerText=userData.first_name;
         document.getElementById('lname1').innerText=userData.last_name;
         document.getElementById('number1').innerText=userData.mobile;
-        document.getElementById('email_1').innerText=userData.email;
+        // document.getElementById('email_1').innerText=userData.email;
         document.getElementById('date_1').innerText=userData.date;
         document.getElementById('state1').innerText=userData.state_name;
         document.getElementById('dist1').innerText=userData.district_name;
@@ -355,7 +355,7 @@ function fetch_edit_data(id) {
             $('#fname_2').val(Data.first_name);
             $('#lname_2').val(Data.last_name);
             $('#number_2').val(Data.mobile);
-            $('#email_2').val(Data.email);
+            // $('#email_2').val(Data.email);
             $('#date_2').val(Data.date);
             
           var brandDropdown = document.getElementById('brand_name_1');

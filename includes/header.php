@@ -1,3 +1,9 @@
+<script> var APIBaseURL = "<?php echo $APIBaseURL; ?>";</script>
+<script> var baseUrl = "<?php echo $baseUrl; ?>";</script>
+<script src="<?php $baseUrl; ?>model/header.js"></script>
+<style>
+
+</style>
 <div class="fixed_nav">
 <nav class="navbar navbar-expand-sm navbar-index">
   <div class="container p-0">
@@ -25,16 +31,25 @@
             </form> 
           </div>
           <div class="col-sm-4">
-            <ul class="navbar-nav float-end">
-              <li class="nav-item "> 
-                <a class="nav-link" href="#" style="border-right: 1px solid #fff;">Download App</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" id="loginButton" style="display: block;" href="user-login.php">Login</a>
-                <a class="nav-link" id="myAccountButton" style="display:none;" href="userProfile.php">My Account</a>
-              </li>
-            </ul>
-          </div>
+    <ul class="navbar-nav float-end">
+        <li class="nav-item">
+            <a class="nav-link" href="#" style="border-right: 1px solid #fff;">Download App</a>
+        </li>
+        <li class="nav-item" id="loginContainer">
+            <a class="nav-link" id="loginButton" href="user-login.php">Login</a>
+            <div id="myAccountDropdown" class="dropdown" style="display: none;">
+                <button class="nav-link dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    My Account
+                </button>
+                <div class="dropdown-menu w-25" aria-labelledby="dropdownMenuButton" style="background-color: #fff;">
+                    <a class="dropdown-item text-dark p-2" href="userProfile.php">Profile</a>
+                    <a class="dropdown-item text-dark p-2" href="#" onclick="user_logout()">Logout</a>
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>
+
         </div>
       </div>
     </div>
@@ -262,30 +277,12 @@
     </div>
   </div>
 </div>
+
 <?php 
  include 'includes/footertag.php';
 ?>
-<script>
-  // Check if user is logged in
-  // Assume a variable loggedIn is set to true if user is logged in
-  var loggedIn = true; // Example, replace this with your actual condition to check if user is logged in
 
-  // Check if user is logged in and change the link text accordingly
-  window.onload = function() {
-    var loginButton = document.getElementById("loginButton");
-    var myAccountButton = document.getElementById("myAccountButton");
 
-    if (loggedIn) {
-      // User is logged in, hide login button and show my account button
-      loginButton.style.display = "none";
-      myAccountButton.style.display = "block";
-    } else {
-      // User is not logged in, show login button and hide my account button
-      loginButton.style.display = "block";
-      myAccountButton.style.display = "none";
-    }
-  };
-</script>
 
 <script>
   $(document).ready(function(){

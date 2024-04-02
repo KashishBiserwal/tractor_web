@@ -6,7 +6,13 @@ $(document).ready(function() {
   $('#Search').click(search_data);
    
 });
-
+function formatPriceWithCommas(price) {
+    if (isNaN(price)) {
+        return price; 
+    }
+    
+    return new Intl.NumberFormat('en-IN').format(price);
+}
 function formatDateTime(originalDateTimeStr) {
     const originalDateTime = new Date(originalDateTimeStr);
 
@@ -37,7 +43,10 @@ function formatDateTime(originalDateTimeStr) {
 
             if (response.rent_details && response.rent_details.data1 && response.rent_details.data1.length > 0) {
                 let mergedData = response.rent_details.data1.map(t1 => ({...t1, ...response.rent_details.data2.find(t2 => t2.customer_id === t1.id)}));
-                
+        
+            // var view = response.rent_details.data1.id;
+            // console.log(view,'dfghjklghjk');
+                //    var view =response.row.data1[0].id 
                 // Reverse the order of mergedData
                 mergedData.reverse();
 
@@ -49,13 +58,13 @@ function formatDateTime(originalDateTimeStr) {
 
                     let action = `
                         <div class="d-flex">
-                            <button class="btn btn-warning btn-sm text-white mx-1" data-bs-toggle="modal" onclick="fetch_data(${row.id});" data-bs-target="#rent_view_model">
+                            <button class="btn btn-warning btn-sm text-white mx-1" data-bs-toggle="modal" onclick="fetch_data(${row.customer_id});" data-bs-target="#rent_view_model">
                                 <i class="fa-solid fa-eye" style="font-size: 11px;"></i>
                             </button>
-                            <button class="btn btn-primary btn-sm btn_edit" onclick="fetch_edit_data(${row.id});" data-bs-toggle="modal" data-bs-target="#staticBackdrop" id="yourUniqueIdHere" style="padding:5px">
+                            <button class="btn btn-primary btn-sm btn_edit" onclick="fetch_edit_data(${row.customer_id});" data-bs-toggle="modal" data-bs-target="#staticBackdrop" id="yourUniqueIdHere" style="padding:5px">
                             <i class="fas fa-edit" style="font-size: 11px;"></i>
                         </button>
-                        <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.id});" style="padding:5px">
+                        <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.customer_id});" style="padding:5px">
                             <i class="fa fa-trash" style="font-size: 11px;"></i>
                         </button>
                         </div>`;
@@ -118,6 +127,7 @@ function fetch_data(product_id) {
             console.log(data, 'abc');
             if (data.rent_details && data.rent_details.data1 && data.rent_details.data1.length > 0) {
                 var rentData = data.rent_details.data1[0];
+                var rentData2 = data.rent_details.data2[0];
                 document.getElementById('brand1').innerText = rentData.brand_name;
                 console.log(rentData.brand_name);
                 document.getElementById('model1').innerText = rentData.model;
@@ -126,14 +136,14 @@ function fetch_data(product_id) {
                 document.getElementById('monile').innerText = rentData.mobile;
                 document.getElementById('date_2').innerText = rentData.date;
                 document.getElementById('purchase_year1').innerText = rentData.purchase_year;
-                document.getElementById('state2').innerText = rentData.state;
-                document.getElementById('district2').innerText = rentData.district;
-                document.getElementById('tehsil2').innerText = rentData.tehsil;
+                document.getElementById('state2').innerText = rentData.state_name;
+                document.getElementById('district2').innerText = rentData.district_name;
+                document.getElementById('tehsil2').innerText = rentData.tehsil_name;
                 
                 $("#selectedImagesContainer-old").empty();
     
-                if (rentData.images) {
-                    var imageNamesArray = Array.isArray(rentData.images) ? rentData.images : rentData.images.split(',');
+                if (rentData2.images) {
+                    var imageNamesArray = Array.isArray(rentData2.images) ? rentData2.images : rentData2.images.split(',');
                      
                     imageNamesArray.forEach(function (image, index) {
                         var imageUrl = 'http://tractor-api.divyaltech.com/uploads/rent_img/' + image.trim();
@@ -162,45 +172,6 @@ function fetch_data(product_id) {
     });
 }
 
-
-// function fetch_data(product_id){
-    
-//     var productId = product_id;
-//     var apiBaseURL = APIBaseURL;
-//     var url = apiBaseURL + 'rent_data/' + productId;
-//     var headers = {
-//         'Authorization': 'Bearer ' + localStorage.getItem('token')
-//     };
-  
-//     $.ajax({
-//       url: url,
-//       type: 'GET',
-//       headers: headers,
-    
-//       success: function(response) {
-//         var userData = response.rent_details.data1[0];
-//         document.getElementById('brand1').innerText=userData.brand_name;
-//         document.getElementById('model1').innerText=userData.model;
-//         document.getElementById('first_name2').innerText=userData.first_name;
-//         document.getElementById('last_name2').innerText=userData.last_name;
-//         document.getElementById('monile').innerText=userData.mobile;
-//         document.getElementById('date_2').innerText=userData.date;
-//         document.getElementById('purchase_year1').innerText=userData.purchase_year;
-//         document.getElementById('state2').innerText=userData.state_name;
-//         document.getElementById('district2').innerText=userData.district_name;
-//         document.getElementById('tehsil2').innerText=userData.tehsil_name;
-        
-//           // $('#exampleModal').modal('show');
-//       },
-//       error: function(error) {
-//         console.error('Error fetching user data:', error);
-//       }
-//     });
-//   }
-
-    
-// fetch edit data
-
 function fetch_edit_data(customer_id) {
     console.log(customer_id, 'customer_id');
     var apiBaseURL = APIBaseURL;
@@ -215,95 +186,117 @@ function fetch_edit_data(customer_id) {
         type: 'GET',
         headers: headers,
         success: function(response) {
-            var mergedData = response.rent_details.data1.map(data1Item => {
-                var correspondingData2Item = response.rent_details.data2.find(data2Item => data2Item.customer_id === data1Item.id);
-                return { ...data1Item, ...correspondingData2Item };
-            });
-
-            console.log('Merged data:', mergedData);
-
-            // Populate form fields with merged data
-            var userData = mergedData[0];
+            
+            var userData = response.rent_details.data1[0]; // Selecting first item from data1
+            var userData2 = response.rent_details.data2; // Keeping data2 separate
+            // var formattedPrice = formatPriceWithCommas(userData2.rate);
+            console.log('User Data:', userData);
+            console.log('User Data 2:', userData2);
             $('#idUser').val(userData.id);
-            // $('#customer_id').val(userData.customer_id);
             $('#enquiry_type_id').val(userData.enquiry_type_id);
-            // $('#implement_type_id').val(userData.implement_type_id);
-            $('#impType_0').val(userData.implement_category);
-            $('#workarea_').val(userData.working_radius);
-            $('#textarea_d').val(userData.discription);
+            $('#implement_rent').val(userData2.rate);
+            $('#workingRadius').val(userData.working_radius);
+            $('#textarea_d').val(userData.description);
             $('#myfname').val(userData.first_name);
             $('#mylname').val(userData.last_name);
             $('#mynumber').val(userData.mobile);
 
+            var brandDropdown = document.getElementById('brand');
+            for (var i = 0; i < brandDropdown.options.length; i++) {
+              if (brandDropdown.options[i].text === userData.brand_name) {
+                brandDropdown.selectedIndex = i;
+                break;
+              }
+            }
+            $('#model_main').empty(); 
+            get_model_1(userData.brand_id); 
 
-
-            $("#implement_rent option").prop("selected", false);
-            $("#implement_rent option[value='" + userData.rate + "']").prop("selected", true);
-
+            setTimeout(function() { 
+                $("#model_main option").prop("selected", false);
+                $("#model_main option[value='" + userData.model + "']").prop("selected", true);
+            }, 1000);
+            var brandDropdown1 = document.getElementById('impType_0');
+            for (var i = 0; i < brandDropdown1.options.length; i++) {
+              if (brandDropdown1.options[i].text === userData2.category_name) {
+                brandDropdown1.selectedIndex = i;
+                break;
+              }
+            }
             $("#impRatePer_0 option").prop("selected", false);
             $("#impRatePer_0 option[value='" + userData.rate_per + "']").prop("selected", true);
 
+            $("#year_main option").prop("selected", false);
+            $("#year_main option[value='" + userData.purchase_year + "']").prop("selected", true);
 
-            $("#state_state option").prop("selected", false);
-            $("#state_state option[value='" + userData.state + "']").prop("selected", true);
-
-            $("#dist_district option").prop("selected", false);
-            $("#dist_district option[value='" + userData.district + "']").prop("selected", true);
-
-            $("#tehsil_t option").prop("selected", false);
-            $("#tehsil_t option[value='" + userData.tehsil + "']").prop("selected", true);
-
-            $("#brand option").prop("selected", false);
-            $("#brand option[value='" + userData.brand_name + "']").prop("selected", true);
-
-            $("#model option").prop("selected", false);
-            $("#model option[value='" + userData.model + "']").prop("selected", true);
-
-            $("#year option").prop("selected", false);
-            $("#year option[value='" + userData.purchase_year + "']").prop("selected", true);
-
-            // Display images
-            $("#selectedImagesContainer").empty();
-
-            if (userData.image_names && userData.image_names.length > 0) {
-                // Loop through each image name
-                userData.image_names.forEach(function(imageName, index) {
-                    // Construct the image URL
-                    var imageUrl = 'http://tractor-api.divyaltech.com/uploads/rent_img/' + imageName.trim();
+            setSelectedOption('state_state', userData.state_id);
+            setSelectedOption('dist_district', userData.district_id);
             
-                    // Create a new 'img' element
-                    var newImage = document.createElement('img');
-                    newImage.className = 'img-fluid w-100 h-100'; 
-                    newImage.src = imageUrl; 
-                    newImage.alt = 'Image'; 
+            populateTehsil(userData.district_id, 'tehsil-dropdown', userData.tehsil_id);
+            var tableBody = $('#rentTractorTable tbody');
+            tableBody.empty(); 
             
-                    var newAnchor = document.createElement('a');
-                    newAnchor.className = 'weblink text-decoration-none text-dark';
-                    newAnchor.title = 'Image'; 
-                    newAnchor.appendChild(newImage); 
+            userData2.forEach(function(item, index) {
+                var formattedRate = formatPriceWithCommas(item.rate); // Format rate with commas
+                var imageUrl = 'http://tractor-api.divyaltech.com/uploads/rent_img/' + item.images.trim(); // Concatenate the base URL with the image filename
+                var row = '<tr>' +
+                    '<td>' + (index + 1) + '</td>' +
+                    '<td>' +
+                    '<div class="card upload-img-wrap">' +
+                    '<img src="' + imageUrl + '" alt="Image" class="img-thumbnail">' + // Use the imageUrl variable here
+                    '</div>' +
+                    '</td>' +
+                    '<td>' +
+                    '<div class="select-wrap">' +
+                    '<select name="imp_type_id[]" id="impType_' + index + '" class="form-control implement-type-input">' +
+                    '<option value="' + item.id + '">' + item.category_name + '</option>' +
+                    '</select>' +
+                    '</div>' +
+                    '</td>' +
+                    '<td>' +
+                    '<input type="text" name="implement_rate[]" id="implement_rent_' + index + '" class="form-control implement-rate-input" maxlength="10" placeholder="e.g- 1,500" value="' + formattedRate + '">' +
+                    '</td>' +
+                    '<td>' +
+                    '<div class="select-wrap">' +
+                    '<select name="rate_per[]" id="impRatePer_' + index + '" class="form-control implement-unit-input">' +
+                    '<option value="' + item.rate_per + '">' + item.rate_per + '</option>' +
+                    '</select>' +
+                    '</div>' +
+                    '</td>' +
+                    '<td>' +
+                    '<button type="button" class="btn btn-danger" title="Remove Row" onclick="removeRow(this)">' +
+                    '<i class="fas fa-minus"></i>' +
+                    '</button>' +
+                    '</td>' +
+                    '</tr>';
             
-                    var newDiv = document.createElement('div');
-                    newDiv.className = 'brand-main d-flex box-shadow mt-2 text-center shadow upload__img-closeDy';
-                    newDiv.appendChild(newAnchor); 
-                    var closeButton = document.createElement('div');
-                    closeButton.className = 'upload__img-close_button';
-                    closeButton.id = 'closeId' + index; 
-                    closeButton.onclick = function() {
-                        removeImage(this); 
-                    };
-                    newDiv.appendChild(closeButton); 
-                    var newColumnDiv = document.createElement('div');
-                    newColumnDiv.className = 'col-6 col-lg-6 col-md-6 col-sm-6 position-relative';
-                    newColumnDiv.appendChild(newDiv); 
-                    document.getElementById('selectedImagesContainer').appendChild(newColumnDiv);
-                });
-            }
+                tableBody.append(row);
+            });
         },
         error: function(error) {
             console.error('Error fetching user data:', error);
         }
     });
 }
+function setSelectedOption(selectId, value) {
+    var select = document.getElementById(selectId);
+    for (var i = 0; i < select.options.length; i++) {
+      if (select.options[i].value == value) {
+        select.selectedIndex = i;
+        break;
+      }
+    }
+  }
+  
+  function populateTehsil(selectId, value) {
+    var select = document.getElementById(selectId);
+    for (var i = 0; i < select.options.length; i++) {
+      if (select.options[i].value == value) {
+        select.options[i].selected = true;
+        break;
+      }
+    }
+  }
+
 
 function store(event) {
     event.preventDefault();
@@ -428,8 +421,9 @@ function destroy(id) {
   }
 
 
-  function getBrandAdd() { 
-    var url = 'http://tractor-api.divyaltech.com/api/customer/get_brand_for_finance';
+  function get_brand() {
+    var url = "http://tractor-api.divyaltech.com/api/customer/get_brand_by_product_id/" + 2;
+    // var url = 'http://tractor-api.divyaltech.com/api/customer/get_all_brands/'+ 6;
     $.ajax({
         url: url,
         type: "GET",
@@ -453,7 +447,7 @@ function destroy(id) {
                     // Add event listener to brand dropdown
                     select.addEventListener('change', function() {
                         const selectedBrandId = this.value;
-                        get_Brandmodel(selectedBrandId);
+                        get_model_1(selectedBrandId);
                     });
                 } else {
                     select.innerHTML = '<option>No valid data available</option>';
@@ -466,7 +460,7 @@ function destroy(id) {
     });
   }
   
-  function get_Brandmodel(brand_id) {
+  function get_model_1(brand_id) {
     var url = 'http://tractor-api.divyaltech.com/api/customer/get_brand_model/' + brand_id;
     $.ajax({
         url: url,
@@ -485,7 +479,7 @@ function destroy(id) {
                         const option = document.createElement('option');
                         option.textContent = row.model;
                         option.value = row.model;
-                        console.log(option);
+                        // console.log(option);
                         select.appendChild(option);
                     });
                 } else {
@@ -499,7 +493,7 @@ function destroy(id) {
     });
   }
   
-  getBrandAdd();
+  get_brand(); 
   
   function get_year_and_hours() {
     console.log('initsfd')
@@ -650,7 +644,7 @@ function getSearchBrand() {
                         const option = document.createElement('option');
                         option.textContent = row.model;
                         option.value = row.model;
-                        console.log(option);
+                        // console.log(option);
                         select.appendChild(option);
                     });
                 } else {
@@ -776,3 +770,10 @@ function getSearchBrand() {
 }
 
 
+function resetFormFields(isAddOperation){
+    document.getElementById("rent_list_form_").reset();
+    // if (isAddOperation) {
+    //     var tableBody = document.getElementById("rentTractorTable").getElementsByTagName('tbody')[0];
+    //     tableBody.innerHTML = ''; // Clear table body only when adding new entry
+    // }
+}

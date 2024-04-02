@@ -8,6 +8,8 @@
     <script> var APIBaseURL = "<?php echo $APIBaseURL; ?>";</script>
     <script> var baseUrl = "<?php echo $baseUrl; ?>";</script>
     <script src="<?php $baseUrl; ?>model/customer_info.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
     <style>
       /* owl nav */
       .owl-prev span,
@@ -41,27 +43,40 @@
         outline: none;
       }
 
-      #purchase_request table {
+      /* #purchase_request table {
         display: none;
-      }
+      } */
 
-      #purchase_request table:target {
+      /* #purchase_request table:target {
         display: block;
-      }
-      #my_list table{
+      } */
+      /* #my_list table{
         display: none;
-      }
-      #my_list table:target {
+      } */
+      /* #my_list table:target {
         display: block;
-      }
+      } */
       .dataTables_wrapper .dataTables_scrollBody tbody {
     height: auto !important;
 
+    }
+    /* #purchase_engineoil_table_info {
+        display: none;
+    } */
+    .mylist-nav-link.active {
+    background-color: #28a745 !important;
+    color: white !important;
 }
-#purchase_engineoil_table_info {
-    display: none;
+.hover-bg-success:hover,
+.nav-link.hover-bg-success:focus {
+    background-color: #E6E6FA !important; /* Change to desired hover/active background color */
+    color: #000000 !important; /* Change to desired hover/active text color */
 }
-    </style>
+.table-responsive {
+        width: 100%;
+        }
+
+</style>
   </head>
   <body> <?php 
      include 'includes/header.php';
@@ -164,137 +179,128 @@
                     </form>
                     </div>
                 </div>
-                <div id="purchase_request" class="tab-pane shadow bg-white">
+                <div id="purchase_request" class="tab-pane w-100">
                     <div class="w-100">
-                        <div class=" my-3">
+                        <div class="my-3">
                             <div class="col-12 col-carousel py-2">
                                 <div class="owl-carousel carousel-main">
-                                    <a class="nav-link text-center bg-light" href="#purchase_tractor_table">
-                                    <span>
-                                        <i class="fa-solid fa-image-portrait"></i>
-                                    </span> Tractor </a>
-                                    <a class="nav-link bg-light text-center" href="#purchase_harvester_table">
-                                    <span>
-                                        <i class="fa-solid fa-cart-shopping"></i>
-                                    </span> Harvester </a>
-                                    <a class="nav-link bg-light text-center" href="#purchase_haatbazar_table">
-                                    <span>
-                                        <i class="fa-solid fa-bars"></i>
-                                        <span>HaatBazar </a>
-                                    <a class="nav-link bg-light text-center" href="#purchase_implements_table">
-                                    <span>
-                                        <i class="fa-solid fa-tags"></i>
-                                        <span>Implements </a>
-                                    <a class="nav-link text-center bg-light" href="#purchase_nursery_table">
-                                    <span>
-                                        <i class="fa-solid fa-tags"></i>
-                                        <span>Nursery </a>
-                                    <a class="nav-link text-center bg-light" href="#purchase_tyre_table">
-                                    <span>
-                                        <i class="fa-solid fa-tags"></i>
-                                        <span>Tyre </a>
-                                    <a class="nav-link text-center bg-light" href="#purchase_engineoil_table">
-                                    <span>
-                                        <i class="fa-solid fa-tags"></i>
-                                        <span>Engine Oil </a>
-                                    <a class="nav-link text-center bg-light" href="#purchase_dealer_table">
-                                    <span>
-                                        <i class="fa-solid fa-tags"></i>
-                                        <span>Dealer </a>
-                                    <a class="nav-link text-center bg-light" href="#purchase_hire_table">
-                                    <span>
-                                        <i class="fa-solid fa-tags"></i>
-                                        <span>Hire </a>
+                                    <a class="nav-link text-center bg-light hover-bg-success " href="#purchase_tractor_table">
+                                        <span><i class="fa-solid fa-image-portrait"></i></span> Tractor
+                                    </a>
+                                    <a class="nav-link bg-light text-center hover-bg-success" href="#purchase_harvester_table">
+                                        <span><i class="fa-solid fa-cart-shopping"></i></span> Harvester
+                                    </a>
+                                    <a class="nav-link bg-light text-center hover-bg-success" href="#purchase_haatbazar_table">
+                                        <span><i class="fa-solid fa-bars"></i></span> HaatBazar
+                                    </a>
+                                    <a class="nav-link bg-light text-center hover-bg-success" href="#purchase_implements_table">
+                                        <span><i class="fa-solid fa-tags"></i></span> Implements
+                                    </a>
+                                    <a class="nav-link text-center bg-light hover-bg-success" href="#purchase_nursery_table">
+                                        <span><i class="fa-solid fa-tags"></i></span> Nursery
+                                    </a>
+                                    <a class="nav-link text-center bg-light hover-bg-success" href="#purchase_tyre_table">
+                                        <span><i class="fa-solid fa-tags"></i></span> Tyre
+                                    </a>
+                                    <a class="nav-link text-center bg-light hover-bg-success" href="#purchase_engineoil_table">
+                                        <span><i class="fa-solid fa-tags"></i></span> Engine Oil
+                                    </a>
+                                    <a class="nav-link text-center bg-light hover-bg-success" href="#purchase_dealer_table">
+                                        <span><i class="fa-solid fa-tags"></i></span> Dealer
+                                    </a>
+                                    <a class="nav-link text-center bg-light hover-bg-success" href="#purchase_hire_table">
+                                        <span><i class="fa-solid fa-tags"></i></span> Hire
+                                    </a>
                                 </div>
                             </div>
                         </div>
                         <div class="table-responsive">
-                            <table id="purchase_tractor_table" class="table table-striped table-hover table-bordered no-footer" width="100%">
+                            <table id="purchase_tractor_table" class="table table-striped table-hover table-bordered no-footer">
                                 <thead class="bg-success w-100">
-                                    <tr class="col-12 w-100">
-                                    <th class="d-none d-md-table-cell text-white">Request Type</th>
-                                    <th class="d-none d-md-table-cell text-white">Date</th>
-                                    <th class="d-none d-md-table-cell text-white">Brand</th>
-                                    <th class="d-none d-md-table-cell text-white">Model</th>
-                                    <th class="d-none d-md-table-cell text-white">Seller Name</th>
-                                    <th class="d-none d-md-table-cell text-white">Mobile Number</th>
+                                    <tr>
+                                        <th class="d-md-table-cell text-white" style="width: 275px;">Request Type</th>
+                                        <th class="d-md-table-cell text-white" style="width: 275px;">Date</th>
+                                        <th class="d-md-table-cell text-white" style="width: 275px;">Brand</th>
+                                        <th class="d-md-table-cell text-white" style="width: 275px;">Model</th>
+                                        <th class="d-md-table-cell text-white" style="width: 275px;">Seller Name</th>
+                                        <th class="d-md-table-cell text-white" style="width: 275px;">Mobile Number</th>
                                     </tr>
                                 </thead>
                                 <tbody id="data-table1" class="data-table">
                                 </tbody>
                             </table>
                         </div>
-                        <div class="table-responsive">
-                                <table id="purchase_harvester_table" class="table table-striped table-hover table-bordered no-footer" width="100%">
+                        <div class="table-responsive" >
+                                <table id="purchase_harvester_table" class="table table-striped table-hover table-bordered no-footer">
                                 <thead class="bg-success">
                                     <tr>
-                                    <th class="d-none d-md-table-cell text-white ">Request Type</th>
-                                    <th class="d-none d-md-table-cell text-white">Date</th>
-                                    <th class="d-none d-md-table-cell text-white">Brand</th>
-                                    <th class="d-none d-md-table-cell text-white">Model</th>
-                                    <th class="d-none d-md-table-cell text-white">Name</th>
-                                    <th class="d-none d-md-table-cell text-white">Mobile Number</th>
+                                    <th class="d-md-table-cell text-white" style="width: 275px;">Request Type</th>
+                                    <th class="d-md-table-cell text-white" style="width: 275px;">Date</th>
+                                    <th class="d-md-table-cell text-white" style="width: 275px;">Brand</th>
+                                    <th class="d-md-table-cell text-white" style="width: 275px;">Model</th>
+                                    <th class="d-md-table-cell text-white" style="width: 275px;">Name</th>
+                                    <th class="d-md-table-cell text-white" style="width: 275px;">Mobile Number</th>
                                     </tr>
                                 </thead> 
                                 <tbody id="data-table2" class="data-table"></tbody>
                                 </table>
                         </div>
                         <div class="table-responsive">
-                            <table id="purchase_haatbazar_table" class="table table-striped  table-hover table-bordered  no-footer" width="100%; margin-bottom: 15px;">
+                            <table id="purchase_haatbazar_table" class="table table-striped  table-hover table-bordered  no-footer">
                                 <thead class="bg-success">
                                     <tr>
-                                        <th class="d-none d-md-table-cell text-white">Request Type</th>
-                                        <th class="d-none d-md-table-cell text-white">Date</th>
-                                        <th class="d-none d-md-table-cell text-white">Category Name</th>
-                                        <th class="d-none d-md-table-cell text-white">Sub Sategory Name</th>
-                                        <th class="d-none d-md-table-cell text-white">Name</th>
-                                        <th class="d-none d-md-table-cell text-white">Mobile Number</th>
+                                        <th class="d-md-table-cell text-white" style="width: 275px;">Request Type</th>
+                                        <th class="d-md-table-cell text-white" style="width: 275px;">Date</th>
+                                        <th class="d-md-table-cell text-white" style="width: 275px;">Category Name</th>
+                                        <th class="d-md-table-cell text-white" style="width: 275px;">Sub Sategory Name</th>
+                                        <th class="d-md-table-cell text-white" style="width: 275px;">Name</th>
+                                        <th class="d-md-table-cell text-white" style="width: 275px;">Mobile Number</th>
                                     </tr>
                                 </thead>
                                 <tbody id="data-table3" class="data-table"></tbody>
                             </table>
                         </div>
                         <div class="table-responsive">
-                                <table id="purchase_implements_table" class="table table-striped  table-hover table-bordered  no-footer" width="100%; margin-bottom: 15px;">
+                                <table id="purchase_implements_table" class="table table-striped table-hover table-bordered  no-footer">
                                 <thead class="bg-success">
                                     <tr>
-                                        <th class="d-none d-md-table-cell text-white">Request Type</th>
-                                        <th class="d-none d-md-table-cell text-white">Date</th>
-                                        <th class="d-none d-md-table-cell text-white">Brand</th>
-                                        <th class="d-none d-md-table-cell text-white">Model</th>
-                                        <th class="d-none d-md-table-cell text-white">Name</th>
-                                        <th class="d-none d-md-table-cell text-white">Mobile Number</th>
+                                        <th class="d-md-table-cell text-white" style="width: 275px;">Request Type</th>
+                                        <th class="d-md-table-cell text-white" style="width: 275px;">Date</th>
+                                        <th class="d-md-table-cell text-white" style="width: 275px;">Brand</th>
+                                        <th class="d-md-table-cell text-white" style="width: 275px;">Model</th>
+                                        <th class="d-md-table-cell text-white" style="width: 275px;">Name</th>
+                                        <th class="d-md-table-cell text-white" style="width: 275px;">Mobile Number</th>
                                     </tr>
                                 </thead>
                                 <tbody id="data-table4" class="data-table"></tbody>
                                 </table>
                         </div>
                         <div class="table-responsive">
-                            <table id="purchase_nursery_table" class="table table-striped  table-hover table-bordered  no-footer" width="100%; margin-bottom: 15px;">
+                            <table id="purchase_nursery_table" class="table table-striped table-hover table-bordered no-footer">
                                 <thead class="bg-success">
                                     <tr>
-                                        <th class="d-none d-md-table-cell text-white">Request Type</th>
-                                        <th class="d-none d-md-table-cell text-white">Date</th>
-                                        <th class="d-none d-md-table-cell text-white">Nursery Name</th>
-                                        <th class="d-none d-md-table-cell text-white">Name</th>
-                                        <th class="d-none d-md-table-cell text-white">Mobile Number</th>
-                                        <th class="d-none d-md-table-cell text-white">State</th>
-                                        <th class="d-none d-md-table-cell text-white">District</th>
+                                        <th class="d-md-table-cell text-white" style="width: 275px;">Request Type</th>
+                                        <th class="d-md-table-cell text-white" style="width: 275px;">Date</th>
+                                        <th class="d-md-table-cell text-white" style="width: 275px;">Nursery Name</th>
+                                        <th class="d-md-table-cell text-white" style="width: 275px;">Name</th>
+                                        <th class="d-md-table-cell text-white" style="width: 275px;">Mobile Number</th>
+                                        <th class="d-md-table-cell text-white" style="width: 275px;">State</th>
+                                        <th class="d-md-table-cell text-white" style="width: 275px;">District</th>
                                     </tr>
                                 </thead>
                                 <tbody id="data-table5" class="data-table"></tbody>
                             </table>
                         </div>
                         <div class="table-responsive">
-                                <table id="purchase_tyre_table" class="table table-striped  table-hover table-bordered  no-footer" width="100%; margin-bottom: 15px;">
+                                <table id="purchase_tyre_table" class="table table-striped  table-hover table-bordered  no-footer">
                                 <thead class="bg-success">
                                     <tr>
-                                    <th class="d-none d-md-table-cell text-white ">Request Type</th>
-                                    <th class="d-none d-md-table-cell text-white">Date</th>
-                                    <th class="d-none d-md-table-cell text-white">Brand</th>
-                                    <th class="d-none d-md-table-cell text-white">Model</th>
-                                    <th class="d-none d-md-table-cell text-white">Name</th>
-                                    <th class="d-none d-md-table-cell text-white">Mobile Number</th>
+                                    <th class="d-md-table-cell text-white" style="width: 275px;">Request Type</th>
+                                    <th class="d-md-table-cell text-white" style="width: 275px;">Date</th>
+                                    <th class="d-md-table-cell text-white" style="width: 275px;">Brand</th>
+                                    <th class="d-md-table-cell text-white" style="width: 275px;">Model</th>
+                                    <th class="d-md-table-cell text-white" style="width: 275px;">Name</th>
+                                    <th class="d-md-table-cell text-white" style="width: 275px;">Mobile Number</th>
                                     
                                     </tr>
                                 </thead>
@@ -302,46 +308,46 @@
                                 </table>
                         </div>
                         <div class="table-responsive">
-                                <table id="purchase_engineoil_table" class="table table-striped  table-hover table-bordered  no-footer" width="100%; margin-bottom: 15px;">
+                                <table id="purchase_engineoil_table" class="table table-striped  table-hover table-bordered  no-footer">
                                 <thead class="bg-success">
                                     <tr>
-                                    <th class="d-none d-md-table-cell text-white ">Request Type</th>
-                                    <th class="d-none d-md-table-cell text-white">Date</th>
-                                    <th class="d-none d-md-table-cell text-white">Brand</th>
-                                    <th class="d-none d-md-table-cell text-white">Model</th>
-                                    <th class="d-none d-md-table-cell text-white">Name</th>
-                                    <th class="d-none d-md-table-cell text-white">Mobile Number</th>
+                                    <th class="d-md-table-cell text-white" style="width: 275px;">Request Type</th>
+                                    <th class="d-md-table-cell text-white" style="width: 275px;">Date</th>
+                                    <th class="d-md-table-cell text-white" style="width: 275px;">Brand</th>
+                                    <th class="d-md-table-cell text-white" style="width: 275px;">Model</th>
+                                    <th class="d-md-table-cell text-white" style="width: 275px;">Seller Name</th>
+                                    <th class="d-md-table-cell text-white" style="width: 275px;">Mobile Number</th>
                                     </tr>
                                 </thead>
                                 <tbody id="data-table7"></tbody>
                                 </table>
                         </div>
                         <div class="table-responsive">
-                                <table id="purchase_dealer_table" class="table table-striped  table-hover table-bordered  no-footer" width="100%; margin-bottom: 15px;">
+                                <table id="purchase_dealer_table" class="table table-striped  table-hover table-bordered  no-footer">
                                 <thead class="bg-success">
                                     <tr>
-                                    <th class="d-none d-md-table-cell text-white ">Request Type</th>
-                                    <th class="d-none d-md-table-cell text-white">Date</th>
-                                    <th class="d-none d-md-table-cell text-white">Brand</th>
-                                    <th class="d-none d-md-table-cell text-white">Brand dealer</th>
-                                    <th class="d-none d-md-table-cell text-white">Mobile Number</th>
-                                    <th class="d-none d-md-table-cell text-white">State</th>
-                                    <th class="d-none d-md-table-cell text-white">District</th>
+                                    <th class="d-md-table-cell text-white" style="width: 275px;">Request Type</th>
+                                    <th class="d-md-table-cell text-white" style="width: 275px;">Date</th>
+                                    <th class="d-md-table-cell text-white" style="width: 275px;">Brand</th>
+                                    <th class="d-md-table-cell text-white" style="width: 275px;">Brand dealer</th>
+                                    <th class="d-md-table-cell text-white" style="width: 275px;">Mobile Number</th>
+                                    <th class="d-md-table-cell text-white" style="width: 275px;">State</th>
+                                    <th class="d-md-table-cell text-white" style="width: 275px;">District</th>
                                     </tr>
                                 </thead>
                                 <tbody id="data-table8" class="data-table"></tbody>
                                 </table>
                         </div>
                         <div class="table-responsive">
-                            <table id="purchase_hire_table" class="table table-striped  table-hover table-bordered  no-footer" width="100%; margin-bottom: 15px;">
+                            <table id="purchase_hire_table" class="table table-striped  table-hover table-bordered  no-footer">
                                 <thead class="bg-success w-100">
                                 <tr>
-                                    <th class="d-none d-md-table-cell text-white ">Request Type</th>
-                                    <th class="d-none d-md-table-cell text-white">Date</th>
-                                    <th class="d-none d-md-table-cell text-white">Brand</th>
-                                    <th class="d-none d-md-table-cell text-white">Model</th>
-                                    <th class="d-none d-md-table-cell text-white">Name</th>
-                                    <th class="d-none d-md-table-cell text-white">Mobile Number</th>
+                                    <th class="d-md-table-cell text-white" style="width: 275px;">Request Type</th>
+                                    <th class="d-md-table-cell text-white" style="width: 275px;">Date</th>
+                                    <th class="d-md-table-cell text-white" style="width: 275px;">Brand</th>
+                                    <th class="d-md-table-cell text-white" style="width: 275px;">Model</th>
+                                    <th class="d-md-table-cell text-white" style="width: 275px;">Name</th>
+                                    <th class="d-md-table-cell text-white" style="width: 275px;">Mobile Number</th>
                                 </tr>
                                 </thead>
                                 <tbody id="data-table9" class="data-table"></tbody>
@@ -349,182 +355,92 @@
                         </div>
                     </div>
                 </div>
-            
-                <!-- <div id="my_list" class="tab-pane w-100">
-                    <div class="col-12 col-carousel py-2">
-                        <div class="owl-carousel carousel-main">
-                            <a class="nav-link text-center bg-light" href="#list_purchase_tractor_table">
-                                <span>
-                                    <i class="fa-solid fa-image-portrait"></i>
-                                </span> Tractor
-                            </a>
-                            <a class="nav-link bg-light text-center" href="#list_purchase_harvest_table">
-                                <span>
-                                    <i class="fa-solid fa-cart-shopping"></i>
-                                </span> Harvester 
-                            </a>
-                            <a class="nav-link bg-light text-center" href="#list_purchase_imple_table">
-                                <span>
-                                    <i class="fa-solid fa-tags"></i>
-                                    <span> Implements
-                            </a>
-                            <a class="nav-link bg-light text-center" href="#list_purchase_haatbazar_table">
-                                <span>
-                                    <i class="fa-solid fa-bars"></i>
-                                    <span>HaatBazar
-                            </a>  
-                        </div>
-                    </div>
-                    <div class="table-responsive">
-                        <table id="list_purchase_tractor_table" class="table table-striped table-hover table-bordered no-footer w-100">
-                            <thead class="bg-success">
-                                <tr>
-                                    <th class="d-none d-md-table-cell text-white">Request Type</th>
-                                    <th class="d-none d-md-table-cell text-white">Date</th>
-                                    <th class="d-none d-md-table-cell text-white">Brand list</th>
-                                    <th class="d-none d-md-table-cell text-white">Model</th>
-                                    <th class="d-none d-md-table-cell text-white">purchase year</th>
-                                    <th class="d-none d-md-table-cell text-white">price</th>
-                                </tr>
-                            </thead>
-                            <tbody id="data-table10">
-                            </tbody>
-                        </table>
-                    </div>
-                    <div class="table-responsive">
-                        <table id="list_purchase_harvest_table" class="table table-striped table-hover table-bordered no-footer" width="100%">
-                            <thead class="bg-success w-100">
-                                <tr>
-                                    <th class="d-none d-md-table-cell text-white">Request Type</th>
-                                    <th class="d-none d-md-table-cell text-white">Date</th>
-                                    <th class="d-none d-md-table-cell text-white">Brand list</th>
-                                    <th class="d-none d-md-table-cell text-white">Model</th>
-                                    <th class="d-none d-md-table-cell text-white">purchase year</th>
-                                    <th class="d-none d-md-table-cell text-white">price</th>
-                                </tr>
-                            </thead>
-                            <tbody id="data-table12">
-                            </tbody>
-                        </table>
-                    </div>
-                    <div class="table-responsive">
-                        <table id="list_purchase_imple_table" class="table table-striped table-hover table-bordered no-footer" width="100%">
-                            <thead class="bg-success w-100">
-                                <tr>
-                                <th class="d-none d-md-table-cell text-white">Request Type</th>
-                                    <th class="d-none d-md-table-cell text-white">Date</th>
-                                    <th class="d-none d-md-table-cell text-white">Brand list</th>
-                                    <th class="d-none d-md-table-cell text-white">Model</th>
-                                    <th class="d-none d-md-table-cell text-white">purchase year</th>
-                                    <th class="d-none d-md-table-cell text-white">price</th>
-                                </tr>
-                            </thead>
-                            <tbody id="data-table22">
-                            </tbody>
-                        </table>
-                    </div>
-                    <div class="table-responsive">
-                        <table id="list_purchase_haatbazar_table" class="table table-striped table-hover table-bordered no-footer" width="100%; margin-bottom: 15px;">
-                            <thead class="bg-success w-100">
-                                <tr>
-                                <th class="d-none d-md-table-cell text-white">Request Type</th>
-                                <th class="d-none d-md-table-cell text-white">Date</th>
-                                <th class="d-none d-md-table-cell text-white">Category</th>
-                                <th class="d-none d-md-table-cell text-white">Subcategory</th>
-                                <th class="d-none d-md-table-cell text-white">Price</th>
-                                <th class="d-none d-md-table-cell text-white">Quantity</th>
-                                </tr>
-                            </thead>
-                            <tbody id="data-table11">
-                            </tbody>
-                        </table>
-                    </div>
-                </div> -->
-
-
+             
+                  
+              
                 <div id="my_list" class="tab-pane w-100">
                     <div class="col-12 col-carousel py-2">
                         <div class="owl-carousel carousel-main">
-                            <a class="nav-link text-center bg-light" id="listTEactor" href="#list_purchase_tractor_table">
+                            <a class="nav-link text-center bg-light hover-bg-success" id="listTEactor" href="#list_purchase_tractor_table">
                                 <span>
                                     <i class="fa-solid fa-image-portrait"></i>
                                 </span> Tractor
                             </a>
-                            <a class="nav-link bg-light text-center" href="#list_purchase_harvest_table">
+                            <a class="nav-link bg-light text-center hover-bg-success" href="#list_purchase_harvest_table">
                                 <span>
                                     <i class="fa-solid fa-cart-shopping"></i>
                                 </span> Harvester 
                             </a>
-                            <a class="nav-link bg-light text-center" href="#list_purchase_imple_table">
+                            <a class="nav-link bg-light text-center hover-bg-success" href="#list_purchase_imple_table">
                                 <span>
                                     <i class="fa-solid fa-tags"></i>
                                     <span> Implements
                             </a>
-                            <a class="nav-link bg-light text-center" href="#list_purchase_haatbazar_table">
+                            <a class="nav-link bg-light text-center hover-bg-success" href="#list_purchase_haatbazar_table">
                                 <span>
                                     <i class="fa-solid fa-bars"></i>
                                     <span>HaatBazar
                             </a>  
                         </div>
                     </div>
-                    <div class="table-responsive">
-                        <table id="list_purchase_tractor_table" class="table table-striped table-hover table-bordered no-footer w-100">
+                    <div class="table-responsive w-100">
+                        <table id="list_purchase_tractor_table" class="table table-striped table-hover table-bordered no-footer" style="width: 100%;">
                             <thead class="bg-success">
                             <tr>
-                                    <th class="d-none d-md-table-cell text-white">Request Type</th>
-                                    <th class="d-none d-md-table-cell text-white">Date</th>
-                                    <th class="d-none d-md-table-cell text-white">Brand list</th>
-                                    <th class="d-none d-md-table-cell text-white">Model</th>
-                                    <th class="d-none d-md-table-cell text-white">purchase year</th>
-                                    <th class="d-none d-md-table-cell text-white">price</th>
+                                    <th class="d-md-table-cell text-white" style="width: 275px;">Request Type</th>
+                                    <th class="d-md-table-cell text-white" style="width: 275px;">Date</th>
+                                    <th class="d-md-table-cell text-white" style="width: 275px;">Brand list</th>
+                                    <th class="d-md-table-cell text-white" style="width: 275px;">Model</th>
+                                    <th class="d-md-table-cell text-white" style="width: 275px;">purchase year</th>
+                                    <th class="d-md-table-cell text-white" style="width: 275px;">price</th>
                                 </tr>
                             </thead>
                             <tbody id="data-table10">
                             </tbody>
                         </table>
                     </div>
-                    <div class="table-responsive">
-                        <table id="list_purchase_harvest_table" class="table table-striped table-hover table-bordered no-footer" width="100%">
+                    <div class="table-responsive w-100">
+                        <table id="list_purchase_harvest_table" class="table table-striped table-hover table-bordered no-footer" style="width: 100%;">
                             <thead class="bg-success w-100">
                                 <tr>
-                                    <th class="d-none d-md-table-cell text-white">Request Type</th>
-                                    <th class="d-none d-md-table-cell text-white">Date</th>
-                                    <th class="d-none d-md-table-cell text-white">Brand list</th>
-                                    <th class="d-none d-md-table-cell text-white">Model</th>
-                                    <th class="d-none d-md-table-cell text-white">purchase year</th>
-                                    <th class="d-none d-md-table-cell text-white">price</th>
+                                    <th class="d-md-table-cell text-white" style="width: 275px;">Request Type</th>
+                                    <th class="d-md-table-cell text-white" style="width: 275px;">Date</th>
+                                    <th class="d-md-table-cell text-white" style="width: 275px;">Brand list</th>
+                                    <th class="d-md-table-cell text-white" style="width: 275px;">Model</th>
+                                    <th class="d-md-table-cell text-white" style="width: 275px;">purchase year</th>
+                                    <th class="d-md-table-cell text-white" style="width: 275px;">price</th>
                                 </tr>
                             </thead>
                             <tbody id="data-table12">
                             </tbody>
                         </table>
                     </div>
-                    <div class="table-responsive">
-                        <table id="list_purchase_imple_table" class="table table-striped table-hover table-bordered no-footer" width="100%">
+                    <div class="table-responsive w-100">
+                        <table id="list_purchase_imple_table" class="table table-striped table-hover table-bordered no-footer" style="width: 100%;">
                             <thead class="bg-success w-100">
                                 <tr>
-                                    <th class="d-none d-md-table-cell text-white">Request Type</th>
-                                    <th class="d-none d-md-table-cell text-white">Date</th>
-                                    <th class="d-none d-md-table-cell text-white">Brand list</th>
-                                    <th class="d-none d-md-table-cell text-white">Model</th>
-                                    <th class="d-none d-md-table-cell text-white">purchase year</th>
-                                    <th class="d-none d-md-table-cell text-white">price</th>
+                                    <th class="d-md-table-cell text-white" style="width: 275px;">Request Type</th>
+                                    <th class="d-md-table-cell text-white" style="width: 275px;">Date</th>
+                                    <th class="d-md-table-cell text-white" style="width: 275px;">Brand list</th>
+                                    <th class="d-md-table-cell text-white"style="width: 275px;">Model</th>
+                                    <th class="d-md-table-cell text-white" style="width: 275px;">purchase year</th>
+                                    <th class="d-md-table-cell text-white" style="width: 275px;">price</th>
                                 </tr>
                             </thead>
                             <tbody id="data-table22">
                             </tbody>
                         </table>
                     </div>
-                    <div class="table-responsive">
-                        <table id="list_purchase_haatbazar_table" class="table table-striped table-hover table-bordered no-footer" width="100%; margin-bottom: 15px;">
-                            <thead class="bg-success w-100">
+                    <div class="table-responsive w-100">
+                        <table id="list_purchase_haatbazar_table" class="table table-striped table-hover table-bordered no-footer"style="width: 100%;">
+                            <thead class="bg-success">
                                 <tr>
-                                    <th class="d-none d-md-table-cell text-white">Request Type</th>
-                                    <th class="d-none d-md-table-cell text-white">Date</th>
-                                    <th class="d-none d-md-table-cell text-white">Category</th>
-                                    <th class="d-none d-md-table-cell text-white">Subcategory</th>
-                                    <th class="d-none d-md-table-cell text-white">Price</th>
-                                    <th class="d-none d-md-table-cell text-white">Quantity</th>
+                                    <th class="d-md-table-cell text-white" style="width: 275px;">Request Type</th>
+                                    <th class="d-md-table-cell text-white" style="width: 275px;">Date</th>
+                                    <th class="d-md-table-cell text-white" style="width: 275px;">Category</th>
+                                    <th class="d-md-table-cell text-white" style="width: 275px;">Sub Category</th>
+                                    <th class="d-md-table-cell text-white" style="width: 275px;">Price</th>
+                                    <th class="d-md-table-cell text-white" style="width: 275px;">Quantity</th>
                                 </tr>
                             </thead>
                             <tbody id="data-table11">
@@ -532,24 +448,55 @@
                         </table>
                     </div>
                 </div>
-                <div id="interested_buyers" class="tab-pane">
-                    <div class=" mb-5 shadow bg-white p-3">
-                        <div class="table-responsive">
-                        <table id="interested" class="table table-striped  table-hover table-bordered  no-footer" width="100%; margin-bottom: 15px;">
-                            <thead class="bg-success">
-                            <tr>
-                                <th class="d-none d-md-table-cell text-white ">Type</th>
-                                <th class="d-none d-md-table-cell text-white ">Name</th>
-                                <th class="d-none d-md-table-cell text-white ">Mobile Number</th>
-                                <th class="d-none d-md-table-cell text-white">Brand</th>
-                                <th class="d-none d-md-table-cell text-white">Model</th>
-                                <th class="d-none d-md-table-cell text-white">State</th>
-                            </tr>
-                            </thead>
-                            <tbody id="data-table-buyer"></tbody>
-                        </table>
+
+                <div id="interested_buyers" class="tab-pane w-100">
+                    <div class="col-12 col-carousel py-2">
+                        <div class="owl-carousel carousel-main">
+                            <a class="nav-link text-center bg-light" id="listInterested" href="#list_interested_buyers_table">
+                                <span>
+                                    <i class="fa-solid fa-tags"></i>
+                                </span> Tractor/Harverset/Implement
+                            </a>
+                            <!-- <a class="nav-link bg-light text-center" href="#list_interested_buyers_haatbazar_table">
+                                <span>
+                                    <i class="fa-solid fa-cart-shopping"></i>
+                                </span> HaatBazar 
+                            </a>    -->
                         </div>
                     </div>
+                    <div class="table-responsive">
+                        <table id="list_interested_buyers_table" class="table table-striped table-hover table-bordered no-footer w-100">
+                            <thead class="bg-success">
+                                <tr>
+                                    <th class="d-md-table-cell text-white">Enquiry Type </th>
+                                    <th class="d-md-table-cell text-white">Date</th>
+                                    <th class="d-md-table-cell text-white">Brand</th>
+                                    <th class="d-md-table-cell text-white">Model</th>
+                                    <th class="d-md-table-cell text-white">Name</th>
+                                    <th class="d-md-table-cell text-white">Mobile</th>
+                                    <th class="d-md-table-cell text-white">Price</th>
+                                </tr>
+                            </thead>
+                            <tbody id="data-table-tractor">
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- <div class="table-responsive">
+                        <table id="list_interested_buyers_haatbazar_table" class="table table-striped table-hover table-bordered no-footer w-100">
+                            <thead class="bg-success">
+                            <tr>
+                                    <th class="d-none d-md-table-cell text-white">Request Type</th>
+                                    <th class="d-none d-md-table-cell text-white">Date</th>
+                                    <th class="d-none d-md-table-cell text-white">Brand list</th>
+                                    <th class="d-none d-md-table-cell text-white">Model</th>
+                                    <th class="d-none d-md-table-cell text-white">purchase year</th>
+                                    <th class="d-none d-md-table-cell text-white">price</th>
+                                </tr>
+                            </thead>
+                            <tbody id="data-table_haatbazar">
+                            </tbody>
+                        </table>
+                    </div> -->
                 </div>
             </div>
         </div>
@@ -570,3 +517,25 @@
           navText: [' <span class = "fas fa-chevron-left fa-2x"> </span>',' <span class = "fas fa-chevron-right fa-2x" > </span>'],
           });
   </script>
+<!-- <script>
+    // jQuery script to set the width of tables to 100%
+    $(document).ready(function() {
+        // Select all tables with the class "table-responsive" and set their width to 100%
+        $('.table-responsive').find('table').css('width', '100%');
+    });
+</script> -->
+
+<script>
+    $(document).ready(function() {
+        // Function to handle hover effect for active link
+        $('.nav-link.active').hover(function() {
+            $(this).addClass('hover-bg-success');
+        }, function() {
+            $(this).removeClass('hover-bg-success');
+        });
+
+        // Add active class to the current active link
+        // Replace 'purchase_tractor_table' with the ID of the active table
+        $('.nav-link[href="#purchase_tractor_table"]').addClass('active');
+    });
+</script>

@@ -145,7 +145,7 @@ $(document).ready(function() {
 
 
     function getbrand() {
-      var url = 'http://tractor-api.divyaltech.com/api/customer/get_brand_for_finance';
+      var url = "http://tractor-api.divyaltech.com/api/customer/get_brand_by_product_id/" + 2;
       $.ajax({
           url: url,
           type: "GET",
@@ -884,3 +884,78 @@ function fetch_data(product_id){
 
  
 
+  function getbrandSearch() {
+    var url = "http://tractor-api.divyaltech.com/api/customer/get_brand_by_product_id/" + 2;
+    $.ajax({
+        url: url,
+        type: "GET",
+        headers: {
+            'Authorization': 'Bearer ' + localStorage.getItem('token')
+        },
+        success: function (data) {
+            console.log(data);
+            const selects = document.querySelectorAll('#brand_name');
+  
+            selects.forEach(select => {
+                select.innerHTML = '<option selected disabled value="">Please select an option</option>';
+  
+                if (data.brands.length > 0) {
+                    data.brands.forEach(row => {
+                        const option = document.createElement('option');
+                        option.textContent = row.brand_name;
+                        option.value = row.id;
+                        console.log(option);
+                        select.appendChild(option);
+                    });
+  
+                    // Add event listener to brand dropdown
+                    select.addEventListener('change', function() {
+                        const selectedBrandId = this.value;
+                        get_model_1(selectedBrandId);
+                    });
+                } else {
+                    select.innerHTML = '<option>No valid data available</option>';
+                }
+            });
+        },
+        error: function (error) {
+            console.error('Error fetching data:', error);
+        }
+    });
+  }
+  
+  function get_model_1(brand_id) {
+    var url = 'http://tractor-api.divyaltech.com/api/customer/get_brand_model/' + brand_id;
+    console.log('Requesting models for brand ID:', brand_id); // Debugging statement
+    $.ajax({
+        url: url,
+        type: "GET",
+        headers: {
+            'Authorization': 'Bearer ' + localStorage.getItem('token')
+        },
+        success: function (data) {
+            console.log('Received models data:', data); // Debugging statement
+            const selects = document.querySelectorAll('#model_name');
+  
+            selects.forEach(select => {
+                select.innerHTML = '<option selected disabled value="">Please select an option</option>';
+  
+                if (data.model && data.model.length > 0) {
+                    data.model.forEach(row => {
+                        const option = document.createElement('option');
+                        option.textContent = row.model;
+                        option.value = row.model;
+                        console.log('Adding model:', option); // Debugging statement
+                        select.appendChild(option);
+                    });
+                } else {
+                    select.innerHTML = '<option>No valid data available</option>';
+                }
+            });
+        },
+        error: function (error) {
+            console.error('Error fetching model data:', error);
+        }
+    });
+  }
+  getbrandSearch();
