@@ -583,7 +583,7 @@ function edit_detail_customer() {
             'id':id,
           'first_name': first_name,
           'last_name':last_name,
-        //   'email':email,
+           // 'email':email,
           'mobile':mobile,
           'state':state,
           'district':district,
