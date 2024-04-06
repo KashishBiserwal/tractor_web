@@ -1,9 +1,6 @@
 $(document).ready(function() {
-    // $('#submit_enquiry').click(store);
     console.log("ready!");
     getInterestedBuyer();
-    // getmylist();
-    // getpurchase_requestlist();
     getuserdetail();
     getpurchase_Nursery();
     getpurchase_Tyre();
@@ -523,10 +520,6 @@ $(document).ready(function() {
 });
 
 
-
-
-
-  
   function getuserdetail(id) {
     var url = "http://tractor-api.divyaltech.com/api/customer/get_customer_personal_info_by_id/" + id;
 
@@ -544,15 +537,12 @@ $(document).ready(function() {
         headers: headers,
         data: paraArr,
         success: function (data) {
-            console.log(data, "data");
-
             // Clear the existing data in the table body
             const tableBody = $('#data-table');
             tableBody.empty();
 
             // Check if customer data exists and has at least one entry
             if (data.customerData && data.customerData.length > 0) {
-                // Populate form fields with customer data
                 document.getElementById('firstname').value = data.customerData[0].first_name;
                 document.getElementById('lastname').value = data.customerData[0].last_name;
                 document.getElementById('phone').value = data.customerData[0].mobile;
@@ -599,7 +589,7 @@ function edit_detail_customer() {
       
         // Prepare data to send to the server
         var paraArr = {
-            'id':id,
+          'id':id,
           'first_name': first_name,
           'last_name':last_name,
            // 'email':email,
@@ -662,7 +652,7 @@ function edit_detail_customer() {
   }
 
 
-  //   function getpurchase_requestlist() {
+//   function getpurchase_requestlist() {
 //     var url =  "http://tractor-api.divyaltech.com/api/customer/get_purchase_enquiry_data";
 //     var headers = {
 //         'Authorization': localStorage.getItem('token')
