@@ -77,7 +77,7 @@
                                         </div>
                                         <div class="col-12 col-lg-6 col-md-6 col-sm-6 " hidden>
                                             <label for="name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i> product_id</label>
-                                            <input type="text" class="form-control" id="product_id" value="40">
+                                            <input type="text" class="form-control" id="product_id" value="">
                                         </div>
                                                 <div class="col-12 col-lg-6 col-md-6 col-sm-12 mt-4">
                                                     <div class="form-outline">
@@ -129,7 +129,7 @@
 
                                             <!-- Button trigger modal -->
                                             <div class="col-12 col-sm-12 col-md-6 col-lg-12 mb-4 mt-4">
-                                                <button type="button" class="btn btn-success w-100" id="button_nursery">
+                                                <button type="button" class="btn btn-success w-100" id="button_nursery"  data-bs-toggle="modal" data-bs-target="get_OTP_btn">
                                                     Request
                                                 </button>
                                             </div>
@@ -211,65 +211,7 @@
         </div>
     </section>
 
-    <div class="modal fade" id="get_OTP_btn_inner" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header bg-success">
-                    <h1 class="modal-title fs-5 text-white" id="exampleModalLabel">Verify Your OTP</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><img src="assets/images/close.png" class=" w-100"></button>
-                </div>
-                <div class="modal-body">
-                    <form id="otp_form">
-                        <div class=" col-12 input-group">
-                            <div class="col-12" hidden>
-                                <label for="Mobile" class=" text-dark float-start pl-2">Munber</label>
-                                <input type="text" class="form-control text-dark" placeholder="Enter OTP" id="Mobile_2"name="Mobile">
-                            </div>
-                            <div class="col-12">
-                                <label for="Mobile" class=" text-dark float-start pl-2">Enter OTP</label>
-                                <input type="text" class="form-control text-dark" placeholder="Enter OTP" id="otp_2"name="opt_1">
-                            </div>
-                            <div class="float-end col-12">
-                                <a href="" class="float-end">Resend OTP</a>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-success" id="Verify_inner">Verify</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="modal fade" id="staticBackdrop_inner" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="staticBackdropLabel">Contact Seller</h5>
-                    <button type="button" class="btn-close btn-success" data-bs-dismiss="modal" aria-label="Close"><img src="assets/images/close.png"class="w-25"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="model-cont">
-                        <h4 class="text-center text-danger">Seller Information</h3>
-                        <div class="row px-3 py-2">
-                            <div class="col-12  col-sm-12 col-md-6 col-lg-6 ">
-                                <label for="slr_name"class="form-label fw-bold text-dark"><i class="fa-regular fa-user"></i>Seller Name</label>
-                                <input type="text" class="form-control" id="slr_name_1">
-                            </div>
-                            <div class="col-12 col-sm-12 col-md-6 col-lg-6  ">
-                                <label for="number"class="form-label text-dark fw-bold"><i class="fa fa-phone"aria-hidden="true"></i>Phone Number</label>
-                                <input type="text" class="form-control" id="mob_num_1">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button"  id="got_it_btn_1 "class="btn btn-secondary"data-bs-dismiss="modal">Close</button>
-                </div>
-            </div>
-        </div>
-    </div>
+   
 
 <section class="mt-3">
         <div class="container">
@@ -300,7 +242,7 @@
                             </div>
                             <div class="col-12">
                                 <label for="Mobile" class=" text-dark float-start pl-2">Enter OTP</label>
-                                <input type="text" class="form-control text-dark" placeholder="Enter OTP" id="otp"name="opt_1">
+                                <input type="text" class="form-control text-dark" placeholder="Enter OTP" id="otp1"name="opt_1">
                             </div>
                             <div class="float-end col-12">
                                 <a href="" class="float-end">Resend OTP</a>
@@ -316,7 +258,7 @@
         </div>
     </div>
 
-    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal fade" id="seller_model" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">

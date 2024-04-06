@@ -1,9 +1,9 @@
 $(document).ready(function() {
     var allCards = [];
     // getnurseryList(allCards);
-    $('#submit_enquiry').click(nursery_enquiry);
+    // $('#submit_enquiry').click(nursery_enquiry);
     $('#filter_button').click(filter_search);
-    $('#Verify').click(verifyotp);
+    // $('#Verify').click(verifyotp);
     nursery_details_list(allCards);
     $("#nursery_enquiry_form").validate({
         rules: {
@@ -56,9 +56,7 @@ $(document).ready(function() {
             success: function(data) {
                 var productContainer = $("#productContainer");
                 var loadMoreButton = $("#loadMoreBtn");
-                var fullname = data.nursery_data[0].first_name + ' ' + data.nursery_data[0].last_name;
-                document.getElementById('slr_name').value=fullname;
-                document.getElementById('mob_num').value = data.nursery_data[0].mobile;
+            
                 // document.getElementById('mob_num').value = data.nursery_data[0].mobile;
                 if (data.nursery_data && data.nursery_data.length > 0) {
                     // Reverse the order of the cards to display the latest ones first
@@ -107,8 +105,9 @@ $(document).ready(function() {
                 }
         var cardId = `card_${p.id}`; 
         var modalId = `nursery_callbnt_${p.id}`;
+        var modalId_2 = `staticBackdrop_${p.id}`; 
         var formId = `nursery_enquiry_form_${p.id}`; 
-        
+        var fullname = p.first_name + ' ' + p.last_name;
         var newCard = `
             <div class="col-12 col-lg-4 col-md-4 col-sm-4 mb-4" id="${cardId}">
                 <a href="nursery_inner.php?id=${p.id}"
@@ -220,16 +219,70 @@ $(document).ready(function() {
                     </div>
                 </div>
             </div>
+
+            <div class="modal fade" id="get_OTP_btn" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header bg-success">
+                            <h1 class="modal-title fs-5 text-white" id="exampleModalLabel">Verify Your OTP</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><img src="assets/images/close.png" class=" w-100"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form id="otp_form">
+                                <div class=" col-12 input-group">
+                                    <div class="col-12" hidden>
+                                        <label for="Mobile" class=" text-dark float-start pl-2">Number</label>
+                                        <input type="text" class="form-control text-dark" placeholder="Enter OTP" id="Mobile"name="Mobile">
+                                    </div>
+                                    <div class="col-12">
+                                        <label for="Mobile" class=" text-dark float-start pl-2">Enter OTP</label>
+                                        <input type="text" class="form-control text-dark" placeholder="Enter OTP" id="otp"name="opt_1">
+                                    </div>
+                                    <div class="float-end col-12">
+                                        <a href="" class="float-end">Resend OTP</a>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-success" id="Verify" onclick="verifyotp('${formId}')">Verify</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="modal fade" id="${modalId_2}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="staticBackdropLabel">Contact Seller</h5>
+                            <button type="button" class="btn-close btn-success" data-bs-dismiss="modal" aria-label="Close"><img src="assets/images/close.png"class="w-25"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="model-cont">
+                                <h4 class="text-center text-danger">Seller Information</h3>
+                                <div class="row px-3 py-2">
+                                    <div class="col-12  col-sm-12 col-md-6 col-lg-6 ">
+                                        <label for="slr_name"class="form-label fw-bold text-dark"><i class="fa-regular fa-user"></i>Seller Name</label>
+                                        <input type="text" class="form-control" id="saller_name" value="${fullname}">
+                                    </div>
+                                    <div class="col-12 col-sm-12 col-md-6 col-lg-6  ">
+                                        <label for="number"class="form-label text-dark fw-bold"><i class="fa fa-phone"aria-hidden="true"></i>Phone Number</label>
+                                        <input type="text" class="form-control" id="mobile_num" value="${p.mobile}">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button"  id="got_it_btn "class="btn btn-secondary"data-bs-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         `;
         
-        // Now you can use cardId, modalId, and formId in your application as needed.
         
-                
-
-  
-//     var myDiv = $('#description_id');
-// myDiv.text(myDiv.text().substring(0,120))
-        // Append the new card to the container
         container.prepend(newCard);
         populateDropdowns(p.id);
        
@@ -284,20 +337,127 @@ function resetForm(formId) {
     // Reset the form by using its ID
     document.getElementById(formId).reset();
 }
+
+
+var formData = {};
+
 function savedata(formId) {
-    nursery_enquiry(formId);
-    console.log("Form submitted successfully");
+    if (isUserLoggedIn()) {
+        var isConfirmed = confirm("Are you sure you want to submit the form?");
+        if (isConfirmed) {
+            submitData(formId);
+            openSellerContactModal(formDataToSubmit)
+        }
+    } else {
+        formData = collectFormData(formId);
+        var mobile = formData.mobile;
+        sendOTP(mobile);
+        console.log("OTP Sent successfully");
+    }
+}
+
+function isUserLoggedIn() {
+    return localStorage.getItem('token_customer') && localStorage.getItem('mobile') && localStorage.getItem('id');
+}
+
+function sendOTP(mobile) {
+    var url = "http://tractor-api.divyaltech.com/api/customer/customer_login";
+    var paraArr = {
+        'mobile': mobile,
+    };
+    var isConfirmed = confirm("Are you sure you want to delete this data?");
+    if (!isConfirmed) {
+        return;
+    }
+    $.ajax({
+        url: url,
+        type: "POST",
+        data: paraArr,
+        success: function (result) {
+            console.log(result, "result");
+            $('#Mobile').val(mobile);
+            openOTPModal();
+        },
+        error: function (error) {
+            console.error('Error fetching data:', error);
+        }
+    });
 }
 
 function openOTPModal() {
     $('#get_OTP_btn').modal('show');
 }
 
-function nursery_enquiry(formId) {
-    // Get mobile number from the form
-    var mobile_number = $(`#${formId} #mobile_number_1`).val();
+function verifyotp(formId) {
+    var mobile = document.getElementById('Mobile').value;
+    var otp = document.getElementById('otp').value;
 
-    // Send nursery enquiry request
+    var paraArr = {
+        'otp': otp,
+        'mobile': mobile,
+        'enquiry_type_id': formData.enquiry_type_id,
+        'first_name': formData.first_name,
+        'last_name': formData.last_name,
+        'state': formData.state,
+        'district': formData.district,
+        'tehsil': formData.tehsil,
+        'product_id': formData.product_id,
+        'nursery_name': formData.nursery_name,
+    };
+
+    var url = 'http://tractor-api.divyaltech.com/api/customer/verify_otp';
+    $.ajax({
+        url: url,
+        type: "POST",
+        data: paraArr,
+        success: function (result) {
+            console.log(result);
+            $('#get_OTP_btn').modal('hide');
+            submitData(formId); // Submit the form after OTP verification
+        },
+        error: function (xhr, textStatus, errorThrown) {
+            console.log(xhr.status, 'error');
+            // Handle errors here
+        },
+    });
+}
+
+function submitData(formId) {
+    var url = "http://tractor-api.divyaltech.com/api/customer/customer_enquiries";
+    var formDataToSubmit = formData;
+    
+    // If user is logged in, use formData from parameter directly
+    if (isUserLoggedIn()) {
+        formDataToSubmit = collectFormData(formId);
+    }
+    
+    if (!formDataToSubmit.enquiry_type_id || !formDataToSubmit.mobile) {
+        console.error('Required fields are missing.');
+        return;
+    }
+    $.ajax({
+        url: url,
+        type: "POST",
+        data: formDataToSubmit, // Submit all form data
+        
+        success: function (result) {
+            console.log(result, "result");
+            var msg = "Added successfully !";
+            openSellerContactModal(formDataToSubmit);
+        },
+        error: function (error) {
+            console.error('Error fetching data:', error);
+            var msg = error;
+            $("#errorStatusLoading").modal('show');
+            // Handle errors here
+        }
+    });
+}
+
+
+function collectFormData(formId) {
+    // Collect form data
+    var mobile = $(`#${formId} #mobile_number_1`).val();
     var enquiry_type_id = $(`#${formId} #enquiry_type_id`).val();
     var product_id = $(`#${formId} #product_id`).val();
     var first_name = $(`#${formId} #first_name_1`).val();
@@ -306,122 +466,29 @@ function nursery_enquiry(formId) {
     var district = $(`#${formId} #district_1`).val();
     var tehsil = $(`#${formId} #Tehsil_1`).val();
     var nursery_name = $(`#${formId} #nursery_name`).val();
-    var paraArr = {
+
+    var formData = {
         'enquiry_type_id': enquiry_type_id,
         'product_id': product_id,
         'first_name': first_name,
         'last_name': last_name,
-        'mobile': mobile_number,
+        'mobile': mobile,
         'state': state,
         'district': district,
         'tehsil': tehsil,
         'nursery_name': nursery_name,
     };
 
-    var url = 'http://tractor-api.divyaltech.com/api/customer/customer_enquiries';
-
-    // You can keep the token-related code if needed
-    var token = localStorage.getItem('token');
-    var headers = {
-        'Authorization': 'Bearer ' + token
-    };
-
-    $.ajax({
-        url: url,
-        type: 'POST',  
-        data: paraArr,
-        // headers: headers, // Remove headers if not needed
-        success: function (result) {
-            console.log(result, "result");
-            $("#used_tractor_callbnt_").modal('hide'); 
-            var msg = "Added successfully !";
-            $("#errorStatusLoading").modal('hide');
-            get_otp(mobile_number); // Pass mobile number to get_otp function
-            openOTPModal();
-        },
-        error: function (error) {
-            console.error('Error fetching data:', error);
-            var msg = error;
-            $("#errorStatusLoading").modal('show');
-            $("#errorStatusLoading").find('.modal-title').html('<p class="text-center">Process Failed..! Enter Valid Detail</p>');
-            $("#errorStatusLoading").find('.modal-body').html(msg);
-            $("#errorStatusLoading").find('.modal-body').html('<img src="assets/images/comp_3.gif" style="display:block; margin:0 auto;" class="w-50 text-center" alt="Successfull Request"></img>');
-        }
-    });
+    return formData;
 }
 
-function get_otp(phone) {
-    var url = "http://tractor-api.divyaltech.com/api/customer/customer_login";
- 
-    var paraArr = {
-        'mobile': phone,
-    };
-
-    $.ajax({
-        url: url,
-        type: "POST",
-        data: paraArr,
-        success: function (result) {
-            console.log(result, "result");
-
-            // Once OTP is received, store mobile number in hidden field within modal
-            $('#Mobile').val(phone);
-
-        },
-        error: function (error) {
-            console.error('Error fetching data:', error);
-        }
-    });
+function openSellerContactModal(formDataToSubmit) {
+    var modalId_2 = `staticBackdrop_${formDataToSubmit.product_id}`;
+    $(`#${modalId_2}`).modal('show');
 }
 
-  function verifyotp() {
-    var mobile = document.getElementById('Mobile').value;
-    var otp = document.getElementById('otp').value;
 
-    var paraArr = {
-        'otp': otp,
-        'mobile': mobile,
-    }
-    var url = 'http://tractor-api.divyaltech.com/api/customer/verify_otp';
-    $.ajax({
-        url: url,
-        type: "POST",
-        data: paraArr,
-        success: function (result) {
-            console.log(result);
 
-            // Assuming your model has an ID 'myModal', hide it on success
-            $('#get_OTP_btn').modal('hide'); // Assuming it's a Bootstrap modal
-            $('#staticBackdrop').modal('show');
-            // Reset input fields
-            // document.getElementById('phone').value = ''; 
-            // document.getElementById('otp').value = ''; 
-
-            // Access data field in the response
-        }, 
-        error: function (xhr, textStatus, errorThrown) {
-            console.log(xhr.status, 'error');
-            if (xhr.status === 401) {
-                console.log('Invalid credentials');
-                var htmlcontent = `<p>Invalid credentials!</p>`;
-                document.getElementById("error_message").innerHTML = htmlcontent;
-            } else if (xhr.status === 403) {
-                console.log('Forbidden: You don\'t have permission to access this resource.');
-                var htmlcontent = ` <p> You don't have permission to access this resource.</p>`;
-                document.getElementById("error_message").innerHTML = htmlcontent;
-            } else {
-                console.log('An error occurred:', textStatus, errorThrown);
-                var htmlcontent = `<p>An error occurred while processing your request.</p>`;
-                document.getElementById("error_message").innerHTML = htmlcontent;
-            }
-        },
-    });
-}
-//   function savedata(){
-//     nursery_enquiry();
-//     console.log("confirm");
-//     console.log("Form submitted successfully");
-//   }
 function getState() {
     var url = 'http://tractor-api.divyaltech.com/api/customer/state_data';
     $.ajax({

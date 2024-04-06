@@ -3,10 +3,10 @@
 $(document).ready(function() {
     console.log("ready!");
     // populateDropdowns();
-    $('#filter_tractor').click(filter_search);
-    $('#submit_enquiry').click(get_otp);
+    $('#filter_tractor').click(filter_search); 
+    // $('#submit_enquiry').click(get_otp);
     getoldTractorList();
-    $('#Verify').click(verifyotp);
+    // $('#Verify').click(verifyotp);
     
     getDistricts(7);
     // Initial population
@@ -26,9 +26,9 @@ function getoldTractorList() {
         url: url,
         type: "GET",
         success: function (data) {
-            var fullname = data.product[0].first_name + ' ' + data.product[0].last_name;
-            document.getElementById('saller_name').value=fullname;
-            document.getElementById('mobile_num').value = data.product[0].mobile;
+            // var fullname = data.product[0].first_name + ' ' + data.product[0].last_name;
+            // document.getElementById('saller_name').innerHTML= data.product[0].first_name;
+            // document.getElementById('mobile_num').innerHTML = data.product[0].mobile;
             var productContainer = $("#productContainer");
             
           
@@ -77,9 +77,10 @@ function appendCard(container, p) {
     }
     var cardId = `card_${p.product_id}`; 
     var modalId = `used_tractor_callbnt_${p.product_id}`; 
+    var modalId_2 = `staticBackdrop_${p.product_id}`; 
     var formId = `contact-seller-call_${p.product_id}`; 
     var formattedPrice = formatPriceWithCommas(p.price);
- 
+    var fullname = p.first_name + ' ' + p.last_name;
     var newCard = `
 <div class="col-12 col-lg-4 col-md-4 col-sm-4 mb-4" id="${cardId}">
     <div class="h-auto success__stry__item d-flex flex-column shadow ">
@@ -211,6 +212,67 @@ function appendCard(container, p) {
                 </div>
             </div>
 
+    <div class="modal fade" id="get_OTP_btn" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header bg-success">
+                    <h1 class="modal-title fs-5 text-white" id="exampleModalLabel">Verify Your OTP</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><img src="assets/images/close.png" class=" w-100"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="otp_form">
+                        <div class=" col-12 input-group">
+                            <div class="col-12" hidden>
+                                <label for="Mobile" class=" text-dark float-start pl-2">Number</label>
+                                <input type="text" class="form-control text-dark" placeholder="Enter OTP" id="Mobile"name="Mobile">
+                            </div>
+                            <div class="col-12">
+                                <label for="Mobile" class=" text-dark float-start pl-2">Enter OTP</label>
+                                <input type="text" class="form-control text-dark" placeholder="Enter OTP" id="otp"name="opt_1">
+                            </div>
+                            <div class="float-end col-12">
+                                <a href="" class="float-end">Resend OTP</a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success" id="Verify" onclick="verifyotp('${formId}')">Verify</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="${modalId_2}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Contact Seller</h5>
+                    <button type="button" class="btn-close btn-success" data-bs-dismiss="modal" aria-label="Close"><img src="assets/images/close.png"class="w-25"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="model-cont">
+                        <h4 class="text-center text-danger">Seller Information</h3>
+                        <div class="row px-3 py-2">
+                            <div class="col-12  col-sm-12 col-md-6 col-lg-6 ">
+                                <label for="slr_name"class="form-label fw-bold text-dark"><i class="fa-regular fa-user"></i>Seller Name</label>
+                                <input type="text" class="form-control" id="saller_name" value="${fullname}">
+                            </div>
+                            <div class="col-12 col-sm-12 col-md-6 col-lg-6  ">
+                                <label for="number"class="form-label text-dark fw-bold"><i class="fa fa-phone"aria-hidden="true"></i>Phone Number</label>
+                                <input type="text" class="form-control" id="mobile_num" value="${p.mobile}">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button"  id="got_it_btn "class="btn btn-secondary"data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+            
          `;
     container.append(newCard);
     populateDropdowns(p.id);
@@ -231,15 +293,13 @@ function appendCard(container, p) {
 
 function loadMoreCards() {
     var productContainer = $("#productContainer");
-    var remainingCards = allCards.slice(cardsDisplayed); // Get the remaining cards
-    var cardsToDisplay = remainingCards.slice(0, cardsPerPage); // Take only the next batch of cards
+    var remainingCards = allCards.slice(cardsDisplayed);
+    var cardsToDisplay = remainingCards.slice(0, cardsPerPage); 
     cardsToDisplay.forEach(function (p) {
         appendCard(productContainer, p);
     });
-    // Update cardsDisplayed after displaying the new cards
     cardsDisplayed += cardsToDisplay.length;
 
-    // Show or hide the "Load More" button based on whether there are more cards to display
     if (cardsDisplayed >= allCards.length) {
         $("#loadMoreBtn").hide();
     }
@@ -247,99 +307,44 @@ function loadMoreCards() {
 
 $(document).on('click', '#loadMoreBtn', loadMoreCards);
 
+var formData = {};
 
 function savedata(formId) {
-    tractor_enquiry(formId);
-    console.log("Form submitted successfully");
-  }
-
-  function openOTPModal() {
-    $('#get_OTP_btn').modal('show');
+    if (isUserLoggedIn()) {
+        var isConfirmed = confirm("Are you sure you want to submit the form?");
+        if (isConfirmed) {
+            submitData(formId);
+            openSellerContactModal(formDataToSubmit);
+        }
+    } else {
+        formData = collectFormData(formId);
+        var mobile = formData.mobile;
+        sendOTP(mobile);
+        console.log("OTP Sent successfully");
+    }
 }
 
-    // getoldTractorList();
-  function tractor_enquiry(formId) {
-        // Use the formId to get values dynamically
-        var enquiry_type_id = $(`#${formId} #enquiry_type_id`).val();
-        var first_name = $(`#${formId} #fname`).val();
-        var last_name = $(`#${formId} #lname`).val();
-        var mobile = $(`#${formId} #number`).val();
-        var state = $(`#${formId} #state_form`).val();
-        var district = $(`#${formId} #district_form`).val();
-        var tehsil = $(`#${formId} #tehsil`).val();
-        var price = $(`#${formId} #price_form`).val();
-        price = price.replace(/[\,\.\s]/g, '');
-        var product_id = $(`#${formId} #product_id`).val();
-        var model_form = $(`#${formId} #model_form`).val();
+function isUserLoggedIn() {
+    return localStorage.getItem('token_customer') && localStorage.getItem('mobile') && localStorage.getItem('id');
+}
 
-  
-    // Prepare data to send to the server
-    var paraArr = {
-      'product_id':product_id, 
-      'enquiry_type_id':enquiry_type_id,
-      'first_name': first_name,
-      'last_name':last_name,
-      'mobile':mobile,
-      'state':state,
-      'district':district,
-      'tehsil':tehsil,
-      'price':price,
-      'model':model_form,
-    };
-   
-//   var apiBaseURL =  $CustomerAPIBaseURL;
-//   var url = apiBaseURL + 'customer_enquiries';
-var url = "http://tractor-api.divyaltech.com/api/customer/customer_enquiries";
-    console.log(url);
-    
-
-  
-    // Make an AJAX request to the server
-    $.ajax({
-      url: url,
-      type: "POST",
-      data: paraArr,
-      success: function (result) {
-        console.log(result, "result");
-        $("#used_tractor_callbnt_").modal('hide'); 
-        var msg = "Added successfully !";
-        // $('#get_OTP_btn').modal('show');
-        $("#errorStatusLoading").modal('hide');
-        // $("#get_OTP_btn_").modal('show');
-        get_otp(mobile); // Pass mobile number to get_otp function
-        openOTPModal();
-      },
-      error: function (error) {
-        console.error('Error fetching data:', error);
-        var msg = error;
-        $("#errorStatusLoading").modal('show');
-        $("#errorStatusLoading").find('.modal-title').html('<p class="text-center">Process Failed..! Enter Valid Detail</p>');
-        $("#errorStatusLoading").find('.modal-body').html(msg);
-        $("#errorStatusLoading").find('.modal-body').html('<img src="assets/images/comp_3.gif" style="display:block; margin:0 auto;" class="w-50 text-center" alt="Successfull Request"></img>');
-        // 
-      }
-    });
-  }
-
-  function get_otp(phone) {
-    // var apiBaseURL =  $CustomerAPIBaseURL;
-    // var url = apiBaseURL + 'customer_login';
+function sendOTP(mobile) {
     var url = "http://tractor-api.divyaltech.com/api/customer/customer_login";
- 
     var paraArr = {
-        'mobile': phone,
+        'mobile': mobile,
     };
-
+    var isConfirmed = confirm("Are you sure you want to delete this data?");
+    if (!isConfirmed) {
+        return;
+    }
     $.ajax({
         url: url,
         type: "POST",
         data: paraArr,
         success: function (result) {
             console.log(result, "result");
-
-            // Once OTP is received, store mobile number in hidden field within modal
-            $('#Mobile').val(phone);
-
+            $('#Mobile').val(mobile);
+            openOTPModal();
         },
         error: function (error) {
             console.error('Error fetching data:', error);
@@ -347,16 +352,28 @@ var url = "http://tractor-api.divyaltech.com/api/customer/customer_enquiries";
     });
 }
 
-function verifyotp() {
+function openOTPModal() {
+    $('#get_OTP_btn').modal('show');
+}
+
+function verifyotp(formId) {
     var mobile = document.getElementById('Mobile').value;
     var otp = document.getElementById('otp').value;
 
     var paraArr = {
         'otp': otp,
         'mobile': mobile,
-    }
-    // var apiBaseURL =  $CustomerAPIBaseURL;
-    // var url = apiBaseURL + 'verify_otp';
+        'enquiry_type_id': formData.enquiry_type_id,
+        'first_name': formData.first_name,
+        'last_name': formData.last_name,
+        'state': formData.state,
+        'district': formData.district,
+        'tehsil': formData.tehsil,
+        'price': formData.price,
+        'product_id': formData.product_id,
+        'model': formData.model,
+    };
+
     var url = 'http://tractor-api.divyaltech.com/api/customer/verify_otp';
     $.ajax({
         url: url,
@@ -364,38 +381,86 @@ function verifyotp() {
         data: paraArr,
         success: function (result) {
             console.log(result);
-
-            // Assuming your model has an ID 'myModal', hide it on success
-            $('#get_OTP_btn').modal('hide'); // Assuming it's a Bootstrap modal
-            $('#staticBackdrop').modal('show');
-            // Reset input fields
-            // document.getElementById('phone').value = ''; 
-            // document.getElementById('otp').value = ''; 
-
-            // Access data field in the response
-        }, 
+            $('#get_OTP_btn').modal('hide');
+            submitData(formId); // Submit the form after OTP verification
+        },
         error: function (xhr, textStatus, errorThrown) {
             console.log(xhr.status, 'error');
-            if (xhr.status === 401) {
-                console.log('Invalid credentials');
-                var htmlcontent = `<p>Invalid credentials!</p>`;
-                document.getElementById("error_message").innerHTML = htmlcontent;
-            } else if (xhr.status === 403) {
-                console.log('Forbidden: You don\'t have permission to access this resource.');
-                var htmlcontent = ` <p> You don't have permission to access this resource.</p>`;
-                document.getElementById("error_message").innerHTML = htmlcontent;
-            } else {
-                console.log('An error occurred:', textStatus, errorThrown);
-                var htmlcontent = `<p>An error occurred while processing your request.</p>`;
-                document.getElementById("error_message").innerHTML = htmlcontent;
-            }
+            // Handle errors here
         },
     });
 }
-// search cards by hp, brand, price, state, district
+
+function submitData(formId) {
+    var url = "http://tractor-api.divyaltech.com/api/customer/customer_enquiries";
+    var formDataToSubmit = formData;
+    
+    // If user is logged in, use formData from parameter directly
+    if (isUserLoggedIn()) {
+        formDataToSubmit = collectFormData(formId);
+    }
+    
+    if (!formDataToSubmit.enquiry_type_id || !formDataToSubmit.mobile) {
+        console.error('Required fields are missing.');
+        return;
+    }
+    $.ajax({
+        url: url,
+        type: "POST",
+        data: formDataToSubmit, // Submit all form data
+        
+        success: function (result) {
+            console.log(result, "result");
+            var msg = "Added successfully !";
+            openSellerContactModal(formDataToSubmit);
+        },
+        error: function (error) {
+            console.error('Error fetching data:', error);
+            var msg = error;
+            $("#errorStatusLoading").modal('show');
+            // Handle errors here
+        }
+    });
+}
+
+
+function collectFormData(formId) {
+    // Collect form data
+    var enquiry_type_id = $(`#${formId} #enquiry_type_id`).val();
+    var first_name = $(`#${formId} #fname`).val();
+    var last_name = $(`#${formId} #lname`).val();
+    var mobile = $(`#${formId} #number`).val();
+    var state = $(`#${formId} #state_form`).val();
+    var district = $(`#${formId} #district_form`).val();
+    var tehsil = $(`#${formId} #tehsil`).val();
+    var price = $(`#${formId} #price_form`).val();
+    price = price.replace(/[\,\.\s]/g, '');
+    var product_id = $(`#${formId} #product_id`).val();
+    var model_form = $(`#${formId} #model_form`).val();
+
+    var formData = {
+        'product_id': product_id,
+        'enquiry_type_id': enquiry_type_id,
+        'first_name': first_name,
+        'last_name': last_name,
+        'mobile': mobile,
+        'state': state,
+        'district': district,
+        'tehsil': tehsil,
+        'price': price,
+        'model': model_form,
+    };
+
+    return formData;
+}
+
+function openSellerContactModal(formDataToSubmit) {
+    var modalId_2 = `staticBackdrop_${formDataToSubmit.product_id}`;
+    $(`#${modalId_2}`).modal('show');
+}
+
 function getBrand() {
-    // var apiBaseURL =  $CustomerAPIBaseURL;
-    // var url = apiBaseURL + 'get_brand_for_finance';
+    
     var url = 'http://tractor-api.divyaltech.com/api/customer/get_brand_for_finance';
 
     $.ajax({
@@ -462,8 +527,6 @@ function getState() {
 }
 
 function ge_tDistricts(stateId) {
-    // var apiBaseURL =  $CustomerAPIBaseURL;
-    // var url = apiBaseURL + 'get_district_by_state/' + stateId;
     var url = 'http://tractor-api.divyaltech.com/api/customer/get_district_by_state/' + stateId;
     $.ajax({
         url: url,
@@ -492,7 +555,6 @@ function ge_tDistricts(stateId) {
         }
     });
 }
-// Call the get function to start fetching state data
 getState();
 
 function get_year_and_hours() {
@@ -577,9 +639,8 @@ function filter_search() {
         // 'horse_power_ranges': JSON.stringify(selectedCheckboxState),
         'purchase_year': JSON.stringify(selectedYear),
     };
-    var apiBaseURL =  $CustomerAPIBaseURL;
-    var url = apiBaseURL + 'get_old_tractor_by_filter'
-    // var url = 'http://tractor-api.divyaltech.com/api/customer/get_old_tractor_by_filter';
+ 
+    var url = 'http://tractor-api.divyaltech.com/api/customer/get_old_tractor_by_filter';
     $.ajax({
         url: url,
         type: 'POST',
@@ -590,17 +651,15 @@ function filter_search() {
         success: function(searchData) {
             var filterContainer = $("#productContainer");
             filterContainer.empty();
-            filteredCards = searchData.product; // Update filteredCards with the search results
+            filteredCards = searchData.product; 
 
             if (filteredCards.length > 0) {
-                // Display the filtered cards if there are search results
                 displayFilteredCards();
-                $("#noDataMessage").hide(); // Hide the message if data is found
-                $("#loadMoreBtn").show();
+                $("#noDataMessage").hide();
+                $("#loadMoreBtn").hide();
             } else {
-                // Show the "Data not found" message if there are no search results
                 $("#noDataMessage").show();
-                $("#loadMoreBtn").hide(); // Hide the "Load More" button
+                $("#loadMoreBtn").hide(); 
             }
         },
         error: function(jqXHR, textStatus, errorThrown) {
@@ -617,31 +676,26 @@ function filter_search() {
 }
 function displayFilteredCards() {
     var productContainer = $("#productContainer");
-    cardsDisplayed = 0; // Reset cardsDisplayed to 0
+    cardsDisplayed = 0; 
     
-    // Display the first set of filtered cards
     filteredCards.slice(cardsDisplayed, cardsDisplayed + cardsPerPage).forEach(function (filter) {
         appendFilterCard(productContainer, filter);
         cardsDisplayed++;
     });
     
-    // Hide the "Load More" button if all filtered cards are displayed
     if (cardsDisplayed >= filteredCards.length) {
         $("#loadMoreBtn").hide();
     }
 }
 
-// Load more button functionality
 $(document).on('click', '#loadMoreBtn', function () {
     var productContainer = $("#productContainer");
     
-    // Display the next set of filtered cards when the "Load More" button is clicked
     filteredCards.slice(cardsDisplayed, cardsDisplayed + cardsPerPage).forEach(function (filter) {
         appendFilterCard(productContainer, filter);
         cardsDisplayed++;
     });
 
-    // Hide the "Load More" button if all filtered cards are displayed
     if (cardsDisplayed >= filteredCards.length) {
         $("#loadMoreBtn").hide();
     }
@@ -676,45 +730,44 @@ function appendFilterCard(filterContainer, p) {
             <div class="content d-flex flex-column flex-grow-1 ">
                 <div class="caption text-center">
                     <a href="farmtrac_60.php?product_id=${p.customer_id}" class="text-decoration-none text-dark">
-                        <p class="pt-3"><strong class="series_tractor_strong text-center  h5 fw-bold ">${p.model}</strong></p>
+                        <p class="pt-3"><strong class="series_tractor_strong text-center text-truncate h5 fw-bold ">${p.model}</strong></p>
                     </a>      
                 </div>
-                <div class=" row text-center">
-                    <div class="col-12 col-sm-6 col-md-6 col-lg-6">
-                        <p class="fw-bold "><span id="engine_powerhp2">${p.brand_name}</p>
-                    </div>
-                    <div class="col-12 col-sm-6 col-md-6 col-lg-6">
-                    <p class="fw-bold ">Year: <span id="year">${p.purchase_year}</p>
+               <div class=" row text-center">
+                        <div class="col-12 col-sm-6 col-md-6 col-lg-6">
+                            <p class="fw-bold text-truncate contant-justify-center"><span id="engine_powerhp2">${p.brand_name}</p>
+                        </div>
+                        <div class="col-12 col-sm-6 col-md-6 col-lg-6">
+                        <p class="fw-bold ">Year: <span id="year">${p.purchase_year}</p>
+                        </div>
+                       
                     </div>
                    
-                </div>
-               
-                <div class="row text-center">
-                    <div class="col-12 col-sm-6 col-md-6 col-lg-6">
-                        <p class="fw-bold py-2" style="background-image: linear-gradient(315deg, #ddd 0%, #f5f7fa 74%);
-                        font-size: 12px; justify-items: center;
-                        margin: 0 auto;">Price: ₹<span id="price">${formattedPrice}</p>
+                    <div class="row text-center">
+                        <div class="col-12 col-sm-6 col-md-6 col-lg-6">
+                            <p class="fw-bold py-2" style="background-image: linear-gradient(315deg, #ddd 0%, #f5f7fa 74%);
+                            font-size: 12px; justify-items: center;
+                            margin: 0 auto;">Price: ₹<span id="price">${formattedPrice}</p>
+                        </div>
+                        <div class="col-12 col-sm-6 col-md-6 col-lg-6">
+                            <p class="fw-bold pe-2 py-2" style="background-image: linear-gradient(315deg, #ddd 0%, #f5f7fa 74%);
+                            font-size: 12px; justify-items: center;
+                            margin: 0 auto;">Great Deal  <i class="fa-regular fa-thumbs-up"></i></p>
+                        </div>
                     </div>
-                    <div class="col-12 col-sm-6 col-md-6 col-lg-6">
-                        <p class="fw-bold pe-2 py-2" style="background-image: linear-gradient(315deg, #ddd 0%, #f5f7fa 74%);
-                        font-size: 12px; justify-items: center;
-                        margin: 0 auto;">Great Deal  <i class="fa-regular fa-thumbs-up"></i></p>
+                    <div class=" row text-center mt-3">
+                        <div class="col-10 justify-center m-auto">
+                            <p class="fw-bold text-truncate" id="district">${p.district_name}<span id="year"></span>, ${p.state_name}</p>
+                        </div>
                     </div>
                 </div>
-                <div class=" row text-center mt-3">
-                <div class="col-10 justify-center m-auto">
-                    <p class="fw-bold text-truncate" id="district">${p.district_name}<span id="year"></span>, ${p.state_name}</p>
-                </div>
-            </div>
-            </div>
-            <div class=" row state_btn">
-               
-                <div class="col-12">
-                <button type="button" class="add_btn btn-success w-100" data-bs-toggle="modal" data-bs-target="#${modalId}">
-                <i class="fa-regular fa-handshake mx-1"></i>Contact Seller
-                </button>
-                            </div>
-
+                <div class=" row state_btn">
+                   <div class="col-12">
+                        <button type="button" class="add_btn btn-success w-100" data-bs-toggle="modal" data-bs-target="#${modalId}">
+                            <i class="fa-regular fa-handshake mx-1"></i>Contact Seller
+                        </button>
+                    </div>
+    
                             <div class="modal fade" id="${modalId}" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                                 <div class="modal-dialog modal-lg modal-dialog-centered">
                                     <div class="modal-content">
@@ -767,7 +820,7 @@ function appendFilterCard(filterContainer, p) {
                                         <div class="form-outline">
                                             <label for="Tehsil" class="form-label fw-bold text-dark"> Tehsil</label>
                                             <select class="form-select py-2 tehsil-dropdown" aria-label=".form-select-lg example" id="tehsil" name="tehsil">
-                                                <option value="" selected disabled>Please select a tehsil</option>
+                                                
                                                 <!-- Options for Tehsil dropdown -->
                                             </select>
                                         </div>
@@ -775,16 +828,18 @@ function appendFilterCard(filterContainer, p) {
                                   <div class="col-12 col-lg-6 col-sm-5 col-md-6">
                                     <div class="form-outline mt-4">
                                         <label for="name" class="form-label text-dark">Price </label>
-                                        <input type="text" class="form-control py-2" placeholder="Enter Price" id="price_form" name="price">
+                                        <input type="text" class="form-control price_form py-2" placeholder="Enter Price" id="price_form" name="price">
                                     </div>
                                   </div>
                                 </div>          
                                </div> 
                                      <div class="modal-footer">
                                                 <button type="submit" id="submit_enquiry" class="btn add_btn btn-success w-100 btn_all" onclick="savedata('${formId}')"
-                                                data-bs-dismiss="modal";>Submit</button>
+                                                data-bs-dismiss="modal">Submit</button>
                                                 </div>      
                                             </form>                             
+                                        </div>
+                                
                                         </div>
                                     </div>
                                 </div>
@@ -797,21 +852,18 @@ function appendFilterCard(filterContainer, p) {
     filterContainer.append(newCard);
 }
 function filterAndDisplayCards() {
-    var filteredPrices = filteredCards.map(function(card) {
-        return formatPrice(card.price);
+    var productContainer = $("#productContainer");
+    productContainer.empty(); // Clear existing content
+    cardsDisplayed = 0;
+
+    filteredCards.forEach(function(filter) {
+        appendFilterCard(productContainer, filter);
+        cardsDisplayed++;
     });
 
-    // Iterate through filtered cards
-    filteredCards.forEach(function(card) {
-        var price = formatPrice(card.price);
-        var formattedPriceWithoutCommas = removeCommasFromPrice(card.price);
-
-        // Modify the comparison logic to handle both cases
-        if (filteredPrices.includes(price) || filteredPrices.includes(formattedPriceWithoutCommas)) {
-            // Display the card
-            appendFilterCard($("#productContainer"), card);
-        }
-    });
+    if (cardsDisplayed >= filteredCards.length) {
+        $("#loadMoreBtn").hide();
+    }
 }
 
   function resetform(){
@@ -835,7 +887,7 @@ function filterAndDisplayCards() {
     var districtDropdowns = document.querySelectorAll('.district-dropdown');
     var tehsilDropdowns = document.querySelectorAll('.tehsil-dropdown');
 
-    var defaultStateId = 7; // Define the default state ID here
+    var defaultStateId = 7; 
 
     var selectYourStateOption = '<option value="">Select Your State</option>';
     var chhattisgarhOption = `<option value="${defaultStateId}">Chhattisgarh</option>`;
@@ -872,3 +924,4 @@ function filterAndDisplayCards() {
         });
     });
 }
+

@@ -5,6 +5,10 @@
     <?php
    include 'includes/headertag.php';
    ?>
+    <script> var APIBaseURL = "<?php echo $APIBaseURL; ?>";</script>
+<script> var baseUrl = "<?php echo $baseUrl; ?>";</script>
+    <script src="<?php $baseUrl; ?>model/State_dist_tehsil.js"></script>
+    <script src="<?php $baseUrl; ?>model/emi_inner.js"></script>
     <style>
 
         .invalid-feedback {
@@ -17,13 +21,13 @@
     <?php
    include 'includes/header.php';
    ?>
-    <section class="mt-5 pt-4">
+    <section class="mt-5 pt-4 bg-light">
         <div class="container ">
             <div class="mt-5 pt-3">
                 <span class="mt-5 text-white">
                     <a href="index.php" class="text-decoration-none header-link px-1">Home <i
                             class="fa-solid fa-chevron-right px-1"></i></a>
-                    <span class="text-dark"> Popular Tractor</span>
+                    <span class="text-dark">Tractor loan EMI Calculator</span>
                 </span>
             </div>
         </div>
@@ -39,12 +43,9 @@
                 <div class="card bg-light">
                     <div class="card-body">
                         <h3 class="card-title  fw-bold assured px-2">Preet 4049 4WD Tractor loan EMI Calculator</h3>
-                        <p class="py-2">Preet 4049 4WD EMI starts at Rs. 13,703 per month for a time period of 60 months
-                            at a 15 % interest rate for a loan amount of Rs. 5,76,000.If you are looking for a Preet
-                            4049 4WD EMI calculator, try the Tractorjunction EMI calculator.</p>
-                        <p class="card-text">
-                        <div class="more-content" style="display:none;">
-                            <p>Our Tractor EMI calculator provides detailed EMI payable for Preet 4049 4WD. You just
+                      
+                        <div class="more-content">
+                            <p >Our Tractor EMI calculator provides detailed EMI payable for Preet 4049 4WD. You just
                                 have to enter the down payment, interest rate and loan tenure for Preet 4049 4WD. With
                                 our EMI calculator for tractors, you can easily calculate the monthly instalments, total
                                 interest payable, and the total amount payable for Preet 4049 4WD after reducing the
@@ -64,7 +65,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-12 col-md-6 col-sm-6 col-lg-6">
-                    <h3 class="assured  p-2 mt-2 fw-bold">Preet 4049 4WD Tractor</h3>
+                    <h3 class="assured  p-2 mt-2 fw-bold"><span id="brand_main"></span> 4WD Tractor</h3>
                     <img src="assets\images\preet-4049-4WD.webp" class="w-100 mt-3">
                     <button type="button" class="w-100 btn btn-outline-success fw-bold mt-3 mb-2" data-bs-toggle="modal"
                         data-bs-target="#staticBackdrop">Get on road
@@ -108,43 +109,26 @@
                                                 </div>
                                                 <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-4">
                                                     <div class="form-outline">
-                                                        <label class="form-label" for="state">State</label>
-                                                        <select class="form-select py-2"
-                                                            aria-label="Default select example" id="state" name="state">
-                                                            <option selected></option>
-                                                            <option value="1">New Tractor Loan</option>
-                                                            <option value="2">Used Tractor Loan,</option>
-                                                            <option value="3">Loan Against Tractor</option>
-                                                            <option value="4">Harvester Loan</option>
-                                                            <option value="5">Used Harvester Loan</option>
-                                                            <option value="6">Implement Loan</option>
-                                                            <option value="7">Personal Loan</option>
+                                                        <label for="state" class="form-label  fw-bold"> <i class="fas fa-location"></i> State</label>
+                                                        <select class="form-select py-2 state-dropdown" aria-label=".form-select-lg example" id="state_form" name="state">
+                                                            <!-- Options for state dropdown -->
                                                         </select>
                                                     </div>
                                                 </div>
                                                 <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-4">
                                                     <div class="form-outline">
-                                                        <label class="form-label" for="district">District</label>
-                                                        <select class="form-select py-2"
-                                                            aria-label="Default select example" name="district"
-                                                            id="district">
-                                                            <option selected></option>
-                                                            <option value="1">name1</option>
-                                                            <option value="2">name2</option>
-                                                            <option value="3">name3</option>
+                                                        <label for="district" class="form-label fw-bold"><i class="fa-solid fa-location-dot"></i> District</label>
+                                                        <select class="form-select py-2 district-dropdown" aria-label=".form-select-lg example" name="district" id="district_form">
+                                                            <!-- Options for district dropdown -->
                                                         </select>
                                                     </div>
-                                                </div>
+                                                </div>       
                                                 <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-4">
                                                     <div class="form-outline">
-                                                        <label class="form-label" for="taluka">Tehsil</label>
-                                                        <select class="form-select py-2"
-                                                            aria-label="Default select example" name="taluka"
-                                                            id="taluka">
-                                                            <option selected></option>
-                                                            <option value="1">name1</option>
-                                                            <option value="2">name2</option>
-                                                            <option value="3">name3</option>
+                                                        <label for="Tehsil" class="form-label fw-bold "> Tehsil</label>
+                                                        <select class="form-select py-2 tehsil-dropdown" aria-label=".form-select-lg example" id="tehsil" name="tehsil">
+                                                            
+                                                            <!-- Options for Tehsil dropdown -->
                                                         </select>
                                                     </div>
                                                 </div>
@@ -526,6 +510,9 @@
         });
     });
     </script>
+
+
+
 </body>
 
 </html>

@@ -2,7 +2,7 @@ $(document).ready(function() {
     console.log("ready!");
     getharvesterById();
     // getharvesterList();
- $('#enquiry').click(storedata);
+ $('#enquiry').click(store);
  $('#Verify').click(verifyotp);
 });
 
@@ -91,82 +91,36 @@ function getharvesterById() {
     });
 }
 
-function storedata(event) {
+function store(event) {
     event.preventDefault();
-
-    // Validate the form
- 
-        var enquiry_type_id = $('#enquiry_type_id').val();
-        var product_id = $('#product_id').val();
-        var first_name = $('#f_name').val();
-        var last_name = $('#lastName').val();
-        var mobile_no = $('#mobile_number').val();
-        var state = $('#state').val();
-        var district = $('#district').val();
-        var tehsil = $('#Tehsil').val();
-        console.log('jfhfhw', product_id);
-
-        // Prepare data to send to the server
-        var paraArr = {
-            'product_id': product_id,
-            'enquiry_type_id': enquiry_type_id,
-            'first_name': first_name,
-            'last_name': last_name,
-            'mobile': mobile_no,
-            'state': state,
-            'district': district,
-            'tehsil': tehsil,
-        };
-
-        var apiBaseURL = APIBaseURL;
-        var url = "http://tractor-api.divyaltech.com/api/customer/customer_enquiries";
-        console.log(url);
-
-        // Make an AJAX request to the server
-        $.ajax({
-            url: url,
-            type: "POST",
-            data: paraArr,
-            success: function(result) {
-                console.log(result, "result");
-            
-                // Reset the form
-                // $('#nursery_form')[0].reset();
-            
-                $("#staticBackdrop3").modal('hide');
-               
-                // Open the model_seller_contact modal after clicking "Got It" in the alert
-                $('#get_OTP_btn').modal('show');
-                get_otp_1(mobile_no);
-            },
-            error: function(error) {
-                console.error('Error fetching data:', error);
-                var msg = error;
-                $("#errorStatusLoading").modal('show');
-                $("#errorStatusLoading").find('.modal-title').html('<p class="text-center">Process Failed..! Enter Valid Detail</p>');
-                $("#errorStatusLoading").find('.modal-body').html(msg);
-                $("#errorStatusLoading").find('.modal-body').html('<img src="assets/images/comp_3.gif" style="display:block; margin:0 auto;" class="w-50 text-center" alt="Successfull Request"></img>');
-            }
-        });
+    if (isUserLoggedIn()) {
+        var isConfirmed = confirm("Are you sure you want to submit the form?");
+        if (isConfirmed) {
+            submitForm();
+            // $('#staticBackdrop').modal('show');
+        }
+    } else {
+        var mobile = $('#mobile_number').val();
+        get_otp(mobile);
     }
+}
 
-function get_otp_1(phone) {
+function isUserLoggedIn() {
+    return localStorage.getItem('token_customer') && localStorage.getItem('mobile') && localStorage.getItem('id');
+}
+
+function get_otp(phone) {
     var url = "http://tractor-api.divyaltech.com/api/customer/customer_login";
- 
     var paraArr = {
         'mobile': phone,
     };
-
     $.ajax({
         url: url,
         type: "POST",
         data: paraArr,
         success: function (result) {
             console.log(result, "result");
-
-            // Once OTP is received, store mobile number in hidden field within modal
-            $('#mobile_verify').val(phone);
-
+            $('#get_OTP_btn').modal('show'); 
         },
         error: function (error) {
             console.error('Error fetching data:', error);
@@ -175,13 +129,12 @@ function get_otp_1(phone) {
 }
 
 function verifyotp() {
-    var mobile = document.getElementById('mobile_verify').value;
-    var otp = document.getElementById('otp').value;
-
+    var mobile = $('#mobile_number').val();
+    var otp = $('#otp').val();
     var paraArr = {
         'otp': otp,
         'mobile': mobile,
-    }
+    };
     var url = 'http://tractor-api.divyaltech.com/api/customer/verify_otp';
     $.ajax({
         url: url,
@@ -189,18 +142,16 @@ function verifyotp() {
         data: paraArr,
         success: function (result) {
             console.log(result);
-
-            // Assuming your model has an ID 'myModal', hide it on success
-            $('#get_OTP_btn').modal('hide'); // Assuming it's a Bootstrap modal
-            // $('#staticBackdrop').modal('show');
-            // Reset input fields
-            // document.getElementById('phone').value = ''; 
-            // document.getElementById('otp').value = ''; 
-
-            // Access data field in the response
-        }, 
+            $('#get_OTP_btn').modal('hide');
+            var isConfirmed = confirm("Are you sure you want to submit the form?");
+            if (isConfirmed) {
+                submitForm();
+                // $('#staticBackdrop').modal('show');
+            }
+        },
         error: function (xhr, textStatus, errorThrown) {
             console.log(xhr.status, 'error');
+            // Handle different error scenarios
             if (xhr.status === 401) {
                 console.log('Invalid credentials');
                 var htmlcontent = `<p>Invalid credentials!</p>`;
@@ -217,6 +168,60 @@ function verifyotp() {
         },
     });
 }
+
+function submitForm() {
+    // Gather form data
+    var enquiry_type_id = $('#enquiry_type_id').val();
+    var product_id = $('#product_id').val();
+    var first_name = $('#f_name').val();
+    var last_name = $('#lastName').val();
+    var mobile_no = $('#mobile_number').val();
+    var state = $('#state').val();
+    var district = $('#district').val();
+    var tehsil = $('#Tehsil').val();
+
+    // Construct parameter array
+    var paraArr = {
+        'product_id': product_id,
+        'enquiry_type_id': enquiry_type_id,
+        'first_name': first_name,
+        'last_name': last_name,
+        'mobile': mobile_no,
+        'state': state,
+        'district': district,
+        'tehsil': tehsil,
+    };
+
+    // API endpoint for form submission
+    var url = "http://tractor-api.divyaltech.com/api/customer/customer_enquiries";
+
+    // Submit form data via AJAX
+    $.ajax({
+        url: url,
+        type: "POST",
+        data: paraArr,
+        success: function (result) {
+            console.log(result, "result");
+            // Show success message or handle accordingly
+            console.log("Form submitted successfully!");
+            var msg = "Added successfully !"
+            $("#errorStatusLoading").modal('show');
+            $("#errorStatusLoading").find('.modal-title').html('<p class="text-center">Congratulation..! Requested Successful</p>');
+            $("#errorStatusLoading").find('.modal-body').html(msg);
+            $("#errorStatusLoading").find('.modal-body').html('<img src="assets/images/successfull.gif" style="display:block; margin:0 auto;" class="w-50 text-center" alt="Successfull Request"></img>');
+        },
+        error: function (error) {
+            console.error('Error submitting form:', error);
+            // Handle error scenarios
+            var msg = error;
+            $("#errorStatusLoading").modal('show');
+            $("#errorStatusLoading").find('.modal-title').html('<p class="text-center">Process Failed..! Enter Valid Detail</p>');
+            $("#errorStatusLoading").find('.modal-body').html(msg);
+            $("#errorStatusLoading").find('.modal-body').html('<img src="assets/images/comp_3.gif" style="display:block; margin:0 auto;" class="w-50 text-center" alt="Successfull Request"></img>');
+        }
+    });
+}
+
 
 // function harvester_enquiry() {
 //     var firstName = $('#f_name').val();

@@ -1,11 +1,13 @@
 $(document).ready(function() {
+    $('#btn_edit').click(edit_detail_customer);
     console.log("ready!");
     getInterestedBuyer();
-    getuserdetail();
+    // getuserdetail();
     getpurchase_Nursery();
     getpurchase_Tyre();
     getpurchase_Dealer();
     getpurchase_haatbazar();
+
 
 });
 
@@ -69,7 +71,7 @@ function getInterestedBuyer() {
     });
   }
   
-  function getpurchase_requestlist(tableId, data, isEngineOilTable) {
+  function getpurchase_requestlist(tableId, data, isEngineOilTable, includeNameAndMobile) {
     const tableBody = $(tableId + ' tbody');
     tableBody.empty();
 
@@ -85,10 +87,16 @@ function getInterestedBuyer() {
                 { title: 'model', data: function(row) {
                     return row.oil_model ? row.oil_model : row.model; // Use oil_model if available, otherwise use model
                 }},
-                { title: 'Name', data: function(row) { return row.first_name + ' ' + row.last_name; } },
-                { title: 'Mobile Number', data: 'mobile' }
             ]
         };
+
+        // Optionally include "Name" and "Mobile Number" columns based on the condition
+        if (includeNameAndMobile) {
+            tableConfig.columns.push(
+                { title: 'Name', data: function(row) { return row.first_name + ' ' + row.last_name; } },
+                { title: 'Mobile Number', data: 'mobile' }
+            );
+        }
 
         // Initialize DataTable with the specified configuration
         var table = $(tableId).DataTable(tableConfig);
@@ -99,13 +107,13 @@ function getInterestedBuyer() {
         });
 
     } else {
-        tableBody.html('<tr><td colspan="6">No valid data available</td></tr>');
+        tableBody.html('<tr><td colspan="4">No valid data available</td></tr>'); // Adjust colspan based on column count
     }
 }
 
 $(document).ready(function() {
     // Function to fetch data and populate table
-    function populateTable(tableId, dataKey, isEngineOilTable) {
+    function populateTable(tableId, dataKey, isEngineOilTable, includeNameAndMobile) {
         var url = "http://tractor-api.divyaltech.com/api/customer/get_purchase_enquiry_data";
         var headers = {
             'Authorization': localStorage.getItem('token_customer')
@@ -122,7 +130,7 @@ $(document).ready(function() {
             data: paraArr,
             success: function (data) {
                 var tableData = data.data[dataKey];
-                getpurchase_requestlist(tableId, tableData, isEngineOilTable);
+                getpurchase_requestlist(tableId, tableData, isEngineOilTable, includeNameAndMobile);
             },
             error: function (error) {
                 console.error('Error fetching data:', error);
@@ -131,14 +139,14 @@ $(document).ready(function() {
     }
 
     // Populate the first table initially
-    populateTable('#purchase_tractor_table', 'tractorEnquiryData', false);
+    populateTable('#purchase_tractor_table', 'tractorEnquiryData', false, true); // Include "Name" and "Mobile Number"
 
     // Define table configurations
     var tables = [
-        { tableId: '#purchase_harvester_table', dataKey: 'harvesterEnquiryData', isEngineOilTable: false },
-        { tableId: '#purchase_implements_table', dataKey: 'implementEnquiryData', isEngineOilTable: false },
-        { tableId: '#purchase_engineoil_table', dataKey: 'engineOilEnquiryData', isEngineOilTable: true },
-        { tableId: '#purchase_hire_table', dataKey: 'hireEnquiryData', isEngineOilTable: false },
+        { tableId: '#purchase_harvester_table', dataKey: 'harvesterEnquiryData', isEngineOilTable: false, includeNameAndMobile: false },
+        { tableId: '#purchase_implements_table', dataKey: 'implementEnquiryData', isEngineOilTable: false, includeNameAndMobile: true },
+        { tableId: '#purchase_engineoil_table', dataKey: 'engineOilEnquiryData', isEngineOilTable: true, includeNameAndMobile: false },
+        { tableId: '#purchase_hire_table', dataKey: 'hireEnquiryData', isEngineOilTable: false, includeNameAndMobile: true },
         // Add more tables as needed
     ];
 
@@ -146,10 +154,11 @@ $(document).ready(function() {
     tables.forEach(function(table) {
         // Check if DataTable is already initialized for the current table
         if (!$(table.tableId).hasClass('dataTable')) {
-            populateTable(table.tableId, table.dataKey, table.isEngineOilTable);
+            populateTable(table.tableId, table.dataKey, table.isEngineOilTable, table.includeNameAndMobile);
         }
     });
 });
+
 
 
 function getpurchase_haatbazar() {
@@ -239,8 +248,7 @@ function getpurchase_Nursery() {
                         { title: 'Nursery Name' },
                         { title: 'Seller Name' },
                         { title: 'Mobile' },
-                        { title: 'State' },
-                        { title: 'District' },
+                       
                     ]
                 });
 
@@ -254,8 +262,7 @@ function getpurchase_Nursery() {
                         row.nursery_name,
                         fullName,
                         row.mobile,
-                        row.state_name,
-                        row.district_name,
+                       
                     ]).draw(false);
 
                 });
@@ -296,8 +303,7 @@ function getpurchase_Tyre() {
                         { title: 'Date' },
                         { title: 'Brand' },
                         { title: 'Model' },
-                        { title: 'Seller Name' },
-                        { title: 'Mobile' },
+                  
                     ]
                 });
 
@@ -310,8 +316,7 @@ function getpurchase_Tyre() {
                         row.date,
                         row.brand_name,
                         row.tyre_model,
-                        fullName,
-                        row.mobile,
+                       
                     ]).draw(false);
 
                 });
@@ -354,8 +359,7 @@ function getpurchase_Dealer() {
                         { title: 'Brand' },
                         { title: 'Dealer Name' },
                         { title: 'Mobile' },
-                        { title: 'State'},
-                        { title: 'District'},
+                  
                     ]
                 });
 
@@ -368,8 +372,7 @@ function getpurchase_Dealer() {
                         row.brand_name,
                         row.dealer_name,
                         row.mobile,
-                        row.state_name,
-                        row.district_name,
+                        
                     ]).draw(false);
 
                 });
@@ -506,21 +509,17 @@ $(document).ready(function() {
         $(config.tableId).addClass('w-100');
     });
 
-    // Click event handler for nav links
     $('.nav-link').on('click', function() {
         var tableIdToShow = $(this).attr('href');
-        // Hide all tables
         $('.table-responsive').hide();
-        // Show the corresponding table
         $(tableIdToShow).closest('.table-responsive').show();
     });
-
-    // Initially, hide all tables except the first one
     $('.table-responsive').hide();
 });
 
 
-  function getuserdetail(id) {
+function getuserdetail(id) {
+    console.log(id,'sdfghjc id');
     var url = "http://tractor-api.divyaltech.com/api/customer/get_customer_personal_info_by_id/" + id;
 
     var headers = {
@@ -543,6 +542,7 @@ $(document).ready(function() {
 
             // Check if customer data exists and has at least one entry
             if (data.customerData && data.customerData.length > 0) {
+                document.getElementById('idUser').value = data.customerData[0].id;
                 document.getElementById('firstname').value = data.customerData[0].first_name;
                 document.getElementById('lastname').value = data.customerData[0].last_name;
                 document.getElementById('phone').value = data.customerData[0].mobile;
@@ -558,8 +558,6 @@ $(document).ready(function() {
     });
 }
 var userId = localStorage.getItem('id');
-
-
 getuserdetail(userId);
 
 
@@ -575,32 +573,28 @@ function edit_personal_detail(){
 }
 
 
-function edit_detail_customer() {
-        // event.preventDefault();
+    function edit_detail_customer() {
         console.log('jfhfhw');
         var first_name = $('#firstname').val();
-        var id = "21";
+        var edituser = $('#idUser').val();
         var last_name = $('#lastname').val();
         var mobile = $('#phone').val();
-        // var email = $('#email').val();
         var state = $('#state').val();
         var district = $('#district').val();
         var tehsil = $('#tehsil').val();
       
         // Prepare data to send to the server
         var paraArr = {
-          'id':id,
+          'id':edituser,
           'first_name': first_name,
           'last_name':last_name,
-           // 'email':email,
           'mobile':mobile,
           'state':state,
           'district':district,
           'tehsil':tehsil,
         };
        
-    //   var url = apiBaseURL + 'customer_enquiries';
-    var url = "http://tractor-api.divyaltech.com/api/customer/update_customer_personal_info/" + id;
+        var url = "http://tractor-api.divyaltech.com/api/customer/update_customer_personal_info/" + edituser;
         console.log(url);
       
         var headers = {
@@ -630,13 +624,12 @@ function edit_detail_customer() {
             $('#firstname').attr('disabled');
             $('#lastname').attr("disabled")
             $('#phone').attr("disabled")
-            // $('#email').attr("disabled")
             $('#state').attr("disabled")
             $('#district').attr("disabled")
             $('#tehsil').attr("disabled")
             $(".edit_presonal_detail_btn").hide();
-           // location.reload();
-           getuserdetail();
+            window.location.reload();
+        
           },
           error: function (error) {
             console.error('Error fetching data:', error);
@@ -648,9 +641,8 @@ function edit_detail_customer() {
            
           }
         });
-      
-  }
-
+    }
+  
 
 //   function getpurchase_requestlist() {
 //     var url =  "http://tractor-api.divyaltech.com/api/customer/get_purchase_enquiry_data";

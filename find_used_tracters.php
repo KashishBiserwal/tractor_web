@@ -156,7 +156,7 @@
                                 </div>
                             </div>
                             <div class="col-12 mt-3">
-                                <button id="store" type="button" class="btn-success w-100 fw-bold " data-bs-toggle="modal" data-bs-target="#get_OTP_btn" onclick="get_otp()";>Get OTP</button>
+                                <button id="store" type="button" class="btn-success w-100 fw-bold " data-bs-toggle="modal" data-bs-target="#get_OTP_btn">Get OTP</button>
                             </div>
                             <!-- <div class="col-12 mt-3">
                                 <button data-res="<?php echo $sum; ?>" type="button" id="store" class="btn-success w-100 fw-bold"
@@ -196,13 +196,13 @@
                 <div class="modal-body">
                     <form id="otp_form">
                         <div class=" col-12 input-group">
-                        <!-- <div class="col-12" hidden>
+                        <div class="col-12" hidden>
                                 <label for="Mobile" class=" text-dark float-start pl-2">Enter OTP</label>
                                 <input type="text" class="form-control text-dark" placeholder="Enter OTP" id="Mobile"name="Mobile">
-                            </div> -->
+                            </div>
                             <div class="col-12">
                                 <label for="Mobile" class=" text-dark float-start pl-2">Enter OTP</label>
-                                <input type="text" class="form-control text-dark" placeholder="Enter OTP" id="otp"name="opt_1">
+                                <input type="text" class="form-control text-dark" placeholder="Enter OTP" id="otp1"name="opt_1">
                             </div>
                             <div class="float-end col-12">
                                 <a href="" class="float-end">Resend OTP</a>
@@ -211,7 +211,6 @@
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> -->
                     <button type="button" class="btn btn-success" id="Verify">Verify</button>
                 </div>
             </div>
@@ -454,7 +453,7 @@
         </div>
     </section>
 
-
+   
     
 
     <?php
