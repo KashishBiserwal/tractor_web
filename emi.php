@@ -142,15 +142,15 @@
                         <div class="form-outline mt-2 py-3">
                             <label class="form-label fw-bold" for="brandSelect">Brand</label>
                             <select class="form-select py-2" aria-label="Default select example" id="brandSelect"
-                                name="brandSelect" onchange="populateModels()">
-                                <option value="">Select Brand</option>
+                                name="brandSelect">
+                        
                             </select>
                         </div>
                         <div class="form-outline mt-3">
                             <label class="form-label fw-bold" for="modelSelect">Model</label>
                             <select class="form-select py-2" aria-label="Default select example" id="modelSelect"
                                 name="modelSelect">
-                                <option value="">Select Model</option>
+                           
                             </select>
                         </div>
                         <button type="submit" class="w-100 fw-bold btn btn-success mt-3 mb-1"
@@ -456,34 +456,9 @@
             }
         });
     });
-    var brandModelData = {
-        "Brand 1": ["Model A", "Model B", "Model C"],
-        "Brand 2": ["Model X", "Model Y", "Model Z"],
-        "Brand 3": ["Model I", "Model II", "Model III"]
-    };
-    var brandSelect = document.getElementById("brandSelect");
-    for (var brand in brandModelData) {
-        var option = document.createElement("option");
-        option.value = brand;
-        option.text = brand;
-        brandSelect.add(option);
-    }
+   
 
-    function populateModels() {
-        var brandSelect = document.getElementById("brandSelect");
-        var modelSelect = document.getElementById("modelSelect");
-
-        modelSelect.innerHTML = '<option value="">Select Model</option>';
-
-        var selectedBrand = brandSelect.value;
-
-        var models = brandModelData[selectedBrand];
-        if (models) {
-            models.forEach(function(model) {
-                addOption(modelSelect, model);
-            });
-        }
-    }
+  
 
     function addOption(selectElement, optionText) {
         var option = document.createElement("option");
@@ -532,7 +507,78 @@
 
     </script>
 
+<script>
+   function get_1() {
+    var url = 'http://tractor-api.divyaltech.com/api/customer/get_brand_for_finance';
+    $.ajax({
+        url: url,
+        type: "GET",
+        headers: {
+            'Authorization': 'Bearer ' + localStorage.getItem('token')
+        },
+        success: function (data) {
+            // console.log(data);
+            const select = document.getElementById('brandSelect');
+            select.innerHTML = '<option selected disabled value="">Please select an option</option>';
+  
+            if (data.brands.length > 0) {
+                data.brands.forEach(row => {
+                    const option = document.createElement('option');
+                    option.textContent = row.brand_name;
+                    option.value = row.id;
+                    // console.log(row.id,);
+                    select.appendChild(option);
+                });
+  
+                // Add event listener to brand dropdown
+                select.addEventListener('change', function() {
+                    const selectedBrandId = this.value;
+                    get_model_1(selectedBrandId);
+                });
+            } else {
+                select.innerHTML = '<option>No valid data available</option>';
+            }
+        },
+        error: function (error) {
+            console.error('Error fetching data:', error);
+        }
+    });
+  }
+  
+  function get_model_1(id) {
+    var url = 'http://tractor-api.divyaltech.com/api/customer/get_brand_model/' + id;
+    $.ajax({
+        url: url,
+        type: "GET",
+        headers: {
+            'Authorization': 'Bearer ' + localStorage.getItem('token')
+        },
+        success: function (data) {
+            console.log(data);
+            const select = document.getElementById('modelSelect');
+            select.innerHTML = '<option selected disabled value="">Please select an option</option>';
+  
+            if (data.model.length > 0) {
+                data.model.forEach(row => {
+                    const option = document.createElement('option');
+                    option.textContent = row.model;
+                    option.value = row.model;
+                    select.appendChild(option);
+  
+                   
+                });
+            } else {
+                select.innerHTML = '<option>No valid data available</option>';
+            }
+        },
+        error: function (error) {
+            console.error('Error fetching data:', error);
+        }
+    });
+  }
 
+  get_1();
+</script>
 </body>
 
 </html>

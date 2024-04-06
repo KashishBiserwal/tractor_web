@@ -171,7 +171,7 @@
 
                             </div> 
                             <div class="text-center my-3">
-                                <button type="submit" id="enquiry" class="btn btn-success px-5 w-40 mt-2">Submit</button>         
+                                <button type="submit" id="enquiry" class="btn btn-success px-5 w-40 mt-2" data-bs-dismiss="modal"  data-bs-toggle="modal" data-bs-target="get_OTP_btn">Submit</button>         
                             </div>        
                         </form>                             
                     </div>
@@ -698,7 +698,6 @@
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> -->
                     <button type="button" class="btn btn-success" id="Verify">Verify</button>
                 </div>
             </div>

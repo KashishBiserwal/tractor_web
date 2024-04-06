@@ -105,7 +105,7 @@
             </div>
         </div>
     </section>
-    <div class="modal fade" id="get_OTP_btn" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <!-- <div class="modal fade" id="get_OTP_btn" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header bg-success">
@@ -130,7 +130,6 @@
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> -->
                     <button type="button" class="btn btn-success" id="Verify"onclick="verifyotp()">Verify</button>
                 </div>
             </div>
@@ -161,11 +160,10 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button"  id="closeButton "class="btn btn-secondary"data-bs-dismiss="modal">Close</button>
-                    <!-- <button type="button" class="btn btn-danger" id="got_it_btn">Got It</button> -->
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
 
 
     <?php

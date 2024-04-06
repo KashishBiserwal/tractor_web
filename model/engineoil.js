@@ -2,7 +2,7 @@ $(document).ready(function() {
 
   // populateDropdownsFromClass('state-dropdown', 'district-dropdown', 'tehsil-dropdown');
     getEngineoilList();
-    $('#engine_oil_form').submit(engineoil_enquiry);
+    // $('#engine_oil_form').submit(engineoil_enquiry);
 
     $("#engine_oil_form").validate({
         rules: {
@@ -118,7 +118,7 @@ function displayEngineoil(engineoil) {
         var imageSrc = images.length > 0 ? `http://tractor-api.divyaltech.com/uploads/engine_oil_img/${images[0]}` : '';
         var cardId = `card_${p.id}`; 
 
-        var modalId = `engineoil_callbnt_${p.id}`;
+        var modalId = `used_tractor_callbnt_${p.id}`; 
         var formId = `engine_oil_form_${p.id}`; 
         var formattedPrice = formatPriceWithCommas(p.price);
         var newCard = `
@@ -208,13 +208,44 @@ function displayEngineoil(engineoil) {
                             </div>
                         </div> 
                         <div class="text-center my-3">
-                            <button type="submit" id="submit_enquiry_${p.id}" class="btn add_btn btn-success w-100 btn_all" onclick="savedata('${formId}')">Submit</button>        
+                            <button type="submit" id="submit_enquiry_${p.id}"   data-bs-dismiss="modal" class="btn add_btn btn-success w-100 btn_all" onclick="savedata('${formId}')">Submit</button>        
                         </div>        
                     </form>                           
                         </div>
                     </div>
                 </div>
             </div>
+
+            <div class="modal fade" id="get_OTP_btn" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header bg-success">
+                        <h1 class="modal-title fs-5 text-white" id="exampleModalLabel">Verify Your OTP</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><img src="assets/images/close.png" class=" w-100"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="otp_form">
+                            <div class=" col-12 input-group">
+                                <div class="col-12" hidden>
+                                    <label for="Mobile" class=" text-dark float-start pl-2">Number</label>
+                                    <input type="text" class="form-control text-dark" placeholder="Enter OTP" id="Mobile"name="Mobile">
+                                </div>
+                                <div class="col-12">
+                                    <label for="Mobile" class=" text-dark float-start pl-2">Enter OTP</label>
+                                    <input type="text" class="form-control text-dark" placeholder="Enter OTP" id="otp"name="opt_1">
+                                </div>
+                                <div class="float-end col-12">
+                                    <a href="" class="float-end">Resend OTP</a>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-success" id="Verify" onclick="verifyotp('${formId}')">Verify</button>
+                    </div>
+                </div>
+            </div>
+        </div>
         `;
 
         // Append the new card to the container
@@ -271,84 +302,156 @@ function populateDropdowns() {
     });
 }
 
+var formData = {};
+
 function savedata(formId) {
-    engineoil_enquiry(formId);
-    console.log("Form submitted successfully");
+    if (isUserLoggedIn()) {
+        var isConfirmed = confirm("Are you sure you want to submit the form?");
+        if (isConfirmed) {
+            submitData(formId);
+            // openSellerContactModal(formDataToSubmit)
+        }
+    } else {
+        formData = collectFormData(formId);
+        var mobile = formData.mobile;
+        sendOTP(mobile);
+        console.log("OTP Sent successfully");
+    }
 }
-function engineoil_enquiry(formId) {
+
+function isUserLoggedIn() {
+    return localStorage.getItem('token_customer') && localStorage.getItem('mobile') && localStorage.getItem('id');
+}
+
+function sendOTP(mobile) {
+    var url = "http://tractor-api.divyaltech.com/api/customer/customer_login";
+    var paraArr = {
+        'mobile': mobile,
+    };
+    var isConfirmed = confirm("Are you sure you want to delete this data?");
+    if (!isConfirmed) {
+        return;
+    }
+    $.ajax({
+        url: url,
+        type: "POST",
+        data: paraArr,
+        success: function (result) {
+            $("#engineoil_callbnt_").modal('hide');
+            console.log(result, "result");
+            $('#Mobile').val(mobile);
+            openOTPModal();
+        },
+        error: function (error) {
+            console.error('Error fetching data:', error);
+        }
+    });
+}
+
+function openOTPModal() {
+    $('#get_OTP_btn').modal('show');
+}
+
+function verifyotp(formId) {
+    var mobile = document.getElementById('Mobile').value;
+    var otp = document.getElementById('otp').value;
+
+    var paraArr = {
+        'otp': otp,
+        'mobile': mobile,
+        'enquiry_type_id': formData.enquiry_type_id,
+        'first_name': formData.first_name,
+        'last_name': formData.last_name,
+        'state': formData.state,
+        'district': formData.district,
+        'tehsil': formData.tehsil,
+        'product_id': formData.product_id,
+        'model': formData.model,
+    };
+
+    var url = 'http://tractor-api.divyaltech.com/api/customer/verify_otp';
+    $.ajax({
+        url: url,
+        type: "POST",
+        data: paraArr,
+        success: function (result) {
+            console.log(result);
+            $('#get_OTP_btn').modal('hide');
+            submitData(formId); 
+        },
+        error: function (xhr, textStatus, errorThrown) {
+            console.log(xhr.status, 'error');
+            // Handle errors here
+        },
+    });
+}
+
+function submitData(formId) {
+    var url = "http://tractor-api.divyaltech.com/api/customer/customer_enquiries";
+    var formDataToSubmit = formData;
+    
+    // If user is logged in, use formData from parameter directly
+    if (isUserLoggedIn()) {
+        formDataToSubmit = collectFormData(formId);
+    }
+    
+    if (!formDataToSubmit.enquiry_type_id || !formDataToSubmit.mobile) {
+        console.error('Required fields are missing.');
+        return;
+    }
+    $.ajax({
+        url: url,
+        type: "POST",
+        data: formDataToSubmit, // Submit all form data
+        
+        success: function (result) {
+            
+
+            var msg = "Added successfully !";
+            $("#errorStatusLoading").modal('show');
+            $("#errorStatusLoading").find('.modal-title').html('<p class="text-center">Congratulation..! Requested Successful</p>');
+            $("#errorStatusLoading").find('.modal-body').html(msg);
+            $("#errorStatusLoading").find('.modal-body').html('<img src="assets/images/7efs.gif" style="display:block; margin:0 auto;" class="w-50 text-center" alt="Successfull Request"></img>');
+            console.log('Add successfully');
+        },
+        error: function (error) {
+            console.error('Error fetching data:', error);
+            var msg = error;
+            $("#errorStatusLoading").modal('show');
+            // Handle errors here
+        }
+    });
+}
+
+
+function collectFormData(formId) {
+    // Collect form data
     var brandName = $(`#${formId} #brandName`).val();
     var modelName = $(`#${formId} #modelName`).val();
-    var firstName = $(`#${formId} #firstName`).val();
-    var lastName = $(`#${formId} #lastName`).val();
-    var mobile_number = $(`#${formId} #mobile_number`).val();
+    var first_name = $(`#${formId} #firstName`).val();
+    var last_name = $(`#${formId} #lastName`).val();
+    var mobile = $(`#${formId} #mobile_number`).val();
     var state = $(`#${formId} #state`).val();
     var district = $(`#${formId} #district`).val();
     var Tehsil = $(`#${formId} #Tehsil`).val();
     var enquiry_type_id =$(`#${formId} #enquiry_type_id`).val();
     var product_id =$(`#${formId} #product_id`).val();
-    // product_id = 2;
-    var paraArr = {
-      'brand_name': brandName,
-      'model': modelName,
-      'first_name': firstName,
-      'last_name': lastName,
-      'mobile': mobile_number,
-      'state': state,
-      'district': district,
-      'tehsil': Tehsil,
-      'enquiry_type_id':enquiry_type_id,
-      'product_id':product_id,
+
+    var formData = {
+        'brand_name': brandName,
+        'model': modelName,
+        'first_name': first_name,
+        'last_name': last_name,
+        'mobile': mobile,
+        'state': state,
+        'district': district,
+        'tehsil': Tehsil,
+        'enquiry_type_id':enquiry_type_id,
+        'product_id':product_id,
     };
-    // console.log(paraArr);
-  
-//   var apiBaseURL =APIBaseURL;
-//   var url = apiBaseURL + 'customer_enquiries';
-var url ='http://tractor-api.divyaltech.com/api/customer/customer_enquiries';
-    console.log(url);
-  
-    var token = localStorage.getItem('token');
-    var headers = {
-      'Authorization': 'Bearer ' + token
-    };
-    $.ajax({
-      url: url,
-      type: "POST",
-      data: paraArr,
-      headers: headers,
-      success: function (result) {
-        console.log(result, "result");
-    console.log("Add successfully");
-    $("#used_tractor_callbnt_").modal('hide'); 
-    var msg = "Added successfully !"
-    $("#errorStatusLoading").modal('show');    
-    $("#errorStatusLoading").find('.modal-title').html('<p class="text-center">Congratulation..! Requested Successful</p>');
- 
-    $("#errorStatusLoading").find('.modal-body').html(msg);
-    $("#errorStatusLoading").find('.modal-body').html('<img src="assets/images/successfull.gif" style="display:block; margin:0 auto;" class="w-50 text-center" alt="Successfull Request"></img>');
-    // $("#errorStatusLoading").find('.modal-body').html('sdfghj');
-  
-  
-      },
-      error: function (error) {
-        console.error('Error fetching data:', error);
-        var msg = error;
-        $("#errorStatusLoading").modal('show');
-        $("#errorStatusLoading").find('.modal-title').html('<p class="text-center">Process Failed..! Enter Valid Detail</p>');
-        $("#errorStatusLoading").find('.modal-body').html(msg);
-        $("#errorStatusLoading").find('.modal-body').html('<img src="assets/images/comp_3.gif" style="display:block; margin:0 auto;" class="w-50 text-center" alt="Successfull Request"></img>');
-        // 
-      }
-    });
-  }
- 
 
-//   function savedata(){
-//     engineoil_enquiry();
-//     console.log("confirm");
-//     console.log("Form submitted successfully");
-//   }
-
-
+    return formData;
+}
 
 
 function populateDropdownsFromClass(stateClassName, districtClassName, tehsilClassName) {

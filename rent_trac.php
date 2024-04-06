@@ -81,6 +81,7 @@
                             <div class="row justify-content-center pt-4">
                                 <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-2" hidden>
                                     <div class="form-outline">
+                                    <label class="form-label text-dark">Enquiry</label>
                                         <input type="text" id="enquiry_type_id" name="" value="18" class=" data_search form-control input-group-sm py-2" />
                                     </div>
                                 </div>
@@ -138,13 +139,13 @@
                                                         <img id="impImagePreview_0" src="" alt="Image Preview" style="max-width: 100%; max-height: 100%; display: none;" class="images">
                                                     </div>
                                                     <input type="file" name="imp_0" id="impImage_0" class="image-file-input" accept="image/*" style="display: none;" onchange="displayImagePreview(this, 'impImagePreview_0')" required>
+
                                                 </td>
                                                 <td>
                                                     <div class="select-wrap">
                                                         <select name="imp_type_id[]" id="impType_0" class="form-control implement-type-input">
                                                             <option value>Select</option>
-                                                            <option value="type1">Type 1</option>
-                                                            <option value="type2">Type 2</option>
+                                                          
                                                         </select>
                                                     </div>
                                                 </td>
@@ -221,10 +222,9 @@
                                 </div>
                                 <div class="col-12 col-lg-6 col-sm-5 col-md-6">
                                     <div class="form-outline mt-3">
-                                        <label class="form-label text-dark">District</label>
-                                        <select class="form-select py-2 district-dropdown" aria-label="Default select example" id="dist_district" name="dist">
-                                          
-                                        </select>
+                                      <label class="form-label text-dark">District</label>
+                                      <select class="form-select py-2 district-dropdown" aria-label="Default select example" id="dist_district" name="dist">
+                                      </select>
                                     </div>
                                 </div>
                                 <div class="col-12 col-lg-6 col-sm-5 col-md-6 ">
@@ -313,7 +313,7 @@
                 <th class="d-none d-md-table-cell text-white">Action</th>
               </tr>
             </thead>
-            <tbody id="data-table">
+            <tbody id="data-table-rent">
             </tbody>
           </table>
          </div>

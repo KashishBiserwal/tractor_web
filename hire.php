@@ -112,7 +112,6 @@ include 'includes/headertag.php';
                     <div class="force-overflow">
                         <h5 class="ps-1 text-dark fw-bold pt-2">Search By District</h5>
                         <div class="HP py-2" id="get_dist">
-                            <!-- District checkboxes will be appended here -->
                         </div>
                     </div>
                 </div>
@@ -120,7 +119,6 @@ include 'includes/headertag.php';
                     <div class="force-overflow">
                         <h5 class="ps-1 text-dark fw-bold pt-2">Search By Year</h5>
                         <div class="HP py-2" id="P_year">
-                            <!-- Checkboxes will be dynamically added here -->
                         </div>
                     </div>
                 </div>
@@ -187,7 +185,7 @@ include 'includes/headertag.php';
         </div>
     </section>
 
-    <div class="modal fade" id="get_OTP_btn" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <!-- <div class="modal fade" id="get_OTP_btn" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header bg-success">
@@ -212,7 +210,6 @@ include 'includes/headertag.php';
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> -->
                     <button type="button" class="btn btn-success" id="Verify">Verify</button>
                 </div>
             </div>
@@ -243,11 +240,10 @@ include 'includes/headertag.php';
                 </div>
                 <div class="modal-footer">
                     <button type="button"  id="got_it_btn "class="btn btn-secondary"data-bs-dismiss="modal">Close</button>
-                    <!-- <button type="button" class="btn btn-danger" id="got_it_btn">Got It</button> -->
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
 
     <?php
     include 'includes/footer.php';

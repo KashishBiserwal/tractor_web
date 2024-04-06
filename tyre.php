@@ -12,6 +12,7 @@ include 'includes/headertag.php';
 <script> var APIBaseURL = "<?php echo $APIBaseURL; ?>";</script>
 <script> var baseUrl = "<?php echo $baseUrl; ?>";</script>
     <script src="<?php $baseUrl; ?>model/tyre.js"></script>
+    <script src="<?php $baseUrl; ?>model/State_dist_tehsil.js"></script>
 </head>
 
 <body>
@@ -35,6 +36,12 @@ include 'includes/headertag.php';
             margin-bottom: 2px;
             font-size: 13px;
         }
+        .text-truncate {
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        
+            }
         </style>
     </head>
 
@@ -62,9 +69,10 @@ include 'includes/headertag.php';
                         <h3 class="pb-3 fw-bold"> Tractor Tyres <span class="text-success fw-bold">In
                                 INDIA</span>
                         </h3>
-                        <div id="productContainer" class="row">
-                        </div>
+                        <div id="productContainer" class="row"> </div>
                         <div class="col-12 text-center mt-3 pt-2 ">
+                        <h5 id="noDataMessage" class="text-center mt-4 text-danger" style="display: none;">
+                         <img src="assets/images/404.gif" class="w-25" alt=""></br>Data not found..!</h5>
                             <button id="load_moretract" type="button" class="add_btn btn btn-success p-1">
                                 <i class="fas fa-undo"></i> Load More Tyres</button>
                         </div>
@@ -74,72 +82,59 @@ include 'includes/headertag.php';
                     <div class=" row mb-3" id="">
                         <div class="col-12 col-sm-12 col-md-12 col-lg-12">
                             <div class=" row text-center">
-                                <div class="col-12 col-sm-6 col-lg-6 col-md-6">
-                                    <button id="adduser" type="button" class="add_btn btn btn-success w-100">
-                                        <i class="fas fa-undo"></i> Reset </button>
+                            <div class="col-12 col-sm-6 col-lg-6 col-md-6">
+                                    <button onclick="resetform()" type="button" onclick="resetform()" class="add_btn btn btn-success w-100">
+                                    <i class="fas fa-undo"></i>  Reset </button>
                                 </div>
-                                <div class="col-12 col-sm-6 col-lg-6 col-md-6">
-                                    <button id="adduser" type="button" class="add_btn btn btn-success w-100">
-                                        <i class="fas fa-filter"></i> Apply Filter </button>
+                                <div class="col-12 col-sm-6 col-lg-6 col-md-6 pe-2">
+                                    <button id="filter_tractor"  type="button" class="add_btn btn btn-success w-100">
+                                    <i class="fas fa-filter"></i>  Apply Filter </button>
                                 </div>
 
                             </div>
                         </div>
                     </div>
-
-                        <div class="scrollbar mb-3" id=" my-2">
-                            <div class="force-overflow">
-                                <h5 class=" ps-1 text-dark fw-bold  pt-2">Search By Brand</h5>
-                                <div class="HP py-2">
-                                    <input type="checkbox" class="checkbox-round ms-3" value="Mahindra" /><span
-                                        class="ps-2 fs-6">JK Tyre</span><br />
-                                    <input type="checkbox" class="checkbox-round ms-3" value="Farmtrac" /><span
-                                        class="ps-2 fs-6">Apollo Tyre</span><br />
-                                    <input type="checkbox" class="checkbox-round ms-3" value="Swaraj" /><span
-                                        class="ps-2 fs-6">BKT Tyre</span><br />
-                                    <input type="checkbox" class="checkbox-round ms-3" value="Massey" /><span
-                                        class="ps-2 fs-6">CEAT Tyre</span><br />
-                                    <input type="checkbox" class="checkbox-round ms-3" value="Powertrac" /><span
-                                        class="ps-2 fs-6">Good Year</span><br />
-                                    <input type="checkbox" class="checkbox-round ms-3" value="Sonalika" /><span
-                                        class="ps-2 fs-6">MRF</span><br />
-                                    <input type="checkbox" class="checkbox-round ms-3" value="Eicher" /><span
-                                        class="ps-2 fs-6">Birla Tyres</span><br />
-                                </div>
-                            </div>
+                    <div class="scrollbar mb-3" id="">
+                        <div class="force-overflow">
+                            <h5 class="ps-1 text-dark fw-bold pt-2">Search By Brand</h5>
+                            <div class="HP py-2" id="checkboxContainer"></div>
                         </div>
+                    </div>
+                      
                         <div class=" mb-3" id="">
                             <div class="force-overflow">
                                 <div class="price py-2 ">
                                     <h5 class=" ps-3 text-dark fw-bold mb-3">Search By Type</h5>
-                                    <input type="checkbox" class="checkbox-round ms-3" value="0-3" /><span
+                                    <input type="checkbox" class="checkbox-round ms-3 chechbox-position-tyre" value="front" /><span
                                         class="ps-2 fs-6">Front</span><br />
-                                    <input type="checkbox" class="checkbox-round ms-3" value="0-3" /><span
-                                        class="ps-2 fs-6">Rear</span><br />
+                                    <input type="checkbox" class="checkbox-round ms-3 chechbox-position-tyre" value="rare" /><span
+                                        class="ps-2 fs-6">Rare</span><br />
+                                    <input type="checkbox" class="checkbox-round ms-3 chechbox-position-tyre" value="steer" /><span
+                                        class="ps-2 fs-6">Steer</span><br />
                                 </div>
                             </div>
                         </div>
-                        <div class="scrollbar mb-3" id="">
+                        <!-- <div class="scrollbar mb-3" id="">
                             <div class="force-overflow">
                                 <h5 class=" ps-1 text-dark fw-bold pt-2">Search By Size</h5>
                                 <div class="HP py-2">
-                                    <input type="checkbox" class="checkbox-round ms-3" value="0-20" /><span
-                                        class="ps-2 fs-6">13.5-28</span><br />
-                                    <input type="checkbox" class="checkbox-round ms-3" value="21-30" /><span
-                                        class="ps-2 fs-6">16.9-28</span><br />
-                                    <input type="checkbox" class="checkbox-round ms-3" value="31-40" /><span
-                                        class="ps-2 fs-6">14.9-28</span><br />
-                                    <input type="checkbox" class="checkbox-round ms-3" value="41-50" /><span
-                                        class="ps-2 fs-6">13.6-28</span><br />
-                                    <input type="checkbox" class="checkbox-round ms-3" value="51-60" /><span
-                                        class="ps-2 fs-6">304/85-28</span><br />
-                                    <input type="checkbox" class="checkbox-round ms-3" value="61-70" /><span
-                                        class="ps-2 fs-6">12.4-28</span><br />
-                                    <input type="checkbox" class="checkbox-round ms-3" value="71-80" /><span
-                                        class="ps-2 fs-6">6.50-20</span><br />
+                                    <input type="checkbox" class="checkbox-round ms-3" value="0 x 20" /><span
+                                        class="ps-2 fs-6">0 x 20</span><br />
+                                    <input type="checkbox" class="checkbox-round ms-3" value="21 x 30" /><span
+                                        class="ps-2 fs-6">21 x 30</span><br />
+                                    <input type="checkbox" class="checkbox-round ms-3" value="31 x 40" /><span
+                                        class="ps-2 fs-6">31 x 40</span><br />
+                                    <input type="checkbox" class="checkbox-round ms-3" value="41 x 50" /><span
+                                        class="ps-2 fs-6">41 x 50</span><br />
+                                    <input type="checkbox" class="checkbox-round ms-3" value="51 x 60" /><span
+                                        class="ps-2 fs-6">51 x 60</span><br />
+                                    <input type="checkbox" class="checkbox-round ms-3" value="61 x 70" /><span
+                                        class="ps-2 fs-6">61 x 70</span><br />
+                                    <input type="checkbox" class="checkbox-round ms-3" value="71 x 80" /><span
+                                        class="ps-2 fs-6">71 x 80</span><br />
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
 
                     </div>
                 </div>

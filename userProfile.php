@@ -126,15 +126,24 @@
             </div>
             <div class="customer_detail_section bg-white tab-content">
                 <div id="presonal_info" class="tab-pane active shadow bg-white  p-3">
+               
                     <div class=" col-9 mx-auto  my-5  p-3" style="border: 1px solid #dcdcdc;">
-                    <div class="heading00 d-flex py-2">
-                        <h3>Personal Information</h3>
-                        <button onclick="edit_personal_detail()">
-                        <i class="fa-solid fa-user-pen"></i>
+                    <div class="">
+                    <button onclick="edit_personal_detail()" class="float-end">
+                        <i class="fas fa-edit"></i>
                         </button>
                     </div>
+                    <div class="heading00 py-2">
+                        <h3>Personal Information</h3>
+                    </div>
+                    
                     <form>
                         <div class="row">
+                        <div class="col- col-sm-6 col-lg-6 col-md-6" hidden>
+                                  <label class="text-dark">User<span class="text-danger">*</span></label>
+                                          <input type="text" class="form-control py-2" for="idUser"  id="idUser" name="first_name" placeholder="Enter First Name">
+                                  <small></small>
+                                </div>  
                         <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-3">
                             <div class="form-outline">
                             <label class="form-label">First Name</label>
@@ -173,7 +182,7 @@
                             </div>
                         </div>
                         <div class="col-12 col-sm-12 col-md-12 col-lg-12 mt-3 ">
-                            <button type="button" class="btn btn-success edit_presonal_detail_btn float-end" onclick="edit_detail_customer()" style="display: none;">Save</button>
+                            <button type="button" class="btn btn-success edit_presonal_detail_btn float-end" id="btn_edit" style="display: none;">Save</button>
                         </div>
                         </div>
                     </form>
@@ -238,8 +247,8 @@
                                     <th class="d-md-table-cell text-white" style="width: 275px;">Date</th>
                                     <th class="d-md-table-cell text-white" style="width: 275px;">Brand</th>
                                     <th class="d-md-table-cell text-white" style="width: 275px;">Model</th>
-                                    <th class="d-md-table-cell text-white" style="width: 275px;">Name</th>
-                                    <th class="d-md-table-cell text-white" style="width: 275px;">Mobile Number</th>
+                                    <!-- <th class="d-md-table-cell text-white" style="width: 275px;">Name</th>
+                                    <th class="d-md-table-cell text-white" style="width: 275px;">Mobile Number</th> -->
                                     </tr>
                                 </thead> 
                                 <tbody id="data-table2" class="data-table"></tbody>
@@ -284,8 +293,8 @@
                                         <th class="d-md-table-cell text-white" style="width: 275px;">Nursery Name</th>
                                         <th class="d-md-table-cell text-white" style="width: 275px;">Name</th>
                                         <th class="d-md-table-cell text-white" style="width: 275px;">Mobile Number</th>
-                                        <th class="d-md-table-cell text-white" style="width: 275px;">State</th>
-                                        <th class="d-md-table-cell text-white" style="width: 275px;">District</th>
+                                        <!-- <th class="d-md-table-cell text-white" style="width: 275px;">State</th>
+                                        <th class="d-md-table-cell text-white" style="width: 275px;">District</th> -->
                                     </tr>
                                 </thead>
                                 <tbody id="data-table5" class="data-table"></tbody>
@@ -299,8 +308,8 @@
                                     <th class="d-md-table-cell text-white" style="width: 275px;">Date</th>
                                     <th class="d-md-table-cell text-white" style="width: 275px;">Brand</th>
                                     <th class="d-md-table-cell text-white" style="width: 275px;">Model</th>
-                                    <th class="d-md-table-cell text-white" style="width: 275px;">Name</th>
-                                    <th class="d-md-table-cell text-white" style="width: 275px;">Mobile Number</th>
+                                    <!-- <th class="d-md-table-cell text-white" style="width: 275px;">Name</th>
+                                    <th class="d-md-table-cell text-white" style="width: 275px;">Mobile Number</th> -->
                                     
                                     </tr>
                                 </thead>
@@ -315,8 +324,8 @@
                                     <th class="d-md-table-cell text-white" style="width: 275px;">Date</th>
                                     <th class="d-md-table-cell text-white" style="width: 275px;">Brand</th>
                                     <th class="d-md-table-cell text-white" style="width: 275px;">Model</th>
-                                    <th class="d-md-table-cell text-white" style="width: 275px;">Seller Name</th>
-                                    <th class="d-md-table-cell text-white" style="width: 275px;">Mobile Number</th>
+                                    <!-- <th class="d-md-table-cell text-white" style="width: 275px;">Seller Name</th>
+                                    <th class="d-md-table-cell text-white" style="width: 275px;">Mobile Number</th> -->
                                     </tr>
                                 </thead>
                                 <tbody id="data-table7"></tbody>
@@ -331,8 +340,8 @@
                                     <th class="d-md-table-cell text-white" style="width: 275px;">Brand</th>
                                     <th class="d-md-table-cell text-white" style="width: 275px;">Brand dealer</th>
                                     <th class="d-md-table-cell text-white" style="width: 275px;">Mobile Number</th>
-                                    <th class="d-md-table-cell text-white" style="width: 275px;">State</th>
-                                    <th class="d-md-table-cell text-white" style="width: 275px;">District</th>
+                                    <!-- <th class="d-md-table-cell text-white" style="width: 275px;">State</th>
+                                    <th class="d-md-table-cell text-white" style="width: 275px;">District</th> -->
                                     </tr>
                                 </thead>
                                 <tbody id="data-table8" class="data-table"></tbody>
@@ -506,17 +515,20 @@
      
   </body>
   <script>
-    $('.carousel-main').owlCarousel({
-          items: 4,
-          loop: false,
-          autoplay: false,
-          autoplayTimeout: 3000,
-          margin: 10,
-          nav: true,
-          dots: false,
-          navText: [' <span class = "fas fa-chevron-left fa-2x"> </span>',' <span class = "fas fa-chevron-right fa-2x" > </span>'],
-          });
-  </script>
+    $(document).ready(function() {
+        $('.carousel-main').owlCarousel({
+            items: 4,
+            loop: false,
+            autoplay: false, // Set autoplay to true
+            autoplayTimeout: 5000,
+            margin: 10,
+            nav: true,
+            dots: false,
+            navText: ['<span class="fas fa-chevron-left fa-2x"></span>', '<span class="fas fa-chevron-right fa-2x"></span>']
+        });
+    });
+</script>
+
 <!-- <script>
     // jQuery script to set the width of tables to 100%
     $(document).ready(function() {

@@ -386,7 +386,7 @@ include 'includes/headertag.php';
     </div>
 </section>
 
-
+<!-- 
     <div class="modal fade" id="get_OTP_btn" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -412,7 +412,6 @@ include 'includes/headertag.php';
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> -->
                     <button type="button" class="btn btn-success" id="Verify"onclick="verifyotp()">Verify</button>
                 </div>
             </div>
@@ -443,11 +442,10 @@ include 'includes/headertag.php';
                 </div>
                 <div class="modal-footer">
                     <button type="button"  id="got_it_btn "class="btn btn-secondary"data-bs-dismiss="modal">Close</button>
-                    <!-- <button type="button" class="btn btn-danger" id="got_it_btn">Got It</button> -->
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
 
 <?php
     include 'includes/footer.php';

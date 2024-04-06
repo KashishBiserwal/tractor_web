@@ -109,24 +109,7 @@
                         </div>
                     </div>
                 </div>
-                <!-- <div class="scrollbar mb-3" id="">
-                    <div class="force-overflow">
-                    <h5 class=" ps-1 text-dark fw-bold pt-2">Search By HP</h5>
-                        <div class="HP py-2">
-                            <input type="checkbox" class="checkbox-round mt-1 ms-3 hp_checkbox" value="0 - 20"/><span class="ps-2 fs-6">0 HP - 20 HP</span><br />
-                            <input type="checkbox" class="checkbox-round mt-1 ms-3 hp_checkbox" value="21 - 30"/><span class="ps-2 fs-6">21 HP - 30 HP</span><br />
-                            <input type="checkbox" class="checkbox-round mt-1 ms-3 hp_checkbox" value="31 - 40"/><span class="ps-2 fs-6">31 HP - 40 HP</span><br />
-                            <input type="checkbox" class="checkbox-round mt-1 ms-3 hp_checkbox" value="41 - 50"/><span class="ps-2 fs-6">41 HP - 50 HP</span><br />
-                            <input type="checkbox" class="checkbox-round mt-1 ms-3 hp_checkbox" value="51 - 60"/><span class="ps-2 fs-6">51 HP - 60 HP</span><br />
-                            <input type="checkbox" class="checkbox-round mt-1 ms-3 hp_checkbox" value="61 - 70"/><span class="ps-2 fs-6">61 HP - 70 HP</span><br />
-                            <input type="checkbox" class="checkbox-round mt-1 ms-3 hp_checkbox" value="71 - 80"/><span class="ps-2 fs-6">71 HP - 80 HP</span><br />
-                            <input type="checkbox" class="checkbox-round mt-1 ms-3 hp_checkbox" value="81 - 90"/><span class="ps-2 fs-6">81 HP - 90 HP</span><br />
-                            <input type="checkbox" class="checkbox-round mt-1 ms-3 hp_checkbox" value="91 - 100"/><span class="ps-2 fs-6">91 HP - 100 HP</span><br />
-                            <input type="checkbox" class="checkbox-round mt-1 ms-3 hp_checkbox" value="101 - 110"/><span class="ps-2 fs-6">101 HP - 110 HP</span><br />
-                            <input type="checkbox" class="checkbox-round mt-1 ms-3 hp_checkbox" value="111 - 120"/><span class="ps-2 fs-6">111 HP - 120 HP</span><br />
-                        </div>
-                    </div>
-                </div> -->
+              
                 <div class="scrollbar mb-3" id="my-2">
                     <div class="force-overflow">
                         <h5 class="ps-1 text-dark fw-bold pt-2">Search By Year</h5>
@@ -139,7 +122,6 @@
         </div>
     </div>
 </section>
-
 <section class="bg-light">
     <div class="container mt-4 ">
         <div class="col-12 assured mt-3">
@@ -201,7 +183,7 @@
     </div>
 </section>
 
-    <div class="modal fade" id="get_OTP_btn" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <!-- <div class="modal fade" id="get_OTP_btn" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header bg-success">
@@ -211,7 +193,7 @@
                 <div class="modal-body">
                     <form id="otp_form">
                         <div class=" col-12 input-group">
-                        <div class="col-12" hidden>
+                            <div class="col-12" hidden>
                                 <label for="Mobile" class=" text-dark float-start pl-2">Munber</label>
                                 <input type="text" class="form-control text-dark" placeholder="Enter OTP" id="Mobile"name="Mobile">
                             </div>
@@ -226,7 +208,6 @@
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> -->
                     <button type="button" class="btn btn-success" id="Verify">Verify</button>
                 </div>
             </div>
@@ -257,11 +238,10 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button"  id="got_it_btn "class="btn btn-secondary"data-bs-dismiss="modal">Close</button>
-                    <!-- <button type="button" class="btn btn-danger" id="got_it_btn">Got It</button> -->
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
 
 <?php
     include 'includes/footer.php';

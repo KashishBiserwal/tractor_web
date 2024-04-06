@@ -1,11 +1,21 @@
+
 var customer_id = "";
 var editId_state= false;
 $(document).ready(function() {
     $('#sub_btn_').click(store);
   get_rent_tractor_list();
   $('#Search').click(search_data);
-   
+  $("#Reset").click(function () {
+
+    $("#brandsearch").val("");
+    $("#modelsearch").val("");
+    $("#state_sct").val("");
+    $("#district_sct").val("");
+    window.location.reload();
+    
+    });
 });
+
 function formatPriceWithCommas(price) {
     if (isNaN(price)) {
         return price; 
@@ -39,7 +49,7 @@ function formatDateTime(originalDateTimeStr) {
             'Authorization': 'Bearer ' + localStorage.getItem('token')
         },
         success: function (response) {
-            const tableBody = document.getElementById('data-table');
+            const tableBody = document.getElementById('data-table-rent');
 
             if (response.rent_details && response.rent_details.data1 && response.rent_details.data1.length > 0) {
                 let mergedData = response.rent_details.data1.map(t1 => ({...t1, ...response.rent_details.data2.find(t2 => t2.customer_id === t1.id)}));
@@ -55,7 +65,7 @@ function formatDateTime(originalDateTimeStr) {
 
                 mergedData.forEach(row => {
                     counter++; // Increment counter for each row
-
+                    const fullName = row.first_name + ' ' + row.last_name;
                     let action = `
                         <div class="d-flex">
                             <button class="btn btn-warning btn-sm text-white mx-1" data-bs-toggle="modal" onclick="fetch_data(${row.customer_id});" data-bs-target="#rent_view_model">
@@ -70,11 +80,11 @@ function formatDateTime(originalDateTimeStr) {
                         </div>`;
 
                     tableData.push([
-                        counter, // Use counter as serial number
+                        counter, 
                         row.date,
                         row.brand_name,
                         row.model,
-                        row.first_name,
+                        fullName,
                         row.purchase_year,
                         row.state_name,
                         row.district_name,
@@ -90,7 +100,7 @@ function formatDateTime(originalDateTimeStr) {
                         { title: 'Date/Time' },
                         { title: 'Brand' },
                         { title: 'Model' },
-                        { title: 'Name' },
+                        { title: 'Full Name' },
                         { title: 'Purchase Year' },
                         { title: 'State' },
                         { title: 'district' },
@@ -172,6 +182,32 @@ function fetch_data(product_id) {
     });
 }
 
+function triggerFileInput(inputId) {
+    $('#' + inputId).trigger('click');
+}
+
+function displayImagePreview(input, previewId) {
+    var fileInput = $(input);
+    var preview = $("#" + previewId);
+    var currentRow = fileInput.closest("tr");
+
+    if (fileInput.get(0).files.length > 0) {
+        var reader = new FileReader();
+
+        reader.onload = function (e) {
+            preview.attr('src', e.target.result);
+            preview.show();
+            currentRow.find('.fas.fa-image').hide();
+        };
+
+        reader.readAsDataURL(fileInput.get(0).files[0]);
+    } else {
+        preview.hide();
+        currentRow.find('.fas.fa-image').show();
+    }
+}
+
+// Function to fetch and populate edit data
 function fetch_edit_data(customer_id) {
     console.log(customer_id, 'customer_id');
     var apiBaseURL = APIBaseURL;
@@ -189,10 +225,11 @@ function fetch_edit_data(customer_id) {
             
             var userData = response.rent_details.data1[0]; // Selecting first item from data1
             var userData2 = response.rent_details.data2; // Keeping data2 separate
-            // var formattedPrice = formatPriceWithCommas(userData2.rate);
             console.log('User Data:', userData);
             console.log('User Data 2:', userData2);
-            $('#idUser').val(userData.id);
+            
+            // Populating various form fields with retrieved data
+            $('#idUser').val(userData.customer_id);
             $('#enquiry_type_id').val(userData.enquiry_type_id);
             $('#implement_rent').val(userData2.rate);
             $('#workingRadius').val(userData.working_radius);
@@ -201,6 +238,7 @@ function fetch_edit_data(customer_id) {
             $('#mylname').val(userData.last_name);
             $('#mynumber').val(userData.mobile);
 
+            // Populating the brand dropdown
             var brandDropdown = document.getElementById('brand');
             for (var i = 0; i < brandDropdown.options.length; i++) {
               if (brandDropdown.options[i].text === userData.brand_name) {
@@ -208,6 +246,8 @@ function fetch_edit_data(customer_id) {
                 break;
               }
             }
+
+            // Populating the model dropdown
             $('#model_main').empty(); 
             get_model_1(userData.brand_id); 
 
@@ -215,67 +255,83 @@ function fetch_edit_data(customer_id) {
                 $("#model_main option").prop("selected", false);
                 $("#model_main option[value='" + userData.model + "']").prop("selected", true);
             }, 1000);
-            var brandDropdown1 = document.getElementById('impType_0');
-            for (var i = 0; i < brandDropdown1.options.length; i++) {
-              if (brandDropdown1.options[i].text === userData2.category_name) {
-                brandDropdown1.selectedIndex = i;
-                break;
-              }
-            }
-            $("#impRatePer_0 option").prop("selected", false);
-            $("#impRatePer_0 option[value='" + userData.rate_per + "']").prop("selected", true);
 
+            // Populating other dropdowns and inputs
             $("#year_main option").prop("selected", false);
             $("#year_main option[value='" + userData.purchase_year + "']").prop("selected", true);
-
             setSelectedOption('state_state', userData.state_id);
             setSelectedOption('dist_district', userData.district_id);
-            
             populateTehsil(userData.district_id, 'tehsil-dropdown', userData.tehsil_id);
-            var tableBody = $('#rentTractorTable tbody');
-            tableBody.empty(); 
+
+            // Function to update table rows with user data
+            function updateTableRows(userData2) {
+                var tableBody = $('#rentTractorTable tbody');
+                tableBody.empty();
             
-            userData2.forEach(function(item, index) {
-                var formattedRate = formatPriceWithCommas(item.rate); // Format rate with commas
-                var imageUrl = 'http://tractor-api.divyaltech.com/uploads/rent_img/' + item.images.trim(); // Concatenate the base URL with the image filename
-                var row = '<tr>' +
-                    '<td>' + (index + 1) + '</td>' +
-                    '<td>' +
-                    '<div class="card upload-img-wrap">' +
-                    '<img src="' + imageUrl + '" alt="Image" class="img-thumbnail">' + // Use the imageUrl variable here
-                    '</div>' +
-                    '</td>' +
-                    '<td>' +
-                    '<div class="select-wrap">' +
-                    '<select name="imp_type_id[]" id="impType_' + index + '" class="form-control implement-type-input">' +
-                    '<option value="' + item.id + '">' + item.category_name + '</option>' +
-                    '</select>' +
-                    '</div>' +
-                    '</td>' +
-                    '<td>' +
-                    '<input type="text" name="implement_rate[]" id="implement_rent_' + index + '" class="form-control implement-rate-input" maxlength="10" placeholder="e.g- 1,500" value="' + formattedRate + '">' +
-                    '</td>' +
-                    '<td>' +
-                    '<div class="select-wrap">' +
-                    '<select name="rate_per[]" id="impRatePer_' + index + '" class="form-control implement-unit-input">' +
-                    '<option value="' + item.rate_per + '">' + item.rate_per + '</option>' +
-                    '</select>' +
-                    '</div>' +
-                    '</td>' +
-                    '<td>' +
-                    '<button type="button" class="btn btn-danger" title="Remove Row" onclick="removeRow(this)">' +
-                    '<i class="fas fa-minus"></i>' +
-                    '</button>' +
-                    '</td>' +
-                    '</tr>';
+                userData2.forEach(function(item, index) {
+                    var formattedRate = formatPriceWithCommas(item.rate);
+                    var imageUrl = 'http://tractor-api.divyaltech.com/uploads/rent_img/' + item.images.trim();
+                    var row = '<tr>' +
+                        '<td>' + (index + 1) + '</td>' +
+                        '<td>' +
+                        '<div class="card upload-img-wrap" id="imageDiv_' + index + '">' +
+                        '<img src="' + imageUrl + '" alt="Image" class="img-thumbnail image-clickable" id="image_' + index + '">' +
+                        '</div>' +
+                        '<input type="file" name="imp_' + index + '" id="impImage_0' + index + '" class="image-file-input" accept="image/*" style="display: none;" onchange="displayImagePreview(this, \'impImagePreview_' + index + '\')" required>' +
+                        '</td>' +
+                        '<td>' +
+                        '<div class="select-wrap">' +
+                        '<select name="imp_type_id[]" id="impType_0' + index + '" class="form-control implement-type-input">' +
+                        '<option value="' + item.id + '">' + item.category_name + '</option>' +
+                        '</select>' +
+                        '</div>' +
+                        '</td>' +
+                        '<td>' +
+                        '<input type="text" name="implement_rate[]" id="implement_rent_0' + index + '" class="form-control implement-rate-input" maxlength="10" placeholder="e.g- 1,500" value="' + formattedRate + '">' +
+                        '</td>' +
+                        '<td>' +
+                        '<div class="select-wrap">' +
+                        '<select name="rate_per[]" id="impRatePer_0' + index + '" class="form-control implement-unit-input">' +
+                        '<option value="' + item.rate_per + '">' + item.rate_per + '</option>' +
+                        '</select>' +
+                        '</div>' +
+                        '</td>' +
+                        '<td>' +
+                        '<button type="button" class="btn btn-danger" title="Remove Row" onclick="removeRow(this)">' +
+                        '<i class="fas fa-minus"></i>' +
+                        '</button>' +
+                        '</td>' +
+                        '</tr>';
             
-                tableBody.append(row);
-            });
+                    tableBody.append(row);
+                    
+                    // Attach event listener to image to trigger file input
+                    $('#image_' + index).click(function() {
+                        $('#impImage_0' + index).click();
+                    });
+                });
+            }
+            
+            // Call the function with the appropriate data
+            updateTableRows(userData2);
         },
         error: function(error) {
             console.error('Error fetching user data:', error);
         }
     });
+}
+
+function displayImagePreview(input, imagePreviewId) {
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+
+        reader.onload = function (e) {
+            $('#' + imagePreviewId).attr('src', e.target.result); // Update the src attribute
+            $('#' + imagePreviewId).show(); // Show the image preview
+        };
+
+        reader.readAsDataURL(input.files[0]);
+    }
 }
 function setSelectedOption(selectId, value) {
     var select = document.getElementById(selectId);
@@ -319,7 +375,6 @@ function store(event) {
     var ratePerArray = [];
     var imageFilesArray = [];
 
-    // Iterate over each row in the table body
     $('#rentTractorTable tbody tr').each(function(index) {
         var row = $(this);
 
@@ -327,7 +382,7 @@ function store(event) {
         var rate = row.find('.implement-rate-input').val();
         rate = rate.replace(/[\,\.\s]/g, '');
         var ratePer = row.find('.implement-unit-input').val();
-        var image_names = row.find('.image-file-input')[0].files; // Assuming image input field class is .image-file-input
+        var image_names = row.find('.image-file-input')[0].files; 
 
         // Push data into arrays
         implementTypeArray.push(implement_type);
@@ -340,7 +395,27 @@ function store(event) {
         }
     });
 
-    // Create a FormData object
+    var apiBaseURL =APIBaseURL;
+    var token = localStorage.getItem('token');
+    var headers = {
+      'Authorization': 'Bearer ' + token
+    };
+
+    var _method = 'POST';
+   var url, method;
+   
+   console.log('edit state',editId_state);
+   if (customer_id!="" && customer_id!=" ") {
+       console.log(editId_state, "state");
+       _method = 'put';
+       url = apiBaseURL + 'customer_enquiries/' + customer_id ;
+       console.log(url);
+       method = 'POST'; 
+   } else {
+       // Add mode
+       url = apiBaseURL + 'customer_enquiries';
+       method = 'POST';
+   }
     var formData = new FormData();
 
     // Append form data
@@ -357,21 +432,20 @@ function store(event) {
     formData.append('district', district);
     formData.append('tehsil', tehsil);
     formData.append('message', about);
-    // Append arrays as JSON strings
     formData.append('implement_type_id', JSON.stringify(implementTypeArray));
     formData.append('rate', JSON.stringify(rateArray));
     formData.append('rate_per', JSON.stringify(ratePerArray));
 
-    // Append each image file
     for (var i = 0; i < imageFilesArray.length; i++) {
         formData.append('images[]', imageFilesArray[i]);
     }
 
     // Make an AJAX request to the server
     $.ajax({
-        url: 'http://tractor-api.divyaltech.com/api/customer/customer_enquiries',
-        type: 'POST',
+        url: url,
+        type: method,
         data: formData,
+        headers: headers,
         processData: false,
         contentType: false,
         success: function(result) {
@@ -697,46 +771,48 @@ function getSearchBrand() {
   function updateTable(data) {
     console.log('Received data:', data);
 
-    const tableBody = document.getElementById('data-table');
+    const tableBody = document.getElementById('data-table-rent');
     console.log('Table body:', tableBody);
 
     tableBody.innerHTML = '';
-    let serialNumber = 1;
 
     if (data.rent_details && Object.keys(data.rent_details).length > 0) {
         let tableData = [];
+        let counter = 0;
         Object.values(data.rent_details).forEach(row => {
             console.log('Processing row:', row);
 
-            let formattedDate = row.date ? formatDateTime(row.date) : 'Invalid Date';
-            console.log('Formatted date:', formattedDate);
+            // Check if all required fields have values
+            if (row.date && row.brand_name && row.model && row.first_name && row.purchase_year && row.state_name && row.district_name) {
+                let formattedDate = row.date ? formatDateTime(row.date) : 'Invalid Date';
+                console.log('Formatted date:', formattedDate);
+                counter++;
+                const fullName = row.first_name + ' ' + row.last_name;
+                let action = `<div class="d-flex">
+                            <button class="btn btn-warning btn-sm text-white mx-1" data-bs-toggle="modal" onclick="fetch_data(${row.customer_id});" data-bs-target="#rent_view_model">
+                                <i class="fa-solid fa-eye" style="font-size: 11px;"></i>
+                            </button>
+                            <button class="btn btn-primary btn-sm btn_edit" onclick="fetch_edit_data(${row.customer_id});" data-bs-toggle="modal" data-bs-target="#staticBackdrop" id="yourUniqueIdHere" style="padding:5px">
+                                <i class="fas fa-edit" style="font-size: 11px;"></i>
+                            </button>
+                            <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.customer_id});" style="padding:5px">
+                                <i class="fa fa-trash" style="font-size: 11px;"></i>
+                            </button>
+                        </div>`;
+                console.log('Action:', action);
 
-            let action = `<div class="d-flex">
-                <button class="btn btn-warning btn-sm text-white mx-1" data-bs-toggle="modal" onclick="fetch_data(${row.id});" data-bs-target="#rent_view_model">
-                    <i class="fa-solid fa-eye" style="font-size: 11px;"></i>
-                </button>
-                <button class="btn btn-primary btn-sm btn_edit" onclick="fetch_edit_data(${row.id});" data-bs-toggle="modal" data-bs-target="#staticBackdrop" id="yourUniqueIdHere" style="padding:5px">
-                    <i class="fas fa-edit" style="font-size: 11px;"></i>
-                </button>
-                <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.id});" style="padding:5px">
-                    <i class="fa fa-trash" style="font-size: 11px;"></i>
-                </button>
-            </div>`;
-            console.log('Action:', action);
-
-            tableData.push([
-                serialNumber,
-                formattedDate,
-                row.brand_name,
-                row.model,
-                row.first_name,
-                row.purchase_year || '', 
-                row.state_name || '',
-                row.district_name || '', 
-                action
-            ]);
-
-            serialNumber++;
+                tableData.push([
+                    counter,
+                    formattedDate,
+                    row.brand_name,
+                    row.model,
+                    fullName,
+                    row.purchase_year,
+                    row.state_name,
+                    row.district_name,
+                    action
+                ]);
+            }
         });
 
         console.log('Table data:', tableData);
@@ -751,11 +827,11 @@ function getSearchBrand() {
                 { title: 'Date/Time' },
                 { title: 'Brand' },
                 { title: 'Model' },
-                { title: 'Name' },
+                { title: 'Full Name' },
                 { title: 'Purchase Year' },
                 { title: 'State' },
                 { title: 'District' },
-                { title: 'Action', orderable: true }
+                { title: 'Action', orderable: false }
             ],
             paging: true,
             searching: false
@@ -768,6 +844,7 @@ function getSearchBrand() {
         console.log('No valid data available');
     }
 }
+
 
 
 function resetFormFields(isAddOperation){
