@@ -15,15 +15,17 @@ function updateUI() {
     } else {
         loginButton.style.display = "block";
         myAccountDropdown.style.display = "none";
-        redirectToLoginPage(); // Add this line to check for token expiration
+        
+        // Check if token expired or 401 error
+        if (localStorage.getItem('token_customer_expired') || localStorage.getItem('token_customer_error') === '401') {
+            // Logout user
+            user_logout();
+            // Redirect to index page
+            window.location.href = "index.php";
+        }
     }
-}   
+} 
 
-function redirectToLoginPage() {
-    if (!localStorage.getItem('token_customer')) {
-        window.location.href = "user-login.php";
-    }
-}
 function user_logout() {
     var url = "http://tractor-api.divyaltech.com/api/customer/customer_logout";
     var phone = localStorage.getItem('mobile');
