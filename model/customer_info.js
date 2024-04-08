@@ -547,9 +547,9 @@ function getuserdetail(id) {
                 document.getElementById('lastname').value = data.customerData[0].last_name;
                 document.getElementById('phone').value = data.customerData[0].mobile;
                 // document.getElementById('email').value = data.customerData[0].email;
-                document.getElementById('state').value = data.customerData[0].state_name;
-                document.getElementById('district').value = data.customerData[0].district_name;   
-                document.getElementById('tehsil').value = data.customerData[0].tehsil_name;
+                document.getElementById('state').value = data.customerData[0].state;
+                document.getElementById('district').value = data.customerData[0].district;   
+                document.getElementById('tehsil').value = data.customerData[0].tehsil;
             }
         },
         error: function (error) {

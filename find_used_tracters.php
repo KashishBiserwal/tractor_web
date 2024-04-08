@@ -135,7 +135,7 @@
                                         <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-4">
                                             <div class="form-outline">
                                                 <label for="brand" class="form-label">Brand</label>
-                                                <select class="form-select mb-2 brand_select" name="brand[]" required>
+                                                <select class="form-select mb-2 brand_select" name="brand[]" id="multibrand"required>
                                                     <option selected disabled value="">Please select a brand</option>
                                                 </select>
                                             </div>
@@ -144,8 +144,7 @@
                                         <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-4">
                                             <div class="form-outline">
                                                 <label for="model" class="form-label">Model</label>
-                                                <select class="form-select mb-2 model_select" name="model[]" required>
-                                                    <!-- <option selected disabled value="">Please select a model</option> -->
+                                                <select class="form-select mb-2 model_select" name="model[]"id="multimodel" required>
                                                 </select>
                                             </div>
                                         </div>
@@ -176,46 +175,17 @@
         </div>
         </div>
     </section>
-    <section style="display: block;" id="section-2">
+<section style="display: block;" id="section-2">
         <div class="container" >
             <div class="row my-3">
                 <div id="productContainer" class="row">
-
+                    <h5 id="noDataMessage" class="text-center mt-4 text-danger" style="display: none;">
+                    <img src="assets/images/404.gif" class="w-25" alt=""></br>Data not found..!</h5>
                 </div>
             </div>
         </div>
-    </section>
-                <!-- OPT Model -->
-    <div class="modal fade" id="get_OTP_btn" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header bg-success">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Verify Your OTP</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><img src="assets/images/close.png" class=" w-100"></button>
-                </div>
-                <div class="modal-body">
-                    <form id="otp_form">
-                        <div class=" col-12 input-group">
-                        <div class="col-12" hidden>
-                                <label for="Mobile" class=" text-dark float-start pl-2">Enter OTP</label>
-                                <input type="text" class="form-control text-dark" placeholder="Enter OTP" id="Mobile"name="Mobile">
-                            </div>
-                            <div class="col-12">
-                                <label for="Mobile" class=" text-dark float-start pl-2">Enter OTP</label>
-                                <input type="text" class="form-control text-dark" placeholder="Enter OTP" id="otp1"name="opt_1">
-                            </div>
-                            <div class="float-end col-12">
-                                <a href="" class="float-end">Resend OTP</a>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-success" id="Verify">Verify</button>
-                </div>
-            </div>
-        </div>
-    </div>
+</section>
+            
    
     <section class="bg-light">
         <div class="container">
@@ -453,42 +423,67 @@
         </div>
     </section>
 
-   
+     <!-- OPT Model -->
+  <div class="modal fade" id="get_OTP_btn" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header bg-success">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Verify Your OTP</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><img src="assets/images/close.png" class=" w-100"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="otp_form">
+                        <div class=" col-12 input-group">
+                        <div class="col-12" hidden>
+                                <label for="Mobile" class=" text-dark float-start pl-2">Enter OTP</label>
+                                <input type="text" class="form-control text-dark" placeholder="Enter OTP" id="Mobile"name="Mobile">
+                            </div>
+                            <div class="col-12">
+                                <label for="Mobile" class=" text-dark float-start pl-2">Enter OTP</label>
+                                <input type="text" class="form-control text-dark" placeholder="Enter OTP" id="otp1"name="opt_1">
+                            </div>
+                            <div class="float-end col-12">
+                                <a href="" class="float-end">Resend OTP</a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success" id="Verify">Verify</button>
+                </div>
+            </div>
+        </div>
+    </div>
     
 
     <?php
     include 'includes/footer.php';
 
     ?>
-    <script>
- document.addEventListener('DOMContentLoaded', function() {
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
     var formContainer = document.getElementById('add_more');
     var addMoreBtn = document.querySelector('.add-more-btn');
     var maxClones = 2; // Set the maximum number of clones
     var cloneCount = 0; // Initialize clone count
 
-    // Initialize event listeners for the initial brand and model dropdowns
     var initialBrandSelect = formContainer.querySelector('.brand_select');
     var initialModelSelect = formContainer.querySelector('.model_select');
 
     initialBrandSelect.addEventListener('change', function() {
         var selectedBrandId = this.value;
         get_model(selectedBrandId, initialModelSelect);
-        // Enable model dropdown when a brand is selected
         initialModelSelect.disabled = false;
     });
 
-    // Disable the initial model dropdown
     initialModelSelect.disabled = true;
 
-    // Fetch brands for the initial brand dropdown
     get_brands(initialBrandSelect);
 
     addMoreBtn.addEventListener('click', function() {
-        if (cloneCount < maxClones) { // Check if the limit is reached
+        if (cloneCount < maxClones) {
             var clonedFields = formContainer.firstElementChild.cloneNode(true);
-
-            // Clear values in cloned fields
             var selects = clonedFields.querySelectorAll('select');
             selects.forEach(function(select) {
                 select.selectedIndex = 0;
@@ -498,26 +493,21 @@
 
             cloneCount++;
 
-            // Hide the "Add More" button when the limit is reached
             if (cloneCount === maxClones) {
                 addMoreBtn.style.display = 'none';
             }
 
-            // Initialize event listeners for brand and model dropdowns in the newly added section
             var brandSelect = clonedFields.querySelector('.brand_select');
             var modelSelect = clonedFields.querySelector('.model_select');
 
             brandSelect.addEventListener('change', function() {
                 var selectedBrandId = this.value;
                 get_model(selectedBrandId, modelSelect);
-                // Enable model dropdown when a brand is selected
                 modelSelect.disabled = false;
             });
 
-            // Disable the model dropdown initially for the new section
             modelSelect.disabled = true;
 
-            // Fetch brands for the new brand dropdown
             get_brands(brandSelect);
         }
     });
@@ -567,7 +557,7 @@
             closeOnSelect: false,
         });
     });
-    </script>
+</script>
 
 
     </script>
@@ -616,8 +606,11 @@
     });
 });
 </script>
-
-
-</body>
-
+<script>
+    $(document).ready(function() {
+    $("#PING_IFRAME_FORM_DETECTION").remove();
+    
+    $(".modal-backdrop.fade.show").remove();
+});
+</script>
 </html>

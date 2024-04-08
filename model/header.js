@@ -1,28 +1,31 @@
 // Check if user is logged in initially based on some condition
 var loggedIn = checkLoggedInStatus();
 
-// Function to check if user is logged in
 function checkLoggedInStatus() {
     return (localStorage.getItem('token_customer') !== null);
 }
 
-// Function to update UI based on loggedIn status
 function updateUI() {
     var loginButton = document.getElementById("loginButton");
     var myAccountDropdown = document.getElementById("myAccountDropdown");
 
     if (loggedIn) {
-        // User is logged in, hide login button and show my account dropdown
         loginButton.style.display = "none";
         myAccountDropdown.style.display = "block";
     } else {
-        // User is not logged in, show login button and hide my account dropdown
         loginButton.style.display = "block";
         myAccountDropdown.style.display = "none";
+        
+        // Check if token expired or 401 error
+        if (localStorage.getItem('token_customer_expired') || localStorage.getItem('token_customer_error') === '401') {
+            // Logout user
+            user_logout();
+            // Redirect to index page
+            window.location.href = "index.php";
+        }
     }
-}
+} 
 
-// Function to handle logout
 function user_logout() {
     var url = "http://tractor-api.divyaltech.com/api/customer/customer_logout";
     var phone = localStorage.getItem('mobile');
@@ -41,19 +44,17 @@ function user_logout() {
         data: paraArr,
         success: function(result) {
             console.log("Logout customer");
-            loggedIn = false; // Update loggedIn status after logout
-            localStorage.removeItem('token_customer'); // Remove token from localStorage
-            localStorage.removeItem('mobile'); // Remove mobile from localStorage
-            updateUI(); // Update UI after logout
-            window.location.href = "index.php"; // Redirect to index page
+            loggedIn = false; 
+            localStorage.removeItem('token_customer'); 
+            localStorage.removeItem('mobile');
+            updateUI();
+            window.location.href = "index.php"; 
         },
         error: function(error) {
             console.error('Error logging out:', error);
         }
     });
 }
-
-// Call updateUI function when the window loads
 window.onload = function() {
     updateUI();
 };

@@ -267,7 +267,7 @@ function store(event) {
         var rate = row.find('.implement-rate-input').val();
         rate = rate.replace(/[\,\.\s]/g, '');
         var ratePer = row.find('.implement-unit-input').val();
-        var image_names = row.find('.image-file-input')[0].files; // Assuming image input field class is .image-file-input
+        var image_names = row.find('.image-file-input')[0].files; 
 
         // Push data into arrays
         implementTypeArray.push(implement_type);
