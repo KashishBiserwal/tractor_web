@@ -235,13 +235,13 @@
               
                 </div>
               </div>
-                <div class="col text-center pb-4 mt-5">
+                <div class="col text-center pb-4 mt-2">
                   <a href="used_harvester.php" class="btn btn-success px-5">View all Old Harvester</a>
                 </div>
             </div>
         </div>
     </section>
-    <section class="section slider-section">
+    <!-- <section class="section slider-section">
 
         <div class="container ">
             <h3 class="assured px-2 fw-bold mt-4 mb-2">Similar Rent Tractor</h3>
@@ -250,11 +250,11 @@
                 
             </div>
         </div>
-    </section>
-    <div class="col-12 text-center mb-4 pt-2 ">
+    </section> -->
+    <!-- <div class="col-12 text-center mb-4 pt-2 ">
         <a href="hire.php"><button id="adduser"  type="button" class="add_btn btn btn-success">
                 <i class="fas fa-undo"></i> Load More tractors</button></a>
-    </div>
+    </div> -->
 
     <div class="container">
         <h4 class="fw-bold assured px-2">Quick Links</h4>

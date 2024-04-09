@@ -14,6 +14,14 @@ include 'includes/headertag.php';
     <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
     <script src="<?php $baseUrl; ?>model/State_dist_tehsil.js"></script>
 <body>
+    <style>
+           .text-truncate {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+   
+    }
+    </style>
    <?php
    include 'includes/header.php';
    ?>

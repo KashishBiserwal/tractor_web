@@ -18,6 +18,10 @@ function getProductById() {
         url: url,
         type: "GET",
         success: function(data) {
+
+        var userId = localStorage.getItem('id');
+            getUserDetail(userId);
+
         console.log(data, 'abc');
         document.getElementById('model_name').innerText = data.product.allProductData[0].brand_name + " " + data.product.allProductData[0].model;
         document.getElementsByClassName('brand_model')[0].innerText = data.product.allProductData[0].brand_name + " " + data.product.allProductData[0].model;
@@ -258,16 +262,17 @@ function displayPopularTractors(tractors, new_arr) {
     });
 }
 
+
 function store(event) {
     event.preventDefault();
     if (isUserLoggedIn()) {
         var isConfirmed = confirm("Are you sure you want to submit the form?");
         if (isConfirmed) {
             submitForm();
-            // $('#staticBackdrop').modal('show');
+            $('#staticBackdrop').modal('show');
         }
     } else {
-        var mobile = $('#mobile_number').val();
+        var mobile = $('#number').val();
         get_otp(mobile);
     }
 }
@@ -296,7 +301,7 @@ function get_otp(phone) {
 }
 
 function verifyotp() {
-    var mobile = $('#mobile_number').val();
+    var mobile = $('#number').val();
     var otp = $('#otp').val();
     var paraArr = {
         'otp': otp,
@@ -313,7 +318,7 @@ function verifyotp() {
             var isConfirmed = confirm("Are you sure you want to submit the form?");
             if (isConfirmed) {
                 submitForm();
-                // $('#staticBackdrop').modal('show');
+                $('#staticBackdrop').modal('show');
             }
         },
         error: function (xhr, textStatus, errorThrown) {
@@ -338,6 +343,7 @@ function verifyotp() {
 
 function submitForm() {
     // Gather form data
+    var enquiry_type_id = $('#enquiry_type_id').val();
     var enquiry_type_id = $('#enquiry_type_id').val();
     var product_type_id = $('#product_type_id').val()
     var product_id = $('#product_id').val();
@@ -385,4 +391,55 @@ function submitForm() {
         }
     });
 }
+
+
+function getUserDetail(id) {
+    var url = "http://tractor-api.divyaltech.com/api/customer/get_customer_personal_info_by_id/" + id;
+    console.log(url, 'url print ');
+
+    var headers = {
+        'Authorization': localStorage.getItem('token_customer')
+    };
+
+    $.ajax({
+        url: url,
+        type: "GET",
+        headers: headers,
+        success: function(response) {
+            console.log(response, "response");
+
+            // Check if customerData exists in the response and has at least one entry
+            if (response.customerData && response.customerData.length > 0) {
+                var customer = response.customerData[0];
+                console.log(customer, 'customer details');
+                
+                // Set values based on form ID (used_farm_inner_from)
+                $('#inner_brand_form #firstName').val(customer.first_name);
+                $('#inner_brand_form #lastName').val(customer.last_name);
+                $('#inner_brand_form #mobile_number').val(customer.mobile);
+                $('#inner_brand_form #state').val(customer.state);
+                $('#inner_brand_form #district').val(customer.district);
+                $('#inner_brand_form #Tehsil').val(customer.tehsil);
+                
+                // Disable fields if user is logged in
+                if (isUserLoggedIn()) {
+                    // Disable all input and select elements within the form
+                    $('#inner_brand_form input, #inner_brand_form select').not('#price').prop('disabled', true);
+                }
+                
+            }
+        },
+        error: function(error) {
+            console.error('Error fetching data:', error);
+        }
+    });
+}
+
+
+function isUserLoggedIn() {
+    return localStorage.getItem('token_customer') && localStorage.getItem('mobile') && localStorage.getItem('id');
+}
+
+
+
 

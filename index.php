@@ -92,11 +92,13 @@
                         <label class="form-label text-dark fw-bold">Select HP</label>
                         <select class="form-control" name="hp" id="hp"  required="">
                             <option value="" selected="">Select HP</option>
-                            <option value="64">39 HP</option>
-                            <option value="211">23 HP</option>
-                            <option value="56">45 HP</option>
-                            <option value="60">31 HP</option>
-                            <option value="75">36 HP</option>
+                            <option value="0 - 20">0 HP - 20 HP</option>
+                            <option value="21 - 30">21 HP - 30 HP</option>
+                            <option value="31 - 40">31 HP - 40 HP</option>
+                            <option value="41 - 50">41 HP - 50 HP</option>
+                            <option value="51 - 60">51 HP - 60 HP</option>
+                            <option value="61 - 70">61 HP - 75 HP</option>
+                            <option value="71 - 80">Above 75 Hp </option>
                         </select>
                     </div>
                   </div>
@@ -104,11 +106,11 @@
                     <div class="">
                         <label class="form-label text-dark fw-bold">Select Brand</label>
                         <select class="form-control" name="brand" id="brand"  required="">
-                            <option value="" selected="">Select Brand</option>
+                            <!-- <option value="" selected="">Select Brand</option>
                             <option value="64">Mahindra</option>
                             <option value="211">Hindustan</option>
                             <option value="56">Force</option>
-                            <option value="60">John Deere</option>
+                            <option value="60">John Deere</option> -->
                         </select>
                     </div>
                   </div>
@@ -117,9 +119,10 @@
                         <label class="form-label text-dark fw-bold">Select Price</label>
                         <select class="form-control" name="price" id="price"  required="">
                             <option value="" selected="">Select Price</option>
-                            <option value="64">20000</option>
-                            <option value="211">1000000</option>
-                            <option value="56">1200000</option>
+                            <option value="0 - 3">0 Lakh - 3 Lakh</option>
+                            <option value="3 - 6">3 Lakh - 6 Lakh</option>
+                            <option value="6 - 9">6 Lakh - 9 Lakh</option>
+                            <option value="9 - 12">9 Lakh - 12 Lakh</option>
                         </select>
                     </div>
                   </div>
@@ -136,7 +139,7 @@
     <!-- banner end here -->
     <section class="why_head bg-white">
       <div class=" container">
-        <h2 class="text-dark  display-6 pt-4 mb-0 fw-bold text-center">Why <span class="text-success">Tractor Junction ?</span>
+        <h2 class="text-dark  display-6 pt-4 mb-0 fw-bold text-center">Why <span class="text-success">Bharat Agrimart?</span>
         </h2>
         <div class="container">
           <div class="row my-4 pt-3">

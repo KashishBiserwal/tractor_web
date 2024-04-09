@@ -260,8 +260,11 @@ function displayTractors(productContainer, tractors) {
         }
         
         var cardId = `card_${p.product_id}`; // Dynamic ID for the card
-        var modalId = `used_tractor_callbnt_${p.product_id}`; // Dynamic ID for the modal
+        var modalId = `used_tractor_callbnt_${p.product_id}`; 
+        var modalId_2 = `staticBackdrop_${p.product_id}`; 
         var formId = `contact-seller-call_${p.product_id}`;
+        var userId = localStorage.getItem('id');
+        getUserDetail(userId, formId);
 
         var newCard = `
             <div class="col-12 col-lg-3 col-md-3 col-sm-3 mb-3 mt-4" id="${cardId}">
@@ -276,7 +279,7 @@ function displayTractors(productContainer, tractors) {
                     <div class="content d-flex flex-column flex-grow-1">
                         <div class="caption text-center">
                             <a href="detail_tractor.php?product_id=${p.product_id}" class="text-decoration-none text-dark">
-                                <h4 class="text-center mt-2 text-capitalize">${p.brand_name} ${p.model}</h4>
+                                <h6 class="text-center text-truncate mt-2 text-capitalize">${p.brand_name} ${p.model}</h6>
                             </a>     
                         </div>
                         <div class="d-flex mx-auto" style="gap: 25px;">
@@ -364,7 +367,71 @@ function displayTractors(productContainer, tractors) {
                         </div>
                     </div>
                 </div>
-            </div>`;
+            </div>
+            
+            <div class="modal fade" id="get_OTP_btn" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header bg-success">
+                        <h1 class="modal-title fs-5 text-white" id="exampleModalLabel">Verify Your OTP</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><img src="assets/images/close.png" class=" w-100"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="otp_form">
+                            <div class=" col-12 input-group">
+                                <div class="col-12" hidden>
+                                    <label for="Mobile" class=" text-dark float-start pl-2">Number</label>
+                                    <input type="text" class="form-control text-dark" placeholder="Enter OTP" id="Mobile"name="Mobile">
+                                </div>
+                                <div class="col-12">
+                                    <label for="Mobile" class=" text-dark float-start pl-2">Enter OTP</label>
+                                    <input type="text" class="form-control text-dark" placeholder="Enter OTP" id="otp"name="opt_1">
+                                </div>
+                                <div class="float-end col-12">
+                                    <a href="" class="float-end">Resend OTP</a>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-success" id="Verify" onclick="verifyotp('${formId}')">Verify</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <div class="modal fade" id="${modalId_2}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="staticBackdropLabel">Contact Seller</h5>
+                        <button type="button" class="btn-close btn-success" data-bs-dismiss="modal" aria-label="Close"><img src="assets/images/close.png"class="w-25"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="model-cont">
+                            <h4 class="text-center text-danger">Seller Information</h3>
+                            <div class="row px-3 py-2">
+                                <div class="col-12  col-sm-12 col-md-6 col-lg-6 ">
+                                    <label for="slr_name"class="form-label fw-bold text-dark"><i class="fa-regular fa-user"></i>Seller Name</label>
+                                    <input type="text" class="form-control" id="saller_name" value="${p.tractor_type_name}">
+                                </div>
+                                <div class="col-12 col-sm-12 col-md-6 col-lg-6  ">
+                                    <label for="number"class="form-label text-dark fw-bold"><i class="fa fa-phone"aria-hidden="true"></i>Phone Number</label>
+                                    <input type="text" class="form-control" id="mobile_num" value="${p.mobile}">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button"  id="got_it_btn "class="btn btn-secondary"data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+            
+            `;
+
+            
         productContainer.append(newCard);
      
     });
@@ -379,63 +446,140 @@ function displayTractors(productContainer, tractors) {
 });
 // Call the functions
 
-function populateDropdowns() {
-    var stateDropdowns = document.querySelectorAll('.state-dropdown');
-    var districtDropdowns = document.querySelectorAll('.district-dropdown');
-    var tehsilDropdowns = document.querySelectorAll('.tehsil-dropdown');
 
-    var defaultStateId = 7; // Define the default state ID here
-
-    var selectYourStateOption = '<option value="">Select Your State</option>';
-    var chhattisgarhOption = `<option value="${defaultStateId}">Chhattisgarh</option>`;
-
-    stateDropdowns.forEach(function (dropdown) {
-        dropdown.innerHTML = selectYourStateOption + chhattisgarhOption;
-
-        // Fetch district data based on the selected state
-        $.get(`http://tractor-api.divyaltech.com/api/customer/get_district_by_state/${defaultStateId}`, function(data) {
-            var districtSelect = dropdown.closest('.row').querySelector('.district-dropdown');
-            districtSelect.innerHTML = '<option value="">Please select a district</option>';
-            data.districtData.forEach(district => {
-                districtSelect.innerHTML += `<option value="${district.id}">${district.district_name}</option>`;
-            });
-        });
-    });
-
-    // Event listener for district dropdown
-    districtDropdowns.forEach(function (dropdown) {
-        dropdown.addEventListener('change', function() {
-            var selectedDistrictId = this.value;
-            var tehsilSelect = this.closest('.row').querySelector('.tehsil-dropdown');
-            if (selectedDistrictId) {
-                // Fetch tehsil data based on the selected district
-                $.get(`http://tractor-api.divyaltech.com/api/customer/get_tehsil_by_district/${selectedDistrictId}`, function(data) {
-                    tehsilSelect.innerHTML = '<option value="">Please select a tehsil</option>';
-                    data.tehsilData.forEach(tehsil => {
-                        tehsilSelect.innerHTML += `<option value="${tehsil.id}">${tehsil.tehsil_name}</option>`;
-                    });
-                });
-            } else {
-                tehsilSelect.innerHTML = '<option value="">Please select a district first</option>';
-            }
-        });
-    });
-}
 
 function resetForm(formId) {
     // Reset the form by using its ID
     document.getElementById(formId).reset();
 }
+
+
+
+var formData = {};
+
 function savedata(formId) {
-    submit_enquiry(formId);
-    console.log("Form submitted successfully");
+    if (isUserLoggedIn()) {
+        var isConfirmed = confirm("Are you sure you want to submit the form?");
+        if (isConfirmed) {
+            submitData(formId);
+            // openSellerContactModal(formDataToSubmit)
+        }
+    } else {
+        formData = collectFormData(formId);
+        var mobile = formData.mobile;
+        sendOTP(mobile);
+        console.log("OTP Sent successfully");
+    }
+}
+
+function isUserLoggedIn() {
+    return localStorage.getItem('token_customer') && localStorage.getItem('mobile') && localStorage.getItem('id');
+}
+
+function sendOTP(mobile) {
+    var url = "http://tractor-api.divyaltech.com/api/customer/customer_login";
+    var paraArr = {
+        'mobile': mobile,
+    };
+    var isConfirmed = confirm("Are you sure you want to delete this data?");
+    if (!isConfirmed) {
+        return;
+    }
+    $.ajax({
+        url: url,
+        type: "POST",
+        data: paraArr,
+        success: function (result) {
+            console.log(result, "result");
+            $('#Mobile').val(mobile);
+            openOTPModal();
+        },
+        error: function (error) {
+            console.error('Error fetching data:', error);
+        }
+    });
+}
+
+function openOTPModal() {
+    $('#get_OTP_btn').modal('show');
+}
+
+function verifyotp(formId) {
+    var mobile = document.getElementById('Mobile').value;
+    var otp = document.getElementById('otp').value;
+
+    var paraArr = {
+        'otp': otp,
+        'mobile': mobile,
+        'enquiry_type_id': formData.enquiry_type_id,
+        'first_name': formData.first_name,
+        'last_name': formData.last_name,
+        'state': formData.state,
+        'district': formData.district,
+        'tehsil': formData.tehsil,
+        'product_id': formData.product_id,
+        'model': formData.model,
+    };
+
+    var url = 'http://tractor-api.divyaltech.com/api/customer/verify_otp';
+    $.ajax({
+        url: url,
+        type: "POST",
+        data: paraArr,
+        success: function (result) {
+            console.log(result);
+            $('#get_OTP_btn').modal('hide');
+            submitData(formId); 
+        },
+        error: function (xhr, textStatus, errorThrown) {
+            console.log(xhr.status, 'error');
+            // Handle errors here
+        },
+    });
+}
+
+function submitData(formId) {
+    var url = "http://tractor-api.divyaltech.com/api/customer/customer_enquiries";
+    var formDataToSubmit = formData;
+    
+    // If user is logged in, use formData from parameter directly
+    if (isUserLoggedIn()) {
+        formDataToSubmit = collectFormData(formId);
+    }
+    
+    if (!formDataToSubmit.enquiry_type_id || !formDataToSubmit.mobile) {
+        console.error('Required fields are missing.');
+        return;
+    }
+    $.ajax({
+        url: url,
+        type: "POST",
+        data: formDataToSubmit, // Submit all form data
+        
+        success: function (result) {
+            console.log(result, "result");
+            var msg = "Added successfully !";
+            
+            $("#errorStatusLoading").modal('show');
+            $("#errorStatusLoading").find('.modal-title').html('<p class="text-center">Congratulation..! Requested Successful</p>');
+
+            $("#errorStatusLoading").find('.modal-body').html(msg);
+            $("#errorStatusLoading").find('.modal-body').html('<img src="assets/images/7efs.gif" style="display:block; margin:0 auto;" class="w-50 text-center" alt="Successfull Request"></img>');
+            // openSellerContactModal(formDataToSubmit);
+        },
+        error: function (error) {
+            console.error('Error fetching data:', error);
+            var msg = error;
+            $("#errorStatusLoading").modal('show');
+            // Handle errors here
+        }
+    });
 }
 
 
-function submit_enquiry(formId) {
-    console.log('fghjfghjfgh');
+function collectFormData(formId) {
     var product_id = $(`#${formId} #product_id`).val();
-    var product_type_id = $(`#${formId} #product_type_id`).val(); // Corrected variable name
+    var product_type_id = $(`#${formId} #product_type_id`).val(); 
     var firstName = $(`#${formId} #firstName`).val();
     var lastName = $(`#${formId} #lastName`).val();
     var mobile_number = $(`#${formId} #mobile_number`).val();
@@ -443,7 +587,8 @@ function submit_enquiry(formId) {
     var district = $(`#${formId} #district`).val();
     var Tehsil = $(`#${formId} #Tehsil`).val();
     var enquiry_type_id = $(`#${formId} #enquiry_type_id`).val();
-    var paraArr = {
+
+    var formData = {
         'product_id': product_id,
         'product_type_id': product_type_id,
         'first_name': firstName,
@@ -454,44 +599,54 @@ function submit_enquiry(formId) {
         'tehsil': Tehsil,
         'enquiry_type_id': enquiry_type_id,
     };
-    console.log(paraArr);
-    var url = 'http://tractor-api.divyaltech.com/api/customer/customer_enquiries';
 
-    var token = localStorage.getItem('token');
+    return formData;
+}
+
+function getUserDetail(id, formId) {
+    var url = "http://tractor-api.divyaltech.com/api/customer/get_customer_personal_info_by_id/" + id;
+    console.log(url, 'url print ');
+
     var headers = {
-        'Authorization': 'Bearer ' + token
+        'Authorization': localStorage.getItem('token_customer')
     };
+
     $.ajax({
         url: url,
-        type: 'POST',
-        data: paraArr,
-        // headers: headers, // Remove headers if not needed
-        success: function(result) {
-            console.log(result, "result");
-            // $(`#${formId}`).closest('.modal').modal('hide');
-            $("#used_tractor_callbnt_").modal('hide');
-            var msg = "Added successfully !"
-            $("#errorStatusLoading").modal('show');
-            $("#errorStatusLoading").find('.modal-title').html('<p class="text-center">Congratulation..! Requested Successful</p>');
+        type: "GET",
+        headers: headers,
+        success: function(response) {
+            console.log(response, "response");
 
-            $("#errorStatusLoading").find('.modal-body').html(msg);
-            $("#errorStatusLoading").find('.modal-body').html('<img src="assets/images/7efs.gif" style="display:block; margin:0 auto;" class="w-50 text-center" alt="Successfull Request"></img>');
-
-            // getOldTractorById();
-            console.log("Add successfully");
-            resetForm(formId);
+            // Check if customerData exists in the response and has at least one entry
+            if (response.customerData && response.customerData.length > 0) {
+                var customer = response.customerData[0];
+                console.log(customer, 'customer details');
+                
+                // Set values based on formId
+                $('#' + formId + ' #firstName').val(customer.first_name);
+                $('#' + formId + ' #lastName').val(customer.last_name);
+                $('#' + formId + ' #mobile_number').val(customer.mobile);
+                $('#' + formId + ' #state').val(customer.state);
+                $('#' + formId + ' #district').val(customer.district);
+                $('#' + formId + ' #Tehsil').val(customer.tehsil);
+                
+                // Disable fields if user is logged in
+                if (isUserLoggedIn()) {
+                    $('#' + formId + ' input, #' + formId + ' select').prop('disabled', true);
+                }
+            }
         },
         error: function(error) {
             console.error('Error fetching data:', error);
-            var msg = error;
-            $("#errorStatusLoading").modal('show');
-            $("#errorStatusLoading").find('.modal-title').html('<p class="text-center">Process Failed..! Enter Valid Detail</p>');
-            $("#errorStatusLoading").find('.modal-body').html(msg);
-            $("#errorStatusLoading").find('.modal-body').html('<img src="assets/images/comp_3.gif" style="display:block; margin:0 auto;" class="w-50 text-center" alt="Successfull Request"></img>');
-            //
         }
     });
 }
+
+function isUserLoggedIn() {
+    return localStorage.getItem('token_customer') && localStorage.getItem('mobile') && localStorage.getItem('id');
+}
+
 
 function getusedTractorList() {
     var urlParams = new URLSearchParams(window.location.search);
@@ -585,7 +740,48 @@ function getusedTractorList() {
 
 
 
+function populateDropdowns() {
+    var stateDropdowns = document.querySelectorAll('.state-dropdown');
+    var districtDropdowns = document.querySelectorAll('.district-dropdown');
+    var tehsilDropdowns = document.querySelectorAll('.tehsil-dropdown');
 
+    var defaultStateId = 7; // Define the default state ID here
+
+    var selectYourStateOption = '<option value="">Select Your State</option>';
+    var chhattisgarhOption = `<option value="${defaultStateId}">Chhattisgarh</option>`;
+
+    stateDropdowns.forEach(function (dropdown) {
+        dropdown.innerHTML = selectYourStateOption + chhattisgarhOption;
+
+        // Fetch district data based on the selected state
+        $.get(`http://tractor-api.divyaltech.com/api/customer/get_district_by_state/${defaultStateId}`, function(data) {
+            var districtSelect = dropdown.closest('.row').querySelector('.district-dropdown');
+            districtSelect.innerHTML = '<option value="">Please select a district</option>';
+            data.districtData.forEach(district => {
+                districtSelect.innerHTML += `<option value="${district.id}">${district.district_name}</option>`;
+            });
+        });
+    });
+
+    // Event listener for district dropdown
+    districtDropdowns.forEach(function (dropdown) {
+        dropdown.addEventListener('change', function() {
+            var selectedDistrictId = this.value;
+            var tehsilSelect = this.closest('.row').querySelector('.tehsil-dropdown');
+            if (selectedDistrictId) {
+                // Fetch tehsil data based on the selected district
+                $.get(`http://tractor-api.divyaltech.com/api/customer/get_tehsil_by_district/${selectedDistrictId}`, function(data) {
+                    tehsilSelect.innerHTML = '<option value="">Please select a tehsil</option>';
+                    data.tehsilData.forEach(tehsil => {
+                        tehsilSelect.innerHTML += `<option value="${tehsil.id}">${tehsil.tehsil_name}</option>`;
+                    });
+                });
+            } else {
+                tehsilSelect.innerHTML = '<option value="">Please select a district first</option>';
+            }
+        });
+    });
+}
 
 
 

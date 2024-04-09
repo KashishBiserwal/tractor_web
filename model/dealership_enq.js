@@ -143,7 +143,9 @@ function get_harvester() {
                   <div class="col-6 p-0"> <p class="mb-0" style="font-size: 14px;">${p.horse_power} Hp</p></div>
                   <div class="col-6 p-0"> <p class="mb-0" style="font-size: 14px;">${p.crops_type_value}</p></div>
                 </div>
+                <a  href="harvester_inner.php?product_id=${p.id}" class="text-decoration-none fw-bold">
                 <button type="button" class="add_btn btn-success w-100 mt-3"><i class="fa-regular fa-handshake"></i> Get on Road Price</button>
+                </a>
               </div>
                
           
@@ -226,7 +228,9 @@ function get_oldharvester() {
                   <div class="col-6 p-0"> <p class="mb-0" style="font-size: 14px; "><span>Hours Driven: </span>${p.hours_driven}</p></div>
                   <div class="col-6 p-0"> <p class="mb-0" style="font-size: 14px;">${p.crops_type_value}</p></div>
                 </div>
+                <a  href="used_harvester_inner.php?id=${p.id}" class="text-decoration-none fw-bold">
                 <button type="button" class="add_btn btn-success w-100 mt-3"><i class="fa-regular fa-handshake"></i> Get on Road Price</button>
+                </a>
               </div>
                
           

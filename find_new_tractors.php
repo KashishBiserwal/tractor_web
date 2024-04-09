@@ -152,7 +152,7 @@ include 'includes/headertag.php';
     </div>
 </section>
 
-<section class="my-3">
+<!-- <section class="my-3">
     <div class="container my-5">
         <h3 class="fw-bold assured px-3 py-2">Best 35 HP Tractor in India</h3>
         <table class="table table-striped my-3">
@@ -166,7 +166,7 @@ include 'includes/headertag.php';
             </tbody>
         </table>
     </div>
-</section>
+</section> -->
 
 <section class="my-3">
     <div class="container my-5">

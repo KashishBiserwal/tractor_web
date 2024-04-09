@@ -519,7 +519,6 @@ $(document).ready(function() {
 
 
 function getuserdetail(id) {
-    console.log(id,'sdfghjc id');
     var url = "http://tractor-api.divyaltech.com/api/customer/get_customer_personal_info_by_id/" + id;
 
     var headers = {
@@ -527,36 +526,64 @@ function getuserdetail(id) {
     };
     var mobileNumber = localStorage.getItem('mobile');
     var paraArr = {
-      'mobile': mobileNumber,
+        'mobile': mobileNumber,
     };
+
     // Make an AJAX GET request to the API
     $.ajax({
         url: url,
         type: "GET",
         headers: headers,
         data: paraArr,
-        success: function (data) {
+        success: function(data) {
             // Clear the existing data in the table body
             const tableBody = $('#data-table');
             tableBody.empty();
 
-            // Check if customer data exists and has at least one entry
+            // Check if customerData exists and has at least one entry
             if (data.customerData && data.customerData.length > 0) {
-                document.getElementById('idUser').value = data.customerData[0].id;
-                document.getElementById('firstname').value = data.customerData[0].first_name;
-                document.getElementById('lastname').value = data.customerData[0].last_name;
-                document.getElementById('phone').value = data.customerData[0].mobile;
-                // document.getElementById('email').value = data.customerData[0].email;
-                document.getElementById('state').value = data.customerData[0].state;
-                document.getElementById('district').value = data.customerData[0].district;   
-                document.getElementById('tehsil').value = data.customerData[0].tehsil;
+                document.getElementById('idUser').value = customerData.id;
+                document.getElementById('firstname').value = customerData.first_name;
+                document.getElementById('lastname').value = customerData.last_name;
+                document.getElementById('phone').value = customerData.mobile;
+
+                // Populate state dropdown
+                setSelectedOption('state', customerData.state);
+                setSelectedOption('district ', customerData.district_name);
+                console.log('xghjfghjfghj',customerData.district_name)
+                // Populate district dropdown
+                // setSelectedOption('district', customerData.district);
+
+                // Populate tehsil dropdown
+                populateTehsil('tehsil-dropdown', customerData.tehsil);
             }
         },
-        error: function (error) {
+        error: function(error) {
             console.error('Error fetching data:', error);
         }
     });
 }
+
+function setSelectedOption(selectId, value) {
+    var select = document.getElementById(selectId);
+    for (var i = 0; i < select.options.length; i++) {
+      if (select.options[i].value == value) {
+        select.selectedIndex = i;
+        break;
+      }
+    }
+  }
+  
+  function populateTehsil(selectId, value) {
+    var select = document.getElementById(selectId);
+    for (var i = 0; i < select.options.length; i++) {
+      if (select.options[i].value == value) {
+        select.options[i].selected = true;
+        break;
+      }
+    }
+  }
+
 var userId = localStorage.getItem('id');
 getuserdetail(userId);
 

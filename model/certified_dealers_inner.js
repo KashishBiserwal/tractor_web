@@ -20,6 +20,8 @@ function getDealerInnerId() {
       url: url,
       type: "GET",
       success: function(data) {
+        var userId = localStorage.getItem('id');
+      getUserDetail(userId);
           console.log(data, 'abc');
 
           var location = data.dealer_details[0].district_name + ', ' + data.dealer_details[0].state_name;
@@ -126,7 +128,8 @@ function displayTractors(tractors) {
       var cardId = `card_${p.product_id}`; // Dynamic ID for the card
       var modalId = `used_tractor_callbnt_${p.product_id}`; // Dynamic ID for the modal
       var formId = `contact-seller-call_${p.product_id}`; 
-
+      var userId = localStorage.getItem('id');
+      getUserDetail(userId);
       var newCard = `
                   <div class="col-12 col-lg-12 col-md-12 col-sm-12 mb-3"id="${cardId}">
                   <div class="h-auto success__stry__item d-flex flex-column shadow">
@@ -440,6 +443,52 @@ function submitForm() {
     });
 }
 
+function getUserDetail(id) {
+    var url = "http://tractor-api.divyaltech.com/api/customer/get_customer_personal_info_by_id/" + id;
+    console.log(url, 'url print ');
+
+    var headers = {
+        'Authorization': localStorage.getItem('token_customer')
+    };
+
+    $.ajax({
+        url: url,
+        type: "GET",
+        headers: headers,
+        success: function(response) {
+            console.log(response, "response");
+
+            // Check if customerData exists in the response and has at least one entry
+            if (response.customerData && response.customerData.length > 0) {
+                var customer = response.customerData[0];
+                console.log(customer, 'customer details');
+                
+                // Set values based on form ID (used_farm_inner_from)
+                $('#dealership_enq_from #f_name').val(customer.first_name);
+                $('#dealership_enq_from #l_name').val(customer.last_name);
+                $('#dealership_enq_from #mob_num').val(customer.mobile);
+                $('#dealership_enq_from #_state').val(customer.state);
+                $('#dealership_enq_from #_district').val(customer.district);
+                $('#dealership_enq_from #_tehsil').val(customer.tehsil);
+                
+                // Disable fields if user is logged in
+                if (isUserLoggedIn()) {
+                    // Disable all input and select elements within the form
+                    $('#dealership_enq_from input, #dealership_enq_from select').not('#_brand').prop('disabled', true);
+                }
+                
+            }
+        },
+        error: function(error) {
+            console.error('Error fetching data:', error);
+        }
+    });
+}
+
+
+function isUserLoggedIn() {
+    return localStorage.getItem('token_customer') && localStorage.getItem('mobile') && localStorage.getItem('id');
+}
 
 // get brand
 function get() {

@@ -264,7 +264,7 @@ include 'includes/footertag.php';
                     </tr>
                     <tr>
                         <td class="table-data">District</td>
-                        <td class="table-data" id="district_1"></td>
+                        <td class="table-data" id="district_dist"></td>
                     </tr>
                     <tr>
                         <td class="table-data">Tehsil</td>
@@ -360,7 +360,7 @@ $(document).ready(function() {
    
 });
 </script>
-<script>
+<!-- <script>
     $(document).ready(function() {
     
     $('#price').inputmask({
@@ -371,19 +371,16 @@ $(document).ready(function() {
         digitsOptional: false,
         placeholder: '0',
         onBeforeMask: function (value, opts) {
-            // Remove commas before applying input mask
             return value.replace(/\,/g,'');
         },
     });
 
-    // Set cursor position to the beginning of the input field
     var input = document.getElementById('price');
     input.focus();
     input.setSelectionRange(0, 0);
 
-    // Set text alignment to left
     input.style.textAlign = 'left';
 });
-</script>
+</script> -->
 
 </html>

@@ -8,6 +8,7 @@
     <script> var APIBaseURL = "<?php echo $APIBaseURL; ?>";</script>
     <script> var baseUrl = "<?php echo $baseUrl; ?>";</script>
     <script src="<?php $baseUrl; ?>model/customer_info.js"></script>
+     <script src="<?php $baseUrl; ?>model/State_dist_tehsil.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
     <style>
@@ -162,23 +163,25 @@
                             <input type="number" placeholder=" " id="phone" name="phone" class="form-control" disabled="disabled">
                             </div>
                         </div>
-                        <!-- <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-3"><div class="form-outline"><label class="form-label">Email</label><input type="email" placeholder=" " id="email"  name="email" class="form-control" disabled="disabled"></div></div> -->
                         <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-3">
                             <div class="form-outline">
-                            <label class="form-label">State</label>
-                            <input type="text" placeholder=" " id="state" name="state" class="form-control" disabled="disabled">
+                                <label for="eo_state" class="form-label"> <i class="fas fa-location"></i> State</label>
+                                <select class="form-select py-2 state-dropdown " aria-label=".form-select-lg example" id="state" name="state" disabled="disabled">
+                                </select>
                             </div>
                         </div>
-                        <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-3">
+                        <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-4">
                             <div class="form-outline">
-                            <label class="form-label">District</label>
-                            <input type="text" placeholder=" " id="district" name="district" class="form-control" disabled="disabled">
-                            </div>
-                        </div>
-                        <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-3">
+                                <label for="eo_dist" class="form-label"><i class="fa-solid fa-location-dot"></i> District</label>
+                                <select class="form-select py-2 district-dropdown" aria-label=".form-select-lg example" id="district" name="district" disabled="disabled">
+                                </select>
+                            </div>                    
+                        </div>       
+                        <div class="col-12 col-sm-6 col-md-6 col-lg-6 mt-4">
                             <div class="form-outline">
-                            <label class="form-label">Tehsil</label>
-                            <input type="text" placeholder=" " id="tehsil" name="tehsil" class="form-control" disabled="disabled">
+                                <label for="eo_tehsil" class="form-label"> Tehsil</label>
+                                <select class="form-select py-2 tehsil-dropdown" aria-label=".form-select-lg example" id="tehsil" name="tehsil" disabled="disabled">
+                                </select>
                             </div>
                         </div>
                         <div class="col-12 col-sm-12 col-md-12 col-lg-12 mt-3 ">

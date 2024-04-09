@@ -3,7 +3,8 @@ $(document).ready(function () {
     $('#Verify').click(verifyotp);
   
       get_year_and_hours();
-    
+      var userId = localStorage.getItem('id');
+      getUserDetail(userId);
     });
 
     function formatPriceWithCommas(price) {
@@ -335,7 +336,87 @@ function submitForm() {
                                     </a>
                                 </div>
                 
-                                        
+                                        <div class="modal fade" id="${modalId}" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                            <div class="modal-dialog modal-lg modal-dialog-centered">
+                                                <div class="modal-content">
+                                                    <div class="modal-header  modal_head">
+                                                    <h5 class="modal-title text-white ms-1" id="model_form">${p.model}</h5>
+                                                    <button type="button" class="btn-close btn-success" data-bs-dismiss="modal" aria-label="Close"><img src="assets/images/close.png" class="w-25"></button>
+                                                    </div>
+                                                    <!-- MODAL BODY -->
+                                                    <div class="modal-body">
+                                                    <form id="${formId}" method="POST" onsubmit="return false">
+                                                            <div class="row">
+                                                            <div class="row px-3 ">
+                                                <div class="col-12 col-lg-6 col-md-6 col-sm-6 " hidden>
+                                                    <label for="name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i> enquiryName</label>
+                                                    <input type="text" class="form-control" placeholder="Enter Your Name" id="enquiry_type_id" value="21" name="fname">
+                                                </div>
+                                                <div class="col-12 col-lg-6 col-md-6 col-sm-6 " hidden>
+                                                    <label for="name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i> product_id</label>
+                                                    <input type="text" class="form-control" id="product_id" value="${p.product_id}" hidden> 
+                                                </div>
+                                                <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
+                                                    <label for="name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i> First Name</label>
+                                                    <input type="text" class="form-control" placeholder="Enter Your Name" onkeydown="return /[a-zA-Z]/i.test(event.key)" id="fname" name="fname">
+                                                </div>
+                                                <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
+                                                    <label for="name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i> Last Name</label>
+                                                    <input type="text" class="form-control" placeholder="Enter Your Name" onkeydown="return /[a-zA-Z]/i.test(event.key)" id="lname" name="lname">
+                                                </div>
+                                                <div class="col-12 ">
+                                                    <label for="number" class="form-label text-dark fw-bold"> <i class="fa fa-phone" aria-hidden="true"></i> Phone Number</label>
+                                                    <input type="text" class="form-control" placeholder="Enter Number" id="number" name="number">
+                                                </div>
+                                                <div class="col-12 col-sm-6 col-md-6 col-lg-6 mt-4">
+                                                    <div class="form-outline">
+                                                        <label for="state" class="form-label text-dark fw-bold"> <i class="fas fa-location"></i> State</label>
+                                                        <select class="form-select py-2 state-dropdown" aria-label=".form-select-lg example" id="state_form" name="state">
+                                                            <!-- Options for state dropdown -->
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-12 col-sm-6 col-md-6 col-lg-6 mt-4">
+                                                    <div class="form-outline">
+                                                        <label for="district" class="form-label fw-bold text-dark"><i class="fa-solid fa-location-dot"></i> District</label>
+                                                        <select class="form-select py-2 district-dropdown" aria-label=".form-select-lg example" name="district" id="district_form">
+                                                            <!-- Options for district dropdown -->
+                                                        </select>
+                                                    </div>
+                                                </div>       
+                                                <div class="col-12 col-sm-6 col-md-6 col-lg-6 mt-4">
+                                                    <div class="form-outline">
+                                                        <label for="Tehsil" class="form-label fw-bold text-dark"> Tehsil</label>
+                                                        <select class="form-select py-2 tehsil-dropdown" aria-label=".form-select-lg example" id="tehsil" name="tehsil">
+                                                            
+                                                            <!-- Options for Tehsil dropdown -->
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                              <div class="col-12 col-lg-6 col-sm-5 col-md-6">
+                                                <div class="form-outline mt-4">
+                                                    <label for="name" class="form-label text-dark">Price </label>
+                                                    <input type="text" class="form-control price_form py-2" placeholder="Enter Price" id="price_form" name="price">
+                                                </div>
+                                              </div>
+                                            </div>          
+                                           </div> 
+                                                 <div class="modal-footer">
+                                                 <a href="farmtrac_60.php">
+                                                            <button type="submit" id="submit_enquiry" class="btn add_btn btn-success w-100 btn_all" onclick="savedata('${formId}')"
+                                                            data-bs-dismiss="modal">Submit</button>
+                                                       </a>
+                                                            </div>      
+                                                        </form>                             
+                                                    </div>
+                                            
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                     </div>
+                                </div>
+                            </div>
                     `;
                     // Append the new card HTML to the product container
                     $("#productContainer").append(newCard); 
@@ -362,6 +443,51 @@ function submitForm() {
      
 }
 
+
+function getUserDetail(id) {
+    var url = "http://tractor-api.divyaltech.com/api/customer/get_customer_personal_info_by_id/" + id;
+    console.log(url, 'url print ');
+
+    var headers = {
+        'Authorization': localStorage.getItem('token_customer')
+    };
+
+    $.ajax({
+        url: url,
+        type: "GET",
+        headers: headers,
+        success: function(response) {
+            console.log(response, "response");
+
+            // Check if customerData exists in the response and has at least one entry
+            if (response.customerData && response.customerData.length > 0) {
+                var customer = response.customerData[0];
+                console.log(customer, 'customer details');
+                
+                $('#find-used-tractor-form #fName').val(customer.first_name);
+                $('#find-used-tractor-form #lName').val(customer.last_name);
+                $('#find-used-tractor-form #phone').val(customer.mobile);
+                $('#find-used-tractor-form #state').val(customer.state);
+                $('#find-used-tractor-form #district').val(customer.district);
+                
+                if (isUserLoggedIn()) {
+                    // Disable specific input and select elements within the form
+                    $('#find-used-tractor-form #fName, #find-used-tractor-form #lName, #find-used-tractor-form #phone, #find-used-tractor-form #state, #find-used-tractor-form #district').prop('disabled', true);
+                }
+                
+                
+            }
+        },
+        error: function(error) {
+            console.error('Error fetching data:', error);
+        }
+    });
+}
+
+
+function isUserLoggedIn() {
+    return localStorage.getItem('token_customer') && localStorage.getItem('mobile') && localStorage.getItem('id');
+}
 
 // function store() {
 //     var selectedOptions = [];

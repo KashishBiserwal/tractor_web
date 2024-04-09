@@ -23,6 +23,10 @@ function getharvesterById() {
         url: url,
         type: "GET",
         success: function(data) {
+
+            var userId = localStorage.getItem('id');
+            getUserDetail(userId);
+
             var minCuttingHeight = data.product[0].min_cutting_height;
             var maxCuttingHeight = data.product[0].max_cutting_height;
             
@@ -222,6 +226,52 @@ function submitForm() {
     });
 }
 
+function getUserDetail(id) {
+    var url = "http://tractor-api.divyaltech.com/api/customer/get_customer_personal_info_by_id/" + id;
+    console.log(url, 'url print ');
+
+    var headers = {
+        'Authorization': localStorage.getItem('token_customer')
+    };
+
+    $.ajax({
+        url: url,
+        type: "GET",
+        headers: headers,
+        success: function(response) {
+            console.log(response, "response");
+
+            // Check if customerData exists in the response and has at least one entry
+            if (response.customerData && response.customerData.length > 0) {
+                var customer = response.customerData[0];
+                console.log(customer, 'customer details');
+                
+                // Set values based on form ID (used_farm_inner_from)
+                $('#engine_oil_form #f_name').val(customer.first_name);
+                $('#engine_oil_form #lastName').val(customer.last_name);
+                $('#engine_oil_form #mobile_number').val(customer.mobile);
+                $('#engine_oil_form #state').val(customer.state);
+                $('#engine_oil_form #district').val(customer.district);
+                $('#engine_oil_form #Tehsil').val(customer.tehsil);
+                
+                // Disable fields if user is logged in
+                if (isUserLoggedIn()) {
+                    // Disable all input and select elements within the form
+                    $('#engine_oil_form input, #engine_oil_form select').not('#price').prop('disabled', true);
+                }
+                
+            }
+        },
+        error: function(error) {
+            console.error('Error fetching data:', error);
+        }
+    });
+}
+
+
+function isUserLoggedIn() {
+    return localStorage.getItem('token_customer') && localStorage.getItem('mobile') && localStorage.getItem('id');
+}
 
 // function harvester_enquiry() {
 //     var firstName = $('#f_name').val();
