@@ -22,6 +22,9 @@ function get_old_harvester_byiD() {
         type: "GET",
         success: function(data) {
 
+            var userId = localStorage.getItem('id');
+            getUserDetail(userId);
+
             var fullMobileNumber = data.product[0].mobile;
             var mobileString = fullMobileNumber.toString();
             var lastFourDigits = mobileString.substring(mobileString.length - 4);
@@ -435,3 +438,49 @@ function submitForm() {
     });
 }
 
+function getUserDetail(id) {
+    var url = "http://tractor-api.divyaltech.com/api/customer/get_customer_personal_info_by_id/" + id;
+    console.log(url, 'url print ');
+
+    var headers = {
+        'Authorization': localStorage.getItem('token_customer')
+    };
+
+    $.ajax({
+        url: url,
+        type: "GET",
+        headers: headers,
+        success: function(response) {
+            console.log(response, "response");
+
+            // Check if customerData exists in the response and has at least one entry
+            if (response.customerData && response.customerData.length > 0) {
+                var customer = response.customerData[0];
+                console.log(customer, 'customer details');
+                
+                // Set values based on form ID (used_farm_inner_from)
+                $('#interested-harvester-form #fname').val(customer.first_name);
+                $('#interested-harvester-form #lname').val(customer.last_name);
+                $('#interested-harvester-form #number').val(customer.mobile);
+                $('#interested-harvester-form #state_form').val(customer.state);
+                $('#interested-harvester-form #district_form').val(customer.district);
+                $('#interested-harvester-form #tehsil').val(customer.tehsil);
+                
+                // Disable fields if user is logged in
+                if (isUserLoggedIn()) {
+                    // Disable all input and select elements within the form
+                    $('#interested-harvester-form input, #interested-harvester-form select').not('#price').prop('disabled', true);
+                }
+                
+            }
+        },
+        error: function(error) {
+            console.error('Error fetching data:', error);
+        }
+    });
+}
+
+
+function isUserLoggedIn() {
+    return localStorage.getItem('token_customer') && localStorage.getItem('mobile') && localStorage.getItem('id');
+}

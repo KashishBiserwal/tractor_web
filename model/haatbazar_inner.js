@@ -78,6 +78,8 @@ $(document).ready(function() {
         var formId = `contact-seller-call${data}`;
         var formattedPrice = formatPriceWithCommas(p.price);
         var fullname = p.first_name + ' ' + p.last_name;
+        var userId1 = localStorage.getItem('id');
+        getuser(userId1);
         var newCard = `
             <div class="col-12 col-lg-3 col-md-3 col-sm-3 mb-3" id="${cardId}">
                 <div class="h-auto success__stry__item d-flex flex-column shadow">
@@ -322,6 +324,8 @@ function gethaatbazzat() {
           // var location = data.haat_bazar_data[0].district + ', ' + data.haat_bazar_data[0].state;
 
           // Update HTML elements with data
+          var userId = localStorage.getItem('id');
+          getUserDetail(userId);
 
           var fullMobileNumber = data.allData.haat_bazar_data[0].mobile;
           var mobileString = fullMobileNumber.toString();
@@ -339,18 +343,15 @@ function gethaatbazzat() {
           document.getElementById('price_as').innerText = formattedPrice;
           document.getElementById('Per_price').innerText = data.allData.haat_bazar_data[0].as_per;
           document.getElementById('description_1').innerText = data.allData.haat_bazar_data[0].about;
-          // document.getElementById('description').innerText = location;
           document.getElementById('first_name').innerText = data.allData.haat_bazar_data[0].first_name;
           document.getElementById('phone_number').innerText = maskedMobileNumber;
-        //   document.getElementById('phone_number').innerText = data.allData.haat_bazar_data[0].mobile;
           document.getElementById('state_1').innerText = data.allData.haat_bazar_data[0].state_name;
-          document.getElementById('district_1').innerText = data.allData.haat_bazar_data[0].district_name;
+          document.getElementById('district_dist').innerText = data.allData.haat_bazar_data[0].district_name;
           document.getElementById('tehsil_1').innerText = data.allData.haat_bazar_data[0].tehsil_name;
           document.getElementById('product_id').value = data.allData.haat_bazar_data[0].haat_bazar_id;
           document.getElementById('slr_name').value = data.allData.haat_bazar_data[0].first_name;
           document.getElementById('mob_num').value = data.allData.haat_bazar_data[0].mobile;
-        //   document.getElementById('slr_name1').value = data.allData.haat_bazar_data[0].first_name;
-        //   document.getElementById('mob_num1').value = data.allData.haat_bazar_data[0].mobile;
+       
           var imageNames = data.allData.haat_bazar_data[0].image_names.split(',');
 
             // Select the carousel container
@@ -522,6 +523,53 @@ function submitForm() {
         }
     });
 }
+function getUserDetail(id) {
+    var url = "http://tractor-api.divyaltech.com/api/customer/get_customer_personal_info_by_id/" + id;
+    console.log(url, 'url print ');
+
+    var headers = {
+        'Authorization': localStorage.getItem('token_customer')
+    };
+
+    $.ajax({
+        url: url,
+        type: "GET",
+        headers: headers,
+        success: function(response) {
+            console.log(response, "response");
+
+            // Check if customerData exists in the response and has at least one entry
+            if (response.customerData && response.customerData.length > 0) {
+                var customer = response.customerData[0];
+                console.log(customer, 'customer details');
+                
+                // Set values based on form ID (used_farm_inner_from)
+                $('#haatbazar_form #fname').val(customer.first_name);
+                $('#haatbazar_form #lname').val(customer.last_name);
+                $('#haatbazar_form #number_number').val(customer.mobile);
+                $('#haatbazar_form #state_2').val(customer.state);
+                $('#haatbazar_form #district').val(customer.district);
+                $('#haatbazar_form #tehsil').val(customer.tehsil);
+                
+                // Disable fields if user is logged in
+                if (isUserLoggedIn()) {
+                    // Disable all input and select elements within the form
+                    $('#haatbazar_form input, #haatbazar_form select').not('#price').prop('disabled', true);
+                }
+                
+            }
+        },
+        error: function(error) {
+            console.error('Error fetching data:', error);
+        }
+    });
+}
+
+
+function isUserLoggedIn() {
+    return localStorage.getItem('token_customer') && localStorage.getItem('mobile') && localStorage.getItem('id');
+}
+
 
 function resetform(){
   $('#fname').val('');
@@ -688,4 +736,48 @@ function collectFormData(formId) {
 function openSellerContactModal(formDataToSubmit) {
     var modalId_2 = `staticBackdrop2_${formDataToSubmit.product_id}`;
     $(`#${modalId_2}`).modal('show');
+}
+
+function getuser(id, formId) {
+    var url = "http://tractor-api.divyaltech.com/api/customer/get_customer_personal_info_by_id/" + id;
+    console.log(url, 'url print ');
+
+    var headers = {
+        'Authorization': localStorage.getItem('token_customer')
+    };
+
+    $.ajax({
+        url: url,
+        type: "GET",
+        headers: headers,
+        success: function(response) {
+            console.log(response, "response");
+
+            // Check if customerData exists in the response and has at least one entry
+            if (response.customerData && response.customerData.length > 0) {
+                var customer = response.customerData[0];
+                console.log(customer, 'customer details');
+                
+                // Set values based on formId
+                $('#' + formId + ' #firstName').val(customer.first_name);
+                $('#' + formId + ' #lastName').val(customer.last_name);
+                $('#' + formId + ' #mobile_number').val(customer.mobile);
+                $('#' + formId + ' #state').val(customer.state);
+                $('#' + formId + ' #district_1').val(customer.district);
+                $('#' + formId + ' #Tehsil').val(customer.tehsil);
+                
+                // Disable fields if user is logged in
+                if (isUserLoggedIn()) {
+                    $('#' + formId + ' input, #' + formId + ' select').prop('disabled', true);
+                }
+            }
+        },
+        error: function(error) {
+            console.error('Error fetching data:', error);
+        }
+    });
+}
+
+function isUserLoggedIn() {
+    return localStorage.getItem('token_customer') && localStorage.getItem('mobile') && localStorage.getItem('id');
 }

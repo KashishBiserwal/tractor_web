@@ -77,7 +77,8 @@ function displayNextSixCards(container) {
         var formattedPrice = formatPriceWithCommas(p.rate);
         var fullname = p.first_name + ' ' + p.last_name;
         var images = p.images;
-
+        var userId = localStorage.getItem('id');
+        getUserDetail(userId, formId);
         var newCard = `
         <div class="col-12 col-lg-4 col-md-6 col-sm-6 mb-3" id="${cardId}">
         <div class="h-auto success__stry__item d-flex flex-column shadow ">
@@ -425,6 +426,49 @@ function displayNextSixCards(container) {
 
 
   
+function getUserDetail(id, formId) {
+    var url = "http://tractor-api.divyaltech.com/api/customer/get_customer_personal_info_by_id/" + id;
+    console.log(url, 'url print ');
+
+    var headers = {
+        'Authorization': localStorage.getItem('token_customer')
+    };
+
+    $.ajax({
+        url: url,
+        type: "GET",
+        headers: headers,
+        success: function(response) {
+            console.log(response, "response");
+
+            // Check if customerData exists in the response and has at least one entry
+            if (response.customerData && response.customerData.length > 0) {
+                var customer = response.customerData[0];
+                console.log(customer, 'customer details');
+                
+                // Set values based on formId
+                $('#' + formId + ' #fname').val(customer.first_name);
+                $('#' + formId + ' #lname').val(customer.last_name);
+                $('#' + formId + ' #number').val(customer.mobile);
+                $('#' + formId + ' #state_form').val(customer.state);
+                $('#' + formId + ' #district_form').val(customer.district);
+                $('#' + formId + ' #Tehsil').val(customer.tehsil);
+                
+                // Disable fields if user is logged in
+                if (isUserLoggedIn()) {
+                    $('#' + formId + ' input, #' + formId + ' select').not('#price_form').prop('disabled', true);
+                }
+            }
+        },
+        error: function(error) {
+            console.error('Error fetching data:', error);
+        }
+    });
+}
+
+function isUserLoggedIn() {
+    return localStorage.getItem('token_customer') && localStorage.getItem('mobile') && localStorage.getItem('id');
+}
 
 // search cards by hp, brand, price, state, district
 function formatPrice(price) {
@@ -535,7 +579,8 @@ function appendFilterCard(filterContainer, p) {
     var formId = `contact-seller-call_${p.customer_id}`; 
     var formattedPrice = formatPriceWithCommas(p.rate);
     var images = p.images;
-
+    var userId = localStorage.getItem('id');
+    getUserDetail(userId, formId);
     var newCard = `
     <div class="col-12 col-lg-4 col-md-6 col-sm-6 mb-3" id="${cardId}">
     <div class="h-auto success__stry__item d-flex flex-column shadow ">

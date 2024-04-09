@@ -637,3 +637,41 @@ function get_blog() {
     }
     });
 }
+
+function get_1() {
+    var url = 'http://tractor-api.divyaltech.com/api/customer/get_brand_for_finance';
+    $.ajax({
+        url: url,
+        type: "GET",
+        headers: {
+            'Authorization': 'Bearer ' + localStorage.getItem('token')
+        },
+        success: function (data) {
+            // console.log(data);
+            const select = document.getElementById('brand');
+            select.innerHTML = '<option selected disabled value="">Please select an option</option>';
+  
+            if (data.brands.length > 0) {
+                data.brands.forEach(row => {
+                    const option = document.createElement('option');
+                    option.textContent = row.brand_name;
+                    option.value = row.id;
+                    // console.log(row.id,);
+                    select.appendChild(option);
+                });
+  
+                // Add event listener to brand dropdown
+                select.addEventListener('change', function() {
+                    const selectedBrandId = this.value;
+                    get_model_1(selectedBrandId);
+                });
+            } else {
+                select.innerHTML = '<option>No valid data available</option>';
+            }
+        },
+        error: function (error) {
+            console.error('Error fetching data:', error);
+        }
+    });
+  }
+  get_1();

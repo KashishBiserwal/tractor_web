@@ -123,6 +123,9 @@ function getOldFarmImplementId() {
         type: "GET",
         success: function(data) {
             console.log(data, 'abc');
+            var userId = localStorage.getItem('id');
+            getUserDetail(userId);
+
 
             var fullMobileNumber = data.getOldImplement[0].mobile;
             var mobileString = fullMobileNumber.toString();
@@ -154,6 +157,8 @@ function getOldFarmImplementId() {
             document.getElementById('slr_name').value = fullname;
             document.getElementById('mob_num').value = data.getOldImplement[0].mobile;
             // Split the image names into an array
+
+           
             var imageNames = data.getOldImplement[0].image_names.split(',');
 
             // Select the carousel container
@@ -312,6 +317,52 @@ function submitForm() {
     });
 }
 
+function getUserDetail(id) {
+    var url = "http://tractor-api.divyaltech.com/api/customer/get_customer_personal_info_by_id/" + id;
+    console.log(url, 'url print ');
+
+    var headers = {
+        'Authorization': localStorage.getItem('token_customer')
+    };
+
+    $.ajax({
+        url: url,
+        type: "GET",
+        headers: headers,
+        success: function(response) {
+            console.log(response, "response");
+
+            // Check if customerData exists in the response and has at least one entry
+            if (response.customerData && response.customerData.length > 0) {
+                var customer = response.customerData[0];
+                console.log(customer, 'customer details');
+                
+                // Set values based on form ID (used_farm_inner_from)
+                $('#interested-form #fname').val(customer.first_name);
+                $('#interested-form #lname').val(customer.last_name);
+                $('#interested-form #number').val(customer.mobile);
+                $('#interested-form #state_form').val(customer.state);
+                $('#interested-form #district_form').val(customer.district);
+                $('#interested-form #tehsil').val(customer.tehsil);
+                
+                // Disable fields if user is logged in
+                if (isUserLoggedIn()) {
+                    // Disable all input and select elements within the form
+                    $('#interested-form input, #interested-form select').not('#price').prop('disabled', true);
+                }
+                
+            }
+        },
+        error: function(error) {
+            console.error('Error fetching data:', error);
+        }
+    });
+}
+
+
+function isUserLoggedIn() {
+    return localStorage.getItem('token_customer') && localStorage.getItem('mobile') && localStorage.getItem('id');
+}
 
 
 

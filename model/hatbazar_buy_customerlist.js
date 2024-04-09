@@ -75,6 +75,8 @@ function displaylist(productContainer, tractors, append) {
         var formId = `contact-seller-call${data}`;
         var formattedPrice = formatPriceWithCommas(p.price);
         var fullname = p.first_name + ' ' + p.last_name;
+        var userId = localStorage.getItem('id');
+        getUserDetail(userId, formId);
         var newCard = `
             <div class="col-12 col-lg-4 col-md-4 col-sm-4 mb-3" id="${cardId}">
                 <div class="h-auto success__stry__item d-flex flex-column shadow">
@@ -445,6 +447,49 @@ function openSellerContactModal(formDataToSubmit) {
     $(`#${modalId_2}`).modal('show');
 }
 
+function getUserDetail(id, formId) {
+    var url = "http://tractor-api.divyaltech.com/api/customer/get_customer_personal_info_by_id/" + id;
+    console.log(url, 'url print ');
+
+    var headers = {
+        'Authorization': localStorage.getItem('token_customer')
+    };
+
+    $.ajax({
+        url: url,
+        type: "GET",
+        headers: headers,
+        success: function(response) {
+            console.log(response, "response");
+
+            // Check if customerData exists in the response and has at least one entry
+            if (response.customerData && response.customerData.length > 0) {
+                var customer = response.customerData[0];
+                console.log(customer, 'customer details');
+                
+                // Set values based on formId
+                $('#' + formId + ' #firstName').val(customer.first_name);
+                $('#' + formId + ' #lastName').val(customer.last_name);
+                $('#' + formId + ' #mobile_number').val(customer.mobile);
+                $('#' + formId + ' #state').val(customer.state);
+                $('#' + formId + ' #district_1').val(customer.district);
+                $('#' + formId + ' #Tehsil').val(customer.tehsil);
+                
+                // Disable fields if user is logged in
+                if (isUserLoggedIn()) {
+                    $('#' + formId + ' input, #' + formId + ' select').prop('disabled', true);
+                }
+            }
+        },
+        error: function(error) {
+            console.error('Error fetching data:', error);
+        }
+    });
+}
+
+function isUserLoggedIn() {
+    return localStorage.getItem('token_customer') && localStorage.getItem('mobile') && localStorage.getItem('id');
+}
 
 
 function getCategories() {
@@ -585,8 +630,10 @@ function appendFilterCard(filterContainer, filter) {
         var cardId = `card_${data}`; // Dynamic ID for the card
         var modalId = `used_tractor_callbnt_${data}`; // Dynamic ID for the modal
         var formId = `contact-seller-call${data}`; // Dynamic ID for the form
-        
-        
+        var formattedPrice = formatPriceWithCommas(p.price);
+      
+        var userId = localStorage.getItem('id');
+        getUserDetail(userId, formId);
         var newCard = `
         <div class="col-12 col-lg-4 col-md-4 col-sm-4 mb-3" id="${cardId}">
                 <div class="h-auto success__stry__item d-flex flex-column shadow">
@@ -608,7 +655,7 @@ function appendFilterCard(filterContainer, filter) {
                                 <div class="col-12 col-lg-6 col-md-6 col-sm-6"><p class="text-dark ps-2"> ${p.category_name}</p></div>
                                 <div class="col-12 col-lg-6 col-md-6 col-sm-6" style="padding-right: 32px;">
                                     <p class="text-success ps-2"><i class="fa fa-inr" aria-hidden="true"></i>
-                                    ${p.price}/<span>  ${p.as_per}</span></p>
+                                    ${formattedPrice}/<span>  ${p.as_per}</span></p>
                                 </div>
                             </div>
                         </div>
