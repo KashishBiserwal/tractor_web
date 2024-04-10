@@ -557,7 +557,16 @@ function getuserdetail(id) {
 
           
                 setSelectedOption('state', customerData.state);
-                setSelectedOption('district', customerData.district);
+                setTimeout(function() { 
+                    $("#state option").prop("selected", false);
+                    $("#state option[value='" + customerData.state + "']").prop("selected", true);
+                }, 1000); 
+                // setSelectedOption('dist', customerData.district);
+                setSelectedOption('dist', customerData.district);
+                setTimeout(function() { 
+                    $("#dist option").prop("selected", false);
+                    $("#dist option[value='" + customerData.district + "']").prop("selected", true);
+                }, 1000); 
                 populateTehsil(customerData.district, 'tehsil-dropdown', customerData.tehsil);
                 console.log("State:", customerData.state);
                 console.log("District:", customerData.district);
@@ -600,7 +609,7 @@ function edit_personal_detail(){
     $('#phone').removeAttr("disabled")
     // $('#email').removeAttr("disabled")
     $('#state').removeAttr("disabled")
-    $('#district').removeAttr("disabled")
+    $('#dist').removeAttr("disabled")
     $('#tehsil').removeAttr("disabled")
     $(".edit_presonal_detail_btn").show();
 }
@@ -613,7 +622,7 @@ function edit_personal_detail(){
         var last_name = $('#lastname').val();
         var mobile = $('#phone').val();
         var state = $('#state').val();
-        var district = $('#district').val();
+        var district = $('#dist').val();
         var tehsil = $('#tehsil').val();
       
         // Prepare data to send to the server

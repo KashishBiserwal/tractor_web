@@ -431,12 +431,12 @@ function getUserDetail(id) {
                 console.log(customer, 'customer details');
                 
                 // Set values based on form ID (used_farm_inner_from)
-                $('#engine_oil_form #fname').val(customer.first_name);
-                $('#engine_oil_form #lname').val(customer.last_name);
-                $('#engine_oil_form #number').val(customer.mobile);
-                $('#engine_oil_form #state_form').val(customer.state);
-                $('#engine_oil_form #district_form').val(customer.district);
-                $('#engine_oil_form #tehsil').val(customer.tehsil);
+                $('#engine_oil_form #firstName').val(customer.first_name);
+                $('#engine_oil_form #lastName').val(customer.last_name);
+                $('#engine_oil_form #mobile_number').val(customer.mobile);
+                $('#engine_oil_form #state').val(customer.state);
+                $('#engine_oil_form #district').val(customer.district);
+                $('#engine_oil_form #Tehsil').val(customer.tehsil);
                 
                 // Disable fields if user is logged in
                 if (isUserLoggedIn()) {

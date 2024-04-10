@@ -173,7 +173,7 @@
                         <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-4">
                             <div class="form-outline">
                                 <label for="eo_dist" class="form-label"><i class="fa-solid fa-location-dot"></i> District</label>
-                                <select class="form-select py-2 district-dropdown" aria-label=".form-select-lg example" id="district" name="district" disabled="disabled">
+                                <select class="form-select py-2 district-dropdown" aria-label=".form-select-lg example" id="dist" name="district" disabled="disabled">
                                 </select>
                             </div>                    
                         </div>       
