@@ -538,31 +538,30 @@ function getuserdetail(id) {
         headers: headers,
         data: paraArr,
         success: function(data) {
-            console.log(data, "data");
+            console.log("Received data:", data);
 
-            // Clear the existing data in the table body
             const tableBody = $('#data-table');
             tableBody.empty();
 
-            // Check if customerData exists and has at least one entry
             if (data.customerData && data.customerData.length > 0) {
                 var customerData = data.customerData[0];
 
-                // Populate form fields with customer data
+                console.log("Customer data:", customerData);
+
+             
+
                 document.getElementById('idUser').value = customerData.id;
                 document.getElementById('firstname').value = customerData.first_name;
                 document.getElementById('lastname').value = customerData.last_name;
                 document.getElementById('phone').value = customerData.mobile;
 
-                // Populate state dropdown
+          
                 setSelectedOption('state', customerData.state);
-                setSelectedOption('district ', customerData.district_name);
-                console.log('xghjfghjfghj',customerData.district_name)
-                // Populate district dropdown
-                // setSelectedOption('district', customerData.district);
-
-                // Populate tehsil dropdown
-                populateTehsil('tehsil-dropdown', customerData.tehsil);
+                setSelectedOption('district', customerData.district);
+                populateTehsil(customerData.district, 'tehsil-dropdown', customerData.tehsil);
+                console.log("State:", customerData.state);
+                console.log("District:", customerData.district);
+                console.log("Tehsil:", customerData.tehsil);
             }
         },
         error: function(error) {

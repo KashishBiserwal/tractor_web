@@ -862,7 +862,7 @@ function fetch_data(product_id){
             const select = document.getElementById('state_name');
             select.innerHTML = '<option selected disabled value="">Please select a state</option>';
   
-            const stateId = 7; // State ID you want to filter for
+            const stateId = 7;
             const filteredState = data.stateData.find(state => state.id === stateId);
             if (filteredState) {
                 const option = document.createElement('option');

@@ -491,7 +491,7 @@ function getUserDetail(id, formId) {
                 
                 // Disable fields if user is logged in
                 if (isUserLoggedIn()) {
-                    $('#' + formId + ' input, #' + formId + ' select').prop('disabled', true);
+                    $('#' + formId + ' input, #' + formId + ' select').not('#price_form').prop('disabled', true);
                 }
             }
         },
