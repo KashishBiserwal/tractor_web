@@ -4,8 +4,6 @@
 //  $baseUrl = '/tractor-project/tractor-project/';
 $baseUrl = '/tractor_house/';
 
-
-
 ?>
 <meta charset="UTF-8">
 	<title>Tractor Junction</title>

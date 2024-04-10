@@ -536,26 +536,31 @@ function getuserdetail(id) {
         headers: headers,
         data: paraArr,
         success: function(data) {
-            // Clear the existing data in the table body
             const tableBody = $('#data-table');
             tableBody.empty();
 
-            // Check if customerData exists and has at least one entry
             if (data.customerData && data.customerData.length > 0) {
                 document.getElementById('idUser').value = customerData.id;
                 document.getElementById('firstname').value = customerData.first_name;
                 document.getElementById('lastname').value = customerData.last_name;
                 document.getElementById('phone').value = customerData.mobile;
 
-                // Populate state dropdown
+          
                 setSelectedOption('state', customerData.state);
-                setSelectedOption('district ', customerData.district_name);
-                console.log('xghjfghjfghj',customerData.district_name)
-                // Populate district dropdown
-                // setSelectedOption('district', customerData.district);
-
-                // Populate tehsil dropdown
-                populateTehsil('tehsil-dropdown', customerData.tehsil);
+                setTimeout(function() { 
+                    $("#state option").prop("selected", false);
+                    $("#state option[value='" + customerData.state + "']").prop("selected", true);
+                }, 1000); 
+                // setSelectedOption('dist', customerData.district);
+                setSelectedOption('dist', customerData.district);
+                setTimeout(function() { 
+                    $("#dist option").prop("selected", false);
+                    $("#dist option[value='" + customerData.district + "']").prop("selected", true);
+                }, 1000); 
+                populateTehsil(customerData.district, 'tehsil-dropdown', customerData.tehsil);
+                console.log("State:", customerData.state);
+                console.log("District:", customerData.district);
+                console.log("Tehsil:", customerData.tehsil);
             }
         },
         error: function(error) {
@@ -594,7 +599,7 @@ function edit_personal_detail(){
     $('#phone').removeAttr("disabled")
     // $('#email').removeAttr("disabled")
     $('#state').removeAttr("disabled")
-    $('#district').removeAttr("disabled")
+    $('#dist').removeAttr("disabled")
     $('#tehsil').removeAttr("disabled")
     $(".edit_presonal_detail_btn").show();
 }
@@ -607,7 +612,7 @@ function edit_personal_detail(){
         var last_name = $('#lastname').val();
         var mobile = $('#phone').val();
         var state = $('#state').val();
-        var district = $('#district').val();
+        var district = $('#dist').val();
         var tehsil = $('#tehsil').val();
       
         // Prepare data to send to the server
