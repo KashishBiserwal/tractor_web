@@ -540,27 +540,24 @@ function getuserdetail(id) {
             tableBody.empty();
 
             if (data.customerData && data.customerData.length > 0) {
+                var customerData = data.customerData[0];
                 document.getElementById('idUser').value = customerData.id;
                 document.getElementById('firstname').value = customerData.first_name;
                 document.getElementById('lastname').value = customerData.last_name;
                 document.getElementById('phone').value = customerData.mobile;
 
-          
-                setSelectedOption('state', customerData.state);
+                setSelectedOption('state', customerData.state_id);
                 setTimeout(function() { 
                     $("#state option").prop("selected", false);
-                    $("#state option[value='" + customerData.state + "']").prop("selected", true);
-                }, 1000); 
-                // setSelectedOption('dist', customerData.district);
-                setSelectedOption('dist', customerData.district);
+                    $("#state option[value='" + customerData.state_id + "']").prop("selected", true);
+                }, 1000);
+                setSelectedOption('dist', customerData.district_id);
                 setTimeout(function() { 
                     $("#dist option").prop("selected", false);
-                    $("#dist option[value='" + customerData.district + "']").prop("selected", true);
-                }, 1000); 
-                populateTehsil(customerData.district, 'tehsil-dropdown', customerData.tehsil);
-                console.log("State:", customerData.state);
-                console.log("District:", customerData.district);
-                console.log("Tehsil:", customerData.tehsil);
+                    $("#dist option[value='" + customerData.district_id + "']").prop("selected", true);
+                }, 1000);
+                console.log( customerData.district_id,'sykhgykg');
+                populateTehsil(customerData.district_id, 'tehsil-dropdown', customerData.tehsil_id);
             }
         },
         error: function(error) {
@@ -568,7 +565,6 @@ function getuserdetail(id) {
         }
     });
 }
-
 function setSelectedOption(selectId, value) {
     var select = document.getElementById(selectId);
     for (var i = 0; i < select.options.length; i++) {
@@ -578,7 +574,6 @@ function setSelectedOption(selectId, value) {
       }
     }
   }
-  
   function populateTehsil(selectId, value) {
     var select = document.getElementById(selectId);
     for (var i = 0; i < select.options.length; i++) {
@@ -588,7 +583,6 @@ function setSelectedOption(selectId, value) {
       }
     }
   }
-
 var userId = localStorage.getItem('id');
 getuserdetail(userId);
 
@@ -597,7 +591,6 @@ function edit_personal_detail(){
     $('#firstname').removeAttr("disabled")
     $('#lastname').removeAttr("disabled")
     $('#phone').removeAttr("disabled")
-    // $('#email').removeAttr("disabled")
     $('#state').removeAttr("disabled")
     $('#dist').removeAttr("disabled")
     $('#tehsil').removeAttr("disabled")
@@ -657,7 +650,7 @@ function edit_personal_detail(){
             $('#lastname').attr("disabled")
             $('#phone').attr("disabled")
             $('#state').attr("disabled")
-            $('#district').attr("disabled")
+            $('#dist').attr("disabled")
             $('#tehsil').attr("disabled")
             $(".edit_presonal_detail_btn").hide();
             window.location.reload();
