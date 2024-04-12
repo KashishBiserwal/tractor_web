@@ -84,7 +84,7 @@ function getInterestedBuyer() {
                 { title: 'Request Type', data: 'request_type' },
                 { title: 'Date', data: 'date' },
                 { title: 'Brand', data: 'brand_name' },
-                { title: 'model', data: function(row) {
+                { title: 'Model', data: function(row) {
                     return row.oil_model ? row.oil_model : row.model; // Use oil_model if available, otherwise use model
                 }},
             ]
@@ -112,6 +112,12 @@ function getInterestedBuyer() {
 }
 
 $(document).ready(function() {
+    // Remove click event listener for '.nav-link'
+    $('.nav-link').off('click');
+
+    // Show the Tractor table when the page loads
+    $('#purchase_tractor_table').closest('.table-responsive').show();
+
     // Function to fetch data and populate table
     function populateTable(tableId, dataKey, isEngineOilTable, includeNameAndMobile) {
         var url = "http://tractor-api.divyaltech.com/api/customer/get_purchase_enquiry_data";
@@ -138,10 +144,10 @@ $(document).ready(function() {
         });
     }
 
-    // Populate the first table initially
+    // Populate the Tractor table initially without requiring a click
     populateTable('#purchase_tractor_table', 'tractorEnquiryData', false, true); // Include "Name" and "Mobile Number"
 
-    // Define table configurations
+    // Define table configurations for other tables
     var tables = [
         { tableId: '#purchase_harvester_table', dataKey: 'harvesterEnquiryData', isEngineOilTable: false, includeNameAndMobile: false },
         { tableId: '#purchase_implements_table', dataKey: 'implementEnquiryData', isEngineOilTable: false, includeNameAndMobile: true },
@@ -158,6 +164,9 @@ $(document).ready(function() {
         }
     });
 });
+
+
+
 
 
 
@@ -509,15 +518,18 @@ $(document).ready(function() {
         $(config.tableId).addClass('w-100');
     });
 
-    $('.nav-link').on('click', function() {
-        var tableIdToShow = $(this).attr('href');
-        $('.table-responsive').hide();
-        $(tableIdToShow).closest('.table-responsive').show();
-    });
-    $('.table-responsive').hide();
 });
 
 
+function setSelectedDistrict(districtId) {
+    var districtSelect = document.getElementById('dist');
+    for (var i = 0; i < districtSelect.options.length; i++) {
+        if (districtSelect.options[i].value == districtId) {
+            districtSelect.selectedIndex = i;
+            break;
+        }
+    }
+}
 function getuserdetail(id) {
     var url = "http://tractor-api.divyaltech.com/api/customer/get_customer_personal_info_by_id/" + id;
 
@@ -551,13 +563,20 @@ function getuserdetail(id) {
                     $("#state option").prop("selected", false);
                     $("#state option[value='" + customerData.state_id + "']").prop("selected", true);
                 }, 1000);
+
                 setSelectedOption('dist', customerData.district_id);
                 setTimeout(function() { 
                     $("#dist option").prop("selected", false);
                     $("#dist option[value='" + customerData.district_id + "']").prop("selected", true);
                 }, 1000);
+
                 console.log( customerData.district_id,'sykhgykg');
                 populateTehsil(customerData.district_id, 'tehsil-dropdown', customerData.tehsil_id);
+                setTimeout(function() { 
+                    $("#tehsil option").prop("selected", false);
+                    $("#tehsil option[value='" + customerData.tehsil_id + "']").prop("selected", true);
+                }, 1000);
+                console.log(customerData.tehsil_id);
             }
         },
         error: function(error) {
@@ -568,12 +587,13 @@ function getuserdetail(id) {
 function setSelectedOption(selectId, value) {
     var select = document.getElementById(selectId);
     for (var i = 0; i < select.options.length; i++) {
-      if (select.options[i].value == value) {
-        select.selectedIndex = i;
-        break;
-      }
+        if (select.options[i].value == value) {
+            select.selectedIndex = i;
+            break;
+        }
     }
-  }
+}
+
   function populateTehsil(selectId, value) {
     var select = document.getElementById(selectId);
     for (var i = 0; i < select.options.length; i++) {

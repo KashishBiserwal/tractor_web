@@ -627,7 +627,7 @@
     <section class="about bg-light">
       <div class="container">
         <div class="lecture_heading text-center">
-          <h3 class="fw-bold mt-4 pt-4">About <span class="text-success">Bharat Tractor</span>
+          <h3 class="fw-bold mt-4 pt-4">About <span class="text-success">Bharat Agrimart</span>
           </h3>
         </div>
         <div class="mt-4 pb-5">

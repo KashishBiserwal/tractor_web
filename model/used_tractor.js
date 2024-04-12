@@ -485,9 +485,9 @@ function getUserDetail(id, formId) {
                 $('#' + formId + ' #fname').val(customer.first_name);
                 $('#' + formId + ' #lname').val(customer.last_name);
                 $('#' + formId + ' #number').val(customer.mobile);
-                $('#' + formId + ' #state_form').val(customer.state);
-                $('#' + formId + ' #district_form').val(customer.district);
-                $('#' + formId + ' #tehsil').val(customer.tehsil);
+                $('#' + formId + ' #state_form').val(customer.state_id);
+                $('#' + formId + ' #district_form').val(customer.district_id);
+                $('#' + formId + ' #tehsil').val(customer.tehsil_id);
                 
                 // Disable fields if user is logged in
                 if (isUserLoggedIn()) {

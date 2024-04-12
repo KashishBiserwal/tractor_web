@@ -15,12 +15,12 @@
       /* owl nav */
       .owl-prev span,
       .owl-next span {
-        color: #8199A3;
+        color: #2E8B57;
       }
 
       .owl-prev span:hover,
       .owl-next span:hover {
-        color: #8199A3;
+        color: #2E8B57;
       }
 
       .owl-prev,
@@ -65,13 +65,19 @@
         display: none;
     } */
     .mylist-nav-link.active {
-    background-color: #28a745 !important;
+    background-color: #2E8B57 !important;
     color: white !important;
 }
-.hover-bg-success:hover,
-.nav-link.hover-bg-success:focus {
-    background-color: #E6E6FA !important; /* Change to desired hover/active background color */
-    color: #000000 !important; /* Change to desired hover/active text color */
+.hover-bg-success:hover {
+    background-color: #D3D3D3 !important; 
+    color:	#000000;
+}
+.hover-bg-success{
+    background-color: #E6E6FA !important; 
+}
+.nav-link.hover-bg-success.active {
+    background-color: #2f8f59 !important; 
+    color:	#FFFFFF;
 }
 .table-responsive {
         width: 100%;
@@ -105,19 +111,19 @@
                       <i class="fa-solid fa-image-portrait"></i>
                       <span>Personal Information </a>
                 </li>
-                <li class="nav-item">
+                <li class="active nav-item">
                   <a class="nav-link" data-bs-toggle="tab" href="#purchase_request">
                     <span>
                       <i class="fa-solid fa-cart-shopping"></i>
                       <span>Purchase Request </a>
                 </li>
-                <li class="nav-item">
+                <li class="active nav-item">
                   <a class="nav-link" data-bs-toggle="tab" href="#my_list">
                     <span>
                       <i class="fa-solid fa-bars"></i>
                       <span>My List </a>
                 </li>
-                <li class="nav-item">
+                <li class="active nav-item">
                   <a class="nav-link" data-bs-toggle="tab" href="#interested_buyers">
                     <span>
                       <i class="fa-solid fa-tags"></i>
@@ -169,7 +175,7 @@
                                 <select class="form-select py-2 state-dropdown " aria-label=".form-select-lg example" id="state" name="state" disabled="disabled">
                                 </select>
                             </div>
-                        </div>
+                        </div> 
                         <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-4">
                             <div class="form-outline">
                                 <label for="eo_dist" class="form-label"><i class="fa-solid fa-location-dot"></i> District</label>
@@ -196,38 +202,38 @@
                         <div class="my-3">
                             <div class="col-12 col-carousel py-2">
                                 <div class="owl-carousel carousel-main">
-                                    <a class="nav-link text-center bg-light hover-bg-success " href="#purchase_tractor_table">
+                                    <a class="nav-link text-center bg-light hover-bg-success tab-pane active" href="#purchase_tractor_table" id="tractor_active">
                                         <span><i class="fa-solid fa-image-portrait"></i></span> Tractor
                                     </a>
-                                    <a class="nav-link bg-light text-center hover-bg-success" href="#purchase_harvester_table">
+                                    <a class="nav-link bg-light text-center hover-bg-success" href="#purchase_harvester_table"id="harvester">
                                         <span><i class="fa-solid fa-cart-shopping"></i></span> Harvester
                                     </a>
-                                    <a class="nav-link bg-light text-center hover-bg-success" href="#purchase_haatbazar_table">
+                                    <a class="nav-link bg-light text-center hover-bg-success" href="#purchase_haatbazar_table" id="hatbazar">
                                         <span><i class="fa-solid fa-bars"></i></span> HaatBazar
                                     </a>
-                                    <a class="nav-link bg-light text-center hover-bg-success" href="#purchase_implements_table">
+                                    <a class="nav-link bg-light text-center hover-bg-success" href="#purchase_implements_table" id="implement">
                                         <span><i class="fa-solid fa-tags"></i></span> Implements
                                     </a>
-                                    <a class="nav-link text-center bg-light hover-bg-success" href="#purchase_nursery_table">
+                                    <a class="nav-link text-center bg-light hover-bg-success" href="#purchase_nursery_table" id="nursery">
                                         <span><i class="fa-solid fa-tags"></i></span> Nursery
                                     </a>
-                                    <a class="nav-link text-center bg-light hover-bg-success" href="#purchase_tyre_table">
+                                    <a class="nav-link text-center bg-light hover-bg-success" href="#purchase_tyre_table" id="tyre">
                                         <span><i class="fa-solid fa-tags"></i></span> Tyre
                                     </a>
-                                    <a class="nav-link text-center bg-light hover-bg-success" href="#purchase_engineoil_table">
+                                    <a class="nav-link text-center bg-light hover-bg-success" href="#purchase_engineoil_table" id="engine">
                                         <span><i class="fa-solid fa-tags"></i></span> Engine Oil
                                     </a>
-                                    <a class="nav-link text-center bg-light hover-bg-success" href="#purchase_dealer_table">
+                                    <a class="nav-link text-center bg-light hover-bg-success" href="#purchase_dealer_table"id="dealer">
                                         <span><i class="fa-solid fa-tags"></i></span> Dealer
                                     </a>
-                                    <a class="nav-link text-center bg-light hover-bg-success" href="#purchase_hire_table">
+                                    <a class="nav-link text-center bg-light hover-bg-success" href="#purchase_hire_table" id="hire">
                                         <span><i class="fa-solid fa-tags"></i></span> Hire
                                     </a>
                                 </div>
                             </div>
                         </div>
-                        <div class="table-responsive">
-                            <table id="purchase_tractor_table" class="table table-striped table-hover table-bordered no-footer">
+                        <div class="table-responsive table-active" active>
+                            <table id="purchase_tractor_table" class="table table-striped table-hover table-bordered no-footer ">
                                 <thead class="bg-success w-100">
                                     <tr>
                                         <th class="d-md-table-cell text-white" style="width: 275px;">Request Type</th>
@@ -242,7 +248,7 @@
                                 </tbody>
                             </table>
                         </div>
-                        <div class="table-responsive" >
+                        <div class="table-responsive table-hide">
                                 <table id="purchase_harvester_table" class="table table-striped table-hover table-bordered no-footer">
                                 <thead class="bg-success">
                                     <tr>
@@ -257,7 +263,7 @@
                                 <tbody id="data-table2" class="data-table"></tbody>
                                 </table>
                         </div>
-                        <div class="table-responsive">
+                        <div class="table-responsive table-hide">
                             <table id="purchase_haatbazar_table" class="table table-striped  table-hover table-bordered  no-footer">
                                 <thead class="bg-success">
                                     <tr>
@@ -272,7 +278,7 @@
                                 <tbody id="data-table3" class="data-table"></tbody>
                             </table>
                         </div>
-                        <div class="table-responsive">
+                        <div class="table-responsive table-hide">
                                 <table id="purchase_implements_table" class="table table-striped table-hover table-bordered  no-footer">
                                 <thead class="bg-success">
                                     <tr>
@@ -287,7 +293,7 @@
                                 <tbody id="data-table4" class="data-table"></tbody>
                                 </table>
                         </div>
-                        <div class="table-responsive">
+                        <div class="table-responsive table-hide">
                             <table id="purchase_nursery_table" class="table table-striped table-hover table-bordered no-footer">
                                 <thead class="bg-success">
                                     <tr>
@@ -303,7 +309,7 @@
                                 <tbody id="data-table5" class="data-table"></tbody>
                             </table>
                         </div>
-                        <div class="table-responsive">
+                        <div class="table-responsive table-hide">
                                 <table id="purchase_tyre_table" class="table table-striped  table-hover table-bordered  no-footer">
                                 <thead class="bg-success">
                                     <tr>
@@ -319,7 +325,7 @@
                                 <tbody id="data-table6" class="data-table"></tbody>
                                 </table>
                         </div>
-                        <div class="table-responsive">
+                        <div class="table-responsive table-hide">
                                 <table id="purchase_engineoil_table" class="table table-striped  table-hover table-bordered  no-footer">
                                 <thead class="bg-success">
                                     <tr>
@@ -334,7 +340,7 @@
                                 <tbody id="data-table7"></tbody>
                                 </table>
                         </div>
-                        <div class="table-responsive">
+                        <div class="table-responsive table-hide">
                                 <table id="purchase_dealer_table" class="table table-striped  table-hover table-bordered  no-footer">
                                 <thead class="bg-success">
                                     <tr>
@@ -350,7 +356,7 @@
                                 <tbody id="data-table8" class="data-table"></tbody>
                                 </table>
                         </div>
-                        <div class="table-responsive">
+                        <div class="table-responsive table-hide">
                             <table id="purchase_hire_table" class="table table-striped  table-hover table-bordered  no-footer">
                                 <thead class="bg-success w-100">
                                 <tr>
@@ -368,15 +374,13 @@
                     </div>
                 </div>
              
-                  
-              
-                <div id="my_list" class="tab-pane w-100">
+                 <div id="my_list" class="tab-pane w-100">
                     <div class="col-12 col-carousel py-2">
                         <div class="owl-carousel carousel-main">
-                            <a class="nav-link text-center bg-light hover-bg-success" id="listTEactor" href="#list_purchase_tractor_table">
+                        <a class="nav-link bg-light text-center hover-bg-success tab-pane active" href="#list_purchase_tractor_table" id="tractor_table_active">
                                 <span>
-                                    <i class="fa-solid fa-image-portrait"></i>
-                                </span> Tractor
+                                    <i class="fa-solid fa-cart-shopping"></i>
+                                </span> Tractor 
                             </a>
                             <a class="nav-link bg-light text-center hover-bg-success" href="#list_purchase_harvest_table">
                                 <span>
@@ -395,7 +399,7 @@
                             </a>  
                         </div>
                     </div>
-                    <div class="table-responsive w-100">
+                    <div class="table-responsive w-100 table-active" active>
                         <table id="list_purchase_tractor_table" class="table table-striped table-hover table-bordered no-footer" style="width: 100%;">
                             <thead class="bg-success">
                             <tr>
@@ -411,7 +415,7 @@
                             </tbody>
                         </table>
                     </div>
-                    <div class="table-responsive w-100">
+                    <div class="table-responsive table-hide w-100">
                         <table id="list_purchase_harvest_table" class="table table-striped table-hover table-bordered no-footer" style="width: 100%;">
                             <thead class="bg-success w-100">
                                 <tr>
@@ -427,7 +431,7 @@
                             </tbody>
                         </table>
                     </div>
-                    <div class="table-responsive w-100">
+                    <div class="table-responsive table-hide w-100">
                         <table id="list_purchase_imple_table" class="table table-striped table-hover table-bordered no-footer" style="width: 100%;">
                             <thead class="bg-success w-100">
                                 <tr>
@@ -443,7 +447,7 @@
                             </tbody>
                         </table>
                     </div>
-                    <div class="table-responsive w-100">
+                    <div class="table-responsive table-hide  w-100">
                         <table id="list_purchase_haatbazar_table" class="table table-striped table-hover table-bordered no-footer"style="width: 100%;">
                             <thead class="bg-success">
                                 <tr>
@@ -461,22 +465,17 @@
                     </div>
                 </div>
 
-                <div id="interested_buyers" class="tab-pane w-100">
+                <div id="interested_buyers" class=" tab-pane  w-100">
                     <div class="col-12 col-carousel py-2">
                         <div class="owl-carousel carousel-main">
-                            <a class="nav-link text-center bg-light" id="listInterested" href="#list_interested_buyers_table">
+                            <a class="nav-link text-center bg-light hover-bg-success tab-pane active" id="listInterested" href="#list_interested_buyers_table">
                                 <span>
                                     <i class="fa-solid fa-tags"></i>
                                 </span> Tractor/Harverset/Implement
-                            </a>
-                            <!-- <a class="nav-link bg-light text-center" href="#list_interested_buyers_haatbazar_table">
-                                <span>
-                                    <i class="fa-solid fa-cart-shopping"></i>
-                                </span> HaatBazar 
-                            </a>    -->
+                            </a> 
                         </div>
                     </div>
-                    <div class="table-responsive">
+                    <div class="table-responsive table-active" active>
                         <table id="list_interested_buyers_table" class="table table-striped table-hover table-bordered no-footer w-100">
                             <thead class="bg-success">
                                 <tr>
@@ -531,26 +530,61 @@
         });
     });
 </script>
-
-<!-- <script>
-    // jQuery script to set the width of tables to 100%
-    $(document).ready(function() {
-        // Select all tables with the class "table-responsive" and set their width to 100%
-        $('.table-responsive').find('table').css('width', '100%');
-    });
-</script> -->
-
 <script>
     $(document).ready(function() {
-        // Function to handle hover effect for active link
-        $('.nav-link.active').hover(function() {
-            $(this).addClass('hover-bg-success');
-        }, function() {
-            $(this).removeClass('hover-bg-success');
-        });
+    // Function to handle tab clicks
+    $('.nav-link').on('click', function() {
+        
+        // Remove active class from all tabs
+        $('.nav-link').removeClass('active');
+        $(this).addClass('active');
 
-        // Add active class to the current active link
-        // Replace 'purchase_tractor_table' with the ID of the active table
-        $('.nav-link[href="#purchase_tractor_table"]').addClass('active');
+        var targetTable = $(this).attr('href');
+        $('.table-responsive').hide();
+        $(targetTable).closest('.table-responsive').show();
     });
+});
 </script>
+
+<script>
+$(document).ready(function() {
+    // Function to show tractor table when "Purchase Request" tab is clicked
+    $('.nav-link[href="#purchase_request"]').on('click', function() {
+       
+        $('#purchase_tractor_table').closest('.table-responsive').show();
+        $('#tractor_active').addClass('active');
+        // $(this).addClass('active');
+        // Hide other tables for Purchase Request
+        $('.table-hide').not('#purchase_tractor_table').hide();
+    });
+
+    // Function to show respective table when other tabs are clicked
+    $('.nav-link').not('[href="#purchase_request"]').on('click', function() {
+        // Hide all tables
+        $('.table-responsive').hide();
+        
+        // Show the table corresponding to the clicked link
+        var tableIdToShow = $(this).attr('href').replace('#', ''); // Remove '#' from href
+        $('#' + tableIdToShow).closest('.table-responsive').show();
+    });
+});
+
+$(document).ready(function() {
+    // Function to show tractor table when "My List" tab is clicked
+    $('.nav-link[href="#my_list"]').on('click', function() {
+        // Show the tractor table for My List
+        $('#list_purchase_tractor_table').closest('.table-responsive').show();
+        $('#tractor_table_active').addClass('active');
+        // Hide other tables for My List
+        $('.table-hide').not('#list_purchase_tractor_table').hide();
+    });
+});
+$(document).ready(function() {
+    $('.nav-link[href="#interested_buyers"]').on('click', function() {
+        $('#list_interested_buyers_table').closest('.table-responsive').show();
+        $('#listInterested').addClass('active');
+        $('.table-hide').not('#list_interested_buyers_table').hide();
+    });
+});
+</script>
+
