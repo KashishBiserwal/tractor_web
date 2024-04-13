@@ -186,8 +186,7 @@ function appendCard(container, p) {
                                     <div class="form-outline">
                                         <label for="Tehsil" class="form-label fw-bold text-dark"> Tehsil</label>
                                         <select class="form-select py-2 tehsil-dropdown" aria-label=".form-select-lg example" id="tehsil" name="tehsil">
-                                            
-                                            <!-- Options for Tehsil dropdown -->
+                                           
                                         </select>
                                     </div>
                                 </div>
@@ -277,7 +276,7 @@ function appendCard(container, p) {
             
          `;
     container.append(newCard);
-    populateDropdowns(p.id);
+    populateDropdowns(formId);
      $('.price_form').on('input', function() {
             var value = $(this).val().replace(/\D/g, ''); // Remove non-digit characters
             var formattedValue = Number(value).toLocaleString('en-IN'); // Format using Indian numbering system
@@ -486,12 +485,12 @@ function getUserDetail(id, formId) {
                 $('#' + formId + ' #lname').val(customer.last_name);
                 $('#' + formId + ' #number').val(customer.mobile);
                 $('#' + formId + ' #state_form').val(customer.state_id);
-                $('#' + formId + ' #district_form').val(customer.district_id);
-                $('#' + formId + ' #tehsil').val(customer.tehsil_id);
+                // $('#' + formId + ' #district_form').val(customer.district_id);
+                // $('#' + formId + ' #tehsil').val(customer.tehsil_id);
                 
                 // Disable fields if user is logged in
                 if (isUserLoggedIn()) {
-                    $('#' + formId + ' input, #' + formId + ' select').not('#price_form').prop('disabled', true);
+                    $('#' + formId + ' input, #' + formId + ' select').not('#price_form,#district_form,#tehsil').prop('disabled', true);
                 }
             }
         },
@@ -898,6 +897,7 @@ function appendFilterCard(filterContainer, p) {
         `;
 
     filterContainer.append(newCard);
+    populateDropdowns(formId);
 }
 function filterAndDisplayCards() {
     var productContainer = $("#productContainer");
@@ -930,10 +930,10 @@ function filterAndDisplayCards() {
 
 
 
-  function populateDropdowns() {
-    var stateDropdowns = document.querySelectorAll('.state-dropdown');
-    var districtDropdowns = document.querySelectorAll('.district-dropdown');
-    var tehsilDropdowns = document.querySelectorAll('.tehsil-dropdown');
+  function populateDropdowns(identifier) {
+    var stateDropdowns = document.querySelectorAll(`#${identifier} .state-dropdown`);
+    var districtDropdowns = document.querySelectorAll(`#${identifier} .district-dropdown`);
+    var tehsilDropdowns = document.querySelectorAll(`#${identifier} .tehsil-dropdown`);
 
     var defaultStateId = 7; 
 

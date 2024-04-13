@@ -49,6 +49,16 @@
   <button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active"></button>
   <button type="button" data-bs-target="#demo" data-bs-slide-to="1"></button>
   <button type="button" data-bs-target="#demo" data-bs-slide-to="2"></button>
+  <button type="button" data-bs-target="#demo" data-bs-slide-to="3"></button>
+  <button type="button" data-bs-target="#demo" data-bs-slide-to="4"></button>
+  <button type="button" data-bs-target="#demo" data-bs-slide-to="5"></button>
+  <button type="button" data-bs-target="#demo" data-bs-slide-to="6"></button>
+  <button type="button" data-bs-target="#demo" data-bs-slide-to="7"></button>
+  <button type="button" data-bs-target="#demo" data-bs-slide-to="8"></button>
+  <button type="button" data-bs-target="#demo" data-bs-slide-to="9"></button>
+  <button type="button" data-bs-target="#demo" data-bs-slide-to="10"></button>
+  <button type="button" data-bs-target="#demo" data-bs-slide-to="11"></button>
+  <button type="button" data-bs-target="#demo" data-bs-slide-to="12"></button>
 </div>
 
 <!-- The slideshow/carousel -->
@@ -61,6 +71,36 @@
   </div>
   <div class="carousel-item">
     <img src="assets/images/slider3.jpg" alt="New York" class="d-block w-100">
+  </div>
+  <div class="carousel-item">
+    <img src="assets/images/sidel-img1.jpg" alt="New York" class="d-block w-100">
+  </div>
+  <div class="carousel-item">
+    <img src="assets/images/sidel-img2.jpg" alt="New York" class="d-block w-100">
+  </div>
+  <div class="carousel-item">
+    <img src="assets/images/slider-img-4.jpg" alt="New York" class="d-block w-100">
+  </div>
+  <div class="carousel-item">
+    <img src="assets/images/slider-img5.jpg" alt="New York" class="d-block w-100">
+  </div>
+  <div class="carousel-item">
+    <img src="assets/images/slider-img6.jpg" alt="New York" class="d-block w-100">
+  </div>
+  <div class="carousel-item">
+    <img src="assets/images/slider-img7.jpg" alt="New York" class="d-block w-100">
+  </div>
+  <div class="carousel-item">
+    <img src="assets/images/slider-img-8.jpg" alt="New York" class="d-block w-100">
+  </div>
+  <div class="carousel-item">
+    <img src="assets/images/slider-img-9.jpg" alt="New York" class="d-block w-100">
+  </div>
+  <div class="carousel-item">
+    <img src="assets/images/slider-img10.jpg" alt="New York" class="d-block w-100">
+  </div>
+  <div class="carousel-item">
+    <img src="assets/images/slider-img11.jpg" alt="New York" class="d-block w-100">
   </div>
 </div>
 

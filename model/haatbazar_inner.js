@@ -109,9 +109,11 @@ $(document).ready(function() {
                             <p class=" text-center text-truncate" id="district"><span id="engine_powerhp2"></span> ${p.district_name},<span id="year"> ${p.state_name}</span></p>
                         </div>
                         <div class="col-12">
+                        <a href="hatbazar_buy.php">
                             <button type="button" class="add_btn btn-success w-100" data-bs-toggle="modal" data-bs-target="#${modalId}" data-product-id="${p.product_id}">
                                 <i class="fa-regular fa-handshake"></i> Contact Seller
                             </button>
+                            </a>
                         </div>
                     </div>
                         <div class="modal fade" id="${modalId}" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -547,14 +549,14 @@ function getUserDetail(id) {
                 $('#haatbazar_form #fname').val(customer.first_name);
                 $('#haatbazar_form #lname').val(customer.last_name);
                 $('#haatbazar_form #number_number').val(customer.mobile);
-                $('#haatbazar_form #state_2').val(customer.state);
-                $('#haatbazar_form #district').val(customer.district);
-                $('#haatbazar_form #tehsil').val(customer.tehsil);
+                $('#haatbazar_form #state_2').val(customer.state_id);
+                // $('#haatbazar_form #district').val(customer.district);
+                // $('#haatbazar_form #tehsil').val(customer.tehsil);
                 
                 // Disable fields if user is logged in
                 if (isUserLoggedIn()) {
                     // Disable all input and select elements within the form
-                    $('#haatbazar_form input, #haatbazar_form select').not('#price').prop('disabled', true);
+                    $('#haatbazar_form input, #haatbazar_form select').not('#price,#district,#tehsil').prop('disabled', true);
                 }
                 
             }
@@ -712,11 +714,11 @@ function collectFormData(formId) {
     // Collect form data
     var enquiry_type_id = $(`#${formId} #enquiry_type_id`).val();
     var product_id = $(`#${formId} #product_id`).val();
-    var first_name = $(`#${formId} #firstName`).val();
-    var last_name = $(`#${formId} #lastName`).val();
-    var mobile = $(`#${formId} #mobile_number`).val();
+    var first_name = $(`#${formId} #fname`).val();
+    var last_name = $(`#${formId} #lname`).val();
+    var mobile = $(`#${formId} #number_number`).val();
     var state = $(`#${formId} #state`).val();
-    var district = $(`#${formId} #district_1`).val();
+    var district = $(`#${formId} #district`).val();
     var tehsil = $(`#${formId} #Tehsil`).val();
 
     var formData = {
@@ -762,13 +764,13 @@ function getuser(id, formId) {
                 $('#' + formId + ' #firstName').val(customer.first_name);
                 $('#' + formId + ' #lastName').val(customer.last_name);
                 $('#' + formId + ' #mobile_number').val(customer.mobile);
-                $('#' + formId + ' #state').val(customer.state);
-                $('#' + formId + ' #district_1').val(customer.district);
-                $('#' + formId + ' #Tehsil').val(customer.tehsil);
+                $('#' + formId + ' #state').val(customer.state_id);
+                // $('#' + formId + ' #district_1').val(customer.district);
+                // $('#' + formId + ' #Tehsil').val(customer.tehsil);
                 
                 // Disable fields if user is logged in
                 if (isUserLoggedIn()) {
-                    $('#' + formId + ' input, #' + formId + ' select').prop('disabled', true);
+                    $('#' + formId + ' input, #' + formId + ' select').not('#price,#district_1,#Tehsil').prop('disabled', true);
                 }
             }
         },

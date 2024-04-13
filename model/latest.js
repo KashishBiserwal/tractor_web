@@ -301,7 +301,7 @@ function displayTractors(tractors) {
         });
                     // Append the new card to the container
                     productContainer.append(newCard);
-                    populateDropdowns(p.id);
+                    populateDropdowns(formId);
                     }
                     });
 
@@ -485,13 +485,13 @@ function getUserDetail(id, formId) {
                 $('#' + formId + ' #firstName').val(customer.first_name);
                 $('#' + formId + ' #lastName').val(customer.last_name);
                 $('#' + formId + ' #mobile_number').val(customer.mobile);
-                $('#' + formId + ' #state').val(customer.state);
-                $('#' + formId + ' #district').val(customer.district);
-                $('#' + formId + ' #Tehsil').val(customer.tehsil);
+                $('#' + formId + ' #state').val(customer.state_id);
+                // $('#' + formId + ' #district').val(customer.district);
+                // $('#' + formId + ' #Tehsil').val(customer.tehsil);
                 
                 // Disable fields if user is logged in
                 if (isUserLoggedIn()) {
-                    $('#' + formId + ' input, #' + formId + ' select').prop('disabled', true);
+                    $('#' + formId + ' input, #' + formId + ' select').not('#district,#Tehsil').prop('disabled', true);
                 }
             }
         },
@@ -743,7 +743,7 @@ function appendFilterCard(filterContainer, filter) {
 
         `;
         container.append(newCard);
-        populateDropdowns(p.id);
+        populateDropdowns(formId);
     }
 
     function displayNextSet() {
@@ -781,3 +781,45 @@ function appendFilterCard(filterContainer, filter) {
     window.location.reload();
     
   } 
+  function populateDropdowns(identifier) {
+    var stateDropdowns = document.querySelectorAll(`#${identifier} .state-dropdown`);
+    var districtDropdowns = document.querySelectorAll(`#${identifier} .district-dropdown`);
+    var tehsilDropdowns = document.querySelectorAll(`#${identifier} .tehsil-dropdown`);
+
+    var defaultStateId = 7; 
+
+    var selectYourStateOption = '<option value="">Select Your State</option>';
+    var chhattisgarhOption = `<option value="${defaultStateId}">Chhattisgarh</option>`;
+
+    stateDropdowns.forEach(function (dropdown) {
+        dropdown.innerHTML = selectYourStateOption + chhattisgarhOption;
+
+        // Fetch district data based on the selected state
+        $.get(`http://tractor-api.divyaltech.com/api/customer/get_district_by_state/${defaultStateId}`, function(data) {
+            var districtSelect = dropdown.closest('.row').querySelector('.district-dropdown');
+            districtSelect.innerHTML = '<option value="">Please select a district</option>';
+            data.districtData.forEach(district => {
+                districtSelect.innerHTML += `<option value="${district.id}">${district.district_name}</option>`;
+            });
+        });
+    });
+
+    // Event listener for district dropdown
+    districtDropdowns.forEach(function (dropdown) {
+        dropdown.addEventListener('change', function() {
+            var selectedDistrictId = this.value;
+            var tehsilSelect = this.closest('.row').querySelector('.tehsil-dropdown');
+            if (selectedDistrictId) {
+                // Fetch tehsil data based on the selected district
+                $.get(`http://tractor-api.divyaltech.com/api/customer/get_tehsil_by_district/${selectedDistrictId}`, function(data) {
+                    tehsilSelect.innerHTML = '<option value="">Please select a tehsil</option>';
+                    data.tehsilData.forEach(tehsil => {
+                        tehsilSelect.innerHTML += `<option value="${tehsil.id}">${tehsil.tehsil_name}</option>`;
+                    });
+                });
+            } else {
+                tehsilSelect.innerHTML = '<option value="">Please select a district first</option>';
+            }
+        });
+    });
+}

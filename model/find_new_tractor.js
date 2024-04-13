@@ -400,7 +400,7 @@ function displayTractors(tractors) {
         productContainer.append(newCard);
         tableData.append(tableRow);
         // hp_wise.append(tablerow_hp);
-        populateDropdowns(p.id);
+        populateDropdowns(formId);
        
     });
 }
@@ -578,13 +578,13 @@ function getUserDetail(id, formId) {
                 $('#' + formId + ' #firstName').val(customer.first_name);
                 $('#' + formId + ' #lastName').val(customer.last_name);
                 $('#' + formId + ' #mobile_number').val(customer.mobile);
-                $('#' + formId + ' #state').val(customer.state);
-                $('#' + formId + ' #district').val(customer.district);
-                $('#' + formId + ' #Tehsil').val(customer.tehsil);
+                $('#' + formId + ' #state').val(customer.state_id);
+                // $('#' + formId + ' #district').val(customer.district);
+                // $('#' + formId + ' #Tehsil').val(customer.tehsil);
                 
                 // Disable fields if user is logged in
                 if (isUserLoggedIn()) {
-                    $('#' + formId + ' input, #' + formId + ' select').prop('disabled', true);
+                    $('#' + formId + ' input, #' + formId + ' select').not('#district ,#Tehsil').prop('disabled', true).prop('disabled', true);
                 }
             }
         },
@@ -787,7 +787,7 @@ function appendFilterCard(filterContainer, filter) {
 
         `;
         container.append(newCard);
-        populateDropdowns(p.id);
+        populateDropdowns(formId);
     }
 
     function displayNextSet() {
@@ -989,10 +989,10 @@ function get_By_Districts(stateId) {
 get();
 
 
-function populateDropdowns() {
-    var stateDropdowns = document.querySelectorAll('.state-dropdown');
-    var districtDropdowns = document.querySelectorAll('.district-dropdown');
-    var tehsilDropdowns = document.querySelectorAll('.tehsil-dropdown');
+function populateDropdowns(identifier) {
+    var stateDropdowns = document.querySelectorAll(`#${identifier} .state-dropdown`);
+    var districtDropdowns = document.querySelectorAll(`#${identifier} .district-dropdown`);
+    var tehsilDropdowns = document.querySelectorAll(`#${identifier} .tehsil-dropdown`);
 
     var defaultStateId = 7; // Define the default state ID here
 

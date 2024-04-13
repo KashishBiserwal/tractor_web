@@ -383,6 +383,37 @@
             </div>
         </div>
     </section>
+<!--OTP model-->
+    <div class="modal fade" id="get_OTP_btn" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header bg-success">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Verify Your OTP</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><img src="assets/images/close.png" class=" w-100"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="otp_form">
+                        <div class=" col-12 input-group">
+                        <div class="col-12" hidden>
+                                <label for="Mobile" class=" text-dark float-start pl-2">Number</label>
+                                <input type="text" class="form-control text-dark" placeholder="Enter OTP" id="mobile_verify"name="Mobile">
+                            </div>
+                            <div class="col-12">
+                                <label for="Mobile" class=" text-dark float-start pl-2">Enter OTP</label>
+                                <input type="text" class="form-control text-dark" placeholder="Enter OTP" id="otp1"name="opt_1">
+                            </div>
+                            <div class="float-end col-12">
+                                <a href="" class="float-end">Resend OTP</a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success" id="Verify">Verify</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <?php
     include 'includes/footer.php';
@@ -751,22 +782,18 @@ $(document).ready(function () {
     }
 
     // Function to reset all forms
-    function resetForms() {
-        $("form").each(function () {
-            this.reset(); // Reset each form
-        });
+    // function resetForms() {
+    //     $("form").each(function () {
+    //         this.reset();
+    //     });s
+    //     $("#form-step-2 .upload__img-wrap").empty();
+    // }
 
-        // Clear uploaded images
-        $("#form-step-2 .upload__img-wrap").empty();
-    }
-
-    // Function to update the progress bar based on the current step
     function updateProgressBar(stepNumber) {
-        var progressPercentage = ((stepNumber - 1) / 3) * 100; // Assuming 3 steps, calculating the progress percentage
+        var progressPercentage = ((stepNumber - 1) / 3) * 100; 
         $(".progress-bar").css("width", progressPercentage + "%");
     }
 
-    // Function to reset forms, display step, and show success message
     $("#btn_submit").click(function () {
         if (areAllFormsValid()) {
             resetForms(); // Reset forms if valid

@@ -71,6 +71,8 @@ function getEngineoilById() {
         url: url,
         type: "GET",
         success: function(data) {
+            var userId = localStorage.getItem('id');
+            getUserDetail(userId);
         document.getElementById('brand_name').innerText=data.engine_oil_details[0].brand_name ;
         document.getElementById('model_name').innerText=data.engine_oil_details[0].oil_model;
         document.getElementById('grade').innerText=data.engine_oil_details[0].grade;
@@ -179,6 +181,8 @@ engineoil.forEach(function (p) {
   var modalId = `engineoil_callbnt_${p.id}`;
   var formId = `engine_oil_form_${p.id}`; 
   var formattedPrice = formatPriceWithCommas(p.price);
+  var userId = localStorage.getItem('id');
+  getUserDetail1(userId, formId);
   var newCard2 = `
   <div class="col-12 col-lg-3 col-sm-3 col-md-3 mt-2 mb-2 px-1 text-decoration-none" id=${cardId}>           
   <div class="success__stry__item h-100 shadow text-dark">
@@ -510,6 +514,49 @@ function collectFormData(formId) {
 
     return formData;
 }
+function getUserDetail1(id, formId) {
+    var url = "http://tractor-api.divyaltech.com/api/customer/get_customer_personal_info_by_id/" + id;
+    console.log(url, 'url print ');
+
+    var headers = {
+        'Authorization': localStorage.getItem('token_customer')
+    };
+
+    $.ajax({
+        url: url,
+        type: "GET",
+        headers: headers,
+        success: function(response) {
+            console.log(response, "response");
+
+            // Check if customerData exists in the response and has at least one entry
+            if (response.customerData && response.customerData.length > 0) {
+                var customer = response.customerData[0];
+                console.log(customer, 'customer details');
+                
+                // Set values based on formId
+                $('#' + formId + ' #firstName').val(customer.first_name);
+                $('#' + formId + ' #lastName').val(customer.last_name);
+                $('#' + formId + ' #mobile_number').val(customer.mobile);
+                $('#' + formId + ' #state').val(customer.state_id);
+                // $('#' + formId + ' #district').val(customer.district);
+                // $('#' + formId + ' #Tehsil').val(customer.tehsil);
+                
+                // Disable fields if user is logged in
+                if (isUserLoggedIn()) {
+                    $('#' + formId + ' input, #' + formId + ' select').not('#price,#district,#Tehsil').prop('disabled', true);
+                }
+            }
+        },
+        error: function(error) {
+            console.error('Error fetching data:', error);
+        }
+    });
+}
+
+function isUserLoggedIn() {
+    return localStorage.getItem('token_customer') && localStorage.getItem('mobile') && localStorage.getItem('id');
+}
 
 function store(event) {
     event.preventDefault();
@@ -631,5 +678,52 @@ function submitForm() {
         }
     });
 }
+function getUserDetail(id) {
+    var url = "http://tractor-api.divyaltech.com/api/customer/get_customer_personal_info_by_id/" + id;
+    console.log(url, 'url print ');
+
+    var headers = {
+        'Authorization': localStorage.getItem('token_customer')
+    };
+
+    $.ajax({
+        url: url,
+        type: "GET",
+        headers: headers,
+        success: function(response) {
+            console.log(response, "response");
+
+            // Check if customerData exists in the response and has at least one entry
+            if (response.customerData && response.customerData.length > 0) {
+                var customer = response.customerData[0];
+                console.log(customer, 'customer details');
+                
+                // Set values based on form ID (used_farm_inner_from)
+                $('#engine_oil_form #firstName').val(customer.first_name);
+                $('#engine_oil_form #lastName').val(customer.last_name);
+                $('#engine_oil_form #mobile_number').val(customer.mobile);
+                $('#engine_oil_form #state').val(customer.state_id);
+                // $('#haatbazar_form #district').val(customer.district);
+                // $('#haatbazar_form #Tehsil').val(customer.tehsil);
+                
+                // Disable fields if user is logged in
+                if (isUserLoggedIn()) {
+                    // Disable all input and select elements within the form
+                    $('#engine_oil_form input, #engine_oil_form select').not('#price,#district,#Tehsil').prop('disabled', true);
+                }
+                
+            }
+        },
+        error: function(error) {
+            console.error('Error fetching data:', error);
+        }
+    });
+}
+
+
+function isUserLoggedIn() {
+    return localStorage.getItem('token_customer') && localStorage.getItem('mobile') && localStorage.getItem('id');
+}
+
 
 

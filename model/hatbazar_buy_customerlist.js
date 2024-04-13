@@ -471,13 +471,13 @@ function getUserDetail(id, formId) {
                 $('#' + formId + ' #firstName').val(customer.first_name);
                 $('#' + formId + ' #lastName').val(customer.last_name);
                 $('#' + formId + ' #mobile_number').val(customer.mobile);
-                $('#' + formId + ' #state').val(customer.state);
-                $('#' + formId + ' #district_1').val(customer.district);
-                $('#' + formId + ' #Tehsil').val(customer.tehsil);
+                $('#' + formId + ' #state').val(customer.state_id);
+                // $('#' + formId + ' #district_1').val(customer.district);
+                // $('#' + formId + ' #Tehsil').val(customer.tehsil);
                 
                 // Disable fields if user is logged in
                 if (isUserLoggedIn()) {
-                    $('#' + formId + ' input, #' + formId + ' select').prop('disabled', true);
+                    $('#' + formId + ' input, #' + formId + ' select').not('#price,#district_1,#Tehsil').prop('disabled', true);
                 }
             }
         },

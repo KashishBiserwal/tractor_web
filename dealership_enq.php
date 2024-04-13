@@ -61,42 +61,21 @@
                                 <label for="name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i> product id</label>
                                 <input type="text" class="form-control" id="product_id" value="">
                             </div>
-                            <!-- <div class="col-12 col-sm-12 col-md-6 col-lg-6">
-                                <div class="mt-2">
-                                    <div class="form-outline">
-                                        <label class="form-label text-dark" style="background:#fcfcfc54;"><i class="fa-regular fa-user"></i> First Name</label>
-                                        <input type="text" class="form-control mb-0" id="f_name_1" name="f_name">
-                                    </div>
-                                </div>
-                            </div> -->
+                          
                             <div class="col-12 col-lg-6 col-md-6 col-sm-6 mb-2 mt-3 ">
                                             <div class="form-outline">
                                                 <label for="f_name" class="form-label mb-0 text-dark"> <i class="fa-regular fa-user"></i> First Name</label>
                                                 <input type="text" class="form-control mb-0" placeholder="Enter Your Name"  id="f_name_1" name="f_name" required>
                                             </div>
                                         </div>
-                            <!-- <div class="col-12 col-sm-12 col-md-6 col-lg-6">
-                                <div class="mt-2">
-                                    <div class="form-outline">
-                                        <label class="form-label text-dark" style="background:transparent;"><i class="fa-regular fa-user"></i> Last Name</label>
-                                        <input type="text" class="form-control mb-0" id="l_name_1" name="l_name">                                
-                                    </div>
-                                </div>
-                            </div> -->
+                          
                             <div class="col-12 col-lg-6 col-md-6 col-sm-6 mb-2 mt-3">
                                             <div class="form-outline">
                                                 <label for="eo_name" class="form-label text-dark"> <i class="fa-regular fa-user"></i> Last Name</label>
                                                 <input type="text" class="form-control mb-0" placeholder="Enter Your Name"  id="l_name_1" name="l_name" required>
                                             </div>
                                         </div>
-                            <!-- <div class="col-12 col-lg-12 col-md-12 col-sm-12 mt-3">
-                            <div class="form-outline">    
-                                <div class="mt-2">
-                                        <label class="form-label text-dark"style="background:transparent;"> <i class="fa fa-phone" aria-hidden="true"></i> Mobile Number</label>
-                                        <input type="text" class="form-control mb-0" id="mob_num" name="mob_num" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');">
-                                    </div>
-                                </div>
-                            </div> -->
+                          
                             <div class="col-12 col-lg-12 col-md-12 col-sm-12 mt-3">
                                             <div class="form-outline mt-3">
                                                 <label for="eo_number" class="form-label text-dark"> <i class="fa fa-phone" aria-hidden="true"></i> Phone Number</label>
@@ -107,9 +86,7 @@
                                 <div class="form-outline">
                                     <label for="yr_state" class="form-label text-dark fw-bold "> <i class="fas fa-location"></i> State</label>
                                     <select class="form-select py-2 state-dropdown" id="state_s" name="_state"aria-label=".form-select-lg example">
-                                        <!-- <option value="" selected disabled=""></option>
-                                        <option value="Chhattisgarh">Chhattisgarh</option>
-                                        <option value="Other">Other</option> -->
+                                       
                                     </select>
                                 </div>
                             </div>
@@ -117,10 +94,7 @@
                                 <div class="form-outline">
                                     <label for="yr_dist" class="form-label text-dark"><i class="fa-solid fa-location-dot"></i> District</label>
                                     <select class="form-select py-2 district-dropdown" id="district_s" name="_district" aria-label=".form-select-lg example">
-                                        <!-- <option value="" selected disabled=""></option>
-                                        <option value="Raipur">Raipur</option>
-                                        <option value="Bilaspur">Bilaspur</option>
-                                        <option value="Durg">Durg</option> -->
+                                 
                                     </select>
                                 </div>
                             </div>
@@ -129,9 +103,7 @@
                                     <label for="yr_price" class="form-label text-dark"> Tehsil</label>
                                     <select class="form-select py-2 tehsil-dropdown" id="t_tehsil" name="_tehsil"aria-label=".form-select-lg example">
                                     <option value="" selected disabled=""></option>
-                                        <!-- <option value="Raipur">Raipur</option>
-                                        <option value="Bilaspur">Bilaspur</option>
-                                        <option value="Durg">Durg</option> -->
+                                     
                                     </select>    
                                 </div>  
                             </div>
@@ -139,15 +111,12 @@
                                 <div class="form-outline">
                                     <label for="brand" class="form-label text-dark">Brand</label>
                                     <select class="form-select py-2 " id="b_brand_1" name="_brand"aria-label=".form-select-lg example">
-                                        <!-- <option value="" selected disabled=""></option>
-                                        <option value="1">Mahindra</option>
-                                        <option value="2">Swaraj</option>
-                                        <option value="2">Powertrac</option> -->
+                                       
                                     </select>
                                 </div>
                             </div>
                             <div class="text-center  my-3">
-                                <button type="submit" id="delership_enq_btn" class="btn btn-success mt-1 px-5 w-100 ">Submit</button>         
+                                <button type="submit" id="delership_enq_btn" class="btn btn-success mt-1 px-5 w-100" data-bs-toggle="modal" data-bs-target="get_OTP_btn">Submit</button>         
                             </div>        
                             <p class="mb-0 text-center">By proceeding ahead you expressly agree to the Bharat Tractors <a href="#" class="text-decoration-none" target="_blank" title="terms and conditions">terms and conditions*</a></p>
                         </div>
@@ -156,6 +125,39 @@
             </div>
         </div>
     </section>
+    <!--OTP model-->
+    <div class="modal fade" id="get_OTP_btn" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header bg-success">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Verify Your OTP</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><img src="assets/images/close.png" class=" w-100"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="otp_form">
+                        <div class=" col-12 input-group">
+                        <div class="col-12" hidden>
+                                <label for="Mobile" class=" text-dark float-start pl-2">Number</label>
+                                <input type="text" class="form-control text-dark" placeholder="Enter OTP" id="mobile_verify"name="Mobile">
+                            </div>
+                            <div class="col-12">
+                                <label for="Mobile" class=" text-dark float-start pl-2">Enter OTP</label>
+                                <input type="text" class="form-control text-dark" placeholder="Enter OTP" id="otp1"name="opt_1">
+                            </div>
+                            <div class="float-end col-12">
+                                <a href="" class="float-end">Resend OTP</a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> -->
+                    <button type="button" class="btn btn-success" id="Verify">Verify</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <section>
       <div class="container">
         <h3 class=" py-4 display-6 fw-bold">Harvester in <span class="text-success">2023</span></h3>

@@ -467,12 +467,12 @@ function getUserDetail(id) {
                 $('#find-used-tractor-form #fName').val(customer.first_name);
                 $('#find-used-tractor-form #lName').val(customer.last_name);
                 $('#find-used-tractor-form #phone').val(customer.mobile);
-                $('#find-used-tractor-form #state').val(customer.state);
-                $('#find-used-tractor-form #district').val(customer.district);
+                $('#find-used-tractor-form #state').val(customer.state_id);
+                // $('#find-used-tractor-form #district').val(customer.district);
                 
                 if (isUserLoggedIn()) {
                     // Disable specific input and select elements within the form
-                    $('#find-used-tractor-form #fName, #find-used-tractor-form #lName, #find-used-tractor-form #phone, #find-used-tractor-form #state, #find-used-tractor-form #district').prop('disabled', true);
+                    $('#find-used-tractor-form #fName, #find-used-tractor-form #lName, #find-used-tractor-form #phone, #find-used-tractor-form #state').not('#district').prop('disabled', true);
                 }
                 
                 

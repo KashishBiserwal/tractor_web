@@ -174,7 +174,53 @@ function submitForm() {
         }
     });
 }
+function getUserDetail(id) {
+    var url = "http://tractor-api.divyaltech.com/api/customer/get_customer_personal_info_by_id/" + id;
+    console.log(url, 'url print ');
 
+    var headers = {
+        'Authorization': localStorage.getItem('token_customer')
+    };
+
+    $.ajax({
+        url: url,
+        type: "GET",
+        headers: headers,
+        success: function(response) {
+            console.log(response, "response");
+
+            // Check if customerData exists in the response and has at least one entry
+            if (response.customerData && response.customerData.length > 0) {
+                var customer = response.customerData[0];
+                console.log(customer, 'customer details');
+                
+                // Set values based on form ID (used_farm_inner_from)
+                $('#dealership_enq_from #f_name').val(customer.first_name);
+                $('#dealership_enq_from #l_name').val(customer.last_name);
+                $('#dealership_enq_from #mob_num').val(customer.mobile);
+                $('#dealership_enq_from #s_state').val(customer.state_id);
+                // $('#dealership_enq_from #brand_select').val(customer.state_id);
+                // $('#dealership_enq_from #district').val(customer.district);
+                // $('#dealership_enq_from #tehsil').val(customer.tehsil);
+                
+                // Disable fields if user is logged in
+                if (isUserLoggedIn()) {
+                    // Disable all input and select elements within the form
+                    $('#dealership_enq_from input, #dealership_enq_from select').not('#price,#s_district,#t_tehsil,#brand_select').prop('disabled', true);
+                }
+                
+            }
+        },
+        error: function(error) {
+            console.error('Error fetching data:', error);
+        }
+    });
+}
+
+
+function isUserLoggedIn() {
+    return localStorage.getItem('token_customer') && localStorage.getItem('mobile') && localStorage.getItem('id');
+}
 
 
 function gettyre() {
@@ -187,6 +233,8 @@ function gettyre() {
         url: url,
         type: "GET",
         success: function(data) {
+            var userId = localStorage.getItem('id');
+            getUserDetail(userId);
         console.log(data, 'abc');
         document.getElementById('brand_name1').innerText=data.tyre_details[0].brand_name;
         document.getElementById('tyre').innerText=data.tyre_details[0].tyre_model;
@@ -197,7 +245,7 @@ function gettyre() {
         // document.getElementById('engine_powerhp').innerText=data.product[0].hp_category;
         document.getElementById('tyre_size').innerText=data.tyre_details[0].tyre_size;
         document.getElementById('product_id').value=data.tyre_details[0].id;
-        document.getElementById('Productid').value=data.tyre_details[0].id;
+        // document.getElementById('Productid').value=data.tyre_details[0].id;
             if(data.tyre_details[0].image_names != null){
                 var imageNames = data.tyre_details[0].image_names.split(',');
             }
@@ -294,7 +342,8 @@ function displayTractors(tractors) {
         var cardId = `card_${p.id}`; // Dynamic ID for the card
         var modalId = `staticBackdrop2_${p.id}`;
         var formId = `contact-seller-call_${p.id}`;
-
+        var userId = localStorage.getItem('id');
+        getUserDetail1(userId, formId);
         var newCard2 = `
         <div class="col-12 col-lg-3 col-md-3 col-sm-3 mb-3" id="${cardId}">
             <div class="h-auto success__stry__item d-flex flex-column shadow tyre_card">
@@ -616,6 +665,50 @@ function collectFormData(formId) {
     };
 
     return formData;
+}
+
+function getUserDetail1(id, formId) {
+    var url = "http://tractor-api.divyaltech.com/api/customer/get_customer_personal_info_by_id/" + id;
+    console.log(url, 'url print ');
+
+    var headers = {
+        'Authorization': localStorage.getItem('token_customer')
+    };
+
+    $.ajax({
+        url: url,
+        type: "GET",
+        headers: headers,
+        success: function(response) {
+            console.log(response, "response");
+
+            // Check if customerData exists in the response and has at least one entry
+            if (response.customerData && response.customerData.length > 0) {
+                var customer = response.customerData[0];
+                console.log(customer, 'customer details');
+                
+                // Set values based on formId
+                $('#' + formId + ' #fname').val(customer.first_name);
+                $('#' + formId + ' #lname').val(customer.last_name);
+                $('#' + formId + ' #number').val(customer.mobile);
+                $('#' + formId + ' #state_form').val(customer.state_id);
+                // $('#' + formId + ' #district_form').val(customer.district);
+                // $('#' + formId + ' #tehsil').val(customer.tehsil);
+                
+                // Disable fields if user is logged in
+                if (isUserLoggedIn()) {
+                    $('#' + formId + ' input, #' + formId + ' select').not('#price,#district_form,#tehsil').prop('disabled', true);
+                }
+            }
+        },
+        error: function(error) {
+            console.error('Error fetching data:', error);
+        }
+    });
+}
+
+function isUserLoggedIn() {
+    return localStorage.getItem('token_customer') && localStorage.getItem('mobile') && localStorage.getItem('id');
 }
 
 function populateDropdowns() {

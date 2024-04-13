@@ -2,8 +2,6 @@ $(document).ready(function() {
     // $('#apply_loan').click(add_loan);
     $('#apply_loan').on('click', function (event) {
         applyForLoan(event);
-
-
         
     });
 });

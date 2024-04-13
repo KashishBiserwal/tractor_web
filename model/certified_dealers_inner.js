@@ -467,14 +467,14 @@ function getUserDetail(id) {
                 $('#dealership_enq_from #f_name').val(customer.first_name);
                 $('#dealership_enq_from #l_name').val(customer.last_name);
                 $('#dealership_enq_from #mob_num').val(customer.mobile);
-                $('#dealership_enq_from #_state').val(customer.state);
-                $('#dealership_enq_from #_district').val(customer.district);
-                $('#dealership_enq_from #_tehsil').val(customer.tehsil);
+                $('#dealership_enq_from #_state').val(customer.state_id);
+                // $('#dealership_enq_from #_district').val(customer.district);
+                // $('#dealership_enq_from #_tehsil').val(customer.tehsil);
                 
                 // Disable fields if user is logged in
                 if (isUserLoggedIn()) {
                     // Disable all input and select elements within the form
-                    $('#dealership_enq_from input, #dealership_enq_from select').not('#_brand').prop('disabled', true);
+                    $('#dealership_enq_from input, #dealership_enq_from select').not('#_brand,#_district,#_tehsil').prop('disabled', true);
                 }
                 
             }

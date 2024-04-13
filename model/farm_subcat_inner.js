@@ -434,14 +434,14 @@ function getUserDetail(id) {
                 $('#engine_oil_form #firstName').val(customer.first_name);
                 $('#engine_oil_form #lastName').val(customer.last_name);
                 $('#engine_oil_form #mobile_number').val(customer.mobile);
-                $('#engine_oil_form #state').val(customer.state);
-                $('#engine_oil_form #district').val(customer.district);
-                $('#engine_oil_form #Tehsil').val(customer.tehsil);
+                $('#engine_oil_form #state').val(customer.state_id);
+                // $('#engine_oil_form #district').val(customer.district);
+                // $('#engine_oil_form #Tehsil').val(customer.tehsil);
                 
                 // Disable fields if user is logged in
                 if (isUserLoggedIn()) {
                     // Disable all input and select elements within the form
-                    $('#engine_oil_form input, #engine_oil_form select').not('#price').prop('disabled', true);
+                    $('#engine_oil_form input, #engine_oil_form select').not('#price,#district,#Tehsil').prop('disabled', true);
                 }
                 
             }

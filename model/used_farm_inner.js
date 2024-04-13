@@ -341,14 +341,14 @@ function getUserDetail(id) {
                 $('#interested-form #fname').val(customer.first_name);
                 $('#interested-form #lname').val(customer.last_name);
                 $('#interested-form #number').val(customer.mobile);
-                $('#interested-form #state_form').val(customer.state);
-                $('#interested-form #district_form').val(customer.district);
-                $('#interested-form #tehsil').val(customer.tehsil);
+                $('#interested-form #state_form_1').val(customer.state_id);
+                // $('#interested-form #district_form_1').val(customer.district);
+                // $('#interested-form #tehsil').val(customer.tehsil);
                 
                 // Disable fields if user is logged in
                 if (isUserLoggedIn()) {
                     // Disable all input and select elements within the form
-                    $('#interested-form input, #interested-form select').not('#price').prop('disabled', true);
+                    $('#interested-form input, #interested-form select').not('#price,#district_form_1,#tehsil').prop('disabled', true);
                 }
                 
             }

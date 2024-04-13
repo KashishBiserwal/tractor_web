@@ -22,6 +22,8 @@ function getNurseryById() {
         url: url,
         type: "GET",
         success: function(data) {
+             var userId = localStorage.getItem('id');
+            getUserDetail(userId);
             var fullMobileNumber = data.nursery_data[0].mobile;
             var mobileString = fullMobileNumber.toString();
             var lastFourDigits = mobileString.substring(mobileString.length - 4);
@@ -206,7 +208,52 @@ function submitForm() {
         }
     });
 }
+function getUserDetail(id) {
+    var url = "http://tractor-api.divyaltech.com/api/customer/get_customer_personal_info_by_id/" + id;
+    console.log(url, 'url print ');
 
+    var headers = {
+        'Authorization': localStorage.getItem('token_customer')
+    };
+
+    $.ajax({
+        url: url,
+        type: "GET",
+        headers: headers,
+        success: function(response) {
+            console.log(response, "response");
+
+            // Check if customerData exists in the response and has at least one entry
+            if (response.customerData && response.customerData.length > 0) {
+                var customer = response.customerData[0];
+                console.log(customer, 'customer details');
+                
+                // Set values based on form ID (used_farm_inner_from)
+                $('#nursery_form #fname').val(customer.first_name);
+                $('#nursery_form #lname').val(customer.last_name);
+                $('#nursery_form #phone_number').val(customer.mobile);
+                $('#nursery_form #state').val(customer.state_id);
+                // $('#haatbazar_form #district').val(customer.district);
+                // $('#haatbazar_form #tehsil').val(customer.tehsil);
+                
+                // Disable fields if user is logged in
+                if (isUserLoggedIn()) {
+                    // Disable all input and select elements within the form
+                    $('#nursery_form input, #nursery_form select').not('#price,#district,#tehsil').prop('disabled', true);
+                }
+                
+            }
+        },
+        error: function(error) {
+            console.error('Error fetching data:', error);
+        }
+    });
+}
+
+
+function isUserLoggedIn() {
+    return localStorage.getItem('token_customer') && localStorage.getItem('mobile') && localStorage.getItem('id');
+}
 
 function checkLoginStatus(phone, callback) {
     var url = "http://tractor-api.divyaltech.com/api/customer/check_login_status";
@@ -292,6 +339,8 @@ function nursery_details_list(allCards) {
             var modalId_2 = `staticBackdrop2_${p.id}`; 
             var formId = `nursery_enquiry_form_${p.id}`; 
             var fullname = p.first_name + ' ' + p.last_name;
+            var userId = localStorage.getItem('id');
+            getUserDetail1(userId, formId);
             var newCard = `
                 <div class="col-12 col-lg-3 col-md-3 col-sm-3 mb-4" id="${cardId}">
                     <a href="nursery_inner.php?id=${p.id}"
@@ -674,4 +723,47 @@ function collectFormData(formId) {
 function openSellerContactModal(formDataToSubmit) {
     var modalId_2 = `staticBackdrop2_${formDataToSubmit.product_id}`;
     $(`#${modalId_2}`).modal('show');
+}
+function getUserDetail1(id, formId) {
+    var url = "http://tractor-api.divyaltech.com/api/customer/get_customer_personal_info_by_id/" + id;
+    console.log(url, 'url print ');
+
+    var headers = {
+        'Authorization': localStorage.getItem('token_customer')
+    };
+
+    $.ajax({
+        url: url,
+        type: "GET",
+        headers: headers,
+        success: function(response) {
+            console.log(response, "response");
+
+            // Check if customerData exists in the response and has at least one entry
+            if (response.customerData && response.customerData.length > 0) {
+                var customer = response.customerData[0];
+                console.log(customer, 'customer details');
+                
+                // Set values based on formId
+                $('#' + formId + ' #first_name_1').val(customer.first_name);
+                $('#' + formId + ' #last_Name_1').val(customer.last_name);
+                $('#' + formId + ' #mobile_number_1').val(customer.mobile);
+                $('#' + formId + ' #state_1').val(customer.state_id);
+                // $('#' + formId + ' #district_1').val(customer.district);
+                // $('#' + formId + ' #Tehsil_1').val(customer.tehsil);
+                
+                // Disable fields if user is logged in
+                if (isUserLoggedIn()) {
+                    $('#' + formId + ' input, #' + formId + ' select').not('#price,#district_1,#Tehsil_1').prop('disabled', true);
+                }
+            }
+        },
+        error: function(error) {
+            console.error('Error fetching data:', error);
+        }
+    });
+}
+
+function isUserLoggedIn() {
+    return localStorage.getItem('token_customer') && localStorage.getItem('mobile') && localStorage.getItem('id');
 }

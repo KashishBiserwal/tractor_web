@@ -226,14 +226,14 @@ function getUserDetail(id) {
                 $('#hire_inner #first_name').val(customer.first_name);
                 $('#hire_inner #last_name').val(customer.last_name);
                 $('#hire_inner #mobile_number').val(customer.mobile);
-                $('#hire_inner #state_form').val(customer.state);
-                $('#hire_inner #the_district').val(customer.district);
-                $('#hire_inner #the_tehsil').val(customer.tehsil);
+                $('#hire_inner #state_form').val(customer.state_id);
+                // $('#hire_inner #the_district').val(customer.district);
+                // $('#hire_inner #the_tehsil').val(customer.tehsil);
                 
                 // Disable fields if user is logged in
                 if (isUserLoggedIn()) {
                     // Disable all input and select elements within the form
-                    $('#hire_inner input, #hire_inner select').not('#price_form').prop('disabled', true);
+                    $('#hire_inner input, #hire_inner select').not('#price_form,#the_district,#the_tehsil').prop('disabled', true);
                 }
                 
             }

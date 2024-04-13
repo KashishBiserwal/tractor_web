@@ -436,7 +436,7 @@
                                 
                                 <div class="form-footer d-flex mt-4">
                                     <button type="button" class="btn w-50 btn-primary prev-step">Previous</button>
-                                    <button type="button" class="btn w-50 ms-2 btn-success" id="sell_used_trac_btn">Submit</button>
+                                    <button type="button" class="btn w-50 ms-2 btn-success" id="sell_used_trac_btn" data-bs-toggle="modal" data-bs-target="get_OTP_btn">Submit</button>
                                 </div>
                             </div>
                         </form>
@@ -446,6 +446,39 @@
         </div>
     </div>
 </section>
+
+ <!-- OTP Model -->
+ <div class="modal fade" id="get_OTP_btn" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header bg-success">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Verify Your OTP</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><img src="assets/images/close.png" class=" w-100"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="otp_form">
+                        <div class=" col-12 input-group">
+                        <div class="col-12" hidden>
+                                <label for="Mobile" class=" text-dark float-start pl-2">Number</label>
+                                <input type="text" class="form-control text-dark" placeholder="Enter OTP" id="mobile_verify"name="Mobile">
+                            </div>
+                            <div class="col-12">
+                                <label for="Mobile" class=" text-dark float-start pl-2">Enter OTP</label>
+                                <input type="text" class="form-control text-dark" placeholder="Enter OTP" id="otp1"name="opt_1">
+                            </div>
+                            <div class="float-end col-12">
+                                <a href="" class="float-end">Resend OTP</a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success" id="Verify">Verify</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
 
 <section>
     <div class="container">
@@ -839,30 +872,25 @@
                 return formsValid;
             }
 
-            // Function to reset all forms
-            function resetForms() {
-                $("form").each(function () {
-                    this.reset(); // Reset each form
-                });
+            // function resetForms() {
+            //     $("form").each(function () {
+            //         this.reset(); 
+            //     });
 
-                // Additional reset for specific fields in the third form
-                $("#form-step-3 input[type='file']").val(''); // Reset file inputs in form-step-3
-            }
+            //     $("#form-step-3 input[type='file']").val(''); 
+            // }
 
-            // Function to update the progress bar based on the current step
-            function updateProgressBar(stepNumber) {
-                var progressPercentage = ((stepNumber - 1) / 3) * 100; // Assuming 3 steps, calculating the progress percentage
-                $(".progress-bar").css("width", progressPercentage + "%");
-            }
-
-            // Function to reset forms, display step, and show success message
-            $("#sell_used_trac_btn").click(function () {
-                if (areAllFormsValid()) {
-                    resetForms(); // Reset forms if valid
-                    displayStep(1); // Show the first form after resetting
-                    showSuccessMessage(); // Show success message after form submission
-                }
-            });
+            // function updateProgressBar(stepNumber) {
+            //     var progressPercentage = ((stepNumber - 1) / 3) * 100;
+            //     $(".progress-bar").css("width", progressPercentage + "%");
+            // }
+            // $("#sell_used_trac_btn").click(function () {
+            //     if (areAllFormsValid()) {
+            //         resetForms();
+            //         displayStep(1); 
+            //         showSuccessMessage(); 
+            //     }
+            // });
 
             // Function to show success message after form submission using SweetAlert
             // function showSuccessMessage() {

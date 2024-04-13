@@ -462,14 +462,14 @@ function getUserDetail(id) {
                 $('#interested-harvester-form #fname').val(customer.first_name);
                 $('#interested-harvester-form #lname').val(customer.last_name);
                 $('#interested-harvester-form #number').val(customer.mobile);
-                $('#interested-harvester-form #state_form').val(customer.state);
-                $('#interested-harvester-form #district_form').val(customer.district);
-                $('#interested-harvester-form #tehsil').val(customer.tehsil);
+                $('#interested-harvester-form #state_form').val(customer.state_id);
+                // $('#interested-harvester-form #district_form').val(customer.district);
+                // $('#interested-harvester-form #tehsil').val(customer.tehsil);
                 
                 // Disable fields if user is logged in
                 if (isUserLoggedIn()) {
                     // Disable all input and select elements within the form
-                    $('#interested-harvester-form input, #interested-harvester-form select').not('#price').prop('disabled', true);
+                    $('#interested-harvester-form input, #interested-harvester-form select').not('#price,#district_form,#tehsil').prop('disabled', true);
                 }
                 
             }

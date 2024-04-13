@@ -64,10 +64,10 @@
     /* #purchase_engineoil_table_info {
         display: none;
     } */
-    .mylist-nav-link.active {
+    /* .mylist-nav-link.active {
     background-color: #2E8B57 !important;
     color: white !important;
-}
+} */
 .hover-bg-success:hover {
     background-color: #D3D3D3 !important; 
     color:	#000000;
@@ -580,6 +580,7 @@ $(document).ready(function() {
     });
 });
 $(document).ready(function() {
+    // Function to show tractor table when "My List" tab is clicked
     $('.nav-link[href="#interested_buyers"]').on('click', function() {
         $('#list_interested_buyers_table').closest('.table-responsive').show();
         $('#listInterested').addClass('active');
