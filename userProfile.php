@@ -72,8 +72,13 @@
     background-color: #D3D3D3 !important; 
     color:	#000000;
 }
+.list-item:hover{
+    /* background-color: #D3D3D3 !important;  */
+    color:	#000000;
+}
 .hover-bg-success{
     background-color: #E6E6FA !important; 
+    
 }
 .nav-link.hover-bg-success.active {
     background-color: #2f8f59 !important; 
@@ -106,25 +111,25 @@
             <div class="customer_options bg-white">
               <ul class="nav nav-tabs" role="tablist">
                 <li class="active nav-item">
-                  <a class="nav-link" data-bs-toggle="tab" href="#presonal_info">
+                  <a class="nav-link list-item" data-bs-toggle="tab" href="#presonal_info">
                     <span>
                       <i class="fa-solid fa-image-portrait"></i>
                       <span>Personal Information </a>
                 </li>
                 <li class="active nav-item">
-                  <a class="nav-link" data-bs-toggle="tab" href="#purchase_request">
+                  <a class="nav-link list-item" data-bs-toggle="tab" href="#purchase_request">
                     <span>
                       <i class="fa-solid fa-cart-shopping"></i>
                       <span>Purchase Request </a>
                 </li>
                 <li class="active nav-item">
-                  <a class="nav-link" data-bs-toggle="tab" href="#my_list">
+                  <a class="nav-link list-item" data-bs-toggle="tab" href="#my_list">
                     <span>
                       <i class="fa-solid fa-bars"></i>
                       <span>My List </a>
                 </li>
                 <li class="active nav-item">
-                  <a class="nav-link" data-bs-toggle="tab" href="#interested_buyers">
+                  <a class="nav-link list-item" data-bs-toggle="tab" href="#interested_buyers">
                     <span>
                       <i class="fa-solid fa-tags"></i>
                       <span>Interested Buyers </a>

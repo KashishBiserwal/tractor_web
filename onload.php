@@ -35,13 +35,13 @@ include 'includes/footertag.php';
         <div class="col-12 h-100 " style="min-height: 360px; background-image: url(assets/images/on-road-price.jpg); background-position: center; background-size: cover;">
         </div>
     </div>
-    <div class="page-banner-content text-center position-absolute px-2">
+    <div class="page-banner-content text-center position-absolute px-2 pb-2">
         <h1>Get on road price</h1>
         <p>Please fill the form to Get on road price</p>
         </div>
 </section>
 
-<section class="form-view bg-white pb-4">
+<section class="form-view bg-white pb-4 mt-3">
   <div class="container-mid">
     <div class="row justify-content-center">
       <div class="col-md-8 col-lg-7">
@@ -115,7 +115,7 @@ include 'includes/footertag.php';
                 <div class="col-12 mt-3">
                     <button class="tractor_submit form-submit-btn  text-white bg-success w-100 px-3 mt-2 mb-3" id="get_on_road" type="submit">CHECK ON ROAD PRICE</button>
                 </div>
-                <p class="mb-0 text-center">By proceeding ahead you expressly agree to the Tractor Junctions <a href="#" class="text-decoration-none" target="_blank" title="terms and conditions">terms and conditions*</a></p>
+                <p class="mb-0 text-center">By proceeding ahead you expressly agree to the Bharat AgriMart <a href="#" class="text-decoration-none" target="_blank" title="terms and conditions">terms and conditions*</a></p>
             </div>
         </form>
       </div>

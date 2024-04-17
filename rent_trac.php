@@ -77,7 +77,8 @@
                   <div class="row justify-content-center">
                     <div class="col-lg-10">
                       <h4 class="text-center">Fill your Details</h4>
-                      <form id="rent_list_form_">
+                    </div>    
+                    <form id="rent_list_form_">
                             <div class="row justify-content-center pt-4">
                                 <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-2" hidden>
                                     <div class="form-outline">
@@ -236,8 +237,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </form>
-                    </div>
+                      </form>
                   </div>
                 </div>
                 <div class="modal-footer">
@@ -485,7 +485,7 @@
    
   });
   </script>
-  <script>
+<script>
     function triggerFileInput(inputId) {
         $('#' + inputId).trigger('click');
     }
@@ -671,3 +671,52 @@
         });
     });
 </script>
+
+<!-- <script>
+      function updateTableRows(userData2) {
+                var tableBody = $('#rentTractorTable tbody');
+                tableBody.empty();
+            
+                userData2.forEach(function(item, index) {
+                    var formattedRate = formatPriceWithCommas(item.rate);
+                    var imageUrl = 'http://tractor-api.divyaltech.com/uploads/rent_img/' + item.images.trim();
+                    var row = '<tr>' +
+                        '<td>' + (index + 1) + '</td>' +
+                        '<td>' +
+                        '<div class="card upload-img-wrap" id="imageDiv_' + index + '">' +
+                        '<img src="' + imageUrl + '" alt="Image" class="img-thumbnail image-clickable" id="image_' + index + '">' +
+                        '</div>' +
+                        '<input type="file" name="imp_' + index + '" id="impImage_0' + index + '" class="image-file-input" accept="image/*" style="display: none;" onchange="displayImagePreview(this, \'impImagePreview_' + index + '\')" required>' +
+                        '</td>' +
+                        '<td>' +
+                        '<div class="select-wrap">' +
+                        '<select name="imp_type_id[]" id="impType_0' + index + '" class="form-control implement-type-input">' +
+                        '<option value="' + item.id + '">' + item.category_name + '</option>' +
+                        '</select>' +
+                        '</div>' +
+                        '</td>' +
+                        '<td>' +
+                        '<input type="text" name="implement_rate[]" id="implement_rent' + index + '" class="form-control implement-rate-input" maxlength="10" placeholder="e.g- 1,500" value="' + formattedRate + '">' +
+                        '</td>' +
+                        '<td>' +
+                        '<div class="select-wrap">' +
+                        '<select name="rate_per[]" id="impRatePer_0' + index + '" class="form-control implement-unit-input">' +
+                        '<option value="' + item.rate_per + '">' + item.rate_per + '</option>' +
+                        '</select>' +
+                        '</div>' +
+                        '</td>' +
+                        '<td>' +
+                        '<button type="button" class="btn btn-danger" title="Remove Row" onclick="removeRow(this)">' +
+                        '<i class="fas fa-minus"></i>' +
+                        '</button>' +
+                        '</td>' +
+                        '</tr>';
+            
+                    tableBody.append(row);
+                    
+                    $('#image_' + index).click(function() {
+                        $('#impImage_0' + index).click();
+                    });
+                });
+            }
+</script> -->

@@ -7,9 +7,16 @@ $(document).ready(function() {
     console.log("ready!");
     get_harvester();
     $('#filter_tractor').click(filter_search);
+    showOverlay(); 
 });
 
- 
+function showOverlay() {
+    $("#overlay").fadeIn(300);
+}
+
+function hideOverlay() {
+    $("#overlay").fadeOut(300);
+}
 
 function get_harvester() {
     // var apiBaseURL = CustomerAPIBaseURL;
@@ -50,7 +57,11 @@ function get_harvester() {
         },
         error: function (error) {
             console.error('Error fetching data:', error);
-        }
+        },
+        complete: function () {
+            // Hide the spinner after the API call is complete
+            hideOverlay();
+        },
     });
 }
     function prependCard(container, p) {
@@ -179,7 +190,11 @@ function filter_search() {
         },
         error: function (error) {
             console.error('Error searching for brands:', error);
-        }
+        },
+        complete: function () {
+            // Hide the spinner after the API call is complete
+            hideOverlay();
+        },
     });
 }
 

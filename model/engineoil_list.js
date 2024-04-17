@@ -884,24 +884,19 @@ function get2() {
       console.log(data);
 
       const select = $('#brand_1');
-      select.empty(); // Clear existing options
+      select.empty(); 
 
-      // Add a default option
       select.append('<option selected disabled value="">Please select Brand</option>');
 
-      // Use an object to keep track of unique brands
       var uniqueBrands = {};
 
       $.each(data.brands, function (index, brand) {
         var brand_id = brand.id;
         var brand_name = brand.brand_name;
 
-        // Check if the brand ID is not already in the object
         if (!uniqueBrands[brand_id]) {
-          // Add brand ID to the object
           uniqueBrands[brand_id] = true;
 
-          // Append the option to the dropdown
           select.append('<option value="' + brand_id + '">' + brand_name + '</option>');
         }
       });
@@ -912,3 +907,10 @@ function get2() {
   });
 }
 get2();
+
+function resetFormFields(){
+  document.getElementById("engine_oil_form").reset();
+  document.getElementById("_image").value = '';
+  document.getElementById("selectedImagesContainer").innerHTML = '';
+ 
+}

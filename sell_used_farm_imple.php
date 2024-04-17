@@ -168,7 +168,8 @@
     </div>
     <div class="page-banner-content text-center position-absolute px-2">
     <h2 class=" text-dark ">Sell Your <span class="text-success">Used Implements</span></h2>
-    <h4 class="mb-4">"Fill the information to sell your used Implement"</h4>
+    <h4 class="mb-4">"Photo Khicho Implements Becho"</h4>
+    <!-- <h4 class="mb-4">"Fill the information to sell your used Implement"</h4> -->
         </div>
 </section>
 

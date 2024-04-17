@@ -5,19 +5,16 @@
 include 'includes/headertag.php';
    include 'includes/headertagadmin.php';
    include 'includes/footertag.php';
-   
+   include 'includes/spinner.php';
    ?> 
 <script> var APIBaseURL = "<?php echo $APIBaseURL; ?>";</script>
 <script> var baseUrl = "<?php echo $baseUrl; ?>";</script>
-    <script src="<?php $baseUrl; ?>model/upcomig.js"></script>
-    <script src="<?php $baseUrl; ?>model/State_dist_tehsil.js"></script>
-
-<body>
-   <?php
+<script src="<?php $baseUrl; ?>model/upcomig.js"></script>
+ <?php
    include 'includes/header.php';
    ?>
-
-<section class="mt-5 pt-3">
+<body>
+<section class="mt-5 pt-5">
     <div class="container">
         <div class="mt-5">
             <span class="mt-5 text-white pt-5 ">

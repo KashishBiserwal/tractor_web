@@ -35,7 +35,7 @@
               </li>
             </ol>
           </nav>
-          <button type="button" id="add_trac" class="btn add_btn btn-success float-right btn_all" data-bs-toggle="modal"  data-bs-target="#staticBackdrop">
+          <button type="button" id="add_trac" class="btn add_btn btn-success float-right btn_all" data-bs-toggle="modal"  data-bs-target="#staticBackdrop" onclick="resetFormFields();">
               <i class="fa fa-plus" aria-hidden="true"></i> Add Engine Oil
           </button>
 

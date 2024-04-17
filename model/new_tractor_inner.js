@@ -12,8 +12,9 @@ function getProductById() {
     console.log(window.location)
     var urlParams = new URLSearchParams(window.location.search);
     var productId = urlParams.get('product_id');
+    console.log('productId',productId);
     var url = "http://tractor-api.divyaltech.com/api/customer/get_new_tractor_by_id/" + productId;
-    // console.log(url);
+    console.log(url);
     $.ajax({
         url: url,
         type: "GET",
@@ -220,7 +221,7 @@ function displayPopularTractors(tractors, new_arr) {
     var productContainer = $("#productContainerpopular");
 
     tractors.forEach(function(p) {
-        if (new_arr.includes(p.product_id)) {
+        if (new_arr.includes(p.product_id)) 
             var images = p.image_names;
             var a = [];
 
@@ -234,10 +235,9 @@ function displayPopularTractors(tractors, new_arr) {
 
             var newCard = `<div class="used-tractor mb-3 d-flex flex-row shadow p-2" style="background-color:#fff">
                             <div class="text-center">
-                                <a href="detail_tractor.php?product_id=${p.product_id}" class="weblink">
-                                    <img src="http://tractor-api.divyaltech.com/uploads/product_img/${a[0]}" width="100" height="100" alt=""
-                                        style=" border-radius: 10px;">
-                                </a>
+                            <a href="detail_tractor.php?product_id=${p.product_id}">
+                                <img src="http://tractor-api.divyaltech.com/uploads/product_img/${a[0]}" width="100" height="100" alt=""style=" border-radius: 10px;">
+                            </a>
                             </div>
                             <div class="px-2 d-flex flex-column justify-content-center">
                                 <a href="detail_tractor.php?product_id=${p.product_id}" class="text-decoration-none">
@@ -248,17 +248,14 @@ function displayPopularTractors(tractors, new_arr) {
                                     <span class="bg-light">${p.wheel_drive_value}</span>
                                 </p>
                                 <div class="">
-                                    <a href="#"><img
-                                            src="assets/images/index_trac_files/park-solid_phone-call.svg"
-                                            width="15" height="15" alt="phone-call-icon">Call
-                                        Now</span></a>
+                                    <a href="#"><img src="assets/images/index_trac_files/park-solid_phone-call.svg" width="15" height="15" alt="phone-call-icon">Call Now</span></a>
                                 </div>
                             </div>
                         </div>`;
 
             // Append the new card to the container
             productContainer.append(newCard);
-        }
+        
     });
 }
 

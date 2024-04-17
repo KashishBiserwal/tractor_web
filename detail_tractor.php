@@ -338,15 +338,8 @@
                             </tr>
                         </tbody>
                     </table>
-
-
-
-
-
-
-
-
                 </div>
+
                 <div class="col-12 col-lg-4 col-md-4 col-sm-4">
                     <h4 class="text-center fw-bold mt-2">Related Brands</h4>
                     <div class="row" id="related_brand">
@@ -369,14 +362,9 @@
             </div>
 
         </div>
-
-
-
     </section>
 
-
-
-    <section class="mt-3">
+<section class="mt-3">
         <div class="container">
             <div class="about border-success  border-4 text-dark border-start">
                 <h4 class="text-dark fw-bold text-start ps-2"><span class="brand_model text-success"></span> Dimensions And Weight Of Tractor
@@ -565,162 +553,6 @@
     </section>
 
     <section class="section slider-section">
-
-        <div class="container slider-column">
-            <h4 class="assured px-2 fw-bold mt-4">Similar Tyres</h4>
-            <div class="carousel-wrap">
-                <div class="owl-carousel" id="usedtractorforsell">
-                    <div class="item">
-                        <div class="post-slide">
-                            <div class="post-img">
-                                <img src="assets/images/birla_tyre.jpg" alt="">
-                                <a href="#" class="over-layer">
-                                    <i class="fa fa-link"></i>
-                                </a>
-                            </div>
-                            <div class="post-content">
-                                <h3 class="post-title text-center">
-                                    <a href="#" class="text-decoration-none fw-bold ">
-                                        Birla Tyres SHAAN+ 18.4 - 30</a>
-                                </h3>
-                                <div class="row text-center">
-                                    <div class="col-4 col-lg-4 col-md-4 col-sm-4">
-                                        <p class="text-dark">Tractor</p>
-                                    </div>
-                                    <div class="col-4 col-lg-4 col-md-4 col-sm-4">
-                                        <p class="text-dark">Rear
-                                        </p>
-                                    </div>
-                                    <div class="col-4 col-lg-4 col-md-4 col-sm-4">
-                                        <p id="adduser" type="" class="text-dark">
-                                            18.4-30
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="post-slide">
-                            <div class="post-img">
-                                <img src="assets/images/birla_tyre.jpg" alt="">
-                                <a href="#" class="over-layer">
-                                    <i class="fa fa-link"></i>
-                                </a>
-                            </div>
-                            <div class="post-content">
-                                <h3 class="post-title  text-center">
-                                    <a href="#" class="text-decoration-none fw-bold">
-                                        Birla Tyres SHAAN+ 18.4 - 30</a>
-                                </h3>
-                                <div class="row text-center">
-                                    <div class="col-4 col-lg-4 col-md-4 col-sm-4">
-                                        <p class="text-dark">Tractor</p>
-                                    </div>
-                                    <div class="col-4 col-lg-4 col-md-4 col-sm-4">
-                                        <p class="text-dark">Rear
-                                        </p>
-                                    </div>
-                                    <div class="col-4 col-lg-4 col-md-4 col-sm-4">
-                                        <p id="adduser" type="" class="text-dark">
-                                            18.4-30
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="post-slide">
-                            <div class="post-img">
-                                <img src="assets/images/birla_tyre.jpg" alt="">
-                                <a href="#" class="over-layer">
-                                    <i class="fa fa-link"></i>
-                                </a>
-                            </div>
-                            <div class="post-content">
-                                <h3 class="post-title text-center">
-                                    <a href="#" class="text-decoration-none fw-bold ">
-                                        Birla Tyres SHAAN+ 18.4 - 30</a>
-                                </h3>
-                                <div class="row text-center">
-                                    <div class="col-4 col-lg-4 col-md-4 col-sm-4">
-                                        <p class="text-dark">Tractor</p>
-                                    </div>
-                                    <div class="col-4 col-lg-4 col-md-4 col-sm-4">
-                                        <p class="text-dark">Rear
-                                        </p>
-                                    </div>
-                                    <div class="col-4 col-lg-4 col-md-4 col-sm-4">
-                                        <p id="adduser" type="" class="text-dark">
-                                            <i class="fa-solid fa-indian-rupee-sign mx-2"></i>18.4-30
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="post-slide">
-                            <div class="post-img">
-                                <img src="assets/images/birla_tyre.jpg" alt="">
-                                <a href="#" class="over-layer">
-                                    <i class="fa fa-link"></i>
-                                </a>
-                            </div>
-                            <div class="post-content">
-                                <h3 class="post-title text-center">
-                                    <a href="#" class="text-decoration-none fw-bold ">
-                                        Birla Tyres SHAAN+ 18.4 - 30</a>
-                                </h3>
-                                <div class="row text-center">
-                                    <div class="col-4 col-lg-4 col-md-4 col-sm-4">
-                                        <p class="text-dark">Tractor</p>
-                                    </div>
-                                    <div class="col-4 col-lg-4 col-md-4 col-sm-4">
-                                        <p class="text-dark">Rear
-                                        </p>
-                                    </div>
-                                    <div class="col-4 col-lg-4 col-md-4 col-sm-4">
-                                        <p id="adduser" type="" class="text-dark">
-                                            <i class="fa-solid fa-indian-rupee-sign mx-2"></i>18.4-30
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="post-slide">
-                            <div class="post-img">
-                                <img src="assets/images/birla_tyre.jpg" alt="">
-                                <a href="#" class="over-layer">
-                                    <i class="fa fa-link"></i>
-                                </a>
-                            </div>
-                            <div class="post-content">
-                                <h3 class="post-title text-center">
-                                    <a href="#" class="text-decoration-none fw-bold">
-                                        Birla Tyres SHAAN+ 18.4 - 30</a>
-                                </h3>
-                                <div class="row text-center">
-                                    <div class="col-4 col-lg-4 col-md-4 col-sm-4">
-                                        <p class="text-dark">Tractor</p>
-                                    </div>
-                                    <div class="col-4 col-lg-4 col-md-4 col-sm-4">
-                                        <p class="text-dark">Rear
-                                        </p>
-                                    </div>
-                                    <div class="col-4 col-lg-4 col-md-4 col-sm-4">
-                                        <p id="adduser" type="" class="text-dark">
-                                            <i class="fa-solid fa-indian-rupee-sign mx-2"></i>18.4-30
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
 
     </section>
     <!-- Modal -->

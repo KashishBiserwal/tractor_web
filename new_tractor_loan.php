@@ -181,7 +181,7 @@ include 'includes/footertag.php';
                                     <label for="policy" class="text-dark">No</label>
                                 </div> -->
                                 <p class="text-center mt-3">By proceeding ahead you expressly agree to the Bharat
-                                    Tractors
+                                    Agrimart
                                     <a href="privacy_and_policy.php" class="text-decoration-none">Terms &
                                         Conditions*</a>
                                 </p>

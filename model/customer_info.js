@@ -165,11 +165,6 @@ $(document).ready(function() {
     });
 });
 
-
-
-
-
-
 function getpurchase_haatbazar() {
     var url = "http://tractor-api.divyaltech.com/api/customer/get_purchase_enquiry_data";
     var headers = {
@@ -401,7 +396,7 @@ $(document).ready(function() {
         });
     }
 
-    function populateDataTable(tableId, dataKey, columns, isPagingEnabled, isSearchingEnabled) {
+    function populateDataTable(tableIds, dataKeys, columns, isPagingEnabled, isSearchingEnabled) {
         var url = "http://tractor-api.divyaltech.com/api/customer/get_sell_enquiry_data";
         var headers = {
             'Authorization': localStorage.getItem('token_customer')
@@ -418,32 +413,37 @@ $(document).ready(function() {
             data: paraArr,
             success: function(data) {
                 console.log(data, 'data');
-                const tableBody = $(tableId + ' tbody');
-                tableBody.empty();
 
-                // Destroy DataTable instance if it already exists
-                if ($.fn.DataTable.isDataTable(tableId)) {
-                    $(tableId).DataTable().destroy();
-                }
+                // Destroy DataTable instances if they already exist
+                tableIds.forEach(function(tableId) {
+                    if ($.fn.DataTable.isDataTable(tableId)) {
+                        $(tableId).DataTable().destroy();
+                    }
+                });
 
-                var tableConfig = {
-                    paging: isPagingEnabled,
-                    searching: isSearchingEnabled,
-                    lengthChange: false,
-                    columns: columns
-                };
+                tableIds.forEach(function(tableId, index) {
+                    const tableBody = $(tableId + ' tbody');
+                    tableBody.empty();
 
-                if (data.data && data.data[dataKey] && data.data[dataKey].length > 0) {
-                    var table = $(tableId).DataTable(tableConfig);
+                    var tableConfig = {
+                        paging: isPagingEnabled,
+                        searching: isSearchingEnabled,
+                        lengthChange: false,
+                        columns: columns[index]
+                    };
 
-                    data.data[dataKey].forEach(row => {
-                        // Add row to DataTable
-                        table.row.add(row).draw(false);
-                    });
+                    if (data.data && data.data[dataKeys[index]] && data.data[dataKeys[index]].length > 0) {
+                        var table = $(tableId).DataTable(tableConfig);
 
-                } else {
-                    tableBody.html('<tr><td colspan="' + columns.length + '">No valid data available</td></tr>');
-                }
+                        data.data[dataKeys[index]].forEach(row => {
+                            // Add row to DataTable
+                            table.row.add(row).draw(false);
+                        });
+
+                    } else {
+                        tableBody.html('<tr><td colspan="' + columns[index].length + '">No valid data available</td></tr>');
+                    }
+                });
                 setTableWidth();
             },
             error: function(error) {
@@ -511,13 +511,13 @@ $(document).ready(function() {
         }
     ];
 
-    // Populate all tables with data initially
-    tables.forEach(function(config) {
-        populateDataTable(config.tableId, config.dataKey, config.columns, config.isPagingEnabled, config.isSearchingEnabled);
-        // Set tables width to 100%
-        $(config.tableId).addClass('w-100');
-    });
+    // Extract tableIds, dataKeys, and columns from the tables array
+    var tableIds = tables.map(function(table) { return table.tableId; });
+    var dataKeys = tables.map(function(table) { return table.dataKey; });
+    var columns = tables.map(function(table) { return table.columns; });
 
+    // Populate all tables with data initially
+    populateDataTable(tableIds, dataKeys, columns, true, true);
 });
 
 

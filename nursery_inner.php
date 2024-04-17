@@ -262,15 +262,15 @@
         <div class="modal-dialog modal-lg modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="staticBackdropLabel">Contact Seller</h5>
+                    <h5 class="modal-title" id="staticBackdropLabel">Nursery Contact Seller</h5>
                     <button type="button" class="btn-close btn-success" data-bs-dismiss="modal" aria-label="Close"><img src="assets/images/close.png"class="w-25"></button>
                 </div>
                 <div class="modal-body">
                     <div class="model-cont">
-                        <h4 class="text-center text-danger">Seller Information</h3>
+                        <h4 class="text-center text-danger">Nursery Seller Information</h3>
                         <div class="row px-3 py-2">
                             <div class="col-12  col-sm-12 col-md-6 col-lg-6 ">
-                                <label for="slr_name"class="form-label fw-bold text-dark"><i class="fa-regular fa-user"></i>Seller Name</label>
+                                <label for="slr_name"class="form-label fw-bold text-dark"><i class="fa-regular fa-user"></i>Nursery Seller Name</label>
                                 <input type="text" class="form-control" id="slr_name">
                             </div>
                             <div class="col-12 col-sm-12 col-md-6 col-lg-6  ">

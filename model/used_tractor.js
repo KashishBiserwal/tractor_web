@@ -1,17 +1,20 @@
 
 
 $(document).ready(function() {
-    console.log("ready!");
-    // populateDropdowns();
     $('#filter_tractor').click(filter_search); 
-    // $('#submit_enquiry').click(get_otp);
     getoldTractorList();
-    // $('#Verify').click(verifyotp);
-    
     getDistricts(7);
-    // Initial population
-    // getoldTractorList();
+    showOverlay(); 
+   
 });
+function showOverlay() {
+    $("#overlay").fadeIn(300);
+}
+
+function hideOverlay() {
+    $("#overlay").fadeOut(300);
+}
+
 var cardsPerPage = 6;
 var allCards = [];
 var cardsDisplayed = 0;
@@ -26,13 +29,7 @@ function getoldTractorList() {
         url: url,
         type: "GET",
         success: function (data) {
-            // var fullname = data.product[0].first_name + ' ' + data.product[0].last_name;
-            // document.getElementById('saller_name').innerHTML= data.product[0].first_name;
-            // document.getElementById('mobile_num').innerHTML = data.product[0].mobile;
             var productContainer = $("#productContainer");
-            
-          
-            // productContainer.empty();
             
             if (data.product && data.product.length > 0) {
                 allCards = data.product.slice().reverse();
@@ -53,7 +50,11 @@ function getoldTractorList() {
         },
         error: function (error) {
             console.error('Error fetching data:', error);
-        }
+        },
+        complete: function () {
+            // Hide the spinner after the API call is complete
+            hideOverlay();
+        },
     });
 }
 function formatPriceWithCommas(price) {
@@ -82,7 +83,6 @@ function appendCard(container, p) {
     var formattedPrice = formatPriceWithCommas(p.price);
     var fullname = p.first_name + ' ' + p.last_name;
     var userId = localStorage.getItem('id');
-    getUserDetail(userId, formId);
     var newCard = `
 <div class="col-12 col-lg-4 col-md-4 col-sm-4 mb-4" id="${cardId}">
     <div class="h-auto success__stry__item d-flex flex-column shadow ">
@@ -129,8 +129,8 @@ function appendCard(container, p) {
             </div>
             <div class=" row state_btn">
                <div class="col-12">
-                    <button type="button" class="add_btn btn-success w-100" data-bs-toggle="modal" data-bs-target="#${modalId}">
-                        <i class="fa-regular fa-handshake mx-1"></i>Contact Seller
+                    <button type="button" id="modelbutton" class="add_btn btn-success w-100" data-bs-toggle="modal" data-bs-target="#${modalId}" onclick="populateDropdowns('${modalId}'); getUserDetail(${userId}, '${formId}')">
+                        <i class="fa-regular fa-handshake"></i> Contact Seller
                     </button>
                 </div>
 
@@ -276,7 +276,7 @@ function appendCard(container, p) {
             
          `;
     container.append(newCard);
-    populateDropdowns(formId);
+
      $('.price_form').on('input', function() {
             var value = $(this).val().replace(/\D/g, ''); // Remove non-digit characters
             var formattedValue = Number(value).toLocaleString('en-IN'); // Format using Indian numbering system
@@ -538,8 +538,6 @@ function getBrand() {
 getBrand();
 
 function getState() {
-    // var apiBaseURL =  $CustomerAPIBaseURL;
-    // var url = apiBaseURL + 'state_data';
     var url = 'http://tractor-api.divyaltech.com/api/customer/state_data';
     $.ajax({
         url: url,
@@ -559,7 +557,6 @@ function getState() {
                 var checkboxHtml = '<input type="checkbox" class="checkbox-round mt-1 ms-3 state_checkbox" value="' + filteredState.id + '"/>' +
                     '<span class="ps-2 fs-6">' + filteredState.state_name + '</span> <br/>';
                 checkboxContainer.append(checkboxHtml);
-                // Call getDistricts with the stateId
                 ge_tDistricts(stateId);
             } else {
                 checkboxContainer.html('<p>No valid data available</p>');
@@ -570,7 +567,6 @@ function getState() {
         }
     });
 }
-
 function ge_tDistricts(stateId) {
     var url = 'http://tractor-api.divyaltech.com/api/customer/get_district_by_state/' + stateId;
     $.ajax({
@@ -603,8 +599,6 @@ function ge_tDistricts(stateId) {
 getState();
 
 function get_year_and_hours() {
-    // var apiBaseURL =  $CustomerAPIBaseURL;
-    // var url = apiBaseURL + 'get_year_and_hours'
     var url = 'http://tractor-api.divyaltech.com/api/customer/get_year_and_hours';
     $.ajax({
         url: url,
@@ -643,7 +637,6 @@ var cardsPerPage = 6;
 
 
 function formatPrice(price) {
-    // Remove commas if present, and parse as float
     return parseFloat(price.replace(/,/g, '') || 0);
 }
 
@@ -716,7 +709,11 @@ function filter_search() {
                 $("#noDataMessage").show();
                 $("#noDataMessage").hide();
             }
-        }
+        },
+        complete: function () {
+            // Hide the spinner after the API call is complete
+            hideOverlay();
+        },
     });
 }
 function displayFilteredCards() {
@@ -758,146 +755,207 @@ function appendFilterCard(filterContainer, p) {
             a = [images];
         }
     }
-    var cardId = `card_${p.product_id}`; // Dynamic ID for the card
-    var modalId = `used_tractor_callbnt_${p.product_id}`; // Dynamic ID for the modal
-    var formId = `contact-seller-call_${p.product_id}`; // Dynamic ID for the form
+    var cardId = `card_${p.product_id}`; 
+    var modalId = `used_tractor_callbnt_${p.product_id}`; 
+    var modalId_2 = `staticBackdrop_${p.product_id}`; 
+    var formId = `contact-seller-call_${p.product_id}`; 
     var formattedPrice = formatPriceWithCommas(p.price);
+    var fullname = p.first_name + ' ' + p.last_name;
     var userId = localStorage.getItem('id');
-    getUserDetail(userId, formId);
-        var newCard =  `
-        <div class="col-12 col-lg-4 col-md-4 col-sm-4 mb-4" id="${cardId}">
-        <div class="h-auto success__stry__item d-flex flex-column shadow ">
-            <div class="thumb">
-                <a href="farmtrac_60.php?product_id=${p.customer_id}">
-                    <div class="ratio ratio-16x9">
-                        <img src="http://tractor-api.divyaltech.com/uploads/product_img/${a[0]}" class="object-fit-cover " alt="${p.description}">
-                    </div>
-                </a>
-            </div>
-            <div class="content d-flex flex-column flex-grow-1 ">
-                <div class="caption text-center">
-                    <a href="farmtrac_60.php?product_id=${p.customer_id}" class="text-decoration-none text-dark">
-                        <p class="pt-3"><strong class="series_tractor_strong text-center text-truncate h5 fw-bold ">${p.model}</strong></p>
-                    </a>      
+    var newCard = `
+<div class="col-12 col-lg-4 col-md-4 col-sm-4 mb-4" id="${cardId}">
+    <div class="h-auto success__stry__item d-flex flex-column shadow ">
+        <div class="thumb">
+            <a href="farmtrac_60.php?product_id=${p.customer_id}">
+                <div class="ratio ratio-16x9">
+                    <img src="http://tractor-api.divyaltech.com/uploads/product_img/${a[0]}" class="object-fit-cover " alt="${p.description}">
                 </div>
-               <div class=" row text-center">
-                        <div class="col-12 col-sm-6 col-md-6 col-lg-6">
-                            <p class="fw-bold text-truncate contant-justify-center"><span id="engine_powerhp2">${p.brand_name}</p>
-                        </div>
-                        <div class="col-12 col-sm-6 col-md-6 col-lg-6">
-                        <p class="fw-bold ">Year: <span id="year">${p.purchase_year}</p>
-                        </div>
-                       
+            </a>
+        </div>
+        <div class="content d-flex flex-column flex-grow-1 ">
+            <div class="caption text-center">
+                <a href="farmtrac_60.php?product_id=${p.customer_id}" class="text-decoration-none text-dark">
+                    <p class="pt-3"><strong class="series_tractor_strong text-center text-truncate h5 fw-bold ">${p.model}</strong></p>
+                </a>      
+            </div>
+           <div class=" row text-center">
+                    <div class="col-12 col-sm-6 col-md-6 col-lg-6">
+                        <p class="fw-bold text-truncate contant-justify-center"><span id="engine_powerhp2">${p.brand_name}</p>
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-6 col-lg-6">
+                    <p class="fw-bold ">Year: <span id="year">${p.purchase_year}</p>
                     </div>
                    
-                    <div class="row text-center">
-                        <div class="col-12 col-sm-6 col-md-6 col-lg-6">
-                            <p class="fw-bold py-2" style="background-image: linear-gradient(315deg, #ddd 0%, #f5f7fa 74%);
-                            font-size: 12px; justify-items: center;
-                            margin: 0 auto;">Price: ₹<span id="price">${formattedPrice}</p>
-                        </div>
-                        <div class="col-12 col-sm-6 col-md-6 col-lg-6">
-                            <p class="fw-bold pe-2 py-2" style="background-image: linear-gradient(315deg, #ddd 0%, #f5f7fa 74%);
-                            font-size: 12px; justify-items: center;
-                            margin: 0 auto;">Great Deal  <i class="fa-regular fa-thumbs-up"></i></p>
-                        </div>
+                </div>
+               
+                <div class="row text-center">
+                    <div class="col-12 col-sm-6 col-md-6 col-lg-6">
+                        <p class="fw-bold py-2" style="background-image: linear-gradient(315deg, #ddd 0%, #f5f7fa 74%);
+                        font-size: 12px; justify-items: center;
+                        margin: 0 auto;">Price: ₹<span id="price">${formattedPrice}</p>
                     </div>
-                    <div class=" row text-center mt-3">
-                        <div class="col-10 justify-center m-auto">
-                            <p class="fw-bold text-truncate" id="district">${p.district_name}<span id="year"></span>, ${p.state_name}</p>
-                        </div>
+                    <div class="col-12 col-sm-6 col-md-6 col-lg-6">
+                        <p class="fw-bold pe-2 py-2" style="background-image: linear-gradient(315deg, #ddd 0%, #f5f7fa 74%);
+                        font-size: 12px; justify-items: center;
+                        margin: 0 auto;">Great Deal  <i class="fa-regular fa-thumbs-up"></i></p>
                     </div>
                 </div>
-                <div class=" row state_btn">
-                   <div class="col-12">
-                        <button type="button" class="add_btn btn-success w-100" data-bs-toggle="modal" data-bs-target="#${modalId}">
-                            <i class="fa-regular fa-handshake mx-1"></i>Contact Seller
-                        </button>
+                <div class=" row text-center mt-3">
+                    <div class="col-10 justify-center m-auto">
+                        <p class="fw-bold text-truncate" id="district">${p.district_name}<span id="year"></span>, ${p.state_name}</p>
                     </div>
-    
-                            <div class="modal fade" id="${modalId}" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                                <div class="modal-dialog modal-lg modal-dialog-centered">
-                                    <div class="modal-content">
-                                        <div class="modal-header  modal_head">
-                                        <h5 class="modal-title text-white ms-1" id="model_form">${p.model}</h5>
-                                        <button type="button" class="btn-close btn-success" data-bs-dismiss="modal" aria-label="Close"><img src="assets/images/close.png" class="w-25"></button>
-                                        </div>
-                                        <!-- MODAL BODY -->
-                                        <div class="modal-body">
-                                        <form id="${formId}" method="POST" onsubmit="return false">
-                                                <div class="row">
-                                                <div class="row px-3 ">
-                                    <div class="col-12 col-lg-6 col-md-6 col-sm-6 " hidden>
-                                        <label for="name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i> enquiryName</label>
-                                        <input type="text" class="form-control" placeholder="Enter Your Name" id="enquiry_type_id" value="21" name="fname">
+                </div>
+            </div>
+            <div class=" row state_btn">
+               <div class="col-12">
+                    <button type="button" id="modelbutton" class="add_btn btn-success w-100" data-bs-toggle="modal" data-bs-target="#${modalId}" onclick="populateDropdowns('${modalId}'); getUserDetail(${userId}, '${formId}')">
+                        <i class="fa-regular fa-handshake"></i> Contact Seller
+                    </button>
+                </div>
+
+                        <div class="modal fade" id="${modalId}" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-lg modal-dialog-centered">
+                                <div class="modal-content">
+                                    <div class="modal-header  modal_head">
+                                    <h5 class="modal-title text-white ms-1" id="model_form">${p.model}</h5>
+                                    <button type="button" class="btn-close btn-success" data-bs-dismiss="modal" aria-label="Close"><img src="assets/images/close.png" class="w-25"></button>
                                     </div>
-                                    <div class="col-12 col-lg-6 col-md-6 col-sm-6 " hidden>
-                                        <label for="name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i> product_id</label>
-                                        <input type="text" class="form-control" id="product_id" value="${p.product_id}" hidden> 
+                                    <!-- MODAL BODY -->
+                                    <div class="modal-body">
+                                    <form id="${formId}" method="POST" onsubmit="return false">
+                                            <div class="row">
+                                            <div class="row px-3 ">
+                                <div class="col-12 col-lg-6 col-md-6 col-sm-6 " hidden>
+                                    <label for="name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i> enquiryName</label>
+                                    <input type="text" class="form-control" placeholder="Enter Your Name" id="enquiry_type_id" value="21" name="fname">
+                                </div>
+                                <div class="col-12 col-lg-6 col-md-6 col-sm-6 " hidden>
+                                    <label for="name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i> product_id</label>
+                                    <input type="text" class="form-control" id="product_id" value="${p.product_id}" hidden> 
+                                </div>
+                                <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
+                                    <label for="name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i> First Name</label>
+                                    <input type="text" class="form-control" placeholder="Enter Your Name" onkeydown="return /[a-zA-Z]/i.test(event.key)" id="fname" name="fname">
+                                </div>
+                                <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
+                                    <label for="name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i> Last Name</label>
+                                    <input type="text" class="form-control" placeholder="Enter Your Name" onkeydown="return /[a-zA-Z]/i.test(event.key)" id="lname" name="lname">
+                                </div>
+                                <div class="col-12 ">
+                                    <label for="number" class="form-label text-dark fw-bold"> <i class="fa fa-phone" aria-hidden="true"></i> Phone Number</label>
+                                    <input type="text" class="form-control" placeholder="Enter Number" id="number" name="number">
+                                </div>
+                                <div class="col-12 col-sm-6 col-md-6 col-lg-6 mt-4">
+                                    <div class="form-outline">
+                                        <label for="state" class="form-label text-dark fw-bold"> <i class="fas fa-location"></i> State</label>
+                                        <select class="form-select py-2 state-dropdown" aria-label=".form-select-lg example" id="state_form" name="state">
+                                            <!-- Options for state dropdown -->
+                                        </select>
                                     </div>
-                                    <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
-                                        <label for="name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i> First Name</label>
-                                        <input type="text" class="form-control" placeholder="Enter Your Name" onkeydown="return /[a-zA-Z]/i.test(event.key)" id="fname" name="fname">
+                                </div>
+                                <div class="col-12 col-sm-6 col-md-6 col-lg-6 mt-4">
+                                    <div class="form-outline">
+                                        <label for="district" class="form-label fw-bold text-dark"><i class="fa-solid fa-location-dot"></i> District</label>
+                                        <select class="form-select py-2 district-dropdown" aria-label=".form-select-lg example" name="district" id="district_form">
+                                            <!-- Options for district dropdown -->
+                                        </select>
                                     </div>
-                                    <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
-                                        <label for="name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i> Last Name</label>
-                                        <input type="text" class="form-control" placeholder="Enter Your Name" onkeydown="return /[a-zA-Z]/i.test(event.key)" id="lname" name="lname">
+                                </div>       
+                                <div class="col-12 col-sm-6 col-md-6 col-lg-6 mt-4">
+                                    <div class="form-outline">
+                                        <label for="Tehsil" class="form-label fw-bold text-dark"> Tehsil</label>
+                                        <select class="form-select py-2 tehsil-dropdown" aria-label=".form-select-lg example" id="tehsil" name="tehsil">
+                                           
+                                        </select>
                                     </div>
-                                    <div class="col-12 ">
-                                        <label for="number" class="form-label text-dark fw-bold"> <i class="fa fa-phone" aria-hidden="true"></i> Phone Number</label>
-                                        <input type="text" class="form-control" placeholder="Enter Number" id="number" name="number">
+                                </div>
+                              <div class="col-12 col-lg-6 col-sm-5 col-md-6">
+                                <div class="form-outline mt-4">
+                                    <label for="name" class="form-label text-dark">Price </label>
+                                    <input type="text" class="form-control price_form py-2" placeholder="Enter Price" id="price_form" name="price">
+                                </div>
+                              </div>
+                            </div>          
+                           </div> 
+                                 <div class="modal-footer">
+                                            <button type="submit" id="submit_enquiry" class="btn add_btn btn-success w-100 btn_all" onclick="savedata('${formId}')"
+                                            data-bs-dismiss="modal">Submit</button>
+                                            </div>      
+                                        </form>                             
                                     </div>
-                                    <div class="col-12 col-sm-6 col-md-6 col-lg-6 mt-4">
-                                        <div class="form-outline">
-                                            <label for="state" class="form-label text-dark fw-bold"> <i class="fas fa-location"></i> State</label>
-                                            <select class="form-select py-2 state-dropdown" aria-label=".form-select-lg example" id="state_form" name="state">
-                                                <!-- Options for state dropdown -->
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="col-12 col-sm-6 col-md-6 col-lg-6 mt-4">
-                                        <div class="form-outline">
-                                            <label for="district" class="form-label fw-bold text-dark"><i class="fa-solid fa-location-dot"></i> District</label>
-                                            <select class="form-select py-2 district-dropdown" aria-label=".form-select-lg example" name="district" id="district_form">
-                                                <!-- Options for district dropdown -->
-                                            </select>
-                                        </div>
-                                    </div>       
-                                    <div class="col-12 col-sm-6 col-md-6 col-lg-6 mt-4">
-                                        <div class="form-outline">
-                                            <label for="Tehsil" class="form-label fw-bold text-dark"> Tehsil</label>
-                                            <select class="form-select py-2 tehsil-dropdown" aria-label=".form-select-lg example" id="tehsil" name="tehsil">
-                                                
-                                                <!-- Options for Tehsil dropdown -->
-                                            </select>
-                                        </div>
-                                    </div>
-                                  <div class="col-12 col-lg-6 col-sm-5 col-md-6">
-                                    <div class="form-outline mt-4">
-                                        <label for="name" class="form-label text-dark">Price </label>
-                                        <input type="text" class="form-control price_form py-2" placeholder="Enter Price" id="price_form" name="price">
-                                    </div>
-                                  </div>
-                                </div>          
-                               </div> 
-                                     <div class="modal-footer">
-                                                <button type="submit" id="submit_enquiry" class="btn add_btn btn-success w-100 btn_all" onclick="savedata('${formId}')"
-                                                data-bs-dismiss="modal">Submit</button>
-                                                </div>      
-                                            </form>                             
-                                        </div>
-                                
-                                        </div>
+                            
                                     </div>
                                 </div>
                             </div>
-                         </div>
+                        </div>
+                     </div>
+                </div>
+            </div>
+
+    <div class="modal fade" id="get_OTP_btn" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header bg-success">
+                    <h1 class="modal-title fs-5 text-white" id="exampleModalLabel">Verify Your OTP</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><img src="assets/images/close.png" class=" w-100"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="otp_form">
+                        <div class=" col-12 input-group">
+                            <div class="col-12" hidden>
+                                <label for="Mobile" class=" text-dark float-start pl-2">Number</label>
+                                <input type="text" class="form-control text-dark" placeholder="Enter OTP" id="Mobile"name="Mobile">
+                            </div>
+                            <div class="col-12">
+                                <label for="Mobile" class=" text-dark float-start pl-2">Enter OTP</label>
+                                <input type="text" class="form-control text-dark" placeholder="Enter OTP" id="otp"name="opt_1">
+                            </div>
+                            <div class="float-end col-12">
+                                <a href="" class="float-end">Resend OTP</a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success" id="Verify" onclick="verifyotp('${formId}')">Verify</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="${modalId_2}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Contact Seller</h5>
+                    <button type="button" class="btn-close btn-success" data-bs-dismiss="modal" aria-label="Close"><img src="assets/images/close.png"class="w-25"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="model-cont">
+                        <h4 class="text-center text-danger">Seller Information</h3>
+                        <div class="row px-3 py-2">
+                            <div class="col-12  col-sm-12 col-md-6 col-lg-6 ">
+                                <label for="slr_name"class="form-label fw-bold text-dark"><i class="fa-regular fa-user"></i>Seller Name</label>
+                                <input type="text" class="form-control" id="saller_name" value="${fullname}">
+                            </div>
+                            <div class="col-12 col-sm-12 col-md-6 col-lg-6  ">
+                                <label for="number"class="form-label text-dark fw-bold"><i class="fa fa-phone"aria-hidden="true"></i>Phone Number</label>
+                                <input type="text" class="form-control" id="mobile_num" value="${p.mobile}">
+                            </div>
+                        </div>
                     </div>
                 </div>
+                <div class="modal-footer">
+                    <button type="button"  id="got_it_btn "class="btn btn-secondary"data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
         `;
 
     filterContainer.append(newCard);
-    populateDropdowns(formId);
+   
 }
 function filterAndDisplayCards() {
     var productContainer = $("#productContainer");
@@ -927,9 +985,6 @@ function filterAndDisplayCards() {
     
   }
 
-
-
-
   function populateDropdowns(identifier) {
     var stateDropdowns = document.querySelectorAll(`#${identifier} .state-dropdown`);
     var districtDropdowns = document.querySelectorAll(`#${identifier} .district-dropdown`);
@@ -952,14 +1007,11 @@ function filterAndDisplayCards() {
             });
         });
     });
-
-    // Event listener for district dropdown
     districtDropdowns.forEach(function (dropdown) {
         dropdown.addEventListener('change', function() {
             var selectedDistrictId = this.value;
             var tehsilSelect = this.closest('.row').querySelector('.tehsil-dropdown');
             if (selectedDistrictId) {
-                // Fetch tehsil data based on the selected district
                 $.get(`http://tractor-api.divyaltech.com/api/customer/get_tehsil_by_district/${selectedDistrictId}`, function(data) {
                     tehsilSelect.innerHTML = '<option value="">Please select a tehsil</option>';
                     data.tehsilData.forEach(tehsil => {
@@ -972,4 +1024,3 @@ function filterAndDisplayCards() {
         });
     });
 }
-

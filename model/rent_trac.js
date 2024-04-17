@@ -186,26 +186,7 @@ function triggerFileInput(inputId) {
     $('#' + inputId).trigger('click');
 }
 
-function displayImagePreview(input, previewId) {
-    var fileInput = $(input);
-    var preview = $("#" + previewId);
-    var currentRow = fileInput.closest("tr");
 
-    if (fileInput.get(0).files.length > 0) {
-        var reader = new FileReader();
-
-        reader.onload = function (e) {
-            preview.attr('src', e.target.result);
-            preview.show();
-            currentRow.find('.fas.fa-image').hide();
-        };
-
-        reader.readAsDataURL(fileInput.get(0).files[0]);
-    } else {
-        preview.hide();
-        currentRow.find('.fas.fa-image').show();
-    }
-}
 
 // Function to fetch and populate edit data
 function fetch_edit_data(customer_id) {
@@ -222,51 +203,55 @@ function fetch_edit_data(customer_id) {
         type: 'GET',
         headers: headers,
         success: function(response) {
-            
             var userData = response.rent_details.data1[0]; // Selecting first item from data1
             var userData2 = response.rent_details.data2; // Keeping data2 separate
             console.log('User Data:', userData);
             console.log('User Data 2:', userData2);
             
             // Populating various form fields with retrieved data
-            $('#idUser').val(userData.customer_id);
-            $('#enquiry_type_id').val(userData.enquiry_type_id);
-            $('#implement_rent').val(userData2.rate);
-            $('#workingRadius').val(userData.working_radius);
-            $('#textarea_d').val(userData.description);
-            $('#myfname').val(userData.first_name);
-            $('#mylname').val(userData.last_name);
-            $('#mynumber').val(userData.mobile);
+            $('#idUser').val(userData.customer_id).prop('readonly', true);
+            $('#enquiry_type_id').val(userData.enquiry_type_id).prop('readonly', true);
+            $('#implement_rent').val(userData2.rate).prop('readonly', true);
+            $('#workingRadius').val(userData.working_radius).prop('disabled', true);
+            $('#textarea_d').val(userData.description).prop('disabled', true);
+            $('#myfname').val(userData.first_name).prop('readonly', true);
+            $('#mylname').val(userData.last_name).prop('readonly', true);
+            $('#mynumber').val(userData.mobile).prop('readonly', true);
 
             // Populating the brand dropdown
             var brandDropdown = document.getElementById('brand');
             for (var i = 0; i < brandDropdown.options.length; i++) {
-              if (brandDropdown.options[i].text === userData.brand_name) {
-                brandDropdown.selectedIndex = i;
-                break;
-              }
+                if (brandDropdown.options[i].text === userData.brand_name) {
+                    brandDropdown.selectedIndex = i;
+                    break;
+                }
             }
+            brandDropdown.disabled = true;
 
             // Populating the model dropdown
             $('#model_main').empty(); 
             get_model_1(userData.brand_id); 
-
+            
             setTimeout(function() { 
                 $("#model_main option").prop("selected", false);
                 $("#model_main option[value='" + userData.model + "']").prop("selected", true);
+                $("#model_main").prop("disabled", true); // Make the dropdown read-only
             }, 1000);
 
             // Populating other dropdowns and inputs
             $("#year_main option").prop("selected", false);
             $("#year_main option[value='" + userData.purchase_year + "']").prop("selected", true);
+            $("#year_main").prop("disabled", true);
             setSelectedOption('state_state', userData.state_id);
             setSelectedOption('dist_district', userData.district_id);
             populateTehsil(userData.district_id, 'tehsil-dropdown', userData.tehsil_id);
 
-            // Function to update table rows with user data
-            function updateTableRows(userData2) {
+            // Function to update table rows
+            function updateTableRows(userData2, clearPrefilledValues) {
                 var tableBody = $('#rentTractorTable tbody');
-                tableBody.empty();
+                if (clearPrefilledValues) {
+                    tableBody.empty();
+                }
             
                 userData2.forEach(function(item, index) {
                     var formattedRate = formatPriceWithCommas(item.rate);
@@ -277,43 +262,40 @@ function fetch_edit_data(customer_id) {
                         '<div class="card upload-img-wrap" id="imageDiv_' + index + '">' +
                         '<img src="' + imageUrl + '" alt="Image" class="img-thumbnail image-clickable" id="image_' + index + '">' +
                         '</div>' +
-                        '<input type="file" name="imp_' + index + '" id="impImage_0' + index + '" class="image-file-input" accept="image/*" style="display: none;" onchange="displayImagePreview(this, \'impImagePreview_' + index + '\')" required>' +
+                        '<input type="file" name="imp_' + index + '" id="impImage_' + index + '" class="image-file-input" accept="image/*" style="display: none;" onchange="displayImagePreview(this, \'impImagePreview_' + index + '\')" readonly>' +
                         '</td>' +
                         '<td>' +
                         '<div class="select-wrap">' +
-                        '<select name="imp_type_id[]" id="impType_0' + index + '" class="form-control implement-type-input">' +
+                        '<select name="imp_type_id[]" id="impType_' + index + '" class="form-control implement-type-input" readonly>' +
                         '<option value="' + item.id + '">' + item.category_name + '</option>' +
                         '</select>' +
                         '</div>' +
                         '</td>' +
-                        '<td>' +
-                        '<input type="text" name="implement_rate[]" id="implement_rent_0' + index + '" class="form-control implement-rate-input" maxlength="10" placeholder="e.g- 1,500" value="' + formattedRate + '">' +
+                        '<td>' + 
+                        '<input type="text" name="implement_rate[]" id="implement_rent_' + index + '" class="form-control implement-rate-input" maxlength="10" placeholder="e.g- 1,500" value="' + formattedRate + '" readonly>' +
                         '</td>' +
                         '<td>' +
                         '<div class="select-wrap">' +
-                        '<select name="rate_per[]" id="impRatePer_0' + index + '" class="form-control implement-unit-input">' +
+                        '<select name="rate_per[]" id="impRatePer_' + index + '" class="form-control implement-unit-input" readonly>' +
                         '<option value="' + item.rate_per + '">' + item.rate_per + '</option>' +
                         '</select>' +
                         '</div>' +
                         '</td>' +
                         '<td>' +
-                        '<button type="button" class="btn btn-danger" title="Remove Row" onclick="removeRow(this)">' +
+                        '<button type="button" class="btn btn-danger" title="Remove Row" onclick="removeRow(this)" readonly>' +
                         '<i class="fas fa-minus"></i>' +
                         '</button>' +
                         '</td>' +
                         '</tr>';
-            
-                    tableBody.append(row);
                     
+                    tableBody.append(row);
                     // Attach event listener to image to trigger file input
                     $('#image_' + index).click(function() {
                         $('#impImage_0' + index).click();
                     });
                 });
             }
-            
-            // Call the function with the appropriate data
-            updateTableRows(userData2);
+            updateTableRows(userData2,true);
         },
         error: function(error) {
             console.error('Error fetching user data:', error);
@@ -321,43 +303,30 @@ function fetch_edit_data(customer_id) {
     });
 }
 
-function displayImagePreview(input, imagePreviewId) {
-    if (input.files && input.files[0]) {
-        var reader = new FileReader();
-
-        reader.onload = function (e) {
-            $('#' + imagePreviewId).attr('src', e.target.result); // Update the src attribute
-            $('#' + imagePreviewId).show(); // Show the image preview
-        };
-
-        reader.readAsDataURL(input.files[0]);
-    }
-}
 function setSelectedOption(selectId, value) {
     var select = document.getElementById(selectId);
     for (var i = 0; i < select.options.length; i++) {
-      if (select.options[i].value == value) {
-        select.selectedIndex = i;
-        break;
-      }
+        if (select.options[i].value == value) {
+            select.selectedIndex = i;
+            break;
+        }
     }
-  }
-  
-  function populateTehsil(selectId, value) {
+    select.disabled = true; // Disable the dropdown
+}
+function populateTehsil(selectId, selectedValue) {
     var select = document.getElementById(selectId);
     for (var i = 0; i < select.options.length; i++) {
-      if (select.options[i].value == value) {
-        select.options[i].selected = true;
-        break;
-      }
+        if (select.options[i].value == selectedValue) {
+            select.options[i].selected = true;
+            break;
+        }
     }
-  }
-
-
+    select.setAttribute('readonly', 'readonly'); // Make the dropdown read-only
+}
 function store(event) {
     event.preventDefault();
-
-    var enquiry_type_id = $('#enquiry_type_id').val();
+    var enquiry_type_id = 18
+    // var enquiry_type_id = $('#enquiry_type_id').val();
     // var added_by = 0;
     var brand_name = $('#brand').val();
     var model = $('#model_main').val();
@@ -646,21 +615,6 @@ function destroy(id) {
 }
 implementget();
 
-function resetFormFields(){
-    document.getElementById("rent_list_form_").reset(); // Reset the entire form
-    
-    // Reset each image input and its preview
-    var imageInputs = document.getElementsByClassName("image-file-input");
-    for (var i = 0; i < imageInputs.length; i++) {
-        imageInputs[i].value = ''; 
-        
-        var imagePreviewId = "impImagePreview_" + i; // Get the corresponding image preview ID
-        document.getElementById(imagePreviewId).setAttribute("src", ""); 
-        
-        var imageIcon = document.getElementById("impImagePreview_" + i).previousElementSibling; // Get the image icon element
-        imageIcon.style.display = "block"; // Set the display property to "block" to show the image icon
-    }
-}
 function getSearchBrand() { 
     var url = 'http://tractor-api.divyaltech.com/api/customer/get_brand_for_finance';
     $.ajax({
@@ -845,12 +799,25 @@ function getSearchBrand() {
     }
 }
 
+// function resetFormFields() {
+//     document.getElementById("rent_list_form_").reset(); // Reset the entire form
+    
+//     // Reset each image input and its preview
+//     var imageInputs = document.getElementsByClassName("image-file-input");
+//     for (var i = 0; i < imageInputs.length; i++) {
+//         imageInputs[i].value = ''; 
+        
+//         var imagePreviewId = "impImagePreview_" + i; // Get the corresponding image preview ID
+//         document.getElementById(imagePreviewId).setAttribute("src", ""); 
+        
+//         var imageIcon = document.getElementById("impImagePreview_" + i).previousElementSibling; // Get the image icon element
+//         imageIcon.style.display = "block"; // Set the display property to "block" to show the image icon
+//     }
+    
+//     // Clear table body
+//     var tableBody = document.getElementById("rentTractorTable").getElementsByTagName('tbody')[0];
+//     tableBody.innerHTML = ''; // Remove all rows
+// }
 
 
-function resetFormFields(isAddOperation){
-    document.getElementById("rent_list_form_").reset();
-    // if (isAddOperation) {
-    //     var tableBody = document.getElementById("rentTractorTable").getElementsByTagName('tbody')[0];
-    //     tableBody.innerHTML = ''; // Clear table body only when adding new entry
-    // }
-}
+

@@ -12,7 +12,7 @@ function model_click(){
 
   function get() {
     // var apiBaseURL = CustomerAPIBaseURL;
-    var url = 'http://tractor-api.divyaltech.com/api/customer/get_brands';
+    var url = 'http://tractor-api.divyaltech.com/api/customer/get_brand_for_finance';
 
     $.ajax({
         url: url,
@@ -46,9 +46,9 @@ get();
 function getTractorList() {
     var url = "http://tractor-api.divyaltech.com/api/customer/get_new_tractor";
 
-    // Keep track of the total tractors and the currently displayed tractors
     var totalTractors = 0;
-    var displayedTractors = 6; // Initially display 6 tractors
+    var displayedTractors = 6;
+    var startIndex = 0;
 
     $.ajax({
         url: url,
@@ -58,33 +58,35 @@ function getTractorList() {
             var loadMoreButton = $("#load_moretract");
 
             if (data.product.allProductData && data.product.allProductData.length > 0) {
-                // Sort the array in descending order based on product_id
                 data.product.allProductData.sort(function(a, b) {
                     return b.product_id - a.product_id;
                 });
-                // Display the initial set of 6 tractors
-                displayTractors(data.product.allProductData.slice(0, displayedTractors));
+
+                displayTractors(data.product.allProductData.slice(startIndex, displayedTractors));
+                totalTractors = data.product.allProductData.length;
 
                 if (totalTractors <= displayedTractors) {
                     loadMoreButton.hide();
                 } else {
                     loadMoreButton.show();
                 }
-
-                // Handle "Load More Tractors" button click
                 loadMoreButton.click(function() {
-                    // Display all tractors
-                    displayedTractors = totalTractors;
-                    displayTractors(data.product.allProductData);
+                    startIndex += displayedTractors;
+                    var endIndex = startIndex + displayedTractors;
+                    displayTractors(data.product.allProductData.slice(startIndex, endIndex));
 
-                    // Hide the "Load More Tractors" button
-                    loadMoreButton.hide();
+                    if (endIndex >= totalTractors) {
+                        loadMoreButton.hide();
+                    }
                 });
             }
         },
         error: function(error) {
             console.error('Error fetching data:', error);
-        }
+        },
+        complete: function () {
+            hideOverlay();
+        },
     });
 }
 

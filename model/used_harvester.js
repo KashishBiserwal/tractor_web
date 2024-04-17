@@ -6,15 +6,19 @@ $(document).ready(function() {
     console.log("ready!");
     get_old_harvester();
     $('#filter_tractor').click(filter_search);
+    showOverlay(); 
 });
+function showOverlay() {
+    $("#overlay").fadeIn(300);
+}
 
+function hideOverlay() {
+    $("#overlay").fadeOut(300);
+}
 function formatPriceWithCommas(price) {
-    // Check if the price is not a number
     if (isNaN(price)) {
-        return price; // Return the original value if it's not a number
+        return price; 
     }
-    
-    // Format the price with commas in Indian format
     return new Intl.NumberFormat('en-IN').format(price);
 }
 
@@ -55,7 +59,11 @@ function get_old_harvester() {
             },
             error: function (error) {
                 console.error('Error fetching data:', error);
-            }
+            },
+            complete: function () {
+                // Hide the spinner after the API call is complete
+                hideOverlay();
+            },
         });
     }
     function prependCard(container, p) {
@@ -330,7 +338,11 @@ function get_old_harvester() {
                         },
                         error: function (error) {
                             console.error('Error searching for brands:', error);
-                        }
+                        },
+                        complete: function () {
+                            // Hide the spinner after the API call is complete
+                            hideOverlay();
+                        },
                     });
                 }
                 function appendFilterCard(filterContainer, filter) {

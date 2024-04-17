@@ -266,7 +266,7 @@
         </div>
     </section>
 
-    <section>
+    <!-- <section>
         <div class="container">
             <div class="row py-1 mb-3">
                 <h2 class="fw-bold text-dark text-start mt-4 assured ps-3">Latest Blog</h3>
@@ -280,7 +280,7 @@
             </div>
 
         </div>
-    </section>
+    </section> -->
    
 
 

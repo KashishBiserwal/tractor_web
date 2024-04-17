@@ -5,6 +5,7 @@
             include 'includes/headertag.php';
             include 'includes/header.php';
             include 'includes/footertag.php';
+            include 'includes/spinner.php';
         ?>
     </head>
 <body>
@@ -14,7 +15,6 @@
     <script src="<?php $baseUrl; ?>model/engineoil.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
-    <script src="<?php $baseUrl; ?>model/State_dist_tehsil.js"></script>
 
 
 <section class="mt-4 pt-5 bg-light">

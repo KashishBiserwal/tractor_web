@@ -26,6 +26,7 @@ function getsearchdata() {
         }
     });
 }
+
 function getpopularTractorList() {
     var url = "http://tractor-api.divyaltech.com/api/customer/get_new_tractor";
     console.log(url);
@@ -34,6 +35,7 @@ function getpopularTractorList() {
         url: url,
         type: "GET",
         success: function(data) {
+            console.log(data);
             let new_arr=[];
             const new_data=data.product.accessory_and_tractor_type.filter((s)=>{ 
                 const arr=s.tractor_type_name.split(',');
@@ -62,12 +64,12 @@ function getpopularTractorList() {
                         }
                         
                         var newCard = `<div class="swiper-slide success__stry__item  box_shadow  b-t-1 h-100">
-                        <a class="text-decoration-none " href="detail_tractor.php?${p.product_id}">
+                        <a class="text-decoration-none " href="detail_tractor.php?product_id=${p.product_id}">
                         <div class="thumb">
                                <img src="http://tractor-api.divyaltech.com/uploads/product_img/${a[0]}" class="" alt="img" >
                          </div>
                         <div class="new-tractor-content text-center b-t-1">
-                            <h6 class="fw-bold mt-2 text-decoration-none text-dark">${p.brand_name} ${p.model}</h6>
+                            <h6 class="fw-bold mt-2 text-decoration-none text-truncate text-dark">${p.brand_name} ${p.model}</h6>
                          
                         
                             <p  class="text-dark text-decoration-none  mt-2 mb-0">From: ₹${p.starting_price}-${p.ending_price} lac*</p>
@@ -82,9 +84,7 @@ function getpopularTractorList() {
                     productContainer.append(newCard);
                 
                     }
-                    });
-
-           
+                });
             }
         },
         error: function (error) {
@@ -92,6 +92,7 @@ function getpopularTractorList() {
         }
     });
 }
+
 function getUpcomingTractorList() {
     var url = "http://tractor-api.divyaltech.com/api/customer/get_new_tractor";
     console.log(url);
@@ -128,12 +129,12 @@ function getUpcomingTractorList() {
                         }
                         
                         var newCard3 = ` <div class="swiper-slide success__stry__item  box_shadow  b-t-1 h-100">
-                        <a   class="text-decoration-none " href="detail_tractor.php?${p.product_id}">
+                        <a   class="text-decoration-none " href="detail_tractor.php?product_id=${p.product_id}">
                         <div class="thumb">
                                <img src="http://tractor-api.divyaltech.com/uploads/product_img/${a[0]}" class="" alt="img" >
                          </div>
                         <div class="new-tractor-content text-center b-t-1">
-                            <h6 class="fw-bold mt-2 text-decoration-none text-dark">${p.brand_name} ${p.model}</h6>
+                            <h6 class="fw-bold mt-2 text-decoration-none text-truncate text-dark">${p.brand_name} ${p.model}</h6>
                          
                         
                             <p  class="text-dark text-decoration-none mt-2  mb-0">From: ₹${p.starting_price}-${p.ending_price} lac*</p>
@@ -194,12 +195,12 @@ function getminiTractorList() {
                         }
                         
                         var newCard3 = ` <div class="swiper-slide success__stry__item  box_shadow  b-t-1 h-100">
-                        <a   class="text-decoration-none " href="detail_tractor.php?${p.product_id}">
+                        <a   class="text-decoration-none" href="detail_tractor.php?product_id=${p.product_id}">
                         <div class="thumb">
                                <img src="http://tractor-api.divyaltech.com/uploads/product_img/${a[0]}" class="" alt="img" >
                          </div>
                         <div class="new-tractor-content text-center b-t-1">
-                            <h6 class="fw-bold mt-2 text-decoration-none text-dark">${p.brand_name} ${p.model}</h6>
+                            <h6 class="fw-bold mt-2 text-decoration-none text-truncate text-dark">${p.brand_name} ${p.model}</h6>
                          
                         
                             <p  class="text-dark text-decoration-none mt-2  mb-0">From: ₹${p.starting_price}-${p.ending_price} lac*</p>
@@ -262,12 +263,12 @@ function getLatestTractorList() {
                         }
                         
                         var newCard2 = `  <div class="swiper-slide success__stry__item  box_shadow  b-t-1 h-100">
-                                                <a  class="text-decoration-none " href="detail_tractor.php?${p.product_id}">
+                                                <a  class="text-decoration-none " href="detail_tractor.php?product_id=${p.product_id}">
                                                 <div class="thumb">
                                                        <img src="http://tractor-api.divyaltech.com/uploads/product_img/${a[0]}" class="" alt="img" >
                                                  </div>
                                                 <div class="new-tractor-content text-center b-t-1">
-                                                    <h6 class="fw-bold mt-2 text-decoration-none text-dark">${p.brand_name} ${p.model}</h6>
+                                                    <h6 class="fw-bold mt-2 text-decoration-none text-truncate text-dark">${p.brand_name} ${p.model}</h6>
                                                  
                                                 
                                                     <p  class="text-dark text-decoration-none mt-2  mb-0">From: ₹${p.starting_price}-${p.ending_price} lac*</p>
@@ -320,24 +321,24 @@ function get_harvester() {
                     }
                 }
                 var newCard = `
-                <div class="item box_shadow b-t-1">
-              <a  href="harvester_inner.php?product_id=${p.id}" class="text-decoration-none fw-bold">
-                <div class="harvester_img_section">
-                  <img src="http://tractor-api.divyaltech.com/uploads/product_img/${a[0]}" alt="">
-                  <div href="harvester_inner.php?product_id=${p.id}" class="over-layer"><i class="fa fa-link"></i></div>
+            <div class="item box_shadow b-t-1">
+                <a  href="harvester_inner.php?product_id=${p.id}" class="text-decoration-none fw-bold">
+                    <div class="harvester_img_section">
+                    <img src="http://tractor-api.divyaltech.com/uploads/product_img/${a[0]}" alt="">
+                    <div href="harvester_inner.php?product_id=${p.id}" class="over-layer"><i class="fa fa-link"></i></div>
+                    </div>
+                </a>
+                <div class="harvester_content_section mt-3 text-center">
+                    <a href="harvester_inner.php?product_id=${p.id}" class="text-decoration-none fw-bold text-dark"><h6 class="text-dark">${p.brand_name} ${p.model}</h6></a>
+                    <div class="row w-100">
+                        <div class="col-6 p-0"> <p class="mb-0" style="font-size: 14px;">${p.horse_power} Hp</p></div>
+                        <div class="col-6 p-0"> <p class="mb-0" style="font-size: 14px;">${p.crops_type_value}</p></div>
+                    </div>
+                    <a  href="harvester_inner.php?product_id=${p.id}">
+                        <button type="button" class="add_btn btn-success w-100 mt-3"><i class="fa-regular fa-handshake"></i> Get on Road Price</button>
+                    </a>
                 </div>
-              </a>
-              <div class="harvester_content_section mt-3 text-center">
-                <a href="harvester_inner.php?product_id=${p.id}" class="text-decoration-none fw-bold text-dark"><h6 class="text-dark">${p.brand_name} ${p.model}</h6></a>
-                <div class="row w-100">
-                  <div class="col-6 p-0"> <p class="mb-0" style="font-size: 14px;">${p.horse_power} Hp</p></div>
-                  <div class="col-6 p-0"> <p class="mb-0" style="font-size: 14px;">${p.crops_type_value}</p></div>
-                </div>
-                <button type="button" class="add_btn btn-success w-100 mt-3"><i class="fa-regular fa-handshake"></i> Get on Road Price</button>
-              </div>
-               
-          
-            </div>
+            <div>
                 `;
         
                 // Append the new card to the container
@@ -404,19 +405,21 @@ function get_oldharvester() {
                 }
                 var newCard = `
                 <div class="item box_shadow b-t-1">
-              <a  href="used_harvester_inner.php?id=${p.id}" class="text-decoration-none fw-bold">
+              <a  href="used_harvester_inner.php?id=${p.customer_id}" class="text-decoration-none fw-bold">
                 <div class="harvester_img_section">
                   <img src="http://tractor-api.divyaltech.com/uploads/product_img/${a[0]}" alt="">
-                  <div href="used_harvester_inner.php?id=${p.id}" class="over-layer"><i class="fa fa-link"></i></div>
+                  <div href="used_harvester_inner.php?id=${p.customer_id}" class="over-layer"><i class="fa fa-link"></i></div>
                 </div>
               </a>
               <div class="harvester_content_section mt-3 text-center">
-                <a href="used_harvester_inner.php?id=${p.id}" class="text-decoration-none fw-bold text-dark"><h6 class="text-dark">${p.brand_name} ${p.model}</h6></a>
+                <a href="used_harvester_inner.php?id=${p.customer_id}" class="text-decoration-none fw-bold text-dark"><h6 class="text-dark">${p.brand_name} ${p.model}</h6></a>
                 <div class="row w-100">
                   <div class="col-6 p-0"> <p class="mb-0" style="font-size: 14px;"><span>Hours Driven: </span>${p.hours_driven}</p></div>
                   <div class="col-6 p-0"> <p class="mb-0" style="font-size: 14px;">${p.crops_type_value}</p></div>
                 </div>
-                <button type="button" class="add_btn btn-success w-100 mt-3"><i class="fa-regular fa-handshake"></i> Get on Road Price</button>
+                <a  href="used_harvester_inner.php?id=${p.customer_id}">
+                    <button type="button" class="add_btn btn-success w-100 mt-3"><i class="fa-regular fa-handshake"></i> Get on Road Price</button>
+                </a>
               </div>
                
           
