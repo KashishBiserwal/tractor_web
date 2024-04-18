@@ -217,7 +217,6 @@ function fetch_edit_data(customer_id) {
             $('#myfname').val(userData.first_name).prop('readonly', true);
             $('#mylname').val(userData.last_name).prop('readonly', true);
             $('#mynumber').val(userData.mobile).prop('readonly', true);
-
             // Populating the brand dropdown
             var brandDropdown = document.getElementById('brand');
             for (var i = 0; i < brandDropdown.options.length; i++) {
@@ -235,8 +234,7 @@ function fetch_edit_data(customer_id) {
             setTimeout(function() { 
                 $("#model_main option").prop("selected", false);
                 $("#model_main option[value='" + userData.model + "']").prop("selected", true);
-                $("#model_main").prop("disabled", true); // Make the dropdown read-only
-            }, 1000);
+            }, 2000);
 
             // Populating other dropdowns and inputs
             $("#year_main option").prop("selected", false);
@@ -245,7 +243,7 @@ function fetch_edit_data(customer_id) {
             setSelectedOption('state_state', userData.state_id);
             setSelectedOption('dist_district', userData.district_id);
             populateTehsil(userData.district_id, 'tehsil-dropdown', userData.tehsil_id);
-
+            disableFormFields();
             // Function to update table rows
             function updateTableRows(userData2, clearPrefilledValues) {
                 var tableBody = $('#rentTractorTable tbody');
@@ -313,15 +311,21 @@ function setSelectedOption(selectId, value) {
     }
     select.disabled = true; // Disable the dropdown
 }
-function populateTehsil(selectId, selectedValue) {
+function populateTehsil(districtId, selectId, tehsilId) {
     var select = document.getElementById(selectId);
     for (var i = 0; i < select.options.length; i++) {
-        if (select.options[i].value == selectedValue) {
+        if (select.options[i].value == tehsilId) {
             select.options[i].selected = true;
             break;
         }
     }
-    select.setAttribute('readonly', 'readonly'); // Make the dropdown read-only
+    select.disabled = true;
+    select.setAttribute('readonly', 'readonly');
+    $(select).prop('readonly', true);
+}
+
+function disableFormFields() {
+    $('#rent_list_form_ :input').prop('disabled', true);
 }
 function store(event) {
     event.preventDefault();
