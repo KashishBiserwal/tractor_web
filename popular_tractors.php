@@ -6,12 +6,11 @@
 include 'includes/headertag.php';
    include 'includes/headertagadmin.php';
    include 'includes/footertag.php';
-   
+   include 'includes/spinner.php';
    ?> 
 <script> var APIBaseURL = "<?php echo $APIBaseURL; ?>";</script>
 <script> var baseUrl = "<?php echo $baseUrl; ?>";</script>
     <script src="<?php $baseUrl; ?>model/popular.js"></script>
-    <script src="<?php $baseUrl; ?>model/State_dist_tehsil.js"></script>
 </head>
 <style>
       .text-truncate {
@@ -45,6 +44,8 @@ include 'includes/headertag.php';
                 <h3 class="pb-3">Popular  <span class="text-success fw-bold">Tractors in India</span> </h3>
                 <div id="productContainer" class="row"></div>
                 <div class="col-12 text-center mt-3 pt-2 ">
+                <h5 id="noDataMessage" class="text-center mt-4 text-danger" style="display: none;">
+                <img src="assets/images/404.gif" class="w-25" alt=""></br>Data not found..!</h5>
                 <button id="load_moretract" type="button" class=" btn add_btn btn-success p-1">
                     <i class="fas fa-undo"></i>  Load More tractors</button>
                 </div>

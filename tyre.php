@@ -7,12 +7,11 @@
 include 'includes/headertag.php';
    include 'includes/headertagadmin.php';
    include 'includes/footertag.php';
-   
+   include 'includes/spinner.php';
    ?> 
 <script> var APIBaseURL = "<?php echo $APIBaseURL; ?>";</script>
 <script> var baseUrl = "<?php echo $baseUrl; ?>";</script>
     <script src="<?php $baseUrl; ?>model/tyre.js"></script>
-    <script src="<?php $baseUrl; ?>model/State_dist_tehsil.js"></script>
 </head>
 
 <body>
@@ -105,11 +104,11 @@ include 'includes/headertag.php';
                             <div class="force-overflow">
                                 <div class="price py-2 ">
                                     <h5 class=" ps-3 text-dark fw-bold mb-3">Search By Type</h5>
-                                    <input type="checkbox" class="checkbox-round ms-3 chechbox-position-tyre" value="front" /><span
+                                    <input type="checkbox" class="checkbox-round ms-3 chechbox-position-tyre" value="front tyre" /><span
                                         class="ps-2 fs-6">Front</span><br />
-                                    <input type="checkbox" class="checkbox-round ms-3 chechbox-position-tyre" value="rare" /><span
+                                    <input type="checkbox" class="checkbox-round ms-3 chechbox-position-tyre" value="rare tyre" /><span
                                         class="ps-2 fs-6">Rare</span><br />
-                                    <input type="checkbox" class="checkbox-round ms-3 chechbox-position-tyre" value="steer" /><span
+                                    <input type="checkbox" class="checkbox-round ms-3 chechbox-position-tyre" value="steer tyre" /><span
                                         class="ps-2 fs-6">Steer</span><br />
                                 </div>
                             </div>

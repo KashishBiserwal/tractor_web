@@ -255,7 +255,7 @@ document.addEventListener("DOMContentLoaded", function () {
       selectedValueElement.textContent = `${selectedText}`;
 
       parentContainer.appendChild(selectedValueElement);
-      selectedElement.style.display = 'none'; // Hide the original dropdown
+      selectedElement.style.display = 'none'; 
       selectedValues[selectedElement.getAttribute("id")] = {
         value: selectedValue,
         text: selectedText
@@ -275,9 +275,8 @@ document.addEventListener("DOMContentLoaded", function () {
       valueElement.remove();
     });
 
-    // Show the original dropdowns
-    brandSelect.style.display = 'inline'; // or 'block', depending on your styling
-    modelSelect.style.display = 'inline'; // or 'block', depending on your styling
+    brandSelect.style.display = 'inline'; 
+    modelSelect.style.display = 'inline'; 
 
     // Set the selected values back to the dropdowns
     brandSelect.value = selectedValues[brandSelect.id] ? selectedValues[brandSelect.id].value : '';

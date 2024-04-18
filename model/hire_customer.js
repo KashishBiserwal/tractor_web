@@ -4,9 +4,16 @@ $(document).ready(function() {
     $('#Verify').click(verifyotp);
     $('#filter_tractor').click(filter_search);
     // $('#button_hire').click(enquiry_form)
+    showOverlay(); 
 });
 
+function showOverlay() {
+    $("#overlay").fadeIn(400);
+}
 
+function hideOverlay() {
+    $("#overlay").fadeOut(400);
+}
 
 function formatPriceWithCommas(price) {
     if (isNaN(price)) {
@@ -45,7 +52,11 @@ function getHiretractor() {
         },
         error: function (error) {
             console.error('Error fetching data:', error);
-        }
+        },
+        complete: function () {
+            // Hide the spinner after the API call is complete
+            hideOverlay();
+        },
     });
 }
 
@@ -78,7 +89,6 @@ function displayNextSixCards(container) {
         var fullname = p.first_name + ' ' + p.last_name;
         var images = p.images;
         var userId = localStorage.getItem('id');
-        getUserDetail(userId, formId);
         var newCard = `
         <div class="col-12 col-lg-4 col-md-6 col-sm-6 mb-3" id="${cardId}">
         <div class="h-auto success__stry__item d-flex flex-column shadow ">
@@ -108,8 +118,8 @@ function displayNextSixCards(container) {
                         </div>
                     </div> 
                 </div>
-                    <button type="button" class="add_btn btn-success w-100" data-bs-toggle="modal" data-bs-target="#${modalId}">
-                        Send Enquiry
+                    <button type="button" id="modelbutton" class="add_btn btn-success w-100" data-bs-toggle="modal" data-bs-target="#${modalId}" onclick="populateDropdowns('${modalId}'); getUserDetail(${userId}, '${formId}')">
+                        <i class="fa-regular fa-handshake"></i>  Send Enquiry
                     </button>
                 </div>
             </div>
@@ -246,7 +256,6 @@ function displayNextSixCards(container) {
             </div>
              `;
         container.append(newCard);
-        populateDropdowns(p.id);
         $('.price_form').on('input', function() {
             var value = $(this).val().replace(/\D/g, ''); // Remove non-digit characters
             var formattedValue = Number(value).toLocaleString('en-IN'); // Format using Indian numbering system
@@ -559,7 +568,11 @@ function filter_search() {
         },
         error: function(error) {
             console.error('Error searching for brands:', error);
-        }
+        },
+        complete: function () {
+            // Hide the spinner after the API call is complete
+            hideOverlay();
+        },
     })
 }
 
@@ -580,7 +593,7 @@ function appendFilterCard(filterContainer, p) {
     var formattedPrice = formatPriceWithCommas(p.rate);
     var images = p.images;
     var userId = localStorage.getItem('id');
-    getUserDetail(userId, formId);
+  
     var newCard = `
     <div class="col-12 col-lg-4 col-md-6 col-sm-6 mb-3" id="${cardId}">
     <div class="h-auto success__stry__item d-flex flex-column shadow ">
@@ -610,8 +623,8 @@ function appendFilterCard(filterContainer, p) {
                     </div>
                 </div> 
             </div>
-                <button type="button" class="add_btn btn-success w-100" data-bs-toggle="modal" data-bs-target="#${modalId}">
-                    Send Enquiry
+                <button type="button" id="modelbutton" class="add_btn btn-success w-100" data-bs-toggle="modal" data-bs-target="#${modalId}" onclick="populateDropdowns('${modalId}'); getUserDetail(${userId}, '${formId}')">
+                    <i class="fa-regular fa-handshake"></i>  Send Enquiry
                 </button>
             </div>
         </div>
@@ -861,14 +874,12 @@ function get_year_and_hours() {
 }
 get_year_and_hours();
 
+function populateDropdowns(identifier) {
+    var stateDropdowns = document.querySelectorAll(`#${identifier} .state-dropdown`);
+    var districtDropdowns = document.querySelectorAll(`#${identifier} .district-dropdown`);
+    var tehsilDropdowns = document.querySelectorAll(`#${identifier} .tehsil-dropdown`);
 
-
-function populateDropdowns() {
-    var stateDropdowns = document.querySelectorAll('.state-dropdown');
-    var districtDropdowns = document.querySelectorAll('.district-dropdown');
-    var tehsilDropdowns = document.querySelectorAll('.tehsil-dropdown');
-
-    var defaultStateId = 7; // Define the default state ID here
+    var defaultStateId = 7; 
 
     var selectYourStateOption = '<option value="">Select Your State</option>';
     var chhattisgarhOption = `<option value="${defaultStateId}">Chhattisgarh</option>`;
@@ -885,14 +896,11 @@ function populateDropdowns() {
             });
         });
     });
-
-    // Event listener for district dropdown
     districtDropdowns.forEach(function (dropdown) {
         dropdown.addEventListener('change', function() {
             var selectedDistrictId = this.value;
             var tehsilSelect = this.closest('.row').querySelector('.tehsil-dropdown');
             if (selectedDistrictId) {
-                // Fetch tehsil data based on the selected district
                 $.get(`http://tractor-api.divyaltech.com/api/customer/get_tehsil_by_district/${selectedDistrictId}`, function(data) {
                     tehsilSelect.innerHTML = '<option value="">Please select a tehsil</option>';
                     data.tehsilData.forEach(tehsil => {

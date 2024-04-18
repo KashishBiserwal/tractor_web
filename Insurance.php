@@ -223,7 +223,7 @@ include 'includes/footertag.php';
                                     <label class="form-check-label text-dark" for="inlineCheckbox2">No</label>
                                 </div>
                             </div> -->
-                            <p class="text-center mt-3">By proceeding ahead you expressly agree to the Bharat Tractors <a
+                            <p class="text-center mt-3">By proceeding ahead you expressly agree to the Bharat Agrimart <a
                                     href="privacy_and_policy.php" class="text-decoration-none">Terms & Conditions*</a>
                             </p>
                             <div class="d-grid col-8 mx-auto mb-3">
@@ -479,131 +479,18 @@ include 'includes/footertag.php';
 
     <!--Popular Tractor Brands -->
 
-
-    <div class="container">
-        <h4 class="mt-4 mb-4 assured px-2 fw-bold">Popular Tractor Brands</h4>
-
-        <div class="row row-cols-2 row-cols-md-2 row-cols-lg-4 g-4">
-            <!-- Repeat the following card structure for each brand -->
-            <div class="col">
-                <div class="card h-100">
-                    <div class="card-body">
-                        <img src="assets\images\mahindralogo.png" class="card-img-top cards" alt="Company 5">
-                        <h6 class="card-title text-center mt-2">Mahindra</h6>
-                        <!-- Add brand-specific content here if needed -->
-                    </div>
-                </div>
-            </div>
-
-            <div class="col">
-                <div class="card h-100">
-                    <div class="card-body">
-                        <img src="assets\images\eicherlogo.png" class="card-img-top cards" alt="Company 5">
-                        <h6 class="card-title  text-center mt-2">Eicher</h6>
-                        <!-- Add brand-specific content here if needed -->
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card h-100">
-                    <div class="card-body">
-                        <img src="assets\images\sonalika.png" class="card-img-top cards" alt="Company 5">
-                        <h6 class="card-title text-center mt-2">Sonalika</h6>
-                        <!-- Add brand-specific content here if needed -->
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card h-100">
-                    <div class="card-body">
-                        <img src="assets\images\swarajlogo.webp" class="card-img-top cards" alt="Company 5">
-                        <h6 class="card-title text-center mt-2">Swaraj</h6>
-                        <!-- Add brand-specific content here if needed -->
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card h-100">
-                    <div class="card-body">
-                        <img src="assets\images\johndeerelogo.png" class="card-img-top cards" alt="Company 5">
-                        <h6 class="card-title text-center mt-2">John Deere</h6>
-                        <!-- Add brand-specific content here if needed -->
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card h-100">
-                    <div class="card-body">
-                        <img src="assets\images\New-Holland-logo.png" class="card-img-top cards" alt="Company 5">
-                        <h6 class="card-title text-center mt-2">New Holland</h6>
-                        <!-- Add brand-specific content here if needed -->
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card h-100">
-                    <div class="card-body">
-                        <img src="assets\images\vstlogo.jpg" class="card-img-top cards" alt="Company 5">
-                        <h6 class="card-title text-center mt-2">VST</h6>
-                        <!-- Add brand-specific content here if needed -->
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card h-100">
-                    <div class="card-body">
-                        <img src="assets\images\mflogo.png" class="card-img-top cards" alt="Company 5">
-                        <h6 class="card-title text-center mt-2">Massey Ferguson</h6>
-                        <!-- Add brand-specific content here if needed -->
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card h-100">
-                    <div class="card-body">
-                        <img src="assets\images\farmlogo.webp" class="card-img-top cards" alt="Company 5">
-                        <h6 class="card-title text-center mt-2">Farmtrac</h6>
-                        <!-- Add brand-specific content here if needed -->
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card h-100">
-                    <div class="card-body">
-                        <img src="assets\images\ptlogo.webp" class="card-img-top cards" alt="Company 5">
-                        <h6 class="card-title text-center mt-2">Powertrac</h6>
-                        <!-- Add brand-specific content here if needed -->
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card h-100">
-                    <div class="card-body">
-                        <img src="assets\images\escort.png" class="card-img-top cards" alt="Company 5">
-                        <h6 class="card-title text-center mt-2">Escorts</h6>
-                        <!-- Add brand-specific content here if needed -->
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card h-100">
-                    <div class="card-body">
-                        <img src="assets\images\preet.jpg" class="card-img-top cards" alt="Company 5">
-                        <h6 class="card-title text-center mt-2">Preet</h6>
-                        <!-- Add brand-specific content here if needed -->
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Button at the bottom -->
-        <div class="row mt-5 mb-4">
-            <div class="col text-center">
-                <a href="find_new_tractors.php" id="atag" class="d-grid col-4 mx-auto mb-3"><button
-                        class="btn btn-outline-success fw-bold">View All Brands</button></a>
-            </div>
-        </div>
+    <section class="about bg-white mt-2 ">
+  <div class="container">
+    <div class="lecture_heading ">
+      <h3 class="my-4 pt-5">TRACTORS BY BRAND</h3>
     </div>
+    <div class="mt-4 pb-5">
+      <div class="row allbrands" id="brandContainer">
+      </div>
+    </div>
+  </div>
+</section>
+    
 
 
     <!--Popular Tractor Brands End -->

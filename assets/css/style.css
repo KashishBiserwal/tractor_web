@@ -76,10 +76,11 @@ margin-top: 130px
   .main-navbar{
     z-index: 99;
     background-color: #fff;
+    color: black;
   }
-  /* .main-navbar .navbar-nav .nav-link { */
-    /* color: #fff; */
-  /* } */
+  /* .main-navbar .navbar-nav .nav-link {
+    color: #292727;
+  } */
   .nav-item{
     --b: 0.1em;   /*the thickness of the line*/
   --c: #07791a; /* the color */
@@ -93,10 +94,10 @@ margin-top: 130px
           background-clip: text,padding-box;
   transition: .3s var(--_s,0s) linear,background-size .3s calc(.3s - var(--_s,0s));
   }
-  .nav-item:hover{
-    /* --_p: 100%;
-    --_s: .3s; */
-  }
+  /* .nav-item:hover{
+    --_p: 100%;
+    --_s: .3s;
+  } */
   .navbar-nav:hover {
     /* background-color: lightsalmon; */
     /* color: #fff; */

@@ -7,6 +7,7 @@
     // $product_id=$_REQUEST['product_id'];
     // echo $product_id;
     include 'includes/footertag.php';
+    include 'includes/spinner.php';
     ?>
    
    <script> var APIBaseURL = "<?php echo $APIBaseURL; ?>";</script>

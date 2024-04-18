@@ -1,13 +1,9 @@
 
 var allDealers = [];
 $(document).ready(function() {
-    // $('#submit_enquiry').click(store);
-    console.log("ready!");
     getbrands();
     getTractorList();
     getusedTractorList();
-    // getoldimplementList();
-   
     get_certifieddealers();
     $("#contact-seller-call").validate({
         rules: {
@@ -54,7 +50,7 @@ $(document).ready(function() {
         }
     });
 
-    // Custom validation method for notEqual rule
+   // Custom validation method for notEqual rule
     $.validator.addMethod("notEqual", function (value, element, param) {
         return value !== param;
     }, "Value must not equal {0}");
@@ -67,21 +63,13 @@ $(document).ready(function() {
             type: "GET",
             success: function(data) {
                 if (data.dealer_details && data.dealer_details.length > 0) {
-                    // Reverse the order of the cards to display the latest ones first
                     var reversedDealers = data.dealer_details.slice().reverse();
-                    
-                    // Update the list of all dealers
                     allDealers = allDealers.concat(reversedDealers);
                     
-                    // Display the latest 8 dealers at the top in the opposite order
                     displaydealer(reversedDealers.slice(0, 8).reverse());
-    
-                    // Show the "Load More" button if there are remaining dealers
                     if (data.dealer_details.length > 8) {
                         $("#load_moretract").show();
                     }
-    
-                    // Handle "Load More" button click
                     $("#load_moretract").click(function() {
                         // Display all dealers in the opposite order
                         displaydealer(allDealers.reverse());
@@ -92,14 +80,16 @@ $(document).ready(function() {
             },
             error: function(error) {
                 console.error('Error fetching data:', error);
-            }
+            },
+            complete: function () {
+                // Hide the spinner after the API call is complete
+                hideOverlay();
+            },
         });
     }
     
     function displaydealer(dealers) {
         var productContainer = $("#productContainer_dealer");
-    
-        // Clear existing content
         productContainer.html('');
     
         dealers.forEach(function (dealer) {
@@ -132,12 +122,9 @@ $(document).ready(function() {
                     </div>
                 </div>
             `;
-    
-            // Use prepend to add the new card at the beginning
             productContainer.prepend(newCard);
         });
     }
-// Function to get the value of a query parameter from the URL
 function getQueryParam(parameterName) {
     const urlParams = new URLSearchParams(window.location.search);
     return urlParams.get(parameterName);
@@ -195,7 +182,7 @@ function getTractorList() {
     console.log(url);
    
     var totalTractors = 0;
-    var displayedTractors = 8; // Change the number of initially displayed tractors
+    var displayedTractors = 8;
 
     $.ajax({
         url: url,
@@ -264,8 +251,6 @@ function displayTractors(productContainer, tractors) {
         var modalId_2 = `staticBackdrop_${p.product_id}`; 
         var formId = `contact-seller-call_${p.product_id}`;
         var userId = localStorage.getItem('id');
-        getUserDetail(userId, formId);
-
         var newCard = `
             <div class="col-12 col-lg-3 col-md-3 col-sm-3 mb-3 mt-4" id="${cardId}">
                 <div class="h-auto success__stry__item d-flex flex-column shadow">
@@ -291,7 +276,7 @@ function displayTractors(productContainer, tractors) {
                             </div>
                         </div>
                         <div class="col-12">
-                            <button type="button" class="add_btn btn-success w-100"  data-bs-toggle="modal"  data-bs-target="#${modalId}">
+                            <button type="button" id="modelbutton" class="add_btn btn-success w-100" data-bs-toggle="modal" data-bs-target="#${modalId}" onclick="populateDropdowns('${modalId}'); getUserDetail(${userId}, '${formId}')">
                                 <i class="fa-regular fa-handshake"></i> Get on Road Price
                             </button>
                         </div>
@@ -427,16 +412,11 @@ function displayTractors(productContainer, tractors) {
                     </div>
                 </div>
             </div>
-        </div>
-            
-            `;
-
-            
+        </div> `;   
         productContainer.append(newCard);
      
     });
 
-    // Add event listener for modal opening
     $(".add_btn").on("click", function() {
         var productId = $(this).data("product-id");
         $("#used_tractor_callbnt_" + productId).modal("show");
@@ -444,12 +424,16 @@ function displayTractors(productContainer, tractors) {
 }
 
 });
-// Call the functions
 
+function showOverlay() {
+    $("#overlay").fadeIn(400);
+}
 
+function hideOverlay() {
+    $("#overlay").fadeOut(400);
+}
 
 function resetForm(formId) {
-    // Reset the form by using its ID
     document.getElementById(formId).reset();
 }
 
@@ -736,16 +720,13 @@ function getusedTractorList() {
         }
     });
 }
+showOverlay(); 
+function populateDropdowns(identifier) {
+    var stateDropdowns = document.querySelectorAll(`#${identifier} .state-dropdown`);
+    var districtDropdowns = document.querySelectorAll(`#${identifier} .district-dropdown`);
+    var tehsilDropdowns = document.querySelectorAll(`#${identifier} .tehsil-dropdown`);
 
-
-
-
-function populateDropdowns() {
-    var stateDropdowns = document.querySelectorAll('.state-dropdown');
-    var districtDropdowns = document.querySelectorAll('.district-dropdown');
-    var tehsilDropdowns = document.querySelectorAll('.tehsil-dropdown');
-
-    var defaultStateId = 7; // Define the default state ID here
+    var defaultStateId = 7; 
 
     var selectYourStateOption = '<option value="">Select Your State</option>';
     var chhattisgarhOption = `<option value="${defaultStateId}">Chhattisgarh</option>`;
@@ -762,14 +743,11 @@ function populateDropdowns() {
             });
         });
     });
-
-    // Event listener for district dropdown
     districtDropdowns.forEach(function (dropdown) {
         dropdown.addEventListener('change', function() {
             var selectedDistrictId = this.value;
             var tehsilSelect = this.closest('.row').querySelector('.tehsil-dropdown');
             if (selectedDistrictId) {
-                // Fetch tehsil data based on the selected district
                 $.get(`http://tractor-api.divyaltech.com/api/customer/get_tehsil_by_district/${selectedDistrictId}`, function(data) {
                     tehsilSelect.innerHTML = '<option value="">Please select a tehsil</option>';
                     data.tehsilData.forEach(tehsil => {
@@ -782,8 +760,6 @@ function populateDropdowns() {
         });
     });
 }
-
-
 
 // function getoldimplementList() {
 //     var urlParams = new URLSearchParams(window.location.search);

@@ -1,4 +1,5 @@
 $(document).ready(function() {
+    showOverlay(); 
     var cardsPerPage = 6;
     var cardsDisplayed = 0;
     var allCards = [];
@@ -18,11 +19,13 @@ $(document).ready(function() {
             },
             error: function (error) {
                 console.error('Error fetching data:', error);
-            }
+            },
+            complete: function () {
+                // Hide the spinner after the API call is complete
+                hideOverlay();
+            },
         });
     }
-
-    // Function to display cards
     function displayCards() {
         var productContainer = $("#productContainer");
 
@@ -93,6 +96,14 @@ $(document).ready(function() {
         });
     });
 
+    function showOverlay() {
+        $("#overlay").fadeIn(300);
+    }
+    
+    function hideOverlay() {
+        $("#overlay").fadeOut(300);
+    }
+    
 
     function get() {
         var url = 'http://tractor-api.divyaltech.com/api/customer/state_data';
@@ -306,7 +317,10 @@ $(document).ready(function() {
                 $("#loadMoreBtn").hide();
                 $("#noDataMessage").show();
                 $("#noDataMessage img").attr("src", "assets/images/404.gif");
-            }
+            },
+            complete: function () {
+                hideOverlay();
+            },
         });
     }
     function appendFilterCard(filterContainer, cardData) {

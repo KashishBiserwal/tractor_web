@@ -4,7 +4,7 @@
 include 'includes/headertag.php';
 //    include 'includes/headertagadmin.php';
    include 'includes/footertag.php';
-   
+   include 'includes/spinner.php';
    ?> 
   <script> var APIBaseURL = "<?php echo $APIBaseURL; ?>";</script>
   <script> var baseUrl = "<?php echo $baseUrl; ?>";</script>
@@ -12,7 +12,6 @@ include 'includes/headertag.php';
 
   <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
-    <script src="<?php $baseUrl; ?>model/State_dist_tehsil.js"></script>
 <body>
     <style>
            .text-truncate {

@@ -1,10 +1,8 @@
 $(document).ready(function() {
     var allCards = [];
-    // getnurseryList(allCards);
-    // $('#submit_enquiry').click(nursery_enquiry);
     $('#filter_button').click(filter_search);
-    // $('#Verify').click(verifyotp);
     nursery_details_list(allCards);
+    showOverlay(); 
     $("#nursery_enquiry_form").validate({
         rules: {
             product_id: {
@@ -46,6 +44,13 @@ $(document).ready(function() {
         }
     });
 
+    function showOverlay() {
+        $("#overlay").fadeIn(300);
+    }
+    
+    function hideOverlay() {
+        $("#overlay").fadeOut(300);
+    }
 
     function nursery_details_list(allCards) {
         var url = 'http://tractor-api.divyaltech.com/api/customer/nursery_data';
@@ -82,7 +87,10 @@ $(document).ready(function() {
             },
             error: function(error) {
                 console.error('Error fetching data:', error);
-            }
+            },
+            complete: function () {
+                hideOverlay();
+            },
         });
     }
 
@@ -109,7 +117,6 @@ $(document).ready(function() {
         var formId = `nursery_enquiry_form_${p.id}`; 
         var fullname = p.first_name + ' ' + p.last_name;
         var userId = localStorage.getItem('id');
-        getUserDetail(userId, formId);
         var newCard = `
             <div class="col-12 col-lg-4 col-md-4 col-sm-4 mb-4" id="${cardId}">
                 <a href="nursery_inner.php?id=${p.id}"
@@ -135,9 +142,8 @@ $(document).ready(function() {
                     </div>
                 </a>
                 <div class="col-12 btn-success">
-                    <button type="button" class="btn btn-success py-2 w-100" data-bs-toggle="modal"
-                        data-bs-target="#${modalId}"><i class="fa-solid fa-phone"></i>
-                        Contact Nursery
+                    <button type="button" id="modelbutton" class="add_btn btn-success w-100" data-bs-toggle="modal" data-bs-target="#${modalId}" onclick="populateDropdowns('${modalId}'); getUserDetail(${userId}, '${formId}')">
+                        <i class="fa-regular fa-handshake"></i> Contact Nursery
                     </button>
                 </div>
         
@@ -257,15 +263,15 @@ $(document).ready(function() {
                 <div class="modal-dialog modal-lg modal-dialog-centered">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="staticBackdropLabel">Contact Seller</h5>
+                            <h5 class="modal-title" id="staticBackdropLabel">Nursery Contact Seller</h5>
                             <button type="button" class="btn-close btn-success" data-bs-dismiss="modal" aria-label="Close"><img src="assets/images/close.png"class="w-25"></button>
                         </div>
                         <div class="modal-body">
                             <div class="model-cont">
-                                <h4 class="text-center text-danger">Seller Information</h3>
+                                <h4 class="text-center text-danger">Nursery Seller Information</h3>
                                 <div class="row px-3 py-2">
                                     <div class="col-12  col-sm-12 col-md-6 col-lg-6 ">
-                                        <label for="slr_name"class="form-label fw-bold text-dark"><i class="fa-regular fa-user"></i>Seller Name</label>
+                                        <label for="slr_name"class="form-label fw-bold text-dark"><i class="fa-regular fa-user"></i>Nursery Seller Name</label>
                                         <input type="text" class="form-control" id="saller_name" value="${fullname}">
                                     </div>
                                     <div class="col-12 col-sm-12 col-md-6 col-lg-6  ">
@@ -286,54 +292,10 @@ $(document).ready(function() {
         
         
         container.prepend(newCard);
-        populateDropdowns(p.id);
        
     });
 }
 });
-
-function populateDropdowns() {
-    var stateDropdowns = document.querySelectorAll('.state-dropdown');
-    var districtDropdowns = document.querySelectorAll('.district-dropdown');
-    var tehsilDropdowns = document.querySelectorAll('.tehsil-dropdown');
-
-    var defaultStateId = 7; // Define the default state ID here
-
-    var selectYourStateOption = '<option value="">Select Your State</option>';
-    var chhattisgarhOption = `<option value="${defaultStateId}">Chhattisgarh</option>`;
-
-    stateDropdowns.forEach(function (dropdown) {
-        dropdown.innerHTML = selectYourStateOption + chhattisgarhOption;
-
-        // Fetch district data based on the selected state
-        $.get(`http://tractor-api.divyaltech.com/api/customer/get_district_by_state/${defaultStateId}`, function(data) {
-            var districtSelect = dropdown.closest('.row').querySelector('.district-dropdown');
-            districtSelect.innerHTML = '<option value="">Please select a district</option>';
-            data.districtData.forEach(district => {
-                districtSelect.innerHTML += `<option value="${district.id}">${district.district_name}</option>`;
-            });
-        });
-    });
-
-    // Event listener for district dropdown
-    districtDropdowns.forEach(function (dropdown) {
-        dropdown.addEventListener('change', function() {
-            var selectedDistrictId = this.value;
-            var tehsilSelect = this.closest('.row').querySelector('.tehsil-dropdown');
-            if (selectedDistrictId) {
-                // Fetch tehsil data based on the selected district
-                $.get(`http://tractor-api.divyaltech.com/api/customer/get_tehsil_by_district/${selectedDistrictId}`, function(data) {
-                    tehsilSelect.innerHTML = '<option value="">Please select a tehsil</option>';
-                    data.tehsilData.forEach(tehsil => {
-                        tehsilSelect.innerHTML += `<option value="${tehsil.id}">${tehsil.tehsil_name}</option>`;
-                    });
-                });
-            } else {
-                tehsilSelect.innerHTML = '<option value="">Please select a district first</option>';
-            }
-        });
-    });
-}
 
 function resetForm(formId) {
     // Reset the form by using its ID
@@ -670,41 +632,41 @@ function appendFilterCard(filterContainer, filter) {
                 a = [images];
             }
         }
-        var cardId = `card_${p.id}`; // Dynamic ID for the card
-        var modalId = `nursery_callbnt_${p.id}`; // Dynamic ID for the modal
-        var formId = `nursery_enquiry_form_${p.id}`; // Dynamic ID for the form
+        var cardId = `card_${p.id}`; 
+        var modalId = `nursery_callbnt_${p.id}`;
+        var modalId_2 = `staticBackdrop_${p.id}`; 
+        var formId = `nursery_enquiry_form_${p.id}`; 
+        var fullname = p.first_name + ' ' + p.last_name;
         var userId = localStorage.getItem('id');
-        getUserDetail(userId, formId);
         var newCard = `
-        <div class="col-12 col-lg-4 col-md-4 col-sm-4 mb-4" id="${cardId}">
-        <a href="nursery_inner.php?id=${p.id}"
-            class="h-auto success__stry__item text-decoration-none d-flex flex-column shadow ">
-            <div class="thumb">
-                <div>
-                    <div class="ratio ratio-16x9">
-                        <img src="http://tractor-api.divyaltech.com/uploads/nursery_img/${a[0]}" class="object-fit-cover " alt="img">
+            <div class="col-12 col-lg-4 col-md-4 col-sm-4 mb-4" id="${cardId}">
+                <a href="nursery_inner.php?id=${p.id}"
+                    class="h-auto success__stry__item text-decoration-none d-flex flex-column shadow ">
+                    <div class="thumb">
+                        <div>
+                            <div class="ratio ratio-16x9">
+                                <img src="http://tractor-api.divyaltech.com/uploads/nursery_img/${a[0]}" class="object-fit-cover " alt="img">
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
-            <div class="content d-flex flex-column flex-grow-1 ">
-                <div class="power text-center mt-3">
-                    <div class="col-12">
-                        <p class="text-success fw-bold">${p.nursery_name}</p>
+                    <div class="content d-flex flex-column flex-grow-1 ">
+                        <div class="power text-center mt-3">
+                            <div class="col-12">
+                                <p class="text-success fw-bold text-truncate">${p.nursery_name}</p>
+                            </div>
+                        </div>
+                        <div class="row text-center">
+                            <div class="col-12 text-center">
+                                <p class="fw-bold pe-3 text-truncate">${p.district_name}, ${p.state_name}</p>
+                            </div>
+                        </div>
                     </div>
+                </a>
+                <div class="col-12 btn-success">
+                    <button type="button" id="modelbutton" class="add_btn btn-success w-100" data-bs-toggle="modal" data-bs-target="#${modalId}" onclick="populateDropdowns('${modalId}'); getUserDetail(${userId}, '${formId}')">
+                        <i class="fa-regular fa-handshake"></i> Contact Nursery
+                    </button>
                 </div>
-                <div class="row text-center">
-                    <div class="col-12 text-center">
-                        <p class="fw-bold pe-3 text-truncate">${p.district_name}, ${p.state_name}</p>
-                    </div>
-                </div>
-            </div>
-        </a>
-        <div class="col-12 btn-success">
-            <button type="button" class="btn btn-success py-2 w-100" data-bs-toggle="modal"
-                data-bs-target="#${modalId}"><i class="fa-solid fa-phone"></i>
-                Contact Nursery
-            </button>
-        </div>
         
                 <!-- Modal -->
                 <div class="modal fade" id="${modalId}" data-bs-backdrop="static"
@@ -713,7 +675,7 @@ function appendFilterCard(filterContainer, filter) {
                     <div class="modal-dialog modal-lg modal-dialog-centered">
                         <div class="modal-content">
                             <div class="modal-header  modal_head">
-                                <h5 class="modal-title text-white ms-1" id="model_form">${p.model}></h5>
+                                <h5 class="modal-title text-white ms-1" id="staticBackdropLabel">Contact Nursery</h5>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <div class="modal-body my-3">
@@ -725,9 +687,13 @@ function appendFilterCard(filterContainer, filter) {
                                                 <input type="text" class="form-control" placeholder="Enter Your Name" id="enquiry_type_id" value="11" name="fname">
                                             </div>
                                             <div class="col-12 col-lg-6 col-md-6 col-sm-6 " hidden>
-                                                <label for="name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i> product_id</label>
-                                                <input type="text" class="form-control" id="product_id" value="${p.product_id}" hidden> 
+                                                <label for="name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i>product_id</label>
+                                                <input type="text" class="form-control" id="product_id" value="${p.id}"> 
                                             </div>
+                                            <div class="col-12 col-lg-6 col-md-6 col-sm-6 " hidden>
+                                            <label for="name" class="form-label fw-bold text-dark"> <i class="fa-regular fa-user"></i>Nursery name</label>
+                                            <input type="text" class="form-control" id="nursery_name" value="${p.nursery_name}"> 
+                                        </div>
                                             <div class="col-12 col-lg-6 col-md-6 col-sm-6">
                                                 <div class="form-outline">
                                                     <label for="f_name" class="form-label fw-bold"> <i class="fa-regular fa-user"></i> First Name</label>
@@ -737,7 +703,7 @@ function appendFilterCard(filterContainer, filter) {
                                             <div class="col-12 col-lg-6 col-md-6 col-sm-6">
                                                 <div class="form-outline">
                                                     <label for="last_name" class="form-label fw-bold"> <i class="fa-regular fa-user"></i> Last Name</label>
-                                                    <input type="text" class="form-control mb-0" placeholder="Enter Your Name" onkeydown="return /[a-zA-Z]/i.test(event.key)" id="last_Name_1" name="lastName">
+                                                    <input type="text" class="form-control mb-0" placeholder="Enter Your Name" onkeydown="return /[a-zA-Z]/i.test(event.key)"  id="last_Name_1" name="lastName">
                                                 </div>
                                             </div>
                                             <div class="col-12 col-sm-6 col-md-6 col-lg-6 mt-4">
@@ -749,32 +715,24 @@ function appendFilterCard(filterContainer, filter) {
                                             <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-4">
                                                 <div class="form-outline">
                                                     <label for="eo_state" class="form-label fw-bold"> <i class="fas fa-location"></i> State</label>
-                                                    <select class="form-select py-2 " aria-label=".form-select-lg example" id="state_1" name="state">
-                                                        <option value="" selected disabled=""> </option>  
-                                                        <option value="Chhattisgarh">Chhattisgarh</option>
-                                                        <option value="Other">Other</option>
+                                                    <select class="form-select py-2 state-dropdown" aria-label=".form-select-lg example" id="state_1" name="state">
+                                                       
                                                     </select>
                                                 </div>
                                             </div>
                                             <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-4">
                                                 <div class="form-outline">
                                                     <label for="eo_dist" class="form-label fw-bold"><i class="fa-solid fa-location-dot"></i> District</label>
-                                                    <select class="form-select py-2 " aria-label=".form-select-lg example" id="district_1" name="district">
-                                                        <option value="" selected disabled=""></option>
-                                                        <option value="Raipur">Raipur</option>
-                                                        <option value="Bilaspur">Bilaspur</option>
-                                                        <option value="Durg">Durg</option>
+                                                    <select class="form-select py-2 district-dropdown" aria-label=".form-select-lg example" id="district_1" name="district">
+                                                       
                                                     </select>
                                                 </div>                    
                                             </div>       
                                             <div class="col-12 col-sm-6 col-md-6 col-lg-6 mt-4">
                                                 <div class="form-outline">
                                                     <label for="eo_tehsil" class="form-label fw-bold "> Tehsil</label>
-                                                    <select class="form-select py-2 " aria-label=".form-select-lg example" id="Tehsil_1" name="Tehsil">
-                                                        <option value="" selected disabled=""></option>
-                                                        <option value="Raipur">Raipur</option>
-                                                        <option value="Bilaspur">Bilaspur</option>
-                                                        <option value="Durg">Durg</option>
+                                                    <select class="form-select py-2 tehsil-dropdown" aria-label=".form-select-lg example" id="Tehsil_1" name="Tehsil">
+                                                        
                                                     </select>
                                                 </div>
                                             </div>
@@ -790,12 +748,70 @@ function appendFilterCard(filterContainer, filter) {
                     </div>
                 </div>
             </div>
+
+            <div class="modal fade" id="get_OTP_btn" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header bg-success">
+                            <h1 class="modal-title fs-5 text-white" id="exampleModalLabel">Verify Your OTP</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><img src="assets/images/close.png" class=" w-100"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form id="otp_form">
+                                <div class=" col-12 input-group">
+                                    <div class="col-12" hidden>
+                                        <label for="Mobile" class=" text-dark float-start pl-2">Number</label>
+                                        <input type="text" class="form-control text-dark" placeholder="Enter OTP" id="Mobile"name="Mobile">
+                                    </div>
+                                    <div class="col-12">
+                                        <label for="Mobile" class=" text-dark float-start pl-2">Enter OTP</label>
+                                        <input type="text" class="form-control text-dark" placeholder="Enter OTP" id="otp"name="opt_1">
+                                    </div>
+                                    <div class="float-end col-12">
+                                        <a href="" class="float-end">Resend OTP</a>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-success" id="Verify" onclick="verifyotp('${formId}')">Verify</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="modal fade" id="${modalId_2}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="staticBackdropLabel">Contact Seller</h5>
+                            <button type="button" class="btn-close btn-success" data-bs-dismiss="modal" aria-label="Close"><img src="assets/images/close.png"class="w-25"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="model-cont">
+                                <h4 class="text-center text-danger">Seller Information</h3>
+                                <div class="row px-3 py-2">
+                                    <div class="col-12  col-sm-12 col-md-6 col-lg-6 ">
+                                        <label for="slr_name"class="form-label fw-bold text-dark"><i class="fa-regular fa-user"></i>Seller Name</label>
+                                        <input type="text" class="form-control" id="saller_name" value="${fullname}">
+                                    </div>
+                                    <div class="col-12 col-sm-12 col-md-6 col-lg-6  ">
+                                        <label for="number"class="form-label text-dark fw-bold"><i class="fa fa-phone"aria-hidden="true"></i>Phone Number</label>
+                                        <input type="text" class="form-control" id="mobile_num" value="${p.mobile}">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button"  id="got_it_btn "class="btn btn-secondary"data-bs-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         `;
         container.append(newCard);
-        populateDropdowns(p.id);
     }
 
-   
     function displayNextSet() {
         var productContainer = $("#productContainer");
     
@@ -861,5 +877,45 @@ function appendFilterCard(filterContainer, filter) {
         error: function(error) {
             console.error('Error fetching state data:', error);
         }
+    });
+}
+
+function populateDropdowns(identifier) {
+    var stateDropdowns = document.querySelectorAll(`#${identifier} .state-dropdown`);
+    var districtDropdowns = document.querySelectorAll(`#${identifier} .district-dropdown`);
+    var tehsilDropdowns = document.querySelectorAll(`#${identifier} .tehsil-dropdown`);
+
+    var defaultStateId = 7; 
+
+    var selectYourStateOption = '<option value="">Select Your State</option>';
+    var chhattisgarhOption = `<option value="${defaultStateId}">Chhattisgarh</option>`;
+
+    stateDropdowns.forEach(function (dropdown) {
+        dropdown.innerHTML = selectYourStateOption + chhattisgarhOption;
+
+        // Fetch district data based on the selected state
+        $.get(`http://tractor-api.divyaltech.com/api/customer/get_district_by_state/${defaultStateId}`, function(data) {
+            var districtSelect = dropdown.closest('.row').querySelector('.district-dropdown');
+            districtSelect.innerHTML = '<option value="">Please select a district</option>';
+            data.districtData.forEach(district => {
+                districtSelect.innerHTML += `<option value="${district.id}">${district.district_name}</option>`;
+            });
+        });
+    });
+    districtDropdowns.forEach(function (dropdown) {
+        dropdown.addEventListener('change', function() {
+            var selectedDistrictId = this.value;
+            var tehsilSelect = this.closest('.row').querySelector('.tehsil-dropdown');
+            if (selectedDistrictId) {
+                $.get(`http://tractor-api.divyaltech.com/api/customer/get_tehsil_by_district/${selectedDistrictId}`, function(data) {
+                    tehsilSelect.innerHTML = '<option value="">Please select a tehsil</option>';
+                    data.tehsilData.forEach(tehsil => {
+                        tehsilSelect.innerHTML += `<option value="${tehsil.id}">${tehsil.tehsil_name}</option>`;
+                    });
+                });
+            } else {
+                tehsilSelect.innerHTML = '<option value="">Please select a district first</option>';
+            }
+        });
     });
 }

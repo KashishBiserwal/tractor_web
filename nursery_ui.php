@@ -5,22 +5,19 @@
     <?php
    include 'includes/headertag.php';
    include 'includes/footertag.php';
+   include 'includes/spinner.php';
    ?>
    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
 <script> var CustomerAPIBaseURL = "<?php echo $CustomerAPIBaseURL; ?>";</script>
 <script> var baseUrl = "<?php echo $baseUrl; ?>";</script>
     <script src="<?php $baseUrl; ?>model/nursery_ui.js"></script>
-    <script src="<?php $baseUrl; ?>model/State_dist_tehsil.js"></script>
-
 </head>
 
 <body>
     <?php
     include 'includes/header.php';
    ?>
-   
-    
     <section class="mt-5 pt-5 bg-light">
         <div class="container-fullwidth py-3 mt-2">
             <div class="pt-3">

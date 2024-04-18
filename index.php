@@ -35,6 +35,7 @@
     text-overflow: ellipsis;
    
     }
+  
 </style>
 <script> var APIBaseURL = "<?php echo $APIBaseURL; ?>";</script>
   <script> var baseUrl = "<?php echo $baseUrl; ?>";</script>
@@ -56,14 +57,12 @@
   <button type="button" data-bs-target="#demo" data-bs-slide-to="7"></button>
   <button type="button" data-bs-target="#demo" data-bs-slide-to="8"></button>
   <button type="button" data-bs-target="#demo" data-bs-slide-to="9"></button>
-  <button type="button" data-bs-target="#demo" data-bs-slide-to="10"></button>
-  <button type="button" data-bs-target="#demo" data-bs-slide-to="11"></button>
-  <button type="button" data-bs-target="#demo" data-bs-slide-to="12"></button>
+
 </div>
 
 <!-- The slideshow/carousel -->
 <div class="carousel-inner">
-  <div class="carousel-item active">
+  <!-- <div class="carousel-item active">
     <img src="assets/images/slider1.jpg" alt="Los Angeles" class="d-block w-100">
   </div>
   <div class="carousel-item">
@@ -71,8 +70,8 @@
   </div>
   <div class="carousel-item">
     <img src="assets/images/slider3.jpg" alt="New York" class="d-block w-100">
-  </div>
-  <div class="carousel-item">
+  </div> -->
+  <div class="carousel-item active">
     <img src="assets/images/sidel-img1.jpg" alt="New York" class="d-block w-100">
   </div>
   <div class="carousel-item">
@@ -1069,5 +1068,12 @@
           }
         }
 })
+    </script>
+    <script>
+      function getImageSize(img) {
+    var naturalWidth = img.naturalWidth;
+    var naturalHeight = img.naturalHeight;
+    console.log("Natural width: " + naturalWidth + "px, Natural height: " + naturalHeight + "px");
+}
     </script>
 </html>

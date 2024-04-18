@@ -1,114 +1,26 @@
 
 $(document).ready(function() {
     console.log("ready!");
-    // getTractorList();
-});
-
-// function getTractorList() {
-//     var url = "http://tractor-api.divyaltech.com/api/customer/get_new_tractor";
-//     console.log(url);
-
-//     $.ajax({
-//         url: url,
-//         type: "GET",
-//         success: function(data) {
-//             document.getElementById('4wd_descrip').innerText=data.product.allProductData[0].description;
-          
-//             let new_arr=[];
-//             const new_data=data.product.accessory_and_tractor_type.filter((s)=>{ 
-//                 const arr=s.tractor_type_name.split(',');
-                
-//                 console.log('arr',arr);
-//                 if(arr.includes('4WD')){
-//                     new_arr.push(s.product_id);
-//                     // jisme upcoming tha uska product_id ko new arr me push
-//                     return s.product_id;
-//                 }
-//             });
-//             console.log('new_data',new_data);
-//             console.log('new_arr',new_arr);
-//             // if(new_data.product_id==)
-//             var productContainer = $("#productContainer4wd");
-//             if (data.product.allProductData && data.product.allProductData.length > 0) {
-//                 data.product.allProductData.forEach(function (p) {
-//                     if(new_arr.includes(p.product_id)){
-//                         // new aar me match aa rhi array 
-//                         var images = p.image_names;
-//                         var a = [];
-    
-//                         if (images) {
-//                             if (images.indexOf(',') > -1) {
-//                                 a = images.split(',');
-//                             } else {
-//                                 a = [images];
-//                             }
-//                         }
-                        
-//                         var newCard = `
-//                     <div class="col-12 col-lg-4 col-md-4 col-sm-4 mb-3">
-//                     <div class="h-auto success__stry__item d-flex flex-column shadow ">
-//                         <div class="thumb">
-//                             <a href="detail_tractor.php?product_id=${p.product_id}">
-//                                 <div class="ratio ratio-16x9">
-//                                     <img src="http://tractor-api.divyaltech.com/customer/uploads/product_img/${a[0]}"  class="object-fit-cover " alt="${p.description}">
-//                                 </div>
-//                             </a>
-//                         </div>
-//                         <div class="content d-flex flex-column flex-grow-1 ">
-//                             <div class="caption text-center">
-//                                 <a href="detail_tractor.php?product_id=${p.product_id}" class="text-decoration-none text-dark">
-//                                     <p class="pt-3"><strong class="series_tractor_strong text-center h4 fw-bold ">${p.model}</strong></p>
-//                                 </a>      
-//                             </div>
-//                             <div class="power text-center mt-2">
-//                                 <div class="row ">
-//                                     <div class="col-12 col-lg-6 col-md-6 col-sm-6"><p class="text-dark ps-2"><i class="fas fa-bolt"></i>  ${p.hp_category}HP</p></div>
-//                                     <div class="col-12 col-lg-6 col-md-6 col-sm-6" style="padding-right: 32px;">
-//                                          <p id="adduser" type="" class="text-dark">
-//                                           <i class="fa-solid fa-gear"></i>  ${p.engine_capacity_cc} CC </p>
-//                                     </div>
-//                                 </div>    
-//                             </div>
-//                             <div class="col-12">
-//                                 <button id="adduser" type="button" class="add_btn btn-success w-100">
-//                                 <i class="fa-regular fa-handshake"></i> Get on Road Price </button>
-//                             </div>
-//                         </div>
-//                     </div>
-//                 </div>
-//                     `;
-
-//                     // Append the new card to the container
-//                     productContainer.append(newCard);
-                
-//                     }
-//                     });
-
-           
-//             }
-//         },
-//         error: function (error) {
-//             console.error('Error fetching data:', error);
-//         }
-//     });
-// }
-
-
-
-$(document).ready(function() {
-    console.log("ready!");
     getTractorList();
+    showOverlay(); 
     $('#filter_tractor').click(filter_search);
 });
 
+function showOverlay() {
+    $("#overlay").fadeIn(400);
+}
 
+function hideOverlay() {
+    $("#overlay").fadeOut(400);
+}
 function model_click(){
     get();
   }
 
+
   function get() {
     // var apiBaseURL = CustomerAPIBaseURL;
-    var url = 'http://tractor-api.divyaltech.com/api/customer/get_brands';
+    var url = 'http://tractor-api.divyaltech.com/api/customer/get_brand_for_finance';
 
     $.ajax({
         url: url,
@@ -141,10 +53,9 @@ get();
 
 function getTractorList() {
     var url = "http://tractor-api.divyaltech.com/api/customer/get_new_tractor";
-
-    // Keep track of the total tractors and the currently displayed tractors
     var totalTractors = 0;
-    var displayedTractors = 6; // Initially display 6 tractors
+    var displayedTractors = 6;
+    var startIndex = 0;
 
     $.ajax({
         url: url,
@@ -159,29 +70,31 @@ function getTractorList() {
                 data.product.allProductData.sort(function(a, b) {
                     return b.product_id - a.product_id;
                 });
-                // Display the initial set of 6 tractors
-                displayTractors(data.product.allProductData.slice(0, displayedTractors));
+                displayTractors(data.product.allProductData.slice(startIndex, displayedTractors));
+                totalTractors = data.product.allProductData.length;
 
                 if (totalTractors <= displayedTractors) {
                     loadMoreButton.hide();
                 } else {
                     loadMoreButton.show();
                 }
-
-                // Handle "Load More Tractors" button click
                 loadMoreButton.click(function() {
-                    // Display all tractors
-                    displayedTractors = totalTractors;
-                    displayTractors(data.product.allProductData);
+                    startIndex += displayedTractors;
+                    var endIndex = startIndex + displayedTractors;
+                    displayTractors(data.product.allProductData.slice(startIndex, endIndex));
 
-                    // Hide the "Load More Tractors" button
-                    loadMoreButton.hide();
+                    if (endIndex >= totalTractors) {
+                        loadMoreButton.hide();
+                    }
                 });
             }
         },
         error: function(error) {
             console.error('Error fetching data:', error);
-        }
+        },
+        complete: function () {
+            hideOverlay();
+        },
     });
 }
 
@@ -200,7 +113,7 @@ function displayTractors(tractors) {
                 console.log('arr',arr);
                 if(arr.includes('4WD')){
                     new_arr.push(s.product_id);
-                    // jisme upcoming tha uska product_id ko new arr me push
+                    
                     return s.product_id;
                 }
             });
@@ -227,7 +140,6 @@ function displayTractors(tractors) {
                         var modalId_2 = `staticBackdrop_${p.product_id}`; 
                         var formId = `contact-seller-call_${p.product_id}`; 
                         var userId = localStorage.getItem('id');
-                        getUserDetail(userId, formId);
                         var newCard = `
                         <div class="col-12 col-lg-4 col-md-4 col-sm-4 mb-3"id="${cardId}">
                                              <div class="h-auto success__stry__item d-flex flex-column shadow">
@@ -254,10 +166,9 @@ function displayTractors(tractors) {
                                                          </div>    
                                                      </div>
                                                      <div class="col-12">
-                                                         <button type="button" class="add_btn btn-success w-100"  data-bs-toggle="modal"  data-bs-target="#${modalId}">
-                        
-                                                         <i class="fa-regular fa-handshake"></i> Get on Road Price
-                                                         </button>
+                                                        <button type="button" id="modelbutton" class="add_btn btn-success w-100" data-bs-toggle="modal" data-bs-target="#${modalId}" onclick="populateDropdowns('${modalId}'); getUserDetail(${userId}, '${formId}')">
+                                                            <i class="fa-regular fa-handshake"></i> Get on Road Price
+                                                        </button>
                                                      </div>
                         
                                                      <div class="modal fade" id="${modalId}" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -396,7 +307,7 @@ function displayTractors(tractors) {
         });
                     // Append the new card to the container
                     productContainer.append(newCard);
-                    populateDropdowns(formId);
+               
                     }
                     });
 
@@ -671,174 +582,172 @@ function appendFilterCard(filterContainer, filter) {
             }
         }
         var cardId = `card_${p.product_id}`; // Dynamic ID for the card
-        var modalId = `used_tractor_callbnt_${p.product_id}`; 
-        var modalId_2 = `staticBackdrop_${p.product_id}`; 
-        var formId = `contact-seller-call_${p.product_id}`; // Dynamic ID for the form
-        var userId = localStorage.getItem('id');
-        getUserDetail(userId, formId);
-        var newCard = `
-        <div class="col-12 col-lg-4 col-md-4 col-sm-4 mb-3"id="${cardId}">
-        <div class="h-auto success__stry__item d-flex flex-column shadow">
-            <div class="thumb">
-                <a href="detail_tractor.php?product_id=${p.product_id}">
-                    <div class="ratio ratio-16x9">
-                    <img src="http://tractor-api.divyaltech.com/uploads/product_img/${a[0]}" class="object-fit-cover" alt="${p.description}">
-                    </div>
-                </a>
-            </div>
-            <div class="content d-flex flex-column flex-grow-1">
-                <div class="caption text-center">
-                    <a href="detail_tractor.php?product_id=${p.product_id}" class="text-decoration-none text-dark">
-                        <p class="pt-3"><strong class="series_tractor_strong text-center h6 fw-bold ">${p.model}</strong></p>
-                    </a>      
-                </div>
-                <div class="power text-center mt-2">
-                    <div class="row">
-                        <div class="col-12 col-lg-6 col-md-6 col-sm-6"><p class="text-dark ps-2"><i class="fas fa-bolt"></i>  ${p.hp_category}HP</p></div>
-                        <div class="col-12 col-lg-6 col-md-6 col-sm-6" style="padding-right: 32px;">
-                             <p id="adduser" type="" class="text-dark">
-                              <i class="fa-solid fa-gear"></i>  ${p.engine_capacity_cc} CC </p>
-                        </div>
-                    </div>    
-                </div>
-                <div class="col-12">
-                    <button type="button" class="add_btn btn-success w-100"  data-bs-toggle="modal"  data-bs-target="#${modalId}">
+                        var modalId = `used_tractor_callbnt_${p.product_id}`; 
+                        var modalId_2 = `staticBackdrop_${p.product_id}`; 
+                        var formId = `contact-seller-call_${p.product_id}`; 
+                        var userId = localStorage.getItem('id');
+                        var newCard = `
+                        <div class="col-12 col-lg-4 col-md-4 col-sm-4 mb-3"id="${cardId}">
+                                             <div class="h-auto success__stry__item d-flex flex-column shadow">
+                                                 <div class="thumb">
+                                                     <a href="detail_tractor.php?product_id=${p.product_id}">
+                                                         <div class="ratio ratio-16x9">
+                                                         <img src="http://tractor-api.divyaltech.com/uploads/product_img/${a[0]}" class="object-fit-cover" alt="${p.description}">
+                                                         </div>
+                                                     </a>
+                                                 </div>
+                                                 <div class="content d-flex flex-column flex-grow-1">
+                                                     <div class="caption text-center">
+                                                         <a href="detail_tractor.php?product_id=${p.product_id}" class="text-decoration-none text-dark">
+                                                             <p class="pt-3"><strong class="series_tractor_strong text-center h6 fw-bold ">${p.model}</strong></p>
+                                                         </a>      
+                                                     </div>
+                                                     <div class="power text-center mt-2">
+                                                         <div class="row">
+                                                             <div class="col-12 col-lg-6 col-md-6 col-sm-6"><p class="text-dark ps-2"><i class="fas fa-bolt"></i>  ${p.hp_category}HP</p></div>
+                                                             <div class="col-12 col-lg-6 col-md-6 col-sm-6" style="padding-right: 32px;">
+                                                                  <p id="adduser" type="" class="text-dark">
+                                                                   <i class="fa-solid fa-gear"></i>  ${p.engine_capacity_cc} CC </p>
+                                                             </div>
+                                                         </div>    
+                                                     </div>
+                                                     <div class="col-12">
+                                                        <button type="button" id="modelbutton" class="add_btn btn-success w-100" data-bs-toggle="modal" data-bs-target="#${modalId}" onclick="populateDropdowns('${modalId}'); getUserDetail(${userId}, '${formId}')">
+                                                            <i class="fa-regular fa-handshake"></i> Get on Road Price
+                                                        </button>
+                                                     </div>
+                        
+                                                     <div class="modal fade" id="${modalId}" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                                         <div class="modal-dialog modal-lg modal-dialog-centered">
+                                                             <div class="modal-content">
+                                                                 <div class="modal-header  modal_head">
+                                                                 <h5 class="modal-title text-white ms-1" id="staticBackdropLabel">${p.model}</h5>
+                                                                 <button type="button" class="btn-close btn-success" data-bs-dismiss="modal" aria-label="Close"><img src="assets/images/close.png" class="w-25"></button>
+                                                                 </div>
+                                                                 <!-- MODAL BODY -->
+                                                                 <div class="modal-body">
+                                                                     <form  id="${formId}" method="POST" onsubmit="return false">
+                                                                         <div class="row">
+                                                                            
+                                                                             <div class="col-12 col-lg-6 col-md-6 col-sm-6 " hidden>
+                                                                             <label for="name" class="form-label fw-bold text-dark"><i class="fa-duotone fa-chart-pie-simple"></i> product_id</label>
+                                                                             <input type="text" class="form-control" placeholder="Enter Your Name" id="product_id" value="${p.product_id}" name="">
+                                                                         </div>
+                                                                             <div class="col-12 col-lg-6 col-md-6 col-sm-6 " hidden>
+                                                                             <label for="name" class="form-label fw-bold text-dark"><i class="fa-duotone fa-chart-pie-simple"></i> Model Name</label>
+                                                                             <input type="text" class="form-control" placeholder="Enter Your Name" id="enquiry_type_id" value="2" name="iduser">
+                                                                         </div>
+                                                                           
+                                                                             <div class="col-12 col-sm-6 col-md-6 col-lg-6">
+                                                                                 <label for="" class="form-label text-dark fw-bold"> <i class="fa-regular fa-user"></i> First Name</label>
+                                                                                 <input type="text" class="form-control" placeholder="Enter Number" id="firstName" name="firstName">
+                                                                             </div>
+                                                                             <div class="col-12 col-sm-6 col-md-6 col-lg-6">
+                                                                                 <label for="" class="form-label text-dark fw-bold"><i class="fa-regular fa-user"></i> Last Name</label>
+                                                                                 <input type="text" class="form-control" placeholder="Enter Number" id="lastName" name="lastName">
+                                                                             </div>
+                                                                             <div class="col-12 col-sm-6 col-md-6 col-lg-6">
+                                                                                 <label for="number" class="form-label text-dark fw-bold"><i class="fa fa-phone" aria-hidden="true"></i> Mobile Number</label>
+                                                                                 <input type="text" class="form-control" placeholder="Enter Number" id="mobile_number" name="mobile_number">
+                                                                                 <P class="text-danger">*Please make sure mobile no. must valid</p>
+                                                                             </div>
+                                                                             <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+                                                                             <label for="yr_state" class="form-label text-dark fw-bold"> <i class="fa-solid fa-location-dot"></i>  Select State</label>
+                                                                             <select class="form-select py-2 state-dropdown" aria-label=".form-select-lg example" id="state" name="state" value="">
+                                                                                 
+                                                                             </select>
+                                                                            </div>
+                                                                            <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+                                                                                <label for="yr_dist" class="form-label text-dark"><i class="fa-solid fa-location-dot"></i> District</label>
+                                                                                <select class="form-select py-2 district-dropdown" aria-label=".form-select-lg example" id="district" name="district" value="">
+                                                                                
+                                                                                </select>
+                                                                            </div>
+                                                                            <div class="col-12 col-sm-6 col-md-6 col-lg-6">
+                                                                                <label for="yr_price" class="form-label text-dark">Tehsil</label>
+                                                                                <select class="form-select py-2 tehsil-dropdown" aria-label=".form-select-lg example" id="Tehsil" name="Tehsil" value="">
+                                                                                
+                                                                                </select>
+                                                                            </div>                         
+                                                                         </div> 
+                                                                    
+                                                        
+                                                                         <div class="modal-footer">
+                                                                         <button type="submit" id="submit_enquiry" class="btn add_btn btn-success w-100 btn_all" onclick="savedata('${formId}')" data-bs-dismiss="modal">Submit</button>
+                                                                         <!-- <a class="btn  text-primary" data-dismiss="modal">Ok</a> -->
+                                                                         </div>      
+                                                                     </form>                             
+                                                                 </div>
+                                                             </div>
+                                                         </div>
+                                                     </div>
+                                                 </div>
+                                             </div>
+                                         </div>
 
-                    <i class="fa-regular fa-handshake"></i> Get on Road Price
-                    </button>
-                </div>
-
-                <div class="modal fade" id="${modalId}" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-lg modal-dialog-centered">
-                        <div class="modal-content">
-                            <div class="modal-header  modal_head">
-                            <h5 class="modal-title text-white ms-1" id="staticBackdropLabel">${p.model}</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                            </div>
-                            <!-- MODAL BODY -->
-                            <div class="modal-body">
-                                <form  id="${formId}" method="POST" onsubmit="return false">
-                                    <div class="row">
-                                        
-                                        <div class="col-12 col-lg-6 col-md-6 col-sm-6 " hidden>
-                                        <label for="name" class="form-label fw-bold text-dark"><i class="fa-duotone fa-chart-pie-simple"></i> product_id</label>
-                                        <input type="text" class="form-control" placeholder="Enter Your Name" id="product_id" value="${p.product_id}" name="">
-                                    </div>
-                                        <div class="col-12 col-lg-6 col-md-6 col-sm-6 " hidden>
-                                        <label for="name" class="form-label fw-bold text-dark"><i class="fa-duotone fa-chart-pie-simple"></i> Model Name</label>
-                                        <input type="text" class="form-control" placeholder="Enter Your Name" id="enquiry_type_id" value="2" name="iduser">
-                                    </div>
-                                       
-                                        <div class="col-12 col-sm-6 col-md-6 col-lg-6">
-                                            <label for="" class="form-label text-dark fw-bold"> <i class="fa-regular fa-user"></i> First Name</label>
-                                            <input type="text" class="form-control" placeholder="Enter Number" id="firstName" name="firstName">
-                                        </div>
-                                        <div class="col-12 col-sm-6 col-md-6 col-lg-6">
-                                            <label for="" class="form-label text-dark fw-bold"><i class="fa-regular fa-user"></i> Last Name</label>
-                                            <input type="text" class="form-control" placeholder="Enter Number" id="lastName" name="lastName">
-                                        </div>
-                                        <div class="col-12 col-sm-6 col-md-6 col-lg-6">
-                                            <label for="number" class="form-label text-dark fw-bold"><i class="fa fa-phone" aria-hidden="true"></i> Mobile Number</label>
-                                            <input type="text" class="form-control" placeholder="Enter Number" id="mobile_number" name="mobile_number">
-                                            <P class="text-danger">*Please make sure mobile no. must valid</p>
-                                        </div>
-                                        <div class="col-12 col-sm-12 col-md-6 col-lg-6">
-                                                        <label for="yr_state" class="form-label text-dark fw-bold"> <i class="fa-solid fa-location-dot"></i>  Select State</label>
-                                                        <select class="form-select py-2 state-dropdown" aria-label=".form-select-lg example" id="state" name="state" value="">
-                                                            
-                                                        </select>
-                                                    </div>
-                                                <div class="col-12 col-sm-12 col-md-6 col-lg-6">
-                                                    <label for="yr_dist" class="form-label text-dark"><i class="fa-solid fa-location-dot"></i> District</label>
-                                                    <select class="form-select py-2 district-dropdown" aria-label=".form-select-lg example" id="district" name="district" value="">
-                                                     
-                                                    </select>
-                                                </div>
-                                                <div class="col-12 col-sm-6 col-md-6 col-lg-6">
-                                                    <label for="yr_price" class="form-label text-dark">Tehsil</label>
-                                                    <select class="form-select py-2 tehsil-dropdown" aria-label=".form-select-lg example" id="Tehsil" name="Tehsil" value="">
-                                                     
-                                                    </select>
-                                                </div>                         
-                                    </div> 
-                                
-                    
-                                    <div class="modal-footer">
-                                    <button type="submit" id="submit_enquiry" class="btn add_btn btn-success w-100 btn_all" onclick="savedata('${formId}')" data-bs-dismiss="modal">Submit</button>
-                                    <!-- <a class="btn  text-primary" data-dismiss="modal">Ok</a> -->
-                                    </div>      
-                                </form>                             
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="modal fade" id="get_OTP_btn" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header bg-success">
-                <h1 class="modal-title fs-5 text-white" id="exampleModalLabel">Verify Your OTP</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><img src="assets/images/close.png" class=" w-100"></button>
-            </div>
-            <div class="modal-body">
-                <form id="otp_form">
-                    <div class=" col-12 input-group">
-                        <div class="col-12" hidden>
-                            <label for="Mobile" class=" text-dark float-start pl-2">Number</label>
-                            <input type="text" class="form-control text-dark" placeholder="Enter OTP" id="Mobile"name="Mobile">
-                        </div>
-                        <div class="col-12">
-                            <label for="Mobile" class=" text-dark float-start pl-2">Enter OTP</label>
-                            <input type="text" class="form-control text-dark" placeholder="Enter OTP" id="otp"name="opt_1">
-                        </div>
-                        <div class="float-end col-12">
-                            <a href="" class="float-end">Resend OTP</a>
-                        </div>
-                    </div>
-                </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-success" id="Verify" onclick="verifyotp('${formId}')">Verify</button>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="modal fade" id="${modalId_2}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="staticBackdropLabel">Contact Seller</h5>
-                <button type="button" class="btn-close btn-success" data-bs-dismiss="modal" aria-label="Close"><img src="assets/images/close.png"class="w-25"></button>
-            </div>
-            <div class="modal-body">
-                <div class="model-cont">
-                    <h4 class="text-center text-danger">Seller Information</h3>
-                    <div class="row px-3 py-2">
-                        <div class="col-12  col-sm-12 col-md-6 col-lg-6 ">
-                            <label for="slr_name"class="form-label fw-bold text-dark"><i class="fa-regular fa-user"></i>Seller Name</label>
-                            <input type="text" class="form-control" id="saller_name" value="${p.tractor_type_name}">
-                        </div>
-                        <div class="col-12 col-sm-12 col-md-6 col-lg-6  ">
-                            <label for="number"class="form-label text-dark fw-bold"><i class="fa fa-phone"aria-hidden="true"></i>Phone Number</label>
-                            <input type="text" class="form-control" id="mobile_num" value="${p.mobile}">
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button"  id="got_it_btn "class="btn btn-secondary"data-bs-dismiss="modal">Close</button>
-            </div>
-        </div>
-    </div>
-</div>
+                                         <div class="modal fade" id="get_OTP_btn" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                         <div class="modal-dialog">
+                                             <div class="modal-content">
+                                                 <div class="modal-header bg-success">
+                                                     <h1 class="modal-title fs-5 text-white" id="exampleModalLabel">Verify Your OTP</h1>
+                                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><img src="assets/images/close.png" class=" w-100"></button>
+                                                 </div>
+                                                 <div class="modal-body">
+                                                     <form id="otp_form">
+                                                         <div class=" col-12 input-group">
+                                                             <div class="col-12" hidden>
+                                                                 <label for="Mobile" class=" text-dark float-start pl-2">Number</label>
+                                                                 <input type="text" class="form-control text-dark" placeholder="Enter OTP" id="Mobile"name="Mobile">
+                                                             </div>
+                                                             <div class="col-12">
+                                                                 <label for="Mobile" class=" text-dark float-start pl-2">Enter OTP</label>
+                                                                 <input type="text" class="form-control text-dark" placeholder="Enter OTP" id="otp"name="opt_1">
+                                                             </div>
+                                                             <div class="float-end col-12">
+                                                                 <a href="" class="float-end">Resend OTP</a>
+                                                             </div>
+                                                         </div>
+                                                     </form>
+                                                 </div>
+                                                 <div class="modal-footer">
+                                                     <button type="button" class="btn btn-success" id="Verify" onclick="verifyotp('${formId}')">Verify</button>
+                                                 </div>
+                                             </div>
+                                         </div>
+                                     </div>
+                                 
+                                     <div class="modal fade" id="${modalId_2}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                         <div class="modal-dialog modal-lg modal-dialog-centered">
+                                             <div class="modal-content">
+                                                 <div class="modal-header">
+                                                     <h5 class="modal-title" id="staticBackdropLabel">Contact Seller</h5>
+                                                     <button type="button" class="btn-close btn-success" data-bs-dismiss="modal" aria-label="Close"><img src="assets/images/close.png"class="w-25"></button>
+                                                 </div>
+                                                 <div class="modal-body">
+                                                     <div class="model-cont">
+                                                         <h4 class="text-center text-danger">Seller Information</h3>
+                                                         <div class="row px-3 py-2">
+                                                             <div class="col-12  col-sm-12 col-md-6 col-lg-6 ">
+                                                                 <label for="slr_name"class="form-label fw-bold text-dark"><i class="fa-regular fa-user"></i>Seller Name</label>
+                                                                 <input type="text" class="form-control" id="saller_name" value="${p.tractor_type_name}">
+                                                             </div>
+                                                             <div class="col-12 col-sm-12 col-md-6 col-lg-6  ">
+                                                                 <label for="number"class="form-label text-dark fw-bold"><i class="fa fa-phone"aria-hidden="true"></i>Phone Number</label>
+                                                                 <input type="text" class="form-control" id="mobile_num" value="${p.mobile}">
+                                                             </div>
+                                                         </div>
+                                                     </div>
+                                                 </div>
+                                                 <div class="modal-footer">
+                                                     <button type="button"  id="got_it_btn "class="btn btn-secondary"data-bs-dismiss="modal">Close</button>
+                                                 </div>
+                                             </div>
+                                         </div>
+                                     </div>
 
         `;
         container.append(newCard);
-        populateDropdowns(formId);
+    
     }
 
     function displayNextSet() {
@@ -882,7 +791,7 @@ function appendFilterCard(filterContainer, filter) {
     var districtDropdowns = document.querySelectorAll(`#${identifier} .district-dropdown`);
     var tehsilDropdowns = document.querySelectorAll(`#${identifier} .tehsil-dropdown`);
 
-    var defaultStateId = 7; // Define the default state ID here
+    var defaultStateId = 7; 
 
     var selectYourStateOption = '<option value="">Select Your State</option>';
     var chhattisgarhOption = `<option value="${defaultStateId}">Chhattisgarh</option>`;
@@ -899,14 +808,11 @@ function appendFilterCard(filterContainer, filter) {
             });
         });
     });
-
-    // Event listener for district dropdown
     districtDropdowns.forEach(function (dropdown) {
         dropdown.addEventListener('change', function() {
             var selectedDistrictId = this.value;
             var tehsilSelect = this.closest('.row').querySelector('.tehsil-dropdown');
             if (selectedDistrictId) {
-                // Fetch tehsil data based on the selected district
                 $.get(`http://tractor-api.divyaltech.com/api/customer/get_tehsil_by_district/${selectedDistrictId}`, function(data) {
                     tehsilSelect.innerHTML = '<option value="">Please select a tehsil</option>';
                     data.tehsilData.forEach(tehsil => {

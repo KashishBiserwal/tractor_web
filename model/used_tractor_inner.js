@@ -264,7 +264,7 @@ function getUserDetail(id) {
                 // Disable fields if user is logged in
                 if (isUserLoggedIn()) {
                     // Disable all input and select elements within the form
-                    $('#used_farm_inner_from input, #used_farm_inner_from select').not('#price,#district_form,#tehsil').prop('disabled', true);
+                    $('#used_farm_inner_from input, #used_farm_inner_from select').not('#price,#district_form,#tehsil,#contact_seller').prop('disabled', true);
                 }
                 
             }

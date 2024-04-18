@@ -2,7 +2,7 @@ $(document).ready(function() {
     if (document.getElementById('login')) {
         document.getElementById('login').addEventListener('click', function(event) {
             event.preventDefault();
-            showOverlay(); // Show loading spinner
+            showOverlay(); 
             login();
         });
     }

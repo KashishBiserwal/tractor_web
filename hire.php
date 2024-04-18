@@ -5,12 +5,11 @@
 <?php
 include 'includes/headertag.php';
    include 'includes/footertag.php';
-   
+   include 'includes/spinner.php';
    ?> 
 <script> var APIBaseURL = "<?php echo $APIBaseURL; ?>";</script>
 <script> var baseUrl = "<?php echo $baseUrl; ?>";</script>
 <script src="<?php $baseUrl; ?>model/hire_customer.js"></script>
-<script src="<?php $baseUrl; ?>model/State_dist_tehsil.js"></script>
     <style>
     .form-outline .form-label {
         color: #454444;

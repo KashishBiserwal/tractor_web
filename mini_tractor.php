@@ -5,6 +5,7 @@
 <?php
     include 'includes/headertag.php';
     include 'includes/footertag.php';
+    include 'includes/spinner.php';
     ?>
    <script> var APIBaseURL = "<?php echo $APIBaseURL; ?>";</script>
    <script> var baseUrl = "<?php echo $baseUrl;?>";</script>

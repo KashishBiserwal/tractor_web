@@ -16,15 +16,19 @@ function updateUI() {
         loginButton.style.display = "block";
         myAccountDropdown.style.display = "none";
         
-        // Check if token expired or 401 error
-        if (localStorage.getItem('token_customer_expired') || localStorage.getItem('token_customer_error') === '401') {
-            // Logout user
+        // Check if the token has expired or there's an error with the token
+        // if (localStorage.getItem('token_customer_expired') || localStorage.getItem('token_customer_error') === '401') {
+            
+        if (localStorage.getItem('token_customer_expired') === 'true' || localStorage.getItem('token_customer_error') === '401'){
+            // Perform logout action
             user_logout();
-            // Redirect to index page
+          
+            // Redirect to the index page
             window.location.href = "index.php";
         }
     }
 } 
+
 
 function user_logout() {
     var url = "http://tractor-api.divyaltech.com/api/customer/customer_logout";

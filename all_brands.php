@@ -32,8 +32,6 @@ include 'includes/headertag.php';
     </div>
 </section>
 
-
-
 <section class="about bg-white mt-2 ">
   <div class="container-fullwidth">
     <div class="lecture_heading ">
