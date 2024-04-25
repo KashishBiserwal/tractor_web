@@ -60,11 +60,9 @@
               </li>
             </ol>
           </nav>
-          <button type="button" id="add_trac" class="btn add_btn btn-success float-right p-1" data-bs-toggle="modal"  data-bs-target="#staticBackdrop" onclick="resetFormFields(true);">
-    <i class="fa fa-plus" aria-hidden="true"></i> Add Rent Tractor
-</button>
-
-
+          <button type="button" id="add_trac" class="btn add_btn btn-success float-right p-1" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="resetFormFields(); enableFormFields()">
+            <i class="fa fa-plus" aria-hidden="true"></i> Add Rent Tractor
+          </button>
           <!-- Modal -->
           <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
             <div class="modal-dialog modal-xl modal-dialog-centered">
@@ -237,7 +235,7 @@
                                     </div>
                                 </div>
                             </div>
-                      </form>
+                    </form>
                   </div>
                 </div>
                 <div class="modal-footer">
@@ -299,7 +297,7 @@
       <!-- Table Card -->
       <div class=" mb-5 shadow bg-white mt-3 p-3">
         <div class="table-responsive">
-        <table id="example" class="table table-striped  table-hover table-bordered dataTable no-footer" width="100%; margin-bottom: 15px;">
+          <table id="example" class="table table-striped  table-hover table-bordered dataTable no-footer" width="100%; margin-bottom: 15px;">
             <thead>
               <tr>
                 <th class="d-none d-md-table-cell text-white">S.No.</th>
@@ -315,9 +313,9 @@
             </thead>
             <tbody id="data-table-rent">
             </tbody>
-          </table>
-         </div>
+            </table>
         </div>
+      </div>
     </div>
 </section>
       

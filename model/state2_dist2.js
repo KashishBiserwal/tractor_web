@@ -61,5 +61,4 @@ function populateDistrictDropdown(state_id, districtClassName) {
     });
 }
 
-// Call the function to populate state dropdown
 populateStateDropdown('state_select', 'district_select');

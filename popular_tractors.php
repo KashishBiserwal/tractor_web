@@ -146,19 +146,19 @@ include 'includes/headertag.php';
                         </h2>
                         <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
                         <div class="accordion-body">
-                           <p class="text-dark">Ans. Visit Tractor Junction, and here you can easily get a separate segment where you can filter Popular tractors according to your choice.</p>
+                           <p class="text-dark">Ans. Visit Bharat Agrimart, and here you can easily get a separate segment where you can filter Popular tractors according to your choice.</p>
                         </div>
                         </div>
                     </div>
                     <div class="accordion-item  rounded-3 my-3">
                         <h2 class="accordion-header p-2" id="flush-heading4">
                         <button class="accordion-button collapsed  fw-bold h4" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse4" aria-expanded="false" aria-controls="flush-collapse4">
-                          Que. How many popular tractors are listed at Tractor Junction?
+                          Que. How many popular tractors are listed at Bharat Agrimart?
                         </button>
                         </h2>
                         <div id="flush-collapse4" class="accordion-collapse collapse" aria-labelledby="flush-heading4" data-bs-parent="#accordionFlushExample">
                         <div class="accordion-body">
-                            <p class="text-dark">Ans. 40+ popular tractor models are available at Tractor Junction.</p>
+                            <p class="text-dark">Ans. 40+ popular tractor models are available at Bharat Agrimart.</p>
                         </div>
                         </div>
                     </div>

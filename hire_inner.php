@@ -184,7 +184,7 @@
                                 <div class="col-12 ">
                                     <label for="number" class="form-label text-dark fw-bold"> <i class="fa fa-phone" aria-hidden="true"></i> Phone Number</label>
                                     <input type="text" class="form-control" placeholder="Enter Number" id="mobile_number" name="number">
-                                    <p class="text-danger">*please provide valid Phone Number.</p>
+                                   
                                 </div>
                                 <div class="col-12 col-sm-12 col-md-6 col-lg-6">
                                     <label for="yr_state" class="form-label text-dark fw-bold" id="the_state" name="state"> <i class="fas fa-location"></i> State</label>

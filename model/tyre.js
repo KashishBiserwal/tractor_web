@@ -89,10 +89,10 @@ function displayTractors(tractors) {
                        
                     </a>
                 </div>
-                <div class="content d-flex flex-column flex-grow-1 ">
+                <div class="content d-flex flex-column flex-grow-1 contant-justify-center">
                     <div class="caption text-center">
                         <a href="tyre_inner.php?product_id=${p.id}" class="text-decoration-none text-dark">
-                            <p class="pt-3"><strong class="series_tractor_strong text-center h6 fw-bold  text-truncate "> ${p.brand_name} ${p.tyre_model}</strong></p>
+                            <p class="pt-3"><strong class="series_tractor_strong contant-justify-center h6 fw-bold  text-truncate "> ${p.brand_name} ${p.tyre_model}</strong></p>
                         </a>
                     </div>
                     <div class="power">
@@ -151,7 +151,7 @@ function displayTractors(tractors) {
                                                         <div class="col-12 col-lg-6 col-md-6 col-sm-6">
                                                             <label for="number" class="form-label text-dark fw-bold"> <i class="fa fa-phone" aria-hidden="true"></i> Phone Number</label>
                                                             <input type="text" class="form-control" placeholder="Enter Number" id="number" name="number">
-                                                            <p class="text-danger">*please provide valid Phone Number.</p>
+                                                        
                                                         </div>
                                                         <div class="col-12 col-sm-12 col-md-6 col-lg-6">
                                                             <label for="yr_state" class="form-label text-dark fw-bold" id="state" name="state"> <i class="fas fa-location"></i> State</label>
@@ -555,8 +555,8 @@ function appendFilterCard(filterContainer, p) {
                    
                 </a>
             </div>
-            <div class="content d-flex flex-column flex-grow-1 ">
-                <div class="caption text-center">
+            <div class="content d-flex flex-column flex-grow-1 contant-justify-center">
+                <div class="caption contant-justify-center">
                     <a href="tyre_inner.php?product_id=${p.id}" class="text-decoration-none text-dark">
                         <p class="pt-3"><strong class="series_tractor_strong text-center h6 fw-bold  text-truncate "> ${p.brand_name} ${p.tyre_model}</strong></p>
                     </a>
@@ -617,7 +617,7 @@ function appendFilterCard(filterContainer, p) {
                                                     <div class="col-12 col-lg-6 col-md-6 col-sm-6">
                                                         <label for="number" class="form-label text-dark fw-bold"> <i class="fa fa-phone" aria-hidden="true"></i> Phone Number</label>
                                                         <input type="text" class="form-control" placeholder="Enter Number" id="number" name="number">
-                                                        <p class="text-danger">*please provide valid Phone Number.</p>
+                                                        
                                                     </div>
                                                     <div class="col-12 col-sm-12 col-md-6 col-lg-6">
                                                         <label for="yr_state" class="form-label text-dark fw-bold" id="state" name="state"> <i class="fas fa-location"></i> State</label>

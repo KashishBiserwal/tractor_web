@@ -212,18 +212,18 @@
                     <label for="loanPeriod" class="form-label fw-bold text-dark h5 ">Loan Period (Months)</label>
                     <select class="form-select w-25" id="loanPeriod">
                         <option value="12">12</option>
-                        <option value="24">18</option>
-                        <option value="36">24</option>
-                        <option value="48">30</option>
-                        <option value="12">36</option>
-                        <option value="24">42</option>
-                        <option value="36">48</option>
-                        <option value="48">54</option>
+                        <option value="18">18</option>
+                        <option value="24">24</option>
+                        <option value="30">30</option>
+                        <option value="36">36</option>
+                        <option value="42">42</option>
+                        <option value="48">48</option>
+                        <option value="54">54</option>
                         <option value="60" selected>60</option>
-                        <option value="12">66</option>
-                        <option value="24">72</option>
-                        <option value="36">78</option>
-                        <option value="48">84</option>
+                        <option value="66">66</option>
+                        <option value="72">72</option>
+                        <option value="78">78</option>
+                        <option value="84">84</option>
 
                     </select>
                 </div>
@@ -307,89 +307,7 @@
 
     });
     </script>
-
-
-    <!-- <script>
-    // Update downpayment value on range input change
-    document.getElementById('downPayment').addEventListener('input', function() {
-        var downPaymentValue = document.getElementById('downPayment').value;
-        document.getElementById('downPaymentValue').value = downPaymentValue;
-        updateEMI();
-    });
-
-    // Update interest rate value on range input change
-    document.getElementById('interestRate').addEventListener('input', function() {
-        var interestRateValue = document.getElementById('interestRate').value;
-        document.getElementById('interestRateValue').value = interestRateValue;
-        updateEMI();
-    });
-
-    // Update EMI when loan period or repayment interval changes
-    document.getElementById('loanPeriod').addEventListener('change', updateEMI);
-    document.getElementById('repaymentInterval').addEventListener('change', updateEMI);
-
-    // Update EMI calculation based on user input
-    function updateEMI() {
-        var exShowroomPrice = 640000; // Example value, you can modify this
-        var downPayment = parseFloat(document.getElementById('downPayment').value);
-        var loanAmount = exShowroomPrice - downPayment;
-        var interestRate = parseFloat(document.getElementById('interestRate').value);
-        var loanPeriod = parseInt(document.getElementById('loanPeriod').value);
-        var repaymentInterval = document.getElementById('repaymentInterval').value;
-
-        // Calculate EMI
-        var monthlyInterestRate = (interestRate / 100) / 12;
-        var numberOfPayments = loanPeriod;
-        var emi;
-
-        if (monthlyInterestRate > 0) {
-            emi = (loanAmount * monthlyInterestRate * Math.pow(1 + monthlyInterestRate, numberOfPayments)) /
-                (Math.pow(1 + monthlyInterestRate, numberOfPayments) - 1);
-        } else {
-            emi = loanAmount / numberOfPayments;
-        }
-
-        // Adjust EMI for different repayment intervals
-        if (repaymentInterval === 'quarterly') {
-            emi *= 3;
-            numberOfPayments /= 3;
-        } else if (repaymentInterval === 'halfYearly') {
-            emi *= 6;
-            numberOfPayments /= 6;
-        }
-
-        // Display calculated results
-        document.getElementById('emiAmount').value = `₹${emi.toFixed(2)} ${repaymentInterval}`;
-        document.getElementById('totalLoanAmount').value = `₹${loanAmount.toFixed(2)}`;
-        document.getElementById('payableAmount').value = `₹${(emi * numberOfPayments).toFixed(2)}`;
-        document.getElementById('extraPayment').value = `₹${((emi * numberOfPayments) - loanAmount).toFixed(2)}`;
-    }
-
-    // Initial EMI calculation
-    updateEMI();
-    </script>
-    <script>
-    $(document).ready(function() {
-        $("#hire_inner").validate({
-            rules: {
-                first_name: 'required',
-
-                last_name: 'required',
-                mobile_number: {
-                    required: true,
-                    digits: true, // Allow only digits
-                },
-                state: "required",
-                district: "required",
-            }
-        });
-        $('#button_hire').on('click', function() {
-            $('#hire_inner').valid();
-            console.log($('#hire_inner').valid());
-        });
-    });
-    </script> -->
-    <script>
+<script>
         // Update EMI when input values change
         $('#downPayment, #interestRate, #loanPeriod, #repaymentInterval').on('input change', function() {
             updateEMI();
@@ -488,8 +406,8 @@
 
         // Initial EMI calculation
         updateEMI();
-    </script>
-     <script>
+</script>
+<script>
     $(document).ready(function() {
         $("#hire_inner").validate({
             rules: {
@@ -509,7 +427,89 @@
             console.log($('#hire_inner').valid());
         });
     });
+</script>
+
+    <!-- <script>
+    // Update downpayment value on range input change
+    document.getElementById('downPayment').addEventListener('input', function() {
+        var downPaymentValue = document.getElementById('downPayment').value;
+        document.getElementById('downPaymentValue').value = downPaymentValue;
+        updateEMI();
+    });
+
+    // Update interest rate value on range input change
+    document.getElementById('interestRate').addEventListener('input', function() {
+        var interestRateValue = document.getElementById('interestRate').value;
+        document.getElementById('interestRateValue').value = interestRateValue;
+        updateEMI();
+    });
+
+    // Update EMI when loan period or repayment interval changes
+    document.getElementById('loanPeriod').addEventListener('change', updateEMI);
+    document.getElementById('repaymentInterval').addEventListener('change', updateEMI);
+
+    // Update EMI calculation based on user input
+    function updateEMI() {
+        var exShowroomPrice = 640000; // Example value, you can modify this
+        var downPayment = parseFloat(document.getElementById('downPayment').value);
+        var loanAmount = exShowroomPrice - downPayment;
+        var interestRate = parseFloat(document.getElementById('interestRate').value);
+        var loanPeriod = parseInt(document.getElementById('loanPeriod').value);
+        var repaymentInterval = document.getElementById('repaymentInterval').value;
+
+        // Calculate EMI
+        var monthlyInterestRate = (interestRate / 100) / 12;
+        var numberOfPayments = loanPeriod;
+        var emi;
+
+        if (monthlyInterestRate > 0) {
+            emi = (loanAmount * monthlyInterestRate * Math.pow(1 + monthlyInterestRate, numberOfPayments)) /
+                (Math.pow(1 + monthlyInterestRate, numberOfPayments) - 1);
+        } else {
+            emi = loanAmount / numberOfPayments;
+        }
+
+        // Adjust EMI for different repayment intervals
+        if (repaymentInterval === 'quarterly') {
+            emi *= 3;
+            numberOfPayments /= 3;
+        } else if (repaymentInterval === 'halfYearly') {
+            emi *= 6;
+            numberOfPayments /= 6;
+        }
+
+        // Display calculated results
+        document.getElementById('emiAmount').value = `₹${emi.toFixed(2)} ${repaymentInterval}`;
+        document.getElementById('totalLoanAmount').value = `₹${loanAmount.toFixed(2)}`;
+        document.getElementById('payableAmount').value = `₹${(emi * numberOfPayments).toFixed(2)}`;
+        document.getElementById('extraPayment').value = `₹${((emi * numberOfPayments) - loanAmount).toFixed(2)}`;
+    }
+
+    // Initial EMI calculation
+    updateEMI();
     </script>
+    <script>
+    $(document).ready(function() {
+        $("#hire_inner").validate({
+            rules: {
+                first_name: 'required',
+
+                last_name: 'required',
+                mobile_number: {
+                    required: true,
+                    digits: true, // Allow only digits
+                },
+                state: "required",
+                district: "required",
+            }
+        });
+        $('#button_hire').on('click', function() {
+            $('#hire_inner').valid();
+            console.log($('#hire_inner').valid());
+        });
+    });
+    </script> -->
+
 
 
 

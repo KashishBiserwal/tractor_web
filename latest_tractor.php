@@ -107,12 +107,12 @@ include 'includes/headertag.php';
                     <div class="accordion-item  rounded-3">
                         <h2 class="accordion-header p-2" id="flush-headingOne" >
                         <button class="accordion-button collapsed fw-bold h4" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
-                        Que. How many latest tractors are listed at Tractor Junction?
+                        Que. How many latest tractors are listed at Bharat Agrimart?
                         </button>
                         </h2>
                         <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
                             <div class="accordion-body">
-                                <p class="text-dark">Ans. 66 latest tractors are listed at Tractor Junction.</p>
+                                <p class="text-dark">Ans. 66 latest tractors are listed at Bharat Agrimart.</p>
                             </div>
                         </div>
                     </div>
@@ -143,12 +143,12 @@ include 'includes/headertag.php';
                     <div class="accordion-item  rounded-3 my-3">
                         <h2 class="accordion-header p-2" id="flush-heading4">
                         <button class="accordion-button collapsed  fw-bold h4" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse4" aria-expanded="false" aria-controls="flush-collapse4">
-                          Que. How many popular tractors are listed at Tractor Junction?
+                          Que. How many popular tractors are listed at Bharat Agrimart?
                         </button>
                         </h2>
                         <div id="flush-collapse4" class="accordion-collapse collapse" aria-labelledby="flush-heading4" data-bs-parent="#accordionFlushExample">
                         <div class="accordion-body">
-                            <p class="text-dark">Ans. 40+ popular tractor models are available at Tractor Junction.</p>
+                            <p class="text-dark">Ans. 40+ popular tractor models are available at Bharat Agrimart.</p>
                         </div>
                         </div>
                     </div>

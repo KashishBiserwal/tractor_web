@@ -179,8 +179,8 @@
         <div class="modal fade" id="staticBackdrop_model" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
           <div class="modal-dialog modal-lg">
             <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="staticBackdropLabel">Update Brand</h5>
+              <div class="modal-header bg-success">
+                <h5 class="modal-title text-white" id="staticBackdropLabel">Update Brand</h5>
                 <button type="button" class="btn-close btn-success" data-bs-dismiss="modal" aria-label="Close"><img src="assets/images/close.png"></button>
               </div>
                 <div class="modal-body">

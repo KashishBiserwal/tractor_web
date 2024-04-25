@@ -481,9 +481,6 @@ function store(event) {
 
 get_tractor_list();
 
-
-
-
 function updateTable(data) {
   const tableBody = $('#data-table');
   tableBody.empty();
@@ -573,8 +570,6 @@ function search_data() {
   });
 }
 
-
-
 function removeImage(ele){
   console.log("print ele");
     console.log(ele);
@@ -587,7 +582,6 @@ function removeImage(ele){
   }
 
 // fetch edit data
-
 function fetch_edit_data(customer_id) {
   console.log(customer_id, 'customer_id');
   var apiBaseURL = APIBaseURL;
@@ -771,9 +765,7 @@ function fetch_data(product_id){
 
             $("#selectedImagesContainer-old").append(newCard);
         });
-    }
-    
-    
+    }  
   },
   error: function (error) {
   console.error('Error fetching data:', error);

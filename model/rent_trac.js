@@ -187,7 +187,9 @@ function triggerFileInput(inputId) {
 }
 
 
-
+function disableFormFields() {
+    $('#rent_list_form_ :input').prop('disabled', true);
+}
 // Function to fetch and populate edit data
 function fetch_edit_data(customer_id) {
     console.log(customer_id, 'customer_id');
@@ -207,16 +209,16 @@ function fetch_edit_data(customer_id) {
             var userData2 = response.rent_details.data2; // Keeping data2 separate
             console.log('User Data:', userData);
             console.log('User Data 2:', userData2);
-            
+            disableFormFields();
             // Populating various form fields with retrieved data
-            $('#idUser').val(userData.customer_id).prop('readonly', true);
-            $('#enquiry_type_id').val(userData.enquiry_type_id).prop('readonly', true);
-            $('#implement_rent').val(userData2.rate).prop('readonly', true);
-            $('#workingRadius').val(userData.working_radius).prop('disabled', true);
-            $('#textarea_d').val(userData.description).prop('disabled', true);
-            $('#myfname').val(userData.first_name).prop('readonly', true);
-            $('#mylname').val(userData.last_name).prop('readonly', true);
-            $('#mynumber').val(userData.mobile).prop('readonly', true);
+            $('#idUser').val(userData.customer_id);
+            $('#enquiry_type_id').val(userData.enquiry_type_id);
+            $('#implement_rent').val(userData2.rate);
+            $('#workingRadius').val(userData.working_radius);
+            $('#textarea_d').val(userData.description);
+            $('#myfname').val(userData.first_name);
+            $('#mylname').val(userData.last_name);
+            $('#mynumber').val(userData.mobile);
             // Populating the brand dropdown
             var brandDropdown = document.getElementById('brand');
             for (var i = 0; i < brandDropdown.options.length; i++) {
@@ -225,7 +227,7 @@ function fetch_edit_data(customer_id) {
                     break;
                 }
             }
-            brandDropdown.disabled = true;
+            // brandDropdown.disabled = true;
 
             // Populating the model dropdown
             $('#model_main').empty(); 
@@ -234,6 +236,7 @@ function fetch_edit_data(customer_id) {
             setTimeout(function() { 
                 $("#model_main option").prop("selected", false);
                 $("#model_main option[value='" + userData.model + "']").prop("selected", true);
+              // Make the dropdown read-only
             }, 2000);
 
             // Populating other dropdowns and inputs
@@ -243,7 +246,7 @@ function fetch_edit_data(customer_id) {
             setSelectedOption('state_state', userData.state_id);
             setSelectedOption('dist_district', userData.district_id);
             populateTehsil(userData.district_id, 'tehsil-dropdown', userData.tehsil_id);
-            disableFormFields();
+           
             // Function to update table rows
             function updateTableRows(userData2, clearPrefilledValues) {
                 var tableBody = $('#rentTractorTable tbody');
@@ -260,21 +263,21 @@ function fetch_edit_data(customer_id) {
                         '<div class="card upload-img-wrap" id="imageDiv_' + index + '">' +
                         '<img src="' + imageUrl + '" alt="Image" class="img-thumbnail image-clickable" id="image_' + index + '">' +
                         '</div>' +
-                        '<input type="file" name="imp_' + index + '" id="impImage_' + index + '" class="image-file-input" accept="image/*" style="display: none;" onchange="displayImagePreview(this, \'impImagePreview_' + index + '\')" readonly>' +
+                        '<input type="file" name="imp_' + index + '" id="impImage_' + index + '" class="image-file-input" accept="image/*" style="display: none;" onchange="displayImagePreview(this, \'impImagePreview_' + index + '\')"readonly >' +
                         '</td>' +
                         '<td>' +
                         '<div class="select-wrap">' +
-                        '<select name="imp_type_id[]" id="impType_' + index + '" class="form-control implement-type-input" readonly>' +
+                        '<select name="imp_type_id[]" id="impType_' + index + '" class="form-control implement-type-input"readonly >' +
                         '<option value="' + item.id + '">' + item.category_name + '</option>' +
                         '</select>' +
                         '</div>' +
                         '</td>' +
                         '<td>' + 
-                        '<input type="text" name="implement_rate[]" id="implement_rent_' + index + '" class="form-control implement-rate-input" maxlength="10" placeholder="e.g- 1,500" value="' + formattedRate + '" readonly>' +
+                        '<input type="text" name="implement_rate[]" id="implement_rent_' + index + '" class="form-control implement-rate-input" maxlength="10" placeholder="e.g- 1,500" value="' + formattedRate + '"readonly >' +
                         '</td>' +
                         '<td>' +
                         '<div class="select-wrap">' +
-                        '<select name="rate_per[]" id="impRatePer_' + index + '" class="form-control implement-unit-input" readonly>' +
+                        '<select name="rate_per[]" id="impRatePer_' + index + '" class="form-control implement-unit-input"readonly >' +
                         '<option value="' + item.rate_per + '">' + item.rate_per + '</option>' +
                         '</select>' +
                         '</div>' +
@@ -309,7 +312,7 @@ function setSelectedOption(selectId, value) {
             break;
         }
     }
-    select.disabled = true; // Disable the dropdown
+     // Disable the dropdown
 }
 function populateTehsil(districtId, selectId, tehsilId) {
     var select = document.getElementById(selectId);
@@ -321,11 +324,7 @@ function populateTehsil(districtId, selectId, tehsilId) {
     }
     select.disabled = true;
     select.setAttribute('readonly', 'readonly');
-    $(select).prop('readonly', true);
-}
-
-function disableFormFields() {
-    $('#rent_list_form_ :input').prop('disabled', true);
+    $(select);
 }
 function store(event) {
     event.preventDefault();
@@ -803,25 +802,39 @@ function getSearchBrand() {
     }
 }
 
-// function resetFormFields() {
-//     document.getElementById("rent_list_form_").reset(); // Reset the entire form
+function enableFormFields() {
+    $('#rent_list_form_ :input').prop('disabled', false);
+    $('#rentTractorTable :input').prop('readonly', false); 
+    $('#rentTractorTable select').each(function() {
+        $(this).prop('disabled', false);
+    });
+}
+
+function resetFormFields() {
+    enableFormFields();
+    document.getElementById("rent_list_form_").reset(); // Reset the entire form
     
-//     // Reset each image input and its preview
-//     var imageInputs = document.getElementsByClassName("image-file-input");
-//     for (var i = 0; i < imageInputs.length; i++) {
-//         imageInputs[i].value = ''; 
+    // Reset each image input and its preview
+    var imageInputs = document.getElementsByClassName("image-file-input");
+    for (var i = 0; i < imageInputs.length; i++) {
+        imageInputs[i].value = ''; 
         
-//         var imagePreviewId = "impImagePreview_" + i; // Get the corresponding image preview ID
-//         document.getElementById(imagePreviewId).setAttribute("src", ""); 
+        var imagePreviewId = "impImagePreview_" + i; // Get the corresponding image preview ID
+        document.getElementById(imagePreviewId).setAttribute("src", ""); 
         
-//         var imageIcon = document.getElementById("impImagePreview_" + i).previousElementSibling; // Get the image icon element
-//         imageIcon.style.display = "block"; // Set the display property to "block" to show the image icon
-//     }
+        var imageIcon = document.getElementById("impImagePreview_" + i).previousElementSibling; // Get the image icon element
+        imageIcon.style.display = "block"; // Set the display property to "block" to show the image icon
+    }
     
-//     // Clear table body
-//     var tableBody = document.getElementById("rentTractorTable").getElementsByTagName('tbody')[0];
-//     tableBody.innerHTML = ''; // Remove all rows
-// }
+    // Clone and replace table rows
+    var tableBody = document.getElementById("rentTractorTable").getElementsByTagName('tbody')[0];
+    var newRow = tableBody.rows[0].cloneNode(true); // Clone the first row (assuming it's the template row)
+    tableBody.innerHTML = ''; // Remove all rows
+    tableBody.appendChild(newRow); // Add the cloned row back to the table
+}
+
+
+
 
 
 

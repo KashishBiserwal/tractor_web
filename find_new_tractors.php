@@ -306,12 +306,12 @@ include 'includes/headertag.php';
                     <div class="accordion-item  rounded-3 my-3">
                         <h2 class="accordion-header p-2" id="flush-heading7">
                         <button class="accordion-button collapsed  fw-bold h4" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse7" aria-expanded="false" aria-controls="flush-collapse7">
-                        Que. How Many New Tractors are Listed at Tractor junction?
+                        Que. How Many New Tractors are Listed at Bharat Agrimart?
                         </button>
                         </h2>
                         <div id="flush-collapse7" class="accordion-collapse collapse" aria-labelledby="flush-heading7" data-bs-parent="#accordionFlushExample">
                             <div class="accordion-body">
-                               <p class="text-dark">Ans. 500+ New Tractors are Listed at Tractor junction.</p>
+                               <p class="text-dark">Ans. 500+ New Tractors are Listed at Bharat Agrimart.</p>
                             </div>
                         </div>
                     </div>

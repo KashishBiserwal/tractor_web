@@ -5,6 +5,7 @@ $(document).ready(function () {
       get_year_and_hours();
       var userId = localStorage.getItem('id');
       getUserDetail(userId);
+      getbrands();
     });
 
     function formatPriceWithCommas(price) {
@@ -489,145 +490,50 @@ function isUserLoggedIn() {
     return localStorage.getItem('token_customer') && localStorage.getItem('mobile') && localStorage.getItem('id');
 }
 
-// function store() {
-//     var selectedOptions = [];
-//     $("#choices-multiple-remove-button:selected").each(function () {
-//         var value = $(this).val();
-//         if ($.trim(value)) {
-//             selectedOptions.push(value);
-//         }
-//     });
+function getbrands(){
+    var urlParams = new URLSearchParams(window.location.search);
+    var Id = urlParams.get('brand_id');
+    var url = "http://tractor-api.divyaltech.com/api/customer/get_all_brands";
+    console.log(url);
 
-//     var brands = $('.btand_select').map(function() {
-//         return $(this).val();
-//     }).get();
+    $.ajax({
+        url: url,
+        type: "GET",
+        success: function(data) {
+            console.log(data, 'abc');
+            var slider_head = $("#slider_head");
+            var brandContainer = $("#brandContainer");
 
-//     var models = $('.model_select').map(function() {
-//         return $(this).val();
-//     }).get();
+            if (data.brands && data.brands.length > 0) {
+                data.brands.forEach(function (p) {
+                    if(p.id == Id){
+                    console.log(p,"pp");
+                    var silder_heading = ` <h1 class="d3 mb-0 text-white display-5 fw-bold">${p.brand_name}</h1>`;
+                  
 
-//     var years = $('#choices-multiple-remove-button').val(); // Assuming it's a multi-select input
+                    // Append the new card to the container
+                    slider_head.append(silder_heading);
+                    }
+                  
 
-//     console.log("accessory select:", selectedOptions);
-//     var multiselect = JSON.stringify(selectedOptions);
-//     var brandArray = JSON.stringify(brands);
-//     var modelArray = JSON.stringify(models);
-//     var yearArray = JSON.stringify(years);
-//     var firstName = $('#fName').val();
-//     var lastName = $('#lName').val();
-//     var phone = $('#phone').val();
-//     var state = $('#state').val();
-//     var district = $('#district').val();
-//     var budget = $('#budget').val();
-//     var enquiryTypeId = 24;
+                    var brand_container = `<div class="col-6 col-sm-6 col-md-2 col-lg-2 brand_section">
+                    <a href="brands.php?brand_id=${p.id}"><div class="d-block ">
+                        <img src="http://tractor-api.divyaltech.com/uploads/brand_img/${p.brand_img}">
+                        <p>${p.brand_name}</p>
+                    </div></a>
+                </div>`;
+                  
 
-//     // var apiBaseURL = APIBaseURL;
-//     var url = 'http://tractor-api.divyaltech.com/api/customer/customer_enquiries';
-//     var token = localStorage.getItem('token');
-//     var headers = {
-//         'Authorization': 'Bearer ' + token
-//     };
-
-//     var data = {
-//         brand_id_array: brandArray, // Corrected from brandArray to brands
-//         model_array: modelArray,
-//         first_name: firstName,
-//         last_name: lastName,
-//         mobile: phone,
-//         state: state,
-//         budget: budget,
-//         district: district,
-//         manufacture_year: yearArray,
-//         enquiry_type_id: enquiryTypeId
-//     };
-
-//     $.ajax({
-//         url: url,
-//         type: 'POST',
-//         data: data,
-//         headers: headers,
-//         success: function (response) {
-//             console.log(response);
-//             console.log("Data stored successfully !");
-//             $('#get_OTP_btn').modal('show');
-    
-//             if (response.data.length === 0) {
-//                 // If data array is empty, display a message or take appropriate action
-//                 $("#productContainer").html("<p>No data available.</p>");
-//             } else {
-//                 // Iterate through the data array and generate cards for each item
-//                 response.data.forEach(function (item) {
-//                     // Extract necessary data from the item
-//                     var images = item.image_names.split(',');
-//                     var brandName = item.brand_name;
-//                     var model = item.model;
-//                     var purchase_year = item.purchase_year;
-//                     var hp_category = item.hp_category;
-//                     // Generate HTML for the card
-//                     var newCard = `
-//                         <div class="col-12 col-lg-4 col-md-4 col-sm-4 mb-4">
-//                             <div class="success__stry__item shadow h-100 bg-white">
-//                                 <div class="thumb">
-//                                     <div>
-//                                         <div class="">
-//                                             <img src="http://tractor-api.divyaltech.com/uploads/product_img/${images[0]}" class="object-fit-cover mt-4 p-3 w-100" width="100px" height="200px" alt="img">
-//                                         </div>
-//                                     </div>
-//                                 </div>
-                               
-//                                 <div class="row text-center">
-//                                 <div class="col-12 col-sm-6 col-md-6 col-lg-6">
-//                                 <p class="mb-1 fw-bold text-danger">${brandName}</p>
-//                                 </div>
-//                                 <div class="col-12 col-sm-6 col-md-6 col-lg-6">
-//                                 <p class="mb-0 fw-bold text-hover-green">${model}</p>
-//                                 </div>
-//                                 <div class="col-12 col-sm-6 col-md-6 col-lg-6">
-//                                 <p class="mb-0 fw-bold pb-2 text-danger">${hp_category} <span>HP</span></p>
-//                                 </div>
-//                                 <div class="col-12 col-sm-6 col-md-6 col-lg-6">
-//                                 <p class="mb-0 fw-bold pb-2 text-hover-green">${purchase_year}</p>
-//                                 </div>
-//                             </div>
-//                             </div>
-//                         </div>
-//                     `;
-    
-//                     // Append the new card HTML to the product container
-//                     $("#productContainer").append(newCard);
-//                 });
-//             }
-//         },
-//         error: function (error) {
-//             console.error('Error fetching data:', error);
-//         }
-//     });
-// }
+                    brandContainer.append(brand_container);
+                });
 
 
-
-
-// function displayCard() {
-//     var container = $("#productContainer");
-//     var images = "http://tractor-api.divyaltech.com/uploads/product_img/example.jpg"; // Update with the actual image path
-//     var newCard = `
-//     <div class="col-12 col-lg-4 col-md-4 col-sm-4 mb-4">
-//         <div class="success__stry__item shadow h-100 bg-white">
-//             <div class="thumb">
-//                 <div>
-//                     <div class="">
-//                         <img src="${images}" class="object-fit-cover mt-4 p-3 w-100" width="100px" height="200px" alt="img">
-//                     </div>
-//                 </div>
-//             </div>
-//             <div class="row ms-3">
-//                 <p class="mb-1 fw-bold text-danger">${brandName}</p>
-//                 <p class="mb-0 fw-bold text-hover-green">${model}</p>
-//                 <button type="button" class="fs-6 fw-bold text-success text-start" data-bs-toggle="modal" data-bs-target="#staticBackdrop3">Check Tractor Price</button>
-//             </div>
-//         </div>
-//     </div>
-//         `;
-//     container.html(newCard);
-//     $("#section-2").show(); // Show the section after adding the card
-// }
+                // Initialize Owl Carousel after adding cards
+              
+            }
+        },
+        error: function (error) {
+            console.error('Error fetching data:', error);
+        }
+    });
+}

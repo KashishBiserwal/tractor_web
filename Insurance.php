@@ -307,80 +307,8 @@ include 'includes/footertag.php';
         </div>
     </div>
 
-
-    <!--How to Buy Tractor Insurance Online? End-->
-
-
-    <!--Popular Tractor Insurance Companies-->
-
-
-    <!-- <div class="container">
-        <h4 class="mt-5 mb-4 assured px-2 fw-bold">Popular Tractor Insurance Companies</h4>
-        <div class="row mt-3 row-cols-1 row-cols-md-2 row-cols-lg-3 justify-content-center">
-
-            <div class="col mb-4">
-                <div class="card">
-                    <img src="assets\images\tata1.png" class="card-img-top cards" alt="Company 1">
-                    <div class="card-body">
-                        <h5 class="card-title text-center">TATA AIG</h5>
-                    </div>
-                </div>
-            </div>
-            <div class="col mb-4">
-                <div class="card">
-                    <img src="assets\images\magma1.png" class="card-img-top cards" alt="Company 2">
-                    <div class="card-body">
-                        <h5 class="card-title text-center">Magma HDI</h5>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col mb-4">
-                <div class="card">
-                    <img src="assets\images\icici.jpg" class="card-img-top cards" alt="Company 3">
-                    <div class="card-body">
-                        <h5 class="card-title text-center">ICICI Lombard</h5>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col mb-4">
-                <div class="card">
-                    <img src="assets\images\iffco.png" class="card-img-top cards" alt="Company 4">
-                    <div class="card-body">
-                        <h5 class="card-title text-center">IFFCO-TOKIO</h5>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col mb-4">
-                <div class="card">
-                    <img src="assets\images\chola.webp" class="card-img-top cards" alt="Company 5">
-                    <div class="card-body">
-                        <h5 class="card-title text-center">Chola MS</h5>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col mb-4">
-                <div class="card">
-                    <img src="assets\images\bajaj.jpeg" class="card-img-top cards" alt="Company 6">
-                    <div class="card-body">
-                        <h5 class="card-title text-center">Bajaj Allianz</h5>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </div> -->
-
-
-    <!--Popular Tractor Insurance Companies End-->
-
-    <!-- Why Choose TractorJunction for Agriculture/Commercial Tractor Insurance Online -->
-
     <div class="container mt-5">
-        <h4 class="assured mb-4 fw-bold px-2">Why Choose Bharat Tractors for Agriculture/Commercial Tractor Insurance
+        <h4 class="assured mb-4 fw-bold px-2">Why Choose Bharat Agrimart for Agriculture/Commercial Tractor Insurance
             Online?</h4>
 
         <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-3">
@@ -434,7 +362,7 @@ include 'includes/footertag.php';
 
 
 
-    <!--Why Choose TractorJunction for Agriculture/Commercial Tractor Insurance Online End  -->
+    <!--Why Choose Bharat Agrimart for Agriculture/Commercial Tractor Insurance Online End  -->
 
     <!-- Get insured your tractor with best offers -->
     <div class="container">
@@ -457,11 +385,11 @@ include 'includes/footertag.php';
 
         <h6 class="fw-bold px-2 mt-5">If You Have A Plan, Let’s Discuss</h6>
 
-        <p class="mt-4 px-2">At Bharat Tractors, you can obtain online tractor insurance policies from different tractor
+        <p class="mt-4 px-2">At Bharat Agrimart, you can obtain online tractor insurance policies from different tractor
             insurance companies like SBI tractor insurance. Additionally, you can check for tractor insurance details,
             apply for tractor insurance policy renewal online and much more. You can also choose from farm tractor
             insurance from different companies and check tractor insurance 1-year price and tractor insurance status
-            check in real-time. Bharat Tractors experts have made the online commercial tractor insurance process very
+            check in real-time. Bharat Agrimart experts have made the online commercial tractor insurance process very
             simple.</p>
 
         <p class="mt-4 px-2">It is fairly simple, fill in the details regarding the tractor, such as the Brand, the
@@ -469,7 +397,7 @@ include 'includes/footertag.php';
             leverage the tractor insurance premium calculator to check the tractor insurance amount and, ultimately,
             tractor insurance price in India!</p>
 
-        <p class="mt-4 px-2">Bharat Tractors is committed to bringing you the best tractor insurance cost in India for
+        <p class="mt-4 px-2">Bharat Agrimart is committed to bringing you the best tractor insurance cost in India for
             your development and security. When you choose us, we make sure you get the best agricultural tractor
             insurance online and don't regret your choices upon your decisions.</p>
     </div>

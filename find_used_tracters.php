@@ -186,11 +186,21 @@
         </div>
 </section>
             
-   
-    <section class="bg-light">
+<section class="about bg-white mt-2 ">
+  <div class="container">
+    <div class="lecture_heading ">
+      <h3 class="my-4 pt-5 text-center bg-light">TRACTORS BY BRAND</h3>
+    </div>
+    <div class="mt-4 pb-5">
+      <div class="row allbrands" id="brandContainer">
+      </div>
+    </div>
+  </div>
+</section> 
+    <!-- <section class="bg-light">
         <div class="container">
             <div class="old_tracter py-3 text-center">
-                <h3 class="fw-bold mt-3">Old Tractors By Brand</h3>
+                <h3 class="fw-bold mt-3">Tractors By Brand</h3>
             </div>
             <div class="row mt-3 ps-5 justify-content-center m-0">
                 <div class="col-12 col-md-3 col-lg-3 col-sm-3">
@@ -373,7 +383,7 @@
 
             </div>
         </div>
-    </section>
+    </section> -->
     <section class="">
         <div class="container mt-4 ">
             <div class="col-12 assured mt-3">

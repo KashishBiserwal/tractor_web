@@ -188,7 +188,7 @@ function displayEngineoil(engineoil) {
                             <div class="col-12 col-sm-6 col-md-6 col-lg-6">
                                 <label for="mobile_number" class="form-label text-dark fw-bold"><i class="fa fa-phone" aria-hidden="true"></i> Mobile Number</label>
                                 <input type="text" class="form-control" placeholder="Enter Mobile Number" id="mobile_number" name="mobile_number">
-                                <p class="text-danger">*Please make sure mobile number is valid</p>
+                               
                             </div>
                             <div class="col-12 col-sm-6 col-md-6 col-lg-6">
                                 <div class="form-outline mt-4 p-2">

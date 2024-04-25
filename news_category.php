@@ -74,11 +74,6 @@ include 'includes/footertag.php';
                     </div>
                   </div>
               </div>
-              
-
-
-
-              
               </div>
             </div>
           </div>

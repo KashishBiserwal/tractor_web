@@ -489,7 +489,7 @@
         <div class="sellcontent">
             <h4 class="text-center">Do you want to sell your used implement online?</h4>
             <p class="text-center">Now you can easily sell your old tractor implements without any tension from sitting at your home</p>
-            <p class="text-center"> TractorJunction has come up with a new page ‘Sell Your Used Implements’ where you can comfortably sell your old implement to the right buyer. If you like to sell used tractor implements online then you have to follow a few simple steps.</p>
+            <p class="text-center"> Bharat Agrimart has come up with a new page ‘Sell Your Used Implements’ where you can comfortably sell your old implement to the right buyer. If you like to sell used tractor implements online then you have to follow a few simple steps.</p>
         </div>
     </div>
 </section>

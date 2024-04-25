@@ -179,9 +179,9 @@ function displayTractors(tractors) {
                                                                              <div class="col-12 col-sm-6 col-md-6 col-lg-6">
                                                                                  <label for="number" class="form-label text-dark fw-bold"><i class="fa fa-phone" aria-hidden="true"></i> Mobile Number</label>
                                                                                  <input type="text" class="form-control" placeholder="Enter Number" id="mobile_number" name="mobile_number">
-                                                                                 <P class="text-danger">*Please make sure mobile no. must valid</p>
+                                                                                
                                                                              </div>
-                                                                                                        <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+                                                                                <div class="col-12 col-sm-12 col-md-6 col-lg-6">
                                                                                     <label for="yr_state" class="form-label text-dark fw-bold"> <i class="fa-solid fa-location-dot"></i>  Select State</label>
                                                                                     <select class="form-select py-2 state-dropdown" aria-label=".form-select-lg example" id="state" name="state" value="">
                                                                                         
@@ -616,9 +616,9 @@ function appendFilterCard(filterContainer, filter) {
                                                              <div class="col-12 col-sm-6 col-md-6 col-lg-6">
                                                                  <label for="number" class="form-label text-dark fw-bold"><i class="fa fa-phone" aria-hidden="true"></i> Mobile Number</label>
                                                                  <input type="text" class="form-control" placeholder="Enter Number" id="mobile_number" name="mobile_number">
-                                                                 <P class="text-danger">*Please make sure mobile no. must valid</p>
+                                                               
                                                              </div>
-                                                                                        <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+                                                                <div class="col-12 col-sm-12 col-md-6 col-lg-6">
                                                                     <label for="yr_state" class="form-label text-dark fw-bold"> <i class="fa-solid fa-location-dot"></i>  Select State</label>
                                                                     <select class="form-select py-2 state-dropdown" aria-label=".form-select-lg example" id="state" name="state" value="">
                                                                         
