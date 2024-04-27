@@ -13,10 +13,10 @@ $(document).ready(function () {
         brand: {
           required: true,
         },
-        email:{
-          required:true,
-         email:true
-        },
+        // email:{
+        //   required:true,
+        //  email:true
+        // },
         cno:{
             required:true,
             maxlength:10,
@@ -44,10 +44,10 @@ $(document).ready(function () {
           required: "This field is required",
         },
       
-        email:{
-          required:"This field is required",
-          email:"Please Enter vaild Email",
-        },
+        // email:{
+        //   required:"This field is required",
+        //   email:"Please Enter vaild Email",
+        // },
          cno:{
           required:"This field is required",
           maxlength:"Enter only 10 digits",
@@ -659,4 +659,9 @@ function updateTable(data) {
   }
   get_1()
 
-  
+  function resetFormFields(){
+    document.getElementById("dealer_list_form").reset();
+    document.getElementById("_image").value = '';
+    document.getElementById("selectedImagesContainer").innerHTML = '';
+   
+}

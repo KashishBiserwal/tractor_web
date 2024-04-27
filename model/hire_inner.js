@@ -42,6 +42,7 @@ function getHireTracById() {
             document.getElementById('model_form').innerText = data.rent_details.data1[0].model;
             document.getElementById('slr_name').value = fullname;
             document.getElementById('mob_num').value = data.rent_details.data1[0].mobile;
+            document.getElementById('type_imlement').innerText = data.rent_details.data2[0].category_name;
             // Extracting image names from data
             var imageNames = data.rent_details.data2[0].images.split(',');
 

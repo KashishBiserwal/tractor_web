@@ -206,9 +206,8 @@
                               <div class="background__btn-box ">
                                 <label class="background__btn">
                                 <p class="text-white bg-success p-2 rounded">Upload images</p>
-                                <input type="file" id="brand_img1" data-max_length="20"name="brand_img"  ref="fileInput"style="display: none"
-                                @change="handleFileInput"accept="image/png, image/jpg, image/jpeg" class="background__inputfile" id="banner_image">
-                                <small></small>
+                                <input type="file" multiple="" data-max_length="20" class="upload__inputfile" id="banner_image" name="banner_image" required>
+                                  <small></small>
                                 </label>
                               </div>
                               <div class="">
@@ -304,14 +303,10 @@
         }
       },
       submitHandler: function(form) {
-        // This function will be called when the form is valid
-        alert('Form is valid!'); // You can replace this with your submission logic
+        alert('Form is valid!'); 
       }
     });
-
-    // Listen for click event on the submit button
     $("#save").click(function() {
-      // Trigger form validation manually
       $("#form").valid();
     });
   });
@@ -324,7 +319,7 @@
       //   resetForm();
       // });
       
-      BackgroundUpload();
+      ImgUpload();
       get_product_type();
       $('#save').click(store);
       $('#save_brand').click(edit_brand);
@@ -333,16 +328,6 @@
   
     });
 
-    function removeImage(ele){
-  console.log("print ele");
-    console.log(ele);
-    let thisId=ele.id;
-    thisId=thisId.split('closeId');
-    thisId=thisId[1];
-    $("#"+ele.id).remove();
-    $(".upload__img-closeDy"+thisId).remove();
-
-  }
 
   function get_product_type(id) {
     console.log('initsfd')
@@ -374,32 +359,26 @@
               $("#" + id).append(checkbox);
               $("#" + id).append(label);
               }
-             
             }
-          
         },
-        
-        complete:function(){
-         
+         complete:function(){
         },
         error: function (error) {
             console.error('Error fetching data:', error);
         }
     });
 }
+
 get_product_type('type_name');
-    // store data
     function store(event) {
     event.preventDefault();
     console.log('jfhfhw');
-
-    // Manually trigger form validation
     var form = $('#form');
     form.validate();
 
     if (form.valid()) {
         var brand_name = document.getElementById('brand_name').value;
-        var brand_img = document.getElementById('brand_img').files[0];
+        var brand_img = document.getElementById('banner_image').files[0];
         var selectedCheckboxes = $('.product_type_checkbox:checked');
         var type_name = [];
 
@@ -486,11 +465,11 @@ function get() {
                 select_brand.append('<option value="' + brand.id + '">' + brand.name + '</option>');
             });
 
-            let serialNumber = 1; // Initialize serial number
+            let serialNumber = 1; 
 
             if (data.brands.length > 0) {
                 let tableData = [];
-                // Loop through the data and create table rows
+             
                 data.brands.forEach(row => {
                     let action = `<div class="float-start"><button class="btn btn-warning btn-sm text-white mx-1" data-bs-toggle="modal" onclick="fetch_data(${row.id});" data-bs-target="#exampleModal" style="padding:5px">
                         <i class="fa-solid fa-eye" style="font-size: 11px;"></i></button>
@@ -498,15 +477,14 @@ function get() {
                           <i class="fas fa-edit" style="font-size: 11px;"></i></button>
                         </button> <button class="btn btn-danger btn-sm mx-1" id="delete_user" onclick="destroy(${row.id});" style="padding:5px"><i class="fa fa-trash" style="font-size: 11px;"></i></button></div>`;
                         tableData.push([
-                          serialNumber,
-                        row.brand_name,
-                        row.brand_img,
-                        row.product_type_names, // Assuming product_type_names is a string
-                        action
+                            serialNumber,
+                            row.brand_name,
+                            row.brand_img,
+                            row.product_type_names,
+                            action
                           ]);
 
-                    // Increment serial number for the next row
-                    serialNumber++;
+                          serialNumber++;
                 });
                 $('#example').DataTable().destroy();
                 $('#example').DataTable({
@@ -515,16 +493,16 @@ function get() {
                         { title: 'S.No.' },
                         { title: 'Brand Name' },
                         { title: 'Brand Image' },
-                        { title: 'Product Types' }, // Modify the column title
+                        { title: 'Product Types' }, 
                         { title: 'Action', orderable: false }
                     ],
 
                     paging: true,
                     searching: false,
-                    // ... other options ...
+                   
                 });
             } else {
-                // Display a message if there's no valid data
+          
                 tableBody.innerHTML = '<tr><td colspan="7">No valid data available</td></tr>';
             }
         },
@@ -880,17 +858,14 @@ $(document).ready(function () {
   fetchAllData();
 });
 
-  function BackgroundUpload() {
+ 
+function ImgUpload() {
     var imgWrap = "";
     var imgArray = [];
 
-    function generateUniqueClassName(index) {
-      return "background-image-" + index;
-    }
-
-    $('.background__inputfile').each(function () {
+    $('.upload__inputfile').each(function () {
       $(this).on('change', function (e) {
-        imgWrap = $(this).closest('.background__box').find('.background__img-wrap');
+        imgWrap = $(this).closest('.upload__box').find('.upload__img-wrap');
         var maxLength = $(this).attr('data-max_length');
 
         var files = e.target.files;
@@ -903,7 +878,7 @@ $(document).ready(function () {
           }
 
           if (imgArray.length > maxLength) {
-            return false;
+            return false
           } else {
             var len = 0;
             for (var i = 0; i < imgArray.length; i++) {
@@ -918,8 +893,7 @@ $(document).ready(function () {
 
               var reader = new FileReader();
               reader.onload = function (e) {
-                var className = generateUniqueClassName(iterator);
-                var html = "<div class='background__img-box'><div onclick='BackgroundImage(\"" + className + "\")' style='background-image: url(" + e.target.result + ")' data-number='" + $(".background__img-close").length + "' data-file='" + f.name + "' class='img-bg " + className + "'><div class='background__img-close'></div></div></div>";
+                var html = "<div class='upload__img-box'><div style='background-image: url(" + e.target.result + ")' data-number='" + $(".upload__img-close").length + "' data-file='" + f.name + "' class='img-bg'><div class='upload__img-close'></div></div></div>";
                 imgWrap.append(html);
                 iterator++;
               }
@@ -930,7 +904,7 @@ $(document).ready(function () {
       });
     });
 
-    $('body').on('click', ".background__img-close", function (e) {
+    $('body').on('click', ".upload__img-close", function (e) {
       var file = $(this).parent().data("file");
       for (var i = 0; i < imgArray.length; i++) {
         if (imgArray[i].name === file) {
@@ -940,13 +914,24 @@ $(document).ready(function () {
       }
       $(this).parent().parent().remove();
     });
-}
+  }
+  
+    function removeImage(ele){
+      console.log("print ele");
+        console.log(ele);
+        let thisId=ele.id;
+        thisId=thisId.split('closeId');
+        thisId=thisId[1];
+        $("#"+ele.id).remove();
+        $(".upload__img-closeDy"+thisId).remove();
+    
+      }
 
 
 function resetFormFields(){
     document.getElementById("form").reset();
-    document.getElementById("brand_img").value = '';
-    document.getElementById("banner_image").innerHTML = '';
+    document.getElementById("banner_image").value = '';
+    document.getElementById("selectedImagesContainer2").innerHTML = '';
     
     // Resetting checkboxes
     var checkboxes = document.getElementsByClassName('product_type_checkbox');

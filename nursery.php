@@ -9,6 +9,7 @@ include 'includes/headertag.php';
 <script> var baseUrl = "<?php echo $baseUrl; ?>";</script>
 <script src="<?php $baseUrl; ?>model/nursery.js"></script>
 <script src="<?php $baseUrl; ?>model/State_dist_tehsil.js"></script>
+<script src="<?php $baseUrl; ?>model/sdt.js"></script>
 <script src="<?php $baseUrl; ?>model/state2_dist2.js"></script>
 <style>
 
@@ -77,7 +78,7 @@ include 'includes/headertag.php';
                                         <div class="col-12 col-sm-4 col-md-4 col-lg-4">
                                           <div class="form-outline mt-3">
                                              <label class="form-label">State</label>
-                                              <select class="form-select py-2 state-dropdown" aria-label="Default select example" id="state_" name="state_">
+                                              <select class="form-select py-2 state-dropdown1" aria-label="Default select example" id="state_" name="state_">
                                               
                                               </select>
                                           </div>
@@ -85,7 +86,7 @@ include 'includes/headertag.php';
                                         <div class="col-12 col-sm-4 col-md-4 col-lg-4">
                                           <div class="form-outline mt-3">
                                             <label class="form-label">District</label>
-                                            <select class="form-select py-2 district-dropdown" aria-label="Default select example" id="dist" name="dist">
+                                            <select class="form-select py-2 district-dropdown1" aria-label="Default select example" id="dist" name="dist">
                                            
                                             </select>
                                           </div>
@@ -93,7 +94,7 @@ include 'includes/headertag.php';
                                         <div class="col-12 col-sm-4 col-md-4 col-lg-4">
                                           <div class="form-outline mt-3">
                                             <label class="form-label">Tehsil</label>
-                                            <select class="form-select py-2 tehsil-dropdown" aria-label="Default select example" id="tehsil">
+                                            <select class="form-select py-2 tehsil-dropdown1" aria-label="Default select example" id="tehsil">
                                           
                                             </select>
                                           </div>
@@ -315,7 +316,7 @@ include 'includes/headertag.php';
                                         <div class="col-12 col-sm-4 col-md-4 col-lg-4">
                                             <div class="form-outline mt-3">
                                                 <label class="form-label">State</label>
-                                                <select class="form-select py-2" aria-label="Default select example" id="state_" name="state_">
+                                                <select class="form-select py-2 state-dropdown" aria-label="Default select example" id="state" name="state_">
                                                   
                                                 </select>
                                             </div>
@@ -323,7 +324,7 @@ include 'includes/headertag.php';
                                         <div class="col-12 col-sm-4 col-md-4 col-lg-4">
                                             <div class="form-outline mt-3">
                                                 <label class="form-label">District</label>
-                                                <select class="form-select py-2" aria-label="Default select example" id="dist_" name="dist">
+                                                <select class="form-select py-2 district-dropdown" aria-label="Default select example" id="dist_" name="dist">
                                                   
                                                 </select>
                                             </div>
@@ -331,7 +332,7 @@ include 'includes/headertag.php';
                                         <div class="col-12 col-sm-4 col-md-4 col-lg-4">
                                             <div class="form-outline mt-3">
                                                 <label class="form-label">Tehsil</label>
-                                                <select class="form-select py-2" aria-label="Default select example" id="tehsil_" name="tehsil_">
+                                                <select class="form-select py-2 tehsil-dropdown" aria-label="Default select example" id="tehsil_" name="tehsil_">
                                                   
                                                 </select>
                                             </div>

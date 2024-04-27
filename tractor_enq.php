@@ -7,8 +7,8 @@
      <script> var APIBaseURL = "<?php echo $APIBaseURL; ?>";</script>
   <script> var baseUrl = "<?php echo $baseUrl; ?>";</script>
   <script src="<?php $baseUrl; ?>model/tractor_enq.js"></script>
-
-
+  <script src="<?php $baseUrl; ?>model/State_dist_tehsil.js"></script>
+  <script src="<?php $baseUrl; ?>model/state2_dist2.js"></script>
 <body class="loaded"> 
 <div class="main-wrapper">
     <div class="app" id="app">
@@ -38,13 +38,13 @@
       <div class="filter-card mb-2">
         <div class="card-body">
           <div class="row">
-          <div class="col-12 col-sm-12 col-md-3 col-lg-3"hidden>
+          <!-- <div class="col-12 col-sm-12 col-md-3 col-lg-3"hidden>
               <div class="form-outline">
                 <label class="form-label">Search By id</label>
                   <select class=" form-select form-control mb-0" id="brand_id">
                   </select>
               </div>
-            </div>
+            </div> -->
             <div class="col-12 col-sm-12 col-md-3 col-lg-3">
               <div class="form-outline">
                 <label class="form-label">Search By Brand</label>
@@ -62,7 +62,7 @@
             <div class="col-12 col-sm-12 col-md-3 col-lg-3">
               <div class="form-outline">
                 <label class="form-label">State</label>
-                <select class="form-select py-2 select-state" aria-label="Default select example" id="stat_e">
+                <select class="form-select py-2 state_select" aria-label="Default select example" id="stat_e">
                    
                 </select>
               </div>
@@ -70,7 +70,7 @@
             <div class="col-12 col-sm-12 col-md-3 col-lg-3">
               <div class="form-outline">
                 <label class="form-label">District</label>
-                <select class="form-select py-2 select-dist" aria-label="Default select example" id="dis_t" >
+                <select class="form-select py-2 district_select" aria-label="Default select example" id="dis_t" >
                 </select>
               </div>
             </div>
@@ -232,7 +232,7 @@
                                        <div class="col-12 col-sm-6 col-md-6 col-lg-6">
                                           <div class="form-outline mt-3">
                                              <label class="form-label text-dark">State</label>
-                                              <select class="form-select py-2 select-state" aria-label="Default select example" id="state_" name="state_">
+                                              <select class="form-select py-2 select-state state-dropdown" aria-label="Default select example" id="state_" name="state_">
                                       
                                               </select>
                                           </div>
@@ -240,7 +240,7 @@
                                         <div class="col-12 col-sm-6 col-md-6 col-lg-6">
                                           <div class="form-outline mt-3">
                                             <label class="form-label text-dark">District</label>
-                                            <select class="form-select py-2 select-dist" aria-label="Default select example" id="dist_" name="dist" >
+                                            <select class="form-select py-2 select-dist district-dropdown" aria-label="Default select example" id="dist_" name="dist" >
                                           
                                             </select>
                                           </div>
@@ -248,7 +248,7 @@
                                         <div class="col-12 col-sm-6 col-md-6 col-lg-6">
                                           <div class="form-outline mt-3">
                                             <label class="form-label text-dark">Tehsil</label>
-                                            <select class="form-select py-2" aria-label="Default select example" id="tehsil_">
+                                            <select class="form-select py-2 tehsil-dropdown" aria-label="Default select example" id="tehsil_">
                                           
                                             </select>
                                           </div>

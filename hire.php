@@ -75,7 +75,7 @@
                         </div>
                     </div>
                 </div>
-                <div class=" mb-3" id="">
+                <!-- <div class=" mb-3" id="">
                     <div class="force-overflow">
                         <div class="price py-2 ">
                             <h5 class=" ps-3 text-dark fw-bold mb-3">Search By Budget</h5>
@@ -85,7 +85,7 @@
                             <input type="checkbox" class="checkbox-round mt-1 ms-3 budget_checkbox" value="9 - 12"/><span class="ps-2 fs-6"> 9 Lakh - 12 Lakh</span><br />
                         </div>
                     </div>
-                </div>
+                </div> -->
                 <div class="scrollbar mb-3" id="">
                     <div class="force-overflow">
                         <h5 class="ps-1 text-dark fw-bold pt-2">Search By Brand</h5>
@@ -106,13 +106,13 @@
                         </div>
                     </div>
                 </div>
-                <div class="scrollbar mb-3" id="my-2">
+                <!-- <div class="scrollbar mb-3" id="my-2">
                     <div class="force-overflow">
                         <h5 class="ps-1 text-dark fw-bold pt-2">Search By Year</h5>
                         <div class="HP py-2" id="P_year">
                         </div>
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
     </div>
@@ -200,4 +200,71 @@ include 'includes/footer.php';
 
 </html>
 
+<script>
+// var cardsPerPage = 6;
+// var cardsDisplayed = 0;
+// var abc = [];
 
+// function getHiretractor() {
+//     var url = "http://tractor-api.divyaltech.com/api/customer/get_rent_data";
+
+//     $.ajax({
+//         url: url,
+//         type: "GET",
+//         success: function(response) {
+//             var productContainer = $("#productContainer");
+//             abc = response.rent_details.data1.map(t1 => ({
+//                 ...t1,
+//                 ...response.rent_details.data2.find(t2 => t2.customer_id === t1.id)
+//             }));
+
+//             // Display the initial set of cards
+//             displayNextSixCards(productContainer);
+
+//             // If there are more cards to load, show the "Load More" button
+//             if (abc.length > cardsPerPage) {
+//                 $("#loadMoreBtn").show();
+//             } else {
+//                 $("#loadMoreBtn").hide();
+//             }
+//         },
+//         error: function(error) {
+//             console.error('Error fetching data:', error);
+//         },
+//         complete: function() {
+//             // Hide the spinner after the API call is complete
+//             hideOverlay();
+//         },
+//     });
+// }
+
+// function displayNextSixCards(container) {
+//     var startIndex = Math.max(0, abc.length - cardsDisplayed - cardsPerPage);
+//     var endIndex = abc.length - cardsDisplayed;
+//     var cardsToDisplay = abc.slice(startIndex, endIndex);
+//     cardsToDisplay.reverse().forEach(function(p) {
+//         appendCard(container, p);
+//     });
+//     cardsDisplayed += cardsPerPage;
+// }
+
+// function appendCard(container, p) {
+//     var images = p.images;
+//     var a = [];
+
+//     if (images) {
+//         if (images.indexOf(',') > -1) {
+//             a = images.split(',');
+//         } else {
+//             a = [images];
+//         }
+//     }
+
+//     var cardId = `card_${p.customer_id}`;
+//     var modalId = `used_tractor_callbnt_${p.customer_id}`;
+//     var modalId_2 = `staticBackdrop_${p.customer_id}`;
+//     var formId = `contact-seller-call_${p.customer_id}`;
+//     var formattedPrice = formatPriceWithCommas(p.rate);
+//     var fullname = p.first_name + ' ' + p.last_name;
+//     var userId = localStorage.getItem('id');
+</script>

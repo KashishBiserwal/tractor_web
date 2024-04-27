@@ -120,6 +120,14 @@
                                                 <td> <p class="text-dark "><span id="set_dist"></span>,<span id="set_state"></span></p></td>
                                             </tr>
                                             <tr>
+                                            <tr>
+                                                <td>
+                                                 <p class="text-dark "><i class="fa-solid fa-gear mx-2"></i>Implement Type</p>
+                                                </td>
+                                                <td>
+                                                <p id="type_imlement" type="" class="text-dark "></p>
+                                                </td>
+                                            </tr>
                                                 <td>
                                                  <p class="text-dark "><i class="fas fa-bolt mx-2"></i>Price</p>
                                                 </td>
@@ -133,7 +141,7 @@
                                                 <p id="engine_cc" type="" class="text-dark "></p>
                                                 </td>
                                             </tr>
-                                            
+                                          
                                         
                                         </tbody>
                                     </table>
@@ -421,3 +429,5 @@
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 
 </html>
+
+

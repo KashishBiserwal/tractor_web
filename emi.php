@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-
+<script> var APIBaseURL = "<?php echo $APIBaseURL; ?>";</script>
+<script> var baseUrl = "<?php echo $baseUrl; ?>";</script>
+<script src="<?php $baseUrl; ?>model/emi_calculator.js"></script>
 <head>
     <?php
    include 'includes/headertag.php';
@@ -138,7 +140,7 @@
             <h3 class="fw-bold assured px-2 mt-2">Calculate Your Tractor Loan EMI</h3>
             <div class="row">
                 <div class="col-12 col-sm-12 col-md-6 col-lg-6">
-                    <form id="brandModelForm"  method="post">
+                    <form id="brandModelForm" action="emi_inner.php" method="GET">
                         <div class="form-outline mt-2 py-3">
                             <label class="form-label fw-bold" for="brandSelect">Brand</label>
                             <select class="form-select py-2" aria-label="Default select example" id="brandSelect"
@@ -153,9 +155,7 @@
                            
                             </select>
                         </div>
-                        <button type="submit" class="w-100 fw-bold btn btn-success mt-3 mb-1"
-                            id="calculateEMI">Calculate
-                            EMI</button>
+                        <button type="submit" class="w-100 fw-bold btn btn-success mt-3 mb-1" id="calculateEMI">Calculate EMI</button>
                     </form>
                 </div>
                 <div class="col-12 col-sm-12 col-md-6 col-lg-6 ">
@@ -482,8 +482,8 @@
             },
             submitHandler: function (form) {
              
-                    window.location.href = "emi_inner.php";
-                    return false; // prevent default form submission
+                    // window.location.href = "emi_inner.php";
+                    // return false; 
                 }
             });
     
@@ -578,6 +578,44 @@
   }
 
   get_1();
+</script>
+<script>
+    $(document).ready(function() {
+    console.log("ready!");
+
+    $('#calculateEMI').click(store);
+    
+});
+
+
+function store() {
+    var brand = $('#brandSelect').val();
+    var model = $('#modelSelect').val();
+
+    var paraArr = {
+        'brand_id': brand,
+        'model': model,
+    };
+
+    var queryString = 'brand=' + encodeURIComponent(brand) + '&model=' + encodeURIComponent(model);
+
+    var url = '<?php echo $CustomerAPIBaseURL; ?>get_price_by_brand_model';
+    $.ajax({
+        url: url,
+        type: "POST",
+        data: paraArr,
+        success: function (result) {
+            console.log(result);
+
+            // Redirect to inner page and pass the data as query parameters
+            window.location.href = 'emi_inner.php?' + queryString;
+        },
+        error: function (xhr, textStatus, errorThrown) {
+            console.log(xhr.status, 'error');
+            // Handle errors here
+        },
+    });
+}
 </script>
 </body>
 

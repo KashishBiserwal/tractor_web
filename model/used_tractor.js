@@ -14,17 +14,22 @@ function showOverlay() {
 function hideOverlay() {
     $("#overlay").fadeOut(300);
 }
+function formatPriceWithCommas(price) {
+    if (isNaN(price)) {
+        return price; 
+    }
+    
+    return new Intl.NumberFormat('en-IN').format(price);
+}
+
 
 var cardsPerPage = 6;
 var allCards = [];
 var cardsDisplayed = 0;
 
-
 function getoldTractorList() {
     var url = "http://tractor-api.divyaltech.com/api/customer/get_old_tractor";
     
-// var apiBaseURL =  $CustomerAPIBaseURL;
-//     var url = apiBaseURL + '/get_old_tractor';
     $.ajax({
         url: url,
         type: "GET",
@@ -57,13 +62,22 @@ function getoldTractorList() {
         },
     });
 }
-function formatPriceWithCommas(price) {
-    if (isNaN(price)) {
-        return price; 
-    }
+
+// Load more button click event
+$(document).on('click', '#loadMoreBtn', function() {
+    var productContainer = $("#productContainer");
     
-    return new Intl.NumberFormat('en-IN').format(price);
-}
+    // Display the next set of cards
+    allCards.slice(cardsDisplayed, cardsDisplayed + cardsPerPage).forEach(function(p) {
+        appendCard(productContainer, p);
+        cardsDisplayed++; // Update the count of displayed cards
+    });
+
+    // Hide the "Load More" button if all cards are displayed
+    if (cardsDisplayed >= allCards.length) {
+        $("#loadMoreBtn").hide();
+    }
+});
 
 function appendCard(container, p) {
     var images = p.image_names;
@@ -96,7 +110,7 @@ function appendCard(container, p) {
         <div class="content d-flex flex-column flex-grow-1 ">
             <div class="caption text-center">
                 <a href="farmtrac_60.php?product_id=${p.customer_id}" class="text-decoration-none text-dark">
-                    <p class="pt-3"><strong class="series_tractor_strong text-center text-truncate h5 fw-bold ">${p.model}</strong></p>
+                    <p class="pt-3"><strong class="series_tractor_strong text-center text-truncate h6 fw-bold ">${p.brand_name} ${p.model}</strong></p>
                 </a>      
             </div>
            <div class=" row text-center">
@@ -775,7 +789,7 @@ function appendFilterCard(filterContainer, p) {
         <div class="content d-flex flex-column flex-grow-1 ">
             <div class="caption text-center">
                 <a href="farmtrac_60.php?product_id=${p.customer_id}" class="text-decoration-none text-dark">
-                    <p class="pt-3"><strong class="series_tractor_strong text-center text-truncate h5 fw-bold ">${p.model}</strong></p>
+                    <p class="pt-3"><strong class="series_tractor_strong text-center text-truncate h6 fw-bold ">${p.brand_name} ${p.model}</strong></p>
                 </a>      
             </div>
            <div class=" row text-center">

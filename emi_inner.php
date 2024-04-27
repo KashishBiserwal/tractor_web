@@ -42,10 +42,10 @@
             <div class="col">
                 <div class="card bg-light">
                     <div class="card-body">
-                        <h3 class="card-title  fw-bold assured px-2">Preet 4049 4WD Tractor loan EMI Calculator</h3>
+                        <h3 class="card-title  fw-bold assured px-2"><span id="main_brand"></span> <span id="brand_model"></span> Tractor loan EMI Calculator</h3>
                       
                         <div class="more-content">
-                            <p >Our Tractor EMI calculator provides detailed EMI payable for Preet 4049 4WD. You just
+                            <p id="description">Our Tractor EMI calculator provides detailed EMI payable for Preet 4049 4WD. You just
                                 have to enter the down payment, interest rate and loan tenure for Preet 4049 4WD. With
                                 our EMI calculator for tractors, you can easily calculate the monthly instalments, total
                                 interest payable, and the total amount payable for Preet 4049 4WD after reducing the
@@ -63,10 +63,34 @@
 
     <section>
         <div class="container">
+            <div class="">
+                <a href="emi.php">
+                    <button class="float-end"><i class="fas fa-edit"></i></button>
+                </a>
+            </div>
             <div class="row">
                 <div class="col-12 col-md-6 col-sm-6 col-lg-6">
+                    <div class="col-12 col-lg-6 col-md-6 col-sm-6 " hidden>
+                         <label for="name" class="form-label fw-bold text-dark"><i class="fa-duotone fa-chart-pie-simple"></i>Brand</label>
+                        <input type="text" class="form-control" placeholder="Enter Your Name" id="get_brand" value="" name="">
+                    </div>
+                    <div class="col-12 col-lg-6 col-md-6 col-sm-6 " hidden>
+                         <label for="name" class="form-label fw-bold text-dark"><i class="fa-duotone fa-chart-pie-simple"></i> Model</label>
+                        <input type="text" class="form-control" placeholder="Enter Your Name" id="get_model" value="" name="iduser">
+                    </div>
+
                     <h3 class="assured  p-2 mt-2 fw-bold"><span id="brand_main"></span> 4WD Tractor</h3>
-                    <img src="assets\images\preet-4049-4WD.webp" class="w-100 mt-3">
+                    <div>
+                        <div class="swiper swiper_buy mySwiper2_buy">
+                            <div class="swiper-wrapper swiper-wrapper_buy">
+                                <div class=" swiper-slide swiper-slide_buy">
+                                    <img class="img_buy" src="assets/images/437-1632718440.webp" />
+                                </div>
+                            </div>
+                        </div>
+                        <div thumbsSlider="" class="swiper mySwiper_buy" style="height:75px; width: 43%;" id="swip_img"></div>
+                    </div>
+                    <!-- <img src="assets\images\preet-4049-4WD.webp" class="w-100 mt-3"> -->
                     <button type="button" class="w-100 btn btn-outline-success fw-bold mt-3 mb-2" data-bs-toggle="modal"
                         data-bs-target="#staticBackdrop">Get on road
                         Price</button>
@@ -145,7 +169,7 @@
                         </div>
                     </div>
                 </div>
-
+             
                 <div class="col-12 col-md-6 col-sm-6 col-lg-6 mt-5">
                     <div class="row">
                         <div class="col-6 col-lg-6 col-md-6 col-sm-6 text-center mt-4 mb-4">
