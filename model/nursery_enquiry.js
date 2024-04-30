@@ -257,7 +257,7 @@ function fetch_edit_data(id) {
           $('#number_2').val(Data.mobile);
           // $('#email_2').val(Data.email);
           $('#date_2').val(Data.date);
-         
+          $('#product_id').val(Data.product_subject_id);
 
         
           setSelectedOption('state_2', Data.state_id);
@@ -302,12 +302,11 @@ var nursery_name = $("#nursery_name1").val();
 var first_name = $("#fname_2").val();
 var last_name = $("#lname_2").val();
 var mobile = $("#number_2").val();
-// var email = $("#email_2").val();
 var date = $("#date_2").val();
 var state = $("#state_2").val();
 var district = $("#dist_2").val();
 var tehsil = $("#tehsil_2").val();
-var _method = 'put';
+// var _method = 'put';
 
 // Validate mobile number
 if (!/^[6-9]\d{9}$/.test(mobile)) {
@@ -321,7 +320,6 @@ var paraArr = {
     'first_name': first_name,
     'last_name': last_name,
     'mobile': mobile,
-    'email': email,
     'date': date,
     'state': state,
     'district': district,
@@ -329,7 +327,7 @@ var paraArr = {
     'id': edit_id,
     'enquiry_type_id': enquiry_type_id,
     'product_id': product_id,
-    '_method': _method,
+    // '_method': _method,
 };
 
 var apiBaseURL = APIBaseURL;
@@ -341,12 +339,12 @@ var headers = {
 
 $.ajax({
     url: url,
-    type: "POST",
+    type: "PUT",
     data: paraArr,
     headers: headers,
     success: function (result) {
         console.log(result, "result");
-        window.location.reload();
+        // window.location.reload();
         console.log("updated successfully");
         alert('successfully updated..!')
     },

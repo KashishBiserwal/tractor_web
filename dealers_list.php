@@ -63,7 +63,7 @@
                                     <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
                                       <div class="form-outline mt-3">
                                         <label for="name" class="form-label text-dark">Email Id</label>
-                                        <input type="text" class="form-control" placeholder="" id="email" name="email">
+                                        <input type="text" class="form-control" placeholder="" id="email" name="">
                                       </div>
                                     </div>
                                     <div class="col-12 col-lg-6 col-md-6 col-sm-6 ">
