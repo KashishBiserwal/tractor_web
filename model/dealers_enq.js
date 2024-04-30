@@ -671,8 +671,6 @@ function populateTehsil(selectId, value) {
   }
 }
 
-
-
 function edit_id_data() {
   var enquiry_type_id=14;
   var product_id=13;
@@ -858,8 +856,6 @@ function get_search() {
 }
 get_search();
 
-
- 
 function searchdata() {
   console.log("dfghsfg,sdfgdfg");
   var state = $('#state_1').val();
@@ -888,8 +884,17 @@ function searchdata() {
       success: function (searchData) {
           updateTable(searchData);
       },
-      error: function (error) {
+      error: function (xhr, status, error) {
+        if (xhr.status === 404) {
+          // Handle 404 error here
+          const tableBody = $('#dealers_certifide_target').hasClass('active') ? $('#data-table') : $('#data-table2');
+          tableBody.html('<tr><td colspan="9">No matching data available</td></tr>');
+          // Clear the DataTable
+          $('#example').DataTable().clear().draw();
+          $('#example2').DataTable().clear().draw();
+        } else {
           console.error('Error searching for brands:', error);
+        }
       }
   });
 };

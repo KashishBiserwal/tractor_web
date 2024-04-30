@@ -130,16 +130,12 @@
                         <form id="brandModelForm" method="POST">
                             <div class="form-outline mt-2 py-3">
                                 <label class="form-label fw-bold" for="brandSelect">Brand</label>
-                                <select class="form-select py-2" aria-label="Default select example" id="brandSelect"
-                                    name="brandSelect">
-                            
+                                <select class="form-select py-2" aria-label="Default select example" id="brandSelect"name="brandSelect">
                                 </select>
                             </div>
                             <div class="form-outline mt-3">
                                 <label class="form-label fw-bold" for="modelSelect">Model</label>
-                                <select class="form-select py-2" aria-label="Default select example" id="modelSelect"
-                                    name="modelSelect">
-                            
+                                <select class="form-select py-2" aria-label="Default select example" id="modelSelect" name="modelSelect">
                                 </select>
                             </div>
                             <button type="submit" class="w-100 fw-bold btn btn-success mt-3 mb-1" id="calculateEMI">Calculate EMI</button>
@@ -266,8 +262,8 @@
                         tool helps you get the precise amount or sum that you would have to pay to buy your new or used
                         tractor in India. You can easily find EMI value for any tractor brand and model of choice in quick
                         clicks.</p>
-                    <i>Explore the tool now to know your monthly repayment sum before taking a <a
-                            class="text-decoration-none" href="new_tractor_loan.php">tractor loan</a>!</i>
+                    <i>Explore the tool now to know your monthly repayment sum before taking a 
+                        <a class="text-decoration-none" href="new_tractor_loan.php">tractor loan</a>!</i>
                 </div>
             </div>
         </section>

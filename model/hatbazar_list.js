@@ -885,11 +885,6 @@ function searchdata() {
   var state = $('#select_state').val();
   var district = $('#select_dist').val();
 
-  console.log("Category:", category);
-  console.log("Sub-Category:", sub_category);
-  console.log("State:", state);
-  console.log("District:", district);
-
   var paraArr = {
       'category_id': category,
       'sub_category_id': sub_category,
@@ -910,8 +905,16 @@ function searchdata() {
       success: function(searchData) {
           updateTable(searchData);
       },
-      error: function(error) {
+      error: function (xhr, status, error) {
+        if (xhr.status === 404) {
+          // Handle 404 error here
+          const tableBody = $('#data-table');
+          tableBody.html('<tr><td colspan="9">No matching data available</td></tr>');
+          // Clear the DataTable
+          $('#example').DataTable().clear().draw();
+        } else {
           console.error('Error searching for brands:', error);
+        }
       }
   });
 }

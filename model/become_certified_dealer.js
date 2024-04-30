@@ -550,8 +550,16 @@ function search_data() {
         success: function (searchData) {
           updateTable(searchData);
         },
-        error: function (error) {
+        error: function (xhr, status, error) {
+          if (xhr.status === 404) {
+            // Handle 404 error here
+            const tableBody = $('#data-table');
+            tableBody.html('<tr><td colspan="9">No matching data available</td></tr>');
+            // Clear the DataTable
+            $('#example').DataTable().clear().draw();
+          } else {
             console.error('Error searching for brands:', error);
+          }
         }
     });
   };

@@ -507,8 +507,6 @@ function edit_id() {
       }
   });
 }
-populateDropdownsFromClass('state-dropdown', 'district-dropdown', 'tehsil-dropdown');
-
 
 function searchdata() {
   console.log("dfghsfg,sdfgdfg");
@@ -516,40 +514,49 @@ function searchdata() {
   var modelselect = $('#model2').val();
   var stateselect = $('#state2').val();
   var districtselect = $('#district2').val();
-    var paraArr = {
-    'brand_id':brandselect,
-    'model':modelselect,
-    'state':stateselect,
-    'district':districtselect,
+  var paraArr = {
+    'brand_id': brandselect,
+    'model': modelselect,
+    'state': stateselect,
+    'district': districtselect,
   };
   var apiBaseURL = APIBaseURL;
   var url = apiBaseURL + 'search_for_old_tractor_enquiry';
   $.ajax({
-      url:url, 
-      type: 'POST',
-      data: paraArr,
-    
-      headers: {
-          'Authorization': 'Bearer ' + localStorage.getItem('token')
-      },
-      success: function (searchData) {
-        console.log(searchData,"hello brand");
-        updateTable(searchData);
-      },
-      error: function (error) {
-          console.error('Error searching for brands:', error);
+    url: url,
+    type: 'POST',
+    data: paraArr,
+
+    headers: {
+      'Authorization': 'Bearer ' + localStorage.getItem('token')
+    },
+    success: function (searchData) {
+      console.log(searchData, "hello brand");
+      updateTable(searchData);
+    },
+    error: function (xhr, status, error) {
+      if (xhr.status === 404) {
+        // Handle 404 error here
+        const tableBody = $('#data-table');
+        tableBody.html('<tr><td colspan="9">No matching data available</td></tr>');
+        // Clear the DataTable
+        $('#example').DataTable().clear().draw();
+      } else {
+        console.error('Error searching for brands:', error);
       }
+    }
   });
-};
+}
+
 function updateTable(data) {
   const tableBody = document.getElementById('data-table');
   tableBody.innerHTML = '';
-  let serialNumber = 1; 
-  if(data.newTractor && data.newTractor.length > 0) {
-      let tableData = []; 
-      data.newTractor.forEach(row => {
-        const fullName = row.first_name + ' ' + row.last_name;
-          let action =     `<div class="d-flex">
+  let serialNumber = 1;
+  if (data.newTractor && data.newTractor.length > 0) {
+    let tableData = [];
+    data.newTractor.forEach(row => {
+      const fullName = row.first_name + ' ' + row.last_name;
+      let action = `<div class="d-flex">
           <button class="btn btn-warning btn-sm text-white mx-1" data-bs-toggle="modal" onclick="openViewdata(${row.id});" data-bs-target="#view_model_tractor_enq">
               <i class="fas fa-eye" style="font-size: 11px;"></i>
           </button>
@@ -559,47 +566,46 @@ function updateTable(data) {
           <button class="btn btn-danger btn-sm mx-1" onclick="destroy(${row.id});">
               <i class="fa fa-trash" style="font-size: 11px;"></i>
           </button>
-      </div>`
-     
-          tableData.push([
-            serialNumber,
-            row.date,
-            row.brand_name,
-            row.model,
-            fullName,
-            row.mobile,
-            row.state_name,
-            row.district_name,
-            action
-        ]);
+      </div>`;
 
-        serialNumber++;
+      tableData.push([
+        serialNumber,
+        row.date,
+        row.brand_name,
+        row.model,
+        fullName,
+        row.mobile,
+        row.state_name,
+        row.district_name,
+        action
+      ]);
+
+      serialNumber++;
     });
 
     $('#example').DataTable().destroy();
     $('#example').DataTable({
-        data: tableData,
-        columns: [
-          { title: 'S.No.' },
-          { title: 'Date' },
-          { title: 'Brand' },
-          { title: 'Model' },
-          { title: 'Full Name' },
-          { title: 'Mobile' },
-          { title: 'State' },
-          { title: 'District' },
-          { title: 'Action', orderable: false }
-        ],
-        paging: true,
-        searching: true,
-        // ... other options ...
+      data: tableData,
+      columns: [
+        { title: 'S.No.' },
+        { title: 'Date' },
+        { title: 'Brand' },
+        { title: 'Model' },
+        { title: 'Full Name' },
+        { title: 'Mobile' },
+        { title: 'State' },
+        { title: 'District' },
+        { title: 'Action', orderable: false }
+      ],
+      paging: true,
+      searching: true,
+      // ... other options ...
     });
   } else {
-      // Display a message if there's no valid data
-      tableBody.innerHTML = '<tr><td colspan="4">No valid data available</td></tr>';
+    // Display a message if there's no valid data
+    tableBody.innerHTML = '<tr><td colspan="9">No valid data available</td></tr>';
   }
 }
-
 
 
 function resetform(){

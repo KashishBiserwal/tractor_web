@@ -21,7 +21,7 @@ include 'includes/headertag.php';
     include 'includes/left_nav.php';
     include 'includes/header_admin.php';
     ?>
-   <section style="padding: 0 15px;">
+  <section style="padding: 0 15px;">
     <div class="">
       <div class="container">
         <div class="card-body d-flex align-items-center justify-content-between page_title">
@@ -200,7 +200,7 @@ include 'includes/headertag.php';
         </div>
       </div>
     </div>
-   </section>
+  </section>
       
 
 
@@ -217,7 +217,7 @@ include 'includes/headertag.php';
                        <div class="col-12">
                         <table class="table table-striped">
                         <tbody>
-                         <tr>
+                          <tr>
                             <td>Nursery Name-</td>
                             <td id="nursery_name"></td>
                             <td>First Name-</td>
@@ -242,17 +242,17 @@ include 'includes/headertag.php';
                             <td id="loc1"></td>
                           </tr>
                           <tr>
-                              <td>Description-</td>
-                              <td colspan="3">
-                                  <div class="col-12" id="textarea"></div>
-                              </td>
+                            <td>Description-</td>
+                            <td colspan="3">
+                              <div class="col-12" id="textarea"></div>
+                            </td>
                           </tr>
                           <tr>
                               <td>Upload images-</td>
                               <td colspan="3">
-                                  <div class="col-12">
-                                      <div id="selectedImagesContainer1" class="upload__img-wrap row"></div>
-                                  </div>
+                                <div class="col-12">
+                                  <div id="selectedImagesContainer1" class="upload__img-wrap row"></div>
+                                </div>
                               </td>
                           </tr>
                         </tbody>
@@ -266,9 +266,9 @@ include 'includes/headertag.php';
               </div>
             </div>
           </div>
+        </div>
+      </div>
     </div>
-</div>
-</div>
 
           <div class="modal fade" id="editmodel" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
             <div class="modal-dialog modal-lg modal-dialog-centered">

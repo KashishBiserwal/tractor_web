@@ -97,9 +97,9 @@ function get_loan() {
       },
       success: function(result) {
         // get_tyre_list();
-        // window.location.reload();
         console.log("Delete request successful");
         alert("Delete operation successful");
+        window.location.reload();
       },
       error: function(error) {
         console.error('Error fetching data:', error);
@@ -518,6 +518,4 @@ function resetform(){
     window.location.reload();
 }
 
-populateDropdownsFromClass('state-dropdown', 'district-dropdown', 'tehsil-dropdown');
-populateStateDropdown('state_select', 'district_select');
-populateBrandDropdown('brand_select', 'model_select');
+
