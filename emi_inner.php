@@ -269,7 +269,7 @@
     include 'includes/footertag.php';
     ?>
 
-    <script>
+<script>
     document.querySelectorAll('.read-more').forEach(function(button, index) {
         button.addEventListener('click', function() {
             var moreContent = document.querySelectorAll('.more-content')[index];

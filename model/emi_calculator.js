@@ -1,34 +1,70 @@
 
-$(document).ready(function() {
-    console.log("ready!");
-
-    $('#calculateEMI').click(store);
-    
-});
-
-
-function store() {
-    var brand = $('#brandSelect').val();
-    var model = $('#modelSelect').val();
-
-    var paraArr = {
-        'brand_id': brand,
-        'model': model,
-      
-    };
-
-    var url = 'http://tractor-api.divyaltech.com/api/customer/get_price_by_brand_model';
+function get_1() {
+    var url = 'http://tractor-api.divyaltech.com/api/customer/get_brand_for_finance';
     $.ajax({
         url: url,
-        type: "POST",
-        data: paraArr,
-        success: function (result) {
-            console.log(result);
-           
+        type: "GET",
+        headers: {
+            'Authorization': 'Bearer ' + localStorage.getItem('token')
         },
-        error: function (xhr, textStatus, errorThrown) {
-            console.log(xhr.status, 'error');
-            // Handle errors here
+        success: function (data) {
+            // console.log(data);
+            const select = document.getElementById('brandSelect');
+            select.innerHTML = '<option selected disabled value="">Please select an option</option>';
+  
+            if (data.brands.length > 0) {
+                data.brands.forEach(row => {
+                    const option = document.createElement('option');
+                    option.textContent = row.brand_name;
+                    option.value = row.id;
+                    // console.log(row.id,);
+                    select.appendChild(option);
+                });
+  
+                // Add event listener to brand dropdown
+                select.addEventListener('change', function() {
+                    const selectedBrandId = this.value;
+                    get_model_1(selectedBrandId);
+                });
+            } else {
+                select.innerHTML = '<option>No valid data available</option>';
+            }
         },
+        error: function (error) {
+            console.error('Error fetching data:', error);
+        }
     });
-}
+  }
+  
+  function get_model_1(id) {
+    var url = 'http://tractor-api.divyaltech.com/api/customer/get_brand_model/' + id;
+    $.ajax({
+        url: url,
+        type: "GET",
+        headers: {
+            'Authorization': 'Bearer ' + localStorage.getItem('token')
+        },
+        success: function (data) {
+            console.log(data);
+            const select = document.getElementById('modelSelect');
+            select.innerHTML = '<option selected disabled value="">Please select an option</option>';
+  
+            if (data.model.length > 0) {
+                data.model.forEach(row => {
+                    const option = document.createElement('option');
+                    option.textContent = row.model;
+                    option.value = row.model;
+                    select.appendChild(option);
+  
+                   
+                });
+            } else {
+                select.innerHTML = '<option>No valid data available</option>';
+            }
+        },
+        error: function (error) {
+            console.error('Error fetching data:', error);
+        }
+    });
+  }
+get_1();

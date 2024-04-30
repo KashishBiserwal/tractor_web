@@ -841,8 +841,7 @@ function fetch_data(product_id){
 }
 
   function get_By_State() {
-    // var apiBaseURL =  $CustomerAPIBaseURL;
-    // var url = apiBaseURL + 'state_data';
+
     var url = 'http://tractor-api.divyaltech.com/api/customer/state_data';
     $.ajax({
         url: url,

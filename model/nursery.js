@@ -17,10 +17,10 @@ $(document).ready(function(){
       lname:{
         required: true,
       },
-      // textarea_d:{
-      //   required: true,
-      // },
-      _image:{
+      textarea_d:{
+        required: true,
+      },
+      "files[]":{
         required: true,
       },
       number:{
@@ -50,10 +50,10 @@ $(document).ready(function(){
       lname: {
         required: "This field is required",
       },
-      // textarea_d: {
-      //   required: "This field is required",
-      // },
-      _image: {
+      textarea_d: {
+        required: "This field is required",
+      },
+      "files[]": {
         required: "This field is required",
       },
       number: {
