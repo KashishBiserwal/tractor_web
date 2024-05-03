@@ -483,9 +483,7 @@ function updateTable(data) {
     tableBody.innerHTML = '<tr><td colspan="8">No valid data available</td></tr>';
     
   }
- 
 }
-
 // Function to build action buttons
 function buildActionButtons(id) {
   return  `<div class="d-flex">
@@ -500,8 +498,6 @@ function buildActionButtons(id) {
   </button>
 </div>`;
 }
-
-
 // Reset form function
 function resetform() {
   // Clear input fields
@@ -512,7 +508,6 @@ function resetform() {
   // Fetch all data and update the table
   fetchAllData();
 }
-
 // Fetch all data function
 function fetchAllData() {
   var apiBaseURL = APIBaseURL;
